@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure AD SSO integration with ScaleX Enterprise'
-description: Learn how to configure single sign-on between Azure Active Directory and ScaleX Enterprise.
+title: 'Tutorial: Microsoft Entra SSO integration with ScaleX Enterprise'
+description: Learn how to configure single sign-on between Microsoft Entra ID and ScaleX Enterprise.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -13,30 +13,30 @@ ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure AD SSO integration with ScaleX Enterprise
+# Tutorial: Microsoft Entra SSO integration with ScaleX Enterprise
 
-In this tutorial, you'll learn how to integrate ScaleX Enterprise with Azure Active Directory (Azure AD). When you integrate ScaleX Enterprise with Azure AD, you can:
+In this tutorial, you'll learn how to integrate ScaleX Enterprise with Microsoft Entra ID. When you integrate ScaleX Enterprise with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to ScaleX Enterprise.
-* Enable your users to be automatically signed-in to ScaleX Enterprise with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Control in Microsoft Entra ID who has access to ScaleX Enterprise.
+* Enable your users to be automatically signed-in to ScaleX Enterprise with their Microsoft Entra accounts.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * ScaleX Enterprise single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment.
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment.
 
 * ScaleX Enterprise supports **SP and IDP** initiated SSO.
 
 ## Add ScaleX Enterprise from the gallery
 
-To configure the integration of ScaleX Enterprise into Azure AD, you need to add ScaleX Enterprise from the gallery to your list of managed SaaS apps.
+To configure the integration of ScaleX Enterprise into Microsoft Entra ID, you need to add ScaleX Enterprise from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
@@ -45,21 +45,25 @@ To configure the integration of ScaleX Enterprise into Azure AD, you need to add
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD SSO for ScaleX Enterprise
+<a name='configure-and-test-azure-ad-sso-for-scalex-enterprise'></a>
 
-Configure and test Azure AD SSO with ScaleX Enterprise using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in ScaleX Enterprise.
+## Configure and test Microsoft Entra SSO for ScaleX Enterprise
 
-To configure and test Azure AD SSO with ScaleX Enterprise, perform the following steps:
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+Configure and test Microsoft Entra SSO with ScaleX Enterprise using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in ScaleX Enterprise.
+
+To configure and test Microsoft Entra SSO with ScaleX Enterprise, perform the following steps:
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
 1. **[Configure ScaleX Enterprise SSO](#configure-scalex-enterprise-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create ScaleX Enterprise test user](#create-scalex-enterprise-test-user)** - to have a counterpart of B.Simon in ScaleX Enterprise that is linked to the Azure AD representation of user.
+    1. **[Create ScaleX Enterprise test user](#create-scalex-enterprise-test-user)** - to have a counterpart of B.Simon in ScaleX Enterprise that is linked to the Microsoft Entra representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+## Configure Microsoft Entra SSO
+
+Follow these steps to enable Microsoft Entra SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **ScaleX Enterprise** > **Single sign-on**.
@@ -82,7 +86,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://platform.rescale.com/saml2/<company id>/sso/`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [ScaleX Enterprise Client support team](https://about.rescale.com/contactus.html) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [ScaleX Enterprise Client support team](https://about.rescale.com/contactus.html) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. Your ScaleX Enterprise application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **emailaddress** is mapped with **user.mail**. ScaleX Enterprise application expects **emailaddress** to be mapped with **user.userprincipalname**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
 
@@ -96,9 +100,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+### Create a Microsoft Entra test user
+
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -110,9 +116,11 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
    1. Select **Review + create**.
 1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to ScaleX Enterprise.
+### Assign the Microsoft Entra test user
+
+In this section, you'll enable B.Simon to use single sign-on by granting access to ScaleX Enterprise.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **ScaleX Enterprise**.
@@ -150,9 +158,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	c. **Name of Identity Provider email field in ACS response**: Paste the value `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-	d. **Identity Provider EntityDescriptor Entity ID:** Paste the **Azure AD Identifier** value copied from the Azure portal.
+	d. **Identity Provider EntityDescriptor Entity ID:** Paste the **Microsoft Entra Identifier** value copied.
 
-	e. **Identity Provider SingleSignOnService URL:** Paste the **Login URL** from the Azure portal.
+	e. **Identity Provider SingleSignOnService URL:** Paste the **Login URL**.
 
 	f. **Identity Provider public X509 certificate:** Open the X509 certificate downloaded from the Azure in notepad and paste the contents in this box. Ensure there are no line breaks in the middle of the certificate contents.
 
@@ -162,23 +170,23 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create ScaleX Enterprise test user
 
-To enable Azure AD users to sign in to ScaleX Enterprise, they must be provisioned in to ScaleX Enterprise. In the case of ScaleX Enterprise, provisioning is an automatic task and no manual steps are required. Any user who can successfully authenticate with SSO credentials will be automatically provisioned on the ScaleX side.
+To enable Microsoft Entra users to sign in to ScaleX Enterprise, they must be provisioned in to ScaleX Enterprise. In the case of ScaleX Enterprise, provisioning is an automatic task and no manual steps are required. Any user who can successfully authenticate with SSO credentials will be automatically provisioned on the ScaleX side.
 
 ## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to ScaleX Enterprise Sign on URL where you can initiate the login flow.  
+* Click on **Test this application**, this will redirect to ScaleX Enterprise Sign on URL where you can initiate the login flow.  
 
 * Go to ScaleX Enterprise Sign-on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the ScaleX Enterprise for which you set up the SSO. 
+* Click on **Test this application**, and you should be automatically signed in to the ScaleX Enterprise for which you set up the SSO. 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the ScaleX Enterprise tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the ScaleX Enterprise for which you set up the SSO. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
+You can also use Microsoft My Apps to test the application in any mode. When you click the ScaleX Enterprise tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the ScaleX Enterprise for which you set up the SSO. For more information, see [Microsoft Entra My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
 ## Next steps
 

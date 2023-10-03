@@ -113,6 +113,6 @@ You also have the option of building your own [self-hosted Windows agent](/azure
 
 ## Next steps
 
-To learn more about using the emulator for local development and testing, see [Use the Azure Cosmos DB Emulator for local development and testing](./local-emulator.md).
+To learn more about using the emulator for local development and testing, see [Use the Azure Cosmos DB Emulator for local development and testing](emulator.md).
 
-To export emulator TLS/SSL certificates, see [Export the Azure Cosmos DB Emulator certificates for use with Java, Python, and Node.js](./local-emulator-export-ssl-certificates.md)
+To export emulator TLS/SSL certificates, see [Export the Azure Cosmos DB Emulator certificates for use with Java, Python, and Node.js](emulator.md)

@@ -9,13 +9,13 @@ ms.topic: how-to
 ms.date: 08/21/2023 
 --- 
 
-# Determine resource usage and quota  
+# Determine resource usage and quota for Microsoft Dev Box  
 
-To ensure that resources are available for customers, Microsoft Dev Box has a limit on the number of each type of resource that can be used in a subscription. This limit is called a quota. You can see the default quota for each resource type by subscription type here: 
+To ensure that resources are available for customers, Microsoft Dev Box has a limit on the number of each type of resource that can be used in a subscription. This limit is called a quota. 
 
 Keeping track of how your quota of VM cores is being used across your subscriptions can be difficult. You may want to know what your current usage is, how much you have left, and in what regions you have capacity. To help you understand where and how you're using your quota, Azure provides the Usage + Quotas page. 
 
-## Determine your usage and quota
+## Determine your Dev Box usage and quota by subscription
 
 1. In the [Azure portal](https://portal.azure.com), go to the subscription you want to examine. 
 

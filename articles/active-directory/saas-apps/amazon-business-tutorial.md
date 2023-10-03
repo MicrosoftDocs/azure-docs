@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Amazon Business'
-description: Learn how to configure single sign-on between Azure Active Directory and Amazon Business.
+title: 'Tutorial: Microsoft Entra integration with Amazon Business'
+description: Learn how to configure single sign-on between Microsoft Entra ID and Amazon Business.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -13,13 +13,13 @@ ms.date: 12/21/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Integrate Amazon Business with Azure Active Directory
+# Tutorial: Integrate Amazon Business with Microsoft Entra ID
 
-In this tutorial, you'll learn how to integrate Amazon Business with Azure Active Directory (Azure AD). When you integrate Amazon Business with Azure AD, you can:
+In this tutorial, you'll learn how to integrate Amazon Business with Microsoft Entra ID. When you integrate Amazon Business with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to Amazon Business.
-* Enable your users to be automatically signed-in to Amazon Business with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Control in Microsoft Entra ID who has access to Amazon Business.
+* Enable your users to be automatically signed-in to Amazon Business with their Microsoft Entra accounts.
+* Manage your accounts in one central location.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5cbi8]
 
@@ -27,12 +27,12 @@ In this tutorial, you'll learn how to integrate Amazon Business with Azure Activ
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * An Amazon Business single sign-on (SSO) enabled subscription. Go to the [Amazon Business](https://www.amazon.com/business/register/org/landing?ref_=ab_reg_mlp) page to create an Amazon Business account.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in an existing Amazon Business account.
+In this tutorial, you configure and test Microsoft Entra SSO in an existing Amazon Business account.
 
 * Amazon Business supports **SP and IDP** initiated SSO.
 * Amazon Business supports **Just In Time** user provisioning.
@@ -42,7 +42,7 @@ In this tutorial, you configure and test Azure AD SSO in an existing Amazon Busi
 
 ## Add Amazon Business from the gallery
 
-To configure the integration of Amazon Business into Azure AD, you need to add Amazon Business from the gallery to your list of managed SaaS apps.
+To configure the integration of Amazon Business into Microsoft Entra ID, you need to add Amazon Business from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
@@ -51,22 +51,26 @@ To configure the integration of Amazon Business into Azure AD, you need to add A
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD SSO for Amazon Business
+<a name='configure-and-test-azure-ad-sso-for-amazon-business'></a>
 
-Configure and test Azure AD SSO with Amazon Business using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Amazon Business.
+## Configure and test Microsoft Entra SSO for Amazon Business
 
-To configure and test Azure AD SSO with Amazon Business, perform the following steps:
+Configure and test Microsoft Entra SSO with Amazon Business using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in Amazon Business.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+To configure and test Microsoft Entra SSO with Amazon Business, perform the following steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
 1. **[Configure Amazon Business SSO](#configure-amazon-business-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Amazon Business test user](#create-amazon-business-test-user)** - to have a counterpart of B.Simon in Amazon Business that is linked to the Azure AD representation of user.
+    1. **[Create Amazon Business test user](#create-amazon-business-test-user)** - to have a counterpart of B.Simon in Amazon Business that is linked to the Microsoft Entra representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+## Configure Microsoft Entra SSO
+
+Follow these steps to enable Microsoft Entra SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Amazon Business** application integration page, find the **Manage** section and select **Single sign-on**.
@@ -94,7 +98,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
        | `https://www.amazon.de/bb/feature/sso/action/3p_redirect?idpid={idpid}`| Europe |
 
        > [!NOTE]
-       > The Reply URL value is not real. Update this value with the actual Reply URL. You will get the `<idpid>` value from the Amazon Business SSO configuration section, which is explained later in the tutorial. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+       > The Reply URL value is not real. Update this value with the actual Reply URL. You will get the `<idpid>` value from the Amazon Business SSO configuration section, which is explained later in the tutorial. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. If you want to configure the application in **SP** initiated mode, you will need to add the full URL provided in the Amazon Business configuration to the **Sign-on URL** in the **Set additional URLs** section.
 
@@ -130,9 +134,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     ![Copy configuration URLs](common/copy-configuration-urls.png)
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+### Create a Microsoft Entra test user
+
+In this section, you'll create a test user called B.Simon.
 
 > [!NOTE]
 > Administrators need to create the test users in their tenant if needed. Following steps show how to create a test user.
@@ -147,11 +153,13 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
    1. Select **Review + create**.
 1. Select **Create**.
 
-### Create an Azure AD Security Group in the Azure portal
+<a name='create-an-azure-ad-security-group-in-the-azure-portal'></a>
 
-1. Click on **Azure Active Directory > All Groups**.
+### Create a Microsoft Entra Security Group in the Azure portal
 
-    ![Screenshot shows the Azure portal menu with Azure Active Directory selected and All groups selected in the Groups pane.](./media/amazon-business-tutorial/all-groups-tab.png)
+1. Browse to **Identity** > **Groups** > **All Groups**.
+
+    ![Screenshot shows the Azure portal menu with Microsoft Entra ID selected and All groups selected in the Groups pane.](./media/amazon-business-tutorial/all-groups-tab.png)
 
 1. Click **New group**:
 
@@ -161,9 +169,11 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
     ![Screenshot shows the Group pane with options, including selecting members and inviting external users.](./media/amazon-business-tutorial/group-information.png)
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Amazon Business.
+### Assign the Microsoft Entra test user
+
+In this section, you'll enable B.Simon to use single sign-on by granting access to Amazon Business.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Amazon Business**.
@@ -174,11 +184,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
     >[!NOTE]
-    > If you do not assign the users in the Azure AD, you get the following error.
+    > If you do not assign the users in the Microsoft Entra ID, you get the following error.
 
     ![Screenshot shows a error message that you can’t be signed in.](media/amazon-business-tutorial/assign-user.png)
 
-### Assign the Azure AD Security Group in the Azure portal
+<a name='assign-the-azure-ad-security-group-in-the-azure-portal'></a>
+
+### Assign the Microsoft Entra Security Group in the Azure portal
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Amazon Business**.
@@ -190,7 +202,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
     ![Search Security Group](./media/amazon-business-tutorial/assign-group.png)
 
     > [!NOTE]
-    > Check the notifications in the menu bar to be notified that the Group was successfully assigned to the Enterprise application in the Azure portal.
+    > Check the notifications in the menu bar to be notified that the Group was successfully assigned to the Enterprise application.
 
 ## Configure Amazon Business SSO
 
@@ -209,16 +221,16 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. On the **Set up SSO** wizard, select the provider according to your Organizational requirements and click **Next**.
 
-    ![Screenshot shows Set up S S O, with Microsoft Azure A D and Next selected.](media/amazon-business-tutorial/default-group.png)
+    ![Screenshot shows Set up S S O, with Microsoft Entra ID and Next selected.](media/amazon-business-tutorial/default-group.png)
 
     > [!NOTE]
-    > Although Microsoft ADFS is a listed option, it won't work with Azure AD SSO.
+    > Although Microsoft ADFS is a listed option, it won't work with Microsoft Entra SSO.
 
 1. On the **New user account defaults** wizard, select the **Default Group** and then select **Default Buying Role** according to user role in your Organization and click **Next**.
 
     ![Screenshot shows New user account defaults with Microsoft S S O, Requisitioner, and Next selected.](media/amazon-business-tutorial/group.png)
 
-1. On the **Upload your metadata file** wizard, choose **Paste XML Link** option to paste the **App Federation Metadata URL** value, which you have copied from Azure portal and click **Validate**.
+1. On the **Upload your metadata file** wizard, choose **Paste XML Link** option to paste the **App Federation Metadata URL** value,. and click **Validate**.
 
     ![Screenshot shows Upload your metadata file, which allows you to browse to an x m l file and upload it.](media/amazon-business-tutorial/connection-data.png)
 
@@ -227,7 +239,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. After uploading the downloaded metadata file, the fields in the **Connection data** section will populate automatically. After that click **Next**.
 
-    ![Screenshot shows Connection data, where you can specify an Azure A D Identifier, Login U R L, and SAML Signing Certificate.](media/amazon-business-tutorial/connection.png)
+    ![Screenshot shows Connection data, where you can specify a Microsoft Entra Identifier, Login U R L, and SAML Signing Certificate.](media/amazon-business-tutorial/connection.png)
 
 1. On the **Upload your Attribute statement** wizard, click **Skip**.
 
@@ -249,7 +261,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Screenshot shows Test S S O Connection with the Test button.](media/amazon-business-tutorial/test.png)
 
-1. On the **IDP initiated URL** wizard, before you click **Activate**, copy the value which is assigned to **idpid** and paste into the **idpid** parameter in the **Reply URL** in the **Basic SAML Configuration** section in the Azure portal.
+1. On the **IDP initiated URL** wizard, before you click **Activate**, copy the value which is assigned to **idpid** and paste into the **idpid** parameter in the **Reply URL** in the **Basic SAML Configuration** section.
 
     ![Screenshot shows I D P initiated U R L where you can get a U R L necessary for testing and then select Activate.](media/amazon-business-tutorial/activate.png)
 
@@ -262,7 +274,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
     ![Screenshot shows S S O Connection Details with a status of Active.](media/amazon-business-tutorial/details.png)
 
     > [!NOTE]
-    > If you want to configure the application in **SP** initiated mode, complete the following step, paste the sign-on URL from the screenshot above in the **Sign-on URL** text box of the **Set additional URLs** section in the Azure portal. Use the following format:
+    > If you want to configure the application in **SP** initiated mode, complete the following step, paste the sign-on URL from the screenshot above in the **Sign-on URL** text box of the **Set additional URLs** section. Use the following format:
     >
     > `https://www.amazon.<TLD>/bb/feature/sso/action/start?domain_hint=<UNIQUE_ID>`
 
@@ -272,17 +284,17 @@ In this section, a user called B.Simon is created in Amazon Business. Amazon Bus
 
 ## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to Amazon Business Sign-on URL where you can initiate the login flow.  
+* Click on **Test this application**, this will redirect to Amazon Business Sign-on URL where you can initiate the login flow.  
 
 * Go to the Amazon Business Single Sign-on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the Amazon Business for which you set up the SSO. 
+* Click on **Test this application**, and you should be automatically signed in to the Amazon Business for which you set up the SSO. 
 
 You can also use Microsoft My Apps to test the application in any mode. When you click the Amazon Business tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Amazon Business for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 

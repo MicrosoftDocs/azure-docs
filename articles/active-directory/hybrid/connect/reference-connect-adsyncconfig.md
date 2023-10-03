@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: ADSyncConfig PowerShell Reference'
+title: 'Microsoft Entra Connect: ADSyncConfig PowerShell Reference'
 description: This document provides reference information for the ADSyncConfig.psm1 PowerShell module.
 author: billmath
 manager: amycolannino
@@ -12,9 +12,9 @@ ms.topic: reference
 ms.collection: M365-identity-device-management
 ---
 
-# Azure AD Connect:  ADSyncConfig PowerShell Reference
-The following documentation provides reference information for the ADSyncConfig.psm1 PowerShell Module that is included with Azure AD Connect.
+# Microsoft Entra Connect:  ADSyncConfig PowerShell Reference
 
+The following documentation provides reference information for the `ADSyncConfig.psm1` PowerShell module included with Microsoft Entra Connect.
 
 ## Get-ADSyncADConnectorAccount
 
@@ -28,7 +28,7 @@ Get-ADSyncADConnectorAccount
 ```
 
 ### DESCRIPTION
-This function uses the 'Get-ADSyncConnector' cmdlet that is present in AAD Connect to retrieve from Connectivity Parameters a table showing the AD Connector(s) account.
+This function uses the 'Get-ADSyncConnector' cmdlet that is present in Microsoft Entra Connect to retrieve from Connectivity Parameters a table showing the AD Connector(s) account.
 
 ### EXAMPLES
 
@@ -174,7 +174,7 @@ Set-ADSyncBasicReadPermissions -ADConnectorAccountName 'ADConnector' -ADConnecto
 ### PARAMETERS
 
 #### -ADConnectorAccountName
-The Name of the Active Directory account that is or will be used by Azure AD Connect Sync to manage objects in the directory.
+The Name of the Active Directory account that is or will be used by Microsoft Entra Connect Sync to manage objects in the directory.
 
 ```yaml
 Type: String
@@ -189,7 +189,7 @@ Accept wildcard characters: False
 ```
 
 #### -ADConnectorAccountDomain
-The Domain of the Active Directory account that is or will be used by Azure AD Connect Sync to manage objects in the directory.
+The Domain of the Active Directory account that is or will be used by Microsoft Entra Connect Sync to manage objects in the directory.
 
 ```yaml
 Type: String
@@ -204,7 +204,7 @@ Accept wildcard characters: False
 ```
 
 #### -ADConnectorAccountDN
-The DistinguishedName of the Active Directory account that is or will be used by Azure AD Connect Sync to manage objects in the directory.
+The DistinguishedName of the Active Directory account that is or will be used by Microsoft Entra Connect Sync to manage objects in the directory.
 
 ```yaml
 Type: String
@@ -342,7 +342,7 @@ Set-ADSyncExchangeHybridPermissions -ADConnectorAccountName 'ADConnector' -ADCon
 ### PARAMETERS
 
 #### -ADConnectorAccountName
-The Name of the Active Directory account that is or will be used by Azure AD Connect Sync to manage objects in the directory.
+The Name of the Active Directory account that is or will be used by Microsoft Entra Connect Sync to manage objects in the directory.
 
 ```yaml
 Type: String
@@ -357,7 +357,7 @@ Accept wildcard characters: False
 ```
 
 #### -ADConnectorAccountDomain
-The Domain of the Active Directory account that is or will be used by Azure AD Connect Sync to manage objects in the directory.
+The Domain of the Active Directory account that is or will be used by Microsoft Entra Connect Sync to manage objects in the directory.
 
 ```yaml
 Type: String
@@ -372,7 +372,7 @@ Accept wildcard characters: False
 ```
 
 #### -ADConnectorAccountDN
-The DistinguishedName of the Active Directory account that is or will be used by Azure AD Connect Sync to manage objects in the directory.
+The DistinguishedName of the Active Directory account that is or will be used by Microsoft Entra Connect Sync to manage objects in the directory.
 
 ```yaml
 Type: String
@@ -504,7 +504,7 @@ Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountName 'ADConnect
 ### PARAMETERS
 
 #### -ADConnectorAccountName
-The Name of the Active Directory account that is or will be used by Azure AD Connect Sync to manage objects in the directory.
+The Name of the Active Directory account that is or will be used by Microsoft Entra Connect Sync to manage objects in the directory.
 
 ```yaml
 Type: String
@@ -519,7 +519,7 @@ Accept wildcard characters: False
 ```
 
 #### -ADConnectorAccountDomain
-The Domain of the Active Directory account that is or will be used by Azure AD Connect Sync to manage objects in the directory.
+The Domain of the Active Directory account that is or will be used by Microsoft Entra Connect Sync to manage objects in the directory.
 
 ```yaml
 Type: String
@@ -534,7 +534,7 @@ Accept wildcard characters: False
 ```
 
 #### -ADConnectorAccountDN
-The DistinguishedName of the Active Directory account that is or will be used by Azure AD Connect Sync to manage objects in the directory.
+The DistinguishedName of the Active Directory account that is or will be used by Microsoft Entra Connect Sync to manage objects in the directory.
 
 ```yaml
 Type: String
@@ -665,7 +665,7 @@ Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountName 'ADConnector' -
 ### PARAMETERS
 
 #### -ADConnectorAccountName
-The Name of the Active Directory account that is or will be used by Azure AD Connect Sync to manage objects in the directory.
+The Name of the Active Directory account that is or will be used by Microsoft Entra Connect Sync to manage objects in the directory.
 
 ```yaml
 Type: String
@@ -680,7 +680,7 @@ Accept wildcard characters: False
 ```
 
 #### -ADConnectorAccountDomain
-The Domain of the Active Directory account that is or will be used by Azure AD Connect Sync to manage objects in the directory.
+The Domain of the Active Directory account that is or will be used by Microsoft Entra Connect Sync to manage objects in the directory.
 
 ```yaml
 Type: String
@@ -695,7 +695,7 @@ Accept wildcard characters: False
 ```
 
 #### -ADConnectorAccountDN
-The DistinguishedName of the Active Directory account that is or will be used by Azure AD Connect Sync to manage objects in the directory.
+The DistinguishedName of the Active Directory account that is or will be used by Microsoft Entra Connect Sync to manage objects in the directory.
 
 ```yaml
 Type: String
@@ -816,7 +816,7 @@ Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN 'CN=ADConnector,OU=A
 ### PARAMETERS
 
 #### -ADConnectorAccountName
-The Name of the Active Directory account that will be used by Azure AD Connect Sync to manage objects in the directory.
+The Name of the Active Directory account that will be used by Microsoft Entra Connect Sync to manage objects in the directory.
 
 ```yaml
 Type: String
@@ -831,7 +831,7 @@ Accept wildcard characters: False
 ```
 
 #### -ADConnectorAccountDomain
-The Domain of the Active Directory account that will be used by Azure AD Connect Sync to manage objects in the directory.
+The Domain of the Active Directory account that will be used by Microsoft Entra Connect Sync to manage objects in the directory.
 
 ```yaml
 Type: String
@@ -846,7 +846,7 @@ Accept wildcard characters: False
 ```
 
 #### -ADConnectorAccountDN
-The DistinguishedName of the Active Directory account that will be used by Azure AD Connect Sync to manage objects in the directory.
+The DistinguishedName of the Active Directory account that will be used by Microsoft Entra Connect Sync to manage objects in the directory.
 
 ```yaml
 Type: String
@@ -898,7 +898,7 @@ For more information, see about_CommonParameters (https://go.microsoft.com/fwlin
 ## Set-ADSyncPasswordWritebackPermissions
 
 ### SYNOPSIS
-Initialize your Active Directory forest and domain for password write-back from Azure AD.
+Initialize your Active Directory forest and domain for password write-back from Microsoft Entra ID.
 
 ### SYNTAX
 
@@ -951,7 +951,7 @@ Set-ADSyncPasswordWritebackPermissions -ADConnectorAccountName 'ADConnector' -AD
 ### PARAMETERS
 
 #### -ADConnectorAccountName
-The Name of the Active Directory account that is or will be used by Azure AD Connect Sync to manage objects in the directory.
+The Name of the Active Directory account that is or will be used by Microsoft Entra Connect Sync to manage objects in the directory.
 
 ```yaml
 Type: String
@@ -966,7 +966,7 @@ Accept wildcard characters: False
 ```
 
 #### -ADConnectorAccountDomain
-The Domain of the Active Directory account that is or will be used by Azure AD Connect Sync to manage objects in the directory.
+The Domain of the Active Directory account that is or will be used by Microsoft Entra Connect Sync to manage objects in the directory.
 
 ```yaml
 Type: String
@@ -981,7 +981,7 @@ Accept wildcard characters: False
 ```
 
 #### -ADConnectorAccountDN
-The DistinguishedName of the Active Directory account that is or will be used by Azure AD Connect Sync to manage objects in the directory.
+The DistinguishedName of the Active Directory account that is or will be used by Microsoft Entra Connect Sync to manage objects in the directory.
 
 ```yaml
 Type: String
@@ -1064,7 +1064,7 @@ For more information, see about_CommonParameters (https://go.microsoft.com/fwlin
 
 ### SYNOPSIS
 Tighten permissions on an AD object that is not otherwise included in any AD protected security group.
-A typical example is the AD Connect account (MSOL) created by AAD Connect automatically.
+A typical example is the AD Connect account (MSOL) created by Microsoft Entra Connect automatically.
 This account
 has replicate permissions on all domains, however can be easily compromised as it is not protected.
 
@@ -1192,7 +1192,7 @@ For more information, see about_CommonParameters (https://go.microsoft.com/fwlin
 ## Set-ADSyncUnifiedGroupWritebackPermissions
 
 ### SYNOPSIS
-Initialize your Active Directory forest and domain for Group writeback from Azure AD.
+Initialize your Active Directory forest and domain for Group writeback from Microsoft Entra ID.
 
 ### SYNTAX
 
@@ -1242,7 +1242,7 @@ Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountName 'ADConnector'
 ### PARAMETERS
 
 #### -ADConnectorAccountName
-The Name of the Active Directory account that is or will be used by Azure AD Connect Sync to manage objects in the directory.
+The Name of the Active Directory account that is or will be used by Microsoft Entra Connect Sync to manage objects in the directory.
 
 ```yaml
 Type: String
@@ -1257,7 +1257,7 @@ Accept wildcard characters: False
 ```
 
 #### -ADConnectorAccountDomain
-The Domain of the Active Directory account that is or will be used by Azure AD Connect Sync to manage objects in the directory.
+The Domain of the Active Directory account that is or will be used by Microsoft Entra Connect Sync to manage objects in the directory.
 
 ```yaml
 Type: String
@@ -1272,7 +1272,7 @@ Accept wildcard characters: False
 ```
 
 #### -ADConnectorAccountDN
-The DistinguishedName of the Active Directory account that is or will be used by Azure AD Connect Sync to manage objects in the directory.
+The DistinguishedName of the Active Directory account that is or will be used by Microsoft Entra Connect Sync to manage objects in the directory.
 
 ```yaml
 Type: String

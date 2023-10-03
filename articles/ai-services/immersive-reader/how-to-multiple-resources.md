@@ -5,8 +5,7 @@ description: In this tutorial, you'll create a Node.js application that launches
 author: rwallerms
 manager: nitinme
 
-ms.service: applied-ai-services
-ms.subservice: immersive-reader
+ms.service: azure-ai-immersive-reader
 ms.topic: how-to
 ms.date: 01/14/2020
 ms.author: rwaller

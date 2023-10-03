@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure AD SSO integration with Maxient Conduct Manager Software'
-description: Learn how to configure single sign-on between Azure Active Directory and Maxient Conduct Manager Software.
+title: 'Tutorial: Microsoft Entra SSO integration with Maxient Conduct Manager Software'
+description: Learn how to configure single sign-on between Microsoft Entra ID and Maxient Conduct Manager Software.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -13,23 +13,23 @@ ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure AD SSO integration with Maxient Conduct Manager Software
+# Tutorial: Microsoft Entra SSO integration with Maxient Conduct Manager Software
 
-In this tutorial, you'll learn how to integrate Maxient Conduct Manager Software with Azure Active Directory (Azure AD). When you integrate Maxient Conduct Manager Software with Azure AD, you can:
+In this tutorial, you'll learn how to integrate Maxient Conduct Manager Software with Microsoft Entra ID. When you integrate Maxient Conduct Manager Software with Microsoft Entra ID, you can:
 
-* Utilize Azure AD to authenticate your users for the Maxient Conduct Manager Software.
-* Enable your users to be automatically signed-in to Maxient Conduct Manager Software with their Azure AD accounts.
+* Utilize Microsoft Entra ID to authenticate your users for the Maxient Conduct Manager Software.
+* Enable your users to be automatically signed-in to Maxient Conduct Manager Software with their Microsoft Entra accounts.
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Maxient Conduct Manager Software single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you will configure your Azure AD for use with Maxient Conduct Manager Software.
+In this tutorial, you will configure your Microsoft Entra ID for use with Maxient Conduct Manager Software.
 
 * Maxient Conduct Manager Software supports **SP and IDP** initiated SSO.
 
@@ -38,7 +38,7 @@ In this tutorial, you will configure your Azure AD for use with Maxient Conduct 
 
 ## Add Maxient Conduct Manager Software from the gallery
 
-To configure the integration of Maxient Conduct Manager Software into Azure AD, you need to add Maxient Conduct Manager Software from the gallery to your list of managed SaaS apps.
+To configure the integration of Maxient Conduct Manager Software into Microsoft Entra ID, you need to add Maxient Conduct Manager Software from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
@@ -47,19 +47,23 @@ To configure the integration of Maxient Conduct Manager Software into Azure AD, 
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD SSO for Maxient Conduct Manager Software
+<a name='configure-and-test-azure-ad-sso-for-maxient-conduct-manager-software'></a>
 
-Configure and test Azure AD SSO with Maxient Conduct Manager Software. For SSO to work, you need to establish a connection between Azure AD and the Maxient Conduct Manager Software.
+## Configure and test Microsoft Entra SSO for Maxient Conduct Manager Software
 
-To configure and test Azure AD SSO with Maxient Conduct Manager Software, perform the following steps:
+Configure and test Microsoft Entra SSO with Maxient Conduct Manager Software. For SSO to work, you need to establish a connection between Microsoft Entra ID and the Maxient Conduct Manager Software.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to authenticate for use with the Maxient Conduct Manager Software.
+To configure and test Microsoft Entra SSO with Maxient Conduct Manager Software, perform the following steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to authenticate for use with the Maxient Conduct Manager Software.
    1. **[Set "User Assignment Required?" to No](#set-user-assignment-required-to-no)** - to allow everyone at your institution to be able to authenticate.
-1. **[Test Azure AD Setup With Maxient](#test-with-maxient)** - to verify whether the configuration works, and the correct attributes are being released.
+1. **[Test Microsoft Entra Setup With Maxient](#test-with-maxient)** - to verify whether the configuration works, and the correct attributes are being released.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+## Configure Microsoft Entra SSO
+
+Follow these steps to enable Microsoft Entra SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Maxient Conduct Manager Software** > **Single sign-on**.
@@ -86,7 +90,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	
 ### Set "User Assignment Required?" to No
 
-It is important to note that this step is **REQUIRED** for Maxient to function properly.  Maxient leverages your Azure AD system to *authenticate* users. The *authorization* of users is performed within the Maxient system for the particular function they’re trying to perform. Maxient does not use attributes from your directory to make those decisions.
+It is important to note that this step is **REQUIRED** for Maxient to function properly.  Maxient leverages your Microsoft Entra system to *authenticate* users. The *authorization* of users is performed within the Maxient system for the particular function they’re trying to perform. Maxient does not use attributes from your directory to make those decisions.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Maxient Conduct Manager Software**.

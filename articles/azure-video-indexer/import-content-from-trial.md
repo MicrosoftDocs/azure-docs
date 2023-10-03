@@ -10,6 +10,8 @@ author: IngridAtMicrosoft
 
 # Import content from your trial account to a regular account
 
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
+
 If you would like to transition from the Video Indexer trial account experience to that of a regular paid account, Video Indexer allows you at not cost to import the content in your trial content to your new regular account.
 
 When might you want to switch from a trial to a regular account?

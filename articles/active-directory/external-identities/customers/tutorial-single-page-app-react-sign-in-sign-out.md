@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Add sign-in and sign-out to a React single-page app (SPA) for a customer tenant
-description: Learn how to configure a React single-page app (SPA) to sign in and sign out users with your Azure Active Directory (AD) for customers tenant.
+description: Learn how to configure a React single-page app (SPA) to sign in and sign out users with your Microsoft Entra ID for customers tenant.
 services: active-directory
 author: godonnell
 manager: celestedg

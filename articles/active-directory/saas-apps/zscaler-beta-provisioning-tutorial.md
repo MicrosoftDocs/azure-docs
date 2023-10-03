@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configure Zscaler Beta for automatic user provisioning with Azure Active Directory'
-description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Zscaler Beta.
+title: 'Tutorial: Configure Zscaler Beta for automatic user provisioning with Microsoft Entra ID'
+description: Learn how to configure Microsoft Entra ID to automatically provision and de-provision user accounts to Zscaler Beta.
 services: active-directory
 author: twimmers
 writer: twimmers
@@ -15,10 +15,10 @@ ms.author: jeedes
 
 # Tutorial: Configure Zscaler Beta for automatic user provisioning
 
-The objective of this tutorial is to demonstrate the steps to be performed in Zscaler Beta and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to Zscaler Beta.
+The objective of this tutorial is to demonstrate the steps to be performed in Zscaler Beta and Microsoft Entra ID to configure Microsoft Entra ID to automatically provision and de-provision users and/or groups to Zscaler Beta.
 
 > [!NOTE]
-> This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
+> This tutorial describes a connector built on top of the Microsoft Entra user Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Microsoft Entra ID](../app-provisioning/user-provisioning.md).
 >
 
 
@@ -26,18 +26,18 @@ The objective of this tutorial is to demonstrate the steps to be performed in Zs
 
 The scenario outlined in this tutorial assumes that you already have the following:
 
-* An Azure AD tenant
+* A Microsoft Entra tenant
 * A Zscaler Beta tenant
 * A user account in Zscaler Beta with Admin permissions
 
 > [!NOTE]
-> The Azure AD provisioning integration relies on the Zscaler Beta SCIM API, which is available to Zscaler Beta developers for accounts with the Enterprise package.
+> The Microsoft Entra provisioning integration relies on the Zscaler Beta SCIM API, which is available to Zscaler Beta developers for accounts with the Enterprise package.
 
 ## Adding Zscaler Beta from the gallery
 
-Before configuring Zscaler Beta for automatic user provisioning with Azure AD, you need to add Zscaler Beta from the Azure AD application gallery to your list of managed SaaS applications.
+Before configuring Zscaler Beta for automatic user provisioning with Microsoft Entra ID, you need to add Zscaler Beta from the Microsoft Entra application gallery to your list of managed SaaS applications.
 
-**To add Zscaler Beta from the Azure AD application gallery, perform the following steps:**
+**To add Zscaler Beta from the Microsoft Entra application gallery, perform the following steps:**
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
@@ -47,21 +47,21 @@ Before configuring Zscaler Beta for automatic user provisioning with Azure AD, y
 
 ## Assigning users to Zscaler Beta
 
-Azure Active Directory uses a concept called "assignments" to determine which users should receive access to selected apps. In the context of automatic user provisioning, only the users and/or groups that have been "assigned" to an application in Azure AD are synchronized.
+Microsoft Entra ID uses a concept called "assignments" to determine which users should receive access to selected apps. In the context of automatic user provisioning, only the users and/or groups that have been "assigned" to an application in Microsoft Entra ID are synchronized.
 
-Before configuring and enabling automatic user provisioning, you should decide which users and/or groups in Azure AD need access to Zscaler Beta. Once decided, you can assign these users and/or groups to Zscaler Beta by following the instructions here:
+Before configuring and enabling automatic user provisioning, you should decide which users and/or groups in Microsoft Entra ID need access to Zscaler Beta. Once decided, you can assign these users and/or groups to Zscaler Beta by following the instructions here:
 
 * [Assign a user or group to an enterprise app](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### Important tips for assigning users to Zscaler Beta
 
-* It is recommended that a single Azure AD user is assigned to Zscaler Beta to test the automatic user provisioning configuration. Additional users and/or groups may be assigned later.
+* It is recommended that a single Microsoft Entra user is assigned to Zscaler Beta to test the automatic user provisioning configuration. Additional users and/or groups may be assigned later.
 
 * When assigning a user to Zscaler Beta, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
 
 ## Configuring automatic user provisioning to Zscaler Beta
 
-This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Zscaler Beta based on user and/or group assignments in Azure AD.
+This section guides you through the steps to configure the Microsoft Entra provisioning service to create, update, and disable users and/or groups in Zscaler Beta based on user and/or group assignments in Microsoft Entra ID.
 
 > [!TIP]
 > You may also choose to enable SAML-based single sign-on for Zscaler Beta, following the instructions provided in the [Zscaler Beta single sign-on tutorial](zscaler-beta-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
@@ -69,7 +69,9 @@ This section guides you through the steps to configure the Azure AD provisioning
 > [!NOTE]
 > When users and groups are provisioned or de-provisioned we recommend to periodically restart provisioning to ensure that group memberships are properly updated. Doing a restart will force our service to re-evaluate all the groups and update the memberships.  
 
-### To configure automatic user provisioning for Zscaler Beta in Azure AD:
+<a name='to-configure-automatic-user-provisioning-for-zscaler-beta-in-azure-ad'></a>
+
+### To configure automatic user provisioning for Zscaler Beta in Microsoft Entra ID:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Zscaler Beta**.
@@ -98,9 +100,9 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![On Configure SAML, the Enable SAML Auto-Provisioning and the Enable SCIM-Based Provisioning options are selected. The Base URL and Bearer Token text boxes are highlighted.](./media/zscaler-beta-provisioning-tutorial/secret-token-2.png)
 
-	Select **Enable SCIM-Based Provisioning** to retrieve **Base URL** and **Bearer Token**, then save the settings. Copy the **Base URL** to **Tenant URL**, and **Bearer Token**  to **Secret Token** in the Azure portal.
+	Select **Enable SCIM-Based Provisioning** to retrieve **Base URL** and **Bearer Token**, then save the settings. Copy the **Base URL** to **Tenant URL**, and **Bearer Token**  to **Secret Token**.
 
-1. Upon populating the fields shown in Step 5, click **Test Connection** to ensure Azure AD can connect to Zscaler Beta. If the connection fails, ensure your Zscaler Beta account has Admin permissions and try again.
+1. Upon populating the fields shown in Step 5, click **Test Connection** to ensure Microsoft Entra ID can connect to Zscaler Beta. If the connection fails, ensure your Zscaler Beta account has Admin permissions and try again.
 
 	![On Admin Credentials, the Tenant URL and Secret Token fields have values, and the Test Connection button is highlighted.](./media/zscaler-beta-provisioning-tutorial/test-connection.png)
 
@@ -110,25 +112,25 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. Click **Save**.
  
-1. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Zscaler Beta**.
+1. Under the **Mappings** section, select **Synchronize Microsoft Entra users to Zscaler Beta**.
 
-	![The Synchronize Azure Active Directory Users to ZScalerBeta is selected and enabled.](./media/zscaler-beta-provisioning-tutorial/user-mappings.png)
+	![The Synchronize Microsoft Entra users to ZScalerBeta is selected and enabled.](./media/zscaler-beta-provisioning-tutorial/user-mappings.png)
 
-1. Review the user attributes that are synchronized from Azure AD to Zscaler Beta in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Zscaler Beta for update operations. Select the **Save** button to commit any changes.
+1. Review the user attributes that are synchronized from Microsoft Entra ID to Zscaler Beta in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Zscaler Beta for update operations. Select the **Save** button to commit any changes.
 
 	![In the Attribute Mappings section for user attributes, the Active Directory attributes are shown next to the Zscalar Beta attributes they are synchronized with. One pair of attributes is shown as Matching.](./media/zscaler-beta-provisioning-tutorial/user-attribute-mappings.png)
 
-1. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Zscaler Beta**.
+1. Under the **Mappings** section, select **Synchronize Microsoft Entra groups to Zscaler Beta**.
 
-	![The Synchronize Azure Active Directory Groups to ZScalerBeta is selected and enabled.](./media/zscaler-beta-provisioning-tutorial/group-mappings.png)
+	![The Synchronize Microsoft Entra groups to ZScalerBeta is selected and enabled.](./media/zscaler-beta-provisioning-tutorial/group-mappings.png)
 
-1. Review the group attributes that are synchronized from Azure AD to Zscaler Beta in the **Attribute Mappings** section. The attributes selected as **Matching** properties are used to match the groups in Zscaler Beta for update operations. Select the **Save** button to commit any changes.
+1. Review the group attributes that are synchronized from Microsoft Entra ID to Zscaler Beta in the **Attribute Mappings** section. The attributes selected as **Matching** properties are used to match the groups in Zscaler Beta for update operations. Select the **Save** button to commit any changes.
 
 	![In the Attribute Mappings section for group attributes, the Active Directory attributes are shown next to the Zscalar Beta attributes they are synchronized with. One pair of attributes is shown as Matching.](./media/zscaler-beta-provisioning-tutorial/group-attribute-mappings.png)
 
 1. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-1. To enable the Azure AD provisioning service for Zscaler Beta, change the **Provisioning Status** to **On** in the **Settings** section.
+1. To enable the Microsoft Entra provisioning service for Zscaler Beta, change the **Provisioning Status** to **On** in the **Settings** section.
 
 	![The Provisioning Status is shown and set to On.](./media/zscaler-beta-provisioning-tutorial/provisioning-status.png)
 
@@ -140,14 +142,14 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![The Save button at the top of Zscaler Beta - Provisioning is highlighted. There is also a Discard button.](./media/zscaler-beta-provisioning-tutorial/save-provisioning.png)
 
-This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Zscaler Beta.
+This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Microsoft Entra provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Microsoft Entra provisioning service on Zscaler Beta.
 
-For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
+For more information on how to read the Microsoft Entra provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## Additional resources
 
 * [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Microsoft Entra ID?](../manage-apps/what-is-single-sign-on.md)
 
 ## Next steps
 

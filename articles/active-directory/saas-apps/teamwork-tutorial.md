@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Teamwork.com'
-description: Learn how to configure single sign-on between Azure Active Directory and Teamwork.com.
+title: 'Tutorial: Microsoft Entra integration with Teamwork.com'
+description: Learn how to configure single sign-on between Microsoft Entra ID and Teamwork.com.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -12,24 +12,24 @@ ms.topic: tutorial
 ms.date: 11/21/2022
 ms.author: jeedes
 ---
-# Tutorial: Azure Active Directory integration with Teamwork.com
+# Tutorial: Microsoft Entra integration with Teamwork.com
 
-In this tutorial, you'll learn how to integrate Teamwork.com with Azure Active Directory (Azure AD). When you integrate Teamwork.com with Azure AD, you can:
+In this tutorial, you'll learn how to integrate Teamwork.com with Microsoft Entra ID. When you integrate Teamwork.com with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to Teamwork.com.
-* Enable your users to be automatically signed-in to Teamwork.com with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Control in Microsoft Entra ID who has access to Teamwork.com.
+* Enable your users to be automatically signed-in to Teamwork.com with their Microsoft Entra accounts.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
-To configure Azure AD integration with Teamwork.com, you need the following items:
+To configure Microsoft Entra integration with Teamwork.com, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a Microsoft Entra environment, you can get a [free account](https://azure.microsoft.com/free/).
 * Teamwork.com single sign-on enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+In this tutorial, you configure and test Microsoft Entra single sign-on in a test environment.
 
 * Teamwork.com supports **SP** initiated SSO.
 
@@ -38,7 +38,7 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 
 ## Add Teamwork.com from the gallery
 
-To configure the integration of Teamwork.com into Azure AD, you need to add Teamwork.com from the gallery to your list of managed SaaS apps.
+To configure the integration of Teamwork.com into Microsoft Entra ID, you need to add Teamwork.com from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
@@ -47,22 +47,26 @@ To configure the integration of Teamwork.com into Azure AD, you need to add Team
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD SSO for Teamwork.com
+<a name='configure-and-test-azure-ad-sso-for-teamworkcom'></a>
 
-Configure and test Azure AD SSO with Teamwork.com using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Teamwork.com.
+## Configure and test Microsoft Entra SSO for Teamwork.com
 
-To configure and test Azure AD SSO with Teamwork.com, perform the following steps:
+Configure and test Microsoft Entra SSO with Teamwork.com using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in Teamwork.com.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+To configure and test Microsoft Entra SSO with Teamwork.com, perform the following steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
 1. **[Configure Teamwork.com SSO](#configure-teamworkcom-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Teamwork.com test user](#create-teamworkcom-test-user)** - to have a counterpart of B.Simon in Teamwork.com that is linked to the Azure AD representation of user.
+    1. **[Create Teamwork.com test user](#create-teamworkcom-test-user)** - to have a counterpart of B.Simon in Teamwork.com that is linked to the Microsoft Entra representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+## Configure Microsoft Entra SSO
+
+Follow these steps to enable Microsoft Entra SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Teamwork.com** > **Single sign-on**.
@@ -84,7 +88,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<COMPANYNAME>.teamwork.com`
 
 	> [!NOTE]
-	> This  Sign-on URL value is not real. Update this value with the actual Sign-On URL. Contact [Teamwork.com support team](mailto:support@teamwork.com) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> This  Sign-on URL value is not real. Update this value with the actual Sign-On URL. Contact [Teamwork.com support team](mailto:support@teamwork.com) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
@@ -94,9 +98,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-### Create an Azure AD test user 
+<a name='create-an-azure-ad-test-user'></a>
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+### Create a Microsoft Entra test user 
+
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -108,9 +114,11 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
    1. Select **Review + create**.
 1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Teamwork.com.
+### Assign the Microsoft Entra test user
+
+In this section, you'll enable B.Simon to use single sign-on by granting access to Teamwork.com.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Teamwork.com**.
@@ -122,7 +130,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Teamwork.com SSO
 
-To configure single sign-on on **Teamwork.com** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Teamwork.com support team](mailto:support@teamwork.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Teamwork.com** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from the application configuration to [Teamwork.com support team](mailto:support@teamwork.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Teamwork.com test user
 
@@ -130,9 +138,9 @@ In this section, you create a user called Britta Simon in Teamwork.com. Work wit
 
 ## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Teamwork.com Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to Teamwork.com Sign-on URL where you can initiate the login flow. 
 
 * Go to Teamwork.com Sign-on URL directly and initiate the login flow from there.
 

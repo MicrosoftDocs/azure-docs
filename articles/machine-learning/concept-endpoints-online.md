@@ -10,7 +10,7 @@ author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
 reviewer: msakande
-ms.custom: devplatv2, moe-wsvnet
+ms.custom: devplatv2
 ms.date: 09/13/2023
 
 #Customer intent: As an MLOps administrator, I want to understand what a managed endpoint is and why I need it.
@@ -231,7 +231,7 @@ To learn how to configure autoscaling, see [How to autoscale online endpoints](h
 
 When deploying an ML model to a managed online endpoint, you can secure communication with the online endpoint by using [private endpoints](../private-link/private-endpoint-overview.md).
 
-You can configure security for inbound scoring requests and outbound communications with the workspace and other services separately. Inbound communications use the private endpoint of the Azure Machine Learning workspace. Outbound communications use private endpoints created for the workspace's managed virtual network (preview).
+You can configure security for inbound scoring requests and outbound communications with the workspace and other services separately. Inbound communications use the private endpoint of the Azure Machine Learning workspace. Outbound communications use private endpoints created for the workspace's managed virtual network.
 
 For more information, see [Network isolation with managed online endpoints](concept-secure-online-endpoint.md).
 

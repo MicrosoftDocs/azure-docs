@@ -612,7 +612,7 @@ sections:
       - question: |
           What's the difference between OpenCensus and OpenTelemetry?
         answer: |
-          [OpenCensus](https://opencensus.io/) is the precursor to [OpenTelemetry](https://opentelemetry.io/). Microsoft helped bring together [OpenTracing](https://opentracing.io/) and OpenCensus to create OpenTelemetry, a single observability standard for the world. The current [production-recommended Python SDK](app/opencensus-python.md) for Azure Monitor is based on OpenCensus. Eventually, all Azure Monitor SDKs will be based on OpenTelemetry.
+          [OpenCensus](https://opencensus.io/) is the precursor to [OpenTelemetry](https://opentelemetry.io/). Microsoft helped bring together [OpenTracing](https://opentracing.io/) and OpenCensus to create OpenTelemetry, a single observability standard for the world. The current [production-recommended Python SDK](/previous-versions/azure/azure-monitor/app/opencensus-python) for Azure Monitor is based on OpenCensus. Eventually, all Azure Monitor SDKs will be based on OpenTelemetry.
 
   - name: Container insights
   

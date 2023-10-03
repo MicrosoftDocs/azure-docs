@@ -273,6 +273,8 @@
         href: azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md
       - name: Mount an SMB volume for Windows VMs
         href: mount-volumes-vms-smb.md
+      - name: Access SMB volume from Azure Active Directory joined Windows VM
+        href: access-smb-volume-from-windows-client.md
     - name: Manage volume capacity and performance 
       items:
       - name: Monitor the capacity of a volume
@@ -353,9 +355,7 @@
         href: cross-region-replication-delete.md
       - name: Re-establish volume replication relationships
         href: reestablish-deleted-volume-relationships.md
-    - name: Manage availability zones
-      items:
-      - name: Test disaster recovery
+      - name: Test disaster recovery with cross-region replication
         href: test-disaster-recovery.md
     - name: Manage availability zones and cross-zone replication
       items: 

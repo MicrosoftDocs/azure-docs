@@ -75,6 +75,7 @@ New-AzStorageAccount -ResourceGroupName $rgName `
     -Kind StorageV2 `
     -SkuName Standard_LRS `
     -Location $location `
+    -AllowBlobPublicAccess $false `
     -IdentityType SystemAssignedUserAssigned `
     -UserAssignedIdentityId $userIdentity.Id `
     -KeyVaultUri $keyVault.VaultUri `
@@ -146,6 +147,7 @@ New-AzStorageAccount -ResourceGroupName $rgName `
     -Kind StorageV2 `
     -SkuName Standard_LRS `
     -Location $location `
+    -AllowBlobPublicAccess $false `
     -IdentityType SystemAssignedUserAssigned `
     -UserAssignedIdentityId $userIdentity.Id `
     -KeyVaultUri $keyVault.VaultUri `
@@ -183,6 +185,7 @@ az storage account create \
     --location $location \
     --sku Standard_LRS \
     --kind StorageV2 \
+    --allow-blob-public-access false \
     --identity-type SystemAssigned,UserAssigned \
     --user-identity-id $identityResourceId \
     --encryption-key-vault $keyVaultUri \

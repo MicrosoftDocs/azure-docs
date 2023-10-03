@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 This article describes how to enable Privileged Identity Management (PIM) and get started using it.
 
-Use Privileged Identity Management (PIM) to manage, control, and monitor access within your Entra ID (Azure AD) organization. With PIM you can provide as-needed and just-in-time access to Azure resources, Azure AD resources, and other Microsoft online services like Microsoft 365 or Microsoft Intune.
+Use Privileged Identity Management (PIM) to manage, control, and monitor access within your Microsoft Entra organization. With PIM you can provide as-needed and just-in-time access to Azure resources, Microsoft Entra resources, and other Microsoft online services like Microsoft 365 or Microsoft Intune.
 
 ## Prerequisites
 
@@ -33,20 +33,22 @@ To use Privileged Identity Management, you must have one of the following licens
 For more information, see [License requirements to use Privileged Identity Management](subscription-requirements.md).
 
 > [!Note]
-> When a user who is active in a privileged role in an Azure AD organization with a Premium P2 license goes to **Roles and administrators** in Azure AD and selects a role (or even just visits Privileged Identity Management):
+> When a user who is active in a privileged role in a Microsoft Entra organization with a Premium P2 license goes to **Roles and administrators** in Microsoft Entra ID and selects a role (or even just visits Privileged Identity Management):
 >
 > - We automatically enable PIM for the organization
 > - Their experience is now that they can either assign a "regular" role assignment or an eligible role assignment
 >
 > When PIM is enabled it doesn't have any other effect on your organization that you need to worry about. It gives you additional assignment options such as active vs eligible with start and end time. PIM also enables you to define scope for role assignments using Administrative Units and custom roles. If you are a Global Administrator or Privileged Role Administrator, you might start getting a few additional emails like the PIM weekly digest. You might also see MS-PIM service principal in the audit log related to role assignment. This is an expected change that should have no effect on your workflow.
 
-## Prepare PIM for Azure AD roles
+<a name='prepare-pim-for-azure-ad-roles'></a>
 
-Here are the tasks we recommend for you to prepare Privileged Identity Management to manage Azure AD roles:
+## Prepare PIM for Microsoft Entra roles
 
-1. [Configure Azure AD role settings](pim-how-to-change-default-settings.md).
+Here are the tasks we recommend for you to prepare Privileged Identity Management to manage Microsoft Entra roles:
+
+1. [Configure Microsoft Entra role settings](pim-how-to-change-default-settings.md).
 1. [Give eligible assignments](pim-how-to-add-role-to-user.md).
-1. [Allow eligible users to activate their Azure AD role just-in-time](pim-how-to-activate-role.md).
+1. [Allow eligible users to activate their Microsoft Entra role just-in-time](pim-how-to-activate-role.md).
 
 ## Prepare PIM for Azure roles
 
@@ -69,11 +71,11 @@ Once Privileged Identity Management is set up, you can learn your way around.
 | **Pending requests** | Displays your pending requests to activate eligible role assignments. |
 | **Approve requests** | Displays a list of requests to activate eligible roles by users in your directory that you are designated to approve. |
 | **Review access** | Lists active access reviews you are assigned to complete, whether you're reviewing access for yourself or someone else. |
-| **Azure AD roles** | Displays a dashboard and settings for Privileged role administrators to manage Azure AD role assignments. This dashboard is disabled for anyone who isn't a privileged role administrator. These users have access to a special dashboard titled My view. The My view dashboard only displays information about the user accessing the dashboard, not the entire organization. |
+| **Microsoft Entra roles** | Displays a dashboard and settings for Privileged role administrators to manage Microsoft Entra role assignments. This dashboard is disabled for anyone who isn't a privileged role administrator. These users have access to a special dashboard titled My view. The My view dashboard only displays information about the user accessing the dashboard, not the entire organization. |
 | **Azure resources** | Displays a dashboard and settings for Privileged role administrators to manage Azure resource role assignments. This dashboard is disabled for anyone who isn't a privileged role administrator. These users have access to a special dashboard titled My view. The My view dashboard only displays information about the user accessing the dashboard, not the entire organization. |
 
 
 ## Next steps
 
-- [Assign Azure AD roles in Privileged Identity Management](pim-how-to-add-role-to-user.md)
+- [Assign Microsoft Entra roles in Privileged Identity Management](pim-how-to-add-role-to-user.md)
 - [Manage Azure resource access in Privileged Identity Management](pim-resource-roles-discover-resources.md)
