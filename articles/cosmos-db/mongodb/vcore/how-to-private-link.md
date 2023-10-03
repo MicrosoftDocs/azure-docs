@@ -16,7 +16,7 @@ ms.date: 08/28/2023
 
 [!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
 
-Azure Private Link is a powerful tool that allows users to connect to Azure Cosmos DB for MongoDB vCore through a designated private endpoint. This private endpoint consists of private IP addresses located in a subnet within your own virtual network, enabling you to restrict access to the vCore product solely over private IPs. By integrating Private Link with stringent NSG policies, the risk of data exfiltration is substantially reduced. For a deeper understanding of private endpoints, consider checking out [What is Azure Private Link?](../../../private-link/private-endpoint-overview.md).
+Azure Private Link is a powerful service that allows users to connect to Azure Cosmos DB for MongoDB vCore through a designated private endpoint. This private endpoint consists of private IP addresses located in a subnet within your own virtual network, enabling you to restrict access to the Azure Cosmos DB for MongoDB vCore product solely over private IPs. By integrating Private Link with stringent NSG policies, the risk of data exfiltration is substantially reduced. For a deeper understanding of private endpoints, consider checking out [What is Azure Private Link?](../../../private-link/private-endpoint-overview.md).
 
 > [!NOTE]
 > Private Link does secures your connection, however, it doesn't prevent your Azure Cosmos DB endpoints from being resolved by public DNS. The filtration of incoming requests is handled at the application level, not at the transport or network level.
