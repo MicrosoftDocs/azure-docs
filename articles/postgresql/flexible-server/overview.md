@@ -103,6 +103,7 @@ One advantage of running your workload in Azure is global reach. The flexible se
 | Jio India West | :heavy_check_mark: (v3 only) | :x: | :heavy_check_mark: | :x: |
 | Korea Central | :heavy_check_mark: | :heavy_check_mark: ** | :heavy_check_mark: | :heavy_check_mark: |
 | Korea South | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
+| Poland Central| :heavy_check_mark: (v3/v4 only) | :heavy_check_mark:  | :heavy_check_mark: | :x:|
 | North Central US | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
 | North Europe | :heavy_check_mark: (v3/v4 only) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Norway East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: |
