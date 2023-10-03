@@ -88,6 +88,10 @@ items:
     items:
     - name: How to open a support request 
       href: open-support-request.md
+  - name: Kubectl access
+    items:
+    - name: Set up kubectl access
+      href: set-up-kubectl-access.md
   - name: Private mobile networks
     items:
     - name: Collect the required information to deploy a private mobile network
