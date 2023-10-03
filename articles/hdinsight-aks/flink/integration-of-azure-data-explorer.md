@@ -1,6 +1,6 @@
 ---
 title: Integration of Azure Data Explorer and Flink 
-description: Integration of Azure Data Explorer and Flink in HSInsight on AKS
+description: Integration of Azure Data Explorer and Flink in HDInsight on AKS
 ms.service: hdinsight-aks
 ms.topic: how-to
 ms.date: 09/18/2023
@@ -22,7 +22,7 @@ ADX helps users in analysis of large volumes of data from streaming applications
 
 1. [Create ADX with database](/azure/data-explorer/create-cluster-and-database) and table as required.
 
-1. Add ingestor permissions for the managed identity in kusto.
+1. Add ingestor permissions for the managed identity in Kusto.
 
     ```
     .add database <DATABASE_NAME> ingestors  ('aadapp=CLIENT_ID_OF_MANAGED_IDENTITY') 
@@ -31,7 +31,7 @@ ADX helps users in analysis of large volumes of data from streaming applications
 
 1. Clone the flink-connector-kusto project: https://github.com/Azure/flink-connector-kusto.git 
 
-1. Create the table in ADX using below command 
+1. Create the table in ADX using following command 
     
     ```Sample table
     .create table CryptoRatesHeartbeatTimeBatch (processing_dttm: datetime, ['type']: string, last_trade_id: string, product_id: string, sequence: long, ['time']: datetime) 
@@ -40,7 +40,7 @@ ADX helps users in analysis of large volumes of data from streaming applications
 
 1. Update FlinkKustoSinkSample.java file with the right Kusto cluster URI, database and the managed identity used. 
 
-    ```
+    ```JAVA
       String database = "sdktests"; //ADX database name 
 
       String msiClientId = “xxxx-xxxx-xxxx”; //Provide the client id of the Managed identity which is linked to the Flink cluster 
@@ -58,7 +58,7 @@ ADX helps users in analysis of large volumes of data from streaming applications
 1. Locate the JAR file named 'samples-java-1.0-SNAPSHOT-shaded.jar' under the 'sample-java/target' folder, then upload this JAR file in the Flink UI and submit the job.
 
 1. Query the Kusto table to verify the output  
-    :::image type="content" source="./media/integration-of-azure-data-explorer/.png" alt-text="screenshot showing configurations tab." lightbox="":::
+    :::image type="content" source="./media/integration-of-azure-data-explorer/kusto-table-to-verify-output.png" alt-text="screenshot shows query the Kusto table to verify the output." lightbox="./media/integration-of-azure-data-explorer/kusto-table-to-verify-output.png":::
 
-    There is no delay in writing the data to the Kusto table from flink. 
+    There is no delay in writing the data to the Kusto table from Flink. 
 
