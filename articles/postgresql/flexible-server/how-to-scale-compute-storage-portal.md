@@ -34,10 +34,10 @@ Follow these steps to choose the compute tier.
 2.  Click **Compute+storage**.
 
 3.  A page with current settings is displayed.
- :::image type="content" source="./media/how-to-scale-compute-storage-portal/click-compute-storage.png" alt-text="compute+storage view":::
+ :::image type="content" source="./media/how-to-scale-compute-storage-portal/click-compute-storage.png" alt-text="Screenshot that shows compute+storage view.":::
 
 4.  You can choose the compute class between burstable, general purpose, and memory optimized tiers.
-   :::image type="content" source="./media/how-to-scale-compute-storage-portal/list-compute-tiers.png" alt-text="list compute tiers":::
+   :::image type="content" source="./media/how-to-scale-compute-storage-portal/list-compute-tiers.png" alt-text="Screenshot that  list compute tiers.":::
 
 
 5.  If you're good with the default vCores and memory sizes, you can skip the next step.
@@ -48,10 +48,10 @@ Follow these steps to choose the compute tier.
     :::image type="content" source="./media/how-to-scale-compute-storage-portal/compute-burstable-dropdown.png" alt-text="burstable compute":::
 
     - General purpose compute tier:
-    :::image type="content" source="./media/how-to-scale-compute-storage-portal/compute-general-purpose-dropdown.png" alt-text="general-purpose compute":::
+    :::image type="content" source="./media/how-to-scale-compute-storage-portal/compute-general-purpose-dropdown.png" alt-text="Screenshot that shows general-purpose compute.":::
 
     - Memory optimized compute tier:
-    :::image type="content" source="./media/how-to-scale-compute-storage-portal/compute-memory-optimized-dropdown.png" alt-text="memory optimized compute":::
+    :::image type="content" source="./media/how-to-scale-compute-storage-portal/compute-memory-optimized-dropdown.png" alt-text="Screenshot that shows memory optimized compute.":::
 
 7.  Click **Save**. 
 8.  You see a confirmation message. Click **OK** if you want to proceed. 
@@ -67,17 +67,17 @@ Follow these steps to increase your storage size.
 
 3.  A page with current settings is displayed.
    
-:::image type="content" source="./media/how-to-scale-compute-storage-portal/click-compute-storage.png" alt-text="click compute+storage":::
+:::image type="content" source="./media/how-to-scale-compute-storage-portal/click-compute-storage.png" alt-text="Screenshot that shows compute+storage.":::
 
 4.  Select **Storage size in GiB** drop down and choose your new desired size.
 
- :::image type="content" source="./media/how-to-scale-compute-storage-portal/storage-scaleup.png" alt-text="storage scale up":::
+ :::image type="content" source="./media/how-to-scale-compute-storage-portal/storage-scaleup.png" alt-text="Screenshot that shows storage scale up.":::
 
 6.  If you are good with the storage size, click **Save**.
    
 8.  Most of the disk scaling operations are **online** and as soon as you click **Save** scaling process starts without any downtime but some scaling operations are **offline** and you will see below server restart message. Click **continue** if you want to proceed.
 
-     :::image type="content" source="./media/how-to-scale-compute-storage-portal/offline-scaling.png" alt-text="offline scaling":::
+     :::image type="content" source="./media/how-to-scale-compute-storage-portal/offline-scaling.png" alt-text="Screenshot that shows  offline scaling.":::
    
 10.  A receive a notification that scaling operation is in progress.
 
@@ -90,11 +90,11 @@ Follow these steps to increase your storage size.
 
 3.  A page with current settings is displayed.
    
-:::image type="content" source="./media/how-to-scale-compute-storage-portal/storage-autogrow.png" alt-text="click storage autogrow checkbox":::
+:::image type="content" source="./media/how-to-scale-compute-storage-portal/storage-autogrow.png" alt-text="Screenshot that shows storage autogrow checkbox.":::
 
 4. Check **Storage Auto-growth** button
 
- :::image type="content" source="./media/how-to-scale-compute-storage-portal/storage-autogrow.png" alt-text="storage autogrow":::
+ :::image type="content" source="./media/how-to-scale-compute-storage-portal/storage-autogrow.png" alt-text="Screenshot that shows storage autogrow.":::
 
 6.  click **Save**. 
 7.  You receive a notification that storage autogrow is in progress.
