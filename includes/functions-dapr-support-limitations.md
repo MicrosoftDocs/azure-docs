@@ -7,4 +7,4 @@ ms.author: hannahhunter
 ---
 
 >[!IMPORTANT]
->The Dapr Extension for Azure Functions is currently in preview. 
+>The Dapr Extension for Azure Functions is currently in preview and only supported in [Azure Container Apps environments](../articles/container-apps/).

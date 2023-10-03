@@ -121,6 +121,21 @@ For examples using these types, see [the GitHub repository for the extension](ht
 [daprPublish]: https://github.com/Azure/azure-functions-dapr-extension/blob/master/docs/output-bindings.md#topic-publish-output-binding
 [daprBinding]: https://github.com/Azure/azure-functions-dapr-extension/blob/master/docs/output-bindings.md#topic-publish-output-binding
 
+## Dapr ports and listeners
+
+When you're triggering a function from Dapr, the extension exposes port `3001` automatically to listen to incoming requests from the Dapr sidecar.  
+
+> [!IMPORTANT]
+> Port `3001` is only exposed and listened to if a Dapr trigger is defined in the function app. When using Dapr, the sidecar waits to receive a response from the defined port before completing instantiation. _Do not_ define the `dapr.io/port` annotation or `--app-port` unless you have a trigger. Doing so may lock your application from the Dapr sidecar. 
+> 
+> If you're only using input and output bindings, port `3001` doesn't need to be exposed or defined.
+
+By default, when Azure Functions tries to communicate with Dapr, it calls Dapr over the port resolved from the environment variable `DAPR_HTTP_PORT`. If that variable is null, it defaults to port `3500`.  
+
+You can override the Dapr address used by input and output bindings by setting the `DaprAddress` property in the `function.json` for the binding (or the attribute). By default, it uses `http://localhost:{DAPR_HTTP_PORT}`.
+
+The function app still exposes another port and endpoint for things like HTTP triggers, which locally defaults to `7071`, but in a container, defaults to `80`.
+
 ## Try out the Dapr Extension for Azure Functions
 
 Learn how to use the Dapr Extension for Azure Functions via the provided samples.
