@@ -15,9 +15,9 @@ Azure IoT Hub is a managed service hosted in the cloud that acts as a central me
 1. [Create an Azure IoTHub](/azure/iot-hub/iot-hub-create-through-portal/)
 2. [Create a HDInsight on AKS Flink cluster](./flink-create-cluster-portal.md)
 
-## Configure flink cluster
+## Configure Flink cluster
 
-Add ABFS storage account keys in your flink cluster's configuration.
+Add ABFS storage account keys in your Flink cluster's configuration.
 
 Add the following configurations:
 
@@ -45,9 +45,9 @@ StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironm
 
 This is required for Flink to authenticate with your ABFS storage account to write data to it.
 
-### Defining the IotHub source
+### Defining the IoTHub source
 
-IotHub is build on top of event hub and hence supports a kafka-like API. So in our flink job, we can simply define a `KafkaSource` with appropriate parameters to consume messages from IotHub.
+IoTHub is build on top of event hub and hence supports a kafka-like API. So in our flink job, we can simply define a `KafkaSource` with appropriate parameters to consume messages from IoTHub.
 
 ```java
 String connectionString  = "<your iot hub connection string>";
@@ -72,7 +72,7 @@ The connection string for IoT Hub can be found here -
 
 :::image type="content" source="./media/azure-iot-hub/built-in-endpoint.png" alt-text="Screenshot shows built in endpoints." lightbox="./media/azure-iot-hub/built-in-endpoint.png":::
 
-Within the connection string you find a service bus URL (URL of the underlying event hub namespace), which you needs to add as a bootstrap server in your kafka source. In this case it is `iothub-ns-sagiri-iot-25146639-20dff4e426.servicebus.windows.net:9093`
+Within the connection string you can find a service bus URL (URL of the underlying event hub namespace), which you needs to add as a bootstrap server in your kafka source. In this case it is `iothub-ns-sagiri-iot-25146639-20dff4e426.servicebus.windows.net:9093`
 
 The topic name is same as the event hub-compatible name in the given image. In this case, it is `sagiri-iot`.
 
