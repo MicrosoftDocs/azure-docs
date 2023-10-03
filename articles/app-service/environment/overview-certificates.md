@@ -67,10 +67,10 @@ Export-Certificate -Cert $certThumbprint -FilePath $fileName -Type CERT
 
 ## Private server certificate
 
-If your app acts as a server in a client-server model, either behind a reverse proxy or directly with private client and you're using a private CA certificate, you need to upload the server certificate (*.pfx* file) to your app and bind the certificate to the app. Because the front end servers are dedicated to your App Service Environment, the full certificate chain is added to the trust store of the front end servers. You only need to upload the certificate once to use it with apps that are in the same App Service Environment.
+If your app acts as a server in a client-server model, either behind a reverse proxy or directly with private client and you're using a private CA certificate, you need to upload the server certificate (*.pfx* file) with the full certificate chain to your app and bind the certificate to the custom domain. Because the infrastructure is dedicated to your App Service Environment, the full certificate chain is added to the trust store of the servers. You only need to upload the certificate once to use it with apps that are in the same App Service Environment.
 
 >[!NOTE]
-> If you uploaded your certificate prior to 1. October 2023, you will need to reupload and rebind the certificate for the full certificate chain to be added to the front end servers.
+> If you uploaded your certificate prior to 1. October 2023, you will need to reupload and rebind the certificate for the full certificate chain to be added to the servers.
 
 Follow the [secure custom domain with TLS/SSL](../configure-ssl-bindings.md) tutorial to upload/bind your private CA rooted certificate to the app in your App Service Environment.
 
