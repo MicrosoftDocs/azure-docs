@@ -77,13 +77,13 @@ Use these detailed steps and commands to migrate your Apache HBase cluster with 
    
    1. Verify HBCK Report page on HBase UI.  Healthy cluster does not show any inconsistencies
 
-      :::image type="content" source="./media/apache-hbase-migrate-new-version/verify-hbck-report.png" alt-text="Screenshot showing how to verify HBCK report.":::
+      :::image type="content" source="./media/apache-hbase-migrate-new-version/verify-hbck-report.png" alt-text="Screenshot showing how to verify HBCK report." lightbox="./media/apache-hbase-migrate-new-version/verify-hbck-report.png":::
       
    1. If any inconsistencies exists, please fix inconsistencies using [hbase hbck2](/azure/hdinsight/hbase/how-to-use-hbck2-tool/)
 
 1. Note down number of regions in online at source cluster, so that the number can be refered at destination cluster after the migration. 
 
-   :::image type="content" source="./media/apache-hbase-migrate-new-version/total-number-of-regions.png" alt-text="Screenshot showing count of number of regions.":::
+   :::image type="content" source="./media/apache-hbase-migrate-new-version/total-number-of-regions.png" alt-text="Screenshot showing count of number of regions." lightbox="./media/apache-hbase-migrate-new-version/total-number-of-regions.png":::
    
 1. If replication enabled on the cluster, please stop it and reenable the replication on destination cluster after migration. Refer [HBase replication guide](/azure/hdinsight/hbase/apache-hbase-replication/)  
 
@@ -103,14 +103,14 @@ Use these detailed steps and commands to migrate your Apache HBase cluster with 
 
     1. Verity the Procedures page to confirm that there are no pending procedures.
     
-        :::image type="content" source="./media/apache-hbase-migrate-new-version/verify-master-process.png" alt-text="Screenshot showing how to verify master process."::: 
+        :::image type="content" source="./media/apache-hbase-migrate-new-version/verify-master-process.png" alt-text="Screenshot showing how to verify master process." lightbox="./media/apache-hbase-migrate-new-version/verify-master-process.png"::: 
 1. STOP HBase
 
    1. Sign in to [Apache Ambari](https://ambari.apache.org/) on the source cluster with `https://<OLDCLUSTERNAME>.azurehdinsight.net`
    1. Turn on maintenance mode for HBase.
    1. Stop HBase Masters only first. First stop standby masters, in last stop Active HBase master.
    
-       :::image type="content" source="./media/apache-hbase-migrate-new-version/stop-master-services.png" alt-text="Screenshot showing how to stop master services.":::
+       :::image type="content" source="./media/apache-hbase-migrate-new-version/stop-master-services.png" alt-text="Screenshot showing how to stop master services." lightbox="./media/apache-hbase-migrate-new-version/stop-master-services.png":::
 
    1. Stop the HBase service, it stops remaining servers.
    
