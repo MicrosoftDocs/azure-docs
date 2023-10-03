@@ -9,7 +9,7 @@ ms.subservice: teams-interop
 ms.topic: how-to 
 ms.date: 06/15/2023
 ms.custom: template-how-to
-
+zone_pivot_groups: acs-plat-web-ios-android-windows
 ---
 
 # Manage Teams meeting lobby
