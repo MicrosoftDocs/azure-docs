@@ -476,6 +476,8 @@ items:
           href: enable-diagnostic-logs-topic.md
         - name: View metrics
           href: monitor-event-delivery.md
+        - name: Monitoring data reference (push delivery)
+          href: monitor-push-reference.md
         - name: Create alerts
           href: set-alerts.md
         - name: Troubleshoot Event Grid issues
@@ -488,26 +490,6 @@ items:
           href: troubleshoot-subscription-validation.md
     - name: Reference
       items:
-      - name: SDKs
-        href: sdk-overview.md
-      - name: Azure CLI
-        href: /cli/azure/eventgrid
-      - name: PowerShell
-        href: /powershell/module/az.eventgrid
-      - name: REST
-        href: /rest/api/eventgrid
-      - name: .NET
-        href: /dotnet/api/overview/azure/event-grid?view=azure-dotnet-preview&preserve-view=true
-      - name: Java
-        href: /java/api/overview/azure/event-grid?view=azure-java-preview&preserve-view=true
-      - name: Python
-        href: /python/api/overview/azure/event-grid?view=azure-python-preview&preserve-view=true
-      - name: Node.js
-        href: /javascript/api/overview/azure/event-grid?view=azure-node-preview&preserve-view=true
-      - name: Quotas and limits
-        href: quotas-limits.md
-      - name: Monitoring data reference (push delivery)
-        href: monitor-push-reference.md
       - name: Subscription schema
         href: subscription-creation-schema.md
       - name: Template resources
