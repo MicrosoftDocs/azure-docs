@@ -10,21 +10,21 @@ ms.author: mmitrik
 
 # What is the DICOM service?
 
-The Digital Imaging and Communications in Medicine (DICOM) service is a cloud-based solution that enables healthcare organizations to store, manage, and exchange medical imaging data securely and efficiently with any DICOMweb&trade;-enabled systems or applications. The DICOM service is part of Azure Health Data Services.
+The DICOM service is a cloud-based solution that enables healthcare organizations to store, manage, and exchange medical imaging data securely and efficiently with any DICOMweb&trade;-enabled systems or applications. The DICOM service is part of [Azure Health Data Services](../healthcare-apis-overview.md).
 
 The DICOM service offers many benefits, including:
 
 - **Global availability**. The DICOM service is available in any of the regions where Azure Health Data Services is available. Microsoft is continuously expanding availability of the DICOM service, so check [regional availability](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=health-data-services&regions=all) for updates.
 
-- **Scalability**. The DICOM service supports different workload levels at hospitals and within regions on a global scale without sacrificing any performance spec by using autoscaling features.
+- **PHI compliance**. The DICOM service is designed for protected health information (PHI), meeting all regional compliance requirements including HIPAA, GDPR, and CCPA.
+
+- **Scalability**. The DICOM service scales to support everything from small imaging archives in a clinic to large imaging archives with petabytes of data and thousands of new studies added daily.
 
 - **Advanced threat protection**. The DICOM service uses machine learning and AI to identify and block any potential or emerging threats to your organization's data, such as ransomware, SQL injection, or data exfiltration.
 
 - **Multi-region failover**. The DICOM service replicates your organization's data across multiple regions. If one region fails or becomes unavailable, your data can be accessed from another region without interruption.
 
 - **Role-based access control (RBAC)**. RBAC enables you to manage how your organization's data is stored and accessed. You determine who has access to datasets based on roles you define for your environment.
-
-- **Open-source DICOM server project**. The [open-source DICOM server project](https://github.com/microsoft/dicom-server) is regularly checked for feature parity with Azure managed service to enable developers to deploy open source versions as a set of Docker containers, which speeds up development and testing.
 
 ## Use imaging data to enable healthcare scenarios
 
@@ -44,13 +44,15 @@ FHIR&trade; supports integration of other types of data directly, or through ref
 
 - **Close the feedback loop with teleradiologists**. Teleradiologists are often unable to find out about the accuracy and quality of their diagnoses because they don't have access to patient data after the initial read. With limited or no access to clinical results or outcomes, they miss opportunities to improve their skills. Through integration with FHIR&trade;, an organization can create a tool that provides direct feedback to teleradiologists, helping them make better recommendations in the future.
 
-- **Close the feedback loop for AI and machine learning models**. Third-party machine learning model providers often lack real-world feedback to refine their models. For example, an ISV rarely gets feedback from physicians on the accuracy of their recommended treatment plans for heart surgery. Integrating with FHIR™ enables organizations to provide feedback to the model retraining pipeline.
-
 ## Manage medical imaging data securely and efficiently
 
 The DICOM service enables organizations to manage medical imaging data with several key capabilities:
 
 - **Data isolation**. The DICOM service assigns a unique database to each API instance, which means your organization's data isn't mixed with other organizations' data.
+
+- **Worklist Service support**. The DICOM service supports the Push and Pull SOPs of the [Worklist Service (UPS-RS)](https://dicom.nema.org/medical/dicom/current/output/html/part18.html#chapter_11). This service provides access to one Worklist containing Workitems, each of which represents a Unified Procedure Step (UPS).Studies Service
+
+- **Studies Service support**. The [Studies Service](https://dicom.nema.org/medical/dicom/current/output/html/part18.html#chapter_10) allows users to store, retrieve, and search for DICOM studies, series, and instances. Microsoft includes the nonstandard delete transaction to enable a full resource lifecycle.
 
 - **Extended query tags**. The DICOM service allows you to expand the list of tags specified in the [DICOM Conformance Statement](dicom-services-conformance-statement-v2.md) so you can index DICOM studies, series, and instances on standard or private DICOM tags.
 
@@ -58,15 +60,17 @@ The DICOM service enables organizations to manage medical imaging data with seve
 
 - **DICOMcast**. DICOMcast is an [open-source capability](https://github.com/microsoft/dicom-server/blob/main/docs/quickstarts/deploy-dicom-cast.md) that can be self-hosted in Azure. DICOMcast enables a single source of truth for clinical data and imaging metadata. With DICOMcast, the DICOM service can inject DICOM metadata into a FHIR service or FHIR server as an imaging study resource.
 
+- **Export files**. The DICOM service allows you to [export DICOM data](export-dicom-files.md) in a file format, simplifying the process of using medical imaging in external workflows such as AI and machine learning. 
+
 ## Prerequisites to deploy the DICOM service
 
-Your organization needs an Azure subscription to configure and run the required components. By default, the components are created inside of an Azure resource group to simplify management. Additionally, a Microsoft Entra ID account is required. For each instance of the DICOM service, Microsoft creates a combination of isolated and multitenant resources.
+Your organization needs an Azure subscription to configure and run the components required for the DICOM service. By default, the components are created inside of an Azure resource group to simplify management. Additionally, a Microsoft Entra ID account is required. For each instance of the DICOM service, Microsoft creates a combination of isolated and multitenant resources.
  
 ## Next steps
 
 [Deploy DICOM service to Azure](deploy-dicom-services-in-azure.md)
 
-[Use DICOMweb&trade;Standard APIs with DICOM service](dicomweb-standard-apis-with-dicom-services.md)
+[Use DICOMweb standard APIs](dicomweb-standard-apis-with-dicom-services.md)
 
 > [!NOTE]
 > FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
