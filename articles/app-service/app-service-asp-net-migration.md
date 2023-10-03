@@ -13,7 +13,7 @@ ms.custom: seodec18, devx-track-dotnet
 
 Azure App Service provides easy-to-use tools to quickly discover on-premises .NET web apps, assess for readiness, and migrate both the content & supported configurations to App Service.
 
-These tools are developed to support different kinds of scenarios, focused on discovery, assessment, and migration. Following is list of .NET migration tools and use cases.
+These tools are developed to support different kinds of scenarios, focused on discovery, assessment, and migration. Following is list of .NET migration tools and use cases. test
 
 ## Migrate from multiple servers at-scale
 
