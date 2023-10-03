@@ -16,7 +16,8 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, event
 
 **This article applies to:** ✔️ Java ❌ C#
 
-**This article applies to:** ❌ Standard consumption and dedicated (Preview) ✔️ Basic/Standard ❌ Enterprise
+**This article applies to:** <br>
+❌ Standard consumption and dedicated (Preview) ✔️ Basic/Standard ❌ Enterprise
 
 This article shows you how to observe your production applications deployed on Azure Spring Apps and diagnose and investigate production issues. Observability is the ability to collect insights, analytics, and actionable intelligence through the logs, metrics, traces, and alerts.
 
@@ -38,13 +39,13 @@ Log Analytics and Application Insights are deeply integrated with Azure Spring A
 - [Overview of Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-overview.md)
 - [Azure Monitor Insights overview](../azure-monitor/insights/insights-overview.md)
 
-## 1. Prerequisites
+## Prerequisites
 
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [application-observability-with-basic-standard-plan](includes/application-observability/application-observability-with-basic-standard-plan.md)]
 
-## 4. Query logs to diagnose an application problem
+## Query logs to diagnose an application problem
 
 If you encounter production issues, you need to do a root cause analysis. Finding logs is an important part of this analysis, especially for distributed applications with logs spread across multiple applications. The trace data collected by Application Insights can help you find the log information for all related links, including the exception stack information.
 
@@ -53,7 +54,7 @@ This section explains how to use Log Analytics to query the application logs and
 - [Log Analytics tutorial](../azure-monitor/logs/log-analytics-tutorial.md)
 - [Application Map: Triage distributed applications](../azure-monitor/app/app-map.md)
 
-### 4.1. Log queries
+### Log queries
 
 This section explains how to query application logs from the `AppPlatformLogsforSpring` table hosted by Azure Spring Apps. You can use the [Kusto Query Language](/azure/data-explorer/kusto/query/) to customize your queries for application logs.
 
@@ -105,7 +106,7 @@ AppPlatformLogsforSpring
 
 :::image type="content" source="media/application-observability/show-error-logs.png" alt-text="Screenshot of the Azure portal that shows the Logs page with the example query and root cause logs." lightbox="media/application-observability/show-error-logs.png":::
 
-### 4.2. Investigate request failures
+### Investigate request failures
 
 Use the following steps to investigate request failures in the application cluster and to view the failed request list and specific examples of the failed requests:
 
@@ -123,7 +124,7 @@ Use the following steps to investigate request failures in the application clust
 
    :::image type="content" source="media/application-observability/application-insights-e2e-exception.png" alt-text="Screenshot of the Azure portal that shows the End-to-end transaction details page with Application Insights failures." lightbox="media/application-observability/application-insights-e2e-exception.png":::
 
-## 5. Improve the application performance using Application Insights
+## Improve the application performance using Application Insights
 
 If there's a performance issue, the trace data collected by Application Insights can help find the log information of all relevant links, including the execution time of each link, to help find the location of the performance bottleneck.
 
@@ -145,7 +146,7 @@ To use Application Insights to investigate the performance issues, use the follo
 
 [!INCLUDE [clean-up-resources-portal](includes/application-observability/clean-up-resources.md)]
 
-## 7. Next steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Set up a staging environment](../spring-apps/how-to-staging-environment.md)
