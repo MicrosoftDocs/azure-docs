@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 09/26/2023
+ms.date: 10/02/2023
 ms.author: sarahlipsey
 ms.reviewer: egreenberg14
 ---
@@ -85,7 +85,7 @@ When reviewing the logs for this situation, the sign-in logs for the home tenant
 
 The service principal sign-in logs don't include first-party, app-only sign-in activity. This type of activity happens when first-party apps get tokens for an internal Microsoft job where there's no direction or context from a user. We exclude these logs so you're not paying for logs related to internal Microsoft tokens within your tenant. 
 
-You may identify Microsoft Graph events that don't correlate to a service principal sign-in if you're routing `MicrosoftGraphActivityLogs` with `SignInLogs` to the same Log Analytics workspace. This integration allows you to cross reference the token issued by the Microsoft Graph activity with the sign-in. The `UniqueTokenIdentifier` in the Microsoft Graph activity logs would be missing from the service principal sign-in logs.
+You may identify Microsoft Graph events that don't correlate to a service principal sign-in if you're routing `MicrosoftGraphActivityLogs` with `SignInLogs` to the same Log Analytics workspace. This integration allows you to cross reference the token issued for the Microsoft Graph API call with the sign-in activity. The `UniqueTokenIdentifier` for sign-in logs and the `SignInActivityId` in the Microsoft Graph activity logs would be missing from the service principal sign-in logs.
 
 ### Non-interactive user sign-ins
 

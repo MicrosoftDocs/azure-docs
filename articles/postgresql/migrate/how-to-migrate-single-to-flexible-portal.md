@@ -94,7 +94,7 @@ The **Source** tab prompts you to give details related to the Single Server that
 
 :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migration-source.png" alt-text="Screenshot of source database server details." lightbox="./media/concepts-single-to-flexible/single-to-flex-migration-source.png":::
 
-After you make the **Subscription** and  **Resource Group** selections, the dropdown list for server names shows Single Servers under that resource group across regions. Select the source that you want to migrate databases from. Note that you can migrate databases from a Single Server to a target Flexible Server in the same region - cross region migrations aren't supported.
+After you make the **Subscription** and  **Resource Group** selections, the dropdown list for server names shows Single Servers under that resource group across regions. Select the source that you want to migrate databases from. Note that you can migrate databases from a Single Server to a target Flexible Server in the same region - cross region migrations are supported only in China regions.
 
 After you choose the Single Server source, the **Location**, **PostgreSQL version**, and **Server admin login name** boxes are populated automatically. The server admin login name is the admin username used to create the Single Server. In the **Password** box, enter the password for that admin user. The migration tool performs the migration of single server databases as the admin user.
 
