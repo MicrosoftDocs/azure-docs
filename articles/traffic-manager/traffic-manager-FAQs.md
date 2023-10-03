@@ -450,7 +450,7 @@ Traffic Manager monitoring settings are at a per profile level. If you need to u
 ### How can I assign HTTP headers to the Traffic Manager health checks to my endpoints?
 
 Traffic Manager allows you to specify custom headers in the HTTP(S) health checks it initiates to your endpoints. If you want to specify a custom header, you can do that at the profile level (applicable to all endpoints) or specify it at the endpoint level. If a header is defined at both levels, then the one specified at the endpoint level overrides the profile level 1.
-One common use case for this is specifying host headers so that Traffic Manager requests may get routed correctly to an endpoint hosted in a multi-tenant environment. Another use case of this is to identify Traffic Manager requests from an endpoint's HTTP(S) request logs
+One common use case for this is specifying host headers so that Traffic Manager requests may get routed correctly to an endpoint hosted in a multitenant environment. Another use case of this is to identify Traffic Manager requests from an endpoint's HTTP(S) request logs
 
 ### What host header do endpoint health checks use?
 
