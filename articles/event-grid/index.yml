@@ -34,7 +34,7 @@ landingContent:
           - text: MQTT Messaging
             url: mqtt-overview.md
  # Card
-  - title: MQTT messaging (Preview)
+  - title: MQTT messaging
     linkLists:
       - linkListType: overview
         links:
@@ -64,7 +64,7 @@ landingContent:
             url: mqtt-routing.md
 
  # Card
-  - title: Push delivery
+  - title: Event Grid Basic
     linkLists:
       - linkListType: concept
         links:
@@ -102,7 +102,7 @@ landingContent:
             url: onboard-partner.md
 
  # Card
-  - title: Pull delivery (Preview)
+  - title: Event Grid namespaces
     linkLists:
       - linkListType: concept
         links:
