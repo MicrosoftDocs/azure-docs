@@ -671,7 +671,7 @@ With Microsoft.Resources/deploymentScripts version 2023-08-01, you can run deplo
     1. Under **Virtual networks**, add a subnet. On the screenshot, the subnet is called *dspvnVnet*.
     1. Under **Exceptions**, select **Allow Azure services on the trusted services list to access this storage account**.
 
-The following ARM template shows how to configure the environment:
+The following ARM template shows how to configure the environment for running a deployment script:
 
 ```json
 {
@@ -679,8 +679,7 @@ The following ARM template shows how to configure the environment:
   "contentVersion": "1.0.0.0",
   "parameters": {
     "prefix": {
-      "type": "string",
-      "defaultValue": "dspvn"
+      "type": "string"
     },
     "location": {
       "type": "string",
@@ -846,8 +845,7 @@ You can use the following ARM template to test the deployment:
   "contentVersion": "1.0.0.0",
   "parameters": {
     "prefix": {
-      "type": "string",
-      "defaultValue": "dspvn"
+      "type": "string"
     },
     "location": {
       "type": "string",
