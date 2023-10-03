@@ -22,7 +22,7 @@ This guide walks you through the following:
 
 1. Open your Azure Data Factory resource -> Select **Diagnostic settings** on the left navigation pane -> Select “Add Diagnostic setting.”
 
-   :::image type="content" source="media/diagnostics-logs-and-metrics-for-managed-airflow/start-with-diagnostic-logs.png" alt-text="Screenshot that shows where diagnostic logs is located in data factory.":::
+   :::image type="content" source="media/diagnostics-logs-and-metrics-for-managed-airflow/start-with-diagnostic-logs.png" alt-text="Screenshot that shows where diagnostic logs tab is located in data factory." lightbox="media/diagnostics-logs-and-metrics-for-managed-airflow/start-with-diagnostic-logs.png":::
 
 2. Fill out the Diagnostic settings name -> Select the following categories for the Airflow Logs
 
@@ -93,13 +93,13 @@ Azure Data Factory offers comprehensive metrics for Airflow Integration Runtimes
 1. Open your Azure Data Factory Resource.
 
 2. In the left navigation pane, Click **Metrics** under Monitoring section.
-   :::image type="content" source="media/diagnostics-logs-and-metrics-for-managed-airflow/metrics.png" alt-text="Screenshot that where metrics tab is located in data factory.":::
+   :::image type="content" source="media/diagnostics-logs-and-metrics-for-managed-airflow/metrics-in-data-factory-studio.png" alt-text="Screenshot that shows where metrics tab is located in data factory.":::
 
 3. Select the scope -> Metric Namespace -> Metric you want to monitor.
    :::image type="content" source="media/diagnostics-logs-and-metrics-for-managed-airflow/monitor-metrics.png" alt-text="Screenshot that shows metrics to select.":::
 
 4. For example, we created the multi-line chart, to visualize the Integration Runtime CPU Percentage and Airflow Integration Runtime Dag Bag Size.
-   :::image type="content" source="media/diagnostics-logs-and-metrics-for-managed-airflow/multi-line-chart.png" alt-text="Screenshot that shows multi line chart of metrics.":::
+   :::image type="content" source="media/diagnostics-logs-and-metrics-for-managed-airflow/multi-line-chart.png" alt-text="Screenshot that shows multiline chart of metrics.":::
 
 5. You can set up an alert rule that triggers when specific conditions are met by your metrics.
    Refer to guide: [Overview of Azure Monitor alerts - Azure Monitor | Microsoft Learn](/azure/azure-monitor/alerts/alerts-overview)
