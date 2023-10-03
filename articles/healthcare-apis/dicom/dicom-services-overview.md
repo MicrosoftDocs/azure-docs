@@ -1,29 +1,38 @@
 ---
-title:  Overview of the DICOM service - Azure Health Data Services
-description: In this article, you'll learn concepts of DICOM and the DICOM service.
+title:  Overview of the DICOM service in Azure Health Data Services
+description: Get an overview of 
 author: mmitrik
 ms.service: healthcare-apis
-ms.subservice: fhir
-ms.topic: conceptual
-ms.date: 09/01/2023
+ms.subservice: DICOM
+ms.topic: overview
+ms.date: 10/06/2023
 ms.author: mmitrik
 ---
 
 # What is the DICOM service?
 
-DICOM (Digital Imaging and Communications in Medicine) is the international standard to transmit, store, retrieve, print, process, and display medical imaging information, and is the primary medical imaging standard accepted across healthcare. 
+The Digital Imaging and Communications in Medicine (DICOM) service is a cloud-based solution that enables healthcare organizations to store, manage, and exchange medical imaging data securely and efficiently with any DICOMweb&trade;-enabled systems or applications.
 
-The DICOM service is a managed service within [Azure Health Data Services](../healthcare-apis-overview.md) that ingests and persists DICOM objects at multiple thousands of images per second. It facilitates communication and transmission of imaging data with any DICOMweb&trade; enabled systems or applications via DICOMweb Standard APIs like [Store (STOW-RS)](dicom-services-conformance-statement-v2.md#store-stow-rs), [Search (QIDO-RS)](dicom-services-conformance-statement-v2.md#search-qido-rs), [Retrieve (WADO-RS)](dicom-services-conformance-statement-v2.md#retrieve-wado-rs). It's backed by a managed Platform-as-a Service (PaaS) offering in the cloud with complete [PHI](https://www.hhs.gov/answers/hipaa/what-is-phi/index.html) compliance that you can upload PHI data to the DICOM service and exchange it through secure networks. 
+The DICOM service offers these benefits:
 
-- **PHI Compliant**: Protect your PHI with unparalleled security intelligence. Your data is isolated to a unique database per API instance and protected with multi-region failover. The DICOM service implements a layered, in-depth defense and advanced threat protection for your data.
+- **Global availability**. The DICOM service is available in any of the regions where Azure Health Data Servives is available. Microsoft is continuously expanding availability of the DICOM service,so check [regional availability](https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/?products=health-data-services&regions=all) for updates.
+
+- **Scalability**. DICOM service is designed out-of-the-box to support different workload levels at a hospital, country/region, and global scale without sacrificing any performance spec by using autoscaling features.
+
+- **Advanced threat protection**. The DICOM service uses machine learning and AI to identify and block any potential or emerging threats to your organization's data, such as ransomware, SQL injection, or data exfiltration.
+
+- **Multi-region failover**. The DICOM service replicates your organization's data across multiple regions, which means that if one region fails or becomes unavailable, your data can be accessed from another region without interruption.
+
+- **Role-based access control (RBAC)**. RBAC enables you to manage how your organization's data is stored and accessed. You determine who has access to datasets  based on roles you define for your environment.
+
+- **Open-source DICOM server project**. The [open-source DICOM server project](https://github.com/microsoft/dicom-server) is regularly checked for feature parity with Azure managed service to enable developers to deploy open source versions as a set of Docker containers to speed up development and testing in their environments. They can also contribute to managed service features.
+
+
+
+- **Data isolation**. The DICOM service assigns a unique database for each API instance, which means your organization's data isn't mixed with other organizations' data.
 - **Extended Query Tags**: Additionally index DICOM studies, series, and instances on both standard and private DICOM tags by expanding list of tags that are already specified within [DICOM Conformance Statement](dicom-services-conformance-statement-v2.md).
 - **Change Feed**: Access ordered, guaranteed, immutable, read-only logs of all the changes that occur in DICOM service. Client applications can read these logs at any time independently, in parallel and at their own pace.
 - **DICOMcast**: Via DICOMcast, the DICOM service can inject DICOM metadata into a FHIR service, or FHIR server, as an imaging study resource allowing a single source of truth for both clinical data and imaging metadata. This feature is available as an open-source feature that can be self-hosted in Azure.  Learn more about [deploying DICOMcast](https://github.com/microsoft/dicom-server/blob/main/docs/quickstarts/deploy-dicom-cast.md).
-- **Region availability**: DICOM service has wide-range of [availability across many regions](https://azure.microsoft.com/global-infrastructure/services/?products=azure-api-for-fhir&regions=all) with multi-region failover protection and continuously expanding.
-- **Scalability**: DICOM service is designed out-of-the-box to support different workload levels at a hospital, country/region, and global scale without sacrificing any performance spec by using autoscaling features. 
-- **Role-based access**: You control your data. Role-based access control (RBAC) enables you to manage how your data is stored and accessed. Providing increased security and reducing administrative workload, you determine who has access to the datasets you create, based on role definitions you create for your environment.
-
-[Open-source DICOM-server project](https://github.com/microsoft/dicom-server) is also constantly monitored for feature parity with managed service so that developers can deploy open source version as a set of Docker containers to speed up development and test in their environments, and contribute to potential future managed service features.
 
 ## Applications for the DICOM service
 
