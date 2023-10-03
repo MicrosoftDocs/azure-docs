@@ -3,7 +3,6 @@ title: Reliability recommendations
 description: Full list of available reliability recommendations in Advisor.
 author: mabrahms
 ms.author: v-mabrahms
-ms.service: azure
 ms.topic: article
 ms.date: 09/27/2023
 ---
