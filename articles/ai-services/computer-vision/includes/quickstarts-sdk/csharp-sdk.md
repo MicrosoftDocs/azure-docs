@@ -4,8 +4,7 @@ description: In this quickstart, get started with the Optical character recognit
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.topic: include
 ms.date: 08/07/2023
 ms.author: pafarley
@@ -14,7 +13,7 @@ ms.custom: devx-track-csharp, ignite-2022
  
 <a name="HOLTop"></a>
 
-Use the optical character recognition (OCR) client library to read printed and handwritten text from an image. The OCR service can read visible text in an image and convert it to a character stream. For more information on text recognition, see the [OCR overview](../../overview-ocr.md). The code in this section uses the latest [Cognitive Services Computer Vision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/) package.
+Use the optical character recognition (OCR) client library to read printed and handwritten text from an image. The OCR service can read visible text in an image and convert it to a character stream. For more information on text recognition, see the [OCR overview](../../overview-ocr.md). The code in this section uses the latest [Azure AI Vision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/) package.
 
 > [!TIP]
 > You can also extract text from a local image. See the [ComputerVisionClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient) methods, such as **ReadInStreamAsync**. Or, see the sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs#162) for scenarios involving local images.

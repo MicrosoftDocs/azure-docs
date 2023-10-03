@@ -27,8 +27,6 @@ landingContent:
             url: overview.md
           - text: Get started with Azure Orbital Ground Station
             url: get-started.md
-          - text: What is the Azure Space Partner Community?
-            url: space-partner-program-overview.md  
 
   # Card
   - title: Get started with Earth Observation

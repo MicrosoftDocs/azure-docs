@@ -16,25 +16,18 @@ ms.custom: template-how-to
 
 Workflows created with Lifecycle Workflows are able to grow and change with the needs of your organization. Workflows exist as versions from creation. When making changes to other than basic information, you create a new version of the workflow. For more information, see  [Manage a workflow's properties](manage-workflow-properties.md).
 
-Changing a workflow's tasks or execution conditions requires the creation of a new version of that workflow. Tasks within workflows can be added, reordered, and removed at will. Updating a workflow's tasks or execution conditions within the Azure portal will trigger the creation of a new version of the workflow automatically. Making these updates in Microsoft Graph will require the new workflow version to be created manually.
+Changing a workflow's tasks or execution conditions requires the creation of a new version of that workflow. Tasks within workflows can be added, reordered, and removed at will. Updating a workflow's tasks or execution conditions within the Microsoft Entra admin center will trigger the creation of a new version of the workflow automatically. Making these updates in Microsoft Graph will require the new workflow version to be created manually.
 
 
-## Edit the tasks of a workflow using the Azure portal
+## Edit the tasks of a workflow using the Microsoft Entra admin center
 
-[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+Tasks within workflows can be added, edited, reordered, and removed at will. To edit the tasks of a workflow using the Microsoft Entra admin center, you complete the following steps:
 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Lifecycle Workflows Administrator](../roles/permissions-reference.md#lifecycle-workflows-administrator).
 
-Tasks within workflows can be added, edited, reordered, and removed at will. To edit the tasks of a workflow using the Azure portal, you complete the following steps:
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. Type in **Identity Governance** on the search bar near the top of the page and select it.
-
-1. In the left menu, select **Lifecycle workflows**. 
-
-1. In the left menu, select **workflows**.
+1. Browse to **Identity governance** > **Lifecycle workflows** > **workflows**.
     
-1. On the left side of the screen, select **Tasks**.
+1. Select the workflow that you want to edit the tasks of and on the left side of the screen, select **Tasks**.
 
 1. You can add a task to the workflow by selecting the **Add task** button.
 
@@ -49,9 +42,9 @@ Tasks within workflows can be added, edited, reordered, and removed at will. To 
 1. After making changes, select **save** to capture changes to the tasks.
 
 
-## Edit the execution conditions of a workflow using the Azure portal
+## Edit the execution conditions of a workflow using the Microsoft Entra admin center
 
-To edit the execution conditions of a workflow using the Azure portal, you do the following steps:
+To edit the execution conditions of a workflow using the Microsoft Entra admin center, you do the following steps:
 
 
 1. On the left menu of Lifecycle Workflows, select **Workflows**.
@@ -70,7 +63,7 @@ To edit the execution conditions of a workflow using the Azure portal, you do th
 1. After making changes, select **save** to capture changes to the execution conditions.
 
 
-## See versions of a workflow using the Azure portal
+## See versions of a workflow using the Microsoft Entra admin center
 
 1. On the left menu of Lifecycle Workflows, select **Workflows**.
 

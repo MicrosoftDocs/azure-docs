@@ -5,6 +5,8 @@ description: Troubleshoot intermittent connection errors and related performance
 ms.topic: troubleshooting
 ms.date: 06/28/2023
 ms.custom: security-recommendations,fasttrack-edit
+ms.author: msangapu
+author: msangapu-msft
 
 ---
 

@@ -17,4 +17,4 @@
 
 <!--Reference-style links -->
 
-[preview-tos]: https://aka.ms/EntraPreviewsTermsOfUse
+[preview-tos]: https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all

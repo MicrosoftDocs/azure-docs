@@ -5,8 +5,7 @@ description: Learn about entity resolutions in the NER feature.
 services: cognitive-services
 author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: conceptual
 ms.date: 10/12/2022
 ms.author: jboback

@@ -50,8 +50,6 @@
         href: tutorial-assess-vmware-azure-vm.md
       - name: Assess SQL instances for migration to Azure SQL
         href: tutorial-assess-sql.md
-      - name: Assess ASP.NET web apps for migration to App Service
-        href: tutorial-assess-webapps.md
       - name: Assess servers for migration to AVS
         href: tutorial-assess-vmware-azure-vmware-solution.md
     - name: Assess servers in Hyper-V environment 
@@ -60,20 +58,18 @@
         href: tutorial-assess-hyper-v.md
       - name: Assess SQL instances for migration to Azure SQL
         href: tutorial-assess-sql.md
-      - name: Assess ASP.NET web apps for migration to App Service
-        href: tutorial-assess-webapps-hyper-v.md
     - name: Assess physical servers
       items:
       - name: Assess servers for migration to Azure VMs
         href: tutorial-assess-physical.md
       - name: Assess SQL instances for migration to Azure SQL
         href: tutorial-assess-sql.md 
-      - name: Assess ASP.NET web apps for migration to App Service
-        href: tutorial-assess-webapps-physical.md
     - name: Assess AWS instances for migration to Azure
       href: tutorial-assess-aws.md
     - name: Assess GCP instances for migration to Azure
       href: tutorial-assess-gcp.md
+    - name: Assess ASP.NET web apps for migration to App Service
+      href: tutorial-assess-webapps.md
     - name: Build business case or assess imported servers for migration to Azure
       href: tutorial-discover-import.md
   - name: Migrate

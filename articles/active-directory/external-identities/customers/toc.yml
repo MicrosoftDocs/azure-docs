@@ -1,10 +1,10 @@
 items:  
-- name: Azure Active Directory for customers documentation  
+- name: Microsoft Entra ID for customers documentation  
   href: index.yml  
 - name: Overview  
   expanded: true  
   items:   
-    - name: What is Azure Active Directory for customers?  
+    - name: What is Microsoft Entra ID for customers?  
       href: overview-customers-ciam.md 
     - name: Demo overview
       href: overview-solutions-customers.md
@@ -13,10 +13,12 @@ items:
 - name: Quickstarts
   expanded: true
   items: 
-    - name: Set up a free trial
+    - name: Start a free trial without an Azure subscription
       href: quickstart-trial-setup.md 
-    - name: Set up a tenant
+    - name: Create a tenant with an Azure subscription
       href: quickstart-tenant-setup.md
+    - name: Get started guide walkthrough
+      href: quickstart-get-started-guide.md
 - name: Samples
   expanded: true
   items: 
@@ -258,6 +260,7 @@ items:
         href: how-to-register-ciam-app.md
       - name: Add a sign-up and sign-in flow
         href: how-to-user-flow-sign-up-sign-in-customers.md
+        displayName: disable sign-up, disable sign up 
       - name: Add an application to the user flow
         href: how-to-user-flow-add-application.md
       - name: Enable password reset
@@ -335,13 +338,13 @@ items:
           href: /dotnet/api/microsoft.identitymodel.abstractions
         - name: MSAL.js
           items:
-          - name: msal-angular
+          - name: MSAL-angular
             href: /javascript/api/@azure/msal-angular/
-          - name: msal-browser
+          - name: MSAL-browser
             href: /javascript/api/@azure/msal-browser/
-          - name: msal-react
+          - name: MSAL-react
             href: /javascript/api/@azure/msal-react/
-          - name: msal-node
+          - name: MSAL-node
             href: /javascript/api/@azure/msal-node/
 - name: Resources
   items:

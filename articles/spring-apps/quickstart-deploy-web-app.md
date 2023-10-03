@@ -18,6 +18,8 @@ zone_pivot_groups: spring-apps-plan-selection
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
+**This article applies to:** ✔️ Standard consumption and dedicated (Preview) ✔️ Basic/Standard ✔️ Enterprise
+
 This quickstart shows how to deploy a Spring Boot web application to Azure Spring Apps. The sample project is a simple ToDo application to add tasks, mark when they're complete, and then delete them. The following screenshot shows the application:
 
 :::image type="content" source="./media/quickstart-deploy-web-app/todo-app.png" alt-text="Screenshot of a sample web application in Azure Spring Apps." lightbox="./media/quickstart-deploy-web-app/todo-app.png":::
@@ -32,18 +34,18 @@ The following diagram shows the architecture of the system:
 
 :::image type="content" source="media/quickstart-deploy-web-app/diagram.png" alt-text="Diagram that shows the architecture of a Spring web application." border="false":::
 
-::: zone pivot="sc-standard"
+::: zone pivot="sc-consumption-plan,sc-standard"
 
-This article provides the following options for deploying to Azure Spring Apps:
+This article describes the following options for creating resources and deploying them to Azure Spring Apps:
 
-- Azure portal - This is a more conventional way to create resources and deploy applications step by step. This approach is suitable for Spring developers who are using Azure cloud services for the first time.
-- Azure Developer CLI: This is a more efficient way to automatically create resources and deploy applications through simple commands, and it covers application code and infrastructure as code files needed to provision the Azure resources. This approach is suitable for Spring developers who are familiar with Azure cloud services.
+- Azure portal: Use the Azure portal to create resources and deploy applications step by step. The Azure portal is suitable for developers who are using Azure cloud services for the first time.
+- Azure Developer CLI: Use the Azure Developer CLI to create resources and deploy applications through simple commands, and to cover application code and infrastructure as code files needed to provision the Azure resources. The Azure Developer CLI is suitable for developers who are familiar with Azure cloud services.
 
 ::: zone-end
 
 ## 1. Prerequisites
 
-::: zone pivot="sc-standard"
+::: zone pivot="sc-consumption-plan,sc-standard"
 
 ### [Azure portal](#tab/Azure-portal)
 
@@ -56,23 +58,18 @@ This article provides the following options for deploying to Azure Spring Apps:
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
-- [Azure Developer CLI](https://aka.ms/azd-install), version 1.0.
+- [Azure Developer CLI (AZD)](/azure/developer/azure-developer-cli/install-azd), version 1.2.0 or higher.
 
 ---
 
 ::: zone-end
 
-::: zone pivot="sc-consumption-plan,sc-enterprise"
+::: zone pivot="sc-enterprise"
 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
 - [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher. Use the following command to install the Azure Spring Apps extension: `az extension add --name spring`
-
-::: zone-end
-
-::: zone pivot="sc-enterprise"
-
 - If you're deploying an Azure Spring Apps Enterprise plan instance for the first time in the target subscription, see the [Requirements](./how-to-enterprise-marketplace-offer.md#requirements) section of [Enterprise plan in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
 
 ::: zone-end
@@ -99,35 +96,11 @@ This article provides the following options for deploying to Azure Spring Apps:
 
 Now you can access the deployed app to see whether it works. Use the following steps to validate:
 
-::: zone pivot="sc-consumption-plan"
-
-1. After the deployment has completed, use the following command to access the app with the URL retrieved:
-
-   ```azurecli
-   az spring app show \
-       --service ${AZURE_SPRING_APPS_NAME} \
-       --name ${APP_NAME} \
-       --query properties.url \
-       --output tsv
-   ```
-
-   The page should appear as you saw in localhost.
-
-1. Use the following command to check the app's log to investigate any deployment issue:
-
-   ```azurecli
-   az spring app logs \
-       --service ${AZURE_SPRING_APPS_NAME} \
-       --name ${APP_NAME}
-   ```
-
-::: zone-end
-
 ::: zone pivot="sc-enterprise"
 
-1. After the deployment has completed, you can access the app with this URL: `https://${AZURE_SPRING_APPS_NAME}-${APP_NAME}.azuremicroservices.io/`. The page should appear as you saw in localhost.
+1. After the deployment is complete, you can access the app with this URL: `https://${AZURE_SPRING_APPS_NAME}-${APP_NAME}.azuremicroservices.io/`. The page should appear as you saw in localhost.
 
-1. Use the following command to check the app's log to investigate any deployment issue:
+1. To check the app's log to investigate any deployment issue, use the following command:
 
    ```azurecli
    az spring app logs \
@@ -137,11 +110,11 @@ Now you can access the deployed app to see whether it works. Use the following s
 
 ::: zone-end
 
-::: zone pivot="sc-standard"
+::: zone pivot="sc-consumption-plan,sc-standard"
 
 1. Access the application with the output application URL. The page should appear as you saw in localhost.
 
-1. From the navigation pane of the Azure Spring Apps instance overview page, select **Logs** to check the app's logs.
+1. From the navigation menu of the Azure Spring Apps instance overview page, select **Logs** to check the app's logs.
 
    :::image type="content" source="media/quickstart-deploy-web-app/logs.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps logs page." lightbox="media/quickstart-deploy-web-app/logs.png":::
 
@@ -149,15 +122,15 @@ Now you can access the deployed app to see whether it works. Use the following s
 
 ## 6. Clean up resources
 
-::: zone pivot="sc-standard"
+::: zone pivot="sc-standard, sc-consumption-plan"
 
 [!INCLUDE [clean-up-resources-portal-or-azd](includes/quickstart-deploy-web-app/clean-up-resources.md)]
 
 ::: zone-end
 
-::: zone pivot="sc-enterprise, sc-consumption-plan"
+::: zone pivot="sc-enterprise"
 
-If you plan to continue working with subsequent quickstarts and tutorials, you might want to leave these resources in place. When you no longer need the resources, delete them by deleting the resource group. Use the following command to delete the resource group:
+If you plan to continue working with subsequent quickstarts and tutorials, you might want to leave these resources in place. When you no longer need the resources, delete them by deleting the resource group. To delete the resource group, use the following command:
 
 ```azurecli
 az group delete --name ${RESOURCE_GROUP}

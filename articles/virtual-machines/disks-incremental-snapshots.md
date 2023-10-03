@@ -4,7 +4,7 @@ description: Learn about incremental snapshots for managed disks, including how 
 author: roygara
 ms.service: azure-disk-storage
 ms.topic: how-to
-ms.date: 08/17/2023
+ms.date: 09/13/2023
 ms.author: rogarana
 ms.custom: devx-track-azurepowershell, ignite-fall-2021, devx-track-azurecli, ignite-2022, references_regions, devx-track-arm-template
 ms.devlang: azurecli
@@ -141,8 +141,80 @@ You can also use Azure Resource Manager templates to create an incremental snaps
   ]
 }
 ```
-
 ---
+
+## Check snapshot status
+
+Incremental snapshots of Premium SSD v2 or Ultra Disks can't be used to create new disks until the background process copying the data into the snapshot has completed.
+
+You can use either the [CLI](#cli) or [PowerShell](#powershell) sections to check the status of the background copy from a disk to a snapshot.
+
+### CLI
+
+You have two options for getting the status of snapshots. You can either get a [list of all incremental snapshots associated with a specific disk](#cli---list-incremental-snapshots), and their respective status, or you can get the [status of an individual snapshot](#cli---individual-snapshot).
+
+#### CLI - List incremental snapshots
+
+The following script returns a list of all snapshots associated with a particular disk. The value of the `CompletionPercent` property of any snapshot must be 100 before it can be used. Replace `yourResourceGroupNameHere`, `yourSubscriptionId`, and `yourDiskNameHere` with your values then run the script:
+
+```azurecli
+# Declare variables and create snapshot list
+subscriptionId="yourSubscriptionId"
+resourceGroupName="yourResourceGroupNameHere"
+diskName="yourDiskNameHere"
+az account set --subscription $subscriptionId
+diskId=$(az disk show -n $diskName -g $resourceGroupName --query [id] -o tsv)
+az snapshot list --query "[?creationData.sourceResourceId=='$diskId' && incremental]" -g $resourceGroupName --output table
+```
+
+#### CLI - Individual snapshot
+
+You can also check the status of an individual snapshot by checking the `CompletionPercent` property. Replace `$sourceSnapshotName` with the name of your snapshot then run the following command. The value of the property must be 100 before you can use the snapshot for restoring disk or generate a SAS URI for downloading the underlying data.
+
+```azurecli
+az snapshot show -n $sourceSnapshotName -g $resourceGroupName --query [completionPercent] -o tsv
+```
+
+### PowerShell
+
+You have two options for getting the status of snapshots. You can either get a [list of all incremental snapshots associated with a particular disk](#powershell---list-incremental-snapshots) and their respective status, or you can get the [status of an individual snapshot](#powershell---individual-snapshots).
+
+#### PowerShell - List incremental snapshots
+
+The following script returns a list of all incremental snapshots associated with a particular disk that haven't completed their background copy. Replace `yourResourceGroupNameHere` and `yourDiskNameHere`, then run the script.
+
+```azurepowershell
+$resourceGroupName = "yourResourceGroupNameHere"
+$snapshots = Get-AzSnapshot -ResourceGroupName $resourceGroupName
+$diskName = "yourDiskNameHere"
+$yourDisk = Get-AzDisk -DiskName $diskName -ResourceGroupName $resourceGroupName
+$incrementalSnapshots = New-Object System.Collections.ArrayList
+foreach ($snapshot in $snapshots)
+{
+    if($snapshot.Incremental -and $snapshot.CreationData.SourceResourceId -eq $yourDisk.Id -and $snapshot.CreationData.SourceUniqueId -eq $yourDisk.UniqueId)
+    {
+    $targetSnapshot=Get-AzSnapshot -ResourceGroupName $resourceGroupName -SnapshotName $snapshotName
+        {
+        if($targetSnapshot.CompletionPercent -lt 100)
+            {
+            $incrementalSnapshots.Add($targetSnapshot)
+            }
+        }
+    }
+}
+$incrementalSnapshots
+```
+
+#### PowerShell - individual snapshots
+
+You can check the `CompletionPercent` property of an individual snapshot to get its status. Replace `yourResourceGroupNameHere` and `yourSnapshotName` then run the script. The value of the property must be 100 before you can use the snapshot for restoring disk or generate a SAS URI for downloading the underlying data.
+
+```azurepowershell
+$resourceGroupName = "yourResourceGroupNameHere"
+$snapshotName = "yourSnapshotName"
+$targetSnapshot=Get-AzSnapshot -ResourceGroupName $resourceGroupName -SnapshotName $snapshotName
+$targetSnapshot.CompletionPercent
+```
 
 ## Check sector size
 

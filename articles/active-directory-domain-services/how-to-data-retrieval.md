@@ -1,6 +1,6 @@
 ---
-title: Instructions for data retrieval from Azure Active Directory Domain Services | Microsoft Docs
-description: Learn how to retrieve data from Azure Active Directory Domain Services (Azure AD DS).
+title: Instructions for data retrieval from Microsoft Entra Domain Services | Microsoft Docs
+description: Learn how to retrieve data from Microsoft Entra Domain Services.
 services: active-directory-ds
 author: justinha
 manager: amycolannino
@@ -9,33 +9,33 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/14/2022
+ms.date: 09/14/2023
 ms.author: justinha
 ms.reviewer: manthanm
 ---
 
-# Azure AD DS instructions for data retrieval
+# Microsoft Entra Domain Services instructions for data retrieval
 
-This document describes how to retrieve data from Azure Active Directory Domain Services (Azure AD DS).
+This document describes how to retrieve data from Microsoft Entra Domain Services.
 
 [!INCLUDE [active-directory-app-provisioning.md](../../includes/gdpr-intro-sentence.md)]
 
-## Use Azure Active Directory to create, read, update, and delete user objects
+<a name='use-azure-active-directory-to-create-read-update-and-delete-user-objects'></a>
 
-You can create a user in the Azure AD portal or by using Graph PowerShell or Graph API. You can also read, update, and delete users. The next sections show how to do these operations in the Azure AD portal. 
+## Use Microsoft Entra ID to create, read, update, and delete user objects
+
+You can create a user in the Microsoft Entra admin center or by using Graph PowerShell or Graph API. You can also read, update, and delete users. The next sections show how to do these operations in the Microsoft Entra admin center. 
 
 ### Create, read, or update a user
 
-You can create a new user using the Azure Active Directory portal.
+You can create a new user using the Microsoft Entra admin center.
 To add a new user, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) in the User Administrator role for the organization.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](/azure/active-directory/roles/permissions-reference#user-administrator).
 
-1. Search for and select *Azure Active Directory* from any page.
+1. Browse to **Identity** > **Users**, and then select **New user**.
 
-1. Select **Users**, and then select **New user**.
-
-    ![Add a user through Users - All users in Azure AD](./media/tutorial-create-management-vm/add-user-in-users-all-users.png)
+    ![Add a user through Users - All users in Microsoft Entra ID](./media/tutorial-create-management-vm/add-user-in-users-all-users.png)
 
 1. On the **User** page, enter information for this user:
 
@@ -45,7 +45,7 @@ To add a new user, follow these steps:
 
    - **Groups**. Optionally, you can add the user to one or more existing groups. 
 
-   - **Directory role**: If you require Azure AD administrative permissions for the user, you can add them to an Azure AD role. 
+   - **Directory role**: If you require Microsoft Entra administrative permissions for the user, you can add them to a Microsoft Entra role. 
 
    - **Job info**: You can add more information about the user here.
 
@@ -53,7 +53,7 @@ To add a new user, follow these steps:
 
 1. Select **Create**.
 
-The user is created and added to your Azure AD organization.
+The user is created and added to your Microsoft Entra organization.
 
 To read or update a user, search for and select the user such as, _Mary Parker_. Change any property and click **Save**. 
 
@@ -61,7 +61,7 @@ To read or update a user, search for and select the user such as, _Mary Parker_.
 
 To delete a user, follow these steps:
 
-1. Search for and select the user you want to delete from your Azure AD tenant. For example, _Mary Parker_.
+1. Search for and select the user you want to delete from your Microsoft Entra tenant. For example, _Mary Parker_.
 
 1. Select **Delete user**.
 
@@ -72,7 +72,9 @@ The user is deleted and no longer appears on the **Users - All users** page. The
 
 When a user is deleted, any licenses consumed by the user are made available for other users.
 
-## Use RSAT tools to connect to an Azure AD DS managed domain and view users
+<a name='use-rsat-tools-to-connect-to-an-azure-ad-ds-managed-domain-and-view-users'></a>
+
+## Use RSAT tools to connect to a Microsoft Entra Domain Services managed domain and view users
 
 Sign in to an administrative workstation with a user account that's a member of the *AAD DC Administrators* group. The following steps require installation of [Remote Server Administration Tools (RSAT)](tutorial-create-management-vm.md#install-active-directory-administrative-tools).
 
@@ -85,15 +87,15 @@ Sign in to an administrative workstation with a user account that's a member of 
 
     ![List the available containers part of the managed domain](./media/tutorial-create-management-vm/active-directory-administrative-center.png)
 
-1. To see the users and groups that belong to the managed domain, select the **AADDC Users** container. The user accounts and groups from your Azure AD tenant are listed in this container.
+1. To see the users and groups that belong to the managed domain, select the **AADDC Users** container. The user accounts and groups from your Microsoft Entra tenant are listed in this container.
 
     In the following example output, a user account named *Contoso Admin* and a group for *AAD DC Administrators* are shown in this container.
 
-    ![View the list of Azure AD DS domain users in the Active Directory Administrative Center](./media/tutorial-create-management-vm/list-azure-ad-users.png)
+    ![View the list of Microsoft Entra Domain Services domain users in the Active Directory Administrative Center](./media/tutorial-create-management-vm/list-azure-ad-users.png)
 
 1. To see the computers that are joined to the managed domain, select the **AADDC Computers** container. An entry for the current virtual machine, such as *myVM*, is listed. Computer accounts for all devices that are joined to the managed domain are stored in this *AADDC Computers* container.
 
 You can also use the *Active Directory Module for Windows PowerShell*, installed as part of the administrative tools, to manage common actions in your managed domain.
 
 ## Next steps
-* [Azure AD DS Overview](overview.md)
+* [Microsoft Entra Domain Services Overview](overview.md)

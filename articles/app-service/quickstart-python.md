@@ -4,6 +4,7 @@ description: Get started with Azure App Service by deploying your first Python a
 ms.topic: quickstart
 ms.date: 07/26/2023
 ms.author: msangapu
+author: msangapu-msft
 ms.devlang: python
 ms.custom: devx-azure-cli, devx-azure-portal, devx-vscode-azure-extension, devdivchpfy22, vscode-azure-extension-update-completed, devx-track-azurecli, devx-track-python
 ---

@@ -20,12 +20,12 @@
       href: support-matrix-for-arc-enabled-vmware-vsphere.md
     - name: Enable VMware vCenter resources in Azure
       href: browse-and-enable-vcenter-resources-in-azure.md
+  - name: Use Azure Management services for VMware VMs
+    items: 
     - name: Install Arc agent at scale for your VMware VMs
       href: enable-guest-management-at-scale.md
-    - name: Use Azure Management services for VMware VMs
-      items: 
-    - name: Use VM lifecycle and self-service capabilities
-      items: 
+  - name: Use VM lifecycle and self-service capabilities
+    items: 
       - name: Set up self service access to vCenter using Azure Arc
         href: setup-and-manage-self-service-access.md
       - name: Perform VM operations on VMware VMs through Azure

@@ -7,6 +7,8 @@ items:
       href: overview.md
     - name: What's new?
       href: whats-new.md
+    - name: Choose the right tier
+      href: choose-right-tier.md
   - name: MQTT messaging
     items:
     - name: Overview
@@ -337,6 +339,12 @@ items:
             href: ./event-schema-policy.md
           - name: Azure resource groups
             href: event-schema-resource-groups.md
+          - name: Azure Resource Notifications
+            items:
+            - name: Overview
+              href: event-schema-resource-notifications.md
+            - name: Health Resources
+              href: event-schema-health-resources.md
           - name: Azure Service Bus
             href: event-schema-service-bus.md
           - name: Azure SignalR
@@ -488,6 +496,8 @@ items:
         href: how-to-event-domains.md
       - name: Build your own client-side disaster recovery
         href: custom-disaster-recovery-client-side.md
+      - name: Subscribe to Azure Resource Notifications - Health Resources events
+        href: subscribe-to-resource-notifications-health-resources-events.md
       - name: Track asynchronous REST operations
         href: ../azure-resource-manager/management/async-operations.md?toc=/azure/event-grid/toc.json
       - name: Move

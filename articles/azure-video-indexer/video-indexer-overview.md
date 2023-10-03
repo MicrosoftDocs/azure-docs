@@ -3,19 +3,13 @@ title: What is Azure AI Video Indexer?
 description: This article gives an overview of the Azure AI Video Indexer service.
 ms.topic: overview
 ms.date: 08/02/2023
-ms.author: juliako
+ms.author: inhenkel
+author: IngridAtMicrosoft
 ---
 
-# What is Azure AI Video Indexer?
+# Azure AI Video Indexer overview
 
-> [!IMPORTANT]
-> Following [Azure Media Services retirement announcement](https://aka.ms/ams-retirement), Azure Video Indexer makes the following announcements: [June release notes](release-notes.md#june-2023).
-> 
-> Also checkout related [AMS deprecation FAQ](ams-deprecation-faq.yml).
-
-[!INCLUDE [regulation](./includes/regulation.md)]
-
-[!INCLUDE [Gate notice](./includes/face-limited-access.md)]
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
 
 Azure AI Video Indexer is a cloud application, part of Azure AI services, built on Azure Media Services and Azure AI services (such as the Face, Translator, Azure AI Vision, and Speech). It enables you to extract the insights from your videos using Azure AI Video Indexer video and audio models.
 
@@ -108,7 +102,11 @@ Learn how to [get started with Azure AI Video Indexer](video-indexer-get-started
 
 Once you set up, start using [insights](video-indexer-output-json-v2.md) and check out other **How to guides**.
 
-## Compliance, Privacy and Security
+## Compliance, privacy and security
+
+[!INCLUDE [regulation](./includes/regulation.md)]
+
+[!INCLUDE [Gate notice](./includes/face-limited-access.md)]
 
 As an important reminder, you must comply with all applicable laws in your use of Azure AI Video Indexer, and you may not use Azure AI Video Indexer or any Azure service in a manner that violates the rights of others, or that may be harmful to others.
 

@@ -5,7 +5,7 @@ ms.topic: reference
 ms.date: 03/06/2023
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python, devx-track-extended-java, devx-track-js
-zone_pivot_groups: programming-languages-set-functions-lang-workers
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Azure Queue storage output bindings for Azure Functions
@@ -14,6 +14,9 @@ Azure Functions can create new Azure Queue storage messages by setting up an out
 
 For information on setup and configuration details, see the [overview](./functions-bindings-storage-queue.md).
 
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+[!INCLUDE [functions-nodejs-model-tabs-description](../../includes/functions-nodejs-model-tabs-description.md)]
+::: zone-end
 ::: zone pivot="programming-language-python"
 Azure Functions supports two programming models for Python. The way that you define your bindings depends on your chosen programming model.
 
@@ -35,7 +38,11 @@ This article supports both programming models.
 
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
 
-# [In-process](#tab/in-process)
+# [Isolated worker model](#tab/isolated-process)
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" id="docsnippet_queue_output_binding" :::
+
+# [In-process model](#tab/in-process)
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that creates a queue message for each HTTP request received.
 
@@ -52,10 +59,6 @@ public static class QueueFunctions
     }
 }
 ```
-
-# [Isolated process](#tab/isolated-process)
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" id="docsnippet_queue_output_binding" :::
 
 ---
 
@@ -79,7 +82,38 @@ The following example shows a Java function that creates a queue message for whe
 In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@QueueOutput` annotation on parameters whose value would be written to Queue storage.  The parameter type should be `OutputBinding<T>`, where `T` is any native Java type of a POJO.
 
 ::: zone-end  
+::: zone pivot="programming-language-typescript"  
+
+# [Model v4](#tab/nodejs-v4)
+
+The following example shows an HTTP triggered [TypeScript function](functions-reference-node.md?tabs=typescript) that creates a queue item for each HTTP request received.
+
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/storageQueueOutput1.ts" :::
+
+To output multiple messages, return an array instead of a single object. For example:
+
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/storageQueueOutput2.ts" id="displayInDocs" :::
+
+# [Model v3](#tab/nodejs-v3)
+
+TypeScript samples are not documented for model v3.
+
+---
+
+::: zone-end  
 ::: zone pivot="programming-language-javascript"  
+
+# [Model v4](#tab/nodejs-v4)
+
+The following example shows an HTTP triggered [JavaScript function](functions-reference-node.md) that creates a queue item for each HTTP request received.
+
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/storageQueueOutput1.js" :::
+
+To output multiple messages, return an array instead of a single object. For example:
+
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/storageQueueOutput2.js" id="displayInDocs" :::
+
+# [Model v3](#tab/nodejs-v3)
 
 The following example shows an HTTP trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function creates a queue item for each HTTP request received.
 
@@ -127,6 +161,8 @@ module.exports = async function(context) {
     context.bindings.myQueueItem = ["message 1","message 2"];
 };
 ```
+
+---
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
@@ -299,7 +335,15 @@ def main(req: func.HttpRequest, msg: func.Out[typing.List[str]]) -> func.HttpRes
 The attribute that defines an output binding in C# libraries depends on the mode in which the C# class library runs.
 
 
-# [In-process](#tab/in-process)
+# [Isolated worker model](#tab/isolated-process)
+
+When running in an isolated worker process, you use the [QueueOutputAttribute](https://github.com/Azure/azure-functions-dotnet-worker/blob/main/extensions/Worker.Extensions.Storage.Queues/src/QueueOutputAttribute.cs), which takes the name of the queue, as shown in the following example:
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" id="docsnippet_queue_trigger" :::
+
+Only returned variables are supported when running in an isolated worker process. Output parameters can't be used. 
+
+# [In-process model](#tab/in-process)
 
 In [C# class libraries](functions-dotnet-class-library.md), use the [QueueAttribute](/dotnet/api/microsoft.azure.webjobs.queueattribute). C# script instead uses a function.json configuration file as described in the [C# scripting guide](./functions-reference-csharp.md#queue-output).
 
@@ -326,14 +370,6 @@ public static string Run([HttpTrigger] dynamic input,  ILogger log)
 ```
 
 You can use the `StorageAccount` attribute to specify the storage account at class, method, or parameter level. For more information, see Trigger - attributes.
-
-# [Isolated process](#tab/isolated-process)
-
-When running in an isolated worker process, you use the [QueueOutputAttribute](https://github.com/Azure/azure-functions-dotnet-worker/blob/main/extensions/Worker.Extensions.Storage.Queues/src/QueueOutputAttribute.cs), which takes the name of the queue, as shown in the following example:
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" id="docsnippet_queue_trigger" :::
-
-Only returned variables are supported when running in an isolated worker process. Output parameters can't be used. 
 
 ---
 
@@ -386,7 +422,7 @@ public class HttpTriggerQueueOutput {
 
 The parameter associated with the [QueueOutput](/java/api/com.microsoft.azure.functions.annotation.queueoutput) annotation is typed as an [OutputBinding\<T\>](/java/api/com.microsoft.azure.functions.outputbinding) instance.
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
 ## Configuration
 ::: zone-end
 
@@ -394,7 +430,35 @@ The parameter associated with the [QueueOutput](/java/api/com.microsoft.azure.fu
 _Applies only to the Python v1 programming model._
 
 ::: zone-end
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
+
+# [Model v4](#tab/nodejs-v4)
+
+The following table explains the properties that you can set on the `options` object passed to the `output.storageQueue()` method.
+
+| Property | Description |
+|---------|------------------------|
+|**queueName** | The name of the queue. |
+|**connection** | The name of an app setting or setting collection that specifies how to connect to Azure Queues. See [Connections](#connections).|
+
+# [Model v3](#tab/nodejs-v3)
+
+The following table explains the binding configuration properties that you set in the *function.json* file.
+
+| Property | Description |
+|---------|-----------------------|
+|**type** |Must be set to `queue`. This property is set automatically when you create the trigger in the Azure portal.|
+|**direction** |  Must be set to `out`. This property is set automatically when you create the trigger in the Azure portal. |
+|**name** |  The name of the variable that represents the queue in function code. Set to `$return` to reference the function return value.|
+|**queueName** | The name of the queue. |
+|**connection** | The name of an app setting or setting collection that specifies how to connect to Azure Queues. See [Connections](#connections).|
+
+---
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+::: zone-end  
+::: zone pivot="programming-language-powershell,programming-language-python"  
 
 The following table explains the binding configuration properties that you set in the *function.json* file.
 
@@ -417,14 +481,14 @@ See the [Example section](#example) for complete examples.
 ::: zone pivot="programming-language-csharp"  
 The usage of the Queue output binding depends on the extension package version and the C# modality used in your function app, which can be one of the following:
 
-# [In-process](#tab/in-process)
-
-An in-process class library is a compiled C# function runs in the same process as the Functions runtime.
- 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 An isolated worker process class library compiled C# function runs in a process isolated from the runtime.   
    
+# [In-process model](#tab/in-process)
+
+An in-process class library is a compiled C# function runs in the same process as the Functions runtime.
+ 
 ---
 
 Choose a version to see usage details for the mode and version. 
@@ -487,9 +551,17 @@ There are two options for writing to a queue from a function by using the [Queue
 - **Imperative**: To explicitly set the message value, apply the annotation to a specific parameter of the type [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding), where `T` is a POJO or any native Java type. With this configuration, passing a value to the `setValue` method writes the value to the queue.
 
 ::: zone-end  
-::: zone pivot="programming-language-javascript"
-  
-The output queue item is available via `context.bindings.<NAME>` where `<NAME>` matches the name defined in *function.json*. You can use a string or a JSON-serializable object for the queue item payload.
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+
+# [Model v4](#tab/nodejs-v4)
+
+Access the output queue item by returning the value directly or using `context.extraOutputs.set()`. You can use a string or a JSON-serializable object for the queue item payload.
+
+# [Model v3](#tab/nodejs-v3)
+
+Access the output queue item by using `context.bindings.<name>` where `<name>` is the value specified in the `name` property of *function.json*. You can use a string or a JSON-serializable object for the queue item payload.
+
+---
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"

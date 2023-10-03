@@ -1,9 +1,9 @@
 ---
 title: Configure security alerts for Azure roles in Privileged Identity Management
-description: Learn how to configure security alerts for Azure resource roles in Azure AD Privileged Identity Management (PIM).
+description: Learn how to configure security alerts for Azure resource roles in Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: barclayn
 manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
 ms.date: 3/29/2023
-ms.author: billmath
+ms.author: barclayn
 ms.reviewer: rianakarim
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -19,10 +19,10 @@ ms.collection: M365-identity-device-management
 
 # Configure security alerts for Azure roles in Privileged Identity Management
 
-Privileged Identity Management (PIM) generates alerts when there's suspicious or unsafe activity in your organization in Azure Active Directory (Azure AD), part of Microsoft Entra. When an alert is triggered, it shows up on the Alerts page.
+Privileged Identity Management (PIM) generates alerts when there's suspicious or unsafe activity in your organization in Microsoft Entra ID. When an alert is triggered, it shows up on the Alerts page.
 
 >[!NOTE]
->One event in Privileged Identity Management can generate email notifications to multiple recipients – assignees, approvers, or administrators. The maximum number of notifications sent per one event is 1000. If the number of recipients exceeds 1000 – only the first 1000 recipients will receive an email notification. This does not prevent other assignees, administrators, or approvers from using their permissions in Microsoft Entra and Privileged Identity Management.
+>One event in Privileged Identity Management can generate email notifications to multiple recipients – assignees, approvers, or administrators. The maximum number of notifications sent per one event is 1000. If the number of recipients exceeds 1000 – only the first 1000 recipients will receive an email notification. This does not prevent other assignees, administrators, or approvers from using their permissions in Microsoft Entra ID and Privileged Identity Management.
 
 ![Screenshot of the alerts page listing alert, risk level, and count.](media/pim-resource-roles-configure-alerts/rbac-alerts-page.png)
 
@@ -56,15 +56,9 @@ Alert | Severity | Trigger | Recommendation
 
 Follow these steps to configure security alerts for Azure roles in Privileged Identity Management:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged role administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Open **Azure AD Privileged Identity Management**. For information about how to add the Privileged Identity Management tile to your dashboard, see [Start using Privileged Identity Management](pim-getting-started.md).
-
-1. From the left menu, select **Azure resources**.
-
-1. From the list of resources, select your Azure subscription. 
-
-1. On the **Alerts** page, select **Settings**.
+1. Browse to **Identity governance** > **Privileged Identity Management** > **Azure resources** Select your subscription > **Alerts** > **Setting**. For information about how to add the Privileged Identity Management tile to your dashboard, see [Start using Privileged Identity Management](pim-getting-started.md).
 
     ![Screenshot of the alerts page with settings highlighted.](media/pim-resource-roles-configure-alerts/rbac-navigate-settings.png)
 

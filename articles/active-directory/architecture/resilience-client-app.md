@@ -14,7 +14,7 @@ ms.date: 03/02/2023
 
 # Increase the resilience of authentication and authorization in client applications you develop
 
-Learn to build resilience into client applications that use the Microsoft identity platform and Azure Active Directory (Azure AD) to sign in users, and perform actions on behalf of those users.
+Learn to build resilience into client applications that use the Microsoft identity platform and Microsoft Entra ID to sign in users, and perform actions on behalf of those users.
 
 ## Use the Microsoft Authentication Library (MSAL)
 
@@ -37,8 +37,8 @@ Learn more:
 
 * [Token cache serialization](https://github.com/AzureAD/microsoft-identity-web/wiki/token-cache-serialization)
 * [Token cache serialization in MSAL.NET](../develop/msal-net-token-cache-serialization.md)
-* [Custom token cache serialization in MSAL for Java](../develop/msal-java-token-cache-serialization.md)
-* [Custom token cache serialization in MSAL for Python](../develop/msal-python-token-cache-serialization.md).
+* [Custom token cache serialization in MSAL for Java](/entra/msal/java/advanced/msal-java-token-cache-serialization)
+* [Custom token cache serialization in MSAL for Python](/entra/msal/python/advanced/msal-python-token-cache-serialization).
 
    ![Diagram of a device and and application using MSAL to call Microsoft Identity](media/resilience-client-app/resilience-with-microsoft-authentication-library.png)
 
@@ -87,14 +87,14 @@ We recommend developers build a process to use the latest MSAL release because a
 
 Find the latest version and release notes:
 
-* [microsoft-authentication-library-for-js](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases)
-* [microsoft-authentication-library-for-dotnet](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/releases)
-* [microsoft-authentication-library-for-python](https://github.com/AzureAD/microsoft-authentication-library-for-python/releases)
-* [microsoft-authentication-library-for-java](https://github.com/AzureAD/microsoft-authentication-library-for-java/releases)
-* [microsoft-authentication-library-for-objc](https://github.com/AzureAD/microsoft-authentication-library-for-objc/releases)
-* [microsoft-authentication-library-for-android](https://github.com/AzureAD/microsoft-authentication-library-for-android/releases)
-* [microsoft-authentication-library-for-js](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases)
-* [microsoft-identity-web](https://github.com/AzureAD/microsoft-identity-web/releases)
+* [`microsoft-authentication-library-for-js`](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases)
+* [`microsoft-authentication-library-for-dotnet`](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/releases)
+* [`microsoft-authentication-library-for-python`](https://github.com/AzureAD/microsoft-authentication-library-for-python/releases)
+* [`microsoft-authentication-library-for-java`](https://github.com/AzureAD/microsoft-authentication-library-for-java/releases)
+* [`microsoft-authentication-library-for-objc`](https://github.com/AzureAD/microsoft-authentication-library-for-objc/releases)
+* [`microsoft-authentication-library-for-android`](https://github.com/AzureAD/microsoft-authentication-library-for-android/releases)
+* [`microsoft-authentication-library-for-js`](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases)
+* [`microsoft-identity-web`](https://github.com/AzureAD/microsoft-identity-web/releases)
 
 ## Resilient patterns for token handling
 
@@ -193,7 +193,7 @@ For authorization, consider using token claims instead of some Microsoft Graph c
 
 ## Use broker authentication on mobile devices
 
-On mobile devices, an authentication broker like Microsoft Authenticator improves resilience. The authentication broker uses a primary refresh token (PRT) with claims about the user and device. Use PRT for authentication tokens to access other applications from the device. When a PRT requests application access, Azure Active Directory (Azure AD) trusts its device and MFA claims. This increases resilience by reducing steps to authenticate the device. Users aren't challenged with multiple MFA prompts on the same device.
+On mobile devices, an authentication broker like Microsoft Authenticator improves resilience. The authentication broker uses a primary refresh token (PRT) with claims about the user and device. Use PRT for authentication tokens to access other applications from the device. When a PRT requests application access, Microsoft Entra ID trusts its device and MFA claims. This increases resilience by reducing steps to authenticate the device. Users aren't challenged with multiple MFA prompts on the same device.
 
 See, [What is a Primary Refresh Token?](../devices/concept-primary-refresh-token.md)
 
@@ -216,7 +216,7 @@ Learn more:
 * [Conditional Access policy evaluation](../conditional-access/concept-continuous-access-evaluation.md#conditional-access-policy-evaluation)
 * [How to use CAE enabled APIs in your applications](../develop/app-resilience-continuous-access-evaluation.md)
 
-If you develop resource APIs, go to openid.net for [Shared Signals – A Secure Webhooks Framework](https://openid.net/wg/sse/).
+If you develop resource APIs, go to `openid.net` for [Shared Signals – A Secure Webhooks Framework](https://openid.net/wg/sse/).
 
 ## Next steps
 
