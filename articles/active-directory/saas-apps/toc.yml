@@ -744,6 +744,8 @@
         href: dining-sidekick-tutorial.md  
       - name: Direct
         href: direct-tutorial.md
+      - name: Directory Services Protector
+        href: directory-services-protector-tutorial.md
       - name: Directions on Microsoft
         href: ./tutorial-list.md
       - name: directprint.io Cloud Print Administration
