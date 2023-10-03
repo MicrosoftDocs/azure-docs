@@ -101,4 +101,4 @@ When you have an approved Private Endpoint for an Azure Cosmos DB account, in th
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Try Azure Cosmos DB for free](../try-free.md)
+> [Try Azure Cosmos DB for free](../../try-free.md)
