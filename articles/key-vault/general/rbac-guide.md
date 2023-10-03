@@ -44,7 +44,7 @@ More about Azure Key Vault management guidelines, see:
 ## Azure built-in roles for Key Vault data plane operations
 
 > [!NOTE]
-> The `Key Vault Contributor` role is for management plane operations to manage key vaults. It does not allow access to keys, secrets and certificates.
+> The `Key Vault Contributor` role is for management plane operations only to manage key vaults. It does not allow access to keys, secrets and certificates.
 
 | Built-in role | Description | ID |
 | --- | --- | --- |
@@ -61,6 +61,12 @@ More about Azure Key Vault management guidelines, see:
 > There is no `Key Vault Certificate User` because applications require secrets portion of certificate with private key. The `Key Vault Secrets User` role should be used for applications to retrieve certificate.
 
 For more information about Azure built-in roles definitions, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
+
+### Managing built-in Key Vault data plane role assignments (preview)
+
+| Built-in role | Description | ID |
+| --- | --- | --- |
+| Key Vault Data Access Administrator (preview)| Manage access to Azure Key Vault by adding or removing role assignments for the Key Vault Administrator, Key Vault Certificates Officer, Key Vault Crypto Officer, Key Vault Crypto Service Encryption User, Key Vault Crypto User, Key Vault Reader, Key Vault Secrets Officer, or Key Vault Secrets User roles. Includes an ABAC condition to constrain role assignments. | 8b54135c-b56d-4d72-a534-26097cfdc8d8 |
 
 ## Using Azure RBAC secret, key, and certificate permissions with Key Vault
 
