@@ -57,11 +57,15 @@ To create an Access Review for external identities, you'd follow these steps:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
+1. Browse to **Identity** > **Groups** > **All groups**.
+
+1. Search for the group that contains members that are external identities that do not have access to resources in your tenant and make note of this group. To automate creating a group with members that fit this criteria, see: [Gathering information around external identity proliferation](https://github.com/microsoft/access-reviews-samples/tree/master/ExternalIdentityUse).
+
 1. Browse to **Identity governance** > **Access Reviews**.
 
 1. Select **+ New access review**.
 
-1. Select **Teams + Groups** and then select **Select teams + groups** to set the **Review scope**.
+1. Select **Teams + Groups** and then select the group you noted earlier that contains the external identities to set the **Review scope**.
 
 1. Set the **Scope** as **Guest users only**. 
     ![limiting the scope of the review to guest users only](media/access-reviews-external-users/guest-users-only.png)
