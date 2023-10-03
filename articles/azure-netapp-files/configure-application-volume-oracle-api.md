@@ -17,7 +17,7 @@ ms.author: anfdocs
 ---
 # Configure application volume group for Oracle using REST API
 
-This article describes the creation of application volume group (AVG) using the REST API. The details include selected parameters and properties required for deployment. The article also specifies constraints and typical values for AVG for Oracle creation where applicable.
+This article describes the creation of application volume group (AVG) for Oracle using the REST API. The details include selected parameters and properties required for deployment. The article also specifies constraints and typical values for AVG for Oracle creation where applicable.
 
 ## Application volume group `create` 
 
@@ -62,7 +62,7 @@ The following tables describe the request body parameters and volume properties 
 | `creationToken` | Export path name, typically same as the volume name. | `<sid>-ora-data1` |
 | `throughputMibps` | QoS throughput | You should set throughput based on volume type between 1 MiBps and 4500 MiBps. |
 | `usageThreshhold` | Size of the volume in bytes. This value must be in the 100 GiB to 100-TiB range. For instance, 100 GiB = 107374182400 bytes. | You should set volume size in bytes. | 
-| `exportPolicyRule` | Volume export policy rule | At least one export policy rule must be specified for Oracle. Only the following rules values can be modified for Oracle. The rest *must* have their default values: - `unixReadOnly`: should be false. <br><br> - `unixReadWrite`: should be true. <br><br> - `allowedClients`: specify allowed clients. Use `0.0.0.0/0` for no restrictions. <br><br> - `hasRootAccess`: must be true to use root user for installation. <br><br> - `chownMode`: Specify `chown` mode. <br><br> - `Select nfsv41: or nfsv3:`: as true. It's recommended to use the same protocol version for all volumes. <br> <br> All other rule values _must_ be left defaulted. |
+| `exportPolicyRule` | Volume export policy rule | At least one export policy rule must be specified for Oracle. Only the following rules values can be modified for Oracle. The rest *must* have their default values: <br><br> - `unixReadOnly`: should be false. <br><br> - `unixReadWrite`: should be true. <br><br> - `allowedClients`: specify allowed clients. Use `0.0.0.0/0` for no restrictions. <br><br> - `hasRootAccess`: must be true to use root user for installation. <br><br> - `chownMode`: Specify `chown` mode. <br><br> - `Select nfsv41: or nfsv3:`: as true. It's recommended to use the same protocol version for all volumes. <br> <br> All other rule values _must_ be left defaulted. |
 | `volumeSpecName` | Specifies the type of volume for the application volume group being created | Oracle volumes must have a value that is one of the following: <br><br> - `ora-data1` <br> - `ora-data2` <br> - `ora-data3` <br> - `ora-data4` <br> - `ora-data5` <br> - `ora-data6` <br> - `ora-data7` <br> - `ora-data8` <br> - `ora-log` <br> - `ora-log-mirror` <br> - `ora-binary` <br> - `ora-backup` <br> | 
 | `proximityPlacementGroup` | Resource ID of the Proximity Placement Group (PPG) for proper placement of the volume. This parameter is optional. If the region has zones available, then use of zones is always priority. | The `data`, `log` and `mirror-log`, `ora-binary` and `backup` volumes must each have a PPG specified, preferably a common PPG. |
 | `subnetId` | Delegated subnet ID for Azure NetApp Files. | The subnet ID must be the same for all volumes. |
@@ -590,10 +590,9 @@ Save the JSON template as `sh9.json`:
               "protocolTypes": [ 
                 "NFSv4.1" 
               ]
-              }
             }
-          ]
-        }
+          }
+        ]
       }
     }
   }
@@ -1114,6 +1113,9 @@ curl -X PUT -H "Authorization: Bearer $token" -H "Content-Type:application/json"
           ]
         }
       }
+    }
+  }
+}
 ```
 
 ## Next steps

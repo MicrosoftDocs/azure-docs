@@ -35,11 +35,11 @@ You should understand the [requirements and considerations for application volum
 
 3. In the **ORACLE** tab, provide Oracle-specific information:   
 
-    * **SAP ID (SID**):    
+    * **Unique System ID (SID)**:    
         Choose a unique identifier that will be used in the naming proposals for all your storage objects and helps to uniquely identify the volumes for this database.
     * **Group name / Group description**:  
         Provide the volume group name and description.
-    * **Number of Oracle data volumes (1-8):**:  
+    * **Number of Oracle data volumes (1-8)**:  
         Depending on your sizing and performance requirements of the database you may can create a minimum of 1 and up to 8 data volumes. 
     * **Oracle database size in (TiB)**:   
         Specify the total capacity required for your database. If you select more than one database volume, the capacity is distributed evenly among all volumes. You may change each individual volume once the proposals have been created. See Step 8 in this article.
@@ -67,7 +67,7 @@ You should understand the [requirements and considerations for application volum
     * **Subnet**:  
         Specify the delegated subnet where the IP addresses for the NFS exports will be created. Ensure that you have a delegated subnet with enough free IP addresses.
 
-    Click **Next: Tag** and continue with Step 6. 
+    Click **Next: Tag**. Continue with Step 6. 
 
     [ ![Screenshot that shows the Volume Group tag for Oracle.](../media/azure-netapp-files/application-volume-group-tag-oracle.png) ](../media/azure-netapp-files/application-volume-group-tag-oracle.png#lightbox)
 
@@ -105,9 +105,7 @@ You should understand the [requirements and considerations for application volum
 
     The Volumes tab also shows the zone or proximity placement group in which the volumes are created.
 
-    The creation for the data-backup and log-backup volumes is optional.
-
-    [ ![Screenshot that shows a list of volumes being created.](../media/azure-netapp-files/application-volume-list.png) ](../media/azure-netapp-files/application-volume-list.png#lightbox)
+    [ ![Screenshot that shows a list of volumes being created for Oracle.](../media/azure-netapp-files/application-volume-list-oracle.png) ](../media/azure-netapp-files/application-volume-list-oracle.png#lightbox)
 
 9. In the **Volumes** tab, you can select each volume to view or change the volume details.   
 
@@ -142,7 +140,7 @@ You should understand the [requirements and considerations for application volum
 
 12. The **Volumes Tab** enables you to remove optional volumes.  
     On the Volumes tab, optional volumes are marked with an asterisk (`*`) in front of the name.   
-    If you want to remove the optional volumes, such as `ORA1-ora-data4` volume or `ORA1-ora-binary` volume from the volume group, select the volume and click **Remove volume**. Confirm the removal in the dialog box that appears.
+    If you want to remove the optional volumes such as `ORA1-ora-data4` volume or `ORA1-ora-binary` volume from the volume group, select the volume and click **Remove volume**. Confirm the removal in the dialog box that appears.
 
     > [!IMPORTANT]    
     > You cannot add a removed volume back to the volume group again.
@@ -164,8 +162,6 @@ You should understand the [requirements and considerations for application volum
 14. The **Volume Groups** deployment workflow starts, and the progress is displayed. This process can take a few minutes to complete.
 
     [ ![Screenshot that shows the Deployment in Progress window for Oracle.](../media/azure-netapp-files/application-deployment-in-progress-oracle.png) ](../media/azure-netapp-files/application-deployment-in-progress-oracle.png#lightbox)
-
-    You can display the list of volume groups to see the new volume group. You can select the new volume group to see the details and status of each of the volumes being created.
 
     Creating a volume group is an "all-or-none" operation. If one volume can't be created, all remaining volumes will be removed also.
 

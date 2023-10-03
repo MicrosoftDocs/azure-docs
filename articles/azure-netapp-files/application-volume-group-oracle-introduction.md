@@ -19,7 +19,7 @@ ms.author: anfdocs
 
 This article helps you understand the use cases and key features of Azure NetApp Files application volume group for Oracle.  
 
-Application volume group (AVG) for Oracle enables you to deploy all volumes required to install and operate Oracle databases at enterprise scale, with optimal performance and according to best practices in a single one-step and optimized workflow. The application volume group feature is using the Azure NetApp Files ability to place all volumes in the same availability zone as the VMs to achieve automated, latency-optimized deployments. 
+Application volume group (AVG) for Oracle enables you to deploy all volumes required to install and operate Oracle databases at enterprise scale, with optimal performance and according to best practices in a single one-step and optimized workflow. The application volume group feature uses the Azure NetApp Files ability to place all volumes in the same availability zone as the VMs to achieve automated, latency-optimized deployments. 
 
 Application volume group for Oracle has implemented many technical improvements that simplify and standardize the entire process to help you streamline volume deployments for Oracle. All required volumes, such as up to eight data volumes, `orig-log` and `mirror-log`, backup and binary, are created in a single "atomic" operation (through the Azure portal, RP, or API).
 
@@ -34,10 +34,10 @@ Application volume group for Oracle is supported for all regions. It provides th
 * Supporting a large variation of Oracle configurations starting with 2 volumes for smaller databases up to 12 volumes for huge databases up to several hundred TiB.
 * Creating the following volumes:   
     * Data: One to eight data volumes 
-    * Log: An online redo log volume (`origlog`) and optionally a second log volume (`mirror log`) if required.
-    * Binary: A volume for Oracle binaries (optional).
+    * Log: An online redo log volume (`origlog`) and optionally a second log volume (`mirror log`) if required
+    * Binary: A volume for Oracle binaries (optional)
     * Backup: A log volume to archive the log-backup (optional)
-* Creating volumes in a [manual QoS capacity pool](manage-manual-qos-capacity-pool.md).  
+* Creating volumes in a [manual QoS capacity pool](manage-manual-qos-capacity-pool.md)     
     The volume size and the required performance (in MiB/s) are proposed based on user input for the memory size and throughput requirements of the database.
 * The application volume group GUI and Azure Resource Manager (ARM) template provide best practices to simplify sizing management and volume creation. For example:   
     * Proposing volume naming convention based on a System ID (SID) and volume type

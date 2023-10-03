@@ -42,7 +42,7 @@ This is a normal behavior. Application volume group will provision the volumes i
 
 In the current implementation, the application volume group has a focus on the initial creation and deletion of a volume group only. 
 
-### What snapshot policy should I use for my HANA volumes?  
+### What snapshot policy should I use for my database volumes? 
 
 As a short answer, you can use products such as [AzAcSnap](azacsnap-introduction.md) or Commvault for an application-consistent backup for your database environment. You can't use the standard snapshots scheduled by the Azure NetApp Files built-in snapshot policy for a consistent backup.
 

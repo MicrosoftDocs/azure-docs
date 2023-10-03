@@ -73,11 +73,11 @@ For detailed documentation on how to use the ARM template, see [ORACLE Azure Net
 
     [ ![Screenshot that shows the Create button on the custom deployment page.](../media/azure-netapp-files/custom-deploy-oracle-create.png) ](../media/azure-netapp-files/custom-deploy-oracle-create.png#lightbox) 
 
-10.	The deployment is in progress.
+10.	The deployment is in progress:
 
      [ ![Screenshot that shows the deployment is in progress.](../media/azure-netapp-files/custom-deploy-oracle-deploy-progress.png) ](../media/azure-netapp-files/custom-deploy-oracle-deploy-progress.png#lightbox)    
 
-11.	The deployment is complete.
+11.	The deployment is complete:
           
      [ ![Screenshot that shows the deployment is complete.](../media/azure-netapp-files/custom-deploy-oracle-deploy-complete.png) ](../media/azure-netapp-files/custom-deploy-oracle-deploy-complete.png#lightbox)    
 

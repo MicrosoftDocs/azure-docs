@@ -25,12 +25,12 @@ This article describes the requirements and considerations you need to be aware 
 * You need to prepare input of the required database size and throughput.  See the following references:   
     * [Run Your Most Demanding Oracle Workloads in Azure without Sacrificing Performance or Scalability](https://techcommunity.microsoft.com/t5/azure-architecture-blog/run-your-most-demanding-oracle-workloads-in-azure-without/ba-p/3264545)
     * [Estimate Tool for Sizing Oracle Workloads to Azure IaaS VMs](https://techcommunity.microsoft.com/t5/data-architecture-blog/estimate-tool-for-sizing-oracle-workloads-to-azure-iaas-vms/ba-p/1427183)
-Run Your Most Demanding Oracle Workloads in Azure without Sacrificing Performance or Scalability
 * You need to complete your sizing and Oracle system architecture, including the following areas:   
     * Choose a unique system ID to uniquely identify all storage objects.
     * Determine the total database size and throughput requirements.
     * Calculate the number of data volumes required to deliver the required read and write throughput. See [Oracle database performance on Azure NetApp Files multiple volumes](performance-oracle-multiple-volumes.md) for more details.
     * Determine the expected change rate for the database volumes (in case you're using snapshots for backup purposes).
+* Create a VNet and delegated subnet to map the Azure NetApp Files IP addresses. It is recommended that you lay out the VNet and delegated subnet at design time
 * Application volume group for Oracle volumes are deployed in a selectable availability zone for regions that offer availability zones. You need to ensure that the database server is provisioned in the same availability zone as the Azure NetApp Files volumes. You may need to check in which zones the required VM types are available as well as Azure NetApp Files resources. 
 * Application volume group for Oracle will create multiple IP addresses, at a minimum four IP addresses for a single database. For larger Oracle estates distributed across zones, it could easily be 12 or more IP addresses. Ensure that the delegated subnet has sufficient free IP addresses. It's recommended that you use a delegated subnet with a minimum of 59 IP addresses with a subnet size of /26. For larger Oracle deployment, consider using a /24 network offering 251 IP addresses for the delegated subnet. See [Considerations about delegating a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md#considerations).
 

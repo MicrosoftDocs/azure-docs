@@ -24,7 +24,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 <!-- Date TBD -->
 * [Application volume group for Oracle](application-volume-group-oracle-introduction.md) (Preview)
 
-    Application volume group (AVG) for Oracle enables you to deploy all volumes required to install and operate Oracle databases at enterprise scale, with optimal performance and according to best practices in a single one-step and optimized workflow. The application volume group feature is using the Azure NetApp Files ability to place all volumes in the same availability zone as the VMs to achieve automated, latency-optimized deployments. 
+    Application volume group (AVG) for Oracle enables you to deploy all volumes required to install and operate Oracle databases at enterprise scale, with optimal performance and according to best practices in a single one-step and optimized workflow. The application volume group feature uses the Azure NetApp Files ability to place all volumes in the same availability zone as the VMs to achieve automated, latency-optimized deployments. 
 
     Application volume group for Oracle has implemented many technical improvements that simplify and standardize the entire process to help you streamline volume deployments for Oracle. All required volumes, such as up to eight data volumes, `orig-log` and `mirror-log`, backup and binary, are created in a single "atomic" operation (through the Azure portal, RP, or API).
 
