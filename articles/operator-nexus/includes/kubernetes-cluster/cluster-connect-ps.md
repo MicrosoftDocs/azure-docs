@@ -19,11 +19,11 @@ To access your cluster, you need to set up the cluster connect `kubeconfig`. Aft
     $MANAGED_RESOURCE_GROUP=(Get-AzNetworkCloudKubernetesCluster -KubernetesClusterName $CLUSTER_NAME `
     -SubscriptionId <mySubscription> `
     -ResourceGroupName myResourceGroup `
-    | Select-Object -Property ManagedResourceGroupConfigurationName)
+    |Select-Object -Property ManagedResourceGroupConfigurationName)
     ```
     
 2. Run the following command to connect to the cluster.
-    ```azurecpowershell
+    ```azurepowershell
     New-AzConnectedKubernetes -ClusterName $CLUSTER_NAME -ResourceGroupName $MANAGED_RESOURCE_GROUP -Location $LOCATION'
     ```
 
