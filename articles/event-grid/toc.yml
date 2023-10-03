@@ -80,66 +80,50 @@ items:
           href: monitor-mqtt-delivery-reference.md
   - name: Event Grid namespaces
     items:    
-    - name: Pull delivery 
+    - name: Overview
       items:
-      - name: Overview
-        items:
-        - name: Pull delivery overview
-          href: pull-delivery-overview.md
-      - name: Concepts
-        items:
-        - name: Terminology
-          href: concepts-pull-delivery.md
-      - name: Quickstarts
-        items:
-        - name: Publish and subscribe using namespace topics
-          href: publish-events-using-namespace-topics.md
-        - name: Send and pull messages
-          items:
-          - name: .NET
-            href: event-grid-dotnet-get-started-pull-delivery.md
-      - name: How-to 
-        items:
-        - name: Create, view, and manage namespaces
-          href: create-view-manage-namespaces.md
-        - name: Create, view, and manage namespace topics
-          href: create-view-manage-namespace-topics.md
-        - name: Create, view, and manage event subscriptions
-          href: create-view-manage-event-subscriptions.md
-        - name: Enable managed identity for namespace
-          href: event-grid-namespace-managed-identity.md      
-      - name: Monitor
-        items:
-        - name: Monitoring data reference (pull delivery)
-          href: monitor-pull-reference.md
-    - name: Push delivery 
+      - name: Pull delivery overview
+        href: pull-delivery-overview.md
+      - name: Push delivery overview
+        href:           
+    - name: Concepts
       items:
-      - name: Overview
+      - name: Pull delivery terminology      
+        href: concepts-pull-delivery.md
+      - name: Push delivery Terminology
+        href: 
+      - name: Publisher and subscriber operations
+        href: publisher-subscriber-operations.md
+      - name: Dead lettering for event subscriptions 
+        href: dead-letter-event-subscriptions-namespace-topics.md
+      - name: Event retention
+        href: event-retention.md          
+    - name: Quickstarts
+      items:
+      - name: Publish and subscribe using namespace topics
+        href: publish-events-using-namespace-topics.md
+      - name: Deliver events using namespace topics
+        href: 
+      - name: Send and pull messages
         items:
-        - name: Push delivery overview
-          href: 
-      - name: Concepts
-        items:
-        - name: Terminology
-          href: 
-      - name: Quickstarts
-        items:
-        - name: Deliver events using namespace topics
-          href: 
-      - name: How-to 
-        items:
-        - name: Create, view, and manage namespaces
-          href: create-view-manage-namespaces.md
-        - name: Create, view, and manage namespace topics
-          href: create-view-manage-namespace-topics.md
-        - name: Create, view, and manage event subscriptions
-          href: create-view-manage-event-subscriptions.md
-        - name: Enable managed identity for namespace
-          href: event-grid-namespace-managed-identity.md      
-      - name: Monitor
-        items:
-        - name: Monitoring data reference (push delivery - namespaces)
-          href: 
+        - name: .NET
+          href: event-grid-dotnet-get-started-pull-delivery.md
+    - name: How-to 
+      items:
+      - name: Create, view, and manage namespaces
+        href: create-view-manage-namespaces.md
+      - name: Create, view, and manage namespace topics
+        href: create-view-manage-namespace-topics.md
+      - name: Create, view, and manage event subscriptions
+        href: create-view-manage-event-subscriptions.md
+      - name: Enable managed identity for namespace
+        href: event-grid-namespace-managed-identity.md      
+    - name: Monitor
+      items:
+      - name: Monitoring data reference (pull delivery)
+        href: monitor-pull-reference.md
+      - name: Monitoring data reference (push delivery)
+        href: 
   - name: Event Grid Basic
     items:
     - name: Overview
