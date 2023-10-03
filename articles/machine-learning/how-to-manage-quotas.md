@@ -113,7 +113,7 @@ The following table shows more limits in the platform. Reach out to the Azure Ma
 | Nodes in a single Parallel Run Step **run** on an Azure Machine Learning compute (AmlCompute) cluster | 100 nodes but configurable up to 65,000 nodes if your cluster is set up to scale as mentioned previously |
 | Nodes in a single Azure Machine Learning compute (AmlCompute) **cluster** set up as a communication-enabled pool | 300 nodes but configurable up to 4,000 nodes |
 | Nodes in a single Azure Machine Learning compute (AmlCompute) **cluster** set up as a communication-enabled pool on an RDMA enabled VM Family | 100 nodes |
-| Nodes in a single MPI **run** on an Azure Machine Learning compute (AmlCompute) cluster | 100 nodes but can be increased to 300 nodes |
+| Nodes in a single MPI **run** on an Azure Machine Learning compute (AmlCompute) cluster | 100 nodes |
 | Job lifetime | 21 days<sup>1</sup> |
 | Job lifetime on a low-priority node | 7 days<sup>2</sup> |
 | Parameter servers per node | 1 |
@@ -168,7 +168,7 @@ Azure Machine Learning kubernetes online endpoints have limits described in the 
 | Number of deployments per endpoint | 20 |
 | Max request time-out at endpoint level  | 300 seconds |
 
-The sum of kubernetes online endpoints and managed online endpoints under each subscription can't exceed 50. Similarly, the sum of kubernetes online deployments and managed online deployments under each subscription can't exceed 200.
+The sum of kubernetes online endpoint, managed online endpoint, and managed batch endpoint under each subscription can't exceed 50. Similarly, the sum of kubernetes online deployments and managed online deployments and managed batch deployments under each subscription can't exceed 200.
 
 ### Azure Machine Learning pipelines
 [Azure Machine Learning pipelines](concept-ml-pipelines.md) have the following limits.
