@@ -13,7 +13,17 @@ ms.custom: template-how-to
 ---
 
 # Manage Teams meeting lobby
+::: zone pivot="platform-android"
+[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
+::: zone-end
 
+::: zone pivot="platform-ios"
+[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
+::: zone-end
+
+::: zone pivot="platform-windows"
+[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
+::: zone-end
 In this article, you will learn how to implement the Teams meetings lobby capability by using Azure Communication Service calling SDKs. This capability allows users to admit and reject participants from Teams meeting lobby, receive the join lobby notification and get the lobby participants list.
 
 ## Prerequisites
