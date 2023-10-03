@@ -1766,6 +1766,46 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/site-recovery/vmware-physical-secondary-disaster-recovery.md",
+            "redirect_url": "/azure/site-recovery/vmware-physical-secondary-architecture",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/site-to-site-deprecation.md",
+            "redirect_url": "/azure/site-recovery/vmware-physical-secondary-architecture",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/hyper-v-vmm-disaster-recovery.md",
+            "redirect_url": "/azure/site-recovery/hyper-v-azure-powershell-resource-manager",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/hyper-v-vmm-test-failover.md",
+            "redirect_url": "/azure/site-recovery/hyper-v-azure-powershell-resource-manager",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/hyper-v-vmm-networking.md",
+            "redirect_url": "/azure/site-recovery/hyper-v-azure-powershell-resource-manager",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/hyper-v-vmm-recovery-script.md",
+            "redirect_url": "/azure/site-recovery/hyper-v-azure-powershell-resource-manager",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/hyper-v-vmm-failover-failback.md",
+            "redirect_url": "/azure/site-recovery/hyper-v-azure-powershell-resource-manager",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/hyper-v-vmm-performance-results.md",
+            "redirect_url": "/azure/site-recovery/hyper-v-azure-powershell-resource-manager",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/iot-hub/iot-hub-rm-template.md",
             "redirect_url": "/azure/iot-hub/iot-hub-rm-template-powershell",
             "redirect_document_id": false
