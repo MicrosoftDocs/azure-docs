@@ -4,7 +4,8 @@ titleSuffix: Azure Storage Tasks
 description: Important reference material needed when you monitor Azure Storage Tasks 
 author: normesta
 
-ms.service: azure-storage-actions
+ms.service: azure-storage
+ms.custom: build-2023-metadata-update
 ms.custom: horz-monitor
 ms.topic: reference
 ms.date: 05/16/2023

@@ -5,8 +5,8 @@ description: Start here to learn how to monitor Azure Storage Tasks
 services: storage
 author: normesta
 
-ms.service: azure-storage-actions
-ms.custom: horz-monitor
+ms.service: azure-storage
+ms.custom: build-2023-metadata-update
 ms.topic: conceptual
 ms.date: 05/10/2023
 ms.author: normesta

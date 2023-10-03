@@ -5,7 +5,8 @@ description: Learn how to perform operations on blobs in Azure Storage accounts 
 services: storage
 author: normesta
 
-ms.service: azure-storage-actions
+ms.service: azure-storage
+ms.custom: build-2023-metadata-update
 ms.topic: overview
 ms.date: 08/03/2023
 ms.author: normesta
