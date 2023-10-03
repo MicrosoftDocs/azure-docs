@@ -20,7 +20,6 @@ For information on setup and configuration details of the Dapr extension, see th
 
 ::: zone pivot="programming-language-csharp"
 
-
 A C# function can be created using one of the following C# modes:
 
 [!INCLUDE [dotnet-execution](../../includes/functions-dotnet-execution-model.md)]

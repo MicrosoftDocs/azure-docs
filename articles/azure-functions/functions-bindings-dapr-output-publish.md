@@ -229,21 +229,21 @@ def main(subEvent,
 
 In the [in-process model](./functions-dotnet-class-library.md), use the `DaprPublish` to define a Dapr publish output binding, which supports these parameters:
 
-|function.json property | Description|
-|---------|----------------------|
-| **PubSubName** | The name of the Dapr pub/sub to send the message. |
-| **Topic** | The name of the Dapr topic to send the message. |
-| **Payload** | **Required**. Todo. |
+|function.json property | Description| Sent via |
+|-----------------------|------------|----------|
+| **PubSubName** | The name of the Dapr pub/sub to send the message. | The attribute itself or the `RequestBody`. |
+| **Topic** | The name of the Dapr topic to send the message. | The attribute itself or the `RequestBody`. |
+| **Payload** | **Required**. Todo. | The `RequestBody`. |
 
 # [Isolated process](#tab/isolated-process)
 
 In the [isolated worker model](./dotnet-isolated-process-guide.md), use the `DaprPublish Output` to define a Dapr publish output binding, which supports these parameters:
 
-|function.json property | Description|
-|---------|----------------------|
-| **PubSubName** | The name of the Dapr pub/sub to send the message. |
-| **Topic** | The name of the Dapr topic to send the message. |
-| **Payload** | **Required**. Todo. |
+|function.json property | Description| Sent via |
+|-----------------------|------------|----------|
+| **PubSubName** | The name of the Dapr pub/sub to send the message. | The attribute itself or the `RequestBody`. |
+| **Topic** | The name of the Dapr topic to send the message. | The attribute itself or the `RequestBody`. |
+| **Payload** | **Required**. Todo. | The `RequestBody`. |
 
 
 ---
@@ -256,11 +256,11 @@ In the [isolated worker model](./dotnet-isolated-process-guide.md), use the `Dap
 
 The `DaprPublishOutput` annotation allows you to have a function access a published message. 
 
-| Element | Description | 
-| --------- | ----------- | 
-| **pubSubName** | The name of the Dapr pub/sub to send the message. | 
-| **topic** | The name of the Dapr topic to send the message. | 
-|**payload** | **Required** Todo. |
+| Element | Description | Sent via | 
+| --------| ----------- |----------| 
+| **pubSubName** | The name of the Dapr pub/sub to send the message. | The attribute itself or the `RequestBody`. | 
+| **topic** | The name of the Dapr topic to send the message. | The attribute itself or the `RequestBody`. | 
+| **payload** | **Required** Todo. | The `RequestBody`. |
 
 ::: zone-end
 
@@ -274,14 +274,14 @@ The `DaprPublishOutput` annotation allows you to have a function access a publis
 
 The following table explains the binding configuration properties that you set in the _function.json_ file.
 
-|function.json property | Description|
-|---------|----------------------|
-|**type** | Must be set to `daprPublish`. |
-|**direction** | Must be set to `out`. |
-|**name** | The name of the variable that represents the Dapr data in function code. |
-|**pubsubname** | The name of the publisher component service. |
-|**topic** | The name/identifier of the publisher topic. |
-|**payload** | **Required** Todo. |
+|function.json property | Description| Sent via |
+|-----------------------|------------|----------|
+|**type** | Must be set to `daprPublish`. | The attribute itself or the `RequestBody`. |
+|**direction** | Must be set to `out`. | The attribute itself or the `RequestBody`. |
+|**name** | The name of the variable that represents the Dapr data in function code. | The attribute itself or the `RequestBody`. |
+|**pubsubname** | The name of the publisher component service. | The attribute itself or the `RequestBody`. |
+|**topic** | The name/identifier of the publisher topic. | The attribute itself or the `RequestBody`. |
+|**payload** | **Required** Todo. | The `RequestBody`. |
 
 ::: zone-end
 
@@ -291,82 +291,29 @@ The following table explains the binding configuration properties that you set i
 
 The following table explains the binding configuration properties for `@dapp.dapr_publish_output` that you set in your Python code.
 
-|Property | Description|
-|---------|----------------------|
-|**arg_name** | Argument/variable name that should match with the parameter of the function. In the example, this value is set to `pubEvent`. |
-|**pub_sub_name** | The name of the publisher event. |
-|**topic** | The publisher topic name/identifier. |
-|**payload** | **Required** Todo. |
+|Property | Description| Sent via |
+|---------|------------|----------|
+|**arg_name** | Argument/variable name that should match with the parameter of the function. In the example, this value is set to `pubEvent`. | The attribute itself or the `RequestBody`. |
+|**pub_sub_name** | The name of the publisher event. | The attribute itself or the `RequestBody`. |
+|**topic** | The publisher topic name/identifier. | The attribute itself or the `RequestBody`. |
+|**payload** | **Required** Todo. | The `RequestBody`. |
 
 # [Python v1](#tab/v1)
 
 The following table explains the binding configuration properties that you set in the _function.json_ file.
 
-|function.json property | Description|
-|---------|----------------------|
-|**type** | Must be set to `daprPublish`. |
-|**direction** | Must be set to `out`. |
-|**name** | The name of the variable that represents the Dapr data in function code. |
-|**pubsubname** | The name of the publisher component service. |
-|**topic** | The name/identifier of the publisher topic. |
-|**payload** | **Required** Todo. |
+|function.json property | Description| Sent via |
+|-----------------------|------------|----------|
+|**type** | Must be set to `daprPublish`. | The attribute itself or the `RequestBody`. |
+|**direction** | Must be set to `out`. | The attribute itself or the `RequestBody`. |
+|**name** | The name of the variable that represents the Dapr data in function code. | The attribute itself or the `RequestBody`. |
+|**pubsubname** | The name of the publisher component service. | The attribute itself or the `RequestBody`. |
+|**topic** | The name/identifier of the publisher topic. | The attribute itself or the `RequestBody`. |
+|**payload** | **Required** Todo. | The `RequestBody`. |
 
 ---
 
 ::: zone-end
-
-You can define these properties via:
-- The attribute itself
-- The `RequestBody`
-- Both the attribute and the request body
-
-If you define with both the attribute and the request body, the request body is given priority. 
-
-To define with the attribute:
-
-```csharp
-public class DaprPublishAttribute : DaprBaseAttribute
-{
-    [AutoResolve]
-    public string? PubSubName { get; set; }
-    [AutoResolve]
-    public string? Topic { get; set; }
-}
-```
-
-To define with the `RequestBody`:
-
-```csharp
-static DaprPubSubEvent CreatePubSubEvent(JsonElement json)
-{
-    var propertyBag = json.ToCaseInsensitiveDictionary();
-
-    if (!propertyBag.TryGetValue("payload", out JsonElement payload))
-    {
-        throw new ArgumentException($"A '{nameof(json).ToLowerInvariant()}' parameter is required for outbound pub/sub operations.");
-    }
-
-    object? payloadObject = payload.Deserialize<object>();
-    if (payloadObject == null)
-    {
-        throw new ArgumentException($"Could not deserialize '{nameof(payloadObject).ToLowerInvariant()}' parameter for outbound pub/sub operations.");
-    }
-
-    DaprPubSubEvent event_ = new DaprPubSubEvent(payloadObject);
-
-    if (propertyBag.TryGetValue("pubsubname", out JsonElement pubsubName))
-    {
-        event_.PubSubName = pubsubName.GetString();
-    }
-
-    if (propertyBag.TryGetValue("topic", out JsonElement topic))
-    {
-        event_.Topic = topic.GetString();
-    }
-
-    return event_;
-}
-```
 
 See the [Example section](#example) for complete examples.
 
