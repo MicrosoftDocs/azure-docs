@@ -178,7 +178,7 @@ cmdlet | Usage
    ```
 
 >[!NOTE]
-> The Confirm-MgDomain cmdlet is getting an update in the next couple of months. You can monitor the [confirm-MgDomain cmdlet](/powershell/module/microsoft.graph.identity.directorymanagement/confirm-mgdomain?view=graph-powershell-1.0&preserve-view=true) article for updates.
+> The Confirm-MgDomain cmdlet is being updated. You can monitor the [confirm-MgDomain cmdlet](/powershell/module/microsoft.graph.identity.directorymanagement/confirm-mgdomain?view=graph-powershell-1.0&preserve-view=true) article for updates.
 
 A successful challenge returns you to the prompt without an error.
 
