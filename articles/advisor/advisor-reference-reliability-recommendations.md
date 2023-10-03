@@ -314,7 +314,7 @@ Learn more about [IoT hub - IoTHubDeviceStorm (IoT Hub Potential Device Storm De
 
 ### Upgrade Device Update for IoT Hub SDK to a supported version
 
-Your Device Update for IoT Hub Instance is using an outdated version of the SDK. We recommend upgrading to the latest version for the latest fixes, performance improvements, and new feature capabilities.
+Your Device Update for IoT Hub Instance is using an outdated version of the SDK. We recommend you upgrade to the latest version for the latest fixes, performance improvements, and new feature capabilities.
 
 Learn more about [IoT hub - DU_SDK_Advisor_Recommendation (Upgrade Device Update for IoT Hub SDK to a supported version)](/azure/iot-hub-device-update/understand-device-update).
 
@@ -346,13 +346,13 @@ Learn more about [Azure Cosmos DB account - CosmosDBLazyIndexing (Configure Cons
 
 ### Upgrade your old Azure Cosmos DB SDK to the latest version
 
-Your Azure Cosmos DB account is using an old version of the SDK. We recommend upgrading to the latest version for the latest fixes, performance improvements, and new feature capabilities.
+Your Azure Cosmos DB account is using an old version of the SDK. We recommend you upgrade to the latest version for the latest fixes, performance improvements, and new feature capabilities.
 
 Learn more about [Azure Cosmos DB account - CosmosDBUpgradeOldSDK (Upgrade your old Azure Cosmos DB SDK to the latest version)](../cosmos-db/index.yml).
 
 ### Upgrade your outdated Azure Cosmos DB SDK to the latest version
 
-Your Azure Cosmos DB account is using an outdated version of the SDK. We recommend upgrading to the latest version for the latest fixes, performance improvements, and new feature capabilities.
+Your Azure Cosmos DB account is using an outdated version of the SDK. We recommend you upgrade to the latest version for the latest fixes, performance improvements, and new feature capabilities.
 
 Learn more about [Azure Cosmos DB account - CosmosDBUpgradeOutdatedSDK (Upgrade your outdated Azure Cosmos DB SDK to the latest version)](../cosmos-db/index.yml).
 
@@ -364,7 +364,7 @@ Learn more about [Azure Cosmos DB account - CosmosDBFixedCollections (Configure 
 
 ### Upgrade your Azure Cosmos DB for MongoDB account to v4.0 to save on query/storage costs and utilize new features
 
-Your Azure Cosmos DB for MongoDB account is eligible to upgrade to version 4.0. Upgrading to the v4.0 new storage format, can reduce your storage costs by up to 55% and your query costs by up to 45%. Numerous other features such as multi-document transactions are also included in v4.0.
+Your Azure Cosmos DB for MongoDB account is eligible to upgrade to version 4.0. Reduce your storage costs by up to 55% and your query costs by up to 45% by upgrading to the v4.0 new storage format. Numerous other features such as multi-document transactions are also included in v4.0.
 
 Learn more about [Azure Cosmos DB account - CosmosDBMongoSelfServeUpgrade (Upgrade your Azure Cosmos DB for MongoDB account to v4.0 to save on query/storage costs and utilize new features)](/azure/cosmos-db/mongodb-version-upgrade).
 
@@ -385,7 +385,7 @@ Learn more about [Azure Cosmos DB account - CosmosDBMongoServerSideRetries (Enab
 
 ### Migrate your Azure Cosmos DB for MongoDB account to v4.0 to save on query/storage costs and utilize new features
 
-Migrate your database account to a new database account to take advantage of Azure Cosmos DB for MongoDB v4.0. Upgrading to the v4.0 new storage format can reduce your storage costs by up to 55% and your query costs by up to 45%. Numerous other features such as multi-document transactions are also included in v4.0. When upgrading, you must also migrate the data in your existing account to a new account created using version 4.0. Azure Data Factory or Studio 3T can assist you in migrating your data.
+Migrate your database account to a new database account to take advantage of Azure Cosmos DB for MongoDB v4.0. Reduce your storage costs by up to 55% and your query costs by up to 45% by upgrading to the v4.0 new storage format. Numerous other features such as multi-document transactions are also included in v4.0. When upgrading, you must also migrate the data in your existing account to a new account created using version 4.0. Azure Data Factory or Studio 3T can assist you in migrating your data.
 
 Learn more about [Azure Cosmos DB account - CosmosDBMongoMigrationUpgrade (Migrate your Azure Cosmos DB for MongoDB account to v4.0 to save on query/storage costs and utilize new features)](/azure/cosmos-db/mongodb-feature-support-40).
 
@@ -537,13 +537,7 @@ Your media account is about to hit its quota limits. Review current usage of Ass
 
 Learn more about [Media Service - AccountQuotaLimit (Increase Media Services quotas or limits to ensure continuity of service.)](https://aka.ms/ams-quota-recommendation/).
 
-## NETAPP
-
-### Review SAP configuration for timeout values used with Azure NetApp Files
-
-High availability of SAP while used with Azure NetApp Files relies on setting proper timeout values to prevent disruption to your application. Review the documentation to ensure your configuration meets the timeout values as noted in the documentation.
-
-Learn more about [Volume - SAPTimeoutsANF (Review SAP configuration for timeout values used with Azure NetApp Files)](/azure/sap/workloads/get-started).
+## Azure NetApp Files
 
 ### Implement disaster recovery strategies for your Azure NetApp Files Resources
 
@@ -551,11 +545,11 @@ To avoid data or functionality loss in the event of a regional or zonal disaster
 
 Learn more about [Volume - ANFCRRCZRRecommendation (Implement disaster recovery strategies for your Azure NetApp Files Resources)](https://aka.ms/anfcrr).
 
-### Azure Netapp Files Enable Continuous Availability for SMB Volumes
+### Azure NetApp Files Enable Continuous Availability for SMB Volumes
 
 Recommendation to enable SMB volume for Continuous Availability.
 
-Learn more about [Volume - anfcaenablement (Azure Netapp Files Enable Continuous Availability for SMB Volumes)](https://aka.ms/anfdoc-continuous-availability).
+Learn more about [Volume - anfcaenablement (Azure NetApp Files Enable Continuous Availability for SMB Volumes)](https://aka.ms/anfdoc-continuous-availability).
 
 ## Networking
 
@@ -656,7 +650,7 @@ Learn more about [Virtual network gateway - VNetGatewayActiveActive (Enable Acti
 
 ### Enable soft delete for your Recovery Services vaults
 
-The soft delete optioin helps you retain your backup data in the Recovery Services vault for an extra duration after deletion. This gives you an opportunity to retrieve the data before it's permanently deleted.
+The soft delete option helps you retain your backup data in the Recovery Services vault for an extra duration after deletion. This gives you an opportunity to retrieve the data before it's permanently deleted.
 
 Learn more about [Recovery Services vault - AB-SoftDeleteRsv (Enable soft delete for your Recovery Services vaults)](../backup/backup-azure-security-feature-cloud.md).
 
@@ -686,7 +680,7 @@ you're close to exceeding your available storage quota. Add extra partitions if 
 
 Learn more about [Service limits in Azure Cognitive Search](/azure/search/search-limits-quotas-capacity).
 
-## SQL Virtual Machine
+## Azure SQL
 
 ### Enable Azure backup for SQL on your virtual machines
 
@@ -796,7 +790,13 @@ We identified your application is running in 32-bit and the memory is reaching t
 
 Learn more about [App service 32-bit limitations](/troubleshoot/azure/app-service/web-apps-performance-faqs#i-see-the-message-worker-process-requested-recycle-due-to-percent-memory-limit-how-do-i-address-this-issue).
 
-## Workloads
+## SAP solutions on Azure
+
+### Review SAP configuration for timeout values used with Azure NetApp Files
+
+High availability of SAP while used with Azure NetApp Files relies on setting proper timeout values to prevent disruption to your application. Review the documentation to ensure your configuration meets the timeout values as noted in the documentation.
+
+Learn more about [Volume - SAPTimeoutsANF (Review SAP configuration for timeout values used with Azure NetApp Files)](/azure/sap/workloads/get-started).
 
 ### Enable HA ports in the Azure Load Balancer for ASCS HA setup in SAP workloads
 
@@ -920,7 +920,7 @@ Learn more about [Database Instance - ConcurrentFencingHARH (Enable the 'concurr
 
 ### Set 'token_retransmits_before_loss_const' to 10 in Pacemaker cluster in ASCS HA setup in SAP workloads
 
-The corosync token_retransmits_before_loss_const determines how many token retransmits should be attempted before timeout in HA clusters. Set the totem.token_retransmits_before_loss_const to 10 as per recommendation for ASCS HA setup.
+The corosync token_retransmits_before_loss_const determines how many token retransmits the system attempts before timeout in HA clusters. Set the totem.token_retransmits_before_loss_const to 10 as per recommendation for ASCS HA setup.
 
 Learn more about [Central Server Instance - TokenRestransmitsHAASCSSLE (Set 'token_retransmits_before_loss_const' to 10 in Pacemaker cluster in ASCS HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
 
@@ -932,7 +932,7 @@ Learn more about [Central Server Instance - CorosyncTokenHAASCSSLE (Set the coro
 
 ### Set the 'corosync max_messages' in Pacemaker cluster to 20 for ASCS HA setup in SAP workloads
 
-The corosync max_messages constant specifies the maximum number of messages that may be sent by one processor on receipt of the token. We recommend to be set 20 times the corosync token parameter in Pacemaker cluster configuration.
+The corosync max_messages constant specifies the maximum number of messages that may be sent by one processor on receipt of the token. We recommend you set to 20 times the corosync token parameter in Pacemaker cluster configuration.
 
 Learn more about [Central Server Instance - CorosyncMaxMessagesHAASCSSLE (Set the 'corosync max_messages' in Pacemaker cluster to 20 for ASCS HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
 
@@ -1026,27 +1026,27 @@ The concurrent-fencing parameter when set to true, enables the fencing operation
 
 Learn more about [Central Server Instance - ConcurrentFencingHAASCSSLE (Enable the 'concurrent-fencing' parameter in Pacemaker cofiguration in ASCS HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
 
-### Set stonith-timeout to 900 in Pacemaker configuration wth Azure fence agent for ASCS HA setup
+### Set stonith-timeout to 900 in Pacemaker configuration with Azure fence agent for ASCS HA setup
 
 stonith-timeout should be set to 900 for reliable function of the Pacemaker for ASCS HA setup. This is applicable if you are using Azure fence agent for fencing with either managed identity or service principal.
 
-Learn more about [Central Server Instance - StonithTimeOutHAASCSSLE (Set stonith-timeout to 900 in Pacemaker configuration wth Azure fence agent for ASCS HA setup)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+Learn more about [Central Server Instance - StonithTimeOutHAASCSSLE (Set stonith-timeout to 900 in Pacemaker configuration with Azure fence agent for ASCS HA setup)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
 
 ### Create the softdog config file in Pacemaker configuration for ASCS HA setup in SAP workloads
 
-The softdog timer is loaded as a kernel module in linux OS. This timer  triggers a system reset if it detects that the system has hung. Ensure that the softdog configuation file is created in the Pacemaker cluster forASCS HA set up.
+The softdog timer is loaded as a kernel module in linux OS. This timer  triggers a system reset if it detects that the system has hung. Ensure that the softdog configuration file is created in the Pacemaker cluster forASCS HA set up.
 
 Learn more about [Central Server Instance - SoftdogConfigHAASCSSLE (Create the softdog config file in Pacemaker configuration for ASCS HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
 
-### Ensure the softdog module is loaded in for Pacemaler in ASCS HA setup in SAP workloads
+### Ensure the softdog module is loaded in for Pacemaker in ASCS HA setup in SAP workloads
 
 The softdog timer is loaded as a kernel module in linux OS. This timer  triggers a system reset if it detects that the system has hung. First ensure that you created the softdog configuration file, then load the softdog module in the Pacemaker configuration for ASCS HA setup.
 
-Learn more about [Central Server Instance - softdogmoduleloadedHAASCSSLE (Ensure the softdog module is loaded in for Pacemaler in ASCS HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+Learn more about [Central Server Instance - softdogmoduleloadedHAASCSSLE (Ensure the softdog module is loaded in for Pacemaker in ASCS HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
 
 ### Create the softdog config file in Pacemaker configuration for HA enable HANA DB in SAP workloads
 
-The softdog timer is loaded as a kernel module in linux OS. This timer  triggers a system reset if it detects that the system has hung. Ensure that the softdog configuation file is created in the Pacemaker cluster for HANA DB HA set up.
+The softdog timer is loaded as a kernel module in linux OS. This timer  triggers a system reset if it detects that the system has hung. Ensure that the softdog configuration file is created in the Pacemaker cluster for HANA DB HA setup.
 
 Learn more about [Database Instance - SoftdogConfigSuseHDB (Create the softdog config file in Pacemaker configuration for HA enable HANA DB in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
 
@@ -1058,21 +1058,21 @@ Learn more about [Database Instance - StonithTimeOutSuseHDB (Set stonith-timeout
 
 ### There should be one instance of fence_azure_arm in Pacemaker configuration for ASCS HA setup
 
-fence_azure_arm is an I/O fencing agent for Azure Resource Manager. Ensure that there is one instance of fence_azure_arm in the pacemaker configuration for ASCS HA setp. This is applicable if you are using Azure fence agent for fencing with either managed identity or service principal.
+fence_azure_arm is an I/O fencing agent for Azure Resource Manager. Ensure that there is one instance of fence_azure_arm in the pacemaker configuration for ASCS HA setup. This is applicable if you are using Azure fence agent for fencing with either managed identity or service principal.
 
 Learn more about [Central Server Instance - FenceAzureArmHAASCSSLE (There should be one instance of fence_azure_arm in Pacemaker configuration for ASCS HA setup)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
 
 ### There should be one instance of fence_azure_arm in Pacemaker configuration for HANA DB HA setup
 
-fence_azure_arm is an I/O fencing agent for Azure Resource Manager. Ensure that there is one instance of fence_azure_arm in the pacemaker configuration for HANA Db HA setp. This is applicable if you are using Azure fence agent for fencing with either managed identity or service principal.
+fence_azure_arm is an I/O fencing agent for Azure Resource Manager. Ensure that there is one instance of fence_azure_arm in the pacemaker configuration for HANA DB HA setup. This is applicable if you are using Azure fence agent for fencing with either managed identity or service principal.
 
 Learn more about [Database Instance - FenceAzureArmSuseHDB (There should be one instance of fence_azure_arm in Pacemaker configuration for HANA DB HA setup)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
 
-### Ensure the softdog module is loaded in for Pacemaler in HA enabled HANA DB in SAP workloads
+### Ensure the softdog module is loaded in for Pacemaker in HA enabled HANA DB in SAP workloads
 
 The softdog timer is loaded as a kernel module in linux OS. This timer  triggers a system reset if it detects that the system has hung. First ensure that you created the softdog configuration file, then load the softdog module in the Pacemaker configuration for HANA DB HA setup.
 
-Learn more about [Database Instance - SoftdogModuleSuseHDB (Ensure the softdog module is loaded in for Pacemaler in HA enabled HANA DB in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+Learn more about [Database Instance - SoftdogModuleSuseHDB (Ensure the softdog module is loaded in for Pacemaker in HA enabled HANA DB in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
 
 
 ## Next steps
