@@ -5,8 +5,8 @@ description: Microsoft offers Microsoft-managed encryption keys, and also lets y
 author: erindormier
 manager: nitinme
 
-ms.service: cognitive-services
-ms.subservice: language-understanding
+ms.service: azure-ai-language
+ms.subservice: azure-ai-luis
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: egeaney
