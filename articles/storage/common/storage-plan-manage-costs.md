@@ -72,7 +72,7 @@ Data storage and metadata are billed per GB on a monthly basis. For data and met
 
 #### Storage units
 
-Azure Blob Storage uses the following base-2 units of measurement to represent storage capacity: `KiB`, `MiB`, `GiB`, `TiB`, `PiB`. Line items on your bill that contain `GB` as a unit of measurement (For example, per GB / per month) are calculated by Azure Blob Storage as binary GB (GiB). For example, a line item on your bill that shows **1** for **Data Stored (GB/month)** corresponds to 1 GiB per month of usage. The following table describes each base-2 unit:
+Azure Blob Storage uses the following base-2 units of measurement to represent storage capacity: KiB, MiB, GiB, TiB, PiB. Line items on your bill that contain GB as a unit of measurement (For example, per GB / per month) are calculated by Azure Blob Storage as binary GB (GiB). For example, a line item on your bill that shows **1** for **Data Stored (GB/month)** corresponds to 1 GiB per month of usage. The following table describes each base-2 unit:
 
 | Acronym | Unit | Definition |
 |---|---|--|
