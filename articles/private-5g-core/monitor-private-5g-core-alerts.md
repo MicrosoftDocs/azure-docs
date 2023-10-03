@@ -14,8 +14,8 @@ Alerts help track important events in your network by sending a notification con
 
 ## Prerequisites
 
-1. Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the build-in Contributor or Owner role at the subscription scope.
-1. You must have [deployed your private mobile network](how-to-guide-deploy-a-private-mobile-network-azure-portal.md).
+- Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the build-in Contributor or Owner role at the subscription scope.
+- You must have [deployed your private mobile network](how-to-guide-deploy-a-private-mobile-network-azure-portal.md).
 
 ## Create an alert rule for your packet core control plane or data plane resources
 
