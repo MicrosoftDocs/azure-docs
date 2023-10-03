@@ -74,107 +74,73 @@ items:
         href: event-grid-namespace-managed-identity.md 
       - name: Troubleshoot MQTT runtime issues
         href: mqtt-troubleshoot-errors.md
-    - name: Reference
-      items:
-      - name: SDKs
-        href: sdk-overview.md
-      - name: Azure CLI
-        href: /cli/azure/eventgrid
-      - name: PowerShell
-        href: /powershell/module/az.eventgrid
-      - name: REST
-        href: /rest/api/eventgrid
-      - name: .NET
-        href: /dotnet/api/overview/azure/event-grid?view=azure-dotnet-preview&preserve-view=true
-      - name: Java
-        href: /java/api/overview/azure/event-grid?view=azure-java-preview&preserve-view=true
-      - name: Python
-        href: /python/api/overview/azure/event-grid?view=azure-python-preview&preserve-view=true
-      - name: Node.js
-        href: /javascript/api/overview/azure/event-grid?view=azure-node-preview&preserve-view=true
-      - name: Quotas and limits
-        href: quotas-limits.md
-      - name: Monitoring data reference (MQTT delivery)
-        href: monitor-mqtt-delivery-reference.md
-    - name: Resources
-      items:
-      - name: Build your skills with Microsoft Learn training
-        href: /training/browse/?products=azure-event-grid
-      - name: FAQ
-        href: faq.yml
-      - name: Azure Roadmap
-        href: https://azure.microsoft.com/roadmap/
-      - name: Pricing
-        href: https://azure.microsoft.com/pricing/details/event-grid/
-      - name: Pricing Calculator
-        href: https://azure.microsoft.com/pricing/calculator/
-      - name: Stack Overflow
-        href: https://stackoverflow.com/questions/tagged/azure-eventgrid
-  - name: Pull delivery 
-    items:
-    - name: Overview
-      items:
-      - name: Pull delivery overview
-        href: pull-delivery-overview.md
-    - name: Concepts
-      items:
-      - name: Terminology
-        href: concepts-pull-delivery.md
-    - name: Quickstarts
-      items:
-      - name: Publish and subscribe using namespace topics
-        href: publish-events-using-namespace-topics.md
-      - name: Send and pull messages
+      - name: Monitor
         items:
-        - name: .NET
-          href: event-grid-dotnet-get-started-pull-delivery.md
-    - name: How-to 
+        - name: Monitoring data reference (MQTT delivery)
+          href: monitor-mqtt-delivery-reference.md
+  - name: Event Grid namespaces
+    items:    
+    - name: Pull delivery 
       items:
-      - name: Create, view, and manage namespaces
-        href: create-view-manage-namespaces.md
-      - name: Create, view, and manage namespace topics
-        href: create-view-manage-namespace-topics.md
-      - name: Create, view, and manage event subscriptions
-        href: create-view-manage-event-subscriptions.md
-      - name: Enable managed identity for namespace
-        href: event-grid-namespace-managed-identity.md         
-    - name: Reference
+      - name: Overview
+        items:
+        - name: Pull delivery overview
+          href: pull-delivery-overview.md
+      - name: Concepts
+        items:
+        - name: Terminology
+          href: concepts-pull-delivery.md
+      - name: Quickstarts
+        items:
+        - name: Publish and subscribe using namespace topics
+          href: publish-events-using-namespace-topics.md
+        - name: Send and pull messages
+          items:
+          - name: .NET
+            href: event-grid-dotnet-get-started-pull-delivery.md
+      - name: How-to 
+        items:
+        - name: Create, view, and manage namespaces
+          href: create-view-manage-namespaces.md
+        - name: Create, view, and manage namespace topics
+          href: create-view-manage-namespace-topics.md
+        - name: Create, view, and manage event subscriptions
+          href: create-view-manage-event-subscriptions.md
+        - name: Enable managed identity for namespace
+          href: event-grid-namespace-managed-identity.md      
+      - name: Monitor
+        items:
+        - name: Monitoring data reference (pull delivery)
+          href: monitor-pull-reference.md
+    - name: Push delivery 
       items:
-      - name: SDKs
-        href: sdk-overview.md
-      - name: Azure CLI
-        href: /cli/azure/eventgrid
-      - name: PowerShell
-        href: /powershell/module/az.eventgrid
-      - name: REST
-        href: /rest/api/eventgrid
-      - name: .NET
-        href: /dotnet/api/overview/azure/event-grid?view=azure-dotnet-preview&preserve-view=true
-      - name: Java
-        href: /java/api/overview/azure/event-grid?view=azure-java-preview&preserve-view=true
-      - name: Python
-        href: /python/api/overview/azure/event-grid?view=azure-python-preview&preserve-view=true
-      - name: Node.js
-        href: /javascript/api/overview/azure/event-grid?view=azure-node-preview&preserve-view=true
-      - name: Quotas and limits
-        href: quotas-limits.md        
-      - name: Monitoring data reference (pull delivery)
-        href: monitor-pull-reference.md
-    - name: Resources
-      items:
-      - name: Build your skills with Microsoft Learn training
-        href: /training/browse/?products=azure-event-grid
-      - name: FAQ
-        href: faq.yml
-      - name: Azure Roadmap
-        href: https://azure.microsoft.com/roadmap/
-      - name: Pricing
-        href: https://azure.microsoft.com/pricing/details/event-grid/
-      - name: Pricing Calculator
-        href: https://azure.microsoft.com/pricing/calculator/
-      - name: Stack Overflow
-        href: https://stackoverflow.com/questions/tagged/azure-eventgrid
-  - name: Push delivery
+      - name: Overview
+        items:
+        - name: Push delivery overview
+          href: 
+      - name: Concepts
+        items:
+        - name: Terminology
+          href: 
+      - name: Quickstarts
+        items:
+        - name: Deliver events using namespace topics
+          href: 
+      - name: How-to 
+        items:
+        - name: Create, view, and manage namespaces
+          href: create-view-manage-namespaces.md
+        - name: Create, view, and manage namespace topics
+          href: create-view-manage-namespace-topics.md
+        - name: Create, view, and manage event subscriptions
+          href: create-view-manage-event-subscriptions.md
+        - name: Enable managed identity for namespace
+          href: event-grid-namespace-managed-identity.md      
+      - name: Monitor
+        items:
+        - name: Monitoring data reference (push delivery - namespaces)
+          href: 
+  - name: Event Grid Basic
     items:
     - name: Overview
       items:
@@ -536,6 +502,8 @@ items:
           href: enable-diagnostic-logs-topic.md
         - name: View metrics
           href: monitor-event-delivery.md
+        - name: Monitoring data reference (push delivery)
+          href: monitor-push-reference.md
         - name: Create alerts
           href: set-alerts.md
         - name: Troubleshoot Event Grid issues
@@ -548,26 +516,6 @@ items:
           href: troubleshoot-subscription-validation.md
     - name: Reference
       items:
-      - name: SDKs
-        href: sdk-overview.md
-      - name: Azure CLI
-        href: /cli/azure/eventgrid
-      - name: PowerShell
-        href: /powershell/module/az.eventgrid
-      - name: REST
-        href: /rest/api/eventgrid
-      - name: .NET
-        href: /dotnet/api/overview/azure/event-grid?view=azure-dotnet-preview&preserve-view=true
-      - name: Java
-        href: /java/api/overview/azure/event-grid?view=azure-java-preview&preserve-view=true
-      - name: Python
-        href: /python/api/overview/azure/event-grid?view=azure-python-preview&preserve-view=true
-      - name: Node.js
-        href: /javascript/api/overview/azure/event-grid?view=azure-node-preview&preserve-view=true
-      - name: Quotas and limits
-        href: quotas-limits.md
-      - name: Monitoring data reference (push delivery)
-        href: monitor-push-reference.md
       - name: Subscription schema
         href: subscription-creation-schema.md
       - name: Template resources
@@ -592,4 +540,37 @@ items:
         href: https://azure.microsoft.com/pricing/calculator/
       - name: Stack Overflow
         href: https://stackoverflow.com/questions/tagged/azure-eventgrid
-
+  - name: Reference
+    items:
+    - name: SDKs
+      href: sdk-overview.md
+    - name: Azure CLI
+      href: /cli/azure/eventgrid
+    - name: PowerShell
+      href: /powershell/module/az.eventgrid
+    - name: REST
+      href: /rest/api/eventgrid
+    - name: .NET
+      href: /dotnet/api/overview/azure/event-grid
+    - name: Java
+      href: /java/api/overview/azure/event-grid
+    - name: Python
+      href: /python/api/overview/azure/event-grid
+    - name: Node.js
+      href: /javascript/api/overview/azure/event-grid
+    - name: Quotas and limits
+      href: quotas-limits.md
+  - name: Resources
+    items:
+    - name: Build your skills with Microsoft Learn training
+      href: /training/browse/?products=azure-event-grid
+    - name: FAQ
+      href: faq.yml
+    - name: Azure Roadmap
+      href: https://azure.microsoft.com/roadmap/
+    - name: Pricing
+      href: https://azure.microsoft.com/pricing/details/event-grid/
+    - name: Pricing Calculator
+      href: https://azure.microsoft.com/pricing/calculator/
+    - name: Stack Overflow
+      href: https://stackoverflow.com/questions/tagged/azure-eventgrid
