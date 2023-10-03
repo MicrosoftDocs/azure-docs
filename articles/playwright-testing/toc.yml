@@ -7,6 +7,9 @@ items:
     - name: What is Microsoft Playwright Testing?
       displayName: Playwright, MPT, overview, introduction
       href: overview-what-is-microsoft-playwright-testing.md
+    - name: Try Microsoft Playwright Testing for free
+      displayName: free trial, free, trial, try
+      href: how-to-try-playwright-testing-free.md
 - name: Quickstarts
   expanded: true
   items: 
@@ -57,7 +60,7 @@ items:
     - name: Playwright documentation
       href: https://playwright.dev
     - name: Pricing
-      href: https://azure.microsoft.com/pricing/
+      href: https://azure.microsoft.com/pricing/details/playwright-testing/
     - name: Regional availability
       href: https://azure.microsoft.com/regions/services/
     - name: Service limits
