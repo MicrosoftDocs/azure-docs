@@ -10,7 +10,7 @@
           "**/*.yml"
         ],
         "exclude": [
-          "articles/index.yml",
+          "index.yml",
           "iot-edge/**",
           "ai-services/document-intelligence/**",
           "**/_themes/**",
