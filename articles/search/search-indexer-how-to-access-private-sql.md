@@ -38,7 +38,7 @@ Although you can call the Management REST API directly, it's easier to use the A
 
 ## 1 - Retrieve connection information
 
-Retrieve the FQDN of the managed instance, including the DNS zone. The DNS zone is part of the domain name of the SQL Managed Instance. For example, if the FQDN of the SQL Managed Instance is `my-sql-managed-instance.a1b22c333d44.database.windows.net`, the DNS zone is `a1b22c333d44`.
+Retrieve the FQDN of the managed instance, including the DNS zone. The DNS zone is part of the domain name of the SQL Managed Instance. For example, if the FQDN of the SQL Managed Instance is `my-sql-managed-instance.00000000000.database.windows.net`, the DNS zone is `00000000000`.
 
 1. In Azure portal, find the SQL managed instance object.
 
