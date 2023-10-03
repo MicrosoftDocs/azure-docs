@@ -75,9 +75,9 @@ Use these detailed steps and commands to migrate your Apache HBase cluster.
    
    1. Verify HBCK Report page on HBase UI.  Healthy cluster does not show any inconsistencies
    :::image type="content" source="./media/apache-hbase-migrate-new-version/verify-hbck-report.png" alt-text="Screenshot showing how to verify HBCK report." lightbox="./media/apache-hbase-migrate-new-version/verify-hbck-report.png":::
-   1. If any inconsistencies exists, fix inconsistencies using [hbase hbck2](/azure/hdinsight/hbase/how-to-use-hbck2-tool/)
+   1. If any inconsistencies exist, fix inconsistencies using [hbase hbck2](/azure/hdinsight/hbase/how-to-use-hbck2-tool/)
 
-1. Note down number of regions in online at source cluster, so that the number can be refered at destination cluster after the migration. 
+1. Note down number of regions in online at source cluster, so that the number can be referred at destination cluster after the migration. 
    :::image type="content" source="./media/apache-hbase-migrate-new-version/total-number-of-regions.png" alt-text="Screenshot showing total number of regions." lightbox="./media/apache-hbase-migrate-new-version/total-number-of-regions.png":::
 
 1. If replication enabled on the cluster, stop and reenable the replication on destination cluster after migration. For more information, see [Hbase replication guide](/azure/hdinsight/hbase/apache-hbase-replication/)  
@@ -96,7 +96,7 @@ Use these detailed steps and commands to migrate your Apache HBase cluster.
    ```
 1. Wait for 15 mins and verify that all the procedures are completed, and masterProcWal files doesn't  have any pending procedures.
 
-    1. Verity the Procedures page to confirm that there are no pending procedures.
+    1. Verify the Procedures page to confirm that there are no pending procedures.
     
         :::image type="content" source="./media/apache-hbase-migrate-new-version/verify-master-process.png" alt-text="Screenshot showing how to verify master process." lightbox="./media/apache-hbase-migrate-new-version/verify-master-process.png"::: 
 
@@ -215,7 +215,7 @@ sudo -u hbase hdfs dfs -Dfs.azure.page.blob.dir="/hbase-wals" -cp <source-contai
 
 ## Migrate HBase using scripts
 
-1. Note down number of regions in online at source cluster, so that the number can be refered at destination cluster after the migration.
+1. Note down number of regions in online at source cluster, so that the number can be referred at destination cluster after the migration.
    :::image type="content" source="./media/apache-hbase-migrate-new-version/total-number-of-regions.png" alt-text="Screenshot showing count of number of regions." lightbox="./media/apache-hbase-migrate-new-version/total-number-of-regions.png":::
 
 1. Flush the source HBase cluster you're upgrading.
@@ -232,7 +232,7 @@ sudo -u hbase hdfs dfs -Dfs.azure.page.blob.dir="/hbase-wals" -cp <source-contai
    ```
 1. Wait for 15 mins and verify that all the procedures are completed, and masterProcWal files doesn't  have any pending procedures.
 
-    1. Verity the Procedures page to confirm that there are no pending procedures.
+    1. Verify the Procedures page to confirm that there are no pending procedures.
     
         :::image type="content" source="./media/apache-hbase-migrate-new-version/verify-master-process.png" alt-text="Screenshot showing how to verify master process." lightbox="./media/apache-hbase-migrate-new-version/verify-master-process.png"::: 
 
@@ -271,13 +271,13 @@ If Hbase masters and region servers up and regions stuck in transition or only o
 1. ssh into any ZooKeeper node of original cluster and run `kinit -k -t /etc/security/keytabs/hbase.service.keytab hbase/<zk FQDN>` if this is ESP cluster
 1. Run `echo "scan '`hbase:meta`'" | hbase shell > meta.out` to read the `hbase:meta` into a file
 1. Run `grep "info:sn" meta.out | awk '{print $4}' | sort | uniq`  to get all RS instance names where the regions were present in old cluster. Output should be like `value=<wn FQDN>,16020,........`
-1. create a dummy WAL dir with that `wn` value
+1. Create a dummy WAL dir with that `wn` value
 
-   if the cluster is accelerated write cluster 
+   If the cluster is accelerated write cluster 
    ```
    hdfs dfs -mkdir hdfs://mycluster/hbasewal/WALs/<wn FQDN>,16020,.........
    ```
-   if the cluster is nonaccelarated Write cluster 
+   If the cluster is nonaccelarated Write cluster 
    ```
    hdfs dfs -mkdir /hbase-wals/WALs/<wn FQDN>,16020,.........
    ```
