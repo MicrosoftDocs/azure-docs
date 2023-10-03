@@ -35,7 +35,7 @@ WizIssues_CL
 
 To integrate with Wiz make sure you have: 
 
-- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
+- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions/).
 - **Wiz Service Account credentials**: Ensure you have your Wiz service account client ID and client secret, API endpoint URL, and auth URL. Instructions can be found on [Wiz documentation](https://docs.wiz.io/wiz-docs/docs/azure-sentinel-native-integration#collect-authentication-info-from-wiz).
 
 
