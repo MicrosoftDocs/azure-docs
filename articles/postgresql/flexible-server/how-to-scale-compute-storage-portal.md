@@ -90,7 +90,7 @@ Follow these steps to increase your storage size.
 
 3.  A page with current settings is displayed.
    
-:::image type="content" source="./media/how-to-scale-compute-storage-portal/storage-autogrow.png" alt-text="click compute+storage":::
+:::image type="content" source="./media/how-to-scale-compute-storage-portal/storage-autogrow.png" alt-text="click storage autogrow checkbox":::
 
 4. Check **Storage Auto-growth** button
 
