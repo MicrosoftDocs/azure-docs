@@ -132,7 +132,6 @@ az aks update -n <clusterName> -g <resourceGroupName> \
   --network-dataplane cilium
 ```
 
-
 ## Frequently asked questions
 
 - **Can I customize Cilium configuration?**
