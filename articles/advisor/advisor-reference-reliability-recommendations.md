@@ -840,7 +840,7 @@ Learn more about [Database Instance - DBHAEnableFloatingIpLB (Enable Floating IP
 
 Disable TCP timestamps on VMs placed behind AzurEnabling TCP timestamps will cause the health probes to fail due to TCP packets being dropped by the VM's guest OS TCP stack causing the load balancer to mark the endpoint as down
 
-Learn more about [Central Server Instance - ASCSLBHADisableTCP (Disable TCP timestamps on VMs placed behind Azure Load Balancer in ASCS HA setup in SAP workloads)](azure/sap/workloads/sap-hana-high-availability).
+Learn more about [Central Server Instance - ASCSLBHADisableTCP (Disable TCP timestamps on VMs placed behind Azure Load Balancer in ASCS HA setup in SAP workloads)](/azure/sap/workloads/sap-hana-high-availability).
 
 ### Disable TCP timestamps on VMs placed behind Azure Load Balancer in HANA DB HA setup in SAP workloads
 
