@@ -189,13 +189,14 @@ As a **prerequisite**, users must have at least a **Subscription Reader** role f
 ```kusto
 QuotaResources
 | where type =~ "microsoft.compute/locations/usages"
-| where location =~ "eastus2"
-| where subscriptionId in~ ("<Subscription1>","<Subscription2>") 
-| extend json = parse_json(properties)  
-| mv-expand propertyJson = json.value limit 400 
-| extend usagevCPUs = propertyJson.currentValue, QuotaLimit = propertyJson['limit'], quotaName = tostring(propertyJson['name'].localizedValue)
+| where location =~ "northeurope" or location =~ "westeurope"
+| where subscriptionId in~ ("<Subscription1>","<Subscription2>")   
+| mv-expand json = properties.value limit 400 
+| extend usagevCPUs = json.currentValue, QuotaLimit = json['limit'], quotaName = tostring(json['name'].localizedValue)
+|where usagevCPUs > 0
 |extend usagePercent = toint(usagevCPUs)*100 / toint(QuotaLimit)
-|sort by usagePercent desc
+|project subscriptionId,quotaName,usagevCPUs,QuotaLimit,usagePercent,location,json
+| order by ['usagePercent'] desc
 ```
 
 2. Query to Summarize total vCPUs (On-demand, Low Priority/Spot) per subscription per region
@@ -203,14 +204,13 @@ QuotaResources
 ```kusto
 QuotaResources
 | where type =~ "microsoft.compute/locations/usages"
-| where subscriptionId in~ ("<Subscription1>","<Subscription2>")
-| extend json = parse_json(properties) 
-| mv-expand propertyJson = json.value limit 400 
-| extend usagevCPUs = toint(propertyJson.currentValue), QuotaLimit = propertyJson['limit'], quotaName = tostring(propertyJson['name'].localizedValue)
+| where subscriptionId in~ ("<Subscription1>","<Subscription2>") 
+| mv-expand json = properties.value limit 400 
+| extend usagevCPUs = json.currentValue, QuotaLimit = json['limit'], quotaName = tostring(json['name'].localizedValue)
 |extend usagePercent = toint(usagevCPUs)*100 / toint(QuotaLimit)
 |where quotaName =~ "Total Regional vCPUs" or quotaName =~ "Total Regional Low-priority vCPUs"
-|project quotaName,usagevCPUs,QuotaLimit,usagePercent,location,['json']
-|sort by usagevCPUs desc 
+|project subscriptionId,quotaName,usagevCPUs,QuotaLimit,usagePercent,location,['json']
+| order by ['usagePercent'] desc
 ```
 
 ## Feedback 
