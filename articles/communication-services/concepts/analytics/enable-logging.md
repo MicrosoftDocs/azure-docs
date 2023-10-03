@@ -26,7 +26,9 @@ The following are instructions for configuring your Azure Monitor resource to st
 
 These instructions apply to the following Communications Services logs:
 
-- [Call Summary and Call Diagnostic logs](logs/voice-and-video-logs.md) 
+- [Call Summary and Call Diagnostic logs](logs/voice-and-video-logs.md)
+- [SMS Diagnostic logs](logs/sms-logs.md) 
+
 ## Access Diagnostic Settings
 
 To access Diagnostic Settings for your Communications Services, start by navigating to your Communications Services home page within Azure portal:

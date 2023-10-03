@@ -208,7 +208,7 @@ az vm create \
   --resource-group myResourceGroup \
   --name myVM \
   --nics myNic \
-  --image UbuntuLTS \
+  --image Ubuntu2204 \
   --admin-username azureuser \
   --generate-ssh-keys
 ```

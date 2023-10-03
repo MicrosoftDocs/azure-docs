@@ -37,7 +37,7 @@ The following SDKs and features are unsupported for use with Azure AD authentica
 - [Application Insights Java 2.x SDK](deprecated-java-2x.md#monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps).<br>
  Azure AD authentication is only available for Application Insights Java Agent greater than or equal to 3.2.0.
 - [ApplicationInsights JavaScript web SDK](javascript.md).
-- [Application Insights OpenCensus Python SDK](opencensus-python.md) with Python version 3.4 and 3.5.
+- [Application Insights OpenCensus Python SDK](/previous-versions/azure/azure-monitor/app/opencensus-python) with Python version 3.4 and 3.5.
 - [Certificate/secret-based Azure AD](../../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md) isn't recommended for production. Use managed identities instead.
 - On-by-default codeless monitoring (for languages) for Azure App Service, Azure Virtual Machines/Azure Virtual Machine Scale Sets, and Azure Functions.
 - [Availability tests](availability-overview.md).

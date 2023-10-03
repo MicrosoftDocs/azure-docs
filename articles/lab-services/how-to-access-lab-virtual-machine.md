@@ -99,7 +99,7 @@ In addition, you can also perform specific actions on the lab VM:
 
 - Start or stop the lab VM: learn more about [starting and stopping a lab VM](#start-or-stop-the-lab-vm).
 - Connect to the lab VM: select the computer icon to connect to the lab VM with remote desktop or SSH. Learn more about [connecting to the lab VM](./connect-virtual-machine.md).
-- Reset or troubleshoot the lab VM: learn more how you [reset or troubleshoot the lab VM](./how-to-reset-and-redeploy-vm.md) when you experience problems.
+- Redeploy or reimage the lab VM: learn more how you [redeploy or reimage the lab VM](./how-to-reset-and-redeploy-vm.md) when you experience problems.
 
 ## View quota hours
 
@@ -150,5 +150,5 @@ Learn more about how to [connect to a lab VM](connect-virtual-machine.md).
 ## Next steps
 
 - Learn how to [change your lab VM password](./how-to-set-virtual-machine-passwords-student.md)
-- Learn how to [reset or troubleshoot your lab VM](./how-to-reset-and-redeploy-vm.md)
+- Learn how to [redeploy or reimage your lab VM](./how-to-reset-and-redeploy-vm.md)
 - Learn about [key concepts in Azure Lab Services](./classroom-labs-concepts.md), such as quota hours or lab schedules.
