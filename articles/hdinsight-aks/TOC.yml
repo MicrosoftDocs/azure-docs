@@ -183,7 +183,7 @@ items:
         href: ./flink/cosmos-db-for-apache-cassandra.md
       - name:  Azure Event Hubs
         href: ./flink/flink-how-to-setup-event-hub.md
-      - name: Using Azure Pipelines
+      - name:  Azure Pipelines
         href: ./flink/use-azure-pipelines-to-run-flink-jobs.md  
       - name:  Azure data factory managed airflow
         href: ./flink/flink-job-orchestration.md  
