@@ -1,13 +1,13 @@
 ---
 title: Restore - Azure Cosmos DB for PostgreSQL - Azure portal
 description: See how to perform restore operations in Azure Cosmos DB for PostgreSQL through the Azure portal.
-ms.author: jonels
-author: jonels-msft
+ms.author: nlarin
+author: niklarin
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 06/12/2023
+ms.date: 10/02/2023
 ---
 
 # Point-in-time restore of a cluster in Azure Cosmos DB for PostgreSQL
@@ -58,7 +58,7 @@ back up and running:
   and client applications to the new server
 * Ensure appropriate [networking settings for private or public access](./concepts-security-overview.md#network-security) are in place for
   users to connect. These settings aren't copied from the original cluster.
-* Ensure appropriate [logins](./howto-create-users.md) and database level permissions are in place.
+* Ensure appropriate [logins](./how-to-configure-authentication.md#configure-native-postgresql-authentication) and database level permissions are in place.
 * Configure [alerts](./howto-alert-on-metric.md#suggested-alerts), as appropriate.
 
 ## Next steps
