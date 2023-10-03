@@ -13,36 +13,33 @@ ms.date: 09/28/2023
 
 This guide walks you through the following:
 
-1. How to enable diagnostics logs and metrics for the Managed Airflow.
-
-2. How to view logs and metrics.
-
-3. How to run a query.
-
-4. How to monitor metrics and set the alert system in Dag failure.
+   1. How to enable diagnostics logs and metrics for the Managed Airflow.
+   2. How to view logs and metrics.
+   3. How to run a query.
+   4. How to monitor metrics and set the alert system in Dag failure.
 
 ## How to enable Diagnostics logs and metrics for the Managed Airflow.
 
 1. Open your Azure Data Factory resource -> Select **Diagnostic settings** on the left navigation pane -> Select “Add Diagnostic setting.”
 
-    :::image type="content" source="media/diagnostics-logs-and-metrics-for-managed-airflow/start-with-diagnostic-logs.png" alt-text="Screenshot that shows where diagnostic logs is located in data factory.":::
+   :::image type="content" source="media/diagnostics-logs-and-metrics-for-managed-airflow/start-with-diagnostic-logs.png" alt-text="Screenshot that shows where diagnostic logs is located in data factory.":::
 
 2. Fill out the Diagnostic settings name -> Select the following categories for the Airflow Logs
 
-- Airflow task execution logs
-- Airflow worker logs
-- Airflow dag processing logs
-- Airflow scheduler logs
-- Airflow web logs
-- If you select **AllMetrics**, various Data Factory metrics are made available for you to monitor or raise alerts on. These metrics include the metrics for Data Factory activity and Managed Airflow IR such as AirflowIntegrationRuntimeCpuUsage, AirflowIntegrationRuntimeMemory.
+   - Airflow task execution logs
+   - Airflow worker logs
+   - Airflow dag processing logs
+   - Airflow scheduler logs
+   - Airflow web logs
+   - If you select **AllMetrics**, various Data Factory metrics are made available for you to monitor or raise alerts on. These metrics include the metrics for Data Factory activity and Managed Airflow IR such as AirflowIntegrationRuntimeCpuUsage, AirflowIntegrationRuntimeMemory.
 
-      :::image type="content" source="media/diagnostics-logs-and-metrics-for-managed-airflow/select-log-category-and-allmetrics.png" alt-text="Screenshot that shows which logs to select for Airflow environment.":::
+   :::image type="content" source="media/diagnostics-logs-and-metrics-for-managed-airflow/select-log-category-and-allmetrics.png" alt-text="Screenshot that shows which logs to select for Airflow environment.":::
 
-  3. Select the destination details, Log Analytics workspace:
+3. Select the destination details, Log Analytics workspace:
 
-      :::image type="content" source="media/diagnostics-logs-and-metrics-for-managed-airflow/select-log-analytics-workspace.png" alt-text="Screenshot that shows select log analytics workspace as destination for diagnostic logs.":::
+   :::image type="content" source="media/diagnostics-logs-and-metrics-for-managed-airflow/select-log-analytics-workspace.png" alt-text="Screenshot that shows select log analytics workspace as destination for diagnostic logs.":::
 
-  4. Click on Save.
+4. Click on Save.
 
 ## How to view logs
 
@@ -70,9 +67,8 @@ Other useful links for the schema:
 ## How to write a query
 
 1. Let’s start with simplest query that returns all the records in the ADFAirflowTaskLogs.
-
-You can double click on the table name to add it to query window, or you can directly type table name in window.
-:::image type="content" source="media/diagnostics-logs-and-metrics-for-managed-airflow/simple-query.png" alt-text="Screenshot that shows kusto query to retrieve all logs.":::
+   You can double click on the table name to add it to query window, or you can directly type table name in window.
+   :::image type="content" source="media/diagnostics-logs-and-metrics-for-managed-airflow/simple-query.png" alt-text="Screenshot that shows kusto query to retrieve all logs.":::
 
 2. To narrow down your search results, such as filtering them based on a specific task ID, you can use the following query:
 
@@ -86,7 +82,7 @@ Similarly, you can create custom queries according to your needs using any table
 
 For more information:
 
-1. [https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-tutorial](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-tutorial)
+1. [https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-tutorial](https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-tutorial)
 
 2. [Kusto Query Language (KQL) overview - Azure Data Explorer | Microsoft Learn](/azure/data-explorer/kusto/query/)
 
