@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Application management documentation
-summary: Azure Active Directory is an Identity and Access Management (IAM) system. It provides a single place to store information about digital identities. You can configure your software applications to use Azure AD as the place where user information is stored.
+summary: Microsoft Entra ID is an Identity and Access Management (IAM) system. It provides a single place to store information about digital identities. You can configure your software applications to use Microsoft Entra ID as the place where user information is stored.
 
 metadata:
   title: Application management documentation
-  description: Azure AD is an Identity and Access Management (IAM) system. It provides a single place to store information about digital identities. You can configure your software applications to use Azure AD as the place where user information is stored.
+  description: Microsoft Entra ID is an Identity and Access Management (IAM) system. It provides a single place to store information about digital identities. You can configure your software applications to use Microsoft Entra ID as the place where user information is stored.
   ms.service: active-directory
   ms.subservice: app-mgmt
   ms.workload: identity
@@ -23,7 +23,7 @@ landingContent:
             url: what-is-application-management.md
       - linkListType: concept
         links:
-          - text: What type of apps does Azure AD support?
+          - text: What type of apps does Microsoft Entra ID support?
             url: ../develop/v2-app-types.md
           - text: What is single sign-on?
             url: what-is-single-sign-on.md
@@ -47,7 +47,7 @@ landingContent:
             url: add-application-portal.md
           - text: Register your app
             url: ../develop/quickstart-register-app.md
-          - text: Migrate AD FS apps to Azure AD
+          - text: Migrate AD FS apps to Microsoft Entra ID
             url: ./migrate-adfs-apps-stages.md
   - title: Configure an app
     linkLists:

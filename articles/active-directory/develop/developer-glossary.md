@@ -36,11 +36,11 @@ Another term for the [client application](#client-application). The actor is the
 
 ## Application (client) ID
 
-The application ID, or _[client ID](https://datatracker.ietf.org/doc/html/rfc6749#section-2.2)_, is a value the Microsoft identity platform assigns to your application when you register it in Azure AD. The application ID is a GUID value that uniquely identifies the application and its configuration within the identity platform. You add the app ID to your application's code, and authentication libraries include the value in their requests to the identity platform at application runtime. The application (client) ID isn't a secret - don't use it as a password or other credential.
+The application ID, or _[client ID](https://datatracker.ietf.org/doc/html/rfc6749#section-2.2)_, is a value the Microsoft identity platform assigns to your application when you register it in Microsoft Entra ID. The application ID is a GUID value that uniquely identifies the application and its configuration within the identity platform. You add the app ID to your application's code, and authentication libraries include the value in their requests to the identity platform at application runtime. The application (client) ID isn't a secret - don't use it as a password or other credential.
 
 ## Application manifest
 
-An application manifest is a feature that produces a JSON representation of the application's identity configuration, used as a mechanism for updating its associated [Application][Graph-App-Resource] and [ServicePrincipal][Graph-Sp-Resource] entities. See [Understanding the Azure Active Directory application manifest][AAD-App-Manifest] for more details.
+An application manifest is a feature that produces a JSON representation of the application's identity configuration, used as a mechanism for updating its associated [Application][Graph-App-Resource] and [ServicePrincipal][Graph-Sp-Resource] entities. See [Understanding the Microsoft Entra application manifest][AAD-App-Manifest] for more details.
 
 ## Application object
 
@@ -50,13 +50,13 @@ For more information, see [Application and Service Principal Objects][AAD-App-SP
 
 ## Application registration
 
-In order to allow an application to integrate with and delegate Identity and Access Management functions to Azure AD, it must be registered with an Azure AD [tenant](#tenant). When you register your application with Azure AD, you're providing an identity configuration for your application, allowing it to integrate with Azure AD and use features like:
+In order to allow an application to integrate with and delegate Identity and Access Management functions to Microsoft Entra ID, it must be registered with a Microsoft Entra [tenant](#tenant). When you register your application with Microsoft Entra ID, you're providing an identity configuration for your application, allowing it to integrate with Microsoft Entra ID and use features like:
 
-- Robust management of single sign-on using Azure AD Identity Management and [OpenID Connect][OpenIDConnect] protocol implementation
+- Robust management of single sign-on using Microsoft Entra identity management and [OpenID Connect][OpenIDConnect] protocol implementation
 - Brokered access to [protected resources](#resource-server) by [client applications](#client-application), via OAuth 2.0 [authorization server](#authorization-server)
 - [Consent framework](#consent) for managing client access to protected resources, based on resource owner authorization.
 
-See [Integrating applications with Azure Active Directory][AAD-Integrating-Apps] for more details.
+See [Integrating applications with Microsoft Entra ID][AAD-Integrating-Apps] for more details.
 
 ## Authentication
 
@@ -64,7 +64,7 @@ The act of challenging a party for legitimate credentials, providing the basis f
 
 ## Authorization
 
-The act of granting an authenticated security principal permission to do something. There are two primary use cases in the Azure AD programming model:
+The act of granting an authenticated security principal permission to do something. There are two primary use cases in the Microsoft Entra programming model:
 
 - During an [OAuth 2.0 authorization grant](#authorization-grant) flow: when the [resource owner](#resource-owner) grants authorization to the [client application](#client-application), allowing the client to access the resource owner's resources.
 - During resource access by the client: as implemented by the [resource server](#resource-server), using the [claim](#claim) values present in the [access token](#access-token) to make access control decisions based upon them.
@@ -87,7 +87,7 @@ A credential representing the [resource owner's](#resource-owner) [authorization
 
 As defined by the [OAuth 2.0 Authorization Framework][OAuth2-Role-Def], the server responsible for issuing access tokens to the [client](#client-application) after successfully authenticating the [resource owner](#resource-owner) and obtaining its authorization. A [client application](#client-application) interacts with the authorization server at runtime via its [authorization](#authorization-endpoint) and [token](#token-endpoint) endpoints, in accordance with the OAuth 2.0 defined [authorization grants](#authorization-grant).
 
-In the case of the Microsoft identity platform application integration, the Microsoft identity platform implements the authorization server role for Azure AD applications and Microsoft service APIs, for example [Microsoft Graph APIs][Microsoft-Graph].
+In the case of the Microsoft identity platform application integration, the Microsoft identity platform implements the authorization server role for Microsoft Entra applications and Microsoft service APIs, for example [Microsoft Graph APIs][Microsoft-Graph].
 
 ## Claim
 
@@ -115,17 +115,17 @@ See the [ID token reference](id-tokens.md) for more details.
 
 ## Managed identities
 
-Eliminate the need for developers to manage credentials. Managed identities provide an identity for applications to use when connecting to resources that support Azure AD authentication. Applications may use the managed identity to obtain Azure AD tokens. For example, an application may use a managed identity to access resources like Azure Key Vault where developers can store credentials in a secure manner or to access storage accounts. For more information, see [managed identities overview](../managed-identities-azure-resources/overview.md).
+Eliminate the need for developers to manage credentials. Managed identities provide an identity for applications to use when connecting to resources that support Microsoft Entra authentication. Applications may use the managed identity to obtain Microsoft identity platform tokens. For example, an application may use a managed identity to access resources like Azure Key Vault where developers can store credentials in a secure manner or to access storage accounts. For more information, see [managed identities overview](../managed-identities-azure-resources/overview.md).
 
 ## Microsoft identity platform
 
-The Microsoft identity platform is an evolution of the Azure Active Directory (Azure AD) identity service and developer platform. It allows developers to build applications that sign in all Microsoft identities, get tokens to call Microsoft Graph, other Microsoft APIs, or APIs that developers have built. It's a full-featured platform that consists of an authentication service, libraries, application registration and configuration, full developer documentation, code samples, and other developer content. The Microsoft identity platform supports industry standard protocols such as OAuth 2.0 and OpenID Connect.
+The Microsoft identity platform is an evolution of the Microsoft Entra identity service and developer platform. It allows developers to build applications that sign in all Microsoft identities, get tokens to call Microsoft Graph, other Microsoft APIs, or APIs that developers have built. It's a full-featured platform that consists of an authentication service, libraries, application registration and configuration, full developer documentation, code samples, and other developer content. The Microsoft identity platform supports industry standard protocols such as OAuth 2.0 and OpenID Connect.
 
 ## Multi-tenant application
 
-A class of application that enables sign in and [consent](#consent) by users provisioned in any Azure AD [tenant](#tenant), including tenants other than the one where the client is registered. [Native client](#native-client) applications are multi-tenant by default, whereas [web client](#web-client) and [web resource/API](#resource-server) applications have the ability to select between single or multi-tenant. By contrast, a web application registered as single-tenant, would only allow sign-ins from user accounts provisioned in the same tenant as the one where the application is registered.
+A class of application that enables sign in and [consent](#consent) by users provisioned in any Microsoft Entra [tenant](#tenant), including tenants other than the one where the client is registered. [Native client](#native-client) applications are multi-tenant by default, whereas [web client](#web-client) and [web resource/API](#resource-server) applications have the ability to select between single or multi-tenant. By contrast, a web application registered as single-tenant, would only allow sign-ins from user accounts provisioned in the same tenant as the one where the application is registered.
 
-See [How to sign in any Azure AD user using the multi-tenant application pattern][AAD-Multi-Tenant-Overview] for more details.
+See [How to sign in any Microsoft Entra user using the multi-tenant application pattern][AAD-Multi-Tenant-Overview] for more details.
 
 ## Native client
 
@@ -160,9 +160,9 @@ Every [security token](#security-token) represents a resource owner.  The resour
 
 As defined by the [OAuth 2.0 Authorization Framework][OAuth2-Role-Def], a server that hosts protected resources, capable of accepting and responding to protected resource requests by [client applications](#client-application) that present an [access token](#access-token). Also known as a protected resource server, or resource application.
 
-A resource server exposes APIs and enforces access to its protected resources through [scopes](#scopes) and [roles](#roles), using the OAuth 2.0 Authorization Framework. Examples include the [Microsoft Graph API][Microsoft-Graph], which provides access to Azure AD tenant data, and the Microsoft 365 APIs that provide access to data such as mail and calendar.
+A resource server exposes APIs and enforces access to its protected resources through [scopes](#scopes) and [roles](#roles), using the OAuth 2.0 Authorization Framework. Examples include the [Microsoft Graph API][Microsoft-Graph], which provides access to Microsoft Entra tenant data, and the Microsoft 365 APIs that provide access to data such as mail and calendar.
 
-Just like a client application, resource application's identity configuration is established via [registration](#application-registration) in an Azure AD tenant, providing both the application and service principal object. Some Microsoft-provided APIs, such as the Microsoft Graph API, have pre-registered service principals made available in all tenants during provisioning.
+Just like a client application, resource application's identity configuration is established via [registration](#application-registration) in a Microsoft Entra tenant, providing both the application and service principal object. Some Microsoft-provided APIs, such as the Microsoft Graph API, have pre-registered service principals made available in all tenants during provisioning.
 
 ## Roles
 
@@ -208,13 +208,13 @@ Also known as the [resource owner](#resource-owner).
 
 ## Tenant
 
-An instance of an Azure AD directory is referred to as an Azure AD tenant. It provides several features, including:
+An instance of a Microsoft Entra directory is referred to as a Microsoft Entra tenant. It provides several features, including:
 
 - a registry service for integrated applications
 - authentication of user accounts and registered applications
 - REST endpoints required to support various protocols including OAuth 2.0 and SAML, including the [authorization endpoint](#authorization-endpoint), [token endpoint](#token-endpoint) and the "common" endpoint used by [multi-tenant applications](#multi-tenant-application).
 
-Azure AD tenants are created/associated with Azure and Microsoft 365 subscriptions during sign-up, providing Identity & Access Management features for the subscription. Azure subscription administrators can also create additional Azure AD tenants. See [How to get an Azure Active Directory tenant][AAD-How-To-Tenant] for details on the various ways you can get access to a tenant. See [Associate or add an Azure subscription to your Azure Active Directory tenant][AAD-How-Subscriptions-Assoc] for details on the relationship between subscriptions and an Azure AD tenant, and for instructions on how to associate or add a subscription to an Azure AD tenant.
+Microsoft Entra tenants are created/associated with Azure and Microsoft 365 subscriptions during sign-up, providing Identity & Access Management features for the subscription. Azure subscription administrators can also create additional Microsoft Entra tenants. See [How to get a Microsoft Entra tenant][AAD-How-To-Tenant] for details on the various ways you can get access to a tenant. See [Associate or add an Azure subscription to your Microsoft Entra tenant][AAD-How-Subscriptions-Assoc] for details on the relationship between subscriptions and a Microsoft Entra tenant, and for instructions on how to associate or add a subscription to a Microsoft Entra tenant.
 
 ## Token endpoint
 
@@ -226,7 +226,7 @@ A type of [client application](#client-application) that downloads code from a w
 
 ## User principal
 
-Similar to the way a service principal object is used to represent an application instance, a user principal object is another type of security principal, which represents a user. The Microsoft Graph [User resource type][Graph-User-Resource] defines the schema for a user object, including user-related properties like first and last name, user principal name, directory role membership, etc. This provides the user identity configuration for Azure AD to establish a user principal at run-time. The user principal is used to represent an authenticated user for single sign-on, recording [consent](#consent) delegation, making access control decisions, etc.
+Similar to the way a service principal object is used to represent an application instance, a user principal object is another type of security principal, which represents a user. The Microsoft Graph [User resource type][Graph-User-Resource] defines the schema for a user object, including user-related properties like first and last name, user principal name, directory role membership, etc. This provides the user identity configuration for Microsoft Entra ID to establish a user principal at run-time. The user principal is used to represent an authenticated user for single sign-on, recording [consent](#consent) delegation, making access control decisions, etc.
 
 ## Web client
 
@@ -234,11 +234,11 @@ A type of [client application](#client-application) that executes all code on a 
 
 ## Workload identity
 
-An identity used by a software workload like an application, service, script, or container to authenticate and access other services and resources. In Azure AD, workload identities are apps, service principals, and managed identities.  For more information, see [workload identity overview](../workload-identities/workload-identities-overview.md).
+An identity used by a software workload like an application, service, script, or container to authenticate and access other services and resources. In Microsoft Entra ID, workload identities are apps, service principals, and managed identities.  For more information, see [workload identity overview](../workload-identities/workload-identities-overview.md).
 
 ## Workload identity federation
 
-Allows you to securely access Azure AD protected resources from external apps and services without needing to manage secrets (for supported scenarios).  For more information, see [workload identity federation](../workload-identities/workload-identity-federation.md).
+Allows you to securely access Microsoft Entra ID protected resources from external apps and services without needing to manage secrets (for supported scenarios).  For more information, see [workload identity federation](../workload-identities/workload-identity-federation.md).
 
 ## Next steps
 

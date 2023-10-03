@@ -40,7 +40,7 @@ Container Apps has two different [environment types](environment.md#types), whic
 | Environment type | Description | Supported plan types |
 |---|---|---|
 | Workload profiles | Supports user defined routes (UDR) and egress through NAT Gateway. The minimum required subnet size is `/27`. | Consumption, Dedicated |
-| Consumption only | Doesn't support user defined routes (UDR) and egress through NAT Gateway. The minimum required subnet size is `/23`. | Consumption |
+| Consumption only | Doesn't support user defined routes (UDR), egress through NAT Gateway, peering through a remote gateway, or other custom egress. The minimum required subnet size is `/23`. | Consumption |
 
 ## Accessibility levels
 
@@ -175,7 +175,7 @@ In addition, a workload profiles environment reserves the following addresses:
 
 ### User defined routes (UDR)
 
-User Defined Routes (UDR) and controlled egress through NAT Gateway are supported in the workload profiles environment, which is in preview. In the Consumption only environment, these features aren't supported.
+User Defined Routes (UDR) and controlled egress through NAT Gateway are supported in the workload profiles environment. In the Consumption only environment, these features aren't supported.
 
 > [!NOTE]
 > When using UDR with Azure Firewall in Azure Container Apps, you need to add certain FQDN's and service tags to the allowlist for the firewall. To learn more, see [configuring UDR with Azure Firewall](./networking.md#configuring-udr-with-azure-firewall).
@@ -183,8 +183,6 @@ User Defined Routes (UDR) and controlled egress through NAT Gateway are supporte
 - You can use UDR with workload profiles environments to restrict outbound traffic from your container app through Azure Firewall or other network appliances.
 
 - Configuring UDR is done outside of the Container Apps environment scope.
-
-- UDR isn't supported for external environments.
 
 :::image type="content" source="media/networking/udr-architecture.png" alt-text="Diagram of how UDR is implemented for Container Apps.":::
 

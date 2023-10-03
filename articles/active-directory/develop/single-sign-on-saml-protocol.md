@@ -1,6 +1,6 @@
 ---
 title: Single sign-on SAML protocol
-description: This article describes the single sign-on (SSO) SAML protocol in Azure Active Directory
+description: This article describes the single sign-on (SSO) SAML protocol in Microsoft Entra ID
 services: active-directory
 documentationcenter: .net
 author: OwenRichards1
@@ -19,18 +19,18 @@ ms.custom: aaddev
 
 # Single sign-on SAML protocol
 
-This article covers the SAML 2.0 authentication requests and responses that Azure Active Directory (Azure AD) supports for single sign-on (SSO).
+This article covers the SAML 2.0 authentication requests and responses that Microsoft Entra ID supports for single sign-on (SSO).
 
-The protocol diagram below describes the single sign-on sequence. The cloud service (the service provider) uses an HTTP Redirect binding to pass an `AuthnRequest` (authentication request) element to Azure AD (the identity provider). Azure AD then uses an HTTP post binding to post a `Response` element to the cloud service.
+The protocol diagram below describes the single sign-on sequence. The cloud service (the service provider) uses an HTTP Redirect binding to pass an `AuthnRequest` (authentication request) element to Microsoft Entra ID (the identity provider). Microsoft Entra ID then uses an HTTP post binding to post a `Response` element to the cloud service.
 
 ![Screenshot of the Single Sign-On (SSO) Workflow.](./media/single-sign-on-saml-protocol/saml-single-sign-on-workflow.png)
 
 > [!NOTE]
-> This article discusses using SAML for single sign-on. For more information on other ways to handle single sign-on (for example, by using OpenID Connect or integrated Windows authentication), see [Single sign-on to applications in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+> This article discusses using SAML for single sign-on. For more information on other ways to handle single sign-on (for example, by using OpenID Connect or integrated Windows authentication), see [Single sign-on to applications in Microsoft Entra ID](../manage-apps/what-is-single-sign-on.md).
 
 ## AuthnRequest
 
-To request a user authentication, cloud services send an `AuthnRequest` element to Azure AD. A sample SAML 2.0 `AuthnRequest` could look like the following example:
+To request a user authentication, cloud services send an `AuthnRequest` element to Microsoft Entra ID. A sample SAML 2.0 `AuthnRequest` could look like the following example:
 
 ```xml
 <samlp:AuthnRequest
@@ -44,20 +44,20 @@ To request a user authentication, cloud services send an `AuthnRequest` element 
 
 | Parameter | Type | Description |
 | --- | --- | --- |
-| `ID` | Required | Azure AD uses this attribute to populate the `InResponseTo` attribute of the returned response. ID must not begin with a number, so a common strategy is to prepend a string like "ID" to the string representation of a GUID. For example, `id6c1c178c166d486687be4aaf5e482730` is a valid ID. |
+| `ID` | Required | Microsoft Entra ID uses this attribute to populate the `InResponseTo` attribute of the returned response. ID must not begin with a number, so a common strategy is to prepend a string like "ID" to the string representation of a GUID. For example, `id6c1c178c166d486687be4aaf5e482730` is a valid ID. |
 | `Version` | Required | This parameter should be set to `2.0`. |
-| `IssueInstant` | Required | This is a DateTime string with a UTC value and [round-trip format ("o")](/dotnet/standard/base-types/standard-date-and-time-format-strings). Azure AD expects a DateTime value of this type, but doesn't evaluate or use the value. |
-| `AssertionConsumerServiceURL` | Optional | If provided, this parameter must match the `RedirectUri` of the cloud service in Azure AD. |
-| `ForceAuthn` | Optional | This is a boolean value. If true, it means that the user will be forced to re-authenticate, even if they have a valid session with Azure AD. |
-| `IsPassive` | Optional | This is a boolean value that specifies whether Azure AD should authenticate the user silently, without user interaction, using the session cookie if one exists. If this is true, Azure AD will attempt to authenticate the user using  the session cookie. |
+| `IssueInstant` | Required | This is a DateTime string with a UTC value and [round-trip format ("o")](/dotnet/standard/base-types/standard-date-and-time-format-strings). Microsoft Entra ID expects a DateTime value of this type, but doesn't evaluate or use the value. |
+| `AssertionConsumerServiceURL` | Optional | If provided, this parameter must match the `RedirectUri` of the cloud service in Microsoft Entra ID. |
+| `ForceAuthn` | Optional | This is a boolean value. If true, it means that the user will be forced to re-authenticate, even if they have a valid session with Microsoft Entra ID. |
+| `IsPassive` | Optional | This is a boolean value that specifies whether Microsoft Entra ID should authenticate the user silently, without user interaction, using the session cookie if one exists. If this is true, Microsoft Entra ID will attempt to authenticate the user using  the session cookie. |
 
 All other `AuthnRequest` attributes, such as `Consent`, `Destination`, `AssertionConsumerServiceIndex`, `AttributeConsumerServiceIndex`, and `ProviderName` are **ignored**.
 
-Azure AD also ignores the `Conditions` element in `AuthnRequest`.
+Microsoft Entra ID also ignores the `Conditions` element in `AuthnRequest`.
 
 ### Issuer
 
-The `Issuer` element in an `AuthnRequest` must exactly match one of the **ServicePrincipalNames** in the cloud service in Azure AD. Typically, this is set to the **App ID URI** that is specified during application registration.
+The `Issuer` element in an `AuthnRequest` must exactly match one of the **ServicePrincipalNames** in the cloud service in Microsoft Entra ID. Typically, this is set to the **App ID URI** that is specified during application registration.
 
 A SAML excerpt containing the `Issuer` element looks like the following sample:
 
@@ -67,7 +67,7 @@ A SAML excerpt containing the `Issuer` element looks like the following sample:
 
 ### NameIDPolicy
 
-This element requests a particular name ID format in the response and is optional in `AuthnRequest` elements sent to Azure AD.
+This element requests a particular name ID format in the response and is optional in `AuthnRequest` elements sent to Microsoft Entra ID.
 
 A `NameIdPolicy` element looks like the following sample:
 
@@ -77,38 +77,38 @@ A `NameIdPolicy` element looks like the following sample:
 
 If `NameIDPolicy` is provided, you can include its optional `Format` attribute. The `Format` attribute can have only one of the following values; any other value results in an error.
 
-* `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`: Azure Active Directory issues the NameID claim as a pairwise identifier.
-* `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`: Azure Active Directory issues the NameID claim in e-mail address format.
-* `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`: This value permits Azure Active Directory to select the claim format. Azure Active Directory issues the NameID as a pairwise identifier.
-* `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`: Azure Active Directory issues the NameID claim as a randomly generated value that is unique to the current SSO operation. This means that the value is temporary and cannot be used to identify the authenticating user.
+* `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`: Microsoft Entra ID issues the `NameID` claim as a pairwise identifier.
+* `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`: Microsoft Entra ID issues the `NameID` claim in e-mail address format.
+* `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`: This value permits Microsoft Entra ID to select the claim format. Microsoft Entra ID issues the `NameID` claim as a pairwise identifier.
+* `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`: Microsoft Entra ID issues the `NameID` claim as a randomly generated value that is unique to the current SSO operation. This means that the value is temporary and cannot be used to identify the authenticating user.
 
-If `SPNameQualifier` is specified, Azure AD will include the same `SPNameQualifier` in the response.
+If `SPNameQualifier` is specified, Microsoft Entra ID will include the same `SPNameQualifier` in the response.
 
-Azure AD ignores the `AllowCreate` attribute.
+Microsoft Entra ID ignores the `AllowCreate` attribute.
 
 ### RequestedAuthnContext
 
-The `RequestedAuthnContext` element specifies the desired authentication methods. It is optional in `AuthnRequest` elements sent to Azure AD. Azure AD supports `AuthnContextClassRef` values such as `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`.
+The `RequestedAuthnContext` element specifies the desired authentication methods. It is optional in `AuthnRequest` elements sent to Microsoft Entra ID. Microsoft Entra ID supports `AuthnContextClassRef` values such as `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`.
 
 ### Scoping
 
-The `Scoping` element, which includes a list of identity providers, is optional in `AuthnRequest` elements sent to Azure AD.
+The `Scoping` element, which includes a list of identity providers, is optional in `AuthnRequest` elements sent to Microsoft Entra ID.
 
 If provided, don't include the `ProxyCount` attribute, `IDPListOption` or `RequesterID` element, as they aren't supported.
 
 ### Signature
 
-A `Signature` element in `AuthnRequest` elements is optional. Azure AD can be configured (Preview) to enforce the requirement of signed authentication requests. If enabled, only signed authentication requests are accepted, otherwise the requestor verification is provided for by only responding to registered Assertion Consumer Service URLs.
+A `Signature` element in `AuthnRequest` elements is optional. Microsoft Entra ID can be configured (Preview) to enforce the requirement of signed authentication requests. If enabled, only signed authentication requests are accepted, otherwise the requestor verification is provided for by only responding to registered Assertion Consumer Service URLs.
 
 ### Subject
 
-Don't include a `Subject` element. Azure AD doesn't support specifying a subject in `AuthnRequest` and will return an error if one is provided.
+Don't include a `Subject` element. Microsoft Entra ID doesn't support specifying a subject in `AuthnRequest` and will return an error if one is provided.
 
 A subject can instead be provided by adding a `login_hint` parameter to the HTTP request to the single sign-on URL, with the subject's NameID as the parameter value.
 
 ## Response
 
-When a requested sign-on completes successfully, Azure AD posts a response to the cloud service. A response to a successful sign-on attempt looks like the following sample:
+When a requested sign-on completes successfully, Microsoft Entra ID posts a response to the cloud service. A response to a successful sign-on attempt looks like the following sample:
 
 ```xml
 <samlp:Response ID="_a4958bfd-e107-4e67-b06d-0d85ade2e76a" Version="2.0" IssueInstant="2013-03-18T07:38:15.144Z" Destination="https://contoso.com/identity/inboundsso.aspx" InResponseTo="id758d0ef385634593a77bdf7e632984b6" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
@@ -155,14 +155,14 @@ When a requested sign-on completes successfully, Azure AD posts a response to th
 
 ### Response
 
-The `Response` element includes the result of the authorization request. Azure AD sets the `ID`, `Version` and `IssueInstant` values in the `Response` element. It also sets the following attributes:
+The `Response` element includes the result of the authorization request. Microsoft Entra ID sets the `ID`, `Version` and `IssueInstant` values in the `Response` element. It also sets the following attributes:
 
 * `Destination`: When sign-on completes successfully, this is set to the `RedirectUri` of the service provider (cloud service).
 * `InResponseTo`: This is set to the `ID` attribute of the `AuthnRequest` element that initiated the response.
 
 ### Issuer
 
-Azure AD sets the `Issuer` element to `https://sts.windows.net/<TenantIDGUID>/` where \<TenantIDGUID> is the tenant ID of the Azure AD tenant.
+Microsoft Entra ID sets the `Issuer` element to `https://sts.windows.net/<TenantIDGUID>/` where `<TenantIDGUID>` is the tenant ID of the Microsoft Entra tenant.
 
 For example, a response with Issuer element could look like the following sample:
 
@@ -194,11 +194,11 @@ The following sample is a SAML response to an unsuccessful sign-on attempt.
 
 ### Assertion
 
-In addition to the `ID`, `IssueInstant` and `Version`, Azure AD sets the following elements in the `Assertion` element of the response.
+In addition to the `ID`, `IssueInstant` and `Version`, Microsoft Entra ID sets the following elements in the `Assertion` element of the response.
 
 #### Issuer
 
-This is set to `https://sts.windows.net/<TenantIDGUID>/`where \<TenantIDGUID> is the Tenant ID of the Azure AD tenant.
+This is set to `https://sts.windows.net/<TenantIDGUID>/`where `<TenantIDGUID>` is the Tenant ID of the Microsoft Entra tenant.
 
 ```xml
 <Issuer>https://sts.windows.net/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
@@ -206,9 +206,9 @@ This is set to `https://sts.windows.net/<TenantIDGUID>/`where \<TenantIDGUID> is
 
 #### Signature
 
-Azure AD signs the assertion in response to a successful sign-on. The `Signature` element contains a digital signature that the cloud service can use to authenticate the source to verify the integrity of the assertion.
+Microsoft Entra ID signs the assertion in response to a successful sign-on. The `Signature` element contains a digital signature that the cloud service can use to authenticate the source to verify the integrity of the assertion.
 
-To generate this digital signature, Azure AD uses the signing key in the `IDPSSODescriptor` element of its metadata document.
+To generate this digital signature, Microsoft Entra ID uses the signing key in the `IDPSSODescriptor` element of its metadata document.
 
 ```xml
 <ds:Signature xmlns:ds="https://www.w3.org/2000/09/xmldsig#">
@@ -245,12 +245,12 @@ This element specifies conditions that define the acceptable use of SAML asserti
 
 The `NotBefore` and `NotOnOrAfter` attributes specify the interval during which the assertion is valid.
 
-* The value of the `NotBefore` attribute is equal to or slightly (less than a second) later than the value of `IssueInstant` attribute of the `Assertion` element. Azure AD does not account for any time difference between itself and the cloud service (service provider), and does not add any buffer to this time.
+* The value of the `NotBefore` attribute is equal to or slightly (less than a second) later than the value of `IssueInstant` attribute of the `Assertion` element. Microsoft Entra ID does not account for any time difference between itself and the cloud service (service provider), and does not add any buffer to this time.
 * The value of the `NotOnOrAfter` attribute is 70 minutes later than the value of the `NotBefore` attribute.
 
 #### Audience
 
-This contains a URI that identifies an intended audience. Azure AD sets the value of this element to the value of `Issuer` element of the `AuthnRequest` that initiated the sign-on. To evaluate the `Audience` value, use the value of the `App ID URI` that was specified during application registration.
+This contains a URI that identifies an intended audience. Microsoft Entra ID sets the value of this element to the value of `Issuer` element of the `AuthnRequest` that initiated the sign-on. To evaluate the `Audience` value, use the value of the `App ID URI` that was specified during application registration.
 
 ```xml
 <AudienceRestriction>
@@ -258,7 +258,7 @@ This contains a URI that identifies an intended audience. Azure AD sets the valu
 </AudienceRestriction>
 ```
 
-Like the `Issuer` value, the `Audience` value must exactly match one of the service principal names that represents the cloud service in Azure AD. However, if the value of the `Issuer` element is not a URI value, the `Audience` value in the response is the `Issuer` value prefixed with `spn:`.
+Like the `Issuer` value, the `Audience` value must exactly match one of the service principal names that represents the cloud service in Microsoft Entra ID. However, if the value of the `Issuer` element is not a URI value, the `Audience` value in the response is the `Issuer` value prefixed with `spn:`.
 
 #### AttributeStatement
 
@@ -277,13 +277,13 @@ This contains claims about the subject or user. The following excerpt contains a
 ```        
 
 * **Name Claim** - The value of the `Name` attribute (`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`) is the user principal name of the authenticated user, such as `testuser@managedtenant.com`.
-* **ObjectIdentifier Claim** - The value of the `ObjectIdentifier` attribute (`http://schemas.microsoft.com/identity/claims/objectidentifier`) is the `ObjectId` of the directory object that represents the authenticated user in Azure AD. `ObjectId` is an immutable, globally unique, and reuse safe identifier of the authenticated user.
+* **ObjectIdentifier Claim** - The value of the `ObjectIdentifier` attribute (`http://schemas.microsoft.com/identity/claims/objectidentifier`) is the `ObjectId` of the directory object that represents the authenticated user in Microsoft Entra ID. `ObjectId` is an immutable, globally unique, and reuse safe identifier of the authenticated user.
 
 #### AuthnStatement
 
 This element asserts that the assertion subject was authenticated by a particular means at a particular time.
 
-* The `AuthnInstant` attribute specifies the time at which the user authenticated with Azure AD.
+* The `AuthnInstant` attribute specifies the time at which the user authenticated with Microsoft Entra ID.
 * The `AuthnContext` element specifies the authentication context used to authenticate the user.
 
 ```xml

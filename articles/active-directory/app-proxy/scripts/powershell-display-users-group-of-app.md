@@ -1,6 +1,6 @@
 ---
-title: PowerShell sample - List users & groups for an Azure Active Directory Application Proxy app
-description: PowerShell example that lists all the users and groups assigned to a specific Azure Active Directory (Azure AD) Application Proxy application.
+title: PowerShell sample - List users & groups for a Microsoft Entra application proxy app
+description: PowerShell example that lists all the users and groups assigned to a specific Microsoft Entra application proxy application.
 services: active-directory
 author: kenwith
 manager: amycolannino
@@ -16,7 +16,7 @@ ms.reviewer: ashishj
 
 # Display users and groups assigned to an Application Proxy application
 
-This PowerShell script example lists the users and groups assigned to a specific Azure Active Directory (Azure AD) Application Proxy application.
+This PowerShell script example lists the users and groups assigned to a specific Microsoft Entra application proxy application.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -24,7 +24,7 @@ This PowerShell script example lists the users and groups assigned to a specific
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-This sample requires the [AzureAD V2 PowerShell for Graph module](/powershell/azure/active-directory/install-adv2) (AzureAD) or the [AzureAD V2 PowerShell for Graph module preview version](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true) (AzureADPreview).
+This sample requires the [Azure Active Directory PowerShell 2.0 for Graph module](/powershell/azure/active-directory/install-adv2) or the [Azure Active Directory PowerShell 2.0 for Graph module preview version](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true) (AzureADPreview).
 
 ## Sample script
 
@@ -44,4 +44,4 @@ This sample requires the [AzureAD V2 PowerShell for Graph module](/powershell/az
 
 For more information on the Azure AD PowerShell module, see [Azure AD PowerShell module overview](/powershell/azure/active-directory/overview).
 
-For other PowerShell examples for Application Proxy, see [Azure AD PowerShell examples for Azure AD Application Proxy](../application-proxy-powershell-samples.md).
+For other PowerShell examples for Application Proxy, see [Azure AD PowerShell examples for Microsoft Entra application proxy](../application-proxy-powershell-samples.md).

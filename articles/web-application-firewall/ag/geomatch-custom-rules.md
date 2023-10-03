@@ -250,7 +250,7 @@ If you're using the Geomatch operator, the selectors can be any of the following
 | TM | Turkmenistan|
 | TN | Tunisia|
 | TO | Tonga|
-| TR | Turkey|
+| TR | Türkiye |
 | TT | Trinidad and Tobago|
 | TV | Tuvalu|
 | TW | Taiwan|

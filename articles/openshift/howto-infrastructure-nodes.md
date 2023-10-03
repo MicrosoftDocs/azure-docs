@@ -6,7 +6,7 @@ ms.author: johnmarc
 ms.service: azure-redhat-openshift
 keywords: infrastructure nodes, aro, deploy, openshift, red hat
 ms.topic: how-to
-ms.date: 08/30/2023
+ms.date: 09/30/2023
 ms.custom: template-how-to
 ---
 

@@ -8,7 +8,9 @@ ms.author: inhenkel
 author: IngridAtMicrosoft
 ---
 
-# Topics inference  
+# Topics inference
+
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
 
 Topics inference is an Azure AI Video Indexer AI feature that automatically creates inferred insights derived from the transcribed audio, OCR content in visual text, and celebrities recognized in the video using the Video Indexer facial recognition model. The extracted Topics and categories (when available) are listed in the Insights tab. To jump to the topic in the media file, click a Topic -> Play Previous or Play Next. 
 

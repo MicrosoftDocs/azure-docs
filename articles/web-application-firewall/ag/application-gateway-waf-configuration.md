@@ -93,18 +93,19 @@ The below table shows some examples of how you might structure your exclusion fo
 | Request body | RequestArgNames | EqualsAny | "" | Request body: `{"key1": ".zshrc", "key2":"sleep(5)"}` | `.zshrc` and `sleep(5)` |
 | Request body | RequestArgValues | Equals | `test` | Request body: `{"test": ".zshrc"}` | `.zshrc` |
 | Request body | RequestArgValues | EqualsAny | "" | Request body: `{"key1": ".zshrc", "key2":"sleep(5)"}` | `.zshrc` and `sleep(5)` |
-| Header | RequestHeaderKeys | Equals | `X-Scanner` | Header: `{k: "X-Scanner", v: "test"}` | `X-scanner` |
-| Header | RequestHeaderKeys | EqualsAny | "" | Header: `{k: "X-Scanner", v: "test"},{k: "x-ratproxy-loop", v: "value"}` | `X-Scanner` and `x-ratproxy-loop` |
-| Header | RequestHeaderNames | Equals | `head1` | Header: `{k: "head1", v: "X-Scanner"}` | `X-scanner` |
-| Header | RequestHeaderNames | EqualsAny | "" | Header: `{k: "head1", v: "myvar=1234"},{k: "User-Agent", v: "(hydra)"}` | `myvar=1234` and `(hydra)` |
-| Header | RequestHeaderValues | Equals | `head1` | Header: `{k: "head1", v: "X-Scanner"}` | `X-scanner` |
-| Header | RequestHeaderValues | EqualsAny | "" | Header: `{k: "head1", v: "myvar=1234"},{k: "User-Agent", v: "(hydra)"}` | `myvar=1234` and `(hydra)` |
-| Cookie | RequestCookieKeys | Contains | `/etc/passwd` | Header: `{k: "Cookie", v: "/etc/passwdtest=hello1"}` | `/etc/passwdtest` |
-| Cookie | RequestCookieKeys | EqualsAny | "" | Header: `{k: "Cookie", v: "/etc/passwdtest=hello1"},{k: "Cookie", v: ".htaccess=test1}` | `/etc/passwdtest` and `.htaccess` |
-| Cookie | RequestCookieNames | Equals | `arg1` | Header: `{k: "Cookie", v: "arg1=/etc/passwd"}` | `/etc/passwd` |
-| Cookie | RequestCookieNames | EqualsAny | "" | Header: `{k: "Cookie", v: "arg1=/etc/passwd"},{k: "Cookie", v: "arg1=.cshrc"}` | `/etc/passwd` and `.cshrc` |
-| Cookie | RequestCookieValues | Equals | `arg1` | Header: `{k: "Cookie", v: "arg1=/etc/passwd"}` | `/etc/passwd` |
-| Cookie | RequestCookieValues | EqualsAny | "" | Header: `{k: "Cookie", v: "arg1=/etc/passwd"},{k: "Cookie", v: "arg1=.cshrc"}` | `/etc/passwd` and `.cshrc` |
+| Header | RequestHeaderKeys | Equals | `X-Scanner` | Header: `{"X-Scanner": "test"}` | `X-scanner` |
+| Header | RequestHeaderKeys | EqualsAny | "" | Header: `{"X-Scanner": "test", "x-ratproxy-loop": "value"}` | `X-Scanner` and `x-ratproxy-loop` |
+| Header | RequestHeaderNames | Equals | `head1` | Header: `{"head1": "X-Scanner"}` | `X-scanner` |
+| Header | RequestHeaderNames | EqualsAny | "" | Header: `{"head1": "myvar=1234", "User-Agent": "(hydra)"}` | `myvar=1234` and `(hydra)` |
+| Header | RequestHeaderValues | Equals | `head1` | Header: `{"head1": "X-Scanner"}` | `X-scanner` |
+| Header | RequestHeaderValues | EqualsAny | "" | Header: `{"head1": "myvar=1234", "User-Agent": "(hydra)"}` | `myvar=1234` and `(hydra)` |
+| Cookie | RequestCookieKeys | Contains | `/etc/passwd` | Header: `{"Cookie": "/etc/passwdtest=hello1"}` | `/etc/passwdtest` |
+| Cookie | RequestCookieKeys | EqualsAny | "" | Header: `{"Cookie": "/etc/passwdtest=hello1", "Cookie": ".htaccess=test1"}` | `/etc/passwdtest` and `.htaccess` |
+| Cookie | RequestCookieNames | Equals | `arg1` | Header: `{"Cookie": "arg1=/etc/passwd"}` | `/etc/passwd` |
+| Cookie | RequestCookieNames | EqualsAny | "" | Header: `{"Cookie": "arg1=/etc/passwd", "Cookie": "arg1=.cshrc"}` | `/etc/passwd` and `.cshrc` |
+| Cookie | RequestCookieValues | Equals | `arg1` | Header: `{"Cookie": "arg1=/etc/passwd"}` | `/etc/passwd` |
+| Cookie | RequestCookieValues | EqualsAny | "" | Header: `{"Cookie": "arg1=/etc/passwd", "Cookie": "arg1=.cshrc"}` | `/etc/passwd` and `.cshrc` |
+
 
 ## Exclusion scopes
 

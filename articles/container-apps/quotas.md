@@ -48,6 +48,10 @@ The *Is Configurable* column in the following tables denotes a feature maximum m
 |--|--|--|--|--|
 | Cores | Replica | Up to maximum cores a workload profile supports | No | Maximum number of cores available to a revision replica. |
 | Cores | Environment | 100 | Yes | Maximum number of cores all Dedicated workload profiles in a Dedicated plan environment can accommodate. Calculated by the sum of cores available in each node of all workload profile in a Dedicated plan environment. |
+| Cores | General Purpose Workload Profiles | 100 | Yes | The total cores available to all general purpose (D-series) profiles within an environment. |
+| Cores | Memory Optimized Workload Profiles | 50 | Yes | The total cores available to all memory optimised (E-series) profiles within an environment. |
+
+
 
 For more information regarding quotas, see the [Quotas roadmap](https://github.com/microsoft/azure-container-apps/issues/503) in the Azure Container Apps GitHub repository.
 

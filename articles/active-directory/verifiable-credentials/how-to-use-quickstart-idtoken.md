@@ -135,9 +135,9 @@ The claims mapping in the following example requires that you configure the toke
 
 ## Application registration
 
-The clientId attribute is the application ID of a registered application in the OIDC identity provider. For Azure Active Directory, you create the application by doing the following:
+The clientId attribute is the application ID of a registered application in the OIDC identity provider. For Microsoft Entra ID, you create the application by doing the following:
 
-1. In the Azure portal, go to [Azure Active Directory](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps).
+1. In the Azure portal, go to [Microsoft Entra ID](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps).
 
 1. Select **App registrations**, select **New registration**, and then give the app a name. 
 
@@ -145,7 +145,7 @@ The clientId attribute is the application ID of a registered application in the 
 
 1. In **Redirect URI (optional)**, select **Public client/native (mobile & desktop)**, and then enter **vcclient://openid/**.
  
-If you want to be able to test what claims are in the Azure Active Directory ID token, do the following:
+If you want to be able to test what claims are in the Microsoft Entra token, do the following:
 
 1. On the left pane, select **Authentication**> **Add platform** > **Web**.
 
@@ -155,7 +155,7 @@ If you want to be able to test what claims are in the Azure Active Directory ID 
 
 After you've finished testing your ID token, consider removing **https://jwt.ms** and the support for **implicit and hybrid flows**.
 
-**For Azure Active Directory**: You can test your app registration and, if you've enabled support for redirecting to **https://jwt.ms**, you can get an ID token by running the following in your browser: 
+**For Microsoft Entra ID**: You can test your app registration and, if you've enabled support for redirecting to **https://jwt.ms**, you can get an ID token by running the following in your browser: 
 
 ```http
 https://login.microsoftonline.com/<your-tenantId>/oauth2/v2.0/authorize?client_id=<your-appId>&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid%20profile&response_type=id_token&prompt=login
@@ -171,7 +171,7 @@ Claims must exist in the returned identity provider so that they can successfull
 
 If the claims don't exist, there's no value in the issued verifiable credential. Most OIDC identity providers don't issue a claim in an ID token if the claim has a null value in your profile. Be sure to include the claim in the ID token definition, and ensure that you've entered a value for the claim in your user profile.
 
-**For Azure Active Directory**: To configure the claims to include in your token, see [Provide optional claims to your app](../develop/optional-claims.md). The configuration is per application, so this configuration should be for the app that has the application ID specified in the client ID in the rules definition.
+**For Microsoft Entra ID**: To configure the claims to include in your token, see [Provide optional claims to your app](../develop/optional-claims.md). The configuration is per application, so this configuration should be for the app that has the application ID specified in the client ID in the rules definition.
 
 To match the display and rules definitions, you should make your application's optionalClaims JSON look like the following:
 

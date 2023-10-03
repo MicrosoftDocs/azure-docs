@@ -222,6 +222,7 @@ inputs:
 ```
 
 ---
+
 ## Skip building the API
 
 If you want to skip building the API, you can bypass the automatic build and deploy the API built in a previous step.
@@ -300,6 +301,44 @@ inputs:
   output_location: 'public'
   build_timeout_in_minutes: 30
   azure_static_web_apps_api_token: $(deployment_token)
+```
+
+---
+
+## Run workflow without deployment secrets
+
+Sometimes you need your workflow to continue to process even when some secrets are missing. Set the `SKIP_DEPLOY_ON_MISSING_SECRETS` environment variable to `true` to configure your workflow to proceed without defined secrets.
+
+When enabled, this feature allows the workflow to continue without deploying the site's content.
+
+# [GitHub Actions](#tab/github-actions)
+
+```yaml
+...
+
+with:
+  azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+  repo_token: ${{ secrets.GITHUB_TOKEN }}
+  action: 'upload'
+  app_location: 'src'
+  api_location: 'api'
+  output_location: 'public'
+env:
+  SKIP_DEPLOY_ON_MISSING_SECRETS: true
+```
+
+# [Azure Pipelines](#tab/azure-devops)
+
+```yaml
+...
+
+inputs:
+  app_location: 'src'
+  api_location: 'api'
+  output_location: 'public'
+  azure_static_web_apps_api_token: $(deployment_token)
+env:
+  SKIP_DEPLOY_ON_MISSING_SECRETS: true
 ```
 
 ---

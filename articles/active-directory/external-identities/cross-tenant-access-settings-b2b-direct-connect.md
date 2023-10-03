@@ -1,6 +1,6 @@
 ---
 title: Configure B2B direct connect cross-tenant access
-description: Use cross-tenant access settings to manage how you collaborate with other Azure AD organizations. Learn how to configure  outbound access to external organizations and inbound access from external Azure AD for B2B direct connect.
+description: Use cross-tenant access settings to manage how you collaborate with other Microsoft Entra organizations. Learn how to configure  outbound access to external organizations and inbound access from external Microsoft Entra organizations for B2B direct connect.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -16,11 +16,11 @@ ms.collection: M365-identity-device-management
 
 # Configure cross-tenant access settings for B2B direct connect
 
-Use cross-tenant access settings to manage how you collaborate with other Azure AD organizations through [B2B direct connect](b2b-direct-connect-overview.md). These settings let you determine the level of outbound access your users have to external organizations. They also let you control the level of inbound access that users in external Azure AD organizations will have to your internal resources.
+Use cross-tenant access settings to manage how you collaborate with other Microsoft Entra organizations through [B2B direct connect](b2b-direct-connect-overview.md). These settings let you determine the level of outbound access your users have to external organizations. They also let you control the level of inbound access that users in external Microsoft Entra organizations will have to your internal resources.
 
-- **Default settings**: The default cross-tenant access settings apply to all external Azure AD organizations, except organizations for which you've configured individual settings. You can change these default settings. For B2B direct connect, you'll typically leave the default settings as-is and enable B2B direct connect access with organization-specific settings. Initially, your default values are as follows:
+- **Default settings**: The default cross-tenant access settings apply to all external Microsoft Entra organizations, except organizations for which you've configured individual settings. You can change these default settings. For B2B direct connect, you'll typically leave the default settings as-is and enable B2B direct connect access with organization-specific settings. Initially, your default values are as follows:
 
-  - **B2B direct connect initial default settings** - By default, outbound B2B direct connect is blocked for your entire tenant, and inbound B2B direct connect is blocked for all external Azure AD organizations.
+  - **B2B direct connect initial default settings** - By default, outbound B2B direct connect is blocked for your entire tenant, and inbound B2B direct connect is blocked for all external Microsoft Entra organizations.
   - **Organizational settings** - No organizations are added by default.
 
 - **Organization-specific settings**: You can configure organization-specific settings by adding an organization and modifying the inbound and outbound settings for that organization. Organizational settings take precedence over default settings.
@@ -33,8 +33,8 @@ Learn more about using cross-tenant access settings to [manage B2B direct connec
 ## Before you begin
 
 - Review the [Important considerations](cross-tenant-access-overview.md#important-considerations) section in the [cross-tenant access overview](cross-tenant-access-overview.md) before configuring your cross-tenant access settings.
-- Decide on the default level of access you want to apply to all external Azure AD organizations.
-- Identify any Azure AD organizations that will need customized settings.
+- Decide on the default level of access you want to apply to all external Microsoft Entra organizations.
+- Identify any Microsoft Entra organizations that will need customized settings.
 - Contact organizations with which you want to set up B2B direct connect. Because B2B direct connect is established through mutual trust, both you and the other organization need to enable B2B direct connect with each other in your cross-tenant access settings.
 - Obtain any required information from external organizations. If you want to apply access settings to specific users, groups, or applications within an external organization, you'll need to obtain these IDs from the organization before you can configure access settings.
 - To configure cross-tenant access settings in the Microsoft Entra admin center, you'll need an account with a Global administrator or Security administrator role. Teams administrators can read cross-tenant access settings, but they can't update these settings.
@@ -43,7 +43,7 @@ Learn more about using cross-tenant access settings to [manage B2B direct connec
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
- Default cross-tenant access settings apply to all external tenants for which you haven't created organization-specific customized settings. If you want to modify the Azure AD-provided default settings, follow these steps.
+ Default cross-tenant access settings apply to all external tenants for which you haven't created organization-specific customized settings. If you want to modify the Microsoft Entra ID-provided default settings, follow these steps.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Security administrator](../roles/permissions-reference.md#security-administrator).
 1. Browse to **Identity** > **External Identities** > **Cross-tenant access settings**.
@@ -122,8 +122,8 @@ With inbound settings, you select which external users and groups will be able t
 
 1. Under **Applies to**, select one of the following:
 
-   - **All external users and groups**: Applies the action you chose under **Access status** to all users and groups from external Azure AD organizations.
-   - **Select external users and groups**: Lets you apply the action you chose under **Access status** to specific users and groups within the external organization. An Azure AD Premium P1 license is required on the tenant that you configure.
+   - **All external users and groups**: Applies the action you chose under **Access status** to all users and groups from external Microsoft Entra organizations.
+   - **Select external users and groups**: Lets you apply the action you chose under **Access status** to specific users and groups within the external organization. A Microsoft Entra ID P1 license is required on the tenant that you configure.
 
    ![Screenshot showing selecting the target users for b2b direct connect](media/cross-tenant-access-settings-b2b-direct-connect/generic-inbound-external-users-groups-target.png)
 
@@ -153,7 +153,7 @@ With inbound settings, you select which external users and groups will be able t
 1. Under **Applies to**, select one of the following:
 
    - **All applications**: Applies the action you chose under **Access status** to all of your applications.
-   - **Select applications** (requires an Azure AD premium subscription): Lets you apply the action you chose under **Access status** to specific applications in your organization.
+   - **Select applications** (requires a Microsoft Entra ID P1 or P2 subscription): Lets you apply the action you chose under **Access status** to specific applications in your organization.
 
     ![Screenshot showing application targets for inbound access](media/cross-tenant-access-settings-b2b-direct-connect/generic-inbound-applications-target.png)
 
@@ -179,11 +179,11 @@ With inbound settings, you select which external users and groups will be able t
 
 1. Select one or more of the following options:
 
-   - **Trust multi-factor authentication from Azure AD tenants**: Select this checkbox if your Conditional Access policies require multi-factor authentication (MFA). This setting allows your Conditional Access policies to trust MFA claims from external organizations. During authentication, Azure AD will check a user's credentials for a claim that the user has completed MFA. If not, an MFA challenge will be initiated in the user's home tenant.  
+   - **Trust multi-factor authentication from Microsoft Entra tenants**: Select this checkbox if your Conditional Access policies require multi-factor authentication (MFA). This setting allows your Conditional Access policies to trust MFA claims from external organizations. During authentication, Microsoft Entra ID will check a user's credentials for a claim that the user has completed MFA. If not, an MFA challenge will be initiated in the user's home tenant.  
 
    - **Trust compliant devices**: Allows your Conditional Access policies to trust compliant device claims from an external organization when their users access your resources.
 
-   - **Trust hybrid Azure AD joined devices**: Allows your Conditional Access policies to trust hybrid Azure AD joined device claims from an external organization when their users access your resources.
+   - **Trust Microsoft Entra hybrid joined devices**: Allows your Conditional Access policies to trust Microsoft Entra hybrid joined device claims from an external organization when their users access your resources.
 
     ![Screenshot showing inbound trust settings.](media/cross-tenant-access-settings-b2b-direct-connect/inbound-trust-settings.png)
 
@@ -235,7 +235,7 @@ With outbound settings, you select which of your users and groups will be able t
 1. Under **Applies to**, select one of the following:
 
    - **All \<your organization\> users**: Applies the action you chose under **Access status** to all your users and groups.
-   - **Select \<your organization\> users and groups** (requires an Azure AD premium subscription): Lets you apply the action you chose under **Access status** to specific users and groups.
+   - **Select \<your organization\> users and groups** (requires a Microsoft Entra ID P1 or P2 subscription): Lets you apply the action you chose under **Access status** to specific users and groups.
 
    ![Screenshot showing selecting target users for b2b direct connect outbound access](media/cross-tenant-access-settings-b2b-direct-connect/generic-outbound-external-users-groups-target.png)
 
@@ -260,7 +260,7 @@ With outbound settings, you select which of your users and groups will be able t
 1. Under **Applies to**, select one of the following:
 
    - **All external applications**: Applies the action you chose under **Access status** to all external applications.
-   - **Select applications** (requires an Azure AD premium subscription): Lets you apply the action you chose under **Access status** to specific external applications.
+   - **Select applications** (requires a Microsoft Entra ID P1 or P2 subscription): Lets you apply the action you chose under **Access status** to specific external applications.
 
     ![Screenshot showing application targets for outbound b2b direct connect](media/cross-tenant-access-settings-b2b-direct-connect/generic-outbound-applications-target.png)
 

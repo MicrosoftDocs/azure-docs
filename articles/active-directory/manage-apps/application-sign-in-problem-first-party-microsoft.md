@@ -1,6 +1,6 @@
 ---
 title: Problems signing in to a Microsoft application
-description: Troubleshoot common problems faced when signing in to first-party Microsoft Applications using Azure AD (like Microsoft 365).
+description: Troubleshoot common problems faced when signing in to first-party Microsoft Applications using Microsoft Entra ID (like Microsoft 365).
 services: active-directory
 author: omondiatieno
 manager: CelesteDG
@@ -17,13 +17,13 @@ ms.custom: enterprise-apps
 
 # Problems signing in to a Microsoft application
 
-Microsoft Applications (like Exchange, SharePoint, Yammer, etc.) are assigned and managed a bit differently than third-party SaaS applications or other applications you integrate with Azure AD for single sign-on.
+Microsoft Applications (like Exchange, SharePoint, Yammer, etc.) are assigned and managed a bit differently than third-party SaaS applications or other applications you integrate with Microsoft Entra ID for single sign-on.
 
 There are three main ways that a user can get access to a Microsoft-published application.
 
 - For applications in the Microsoft 365 or other paid suites, users are granted access through **license assignment** either directly to their user account, or through a group using our group-based license assignment capability.
 
-- For applications that Microsoft or a Third Party publishes freely for anyone to use, users may be granted access through **user consent**. This means that they sign in to the application with their Azure AD Work or School account and allow it to have access to some limited set of data on their account.
+- For applications that Microsoft or a Third Party publishes freely for anyone to use, users may be granted access through **user consent**. This means that they sign in to the application with their Microsoft Entra work or school account and allow it to have access to some limited set of data on their account.
 
 - For applications that Microsoft or a third-party publishes freely for anyone to use, users may also be granted access through **administrator consent**. This means that an administrator has determined the application may be used by everyone in the organization, so they sign in to the application with a Global Administrator account and grant access to everyone in the organization.
 
@@ -51,7 +51,7 @@ Following are some common issues folks run into when their users can't sign in t
 
   - Make sure the user’s account is **not locked out.**
 
-  - Make sure the **user’s account exists** in Azure Active Directory. [Check if a user account exists in Azure Active Directory](#problems-with-the-users-account)
+  - Make sure the **user’s account exists** in Microsoft Entra ID. [Check if a user account exists in Microsoft Entra ID](#problems-with-the-users-account)
 
   - Make sure the user’s account is **enabled** for sign-ins. [Check a user’s account status](#problems-with-the-users-account)
 
@@ -87,7 +87,7 @@ Following are some common issues folks run into when their users can't sign in t
 
 Application access can be blocked due to a problem with a user that is assigned to the application. Following are some ways you can troubleshoot and solve problems with users and their account settings:
 
-- [Check if a user account exists in Azure Active Directory](#check-if-a-user-account-exists-in-azure-active-directory)
+- [Check if a user account exists in Microsoft Entra ID](#check-if-a-user-account-exists-in-azure-active-directory)
 
 - [Check a user’s account status](#check-a-users-account-status)
 
@@ -107,7 +107,9 @@ Application access can be blocked due to a problem with a user that is assigned 
 
 [!INCLUDE [portal updates](../includes/portal-update.md)]
 
-### Check if a user account exists in Azure Active Directory
+<a name='check-if-a-user-account-exists-in-azure-active-directory'></a>
+
+### Check if a user account exists in Microsoft Entra ID
 
 To check if a user’s account is present, follow these steps:
 
@@ -138,13 +140,13 @@ To reset a user’s password, follow these steps:
 1. Select the **Reset password** button at the top of the user pane.
 1. Select the **Reset password** button on the **Reset password** pane that appears.
 1. Copy the **temporary password** or **enter a new password** for the user.
-1. Communicate this new password to the user, they be required to change this password during their next sign-in to Azure Active Directory.
+1. Communicate this new password to the user, they be required to change this password during their next sign-in to Microsoft Entra ID.
 
 ### Enable self-service password reset
 
 To enable self-service password reset, follow the deployment steps in the following section:
 
-- [Enable users to reset their Azure Active Directory passwords](../authentication/tutorial-enable-sspr.md)
+- [Enable users to reset their Microsoft Entra passwords](../authentication/tutorial-enable-sspr.md)
 
 - [Enable users to reset or change their Active Directory on-premises passwords](../authentication/tutorial-enable-sspr.md)
 
@@ -365,7 +367,7 @@ Application access can be blocked because the proper permissions consent operati
 
 ### Perform a user-level consent operation
 
-- For any Open ID Connect-enabled application that requests permissions, navigating to the application’s sign-in screen performs a user level consent to the application for the signed-in user.
+- For any OpenID Connect-enabled application that requests permissions, navigating to the application’s sign-in screen performs a user level consent to the application for the signed-in user.
 
 - If you wish to do this programmatically, see [Requesting individual user consent](../develop/permissions-consent-overview.md#requesting-individual-user-consent).
 
