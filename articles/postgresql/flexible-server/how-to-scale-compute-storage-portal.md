@@ -82,4 +82,4 @@ Follow these steps to increase your storage size.
 
 -   Learn about [business continuity](./concepts-business-continuity.md)
 -   Learn about [high availability](./concepts-high-availability.md)
--   Learn about [backup and recovery](./concepts-compute-storage.md)
+-   Learn about [Compute and Storage](./concepts-compute-storage.md)
