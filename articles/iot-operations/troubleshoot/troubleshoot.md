@@ -7,7 +7,6 @@ ms.topic: troubleshooting-general
 ms.date: 09/20/2023
 ---
 
-
 <!-- Remove all the comments in this template before you sign-off or merge to the main branch.
 
 This template provides the basic structure of a general troubleshooting article pattern. See the
@@ -32,6 +31,9 @@ article to improve SEO.
 -->
 
 # Troubleshoot \<issues with a feature>
+
+[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+
 TODO: Add your heading
 
 <!-- 2. Introductory paragraph ----------------------------------------------------------

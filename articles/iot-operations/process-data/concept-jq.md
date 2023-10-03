@@ -12,7 +12,9 @@ ms.date: 09/07/2023
 
 # What is jq in Data Processor pipelines?
 
-[jq](https://jqlang.github.io/jq/) is an open source JSON processor that you can use restructure and format structured payloads in Data Processor pipelines:
+[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+
+[jq](https://jqlang.github.io/jq/) is an open source JSON processor that you can use restructure and format structured payloads in Data Processor Preview pipelines:
 
 - The filter pipeline stage uses jq to enable flexible filter queries.
 - The transform pipeline stage uses jq to enable data transformation.

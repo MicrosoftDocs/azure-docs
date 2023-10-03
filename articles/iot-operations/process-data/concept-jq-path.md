@@ -12,6 +12,8 @@ ms.date: 09/07/2023
 
 # What are jq path expressions?
 
+[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+
 Many pipeline stages in the data processor make use of _jq path_ expressions. Whenever you need to retrieve information from a message or to place some information into a message, you use a path. jq paths let you:
 
 - Locate a piece of information in a message.

@@ -12,11 +12,13 @@ ms.date: 09/21/2023
 
 # Configure a reference dataset
 
+[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+
 Reference datasets within the data processor store reference data that pipelines can use for enrichment and contextualization. The data inside the reference data store is organized into datasets, each with multiple keys.
 
 ## Prerequisites
 
-- A functioning instance of Data Processor.
+- A functioning instance of Data Processor Preview.
 - A Data Processor pipeline with an input stage that deserializes incoming data.
 
 ## Configure a reference data store

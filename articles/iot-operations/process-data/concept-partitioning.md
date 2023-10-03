@@ -12,7 +12,9 @@ ms.date: 09/28/2023
 
 # What is partitioning?
 
-In a Data Processor pipeline, partitioning divides incoming data into separate partitions to enable data parallelism. Data parallelism improves throughput and reduces latency. Partitioning also affects how pipeline stages, such as the last known value (LKV) and aggregate stages, process data.
+[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+
+In a Data Processor Preview pipeline, partitioning divides incoming data into separate partitions to enable data parallelism. Data parallelism improves throughput and reduces latency. Partitioning also affects how pipeline stages, such as the last known value (LKV) and aggregate stages, process data.
 
 <!-- TODO: Add links to pipeline stages in previous paragraph -->
 
