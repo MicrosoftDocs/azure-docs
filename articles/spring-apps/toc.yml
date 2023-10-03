@@ -247,8 +247,6 @@ items:
         href: how-to-elastic-diagnostic-settings.md
       - name: Health probes and graceful termination
         href: how-to-configure-health-probes-graceful-termination.md
-      - name: Optimize application observability
-        href: application-observability.md
     - name: Network
       items:
       - name: Custom DNS name
@@ -355,8 +353,6 @@ items:
       href: quickstart-standard-consumption-eureka-server.md
     - name: Use custom persistent storage with the Standard consumption and dedicated plan
       href: how-to-custom-persistent-storage-with-standard-consumption.md
-    - name: Optimize application observability
-      href: application-observability.md
     - name: Application Insights using Java In-Process Agent
       href: how-to-application-insights.md
     - name: Use Dynatrace Java OneAgent
@@ -475,6 +471,8 @@ items:
         href: how-to-elastic-diagnostic-settings.md
       - name: Health probes and graceful termination
         href: how-to-configure-health-probes-graceful-termination.md
+      - name: Optimize application observability
+        href: application-observability.md
     - name: Network
       items:
       - name: Custom DNS name
