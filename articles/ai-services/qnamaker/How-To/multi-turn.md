@@ -1,8 +1,8 @@
 ---
 title: Multi-turn conversations - QnA Maker
 description: Use prompts and context to manage the multiple turns, known as multi-turn, for your bot from one question to another. Multi-turn is the ability to have a back-and-forth conversation where the previous question's context influences the next question and answer.
-ms.service: cognitive-services
-ms.subservice: qna-maker
+ms.service: azure-ai-language
+ms.subservice: azure-ai-qna-maker
 ms.author: jboback
 author: jboback
 ms.topic: how-to
