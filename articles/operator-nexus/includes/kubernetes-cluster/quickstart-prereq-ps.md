@@ -16,7 +16,7 @@ ms.custom: devx-track-azurecpowershell
 * If you are running PowerShell locally, install the Az PowerShell module and connect to your Azure account using the [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) cmdlet. For more information about installing the Az PowerShell module, see [Install Azure PowerShell][install-azure-powershell].
 
 * If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the
-[Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet.
+[Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet. On setting the subscription, one need not pass the 'SubscriptionID' each time executing the PowerShell command.
 
 * Refer the VM SKU table in the [reference section](../../reference-nexus-kubernetes-cluster-sku.md) for the list of supported VM SKUs.
 

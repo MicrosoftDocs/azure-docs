@@ -12,8 +12,8 @@ To view the details of the ```myNexusK8sCluster``` cluster in the ```myResourceG
 
 ```azurepowershell-interactive
 Get-AzNetworkCloudKubernetesCluster -KubernetesClusterName myNexusK8sCluster `
--SubscriptionId mySubscription `
--ResourceGroupName myResourceGroup
+-ResourceGroupName myResourceGroup `
+-SubscriptionId <mySubscription>
 ```
 
 Additionally, to get a list of agent pool names associated with the ```myNexusK8sCluster``` cluster in the ```myResourceGroup``` resource group, you can use the following Azure PowerShell command.
@@ -21,5 +21,5 @@ Additionally, to get a list of agent pool names associated with the ```myNexusK8
 ```azurepowershell-interactive
  Get-AzNetworkCloudAgentPool -KubernetesClusterName myNexusK8sCluster `
  -ResourceGroupName myResourceGroup `
- -SubscriptionId mySubscription
+ -SubscriptionId <mySubscription>
 ```

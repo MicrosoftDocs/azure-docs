@@ -1,7 +1,7 @@
 ---
 author: rashirg
 ms.author: rajeshwarig
-ms.date: 09/27/2023
+ms.date: 10/07/2023
 ms.topic: include
 ms.service: azure-operator-nexus
 ---
@@ -12,7 +12,9 @@ ms.service: azure-operator-nexus
 The following output example resembles successful creation of the agent pools.
 
 ```azurepowershell
-Get-AzNetworkCloudAgentPool -KubernetesClusterName myNexusK8sCluster -SubscriptionId mySubscription -ResourceGroupName myResourceGroup
+Get-AzNetworkCloudAgentPool -KubernetesClusterName myNexusK8sCluster `
+-ResourceGroupName myResourceGroup `
+-SubscriptionId <mySubscription> 
 
 Location  Name                            SystemDataCreatedAt   SystemDataCreatedBy    SystemDataCreatedByType SystemDataLastModifiedAt SystemDataLastModifiedBy
 --------  ----                           -------------------   -------------------    ----------------------- ------------------------      ------------

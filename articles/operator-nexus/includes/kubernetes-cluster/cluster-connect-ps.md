@@ -1,7 +1,7 @@
 ---
 author: rashirg
 ms.author: rajeshwarig
-ms.date: 09/28/2023
+ms.date: 10/03/2023
 ms.topic: include
 ms.service: azure-operator-nexus
 ---
@@ -11,26 +11,23 @@ ms.service: azure-operator-nexus
 
 To access your cluster, you need to set up the cluster connect `kubeconfig`. After logging into Azure PowerShell with the relevant Azure AD entity, you can obtain the `kubeconfig` necessary to communicate with the cluster from anywhere, even outside the firewall that surrounds it.
 
-1. Set `CLUSTER_NAME`, `RESOURCE_GROUP` and `SUBSCRIPTION_ID` variables.
+1. Set CLUSTER_NAME, RESOURCE_GROUP, LOCATION and SUBSCRIPTION_ID variables.
+
     ```azurepowershell
     $CLUSTER_NAME="myNexusK8sCluster"
-    $RESOURCE_GROUP="myResourceGroup"
-    $LOCATION   
+    $LOCATION="<ClusterAzureRegion>"
+    $MANAGED_RESOURCE_GROUP=(Get-AzNetworkCloudKubernetesCluster -KubernetesClusterName $CLUSTER_NAME `
+    -SubscriptionId <mySubscription> `
+    -ResourceGroupName myResourceGroup `
+    | Select-Object -Property ManagedResourceGroupConfigurationName)
     ```
-
-2. Set the environment variables needed for Azure PowerShell to use the outbound proxy server:
-    ```azurepowershell
-    $Env:HTTP_PROXY = "<proxy-server-ip-address>:<port>"
-    $Env:HTTPS_PROXY = "<proxy-server-ip-address>:<port>"
-    $Env:NO_PROXY = "<cluster-apiserver-ip-address>:<port>"
-    ```
-
-3. The following command starts a connectedk8s proxy that allows you to connect to the Kubernetes API server for the specified Nexus Kubernetes cluster.
+    
+2. Run the following command to connect to the cluster.
     ```azurecpowershell
-    New-AzConnectedKubernetes -ClusterName $CLUSTER_NAME -ResourceGroupName $RESOURCE_GROUP -Location $LOCATION -Proxy 'https://<proxy-server-ip-address>:<port>'
+    New-AzConnectedKubernetes -ClusterName $CLUSTER_NAME -ResourceGroupName $MANAGED_RESOURCE_GROUP -Location $LOCATION'
     ```
 
-4. Use `kubectl` to send requests to the cluster:
+2. Use `kubectl` to send requests to the cluster:
 
     ```console
     kubectl get pods -A
