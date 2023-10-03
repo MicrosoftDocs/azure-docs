@@ -12,6 +12,8 @@ ms.date: 09/07/2023
 
 # Serialization and deserialization formats overview
 
+[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+
 The data processor is a data agnostic platform. The data processor can ingest, process, and write out data in any format.
 
 However, to use _jq path expressions_ in some pipeline stages, the data must be in a structured format within a pipeline. You may need to deserialize your data to get it into a suitable structured format.

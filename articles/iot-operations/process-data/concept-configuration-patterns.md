@@ -12,6 +12,8 @@ ms.date: 09/07/2023
 
 # What are configuration patterns?
 
+[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+
 Several types of configuration, such as durations and paths, are common to multiple pipeline stages. This article describes these common configuration patterns.
 
 ## Path
