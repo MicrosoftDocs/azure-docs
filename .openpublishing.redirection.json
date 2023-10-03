@@ -24430,6 +24430,16 @@
             "source_path_from_root": "/articles/active-directory/develop/single-page-app-tutorial-04-call-api.md",
             "redirect_url": "/azure/active-directory/develop/tutorial-single-page-app-react-call-api",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/cross-region-overview.md",
+            "redirect_url": "/azure/reliability/reliability-load-balancer.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-standard-availability-zones.md",
+            "redirect_url": "/azure/reliability/reliability-load-balancer.md",
+            "redirect_document_id": false
         }
     ]
 }

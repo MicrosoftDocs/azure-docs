@@ -117,7 +117,7 @@
     - name: Azure Kubernetes Service (AKS)
       href: ../aks/availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Load Balancer
-      href: ../load-balancer/load-balancer-standard-availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      href: reliability-load-balancer.md
     - name: Azure Logic Apps
       href: ../logic-apps/set-up-zone-redundancy-availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Monitor
@@ -185,7 +185,7 @@
         - name: Azure Kubernetes Service (AKS)
           href: ../aks/operator-best-practices-multi-region.md
         - name: Azure Load Balancer
-          href: ../load-balancer/tutorial-cross-region-portal.md
+          href: reliability-load-balancer.md
         - name: Azure Public IP
           href: ../load-balancer/cross-region-overview.md
         - name: Azure Service Bus
@@ -353,7 +353,7 @@
     - name: Azure Kubernetes Service (AKS)
       href: ../aks/availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Load Balancer
-      href: ../load-balancer/load-balancer-standard-availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      href: reliability-load-balancer.md
     - name: Azure Logic Apps
       href: ../logic-apps/set-up-zone-redundancy-availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Monitor

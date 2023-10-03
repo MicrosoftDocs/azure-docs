@@ -25,29 +25,46 @@ For an architectural overview of reliability in Azure, see [Azure reliability](/
 
 | Category | Priority |Recommendation |  
 |---------------|--------|---|
-| [**High Availability**](#high-availability) |:::image type="icon" source="media/icon-recommendation-high.svg":::| [Run production workloads on two or more VMs using Azure Virtual Machine Scale Sets Flex](#-run-production-workloads-on-two-or-more-vms-using-virtual-machine-scale-sets-flex) |
-||:::image type="icon" source="media/icon-recommendation-high.svg"::: |[Deploy VMs across availability zones or use Virtual Machine Scale Sets Flex with zones](#-deploy-vms-across-availability-zones-or-use-virtual-machine-scale-sets-flex-with-zones) | 
-||:::image type="icon" source="media/icon-recommendation-high.svg":::|[Migrate VMs using availability sets to Virtual Machine Scale Sets Flex](#-migrate-vms-using-availability-sets-to-virtual-machine-scale-sets-flex) | 
+| [**High Availability**](#high-availability) |:::image type="icon" source="media/icon-recommendation-high.svg":::| [Use Standard Load Balancer SKU](#use-standard-load-balancer-sku) |
+||:::image type="icon" source="media/icon-recommendation-high.svg"::: |[Ensure that the backend pool contains at least two instances](#ensure-that-the-backend-pool-contains-at-least-two-instances) | 
+||:::image type="icon" source="media/icon-recommendation-medium.svg":::|[Use NAT Gateway instead of outbound rules for production workloads](#use-nat-gateway-instead-of-outbound-rules-for-production-workloads) | 
 
 ### High availability
  
-#### :::image type="icon" source="media/icon-recommendation-high.svg"::: **Run production workloads on two or more VMs using Virtual Machine Scale Sets Flex** 
+#### :::image type="icon" source="media/icon-recommendation-high.svg"::: **Use Standard Load Balancer SKU**
 
-To safeguard application workloads from downtime due to the temporary unavailability of a disk or VM, it's recommended that you run production workloads on two or more VMs using Virtual Machine Scale Sets Flex. 
+Standard SKU Load Balancer supports availability zones and zone resiliency, while the Basic SKU doesn't. When a zone goes down, your zone-redundant Standard Load Balancer will not be impacted and your deployments are able to withstand zone failures within a region. In addition, Standard Load Balancer supports cross region load balancing to ensure that your application isn't impacted by region failures. 
 
-To run production workloads, you can use:
+>[!NOTE]
+> Basic load balancers don’t have a Service Level Agreement (SLA).
 
-- [Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview) to create and manage a group of load balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule.
+# [Azure Resource Graph](#tab/graph)
 
-- **Availability zones**. For more information on availability zones and VMs, see [Availability zone support](#availability-zone-support).
+:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/networking/load-balancer/code/lb-1/lb-1.kql":::
+
+----
+
+#### :::image type="icon" source="media/icon-recommendation-high.svg"::: **Ensure that the backend pool contains at least two instances**
+
+Deploy Load Balancer with at least two instances in the backend. A single instance could result in a single point of failure. In order to build for scale, you might want to pair load balancer with [Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md).
 
 
 # [Azure Resource Graph](#tab/graph)
 
-:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/compute/virtual-machines/code/vm-1/vm-1.kql":::
+:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/networking/load-balancer/code/lb-2/lb-2.kql":::
 
 ----
 
+#### :::image type="icon" source="media/icon-recommendation-medium.svg"::: **Use NAT Gateway instead of outbound rules for production workloads**
+
+Outbound rules ensure that you're not faced with connection failures as a result of SNAT port exhaustion. While outbound rules help improve the solution for small to mid size deployments, for production workloads, it's recommended that you couple Standard Load Balancer or any subnet deployment with VNet NAT.
+
+
+# [Azure Resource Graph](#tab/graph)
+
+:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/networking/load-balancer/code/lb-3/lb-3.kql":::
+
+----
 
 
 ## Availability zone support
