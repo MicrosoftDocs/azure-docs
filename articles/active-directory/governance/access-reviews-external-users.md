@@ -68,7 +68,7 @@ To create an Access Review for external identities, you'd follow these steps:
 1. Select **Teams + Groups** and then select the group you noted earlier that contains the external identities to set the **Review scope**.
 
 1. Set the **Scope** as **Guest users only**. 
-    ![limiting the scope of the review to guest users only](media/access-reviews-external-users/guest-users-only.png)
+    [ ![Screenshot of limiting the scope of the review to guest users only.](media/access-reviews-external-users/guest-users-only.png) ](media/access-reviews-external-users/guest-users-only.png#lightbox)
 1. In the **Upon completion settings** section, you can select **Block users from signing-in for 30 days, then remove user from the tenant** under the **Action to apply on denied users** option. For more information, see: [Disable and delete external identities with Microsoft Entra access reviews](access-reviews-external-users.md#disable-and-delete-external-identities-with-microsoft-entra-access-reviews).
 
 1. After the access review is created, the guest user must certify their access before the review finishes. This is done by the guest approving or not approving their access within the My Access portal. For a full step by step guide, see: [Review access to groups and applications in access reviews](perform-access-review.md).
