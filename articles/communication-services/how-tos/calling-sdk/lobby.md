@@ -17,6 +17,10 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 [!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 ::: zone-end
 
+::: zone pivot="platform-ios"
+[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
+::: zone-end
+
 ::: zone pivot="platform-windows"
 [!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 ::: zone-end
@@ -54,6 +58,10 @@ To update or check current meeting join & lobby policies in Teams admin center:
 
 ::: zone pivot="platform-android"
 [!INCLUDE [Lobby Client-side Android](./includes/lobby/lobby-android.md)]
+::: zone-end
+
+::: zone pivot="platform-ios"
+[!INCLUDE [Record Calls Client-side iOS](./includes/lobby/lobby-ios.md)]
 ::: zone-end
 
 ::: zone pivot="platform-windows"
