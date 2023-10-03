@@ -152,7 +152,7 @@ If you have an environment with both Microsoft Entra ID (cloud) and Windows Serv
 
 ## Delete a user
 
-You can delete an existing user using the [Azure](https://portal.azure.com/) portal.
+You can delete an existing user using the [Microsoft Entra admin center](https://entra.microsoft.com/).
 
 - You must have a Global Administrator, Privileged Authentication Administrator, or User Administrator role assignment to delete users in your organization.
 - Global Administrators and Privileged Authentication Administrators can delete any users including other administrators.
