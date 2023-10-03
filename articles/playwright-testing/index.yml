@@ -24,6 +24,8 @@ landingContent:
         links:
           - text: What is Microsoft Playwright Testing?
             url: overview-what-is-microsoft-playwright-testing.md
+          - text: Try Microsoft Playwright Testing for free
+            url: how-to-try-playwright-testing-free
 
   # Card
   - title: Get started
