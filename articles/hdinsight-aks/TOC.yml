@@ -181,6 +181,8 @@ items:
         href: ./flink/flink-web-ssh-on-portal-to-flink-sql.md
       - name:  Azure Cosmos DB (Apache Cassandra)
         href: ./flink/cosmos-db-for-apache-cassandra.md
+      - name:  Azure Data Explorer
+        href: ./flink/integration-of-azure-data-explorer.md   
       - name:  Azure Event Hubs
         href: ./flink/flink-how-to-setup-event-hub.md
       - name:  Azure Pipelines
