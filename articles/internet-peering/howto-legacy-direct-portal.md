@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 01/23/2023
+ms.date: 10/03/2023
 ---
 
 # Convert a legacy Direct peering to an Azure resource using the Azure portal
