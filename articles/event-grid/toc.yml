@@ -121,7 +121,7 @@ items:
       - name: Concepts
         items:
         - name: Terminology
-          href: concepts-push-delivery.md
+          href: 
       - name: Quickstarts
         items:
         - name: Deliver events using namespace topics
