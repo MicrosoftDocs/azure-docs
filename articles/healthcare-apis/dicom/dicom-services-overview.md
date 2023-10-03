@@ -14,7 +14,7 @@ The Digital Imaging and Communications in Medicine (DICOM) service is a cloud-ba
 
 The DICOM service offers many benefits, including:
 
-- **Global availability**. The DICOM service is available in any of the regions where Azure Health Data Services is available. Microsoft is continuously expanding availability of the DICOM service, so check [regional availability](https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/?products=health-data-services&regions=all) for updates.
+- **Global availability**. The DICOM service is available in any of the regions where Azure Health Data Services is available. Microsoft is continuously expanding availability of the DICOM service, so check [regional availability](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=health-data-services&regions=all) for updates.
 
 - **Scalability**. The DICOM service supports different workload levels at hospitals and within regions on a global scale without sacrificing any performance spec by using autoscaling features.
 
