@@ -258,9 +258,9 @@
         items:
         - name: Restore a dropped server
           href: flexible-server/how-to-restore-dropped-server.md
-      - name: Restore a dropped server
+      - name: Cross Subscription and Cross Resource Group Restore
         items:
-        - name: Cross Subscription or Resource Group Restore
+        - name: Cross Subscription and Cross Resource Group Restore
           href: flexible-server/how-to-restore-to-different-subscription-or-Resourcegroup.md
       - name: Restart a server
         items:
