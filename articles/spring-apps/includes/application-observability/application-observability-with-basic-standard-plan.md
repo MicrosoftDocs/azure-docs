@@ -44,7 +44,7 @@ Spring Boot registers several metrics, such as JVM, web server, and logging-rela
 
 #### Add custom metrics defined in application code
 
-In the PetClinic's source code, the REST controllers are annotated with the micrometer `@Timed` annotation. This annotation collects metrics like the number of times a method is called or the execution time of a method.
+In the PetClinic source code, the REST controllers are annotated with the micrometer `@Timed` annotation. This annotation collects metrics like the number of times a method is called or the execution time of a method.
 
 The following list shows the custom metrics details:
 
@@ -90,12 +90,12 @@ A dashboard is a cognitive awareness and communication tool designed to help you
 
 Use the following steps to create a custom dashboard and pin various quickstart panes and metrics charts to the dashboard. If you choose to use the built-in dashboard for Application Insights created by Azure Spring Apps, you can skip creating the dashboard and customizing the dashboard chart. For more information, see [Application Insights Overview dashboard](../../../azure-monitor/app/overview-dashboard.md).
 
+> [!NOTE]
+> You can also choose a wizard based on Application Insights to quickly create a default dashboard.
+
 1. From the Azure portal menu, select **Dashboard**. Your default view might already be set to dashboard.
 
 1. Select **Create**, and then select **Custom** to create a custom dashboard.
-
-> [!NOTE]
-> You can also choose a wizard based on Application Insights to quickly create a default dashboard.
 
 1. Enter a name for the dashboard, and then select **Save**.
 
@@ -108,9 +108,11 @@ Use the following steps to create a custom dashboard and pin various quickstart 
 
 The most fundamental metrics for an application, especially a microservices application, are CPU usage, memory usage, liveness detection, and network traffic. These metrics provide an important basis for evaluating application scalability.
 
-Use the following steps to pin the various charts to the dashboard.
+Use the following instructions to pin the various charts to the dashboard. These steps are similar for each chart. For some charts, additional instructions are provided.
 
 ##### Pin the "App CPU Usage" chart
+
+To pin the "App CPU Usage" chart, use the following steps:
 
 1. Go to the Azure Spring Apps instance overview page.
 
@@ -128,24 +130,27 @@ Use the following steps to pin the various charts to the dashboard.
 
 ##### Pin the "App Memory Usage" chart
 
-For the **App Memory Usage** metric, save the **App Memory Usage** chart to the dashboard.
+To pin the **App Memory Usage** chart to the dashboard, use the steps in the previous section.
 
 :::image type="content" source="../../media/application-observability/chart-app-memory-usage.png" alt-text="Screenshot of the Azure portal that shows the Azure Spring Apps Metrics page with the App Memory Usage chart." lightbox="../../media/application-observability/chart-app-memory-usage.png":::
 
 ##### Pin the "App Network In" chart
 
-1. For the **App Network In** metric, provide the following information:
+To pin the "App Network In" chart, use the steps in the [Pin the "App CPU Usage" chart](#pin-the-app-cpu-usage-chart) section, but include the following steps:
 
-   - **Add filter**: Select this option.
-   - **Property**: Open the corresponding dropdown list and select **App**.
-   - **Operator**: Select **=**
-   - **Values**: Select **admin-server** and **api-gateway**.
+1. On the **Metrics** page, select **Add filter**.
 
-1. Save the **App Network In Usage** chart to the dashboard.
+1. For **Property**, open the corresponding dropdown list and then select **App**.
+
+1. For **Operator**, select **=**.
+
+1. For **Values**, select **admin-server** and **api-gateway**.
 
 :::image type="content" source="../../media/application-observability/chart-app-network-in-usage.png" alt-text="Screenshot of the Azure portal that shows the Azure Spring Apps Metrics page with the App Network In chart." lightbox="../../media/application-observability/chart-app-network-in-usage.png":::
 
 ##### Pin the "Availability" chart
+
+To pin the "Availability" chart, use the following steps:
 
 1. Go to the Azure Spring Apps instance overview page.
 
@@ -167,25 +172,29 @@ The key data recorded in the process of the application serving users includes t
 
 ##### Pin the "Server exceptions and Dependency call failures" chart
 
-For the **Server exception** and **Dependency call failures** metrics under the **Application Insights standard metrics** namespace, save the **Server exceptions and Dependency call failures** chart to the dashboard.
+To pin the "Server exceptions and Dependency call failures" chart, use the steps from the [Pin the "Availability" chart](#pin-the-availability-chart) section. The **Server exception** and **Dependency call failures** metrics are under the **Application Insights standard metrics** namespace.
 
 :::image type="content" source="../../media/application-observability/chart-exceptions-and-failures.png" alt-text="Screenshot of the Azure portal that shows the Application Insights Metrics page with the Server exceptions and Dependency call failures chart." lightbox="../../media/application-observability/chart-exceptions-and-failures.png":::
 
 ##### Pin the "Failed requests" chart
 
-For the **Failed requests** metric under the **Application Insights standard metrics** namespace, save the **Failed requests** chart to the dashboard.
+To pin the "Failed requests" chart, use the steps from the [Pin the "Availability" chart](#pin-the-availability-chart) section. The **Failed requests** metric is under the **Application Insights standard metrics** namespace.
 
 :::image type="content" source="../../media/application-observability/chart-failed-requests.png" alt-text="Screenshot of the Azure portal that shows the Application Insights Metrics page with the Failed requests chart." lightbox="../../media/application-observability/chart-failed-requests.png":::
 
 ##### Pin the "Request count" chart
 
-For the **Server requests** metric under the **Application Insights standard metrics** namespace, add a filter to filter the **Cloud role name** with **api-gateway** and **admin-server**, apply splitting for **Values** with **Cloud role name**, and then save the **Request count** chart to the dashboard.
+To pin the "Request count" chart, use the steps from the [Pin the "Availability" chart](#pin-the-availability-chart) section, but include the following steps. The **Server requests** metric is under the **Application Insights standard metrics** namespace.
+
+1. Add a filter to filter the **Cloud role name** with **api-gateway** and **admin-server**.
+
+1. Apply splitting for **Values** with **Cloud role name**.
 
 :::image type="content" source="../../media/application-observability/chart-request-count.png" alt-text="Screenshot of the Azure portal that shows the Application Insights Metrics page with the Request count chart." lightbox="../../media/application-observability/chart-request-count.png":::
 
 ##### Pin the "Response time" chart
 
-For the **Server response time** metric under the **Application Insights standard metrics** namespace, add a filter to filter the **Cloud role name** with **api-gateway**, and then save the **Response time** chart to the dashboard.
+To pin the "Response time" chart, use the steps from the [Pin the "Availability" chart](#pin-the-availability-chart) section, but add a filter to filter the **Cloud role name** with **api-gateway**. The **Server response time** metric is under the **Application Insights standard metrics** namespace.
 
 :::image type="content" source="../../media/application-observability/chart-response-time.png" alt-text="Screenshot of the Azure portal that shows the Application Insights Metrics page with the Response time chart." lightbox="../../media/application-observability/chart-response-time.png":::
 
@@ -195,13 +204,13 @@ Database performance is the cornerstone of normal service for all applications. 
 
 #### Pin the "Active MySQL connections" chart
 
-For the **hikaricp_connection_active** metric under the **Log-based metrics** namespace, save the **Active MySQL connections** chart to the dashboard.
+To pin the "Active MySQL connections" chart, use the steps from the [Pin the "Availability" chart](#pin-the-availability-chart) section. The **hikaricp_connection_active** metric is under the **Log-based metrics** namespace.
 
 :::image type="content" source="../../media/application-observability/chart-connection-active.png" alt-text="Screenshot of the Azure portal that shows the Application Insights Metrics page with the Active MySQL connections chart." lightbox="../../media/application-observability/chart-connection-active.png":::
 
 #### Pin content from a resource page
 
-Pin some commonly used links into the dashboard, which lets you quickly open the operation page on Azure or other resource pages, and improves efficiency.
+Pin some commonly used links into the dashboard. These links let you quickly open the operation page on Azure or other resource pages.
 
 To pin common panes of the Azure portal to the dashboard, use the following steps:
 
