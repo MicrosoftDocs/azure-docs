@@ -134,7 +134,7 @@ Here are two ways to exit low disk mode on the server endpoint:
 2. You can manually speed up the process by increasing the volume size or freeing up space outside the server endpoint.
 
 ### How to check if a server is in Low Disk Space mode?
-- If a server endpoint is in low disk mode, it is displayed in Azure portal in the cloud tiering health section of Error + troubleshootin tab of the server endpoint.
+- If a server endpoint is in low disk mode, it is displayed in the Azure portal in the **cloud tiering health** section of the **Errors + troubleshooting** tab of the server endpoint.
 - Event ID 19000 is logged to the Telemetry event log every minute for each server endpoint. Use this event to determine if the server endpoint is in low disk mode (IsLowDiskMode = true). The Telemetry event log is located in Event Viewer under Applications and Services\Microsoft\FileSync\Agent.
 
 ## Next steps
