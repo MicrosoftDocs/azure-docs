@@ -97,7 +97,7 @@ For example:
 $match = New-AzApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
 $match = New-AzApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
 ```
-Once the match criteria is specified, it can be attached to probe configuration using a `-Match` parameter in PowerShell.
+Match criteria can be attached to probe configuration using a `-Match` operator in PowerShell.
 
 ### Some use cases for Custom probes
 - If a backend server allows access to only authenticated users, the application gateway probes will receive a 403 response code instead of 200. As the clients (users) are bound to authenticate themselves for the live traffic, you can configure the probe traffic to accept 403 as an expected response.

@@ -36,13 +36,13 @@ For Unhealthy and Unknown statuses, you will also find a Troubleshoot link prese
 1. **Azure Network Watcher's Connection troubleshoot** - Visit the [Connection Troubleshoot](../network-watcher/network-watcher-connectivity-portal.md) documentation article to learn how to use this tool. 
 1. **Backend server certificate visualization** - The Backend server certificate visualization makes it easy to understand the problem area, allowing you to act on the problem quickly. The three core components in the illustration provide you with a complete picture — The client, the Application Gateway, and the Backend Server. However, the problems explained in this troubleshooting section only focus on the TLS connection between the application gateway and the backend server.
 
-:::image type="content" source="media/application-gateway-backend-health/backend-cert-error.png" alt-text="Visualization showing certificate error on the Backend Health page":::
+    :::image type="content" source="media/application-gateway-backend-health/backend-certificate-error.png" alt-text="Screenshot and explanation of a certificate error on the Backend Health page.":::
 
 **Reading the illustration**
 - The red lines indicate a problem with the TLS connection between the gateway and the backend server or the certificate components on the backend server.
-- The red text in the Application Gateway or the Backend Server blocks indicate problems with the Backend Settings or the server certificate, respectively.
+- If there is red text in the Application Gateway or the Backend Server blocks, this indicates problems with the Backend Settings or the server certificate, respectively.
 - You must act on the respective property (Application Gateway's Backend Setting or the Backend Server) depending on the error indication and location.
-- A solution for each error type is available at the top, or you can visit the given documentation link to know more.
+- A solution for each error type is provided. A documentation link is also provided for more information.
 
 ### Using PowerShell
 
