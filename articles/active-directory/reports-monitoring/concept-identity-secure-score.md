@@ -6,12 +6,15 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 09/29/2023
+ms.date: 10/03/2023
 
 ms.author: sarahlipsey
 author: shlipsey3
 manager: amycolannino
 ms.reviewer: guptashi
+
+# Customer intent: As an IT admin, I want to know how to use the identity secure score and related recommendations to improve the security posture of my Microsoft Entra tenant.
+
 ---
 # What is identity secure score?
 
@@ -59,6 +62,8 @@ Each recommendation is measured based on your configuration. If you're using thi
 ### Working with secure score recommendations
 
 Identity secure score improvement actions also appear in Microsoft Entra recommendations. They both appear in the same list, but the secure score recommendations show the score.
+
+![Screenshot of the recommendations list with the secure score recommendations highlighted.](./media/concept-identity-secure-score/secure-score-recommendations-list.png)
 
 To address a secure score recommendation, select it from the list to view the details and action plan. If you take the appropriate action, the status changes automatically the next time the service runs. You can also mark the recommendation as *dismissed* or *postponed*. For more information on working with recommendations, see [How to use recommendations](./howto-use-recommendations.md).
 
@@ -137,9 +142,3 @@ The [Microsoft secure score](/office365/securitycompliance/microsoft-secure-scor
 - Apps
 
 The identity secure score represents the identity part of the Microsoft secure score. This overlap means that your recommendations for the identity secure score and the identity score in Microsoft are the same.
-
-## Next steps
-
-- [Find out more about Microsoft secure score](/office365/securitycompliance/microsoft-secure-score)
-- [Learn about Microsoft Entra recommendations](./recommendations-overview.png)
-- [Learn how to use recommendations](./how-to-use-recommendations.md)

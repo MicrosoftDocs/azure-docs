@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: overview
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 09/29/2023
+ms.date: 10/03/2023
 ms.author: sarahlipsey
 ms.reviewer: hafowler  
 
@@ -32,11 +32,11 @@ This article gives you an overview of how you can use Microsoft Entra recommenda
 
 ## How does it work?
 
-On a daily basis, Azure AD analyzes the configuration of your tenant. During this analysis, Azure AD compares the configuration of your tenant with security best practices and recommendation data. If a recommendation is flagged as applicable to your tenant, the recommendation appears in the **Recommendations** section of the Azure AD Overview area. The recommendations are listed in order of priority so you can quickly determine where to focus first.
+On a daily basis, Microsoft Entra ID analyzes the configuration of your tenant. During this analysis, Microsoft Entra ID compares the configuration of your tenant with security best practices and recommendation data. If a recommendation is flagged as applicable to your tenant, the recommendation appears in the **Recommendations** section of the Microsoft Entra identity overview area. The recommendations are listed in order of priority so you can quickly determine where to focus first.
 
 ![Screenshot of the Overview page of the tenant with the Recommendations option highlighted.](./media/overview-recommendations/recommendations-overview.png) 
 
-Your identity secure score, which appears at the top of the page, is a numerical representation of the health of your tenant. Recommendations that apply to the Identity Secure Score are given individual scores in the table at the bottom of the page. These scores are added up to generate your Identity Secure Score.
+Your identity secure score, which appears at the top of the page, is a numerical representation of the health of your tenant. Recommendations that apply to the Identity Secure Score are given individual scores in the table at the bottom of the page. These scores are added up to generate your Identity Secure Score. For more information, see [What is identity secure score](concept-identity-secure-score.md).
 
 ![Screenshot of the identity secure score.](./media/overview-recommendations/identity-secure-score.png)
 
@@ -65,8 +65,3 @@ The recommendations listed in the following table are currently available in pub
 | [Renew expiring service principal credentials](recommendation-renew-expiring-service-principal-credential.md) | Applications | [Microsoft Entra Workload ID Premium](https://www.microsoft.com/security/business/identity-access/microsoft-entra-workload-id) | Preview |
 
 Microsoft Entra-only displays the recommendations that apply to your tenant, so you may not see all supported recommendations listed.
-
-## Next steps
-
-* [Learn how to use Microsoft Entra recommendations](howto-use-recommendations.md)
-* [Explore the details of the "Turn off per-user MFA" recommendation](recommendation-turn-off-per-user-mfa.md)
