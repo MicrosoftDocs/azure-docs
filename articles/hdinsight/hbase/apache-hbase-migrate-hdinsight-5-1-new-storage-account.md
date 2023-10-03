@@ -1,6 +1,6 @@
 ---
 title: Migrate an HBase cluster to an HDInsight 5.1 and new storage account - Azure HDInsight
-description: Learn how to migrate an Apache HBase cluster in Azure HDInsight to a HDInsight 5.1 with a different Azure Storage account.
+description: Learn how to migrate an Apache HBase cluster in Azure HDInsight to an HDInsight 5.1 with a different Azure Storage account.
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
@@ -79,9 +79,9 @@ Use these detailed steps and commands to migrate your Apache HBase cluster with 
 
       :::image type="content" source="./media/apache-hbase-migrate-new-version/verify-hbck-report.png" alt-text="Screenshot showing how to verify HBCK report." lightbox="./media/apache-hbase-migrate-new-version/verify-hbck-report.png":::
       
-   1. If any inconsistencies exists, please fix inconsistencies using [hbase hbck2](/azure/hdinsight/hbase/how-to-use-hbck2-tool/)
+   1. If any inconsistencies exist, please fix inconsistencies using [hbase hbck2](/azure/hdinsight/hbase/how-to-use-hbck2-tool/)
 
-1. Note down number of regions in online at source cluster, so that the number can be refered at destination cluster after the migration. 
+1. Note down number of regions in online at source cluster, so that the number can be referred at destination cluster after the migration. 
 
    :::image type="content" source="./media/apache-hbase-migrate-new-version/total-number-of-regions.png" alt-text="Screenshot showing count of number of regions." lightbox="./media/apache-hbase-migrate-new-version/total-number-of-regions.png":::
    
@@ -101,7 +101,7 @@ Use these detailed steps and commands to migrate your Apache HBase cluster with 
    ```
 1. Wait for 15 mins and verify that all the procedures are completed, and masterProcWal files doesn't  have any pending procedures.
 
-    1. Verity the Procedures page to confirm that there are no pending procedures.
+    1. Verify the Procedures page to confirm that there are no pending procedures.
     
         :::image type="content" source="./media/apache-hbase-migrate-new-version/verify-master-process.png" alt-text="Screenshot showing how to verify master process." lightbox="./media/apache-hbase-migrate-new-version/verify-master-process.png"::: 
 1. STOP HBase
@@ -247,13 +247,13 @@ If Hbase masters and region servers up and regions stuck in transition or only o
 1. ssh into any ZooKeeper node of original cluster and run `kinit -k -t /etc/security/keytabs/hbase.service.keytab hbase/<zk FQDN>` if this is ESP cluster
 1. Run `echo "scan '`hbase:meta`'" | hbase shell > meta.out` to read the `hbase:meta` into a file
 1. Run `grep "info:sn" meta.out | awk '{print $4}' | sort | uniq`  to get all RS instance names where the regions were present in old cluster. Output should be like `value=<wn FQDN>,16020,........`
-1. create a dummy WAL dir with that `wn` value
+1. Create a dummy WAL dir with that `wn` value
 
-   if the cluster is accelerated write cluster 
+   If the cluster is accelerated write cluster 
    ```
    hdfs dfs -mkdir hdfs://mycluster/hbasewal/WALs/<wn FQDN>,16020,.........
    ```
-   if the cluster is nonaccelarated Write cluster 
+   If the cluster is nonaccelarated Write cluster 
    ```
    hdfs dfs -mkdir /hbase-wals/WALs/<wn FQDN>,16020,.........
    ```
