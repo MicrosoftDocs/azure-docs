@@ -12,9 +12,6 @@ ms.date: 08/24/2023
 ms.custom: FY23 content-maintenance
 ---
 
->[!Important]
->On September 30, 2025, default outbound access for new deployments will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/).  It is reccomended to use one the explict forms of connectivity discussed below.
-
 # Default outbound access in Azure
 
 In Azure, virtual machines created in a virtual network without explicit outbound connectivity defined are assigned a default outbound public IP address. This IP address enables outbound connectivity from the resources to the Internet. This access is referred to as default outbound access. 
@@ -40,6 +37,9 @@ The public IPv4 address used for the access is called the default outbound acces
 If you deploy a virtual machine in Azure and it doesn't have explicit outbound connectivity, it's assigned a default outbound access IP.
 
 :::image type="content" source="./media/default-outbound-access/default-outbound-access.png" alt-text="Diagram of default outbound access.":::
+
+>[!Important]
+>On September 30, 2025, default outbound access for new deployments will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/).  It is reccomended to use one the explict forms of connectivity discussed below.
 
 ## Why is disabling default outbound access recommended?
 
