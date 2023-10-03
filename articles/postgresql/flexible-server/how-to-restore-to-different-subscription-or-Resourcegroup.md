@@ -51,7 +51,7 @@ If your source server is configured with geo-redundant backup, you can restore t
 
 2. Select **Overview** from the left pane, and then select **Restore**.
    
-   :::image type="content" source="./media/how-to-restore-server-portal/cross-restore-overview.png" alt-text="Screenshot that shows a server overview and the Restore button.":::
+   :::image type="content" source="./media/how-to-restore-server-portal/cross-restore-overview.png" alt-text="Screenshot that shows a server overview.":::
 
 3. Under **Subscription** drop down, select different subscription. If you want to change the **Resource group** go to next step else
  you can go to Step 5.
