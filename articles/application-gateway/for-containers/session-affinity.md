@@ -12,7 +12,7 @@ ms.author: greglin
 
 # Application Gateway for Containers session affinity overview
 
-Session affinity, also known as *session persistence* or *sticky sessions*, is a technique used in load balancing to ensure a client's requests are always sent to the same server for the duration of a session. This is important for applications that store user data in session variables or in a local cache on a particular server.
+Session affinity, also known as *session persistence* or *sticky sessions*, is a technique used in load balancing to ensure a client's requests are always sent to the same server. This is important for applications that store user data in session variables or in a local cache on a particular server (commonly referred to as a stateful applications).
 
 With session affinity, Application Gateway for Containers presents a cookie in the **Set-Cookie** header of the first response. If the client presents the cookie in future requests, Application Gateway for Containers recognizes the cookie and forwards traffic to the same backend target. See the following example scenario:
 
@@ -20,9 +20,9 @@ With session affinity, Application Gateway for Containers presents a cookie in t
 
 The following steps are depicted in the previous diagram:
 1. A client initiates a request to an Application Gateway for Containers' (AGC) frontend
-2. AGC will select one of the many available pods to load balance the request to. In this example, we will assume Pod C is selected out of the four available pods.
+2. AGC selects one of the many available pods to load balance the request to. In this example, we assume Pod C is selected out of the four available pods.
 3. Pod C returns a response to AGC.
-4. In addition to the backend response from Pod C, AGC will add a Set-Cookie header containing a uniquely generated hash used for routing.
+4. In addition to the backend response from Pod C, AGC adds a Set-Cookie header containing a uniquely generated hash used for routing.
 5. The client sends another request to AGC along with the session affinity cookie set in the previous step.
 6. AGC detects the cookie and selects Pod C to serve the request.
 7. Pod C responds to AGC.
