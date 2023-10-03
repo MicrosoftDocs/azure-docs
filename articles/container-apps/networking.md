@@ -184,8 +184,6 @@ User Defined Routes (UDR) and controlled egress through NAT Gateway are supporte
 
 - Configuring UDR is done outside of the Container Apps environment scope.
 
-- UDR isn't supported for external environments.
-
 :::image type="content" source="media/networking/udr-architecture.png" alt-text="Diagram of how UDR is implemented for Container Apps.":::
 
 Azure creates a default route table for your virtual networks upon create. By implementing a user-defined route table, you can control how traffic is routed within your virtual network. For example, you can create a UDR that routes all traffic to the firewall.

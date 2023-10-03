@@ -8,6 +8,8 @@ ms.date: 08/29/2023
 
 # Required outbound traffic for HDInsight on AKS
 
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
 This article outlines the networking information to help manage the network policies at enterprise and make necessary changes to the network security groups (NSGs) for smooth functioning of HDInsight on AKS.
 
 If you use firewall to control outbound traffic to your HDInsight on AKS cluster, you must ensure that your cluster can communicate with critical Azure services. 

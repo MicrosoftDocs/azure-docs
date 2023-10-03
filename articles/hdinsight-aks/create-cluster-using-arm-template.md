@@ -8,6 +8,8 @@ ms.date: 08/29/2023
 
 # Export cluster ARM template
 
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
 This article describes how to generate an ARM template from resource JSON of your cluster. 
 
 ## Prerequisites

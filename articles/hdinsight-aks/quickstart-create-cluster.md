@@ -8,6 +8,8 @@ ms.date: 08/29/2023
 
 # Create cluster pool and cluster
 
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
 HDInsight on AKS has the concept of cluster pools and clusters.
 
 - **Cluster pools** are a logical grouping of clusters and maintain a set of clusters in the same pool, which helps in building robust interoperability across multiple cluster types. It can be created within an existing virtual network or outside a virtual network.

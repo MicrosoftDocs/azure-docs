@@ -8,6 +8,8 @@ ms.date: 08/29/2023
 
 # Expose Apache Superset to Internet
 
+[!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 This article describes how to expose Apache Superset to the Internet.
 
 ## Configure ingress

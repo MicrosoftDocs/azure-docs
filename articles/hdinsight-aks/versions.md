@@ -8,6 +8,8 @@ ms.date: 08/29/2023
 
 # Azure HDInsight on AKS versions
 
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
 HDInsight on AKS service has three components, a Resource provider, an Open-source software (OSS), and Controllers that are deployed on a cluster. Microsoft periodically upgrades the images and the aforementioned components to include new improvements and features.
 
 New HDInsight on AKS version may be created when one or more of the following are true: 

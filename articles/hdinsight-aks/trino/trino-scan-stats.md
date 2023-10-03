@@ -8,6 +8,8 @@ ms.date: 08/29/2023
 
 # Enable scan statistics for queries
 
+[!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 Often data teams are required to investigate performance or optimize queries to improve resource utilization or meet business requirements. 
 
 A new capability has been added in HDInsight on AKS Trino that allows user to capture Scan statistics for any connector. This capability provides deeper insights into query performance profile beyond what is available in statistics produced by Trino.

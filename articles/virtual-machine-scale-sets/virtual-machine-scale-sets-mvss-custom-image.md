@@ -90,13 +90,16 @@ In the scale set resource, add a `dependsOn` clause referring to the custom imag
 In the `imageReference` of the scale set `storageProfile`, instead of specifying the publisher, offer, sku, and version of a platform image, specify the `id` of the `Microsoft.Compute/images` resource:
 
 ```json
-         "virtualMachineProfile": {
-           "storageProfile": {
-             "imageReference": {
-              "id": "[resourceId('Microsoft.Compute/images', 'myCustomImage')]"
-             }
-           },
-           "osProfile": {
+  "virtualMachineProfile": {
+    "storageProfile": {
+      "imageReference": {
+        "id": "[resourceId('Microsoft.Compute/images', omImage')]"
+      }
+    },
+    "osProfile": {
+      ...
+    }
+  }
 ```
 
 In this example, use the `resourceId` function to get the resource ID of the image created in the same template. If you have created the managed disk image beforehand, you should provide the ID of that image instead. This ID must be of the form: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Compute/images/<image-name>`.

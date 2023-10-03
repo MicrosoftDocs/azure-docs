@@ -8,6 +8,8 @@ ms.date: 08/29/2023
 
 # Authentication mechanism
 
+[!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 Azure HDInsight on AKS Trino provides tools such as CLI client, JDBC driver etc., to access the cluster, which is integrated with Azure Active Directory to simplify the authentication for users.
 Supported tools or clients need to authenticate using Azure Active Directory OAuth2 standards that are, a JWT access token issued by Azure Active Directory must be provided to the cluster endpoint.
 
