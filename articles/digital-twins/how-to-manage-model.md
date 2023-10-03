@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to manage DTDL models within Azure Digital Twins, including how to create, edit, and delete them.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 06/29/2023
+ms.date: 10/3/2023
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -250,6 +250,8 @@ Models can be removed from the service in one of two ways:
 * Deletion: This operation will completely remove the model from the solution. Any twins that were using this model are no longer associated with any valid model, so they're treated as though they don't have a model at all. You can still read these twins, but you can't make any updates on them until they're reassigned to a different model.
 
 These operations are separate features and they don't impact each other, although they may be used together to remove a model gradually. 
+
+[!INCLUDE [digital-twins-bulk-delete-note.md](../../includes/digital-twins-bulk-delete-note.md)]
 
 ### Decommissioning
 

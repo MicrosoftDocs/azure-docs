@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn about the Azure Digital Twins API and SDK options, including information about SDK helper classes and general usage notes.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 05/18/2023
+ms.date: 10/3/2023
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: engagement-fy23
@@ -149,6 +149,14 @@ Keep the following considerations in mind while working with the Jobs API:
 * Currently, the Jobs API only supports "create" operations.
 * Import Jobs are not atomic operations. There is no rollback in the case of failure, partial job completion, or usage of the [Cancel operation](/rest/api/digital-twins/dataplane/jobs/import-jobs-cancel?tabs=HTTP).
 * Only one bulk import job is supported at a time within an Azure Digital Twins instance. You can view this information and other numerical limits of the Jobs API in [Azure Digital Twins limits](reference-service-limits.md).
+
+## Bulk delete
+
+The Delete Jobs API is a data plane API that allows you to delete all data plane elements, including models, twins, and relationships, in a single API call. Delete Jobs API operations are also included with the [CLI commands](/cli/azure/dt/job) and [data plane SDKs](#data-plane-apis). Visit the API documentation to see the request details for creating a delete job and checking its status.
+
+To make sure all elements are deleted, follow these recommendations while using the Delete Jobs API:
+* If you recently imported a large number of entities to your graph, wait for some time and verify that all elements are synchronized in your graph before beginning the delete job.
+* Stop all operations on the instance, especially upload operations, until the delete job is complete.
 
 ## Monitor API metrics
 

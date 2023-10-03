@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to retrieve, update, and delete individual twins and relationships.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 06/29/2023
+ms.date: 10/3/2023
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -275,6 +275,8 @@ Here is an example of the code to delete twins and their relationships. The `Del
 ### Delete all digital twins
 
 For an example of how to delete all twins at once, download the sample app used in the [Explore the basics with a sample client app](tutorial-command-line-app.md). The *CommandLoop.cs* file does this in a `CommandDeleteAllTwins()` function.
+
+[!INCLUDE [digital-twins-bulk-delete-note.md](../../includes/digital-twins-bulk-delete-note.md)]
 
 ## Runnable digital twin code sample
 
