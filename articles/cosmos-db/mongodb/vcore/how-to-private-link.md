@@ -60,8 +60,7 @@ Follow these steps to create a private endpoint for an existing Azure Cosmos DB 
 
     | Setting | Value |
     | ------- | ----- |
-    | Connection Method | 
-Choose one of your resources or connect to someone else's resource with a resource ID or alias that they've shared with you. |
+    | Connection Method | Choose one of your resources or connect to someone else's resource with a resource ID or alias that they've shared with you. |
     | Subscription | Select the subscription containing the resource you're connecting to.|
     | Resource Type | Select the resource type you're connecting to. |
     | Resource | Select the resource type you're connecting to. |
