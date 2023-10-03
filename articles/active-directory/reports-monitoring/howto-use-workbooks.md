@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/24/2023
+ms.date: 10/03/2023
 ms.author: sarahlipsey
 ms.reviewer: sarbar
 ---
@@ -70,7 +70,7 @@ For more information on Microsoft Entra built-in roles, see [Microsoft Entra bui
 
 <a name='how-to-access-azure-workbooks-for-azure-ad'></a>
 
-## How to access Azure Workbooks for Microsoft Entra ID
+## Access Microsoft Entra workbooks
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
@@ -83,7 +83,7 @@ For more information on Microsoft Entra built-in roles, see [Microsoft Entra bui
     - Search for a template by name.
     - Select the **Browse across galleries** to view templates that aren't specific to Microsoft Entra ID.
 
-    ![Find the Azure Monitor workbooks in Microsoft Entra ID](./media/howto-use-azure-monitor-workbooks/azure-monitor-workbooks-in-azure-ad.png)
+    ![Screenshot of the Microsoft Entra workbooks with navigation steps highlighted.](./media/howto-use-workbooks/workbooks-gallery.png)
 
 ## Create a new workbook
 
@@ -96,7 +96,7 @@ Workbooks can be created from scratch or from a template. When creating a new wo
 
     For more information on the available elements, see [Creating an Azure Workbook](../../azure-monitor/visualize/workbooks-create-workbook.md).
 
-    ![Screenshot of the Azure Workbooks +Add menu options.](./media/howto-use-azure-monitor-workbooks/create-new-workbook-elements.png)
+    ![Screenshot of the options available in the workbook editing area.](./media/howto-use-workbooks/add-new-workbooks-elements.png)
 
 **To create a new workbook from a template**:
 1. Browse to **Identity** > **Monitoring & health** > **Workbooks**. 
@@ -104,12 +104,16 @@ Workbooks can be created from scratch or from a template. When creating a new wo
 1. Select **Edit** from the top of the page.
     - Each element of the workbook has its own **Edit** button. 
     - For more information on editing workbook elements, see [Azure Workbooks Templates](../../azure-monitor/visualize/workbooks-templates.md)
-
+   
+    ![Screenshot of a workbook template with the edit button highlighted.](./media/howto-use-workbooks/workbooks-edit-button.png)
+    
 1. Select the **Edit** button for any element. Make your changes and select **Done editing**.
-        ![Screenshot of a workbook in Edit mode, with the Edit and Done Editing buttons highlighted.](./media/howto-use-azure-monitor-workbooks/edit-buttons.png)
-1. When you're done editing the workbook, select the **Save As** to save your workbook with a new name.
-1. In the **Save As** window:
-    - Provide a **Title**, **Subscription**, **Resource Group** (you must have the ability to save a workbook for the selected Resource Group), and **Location**.
+   
+    ![Screenshot of a workbook in edit mode, with the edit element and done editing buttons highlighted.](./media/howto-use-workbooks/workbooks-edit-elements.png)
+
+1. When you're done editing the workbook, select the **Save** button. The **Save as** window opens.
+1. Provide a **Title**, **Subscription**, **Resource Group*** and **Location**
+    - *You must have the ability to save a workbook for the selected Resource Group.
     - Optionally choose to save your workbook content to an [Azure Storage Account](../../azure-monitor/visualize/workbooks-bring-your-own-storage.md).
 1. Select the **Apply** button.
 
