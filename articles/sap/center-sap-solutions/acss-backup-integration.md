@@ -26,7 +26,7 @@ If you have already configured Backup from Azure Backup Center for your SAP VMs 
 Before you can go ahead and use this feature in preview, register for it from the Backup (preview) tab on the Virtual Instance for SAP solutions resource on the Azure portal.
 
 ## Prerequisites
-- A Virtual Instance for SAP solutions resource representing your SAP system on Azure Center for SAP solutions.
+- A Virtual Instance for SAP solutions (VIS) resource representing your SAP system on Azure Center for SAP solutions.
 - An Azure account with **Contributor** role access on the Subscription in which your SAP system exists.
 - Register **Microsoft.Features** Resource Provider on your subscription. 
 - Register your subscription for this preview feature in Azure Center for SAP solutions.
@@ -34,7 +34,8 @@ Before you can go ahead and use this feature in preview, register for it from th
 - To be able to configure Backup from the VIS resource, assign the following roles to **Azure Workloads Connector Service** first-party app
   1. **Backup Contributor** role access on the Subscription or specific Resource group which has the Recovery services vault that will be used for Backup. 
   2. **Virtual Machine Contributor** role access on the Subscription or Resource groups which have the Compute resources of the SAP systems.
-  - You can skip this step if you have already configured Backup for your VMs and HANA DB using Azure Backup Center. You will be able to monitor Backup of your SAP system from the VIS. 
+  - You can skip this step if you have already configured Backup for your VMs and HANA DB using Azure Backup Center. You will be able to monitor Backup of your SAP system from the VIS.
+  - Once you have completed configuring Backup from the VIS experience, it is recommended that you remove role access assigned to **Azure Workloads Connector Service** first-party app, as the access is no longer needed when monitoring backup status from VIS.
 - For HANA database backup, ensure the [prerequisites](/azure/backup/tutorial-backup-sap-hana-db#prerequisites) required by Azure Backup are in place.
 - For HANA database backup, create a HDB Userstore key that will be used for preparing HANA DB for configuring Backup. 
 
