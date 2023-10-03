@@ -28,7 +28,7 @@ The tables below lists each product that offers disaster recovery guidance and/o
 | [Azure ExpressRoute](../expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering.md) |
 | [Azure Key Vault](../key-vault/general/disaster-recovery-guidance.md) |
 | [Azure Kubernetes Service (AKS)](../aks/operator-best-practices-multi-region.md) |
-| [Azure Load Balancer](../load-balancer/tutorial-cross-region-portal.md) |
+| [Azure Load Balancer](reliability-load-balancer.md) |
 | [Azure Public IP](../load-balancer/cross-region-overview.md) |
 | [Azure Service Bus](../service-bus-messaging/service-bus-geo-dr.md) |
 | [Azure Service Fabric](../service-fabric/service-fabric-disaster-recovery.md#availability-of-the-service-fabric-cluster) |
