@@ -34,37 +34,37 @@ Both admin and non-admin users can download user lists.
 1. On the **Download users** page, select **Start** to receive a CSV file listing user profile properties. If there are errors, you can download and view the results file on the **Bulk operation results** page. The file contains the reason for each error.
 
    ![Select where you want the list the users you want to download](./media/users-bulk-download/bulk-download.png)
-   
->[!NOTE]
->The download file will contain the filtered list of users based on the scope of the filters applied.
 
-   The following user attributes are included:
+> [!NOTE]
+> The download file will contain the filtered list of users based on the scope of the filters applied.
 
-   - `userPrincipalName`
-   - `displayName`
-   - `surname`
-   - `mail`
-   - `givenName`
-   - `objectId`
-   - `userType`
-   - `jobTitle`
-   - `department`
-   - `accountEnabled`
-   - `usageLocation`
-   - `streetAddress`
-   - `state`
-   - `country`
-   - `physicalDeliveryOfficeName`
-   - `city`
-   - `postalCode`
-   - `telephoneNumber`
-   - `mobile`
-   - `authenticationAlternativePhoneNumber`
-   - `authenticationEmail`
-   - `alternateEmailAddress`
-   - `ageGroup`
-   - `consentProvidedForMinor`
-   - `legalAgeGroupClassification`
+The following user attributes are included:
+
+- `userPrincipalName`
+- `displayName`
+- `surname`
+- `mail`
+- `givenName`
+- `objectId`
+- `userType`
+- `jobTitle`
+- `department`
+- `accountEnabled`
+- `usageLocation`
+- `streetAddress`
+- `state`
+- `country`
+- `physicalDeliveryOfficeName`
+- `city`
+- `postalCode`
+- `telephoneNumber`
+- `mobile`
+- `authenticationAlternativePhoneNumber`
+- `authenticationEmail`
+- `alternateEmailAddress`
+- `ageGroup`
+- `consentProvidedForMinor`
+- `legalAgeGroupClassification`
 
 ## Check status
 

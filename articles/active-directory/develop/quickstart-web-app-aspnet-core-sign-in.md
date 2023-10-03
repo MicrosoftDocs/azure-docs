@@ -33,49 +33,6 @@ In this article you register a web application in the Microsoft Entra admin cent
 
 ## Register the application in the Microsoft Entra admin center
 
-
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
-1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant containing your client app's registration.
-1. Browse to **Identity** > **Applications** > **App registrations** and select **New registration**.
-1. For **Name**, enter a name for the application.  For example, enter **AspNetCore-Quickstart**. Users of the app will see this name, and can be changed later.
-1. Set the **Redirect URI** type to **Web** and value to `https://localhost:44321/signin-oidc`.
-1. Select **Register**.
-1. Under **Manage**, select **Authentication**.
-1. For **Front-channel logout URL**, enter **https://localhost:44321/signout-oidc**.
-1. Under **Implicit grant and hybrid flows**, select **ID tokens**.
-1. Select **Save**.
-1. Under **Manage**, select **Certificates & secrets** > **Client secrets** > **New client secret**.
-1. Enter a **Description**, for example `clientsecret1`.
-1. Select **In 1 year** for the secret's expiration.
-1. Select **Add** and immediately record the secret's **Value** for use in a later step. The secret value is *never displayed again* and is irretrievable by any other means. Record it in a secure location as you would any password.
-
-### Download the ASP.NET Core project
-
-[Download the ASP.NET Core solution](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore3-1-callsgraph.zip)
-
-### Configure your ASP.NET Core project
-
-1. Extract the *.zip* file to a local folder that's close to the root of the disk to avoid errors caused by path length limitations on Windows. For example, extract to *C:\Azure-Samples*.
-1. Open the solution in the chosen code editor.
-1. In *appsettings.json*, replace the values of `ClientId`, and `TenantId`. The value for the application (client) ID and the directory (tenant) ID, can be found in the app's **Overview** page on the Microsoft Entra admin center.
-
-   ```json
-   "Domain": "[Enter the domain of your tenant, e.g. contoso.onmicrosoft.com]",
-   "ClientId": "Enter_the_Application_Id_here",
-   "TenantId": "common",
-   ```
-
-   - `Enter_the_Application_Id_Here` is the application (client) ID for the registered application.
-   - Replace `Enter_the_Tenant_Info_Here` with one of the following:
-      - If the application supports **Accounts in this organizational directory only**, replace this value with the directory (tenant) ID (a GUID) or tenant name (for example, `contoso.onmicrosoft.com`). The directory (tenant) ID can be found on the app's **Overview** page.
-      - If the application supports **Accounts in any organizational directory**, replace this value with `organizations`.
-      - If the application supports **All Microsoft account users**, leave this value as `common`.
-    - Replace `Enter_the_Client_Secret_Here` with the **Client secret** that was created and recorded in an earlier step.
-
-For this quickstart, don't change any other values in the *appsettings.json* file.
- 
-### Build and run the application
-
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) as at least an [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **App registrations**.
 1. On the page that appears, select **+ New registration**.
@@ -95,12 +52,12 @@ For this quickstart, don't change any other values in the *appsettings.json* fil
 ## Clone or download the sample application
 
 To obtain the sample application, you can either clone it from GitHub or download it as a *.zip* file.
-- [Download the .zip file](https://github.com/Azure-Samples/ms-identity-docs-code-dotnet/archive/refs/heads/main.zip). Extract it to a file path where the length of the name is fewer than 260 characters.
 - To clone the sample, open a command prompt and navigate to where you wish to create the project, and enter the following command:
     
     ```console
     git clone https://github.com/Azure-Samples/ms-identity-docs-code-dotnet.git
     ```
+- [Download the .zip file](https://github.com/Azure-Samples/ms-identity-docs-code-dotnet/archive/refs/heads/main.zip). Extract it to a file path where the length of the name is fewer than 260 characters.
 
 ## Create and upload a self-signed certificate
 
@@ -111,19 +68,11 @@ To obtain the sample application, you can either clone it from GitHub or downloa
     dotnet dev-certs https -ep ./certificate.crt --trust
     ```
 
-
-   | *appsettings.json* key | Description                                                                                                                                                          |
-   |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-   | `ClientId`             | Application (client) ID of the application registered in the Microsoft Entra admin center.                                                                                       |
-   | `Instance`             | Security token service (STS) endpoint for the user to authenticate. This value is typically `https://login.microsoftonline.com/`, indicating the Azure public cloud. |
-   | `TenantId`             | Name of your tenant or the tenant ID (a GUID), or `common` to sign in users with work or school accounts or Microsoft personal accounts.                             |
-
 1. Return to the Microsoft Entra admin center, and under **Manage**, select **Certificates & secrets** > **Upload certificate**.
 1. Select the **Certificates (0)** tab, then select **Upload certificate**.
 1. An **Upload certificate** pane appears. Use the icon to navigate to the certificate file you created in the previous step, and select **Open**.
 1. Enter a description for the certificate, for example *Certificate for aspnet-web-app*, and select **Add**.
 1. Record the **Thumbprint** value for use in the next step.
-
 
 ## Configure the project
 

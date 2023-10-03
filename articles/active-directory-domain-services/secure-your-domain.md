@@ -10,13 +10,13 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/29/2023
+ms.date: 09/23/2023
 ms.author: justinha 
 ms.custom: has-azure-ad-ps-ref
 ---
 # Harden a Microsoft Entra Domain Services managed domain
 
-By default, Microsoft Entra Domain Services (Microsoft Entra DS) enables the use of ciphers such as NTLM v1 and TLS v1. These ciphers may be required for some legacy applications, but are considered weak and can be disabled if you don't need them. If you have on-premises hybrid connectivity using Microsoft Entra Connect, you can also disable the synchronization of NTLM password hashes.
+By default, Microsoft Entra Domain Services enables the use of ciphers such as NTLM v1 and TLS v1. These ciphers may be required for some legacy applications, but are considered weak and can be disabled if you don't need them. If you have on-premises hybrid connectivity using Microsoft Entra Connect, you can also disable the synchronization of NTLM password hashes.
 
 This article shows you how to harden a managed domain by using setting setting such as: 
 
@@ -59,8 +59,8 @@ To complete this article, you need the following resources:
 
 In addition to **Security settings**, Microsoft Azure Policy has a **Compliance** setting to enforce TLS 1.2 usage. The policy has no impact until it is assigned. When the policy is assigned, it appears in **Compliance**:
 
-- If the assignment is **Audit**, the compliance will report if the Microsoft Entra DS instance is compliant.
-- If the assignment is **Deny**, the compliance will prevent a Microsoft Entra DS instance from being created if TLS 1.2 is not required and prevent any update to a Microsoft Entra DS instance until TLS 1.2 is required.
+- If the assignment is **Audit**, the compliance will report if the Domain Services instance is compliant.
+- If the assignment is **Deny**, the compliance will prevent a Domain Services instance from being created if TLS 1.2 is not required and prevent any update to a Domain Services instance until TLS 1.2 is required.
 
 ![Screenshot of Compliance settings](media/secure-your-domain/policy-tls.png)
 
@@ -74,7 +74,7 @@ If needed, [install and configure Azure PowerShell](/powershell/azure/install-az
 
 Also if needed, [install and configure Azure AD PowerShell](/powershell/azure/active-directory/install-adv2). Make sure that you sign in to your Microsoft Entra tenant using the [Connect-AzureAD][Connect-AzureAD] cmdlet.
 
-To disable weak cipher suites and NTLM credential hash synchronization, sign in to your Azure account, then get the Microsoft Entra DS resource using the [Get-AzResource][Get-AzResource] cmdlet:
+To disable weak cipher suites and NTLM credential hash synchronization, sign in to your Azure account, then get the Domain Services resource using the [Get-AzResource][Get-AzResource] cmdlet:
 
 > [!TIP]
 > If you receive an error using the [Get-AzResource][Get-AzResource] command that the *Microsoft.AAD/DomainServices* resource doesn't exist, [elevate your access to manage all Azure subscriptions and management groups][global-admin].
@@ -92,13 +92,13 @@ Next, define *DomainSecuritySettings* to configure the following security option
 3. Disable TLS v1.
 
 > [!IMPORTANT]
-> Users and service accounts can't perform LDAP simple binds if you disable NTLM password hash synchronization in the Microsoft Entra DS managed domain. If you need to perform LDAP simple binds, don't set the *"SyncNtlmPasswords"="Disabled";* security configuration option in the following command.
+> Users and service accounts can't perform LDAP simple binds if you disable NTLM password hash synchronization in the Domain Services managed domain. If you need to perform LDAP simple binds, don't set the *"SyncNtlmPasswords"="Disabled";* security configuration option in the following command.
 
 ```powershell
 $securitySettings = @{"DomainSecuritySettings"=@{"NtlmV1"="Disabled";"SyncNtlmPasswords"="Disabled";"TlsV1"="Disabled";"KerberosRc4Encryption"="Disabled";"KerberosArmoring"="Disabled"}}
 ```
 
-Finally, apply the defined security settings to the managed domain using the [Set-AzResource][Set-AzResource] cmdlet. Specify the Microsoft Entra DS resource from the first step, and the security settings from the previous step.
+Finally, apply the defined security settings to the managed domain using the [Set-AzResource][Set-AzResource] cmdlet. Specify the Domain Services resource from the first step, and the security settings from the previous step.
 
 ```powershell
 Set-AzResource -Id $DomainServicesResource.ResourceId -Properties $securitySettings -ApiVersion “2021-03-01” -Verbose -Force
@@ -116,14 +116,14 @@ It takes a few moments for the security settings to be applied to the managed do
 To learn more about the synchronization process, see [How objects and credentials are synchronized in a managed domain][synchronization].
 
 <!-- INTERNAL LINKS -->
-[create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
-[associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
+[create-azure-ad-tenant]: /azure/active-directory/fundamentals/sign-up-organization
+[associate-azure-ad-tenant]: /azure/active-directory/fundamentals/how-subscriptions-associated-directory
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
-[global-admin]: ../role-based-access-control/elevate-access-global-admin.md
+[global-admin]: /azure/role-based-access-control/elevate-access-global-admin
 [synchronization]: synchronization.md
 
 <!-- EXTERNAL LINKS -->
-[Get-AzResource]: /powershell/module/az.resources/Get-AzResource
-[Set-AzResource]: /powershell/module/Az.Resources/Set-AzResource
+[Get-AzResource]: /powershell/module/az.resources/get-azresource
+[Set-AzResource]: /powershell/module/az.resources/set-azresource
 [Connect-AzAccount]: /powershell/module/Az.Accounts/Connect-AzAccount
 [Connect-AzureAD]: /powershell/module/AzureAD/Connect-AzureAD

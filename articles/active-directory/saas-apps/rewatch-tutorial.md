@@ -16,7 +16,7 @@ ms.author: jeedes
 
 # Tutorial: Microsoft Entra single sign-on (SSO) integration with Rewatch
 
-In this tutorial, you'll learn how to integrate Rewatch with Azure Active. Directory (Microsoft Entra ID). When you integrate Rewatch with Microsoft Entra ID, you can:
+In this tutorial, you'll learn how to integrate Rewatch with Microsoft Entra ID. When you integrate Rewatch with Microsoft Entra ID, you can:
 
 * Control in Microsoft Entra ID who has access to Rewatch.
 * Enable your users to be automatically signed-in to Rewatch with their Microsoft Entra accounts.

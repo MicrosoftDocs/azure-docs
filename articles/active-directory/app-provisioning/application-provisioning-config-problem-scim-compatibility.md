@@ -13,11 +13,11 @@ ms.author: kenwith
 ms.reviewer: arvinh
 ---
 
-# Known issues and resolutions with SCIM 2.0 protocol compliance of the Microsoft Entra User Provisioning service
+# Known issues and resolutions with SCIM 2.0 protocol compliance of the Microsoft Entra user provisioning service
 
 Microsoft Entra ID can automatically provision users and groups to any application or system that is fronted by a web service with the interface defined in the [System for Cross-Domain Identity Management (SCIM) 2.0 protocol specification](https://tools.ietf.org/html/draft-ietf-scim-api-19). 
 
-Microsoft Entra ID's support for the SCIM 2.0 protocol is described in [Using System for Cross-Domain Identity Management (SCIM) to automatically provision users and groups from Microsoft Entra ID to applications](use-scim-to-provision-users-and-groups.md), which lists the specific parts of the protocol that it implements in order to automatically provision users and groups from Microsoft Entra ID to applications that support SCIM 2.0.
+Microsoft Entra ID support for the SCIM 2.0 protocol is described in [Using System for Cross-Domain Identity Management (SCIM) to automatically provision users and groups from Microsoft Entra ID to applications](use-scim-to-provision-users-and-groups.md), which lists the specific parts of the protocol that it implements in order to automatically provision users and groups from Microsoft Entra ID to applications that support SCIM 2.0.
 
 This article describes current and past issues with the Microsoft Entra user provisioning service's adherence to the SCIM 2.0 protocol, and how to work around these issues.
 

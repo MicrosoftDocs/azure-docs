@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Microsoft Entra single sign-on integration with F5'
+title: 'Tutorial: Microsoft Entra single sign-on (SSO) integration with F5'
 description: In this article, learn the steps you need to perform to integrate F5 with Microsoft Entra ID.
 services: active-directory
 author: jeevansd

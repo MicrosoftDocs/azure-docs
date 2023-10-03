@@ -2,14 +2,14 @@
 title: API-driven inbound provisioning concepts
 description: An overview of API-driven inbound provisioning. 
 services: active-directory
-author: jenniferf-skc
+author: kenwith
 manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/22/2023
-ms.author: jfields
+ms.date: 09/15/2023
+ms.author: kenwith
 ms.reviewer: chmutali
 ---
 

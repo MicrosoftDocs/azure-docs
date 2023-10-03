@@ -1128,7 +1128,18 @@
       href: ./create-portal-availability-zone.md
     - name: Migrate to Availability Zones
       displayName: availability and scale, availability, scale, autoscale, availability zones, AV zones
-      href: ../availability-zones/migrate-vm.md
+      href: ../availability-zones/migrate-vm.md?toc=/azure/virtual-machines/toc.json&bc=/azure/virtual-machines/breadcrumb/toc.json
+    - name: Regional to zonal move guides
+      items:
+      - name: Portal
+        displayName: availability and scale, availability, scale, single instance virtual machines, availability zones, AV zones
+        href: ./move-virtual-machines-regional-zonal-portal.md
+      - name: PowerShell and CLI
+        displayName: availability and scale, availability, single instance virtual machines, autoscale, availability zones, AV zones
+        href: ./move-virtual-machines-regional-zonal-powershell.md
+      - name: FAQ
+        displayName: availability and scale, availability, scale, single instance virtual machines, availability zones, AV zones
+        href: ./move-virtual-machines-regional-zonal-faq.md
   - name: Virtual Machine Scale Sets
     items: 
     - name: Overview

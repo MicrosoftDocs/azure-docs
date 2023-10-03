@@ -1,6 +1,6 @@
 ---
 title: Check fleet metrics of Microsoft Entra Domain Services | Microsoft Docs
-description: Learn how to check fleet metrics of a Microsoft Entra Domain Services (Microsoft Entra DS) managed domain.
+description: Learn how to check fleet metrics of a Microsoft Entra Domain Services managed domain.
 services: active-directory-ds
 author: justinha
 manager: amycolannino
@@ -10,34 +10,34 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/29/2023
+ms.date: 09/23/2023
 ms.author: justinha
 
 ---
 # Check fleet metrics of Microsoft Entra Domain Services
 
-Administrators can use Azure Monitor Metrics to configure a scope for Microsoft Entra Domain Services (Microsoft Entra DS) and gain insights into how the service is performing. 
-You can access Microsoft Entra DS metrics from two places:
+Administrators can use Azure Monitor Metrics to configure a scope for Microsoft Entra Domain Services and gain insights into how the service is performing. 
+You can access Domain Services metrics from two places:
 
-- In Azure Monitor Metrics, click **New chart** > **Select a scope** and select the Microsoft Entra DS instance:
+- In Azure Monitor Metrics, click **New chart** > **Select a scope** and select the Domain Services instance:
 
-  :::image type="content" border="true" source="media/fleet-metrics/select.png" alt-text="Screenshot of how to select Microsoft Entra DS for fleet metrics.":::
+  :::image type="content" border="true" source="media/fleet-metrics/select.png" alt-text="Screenshot of how to select Domain Services for fleet metrics.":::
 
-- In Microsoft Entra DS, under **Monitoring**, click **Metrics**:
+- In Domain Services, under **Monitoring**, click **Metrics**:
 
-  :::image type="content" border="true" source="media/fleet-metrics/metrics-scope.png" alt-text="Screenshot of how to select Microsoft Entra DS as scope in Azure Monitor Metrics.":::
+  :::image type="content" border="true" source="media/fleet-metrics/metrics-scope.png" alt-text="Screenshot of how to select Domain Services as scope in Azure Monitor Metrics.":::
 
   The following screenshot shows how to select combined metrics for Total Processor Time and LDAP searches:
 
   :::image type="content" border="true" source="media/fleet-metrics/combined-metrics.png" alt-text="Screenshot of combined metrics in Azure Monitor Metrics.":::
 
-  You can also view metrics for a fleet of Microsoft Entra DS instances:
+  You can also view metrics for a fleet of Domain Services instances:
 
-  :::image type="content" border="true" source="media/fleet-metrics/metrics-instance.png" alt-text="Screenshot of how to select a Microsoft Entra DS instance as the scope for fleet metrics.":::
+  :::image type="content" border="true" source="media/fleet-metrics/metrics-instance.png" alt-text="Screenshot of how to select a Domain Services instance as the scope for fleet metrics.":::
 
   The following screenshot shows combined metrics for Total Processor Time, DNS Queries, and LDAP searches by role instance:
 
-  :::image type="content" border="true" source="media/fleet-metrics/combined-metrics-instance.png" alt-text="Screenshot of combined metrics for a Microsoft Entra DS instance.":::
+  :::image type="content" border="true" source="media/fleet-metrics/combined-metrics-instance.png" alt-text="Screenshot of combined metrics for a Domain Services instance.":::
 
 ## Metrics definitions and descriptions
 
@@ -45,7 +45,7 @@ You can select a metric for more details about the data collection.
 
 :::image type="content" border="true" source="media/fleet-metrics/descriptions.png" alt-text="Screenshot of fleet metric descriptions.":::
 
-The following table describes the metrics that are available for Microsoft Entra DS.
+The following table describes the metrics that are available for Domain Services.
 
 | Metric | Description |
 |--------|-------------|
@@ -62,11 +62,11 @@ The following table describes the metrics that are available for Microsoft Entra
 
 ## Azure Monitor alert
 
-You can configure metric alerts for Microsoft Entra DS to be notified of possible problems. Metric alerts are one type of alert for Azure Monitor. For more information about other types of alerts, see [What are Azure Monitor Alerts?](../azure-monitor/alerts/alerts-overview.md). 
+You can configure metric alerts for Domain Services to be notified of possible problems. Metric alerts are one type of alert for Azure Monitor. For more information about other types of alerts, see [What are Azure Monitor Alerts?](/azure/azure-monitor/alerts/alerts-overview). 
 
-To view and manage Azure Monitor alert, a user needs to be assigned [Azure Monitor roles](../azure-monitor/roles-permissions-security.md). 
+To view and manage Azure Monitor alert, a user needs to be assigned [Azure Monitor roles](/azure/azure-monitor/roles-permissions-security). 
  
-In Azure Monitor or Microsoft Entra DS Metrics, click **New alert** and configure a Microsoft Entra DS instance as the scope. Then choose the metrics you want to measure from the list of available signals:
+In Azure Monitor or Domain Services Metrics, click **New alert** and configure a Domain Services instance as the scope. Then choose the metrics you want to measure from the list of available signals:
 
   :::image type="content" border="true" source="media/fleet-metrics/available-alerts.png" alt-text="Screenshot of available alerts.":::
 

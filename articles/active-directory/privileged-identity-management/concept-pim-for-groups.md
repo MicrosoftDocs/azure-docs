@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 
 # Privileged Identity Management (PIM) for Groups
 
-Microsoft Entra ID, formerly known as Azure AD, allows you to grant users just-in-time membership and ownership of groups through Privileged Identity Management (PIM) for Groups. Groups can be used to control access to a variety of scenarios, including Microsoft Entra roles, Azure roles, Azure SQL, Azure Key Vault, Intune, other application roles, and third-party applications.
+Microsoft Entra ID allows you to grant users just-in-time membership and ownership of groups through Privileged Identity Management (PIM) for Groups. Groups can be used to control access to a variety of scenarios, including Microsoft Entra roles, Azure roles, Azure SQL, Azure Key Vault, Intune, other application roles, and third-party applications.
 
 ## What is PIM for Groups?
 
@@ -52,7 +52,7 @@ Microsoft Entra role-assignable group feature is not part of Microsoft Entra Pri
 
 ## Relationship between role-assignable groups and PIM for Groups
 
-Groups can be role-assignable or non-role-assignable. The group can be enabled in PIM for Groups or not enabled in PIM for Groups. These are independent properties of the group. Any Microsoft Entra security group and any Microsoft 365 group (except dynamic groups and groups synchronized from on-premises environment) can be enabled in PIM for Groups. The group doesn't have to be role-assignable group to be enabled in PIM for Groups.
+Groups in Azure AD can be classified as either role-assignable or non-role-assignable. Additionally, any group can be enabled or not enabled for use with Azure AD Privileged Identity Management (PIM) for Groups. These are independent properties of the group. Any Microsoft Entra security group and any Microsoft 365 group (except dynamic groups and groups synchronized from on-premises environment) can be enabled in PIM for Groups. The group doesn't have to be role-assignable group to be enabled in PIM for Groups.
 
 If you want to assign a Microsoft Entra role to a group, it has to be role-assignable. Even if you don't intend to assign a Microsoft Entra role to the group but the group provides access to sensitive resources, it is still recommended to consider creating the group as role-assignable. This is because of extra protections role-assignable groups have – see [“What are Microsoft Entra role-assignable groups?”](#what-are-entra-id-role-assignable-groups) in the section above.
 

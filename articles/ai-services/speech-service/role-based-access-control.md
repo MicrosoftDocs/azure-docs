@@ -5,8 +5,7 @@ description: Learn how to assign access roles for a Speech resource.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: conceptual
 ms.date: 04/03/2022
 ms.author: eur

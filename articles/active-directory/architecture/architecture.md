@@ -26,7 +26,7 @@ With Microsoft Entra ID, you can create and manage users and groups, and enable 
 
 ## Microsoft Entra architecture
 
-Microsoft Entra ID's geographically distributed architecture combines extensive monitoring, automated rerouting, failover, and recovery capabilities, which deliver company-wide availability and performance to customers.
+The geographically distributed architecture of Microsoft Entra ID combines extensive monitoring, automated rerouting, failover, and recovery capabilities, which deliver company-wide availability and performance to customers.
 
 The following architecture elements are covered in this article:
 
@@ -65,7 +65,7 @@ Directory applications connect to the nearest datacenters. This connection impro
 
 Availability (or uptime) defines the ability of a system to perform uninterrupted. The key to Microsoft Entra ID’s high-availability is that the services can quickly shift traffic across multiple geographically distributed datacenters. Each datacenter is independent, which enables de-correlated failure modes. Through this high availability design, Microsoft Entra ID requires no downtime for maintenance activities.
 
-Microsoft Entra ID’s partition design is simplified compared to the enterprise AD design, using a single-master design that includes a carefully orchestrated and deterministic primary replica failover process.
+The partition design of Microsoft Entra ID is simplified compared to the enterprise AD design, using a single-master design that includes a carefully orchestrated and deterministic primary replica failover process.
 
 #### Fault tolerance
 
@@ -84,7 +84,7 @@ Microsoft Entra ID maintains a zero [Recovery Time Objective (RTO)](https://en.w
 
 ### Datacenters
 
-Microsoft Entra ID’s replicas are stored in datacenters located throughout the world. For more information, see [Azure global infrastructure](https://azure.microsoft.com/global-infrastructure/).
+Microsoft Entra replicas are stored in datacenters located throughout the world. For more information, see [Azure global infrastructure](https://azure.microsoft.com/global-infrastructure/).
 
 Microsoft Entra ID operates across datacenters with the following characteristics:
 

@@ -18,11 +18,11 @@ OpenTelemetry offerings are available for .NET, Node.js, Python and Java applica
 
 |Language        |Release Status                          |
 |----------------|----------------------------------------|
-|ASP.NET Core    | :warning: <sup>[2](#PREVIEW)</sup>     |
 |.NET (Exporter) | :white_check_mark: <sup>[1](#GA)</sup> |
 |Java            | :white_check_mark: <sup>[1](#GA)</sup> |
 |Node.js         | :white_check_mark: <sup>[1](#GA)</sup> |
 |Python          | :white_check_mark: <sup>[1](#GA)</sup> |
+|ASP.NET Core    | :warning: <sup>[2](#PREVIEW)</sup>     |
 
 **Footnotes**
 - <a name="GA"> :white_check_mark: 1</a>: OpenTelemetry is available to all customers with formal support.

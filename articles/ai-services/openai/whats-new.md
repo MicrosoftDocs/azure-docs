@@ -5,8 +5,7 @@ description: Learn about the latest news and features updates for Azure OpenAI
 manager: nitinme
 author: mrbullwinkle
 ms.author: mbullwin
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: whats-new
 ms.date: 09/20/2023
 recommendations: false
@@ -16,6 +15,13 @@ keywords:
 # What's new in Azure OpenAI Service
 
 ## September 2023
+
+### GPT-4
+GPT-4 and GPT-4-32k are now available to all Azure OpenAI Service customers. Customers no longer need to apply for the waitlist to use GPT-4 and GPT-4-32k (the Limited Access registration requirements continue to apply for all Azure OpenAI models). Availability may vary by region. Check the [models page](concepts/models.md), for the latest information on model availability in each region.
+
+### GPT-3.5 Turbo Instruct
+
+Azure OpenAI Service now supports the GPT-3.5 Turbo Instruct model. This model has performance comparable to `text-davinci-003` and is available to use with the Completions API. Check the [models page](concepts/models.md), for the latest information on model availability in each region.
 
 ### Whisper public preview
 
@@ -94,7 +100,7 @@ Azure OpenAI Service now supports speech to text APIs powered by OpenAI's Whispe
 - General availability support for:
   - Chat Completion API version `2023-05-15`.
   - GPT-35-Turbo models.
-  - GPT-4 model series. Due to high demand access to this model series is currently only available by request. To request access, existing Azure OpenAI customers can [apply by filling out this form](https://aka.ms/oai/get-gpt4)
+  - GPT-4 model series. 
   
 If you are currently using the `2023-03-15-preview` API, we recommend migrating to the GA `2023-05-15` API. If you are currently using API version `2022-12-01` this API remains GA, but does not include the latest Chat Completion capabilities.
 

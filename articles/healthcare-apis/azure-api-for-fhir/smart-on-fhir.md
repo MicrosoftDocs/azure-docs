@@ -7,10 +7,12 @@ ms.subservice: fhir
 ms.topic: tutorial
 ms.author: kesheth
 author: expekesheth
-ms.date: 12/06/2022
+ms.date: 09/27/2023
 ---
 
 # SMART on FHIR overview
+
+[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
 Substitutable Medical Applications and Reusable Technologies ([SMART on FHIR](https://docs.smarthealthit.org/)) is a healthcare standard through which applications can access clinical information through a data store. It adds a security layer based on open standards including OAuth2 and OpenID Connect, to FHIR interfaces to enable integration with EHR systems. Using SMART on FHIR provides at least three important benefits:
 - Applications have a known method for obtaining authentication/authorization to a FHIR repository.
@@ -28,13 +30,13 @@ Below tutorials describe steps to enable SMART on FHIR applications with FHIR Se
      - After registering the application, make note of the applicationId for client application.
 - Ensure you have access to Azure Subscription of FHIR service, to create resources and add role assignments.
 
-## SMART on FHIR using AHDS Samples OSS (SMART on FHIR(Enhanced))
+## SMART on FHIR using Samples OSS (SMART on FHIR(Enhanced))
 
 ### Step 1: Set up FHIR SMART user role 
-Follow the steps listed under section [Manage Users: Assign Users to Role](/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal). Any user added to role - "FHIR SMART User" will be able to access the FHIR Service if their requests comply with the SMART on FHIR implementation Guide, such as request having access token, which includes a fhirUser claim and a clinical scopes claim.  The access granted to the users in this role will then be limited by the resources associated to their fhirUser compartment and the restrictions in the clinical scopes.
+Follow the steps listed under section [Manage Users: Assign Users to Role](../../role-based-access-control/role-assignments-portal.md). Any user added to role - "FHIR SMART User" will be able to access the FHIR Service if their requests comply with the SMART on FHIR implementation Guide, such as request having access token, which includes a fhirUser claim and a clinical scopes claim.  The access granted to the users in this role will then be limited by the resources associated to their fhirUser compartment and the restrictions in the clinical scopes.
 
 ### Step 2: FHIR server integration with samples 
-[Follow the steps](https://aka.ms/azure-health-data-services-smart-on-fhir-sample) under Azure Health Data Service Samples OSS. This will enable integration of FHIR server with other Azure Services (such as APIM, Azure functions and more).
+[Follow the steps](https://aka.ms/azure-health-data-services-smart-on-fhir-sample) under Azure Health Data and AI Samples OSS. This will enable integration of FHIR server with other Azure Services (such as APIM, Azure functions and more).
 
 > [!NOTE]
 > Samples are open-source code, and you should review the information and licensing terms on GitHub before using it. They are not part of the Azure Health Data Service and are not supported by Microsoft Support. These samples can be used to demonstrate how Azure Health Data Services and other open-source tools can be used together to demonstrate ONC (g)(10) compliance, using Azure Active Directory as the identity provider workflow. 
@@ -45,7 +47,7 @@ Follow the steps listed under section [Manage Users: Assign Users to Role](/azur
                 <summary> Click to expand! </summary>
 
 > [!NOTE]
-> This is another option to SMART on FHIR(Enhanced) mentioned above. SMART on FHIR Proxy option only enables EHR launch sequence.
+> This is another option to SMART on FHIR (Enhanced) mentioned above. SMART on FHIR Proxy option only enables EHR launch sequence.
 ### Step 1: Set admin consent for your client application
 
 To use SMART on FHIR, you must first authenticate and authorize the app. The first time you use SMART on FHIR, you also must get administrative consent to let the app access your FHIR resources.
@@ -158,6 +160,9 @@ These fields are meant to provide guidance to the app, but they don't convey any
 Notice that the SMART on FHIR app launcher updates the **Launch URL** information at the bottom of the page. Select **Launch** to start the sample app.
 </details>
      
+## Migrate from SMART on FHIR Proxy to SMART on FHIR (Enhanced)
+[!INCLUDE [Migrate from SMART on FHIR Proxy to Enhanced](../includes/smart-on-fhir-proxy-migration.md)]
+
 ## Next steps
 
 Now that you've learned about enabling SMART on FHIR functionality, see the search samples page for details about how to search using search parameters, modifiers, and other FHIR search methods.

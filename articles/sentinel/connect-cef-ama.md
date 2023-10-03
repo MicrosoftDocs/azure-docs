@@ -369,7 +369,7 @@ This example collects events for:
 1. To capture messages sent from a logger or a connected device, run this command in the background:
 
     ```
-    tcpdump -i any port 514 -A vv &
+    tcpdump -i any port 514 -A -vv &
     ```
 1. After you complete the validation, we recommend that you stop the `tcpdump`: Type `fg` and then select <kbd>Ctrl</kbd>+<kbd>C</kbd>.
 1. To send demo messages, do one of the following: 

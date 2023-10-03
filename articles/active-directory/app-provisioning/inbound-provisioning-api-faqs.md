@@ -2,14 +2,14 @@
 title: Frequently asked questions (FAQs) about API-driven inbound provisioning
 description: Learn more about the capabilities and integration scenarios supported by API-driven inbound provisioning.
 services: active-directory
-author: jenniferf-skc
+author: kenwith
 manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/26/2023
-ms.author: jfields
+ms.date: 09/15/2023
+ms.author: kenwith
 ms.reviewer: chmutali
 ---
 
@@ -158,7 +158,7 @@ Yes, you can soft-delete a user by using the **DELETE** method in the bulk reque
 To prevent and recover from accidental deletions, we recommend [configuring accidental deletion threshold](accidental-deletions.md) in the provisioning app and [enabling the on-premises Active Directory recycle bin](../hybrid/connect/how-to-connect-sync-recycle-bin.md). In your provisioning app's **Attribute Mapping** blade, under **Target object actions** disable the **Delete** operation.  
 
 **Recovering deleted accounts**
-* If the target directory for the operation is Microsoft Entra ID, then the matched user is soft-deleted. The user can be seen on the Microsoft Azure portal **Deleted users** page for the next 30 days and can be restored during that time.
+* If the target directory for the operation is Microsoft Entra ID, then the matched user is soft-deleted. The user can be seen on the Microsoft Entra admin center **Deleted users** page for the next 30 days and can be restored during that time.
 * If the target directory for the operation is on-premises Active Directory, then the matched user is hard-deleted. If the **Active Directory Recycle Bin** is enabled, you can restore the deleted on-premises AD user object.
 
 ## Do we need to send all users from the HR system in every request?

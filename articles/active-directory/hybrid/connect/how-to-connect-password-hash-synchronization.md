@@ -72,7 +72,7 @@ The following section describes, in-depth, how password hash synchronization wor
 
 When synchronizing passwords, the plain-text version of your password is not exposed to the password hash synchronization feature, to Microsoft Entra ID, or any of the associated services.
 
-User authentication takes place against Microsoft Entra rather than against the organization's own Active Directory instance. The SHA256 password data stored in Microsoft Entra ID--a hash of the original MD4 hash--is more secure than what is stored in Active Directory. Further, because this SHA256 hash cannot be decrypted, it cannot be brought back to the organization's Active Directory environment and presented as a valid user password in a pass-the-hash attack.
+User authentication takes place against Microsoft Entra rather than against the organization's own Active Directory instance. The SHA256 password data stored in Microsoft Entra ID (a hash of the original MD4 hash) is more secure than what is stored in Active Directory. Further, because this SHA256 hash cannot be decrypted, it cannot be brought back to the organization's Active Directory environment and presented as a valid user password in a pass-the-hash attack.
 
 ### Password policy considerations
 
@@ -98,7 +98,7 @@ You can continue to sign in to your cloud services by using a synchronized passw
 
 If there are synchronized users that only interact with Microsoft Entra integrated services and must also comply with a password expiration policy, you can force them to comply with your Microsoft Entra password expiration policy by enabling the *CloudPasswordPolicyForPasswordSyncedUsersEnabled* feature (in the deprecated MSOnline PowerShell module it was called *EnforceCloudPasswordPolicyForPasswordSyncedUsers*).
 
-When *CloudPasswordPolicyForPasswordSyncedUsersEnabled* is disabled (which is the default setting), Microsoft Entra Connect sets the PasswordPolicies attribute of synchronized users to "DisablePasswordExpiration". This is done every time a user's password is synchronized and instructs Microsoft Entra ID to ignore the cloud password expiration policy for that user. You can check the value of the attribute using the Microsoft Entra ID PowerShell module with the following command:
+When *CloudPasswordPolicyForPasswordSyncedUsersEnabled* is disabled (which is the default setting), Microsoft Entra Connect sets the PasswordPolicies attribute of synchronized users to "DisablePasswordExpiration". This is done every time a user's password is synchronized and instructs Microsoft Entra ID to ignore the cloud password expiration policy for that user. You can check the value of the attribute using the Azure AD PowerShell module with the following command:
 
 `(Get-MgUser -UserId <User Object ID> -Property PasswordPolicies).PasswordPolicies`
 
@@ -165,7 +165,7 @@ If your organization uses the accountExpires attribute as part of user account m
 
 ### Overwrite synchronized passwords
 
-An administrator can manually reset your password directly in Microsoft Entra ID by using Windows PowerShell (unless the user is in a Federated Domain).
+An administrator can manually reset your password directly in Microsoft Entra ID by using PowerShell (unless the user is in a federated domain).
 
 In this case, the new password overrides your synchronized password, and all password policies defined in the cloud are applied to the new password.
 
@@ -180,11 +180,11 @@ The synchronization of a password has no impact on the Azure user who is signed 
 If you use Microsoft Entra Domain Services to provide legacy authentication for applications and services that need to use Kerberos, LDAP, or NTLM, some additional processes are part of the password hash synchronization flow. Microsoft Entra Connect uses the additional following process to synchronize password hashes to Microsoft Entra ID for use in Microsoft Entra Domain Services:
 
 > [!IMPORTANT]
-> Microsoft Entra Connect should only be installed and configured for synchronization with on-premises AD DS environments. It's not supported to install Microsoft Entra Connect in a Microsoft Entra DS managed domain to synchronize objects back to Microsoft Entra ID.
+> Microsoft Entra Connect should only be installed and configured for synchronization with on-premises AD DS environments. It's not supported to install Microsoft Entra Connect in a Microsoft Entra Domain Services managed domain to synchronize objects back to Microsoft Entra ID.
 >
-> Microsoft Entra Connect only synchronizes legacy password hashes when you enable Microsoft Entra DS for your Microsoft Entra tenant. The following steps aren't used if you only use Microsoft Entra Connect to synchronize an on-premises AD DS environment with Microsoft Entra ID.
+> Microsoft Entra Connect only synchronizes legacy password hashes when you enable Microsoft Entra Domain Services for your Microsoft Entra tenant. The following steps aren't used if you only use Microsoft Entra Connect to synchronize an on-premises AD DS environment with Microsoft Entra ID.
 >
-> If your legacy applications don't use NTLM authentication or LDAP simple binds, we recommend that you disable NTLM password hash synchronization for Microsoft Entra DS. For more information, see [Disable weak cipher suites and NTLM credential hash synchronization](../../../active-directory-domain-services/secure-your-domain.md).
+> If your legacy applications don't use NTLM authentication or LDAP simple binds, we recommend that you disable NTLM password hash synchronization for Microsoft Entra Domain Services. For more information, see [Disable weak cipher suites and NTLM credential hash synchronization](../../../active-directory-domain-services/secure-your-domain.md).
 
 1. Microsoft Entra Connect retrieves the public key for the tenant's instance of Microsoft Entra Domain Services.
 1. When a user changes their password, the on-premises domain controller stores the result of the password change (hashes) in two attributes:
