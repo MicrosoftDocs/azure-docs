@@ -191,6 +191,7 @@ When you create a lab plan and you still have lab accounts in your Azure subscri
 | Classic Nested Virtualization medium (Dsv3) | 4  | 16 | [Standard_D4s_v3](../virtual-machines/dv3-dsv3-series.md) | Best suited for relational databases, in-memory caching, and analytics.  This size also supports nested virtualization.
 | Classic large (Av2) | 8 | 16  |  [Standard_A8_v2](../virtual-machines/av2-series.md) | Best suited for applications that need faster CPUs, better local disk performance, large databases, large memory caches. |
 | Classic Nested Virtualization large (Dsv3) | 8 | 32 | [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md) | Best suited for applications that need faster CPUs, better local disk performance, large databases, large memory caches.  This size also supports nested virtualization. |
+| Classic GPU Compute small (NC) | 6 | 56 | [Standard_NC6](../virtual-machines/nc-series.md) | Best suited for computer-intensive applications such as AI and deep learning. |
 
 ## RBAC roles
 
