@@ -17,10 +17,6 @@ ms.custom: template-how-to
 [!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 ::: zone-end
 
-::: zone pivot="platform-ios"
-[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
-::: zone-end
-
 ::: zone pivot="platform-windows"
 [!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 ::: zone-end
