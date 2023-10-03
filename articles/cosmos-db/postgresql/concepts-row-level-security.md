@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 01/30/2023
+ms.date: 10/02/2023
 ---
 
 # Row-level security in Azure Cosmos DB for PostgreSQL
@@ -30,7 +30,7 @@ security policies can compare the role name to values in the `tenant_id`
 distribution column to decide whether to allow access.
 
 Here's how to apply the approach on a simplified events table distributed by
-`tenant_id`. First [create the roles](howto-create-users.md) `tenant1` and
+`tenant_id`. First [create the roles](./how-to-configure-authentication.md#configure-native-postgresql-authentication) `tenant1` and
 `tenant2`. Then run the following SQL commands as the `citus` administrator
 user:
 
@@ -113,5 +113,5 @@ ERROR:  new row violates row-level security policy for table "events_102055"
 
 ## Next steps
 
-Learn how to [create roles](howto-create-users.md) in a
-cluster.
+- Learn how to [create roles](./how-to-configure-authentication.md#configure-native-postgresql-authentication) in a cluster.
+- Check out [security concepts in Azure Cosmos DB for PostgreSQL](./concepts-security-overview.md)
