@@ -91,6 +91,8 @@
           href: howto-kubernetes-cluster-aad-rbac.md
         - name: Connect to the cluster
           href: howto-kubernetes-cluster-connect.md
+        - name: Disable cgroupsv2 in Nexus Kubernetes 1.27+
+          href: howto-disable-cgroupsv2.md
     - name: Nexus Virtual Machine
       expanded: false
       items:

@@ -10,7 +10,7 @@ ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure-services
 ms.custom: devx-track-azurepowershell
-ms.date: 09/15/2023
+ms.date: 10/03/2023
 ms.author: radeltch
 ---
 
@@ -1010,10 +1010,17 @@ Azure offers [scheduled events](../../virtual-machines/linux/scheduled-events.md
    Important: The resources must start with 'health-azure'.
 
    ```bash
-   sudo crm configure primitive health-azure-events \
-   ocf:heartbeat:azure-events-az op monitor interval=10s
+   sudo crm configure primitive health-azure-events ocf:heartbeat:azure-events-az \ 
+   meta allow-unhealthy-nodes=true \ 
+   op monitor interval=10s
+
    sudo crm configure clone health-azure-events-cln health-azure-events
    ```
+
+   > [!NOTE]
+   > On configuring 'health-azure-events' resource, following warning message can be ignored.
+   >
+   > WARNING: health-azure-events: unknown attribute 'allow-unhealthy-nodes'.
 
 6. Take the Pacemaker cluster out of maintenance mode
 
