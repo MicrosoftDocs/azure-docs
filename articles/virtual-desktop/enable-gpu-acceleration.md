@@ -66,15 +66,15 @@ Configure Group Policy for the session host to enable GPU-accelerated frame enco
 
 1. Select the policy **Configure H.264/AVC hardware encoding for Remote Desktop connections**. Set this policy to **Enabled** to enable hardware encoding for AVC/H.264 in the remote session.
 
-    If you're using Windows Server 2016, set **Prefer AVC Hardware Encoding** to **Always attempt**.
+   If you're using Windows Server 2016, set **Prefer AVC Hardware Encoding** to **Always attempt**.
 
 2. Now that you've edited the policies, force a Group Policy update. Open the command prompt as an administrator and run the following command:
 
-    ```cmd
-    gpupdate.exe /force
-    ```
+   ```cmd
+   gpupdate.exe /force
+   ```
 
-3. Sign out from the Remote Desktop session.
+3. Sign out of the Remote Desktop session.
 
 ## Configure full-screen video encoding
 
@@ -90,11 +90,11 @@ Configure Group Policy for the session host to enable full-screen video encoding
 1. Select the policy **Prioritize H.264/AVC 444 Graphics mode for Remote Desktop connections**. Set this policy to **Enabled** to force the H.264/AVC 444 codec in the remote session.
 2. Now that you've edited the policies, force a Group Policy update. Open the command prompt as an administrator and run the following command:
 
-    ```cmd
-    gpupdate.exe /force
-    ```
+   ```cmd
+   gpupdate.exe /force
+   ```
 
-3. Sign out from the Remote Desktop session.
+3. Sign out of the Remote Desktop session.
 
 ## Verify GPU-accelerated app rendering
 
