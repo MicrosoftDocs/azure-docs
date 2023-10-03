@@ -3,6 +3,7 @@ title: Automate continuous integration with GitHub Actions
 description: Learn how to automate continuous integration in Azure Data Factory with GitHub Actions.
 ms.service: data-factory
 ms.subservice: ci-cd
+ms.custom: devx-track-arm-template
 author: olmoloce
 ms.author: olmoloce
 ms.reviewer: kromerm
@@ -93,6 +94,9 @@ The workflow is composed of two jobs:
     The setup should look like:
    
     :::image type="content" source="media/continuous-integration-delivery-github-actions/saving-package-json-file.png" lightbox="media/continuous-integration-delivery-github-actions/saving-package-json-file.png" alt-text="Screenshot of saving the package.json file in GitHub.":::
+
+> [!IMPORTANT]
+> Make sure to place the build folder under the root folder of your connected repository. In the above example and workflow, the root folder is ADFroot. If you are not sure what is your root folder, navigate to your Data Factory instance, Manage tab -> Git configuration -> Root folder.
 
 2. Navigate to the Actions tab -> New workflow
    

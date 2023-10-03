@@ -789,8 +789,6 @@
           href: how-to-configure-cross-origin-resource-sharing.md
         - name: Use Azure Key Vault to store keys
           href: ../store-credentials-key-vault.md
-        - name: Use certificates to access data
-          href: certificate-based-authentication.md
     - name: Monitor
       items:
         - name: Monitor Azure Cosmos DB

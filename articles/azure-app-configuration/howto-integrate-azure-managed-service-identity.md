@@ -128,7 +128,7 @@ The following steps describe how to assign the App Configuration Data Reader rol
     using Azure.Identity;
     ```
 
-1. To access values stored in App Configuration, update the `Builder` configuration to use the the `AddAzureAppConfiguration()` method.
+1. To access values stored in App Configuration, update the `Builder` configuration to use the `AddAzureAppConfiguration()` method.
 
     ### [.NET 6.0+](#tab/core6x)
 
@@ -171,14 +171,22 @@ The following steps describe how to assign the App Configuration Data Reader rol
 
 1. Find the endpoint to your App Configuration store. This URL is listed on the **Overview** tab for the store in the Azure portal.
 
-1. Open `bootstrap.properties`, remove the connection-string property and replace it with endpoint:
+1. Open `bootstrap.properties`, remove the connection-string property and replace it with endpoint for System Assigned Identity:
 
 ```properties
 spring.cloud.azure.appconfiguration.stores[0].endpoint=<service_endpoint>
 ```
 
+for User Assigned Identity:
+
+```properties
+spring.cloud.azure.appconfiguration.stores[0].endpoint=<service_endpoint>
+spring.cloud.azure.credential.managed-identity-enabled= true
+spring.cloud.azure.credential.client-id= <client_id>
+```
+
 > [!NOTE]
-> If you want to use **user-assigned managed identity** the property `spring.cloud.azure.appconfiguration.stores[0].managed-identity.client-id`, ensure that you specify the `clientId` when creating the [ManagedIdentityCredential](/java/api/com.azure.identity.managedidentitycredential).
+> For more information see [Spring Cloud Azure authentication](/azure/developer/java/spring-framework/authentication).
 
 :::zone-end
 

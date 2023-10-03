@@ -16,8 +16,6 @@ keywords: ChatGPT
 
 The following code snippet shows the most basic way to use the GPT-35-Turbo and GPT-4 models with the Chat Completion API. If this is your first time using these models programmatically, we recommend starting with our [GPT-35-Turbo & GPT-4 Quickstart](../chatgpt-quickstart.md).
 
-**GPT-4 models are currently only available by request.** Existing Azure OpenAI customers can [apply for access by filling out this form](https://aka.ms/oai/get-gpt4).
-
 ```python
 import os
 import openai
