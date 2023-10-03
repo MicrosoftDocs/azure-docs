@@ -81,7 +81,7 @@ To create the GNS 3 VM:
 
 1. Connect to the template VM by using remote desktop.
 
-1. Extract all files in the `GNS3.VM.Hyper-V.2.2.17.zip` file.  If template VM has a non-admin account for students to use, extract the files in a location accessible to the non-admin account.
+1. Extract all files in the `GNS3.VM.Hyper-V.2.2.17.zip` file.  If the template VM has a non-admin account for lab users, extract the files in a location accessible to the non-admin account.
 
 1. Right-select the `create-vm.ps1` PowerShell script, and then select **Run with PowerShell**.
 
@@ -117,7 +117,7 @@ Now that you installed GNS3, and added the GNS3 VM, configure GNS 3 to use the H
 
 Next, you can add appliances for the class. Follow the detailed steps from the GNS3 documentation to [install appliances from the GNS3 marketplace](https://docs.gns3.com/docs/using-gns3/beginners/install-from-marketplace).
 
-If template VM has a non-admin account for the students to use, install the appliances to a location accessible to the non-admin account.  Optionally, you can set the preferences for the admin and non-admin user to look for appliances and projects in a location accessible by both users.
+If the template VM has a non-admin account for lab users, install the appliances to a location accessible to the non-admin account.  Optionally, you can set the preferences for the admin and non-admin user to look for appliances and projects in a location accessible by both users.
 
 ### Prepare to publish template
 
