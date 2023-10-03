@@ -4,7 +4,7 @@ description: Learn how to create a Bicep file or ARM template JSON template to u
 author: kof-f
 ms.author: kofiforson
 ms.reviewer: erd
-ms.date: 09/18/2023
+ms.date: 10/03/2023
 ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
@@ -34,6 +34,7 @@ The basic format is:
   "properties": {
     "buildTimeoutInMinutes": <minutes>,
     "customize": [],
+    "errorHandling":[],
     "distribute": [],
     "optimize": [],
     "source": {},
@@ -791,6 +792,34 @@ To override the commands, use the PowerShell or Shell script provisioners to cre
 - Linux: /tmp/DeprovisioningScript.sh
 
 Image Builder reads these commands, these commands are written out to the AIB logs, `customization.log`. See [troubleshooting](image-builder-troubleshoot.md#customization-log) on how to collect logs.
+
+## Properties: errorHandling
+
+The `errorHandling` property allows you to configure how errors are handled during image creation.
+
+# [JSON](#tab/json)
+
+```json
+"errorHandling": {
+  "onCustomizerError": "abort",
+  "onValidationError": "cleanup"
+}
+```
+
+# [Bicep](#bicep)
+
+```Bicep
+errorHandling: {
+  onCustomizerError: 'abort',
+  onValidationError: 'cleanup'
+}
+```
+---
+
+- **onCustomizerError**: Specifies the action to take when an error occurs during the customizer phase of image creation.
+    - The value `cleanup` indicates that the VM should be cleaned up and the image creation process should be aborted.
+    - The value `abort` indicates that the image creation process should be aborted without cleaning up the VM.
+- **onValidationError**: Specifies the action to take when an error occurs during validation of the image template. The value `cleanup` indicates that the VM should be cleaned up and the image creation process should be aborted.
 
 ## Properties: distribute
 
