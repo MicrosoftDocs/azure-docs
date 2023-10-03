@@ -43,7 +43,6 @@ Follow these steps to verify VM properties:
 1. In **Protected Items**, select **Replicated Items**, and then select the VM you want to verify.
 
 2. In the **Replicated item** pane, there's a summary of VM information, health status, and the latest available recovery points. Select **Properties** to view more details.
-    :::image type="content" source="./media/vmware-azure-tutorial-failover-failback-modernized/replicated-items.png" alt-text="Replicated item properties.":::
 
 3. In **Compute and Network**, you can modify these properties as needed:
     * Azure name
