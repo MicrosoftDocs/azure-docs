@@ -145,7 +145,7 @@ adminPassword="<replace-with-your-password>"
 az vm create \
   --resource-group myResourceGroup \
   --name myVmWeb \
-  --image UbuntuLTS \
+  --image Ubuntu2204 \
   --vnet-name myVirtualNetwork \
   --subnet mySubnet \
   --nsg "" \
@@ -175,7 +175,7 @@ Take note of the **publicIpAddress**. This address is used to access the VM from
 az vm create \
   --resource-group myResourceGroup \
   --name myVmMgmt \
-  --image UbuntuLTS \
+  --image Ubuntu2204 \
   --vnet-name myVirtualNetwork \
   --subnet mySubnet \
   --nsg "" \

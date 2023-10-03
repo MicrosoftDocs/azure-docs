@@ -61,6 +61,10 @@ Microsoft provides guidance for other actions you can take to secure your worklo
 
 AKS uses a secure tunnel communication to allow the api-server and individual node kubelets to communicate even on separate virtual networks. The tunnel is secured through mTLS encryption. The current main tunnel that is used by AKS is [Konnectivity, previously known as apiserver-network-proxy](https://kubernetes.io/docs/tasks/extend-kubernetes/setup-konnectivity/). Verify all network rules follow the [Azure required network rules and FQDNs](limit-egress-traffic.md).
 
+## Can my pods use the API server FQDN instead of the cluster IP?
+
+Yes, you can add the annotation `kubernetes.azure.com/set-kube-service-host-fqdn` to pods to set the `KUBERNETES_SERVICE_HOST` variable to the domain name of the API server instead of the in-cluster service IP. This is useful in cases where your cluster egress is done via a layer 7 firewall, such as when using Azure Firewall with Application Rules.
+
 ## Why are two resource groups created with AKS?
 
 AKS builds upon many Azure infrastructure resources, including Virtual Machine Scale Sets, virtual networks, and managed disks. These integrations enable you to apply many of the core capabilities of the Azure platform within the managed Kubernetes environment provided by AKS. For example, most Azure virtual machine types can be used directly with AKS and Azure Reservations can be used to receive discounts on those resources automatically.

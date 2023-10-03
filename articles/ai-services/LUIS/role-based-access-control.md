@@ -5,8 +5,8 @@ description: Use this article to learn how to add access control to your LUIS re
 author: aahill
 ms.author: aahi
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
+ms.service: azure-ai-language
+ms.subservice: azure-ai-luis
 ms.date: 08/23/2022
 ms.topic: conceptual
 ---
