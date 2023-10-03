@@ -85,7 +85,7 @@ Initiating change detection in the cloud ensures that your latest changes have b
 You can initiate change detection with the Invoke-AzStorageSyncChangeDetection cmdlet: 
 
 ```powershell
-Invoke-AzStorageSyncChangeDetection -ResourceGroupName "myResourceGroup" -StorageSyncServiceName "myStorageSyncServiceName" -SyncGroupName "mySyncGroupName" -Path "Data","Reporting\Templates" 
+Invoke-AzStorageSyncChangeDetection -ResourceGroupName "myResourceGroup" -StorageSyncServiceName "myStorageSyncServiceName" -SyncGroupName "mySyncGroupName" -CloudEndpointName "myCloudEndpointGUID"
 ```
 
 This step may take a while to complete. 
