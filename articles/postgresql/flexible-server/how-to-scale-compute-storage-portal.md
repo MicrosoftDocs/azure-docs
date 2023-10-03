@@ -29,7 +29,7 @@ To complete this how-to guide, you need:
 
 Follow these steps to choose the compute tier.
  
-1.  In the [Azure portal](https://portal.azure.com/), choose your flexible server that you want to restore the backup from.
+1.  In the [Azure portal](https://portal.azure.com/), choose the flexible server that you want to restore the backup from.
 
 2.  Click **Compute+storage**.
 
@@ -58,25 +58,49 @@ Follow these steps to choose the compute tier.
 9.  A notification about the scaling operation in progress.
 
 
-## Scaling storage size
+## Manual Storage Scaling
 
 Follow these steps to increase your storage size.
 
-1.  In the [Azure portal](https://portal.azure.com/), choose your flexible server for which you want to increase the storage size.
+1.  In the [Azure portal](https://portal.azure.com/), choose the flexible server for which you want to increase the storage size.
 2.  Click **Compute+storage**.
 
 3.  A page with current settings is displayed.
    
 :::image type="content" source="./media/how-to-scale-compute-storage-portal/click-compute-storage.png" alt-text="click compute+storage":::
-4.  The field **Storage size in GiB** with a slide-bar is shown with the current size.
 
-5.  Slide the bar to your desired size. Corresponding IOPS number is shown. The IOPS is dependent on the compute tier and size. The cost information is also shown. 
+4.  Select **Storage size in GiB** drop down and choose your new desired size.
 
  :::image type="content" source="./media/how-to-scale-compute-storage-portal/storage-scaleup.png" alt-text="storage scale up":::
 
-6.  If you are good with the storage size, click **Save**. 
-7.  You will see a confirmation message. Click **OK** if you want to proceed. 
-8.  A notification about the scaling operation in progress.
+6.  If you are good with the storage size, click **Save**.
+   
+8.  Most of the disk scaling operations are **online** and as soon as you click **Save** scaling process starts without any downtime but some scaling operations are **offline** and you will see the below server resrart message. Click **continue** if you want to proceed.
+
+     :::image type="content" source="./media/how-to-scale-compute-storage-portal/offline-scaling.png" alt-text="offline scaling":::
+   
+10.  A notification about the scaling operation in progress.
+
+
+## Storage Autogrow 
+Follow these steps to increase your storage size.
+
+1.  In the [Azure portal](https://portal.azure.com/), choose the flexible server for which you want to increase the storage size.
+2.  Click **Compute+storage**.
+
+3.  A page with current settings is displayed.
+   
+:::image type="content" source="./media/how-to-scale-compute-storage-portal/storage-autogrow.png" alt-text="click compute+storage":::
+
+4. Check **Storage Auto-growth** button
+
+ :::image type="content" source="./media/how-to-scale-compute-storage-portal/storage-autogrow.png" alt-text="storage autogrow":::
+
+6.  click **Save**. 
+7.  You will receive a notification about the enabling storage autogrow.
+
+
+
 
 ## Next steps
 
