@@ -6,7 +6,6 @@ author: normesta
 
 ms.service: azure-storage
 ms.custom: build-2023-metadata-update
-ms.custom: horz-monitor
 ms.topic: reference
 ms.date: 05/16/2023
 ms.author: normesta
