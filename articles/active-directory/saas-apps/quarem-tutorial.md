@@ -35,9 +35,6 @@ In this tutorial, you configure and test Microsoft Entra SSO in a test environme
 
 * Quarem supports **IDP** initiated SSO.
 
-> [!NOTE]
-> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
-
 ## Adding Quarem from the gallery
 
 To configure the integration of Quarem into Microsoft Entra ID, you need to add Quarem from the gallery to your list of managed SaaS apps.
@@ -73,16 +70,7 @@ Follow these steps to enable Microsoft Entra SSO in the Microsoft Entra admin ce
 
    ![Screenshot shows how to edit Basic SAML Configuration.](common/edit-urls.png "Basic Configuration")
 
-1. On the **Basic SAML Configuration** section, perform the following steps:
-
-    a. In the **Identifier** textbox, type the URL:
-    `https://na.quarem.net`
-
-    b. In the **Reply URL** textbox, type the URL:
-    `https://na.quarem.net/sso`
-
-    c. In the **Logout URL** textbox, type the URL:
-    `https://na.quarem.net/logoutUser`
+1. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Microsoft Entra.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
