@@ -32,17 +32,21 @@ The following steps walk you through the process of creating [standard tests](av
 ### Steps
 
 1.	Connect to your subscription with Azure PowerShell (Connect-AzAccount + Set-AzContext).
-2.	List all URL ping tests in a resource group:
+
+2.	List all URL ping tests in the current subscription:
 
     ```azurepowershell
-    $resourceGroup = "myResourceGroup";
-    Get-AzApplicationInsightsWebTest -ResourceGroupName $resourceGroup | `
-        Where-Object { $_.WebTestKind -eq "ping" };
+    Get-AzApplicationInsightsWebTest | `
+    Where-Object { $_.WebTestKind -eq "ping" } | `
+    Format-Table -Property ResourceGroupName,Name,WebTestKind,Enabled;
     ```
-3.	Find the URL ping Test you want to migrate and record its name.
+
+3.	Find the URL Ping Test you want to migrate and record its resource group and name.
+
 4.	The following commands create a standard test with the same logic as the URL ping test:
 
     ```azurepowershell
+    $resourceGroup = "pingTestResourceGroup";
     $appInsightsComponent = "componentName";
     $pingTestName = "pingTestName";
     $newStandardTestName = "newStandardTestName";

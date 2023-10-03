@@ -57,7 +57,7 @@ The following example creates a VM named *myVM* and creates SSH keys if they do 
 az vm create \
     --resource-group myResourceGroup \
     --name myVM \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --admin-username azureuser \
     --generate-ssh-keys
 ```

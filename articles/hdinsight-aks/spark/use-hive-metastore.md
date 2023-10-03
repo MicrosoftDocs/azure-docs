@@ -8,6 +8,8 @@ ms.date: 08/29/2023
 
 # How to use Hive metastore in Spark
 
+[!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 It's essential to share the data and metastore across multiple services. One of the commonly used metastore in HIVE metastore. HDInsight on AKS allows users to connect to external metastore. This step enables the HDInsight users to seamlessly connect to other services in the ecosystem.
 
 Azure HDInsight on AKS supports custom meta stores, which are recommended for production clusters. The key steps involved are

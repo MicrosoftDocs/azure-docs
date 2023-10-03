@@ -47,6 +47,8 @@ items:
       href: tutorials/virtual-visits.md
     - name: Virtual event
       href: tutorials/events-playbook.md
+    - name: Contact center
+      href: tutorials/contact-center.md
   - name: Privacy and compliance
     items:
     - name: Data residency and user privacy

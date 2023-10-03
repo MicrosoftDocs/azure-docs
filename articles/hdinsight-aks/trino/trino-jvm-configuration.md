@@ -8,6 +8,8 @@ ms.date: 08/29/2023
 
 # Configure JVM heap size
 
+[!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 This article describes how to modify initial and max heap size for HDInsight on AKS Trino pods.
 
 `Xms` and `-Xmx` settings can be changed to control initial and max heap size of Trino pods. You can modify the JVM heap settings using ARM template. 

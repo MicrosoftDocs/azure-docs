@@ -6,7 +6,9 @@ ms.topic: how-to
 ms.date: 08/29/2023
 ---
 
-# Create Apache Flink-Delta Catalog 
+# Create Apache Flink-Delta Catalog
+
+[!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
 [Delta Lake](https://docs.delta.io/latest/delta-intro.html) is an open source project that enables building a Lakehouse architecture on top of data lakes. Delta Lake provides ACID transactions, scalable metadata handling, and unifies streaming and batch data processing on top of existing data lakes.
 

@@ -8,6 +8,8 @@ ms.date: 08/29/2023
 
 # Submit and manage jobs on a Spark cluster in HDInsight on AKS
 
+[!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 Once the cluster is created, user can use various interfaces to submit and manage jobs by
 
 * using Jupyter

@@ -8,8 +8,8 @@ author: aahill
 manager: nitinme
 ms.devlang: csharp, golang, java, javascript, python
 ms.custom: seodec18, devx-track-python, devx-track-js, devx-track-csharp, devx-track-extended-java, devx-track-go
-ms.service: cognitive-services
-ms.subservice: language-understanding
+ms.service: azure-ai-language
+ms.subservice: azure-ai-luis
 ms.topic: how-to
 ms.date: 11/30/2020
 zone_pivot_groups: programming-languages-set-one

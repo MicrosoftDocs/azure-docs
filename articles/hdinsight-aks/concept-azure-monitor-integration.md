@@ -8,6 +8,8 @@ ms.date: 08/29/2023
 
 # Azure Monitor integration
 
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
 HDInsight on AKS offers an integration with Azure Monitor that can be used to monitor cluster pools and their clusters.
 
 Azure Monitor collects metrics and logs from multiple resources into an Azure Monitor Log Analytics workspace, which presents the data as structured, queryable tables that can be used to configure custom alerts. Azure Monitor logs provide an excellent overall experience for monitoring workloads and interacting with logs, especially if you have multiple clusters.

@@ -8,6 +8,8 @@ ms.date: 08/29/2023
 
 # Resource prerequisites
 
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
 This article details the resources required for getting started with HDInsight on AKS. It covers the necessary and the optional resources and how to create them.
 
 ## Necessary resources  
