@@ -3,7 +3,7 @@ title: App Service Environment networking
 description: App Service Environment networking details
 author: madsd
 ms.topic: overview
-ms.date: 07/21/2023
+ms.date: 10/02/2023
 ms.author: madsd
 ---
 
@@ -121,7 +121,7 @@ For more information about Private Endpoint and Web App, see [Azure Web App Priv
 
 ## DNS
 
-The following sections describe the DNS considerations and configuration that apply inbound to and outbound from your App Service Environment. The examples use the domain suffix `appserviceenvironment.net` from Azure Public Cloud. If you're using other clouds like Azure Government, you need to use their respective domain suffix.
+The following sections describe the DNS considerations and configuration that apply inbound to and outbound from your App Service Environment. The examples use the domain suffix `appserviceenvironment.net` from Azure Public Cloud. If you're using other clouds like Azure Government, you need to use their respective domain suffix. Note that for App Service Environment domains, the site name will be truncated at 40 characters because of DNS limits. If you have a slot, the slot name will be truncated at 19 characters.
 
 ### DNS configuration to your App Service Environment
 
