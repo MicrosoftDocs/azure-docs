@@ -1,6 +1,6 @@
 ---
-title: Application Gateway integration - Azure App Service | Microsoft Docs
-description: Describes how Application Gateway integrates with Azure App Service.
+title: Application Gateway integration - Azure App Service | Microsoft Learn
+description: Learn how Application Gateway integrates with Azure App Service.
 services: app-service
 documentationcenter: ''
 author: madsd
@@ -18,86 +18,106 @@ ms.devlang: azurecli
 ---
 
 # Application Gateway integration
-There are three variations of App Service that require slightly different configuration of the integration with Azure Application Gateway. The variations include regular App Service - also known as multitenant, Internal Load Balancer (ILB) App Service Environment and External App Service Environment. This article walks through how to configure it with App Service (multitenant) using service endpoint to secure traffic. The article also discusses considerations around using private endpoint and integrating with ILB, and External App Service Environment. Finally the article has considerations on scm/kudu site.
+
+Three variations of Azure App Service require slightly different configuration of the integration with Azure Application Gateway. The variations include regular App Service (also known as multitenant), an internal load balancer (ILB) App Service Environment, and an external App Service Environment.
+
+This article walks through how to configure Application Gateway with App Service (multitenant) by using service endpoints to secure traffic. The article also discusses considerations around using private endpoints and integrating with ILB and external App Service Environments. Finally, the article describes how to set access restrictions on a Source Control Manager (SCM) site.
 
 ## Integration with App Service (multitenant)
-App Service (multitenant) has a public internet facing endpoint. Using [service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) you can allow traffic only from a specific subnet within an Azure Virtual Network and block everything else. In the following scenario, we use this functionality to ensure that an App Service instance can only receive traffic from a specific Application Gateway instance.
 
-:::image type="content" source="./media/app-gateway-with-service-endpoints/service-endpoints-appgw.png" alt-text="Diagram shows the Internet flowing to an Application Gateway in an Azure Virtual Network and flowing from there through a firewall icon to instances of apps in App Service.":::
+App Service (multitenant) has a public internet-facing endpoint. By using [service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md), you can allow traffic from only a specific subnet within an Azure virtual network and block everything else. In the following scenario, you use this functionality to ensure that an App Service instance can receive traffic from only a specific application gateway.
 
-There are two parts to this configuration besides creating the App Service and the Application Gateway. The first part is enabling service endpoints in the subnet of the Virtual Network where the Application Gateway is deployed. Service endpoints ensure all network traffic leaving the subnet towards the App Service is tagged with the specific subnet ID. The second part is to set an access restriction of the specific web app to ensure that only traffic tagged with this specific subnet ID is allowed. You can configure it using different tools depending on preference.
+:::image type="content" source="./media/app-gateway-with-service-endpoints/service-endpoints-appgw.png" alt-text="Diagram that shows the internet flowing to an application gateway in an Azure virtual network and then flowing through a firewall icon to instances of apps in App Service.":::
 
-## Using Azure portal
-With Azure portal, you follow four steps to create and configure the setup. If you have existing resources, you can skip the first steps.
-1. Create an App Service using one of the Quickstarts in the App Service documentation, for example [.NET Core Quickstart](../quickstart-dotnetcore.md)
-2. Create an Application Gateway using the [portal Quickstart](../../application-gateway/quick-create-portal.md), but skip the Add backend targets section.
-3. Configure [App Service as a backend in Application Gateway](../../application-gateway/configure-web-app.md), but skip the Restrict access section.
-4. Finally create the [access restriction using service endpoints](../../app-service/app-service-ip-restrictions.md#set-a-service-endpoint-based-rule).
+There are two parts to this configuration, aside from creating the App Service instance and the application gateway. The first part is enabling service endpoints in the subnet of the virtual network where the application gateway is deployed. Service endpoints ensure that all network traffic leaving the subnet toward App Service is tagged with the specific subnet ID.
 
-You can now access the App Service through Application Gateway. If you try to access the App Service directly, you should receive a 403 HTTP error indicating that the web site is stopped.
+The second part is to set an access restriction on the specific web app to ensure that only traffic tagged with this specific subnet ID is allowed. You can configure the access restriction by using different tools, depending on your preference.
 
-:::image type="content" source="./media/app-gateway-with-service-endpoints/website-403-forbidden.png" alt-text="Screenshot shows the text of an Error 403 - Forbidden.":::
+## Set up services by using the Azure portal
 
-## Using Azure Resource Manager template
-The [Resource Manager deployment template][template-app-gateway-app-service-complete] creates a complete scenario. The scenario consists of an App Service instance locked down with service endpoints and access restriction to only receive traffic from Application Gateway. The template includes many Smart Defaults and unique postfixes added to the resource names for it to be simple. To override them, you have to clone the repo or download the template and edit it.
+With the Azure portal, you follow four steps to create and configure the setup of App Service and Application Gateway. If you have existing resources, you can skip the first steps.
 
-To apply the template, you can use the Deploy to Azure button found in the description of the template, or you can use appropriate PowerShell/CLI.
+1. Create an App Service instance by using one of the quickstarts in the App Service documentation. One example is the [.NET Core quickstart](../quickstart-dotnetcore.md).
+2. Create an application gateway by using the [portal quickstart](../../application-gateway/quick-create-portal.md), but skip the section about adding back-end targets.
+3. Configure [App Service as a back end in Application Gateway](../../application-gateway/configure-web-app.md), but skip the section about restricting access.
+4. Create the [access restriction by using service endpoints](../../app-service/app-service-ip-restrictions.md#set-a-service-endpoint-based-rule).
 
-## Using Azure CLI
-The [Azure CLI sample](../../app-service/scripts/cli-integrate-app-service-with-application-gateway.md) creates an App Service locked down with service endpoints and access restriction to only receive traffic from Application Gateway. If you only need to isolate traffic to an existing App Service from an existing Application Gateway, the following command is sufficient.
+You can now access App Service through Application Gateway. If you try to access App Service directly, you should receive a 403 HTTP error that says the web app has blocked your access.
+
+:::image type="content" source="./media/app-gateway-with-service-endpoints/website-403-forbidden.png" alt-text="Screenshot shows the text of Error 403 - Forbidden.":::
+
+## Set up services by using an Azure Resource Manager template
+
+The [Azure Resource Manager deployment template][template-app-gateway-app-service-complete] creates a complete scenario. The scenario consists of an App Service instance that's locked down with service endpoints and an access restriction to receive traffic only from Application Gateway. The template includes many smart defaults and unique postfixes added to the resource names to keep it simple. To override them, you have to clone the repo or download the template and edit it.
+
+To apply the template, you can use the **Deploy to Azure** button in the description of the template. Or you can use appropriate PowerShell or Azure CLI code.
+
+## Set up services by using the Azure CLI
+
+The [Azure CLI sample](../../app-service/scripts/cli-integrate-app-service-with-application-gateway.md) creates an App Service instance that's locked down with service endpoints and an access restriction to receive traffic only from Application Gateway. If you only need to isolate traffic to an existing App Service instance from an existing application gateway, use the following command:
 
 ```azurecli-interactive
 az webapp config access-restriction add --resource-group myRG --name myWebApp --rule-name AppGwSubnet --priority 200 --subnet mySubNetName --vnet-name myVnetName
 ```
 
-In the default configuration, the command ensures both setup of the service endpoint configuration in the subnet and the access restriction in the App Service.
+In the default configuration, the command ensures setup of the service endpoint configuration in the subnet and the access restriction in App Service.
 
-## Considerations when using private endpoint
+## Considerations for using private endpoints
 
-As an alternative to service endpoint, you can use private endpoint to secure traffic between Application Gateway and App Service (multitenant). You need to ensure that Application Gateway can DNS resolve the private IP of the App Service apps. Alternatively you can use the private IP in the backend pool and override the host name in the http settings.
+As an alternative to service endpoints, you can use private endpoints to secure traffic between Application Gateway and App Service (multitenant). You need to ensure that Application Gateway can use DNS to resolve the private IP address of the App Service apps. Alternatively, you can use the private IP address in the back-end pool and override the host name in the HTTP settings.
 
-:::image type="content" source="./media/app-gateway-with-service-endpoints/private-endpoint-appgw.png" alt-text="Diagram shows the traffic flowing to an Application Gateway in an Azure Virtual Network and flowing from there through a private endpoint to instances of apps in App Service.":::
+:::image type="content" source="./media/app-gateway-with-service-endpoints/private-endpoint-appgw.png" alt-text="Diagram that shows traffic flowing to an application gateway in an Azure virtual network and then flowing through a private endpoint to instances of apps in App Service.":::
 
-Application Gateway caches the DNS lookup results. If you use FQDNs and rely on DNS lookup to get the private IP address, then you may need to restart the Application Gateway if the DNS update or link to Azure private DNS zone was done after configuring the backend pool. To restart the Application Gateway, you must start and stop the instance. You restart the Application Gateway using Azure CLI:
+Application Gateway caches the DNS lookup results. If you use fully qualified domain names (FQDNs) and rely on DNS lookup to get the private IP address, you might need to restart the application gateway if the DNS update or the link to an Azure private DNS zone happened after you configured the back-end pool.
+
+To restart the application gateway, stop and start it by using the Azure CLI:
 
 ```azurecli-interactive
 az network application-gateway stop --resource-group myRG --name myAppGw
 az network application-gateway start --resource-group myRG --name myAppGw
 ```
 
-## Considerations for ILB ASE
-ILB App Service Environment isn't exposed to the internet and traffic between the instance and an Application Gateway is therefore already isolated to the Virtual Network. The following [how-to guide](../environment/integrate-with-application-gateway.md) configures an ILB App Service Environment and integrates it with an Application Gateway using Azure portal.
+## Considerations for an ILB App Service Environment
 
-If you want to ensure that only traffic from the Application Gateway subnet is reaching the App Service Environment, you can configure a Network security group (NSG) which affect all web apps in the App Service Environment. For the NSG, you're able to specify the subnet IP range and optionally the ports (80/443). Make sure you don't override the [required NSG rules](../environment/network-info.md#network-security-groups) for App Service Environment to function correctly.
+An ILB App Service Environment isn't exposed to the internet. Traffic between the instance and an application gateway is already isolated to the virtual network. To configure an ILB App Service Environment and integrate it with an application gateway by using the Azure portal, see the [how-to guide](../environment/integrate-with-application-gateway.md).
 
-To isolate traffic to an individual web app, you need to use IP-based access restrictions as service endpoints doesn't work with App Service Environment. The IP address should be the private IP of the Application Gateway instance.
+If you want to ensure that only traffic from the Application Gateway subnet is reaching the App Service Environment, you can configure a network security group (NSG) that affects all web apps in the App Service Environment. For the NSG, you can specify the subnet IP range and optionally the ports (80/443). For the App Service Environment to function correctly, make sure you don't override the [required NSG rules](../environment/network-info.md#network-security-groups).
 
-## Considerations for External ASE
-External App Service Environment has a public facing load balancer like multitenant App Service. Service endpoints don't work for App Service Environment, and that's why you have to use IP-based access restrictions using the public IP of the Application Gateway instance. To create an External App Service Environment using the Azure portal, you can follow this [Quickstart](../environment/create-external-ase.md)
+To isolate traffic to an individual web app, you need to use IP-based access restrictions, because service endpoints don't work with an App Service Environment. The IP address should be the private IP of the application gateway.
 
-[template-app-gateway-app-service-complete]: https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/web-app-with-app-gateway-v2/ "Azure Resource Manager template for complete scenario"
+## Considerations for an external App Service Environment
 
-## Considerations for kudu/scm site
-The scm site, also known as kudu, is an admin site, which exists for every web app. It isn't possible to reverse proxy the scm site and you most likely also want to lock it down to individual IP addresses or a specific subnet.
+An external App Service Environment has a public-facing load balancer like multitenant App Service. Service endpoints don't work for an App Service Environment. That's why you have to use IP-based access restrictions by using the public IP address of the application gateway. To create an external App Service Environment by using the Azure portal, you can follow [this quickstart](../environment/create-external-ase.md).
 
-If you want to use the same access restrictions as the main site, you can inherit the settings using the following command.
+[template-app-gateway-app-service-complete]: https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/web-app-with-app-gateway-v2/ "Azure Resource Manager template for a complete scenario"
+
+## Considerations for a Kudu/SCM site
+
+The SCM site, also known as Kudu, is an admin site that exists for every web app. It isn't possible to reverse proxy the SCM site. You most likely also want to lock it down to individual IP addresses or a specific subnet.
+
+If you want to use the same access restrictions as the main site, you can inherit the settings by using the following command:
 
 ```azurecli-interactive
 az webapp config access-restriction set --resource-group myRG --name myWebApp --use-same-restrictions-for-scm-site
 ```
 
-If you want to set individual access restrictions for the scm site, you can add access restrictions using the `--scm-site` flag like shown here.
+If you want to add individual access restrictions for the SCM site, you can use the `--scm-site` flag:
 
 ```azurecli-interactive
 az webapp config access-restriction add --resource-group myRG --name myWebApp --scm-site --rule-name KudoAccess --priority 200 --ip-address 208.130.0.0/16
 ```
 
-## Considerations when using default domain
-Configuring Application Gateway to override the host name and use the default domain of App Service (typically `azurewebsites.net`) is the easiest way to configure the integration and doesn't require configuring custom domain and certificate in App Service. [This article](/azure/architecture/best-practices/host-name-preservation) discusses the general considerations when overriding the original host name. In App Service, there are two scenarios where you need to pay attention with this configuration.
+## Considerations for using the default domain
+
+Configuring Application Gateway to override the host name and use the default domain of App Service (typically `azurewebsites.net`) is the easiest way to configure the integration. It doesn't require configuring a custom domain and certificate in App Service.
+
+[This article](/azure/architecture/best-practices/host-name-preservation) discusses the general considerations for overriding the original host name. In App Service, there are two scenarios where you need to pay attention with this configuration.
 
 ### Authentication
-When you're using [the authentication feature](../overview-authentication-authorization.md) in App Service (also known as Easy Auth), your app will typically redirect to the sign-in page. Because App Service doesn't know the original host name of the request, the redirect would be done on the default domain name and usually result in an error. To work around default redirect, you can configure authentication to inspect a forwarded header and adapt the redirect domain to the original domain. Application Gateway uses a header called `X-Original-Host`.
-Using [file-based configuration](../configure-authentication-file-based.md) to configure authentication, you can configure App Service to adapt to the original host name. Add this configuration to your configuration file:
+
+When you use [the authentication feature](../overview-authentication-authorization.md) in App Service (also known as Easy Auth), your app typically redirects to the sign-in page. Because App Service doesn't know the original host name of the request, the redirect is done on the default domain name and usually results in an error.
+
+To work around the default redirect, you can configure authentication to inspect a forwarded header and adapt the redirect domain to the original domain. Application Gateway uses a header called `X-Original-Host`. By using [file-based configuration](../configure-authentication-file-based.md) to configure authentication, you can configure App Service to adapt to the original host name. Add this configuration to your configuration file:
 
 ```json
 {
@@ -113,11 +133,13 @@ Using [file-based configuration](../configure-authentication-file-based.md) to c
 ```
 
 ### ARR affinity
-In multi-instance deployments, [ARR affinity](../configure-common.md?tabs=portal#configure-general-settings) ensures that client requests are routed to the same instance for the life of the session. ARR affinity doesn't work with host name overrides and you have to configure identical custom domain and certificate in App Service and in Application Gateway and not override host name for session affinity to work.
+
+In multiple-instance deployments, [ARR affinity](../configure-common.md?tabs=portal#configure-general-settings) ensures that client requests are routed to the same instance for the life of the session. ARR affinity doesn't work with host name overrides. For session affinity to work, you have to configure an identical custom domain and certificate in App Service and in Application Gateway and not override the host name.
 
 ## Next steps
-For more information on the App Service Environment, see [App Service Environment documentation](../environment/index.yml).
 
-To further secure your web app, information about Web Application Firewall on Application Gateway can be found in the [Azure Web Application Firewall documentation](../../web-application-firewall/ag/ag-overview.md).
+For more information on App Service Environments, see the [App Service Environment documentation](../environment/index.yml).
 
-Tutorial on [deploying a secure, resilient site with a custom domain](https://azure.github.io/AppService/2021/03/26/Secure-resilient-site-with-custom-domain) on App Service using either Azure Front Door or Application Gateway.
+To further secure your web app, you can find information about Azure Web Application Firewall on Application Gateway in the [Azure Web Application Firewall documentation](../../web-application-firewall/ag/ag-overview.md).
+
+To deploy a secure, resilient site with a custom domain on App Service by using either Azure Front Door or Application Gateway, see [this tutorial](https://azure.github.io/AppService/2021/03/26/Secure-resilient-site-with-custom-domain).
