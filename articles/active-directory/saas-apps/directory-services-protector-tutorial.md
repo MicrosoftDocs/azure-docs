@@ -159,7 +159,7 @@ In this section, you'll enable B.Simon to use Microsoft Entra single sign-on by 
 
     ![Screenshot shows settings of the identity provider.](./media/directory-services-protector-tutorial/identity.png "Center")
 
-1. In Step **3 - User Attributes & Claims**, we do not need this information now, so we can skip to Step 4.
+1. In Step **3 - User Attributes & Claims**, we don't need this information now, so we can skip to Step 4.
 
 1. In Step **4 – Data received from the SAML identity provider**, DSP supports both importing from a metadata URL and importing of a metadata XML provided by Entra ID.
 
@@ -195,7 +195,7 @@ In this section, you test your Microsoft Entra single sign-on configuration with
 
 * Click on **Test this application** in Microsoft Entra admin center and you should be automatically signed in to the Directory Services Protector for which you set up the SSO. 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the Directory Services Protector tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Directory Services Protector for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+You can also use Microsoft My Apps to test the application in any mode. When you click the Directory Services Protector tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Directory Services Protector for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next Steps
 
