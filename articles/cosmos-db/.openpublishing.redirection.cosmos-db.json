@@ -5126,6 +5126,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cosmos-db/nosql/certificate-based-authentication.md",
+      "redirect_url": "/azure/cosmos-db/nosql",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cosmos-db/sql/change-feed-design-patterns.md",
       "redirect_url": "/azure/cosmos-db/nosql/change-feed-design-patterns",
       "redirect_document_id": true
