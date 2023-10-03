@@ -20,7 +20,7 @@ ADX helps users in analysis of large volumes of data from streaming applications
 
 1. [Create a HDInsight on AKS Flink cluster](./flink-create-cluster-portal.md).
 
-1. [Create ADX with database](/data-explorer/create-cluster-and-databas/) and table as required.
+1. [Create ADX with database](/azure/data-explorer/create-cluster-and-database/) and table as required.
 
 1. Add ingestor permissions for the managed identity in Kusto.
 
