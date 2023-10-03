@@ -12,7 +12,7 @@ ms.author: greglin
 
 # Application Gateway for Containers session affinity overview
 
-Session affinity, also known as *session persistence* or *sticky sessions*, is a technique used in load balancing to ensure a client's requests are always sent to the same server. This is important for applications that store user data in session variables or in a local cache on a particular server (commonly referred to as a stateful applications).
+Session affinity, also known as *session persistence* or *sticky sessions*, is a technique used in load balancing to ensure a client's requests are always sent to the same server. This is important for applications that store user data in session variables or in a local cache on a particular server (commonly referred to as a stateful application).
 
 With session affinity, Application Gateway for Containers presents a cookie in the **Set-Cookie** header of the first response. If the client presents the cookie in future requests, Application Gateway for Containers recognizes the cookie and forwards traffic to the same backend target. See the following example scenario:
 
