@@ -19,6 +19,17 @@ ms.author: anfdocs
 
 This article describes how to deploy all required volumes for your Oracle database using Azure NetApp Files application volume group for Oracle.
 
+> [!IMPORTANT]
+> Azure NetApp Files application volume group for Oracle is currently in preview. You need to submit a waitlist request for accessing the feature through the **Azure NetApp Files application volume group for Oracle waitlist submission page**{{{***---->>NEED LINK URL<<----***}}}.  This feature is expected to be enabled within a week after you submit the waitlist request. You can check the status of feature registration by using the following command: 
+>
+> ```azurepowershell-interactive
+> Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ?????NEED-AFEC-FLAG                                                      
+> 
+> FeatureName                         ProviderName     RegistrationState   
+> -----------                         ------------     -----------------   
+> {{{***---->>NEED AFEC FLAG<<----***}}} Microsoft.NetApp Registered
+> ```
+
 ## Before you begin
 
 You should understand the [requirements and considerations for application volume group for Oracle](application-volume-group-oracle-considerations.md). 
