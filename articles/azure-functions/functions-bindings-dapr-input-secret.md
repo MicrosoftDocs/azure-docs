@@ -15,7 +15,7 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 The Dapr secret input binding allows you to read secrets data as input during function execution.
 
 For information on setup and configuration details of the Dapr extension, see the [Dapr extension overview](./functions-bindings-dapr.md).
-
+  
 ## Example
 
 ::: zone pivot="programming-language-csharp"

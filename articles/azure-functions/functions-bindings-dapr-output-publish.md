@@ -233,6 +233,7 @@ In the [in-process model](./functions-dotnet-class-library.md), use the `DaprPub
 |---------|----------------------|
 | **PubSubName** | The name of the Dapr pub/sub to send the message. |
 | **Topic** | The name of the Dapr topic to send the message. |
+| **Payload** | **Required**. Todo. |
 
 # [Isolated process](#tab/isolated-process)
 
@@ -242,6 +243,7 @@ In the [isolated worker model](./dotnet-isolated-process-guide.md), use the `Dap
 |---------|----------------------|
 | **PubSubName** | The name of the Dapr pub/sub to send the message. |
 | **Topic** | The name of the Dapr topic to send the message. |
+| **Payload** | **Required**. Todo. |
 
 
 ---
@@ -258,6 +260,7 @@ The `DaprPublishOutput` annotation allows you to have a function access a publis
 | --------- | ----------- | 
 | **pubSubName** | The name of the Dapr pub/sub to send the message. | 
 | **topic** | The name of the Dapr topic to send the message. | 
+|**payload** | **Required** Todo. |
 
 ::: zone-end
 
@@ -278,6 +281,7 @@ The following table explains the binding configuration properties that you set i
 |**name** | The name of the variable that represents the Dapr data in function code. |
 |**pubsubname** | The name of the publisher component service. |
 |**topic** | The name/identifier of the publisher topic. |
+|**payload** | **Required** Todo. |
 
 ::: zone-end
 
@@ -292,6 +296,7 @@ The following table explains the binding configuration properties for `@dapp.dap
 |**arg_name** | Argument/variable name that should match with the parameter of the function. In the example, this value is set to `pubEvent`. |
 |**pub_sub_name** | The name of the publisher event. |
 |**topic** | The publisher topic name/identifier. |
+|**payload** | **Required** Todo. |
 
 # [Python v1](#tab/v1)
 
@@ -304,10 +309,64 @@ The following table explains the binding configuration properties that you set i
 |**name** | The name of the variable that represents the Dapr data in function code. |
 |**pubsubname** | The name of the publisher component service. |
 |**topic** | The name/identifier of the publisher topic. |
+|**payload** | **Required** Todo. |
 
 ---
 
 ::: zone-end
+
+You can define these properties via:
+- The attribute itself
+- The `RequestBody`
+- Both the attribute and the request body
+
+If you define with both the attribute and the request body, the request body is given priority. 
+
+To define with the attribute:
+
+```csharp
+public class DaprPublishAttribute : DaprBaseAttribute
+{
+    [AutoResolve]
+    public string? PubSubName { get; set; }
+    [AutoResolve]
+    public string? Topic { get; set; }
+}
+```
+
+To define with the `RequestBody`:
+
+```csharp
+static DaprPubSubEvent CreatePubSubEvent(JsonElement json)
+{
+    var propertyBag = json.ToCaseInsensitiveDictionary();
+
+    if (!propertyBag.TryGetValue("payload", out JsonElement payload))
+    {
+        throw new ArgumentException($"A '{nameof(json).ToLowerInvariant()}' parameter is required for outbound pub/sub operations.");
+    }
+
+    object? payloadObject = payload.Deserialize<object>();
+    if (payloadObject == null)
+    {
+        throw new ArgumentException($"Could not deserialize '{nameof(payloadObject).ToLowerInvariant()}' parameter for outbound pub/sub operations.");
+    }
+
+    DaprPubSubEvent event_ = new DaprPubSubEvent(payloadObject);
+
+    if (propertyBag.TryGetValue("pubsubname", out JsonElement pubsubName))
+    {
+        event_.PubSubName = pubsubName.GetString();
+    }
+
+    if (propertyBag.TryGetValue("topic", out JsonElement topic))
+    {
+        event_.Topic = topic.GetString();
+    }
+
+    return event_;
+}
+```
 
 See the [Example section](#example) for complete examples.
 
