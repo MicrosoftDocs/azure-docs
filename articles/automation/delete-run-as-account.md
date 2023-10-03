@@ -27,9 +27,6 @@ To configure or update or delete a Run As account and a Classic Run As accounts,
     - Cloud Application Administrator
     - Global Administrator
 
-To learn more about permissions, see [Run As account permissions](automation-security-overview.md#permissions).
-
-
 ## Delete a Run As or Classic Run As account
 
 1. In the Azure portal, open the Automation account.
