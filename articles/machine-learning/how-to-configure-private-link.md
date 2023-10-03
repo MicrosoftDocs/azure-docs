@@ -304,7 +304,7 @@ You can use IP network rules to allow access to your workspace and endpoint from
 
 > [!WARNING]
 > * Enable your endpoint's [public network access flag](concept-secure-online-endpoint.md#secure-inbound-scoring-requests) if you want to allow access to your endpoint from specific public internet IP address ranges.
-> * When you enable this feature, this has an impact to all existing public endpoints associated with this workspace. This may limit access to new or existing endpoints. If you are trying to access any endpoints from a non-allowed IP, you will get a 403 error.
+> * When you enable this feature, this has an impact to all existing public endpoints associated with your workspace. This may limit access to new or existing endpoints. If you access any endpoints from a non-allowed IP, you get a 403 error.
 
 # [Portal](#tab/azure-portal)
 
@@ -320,7 +320,7 @@ The following restrictions apply to IP address ranges:
 
 - IP network rules are allowed only for *public internet* IP addresses.
 
-  IP address ranges reserved for private networks (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) aren't allowed in IP rules. Private networks include addresses that start with 10, 172.16 to 172.31, and 192.168.
+  [Reserved IP address ranges](https://en.wikipedia.org/wiki/Reserved_IP_addresses) aren't allowed in IP rules such as private addresses that start with 10, 172.16 to 172.31, and 192.168.
 
 - You must provide allowed internet address ranges by using [CIDR notation](https://tools.ietf.org/html/rfc4632) in the form 16.17.18.0/24 or as individual IP addresses like 16.17.18.19.
 
