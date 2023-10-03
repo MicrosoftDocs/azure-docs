@@ -26,7 +26,7 @@ This article provides you with an overview of **Authentication Prompts Analysis*
 
 Have you recently heard of complaints from your users about getting too many authentication prompts?
 
-Overprompting users can affect your user's productivity and often leads users getting phished for MFA. To be clear, MFA is essential! We are not talking about if you should require MFA but how frequently you should prompt your users.
+Overprompting users can affect your user's productivity and often leads users getting phished for MFA. To be clear, MFA is essential! We aren't talking about if you should require MFA but how frequently you should prompt your users.
 
 Typically, this scenario is caused by:
 
@@ -63,11 +63,11 @@ This workbook breaks down authentication prompts by:
 
 ![Authentication prompts by authentication method](./media/workbook-authentication-prompts-analysis/authentication-prompts-by-authentication-method.png)
 
-In many environments, the most used apps are business productivity apps. Anything that isn’t expected should be investigated. The charts below show authentication prompts by application.
+In many environments, the most used apps are business productivity apps. Anything that isn’t expected should be investigated. The following charts show authentication prompts by application.
 
 ![Authentication prompts by application](./media/workbook-authentication-prompts-analysis/authentication-prompts-by-application.png)
 
-The prompts by application list view shows additional information such as timestamps, and request IDs that help with investigations.
+The **prompts by application list view** shows additional information such as timestamps, and request IDs that help with investigations.
 
 Additionally, you get a summary of the average and median prompts count for your tenant. 
 
@@ -97,7 +97,5 @@ Filtering for a specific user that has many authentication requests or only show
     ![Set filter](./media/workbook-authentication-prompts-analysis/set-filter.png)
 
 - To understand more about the different policies that affect MFA prompts, see [Optimize reauthentication prompts and understand session lifetime for Microsoft Entra multifactor authentication](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md). 
-
-- To learn more about the different vulnerabilities of different MFA methods, see [All your creds belong to us!](https://aka.ms/allyourcreds).
 
 - To learn how to move users from telecom-based methods to the Authenticator app, see [How to run a registration campaign to set up Microsoft Authenticator - Microsoft Authenticator app](../authentication/how-to-mfa-registration-campaign.md).

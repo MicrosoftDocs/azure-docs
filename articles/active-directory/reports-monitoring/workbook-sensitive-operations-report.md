@@ -29,7 +29,7 @@ This article provides you with an overview of the **Sensitive Operations Report*
 
 This workbook identifies recent sensitive operations that have been performed in your tenant and which may service principal compromise.
 
-If your organization is new to Azure monitor workbooks, you need to integrate your Microsoft Entra sign-in and audit logs with Azure Monitor before accessing the workbook. This integration allows you to store, and query, and visualize your logs using workbooks for up to two years. Only sign-in and audit events created after Azure Monitor integration will be stored, so the workbook won't contain insights prior to that date. Learn more about the prerequisites to Azure Monitor workbooks for Microsoft Entra ID. If you've previously integrated your Microsoft Entra sign-in and audit logs with Azure Monitor, you can use the workbook to assess past information. 
+If your organization is new to Azure monitor workbooks, you need to integrate your Microsoft Entra sign-in and audit logs with Azure Monitor before accessing the workbook. This integration allows you to store, and query, and visualize your logs using workbooks for up to two years. Only sign-in and audit events created after Azure Monitor integration are stored, so the workbook won't contain insights prior to that date. Learn more about the prerequisites to Azure Monitor workbooks for Microsoft Entra ID. If you've previously integrated your Microsoft Entra sign-in and audit logs with Azure Monitor, you can use the workbook to assess past information. 
  
 ## How to access the workbook
 
@@ -66,7 +66,7 @@ This section includes the following data to help you detect:
 
 In cases where the attacker can't find a service principal or an application with a high privilege set of permissions through which to gain access, they'll often attempt to add the permissions to another service principal or app.
 
-This section includes a breakdown of the AppOnly permissions grants to existing service principals. Admins should investigate any instances of excessive high permissions being granted, including, but not limited to, Exchange Online, Microsoft Graph and Azure AD Graph.
+This section includes a breakdown of the AppOnly permissions grants to existing service principals. Admins should investigate any instances of excessive high permissions being granted, including, but not limited to, Exchange Online, and Microsoft Graph.
 
 ### Directory role and group membership updates for service principals 
 
@@ -119,7 +119,7 @@ This paragraph lists the supported filters for each section.
 
 ## Best practices
 
-- **USe modified application and service principal credentials** to look out for credentials being added to service principals that aren't frequently used in your organization. Use the filters present in this section to further investigate any of the suspicious actors or service principals that were modified.
+- * Use modified application and service principal credentials** to look out for credentials being added to service principals that aren't frequently used in your organization. Use the filters present in this section to further investigate any of the suspicious actors or service principals that were modified.
 
 - **Use new permissions granted to service principals** to look out for broad or excessive permissions being added to service principals by actors that may be compromised.  
 

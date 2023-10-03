@@ -24,7 +24,7 @@ This article provides you with an overview of the **Cross-tenant access activity
 
 ![Image showing this workbook is found under the Usage category](./media/workbook-cross-tenant-access-activity/workbook-category.png)
 
-Tenant administrators who are making changes to policies governing cross-tenant access can use this workbook to visualize and review existing access activity patterns before making policy changes. For example, you can identify the apps your users are accessing in external organizations so that you don't inadvertently block critical business processes. Understanding how external users access resources in your tenant (inbound access) and how users in your tenant access resources in external tenants (outbound access) will help ensure you have the right cross-tenant policies in place.
+Tenant administrators who are making changes to policies governing cross-tenant access can use this workbook to visualize and review existing access activity patterns before making policy changes. For example, you can identify the apps your users are accessing in external organizations so that you don't inadvertently block critical business processes. Understanding how external users access resources in your tenant (inbound access) and how users in your tenant access resources in external tenants (outbound access) helps ensure you have the right cross-tenant policies in place.
 
 For more information, see the [Microsoft Entra External ID documentation](../external-identities/index.yml).
 
@@ -49,7 +49,7 @@ The total number of external tenants that have had cross-tenant access activity 
 
 ![Screenshot of the first section of the workbook.](./media/workbook-cross-tenant-access-activity/cross-tenant-activity-top.png)
 
-The **External Tenant** list shows all the tenants that have had inbound or outbound activity with your tenant. When you select an external tenant in the table, the sections after the table update with information about outbound and inbound activity for that tenant.
+The **External Tenant** list shows all the tenants that have had inbound or outbound activity with your tenant. When you select an external tenant in the table, the sections after the table display information about outbound and inbound activity for that tenant.
 
 ![Screenshot of the external tenant list.](./media/workbook-cross-tenant-access-activity/cross-tenant-activity-external-tenant-list.png)
 
@@ -57,7 +57,7 @@ When you select an external tenant from the list with outbound activity, associa
 
 ![Screenshot of the outbound and inbound activity, with the outbound and inbound options highlighted.](./media/workbook-cross-tenant-access-activity/cross-tenant-activity-outbound-inbound-activity.png)
 
-When viewing external tenants with outbound activity, the subsequent two tables display details for the application and user activity appear. When viewing external tenants with inbound activity, the same tables show inbound application and user activity. These tables are dynamic and based on what was previously selected, so make sure you're viewing the correct tenant and activity.
+When you're viewing external tenants with outbound activity, the subsequent two tables display details for the application and user activity appear. When you're viewing external tenants with inbound activity, the same tables show inbound application and user activity. These tables are dynamic and based on what was previously selected, so make sure you're viewing the correct tenant and activity.
 
 ## Filters
 
