@@ -98,7 +98,7 @@ Generally, the latest released version and the previous three versions (n-3) of 
 - n-2 version: 1.0.8
 - n-3 version: 1.0.7
 
-There may be instances where supported versions are not sequential. For example, version 1.0.11 is released and later found to contain a bug. A hot fix is released in version 1.0.12 and version 1.0.11 is removed. In this scenario, n-3 supported versions becomes 1.0.12, 1.0.10, 1.0.9, 1.0.8.
+There may be instances where supported versions are not sequential. For example, version 1.0.11 is released and later found to contain a bug. A hot fix is released in version 1.0.12 and version 1.0.11 is removed. In this scenario, n-3 supported versions become 1.0.12, 1.0.10, 1.0.9, 1.0.8.
 
 Arc resource bridge typically releases a new version on a monthly cadence, at the end of the month. Delays may occur that could push the release date further out. Regardless of when a new release comes out, if you are within n-3 supported versions, then your Arc resource bridge version is supported. To stay updated on releases, visit the [Arc resource bridge release notes](https://github.com/Azure/ArcResourceBridge/releases) on GitHub.
 
