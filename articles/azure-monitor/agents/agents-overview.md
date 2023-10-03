@@ -189,6 +189,7 @@ View [supported operating systems for Azure Arc Connected Machine agent](../../a
 | Windows 8 Enterprise and Pro<br>(Server scenarios only   |   | X<sup>1</sup>) |   |
 | Windows 7 SP1<br>(Server scenarios only)                 |   | X<sup>1</sup>) |   |
 | Azure Stack HCI                                          | X | X |   |
+| Windows IoT Enterprise                                          | X |   |   |
 
 <sup>1</sup> Running the OS on server hardware that is always connected, always on.<br>
 <sup>2</sup> Using the Azure Monitor agent [client installer](./azure-monitor-agent-windows-client.md).<br>

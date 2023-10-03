@@ -47,9 +47,9 @@ Join Teams meeting with combination of thread ID, organizer ID, tenant ID, and m
 ```js
 const meetingCall = teamsCallAgent.join({ threadId: '<THREAD_ID>', organizerId: '<ORGANIZER_ID>', tenantId: '<TENANT_ID>', messageId: '<MESSAGE_ID>' });
 ```
-Join Teams meeting with meeting code:
+Join Teams meeting with meeting code and passcode:
 ```js
-const meetingCall = teamsCallAgent.join({ meetingId: '<MEETING_CODE>'});
+const meetingCall = teamsCallAgent.join({ meetingId: '<MEETING_CODE>', passcode: '<PASSCODE>'});
 ```
 
 ## Receive a Teams incoming call

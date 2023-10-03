@@ -1,13 +1,13 @@
 ---
 title: Create or modify an Exchange peering - Azure portal
-description: Create or modify an Exchange peering using the Azure portal.
+titleSuffix: Internet Peering
+description: Learn how to create or modify an Exchange peering using the Azure portal.
 services: internet-peering
 author: halkazwini
+ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 01/23/2023
-ms.author: halkazwini
-ms.custom: template-how-to, engagement-fy23
+ms.date: 10/03/2023
 ---
 
 # Create or modify an Exchange peering using the Azure portal
@@ -42,9 +42,6 @@ As an Internet Exchange Provider, you can create an exchange peering request by 
 *    Select your Azure Subscription.
 
 * For Resource group, you can either choose an existing resource group from the drop-down list or create a new group by selecting Create new. We'll create a new resource group for this example.
-
-    >[!NOTE]
-    >Once a subscription and resource group have been selected for the peering resource, it cannot be moved to another subscription or resource group.
 
 * Name corresponds to the resource name and can be anything you choose.
 
