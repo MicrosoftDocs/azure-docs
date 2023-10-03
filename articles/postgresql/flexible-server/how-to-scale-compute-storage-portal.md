@@ -13,12 +13,12 @@ ms.date: 11/30/2021
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-This article provides steps to perform scaling operations for compute and storage. You will be able to change your compute tiers between burstable, general purpose, and memory optimized SKUs, including choosing the number of vCores that is suitable to run your application. You can also scale up your storage. Expected IOPS are shown based on the compute tier, vCores and the storage capacity. The cost estimate is also shown based on your selection.
+This article provides steps to perform scaling operations for compute and storage. You are able to change your compute tiers between burstable, general purpose, and memory optimized SKUs, including choosing the number of vCores that is suitable to run your application. You can also scale up your storage. Expected IOPS are shown based on the compute tier, vCores and the storage capacity. The cost estimate is also shown based on your selection.
 
 > [!IMPORTANT]
 > You cannot scale down the storage.
 
-## Pre-requisites
+## Prerequisites
 
 To complete this how-to guide, you need:
 
@@ -40,7 +40,7 @@ Follow these steps to choose the compute tier.
    :::image type="content" source="./media/how-to-scale-compute-storage-portal/list-compute-tiers.png" alt-text="list compute tiers":::
 
 
-5.  If you are good with the default vCores and memory sizes, you can skip the next step.
+5.  If you're good with the default vCores and memory sizes, you can skip the next step.
 
 6.  If you want to change the number of vCores, you can click the drop-down of **Compute size** and click the desired number of vCores/Memory from the list.
     
@@ -54,7 +54,7 @@ Follow these steps to choose the compute tier.
     :::image type="content" source="./media/how-to-scale-compute-storage-portal/compute-memory-optimized-dropdown.png" alt-text="memory optimized compute":::
 
 7.  Click **Save**. 
-8.  You will see a confirmation message. Click **OK** if you want to proceed. 
+8.  You see a confirmation message. Click **OK** if you want to proceed. 
 9.  A notification about the scaling operation in progress.
 
 
@@ -75,11 +75,11 @@ Follow these steps to increase your storage size.
 
 6.  If you are good with the storage size, click **Save**.
    
-8.  Most of the disk scaling operations are **online** and as soon as you click **Save** scaling process starts without any downtime but some scaling operations are **offline** and you will see the below server resrart message. Click **continue** if you want to proceed.
+8.  Most of the disk scaling operations are **online** and as soon as you click **Save** scaling process starts without any downtime but some scaling operations are **offline** and you will see below server restart message. Click **continue** if you want to proceed.
 
      :::image type="content" source="./media/how-to-scale-compute-storage-portal/offline-scaling.png" alt-text="offline scaling":::
    
-10.  A notification about the scaling operation in progress.
+10.  A receive a notification that scaling operation is in progress.
 
 
 ## Storage Autogrow 
@@ -97,7 +97,7 @@ Follow these steps to increase your storage size.
  :::image type="content" source="./media/how-to-scale-compute-storage-portal/storage-autogrow.png" alt-text="storage autogrow":::
 
 6.  click **Save**. 
-7.  You will receive a notification about the enabling storage autogrow.
+7.  You receive a notification that storage autogrow is in progress.
 
 
 
