@@ -107,7 +107,7 @@ Review the following list for potential resolutions:
   * **ScheduledStartStop_Parent**
   * **SequencedStartStop_Parent**
 
-* Verify that your [Run As account](../automation-security-overview.md#run-as-accounts) has proper permissions to the VMs you're trying to start or stop. To learn how to check the permissions on a resource, see [Quickstart: View roles assigned to a user using the Azure portal](../../role-based-access-control/check-access.md). You'll need to provide the application ID for the service principal used by the Run As account. You can retrieve this value by going to your Automation account in the Azure portal. Select **Run as accounts** under **Account Settings**, and select the appropriate Run As account.
+* To learn how to check the permissions on a resource, see [Quickstart: View roles assigned to a user using the Azure portal](../../role-based-access-control/check-access.md). You'll need to provide the application ID for the service principal used by the Run As account. You can retrieve this value by going to your Automation account in the Azure portal. Select **Run as accounts** under **Account Settings**, and select the appropriate Run As account.
 
 * VMs might not be started or stopped if they're being explicitly excluded. Excluded VMs are set in the `External_ExcludeVMNames` variable in the Automation account to which the feature is deployed. The following example shows how you can query that value with PowerShell.
 
@@ -199,9 +199,7 @@ This issue can be caused by an improperly configured or expired Run As account. 
 
 To verify that your Run As account is properly configured, go to your Automation account in the Azure portal and select **Run as accounts** under **Account Settings**. If a Run As account is improperly configured or expired, the status shows the condition.
 
-If your Run As account is misconfigured, delete and re-create your Run As account. For more information, see [Azure Automation Run As accounts](../automation-security-overview.md#run-as-accounts).
-
-If the certificate is expired for your Run As account, follow the steps in [Self-signed certificate renewal](../manage-runas-account.md#cert-renewal) to renew the certificate.
+If your Run As account is misconfigured, delete and re-create your Run As account.
 
 If there are missing permissions, see [Quickstart: View roles assigned to a user using the Azure portal](../../role-based-access-control/check-access.md). You must provide the application ID for the service principal used by the Run As account. You can retrieve this value by going to your Automation account in the Azure portal. Select **Run as accounts** under **Account Settings**, and select the appropriate Run As account.
 
