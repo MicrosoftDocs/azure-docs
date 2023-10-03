@@ -92,7 +92,7 @@ Learn more about [App Service Certificate - ASCDomainVerificationRequired (Domai
 
 ## Cache
 
-### Availability may be impacted from high memory fragmentation. Increase fragmentation memory reservation to avoid potential impact.
+### Availability may be impacted from high memory fragmentation. Increase fragmentation memory reservation to avoid potential impact
 
 Fragmentation and memory pressure can cause availability incidents during a failover or management operations. Increasing reservation of memory for fragmentation helps in reducing the cache failures when running under high memory pressure. Memory for fragmentation can be increased via maxfragmentationmemory-reserved setting available in advanced settings blade.
 
@@ -247,7 +247,7 @@ Virtual machines in an Availability Set with disks that share either storage acc
 
 Learn more about [Availability set - ManagedDisksAvSet (Use Managed Disks to improve data reliability)](https://aka.ms/aa_avset_manageddisk_learnmore).
 
-### Check Point Virtual Machine may lose Network Connectivity.
+### Check Point Virtual Machine may lose Network Connectivity
 
 We have identified that your Virtual Machine might be running a version of Check Point image that has been known to lose network connectivity in the event of a platform servicing operation. We recommend that you upgrade to a newer version of the image. Contact Check Point for further instructions on how to upgrade your image.
 
@@ -265,6 +265,26 @@ In order for a session host to deploy and register to Azure Virtual Desktop prop
 
 Learn more about [Virtual machine - SessionHostNeedsAssistanceForUrlCheck (Access to mandatory URLs missing for your Azure Virtual Desktop environment)](../virtual-desktop/safe-url-list.md).
 
+### Clusters having node pools using non-recommended B-Series
+
+Cluster has one or more node pools using a non-recommended burstable VM SKU. With burstable VMs, full vCPU capability 100% is unguaranteed. Please make sure B-series VM's are not used in Production environment.
+
+Learn more about [Kubernetes service - ClustersUsingBSeriesVMs (Clusters having node pools using non-recommended B-Series)](/azure/virtual-machines/sizes-b-series-burstable).
+
+## MySQL
+
+### Replication - Add a primary key to the table that currently does not have one
+
+Based on our internal monitoring, we have observed significant replication lag on your replica server. This lag is occurring because the replica server is replaying relay logs on a table that lacks a primary key. To ensure that the replica server can effectively synchronize with the primary and keep up with changes, we highly recommend adding primary keys to the tables in the primary server and subsequently recreating the replica server.
+
+Learn more about [Azure Database for MySQL flexible server - MySqlFlexibleServerReplicaMissingPKfb41 (Replication - Add a primary key to the table that currently does not have one)](/azure/mysql/how-to-troubleshoot-replication-latency#no-primary-key-or-unique-key-on-a-table).
+
+### High Availability - Add primary key to the table that currently does not have one
+
+Our internal monitoring system has identified significant replication lag on the High Availability standby server. This lag is primarily caused by the standby server replaying relay logs on a table that lacks a primary key. To address this issue and adhere to best practices, it is recommended to add primary keys to all tables. Once this is done, proceed to disable and then re-enable High Availability to mitigate the problem.
+
+Learn more about [Azure Database for MySQL flexible server - MySqlFlexibleServerHAMissingPKcf38 (High Availability - Add primary key to the table that currently does not have one.)](/azure/mysql/how-to-troubleshoot-replication-latency#no-primary-key-or-unique-key-on-a-table).
+
 ## PostgreSQL
 
 ### Improve PostgreSQL availability by removing inactive logical replication slots
@@ -275,7 +295,7 @@ Learn more about [PostgreSQL server - OrcasPostgreSqlLogicalReplicationSlots (Im
 
 ### Improve PostgreSQL availability by removing inactive logical replication slots
 
-Our internal telemetry indicates that your PostgreSQL flexible server may have inactive logical replication slots. THIS NEEDS IMMEDIATE ATTENTION. This can result in degraded server performance and unavailability due to WAL file retention and buildup of snapshot files. To improve performance and availability, we STRONGLY recommend that you IMMEDIATELY either delete the inactive replication slots, or start consuming the changes from these slots so that the slots' Log Sequence Number (LSN) advances and is close to the current LSN of the server.
+Our internal telemetry indicates that your PostgreSQL flexible server may have inactive logical replication slots. THIS NEEDS IMMEDIATE ATTENTION. Inactive logical replication slots can result in degraded server performance and unavailability due to WAL file retention and buildup of snapshot files. To improve performance and availability, we STRONGLY recommend that you IMMEDIATELY either delete the inactive replication slots, or start consuming the changes from these slots so that the slots' Log Sequence Number (LSN) advances and is close to the current LSN of the server.
 
 Learn more about [Azure Database for PostgreSQL flexible server - OrcasPostgreSqlFlexibleServerLogicalReplicationSlots (Improve PostgreSQL availability by removing inactive logical replication slots)](https://aka.ms/azure_postgresql_flexible_server_logical_decoding).
 
@@ -286,6 +306,36 @@ Learn more about [Azure Database for PostgreSQL flexible server - OrcasPostgreSq
 Some or all of your devices are using outdated SDK and we recommend you upgrade to a supported version of SDK. See the details in the recommendation.
 
 Learn more about [IoT hub - UpgradeDeviceClientSdk (Upgrade device client SDK to a supported version for IotHub)](https://aka.ms/iothubsdk).
+
+### IoT Hub Potential Device Storm Detected
+
+This is when two or more devices are trying to connect to the IoT Hub using the same device ID credentials. When the second device (B) connects, it causes the first one (A) to become disconnected. Then (A) attempts to reconnect again, which causes (B) to get disconnected.
+
+Learn more about [IoT hub - IoTHubDeviceStorm (IoT Hub Potential Device Storm Detected)](https://aka.ms/IotHubDeviceStorm).
+
+### Upgrade Device Update for IoT Hub SDK to a supported version
+
+Your Device Update for IoT Hub Instance is using an outdated version of the SDK. We recommend upgrading to the latest version for the latest fixes, performance improvements, and new feature capabilities.
+
+Learn more about [IoT hub - DU_SDK_Advisor_Recommendation (Upgrade Device Update for IoT Hub SDK to a supported version)](/azure/iot-hub-device-update/understand-device-update).
+
+### IoT Hub Quota Exceeded Detected
+
+We have detected that your IoT Hub has exceeded its daily message quota.  Consider adding units or increasing the SKU level to prevent this in the future.
+
+Learn more about [IoT hub - IoTHubQuotaExceededAdvisor (IoT Hub Quota Exceeded Detected)](/azure/iot-hub/troubleshoot-error-codes#403002-iothubquotaexceeded).
+
+### Upgrade device client SDK to a supported version for IotHub
+
+Some or all of your devices are using outdated SDK and we recommend you upgrade to a supported version of SDK. See the details in the recommendation.
+
+Learn more about [IoT hub - UpgradeDeviceClientSdk (Upgrade device client SDK to a supported version for IotHub)](https://aka.ms/iothubsdk).
+
+### Upgrade Edge Device Runtime to a supported version for Iot Hub
+
+Some or all of your Edge devices are using outdated versions and we recommend you upgrade to the latest supported version of the runtime. See the details in the recommendation.
+
+Learn more about [IoT hub - UpgradeEdgeSdk (Upgrade Edge Device Runtime to a supported version for Iot Hub)](https://aka.ms/IOTEdgeSDKCheck).
 
 ## Azure Cosmos DB
 
@@ -432,6 +482,12 @@ Learn more about [Machine - Azure Arc - ArcServerAgentVersion (Upgrade to the la
 
 ## Kubernetes
 
+### Upgrade to Standard tier for mission-critical and production clusters
+
+This cluster has more than 10 nodes and has not enabled the Standard tier. The Kubernetes Control Plane on the Free tier comes with limited resources and is not intended for production use or any cluster with 10 or more nodes.
+
+Learn more about [Kubernetes service - UseStandardpricingtier (Upgrade to Standard tier for mission-critical and production clusters)](/azure/aks/uptime-sla).
+
 ### Pod Disruption Budgets Recommended
 
 Pod Disruption Budgets Recommended. Improve service high availability.
@@ -446,7 +502,7 @@ Learn more about [Kubernetes - Azure Arc - Arc-enabled K8s agent version upgrade
 
 ## Media Services
 
-### Increase Media Services quotas or limits to ensure continuity of service.
+### Increase Media Services quotas or limits to ensure continuity of service
 
 Your media account is about to hit its quota limits. Review current usage of Assets, Content Key Policies and Stream Policies for the media account. To avoid any disruption of service, you should request quota limits to be increased for the entities that are closer to hitting quota limit. You can request quota limits to be increased by opening a ticket and adding relevant details to it. Don't create additional Azure Media accounts in an attempt to obtain higher limits.
 
@@ -551,25 +607,31 @@ Learn more about [Recovery Services vault - Enable CRR (Enable Cross Region Rest
 
 ## Search
 
-### You are close to exceeding storage quota of 2GB. Create a Standard search service.
+### You are close to exceeding storage quota of 2GB. Create a Standard search service
 
 You're close to exceeding storage quota of 2GB. Create a Standard search service. Indexing operations stop working when storage quota is exceeded.
 
 Learn more about [Service limits in Azure Cognitive Search](/azure/search/search-limits-quotas-capacity).
 
-### You are close to exceeding storage quota of 50MB. Create a Basic or Standard search service.
+### You are close to exceeding storage quota of 50MB. Create a Basic or Standard search service
 
 You're close to exceeding storage quota of 50MB. Create a Basic or Standard search service. Indexing operations stop working when storage quota is exceeded.
 
 Learn more about [Service limits in Azure Cognitive Search](/azure/search/search-limits-quotas-capacity).
 
-### You are close to exceeding your available storage quota. Add additional partitions if you need more storage.
+### You are close to exceeding your available storage quota. Add additional partitions if you need more storage
 
 you're close to exceeding your available storage quota. Add additional partitions if you need more storage. After exceeding storage quota, you can still query, but indexing operations no longer work.
 
 Learn more about [Service limits in Azure Cognitive Search](/azure/search/search-limits-quotas-capacity).
 
 ## Storage
+
+### You have ADLS Gen1 Accounts Which Need to be Migrated to ADLS Gen2
+
+As previously announced, Azure Data Lake Storage Gen1 will be retired on February 29, 2024. We highly recommend migrating your data lake to Azure Data Lake Storage Gen2, which offers advanced capabilities specifically designed for big data analytics and is built on top of Azure Blob Storage.
+
+Learn more about [Data lake store account - ADLSGen1_Deprecation (You have ADLS Gen1 Accounts Which Needs to be Migrated to ADLS Gen2)](https://azure.microsoft.com/updates/action-required-switch-to-azure-data-lake-storage-gen2-by-29-february-2024/).
 
 ### Enable Soft Delete to protect your blob data
 
@@ -627,13 +689,13 @@ You have deployed your application multiple times over the last week. Deployment
 
 Learn more about [App service - AppServiceStandardOrHigher (Move your App Service resource to Standard or higher and use deployment slots)](https://aka.ms/ant-staging).
 
-### Consider scaling out your App Service Plan to optimize user experience and availability.
+### Consider scaling out your App Service Plan to optimize user experience and availability
 
 Consider scaling out your App Service Plan to at least two instances to avoid cold start delays and service interruptions during routine maintenance.
 
 Learn more about [App Service plan - AppServiceNumberOfInstances (Consider scaling out your App Service Plan to optimize user experience and availability.)](https://aka.ms/appsvcnuminstances).
 
-### Consider upgrading the hosting plan of the Static Web App(s) in this subscription to Standard SKU.
+### Consider upgrading the hosting plan of the Static Web App(s) in this subscription to Standard SKU
 
 The combined bandwidth used by all the Free SKU Static Web Apps in this subscription is exceeding the monthly limit of 100GB. Consider upgrading these apps to Standard SKU to avoid throttling.
 
