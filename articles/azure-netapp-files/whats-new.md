@@ -21,9 +21,11 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
-* [Manageability enhancement: Identify parent snapshot](snapshots-restore-new-volume.md)
+## October 2023
 
-    You can now see the name of the backup or snapshot used to create a new volume. In the Volume overview page, the **Originated from** field identifies the source backup or snapshot used in volume creation. If the field is empty, no snapshot or backup was used. 
+* [Snapshot manageability enhancement: Identify parent snapshot](snapshots-restore-new-volume.md)
+
+    You can now see the name of the snapshot used to create a new volume. In the Volume overview page, the **Originated from** field identifies the source snapshot used in volume creation. If the field is empty, no snapshot or backup was used. 
 
 ## September 2023
 
