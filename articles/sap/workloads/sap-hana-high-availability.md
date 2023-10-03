@@ -1377,7 +1377,7 @@ In the following test descriptions, we assume `PREFER_SITE_TAKEOVER="true"` and 
 
 1. Test 10: Crash primary database indexserver
 
-   This test is relevant only when you have set up the susChkSrv hook as outlined in [Implement HANA hooks SAPHanaSR and susChkSrv](../../sap-hana-high-availability.md#implement-hana-hooks-saphanasr-and-suschksrv).
+   This test is relevant only when you have set up the susChkSrv hook as outlined in [Implement HANA hooks SAPHanaSR and susChkSrv](./sap-hana-high-availability.md#implement-hana-hooks-saphanasr-and-suschksrv).
 
    The resource state before starting the test:
 
