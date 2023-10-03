@@ -5,7 +5,7 @@ ms.service: virtual-machines
 ms.subservice: hpc
 ms.custom: devx-track-linux
 ms.topic: article
-ms.date: 04/11/2023
+ms.date: 10/03/2023
 ms.reviewer: cynthn, mattmcinnes
 ms.author: mamccrea
 author: mamccrea
@@ -21,10 +21,10 @@ This article shares some guidance on configuring and optimizing the InfiniBand-e
 
 On InfiniBand (IB) enabled VMs, the appropriate drivers are required to enable RDMA.
 
-- The [CentOS-HPC VM images](#centos-hpc-vm-images) in the Marketplace come preconfigured with the appropriate IB drivers.
-  - The CentOS-HPC version 7.9 VM image additionally comes preconfigured with the NVIDIA GPU drivers.
 - The [Ubuntu-HPC VM images](#ubuntu-hpc-vm-images) in the Marketplace come preconfigured with the appropriate IB drivers and GPU drivers.
 - The [AlmaLinux-HPC VM images](#almalinux-hpc-vm-images) in the Marketplace come preconfigured with the appropriate IB drivers and GPU drivers.
+- The [CentOS-HPC VM images](#centos-hpc-vm-images) in the Marketplace come preconfigured with the appropriate IB drivers.
+  - The CentOS-HPC version 7.9 VM image additionally comes preconfigured with the NVIDIA GPU drivers.
 
 These VM images are based on the base CentOS and Ubuntu marketplace VM images. Scripts used in the creation of these VM images from their base CentOS Marketplace image are on the [azhpc-images repo](https://github.com/Azure/azhpc-images/tree/master/centos).
 
