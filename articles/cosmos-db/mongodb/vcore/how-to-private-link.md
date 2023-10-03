@@ -32,7 +32,7 @@ This guide delineates the process of setting up private endpoints specifically f
 - An existing Azure Cosmos DB for MongoDB vCore cluster.
   - If you don't have an Azure subscription, [create an account for free](https://azure.microsoft.com/free).
   - If you have an existing Azure subscription, [create a new Azure Cosmos DB for MongoDB vCore cluster](quickstart-portal.md).
-- {TODO: Optionally, more prerequisites}
+<!-- - {TODO: Optionally, more prerequisites} -->
 
 ## Create a private endpoint by using the Azure portal
 
@@ -96,7 +96,7 @@ When you have an approved Private Endpoint for an Azure Cosmos DB account, in th
  Follow these steps to view a private endpoint for an existing Azure Cosmos DB account by using the Azure portal:
 1. Sign in to the [Azure portal](https://portal.azure.com), then select Private Link under Azure Services.
 
-1. Select **Private Endpoint** from the list of settings to view all Private endpoints 
+1. Select **Private Endpoint** from the list of settings to view all Private endpoints. 
 
 ## Next steps
 
