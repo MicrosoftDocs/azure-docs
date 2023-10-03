@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 09/27/2023
+ms.date: 10/02/2023
 
 
 ms.author: justinha
@@ -16,6 +16,7 @@ ms.reviewer: vimrang
 
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
+ms.localizationpriority: high
 ---
 
 # Microsoft Entra certificate-based authentication technical deep dive

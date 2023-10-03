@@ -34,6 +34,9 @@ For example: "Migrate data from regular tables to ledger tables" or "Create a ne
 -->
 
 # Manage assets remotely
+
+[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+
 TODO: Add your heading
 
 <!-- 2. Introductory paragraph ----------------------------------------------------------

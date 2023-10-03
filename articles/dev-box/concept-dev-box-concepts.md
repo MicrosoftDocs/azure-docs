@@ -15,24 +15,26 @@ ms.custom: template-concept
 
 This article describes the key concepts and components of Microsoft Dev Box.
 
-## Dev box
-
-A dev box is a preconfigured, ready-to-code workstation that you create through the self-service developer portal. A new dev box has all the tools, binaries, and configuration required for a dev box user to be productive immediately. You can create and manage multiple dev boxes to work on multiple workstreams.
-
-As a dev box user, you have control over your own dev boxes. You can create more as you need them and delete them when you finish using them.
+As you learn about Microsoft Dev Box, you'll also encounter components of [Azure Deployment Environments](../deployment-environments/overview-what-is-azure-deployment-environments.md), a complementary service that shares certain architectural components. Deployment Environments provides developers with preconfigured cloud-based environments for developing applications. 
 
 ## Dev center
 
-A dev center is a collection of projects that require similar settings. Dev centers enable platform engineers to:
+A dev center is a collection of [Projects](#project) that require similar settings. Dev centers enable platform engineers to:
 
-- Manage the images and SKUs available to the projects by using dev box definitions.
+- Manage the images and SKUs available to the projects by using [dev box definitions](#dev-box-definition).
 - Configure the networks that the development teams consume by using network connections. 
+
+[Azure Deployment Environments](../deployment-environments/concept-environments-key-concepts.md#dev-centers) also uses dev centers to organize resources. An organization can use the same dev center for both services.
 
 ## Project
 
-A project is the point of access for development team members. When you associate a project with a dev center, all the settings at the dev center level are applied to the project automatically.
+In Dev Box, a project represents a team or business function within the organization. Each project is a collection of [pools](#dev-box-pool), and each pool represents a region or workload. When you associate a project with a dev center, all the settings at the dev center level are applied to the project automatically.
 
 Each project can be associated with only one dev center. Dev managers can configure the dev boxes available for a project by specifying the dev box definitions that are appropriate for their workloads.
+
+To enable developers to create their own dev boxes, you must [provide access to projects for developers](how-to-dev-box-user.md) by assigning the Dev Box User role.
+
+You can configure projects for [Deployment Environments](../deployment-environments/concept-environments-key-concepts.md#projects) and projects for Dev Box resources in the same dev center.
 
 ## Dev box definition
 
@@ -55,11 +57,11 @@ The virtual network specified in a network connection also determines the region
 
 A dev box pool is a collection of dev boxes that you manage together and to which you apply similar settings. You can create multiple dev box pools to support the needs of hybrid teams that work in different regions or on different workloads.
 
-## Resources shared with Azure Deployment Environments
+## Dev box
 
-Microsoft Dev Box and Azure Deployment Environments are complementary services that share certain architectural components. Dev centers and projects are common to both services, and they help organize resources in an enterprise. You can configure projects for Deployment Environments and projects for Dev Box resources in the same dev center. 
+A dev box is a preconfigured workstation that you create through the self-service developer portal. A new dev box has all the tools, binaries, and configuration required for a dev box user to be productive immediately. You can create and manage multiple dev boxes to work on multiple workstreams.
 
-To learn more about the components common to Deployment Environments and Dev Box, see [Components common to Microsoft Dev Box and Azure Deployment Environments](concept-common-components.md).
+As a dev box user, you have control over your own dev boxes. You can create more as you need them and delete them when you finish using them.
 
 ## Related content
 

@@ -26,6 +26,7 @@ Required: Use an H1 that includes the feature name and the product or service na
 
 # What is Azure IoT Operations?
 
+[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
 <!-- 2. Overview ------------------------------------------------------------------------
 

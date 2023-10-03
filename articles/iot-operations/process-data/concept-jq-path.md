@@ -7,123 +7,536 @@ ms.author: dobett
 ms.topic: concept-article #Required; leave this attribute/value as-is.
 ms.date: 09/07/2023
 
-#CustomerIntent: As a <type of user>, I want <what?> so that <why?>.
+#CustomerIntent: As an operator, I want understand how to reference parts of a message so that I can configure pipeline stages.
 ---
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the  main branch.
+# What are jq path expressions?
 
-This template provides the basic structure of a Concept article pattern. See the [instructions - Concept](../level4/article-concept.md) in the pattern library.
+[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-You can provide feedback about this template at: https://aka.ms/patterns-feedback
+Many pipeline stages in the data processor make use of _jq path_ expressions. Whenever you need to retrieve information from a message or to place some information into a message, you use a path. jq paths let you:
 
-Concept is an article pattern that defines what something is or explains an abstract idea.
+- Locate a piece of information in a message.
+- Identify where to place a piece of information into a message.
 
-There are several situations that might call for writing a Concept article, including:
+Both cases use the same syntax and specify locations relative to the root of the message structure.
 
-* If there's a new idea that's central to a service or product, that idea must be explained so that customers understand the value of the service or product as it relates to their circumstances. A good recent example is the concept of containerization or the concept of scalability.
-* If there's optional information or explanations that are common to several Tutorials or How-to guides, this information can be consolidated and single-sourced in a full-bodied Concept article for you to reference.
-* If a service or product is extensible, advanced users might modify it to better suit their application. It's better that advanced users fully understand the reasoning behind the design choices and everything else "under the hood" so that their variants are more robust, thereby improving their experience.
+The jq paths supported by the data processor are syntactically correct for [jq](https://jqlang.github.io/jq/), but have simplified semantics to make the them easier to use and to help reduce errors in the data processor. In particular, the data processor doesn't use the `?` syntax to suppress errors for misaligned data structures. Those errors are automatically suppressed for you when working with paths.
 
--->
+Examples of data access within a data processor pipeline include the `inputPath` in the aggregate and last known value stages. Use the data access pattern whenever you need to access some data within a data processor message.
 
-<!-- 1. H1
------------------------------------------------------------------------------
+Data update uses the same syntax as data access, but there are some special behaviors in specific update scenarios. Examples of data update within a data processor pipeline include the `outputPath` in the aggregate and last known value pipeline stages. Use the data update pattern whenever you need to place the result of an operation into the data processor message.
 
-Required. Set expectations for what the content covers, so customers know the content meets their needs. The H1 should NOT begin with a verb.
+<!-- TODO: Add links to relevant stages in previous paragraphs -->
 
-Reflect the concept that undergirds an action, not the action itself. The H1 must start with:
+> [!NOTE]
+> A data processor message contains more than just the body of your message. A data processor message includes any properties and metadata that you sent and other relevant system information. The primary payload containing the data sent into the processing pipeline is placed in a `payload` field at the root of the message. This is why many of the examples in this guide include paths that start with `.payload`.
 
-* "\<noun phrase\> concept(s)", or
-* "What is \<noun\>?", or
-* "\<noun\> overview"
+## Syntax
 
-Concept articles are primarily distinguished by what they aren't:
+Every jq path consists of a sequence of one or more of the following segments:
 
-* They aren't procedural articles. They don't show how to complete a task.
-* They don't have specific end states, other than conveying an underlying idea, and don't have concrete, sequential actions for the user to take.
+- The root path: `.`.
+- A field in a map or object that uses one of:
+  - `.<identifier>` for alphanumeric object keys. For example, `.temperature`.
+  - `."<identifier>"` for arbitrary object keys. For example, `."asset-id"`.
+  - `["<identifier>"]` or arbitrary object keys. For example, `["asset-id"]`.
+- An array index: `[<index>]`. For example,`[2]`.
 
-One clear sign of a procedural article would be the use of a numbered list. With rare exception, numbered lists shouldn't appear in Concept articles.
+Paths must always start with a `.`. Even if you have an array or complex map key at the beginning of your path, there must be a `.` that precedes it. The paths `.["complex-key"]` and `.[1].value` are valid. The paths `["complex-key"]` and `[1].value` are invalid.
 
--->
+## Example message
 
-# jq path expressions
+The following data access and data update examples use the following message to illustrate the use of different path expressions:
 
-TODO: Add your heading
+```json
+{
+  "systemProperties": {
+    "partitionKey": "slicer-3345",
+    "partitionId": 5,
+    "timestamp": "2023-01-11T10:02:07Z"
+  },
+  "qos": 1,
+  "topic": "assets/slicer-3345",
+  "properties": {
+    "responseTopic": "assets/slicer-3345/output",
+    "contentType": "application/json"
+  },
+  "payload": {
+    "Timestamp": 1681926048,
+    "Payload": {
+      "dtmi:com:prod1:slicer3345:humidity": {
+        "sourceTimestamp": 1681926048,
+        "value": 10
+      },
+      "dtmi:com:prod1:slicer3345:lineStatus": {
+        "sourceTimestamp": 1681926048,
+        "value": [1, 5, 2]
+      },
+      "dtmi:com:prod1:slicer3345:speed": {
+        "sourceTimestamp": 1681926048,
+        "value": 85
+      },
+      "dtmi:com:prod1:slicer3345:temperature": {
+        "sourceTimestamp": 1681926048,
+        "value": 46
+      }
+    },
+    "DataSetWriterName": "slicer-3345",
+    "SequenceNumber": 461092
+  }
+}
+```
 
-<!-- 2. Introductory paragraph
-----------------------------------------------------------
+## Root path for data access
 
-Required. Lead with a light intro that describes what the article covers. Answer the fundamental “why would I want to know this?” question. Keep it short.
+The most basic path is the root path, which points to the root of the message and returns the entire message. Given the following jq path:
 
-* Answer the fundamental "Why do I want this knowledge?" question.
-* Don't start the article with a bunch of notes or caveats.
-* Don’t link away from the article in the introduction.
-* For definitive concepts, it's better to lead with a sentence in the form, "X is a (type of) Y that does Z."
+```jq
+.
+```
 
--->
+The result is:
 
-[Introductory paragraph]
-TODO: Add your introductory paragraph
+```json
+{
+  "systemProperties": {
+    "partitionKey": "slicer-3345",
+    "partitionId": 5,
+    "timestamp": "2023-01-11T10:02:07Z"
+  },
+  "qos": 1,
+  "topic": "assets/slicer-3345",
+  "properties": {
+    "responseTopic": "assets/slicer-3345/output",
+    "contentType": "application/json"
+  },
+  "payload": {
+    "Timestamp": 1681926048,
+    "Payload": {
+      "dtmi:com:prod1:slicer3345:humidity": {
+        "sourceTimestamp": 1681926048,
+        "value": 10
+      },
+      "dtmi:com:prod1:slicer3345:lineStatus": {
+        "sourceTimestamp": 1681926048,
+        "value": [1, 5, 2]
+      },
+      "dtmi:com:prod1:slicer3345:speed": {
+        "sourceTimestamp": 1681926048,
+        "value": 85
+      },
+      "dtmi:com:prod1:slicer3345:temperature": {
+        "sourceTimestamp": 1681926048,
+        "value": 46
+      }
+    },
+    "DataSetWriterName": "slicer-3345",
+    "SequenceNumber": 461092
+  }
+}
+```
 
-<!-- 3. Prerequisites --------------------------------------------------------------------
+## Simple identifier for data access
 
-Optional: Make **Prerequisites** your first H2 in the article. Use clear and unambiguous
-language and use a unordered list format. 
+The next simplest path involves a single identifier, in this case the `payload` field. Given the following jq path:
 
--->
+```jq
+.payload
+```
 
-## Prerequisites
-TODO: [List the prerequisites if appropriate]
+> [!TIP]
+> `."payload"` and `.["payload"]` are also valid ways to specify this path. However identifiers that only contain `a-z`, `A-Z`, `0-9` and `_` don't require the more complex syntax.
 
-<!-- 4. H2s (Article body)
---------------------------------------------------------------------
+The result is:
 
-Required: In a series of H2 sections, the article body should discuss the ideas that explain how "X is a (type of) Y that does Z":
+```json
+{
+  "Timestamp": 1681926048,
+  "Payload": {
+    "dtmi:com:prod1:slicer3345:humidity": {
+      "SourceTimestamp": 1681926048,
+      "Value": 10
+    },
+    "dtmi:com:prod1:slicer3345:lineStatus": {
+      "SourceTimestamp": 1681926048,
+      "Value": [1, 5, 2]
+    },
+    "dtmi:com:prod1:slicer3345:speed": {
+      "SourceTimestamp": 1681926048,
+      "Value": 85
+    },
+    "dtmi:com:prod1:slicer3345:temperature": {
+      "SourceTimestamp": 1681926048,
+      "Value": 46
+    }
+  },
+  "DataSetWriterName": "slicer-3345",
+  "SequenceNumber": 461092
+}
+```
 
-* Give each H2 a heading that sets expectations for the content that follows.
-* Follow the H2 headings with a sentence about how the section contributes to the whole.
-* Describe the concept's critical features in the context of defining what it is.
-* Provide an example of how it's used where, how it fits into the context, or what it does. If it's complex and new to the user, show at least two examples.
-* Provide a non-example if contrasting it will make it clearer to the user what the concept is.
-* Images, code blocks, or other graphical elements come after the text block it illustrates.
-* Don't number H2s.
+## Nested fields for data access
 
--->
+You can combine path segments to retrieve data nested deeply within the message, such as a single leaf value. Given either of the following two jq paths:
 
-## [Section 1 heading]
-TODO: add your content
+```jq
+.payload.Payload.["dtmi:com:prod1:slicer3345:temperature"].Value
+```
 
-## [Section 2 heading]
-TODO: add your content
+```jq
+.payload.Payload."dtmi:com:prod1:slicer3345:temperature".Value
+```
 
-## [Section n heading]
-TODO: add your content
+The result is:
 
-<!-- 5. Next step/Related content ------------------------------------------------------------------------ 
+```json
+46
+```
 
-Optional: You have two options for manually curated links in this pattern: Next step and Related content. You don't have to use either, but don't use both.
-  - For Next step, provide one link to the next step in a sequence. Use the blue box format
-  - For Related content provide 1-3 links. Include some context so the customer can determine why they would click the link. Add a context sentence for the following links.
+## Array elements for data access
 
--->
+Array elements work in the same way as map keys, except that you use a number in place a string in the`[]`. Given either of the following two jq paths:
 
-## Next step
+```jq
+.payload.Payload.["dtmi:com:prod1:slicer3345:lineStatus"].Value[1]
+```
 
-TODO: Add your next step link(s)
+```jq
+.payload.Payload."dtmi:com:prod1:slicer3345:lineStatus".Value[1]
+```
 
-<!-- 
-> [!div class="nextstepaction"]
-> [Write concepts](article-concept.md)
+The result is:
 
-OR -->
+```json
+5
+```
+
+## Nonexistent and invalid paths in data access
+
+If a jq path identifies a location that doesn't exist or is incompatible with the structure of the message, then no value is returned.
+
+> [!IMPORTANT]
+> Some processing stages require some value to be present and may fail if no value is found. Others are designed to continue processing normally and either skip the requested operation or perform a different action if no value is found at the path.
+
+Given the following jq path:
+
+```jq
+.payload[1].temperature
+```
+
+The result is:
+
+No value
+
+## Root path for data update
+
+The most basic path is the root path, which points to the root of the message and replaces the entire message. Given the following new value to insert and jq path:
+
+```json
+{ "update": "data" }
+```
+
+```jq
+.
+```
+
+The result is:
+
+```json
+{ "update": "data" }
+```
+
+Updates aren't deep merged with the previous data, but instead replace the data at the level where the update happens. To avoid overwriting data, scope your update to the finest-grained path you want to change or update a separate field to the side of your primary data.
+
+## Simple identifier for data update
+
+The next simplest path involves a single identifier, in this case the `payload` field. Given the following new value to insert and jq path:
+
+```json
+{ "update": "data" }
+```
+
+```jq
+.payload
+```
+
+> [!TIP]
+> `."payload"` and `.["payload"]` are also valid ways to specify this path. However identifiers that only contain `a-z`, `A-Z`, `0-9` and `_` don't require the more complex syntax.
+
+The result is:
+
+```json
+{
+  "systemProperties": {
+    "partitionKey": "slicer-3345",
+    "partitionId": 5,
+    "timestamp": "2023-01-11T10:02:07Z"
+  },
+  "qos": 1,
+  "topic": "assets/slicer-3345",
+  "properties": {
+    "responseTopic": "assets/slicer-3345/output",
+    "contentType": "application/json"
+  },
+  "payload": { "update": "data" }
+}
+```
+
+## Nested fields for data update
+
+You can combine path segments to retrieve data nested deeply within the message, such as a single leaf value. Given the following new value to insert and either of the following two jq paths:
+
+```json
+{ "update": "data" }
+```
+
+```jq
+.payload.Payload.["dtmi:com:prod1:slicer3345:temperature"].Value
+```
+
+```jq
+.payload.Payload."dtmi:com:prod1:slicer3345:temperature".Value
+```
+
+The result is:
+
+```json
+{
+  "systemProperties": {
+    "partitionKey": "slicer-3345",
+    "partitionId": 5,
+    "timestamp": "2023-01-11T10:02:07Z"
+  },
+  "qos": 1,
+  "topic": "assets/slicer-3345",
+  "properties": {
+    "responseTopic": "assets/slicer-3345/output",
+    "contentType": "application/json"
+  },
+  "payload": {
+    "Timestamp": 1681926048,
+    "Payload": {
+      "dtmi:com:prod1:slicer3345:humidity": {
+        "sourceTimestamp": 1681926048,
+        "value": 10
+      },
+      "dtmi:com:prod1:slicer3345:lineStatus": {
+        "sourceTimestamp": 1681926048,
+        "value": [1, 5, 2]
+      },
+      "dtmi:com:prod1:slicer3345:speed": {
+        "sourceTimestamp": 1681926048,
+        "value": 85
+      },
+      "dtmi:com:prod1:slicer3345:temperature": {
+        "sourceTimestamp": 1681926048,
+        "value": { "update": "data" }
+      }
+    },
+    "DataSetWriterName": "slicer-3345",
+    "SequenceNumber": 461092
+  }
+}
+```
+
+## Array elements for data update
+
+Array elements work in the same way as map keys, except that you use a number in place a string in the`[]`. Given the following new value to insert and either of the following two jq paths:
+
+```json
+{ "update": "data" }
+```
+
+```jq
+.payload.Payload.["dtmi:com:prod1:slicer3345:lineStatus"].Value[1]
+``````
+
+```jq
+.payload.Payload."dtmi:com:prod1:slicer3345:lineStatus".Value[1]
+```
+
+The result is:
+
+```json
+{
+  "systemProperties": {
+    "partitionKey": "slicer-3345",
+    "partitionId": 5,
+    "timestamp": "2023-01-11T10:02:07Z"
+  },
+  "qos": 1,
+  "topic": "assets/slicer-3345",
+  "properties": {
+    "responseTopic": "assets/slicer-3345/output",
+    "contentType": "application/json"
+  },
+  "payload": {
+    "Timestamp": 1681926048,
+    "Payload": {
+      "dtmi:com:prod1:slicer3345:humidity": {
+        "sourceTimestamp": 1681926048,
+        "value": 10
+      },
+      "dtmi:com:prod1:slicer3345:lineStatus": {
+        "sourceTimestamp": 1681926048,
+        "value": [1, { "update": "data" }, 2]
+      },
+      "dtmi:com:prod1:slicer3345:speed": {
+        "sourceTimestamp": 1681926048,
+        "value": 85
+      },
+      "dtmi:com:prod1:slicer3345:temperature": {
+        "sourceTimestamp": 1681926048,
+        "value": 46
+      }
+    },
+    "DataSetWriterName": "slicer-3345",
+    "SequenceNumber": 461092
+  }
+}
+```
+
+## Nonexistent and type-mismatched paths in data update
+
+If a jq path identifies a location that doesn't exist or is incompatible with the structure of the message, then the following semantics apply:
+
+- If any segments of the path don't exist, they're created:
+  - For object keys, the key is added to the object.
+  - For array indexes, the array is lengthened with `null` values to make it long enough to have the required index, then the index is updated.
+  - For negative array indexes, the same lengthening procedure happens, but then the first element is replaced.
+- If a path segment has a different type than what it needs, the expression changes the type and discards any existing data at that path location.
+
+The following examples use the same input message as the previous examples and insert the following new value:
+
+```json
+{ "update": "data" }
+```
+
+Given the following jq path:
+
+```jq
+.payload[1].temperature
+```
+
+The result is:
+
+```json
+{
+  "systemProperties": {
+    "partitionKey": "slicer-3345",
+    "partitionId": 5,
+    "timestamp": "2023-01-11T10:02:07Z"
+  },
+  "qos": 1,
+  "topic": "assets/slicer-3345",
+  "properties": {
+    "responseTopic": "assets/slicer-3345/output",
+    "contentType": "application/json"
+  },
+  "payload": [null, { "update": "data" }]
+}
+```
+
+Given the following jq path:
+
+```jq
+.payload.nested.additional.data
+```
+
+The result is:
+
+```json
+{
+  "systemProperties": {
+    "partitionKey": "slicer-3345",
+    "partitionId": 5,
+    "timestamp": "2023-01-11T10:02:07Z"
+  },
+  "qos": 1,
+  "topic": "assets/slicer-3345",
+  "properties": {
+    "responseTopic": "assets/slicer-3345/output",
+    "contentType": "application/json"
+  },
+  "payload": {
+    "Timestamp": 1681926048,
+    "Payload": {
+      "dtmi:com:prod1:slicer3345:humidity": {
+        "sourceTimestamp": 1681926048,
+        "value": 10
+      },
+      "dtmi:com:prod1:slicer3345:lineStatus": {
+        "sourceTimestamp": 1681926048,
+        "value": [1, 5, 2]
+      },
+      "dtmi:com:prod1:slicer3345:speed": {
+        "sourceTimestamp": 1681926048,
+        "value": 85
+      },
+      "dtmi:com:prod1:slicer3345:temperature": {
+        "sourceTimestamp": 1681926048,
+        "value": 46
+      }
+    },
+    "DataSetWriterName": "slicer-3345",
+    "SequenceNumber": 461092,
+    "nested": {
+      "additional": {
+        "data": { "update": "data" }
+      }
+    }
+  }
+}
+```
+
+Given the following jq path:
+
+```jq
+.systemProperties.partitionKey[-4]
+```
+
+The result is:
+
+```json
+{
+  "systemProperties": {
+    "partitionKey": [{"update": "data"}, null, null, null],
+    "partitionId": 5,
+    "timestamp": "2023-01-11T10:02:07Z"
+  },
+  "qos": 1,
+  "topic": "assets/slicer-3345",
+  "properties": {
+    "responseTopic": "assets/slicer-3345/output",
+    "contentType": "application/json"
+  },
+  "payload": {
+    "Timestamp": 1681926048,
+    "Payload": {
+      "dtmi:com:prod1:slicer3345:humidity": {
+        "sourceTimestamp": 1681926048,
+        "value": 10
+      },
+      "dtmi:com:prod1:slicer3345:lineStatus": {
+        "sourceTimestamp": 1681926048,
+        "value": [1, 5, 2]
+      },
+      "dtmi:com:prod1:slicer3345:speed": {
+        "sourceTimestamp": 1681926048,
+        "value": 85
+      },
+      "dtmi:com:prod1:slicer3345:temperature": {
+        "sourceTimestamp": 1681926048,
+        "value": 46
+      }
+    },
+    "DataSetWriterName": "slicer-3345",
+    "SequenceNumber": 461092,
+  }
+```
 
 ## Related content
 
-TODO: Add your next step link(s)
-
-<!--
-- [Write concepts](article-concept.md)
-
-Remove all the comments in this template before you sign-off or merge to the main branch.
--->
+- [What is jq in Data Processor pipelines?](concept-jq.md)
+- [jq expressions](concept-jq-expression.md)

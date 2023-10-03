@@ -12,6 +12,8 @@ ms.date: 09/07/2023
 
 # Serialization and deserialization formats overview
 
+[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+
 The data processor is a data agnostic platform. The data processor can ingest, process, and write out data in any format.
 
 However, to use _jq path expressions_ in some pipeline stages, the data must be in a structured format within a pipeline. You may need to deserialize your data to get it into a suitable structured format.
@@ -76,7 +78,7 @@ Use the following configuration options to deserialize data:
 | Field | Type | Description | Required? | Default | Example |
 |-------|------|-------------|-----------|---------|---------|
 | `type` | `string enum` | The format for deserialization | No | - | `JSON` |
-| `path` | [Path](TODO: Fix path link) | The path to the portion of the data processor message where the deserialized data is written to. | (see following note)| `.payload` | `.payload.response` |
+| `path` | [Path](concept-jq-path.md) | The path to the portion of the data processor message where the deserialized data is written to. | (see following note)| `.payload` | `.payload.response` |
 
 > [!NOTE]
 > You don't need to specify `path` when you deserialize data in the source stage. The deserialized data is automatically placed in the `.payload` section of the message.
@@ -86,10 +88,10 @@ Use the following configuration options to serialize data:
 | Field | Type | Description | Required? | Default | Example |
 |-------|------|-------------|-----------|---------|---------|
 | `type` | `string enum` | The format for serialization | Yes | - | `JSON` |
-| `path` | [Path](TODO: Fix path link) | The path to the portion of the data processor message that should be serialized. | (see following note) | `.payload` | `.payload.response` |
+| `path` | [Path](concept-jq-path.md) | The path to the portion of the data processor message that should be serialized. | (see following note) | `.payload` | `.payload.response` |
 
 > [!NOTE]
-> You don't need to specify `path` when you serialize [batched](TODO link to batch pattern) data. The default path is `.`, which represents the entire message. For unbatched data, you must specify `path`.
+> You don't need to specify `path` when you serialize [batched](concept-configuration-patterns.md#batch) data. The default path is `.`, which represents the entire message. For unbatched data, you must specify `path`.
 
 The following example shows the configuration for serializing or deserializing unbatched JSON data:
 
@@ -102,7 +104,7 @@ The following example shows the configuration for serializing or deserializing u
 }
 ```
 
-The following example shows the configuration for deserializing JSON data in the source stage or serializing [batched](TODO link to batch pattern) JSON data:
+The following example shows the configuration for deserializing JSON data in the source stage or serializing [batched](concept-configuration-patterns.md#batch) JSON data:
 
 ```json
 {
@@ -122,7 +124,7 @@ Use the following configuration options to deserialize Protocol Buffers (protobu
 | `descriptor` | `string` | The base64 encoded descriptor for the protobuf definition file(s). | Yes | - | `Zm9v..` |
 | `package` | `string` | The name of the package in the descriptor where the type is defined. | Yes | - | `package1..` |
 | `message` | `string` | The name of the message type that's used to format the data. | Yes | - | `message1..` |
-| `path` | [Path](TODO: Fix path link) | The path to the portion of the data processor message where the deserialized data should be written. | (see following note) | `.payload` | `.payload.gRPCResponse` |
+| `path` | [Path](concept-jq-path.md) | The path to the portion of the data processor message where the deserialized data should be written. | (see following note) | `.payload` | `.payload.gRPCResponse` |
 
 > [!NOTE]
 > You don't need to specify `path` when you deserialize data in the source stage. The deserialized data is automatically placed in the `.payload` section of the message.
@@ -135,10 +137,10 @@ Use the following configuration options to serialize protobuf data:
 | `descriptor` | `string` | The base64 encoded descriptor for the protobuf definition file(s). | Yes | - | `Zm9v..` |
 | `package` | `string` | The name of the package in the descriptor where the type is defined. | Yes | - | `package1..` |
 | `message` | `string` | The name of the message type that's used to format the data. | Yes | - | `message1..` |
-| `path` | [Path](TODO: Fix path link) | The path to the portion of the data processor message where data to be serialized is read from. | (see following note) | - | `.payload.gRPCRequest` |
+| `path` | [Path](concept-jq-path.md) | The path to the portion of the data processor message where data to be serialized is read from. | (see following note) | - | `.payload.gRPCRequest` |
 
 > [!NOTE]
-> You don't need to specify `path` when you serialize [batched](TODO link to batch pattern) data. The default path is `.`, which represents the entire message.
+> You don't need to specify `path` when you serialize [batched](concept-configuration-patterns.md#batch) data. The default path is `.`, which represents the entire message.
 
 The following example shows the configuration for serializing or deserializing unbatched protobuf data:
 
@@ -154,7 +156,7 @@ The following example shows the configuration for serializing or deserializing u
 }
 ```
 
-The following example shows the configuration for deserializing protobuf data in the source stage or serializing [batched](TODO link to batch pattern) protobuf data:
+The following example shows the configuration for deserializing protobuf data in the source stage or serializing [batched](concept-configuration-patterns.md#batch) protobuf data:
 
 ```json
 {
@@ -176,7 +178,7 @@ Use the following configuration options to deserialize CSV data:
 | `type` | `string enum` | The format for deserialization | Yes | - | `CSV` |
 | `header` | `boolean` | This field indicates whether the input data has a CSV header row. | Yes | - | `true` |
 | `columns` | `array` | The schema definition of the CSV to read. | Yes | - | (see following table) |
-| `path` | [Path](TODO: Fix path link) | The path to the portion of the data processor message where the deserialized data should be written. | (see following note) | -| `.payload` |
+| `path` | [Path](concept-jq-path.md) | The path to the portion of the data processor message where the deserialized data should be written. | (see following note) | -| `.payload` |
 
 > [!NOTE]
 > You don't need to specify `path` when you deserialize data in the source stage. The deserialized data is automatically placed in the `.payload` section of the message.
@@ -187,7 +189,7 @@ Each element in the columns array is an object with the following schema:
 | --- | ---| --- | --- | ---| --- |
 | `name` | `string` | The name of the column as it appears in the CSV header. | Yes | - | `temperature` |
 | `type` | `string enum` | The data processor data type held in the column that's used to determine how to parse the data. | No | string | `integer` |
-| `path` | [Path](TODO: Fix path link) | The location within each record of the data where the value of the column should be read from. | No | `.{{name}}` | `.temperature` |
+| `path` | [Path](concept-jq-path.md) | The location within each record of the data where the value of the column should be read from. | No | `.{{name}}` | `.temperature` |
 
 Use the following configuration options to serialize CSV data:
 
@@ -196,15 +198,15 @@ Use the following configuration options to serialize CSV data:
 | `type` | `string enum` | The format for serialization | Yes | - | `CSV` |
 | `header` | `boolean` | This field indicates whether to include the header line with column names in the serialized CSV. | Yes | - | `true` |
 | `columns` | `array` | The schema definition of the CSV to write. | Yes | - | (see following table) |
-| `path` | [Path](TODO: Fix path link) | The path to the portion of the data processor message where data to be serialized is written. | (see following note) | - | `.payload` |
+| `path` | [Path](concept-jq-path.md) | The path to the portion of the data processor message where data to be serialized is written. | (see following note) | - | `.payload` |
 
 > [!NOTE]
-> You don't need to specify `path` when you serialize [batched](TODO link to batch pattern) data. The default path is `.`, which represents the entire message.
+> You don't need to specify `path` when you serialize [batched](concept-configuration-patterns.md#batch) data. The default path is `.`, which represents the entire message.
 
 | Field | Type | Description | Required? | Default | Example |
 | --- | ---| --- | --- | ---| --- |
 | `name` | `string` | The name of the column as it would appear in a CSV header. | Yes | - | `temperature` |
-| `path` | [Path](TODO: Fix path link) | The location within each record of the data where the value of the column should be written to. | No | `.{{name}}` | `.temperature` |
+| `path` | [Path](concept-jq-path.md) | The location within each record of the data where the value of the column should be written to. | No | `.{{name}}` | `.temperature` |
 
 The following example shows the configuration for serializing unbatched CSV data:
 
@@ -317,3 +319,4 @@ The following example shows the configuration for deserializing batched CSV data
 ## Related content
 
 - [Message structure overview](concept-message-structure.md)
+- [Configuration patterns](concept-configuration-patterns.md)

@@ -1,11 +1,11 @@
 ---
 title: Network isolation
 description: Users can restrict public access to QnA Maker resources.
-ms.service: cognitive-services
+ms.service: azure-ai-language
 manager: nitinme
 ms.author: jboback
 author: jboback
-ms.subservice: qna-maker
+ms.subservice: azure-ai-qna-maker
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: ignite-fall-2021
