@@ -80,7 +80,7 @@ sections:
       - question: |
           Can I use Azure AD Joined VM's with MSIX app attach?
         answer: |
-          MSIX app attach doesn't currently support  Azure AD Joined VM's. 
+          MSIX app attach doesn't currently support Azure AD Joined VM's. 
 
       - question: |
           Can I use MSIX app attach for HTTP or HTTPs?
