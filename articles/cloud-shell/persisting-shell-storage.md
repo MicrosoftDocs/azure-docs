@@ -1,7 +1,7 @@
 ---
 description: Walkthrough of how Azure Cloud Shell persists files.
 ms.contributor: jahelmic
-ms.date: 09/29/2023
+ms.date: 10/03/2023
 ms.topic: article
 tags: azure-resource-manager
 ms.custom: devx-track-linux
@@ -150,11 +150,6 @@ shm                                                    65536       0      65536 
 
 You can update the fileshare that's associated with Cloud Shell using the `clouddrive mount`
 command.
-
-If you mount an existing fileshare, the storage accounts must be located in your select Cloud Shell
-region. Retrieve the location by running `env` and checking the `ACC_LOCATION`.
-
-#### The `clouddrive mount` command
 
 > [!NOTE]
 > If you're mounting a new fileshare, a new user image is created for your `$HOME` directory. Your
