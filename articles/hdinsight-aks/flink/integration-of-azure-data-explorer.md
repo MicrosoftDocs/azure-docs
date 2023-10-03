@@ -18,7 +18,7 @@ ADX helps users in analysis of large volumes of data from streaming applications
 
 ## Steps to use Azure Data Explorer as sink in Flink 
 
-1. [Create a HDInsight on AKS Flink cluster](./flink-create-cluster-portal.md).
+1. [Create HDInsight on AKS Flink cluster](./flink-create-cluster-portal.md).
 
 1. [Create ADX with database](/azure/data-explorer/create-cluster-and-database/) and table as required.
 
@@ -57,7 +57,8 @@ ADX helps users in analysis of large volumes of data from streaming applications
 
 1. Locate the JAR file named 'samples-java-1.0-SNAPSHOT-shaded.jar' under the 'sample-java/target' folder, then upload this JAR file in the Flink UI and submit the job.
 
-1. Query the Kusto table to verify the output  
+1. Query the Kusto table to verify the output
+   
     :::image type="content" source="./media/integration-of-azure-data-explorer/kusto-table-to-verify-output.png" alt-text="screenshot shows query the Kusto table to verify the output." lightbox="./media/integration-of-azure-data-explorer/kusto-table-to-verify-output.png":::
 
     There is no delay in writing the data to the Kusto table from Flink. 
