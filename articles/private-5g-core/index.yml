@@ -152,6 +152,8 @@ landingContent:
             url: packet-core-dashboards.md
           - text: Monitor AP5GC UE usage with Event Hubs (preview)
             url: ue-usage-event-hub.md
+          - text: Monitor packet cores with alerts
+            url: monitor-private-5g-core-alerts.md
       - linkListType: how-to-guide
         links:
           - text: Gather diagnostics
