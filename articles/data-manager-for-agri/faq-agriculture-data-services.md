@@ -2,7 +2,7 @@
 title: Microsoft Azure Data Manager for Agriculture FAQs
 description: Get answers to common questions about Azure Data Manager for Agriculture.
 ms.service: data-manager-for-agri
-ms.topic: faqs
+ms.topic: conceptual
 ms.date: 10/03/2023
 ms.author: akhatri
 author: akhatri
