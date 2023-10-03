@@ -9,7 +9,7 @@ items:
       href: overview-what-is-microsoft-playwright-testing.md
     - name: Try Microsoft Playwright Testing for free
       displayName: free trial, free, trial, try
-      href: how-to-try-playwright-testing-free
+      href: how-to-try-playwright-testing-free.md
 - name: Quickstarts
   expanded: true
   items: 
