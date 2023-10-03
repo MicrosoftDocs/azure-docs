@@ -43,11 +43,11 @@ StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironm
 ```
 
 
-This is required for Flink to authenticate with your ABFS storage account to write data to it.
+This set up is required for Flink to authenticate with your ABFS storage account to write data to it.
 
 ### Defining the IoTHub source
 
-IoTHub is build on top of event hub and hence supports a kafka-like API. So in our flink job, we can simply define a `KafkaSource` with appropriate parameters to consume messages from IoTHub.
+IoTHub is build on top of event hub and hence supports a kafka-like API. So in our Flink job, we can define a `KafkaSource` with appropriate parameters to consume messages from IoTHub.
 
 ```java
 String connectionString  = "<your iot hub connection string>";
@@ -70,9 +70,9 @@ kafka.print();
 
 The connection string for IoT Hub can be found here -
 
-:::image type="content" source="./media/azure-iot-hub/built-in-endpoint.png" alt-text="Screenshot shows built in endpoints." lightbox="./media/azure-iot-hub/built-in-endpoint.png":::
+:::image type="content" source="./media/azure-iot-hub/built-in-endpoint.png" alt-text="Screenshot shows built-in endpoints." lightbox="./media/azure-iot-hub/built-in-endpoint.png":::
 
-Within the connection string you can find a service bus URL (URL of the underlying event hub namespace), which you needs to add as a bootstrap server in your kafka source. In this case it is `iothub-ns-sagiri-iot-25146639-20dff4e426.servicebus.windows.net:9093`
+Within the connection string, you can find a service bus URL (URL of the underlying event hub namespace), which you need to add as a bootstrap server in your kafka source. In this case, it is:  `iothub-ns-sagiri-iot-25146639-20dff4e426.servicebus.windows.net:9093`
 
 The topic name is same as the event hub-compatible name in the given image. In this case, it is `sagiri-iot`.
 
@@ -206,6 +206,6 @@ public class StreamingJob {
 
 ### Submit job
 
-Submit job using HDInsight on AKS's flink job submission API
+Submit job using HDInsight on AKS's Flink job submission API
 
 :::image type="content" source="./media/azure-iot-hub/create-new-job.png" alt-text="Screenshot shows create a new job." lightbox="./media/azure-iot-hub/create-new-job.png":::
