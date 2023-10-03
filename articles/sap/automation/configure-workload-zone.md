@@ -17,6 +17,15 @@ An [SAP application](deployment-framework.md#sap-concepts) typically has multipl
 
 :::image type="content" source="./media/deployment-framework/workload-zone-architecture.png" alt-text="Diagram that shows SAP workflow zones and systems.":::
 
+The workload zone provides shared services to all of the SAP Systems in the workload zone. These shared services include:
+
+- Azure Virtual Network
+- Azure Key Vault
+- Shared Azure Storage Accounts for installation media
+- If Azure NetApp Files are used, the Azure NetApp Files account and capacity pool is hosted in the workload zone.
+
+The workload zone is typically deployed in a spoke subscription and the deployment of all the artifacts in the workload zone is done using unique service principal. 
+
 ## Workload zone deployment configuration
 
 The configuration of the SAP workload zone is done via a Terraform `tfvars` variable file. You can find examples of the variable file in the `samples/WORKSPACES/LANDSCAPE` folder.
