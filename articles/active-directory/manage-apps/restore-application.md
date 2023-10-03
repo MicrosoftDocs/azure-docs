@@ -122,32 +122,11 @@ Replace ID with the object ID of the service principal that you want to restore.
    
 :::zone pivot="ms-graph"
 
-1. To restore the enterprise application, run the following query:
+To restore the enterprise application, run the following query:
    
-   # [HTTP](#tab/http)
    ```http
    POST https://graph.microsoft.com/v1.0/directory/deletedItems/{id}/restore
    ```
-
-   # [C#](#tab/csharp)
-   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/csharp/restore-directory-deleteditem-csharp-snippets.md)]
-   
-   # [JavaScript](#tab/javascript)
-   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/javascript/restore-directory-deleteditem-javascript-snippets.md)]
-   
-   # [Java](#tab/java)
-   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/java/restore-directory-deleteditem-java-snippets.md)]
-   
-   # [Go](#tab/go)
-   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/go/restore-directory-deleteditem-go-snippets.md)]
-   
-   # [PowerShell](#tab/powershell)
-   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/powershell/restore-directory-deleteditem-powershell-snippets.md)]
-   
-   # [PHP](#tab/php)
-   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/php/restore-directory-deleteditem-php-snippets.md)]
-   
-   ---
 
 Replace ID with the object ID of the service principal that you want to restore.
 

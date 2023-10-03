@@ -111,10 +111,10 @@ In this tutorial, you learned:
 > [Learn how synchronization works in a Microsoft Entra Domain Services managed domain](synchronization.md)
 
 <!-- INTERNAL LINKS -->
-[create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
-[associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
+[create-azure-ad-tenant]: /azure/active-directory/fundamentals/sign-up-organization
+[associate-azure-ad-tenant]: /azure/active-directory/fundamentals/how-subscriptions-associated-directory
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
-[enable-azure-ad-connect]: ../active-directory/hybrid/how-to-connect-install-express.md
+[enable-azure-ad-connect]: /azure/active-directory/hybrid/connect/how-to-connect-install-express
 
 <!-- EXTERNAL LINKS -->
 [azure-ad-connect-download]: https://www.microsoft.com/download/details.aspx?id=47594

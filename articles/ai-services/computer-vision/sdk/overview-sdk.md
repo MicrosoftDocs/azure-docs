@@ -10,7 +10,7 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 08/01/2023
 ms.author: pafarley
-ms.custom: devx-track-python, devx-track-csharp, devx-track-dotnet
+ms.custom: devx-track-csharp
 ---
 
 # Vision SDK overview

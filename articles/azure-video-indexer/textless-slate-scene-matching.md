@@ -7,7 +7,9 @@ ms.author: inhenkel
 author: IngridAtMicrosoft
 ---
 
-# Enable and view a textless slate with matching scene (preview)
+# Enable and view a textless slate with matching scene
+
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
 
 This article shows how to enable and view  a textless slate with matching scene (preview).
 

@@ -283,7 +283,7 @@ Microsoft Entra ID Governance can be integrated with many other applications, us
 | [Robin](../../active-directory/saas-apps/robin-provisioning-tutorial.md) | ● | ● |
 | [Rollbar](../../active-directory/saas-apps/rollbar-provisioning-tutorial.md) | ● | ● |
 | [Rouse Sales](../../active-directory/saas-apps/rouse-sales-provisioning-tutorial.md) | ● |  |
-| [Salesforce](../../active-directory/saas-apps/salesforce-provisioning-tutorial.md) | ● |  |
+| [Salesforce](../../active-directory/saas-apps/salesforce-provisioning-tutorial.md) | ● | ● |
 | [SafeGuard Cyber](../../active-directory/saas-apps/safeguard-cyber-provisioning-tutorial.md) | ● | ● |
 | [Salesforce Sandbox](../../active-directory/saas-apps/salesforce-sandbox-provisioning-tutorial.md) | ● | ● |
 | [Samanage](../../active-directory/saas-apps/samanage-provisioning-tutorial.md) | ● | ● |
