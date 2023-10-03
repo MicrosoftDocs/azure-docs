@@ -1,6 +1,6 @@
 ---
-title: What's new in Sovereign Clouds? Release notes
-description: Learn what is new with Azure Active Directory Sovereign Cloud.
+title: What's new in Azure Sovereign Clouds? Release notes
+description: Learn what is new with Azure Sovereign Clouds.
 author: owinfreyATL
 ms.author: owinfrey
 ms.service: active-directory
@@ -12,10 +12,9 @@ ms.custom: template-concept
 
 
 
-# What's new in Azure Active Directory Sovereign Clouds?
+# What's new in Azure Sovereign Clouds?
 
-
-Microsoft Entra ID receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about:
+Azure AD receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about:
 
 - [Azure Government](../../azure-government/documentation-government-welcome.md)
 
@@ -46,7 +45,7 @@ Today, when group claims are added to tokens Azure Active Directory attempts to 
 Cisco Unified Communications Manager (Unified CM) provides reliable, secure, scalable, and manageable call control and session management. When you integrate Cisco Unified Communications Manager with Azure Active Directory, you can:
 
 - Control in Azure Active Directory who has access to Cisco Unified Communications Manager.
-- Enable your users to be automatically signed-in to Cisco Unified Communications Manager with their Microsoft Entra ID accounts.
+- Enable your users to be automatically signed-in to Cisco Unified Communications Manager with their Azure AD accounts.
 - Manage your accounts in one central location - the Azure portal.
 
 
@@ -88,7 +87,7 @@ Admins can now restrict their users from self-service accessing their BitLocker 
 **Service category:** User Access Management                           
 **Product capability:** User Management               
 
-The ability for users to create tenants from the Manage Tenant overview has been present in Microsoft Entra ID since almost the beginning of the Azure portal.  This new capability in the User Settings pane allows admins to restrict their users from being able to create new tenants. There's also a new [Tenant Creator](../roles/permissions-reference.md#tenant-creator) role to allow specific users to create tenants. For more information, see [Default user permissions](../fundamentals/users-default-permissions.md#restrict-member-users-default-permissions).
+The ability for users to create tenants from the Manage Tenant overview has been present in Azure AD since almost the beginning of the Azure portal.  This new capability in the User Settings pane allows admins to restrict their users from being able to create new tenants. There's also a new [Tenant Creator](../roles/permissions-reference.md#tenant-creator) role to allow specific users to create tenants. For more information, see [Default user permissions](../fundamentals/users-default-permissions.md#restrict-member-users-default-permissions).
 
 ---
 
@@ -154,13 +153,13 @@ Azure Active Directory Identity Protection "Leaked Credentials" detection is now
 **Service category:** Azure Active Directory Domain Services                          
 **Product capability:** Azure Active Directory Domain Services            
 
-You can now create trusts on both user and resource forests. On-premises Active Directory DS users can't authenticate to resources in the Azure Active Directory DS resource forest until you create an outbound trust to your on-premises Active Directory DS. An outbound trust requires network connectivity to your on-premises virtual network to which you have installed Microsoft Entra ID Domain Service. On a user forest, trusts can be created for on-premises Active Directory forests that aren't synchronized to Azure Active Directory DS.
+You can now create trusts on both user and resource forests. On-premises Active Directory DS users can't authenticate to resources in the Azure Active Directory DS resource forest until you create an outbound trust to your on-premises Active Directory DS. An outbound trust requires network connectivity to your on-premises virtual network to which you have installed Azure AD Domain Service. On a user forest, trusts can be created for on-premises Active Directory forests that aren't synchronized to Azure Active Directory DS.
 
 For more information, see: [How trust relationships work for forests in Active Directory](/azure/active-directory-domain-services/concepts-forest-trust).
 
 ---
 
-### General Availability - Microsoft Entra ID SCIM Validator Tool
+### General Availability - Azure AD SCIM Validator Tool
 
 **Type:** New feature   
 **Service category:** Provisioning                             
@@ -240,7 +239,7 @@ For more information, see: [Provisioning insights workbook](../app-provisioning/
 **Service category:** Reporting                       
 **Product capability:** Monitoring & Reporting            
 
-Azure Active Directory recommendations help you improve your tenant posture by surfacing opportunities to implement best practices. On a daily basis, Microsoft Entra ID analyzes the configuration of your tenant. During this analysis, Azure Active Directory compares the data of a recommendation with the actual configuration of your tenant. If a recommendation is flagged as applicable to your tenant, the recommendation appears in the Recommendations section of the Azure Active Directory Overview. 
+Azure Active Directory recommendations help you improve your tenant posture by surfacing opportunities to implement best practices. On a daily basis, Azure AD analyzes the configuration of your tenant. During this analysis, Azure Active Directory compares the data of a recommendation with the actual configuration of your tenant. If a recommendation is flagged as applicable to your tenant, the recommendation appears in the Recommendations section of the Azure Active Directory Overview. 
 
 This release includes our first three recommendations:
 
@@ -253,7 +252,7 @@ We're developing more recommendations, so stay tuned!
 For more information, see: 
 
 - [What are Azure Active Directory recommendations?](../reports-monitoring/overview-recommendations.md).
-- [Use the Microsoft Entra ID recommendations API to implement Entra ID best practices for your tenant](/graph/api/resources/recommendations-api-overview)
+- [Use the Azure AD recommendations API to implement Azure AD best practices for your tenant](/graph/api/resources/recommendations-api-overview)
 
 ---
 
@@ -289,7 +288,7 @@ For more information, see: [Protect user accounts from attacks with Azure Active
 **Service category:** Enterprise Apps             
 **Product capability:** SSO          
 
-Filter and transform group names in token claims configuration using regular expression. Many application configurations on ADFS and other IdPs rely on the ability to create authorization claims based on the content of Group Names using regular expression functions in the claim rules.  Microsoft Entra ID now has the capability to use a regular expression match and replace function to create claim content based on Group **onpremisesSAMAccount** names. This functionality allows those applications to be moved to Microsoft Entra ID for authentication using the same group management patterns. For more information, see: [Configure group claims for applications by using Azure Active Directory](../hybrid/connect/how-to-connect-fed-group-claims.md).
+Filter and transform group names in token claims configuration using regular expression. Many application configurations on ADFS and other IdPs rely on the ability to create authorization claims based on the content of Group Names using regular expression functions in the claim rules.  Azure AD now has the capability to use a regular expression match and replace function to create claim content based on Group **onpremisesSAMAccount** names. This functionality allows those applications to be moved to Azure AD for authentication using the same group management patterns. For more information, see: [Configure group claims for applications by using Azure Active Directory](../hybrid/connect/how-to-connect-fed-group-claims.md).
 
 ---
 
@@ -299,7 +298,7 @@ Filter and transform group names in token claims configuration using regular exp
 **Service category:** Enterprise Apps             
 **Product capability:** SSO          
 
-Microsoft Entra ID now has the capability to filter the groups included in the token using substring match on the display name or **onPremisesSAMAccountName** attributes of the group object.  Only Groups the user is a member of will be included in the token. This was a blocker for some of our customers to migrate their apps from ADFS to Microsoft Entra ID. This feature unblocks those challenges. 
+Azure AD now has the capability to filter the groups included in the token using substring match on the display name or **onPremisesSAMAccountName** attributes of the group object.  Only Groups the user is a member of will be included in the token. This was a blocker for some of our customers to migrate their apps from ADFS to Azure AD. This feature unblocks those challenges. 
 
 For more information, see: 
 - [Group Filter](../develop/reference-claims-mapping-policy-type.md#group-filter).
@@ -315,7 +314,7 @@ For more information, see:
 **Service category:** Enterprise Apps             
 **Product capability:** SSO        
 
-Microsoft Entra ID now supports claims transformations on multi-valued attributes and can emit multi-valued claims. More functions to allow match and string operations on claims processing to enable apps to be migrated from other IdPs to Microsoft Entra ID. This includes:  Match on Empty(), NotEmpty(), Prefix(), Suffix(), and extract substring operators. For more information, see: [Claims mapping policy type](../develop/reference-claims-mapping-policy-type.md).
+Azure AD now supports claims transformations on multi-valued attributes and can emit multi-valued claims. More functions to allow match and string operations on claims processing to enable apps to be migrated from other IdPs to Azure AD. This includes:  Match on Empty(), NotEmpty(), Prefix(), Suffix(), and extract substring operators. For more information, see: [Claims mapping policy type](../develop/reference-claims-mapping-policy-type.md).
 
 ---
 
@@ -329,7 +328,7 @@ Post-authentication anomalous activity detection for workload identities. This d
 
 ---
 
-### General Availability - Microsoft cloud settings for Microsoft Entra ID B2B
+### General Availability - Microsoft cloud settings for Azure AD B2B
 
 **Type:** New feature  
 **Service category:** B2B              
@@ -344,13 +343,13 @@ For more information about Microsoft cloud settings for B2B collaboration, see: 
 
 ---
 
-### Public Preview - Support for Directory Extensions using Microsoft Entra ID cloud sync
+### Public Preview - Support for Directory Extensions using Azure AD cloud sync
 
 **Type:** New feature   
 **Service category:** Provisioning               
-**Product capability:** Microsoft Entra ID Connect Cloud Sync         
+**Product capability:** Azure AD Connect Cloud Sync         
 
-Hybrid IT Admins now can sync Microsoft Entra ID Directory Extensions using Cloud Sync. This new capability adds the ability to dynamically discover the schema for Entra ID, allowing customers to map the needed attributes using Cloud Sync's attribute mapping experience. 
+Hybrid IT Admins now can sync both Active Directory and Azure AD Directory Extensions using Azure AD Cloud Sync. This new capability adds the ability to dynamically discover the schema for both Active Directory and Azure AD, allowing customers to map the needed attributes using Cloud Sync's attribute mapping experience. 
 
 For more information on how to enable this feature, see: [Cloud Sync directory extensions and custom attribute mapping](../hybrid/cloud-sync/custom-attribute-mapping.md)
 
@@ -363,17 +362,17 @@ For more information on how to enable this feature, see: [Cloud Sync directory e
 **Service category:** Provisioning            
 **Product capability:** Outbound to On-premises Applications        
 
-Microsoft Entra ID supports provisioning users into applications hosted on-premises or in a virtual machine, without having to open up any firewalls. If your application supports [SCIM](https://techcommunity.microsoft.com/t5/identity-standards-blog/provisioning-with-scim-getting-started/ba-p/880010), or you've built a SCIM gateway to connect to your legacy application, you can use the Microsoft Entra ID Provisioning agent to [directly connect](../app-provisioning/on-premises-scim-provisioning.md) with your application and automate provisioning and deprovisioning. If you have legacy applications that don't support SCIM and rely on an [LDAP](../app-provisioning/on-premises-ldap-connector-configure.md) user store, or a [SQL](../app-provisioning/tutorial-ecma-sql-connector.md) database, Microsoft Entra ID can support those as well.
+Azure AD supports provisioning users into applications hosted on-premises or in a virtual machine, without having to open up any firewalls. If your application supports [SCIM](https://techcommunity.microsoft.com/t5/identity-standards-blog/provisioning-with-scim-getting-started/ba-p/880010), or you've built a SCIM gateway to connect to your legacy application, you can use the Azure AD Provisioning agent to [directly connect](../app-provisioning/on-premises-scim-provisioning.md) with your application and automate provisioning and deprovisioning. If you have legacy applications that don't support SCIM and rely on an [LDAP](../app-provisioning/on-premises-ldap-connector-configure.md) user store, or a [SQL](../app-provisioning/tutorial-ecma-sql-connector.md) database, Azure AD can support those as well.
 
 ---
 
 ## January 2023
 
-### General Availability - Microsoft Entra ID Domain Services: Deeper Insights
+### General Availability - Azure AD Domain Services: Deeper Insights
 
 **Type:** New feature  
-**Service category:** Microsoft Entra ID Domain Services             
-**Product capability:** Microsoft Entra ID Domain Services        
+**Service category:** Azure AD Domain Services             
+**Product capability:** Azure AD Domain Services        
 
 Now within the Azure portal you have access to view key data for your Azure AD-DS Domain Controllers such as: LDAP Searches/sec, Total Query Received/sec, DNS Total Response Sent/sec, LDAP Successful Binds/sec, memory usage, processor time, Kerberos Authentications, and NTLM Authentications. For more information, see: [Check fleet metrics of Azure Active Directory Domain Services](../../active-directory-domain-services/fleet-metrics.md).
 
@@ -395,7 +394,7 @@ An IT admin can now add multiple domains to a single SAML/WS-Fed identity provid
 **Service category:** Conditional Access          
 **Product capability:** Identity Security & Protection     
 
-This risk detection baselines normal administrative user behavior in Microsoft Entra ID, and spots anomalous patterns of behavior like suspicious changes to the directory. The detection is triggered against the administrator making the change or the object that was changed. For more information, see: [User-linked detections](../identity-protection/concept-identity-protection-risks.md).
+This risk detection baselines normal administrative user behavior in Azure AD, and spots anomalous patterns of behavior like suspicious changes to the directory. The detection is triggered against the administrator making the change or the object that was changed. For more information, see: [User-linked detections](../identity-protection/concept-identity-protection-risks.md).
 
 ---
 
@@ -409,13 +408,13 @@ You can now use administrative units to delegate management of specified devices
 
 ---
 
-### General Availability - Microsoft Entra ID Terms of Use (ToU) API
+### General Availability - Azure AD Terms of Use (ToU) API
 
 **Type:** New feature  
 **Service category:** Conditional Access          
 **Product capability:** Identity Security & Protection     
 
-Represents a tenant's customizable terms of use agreement that is created, and managed, with Microsoft Entra ID. You can use the following methods to create and manage the [Azure Active Directory Terms of Use feature](/graph/api/resources/agreement?#json-representation) according to your scenario. For more information, see: [agreement resource type](/graph/api/resources/agreement).
+Represents a tenant's customizable terms of use agreement that is created, and managed, with Azure Active Directory (Azure AD). You can use the following methods to create and manage the [Azure Active Directory Terms of Use feature](/graph/api/resources/agreement?#json-representation) according to your scenario. For more information, see: [agreement resource type](/graph/api/resources/agreement).
 
 ---
 

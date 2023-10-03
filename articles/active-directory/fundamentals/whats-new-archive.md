@@ -1,5 +1,5 @@
 ---
-title: Archive for What's new in Microsoft Entra ID?
+title: Archive for What's new in Azure Active Directory?
 description: The What's new release notes in the Overview section of this content set contain six months of activity. After six months, the items are removed from the main article and put into this archive article.
 services: active-directory
 author: owinfreyATL
@@ -15,11 +15,11 @@ ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 
-# Archive for What's new in Microsoft Entra ID?
+# Archive for What's new in Azure Active Directory?
 
-The primary [What's new in Microsoft Entra ID? release notes](whats-new.md) article contains updates for the last six months, while this article contains Information up to 18 months.
+The primary [What's new in Azure Active Directory? release notes](whats-new.md) article contains updates for the last six months, while this article contains Information up to 18 months.
 
-The What's new in Microsoft Entra ID? release notes provide information about:
+The What's new in Azure Active Directory? release notes provide information about:
 
 - The latest releases
 - Known issues
@@ -32,7 +32,7 @@ The What's new in Microsoft Entra ID? release notes provide information about:
 ## March 2023
 
 
-### Public Preview - New provisioning connectors in the Microsoft Entra ID Application Gallery - March 2023
+### Public Preview - New provisioning connectors in the Azure AD Application Gallery - March 2023
 
 **Type:** New feature   
 **Service category:** App Provisioning               
@@ -47,7 +47,7 @@ We've added the following new applications in our App gallery with Provisioning 
 - [Torii](../saas-apps/torii-provisioning-tutorial.md)
 
 
-For more information about how to better secure your organization by using automated user account provisioning, see: [Automate user provisioning to SaaS applications with Microsoft Entra ID](../app-provisioning/user-provisioning.md).
+For more information about how to better secure your organization by using automated user account provisioning, see: [Automate user provisioning to SaaS applications with Azure AD](../app-provisioning/user-provisioning.md).
 
 
 ---
@@ -66,7 +66,7 @@ Workload Identity Federation enables developers to use managed identities for th
 For more information, see: 
 - [Workload identity federation](../workload-identities/workload-identity-federation.md).
 - [Configure a user-assigned managed identity to trust an external identity provider (preview)](../workload-identities/workload-identity-federation-create-trust-user-assigned-managed-identity.md)
-- [Use Microsoft Entra ID workload identity with Azure Kubernetes Service (AKS)](../../aks/workload-identity-overview.md)
+- [Use Azure AD workload identity with Azure Kubernetes Service (AKS)](../../aks/workload-identity-overview.md)
 
 ---
 
@@ -138,19 +138,19 @@ For more information, see: [How to use number matching in multifactor authentica
 
 ---
 
-### Public Preview - IPv6 coming to Microsoft Entra ID
+### Public Preview - IPv6 coming to Azure AD
 
 **Type:** Plan for Change     
 **Service category:** Identity Protection                     
 **Product capability:** Platform             
 
-Earlier, we announced our plan to bring IPv6 support to Microsoft Microsoft Entra ID (Microsoft Entra ID), enabling our customers to reach the Microsoft Entra ID services over IPv4, IPv6 or dual stack endpoints. This is just a reminder that we have started introducing IPv6 support into Microsoft Entra ID services in a phased approach in late March 2023.  
+Earlier, we announced our plan to bring IPv6 support to Microsoft Azure Active Directory (Azure AD), enabling our customers to reach the Azure AD services over IPv4, IPv6 or dual stack endpoints. This is just a reminder that we have started introducing IPv6 support into Azure AD services in a phased approach in late March 2023.  
  
-If you utilize Conditional Access or Identity Protection, and have IPv6 enabled on any of your devices, you likely must take action to avoid impacting your users. For most customers, IPv4 won't completely disappear from their digital landscape, so we aren't planning to require IPv6 or to deprioritize IPv4 in any Microsoft Entra ID features or services. We continue to share additional guidance on IPv6 enablement in Microsoft Entra ID at this link: [IPv6 support in Microsoft Entra ID](/troubleshoot/azure/active-directory/azure-ad-ipv6-support).
+If you utilize Conditional Access or Identity Protection, and have IPv6 enabled on any of your devices, you likely must take action to avoid impacting your users. For most customers, IPv4 won't completely disappear from their digital landscape, so we aren't planning to require IPv6 or to deprioritize IPv4 in any Azure AD features or services. We continue to share additional guidance on IPv6 enablement in Azure AD at this link: [IPv6 support in Azure Active Directory](/troubleshoot/azure/active-directory/azure-ad-ipv6-support).
 
 ---
 
-### General Availability - Microsoft cloud settings for Microsoft Entra ID B2B
+### General Availability - Microsoft cloud settings for Azure AD B2B
 
 **Type:** New feature  
 **Service category:** B2B              
@@ -195,29 +195,29 @@ For more information Microsoft cloud settings, see: [Activate my Azure resource 
 
 ---
 
-### General Availability - Follow Microsoft Entra ID best practices with recommendations
+### General Availability - Follow Azure AD best practices with recommendations
 
 **Type:** New feature   
 **Service category:** Reporting                  
 **Product capability:** Monitoring & Reporting            
 
-Microsoft Entra ID recommendations help you improve your tenant posture by surfacing opportunities to implement best practices. On a daily basis, Microsoft Entra ID analyzes the configuration of your tenant. During this analysis, Microsoft Entra ID compares the data of a recommendation with the actual configuration of your tenant. If a recommendation is flagged as applicable to your tenant, the recommendation appears in the Recommendations section of the Microsoft Entra ID Overview. 
+Azure AD recommendations help you improve your tenant posture by surfacing opportunities to implement best practices. On a daily basis, Azure AD analyzes the configuration of your tenant. During this analysis, Azure AD compares the data of a recommendation with the actual configuration of your tenant. If a recommendation is flagged as applicable to your tenant, the recommendation appears in the Recommendations section of the Azure AD Overview. 
 
 This release includes our first 3 recommendations:
 
 - Convert from per-user MFA to Conditional Access MFA
-- Migration applications from AD FS to Microsoft Entra ID
+- Migration applications from AD FS to Azure AD
 - Minimize MFA prompts from known devices
 
 
 For more information, see: 
 
-- [What are Microsoft Entra ID recommendations?](../reports-monitoring/overview-recommendations.md)
-- [Use the Microsoft Entra ID recommendations API to implement Microsoft Entra ID best practices for your tenant](/graph/api/resources/recommendations-api-overview)
+- [What are Azure Active Directory recommendations?](../reports-monitoring/overview-recommendations.md)
+- [Use the Azure AD recommendations API to implement Azure AD best practices for your tenant](/graph/api/resources/recommendations-api-overview)
 
 ---
 
-### Public Preview - Microsoft Entra ID PIM + Conditional Access integration
+### Public Preview - Azure AD PIM + Conditional Access integration
 
 **Type:** New feature   
 **Service category:** Privileged Identity Management                    
@@ -225,7 +225,7 @@ For more information, see:
 
 Now you can require users who are eligible for a role to satisfy Conditional Access policy requirements for activation: use specific authentication method enforced through Authentication Strengths, activate from Intune compliant device, comply with Terms of Use, and use 3rd party MFA and satisfy location requirements.
 
-For more information, see: [Configure Microsoft Entra ID role settings in Privileged Identity Management](../privileged-identity-management/pim-how-to-change-default-settings.md).
+For more information, see: [Configure Azure AD role settings in Privileged Identity Management](../privileged-identity-management/pim-how-to-change-default-settings.md).
 
 
 ---
@@ -245,7 +245,7 @@ There's no additional work to enable this feature, the unfamiliar properties are
 
 ---
 
-### General Availability - New Federated Apps available in Microsoft Entra ID Application gallery - February 2023
+### General Availability - New Federated Apps available in Azure AD Application gallery - February 2023
 
 
 
@@ -260,11 +260,11 @@ In February 2023 we've added the following 10 new applications in our App galler
 
 You can also find the documentation of all the applications from here https://aka.ms/AppsTutorial.
 
-For listing your application in the Microsoft Entra ID app gallery, read the details here https://aka.ms/AzureADAppRequest
+For listing your application in the Azure AD app gallery, read the details here https://aka.ms/AzureADAppRequest
 
 ---
 
-### Public Preview - New provisioning connectors in the Microsoft Entra ID Application Gallery - February 2023
+### Public Preview - New provisioning connectors in the Azure AD Application Gallery - February 2023
 
 **Type:** New feature   
 **Service category:** App Provisioning               
@@ -276,7 +276,7 @@ We've added the following new applications in our App gallery with Provisioning 
 - [Atmos](../saas-apps/atmos-provisioning-tutorial.md)
 
 
-For more information about how to better secure your organization by using automated user account provisioning, see: [Automate user provisioning to SaaS applications with Microsoft Entra ID](../app-provisioning/user-provisioning.md).
+For more information about how to better secure your organization by using automated user account provisioning, see: [Automate user provisioning to SaaS applications with Azure AD](../app-provisioning/user-provisioning.md).
 
 
 ---
@@ -290,12 +290,12 @@ For more information about how to better secure your organization by using autom
 **Service category:** Provisioning               
 **Product capability:** Collaboration          
 
-Cross-tenant synchronization allows you to set up a scalable and automated solution for users to access applications across tenants in your organization. It builds upon the Microsoft Entra ID B2B functionality and automates creating, updating, and deleting B2B users. For more information, see: [What is cross-tenant synchronization? (preview)](../multi-tenant-organizations/cross-tenant-synchronization-overview.md).
+Cross-tenant synchronization allows you to set up a scalable and automated solution for users to access applications across tenants in your organization. It builds upon the Azure AD B2B functionality and automates creating, updating, and deleting B2B users. For more information, see: [What is cross-tenant synchronization? (preview)](../multi-tenant-organizations/cross-tenant-synchronization-overview.md).
 
 
 ---
 
-### General Availability - New Federated Apps available in Microsoft Entra ID Application gallery - January 2023
+### General Availability - New Federated Apps available in Azure AD Application gallery - January 2023
 
 
 
@@ -309,12 +309,12 @@ In January 2023 we've added the following 10 new applications in our App gallery
 
 You can also find the documentation of all the applications from here https://aka.ms/AppsTutorial.
 
-For listing your application in the Microsoft Entra ID app gallery, read the details here https://aka.ms/AzureADAppRequest
+For listing your application in the Azure AD app gallery, read the details here https://aka.ms/AzureADAppRequest
 
 
 ---
 
-### Public Preview - New provisioning connectors in the Microsoft Entra ID Application Gallery - January 2023
+### Public Preview - New provisioning connectors in the Azure AD Application Gallery - January 2023
 
 
 
@@ -327,39 +327,39 @@ We've added the following new applications in our App gallery with Provisioning 
 - [SurveyMonkey Enterprise](../saas-apps/surveymonkey-enterprise-provisioning-tutorial.md)
 
 
-For more information about how to better secure your organization by using automated user account provisioning, see: [Automate user provisioning to SaaS applications with Microsoft Entra ID](../app-provisioning/user-provisioning.md).
+For more information about how to better secure your organization by using automated user account provisioning, see: [Automate user provisioning to SaaS applications with Azure AD](../app-provisioning/user-provisioning.md).
 
 
 ---
 
-### Public Preview - Microsoft Entra ID cloud sync new user experience
+### Public Preview - Azure AD cloud sync new user experience
 
 
 **Type:** Changed feature   
-**Service category:** Microsoft Entra ID Connect Cloud Sync                  
+**Service category:** Azure AD Connect Cloud Sync                  
 **Product capability:** Identity Governance         
 
-Try out the new guided experience for syncing objects from AD to Microsoft Entra ID using Microsoft Entra ID Cloud Sync in Azure portal. With this new experience, Hybrid Identity Administrators can easily determine which sync engine to use for their scenarios and learn more about the various options they have with our sync solutions. With a rich set of tutorials and videos, customers are able to learn everything about Microsoft Entra ID cloud sync in one single place. 
+Try out the new guided experience for syncing objects from AD to Azure AD using Azure AD Cloud Sync in Azure portal. With this new experience, Hybrid Identity Administrators can easily determine which sync engine to use for their scenarios and learn more about the various options they have with our sync solutions. With a rich set of tutorials and videos, customers are able to learn everything about Azure AD cloud sync in one single place. 
 
 This experience helps administrators walk through the different steps involved in setting up a cloud sync configuration and an intuitive experience to help them easily manage it. Admins can also get insights into their sync configuration by using the "Insights" option, which integrates with Azure Monitor and Workbooks. 
 
 For more information, see:
 
-- [Create a new configuration for Microsoft Entra ID Connect cloud sync](../hybrid/cloud-sync/how-to-configure.md)
-- [Attribute mapping in Microsoft Entra ID Connect cloud sync](../hybrid/cloud-sync/how-to-attribute-mapping.md)
-- [Microsoft Entra ID cloud sync insights workbook](../hybrid/cloud-sync/how-to-cloud-sync-workbook.md)
+- [Create a new configuration for Azure AD Connect cloud sync](../hybrid/cloud-sync/how-to-configure.md)
+- [Attribute mapping in Azure AD Connect cloud sync](../hybrid/cloud-sync/how-to-attribute-mapping.md)
+- [Azure AD cloud sync insights workbook](../hybrid/cloud-sync/how-to-cloud-sync-workbook.md)
 
 ---
 
-### Public Preview - Support for Directory Extensions using Microsoft Entra ID cloud sync
+### Public Preview - Support for Directory Extensions using Azure AD cloud sync
 
 
 
 **Type:** New feature   
 **Service category:** Provisioning               
-**Product capability:** Microsoft Entra ID Connect Cloud Sync         
+**Product capability:** Azure AD Connect Cloud Sync         
 
-Hybrid IT Admins now can sync both Active Directory and Microsoft Entra ID Directory Extensions using Microsoft Entra ID Cloud Sync. This new capability adds the ability to dynamically discover the schema for both Active Directory and Microsoft Entra ID, allowing customers to map the needed attributes using Cloud Sync's attribute mapping experience. 
+Hybrid IT Admins now can sync both Active Directory and Azure AD Directory Extensions using Azure AD Cloud Sync. This new capability adds the ability to dynamically discover the schema for both Active Directory and Azure AD, allowing customers to map the needed attributes using Cloud Sync's attribute mapping experience. 
 
 For more information on how to enable this feature, see: [Cloud Sync directory extensions and custom attribute mapping](../hybrid/cloud-sync/custom-attribute-mapping.md)
 
@@ -377,7 +377,7 @@ For more information on how to enable this feature, see: [Cloud Sync directory e
 **Service category:** Audit             
 **Product capability:** Monitoring & Reporting       
 
-This feature analyzes uploaded client-side logs, also known as diagnostic logs, from a Windows 10+ device that is having an issue(s) and suggests remediation steps to resolve the issue(s). Admins can work with end user to collect client-side logs, and then upload them to this troubleshooter in the Microsoft Entra admin center. For more information, see: [Troubleshooting Windows devices in Microsoft Entra ID](../devices/troubleshoot-device-windows-joined.md).
+This feature analyzes uploaded client-side logs, also known as diagnostic logs, from a Windows 10+ device that is having an issue(s) and suggests remediation steps to resolve the issue(s). Admins can work with end user to collect client-side logs, and then upload them to this troubleshooter in the Microsoft Entra admin center. For more information, see: [Troubleshooting Windows devices in Azure AD](../devices/troubleshoot-device-windows-joined.md).
 
 
 ---
@@ -390,7 +390,7 @@ This feature analyzes uploaded client-side logs, also known as diagnostic logs, 
 **Service category:** Authentications (Logins)            
 **Product capability:** User Authentication     
 
-End users can now enable password-less phone sign-in for multiple accounts in the Authenticator App on any supported iOS device. Consultants, students, and others with multiple accounts in Microsoft Entra ID can add each account to Microsoft Authenticator and use password-less phone sign-in for all of them from the same iOS device. The Microsoft Entra ID accounts can be in the same tenant or different tenants. Guest accounts aren't supported for multiple account sign-ins from one device.
+End users can now enable password-less phone sign-in for multiple accounts in the Authenticator App on any supported iOS device. Consultants, students, and others with multiple accounts in Azure AD can add each account to Microsoft Authenticator and use password-less phone sign-in for all of them from the same iOS device. The Azure AD accounts can be in the same tenant or different tenants. Guest accounts aren't supported for multiple account sign-ins from one device.
 
 
 End users aren't required to enable the optional telemetry setting in the Authenticator App. For more information, see: [Enable passwordless sign-in with Microsoft Authenticator](../authentication/howto-authentication-passwordless-phone.md).
@@ -428,7 +428,7 @@ For more information, see: [Conditional Access templates (Preview)](../condition
 **Service category:** User Access Management             
 **Product capability:** User Management       
 
-The ability for users to create tenants from the Manage Tenant overview has been present in Microsoft Entra ID since almost the beginning of the Azure portal. This new capability in the User Settings option allows admins to restrict their users from being able to create new tenants. There's also a new [Tenant Creator](../roles/permissions-reference.md#tenant-creator) role to allow specific users to create tenants. For more information, see [Default user permissions](../fundamentals/users-default-permissions.md#restrict-member-users-default-permissions).
+The ability for users to create tenants from the Manage Tenant overview has been present in Azure AD since almost the beginning of the Azure portal. This new capability in the User Settings option allows admins to restrict their users from being able to create new tenants. There's also a new [Tenant Creator](../roles/permissions-reference.md#tenant-creator) role to allow specific users to create tenants. For more information, see [Default user permissions](../fundamentals/users-default-permissions.md#restrict-member-users-default-permissions).
 
 
 ---
@@ -454,7 +454,7 @@ We have consolidated relevant app launcher settings in a new App launchers secti
 **Service category:** MFA          
 **Product capability:** User Authentication     
 
-The Converged Authentication Methods Policy enables you to manage all authentication methods used for MFA and SSPR in one policy. You can migrate off the legacy MFA and SSPR policies, and target authentication methods to groups of users instead of enabling them for all users in the tenant. For more information, see: [Manage authentication methods for Microsoft Entra ID](../authentication/concept-authentication-methods-manage.md).
+The Converged Authentication Methods Policy enables you to manage all authentication methods used for MFA and SSPR in one policy. You can migrate off the legacy MFA and SSPR policies, and target authentication methods to groups of users instead of enabling them for all users in the tenant. For more information, see: [Manage authentication methods for Azure AD](../authentication/concept-authentication-methods-manage.md).
 
 
 ---
@@ -485,7 +485,7 @@ Companies often provide mobile devices to frontline workers that need are shared
 For more information on deploying frontline solutions, see: [frontline deployment documentation](https://aka.ms/frontlinewhitepaper).
 
 
-For more information on shared-device mode, see: [Microsoft Entra ID Shared Device Mode documentation](../develop/msal-android-shared-devices.md#microsoft-applications-that-support-shared-device-mode).
+For more information on shared-device mode, see: [Azure Active Directory Shared Device Mode documentation](../develop/msal-android-shared-devices.md#microsoft-applications-that-support-shared-device-mode).
 
 
 For steps to set up shared device mode with Intune, see: [Intune setup blog](https://techcommunity.microsoft.com/t5/intune-customer-success/enroll-android-enterprise-dedicated-devices-into-azure-ad-shared/ba-p/1820093). 
@@ -493,7 +493,7 @@ For steps to set up shared device mode with Intune, see: [Intune setup blog](htt
 
 ---
 
-### Public preview - New provisioning connectors in the Microsoft Entra ID Application Gallery - December 2022
+### Public preview - New provisioning connectors in the Azure AD Application Gallery - December 2022
 
 
 
@@ -506,7 +506,7 @@ We've added the following new applications in our App gallery with Provisioning 
 - [GHAE](../saas-apps/ghae-provisioning-tutorial.md)
 
 
-For more information about how to better secure your organization by using automated user account provisioning, see: [Automate user provisioning to SaaS applications with Microsoft Entra ID](../app-provisioning/user-provisioning.md).
+For more information about how to better secure your organization by using automated user account provisioning, see: [Automate user provisioning to SaaS applications with Azure AD](../app-provisioning/user-provisioning.md).
 
 
 ---
@@ -519,12 +519,12 @@ For more information about how to better secure your organization by using autom
 **Service category:** Provisioning            
 **Product capability:** Outbound to On-premises Applications        
 
-Microsoft Entra ID supports provisioning users into applications hosted on-premises or in a virtual machine, without having to open up any firewalls. If your application supports [SCIM](https://techcommunity.microsoft.com/t5/identity-standards-blog/provisioning-with-scim-getting-started/ba-p/880010), or you've built a SCIM gateway to connect to your legacy application, you can use the Microsoft Entra ID Provisioning agent to [directly connect](../app-provisioning/on-premises-scim-provisioning.md) with your application and automate provisioning and deprovisioning. If you have legacy applications that don't support SCIM and rely on an [LDAP](../app-provisioning/on-premises-ldap-connector-configure.md) user store, or a [SQL](../app-provisioning/tutorial-ecma-sql-connector.md) database, Microsoft Entra ID can support those as well.
+Azure AD supports provisioning users into applications hosted on-premises or in a virtual machine, without having to open up any firewalls. If your application supports [SCIM](https://techcommunity.microsoft.com/t5/identity-standards-blog/provisioning-with-scim-getting-started/ba-p/880010), or you've built a SCIM gateway to connect to your legacy application, you can use the Azure AD Provisioning agent to [directly connect](../app-provisioning/on-premises-scim-provisioning.md) with your application and automate provisioning and deprovisioning. If you have legacy applications that don't support SCIM and rely on an [LDAP](../app-provisioning/on-premises-ldap-connector-configure.md) user store, or a [SQL](../app-provisioning/tutorial-ecma-sql-connector.md) database, Azure AD can support those as well.
 
 
 ---
 
-### General Availability - New Federated Apps available in Microsoft Entra ID Application gallery - December 2022
+### General Availability - New Federated Apps available in Azure AD Application gallery - December 2022
 
 
 
@@ -538,7 +538,7 @@ In December 2022 we've added the following 44 new applications in our App galler
 
 You can also find the documentation of all the applications from here https://aka.ms/AppsTutorial,
 
-For listing your application in the Microsoft Entra ID app gallery, read the details here https://aka.ms/AzureADAppRequest
+For listing your application in the Azure AD app gallery, read the details here https://aka.ms/AzureADAppRequest
 
 ---
 
@@ -576,11 +576,11 @@ Refer to our post on [Microsoft Q&A](/answers/questions/360928/information-how-t
 
 The number of features and capabilities that we're adding to Microsoft Authentication Library libraries are growing weekly. Some of them include: 
 - Support for Microsoft accounts (MSA) 
-- Support for Microsoft Entra ID B2C accounts 
+- Support for Azure AD B2C accounts 
 - Handling throttling 
 - Proactive token refresh and token revocation based on policy or critical events for Microsoft Graph and other APIs that support [Continuous Access Evaluation (CAE)](../develop/app-resilience-continuous-access-evaluation.md)
 - Auth broker support with device-based Conditional Access policies 
-- Microsoft Entra ID hardware-based certificate authentication (CBA) on mobile  
+- Azure AD hardware-based certificate authentication (CBA) on mobile  
 - System browsers on mobile devices 
 And more. For an up-to-date list, refer to our [migration guide](../develop/msal-migration.md#how-to-migrate-to-msal). 
 
@@ -588,7 +588,7 @@ And more. For an up-to-date list, refer to our [migration guide](../develop/msal
 
 To make the migration process easier, we published a [comprehensive guide](../develop/msal-migration.md#how-to-migrate-to-msal) that documents the migration paths across different platforms and programming languages. 
 
-In addition to the Microsoft Authentication Library to Microsoft Authentication Library update, we recommend migrating from Microsoft Entra ID Graph API to Microsoft Graph. This change enables you to take advantage of the latest additions and enhancements, such as CAE, across the Microsoft service offering through a single, unified endpoint. You can read more in our [Migrate your apps from Microsoft Entra ID Graph to Microsoft Graph](/graph/migrate-azure-ad-graph-overview) guide. You can post any questions to [Microsoft Q&A](/answers/topics/azure-active-directory.html) or [Stack Overflow](https://stackoverflow.com/questions/tagged/msal).
+In addition to the Microsoft Authentication Library to Microsoft Authentication Library update, we recommend migrating from Azure AD Graph API to Microsoft Graph. This change enables you to take advantage of the latest additions and enhancements, such as CAE, across the Microsoft service offering through a single, unified endpoint. You can read more in our [Migrate your apps from Azure AD Graph to Microsoft Graph](/graph/migrate-azure-ad-graph-overview) guide. You can post any questions to [Microsoft Q&A](/answers/topics/azure-active-directory.html) or [Stack Overflow](https://stackoverflow.com/questions/tagged/msal).
 
 ---
 
@@ -602,7 +602,7 @@ In addition to the Microsoft Authentication Library to Microsoft Authentication 
 **Service category:** N/A          
 **Product capability:** User Authentication     
 
-The Temporary Access Pass can now be used to recover Microsoft Entra ID-joined PCs when the EnableWebSignIn policy is enabled on the device. This is useful for when your users don't know, or have, a password. For more information, see: [Authentication/EnableWebSignIn](/windows/client-management/mdm/policy-csp-authentication#authentication-enablewebsignin).
+The Temporary Access Pass can now be used to recover Azure AD-joined PCs when the EnableWebSignIn policy is enabled on the device. This is useful for when your users don't know, or have, a password. For more information, see: [Authentication/EnableWebSignIn](/windows/client-management/mdm/policy-csp-authentication#authentication-enablewebsignin).
 
 
 ---
@@ -624,7 +624,7 @@ Developers can now use managed identities for their software workloads running a
 For more information, see: 
 - [Configure a user-assigned managed identity to trust an external identity provider (preview)](../workload-identities/workload-identity-federation-create-trust-user-assigned-managed-identity.md)
 - [Workload identity federation](../workload-identities/workload-identity-federation.md)
-- [Use an Microsoft Entra ID workload identity (preview) on Azure Kubernetes Service (AKS)](../../aks/workload-identity-overview.md)
+- [Use an Azure AD workload identity (preview) on Azure Kubernetes Service (AKS)](../../aks/workload-identity-overview.md)
 
 
 ---
@@ -637,12 +637,12 @@ For more information, see:
 **Service category:** Microsoft Authenticator App              
 **Product capability:** User Authentication     
 
-Authenticator version 6.6.8 and higher on iOS will be FIPS 140 compliant for all Microsoft Entra ID authentications using push multi-factor authentications (MFA), Password-less Phone Sign-In (PSI), and time-based one-time pass-codes (TOTP). No changes in configuration are required in the Authenticator app or Azure portal to enable this capability. For more information, see: [FIPS 140 compliant for Microsoft Entra ID authentication](../authentication/concept-authentication-authenticator-app.md#fips-140-compliant-for-azure-ad-authentication).
+Authenticator version 6.6.8 and higher on iOS will be FIPS 140 compliant for all Azure AD authentications using push multi-factor authentications (MFA), Password-less Phone Sign-In (PSI), and time-based one-time pass-codes (TOTP). No changes in configuration are required in the Authenticator app or Azure portal to enable this capability. For more information, see: [FIPS 140 compliant for Azure AD authentication](../authentication/concept-authentication-authenticator-app.md#fips-140-compliant-for-azure-ad-authentication).
 
 
 ---
 
-### General Availability - New Federated Apps available in Microsoft Entra ID Application gallery - November 2022
+### General Availability - New Federated Apps available in Azure AD Application gallery - November 2022
 
 
 
@@ -656,12 +656,12 @@ In November 2022, we've added the following 22 new applications in our App galle
 
 You can also find the documentation of all the applications from here https://aka.ms/AppsTutorial,
 
-For listing your application in the Microsoft Entra ID app gallery, read the details here https://aka.ms/AzureADAppRequest
+For listing your application in the Azure AD app gallery, read the details here https://aka.ms/AzureADAppRequest
 
 
 ---
 
-### General Availability - New provisioning connectors in the Microsoft Entra ID Application Gallery - November 2022
+### General Availability - New provisioning connectors in the Azure AD Application Gallery - November 2022
 
 
 
@@ -674,7 +674,7 @@ We've added the following new applications in our App gallery with Provisioning 
 - [Keepabl](../saas-apps/keepabl-provisioning-tutorial.md)
 - [Uber](../saas-apps/uber-provisioning-tutorial.md)
 
-For more information about how to better secure your organization by using automated user account provisioning, see: [Automate user provisioning to SaaS applications with Microsoft Entra ID](../app-provisioning/user-provisioning.md).
+For more information about how to better secure your organization by using automated user account provisioning, see: [Automate user provisioning to SaaS applications with Azure AD](../app-provisioning/user-provisioning.md).
 
 
 ---
@@ -687,7 +687,7 @@ For more information about how to better secure your organization by using autom
 **Service category:** Group Management           
 **Product capability:** Directory     
 
-Admins can now pause, and resume, the processing of individual dynamic groups in the Entra Admin Center. For more information, see: [Create or update a dynamic group in Microsoft Entra ID](../enterprise-users/groups-create-rule.md).
+Admins can now pause, and resume, the processing of individual dynamic groups in the Entra Admin Center. For more information, see: [Create or update a dynamic group in Azure Active Directory](../enterprise-users/groups-create-rule.md).
 
 
 ---
@@ -700,7 +700,7 @@ Admins can now pause, and resume, the processing of individual dynamic groups in
 **Service category:** Authentications (Logins)          
 **Product capability:** User Authentication     
 
-Update the Microsoft Entra ID and Microsoft 365 sign-in experience with new company branding capabilities. You can apply your company’s brand guidance to authentication experiences with predefined templates. For more information, see: [Configure your company branding](./how-to-customize-branding.md).
+Update the Azure AD and Microsoft 365 sign-in experience with new company branding capabilities. You can apply your company’s brand guidance to authentication experiences with predefined templates. For more information, see: [Configure your company branding](./how-to-customize-branding.md).
 
 
 ---
@@ -713,7 +713,7 @@ Update the Microsoft Entra ID and Microsoft 365 sign-in experience with new comp
 **Service category:** Directory Management             
 **Product capability:** Directory       
 
-Update the company branding functionality on the Microsoft Entra ID/Microsoft 365 sign-in experience to allow customizing Self Service Password Reset (SSPR) hyperlinks, footer hyperlinks and browser icon. For more information, see: [Configure your company branding](./how-to-customize-branding.md).
+Update the company branding functionality on the Azure AD/Microsoft 365 sign-in experience to allow customizing Self Service Password Reset (SSPR) hyperlinks, footer hyperlinks and browser icon. For more information, see: [Configure your company branding](./how-to-customize-branding.md).
 
 
 ---
@@ -733,7 +733,7 @@ This functionality greatly enhances recoverability and resilience when using Adm
 
 ---
 
-### Public Preview - IPv6 coming to Microsoft Entra ID
+### Public Preview - IPv6 coming to Azure AD
 
 
 
@@ -741,10 +741,10 @@ This functionality greatly enhances recoverability and resilience when using Adm
 **Service category:** Identity Protection            
 **Product capability:** Platform     
 
-With the growing adoption and support of IPv6 across enterprise networks, service providers, and devices, many customers are wondering if their users can continue to access their services and applications from IPv6 clients and networks. Today, we’re excited to announce our plan to bring IPv6 support to Microsoft Microsoft Entra ID (Microsoft Entra ID). This allows customers to reach the Microsoft Entra ID services over both IPv4 and IPv6 network protocols (dual stack).
-For most customers, IPv4 won't completely disappear from their digital landscape, so we aren't planning to require IPv6 or to deprioritize IPv4 in any Microsoft Entra ID features or services.
-We'll begin introducing IPv6 support into Microsoft Entra ID services in a phased approach, beginning March 31, 2023.
-We have guidance that is specifically for Microsoft Entra ID customers who use IPv6 addresses and also use Named Locations in their Conditional Access policies.
+With the growing adoption and support of IPv6 across enterprise networks, service providers, and devices, many customers are wondering if their users can continue to access their services and applications from IPv6 clients and networks. Today, we’re excited to announce our plan to bring IPv6 support to Microsoft Azure Active Directory (Azure AD). This allows customers to reach the Azure AD services over both IPv4 and IPv6 network protocols (dual stack).
+For most customers, IPv4 won't completely disappear from their digital landscape, so we aren't planning to require IPv6 or to deprioritize IPv4 in any Azure Active Directory features or services.
+We'll begin introducing IPv6 support into Azure AD services in a phased approach, beginning March 31, 2023.
+We have guidance that is specifically for Azure AD customers who use IPv6 addresses and also use Named Locations in their Conditional Access policies.
 
 Customers who use named locations to identify specific network boundaries in their organization need to:
 1. Conduct an audit of existing named locations to anticipate potential risk.
@@ -755,7 +755,7 @@ Customers who use Conditional Access location based policies to restrict and sec
 1. Conduct an audit of existing Conditional Access policies to identify use of named locations as a condition to anticipate potential risk.
 1. Review and update existing Conditional Access location based policies to ensure they continue to meet your organization’s security requirements.
 
-We continue to share additional guidance on IPv6 enablement in Microsoft Entra ID at this link: https://aka.ms/azureadipv6.
+We continue to share additional guidance on IPv6 enablement in Azure AD at this link: https://aka.ms/azureadipv6.
 
 
 ---
@@ -763,24 +763,24 @@ We continue to share additional guidance on IPv6 enablement in Microsoft Entra I
 
 ## October 2022
 
-### General Availability - Upgrade Microsoft Entra ID Provisioning agent to the latest version (version number: 1.1.977.0)
+### General Availability - Upgrade Azure AD Provisioning agent to the latest version (version number: 1.1.977.0)
 
 
 
 **Type:** Plan for change     
 **Service category:** Provisioning         
-**Product capability:** Microsoft Entra ID Connect Cloud Sync        
+**Product capability:** Azure AD Connect Cloud Sync        
 
-Microsoft stops support for Microsoft Entra ID provisioning agent with versions 1.1.818.0 and below starting Feb 1,2023. If you're using Microsoft Entra ID cloud sync, make sure you have the latest version of the agent. You can view info about the agent release history [here](../app-provisioning/provisioning-agent-release-version-history.md). You can download the latest version [here](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/provisioningAgentInstaller)
+Microsoft stops support for Azure AD provisioning agent with versions 1.1.818.0 and below starting Feb 1,2023. If you're using Azure AD cloud sync, make sure you have the latest version of the agent. You can view info about the agent release history [here](../app-provisioning/provisioning-agent-release-version-history.md). You can download the latest version [here](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/provisioningAgentInstaller)
 
 You can find out which version of the agent you're using as follows:
 
 1. Going to the domain server that you have the agent installed
-1. Right-click on the Microsoft Microsoft Entra ID Connect Provisioning Agent app
+1. Right-click on the Microsoft Azure AD Connect Provisioning Agent app
 1. Select on “Details” tab and you can find the version number there
 
 > [!NOTE]
-> Microsoft Entra ID (AD) Connect follows the [Modern Lifecycle Policy](/lifecycle/policies/modern). Changes for products and services under the Modern Lifecycle Policy may be more frequent and require customers to be alert for forthcoming modifications to their product or service.
+> Azure Active Directory (AD) Connect follows the [Modern Lifecycle Policy](/lifecycle/policies/modern). Changes for products and services under the Modern Lifecycle Policy may be more frequent and require customers to be alert for forthcoming modifications to their product or service.
 Product governed by the Modern Policy follow a [continuous support and servicing model](/lifecycle/overview/product-end-of-support-overview). Customers must take the latest update to remain supported. For products and services governed by the Modern Lifecycle Policy, Microsoft's policy is to provide a minimum 30 days' notification when customers are required to take action in order to avoid significant degradation to the normal use of the product or service.
 
 ---
@@ -845,7 +845,7 @@ You can now require your business partner (B2B) guests across all Microsoft clou
 **Service category:** Authentications (Logins)     
 **Product capability:** User Authentication   
 
-We're excited to announce the general availability of hybrid cloud Kerberos trust, a new Windows Hello for Business deployment model to enable a password-less sign-in experience. With this new model, we’ve made Windows Hello for Business easier to deploy than the existing key trust and certificate trust deployment models by removing the need for maintaining complicated public key infrastructure (PKI), and Microsoft Entra ID (AD) Connect synchronization wait times. For more information, see: [Hybrid Cloud Kerberos Trust Deployment](/windows/security/identity-protection/hello-for-business/hello-hybrid-cloud-kerberos-trust).
+We're excited to announce the general availability of hybrid cloud Kerberos trust, a new Windows Hello for Business deployment model to enable a password-less sign-in experience. With this new model, we’ve made Windows Hello for Business easier to deploy than the existing key trust and certificate trust deployment models by removing the need for maintaining complicated public key infrastructure (PKI), and Azure Active Directory (AD) Connect synchronization wait times. For more information, see: [Hybrid Cloud Kerberos Trust Deployment](/windows/security/identity-protection/hello-for-business/hello-hybrid-cloud-kerberos-trust).
 
 ---
 
@@ -857,20 +857,20 @@ We're excited to announce the general availability of hybrid cloud Kerberos trus
 **Service category:** Conditional Access     
 **Product capability:** SSO  
 
-This feature empowers users on Linux clients to register their devices with Microsoft Entra ID, enroll into Intune management, and satisfy device-based Conditional Access policies when accessing their corporate resources.
+This feature empowers users on Linux clients to register their devices with Azure AD, enroll into Intune management, and satisfy device-based Conditional Access policies when accessing their corporate resources.
 
-- Users can register their Linux devices with Microsoft Entra ID
+- Users can register their Linux devices with Azure AD
 - Users can enroll in Mobile Device Management (Intune), which can be used to provide compliance decisions based upon policy definitions to allow device based Conditional Access on Linux Desktops 
 - If compliant, users can use Microsoft Edge Browser to enable Single-Sign on to M365/Azure resources and satisfy device-based Conditional Access policies.
 
 
 For more information, see: 
-[Microsoft Entra ID registered devices](../devices/concept-device-registration.md).
-[Plan your Microsoft Entra ID device deployment](../devices/plan-device-deployment.md)
+[Azure AD registered devices](../devices/concept-device-registration.md).
+[Plan your Azure Active Directory device deployment](../devices/plan-device-deployment.md)
 
 ---
 
-### General Availability - Deprecation of Microsoft Entra ID Multi-Factor Authentication.
+### General Availability - Deprecation of Azure Active Directory Multi-Factor Authentication.
 
 
 
@@ -878,7 +878,7 @@ For more information, see:
 **Service category:** MFA     
 **Product capability:** Identity Security & Protection  
 
-Beginning September 30, 2024, Microsoft Entra ID Multi-Factor Authentication Server deployments will no longer service multi-factor authentication (MFA) requests, which could cause authentications to fail for your organization. To ensure uninterrupted authentication services, and to remain in a supported state, organizations should migrate their users’ authentication data to the cloud-based Microsoft Entra ID Multi-Factor Authentication service using the latest Migration Utility included in the most recent Microsoft Entra ID Multi-Factor Authentication Server update. For more information, see: [Migrate from MFA Server to Microsoft Entra ID Multi-Factor Authentication](../authentication/how-to-migrate-mfa-server-to-azure-mfa.md).
+Beginning September 30, 2024, Azure Active Directory Multi-Factor Authentication Server deployments will no longer service multi-factor authentication (MFA) requests, which could cause authentications to fail for your organization. To ensure uninterrupted authentication services, and to remain in a supported state, organizations should migrate their users’ authentication data to the cloud-based Azure Active Directory Multi-Factor Authentication service using the latest Migration Utility included in the most recent Azure Active Directory Multi-Factor Authentication Server update. For more information, see: [Migrate from MFA Server to Azure AD Multi-Factor Authentication](../authentication/how-to-migrate-mfa-server-to-azure-mfa.md).
 
 ---
 
@@ -891,7 +891,7 @@ Beginning September 30, 2024, Microsoft Entra ID Multi-Factor Authentication Ser
 **Product capability:** Identity Governance   
 
 
-We're excited to announce the public preview of Lifecycle Workflows, a new Identity Governance capability that allows customers to extend the user provisioning process, and adds enterprise grade user lifecycle management capabilities, in Microsoft Entra ID to modernize your identity lifecycle management process. With Lifecycle Workflows, you can:
+We're excited to announce the public preview of Lifecycle Workflows, a new Identity Governance capability that allows customers to extend the user provisioning process, and adds enterprise grade user lifecycle management capabilities, in Azure AD to modernize your identity lifecycle management process. With Lifecycle Workflows, you can:
 
 - Confidently configure and deploy custom workflows to onboard and offboard cloud employees at scale replacing your manual processes.
 - Automate out-of-the-box actions critical to required Joiner and Leaver scenarios and get rich reporting insights.
@@ -909,7 +909,7 @@ For more information, see: [What are Lifecycle Workflows? (Public Preview)](../g
 **Service category:** Access Reviews     
 **Product capability:** Identity Governance   
 
-This feature provides Machine Learning based recommendations to the reviewers of Microsoft Entra ID Access Reviews to make the review experience easier and more accurate. The recommendation detects user affiliation with other users within the group, and applies the scoring mechanism we built by computing the user’s average distance with other users in the group. For more information, see: [Review recommendations for Access reviews](../governance/review-recommendations-access-reviews.md).
+This feature provides Machine Learning based recommendations to the reviewers of Azure AD Access Reviews to make the review experience easier and more accurate. The recommendation detects user affiliation with other users within the group, and applies the scoring mechanism we built by computing the user’s average distance with other users in the group. For more information, see: [Review recommendations for Access reviews](../governance/review-recommendations-access-reviews.md).
 
 ---
 
@@ -921,7 +921,7 @@ This feature provides Machine Learning based recommendations to the reviewers of
 **Service category:** Provisioning  
 **Product capability:** Outbound to SaaS Applications   
 
-When configuring writeback of attributes from Microsoft Entra ID to SAP SuccessFactors Employee Central, you can now specify the scope of users using Microsoft Entra ID group assignment. For more information, see: [Tutorial: Configure attribute write-back from Microsoft Entra ID to SAP SuccessFactors](../saas-apps/sap-successfactors-writeback-tutorial.md).
+When configuring writeback of attributes from Azure AD to SAP SuccessFactors Employee Central, you can now specify the scope of users using Azure AD group assignment. For more information, see: [Tutorial: Configure attribute write-back from Azure AD to SAP SuccessFactors](../saas-apps/sap-successfactors-writeback-tutorial.md).
 
 ---
 
@@ -964,7 +964,7 @@ For more information, see: [How to use additional context in Microsoft Authentic
 
 ---
 
-### New Federated Apps available in Microsoft Entra ID Application gallery - October 2022
+### New Federated Apps available in Azure AD Application gallery - October 2022
 
 
 
@@ -980,13 +980,13 @@ In October 2022 we've added the following 15 new applications in our App gallery
 
 You can also find the documentation of all the applications from here https://aka.ms/AppsTutorial,
 
-For listing your application in the Microsoft Entra ID app gallery, read the details here https://aka.ms/AzureADAppRequest
+For listing your application in the Azure AD app gallery, read the details here https://aka.ms/AzureADAppRequest
 
 
 
 ---
 
-### Public preview - New provisioning connectors in the Microsoft Entra ID Application Gallery - October 2022
+### Public preview - New provisioning connectors in the Azure AD Application Gallery - October 2022
 
 **Type:** New feature  
 **Service category:** App Provisioning  
@@ -996,7 +996,7 @@ You can now automate creating, updating, and deleting user accounts for these ne
 
 - [LawVu](../saas-apps/lawvu-provisioning-tutorial.md)
 
-For more information about how to better secure your organization by using automated user account provisioning, see: [Automate user provisioning to SaaS applications with Microsoft Entra ID](../app-provisioning/user-provisioning.md).
+For more information about how to better secure your organization by using automated user account provisioning, see: [Automate user provisioning to SaaS applications with Azure AD](../app-provisioning/user-provisioning.md).
 
 
 
@@ -1004,15 +1004,15 @@ For more information about how to better secure your organization by using autom
 
 ## September 2022 
 
-### General Availability - SSPR writeback is now available for disconnected forests using Microsoft Entra ID Connect cloud sync
+### General Availability - SSPR writeback is now available for disconnected forests using Azure AD Connect cloud sync
 
 
 
 **Type:** New feature  
-**Service category:** Microsoft Entra ID Connect Cloud Sync   
+**Service category:** Azure AD Connect Cloud Sync   
 **Product capability:** Identity Lifecycle Management 
 
-Microsoft Entra ID Connect Cloud Sync Password writeback now provides customers the ability to synchronize Microsoft Entra ID password changes made in the cloud to an on-premises directory in real time. This can be accomplished using the lightweight Microsoft Entra ID cloud provisioning agent. For more information, see: [Tutorial: Enable cloud sync self-service password reset writeback to an on-premises environment](../authentication/tutorial-enable-cloud-sync-sspr-writeback.md).
+Azure AD Connect Cloud Sync Password writeback now provides customers the ability to synchronize Azure AD password changes made in the cloud to an on-premises directory in real time. This can be accomplished using the lightweight Azure AD cloud provisioning agent. For more information, see: [Tutorial: Enable cloud sync self-service password reset writeback to an on-premises environment](../authentication/tutorial-enable-cloud-sync-sspr-writeback.md).
 
 ---
 
@@ -1026,20 +1026,20 @@ Microsoft Entra ID Connect Cloud Sync Password writeback now provides customers 
 
 
 
-This feature empowers users on Linux clients to register their devices with Microsoft Entra ID, enroll into Intune management, and satisfy device-based Conditional Access policies when accessing their corporate resources.
+This feature empowers users on Linux clients to register their devices with Azure AD, enroll into Intune management, and satisfy device-based Conditional Access policies when accessing their corporate resources.
 
-- Users can register their Linux devices with Microsoft Entra ID.
+- Users can register their Linux devices with Azure AD.
 - Users can enroll in Mobile Device Management (Intune), which can be used to provide compliance decisions based upon policy definitions to allow device based Conditional Access on Linux Desktops.
 - If compliant, users can use Microsoft Edge Browser to enable Single-Sign on to M365/Azure resources and satisfy device-based Conditional Access policies.
 
 For more information, see:
 
-- [Microsoft Entra ID registered devices](../devices/concept-device-registration.md)
-- [Plan your Microsoft Entra ID device deployment](../devices/plan-device-deployment.md)
+- [Azure AD registered devices](../devices/concept-device-registration.md)
+- [Plan your Azure Active Directory device deployment](../devices/plan-device-deployment.md)
 
 ---
 
-### General Availability - Microsoft Entra ID SCIM Validator
+### General Availability - Azure AD SCIM Validator
 
 
 
@@ -1049,7 +1049,7 @@ For more information, see:
 
 
 
-Independent Software Vendors(ISVs) and developers can self-test their SCIM endpoints for compatibility: We have made it easier for ISVs to validate that their endpoints are compatible with the SCIM-based Microsoft Entra ID provisioning services. This is now in general availability (GA) status.
+Independent Software Vendors(ISVs) and developers can self-test their SCIM endpoints for compatibility: We have made it easier for ISVs to validate that their endpoints are compatible with the SCIM-based Azure AD provisioning services. This is now in general availability (GA) status.
 
 For more information, see: [Tutorial: Validate a SCIM endpoint](../app-provisioning/scim-validator-tutorial.md)
 
@@ -1065,9 +1065,9 @@ For more information, see: [Tutorial: Validate a SCIM endpoint](../app-provision
 
 
 
-Accidental deletion of users in any system could be disastrous. We’re excited to announce the general availability of the accidental deletions prevention capability as part of the Microsoft Entra ID provisioning service. When the number of deletions to be processed in a single provisioning cycle spikes above a customer defined threshold the following will happen. The Microsoft Entra ID provisioning service pauses, provide you with visibility into the potential deletions, and allow you to accept or reject the deletions. This functionality has historically been available for Microsoft Entra ID Connect, and Microsoft Entra ID Connect Cloud Sync. It's now available across the various provisioning flows, including both HR-driven provisioning and application provisioning.
+Accidental deletion of users in any system could be disastrous. We’re excited to announce the general availability of the accidental deletions prevention capability as part of the Azure AD provisioning service. When the number of deletions to be processed in a single provisioning cycle spikes above a customer defined threshold the following will happen. The Azure AD provisioning service pauses, provide you with visibility into the potential deletions, and allow you to accept or reject the deletions. This functionality has historically been available for Azure AD Connect, and Azure AD Connect Cloud Sync. It's now available across the various provisioning flows, including both HR-driven provisioning and application provisioning.
 
-For more information, see: [Enable accidental deletions prevention in the Microsoft Entra ID provisioning service](../app-provisioning/accidental-deletions.md)
+For more information, see: [Enable accidental deletions prevention in the Azure AD provisioning service](../app-provisioning/accidental-deletions.md)
 
 ---
 
@@ -1088,7 +1088,7 @@ For more information, see: [What is risk?](../identity-protection/concept-identi
 ---
 
 
-### New Federated Apps available in Microsoft Entra ID Application gallery - September 2022
+### New Federated Apps available in Azure AD Application gallery - September 2022
 
 
 
@@ -1100,11 +1100,11 @@ For more information, see: [What is risk?](../identity-protection/concept-identi
 
 In September 2022 we've added the following 15 new applications in our App gallery with Federation support:
 
-[RocketReach SSO](../saas-apps/rocketreach-sso-tutorial.md), [Arena EU](../saas-apps/arena-eu-tutorial.md), [Zola](../saas-apps/zola-tutorial.md), [FourKites SAML2.0 SSO for Tracking](../saas-apps/fourkites-tutorial.md), [Syniverse Customer Portal](../saas-apps/syniverse-customer-portal-tutorial.md), [Rimo](https://rimo.app/), [Q Ware CMMS](https://qware.app/), Mapiq (OIDC), [NICE Cxone](../saas-apps/nice-cxone-tutorial.md), [dominKnow|ONE](../saas-apps/dominknowone-tutorial.md), [Waynbo for Microsoft Entra ID](https://webportal-eu.waynbo.com/Login), [innDex](https://web.inndex.co.uk/azure/authorize), [Profiler Software](https://www.profiler.net.au/), [Trotto go links](https://trot.to/_/auth/login), [AsignetSSOIntegration](../saas-apps/asignet-sso-tutorial.md).
+[RocketReach SSO](../saas-apps/rocketreach-sso-tutorial.md), [Arena EU](../saas-apps/arena-eu-tutorial.md), [Zola](../saas-apps/zola-tutorial.md), [FourKites SAML2.0 SSO for Tracking](../saas-apps/fourkites-tutorial.md), [Syniverse Customer Portal](../saas-apps/syniverse-customer-portal-tutorial.md), [Rimo](https://rimo.app/), [Q Ware CMMS](https://qware.app/), Mapiq (OIDC), [NICE Cxone](../saas-apps/nice-cxone-tutorial.md), [dominKnow|ONE](../saas-apps/dominknowone-tutorial.md), [Waynbo for Azure AD](https://webportal-eu.waynbo.com/Login), [innDex](https://web.inndex.co.uk/azure/authorize), [Profiler Software](https://www.profiler.net.au/), [Trotto go links](https://trot.to/_/auth/login), [AsignetSSOIntegration](../saas-apps/asignet-sso-tutorial.md).
 
 You can also find the documentation of all the applications from here https://aka.ms/AppsTutorial,
 
-For listing your application in the Microsoft Entra ID app gallery, read the details here: https://aka.ms/AzureADAppRequest
+For listing your application in the Azure AD app gallery, read the details here: https://aka.ms/AzureADAppRequest
 
 
 
@@ -1148,7 +1148,7 @@ Customers can now meet their complex audit and recertification requirements thro
 
 Currently, users can self-service leave for an organization without the visibility of their IT administrators. Some organizations may want more control over this self-service process.
 
-With this feature, IT administrators can now allow or restrict external identities to leave an organization by Microsoft provided self-service controls via Microsoft Entra ID in the Microsoft Entra admin center. In order to restrict users to leave an organization, customers need to include "Global privacy contact" and "Privacy statement URL" under tenant properties.
+With this feature, IT administrators can now allow or restrict external identities to leave an organization by Microsoft provided self-service controls via Azure Active Directory in the Microsoft Entra admin center. In order to restrict users to leave an organization, customers need to include "Global privacy contact" and "Privacy statement URL" under tenant properties.
  
 A new policy API is available for the administrators to control tenant wide policy:
 [externalIdentitiesPolicy resource type](/graph/api/resources/externalidentitiespolicy?view=graph-rest-beta&preserve-view=true)
@@ -1188,7 +1188,7 @@ Identity Protection risk detections (alerts) are now also available in Microsoft
 
 ---
 
-### New Federated Apps available in Microsoft Entra ID Application gallery - August 2022
+### New Federated Apps available in Azure AD Application gallery - August 2022
 
 **Type:** New feature  
 **Service category:** Enterprise Apps  
@@ -1200,14 +1200,14 @@ In August 2022, we've added the following 40 new applications in our App gallery
 
 You can also find the documentation of all the applications from here https://aka.ms/AppsTutorial,
 
-For listing your application in the Microsoft Entra ID app gallery, please read the details here https://aka.ms/AzureADAppRequest 
+For listing your application in the Azure AD app gallery, please read the details here https://aka.ms/AzureADAppRequest 
 
 
 
 
 
 ---
-### Public preview - New provisioning connectors in the Microsoft Entra ID Application Gallery - August 2022
+### Public preview - New provisioning connectors in the Azure AD Application Gallery - August 2022
 
 **Type:** New feature  
 **Service category:** App Provisioning  
@@ -1221,7 +1221,7 @@ You can now automate creating, updating, and deleting user accounts for these ne
 - [SuccessFactors Writeback](../saas-apps/sap-successfactors-writeback-tutorial.md)
 - [Tableau Cloud](../saas-apps/tableau-online-provisioning-tutorial.md)
 
-For more information about how to better secure your organization by using automated user account provisioning, see: [Automate user provisioning to SaaS applications with Microsoft Entra ID](../app-provisioning/user-provisioning.md).
+For more information about how to better secure your organization by using automated user account provisioning, see: [Automate user provisioning to SaaS applications with Azure AD](../app-provisioning/user-provisioning.md).
 
 
 
@@ -1232,7 +1232,7 @@ For more information about how to better secure your organization by using autom
 **Service category:** Other  
 **Product capability:** Developer Experience 
 
-Entra Workload Identity Federation allows developers to exchange tokens issued by another identity provider with Microsoft Entra ID tokens, without needing secrets. It eliminates the need to store, and manage, credentials inside the code or secret stores to access Microsoft Entra ID protected resources such as Azure and Microsoft Graph. By removing the secrets required to access Microsoft Entra ID protected resources, workload identity federation can improve the security posture of your organization. This feature also reduces the burden of secret management and minimizes the risk of service downtime due to expired credentials. 
+Entra Workload Identity Federation allows developers to exchange tokens issued by another identity provider with Azure AD tokens, without needing secrets. It eliminates the need to store, and manage, credentials inside the code or secret stores to access Azure AD protected resources such as Azure and Microsoft Graph. By removing the secrets required to access Azure AD protected resources, workload identity federation can improve the security posture of your organization. This feature also reduces the burden of secret management and minimizes the risk of service downtime due to expired credentials. 
 
 For more information on this capability and supported scenarios, see [Workload identity federation](../workload-identities/workload-identity-federation.md).
 
@@ -1245,9 +1245,9 @@ For more information on this capability and supported scenarios, see [Workload i
 **Service category:** Entitlement Management  
 **Product capability:** Identity Governance 
 
-In Microsoft Entra ID entitlement management, a new form of access package assignment policy is being added. The automatic assignment policy includes a filter rule, similar to a dynamic group, that specifies the users in the tenant who should have assignments. When users come into scope of matching that filter rule criteria, an assignment is automatically created, and when they no longer match, the assignment is removed.
+In Azure AD entitlement management, a new form of access package assignment policy is being added. The automatic assignment policy includes a filter rule, similar to a dynamic group, that specifies the users in the tenant who should have assignments. When users come into scope of matching that filter rule criteria, an assignment is automatically created, and when they no longer match, the assignment is removed.
 
- For more information, see: [Configure an automatic assignment policy for an access package in Microsoft Entra ID entitlement management (Preview)](../governance/entitlement-management-access-package-auto-assignment-policy.md).
+ For more information, see: [Configure an automatic assignment policy for an access package in Azure AD entitlement management (Preview)](../governance/entitlement-management-access-package-auto-assignment-policy.md).
 
 
 
@@ -1255,13 +1255,13 @@ In Microsoft Entra ID entitlement management, a new form of access package assig
 
 ## July 2022
  
-### Public Preview - ADFS to Microsoft Entra ID: SAML App Multi-Instancing
+### Public Preview - ADFS to Azure AD: SAML App Multi-Instancing
 
 **Type:** New feature  
 **Service category:** Enterprise Apps  
 **Product capability:** SSO  
 
-Users can now configure multiple instances of the same application within an Microsoft Entra ID tenant. It's now supported for both IdP, and Service Provider (SP), initiated single sign-on requests. Multiple application accounts can now have a separate service principal to handle instance-specific claims mapping and roles assignment. For more information, see:
+Users can now configure multiple instances of the same application within an Azure AD tenant. It's now supported for both IdP, and Service Provider (SP), initiated single sign-on requests. Multiple application accounts can now have a separate service principal to handle instance-specific claims mapping and roles assignment. For more information, see:
 
 - [Configure SAML app multi-instancing for an application - Microsoft Entra](../develop/configure-app-multi-instancing.md)
 - [Customize app SAML token claims - Microsoft Entra](../develop/saml-claims-customization.md)
@@ -1270,7 +1270,7 @@ Users can now configure multiple instances of the same application within an Mic
 
 ---
 
-### Public Preview - ADFS to Microsoft Entra ID: Apply RegEx Replace to groups claim content
+### Public Preview - ADFS to Azure AD: Apply RegEx Replace to groups claim content
 
 **Type:** New feature  
 **Service category:** Enterprise Apps  
@@ -1286,14 +1286,14 @@ For more information, see:[Customize app SAML token claims - Microsoft Entra](..
  
 
 
-### Public Preview - Microsoft Entra ID Domain Services - Trusts for User Forests
+### Public Preview - Azure AD Domain Services - Trusts for User Forests
 
 **Type:** New feature  
-**Service category:** Microsoft Entra ID Domain Services  
-**Product capability:** Microsoft Entra ID Domain Services  
+**Service category:** Azure AD Domain Services  
+**Product capability:** Azure AD Domain Services  
  
 
-You can now create trusts on both user and resource forests. On-premises AD DS users can't authenticate to resources in the Microsoft Entra ID DS resource forest until you create an outbound trust to your on-premises AD DS. An outbound trust requires network connectivity to your on-premises virtual network on which you have installed Microsoft Entra ID Domain Service. On a user forest, trusts can be created for on-premises AD forests that aren't synchronized to Microsoft Entra ID DS.
+You can now create trusts on both user and resource forests. On-premises AD DS users can't authenticate to resources in the Azure AD DS resource forest until you create an outbound trust to your on-premises AD DS. An outbound trust requires network connectivity to your on-premises virtual network on which you have installed Azure AD Domain Service. On a user forest, trusts can be created for on-premises AD forests that aren't synchronized to Azure AD DS.
 
 To learn more about trusts and how to deploy your own, visit [How trust relationships work for forests in Active Directory](../../active-directory-domain-services/concepts-forest-trust.md).
  
@@ -1303,7 +1303,7 @@ To learn more about trusts and how to deploy your own, visit [How trust relation
  
 
 
-### New Federated Apps available in Microsoft Entra ID Application gallery - July 2022
+### New Federated Apps available in Azure AD Application gallery - July 2022
 
 **Type:** New feature  
 **Service category:** Enterprise Apps  
@@ -1316,7 +1316,7 @@ In July 2022 we've added the following 28 new applications in our App gallery wi
 
 You can also find the documentation of all the applications from here https://aka.ms/AppsTutorial,
 
-For listing your application in the Microsoft Entra ID app gallery, please read the details here https://aka.ms/AzureADAppRequest
+For listing your application in the Azure AD app gallery, please read the details here https://aka.ms/AzureADAppRequest
 
 
  
@@ -1331,29 +1331,29 @@ For listing your application in the Microsoft Entra ID app gallery, please read 
 **Product capability:** Identity Lifecycle Management  
  
 
-Pick a group of up to five members and provision them into your third-party applications in seconds. Get started testing, troubleshooting, and provisioning to non-Microsoft applications such as ServiceNow, ZScaler, and Adobe. For more information, see: [On-demand provisioning in Microsoft Entra ID](../app-provisioning/provision-on-demand.md).
+Pick a group of up to five members and provision them into your third-party applications in seconds. Get started testing, troubleshooting, and provisioning to non-Microsoft applications such as ServiceNow, ZScaler, and Adobe. For more information, see: [On-demand provisioning in Azure Active Directory](../app-provisioning/provision-on-demand.md).
  
 
 ---
  
 
-###  General Availability – Protect against by-passing of cloud Microsoft Entra ID Multi-Factor Authentication when federated with Microsoft Entra ID
+###  General Availability – Protect against by-passing of cloud Azure AD Multi-Factor Authentication when federated with Azure AD
 
 **Type:** New feature  
 **Service category:** MS Graph  
 **Product capability:** Identity Security & Protection  
  
 
-We're delighted to announce a new security protection that prevents bypassing of cloud Microsoft Entra ID Multi-Factor Authentication when federated with Microsoft Entra ID. When enabled for a federated domain in your Microsoft Entra ID tenant, it ensures that a compromised federated account can't bypass Microsoft Entra ID Multi-Factor Authentication by imitating that a multi factor authentication has already been performed by the identity provider. The protection can be enabled via new security setting, [federatedIdpMfaBehavior](/graph/api/resources/internaldomainfederation?view=graph-rest-beta#federatedidpmfabehavior-values&preserve-view=true).
+We're delighted to announce a new security protection that prevents bypassing of cloud Azure AD Multi-Factor Authentication when federated with Azure AD. When enabled for a federated domain in your Azure AD tenant, it ensures that a compromised federated account can't bypass Azure AD Multi-Factor Authentication by imitating that a multi factor authentication has already been performed by the identity provider. The protection can be enabled via new security setting, [federatedIdpMfaBehavior](/graph/api/resources/internaldomainfederation?view=graph-rest-beta#federatedidpmfabehavior-values&preserve-view=true).
 
  
-We highly recommend enabling this new protection when using Microsoft Entra ID Multi-Factor Authentication as your multi factor authentication for your federated users. To learn more about the protection and how to enable it, visit [Enable protection to prevent by-passing of cloud Microsoft Entra ID Multi-Factor Authentication when federated with Microsoft Entra ID](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#enable-protection-to-prevent-by-passing-of-cloud-azure-ad-multi-factor-authentication-when-federated-with-azure-ad). 
+We highly recommend enabling this new protection when using Azure AD Multi-Factor Authentication as your multi factor authentication for your federated users. To learn more about the protection and how to enable it, visit [Enable protection to prevent by-passing of cloud Azure AD Multi-Factor Authentication when federated with Azure AD](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#enable-protection-to-prevent-by-passing-of-cloud-azure-ad-multi-factor-authentication-when-federated-with-azure-ad). 
  
 
 ---
  
 
-### Public preview - New provisioning connectors in the Microsoft Entra ID Application Gallery - July 2022
+### Public preview - New provisioning connectors in the Azure AD Application Gallery - July 2022
 
 **Type:** New feature  
 **Service category:** App Provisioning  
@@ -1364,7 +1364,7 @@ You can now automate creating, updating, and deleting user accounts for these ne
 
 - [Tableau Cloud](../saas-apps/tableau-online-provisioning-tutorial.md)
 
-For more information about how to better secure your organization by using automated user account provisioning, see [Automate user provisioning to SaaS applications with Microsoft Entra ID](../app-provisioning/user-provisioning.md).
+For more information about how to better secure your organization by using automated user account provisioning, see [Automate user provisioning to SaaS applications with Azure AD](../app-provisioning/user-provisioning.md).
  
 
 ---
@@ -1377,7 +1377,7 @@ For more information about how to better secure your organization by using autom
 **Product capability:** Platform  
  
 
-Azure Service Health supports service outage notifications to Tenant Admins for Microsoft Entra ID issues. These outages will also appear on the Azure portal Overview page with appropriate links to Azure Service Health. Outage events will be able to be seen by built-in Tenant Administrator Roles. We'll continue to send outage notifications to subscriptions within a tenant for transition. More information is available at: [What are Service Health notifications in Microsoft Entra ID?](../reports-monitoring/overview-service-health-notifications.md).
+Azure Service Health supports service outage notifications to Tenant Admins for Azure Active Directory issues. These outages will also appear on the Azure portal Overview page with appropriate links to Azure Service Health. Outage events will be able to be seen by built-in Tenant Administrator Roles. We'll continue to send outage notifications to subscriptions within a tenant for transition. More information is available at: [What are Service Health notifications in Azure Active Directory?](../reports-monitoring/overview-service-health-notifications.md).
 
  
 
@@ -1392,7 +1392,7 @@ Azure Service Health supports service outage notifications to Tenant Admins for 
 **Product capability:** User Authentication  
  
 
-End users can now enable passwordless phone sign-in for multiple accounts in the Authenticator App on any supported iOS device. Consultants, students, and others with multiple accounts in Microsoft Entra ID can add each account to Microsoft Authenticator and use passwordless phone sign-in for all of them from the same iOS device. The Microsoft Entra ID accounts can be in either the same, or different, tenants. Guest accounts aren't supported for multiple account sign-ins from one device.
+End users can now enable passwordless phone sign-in for multiple accounts in the Authenticator App on any supported iOS device. Consultants, students, and others with multiple accounts in Azure AD can add each account to Microsoft Authenticator and use passwordless phone sign-in for all of them from the same iOS device. The Azure AD accounts can be in either the same, or different, tenants. Guest accounts aren't supported for multiple account sign-ins from one device.
 
 
 End users are encouraged to enable the optional telemetry setting in the Authenticator App, if not done so already.  For more information, see:  [Enable passwordless sign-in with Microsoft Authenticator](../authentication/howto-authentication-passwordless-phone.md)
@@ -1403,23 +1403,23 @@ End users are encouraged to enable the optional telemetry setting in the Authent
  
  
 
-### Public Preview - Microsoft Entra ID Domain Services - Fine Grain Permissions
+### Public Preview - Azure AD Domain Services - Fine Grain Permissions
 
 **Type:** Changed feature  
-**Service category:** Microsoft Entra ID Domain Services  
-**Product capability:** Microsoft Entra ID Domain Services  
+**Service category:** Azure AD Domain Services  
+**Product capability:** Azure AD Domain Services  
 
  
 
-Previously to set up and administer your AAD-DS instance you needed top level permissions of Azure Contributor and Microsoft Entra ID Global Administrator. Now for both initial creation, and ongoing administration, you can utilize more fine grain permissions for enhanced security and control. The prerequisites now minimally require:
+Previously to set up and administer your AAD-DS instance you needed top level permissions of Azure Contributor and Azure AD Global Administrator. Now for both initial creation, and ongoing administration, you can utilize more fine grain permissions for enhanced security and control. The prerequisites now minimally require:
 
-- You need [Application Administrator](../roles/permissions-reference.md#application-administrator) and [Groups Administrator](../roles/permissions-reference.md#groups-administrator) Microsoft Entra ID roles in your tenant to enable Microsoft Entra ID DS.
-- You need [Domain Services Contributor](../../role-based-access-control/built-in-roles.md#domain-services-contributor) Azure role to create the required Microsoft Entra ID DS resources.
+- You need [Application Administrator](../roles/permissions-reference.md#application-administrator) and [Groups Administrator](../roles/permissions-reference.md#groups-administrator) Azure AD roles in your tenant to enable Azure AD DS.
+- You need [Domain Services Contributor](../../role-based-access-control/built-in-roles.md#domain-services-contributor) Azure role to create the required Azure AD DS resources.
  
 
 Check out these resources to learn more:
 
-- [Tutorial - Create an Microsoft Entra ID Domain Services managed domain](../../active-directory-domain-services/tutorial-create-instance.md#prerequisites)
+- [Tutorial - Create an Azure Active Directory Domain Services managed domain](../../active-directory-domain-services/tutorial-create-instance.md#prerequisites)
 - [Least privileged roles by task](../roles/delegate-by-task.md#domain-services)
 - [Azure built-in roles - Azure RBAC](../../role-based-access-control/built-in-roles.md#domain-services-contributor)
 
@@ -1428,7 +1428,7 @@ Check out these resources to learn more:
 ---
  
 
-### General Availability- Microsoft Entra ID Connect update release with new functionality and bug fixes
+### General Availability- Azure AD Connect update release with new functionality and bug fixes
 
 **Type:** Changed feature  
 **Service category:** Provisioning  
@@ -1436,7 +1436,7 @@ Check out these resources to learn more:
 
  
 
-A new Microsoft Entra ID Connect release fixes several bugs and includes new functionality. This release is also available for auto upgrade for eligible servers. For more information, see: [Microsoft Entra ID Connect: Version release history](../hybrid/connect/reference-connect-version-history.md#21150).
+A new Azure AD Connect release fixes several bugs and includes new functionality. This release is also available for auto upgrade for eligible servers. For more information, see: [Azure AD Connect: Version release history](../hybrid/connect/reference-connect-version-history.md#21150).
 
 ---
  
@@ -1449,7 +1449,7 @@ A new Microsoft Entra ID Connect release fixes several bugs and includes new fun
 
  
 
-Cross-tenant access settings enable you to control how users in your organization collaborate with members of external Microsoft Entra ID organizations. Now you have granular inbound and outbound access control settings that work on a per org, user, group, and application basis. These settings also make it possible for you to trust security claims from external Microsoft Entra ID organizations like multi-factor authentication (MFA), device compliance, and hybrid Microsoft Entra ID joined devices. For more information, see: [Cross-tenant access with Microsoft Entra ID External Identities](../external-identities/cross-tenant-access-overview.md).
+Cross-tenant access settings enable you to control how users in your organization collaborate with members of external Azure AD organizations. Now you have granular inbound and outbound access control settings that work on a per org, user, group, and application basis. These settings also make it possible for you to trust security claims from external Azure AD organizations like multi-factor authentication (MFA), device compliance, and hybrid Azure AD joined devices. For more information, see: [Cross-tenant access with Azure AD External Identities](../external-identities/cross-tenant-access-overview.md).
  
 
 ---
@@ -1502,7 +1502,7 @@ All Devices List:
 - Columns can be reordered via drag and drop
 - Select all devices
 
-For more information, see: [Manage devices in Microsoft Entra ID using the Azure portal](../devices/manage-device-identities.md#view-and-filter-your-devices-preview).
+For more information, see: [Manage devices in Azure AD using the Azure portal](../devices/manage-device-identities.md#view-and-filter-your-devices-preview).
 
 
  
@@ -1511,7 +1511,7 @@ For more information, see: [Manage devices in Microsoft Entra ID using the Azure
  
 
 
-### Public Preview - ADFS to Microsoft Entra ID: Persistent NameID for IDP-initiated Apps
+### Public Preview - ADFS to Azure AD: Persistent NameID for IDP-initiated Apps
 
 **Type:** Changed feature  
 **Service category:** Enterprise Apps  
@@ -1527,14 +1527,14 @@ For more information, see: [Customize app SAML token claims - Microsoft identity
  
 
 
-### Public Preview - ADFS to Microsoft Entra ID: Customize attrname-format​
+### Public Preview - ADFS to Azure Active Directory: Customize attrname-format​
 
 **Type:** Changed feature  
 **Service category:** Enterprise Apps  
 **Product capability:** SSO  
  
 
-With this new parity update, customers can now integrate non-gallery applications such as Socure DevHub with Microsoft Entra ID to have SSO via SAML.
+With this new parity update, customers can now integrate non-gallery applications such as Socure DevHub with Azure AD to have SSO via SAML.
 
 For more information, see [Claims mapping policy - Microsoft Entra](../develop/reference-claims-mapping-policy-type.md#claim-schema-entry-elements).
  
@@ -1544,7 +1544,7 @@ For more information, see [Claims mapping policy - Microsoft Entra](../develop/r
 ## June 2022
  
 
-### Public preview - New provisioning connectors in the Microsoft Entra ID Application Gallery - June 2022
+### Public preview - New provisioning connectors in the Azure AD Application Gallery - June 2022
 
 **Type:** New feature  
 **Service category:** App Provisioning  
@@ -1555,7 +1555,7 @@ You can now automate creating, updating, and deleting user accounts for these ne
 
 - [Whimsical](../saas-apps/whimsical-provisioning-tutorial.md)
 
-For more information about how to better secure your organization by using automated user account provisioning, see [Automate user provisioning to SaaS applications with Microsoft Entra ID](../app-provisioning/user-provisioning.md).
+For more information about how to better secure your organization by using automated user account provisioning, see [Automate user provisioning to SaaS applications with Azure AD](../app-provisioning/user-provisioning.md).
  
 
 ---
@@ -1580,7 +1580,7 @@ Customers can be alerted on assignments made outside PIM either directly on the 
 
  
 
-Temporary Access Pass (TAP) is now generally available. TAP can be used to securely register password-less methods such as Phone Sign-in, phishing resistant methods such as FIDO2, and even help Windows onboarding (AADJ and WHFB). TAP also makes recovery easier when a user has lost or forgotten their strong authentication methods and needs to sign in to register new authentication methods. For more information, see: [Configure Temporary Access Pass in Microsoft Entra ID to register Passwordless authentication methods](../authentication/howto-authentication-temporary-access-pass.md).
+Temporary Access Pass (TAP) is now generally available. TAP can be used to securely register password-less methods such as Phone Sign-in, phishing resistant methods such as FIDO2, and even help Windows onboarding (AADJ and WHFB). TAP also makes recovery easier when a user has lost or forgotten their strong authentication methods and needs to sign in to register new authentication methods. For more information, see: [Configure Temporary Access Pass in Azure AD to register Passwordless authentication methods](../authentication/howto-authentication-temporary-access-pass.md).
  
 
 ---
@@ -1595,14 +1595,14 @@ Temporary Access Pass (TAP) is now generally available. TAP can be used to secur
 
  
 
-Create "nested" groups with Microsoft Entra ID Dynamic Groups! This feature enables you to build dynamic Microsoft Entra ID Security Groups and Microsoft 365 groups based on other groups! For example, you can now create Dynamic-Group-A with members of Group-X and Group-Y. For more information, see: [Steps to create a memberOf dynamic group](../enterprise-users/groups-dynamic-rule-member-of.md#steps-to-create-a-memberof-dynamic-group).
+Create "nested" groups with Azure AD Dynamic Groups! This feature enables you to build dynamic Azure AD Security Groups and Microsoft 365 groups based on other groups! For example, you can now create Dynamic-Group-A with members of Group-X and Group-Y. For more information, see: [Steps to create a memberOf dynamic group](../enterprise-users/groups-dynamic-rule-member-of.md#steps-to-create-a-memberof-dynamic-group).
  
 
 ---
  
 
 
-### New Federated Apps available in Microsoft Entra ID Application gallery - June 2022
+### New Federated Apps available in Azure AD Application gallery - June 2022
 
 **Type:** New feature  
 **Service category:** Enterprise Apps  
@@ -1616,7 +1616,7 @@ In June 2022 we've added the following 22 new applications in our App gallery wi
 
 You can also find the documentation of all the applications from here https://aka.ms/AppsTutorial,
 
-For listing your application in the Microsoft Entra ID app gallery, see the details here https://aka.ms/AzureADAppRequest
+For listing your application in the Azure AD app gallery, see the details here https://aka.ms/AzureADAppRequest
 
 
 
@@ -1626,7 +1626,7 @@ For listing your application in the Microsoft Entra ID app gallery, see the deta
  
  
 
-### General Availability – Protect against by-passing of cloud Microsoft Entra ID Multi-Factor Authentication when federated with Microsoft Entra ID
+### General Availability – Protect against by-passing of cloud Azure AD Multi-Factor Authentication when federated with Azure AD
 
 **Type:** New feature  
 **Service category:** MS Graph  
@@ -1634,9 +1634,9 @@ For listing your application in the Microsoft Entra ID app gallery, see the deta
 
  
 
-We're delighted to announce a new security protection that prevents bypassing of cloud Microsoft Entra ID Multi-Factor Authentication when federated with Microsoft Entra ID. When enabled for a federated domain in your Microsoft Entra ID tenant, it ensures that a compromised federated account can't bypass Microsoft Entra ID Multi-Factor Authentication by imitating that a multi factor authentication has already been performed by the identity provider. The protection can be enabled via new security setting, [federatedIdpMfaBehavior](/graph/api/resources/internaldomainfederation?view=graph-rest-1.0#federatedidpmfabehavior-values&preserve-view=true). 
+We're delighted to announce a new security protection that prevents bypassing of cloud Azure AD Multi-Factor Authentication when federated with Azure AD. When enabled for a federated domain in your Azure AD tenant, it ensures that a compromised federated account can't bypass Azure AD Multi-Factor Authentication by imitating that a multi factor authentication has already been performed by the identity provider. The protection can be enabled via new security setting, [federatedIdpMfaBehavior](/graph/api/resources/internaldomainfederation?view=graph-rest-1.0#federatedidpmfabehavior-values&preserve-view=true). 
 
-We highly recommend enabling this new protection when using Microsoft Entra ID Multi-Factor Authentication as your multi factor authentication for your federated users. To learn more about the protection and how to enable it, visit [Enable protection to prevent by-passing of cloud Microsoft Entra ID Multi-Factor Authentication when federated with Microsoft Entra ID](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#enable-protection-to-prevent-by-passing-of-cloud-azure-ad-multi-factor-authentication-when-federated-with-azure-ad). 
+We highly recommend enabling this new protection when using Azure AD Multi-Factor Authentication as your multi factor authentication for your federated users. To learn more about the protection and how to enable it, visit [Enable protection to prevent by-passing of cloud Azure AD Multi-Factor Authentication when federated with Azure AD](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#enable-protection-to-prevent-by-passing-of-cloud-azure-ad-multi-factor-authentication-when-federated-with-azure-ad). 
  
 
 ---
@@ -1666,7 +1666,7 @@ User Profile:
 - A new monitoring tab
 - More user properties can be viewed and edited in the properties tab
 
- For more information, see: [User management enhancements in Microsoft Entra ID](../enterprise-users/users-search-enhanced.md).
+ For more information, see: [User management enhancements in Azure Active Directory](../enterprise-users/users-search-enhanced.md).
 
 ---
  
@@ -1704,13 +1704,13 @@ For more information on how to use this feature, see: [Dynamic membership rule f
 **Product capability:** Platform  
 
  
-Azure Service Health will soon support service outage notifications to Tenant Admins for Microsoft Entra ID issues soon. These outages will also appear on the Azure portal overview page with appropriate links to Azure Service Health. Outage events are able to be seen by built-in Tenant Administrator Roles. We continue to send outage notifications to subscriptions within a tenant for transition. More information is available when this capability is released. The expected release is for June 2022.
+Azure Service Health will soon support service outage notifications to Tenant Admins for Azure Active Directory issues soon. These outages will also appear on the Azure portal overview page with appropriate links to Azure Service Health. Outage events are able to be seen by built-in Tenant Administrator Roles. We continue to send outage notifications to subscriptions within a tenant for transition. More information is available when this capability is released. The expected release is for June 2022.
  
 ---
 
 
 
-### New Federated Apps available in Microsoft Entra ID Application gallery - May 2022
+### New Federated Apps available in Azure AD Application gallery - May 2022
 
 **Type:** New feature  
 **Service category:** Enterprise Apps  
@@ -1724,7 +1724,7 @@ In May 2022 we've added the following 25 new applications in our App gallery wit
 
 You can also find the documentation of all the applications from here https://aka.ms/AppsTutorial,
 
-For listing your application in the Microsoft Entra ID app gallery, please read the details here https://aka.ms/AzureADAppRequest
+For listing your application in the Azure AD app gallery, please read the details here https://aka.ms/AzureADAppRequest
 
 
 
@@ -1746,7 +1746,7 @@ When editing a collection using the My Apps portal, users can now add their own 
 ---
  
 
-### Public preview - New provisioning connectors in the Microsoft Entra ID Application Gallery - May 2022
+### Public preview - New provisioning connectors in the Azure AD Application Gallery - May 2022
 
 **Type:** New feature  
 **Service category:** App Provisioning  
@@ -1759,7 +1759,7 @@ You can now automate creating, updating, and deleting user accounts for these ne
 - [Blinq](../saas-apps/blinq-provisioning-tutorial.md)
 - [Cerby](../saas-apps/cerby-provisioning-tutorial.md)
 
-For more information about how to better secure your organization by using automated user account provisioning, see: [Automate user provisioning to SaaS applications with Microsoft Entra ID](../app-provisioning/user-provisioning.md).
+For more information about how to better secure your organization by using automated user account provisioning, see: [Automate user provisioning to SaaS applications with Azure AD](../app-provisioning/user-provisioning.md).
  
 
 ---
@@ -1778,7 +1778,7 @@ The sign-ins Microsoft Graph API now supports confirming safe and compromised on
 ---
  
 
-### Public Preview of Microsoft cloud settings for Microsoft Entra ID B2B
+### Public Preview of Microsoft cloud settings for Azure AD B2B
 
 **Type:** New feature  
 **Service category:** B2B  
@@ -1791,7 +1791,7 @@ Microsoft cloud settings let you collaborate with organizations from different M
 -Microsoft Azure global cloud and Microsoft Azure Government
 -Microsoft Azure global cloud and Microsoft Azure operated by 21Vianet
 
-To learn more about Microsoft cloud settings for B2B collaboration, see: [Cross-tenant access overview - Microsoft Entra ID](../external-identities/cross-tenant-access-overview.md#microsoft-cloud-settings).
+To learn more about Microsoft cloud settings for B2B collaboration, see: [Cross-tenant access overview - Azure AD](../external-identities/cross-tenant-access-overview.md#microsoft-cloud-settings).
  
 
 ---
@@ -1805,7 +1805,7 @@ To learn more about Microsoft cloud settings for B2B collaboration, see: [Cross-
 
  
 
-When setting up federation with a partner's IdP, new guest users from that domain can use their own IdP-managed organizational account to sign in to your Microsoft Entra ID tenant and start collaborating with you. There's no need for the guest user to create a separate Microsoft Entra ID account. To learn more about federating with SAML or WS-Fed identity providers in External Identities, see: [Federation with a SAML/WS-Fed identity provider (IdP) for B2B - Microsoft Entra ID](../external-identities/direct-federation.md).
+When setting up federation with a partner's IdP, new guest users from that domain can use their own IdP-managed organizational account to sign in to your Azure AD tenant and start collaborating with you. There's no need for the guest user to create a separate Azure AD account. To learn more about federating with SAML or WS-Fed identity providers in External Identities, see: [Federation with a SAML/WS-Fed identity provider (IdP) for B2B - Azure AD](../external-identities/direct-federation.md).
  
 
 ---
@@ -1819,7 +1819,7 @@ When setting up federation with a partner's IdP, new guest users from that domai
 
  
 
-Groups Administrators assigned over the scope of an administrative unit can now create groups within the administrative unit.  This enables scoped Group Administrators to create groups that they can manage directly, without needing to elevate to Global Administrator or Privileged Role Administrator. For more information, see: [Administrative units in Microsoft Entra ID](../roles/administrative-units.md).
+Groups Administrators assigned over the scope of an administrative unit can now create groups within the administrative unit.  This enables scoped Group Administrators to create groups that they can manage directly, without needing to elevate to Global Administrator or Privileged Role Administrator. For more information, see: [Administrative units in Azure Active Directory](../roles/administrative-units.md).
  
 
 ---
@@ -1839,7 +1839,7 @@ The public preview of dynamic administrative units now supports the **onPremises
 ---
  
 
-### General Availability - Improvements to Microsoft Entra ID Smart Lockout
+### General Availability - Improvements to Azure AD Smart Lockout
 
 **Type:** Changed feature  
 **Service category:** Other  
@@ -1847,7 +1847,7 @@ The public preview of dynamic administrative units now supports the **onPremises
 
  
 
-Smart Lockout now synchronizes the lockout state across Microsoft Entra ID data centers, so the total number of failed sign-in attempts allowed before an account is locked out will match the configured lockout threshold. For more information, see: [Protect user accounts from attacks with Microsoft Entra ID smart lockout](../authentication/howto-password-smart-lockout.md).
+Smart Lockout now synchronizes the lockout state across Azure AD data centers, so the total number of failed sign-in attempts allowed before an account is locked out will match the configured lockout threshold. For more information, see: [Protect user accounts from attacks with Azure Active Directory smart lockout](../authentication/howto-password-smart-lockout.md).
  
 
 ---
