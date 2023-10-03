@@ -1,13 +1,13 @@
 ---
-title: Cross Subscription / Resource Group Restore in Azure Database for  PostgreSQL - Flexible Server
-description: This article describes how to restore to a different Subscription or Resource group server in Azure Database for  PostgreSQL - Flexible Server using the Azure portal.
+title: Cross Subscription and Cross Resource Group Restore in Azure Database for  PostgreSQL - Flexible Server
+description: This article describes how to restore to a different Subscription or resource group server in Azure Database for  PostgreSQL - Flexible Server using the Azure portal.
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
 author: kabharati
 ms.author: kabharati
 ms.reviewer: maghan
-ms.date: 06/15/2023
+ms.date: 09/30/2023
 ---
 
 # Cross Subscription and Cross Resource Group Restore in Azure Database for PostgreSQL Flexible server
@@ -32,11 +32,11 @@ To complete this how-to guide, you need Azure Database for PostgreSQL - Flexible
 3. Under **Subscription** drop down, select different subscription. If you want to change the **Resource group** go to next step else
  you can go to Step 5.
 
-4  Select **Resource Group** drop down, choose different Resource group 
+4.  Select **Resource Group** drop down, choose different Resource group 
 
 5. Under **Server details**, for **Name**, provide a server name. For **Availability zone**, you can optionally choose an availability zone to restore to.
    
-   :::image type="content" source="./media/how-to-restore-server-portal/Choose-different-suborRG.png" alt-text="Screenshot that shows selections for restoring to the latest restore point.":::
+   :::image type="content" source="./media/how-to-restore-server-portal/choose-different-sub-or-rg.png" alt-text="Screenshot that shows selections for restoring to different subscription or resource group.":::
 
 6. Select **Review + create** and click **create**, a notification shows that the restore operation has started.
 
@@ -51,18 +51,18 @@ If your source server is configured with geo-redundant backup, you can restore t
 
 2. Select **Overview** from the left pane, and then select **Restore**.
    
-   :::image type="content" source="./media/how-to-restore-server-portal/crossrestore-overview.png" alt-text="Screenshot that shows a server overview and the Restore button.":::
+   :::image type="content" source="./media/how-to-restore-server-portal/cross-restore-overview.png" alt-text="Screenshot that shows a server overview and the Restore button.":::
 
 3. Under **Subscription** drop down, select different subscription. If you want to change the **Resource group** go to next step else
  you can go to Step 5.
 
-4  Select **Resource Group** drop down, choose different Resource group 
+4.  Select **Resource Group** drop down, choose different Resource group 
 
 5. Check the **Restore to paired region** option
 
 6. Under **Server details**, for **Name**, provide a server name. For **Availability zone**, you can optionally choose an availability zone to restore to.
    
-   :::image type="content" source="./media/how-to-restore-server-portal/georestore-different-SuborRG.png" alt-text="Screenshot that shows selections for restoring to the latest point.":::
+   :::image type="content" source="./media/how-to-restore-server-portal/geo-restore-different-sub-or-rg.png" alt-text="Screenshot that shows selections for restoring to the latest point.":::
 
 6. Select **Review + create** and click **create**, a notification shows that the restore operation has started.
 
