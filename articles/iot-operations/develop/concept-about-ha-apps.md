@@ -1,7 +1,7 @@
 ---
 title: Develop highly available applications
 # titleSuffix: Azure IoT MQ
-description: Learn how to develop highly available applications that talk with Azure IoT MQ.
+description: Learn how to develop highly available distributed applications that work with Azure IoT MQ.
 author: PatAltimore
 ms.author: patricka
 ms.topic: concept-article

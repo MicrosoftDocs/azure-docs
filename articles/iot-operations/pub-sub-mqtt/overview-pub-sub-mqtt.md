@@ -1,5 +1,5 @@
 ---
-title: Publish and subscribe to messages by using MQTT broker
+title: What is Azure IoT MQ
 #titleSuffix: Azure IoT MQ
 description: Use Azure IoT MQ to publish and subscribe to messages. Destinations include other MQTT brokers, Azure IoT Data Processor, and Azure cloud services.
 author: PatAltimore
@@ -10,24 +10,7 @@ ms.date: 10/03/2023
 #CustomerIntent: As an operator, I want to understand how to I can use Azure IoT MQ to publish and subscribe MQTT topics.
 ---
 
-<!--
-Remove all the comments in this template before you sign off or merge to the main branch.
-
-This template provides the basic structure of a Feature availability article pattern. See the
-[instructions - Feature availability](../level4/article-feature-availability.md) in the pattern
-library.
-
-You can provide feedback about this template at: https://aka.ms/patterns-feedback
-
--->
-
-<!-- 1. H1 ------------------------------------------------------------------------------
-
-Required: Use an H1 that includes the feature name and the product or service name.
-
--->
-
-# Publish and subscribe to messages using IoT MQ broker
+# What is Azure IoT MQ
 
 <!-- 2. Overview ------------------------------------------------------------------------
 
@@ -37,7 +20,10 @@ image that provides a high-level view of how the feature works.
 
 -->
 
-IoT MQ broker is a set of composable first-party Kubernetes services. You can aggregate data from on-premises assets including OPC UA servers into an industrial-grade MQTT Broker then add highly available edge compute and set up bi-directional data flow with a variety of services in the cloud.
+Azure IoT MQ is a distributed MQTT broker that provides the messaging pipeline for Azure IoT Operations. It's a set of Kubernetes services that aggregates data from on-premises assets, provides highly available edge compute, and enables bi-directional data flow with a variety of services in the cloud.
+
+
+
 
 <!-- 3. Use cases -----------------------------------------------------------------------
 
@@ -62,8 +48,67 @@ the feature.
 
 -->
 
-[Article body]
-TODO: Add your article body
+## Messaging layer
+IoT-focused and edge-optimized
+
+## MQTT compliant
+MQTT specification compliance
+Support for MQTT 3.1.1 and 5.0
+
+## Highly available and scalable
+Native Kubernetes integration
+
+## Azure Arc integration
+Remote management
+
+## Cloud connectors
+Azure Connectors for bi-directional cloud and edge communication
+
+## Offline operation
+Support for intermittent cloud connectivity or fully offline operation
+
+## Dapr programming model
+
+## Custom authentication
+for connecting external IoT devices
+
+## Secure by default
+with flexible attribute-based access control
+
+
+[Architecture diagram]
+
+The MQTT broker has three layers: 
+
+- Stateless front-end layer that handles client requests
+- Load-balancer that routes requests and connects the broker to others
+- Stateful and sharded back-end layer that stores and processes data
+
+The back-end layer partitions data by different keys, such as client id for client sessions, and topic name for topic messages. It uses chain replication to replicate data within each partition. For data that's shared by all partitions, it uses a single chain that spans all the partitions.
+
+- **Fault tolerance and isolation**: Message publishing continues if back-end nodes fail and prevents failures from propagating to the rest of the system
+- **Failure recovery**: Automatic failure recovery without operator intervention
+- **No message loss**: Delivery of messages if at least one front-end node and one back-end node is running
+- **Elastic scaling**: Horizontal scaling of publishing and subscribing throughput to support edge and cloud deployments
+- **Consistent performance at scale**: Limit message latency overhead due to chain-replication
+- **Operational simplicity**: Minimum dependency on external components to simplify maintenance and complexity
+
+## Configuration using custom resource definitions (CRDs)
+
+IoT MQ distributed MQTT broker is composed of several Kubernetes custom resources that define different aspects of the broker's behavior and functionality.
+
+- The main custom resource is [broker](), which defines the global settings for the broker, such as the name, namespace, cardinality, and diagnostic settings.
+- A broker resource can expose one or more [BrokerListener]() resources associated with it, which define the port and TLS settings for each listener. A listener is a network endpoint that accepts MQTT connections from clients.
+- Each *BrokerListener* can have up to one [BrokerAuthentication]() and [BrokerAuthorization](). They determine which clients can connect to the listener and what actions they can perform on the broker. Multiple *BrokerListeners* can have the same *BrokerAuthentication* or *BrokerAuthorization*, but not the inverse.
+
+```mermaid
+erDiagram
+    Broker ||--|{ BrokerListener : "exposes (one-to-many)"
+    BrokerListener }|--|| BrokerAuthentication : "uses (many-to-one)" 
+    BrokerListener }|--|| BrokerAuthorization : "uses (many-to-one)"
+```
+
+The association between the custom resources is done by specifying the **name** of the parent resource with `brokerRef` or `listenerRef` fields in the child resource's spec.
 
 <!-- 5. Availability and pricing information --------------------------------------------
 
@@ -109,5 +154,5 @@ feature
 
 --->
 
-## Next step
+## Next steps
 TODO: Add your next steps

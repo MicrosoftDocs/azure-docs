@@ -97,7 +97,7 @@ items:
       - name: About the MQ state store
         href: develop/concept-about-state-store.md
       - name: About highly available apps
-        href: develop/concept-develop-ha-apps.md
+        href: develop/concept-about-ha-apps.md
       - name: Develop Dapr apps
         href: develop/howto-develop-dapr-apps.md
       - name: Develop MQTTnet apps
