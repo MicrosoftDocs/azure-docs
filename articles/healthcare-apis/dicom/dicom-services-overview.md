@@ -37,7 +37,7 @@ FHIR&trade; supports integration of other types of data directly, or through ref
 
 - **Image exchange and collaboration**. Share an image, a subset of images, or an entire image library instantly with or without related EHR data.
 
-- **Create cohorts for research**. To find the right patients for clinical trials, researchers need to query for patients that match data in both clinical and imaging systems. The service allows reseachers to use natural language to query across systems. For example, “Give me all the medications prescribed with all the CT scan documents and their associated radiology reports for any patient older than 45 that has had a diagnosis of osteosarcoma over the last two years.”
+- **Create cohorts for research**. To find the right patients for clinical trials, researchers need to query for patients that match data in both clinical and imaging systems. The service allows researchers to use natural language to query across systems. For example, “Give me all the medications prescribed with all the CT scan documents and their associated radiology reports for any patient older than 45 that has had a diagnosis of osteosarcoma over the last two years.”
 
 - **Plan treatment based on similar patients**. When presented with a patient diagnosis, a physician can identify patient outcomes and treatment plans for past patients with a similar diagnosis even when these include imaging data.
 
@@ -45,7 +45,7 @@ FHIR&trade; supports integration of other types of data directly, or through ref
 
 - **Close the feedback loop with teleradiologists**. Teleradiologists are often unable to find out about the accuracy and quality of their diagnoses because they don't have access to patient data after the initial read. With limited or no access to clinical results or outcomes, they miss opportunities to improve their skills. Through integration with FHIR&trade;, an organization can create a tool that provides direct feedback to teleradiologists, helping them make better recommendations in the future.
 
-- **Close the feedback loop for AI and machine learning models**. Third-party machine learning model providers often lack real-world feedback to refine their models. For example, an ISV that recommends treatment plans for heart surgery rarely gets feedback from physicians on the accuracy of their suggestions. Integrating with FHIR™ enables organizations to provide feedback to the model retraining pipeline.
+- **Close the feedback loop for AI and machine learning models**. Third-party machine learning model providers often lack real-world feedback to refine their models. For example, an ISV rarely gets feedback from physicians on the accuracy of their recommended treatment plans for heart surgery. Integrating with FHIR™ enables organizations to provide feedback to the model retraining pipeline.
 
 ## Manage medical imaging data securely and efficiently
 
