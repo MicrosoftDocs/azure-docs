@@ -92,9 +92,9 @@ Select the type of sub-resource for the resource selected above that your privat
 
 When you have an approved Private Endpoint for an Azure Cosmos DB account, in the Azure portal, the **All networks** option in the **Firewall and virtual networks** pane is unavailable.
 
-### View a private endpoint by using the Azure portal
+### View private endpoints by using the Azure portal
  Follow these steps to view a private endpoint for an existing Azure Cosmos DB account by using the Azure portal:
- 
+
 1. Sign in to the [Azure portal](https://portal.azure.com), then select Private Link under Azure Services.
 
 1. Select **Private Endpoint** from the list of settings to view all Private endpoints. 
