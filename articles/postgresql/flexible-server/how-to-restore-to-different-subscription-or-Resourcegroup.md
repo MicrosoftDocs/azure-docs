@@ -27,7 +27,7 @@ To complete this how-to guide, you need Azure Database for PostgreSQL - Flexible
 
 2. Select **Overview** from the left pane, and then select **Restore**.
    
-   :::image type="content" source="./media/how-to-restore-server-portal/crossrestore-overview.png" alt-text="Screenshot that shows a server overview and the Restore button.":::
+   :::image type="content" source="./media/how-to-restore-server-portal/cross-restore-overview.png" alt-text="Screenshot that shows a server overview and the Restore button.":::
 
 3. Under **Subscription** drop down, select different subscription. If you want to change the **Resource group** go to next step else
  you can go to Step 5.
