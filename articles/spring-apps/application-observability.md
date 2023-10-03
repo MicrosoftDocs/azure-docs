@@ -59,7 +59,7 @@ This section explains how to query application logs from the `AppPlatformLogsfor
 
 To see the built-in example query statements or to write your own queries, open the Azure Spring Apps instance and go to the **Logs** menu.
 
-#### Show the application logs which contain the "error" or "exception" terms
+#### Show the application logs that contain the "error" or "exception" terms
 
 To see the application logs containing the terms "error" or "exception", select **Alerts** on the **Queries** page, and then select **Run** in the **Show the application logs which contain the "error" or "exception" terms** section.
 
