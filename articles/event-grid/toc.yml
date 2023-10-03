@@ -113,7 +113,33 @@ items:
         - name: Monitoring data reference (pull delivery)
           href: monitor-pull-reference.md
     - name: Push delivery 
-      items:    
+      items:
+      - name: Overview
+        items:
+        - name: Push delivery overview
+          href: 
+      - name: Concepts
+        items:
+        - name: Terminology
+          href: concepts-push-delivery.md
+      - name: Quickstarts
+        items:
+        - name: Deliver events using namespace topics
+          href: 
+      - name: How-to 
+        items:
+        - name: Create, view, and manage namespaces
+          href: create-view-manage-namespaces.md
+        - name: Create, view, and manage namespace topics
+          href: create-view-manage-namespace-topics.md
+        - name: Create, view, and manage event subscriptions
+          href: create-view-manage-event-subscriptions.md
+        - name: Enable managed identity for namespace
+          href: event-grid-namespace-managed-identity.md      
+      - name: Monitor
+        items:
+        - name: Monitoring data reference (push delivery - namespaces)
+          href: 
   - name: Event Grid Basic
     items:
     - name: Overview
