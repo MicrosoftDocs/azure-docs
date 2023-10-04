@@ -18,7 +18,7 @@ ms.custom: has-adal-ref
 
 Welcome to what's new in the Microsoft identity platform documentation. This article lists new docs that have been added and those that have had significant updates in the last three months.
 
-## September
+## September 2023
 
 ### New articles
 
