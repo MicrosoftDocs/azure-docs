@@ -272,7 +272,7 @@ The following list contains answers to commonly asked questions about Azure Cach
 - [Do I lose data from my cache during scaling?](#do-i-lose-data-from-my-cache-during-scaling)
 - [Can I use all the features of Premium tier after scaling?](#can-i-use-all-the-features-of-premium-tier-after-scaling)
 - [Is my custom databases setting affected during scaling?](#is-my-custom-databases-setting-affected-during-scaling)
-- [Is my cache be available during scaling?](#is-my-cache-be-available-during-scaling)
+- [Will my cache be available during scaling?](#will-my-cache-be-available-during-scaling)
 - [Are there scaling limitations with geo-replication?](#are-there-scaling-limitations-with-geo-replication)
 - [Operations that aren't supported](#operations-that-arent-supported)
 - [How long does scaling take?](#how-long-does-scaling-take)
