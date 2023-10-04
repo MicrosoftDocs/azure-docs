@@ -38,6 +38,9 @@ If you deploy a virtual machine in Azure and it doesn't have explicit outbound c
 
 :::image type="content" source="./media/default-outbound-access/default-outbound-access.png" alt-text="Diagram of default outbound access.":::
 
+>[!Important]
+>On September 30, 2025, default outbound access for new deployments will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/).  It is reccomended to use one the explict forms of connectivity discussed below.
+
 ## Why is disabling default outbound access recommended?
 
 * Secure by default
