@@ -24,7 +24,7 @@ To access your cluster, you need to set up the cluster connect `kubeconfig`. Aft
     
 2. Run the following command to connect to the cluster.
     ```azurepowershell
-    New-AzConnectedKubernetes -ClusterName $CLUSTER_NAME -ResourceGroupName $MANAGED_RESOURCE_GROUP -Location $LOCATION'
+    New-AzConnectedKubernetes -ClusterName $CLUSTER_NAME -ResourceGroupName $MANAGED_RESOURCE_GROUP -Location $LOCATION
     ```
 
 2. Use `kubectl` to send requests to the cluster:
