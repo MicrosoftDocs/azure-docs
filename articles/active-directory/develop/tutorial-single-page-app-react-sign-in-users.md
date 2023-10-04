@@ -68,7 +68,7 @@ In this tutorial:
          <br />
          <h5>
            <center>
-             Welcome to the Microsoft Authentication Library For Javascript -
+             Welcome to the Microsoft Authentication Library For JavaScript -
              React SPA Tutorial
            </center>
          </h5>
