@@ -20,9 +20,7 @@ The DICOM service offers many benefits, including:
 
 - **Scalability**. The DICOM service scales to support everything from small imaging archives in a clinic to large imaging archives with petabytes of data and thousands of new studies added daily.
 
-- **Advanced threat protection**. The DICOM service uses machine learning and AI to identify and block any potential or emerging threats to your organization's data, such as ransomware, SQL injection, or data exfiltration.
-
-- **Automatic data replication**. The DICOM service replicates your organization's data across multiple data centers within a region. If one datacenter fails or becomes unavailable, your data can be accessed without interruption.
+- **Automatic data replication**. The DICOM service uses Azure Locally Redundant Storage (LRS) within a region. If one copy of the data fails or becomes unavailable, your data can be accessed without interruption.
 
 - **Role-based access control (RBAC)**. RBAC enables you to manage how your organization's data is stored and accessed. You determine who has access to datasets based on roles you define for your environment.
 
@@ -30,9 +28,9 @@ The DICOM service offers many benefits, including:
 
 To effectively treat patients, research treatments, diagnose illnesses, or get an overview of a patient's health history, organizations need to integrate data across several sources. The DICOM service enables imaging data to persist securely in the Microsoft cloud and allows it to reside with electronic health records (EHR) and healthcare device (IoT) data in the same Azure subscription.  
 
-FHIR&trade; supports integration of other types of data directly, or through references. With the DICOM service, organizations are able to store references to imaging data in FHIR&trade; and enable queries that cross clinical and imaging datasets. This capability enables organizations to deliver better healthcare. For example:
+FHIR supports integration of other types of data directly, or through references. With the DICOM service, organizations are able to store references to imaging data in FHIR and enable queries that cross clinical and imaging datasets. This capability enables organizations to deliver better healthcare. For example:
 
-- **Image back-up**. Research institutions, clinics, imaging centers, veterinary clinics, pathology institutions, retailers, or organizations can use the DICOM service to back up their images with unlimited storage and access. There's no need to deidentify PHI data because the service is validated for PHI compliance.
+- **Image back up**. Research institutions, clinics, imaging centers, veterinary clinics, pathology institutions, retailers, or organizations can use the DICOM service to back up their images with unlimited storage and access. There's no need to deidentify PHI data because the service is validated for PHI compliance.
 
 - **Image exchange and collaboration**. Share an image, a subset of images, or an entire image library instantly with or without related EHR data.
 
@@ -40,9 +38,9 @@ FHIR&trade; supports integration of other types of data directly, or through ref
 
 - **Plan treatment based on similar patients**. When presented with a patient diagnosis, a physician can identify patient outcomes and treatment plans for past patients with a similar diagnosis even when these include imaging data.
 
-- **Get a longitudinal view of a patient during diagnosis**. Radiologists, especially teleradiologists, often don't have complete access to a patient’s medical history and related imaging studies. Through FHIR&trade; integration, this data can be provided even to radiologists outside of the organization’s local network.
+- **Get a longitudinal view of a patient during diagnosis**. Radiologists, especially teleradiologists, often don't have complete access to a patient’s medical history and related imaging studies. Through FHIR integration, this data can be provided even to radiologists outside of the organization’s local network.
 
-- **Close the feedback loop with teleradiologists**. Teleradiologists are often unable to find out about the accuracy and quality of their diagnoses because they don't have access to patient data after the initial read. With limited or no access to clinical results or outcomes, they miss opportunities to improve their skills. Through integration with FHIR&trade;, an organization can create a tool that provides direct feedback to teleradiologists, helping them make better recommendations in the future.
+- **Close the feedback loop with teleradiologists**. Teleradiologists are often unable to find out about the accuracy and quality of their diagnoses because they don't have access to patient data after the initial read. With limited or no access to clinical results or outcomes, they miss opportunities to improve their skills. Through integration with FHIR, an organization can create a tool that provides direct feedback to teleradiologists, helping them make better recommendations in the future.
 
 ## Manage medical imaging data securely and efficiently
 
@@ -50,9 +48,9 @@ The DICOM service enables organizations to manage medical imaging data with seve
 
 - **Data isolation**. The DICOM service assigns a unique database to each API instance, which means your organization's data isn't mixed with other organizations' data.
 
-- **Worklist Service support**. The DICOM service supports the Push and Pull SOPs of the [Worklist Service (UPS-RS)](https://dicom.nema.org/medical/dicom/current/output/html/part18.html#chapter_11). This service provides access to one Worklist containing Workitems, each of which represents a Unified Procedure Step (UPS).Studies Service
-
 - **Studies Service support**. The [Studies Service](https://dicom.nema.org/medical/dicom/current/output/html/part18.html#chapter_10) allows users to store, retrieve, and search for DICOM studies, series, and instances. Microsoft includes the nonstandard delete transaction to enable a full resource lifecycle.
+
+- **Worklist Service support**. The DICOM service supports the Push and Pull SOPs of the [Worklist Service (UPS-RS)](https://dicom.nema.org/medical/dicom/current/output/html/part18.html#chapter_11). This service provides access to one Worklist containing Workitems, each of which represents a Unified Procedure Step (UPS).Studies Service
 
 - **Extended query tags**. The DICOM service allows you to expand the list of tags specified in the [DICOM Conformance Statement](dicom-services-conformance-statement-v2.md) so you can index DICOM studies, series, and instances on standard or private DICOM tags.
 
