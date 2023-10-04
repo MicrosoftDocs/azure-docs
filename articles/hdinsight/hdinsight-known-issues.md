@@ -22,7 +22,7 @@ Select the **Title** to view more information about that specific known issue.
 | 451              | Spark Library management       | [Conda version regression in recent HDInsight release](https://github.com/Azure/SelfHelpContent/blob/master/articles/microsoft.hdinsight/asc-hdinsight-condaregressionversion429.md)| October 12, 2023  |
 | 452              | Cluster Creation       | [ARM templates not accepting kafka version 2.4.1](https://github.com/Azure/SelfHelpContent/blob/master/articles/microsoft.hdinsight/asc-hdinsight-kafkaversion241.md)| October 12, 2023  |
 
-## Currently active known issues
+## Recently closed known issues
 
 Select the **Title** to view more information about that specific known issue. Fixed issues are removed after 60 days.
 
