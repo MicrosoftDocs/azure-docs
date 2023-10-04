@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor workbooks for Microsoft Entra ID
-description: Learn how to use Azure Monitor workbooks for analyzing identity logs in Microsoft Entra ID reports.
+title: How to use Microsoft Entra workbooks
+description: Learn how to use Azure Monitor workbooks for Microsoft Entra ID, for analyzing identity related activity, trends, and gaps.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -8,9 +8,11 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 10/03/2023
+ms.date: 10/04/2023
 ms.author: sarahlipsey
 ms.reviewer: sarbar
+
+# Customer intent: As an IT admin, I want to visualize different types of identity data so I can view trends in activity, identity security gaps, and improve the health of my tenant.
 ---
 
 # How to use Microsoft Entra Workbooks
@@ -50,7 +52,7 @@ Azure Monitor provides [two built-in roles](../../azure-monitor/roles-permission
 
 For more information on the Azure Monitor built-in roles, see [Roles, permissions, and security in Azure Monitor](../../azure-monitor/roles-permissions-security.md#monitoring-reader).
 
-For more information on the Log Analytics RBAC roles, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md#log-analytics-contributor)
+For more information on the Log Analytics RBAC roles, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md#log-analytics-contributor).
 
 <a name='azure-ad-roles'></a>
 

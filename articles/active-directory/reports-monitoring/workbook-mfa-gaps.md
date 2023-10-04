@@ -32,6 +32,7 @@ The **MFA gaps** workbook is currently not available as a template, but you can 
 [!INCLUDE [how to access workbooks](~/articles/active-directory/includes/how-to-access-workbooks.md)]
 1. Select **+ New**.
 1. Select the **Advanced Editor** button from the top of the page. A JSON editor opens.
+
     ![Screenshot of the Advanced Editor button on the new workbook page.](./media/workbook-mfa-gaps/advanced-editor-button.png)
 
 1. Navigate to the Microsoft Entra workbooks GitHub repository

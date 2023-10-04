@@ -59,8 +59,10 @@ Public workbook templates are built, updated, and deprecated to reflect the need
 - [Authentication prompts analysis](workbook-authentication-prompts-analysis.md)
 - [Conditional Access gap analyzer](workbook-conditional-access-gap-analyzer.md)
 - [Cross-tenant access activity](workbook-cross-tenant-access-activity.md)
+- [Multifactor authentication gaps](workbook-mfa-gaps.md)
 - [Risk analysis](workbook-risk-analysis.md)
 - [Sensitive Operations Report](workbook-sensitive-operations-report.md)
+- [Sign-ins using legacy authentication](workbook-legacy-authentication.md)
 
 ## Next steps
 
