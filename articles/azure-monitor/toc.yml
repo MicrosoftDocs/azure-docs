@@ -482,7 +482,7 @@ items:
       href: containers/monitor-kubernetes.md
     - name: Best practices
       displayName: containers, kubernetes
-      href: containers/best-practices-containers.md
+      href: best-practices-containers.md
     - name: Prometheus
       items:
       - name: Enable on AKS cluster
