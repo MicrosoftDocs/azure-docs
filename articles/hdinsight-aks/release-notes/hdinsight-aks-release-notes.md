@@ -1,6 +1,6 @@
 ---
 title: Release notes for Azure HDInsight on AKS  
-description: Latest release notes for Azure HDInsight  on AKS. Get development tips and details for Trino, Flink, Spark, and more.
+description: Latest release notes for Azure HDInsight on AKS. Get development tips and details for Trino, Flink, Spark, and more.
 ms.service: hdinsight-aks
 ms.topic: conceptual
 ms.date: 08/29/2023
@@ -8,20 +8,20 @@ ms.date: 08/29/2023
 
 # Azure HDInsight on AKS release notes
 
-This article provides information about the **most recent*- Azure HDInsight on AKS release updates. For information on earlier releases, see [HDInsight on AKS Release Notes Archive](./hdinsight-aks-release-notes-archive.md).
+This article provides information about the **most recent**- Azure HDInsight on AKS release updates. For information on earlier releases, see [HDInsight on AKS Release Notes Archive](./hdinsight-aks-release-notes-archive.md).
 
 ## Summary
 
 Azure HDInsight on AKS is a new version of HDInsight, which runs on Kubernetes and brings in the best of the open source on Kubernetes. It's gaining popularity among enterprise customers for open-source analytics on Azure Kubernetes Services.
 
-## Release date: Jun 30, 2023
+## Release date: June 30, 2023
 
 **This release applies to the following**
 
-- Cluster Pool Version:  1.0
-- Cluster Version:  1.0.4
+- Cluster Pool Version: 1.0
+- Cluster Version: 1.0.4
 
-HDInsight on AKS follows safe deployment practices, and this release will be available to all [supported regions](../overview.md#region-availability-public-preview) over several days.
+HDInsight on AKS follows safe deployment practices, and this release is available to all [supported regions](../overview.md#region-availability-public-preview) over several days.
 
 > [!NOTE]
 > To understand about HDInsight on AKS versioning and support, refer to the **[versioning page](../versions.md)**.
