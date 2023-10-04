@@ -83,6 +83,8 @@ Metrics having to do with bulk operations from the [Jobs APIs](/rest/api/digital
 | --- | --- | --- | --- | --- | --- |
 | ImportJobLatency | Import Job Latency | Milliseconds | Average | Total time taken for an import job to complete. | Operation, <br>Authentication, <br>Protocol |
 | ImportJobEntityCount | Import Job Entity Count | Count | Total | The number of twins, models, or relationships processed by an import job. | Operation, <br>Result |
+| DeleteJobLatency | Delete Job Latency | Milliseconds | Average | Total time taken for a delete job to complete. | Operation, <br>Authentication, <br>Protocol |
+| DeleteJobEntityCount | Delete Job Entity Count | Count | Total | The number of models, twins, and/or relationships deleted as part of a delete job. | Operation, <br>Result |
 
 ### Routing metrics
 
