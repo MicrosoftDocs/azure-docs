@@ -30,7 +30,7 @@ Follow these steps to prepare your environment:
     cd azureml-examples/cli
     ```
     
-    # [Python](#tab/python)
+    # [Python](#tab/sdk)
     
     ```azurecli
     !git clone https://github.com/Azure/azureml-examples --depth 1
