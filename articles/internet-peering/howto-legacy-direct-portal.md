@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 10/03/2023
+ms.date: 10/04/2023
 ---
 
 # Convert a legacy Direct peering to an Azure resource using the Azure portal
@@ -62,7 +62,7 @@ As an Internet Service Provider, you can convert legacy direct peering connectio
 ### <a name=get></a>Verify Direct peering
 [!INCLUDE [peering-direct-get-portal](./includes/direct-portal-get.md)]
 
-## Next steps
+## Related content
 
 - [Create or modify a Direct peering by using the portal](howto-direct-portal.md).
 - [Internet peering frequently asked questions (FAQ)](faqs.md).

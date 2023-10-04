@@ -140,7 +140,7 @@ sections:
           Exemptions aren't available for Defender for DevOps within Microsoft Defender for Cloud.
 
       - question: |
-          Why am I not able to see Github Advanced Security for Azure Devops (GHAzDO) results in Defender for Cloud?
+          Why am I not able to see GitHub Advanced Security for Azure Devops (GHAzDO) results in Defender for Cloud?
         answer: |
           Ensure you are using the same Subscription ID for GHAzDO and Defender for Cloud. If you are still unable to see the results, the issue might be caused by your ADO connector lacking the necessary scope. Defender for DevOps introduced new scopes to ADO connectors in June. If you created the connector before June and haven't updated it, you won't be able to see GHAzDO results due to missing scope on the connector. You would need to create a new ADO connector, which will automatically include the new scopes.
 
