@@ -22,7 +22,7 @@ In this quick start, you will learn how to add and remove sender addresses in Az
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [Add sender addresses with Javascript Management SDK](./includes/add-multiple-senders-js.md)]
+[!INCLUDE [Add sender addresses with JavaScript Management SDK](./includes/add-multiple-senders-js.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
