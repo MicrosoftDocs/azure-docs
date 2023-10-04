@@ -9,7 +9,7 @@ metadata:
   ms.workload: identity
   ms.topic: faq
   ms.subservice: report-monitor
-  ms.date: 09/26/2023
+  ms.date: 10/02/2023
   ms.author: sarahlipsey
   ms.reviewer: egreenberg14
 
@@ -37,7 +37,7 @@ sections:
           If you've recently switched to a Premium version (including a trial version), you can see data up to seven days initially. When data accumulates, you can see data for the past 30 days.
  
       - question: |
-          I currently use the https://graph.windows.net/<tenant-name>/reports/ endpoint APIs to pull Microsoft Entra security reports (specific types of detections, such as leaked credentials or sign-ins from anonymous IP addresses) into our reporting systems programmatically. What should I switch to?
+          I currently use the `https://graph.windows.net/<tenant-name>/reports/` endpoint APIs to pull Microsoft Entra security reports (specific types of detections, such as leaked credentials or sign-ins from anonymous IP addresses) into our reporting systems programmatically. What should I switch to?
         answer: |
           You can use the [Identity Protection risk detections API](../identity-protection/howto-identity-protection-graph-api.md) to access security detections through Microsoft Graph. This new format gives greater flexibility in how you can query data. The format includes advanced filtering and field selection and standardizes risk detections into one type for easier integration into SIEMs and other data collection tools. Because the data is in a different format, you can't substitute a new query for your old queries. However, [the new API uses Microsoft Graph](/graph/api/resources/identityprotection-root), which is the Microsoft standard for such APIs as Microsoft 365 or Microsoft Entra ID. So the work required can either extend your current Microsoft Graph investments or help you begin your transition to this new standard platform.
 
@@ -98,7 +98,7 @@ sections:
       - question: |
           I used the signInActivity resource to look up a user's last sign-in time, but it hasn't updated after a few hours. When will it be updated with the latest sign in time? 
         answer: |
-          The signInActivity resource is used to find inactive [users who haven't signed in for some time](howto-manage-inactive-user-accounts.md). It doesn't update in near real time; you should expect up to 6 hours before the property is updated for a given user. If you need to find the user's last sign-in activity more quickly, you can use the Microsoft Entra sign-in logs to see near real time sign-in activity for all your users. 
+          The signInActivity resource is used to find inactive [users who haven't signed in for some time](howto-manage-inactive-user-accounts.md). It doesn't update in near real time. If you need to find the user's last sign-in activity more quickly, you can use the Microsoft Entra sign-in logs to see near real time sign-in activity for all your users. 
 
       - question: |
           What data is included in the CSV file I can download from the Microsoft Entra sign-in logs?
@@ -229,12 +229,12 @@ sections:
   - name: Microsoft Graph APIs
     questions:
       - question: |
-          I currently use the https://graph.windows.net/<tenant-name>/reports/ endpoint APIs to pull Microsoft Entra audit and integrated application usage reports into our reporting systems programmatically. What should I switch to?
+          I currently use the `https://graph.windows.net/<tenant-name>/reports/` endpoint APIs to pull Microsoft Entra audit and integrated application usage reports into our reporting systems programmatically. What should I switch to?
         answer: |
           Look up the [API reference](https://developer.microsoft.com/graph/) to see how you can [use the APIs to access activity logs](./howto-configure-prerequisites-for-reporting-api.md). This endpoint has two reports (**Audit** and **Sign-ins**) which provide all the data you got in the old API endpoint. This new endpoint also has a sign-ins report with the Microsoft Entra ID P1 or P2 license that you can use to get app usage, device usage, and user sign-in information.
           
       - question: |
-          I currently use the https://graph.windows.net/<tenant-name>/reports/ endpoint APIs to pull Microsoft Entra security reports (specific types of detections, such as leaked credentials or sign-ins from anonymous IP addresses) into our reporting systems programmatically. What should I switch to?
+          I currently use the `https://graph.windows.net/<tenant-name>/reports/` endpoint APIs to pull Microsoft Entra security reports (specific types of detections, such as leaked credentials or sign-ins from anonymous IP addresses) into our reporting systems programmatically. What should I switch to?
         answer: |
           You can use the [Identity Protection risk detections API](../identity-protection/howto-identity-protection-graph-api.md) to access security detections through Microsoft Graph. This new format gives greater flexibility in how you can query data. The format provides advanced filtering, field selection, and standardizes risk detections into one type for easier integration into SIEMs and other data collection tools. Because the data is in a different format, you can't substitute a new query for your old queries. However, [the new API uses Microsoft Graph](/graph/api/resources/identityprotection-root), which is the Microsoft standard for such APIs as Microsoft 365 or Microsoft Entra ID. So the work required can either extend your current Microsoft Graph investments or help you begin your transition to this new standard platform.
 
@@ -255,4 +255,4 @@ sections:
       - question: |
           Why did a recommendation that was "completed" change back to "active"?
         answer: |
-          If the service detects activity related to that recommendation for something marked as "completed" it changes automatically back to "active.""
+          If the service detects activity related to that recommendation for something marked as "completed" it changes automatically back to "active."

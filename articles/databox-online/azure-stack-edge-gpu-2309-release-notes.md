@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 10/01/2023
+ms.date: 10/02/2023
 ms.author: alkohli
 ---
 
@@ -56,8 +56,6 @@ The 2309 release has the following new features and enhancements:
 - Beginning this release, you can create VM images starting from an image from Azure Marketplace or an image in your Storage account. For more information, see [Create a VM image from Azure Marketplace or Azure storage account](azure-stack-edge-create-a-vm-from-azure-marketplace.md).
 - Several security, supportability, diagnostics, resiliency, and performance improvements were made in this release.
 - You can deploy Azure Kubernetes service (AKS) on an Azure Stack Edge cluster. This feature is supported only for SAP and PMEC customers. For more information, see [Deploy AKS on Azure Stack Edge](azure-stack-edge-deploy-aks-on-azure-stack-edge.md).
-- In this release, a precheck that verifies if the Azure Resource Manager certificate has expired, was added to the Azure Kubernetes Service (AKS) update.
-- The `Set-HcsKubernetesAzureMonitorConfiguration` PowerShell cmdlet that enables the Azure Monitor is fixed in this release. Though the cmdlet is available to use, we recommend that you configure Azure Monitor for Azure Stack Edge via the Azure Arc portal. 
 - Starting March 2023, Azure Stack Edge devices are required to be on the 2301 release or later to create a Kubernetes cluster. In preparation for this requirement, it is highly recommended that you update to the latest version as soon as possible.
 
 
@@ -70,12 +68,15 @@ The 2309 release has the following new features and enhancements:
 |**3.**|Virtual machines and virtual network    |In the earlier releases, the primary network interface on the VM was not validated to have a reachable gateway IP. <br><br>In this release, this issue is fixed. The validation of the gateway IP helps identify  any potential network configuration issues before the VM provision timeout occurs.  |
 |**4.**|Virtual machines and virtual network    |In the earlier releases, the MAC address allocation algorithm only considered the last two octets whereas the MAC address range actually spanned last three octets. This discrepancy led to allocation conflicts in certain corner cases, resulting in overlapping MAC addresses. <br><br>The MAC address allocation is revised in this release to fix the above issue.|
 |**5.**|Azure Kubernetes Service (AKS)    |In previous releases, if there was a host power failure, the pod with SRIOV capable CNIs also failed with the following error: <br><br>`Failed to create pod sandbox: rpc error: code = Unknown desc = failed to setup network for sandbox "<GUID>": plugin type="multus" name="multus-cni-network" failed (add): [core/core-upf-pp-0:n3-dpdk]: error adding container to network "n3-dpdk": failed to rename netvsc link: failed to rename link "001dd81c9dd4_VF" to "001dd81c9dd4": file exists.`<br><br>This failure of pod with SRIOV capable CNIs is fixed in this release. For AKS SRIOV CNI plugin, the driver name returned from ethtool is used to determine device is VF or netvsc. |
+|**6.**|Azure Monitor   |The `Set-HcsKubernetesAzureMonitorConfiguration` PowerShell cmdlet that enables the Azure Monitor is fixed in this release. Though the cmdlet is available to use, we recommend that you configure Azure Monitor for Azure Stack Edge via the Azure Arc portal. |
+|**7.**|Update    |In this release, a precheck that verifies if the Azure Resource Manager certificate has expired, was added to the Azure Kubernetes Service (AKS) update.  |
 
-<!--## Known issues in this release
+## Known issues in this release
 
 | No. | Feature | Issue | Workaround/comments |
 | --- | --- | --- | --- |
-|**1.**|Need known issues in 2303 |-->
+|**1.**|AKS Update |The AKS Kubernetes update may fail if the one of the AKS VMs are not running. This issue may be seen in the 2-node cluster. |If the AKS update has failed, [Connect to the PowerShell interface of the device](azure-stack-edge-gpu-connect-powershell-interface.md). Check the state of the Kubernetes VMs by running `Get-VM` cmdlet. If the VM is off, run the `Start-VM` cmdlet to restart the VM. Once the Kubernetes VM is running, reapply the update. |
+
 
 ## Known issues from previous releases
 
