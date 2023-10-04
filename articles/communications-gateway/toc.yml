@@ -54,6 +54,16 @@ items:
   items:
   - name: Overview of interoperability
     href: interoperability-teams-direct-routing.md
+  - name: Setup
+    items:
+    - name: Connect
+      href: connect-teams-direct-routing.md
+    - name: Configure a test customer
+      href: configure-test-customer-teams-direct-routing.md
+    - name: Configure test numbers
+      href: configure-test-numbers-teams-direct-routing.md
+    - name: Prepare for live traffic
+      href: prepare-for-live-traffic-teams-direct-routing.md
 - name: Maintenance
   items:
   - name: Set up user roles

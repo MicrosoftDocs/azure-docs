@@ -78,6 +78,16 @@ landingContent:
   # Card
   - title: Use Azure Communications Gateway for Microsoft Teams Direct Routing
     linkLists:
+      - linkListType: get-started
+        links:
+          - text: Connect to Microsoft Teams Direct Routing
+            url: connect-teams-direct-routing.md
+          - text: Configure a test customer
+            url: configure-test-customer-teams-direct-routing.md
+          - text: Configure test numbers
+            url: configure-test-numbers-teams-direct-routing.md
+          - text: Prepare for live traffic
+            url: prepare-for-live-traffic-teams-direct-routing.md
       - linkListType: concept
         links:
           - text: Overview of interoperability

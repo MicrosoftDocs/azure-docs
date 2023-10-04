@@ -42,7 +42,7 @@ We expect your network to have two geographically redundant sites. You must prov
 * The other site in your deployment, as cross-connects.
 * The two Azure Regions in which you deploy Azure Communications Gateway.
 
-Connectivity between your networks and Azure Communications Gateway must meet the Microsoft Teams _Network Connectivity Specification_.
+Connectivity between your networks and Azure Communications Gateway must meet any relevant network connectivity specifications.
 
 [!INCLUDE [communications-gateway-maps-or-expressroute](includes/communications-gateway-maps-or-expressroute.md)]
 
