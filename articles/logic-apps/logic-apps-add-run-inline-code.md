@@ -79,9 +79,7 @@ The following diagram shows the highlights from example workflow:
 
     * No integration account required.
 
-    * Confirm that logic app resource's app setting named **FUNCTIONS_WORKER_RUNTIME** is set to **node**.
-
-      To view or change this app setting, see [Edit host and app settings for Standard logic apps](edit-app-settings-host-settings.md?tabs=azure-portal#manage-app-settings).
+    * [Confirm that logic app resource's app setting named **FUNCTIONS_WORKER_RUNTIME** is set to **node**](edit-app-settings-host-settings.md?tabs=azure-portal#manage-app-settings).
 
 ## Add the Execute JavaScript Code action
 

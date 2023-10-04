@@ -58,9 +58,11 @@ This how-to guide shows how to add a map to your integration account. If you're 
 
   * Standard workflows
 
-    * If your logic app resource is NuGet package-based (.NET), not extension bundle-based (Node.js), make sure to change the app setting named **FUNCTIONS_WORKER_RUNTIME** to **dotnet**. To change this app setting, see [Edit host and app settings for Standard logic apps](edit-app-settings-host-settings.md?tabs=azure-portal#manage-app-settings).
+    * For the following scenarios, [change your logic app resource's app setting named **FUNCTIONS_WORKER_RUNTIME** to **dotnet-isolated**](edit-app-settings-host-settings.md?tabs=azure-portal#manage-app-settings):
 
-    * To use the [**Transform XML** action](logic-apps-enterprise-integration-transform.md) with XSLT maps that call .NET Framework assemblies, to [create maps for data transformation](create-maps-data-transformation-visual-studio-code.md), or to [create and run .NET code from Standard workflows](create-run-custom-code-functions.md), make sure to change the app setting named **FUNCTIONS_WORKER_RUNTIME** to **dotnet-isolated**. To change this app setting, see [Edit host and app settings for Standard logic apps](edit-app-settings-host-settings.md?tabs=azure-portal#manage-app-settings).
+      * [Run the **Transform XML** action](logic-apps-enterprise-integration-transform.md) with XSLT maps that call .NET Framework assemblies.
+      * [Create maps for data transformation](create-maps-data-transformation-visual-studio-code.md).
+      * [Create and run .NET code from Standard workflows](create-run-custom-code-functions.md).
 
   * Consumption workflows
 

@@ -233,15 +233,14 @@ Before you can create your logic app, create a local project so that you can man
 
    [!INCLUDE [Visual Studio Code - logic app project structure](../../includes/logic-apps-single-tenant-project-structure-visual-studio-code.md)]
 
-<a name="enable-built-in-connector-authoring"></a>
+<a name="convert-project-nuget"></a>
 
-## Enable built-in connector authoring
+## Convert your project to NuGet package-based (.NET)
 
-You can create your own built-in connectors for any service you need by using the [single-tenant Azure Logic Apps extensibility framework](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272). Similar to built-in connectors such as Azure Service Bus and SQL Server, these connectors provide higher throughput, low latency, local connectivity, and run natively in the same process as the single-tenant Azure Logic Apps runtime.
-
-The authoring capability is currently available only in Visual Studio Code, but isn't enabled by default. To create these connectors, you need to first convert your project from extension bundle-based (Node.js) to NuGet package-based (.NET).
+By default, Visual Studio Code creates a logic app project that is extension bundle-based (Node.js), not NuGet package-based (.NET). If you require a logic app project that is NuGet package-based (.NET), for example, to enable built-in connector authoring, you must convert your project from extension bundle-based (Node.js) to NuGet package-based (.NET).
 
 > [!IMPORTANT]
+>
 > This action is a one-way operation that you can't undo.
 
 1. In the Explorer pane, at your project's root, move your mouse pointer over any blank area below all the other files and folders, open the shortcut menu, and select **Convert to NuGet-based Logic App project**.
@@ -250,21 +249,19 @@ The authoring capability is currently available only in Visual Studio Code, but 
 
 1. When the prompt appears, confirm the project conversion.
 
-1. To continue, review and follow the steps in the article, [Azure Logic Apps Running Anywhere - Built-in connector extensibility](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
+1. [Change your project's language worker runtime to **dotnet** or **dotnet-isolated** using the app setting named **FUNCTIONS_WORKER_RUNTIME**](edit-app-settings-host-settings.md?tabs=azure-portal#manage-app-settings).
 
-<a name="check-functions-worker-runtime"></a>
+<a name="enable-built-in-connector-authoring"></a>
 
-## Check your project's runtime
+## Enable built-in connector authoring
 
-By default, Visual Studio Code creates a logic app project that is extension bundle-based (Node.js), not NuGet package-based (.NET). However, if you need to have a logic app project that is NuGet package-based (.NET), for example, with workflows that reference or call .NET Framework assemblies, make sure that you change the project's app setting named **FUNCTIONS_WORKER_RUNTIME** to **dotnet** in your project's **local.settings.json** file except where you want to complete the following tasks:
+You can create your own built-in connectors for any service you need by using the [single-tenant Azure Logic Apps extensibility framework](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272). Similar to built-in connectors such as Azure Service Bus and SQL Server, these connectors provide higher throughput, low latency, local connectivity, and run natively in the same process as the single-tenant Azure Logic Apps runtime.
 
-- [Run the **Transform XML** action](logic-apps-enterprise-integration-transform.md) with XSLT maps that call .NET Framework assemblies.
-- [Create maps for data transformation](create-maps-data-transformation-visual-studio-code.md).
-- [Create and run .NET code from Standard workflows](create-run-custom-code-functions.md)
+The authoring capability is currently available only in Visual Studio Code, but isn't enabled by default. To create these connectors, follow these steps:
 
-For these tasks, you must change **FUNCTIONS_WORKER_RUNTIME** to **dotnet-isolated**. However, to use **Inline Code Operations** for running JavaScript code, you must set `"FUNCTIONS_WORKER_RUNTIME"` to `"node"`.
+1. If you haven't already, [convert your project from extension bundle-based (Node.js) to NuGet package-based (.NET)](#convert-project-nuget).
 
-To change this app setting, see [Edit host and app settings for Standard logic apps](edit-app-settings-host-settings.md?tabs=azure-portal#manage-app-settings).
+1. Review and follow the steps in the article, [Azure Logic Apps Running Anywhere - Built-in connector extensibility](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
 
 <a name="add-custom-artifacts"></a>
 
