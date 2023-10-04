@@ -30,20 +30,18 @@ items:
       items:
       - name: Overview
         href: pub-sub-mqtt/overview-pub-sub-mqtt.md
-      - name: Secure communications
-        href: pub-sub-mqtt/concept-about-listeners.md
-      - name: TLS auto cert management
+      - name: Secure communications with TLS
+        href: pub-sub-mqtt/howto-configure-listeners.md
+      - name: Configure TLS auto certificates
         href: pub-sub-mqtt/howto-configure-tls-auto-cert.md
-      - name: TLS manual cert management
+      - name: Configure TLS manual certicates
         href: pub-sub-mqtt/howto-configure-tls-manual-cert.md
       - name: Configure authentication
         href: pub-sub-mqtt/howto-configure-authentication.md
       - name: Configure authorization
         href: pub-sub-mqtt/howto-configure-authorization.md
-      - name: Availability and scale
+      - name: Configure availability and scale
         href: pub-sub-mqtt/howto-configure-availability-scale.md
-      - name: Store key value data
-        href: pub-sub-mqtt/howto-store-key-value-data.md
       - name: Configure disk buffer
         href: pub-sub-mqtt/howto-configure-disk-buffer.md
     - name: Process messages

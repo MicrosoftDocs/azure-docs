@@ -1,13 +1,13 @@
 ---
-title: Store data in Azure IoT MQ
-#titleSuffix: Azure IoT MQ
-description: Store data in Azure IoT MQ distributed key-value store
+title: Secure Azure IoT MQ communication using listeners
+# titleSuffix: Azure IoT MQ
+description: Understand how to use the BrokerListener resource to secure Azure IoT MQ communications including authorization, authentication, and TLS.
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
 ms.date: 10/02/2023
 
-#CustomerIntent: As an operator, I want to understand how to store data in Azure IoT MQ so that I can use it as a distributed key-value store.
+#CustomerIntent: As an operator, I want understand options to secure MQTT communications for my IoT Operations solution.
 ---
 
 <!--
@@ -34,7 +34,7 @@ For example: "Migrate data from regular tables to ledger tables" or "Create a ne
 
 -->
 
-# Store data in Azure IoT MQ
+# Secure Azure IoT MQ communication using listeners
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
