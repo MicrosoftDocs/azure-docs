@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 09/05/2023
+ms.date: 10/04/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Require an app protection policy on Windows devices (preview)
 
-App protection policies apply [mobile application management (MAM)](/mem/intune/apps/app-management#mobile-application-management-mam-basics) to specific applications on a device. These policies allow for securing data within an application in support of scenarios like bring your own device (BYOD). In the preview, we support applying policy to the Microsoft Edge browser on Windows 11 devices. 
+App protection policies apply [mobile application management (MAM)](/mem/intune/apps/app-management#mobile-application-management-mam-basics) to specific applications on a device. These policies allow for securing data within an application in support of scenarios like bring your own device (BYOD). In the preview, we support applying policy to the Microsoft Edge browser on Windows 11 devices.
 
 ![Screenshot of a browser requiring the user to sign in to their Microsoft Edge profile to access an application.](./media/how-to-app-protection-policy-windows/browser-sign-in-with-edge-profile.png)
 
@@ -72,6 +72,17 @@ After administrators confirm the settings using [report-only mode](howto-conditi
 > [!TIP]
 > Organizations should also deploy a policy that [blocks access from unsupported or unknown device platforms](howto-policy-unknown-unsupported-device.md) along with this policy.
 
+In organizations with existing Conditional Access policies that target: 
+
+- The **All cloud apps** resource
+- The **Mobile apps and desktop clients** condition
+- Use **Require app protection policy** or a **Block access** grant control
+
+End users are unable to enroll their Windows device in MAM without the following policy changes.
+
+1. Register the **Microsoft Edge Auth** service principal in your tenant using the command `New-MgServicePrincipal -AppId f2d19332-a09d-48c8-a53b-c49ae5502dfc`.
+1. Add an exclusion for **Microsoft Edge Auth** to your existing policy targeting **All cloud apps**.
+
 ## Sign in to Windows devices
 
 When users attempt to sign in to a site that is protected by an app protection policy for the first time, they're prompted: To access your service, app or website, you may need to sign in to Microsoft Edge using `username@domain.com` or register your device with `organization` if you're already signed in.
@@ -112,7 +123,7 @@ If your policy for Windows devices targets **All apps** your users aren't able t
 
 ### Existing account
 
-If there's a pre-existing, unregistered account, like `user@contoso.com` in Microsoft Edge, or if a user signs in without registering using the Heads Up Page, then the account isn't properly enrolled in MAM. This configuration blocks the user from being properly enrolled in MAM. This is a known issue. 
+There's a known issue where there's a pre-existing, unregistered account, like `user@contoso.com` in Microsoft Edge, or if a user signs in without registering using the Heads Up Page, then the account isn't properly enrolled in MAM. This configuration blocks the user from being properly enrolled in MAM.
 
 ## Next steps
 
