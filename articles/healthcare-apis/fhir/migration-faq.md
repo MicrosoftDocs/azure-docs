@@ -39,7 +39,7 @@ AHDS FHIR service offers a rich set of capabilities such as:
 
 SMART on FHIR proxy is retiring. Organizations need to transition to the SMART on FHIR (Enhanced), which uses Azure Health Data and AI OSS samples by **September 21, 2026**. After September 21, 2026, applications relying on SMART on FHIR proxy will report errors when accessing the FHIR service.
 
-SMART on FHIR (Enhanced) provides more capabilities than SMART on FHIR proxy, and meets requirements in the SMART on FHIR Implementation Guide (v 1.0.0) and §170.315(g)(10) Standardized API for patient and population services criterion.
+SMART on FHIR (Enhanced) provides more capabilities than SMART on FHIR proxy and meets requirements in the SMART on FHIR Implementation Guide (v 1.0.0) and §170.315(g)(10) Standardized API for patient and population services criterion.
 
 ## What will happen after the service is retired on September 30, 2026?
 
@@ -59,3 +59,5 @@ Check out these resources if you need further assistance:
 
 - Get answers from community experts in [Microsoft Q&A](/answers/questions/1377356/retirement-announcement-azure-api-for-fhir).
 - If you have a support plan and require technical support, [contact us](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview).
+
+
