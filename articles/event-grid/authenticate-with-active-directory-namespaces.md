@@ -1,16 +1,16 @@
 ---
-title: Authenticate Event Grid publishing clients using Azure Active Directory
-description: This article describes how to authenticate Azure Event Grid publishing client using Azure Active Directory.  
+title: Authenticate publishing namespace clients using Azure Active Directory
+description: This article describes how to authenticate Azure Event Grid publishing clients using Azure Active Directory that publish events to topics in Event Grid namespaces.  
 ms.topic: conceptual
 ms.custom: build-2023
-ms.date: 08/17/2023
+ms.date: 10/04/2023
 ---
 
-# Authentication and authorization with Azure Active Directory
-This article describes how to authenticate Azure Event Grid publishing clients using Azure Active Directory (Azure AD).
+# Authentication and authorization with Azure Active Directory when using Event Grid namespaces
+This article describes how to authenticate clients publishing events to Azure Event Grid namespaces using Azure Active Directory.
 
 ## Overview
-The [Microsoft Identity](../active-directory/develop/v2-overview.md) platform provides an integrated authentication and access control management for resources and applications that use Azure Active Directory (Azure AD) as their identity provider. Use the Microsoft Identity platform to provide authentication and authorization support in your applications. It's based on open standards such as OAuth 2.0 and OpenID Connect and offers tools and open-source libraries that support many authentication scenarios. It provides advanced features such as [Conditional Access](../active-directory/conditional-access/overview.md) that allows you to set policies that require multifactor authentication or allow access from specific locations, for example.
+The [Microsoft Identity](../active-directory/develop/v2-overview.md) platform provides an integrated authentication and access control management for resources and applications that use Azure Active Directory as their identity provider. Use the Microsoft Identity platform to provide authentication and authorization support in your applications. It's based on open standards such as OAuth 2.0 and OpenID Connect and offers tools and open-source libraries that support many authentication scenarios. It provides advanced features such as [Conditional Access](../active-directory/conditional-access/overview.md) that allows you to set policies that require multifactor authentication or allow access from specific locations, for example.
 
 An advantage that improves your security stance when using Azure AD is that you don't need to store credentials, such as authentication keys, in the code or repositories. Instead, you rely on the acquisition of OAuth 2.0 access tokens from the Microsoft Identity platform that your application presents when authenticating to a protected resource. You can register your event publishing application with Azure AD and obtain a service principal associated with your app that you manage and use. Instead, you can use [Managed Identities](../active-directory/managed-identities-azure-resources/overview.md), either system assigned or user assigned, for an even simpler identity management model as some aspects of the identity lifecycle are managed for you. 
 
@@ -64,7 +64,7 @@ With RBAC privileges taken care of, you can now [build your client application t
 
 ## Publish events using Event Grid's client SDKs
 
-Use [Event Grid's data plane SDK](https://devblogs.microsoft.com/azure-sdk/event-grid-ga/) to publish events to Event Grid. Event Grid's SDK support all authentication methods, including Azure AD authentication. 
+Use Event Grid's data plane SDK to publish events to Event Grid. Event Grid's SDK support all authentication methods, including Azure AD authentication. 
 
 Here's the sample code that publishes events to Event Grid using the .NET SDK. You can get the topic endpoint on the **Overview** page for your Event Grid topic in the Azure portal. It's in the format: `https://<TOPIC-NAME>.<REGION>-1.eventgrid.azure.net/api/events`.
 
