@@ -8,13 +8,10 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/22/2023
+ms.date: 10/04/2023
 ---
 
 # Return a semantic answer in Azure Cognitive Search
-
-> [!IMPORTANT]
-> Semantic search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and beta SDKs. This feature is billable (see [Availability and pricing](semantic-search-overview.md#availability-and-pricing)).
 
 When invoking [semantic ranking and captions](semantic-how-to-query-request.md), you can optionally extract content from the top-matching documents that "answers" the query directly. One or more answers can be included in the response, which you can then render on a search page to improve the user experience of your app.
 
@@ -143,6 +140,6 @@ For best results, return semantic answers on a document corpus having the follow
 
 ## Next steps
 
-+ [Semantic search overview](semantic-search-overview.md)
++ [Semantic ranking overview](semantic-search-overview.md)
 + [Configure BM25 ranking](index-ranking-similarity.md)
 + [Configure semantic ranking](semantic-how-to-query-request.md)
