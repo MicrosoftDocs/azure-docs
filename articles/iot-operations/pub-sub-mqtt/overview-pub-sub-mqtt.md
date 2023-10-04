@@ -65,15 +65,13 @@ Message Queue Telemetry Transport (MQTT) has emerged as the *lingua franca* amon
 
 Azure IoT MQ uses the [MQTT](https://mqtt.org/) protocol as the underpinning for the messaging layer.
 
-Many IoT devices support MQTT natively out-of-the-box, with the long tail of IoT protocols being rationalized into MQTT by downstream translation gateways from partners like PTC, Ignition, Aveva, and others.
+Many IoT devices support MQTT natively out-of-the-box, with the long tail of IoT protocols being rationalized into MQTT by downstream translation gateways.
 
 Azure IoT MQ features a fully standards-compliant MQTT Broker that supports both MQTT 3.1.1 and MQTT 5. 
 
 ## Highly available and scalable
 
-Large enterprises are looking to standardize around Kubernetes to modernize their on-premises VM-oriented server virtualization architecture while achieving better resource utilization, higher availability, and elastic scaling.
-
-High availability is particularly interesting to these customers as they seek to eliminate single points of failure from their critical manufacturing processes. Kubernetes can horizontally scale workloads to run in multiple instances. This redundancy means additional capacity to serve requests and reliability in case any instance goes down. Kubernetes has self-healing built in, and instances are recovered automatically.
+Kubernetes can horizontally scale workloads to run in multiple instances. This redundancy means additional capacity to serve requests and reliability in case any instance goes down. Kubernetes has self-healing built in, and instances are recovered automatically.
 
 In addition to Kubernetes being an elastic scaling technology, it's also a standard for DevOps. If MQTT is the lingua franca among IoT protocols, Kubernetes is the lingua franca for computing infrastructure layer. By adopting Kubernetes, you can use the same CI/CD pipeline, tools, monitoring, app packaging, employee skilling everywhere. The result is a single end-to-end system from cloud computing, on-premises servers, and smaller IoT-class devices on the factory floor. You can spend less time dealing with infrastructure or DevOps and focus on your business.
 
@@ -97,9 +95,9 @@ To provide flexibility, Azure IoT MQ provides Azure Connectors to Event Hub, IoT
 
 ## Offline operation
 
-You may operate edge computing in remote locations. For example, you may operate a ocean-going vessel, offshore oil rigs, and even satellites using Azure Space SDK. Cloud connectivity at these locations is unreliable, intermittent, and expensive. You must rely on your edge computing infrastructure to reliably act on real-time data. For example, recognizing a crack in a pipe from an aerial view or predicting equipment failure before it happens.
+You may operate edge computing in remote locations. For example, you may operate an ocean-going vessel, offshore oil rigs, and even satellites using Azure Space SDK. Cloud connectivity at these locations is unreliable, intermittent, and expensive. You must rely on your edge computing infrastructure to reliably act on real-time data. For example, recognizing a crack in a pipe from an aerial view or predicting equipment failure before it happens.
 
-Azure IoT has extended offline support provides store-and-forward capability to messages received from clients that are meant for the cloud. Also, it facilitates communication between clients and enforce access control without any cloud connectivity. It offers dashboards and a user interface simplified local operation (like the [Kubernetes local UI](https://kubernetes.io/docs/tasksccess-application-cluster/web-ui-dashboard/)) and troubleshooting via industry-standard tools (like [Prometheus and Grafana](https://www.rabbitmq.com/prometheus.html)). Azure IoT MQ doesn't require connection to the internet if you choose.
+Azure IoT has extended offline support provides store-and-forward capability to messages received from clients that are meant for the cloud. Also, it facilitates communication between clients and enforces access control without any cloud connectivity. It offers dashboards and a user interface simplified local operation like the [Kubernetes local UI](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/) and troubleshooting via industry-standard tools like [Prometheus and Grafana](https://www.rabbitmq.com/prometheus.html). Azure IoT MQ doesn't require connection to the internet if you choose.
 
 ## Dapr programming model
 
