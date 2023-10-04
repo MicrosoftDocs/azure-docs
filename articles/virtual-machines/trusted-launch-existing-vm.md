@@ -43,7 +43,7 @@ Azure Virtual Machines supports enabling Trusted launch on existing [Azure Gener
 
 > [!NOTE]
 >
-> - After enabling Trusted launch, currently virtual machine cannot be rolled back to security type **Standard** (Non-Trusted launch configuration).
+> - After enabling Trusted launch, currently virtual machines cannot be rolled back to security type **Standard** (Non-Trusted launch configuration).
 > - **vTPM** is enabled by default.
 > - **Secure Boot** is recommended to be enabled (not enabled by default) if you are not using custom unsigned kernel or drivers. Secure Boot preserves boot integrity and enables foundational security for VM.
 
@@ -54,11 +54,11 @@ This section steps through using the Azure portal to enable Trusted launch on ex
 1. Log in to [Azure portal](https://portal.azure.com)
 2. Validate virtual machine generation is **V2** and **Stop** VM.
 
-:::image type="content" source="./media/trusted-launch/02-generation-2-to-trusted-launch-stop-vm.png" alt-text="Screenshot of the Gen2 VM to be de-allocated":::
+:::image type="content" source="./media/trusted-launch/02-generation-2-to-trusted-launch-stop-vm.png" alt-text="Screenshot of the Gen2 VM to be de-allocated.":::
 
 3. On **Overview** page in VM **Properties**, Select **Standard** under **Security type**. This navigates to **Configuration** page for VM.
 
-:::image type="content" source="./media/trusted-launch/03-generation-2-to-trusted-launch-click-standard.png" alt-text="Screenshot of the Security type Standard":::
+:::image type="content" source="./media/trusted-launch/03-generation-2-to-trusted-launch-click-standard.png" alt-text="Screenshot of the Security type Standard.":::
 
 4. Select drop-down **Security type** under **Security type** section of **Configuration** page.
 
