@@ -114,7 +114,7 @@ Hello World Refreshed!
 2
 ```
 
-## Web App Usage (Django/Flask)
+## Web App Usage
 
 The following examples show how to update an existing flask app to use refreshable configuration values.
 
@@ -131,7 +131,7 @@ def index(request):
     ...
 ```
 
-
+You can find a full sample project [here](https://github.com/Azure/AppConfiguration/tree/main/examples/Python/python-django-webapp-sample).
 
 ### [Flask](#tab/flask)
 
@@ -145,6 +145,8 @@ Update a view endpoint to check for updated configuration values.
     # Update Flask config mapping with loaded values in the App Configuration provider.
     app.config.update(azure_app_config)
 ```
+
+You can find a full sample project [here](https://github.com/Azure/AppConfiguration/tree/main/examples/Python/python-flask-webapp-sample).
 
 ---
 
