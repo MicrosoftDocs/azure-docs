@@ -40,6 +40,8 @@ The following network and FQDN/application rules are required for an AKS cluster
 * AKS uses an admission controller to inject the FQDN as an environment variable to all deployments under kube-system and gatekeeper-system. This ensures all system communication between nodes and API server uses the API server FQDN and not the API server IP.
 * If you have an app or solution that needs to talk to the API server, you must add an **additional** network rule to allow **TCP communication to port 443 of your API server's IP**.
 * On rare occasions, if there's a maintenance operation, your API server IP might change. Planned maintenance operations that can change the API server IP are always communicated in advance.
+* Under certain circumstances, it might happen that traffic towards "md-*.blob.storage.azure.net" is required. This dependency is due to some internal mechanisms of Azure Managed Disks. You might also want to use the Storage [service tag](../virtual-network/service-tags-overview.md).
+
 
 ### Azure Global required network rules
 
