@@ -35,6 +35,13 @@ A *sentinel key* is a key that you update after you complete the change of all o
 
 ## Reload data from App Configuration
 
+1. Create two configuration in your App Configuration store.
+
+```cli
+az appconfig kv set --name <app-configuration-store-name> --key message --value "Hello World!"
+az appconfig kv set --name <app-configuration-store-name> --key Sentinel --value "1"
+```
+
 1. Create a new Python file named *app.py* and add the following code:
 
     ```python
@@ -48,18 +55,9 @@ A *sentinel key* is a key that you update after you complete the change of all o
 
     connection_string = os.environ.get("APPCONFIGURATION_CONNECTION_STRING")
 
-    # Setting up a configuration setting with a known value
-    client = AzureAppConfigurationClient.from_connection_string(connection_string)
-
-    # Creating a configuration setting to be refreshed
-    configuration_setting = ConfigurationSetting(key="message", value="Hello World!")
-
     # Creating a Sentinel key to monitor
     sentinel_setting = ConfigurationSetting(key="Sentinel", value="1")
 
-    # Setting the configuration setting in Azure App Configuration
-    client.set_configuration_setting(configuration_setting=configuration_setting)
-    client.set_configuration_setting(configuration_setting=sentinel_setting)
 
     # Connecting to Azure App Configuration using connection string, and refreshing when the configuration setting message changes
     config = load(
@@ -69,26 +67,20 @@ A *sentinel key* is a key that you update after you complete the change of all o
     )
 
     # Printing the initial value
+    print("Starting configuration values:")
     print(config["message"])
     print(config["Sentinel"])
 
-    # Updating the configuration setting to a new value
-    configuration_setting.value = "Hello World Updated!"
-
-    # Updating the sentinel key to a new value, only after this is changed can a refresh happen
-    sentinel_setting.value = "2"
-
-    # Setting the updated configuration setting in Azure App Configuration
-    client.set_configuration_setting(configuration_setting=configuration_setting)
-    client.set_configuration_setting(configuration_setting=sentinel_setting) # Should always be done last to make sure all other keys included in the refresh
+    print("Updating configuration values now.")
 
     # Waiting for the refresh interval to pass
-    time.sleep(2)
+    time.sleep(60)
 
     # Refreshing the configuration setting
     config.refresh()
 
     # Printing the updated value
+    print("Updated configuration values:")
     print(config["message"])
     print(config["Sentinel"])
     ```
@@ -101,8 +93,62 @@ A *sentinel key* is a key that you update after you complete the change of all o
 
 1. Verify Output:
 
-:::image type="content" source="./media/enable-dynamic-configuration-python.png" alt-text="Screenshot of the CLI, with the results; Hello World!, 1, Hello World Updated!, 2.":::
+```cli
+Starting configuration values:
+Hello World!
+1
+```
 
+1. Update the values in your App Configuration store, making sure to update the sentinel key last.
+
+```cli
+az appconfig kv set --name <app-configuration-store-name> --key message --value "Hello World Refreshed!"
+az appconfig kv set --name <app-configuration-store-name> --key Sentinel --value "2"
+```
+
+1. Wait for the refresh interval to pass the refresh to be called, the configuration settings will print out again with new values.
+
+```cli
+Updated configuration values:
+Hello World Refreshed!
+2
+```
+
+## Web App Usage (Django/Flask)
+
+The following examples show how to update an existing flask app to use refreshable configuration values.
+
+### [Django](#tab/django)
+
+Update a view endpoint to check for updated configuration values.
+
+```python
+from django.conf import settings
+
+def index(request):
+    settings.AZURE_APPCONFIGURATION.refresh()
+    # Once this returns AZURE_APPCONFIGURATION will be updated with the latest values
+    ...
+```
+
+
+
+### [Flask](#tab/flask)
+
+Update a view endpoint to check for updated configuration values.
+
+```python
+@app.route('/')
+ def index():
+    # Refresh the configuration from App Configuration service.
+    azure_app_config.refresh()
+    # Update Flask config mapping with loaded values in the App Configuration provider.
+    app.config.update(azure_app_config)
+```
+
+---
+
+NOTE: If the refresh interval hasn't passed, then the refresh will not be attempted and returned right away.
 
 ## Next steps
 
