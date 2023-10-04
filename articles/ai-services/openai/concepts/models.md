@@ -86,7 +86,7 @@ These models can only be used with the Chat Completion API.
 | `gpt-4-32k` (0613)  |  Australia East<sup>1</sup>, Canada East, East US<sup>1</sup>, East US 2<sup>1</sup>, France Central<sup>1</sup>, Japan East<sup>1</sup>, Sweden Central, Switzerland North, UK South<sup>1</sup> |  N/A                | 32,768               | September 2021         |
 
 <sup>1</sup> Due to high demand, availability is limited in the region<br>
-<sup>2</sup> Version `0314` of gpt-4 and gpt-4-32k will be retired no earlier than July 5, 2024. See [model updates](#model-updates) for model upgrade behavior.<br>
+<sup>2</sup> Version `0314` of gpt-4 and gpt-4-32k will be retired no earlier than July 5, 2024. See [model updates](../how-to/working-with-models.md#model-updates) for model upgrade behavior.<br>
 
 ### GPT-3.5 models
 
@@ -99,7 +99,7 @@ GPT-3.5 Turbo is used with the Chat Completion API. GPT-3.5 Turbo (0301) can als
 | `gpt-35-turbo-16k` (0613) | Australia East, Canada East, East US, East US 2, France Central, Japan East, North Central US, Sweden Central, Switzerland North, UK South | N/A | 16,384 | Sep 2021 |
 | `gpt-35-turbo-instruct` (0914) | East US, Sweden Central | N/A | 4,097 | Sep 2021 |
 
-<sup>1</sup> Version `0301` of gpt-35-turbo will be retired no earlier than July 5, 2024.  See [model updates](#model-updates) for model upgrade behavior.
+<sup>1</sup> Version `0301` of gpt-35-turbo will be retired no earlier than July 5, 2024.  See [model updates](../how-to/working-with-models.md#model-updates) for model upgrade behavior.
 
 ### Embeddings models
 
