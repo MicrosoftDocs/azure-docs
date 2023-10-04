@@ -3,12 +3,12 @@ title: Manage SSH access on Azure Kubernetes Service cluster nodes
 titleSuffix: Azure Kubernetes Service
 description: Learn how to configure SSH on Azure Kubernetes Service (AKS) cluster nodes.
 ms.topic: article
-ms.date: 08/14/2023
+ms.date: 10/04/2023
 ---
 
 # Manage SSH for secure access to Azure Kubernetes Service (AKS) nodes
 
-This article describes how to disable and enable SSH on your AKS clusters or node pools, and how to update the SSH key on your AKS cluster.
+This article describes how to enable and disable SSH on your AKS clusters or node pools, and how to update the SSH key on your AKS cluster.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -127,6 +127,11 @@ Use the [az aks update][az-aks-update] command to update the SSH public key (pre
 
 > [!NOTE]
 > Updating of the SSH key is supported on Azure virtual machine scale sets with AKS clusters.
+
+|-----|-----|-----|
+|SSH parameter |Description |Default value |
+|--ssh-key-vaule |Public key path or key contents to install on node VMs for SSH access. For example, `ssh-rsa AAAAB...snip...UcyupgH azureuser@linuxvm`.|`~.ssh\id_rsa.pub` |
+|--no-ssh-key |Do not use or create a local SSH key. |False |
 
 The following are examples of this command:
 

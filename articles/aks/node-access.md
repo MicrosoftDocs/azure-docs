@@ -2,7 +2,7 @@
 title: Connect to Azure Kubernetes Service (AKS) cluster nodes
 description: Learn how to connect to Azure Kubernetes Service (AKS) cluster nodes for troubleshooting and maintenance tasks.
 ms.topic: article
-ms.date: 09/06/2023
+ms.date: 10/04/2023
 ms.reviewer: mattmcinnes
 ms.custom: contperf-fy21q4, devx-track-linux
 #Customer intent: As a cluster operator, I want to learn how to connect to virtual machines in an AKS cluster to perform maintenance or troubleshoot a problem.
@@ -16,7 +16,7 @@ This article shows you how to create a connection to an AKS node and update the 
 
 ## Before you begin
 
-* You have an SSH key. If you don't, you can create an SSH key using [macOS or Linux][ssh-nix] or [Windows][ssh-windows]. Save the key pair in an OpenSSH format, other formats like ``.ppk`` aren't supported.
+* You have an SSH key. If you don't, you can create an SSH key using [macOS or Linux][ssh-nix] or [Windows][ssh-windows]. Save the key pair in an OpenSSH format, other formats like `.ppk` aren't supported.
 
 * The Azure CLI version 2.0.64 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
