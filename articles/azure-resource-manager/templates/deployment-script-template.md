@@ -1,13 +1,9 @@
 ---
 title: Use deployment scripts in templates | Microsoft Docs
 description: Use deployment scripts in Azure Resource Manager templates.
-services: azure-resource-manager
-author: mumian
-ms.service: azure-resource-manager
 ms.custom: devx-track-arm-template
 ms.topic: conceptual
-ms.date: 10/03/2023
-ms.author: jgao
+ms.date: 10/04/2023
 ---
 
 # Use deployment scripts in ARM templates
@@ -679,7 +675,8 @@ The following ARM template shows how to configure the environment for running a 
   "contentVersion": "1.0.0.0",
   "parameters": {
     "prefix": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 10
     },
     "location": {
       "type": "string",
@@ -691,7 +688,7 @@ The following ARM template shows how to configure the environment for running a 
     },
     "storageAccountName": {
       "type": "string",
-      "defaultValue": "[format('{0}storage', parameters('prefix'))]"
+      "defaultValue": "[format('{0}stg{1}', parameters('prefix'), uniqueString(resourceGroup().id))]"
     },
     "vnetName": {
       "type": "string",
@@ -701,9 +698,6 @@ The following ARM template shows how to configure the environment for running a 
       "type": "string",
       "defaultValue": "[format('{0}Subnet', parameters('prefix'))]"
     }
-  },
-  "variables": {
-    "subnetId": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('vnetName'), parameters('subnetName'))]"
   },
   "resources": [
     {
@@ -725,33 +719,20 @@ The following ARM template shows how to configure the environment for running a 
               "addressPrefix": "10.0.0.0/24",
               "serviceEndpoints": [
                 {
-                  "service": "Microsoft.Storage",
-                  "locations": [
-                    "westus2",
-                    "westus",
-                    "eastus2euap",
-                    "centraluseuap"
-                  ]
+                  "service": "Microsoft.Storage"
                 }
               ],
               "delegations": [
                 {
                   "name": "Microsoft.ContainerInstance.containerGroups",
-                  "id": "[format('{0}/delegations/Microsoft.ContainerInstance.containerGroups', variables('subnetId'))]",
                   "properties": {
                     "serviceName": "Microsoft.ContainerInstance/containerGroups"
-                  },
-                  "type": "Microsoft.Network/virtualNetworks/subnets/delegations"
+                  }
                 }
-              ],
-              "privateEndpointNetworkPolicies": "Disabled",
-              "privateLinkServiceNetworkPolicies": "Enabled"
+              ]
             }
           }
         ]
-      },
-      "metadata": {
-        "description": "Create the Vnet"
       }
     },
     {
@@ -764,56 +745,27 @@ The following ARM template shows how to configure the environment for running a 
       },
       "kind": "StorageV2",
       "properties": {
-        "dnsEndpointType": "Standard",
-        "defaultToOAuthAuthentication": false,
-        "publicNetworkAccess": "Enabled",
-        "allowCrossTenantReplication": true,
-        "minimumTlsVersion": "TLS1_2",
-        "allowBlobPublicAccess": true,
-        "allowSharedKeyAccess": true,
         "networkAcls": {
           "bypass": "AzureServices",
           "virtualNetworkRules": [
             {
-              "id": "[variables('subnetId')]",
+              "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('vnetName'), parameters('subnetName'))]",
               "action": "Allow",
               "state": "Succeeded"
             }
           ],
           "defaultAction": "Deny"
-        },
-        "supportsHttpsTrafficOnly": true,
-        "encryption": {
-          "requireInfrastructureEncryption": false,
-          "services": {
-            "file": {
-              "keyType": "Account",
-              "enabled": true
-            },
-            "blob": {
-              "keyType": "Account",
-              "enabled": true
-            }
-          },
-          "keySource": "Microsoft.Storage"
-        },
-        "accessTier": "Hot"
+        }
       },
       "dependsOn": [
         "[resourceId('Microsoft.Network/virtualNetworks', parameters('vnetName'))]"
-      ],
-      "metadata": {
-        "description": "Create the storage with necessary settings"
-      }
+      ]
     },
     {
       "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
       "apiVersion": "2023-01-31",
       "name": "[parameters('userAssignedIdentityName')]",
-      "location": "[parameters('location')]",
-      "metadata": {
-        "description": "Create the user managed identity"
-      }
+      "location": "[parameters('location')]"
     },
     {
       "type": "Microsoft.Authorization/roleAssignments",
@@ -828,10 +780,7 @@ The following ARM template shows how to configure the environment for running a 
       "dependsOn": [
         "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]",
         "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', parameters('userAssignedIdentityName'))]"
-      ],
-      "metadata": {
-        "description": "assign the built in role to the storage account"
-      }
+      ]
     }
   ]
 }
@@ -855,28 +804,29 @@ You can use the following ARM template to test the deployment:
       "type": "string",
       "defaultValue": "[utcNow()]"
     },
+    "storageAccountName": {
+      "type": "string"
+    },
     "vnetName": {
-      "type": "string",
-      "defaultValue": "[format('{0}Vnet', parameters('prefix'))]"
+      "type": "string"
+    },
+    "subnetName": {
+      "type": "string"
+    },
+    "userAssignedIdentityName": {
+      "type": "string"
     }
-  },
-  "variables": {
-    "storageAccountName": "[format('{0}storage', parameters('prefix'))]",
-    "subnetName": "[format('{0}Subnet', parameters('prefix'))]",
-    "userAssignedIdentityName": "[format('{0}Identity', parameters('prefix'))]",
-    "containerGroupName": "[format('{0}Aci', parameters('prefix'))]",
-    "dsName": "[format('{0}DS', parameters('prefix'))]"
   },
   "resources": [
     {
       "type": "Microsoft.Resources/deploymentScripts",
       "apiVersion": "2023-08-01",
-      "name": "[variables('dsName')]",
+      "name": "[format('{0}DS', parameters('prefix'))]",
       "location": "[parameters('location')]",
       "identity": {
         "type": "userAssigned",
         "userAssignedIdentities": {
-          "[format('{0}', resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('userAssignedIdentityName')))]": {}
+          "[format('{0}', resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', parameters('userAssignedIdentityName')))]": {}
         }
       },
       "kind": "AzureCLI",
@@ -884,13 +834,12 @@ You can use the following ARM template to test the deployment:
         "forceUpdateTag": "[parameters('utcValue')]",
         "azCliVersion": "2.47.0",
         "storageAccountSettings": {
-          "storageAccountName": "[variables('storageAccountName')]"
+          "storageAccountName": "[parameters('storageAccountName')]"
         },
         "containerSettings": {
-          "containerGroupName": "[variables('containerGroupName')]",
           "subnetIds": [
             {
-              "id": "[format('{0}/subnets/{1}', resourceId('Microsoft.Network/virtualNetworks', parameters('vnetName')), variables('subnetName'))]"
+              "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('vnetName'), parameters('subnetName'))]"
             }
           ]
         },

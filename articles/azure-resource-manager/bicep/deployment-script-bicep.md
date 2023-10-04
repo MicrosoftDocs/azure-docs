@@ -1,13 +1,9 @@
 ---
 title: Use deployment scripts in Bicep | Microsoft Docs
 description: use deployment scripts in Bicep.
-services: azure-resource-manager
-author: mumian
-ms.service: azure-resource-manager
 ms.custom: devx-track-bicep
 ms.topic: conceptual
-ms.date: 10/03/2023
-ms.author: jgao
+ms.date: 10/04/2023
 ---
 
 # Use deployment scripts in Bicep
@@ -665,16 +661,14 @@ With Microsoft.Resources/deploymentScripts version 2023-08-01, you can run deplo
 The following Bicep file shows how to configure the environment for running a deployment script:
 
 ```bicep
+@maxLength(10) // required max length since the storage account has a max of 26 chars
 param prefix string
 param location string = resourceGroup().location
 param userAssignedIdentityName string = '${prefix}Identity'
-param storageAccountName string = '${prefix}storage'
+param storageAccountName string = '${prefix}stg${uniqueString(resourceGroup().id)}'
 param vnetName string = '${prefix}Vnet'
 param subnetName string = '${prefix}Subnet'
 
-var subnetId = resourceId('Microsoft.Network/virtualNetworks/subnets', vnetName, subnetName)
-
-@description('Create the VNet')
 resource vnet 'Microsoft.Network/virtualNetworks@2023-05-01' = {
   name: vnetName
   location: location
@@ -693,33 +687,26 @@ resource vnet 'Microsoft.Network/virtualNetworks@2023-05-01' = {
           serviceEndpoints: [
             {
               service: 'Microsoft.Storage'
-              locations: [
-                'westus2'
-                'westus'
-                'eastus2euap'
-                'centraluseuap'
-              ]
             }
           ]
           delegations: [
             {
               name: 'Microsoft.ContainerInstance.containerGroups'
-              id: '${subnetId}/delegations/Microsoft.ContainerInstance.containerGroups'
               properties: {
                 serviceName: 'Microsoft.ContainerInstance/containerGroups'
               }
-              type: 'Microsoft.Network/virtualNetworks/subnets/delegations'
             }
           ]
-          privateEndpointNetworkPolicies: 'Disabled'
-          privateLinkServiceNetworkPolicies: 'Enabled'
         }
       }
     ]
   }
 }
 
-@description('Create the storage with necessary settings')
+resource subnet 'Microsoft.Network/virtualNetworks/subnets@2023-05-01' existing = {
+  parent: vnet
+  name: subnetName
+}
 resource storageAccount 'Microsoft.Storage/storageAccounts@2023-01-01' = {
   name: storageAccountName
   location: location
@@ -728,67 +715,39 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2023-01-01' = {
   }
   kind: 'StorageV2'
   properties: {
-    dnsEndpointType: 'Standard'
-    defaultToOAuthAuthentication: false
-    publicNetworkAccess: 'Enabled'
-    allowCrossTenantReplication: true
-    minimumTlsVersion: 'TLS1_2'
-    allowBlobPublicAccess: true
-    allowSharedKeyAccess: true
     networkAcls: {
       bypass: 'AzureServices'
       virtualNetworkRules: [
         {
-          id: subnetId
+          id: subnet.id
           action: 'Allow'
           state: 'Succeeded'
         }
       ]
       defaultAction: 'Deny'
     }
-    supportsHttpsTrafficOnly: true
-    encryption: {
-      requireInfrastructureEncryption: false
-      services: {
-        file: {
-          keyType: 'Account'
-          enabled: true
-        }
-        blob: {
-          keyType: 'Account'
-          enabled: true
-        }
-      }
-      keySource: 'Microsoft.Storage'
-    }
-    accessTier: 'Hot'
   }
-  dependsOn: [
-    vnet
-  ]
 }
 
-@description('Create the user managed identity')
 resource userAssignedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2023-01-31' = {
   name: userAssignedIdentityName
   location: location
 }
 
-@description('get the built-in role definition Storage File Data Privileged Contributor')
 resource storageFileDataPrivilegedContributor 'Microsoft.Authorization/roleDefinitions@2022-04-01' existing = {
-  name: '69566ab7-960f-475b-8e7c-b3118f30c6bd'
+  name: '69566ab7-960f-475b-8e7c-b3118f30c6bd' // Storage File Data Priveleged Contributor
   scope: tenant()
 }
 
-@description('assign the built in role to the storage account')
 resource roleAssignment 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
+  scope: storageAccount
+
   name: guid(storageFileDataPrivilegedContributor.id, userAssignedIdentity.id, storageAccount.id)
   properties: {
     principalId: userAssignedIdentity.properties.principalId
     roleDefinitionId: storageFileDataPrivilegedContributor.id
     principalType: 'ServicePrincipal'
   }
-  scope: storageAccount
 }
 ```
 
@@ -800,15 +759,17 @@ param prefix string
 param location string  = resourceGroup().location
 param utcValue string = utcNow()
 
-var storageAccountName = '${prefix}storage'
-param vnetName string = '${prefix}Vnet'
-var subnetName = '${prefix}Subnet'
-var userAssignedIdentityName = '${prefix}Identity'
-var containerGroupName = '${prefix}Aci'
-var dsName = '${prefix}DS'
+param storageAccountName string
+param vnetName string
+param subnetName string
+param userAssignedIdentityName string
 
 resource vnet 'Microsoft.Network/virtualNetworks@2023-05-01' existing = {
   name: vnetName
+
+  resource subnet 'subnets' existing = {
+    name: subnetName
+  }
 }
 
 resource userAssignedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2023-01-31' existing = {
@@ -816,7 +777,7 @@ resource userAssignedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@
 }
 
 resource dsTest 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
-  name: dsName
+  name: '${prefix}DS'
   location: location
   identity: {
     type: 'userAssigned'
@@ -832,10 +793,9 @@ resource dsTest 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
       storageAccountName: storageAccountName
     }
     containerSettings: {
-      containerGroupName: containerGroupName
       subnetIds: [
         {
-          id: '${vnet.id}/subnets/${subnetName}'
+          id: vnet::subnet.id
         }
       ]
     }
