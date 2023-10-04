@@ -74,8 +74,6 @@ The connection string for IoT Hub can be found here -
 
 Within the connection string, you can find a service bus URL (URL of the underlying event hub namespace), which you need to add as a bootstrap server in your kafka source. In this case, it is:  `iothub-ns-sagiri-iot-25146639-20dff4e426.servicebus.windows.net:9093`
 
-The topic name is same as the event hub-compatible name in the given image. In this case, it is `sagiri-iot`.
-
 ### Defining the ABFS sink
 
 ```java
