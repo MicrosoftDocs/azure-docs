@@ -46,18 +46,10 @@ az appconfig kv set --name <app-configuration-store-name> --key Sentinel --value
 
     ```python
     from azure.appconfiguration.provider import load, SentinelKey
-    from azure.appconfiguration import (
-        AzureAppConfigurationClient,
-        ConfigurationSetting,
-    )
     import os
     import time
 
     connection_string = os.environ.get("APPCONFIGURATION_CONNECTION_STRING")
-
-    # Creating a Sentinel key to monitor
-    sentinel_setting = ConfigurationSetting(key="Sentinel", value="1")
-
 
     # Connecting to Azure App Configuration using connection string, and refreshing when the configuration setting message changes
     config = load(
