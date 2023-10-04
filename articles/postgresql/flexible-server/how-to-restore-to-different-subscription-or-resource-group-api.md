@@ -1,6 +1,7 @@
 ---
-title: Manage read replicas - Azure REST API - Azure Database for PostgreSQL - Flexible Server
-description: Learn how to manage read replicas in Azure Database for PostgreSQL - Flexible Server from the Azure REST API
+title: Cross Subscription and Cross Resource Group Restore - Azure REST API in Azure Database for PostgreSQL - Flexible Server
+description: This article describes how to restore to a different Subscription or resource group server in Azure Database for  PostgreSQL - Flexible Server using  Azure REST API.
+ms.service: postgresql
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
@@ -30,6 +31,7 @@ An [Azure Database for PostgreSQL server](quickstart-create-server-portal.md) to
 
 3. Go to **Request Body** section and paste the following replacing the "location" (e.g. CentralUS, EastUS etc.), "pointInTimeUTC", and ))"SourceServerResourceID", For "pointInTimeUTC", specify a timestamp value  to which you want to restore. Finally, you can use createMode as **PointInTimeRestore** for performing regular restore and **GeoRestore** for restoring geo-redundant backups.
 
+## GeoRestore
     ```json
    {
   "location": "NorthEurope",  
@@ -41,7 +43,7 @@ An [Azure Database for PostgreSQL server](quickstart-create-server-portal.md) to
    }
 }
     ```
-
+## Point In Time Restore
     ```json
     {
       "location": "EastUS",  
@@ -63,7 +65,7 @@ An [Azure Database for PostgreSQL server](quickstart-create-server-portal.md) to
    - **Operation** =  Update PostgreSQL Server Create
 
 
-## Commom Errors
+## Common Errors
 
 1. If you utilize the incorrect API version, you may experience restore failures or timeouts. Please use 2023-06-01-preview API to avoid such issues.
 2. To avoid potential DNS errors, it's recommended to use a different name when initiating the restore process, as some restore operations may fail with the same name.
