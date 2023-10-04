@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2023
+ms.date: 09/07/2023
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to create VM images with custom number of cores, memory, and GPU count.
 ---

@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
-ms.date: 06/16/2023
+ms.date: 09/15/2023
 ms.author: jfields
 ---
 
@@ -70,6 +70,6 @@ Once your organization has explored and implemented the discover, remediation an
 
 ## Next steps
 
-- Deepen your learning with the [Introduction to Microsoft Entra Permissions Management](https://go.microsoft.com/fwlink/?linkid=2240016) learn module. 
+- Deepen your learning with [Introduction to Microsoft Entra Permissions Management](https://go.microsoft.com/fwlink/?linkid=2240016) learn module. 
 - Sign up for a [45-day free trial](https://aka.ms/TryPermissionsManagement) of Permissions Management.
 - For a list of frequently asked questions (FAQs) about Permissions Management, see [FAQs](faqs.md).

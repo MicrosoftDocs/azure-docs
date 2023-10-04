@@ -2,12 +2,12 @@
   tocHref: /azure/
   topicHref: /azure/index
   items:
-  - name: Azure AD Domain Services Documentation
+  - name: Microsoft Entra Domain Services Documentation
     tocHref: /azure/active-directory/fundamentals
     topicHref: /azure/active-directory-domain-services/index
-  - name: Azure AD Domain Services Documentation
+  - name: Microsoft Entra Domain Services Documentation
     tocHref: /azure/active-directory/hybrid/
     topicHref: /azure/active-directory-domain-services/index
-  - name: Azure AD Domain Services Documentation
+  - name: Microsoft Entra Domain Services Documentation
     tocHref: /windows-server/identity/ad-ds/
     topicHref: /azure/active-directory-domain-services/index

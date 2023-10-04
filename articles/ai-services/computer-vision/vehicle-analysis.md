@@ -5,8 +5,7 @@ description: Vehicle analysis provides each container with a common configuratio
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 11/07/2022

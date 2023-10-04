@@ -12,7 +12,7 @@ reviews the request. When the policy definition effect is [Modify](./effects.md#
 [Append](./effects.md#deny), or [DeployIfNotExists](./effects.md#deployifnotexists), Policy alters
 the request or adds to it. When the policy definition effect is [Audit](./effects.md#audit) or
 [AuditIfNotExists](./effects.md#auditifnotexists), Policy causes an Activity log entry to be created
-for new and updated resources. And when the policy definition effect is [Deny](./effects.md#deny) or [DenyAction](./effects.md#denyaction-preview), Policy stops the creation or alteration of the request.
+for new and updated resources. And when the policy definition effect is [Deny](./effects.md#deny) or [DenyAction](./effects.md#denyaction), Policy stops the creation or alteration of the request.
 
 These outcomes are exactly as desired when you know the policy is defined correctly. However, it's
 important to validate a new policy works as intended before allowing it to change or block work. The

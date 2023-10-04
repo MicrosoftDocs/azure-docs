@@ -9,7 +9,7 @@ ms.topic: how-to
 
 Many Azure services have quotas, which are the assigned number of resources for your Azure subscription. Each quota represents a specific countable resource, such as the number of virtual machines you can create, the number of storage accounts you can use concurrently, the number of networking resources you can consume, or the number of API calls to a particular service you can make.
 
-The concept of quotas is designed to help protect customers from things like inaccurately resourced deployments and mistaken consumption. For Azure, it helps minimize risks from deceptive or inappropriate consumption and unexpected demand. Quotas are set and enforced in the scope of the [subscription](/microsoft-365/enterprise/subscriptions-licenses-accounts-and-tenants-for-microsoft-cloud-offerings.
+The concept of quotas is designed to help protect customers from things like inaccurately resourced deployments and mistaken consumption. For Azure, it helps minimize risks from deceptive or inappropriate consumption and unexpected demand. Quotas are set and enforced in the scope of the [subscription](/microsoft-365/enterprise/subscriptions-licenses-accounts-and-tenants-for-microsoft-cloud-offerings).
 
 ## Quotas or limits?
 

@@ -1,6 +1,6 @@
 ---
 title: Unexpected consent prompt when signing in to an application
-description: How to troubleshoot when a user sees a consent prompt for an application you've integrated with Azure AD that you didn't expect
+description: How to troubleshoot when a user sees a consent prompt for an application you've integrated with Microsoft Entra ID that you didn't expect
 services: active-directory
 author: omondiatieno
 manager: CelesteDG
@@ -17,7 +17,7 @@ ms.custom: enterprise-apps
 
 # Unexpected consent prompt when signing in to an application
 
-Many applications that integrate with Azure Active Directory require permissions to various resources in order to run. When these resources are also integrated with Azure Active Directory, the permission to access them is requested using the Azure AD consent framework. These requests result in a consent prompt being shown the first time an application is used, which is often a one-time operation.
+Many applications that integrate with Microsoft Entra ID require permissions to various resources in order to run. When these resources are also integrated with Microsoft Entra ID, permission to access them is requested using the Microsoft Entra consent framework. These requests result in a consent prompt being shown the first time an application is used, which is often a one-time operation.
 
 In certain scenarios, additional consent prompts can appear when a user attempts to sign-in. In this article, we diagnose the reason for the unexpected consent prompts showing, and how to troubleshoot.
 
@@ -78,8 +78,8 @@ Determining whether an individual user can consent to an application can be conf
 
 ## Next steps
 
-- [Apps, permissions, and consent in Azure Active Directory (v1.0 endpoint)](../develop/quickstart-register-app.md)
+- [Apps, permissions, and consent in Microsoft Entra ID (v1.0 endpoint)](../develop/quickstart-register-app.md)
 
-- [Scopes, permissions, and consent in the Azure Active Directory (v2.0 endpoint)](../develop/permissions-consent-overview.md)
+- [Scopes, permissions, and consent in the Microsoft Entra ID (v2.0 endpoint)](../develop/permissions-consent-overview.md)
 
 - [Unexpected error when performing consent to an application](application-sign-in-unexpected-user-consent-error.md)

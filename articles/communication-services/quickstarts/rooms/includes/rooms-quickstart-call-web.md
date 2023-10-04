@@ -23,7 +23,7 @@ To follow along with this quickstart, you can download the Room Call quickstart 
 
 
 ## Pre-requisites
-- [Node.js v16](https://nodejs.org/en/) Active LTS and Maintenance LTS versions
+- You need to have [Node.js 18](https://nodejs.org/dist/v18.18.0/). You can use the msi installer to install it.
 
 ## Setting up
 
@@ -32,6 +32,12 @@ To follow along with this quickstart, you can download the Room Call quickstart 
 Open your terminal or command window create a new directory for your app, and navigate to it.
 ```console
 mkdir calling-rooms-quickstart && cd calling-rooms-quickstart
+```
+
+Run `npm init -y` to create a **package.json** file with default settings.
+
+```console
+npm init -y
 ```
 
 ### Install the package
@@ -50,7 +56,7 @@ npm install @azure/communication-calling@1.14.1 --save
 This quickstart uses Webpack to bundle the application assets. Run the following command to install the `webpack`, `webpack-cli` and `webpack-dev-server` npm packages and list them as development dependencies in your `package.json`:
 
 ```console
-npm install webpack@4.42.0 webpack-cli@3.3.11 webpack-dev-server@3.10.3 --save-dev
+npm install copy-webpack-plugin@^11.0.0 webpack@^5.88.2 webpack-cli@^5.1.4 webpack-dev-server@^4.15.1 --save-dev
 ```
 
 Here's the code:
@@ -90,12 +96,12 @@ Create an `index.html` file in the root directory of your project. We use this f
         <br>
         <div id="localVideoContainer" style="width: 30%;" hidden>Local video stream:</div>
         <!-- points to the bundle generated from client.js -->
-        <script src="./bundle.js"></script>
+        <script src="./main.js"></script>
     </body>
 </html>
 ```
 
-Create a file in the root directory of your project called `client.js` to contain the application logic for this quickstart. Add the following code to client.js:
+Create a file in the root directory of your project called `index.js` to contain the application logic for this quickstart. Add the following code to index.js:
 
 ```JavaScript
 // Make sure to install the necessary dependencies
@@ -198,7 +204,6 @@ subscribeToCall = (call) => {
                 console.log(`Call ended, call end reason={code=${call.callEndReason.code}, subCode=${call.callEndReason.subCode}}`);
             }   
         });
-
         call.on('isLocalVideoStartedChanged', () => {
             console.log(`isLocalVideoStarted changed: ${call.isLocalVideoStarted}`);
         });
@@ -389,12 +394,41 @@ hangUpCallButton.addEventListener("click", async () => {
 });
 ```
 
+## Add the webpack local server code
+
+Create a file in the root directory of your project called **webpack.config.js** to contain the local server logic for this quickstart. Add the following code to **webpack.config.js**:
+```javascript
+const path = require('path');
+const CopyPlugin = require("copy-webpack-plugin");
+
+module.exports = {
+    mode: 'development',
+    entry: './index.js',
+    output: {
+        filename: 'main.js',
+        path: path.resolve(__dirname, 'dist'),
+    },
+    devServer: {
+        static: {
+            directory: path.join(__dirname, './')
+        },
+    },
+    plugins: [
+        new CopyPlugin({
+            patterns: [
+                './index.html'
+            ]
+        }),
+    ]
+};
+```
+
 ## Run the code
 
 Use the `webpack-dev-server` to build and run your app. Run the following command to bundle the application host in a local webserver:
 
 ```console
-npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
+`npx webpack serve --config webpack.config.js`
 ```
 
 1. Open your browser navigate to http://localhost:8080/.

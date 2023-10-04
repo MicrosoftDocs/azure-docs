@@ -152,7 +152,7 @@ For more information about creating an index and setting field properties, see [
 | Urdu | ur.microsoft |  |
 | Vietnamese | vi.microsoft |  |
 
- All analyzers with names annotated with **Lucene** are powered by [Apache Lucene's language analyzers](https://lucene.apache.org/core/6_6_1/core/overview-summary.html ).
+ All analyzers with names annotated with **Lucene** are powered by [Apache Lucene's language analyzers](https://lucene.apache.org/core/6_6_1/core/overview-summary.html).
 
 ## See also  
 
