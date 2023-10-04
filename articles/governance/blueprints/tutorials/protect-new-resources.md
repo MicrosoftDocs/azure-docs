@@ -6,6 +6,8 @@ ms.topic: tutorial
 ---
 # Tutorial: Protect new resources with Azure Blueprints resource locks
 
+[!INCLUDE [Blueprints deprecation note](../../../../includes/blueprints-deprecation-note.md)]
+
 With Azure Blueprints [resource locks](../concepts/resource-locking.md), you can protect newly
 deployed resources from being tampered with, even by an account with the _Owner_ role. You can add
 this protection in the blueprint definitions of resources created by an Azure Resource Manager

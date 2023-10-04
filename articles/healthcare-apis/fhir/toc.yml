@@ -12,6 +12,8 @@ items:
     href: fhir-rest-api-capabilities.md
   - name: Versioning policy and history management
     href: fhir-versioning-policy-and-history-management.md
+  - name: Migration from Azure API for FHIR
+    href: migration-strategies.md
 - name: Quickstarts
   expanded: false
   items:
@@ -126,9 +128,11 @@ items:
   - name: Copy data to Synapse
     href: copy-to-synapse.md
 - name: Resources
-  expanded: false
+  expanded: true
   items:
-  - name: FAQ - FHIR service
+  - name: FHIR service FAQ
     href: fhir-faq.md
+  - name: Migration FAQ
+    href: migration-faq.md
   - name: Supported features
     href: fhir-features-supported.md

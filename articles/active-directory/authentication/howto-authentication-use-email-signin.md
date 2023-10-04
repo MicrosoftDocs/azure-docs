@@ -1,33 +1,33 @@
 ---
-title: Sign-in to Azure AD with email as an alternate login ID
-description: Learn how to enable users to sign in to Azure Active Directory with their email as an alternate login ID
+title: Sign-in to Microsoft Entra ID with email as an alternate login ID
+description: Learn how to enable users to sign in to Microsoft Entra ID with their email as an alternate login ID
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
-ms.date: 06/01/2023
+ms.date: 09/13/2023
 
 ms.author: justinha
 author: calui
 manager: amycolannino
 ms.reviewer: calui
 ---
-# Sign-in to Azure AD with email as an alternate login ID (Preview)
+# Sign-in to Microsoft Entra ID with email as an alternate login ID (Preview)
 
 > [!NOTE]
-> Sign-in to Azure AD with email as an alternate login ID is a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://aka.ms/EntraPreviewsTermsOfUse).
+> Sign-in to Microsoft Entra ID with email as an alternate login ID is a public preview feature of Microsoft Entra ID. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://aka.ms/EntraPreviewsTermsOfUse).
 
-Many organizations want to let users sign in to Azure Active Directory (Azure AD) using the same credentials as their on-premises directory environment. With this approach, known as hybrid authentication, users only need to remember one set of credentials.
+Many organizations want to let users sign in to Microsoft Entra ID using the same credentials as their on-premises directory environment. With this approach, known as hybrid authentication, users only need to remember one set of credentials.
 
 Some organizations haven't moved to hybrid authentication for the following reasons:
 
-* By default, the Azure AD User Principal Name (UPN) is set to the same value as the on-premises UPN.
-* Changing the Azure AD UPN creates a mismatch between on-premises and Azure AD environments that could cause problems with certain applications and services.
-* Due to business or compliance reasons, the organization doesn't want to use the on-premises UPN to sign in to Azure AD.
+* By default, the Microsoft Entra User Principal Name (UPN) is set to the same value as the on-premises UPN.
+* Changing the Microsoft Entra UPN creates a mismatch between on-premises and Microsoft Entra environments that could cause problems with certain applications and services.
+* Due to business or compliance reasons, the organization doesn't want to use the on-premises UPN to sign in to Microsoft Entra ID.
 
-To move toward hybrid authentication, you can configure Azure AD to let users sign in with their email as an alternate login ID. For example, if *Contoso* rebranded to *Fabrikam*, rather than continuing to sign in with the legacy `ana@contoso.com` UPN, email as an alternate login ID can be used. To access an application or service, users would sign in to Azure AD using their non-UPN email, such as `ana@fabrikam.com`.
+To move toward hybrid authentication, you can configure Microsoft Entra ID to let users sign in with their email as an alternate login ID. For example, if *Contoso* rebranded to *Fabrikam*, rather than continuing to sign in with the legacy `ana@contoso.com` UPN, email as an alternate login ID can be used. To access an application or service, users would sign in to Microsoft Entra ID using their non-UPN email, such as `ana@fabrikam.com`.
 
 ![Diagram of email as an alternate login ID.](media/howto-authentication-use-email-signin/email-alternate-login-id.png)
 
@@ -37,32 +37,32 @@ This article shows you how to enable and use email as an alternate login ID.
 
 Here's what you need to know about email as an alternate login ID:
 
-* The feature is available in Azure AD Free edition and higher.
-* The feature enables sign-in with *ProxyAddresses*, in addition to UPN, for cloud-authenticated Azure AD users. More on how this applies to Azure AD business-to-business (B2B) collaboration in the [B2B](#b2b-guest-user-sign-in-with-an-email-address) section.
+* The feature is available in Microsoft Entra ID Free edition and higher.
+* The feature enables sign-in with *ProxyAddresses*, in addition to UPN, for cloud-authenticated Microsoft Entra users. More on how this applies to Microsoft Entra business-to-business (B2B) collaboration in the [B2B](#b2b-guest-user-sign-in-with-an-email-address) section.
 * When a user signs in with a non-UPN email, the `unique_name` and `preferred_username` claims (if present) in the [ID token](../develop/id-tokens.md) will return the non-UPN email.
     * If the non-UPN email in use becomes stale (no longer belongs to the user), these claims will return the UPN instead.
 * The feature supports managed authentication with Password Hash Sync (PHS) or Pass-Through Authentication (PTA).
 * There are two options for configuring the feature:
     * [Home Realm Discovery (HRD) policy](#enable-user-sign-in-with-an-email-address) - Use this option to enable the feature for the entire tenant. Global Administrator, Application Administrator, or Cloud Application Administrator role is required.
-    * [Staged rollout policy](#enable-staged-rollout-to-test-user-sign-in-with-an-email-address) - Use this option to test the feature with specific Azure AD groups. Global Administrator privileges required. When you first add a security group for staged rollout, you're limited to 200 users to avoid a UX time-out. After you've added the group, you can add more users directly to it, as required.
+    * [Staged rollout policy](#enable-staged-rollout-to-test-user-sign-in-with-an-email-address) - Use this option to test the feature with specific Microsoft Entra groups. Global Administrator privileges required. When you first add a security group for staged rollout, you're limited to 200 users to avoid a UX time-out. After you've added the group, you can add more users directly to it, as required.
 
 ## Preview limitations
 
 In the current preview state, the following limitations apply to email as an alternate login ID:
 
 * **User experience** - Users may see their UPN, even when they signed-in with their non-UPN email. The following example behavior may be seen:
-    * User is prompted to sign in with UPN when directed to Azure AD sign-in with `login_hint=<non-UPN email>`.
+    * User is prompted to sign in with UPN when directed to Microsoft Entra sign-in with `login_hint=<non-UPN email>`.
     * When a user signs-in with a non-UPN email and enters an incorrect password, the *"Enter your password"* page changes to display the UPN.
     * On some Microsoft sites and apps, such as Microsoft Office, the *Account Manager* control typically displayed in the upper right may display the user's UPN instead of the non-UPN email used to sign in.
 
 * **Unsupported flows** - Some flows are currently not compatible with non-UPN emails, such as the following:
     * Identity Protection doesn't match non-UPN emails with *Leaked Credentials* risk detection. This risk detection uses the UPN to match credentials that have been leaked. For more information, see [How To: Investigate risk](../identity-protection/howto-identity-protection-investigate-risk.md).
-    * When a user is signed-in with a non-UPN email, they cannot change their password. Azure AD self-service password reset (SSPR) should work as expected. During SSPR, the user may see their UPN if they verify their identity using a non-UPN email.
+    * When a user is signed-in with a non-UPN email, they cannot change their password. Microsoft Entra self-service password reset (SSPR) should work as expected. During SSPR, the user may see their UPN if they verify their identity using a non-UPN email.
 
 * **Unsupported scenarios** - The following scenarios are not supported. Sign-in with non-UPN email for:
-    * [Hybrid Azure AD joined devices](../devices/concept-hybrid-join.md)
-    * [Azure AD joined devices](../devices/concept-directory-join.md)
-    * [Azure AD registered devices](../devices/concept-device-registration.md)
+    * [Microsoft Entra hybrid joined devices](../devices/concept-hybrid-join.md)
+    * [Microsoft Entra joined devices](../devices/concept-directory-join.md)
+    * [Microsoft Entra registered devices](../devices/concept-device-registration.md)
     * [Resource Owner Password Credentials (ROPC)](../develop/v2-oauth-ropc.md)
     * Legacy authentication such as POP3 and SMTP
     * Skype for Business
@@ -81,49 +81,53 @@ In the current preview state, the following limitations apply to email as an alt
 * **Duplicate values** - Within a tenant, a cloud-only user's UPN can be the same value as another user's proxy address synced from the on-premises directory. In this scenario, with the feature enabled, the cloud-only user will not be able to sign in with their UPN. More on this issue in the [Troubleshoot](#troubleshoot) section.
 
 ## Overview of alternate login ID options
-To sign in to Azure AD, users enter a value that uniquely identifies their account. Historically, you could only use the Azure AD UPN as the sign-in identifier.
+To sign in to Microsoft Entra ID, users enter a value that uniquely identifies their account. Historically, you could only use the Microsoft Entra UPN as the sign-in identifier.
 
-For organizations where the on-premises UPN is the user's preferred sign-in email, this approach was great. Those organizations would set the Azure AD UPN to the exact same value as the on-premises UPN, and users would have a consistent sign-in experience.
+For organizations where the on-premises UPN is the user's preferred sign-in email, this approach was great. Those organizations would set the Microsoft Entra UPN to the exact same value as the on-premises UPN, and users would have a consistent sign-in experience.
 
 ### Alternate Login ID for AD FS
 
-However, in some organizations the on-premises UPN isn't used as a sign-in identifier. In the on-premises environments, you would configure the local AD DS to allow sign-in with an alternate login ID. Setting the Azure AD UPN to the same value as the on-premises UPN isn't an option as Azure AD would then require users to sign in with that value.
+However, in some organizations the on-premises UPN isn't used as a sign-in identifier. In the on-premises environments, you would configure the local AD DS to allow sign-in with an alternate login ID. Setting the Microsoft Entra UPN to the same value as the on-premises UPN isn't an option as Microsoft Entra ID would then require users to sign in with that value.
 
-### Alternate Login ID in Azure AD Connect
+<a name='alternate-login-id-in-azure-ad-connect'></a>
 
-The typical workaround to this issue was to set the Azure AD UPN to the email address the user expects to sign in with. This approach works, though results in different UPNs between the on-premises AD and Azure AD, and this configuration isn't compatible with all Microsoft 365 workloads.
+### Alternate Login ID in Microsoft Entra Connect
+
+The typical workaround to this issue was to set the Microsoft Entra UPN to the email address the user expects to sign in with. This approach works, though results in different UPNs between the on-premises AD and Microsoft Entra ID, and this configuration isn't compatible with all Microsoft 365 workloads.
 
 ### Email as an Alternate Login ID
 
-A different approach is to synchronize the Azure AD and on-premises UPNs to the same value and then configure Azure AD to allow users to sign in to Azure AD with a verified email. To provide this ability, you define one or more email addresses in the user's *ProxyAddresses* attribute in the on-premises directory. *ProxyAddresses* are then synchronized to Azure AD automatically using Azure AD Connect.
+A different approach is to synchronize the Microsoft Entra ID and on-premises UPNs to the same value and then configure Microsoft Entra ID to allow users to sign in to Microsoft Entra ID with a verified email. To provide this ability, you define one or more email addresses in the user's *ProxyAddresses* attribute in the on-premises directory. *ProxyAddresses* are then synchronized to Microsoft Entra ID automatically using Microsoft Entra Connect.
 
 
 | Option | Description |
 |---|---|
 | [Alternate Login ID for AD FS](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) | Enable sign-in with an alternate attribute (such as Mail) for AD FS users. |
-| [Alternate Login ID in Azure AD Connect](../hybrid/connect/plan-connect-userprincipalname.md#alternate-login-id) | Synchronize an alternate attribute (such as Mail) as the Azure AD UPN. |
-| Email as an Alternate Login ID | Enable sign-in with verified domain *ProxyAddresses* for Azure AD users. |
+| [Alternate Login ID in Microsoft Entra Connect](../hybrid/connect/plan-connect-userprincipalname.md#alternate-login-id) | Synchronize an alternate attribute (such as Mail) as the Microsoft Entra UPN. |
+| Email as an Alternate Login ID | Enable sign-in with verified domain *ProxyAddresses* for Microsoft Entra users. |
 
-## Synchronize sign-in email addresses to Azure AD
+<a name='synchronize-sign-in-email-addresses-to-azure-ad'></a>
 
-Traditional Active Directory Domain Services (AD DS) or Active Directory Federation Services (AD FS) authentication happens directly on your network and is handled by your AD DS infrastructure. With hybrid authentication, users can instead sign in directly to Azure AD.
+## Synchronize sign-in email addresses to Microsoft Entra ID
 
-To support this hybrid authentication approach, you synchronize your on-premises AD DS environment to Azure AD using [Azure AD Connect][azure-ad-connect] and configure it to use PHS or PTA. For more information, see [Choose the right authentication method for your Azure AD hybrid identity solution][hybrid-auth-methods].
+Traditional Active Directory Domain Services (AD DS) or Active Directory Federation Services (AD FS) authentication happens directly on your network and is handled by your AD DS infrastructure. With hybrid authentication, users can instead sign in directly to Microsoft Entra ID.
 
-In both configuration options, the user submits their username and password to Azure AD, which validates the credentials and issues a ticket. When users sign in to Azure AD, it removes the need for your organization to host and manage an AD FS infrastructure.
+To support this hybrid authentication approach, you synchronize your on-premises AD DS environment to Microsoft Entra ID using [Microsoft Entra Connect][azure-ad-connect] and configure it to use PHS or PTA. For more information, see [Choose the right authentication method for your Microsoft Entra hybrid identity solution][hybrid-auth-methods].
 
-One of the user attributes that's automatically synchronized by Azure AD Connect is *ProxyAddresses*. If users have an email address defined in the on-premises AD DS environment as part of the *ProxyAddresses* attribute, it's automatically synchronized to Azure AD. This email address can then be used directly in the Azure AD sign-in process as an alternate login ID.
+In both configuration options, the user submits their username and password to Microsoft Entra ID, which validates the credentials and issues a ticket. When users sign in to Microsoft Entra ID, it removes the need for your organization to host and manage an AD FS infrastructure.
+
+One of the user attributes that's automatically synchronized by Microsoft Entra Connect is *ProxyAddresses*. If users have an email address defined in the on-premises AD DS environment as part of the *ProxyAddresses* attribute, it's automatically synchronized to Microsoft Entra ID. This email address can then be used directly in the Microsoft Entra sign-in process as an alternate login ID.
 
 > [!IMPORTANT]
-> Only emails in verified domains for the tenant are synchronized to Azure AD. Each Azure AD tenant has one or more verified domains, for which you have proven ownership, and are uniquely bound to your tenant.
+> Only emails in verified domains for the tenant are synchronized to Microsoft Entra ID. Each Microsoft Entra tenant has one or more verified domains, for which you have proven ownership, and are uniquely bound to your tenant.
 >
-> For more information, see [Add and verify a custom domain name in Azure AD][verify-domain].
+> For more information, see [Add and verify a custom domain name in Microsoft Entra ID][verify-domain].
 
 ## B2B guest user sign-in with an email address
 
 ![Diagram of email as an alternate login ID for B 2 B guest user sign-in.](media/howto-authentication-use-email-signin/email-alternate-login-id-b2b.png)
 
-Email as an alternate login ID applies to [Azure AD B2B collaboration](../external-identities/what-is-b2b.md) under a "bring your own sign-in identifiers" model. When email as an alternate login ID is enabled in the home tenant, Azure AD users can perform guest sign in with non-UPN email on the resource tenant endpoint. No action is required from the resource tenant to enable this functionality.
+Email as an alternate login ID applies to [Microsoft Entra B2B collaboration](../external-identities/what-is-b2b.md) under a "bring your own sign-in identifiers" model. When email as an alternate login ID is enabled in the home tenant, Microsoft Entra users can perform guest sign in with non-UPN email on the resource tenant endpoint. No action is required from the resource tenant to enable this functionality.
 
 > [!NOTE]
 > When an alternate login ID is used on a resource tenant endpoint that does not have the functionality enabled, the sign-in process will work seamlessly, but SSO will be interrupted.  
@@ -133,33 +137,32 @@ Email as an alternate login ID applies to [Azure AD B2B collaboration](../extern
 > [!NOTE]
 > This configuration option uses HRD policy. For more information, see [homeRealmDiscoveryPolicy resource type](/graph/api/resources/homeRealmDiscoveryPolicy).
 
-Once users with the *ProxyAddresses* attribute applied are synchronized to Azure AD using Azure AD Connect, you need to enable the feature for users to sign in with email as an alternate login ID for your tenant. This feature tells the Azure AD login servers to not only check the sign-in identifier against UPN values, but also against *ProxyAddresses* values for the email address.
+Once users with the *ProxyAddresses* attribute applied are synchronized to Microsoft Entra ID using Microsoft Entra Connect, you need to enable the feature for users to sign in with email as an alternate login ID for your tenant. This feature tells the Microsoft Entra login servers to not only check the sign-in identifier against UPN values, but also against *ProxyAddresses* values for the email address.
 
-During preview, you currently need *Global Administrator* permissions to enable sign-in with email as an alternate login ID. You can use either Azure portal or Graph PowerShell to set up the feature.
+During preview, you currently need *Global Administrator* permissions to enable sign-in with email as an alternate login ID. You can use either Microsoft Entra admin center or Graph PowerShell to set up the feature.
 
-### Azure portal
+### Microsoft Entra admin center
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a *Global Administrator*.
-1. Search for and select **Azure Active Directory**.
-1. From the navigation menu on the left-hand side of the Azure Active Directory window, select **Azure AD Connect > Email as alternate login ID**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
+1. From the navigation menu on the left-hand side of the Microsoft Entra window, select **Microsoft Entra Connect > Email as alternate login ID**.
 
-    ![Screenshot of email as alternate login ID option in the Azure portal.](media/howto-authentication-use-email-signin/azure-ad-connect-screen.png)
+    ![Screenshot of email as alternate login ID option in the Microsoft Entra admin center.](media/howto-authentication-use-email-signin/azure-ad-connect-screen.png)
 
 1. Click the checkbox next to *Email as an alternate login ID*.
 1. Click **Save**.
 
-    ![Screenshot of email as alternate login ID blade in the Azure portal.](media/howto-authentication-use-email-signin/email-alternate-login-id-screen.png)
+    ![Screenshot of email as alternate login ID blade in the Microsoft Entra admin center.](media/howto-authentication-use-email-signin/email-alternate-login-id-screen.png)
 
-With the policy applied, it can take up to 1 hour to propagate and for users to be able to sign in using their alternate login ID.
+With the policy applied, it can take up to one hour to propagate and for users to be able to sign in using their alternate login ID.
 
 ### PowerShell
 
 > [!NOTE]
 > This configuration option uses HRD policy. For more information, see [homeRealmDiscoveryPolicy resource type](/graph/api/resources/homeRealmDiscoveryPolicy?view=graph-rest-1.0&preserve-view=true).
 
-Once users with the *ProxyAddresses* attribute applied are synchronized to Azure AD using Azure AD Connect, you need to enable the feature for users to sign-in with email as an alternate login ID for your tenant. This feature tells the Azure AD login servers to not only check the sign-in identifier against UPN values, but also against *ProxyAddresses* values for the email address.
+Once users with the *ProxyAddresses* attribute applied are synchronized to Microsoft Entra ID using Microsoft Entra Connect, you need to enable the feature for users to sign-in with email as an alternate login ID for your tenant. This feature tells the Microsoft Entra login servers to not only check the sign-in identifier against UPN values, but also against *ProxyAddresses* values for the email address.
 
 You need *Global Administrator* privileges to complete the following steps:
 
@@ -171,7 +174,7 @@ You need *Global Administrator* privileges to complete the following steps:
 
     For more information on installation, see [Install the Microsoft Graph PowerShell SDK](/graph/powershell/installation).
 
-1. Sign-in to your Azure AD tenant using the `Connect-MgGraph` cmdlet:
+1. Sign-in to your Microsoft Entra tenant using the `Connect-MgGraph` cmdlet:
 
     ```powershell
     Connect-MgGraph -Scopes "Policy.ReadWrite.ApplicationConfiguration" -TenantId organizations
@@ -276,7 +279,7 @@ Remove-MgPolicyHomeRealmDiscoveryPolicy -HomeRealmDiscoveryPolicyId "HRD_POLICY_
 > [!NOTE]
 >This configuration option uses staged rollout policy. For more information, see [featureRolloutPolicy resource type](/graph/api/resources/featurerolloutpolicy).
 
-Staged rollout policy allows tenant administrators to enable features for specific Azure AD groups. It is recommended that tenant administrators use staged rollout to test user sign-in with an email address. When administrators are ready to deploy this feature to their entire tenant, they should use [HRD policy](#enable-user-sign-in-with-an-email-address).  
+Staged rollout policy allows tenant administrators to enable features for specific Microsoft Entra groups. It is recommended that tenant administrators use staged rollout to test user sign-in with an email address. When administrators are ready to deploy this feature to their entire tenant, they should use [HRD policy](#enable-user-sign-in-with-an-email-address).  
 
 
 You need *Global Administrator* permissions to complete the following steps:
@@ -289,7 +292,7 @@ You need *Global Administrator* permissions to complete the following steps:
 
     If prompted, select **Y** to install NuGet or to install from an untrusted repository.
 
-1. Sign in to your Azure AD tenant as a *Global Administrator* using the [Connect-AzureAD][Connect-AzureAD] cmdlet:
+1. Sign in to your Microsoft Entra tenant as a *Global Administrator* using the [Connect-AzureAD][Connect-AzureAD] cmdlet:
 
     ```powershell
     Connect-AzureAD
@@ -320,13 +323,13 @@ You need *Global Administrator* permissions to complete the following steps:
    Get-AzureADMSGroup -SearchString "Name of group to be added to the staged rollout policy"
    ```
 
-1. Add the group to the staged rollout policy as shown in the following example. Replace the value in the *-Id* parameter with the value returned for the policy ID in step 4 and replace the value in the *-RefObjectId* parameter with the *Id* noted in step 5. It may take up to 1 hour before users in the group can sign in to Azure AD with email as an alternate login ID.
+1. Add the group to the staged rollout policy as shown in the following example. Replace the value in the *-Id* parameter with the value returned for the policy ID in step 4 and replace the value in the *-RefObjectId* parameter with the *Id* noted in step 5. It may take up to 1 hour before users in the group can sign in to Microsoft Entra ID with email as an alternate login ID.
 
    ```powershell
    Add-AzureADMSFeatureRolloutPolicyDirectoryObject -Id "ROLLOUT_POLICY_ID" -RefObjectId "GROUP_OBJECT_ID"
    ```
    
-For new members added to the group, it may take up to 24 hours before they can sign in to Azure AD with email as an alternate login ID.
+For new members added to the group, it may take up to 24 hours before they can sign in to Microsoft Entra ID with email as an alternate login ID.
 
 ### Removing groups
 
@@ -354,23 +357,23 @@ To test that users can sign in with email, go to [https://myprofile.microsoft.co
 If users have trouble signing in with their email address, review the following troubleshooting steps:
 
 1. Make sure it's been at least 1 hour since email as an alternate login ID was enabled. If the user was recently added to a group for staged rollout policy, make sure it's been at least 24 hours since they were added to the group.
-1. If using HRD policy, confirm that the Azure AD *HomeRealmDiscoveryPolicy* has the *AlternateIdLogin* definition property set to *"Enabled": true* and the *IsOrganizationDefault* property set to *True*:
+1. If using HRD policy, confirm that the Microsoft Entra ID *HomeRealmDiscoveryPolicy* has the *AlternateIdLogin* definition property set to *"Enabled": true* and the *IsOrganizationDefault* property set to *True*:
 
     ```powershell
     Get-AzureADPolicy | Where-Object Type -eq "HomeRealmDiscoveryPolicy" | Format-List *
     ```
-    If using staged rollout policy, confirm that the Azure AD *FeatureRolloutPolicy* has the *IsEnabled* property set to *True*:
+    If using staged rollout policy, confirm that the Microsoft Entra ID *FeatureRolloutPolicy* has the *IsEnabled* property set to *True*:
 
     ```powershell
     Get-AzureADMSFeatureRolloutPolicy
     ```
-1. Make sure the user account has their email address set in the *ProxyAddresses* attribute in Azure AD.
+1. Make sure the user account has their email address set in the *ProxyAddresses* attribute in Microsoft Entra ID.
 
 ### Sign-in logs
 
-:::image type="content" border="true" source="./media/howto-authentication-use-email-signin/email-alternate-login-id-logs.png" alt-text="Screenshot of Azure A D sign-in logs showing email as alternate login ID activity.":::
+:::image type="content" border="true" source="./media/howto-authentication-use-email-signin/email-alternate-login-id-logs.png" alt-text="Screenshot of Microsoft Entra sign-in logs showing email as alternate login ID activity.":::
 
-You can review the [sign-in logs in Azure AD][sign-in-logs] for more information. Sign-ins with email as an alternate login ID will emit `proxyAddress` in the *Sign-in identifier type* field and the inputted username in the *Sign-in identifier* field. 
+You can review the [sign-in logs in Microsoft Entra ID][sign-in-logs] for more information. Sign-ins with email as an alternate login ID will emit `proxyAddress` in the *Sign-in identifier type* field and the inputted username in the *Sign-in identifier* field. 
 
 ### Conflicting values between cloud-only and synced users
 
@@ -384,7 +387,7 @@ Within a tenant, a cloud-only user's UPN may take on the same value as another u
 
     If prompted, select **Y** to install NuGet or to install from an untrusted repository.
 
-1. Sign in to your Azure AD tenant as a *Global Administrator* using the [Connect-AzureAD][Connect-AzureAD] cmdlet:
+1. Sign in to your Microsoft Entra tenant as a *Global Administrator* using the [Connect-AzureAD][Connect-AzureAD] cmdlet:
 
     ```powershell
     Connect-AzureAD
@@ -441,7 +444,7 @@ Within a tenant, a cloud-only user's UPN may take on the same value as another u
 
 ## Next steps
 
-To learn more about hybrid identity, such as Azure AD App Proxy or Azure AD Domain Services, see [Azure AD hybrid identity for access and management of on-prem workloads][hybrid-overview].
+To learn more about hybrid identity, such as Microsoft Entra application proxy or Microsoft Entra Domain Services, see [Microsoft Entra hybrid identity for access and management of on-prem workloads][hybrid-overview].
 
 For more information on hybrid identity operations, see [how password hash sync][phs-overview] or [pass-through authentication][pta-overview] synchronization work.
 

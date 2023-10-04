@@ -100,8 +100,7 @@ Before you can set up a Prompt flow project with Azure Machine Learning, you nee
 
 ### Setup GitHub repo
 
-1. Fork example repo, [LLMOps demo template repo](https://github.com/Azure/llmops-gha-demo/).
-1. [Fork the LLMPos demo repo](https://github.com/Azure/llmops-gha-demo/fork) into your GitHub org. This repo has reusable LLMOps code that can be used across multiple projects.
+1. Fork example repo. [LLMOps Demo Template Repo](https://github.com/Azure/llmops-gha-demo/fork) in your GitHub organization. This repo has reusable LLMOps code that can be used across multiple projects. 
 
 ### Add secret to GitHub repo
 
@@ -109,7 +108,7 @@ Before you can set up a Prompt flow project with Azure Machine Learning, you nee
 
     :::image type="content" source="./media/how-to-end-to-end-llmops-with-prompt-flow/github-settings.png" alt-text="Screenshot of the GitHub menu bar on a GitHub project with settings selected. " lightbox = "./media/how-to-end-to-end-llmops-with-prompt-flow/github-settings.png":::
 
-1. Then select **Secrets**, then **Actions**:
+1. Then select **Secrets and variables**, then **Actions**:
 
     :::image type="content" source="./media/how-to-end-to-end-llmops-with-prompt-flow/github-secrets.png" alt-text="Screenshot of on GitHub showing the security settings with security and actions highlighted." lightbox = "./media/how-to-end-to-end-llmops-with-prompt-flow/github-secrets.png":::
 
@@ -119,12 +118,15 @@ Before you can set up a Prompt flow project with Azure Machine Learning, you nee
 
 1. Add each of the following additional GitHub secrets using the corresponding values from the service principal output as the content of the secret:  
 
-    - **ARM_CLIENT_ID**  
-    - **ARM_CLIENT_SECRET**  
-    - **ARM_SUBSCRIPTION_ID**  
-    - **ARM_TENANT_ID**  
+    - **GROUP**: \<Resource Group Name\>
+    - **WORKSPACE**: \<Azure ML Workspace Name\>
+    - **SUBSCRIPTION**: \<Subscription ID\>
 
-    :::image type="content" source="./media/how-to-end-to-end-llmops-with-prompt-flow/github-secrets-string-2.png" alt-text="Screenshot of GitHub Action secrets when creating a new secret with name ARM_CLIENT_ID. " lightbox = "./media/how-to-end-to-end-llmops-with-prompt-flow/github-secrets-string-2.png":::
+    |Variable  | Description  |
+    |---------|---------|
+    |GROUP     |      Name of resource group    |
+    |SUBSCRIPTION     |    Subscription ID of your workspace    |
+    |WORKSPACE     |     Name of Azure Machine Learning workspace     |  
 
 > [!NOTE]
 > This finishes the prerequisite section and the deployment of the solution accelerator can happen accordingly.
@@ -135,14 +137,21 @@ Connection helps securely store and manage secret keys or other sensitive creden
 
 In this guide, we'll use flow `web-classification`, which uses connection `azure_open_ai_connection` inside, we need to set up the connection if we haven’t added it before.
 
-Go to workspace portal, select `Prompt flow` -> `Connections` -> `Create`, then follow the instruction to create your own connections. To learn more, see [connections](concept-connections.md).
+Go to workspace portal, select `Prompt flow` -> `Connections` -> `Create` -> `Azure OpenAI`, then follow the instruction to create your own connections. To learn more, see [connections](concept-connections.md).
+
+## Setup runtime for Prompt flow 
+Prompt flow's runtime provides the computing resources required for the application to run, including a Docker image that contains all necessary dependency packages.
+
+In this guide, we will use a runtime to run your prompt flow. You need to create your own [Prompt flow runtime](how-to-create-manage-runtime.md)
+
+Go to workspace portal, select **Prompt flow** -> **Runtime** -> **Add**, then follow the instruction to create your own connections
 
 ## Setup variables with for prompt flow and GitHub Actions
 
 Clone repo to your local machine.
 
 ```bash
-    git clone https://github.com/<user-name>/llmops-pipeline
+    git clone https://github.com/<user-name>/llmops-gha-demo
  ```
 
 ### Update workflow to connect to your Azure Machine Learning workspace
@@ -151,20 +160,14 @@ Clone repo to your local machine.
     You'll need to update the CLI setup file variables to match your workspace.
 
 1. In your cloned repository, go to `.github/workflow/`.
-1. Edit `env` section in the `run-eval-pf-pipeline.yml` and `deploy-pf-online-endpoint-pipeline.yml` and update these variables in the file.
-
-    |Variable  | Description  |
-    |---------|---------|
-    |GROUP     |      Name of resource group    |
-    |SUBSCRIPTION     |    Subscription of your workspace    |
-    |WORKSPACE     |     Name of Azure Machine Learning workspace     |
+1. Verify `env` section in the `run-eval-pf-pipeline.yml` and `deploy-pf-online-endpoint-pipeline.yml` refers to the workspace secrets you added in the previous step.
 
 ### Update run.yml with your connections and runtime
 
 You'll use a `run.yml` file to deploy your Azure Machine Learning pipeline. This is a flow run definition. You only need to make this update if you're using a name other than `pf-runtime` for your [prompt flow runtime](how-to-create-manage-runtime.md). You'll also need to update all the `connections` to match the connections in your Azure Machine Learning workspace and `deployment_name` to match the name of your GPT 3.5 Turbo deployment associate with that connection.
 
-1. In your cloned repository, go to `web-classification/run.yml`.
-1. Each time you see `runtime: abe`, update the value of `pf-runtime` with your runtime name.
+1. In your cloned repository, open `web-classification/run.yml` and `web-classification/run_evaluation.yml` 
+1. Each time you see `runtime: <runtime-name>`, update the value of `<runtime-name>` with your runtime name.
 1. Each time you see `connection: Default_AzureOpenAI`, update the value of `Default_AzureOpenAI`  to match the connection name in your Azure Machine Learning workspace.
 1. Each time you see `deployment_name: gpt-35-turbo-0301`, update the value of `gpt-35-turbo-0301` with the name of your GPT 3.5 Turbo deployment associate with that connection.
 
@@ -230,7 +233,7 @@ With the Prompt flow model registered in the Azure Machine Learning workspace, y
 
 ## Deploy prompt flow in Azure Machine Learning with GitHub Actions
 
-This scenario includes prebuilt workflows for two approaches to deploying a trained model, batch scoring or a deploying a model to an endpoint for real-time scoring. You may run either or both of these workflows to test the performance of the model in your Azure Machine Learning workspace.
+This scenario includes prebuilt workflows for deploying a model to an endpoint for real-time scoring. You may run the workflow to test the performance of the model in your Azure Machine Learning workspace.
 
 ### Online endpoint  
 
@@ -247,6 +250,9 @@ This scenario includes prebuilt workflows for two approaches to deploying a trai
 1. To test this deployment, go to the **Endpoints** tab in your Azure Machine Learning workspace, select the endpoint and select the **Test** tab. You can use the sample input data located in the cloned repo at `/deployment/sample-request.json` to test the endpoint.
 
     :::image type="content" source="./media/how-to-end-to-end-llmops-with-prompt-flow/online-endpoint-test.png" alt-text="Screenshot of Azure Machine Learning studio on the endpoints page showing how to test the endpoint." lightbox = "./media/how-to-end-to-end-llmops-with-prompt-flow/online-endpoint-test.png":::
+
+> [!NOTE] 
+> Make sure you have already [granted permissions to the endpoint](how-to-deploy-for-real-time-inference.md#grant-permissions-to-the-endpoint) before you test or consume the endpoint.
 
 ## Moving to production
 

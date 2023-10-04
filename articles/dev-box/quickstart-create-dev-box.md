@@ -7,7 +7,7 @@ ms.service: dev-box
 ms.topic: quickstart
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 04/25/2023
+ms.date: 09/12/2023
 #Customer intent: As a dev box user, I want to understand how to create and access a dev box so that I can start work.
 ---
 
@@ -62,7 +62,7 @@ After you create a dev box, one way to access it quickly is through a browser:
 
 1. Select **Open in browser**.
 
-   :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-card-rdp.png" alt-text="Screenshot of dev box card that shows the option for opening in a browser.":::
+   :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-open-in-browser.png" alt-text="Screenshot of dev box card that shows the option for opening in a browser.":::
 
 A new tab opens with a Remote Desktop session through which you can use your dev box.
 
@@ -70,15 +70,7 @@ A new tab opens with a Remote Desktop session through which you can use your dev
 
 When you no longer need your dev box, you can delete it:
 
-1. Sign in to the [developer portal](https://aka.ms/devbox-portal).
-
-1. For the dev box you that you want to delete, from the **Actions** menu, select **Delete**.
-
-   :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-delete-dev-box.png" alt-text="Screenshot of the menu command for deleting a dev box.":::
-
-1. To confirm the deletion, select **Delete**.
-
-   :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-delete-dev-box-confirm.png" alt-text="Screenshot of the Delete button in the confirmation message about deleting a dev box."::: 
+[!INCLUDE [dev box runs on creation note](./includes/clean-up-resources.md)] 
 
 ## Next steps
 

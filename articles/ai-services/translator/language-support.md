@@ -5,8 +5,7 @@ description: Azure AI Translator supports the following languages for text to te
 services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.topic: reference
 ms.date: 07/18/2023
 ms.author: lajanuar
@@ -82,13 +81,13 @@ ms.author: lajanuar
 | Irish | `ga` |✔|✔|✔|✔||
 | Italian | `it` |✔|✔|✔|✔|✔|
 | Japanese | `ja` |✔|✔|✔|✔|✔|
-| Konkani|`gom`|✔|✔||||
 | Kannada  | `kn` |✔|✔|✔|||
 | Kazakh | `kk` |✔|✔||||
 | Khmer  | `km` |✔|✔||✔||
 | Kinyarwanda|`rw`|✔|✔||||
 | Klingon | `tlh-Latn` |✔| ||✔|✔|
 | Klingon (plqaD) | `tlh-Piqd` |✔| ||✔||
+| Konkani|`gom`|✔|✔||||
 | Korean | `ko` |✔|✔|✔|✔|✔|
 | Kurdish (Central)  | `ku` |✔|✔||✔||
 | Kurdish (Northern)  | `kmr` |✔|✔||||

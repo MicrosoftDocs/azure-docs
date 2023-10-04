@@ -6,10 +6,11 @@ author: duongau
 
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 10/09/2020
+ms.date: 09/15/2023
 ms.author: duau
 ms.custom: seodec18, devx-track-azurecli
 ---
+
 # Tutorial: Create and modify peering for an ExpressRoute circuit using CLI
 
 This tutorial shows you how to create and manage routing configuration/peering for an ExpressRoute circuit in the Resource Manager deployment model using CLI. You can also check the status, update, or delete and deprovision peerings for an ExpressRoute circuit. If you want to use a different method to work with your circuit, select an article from the following list:
@@ -23,6 +24,8 @@ This tutorial shows you how to create and manage routing configuration/peering f
 > * [Video - Microsoft peering](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
 > * [PowerShell (classic)](expressroute-howto-routing-classic.md)
 > 
+
+:::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/expressroute-network.png" alt-text="Diagram showing an on-premises network connected to the Microsoft cloud through an ExpressRoute circuit.":::
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]

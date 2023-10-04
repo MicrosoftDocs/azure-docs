@@ -316,9 +316,26 @@ All prices shown below are in USD.
 |Number type  |To make calls*             |To receive calls|
 |-------------|---------------------------|----------------|
 |Geographic   |Starting at USD 0.0240/min |USD 0.0100/min  |
-|Toll-free    |Starting at USD 0.0240/min |USD 0.1750/min  |
+|Toll-free    |Starting at USD 0.0240/min |USD 0.0500/min  |
 
 \* For destination-specific pricing for making outbound calls, refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
+
+## Japan telephony offers
+
+### Phone number leasing charges
+|Number type   |Monthly fee   |
+|--------------|--------------|
+|National      |USD 4.50/mo  |
+|Toll-Free     |USD 25.00/mo  |
+
+### Usage charges
+|Number type  |To make calls*             |To receive calls|
+|-------------|---------------------------|----------------|
+|Geographic   |Starting at USD 0.061/min |USD 0.0100/min  |
+|Toll-free    |Starting at USD 0.061/min |USD 0.2780/min  |
+
+\* For destination-specific pricing for making outbound calls, refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
+
 
 ## China telephony offers
 

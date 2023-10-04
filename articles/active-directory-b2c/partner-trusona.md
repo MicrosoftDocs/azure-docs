@@ -16,7 +16,7 @@ zone_pivot_groups: b2c-policy-type
 
 # Configure Trusona Authentication Cloud with Azure Active Directory B2C
 
-In this sample tutorial, you'll learn how to integrate Azure Active Directory (Azure AD B2C) authentication with [Trusona Authentication Cloud](https://www.trusona.com/customers/authentication-cloud). It's a cloud-based service enabling users to authenticate with a **tap-and-go** experience, without the need for any kind of mobile authenticator app.
+In this sample tutorial, you'll learn how to integrate Azure AD B2C authentication with [Trusona Authentication Cloud](https://www.trusona.com/customers/authentication-cloud). It's a cloud-based service enabling users to authenticate with a **tap-and-go** experience, without the need for any kind of mobile authenticator app.
 
 Benefits of integrating Trusona Authentication Cloud with Azure AD B2C include:
 -	Deliver strong authentication with a better user experience
@@ -39,7 +39,7 @@ Benefits of integrating Trusona Authentication Cloud with Azure AD B2C include:
 To get started, you need:
 
 - A Trusona Authentication Cloud trial account. To request an account, [contact Trusona](mailto:info@trusona.com).
-- An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+- An Azure subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 - [An Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
 
 ::: zone pivot="b2c-custom-policy"
@@ -81,7 +81,7 @@ In this scenario, Trusona acts as an Identity Provider (IdP) for Azure AD B2C to
 
     > [!NOTE]
     >1. The Trusona portal supports self-service registration. Upon registering you will be assigned to a Trusona account with read-only rights.  Afterwards, Trusona will assign you to the correct account and elevate your rights to read-write based upon your organization’s access control policy for portal users.
-    >2. Azure Active Directory’s initial domain name is used as the client redirect host.
+    >2. Microsoft Entra ID’s initial domain name is used as the client redirect host.
 
     [![Screenshot shows Trusona Authentication Cloud portal settings.](./media/partner-trusona/trusona-auth-cloud-oidc-settings.png)](./media/partner-trusona/trusona-auth-cloud-oidc-settings.png#lightbox)
 

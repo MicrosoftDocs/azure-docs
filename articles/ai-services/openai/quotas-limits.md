@@ -5,8 +5,7 @@ description: Quick reference, detailed description, and best practices on the qu
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: conceptual
 ms.date: 06/08/2023
 ms.author: mbullwin
@@ -34,6 +33,8 @@ The following sections provide you with a quick guide to the default quotas and 
 | Max training job time (job will fail if exceeded) | 720 hours |
 | Max training job size (tokens in training file) x (# of epochs) | 2 Billion |
 | Max size of all files per upload (Azure OpenAI on your data) | 16 MB |
+
+## Regional quota limits
 
 The default quota for models varies by model and region. Default quota limits are subject to change.
 
@@ -73,7 +74,7 @@ The default quota for models varies by model and region. Default quota limits ar
   <tr>  
     <td rowspan="2">gpt-4-32k</td>  
     <td>East US, South Central US, West Europe, France Central</td>  
-    <td>40 K</td>  
+    <td>60 K</td>  
   </tr>  
   <tr>  
     <td>North Central US, Australia East, East US 2, Canada East, Japan East, UK South,  Sweden Central, Switzerland North</td>  
