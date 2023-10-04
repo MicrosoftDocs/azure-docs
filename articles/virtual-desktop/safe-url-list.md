@@ -29,7 +29,7 @@ The following table is the list of URLs your session host VMs need to access for
 |---|---|---|---|
 | `login.microsoftonline.com` | 443 | Authentication to Microsoft Online Services |
 | `*.wvd.microsoft.com` | 443 | Service traffic | WindowsVirtualDesktop |
-| `*.prod.warm.ingest.monitor.core.windows.net` | 443 | Agent traffic<br /><br />[Diagnostic output](diagnostics-log-analytics.md) | AzureMonitor |
+| `*.prod.warm.ingest.monitor.core.windows.net` | 443 | Agent traffic<br />[Diagnostic output](diagnostics-log-analytics.md) | AzureMonitor |
 | `catalogartifact.azureedge.net` | 443 | Azure Marketplace | AzureFrontDoor.Frontend |
 | `gcs.prod.monitoring.core.windows.net` | 443 | Agent traffic | AzureCloud |
 | `kms.core.windows.net` | 1688 | Windows activation | Internet |
@@ -71,7 +71,7 @@ The following table lists optional URLs that your session host virtual machines 
 |--|--|--|--|
 | `login.microsoftonline.us` | 443 | Authentication to Microsoft Online Services |
 | `*.wvd.azure.us` | 443 | Service traffic | WindowsVirtualDesktop |
-| `*.prod.warm.ingest.monitor.core.usgovcloudapi.net` | 443 | Agent traffic<br /><br />[Diagnostic output](diagnostics-log-analytics.md) | AzureMonitor |
+| `*.prod.warm.ingest.monitor.core.usgovcloudapi.net` | 443 | Agent traffic<br />[Diagnostic output](diagnostics-log-analytics.md) | AzureMonitor |
 | `gcs.monitoring.core.usgovcloudapi.net` | 443 | Agent traffic | AzureCloud |
 | `kms.core.usgovcloudapi.net` | 1688 | Windows activation | Internet |
 | `mrsglobalstugviffx.blob.core.usgovcloudapi.net` | 443 | Agent and side-by-side (SXS) stack updates | AzureCloud |

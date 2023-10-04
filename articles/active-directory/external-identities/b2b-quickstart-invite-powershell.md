@@ -5,11 +5,11 @@ services: active-directory
 ms.author: cmulligan
 author: csmulligan
 manager: CelesteDG
-ms.date: 09/22/2023
+ms.date: 09/29/2023
 ms.topic: quickstart
 ms.service: active-directory
 ms.subservice: B2B
-ms.custom: it-pro, seo-update-azuread-jan, mode-api
+ms.custom: it-pro, seo-update-azuread-jan, mode-api, has-azure-ad-ps-ref, azure-ad-ref-level-one-done
 ms.collection: engagement-fy23, M365-identity-device-management
 
 #Customer intent: As a tenant admin, I want to walk through the B2B invitation workflow so that I can understand how to add a user via  PowerShell.
