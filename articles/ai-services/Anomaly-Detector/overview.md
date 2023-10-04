@@ -15,7 +15,7 @@ ms.custom:
 
 # What is Anomaly Detector?
 
-[!INCLUDE [Deprecation announcement](/includes/deprecation.md)]
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 [!INCLUDE [Azure AI services rebrand](../includes/rebrand-note.md)]
 

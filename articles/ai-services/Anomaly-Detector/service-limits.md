@@ -14,7 +14,7 @@ ms.custom:
 
 # Anomaly Detector service quotas and limits
 
-[!INCLUDE [Deprecation announcement](/includes/deprecation.md)]
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 This article contains both a quick reference and detailed description of Azure AI Anomaly Detector service quotas and limits for all pricing tiers. It also contains some best practices to help avoid request throttling.
 

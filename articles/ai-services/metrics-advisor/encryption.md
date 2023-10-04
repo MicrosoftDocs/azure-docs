@@ -14,7 +14,7 @@ ms.author: mbullwin
 
 # Metrics Advisor service encryption of data at rest
 
-[!INCLUDE [Deprecation announcement](/includes/deprecation.md)]
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 Metrics Advisor service automatically encrypts your data when it is persisted to the cloud. The Metrics Advisor service encryption protects your data and helps you to meet your organizational security and compliance commitments.
 

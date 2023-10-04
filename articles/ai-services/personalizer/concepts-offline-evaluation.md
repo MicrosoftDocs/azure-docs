@@ -12,7 +12,7 @@ ms.date: 02/20/2020
 
 # Offline evaluation
 
-[!INCLUDE [Deprecation announcement](/includes/deprecation.md)]
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 Offline evaluation is a method that allows you to test and assess the effectiveness of the Personalizer Service without changing your code or affecting user experience. Offline evaluation uses past data, sent from your application to the Rank and Reward APIs, to compare how different ranks have performed.
 

@@ -13,7 +13,7 @@ ms.topic: conceptual
 
 # Guidance for integration and responsible use of Personalizer
 
-[!INCLUDE [Deprecation announcement](/includes/deprecation.md)]
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 Microsoft works to help customers responsibly develop and deploy solutions by using Azure AI Personalizer. Our principled approach upholds personal agency and dignity by considering the AI system's:  
 

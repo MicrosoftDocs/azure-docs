@@ -10,7 +10,7 @@ ms.date: 09/16/2022
 ---
 # Personalizer terminology
 
-[!INCLUDE [Deprecation announcement](/includes/deprecation.md)]
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 Personalizer uses terminology from reinforcement learning. These terms are used in the Azure portal and the APIs.
 

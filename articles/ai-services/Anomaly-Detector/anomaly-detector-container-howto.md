@@ -15,7 +15,7 @@ keywords: on-premises, Docker, container, streaming, algorithms
 
 # Install and run Docker containers for the Anomaly Detector API 
 
-[!INCLUDE [Deprecation announcement](/includes/deprecation.md)]
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 [!INCLUDE [container image location note](../containers/includes/image-location-note.md)]
 

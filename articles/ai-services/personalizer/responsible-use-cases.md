@@ -12,7 +12,7 @@ ms.topic: conceptual
 
 # Use cases for Personalizer
 
-[!INCLUDE [Deprecation announcement](/includes/deprecation.md)]
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 ## What is a Transparency Note?
 

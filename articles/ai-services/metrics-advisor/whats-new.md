@@ -12,7 +12,7 @@ ms.author: mbullwin
 
 # Metrics Advisor: what's new in the docs
 
-[!INCLUDE [Deprecation announcement](/includes/deprecation.md)]
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 Welcome! This page covers what's new in the Metrics Advisor docs. Check back every month for information on service changes, doc additions and updates this month.
 

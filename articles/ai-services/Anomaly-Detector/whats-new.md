@@ -11,7 +11,7 @@ ms.date: 12/15/2022
 
 # What's new in Anomaly Detector
 
-[!INCLUDE [Deprecation announcement](/includes/deprecation.md)]
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 Learn what's new in the service. These items include release notes, videos, blog posts, papers, and other types of information. Bookmark this page to keep up to date with the service.
 

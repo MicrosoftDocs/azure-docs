@@ -13,7 +13,7 @@ keywords: personalizer, Azure AI Personalizer, machine learning
 
 # What is Personalizer?
 
-[!INCLUDE [Deprecation announcement](/includes/deprecation.md)]
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 [!INCLUDE [Azure AI services rebrand](../includes/rebrand-note.md)]
 

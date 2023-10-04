@@ -12,7 +12,7 @@ ms.author: mbullwin
 
 # What is Azure AI Metrics Advisor? 
 
-[!INCLUDE [Deprecation announcement](/includes/deprecation.md)]
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 [!INCLUDE [Azure AI services rebrand](../includes/rebrand-note.md)]
 

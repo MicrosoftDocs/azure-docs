@@ -14,7 +14,7 @@ ms.custom:
 
 # Tutorial: Use Personalizer in Azure Notebook
 
-[!INCLUDE [Deprecation announcement](/includes/deprecation.md)]
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 This tutorial runs a Personalizer loop in an Azure Notebook, demonstrating the end to end life cycle of a Personalizer loop.
 

@@ -12,7 +12,7 @@ ms.date: 02/20/2020
 
 # Analyze your learning loop with an offline evaluation
 
-[!INCLUDE [Deprecation announcement](/includes/deprecation.md)]
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 Learn how to create an offline evaluation and interpret the results.
 

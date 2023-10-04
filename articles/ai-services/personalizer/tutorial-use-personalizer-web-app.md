@@ -12,7 +12,7 @@ ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 # Tutorial: Add Personalizer to a .NET web app
 
-[!INCLUDE [Deprecation announcement](/includes/deprecation.md)]
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 Customize a C# .NET web app with a Personalizer loop to provide the correct content to a user based on actions (with features) and context features.
 

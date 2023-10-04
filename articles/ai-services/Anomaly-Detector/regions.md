@@ -14,7 +14,7 @@ ms.custom: references_regions
 
 # Anomaly Detector service supported regions
 
-[!INCLUDE [Deprecation announcement](/includes/deprecation.md)]
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 The Anomaly Detector service provides anomaly detection technology on your time series data. The service is available in multiple regions with unique endpoints for the Anomaly Detector SDK and REST APIs.
 

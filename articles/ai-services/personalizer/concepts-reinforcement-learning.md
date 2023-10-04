@@ -11,7 +11,7 @@ ms.date: 05/07/2019
 ---
 # What is Reinforcement Learning?
 
-[!INCLUDE [Deprecation announcement](/includes/deprecation.md)]
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 Reinforcement Learning is an approach to machine learning that learns behaviors by getting feedback from its use.
  

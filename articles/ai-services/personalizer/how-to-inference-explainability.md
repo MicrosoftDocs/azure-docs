@@ -12,7 +12,7 @@ ms.date: 09/20/2022
 
 # Inference Explainability
 
-[!INCLUDE [Deprecation announcement](/includes/deprecation.md)]
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 Personalizer can help you to understand which features of a chosen action are the most and least influential to then model during inference. When enabled, inference explainability includes feature scores from the underlying model into the Rank API response, so your application receives this information at the time of inference.
 
