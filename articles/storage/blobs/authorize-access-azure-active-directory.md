@@ -59,8 +59,6 @@ While Microsoft recommends using the Azure Identity client library when possible
 
 When you use MSAL to acquire an OAuth token for access to Azure Storage, you need to provide an Azure AD resource ID. The Azure AD resource ID indicates the audience for which a token that is issued can be used to provide access to an Azure resource. In the case of Azure Storage, the resource ID may be specific to a single storage account, or it may apply to any storage account.
 
-##### Resource ID value for a specific storage account
-
 When you provide a resource ID that is specific to a single storage account and service, the resource ID is used to acquire a token for authorizing requests to the specified account and service only. The following table lists the value to use for the resource ID, based on the cloud you're working with. Replace `<account-name>` with the name of your storage account.
 
 | Cloud | Resource ID |
@@ -69,8 +67,6 @@ When you provide a resource ID that is specific to a single storage account and 
 | Azure Government | `https://<account-name>.blob.core.usgovcloudapi.net` |
 | Azure Germany | `https://<account-name>.blob.core.cloudapi.de` |
 | Azure China | `https://<account-name>.blob.core.chinacloudapi.cn` |
-
-##### Resource ID value for any storage account
 
 You can also provide a resource ID that applies to any storage account, as described in the table below. This resource ID is the same for all public and sovereign clouds.
 
