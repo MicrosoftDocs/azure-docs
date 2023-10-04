@@ -29,7 +29,21 @@ items:
     - name: Publish/Subscribe with MQTT
       items:
       - name: Overview
-        href: route-messages/overview-route-messages.md
+        href: pub-sub-mqtt/overview-iot-mq.md
+      - name: Secure communications with TLS
+        href: pub-sub-mqtt/howto-configure-listeners.md
+      - name: Configure TLS auto certificates
+        href: pub-sub-mqtt/howto-configure-tls-auto-cert.md
+      - name: Configure TLS manual certicates
+        href: pub-sub-mqtt/howto-configure-tls-manual-cert.md
+      - name: Configure authentication
+        href: pub-sub-mqtt/howto-configure-authentication.md
+      - name: Configure authorization
+        href: pub-sub-mqtt/howto-configure-authorization.md
+      - name: Configure availability and scale
+        href: pub-sub-mqtt/howto-configure-availability-scale.md
+      - name: Configure disk buffer
+        href: pub-sub-mqtt/howto-configure-disk-buffer.md
     - name: Process messages
       items:
       - name: Overview
@@ -58,6 +72,12 @@ items:
       items:
       - name: Overview
         href: connect-to-cloud/overview-connect-to-cloud.md
+      - name: Configure MQTT bridge
+        href: connect-to-cloud/howto-configure-mqtt-bridge.md
+      - name: Connect to Event Grid
+        href: connect-to-cloud/howto-use-mqtt-bridge-event-grid.md
+      - name: Connect to Messaging services
+        href: connect-to-cloud/howto-use-mqtt-bridge-messaging-service.md
     - name: Visualize and analyze telemetry
       items:
       - name: Overview
@@ -66,10 +86,22 @@ items:
       items:
       - name: Overview
         href: monitor/overview-monitor-health.md
+      - name: Monitor Azure MQ
+        href: monitor/howto-monitor-mq.md
     - name: Developer guide
       items:
       - name: Overview
         href: develop/overview-develop-customizations.md
+      - name: About the MQ state store
+        href: develop/concept-about-state-store.md
+      - name: About distributed apps
+        href: develop/concept-about-distributed-apps.md
+      - name: Develop Dapr apps
+        href: develop/howto-develop-dapr-apps.md
+      - name: Develop MQTTnet apps
+        href: develop/howto-develop-mqttnet-apps.md
+      - name: Develop Node-RED apps
+        href: develop/howto-develop-node-red-apps.md
     - name: Administrator guide
       items:
       - name: Overview
