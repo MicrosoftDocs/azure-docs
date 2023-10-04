@@ -2,13 +2,13 @@
 title: Microsoft Azure Data Box system requirements| Microsoft Docs
 description: Learn about important system requirements for your Azure Data Box and for clients that connect to the Data Box. 
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
 ms.date: 10/21/2022
-ms.author: alkohli
+ms.author: shaas
 ---
 
 # Azure Data Box system requirements 

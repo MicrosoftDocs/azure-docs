@@ -4,7 +4,7 @@ description: Article describes how to upgrade a directly connected Azure Arc dat
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.custom: devx-track-azurecli
+ms.custom:
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
@@ -73,41 +73,6 @@ You'll need to connect and authenticate to a Kubernetes cluster and have an exis
 
 ```kubectl
 kubectl config use-context <Kubernetes cluster name>
-```
-
-### Upgrade Arc data controller extension
-
-Upgrade the Arc data controller extension first. 
-
-Retrieve the name of your extension and its version:
-
-1. Go to the Azure portal
-1. Select **Overview** for your Azure Arc enabled Kubernetes cluster
-1. Selecting the **Extensions** tab on the left. 
-
-Alternatively, you can use `az` CLI to get the name of your extension and its version running.
-
-```azurecli
-az k8s-extension list --resource-group <resource-group> --cluster-name <connected cluster name> --cluster-type connectedClusters
-```
-
-Example:
-
-```azurecli
-az k8s-extension list --resource-group rg-arcds --cluster-name aks-arc --cluster-type connectedClusters
-```
-
-After you retrieve the extension name and its version, upgrade the extension. 
-
-```azurecli
-az k8s-extension update --resource-group <resource-group> --cluster-name <connected cluster name> --cluster-type connectedClusters --name <name of extension> --version <extension version> --release-train stable --config systemDefaultValues.image="<registry>/<repository>/arc-bootstrapper:<imageTag>"
-```
-
-Example:
-
-```azurecli
-az k8s-extension update --resource-group rg-arcds --cluster-name aks-arc --cluster-type connectedClusters --name aks-arc-ext --version 
-1.2.19581002 --release-train stable --config systemDefaultValues.image="mcr.microsoft.com/arcdata/arc-bootstrapper:v1.7.0_2022-05-24"
 ```
 
 ### Upgrade data controller

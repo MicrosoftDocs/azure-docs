@@ -4,8 +4,8 @@ titleSuffix: Azure App Configuration
 description: Learn how to enable staged rollout of features for targeted audiences
 ms.service: azure-app-configuration
 ms.devlang: csharp
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.topic: conceptual
 ms.date: 11/20/2020
 ---

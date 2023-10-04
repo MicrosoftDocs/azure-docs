@@ -6,10 +6,12 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.custom: ignite-2022
 ms.topic: reference
-ms.date: 06/03/2022
+ms.date: 9/27/2023
 ms.author: kesheth
 ---
 # Overview of search in Azure API for FHIR
+
+[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
 The Fast Healthcare Interoperability Resources (FHIR&#174;) specification defines the fundamentals of search for FHIR resources. This article will guide you through some key aspects to searching resources in FHIR. For complete details about searching FHIR resources, refer to [Search](https://www.hl7.org/fhir/search.html) in the HL7 FHIR Specification. Throughout this article, we'll give examples of search syntax. Each search will be against your FHIR server, which typically has a URL of `https://<FHIRSERVERNAME>.azurewebsites.net`. In the examples, we'll use the placeholder {{FHIR_URL}} for this URL. 
 

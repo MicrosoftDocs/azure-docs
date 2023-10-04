@@ -33,8 +33,7 @@ Use the following steps to initialize the application from the Azure Developer C
 
    The following list describes the command interactions:
 
-   - **OAuth2 login**: You need to authorize the login to Azure based on the OAuth2 protocol.
-   - **Please enter a new environment name**: Provide an environment name, which is used as a suffix for the resource group created to hold all Azure resources. This name should be unique within your Azure subscription.
+   - **Enter a new environment name**: Provide an environment name, which is used as a suffix for the resource group created to hold all Azure resources. This name should be unique within your Azure subscription.
 
    The console outputs messages similar to the following example:
 
@@ -71,6 +70,12 @@ Open your web browser and go to the [Azure portal](https://portal.azure.com/). E
 
    ```bash
    azd auth login
+   ```
+
+   The console outputs messages similar to the following example:
+
+   ```text
+   Logged in to Azure.
    ```
 
 1. Use the following command to provision the template's infrastructure to Azure:
@@ -150,6 +155,12 @@ Use the following steps to package the app, provision the Azure resources requir
    azd package
    ```
 
+   The console outputs messages similar to the following example:
+
+   ```output
+   SUCCESS: Your application was packaged for Azure in xx seconds.
+   ```
+
 1. Use the following command to deploy the application code to those newly provisioned resources:
 
    ```bash
@@ -161,13 +172,9 @@ Use the following steps to package the app, provision the Azure resources requir
    ```output
    Deploying services (azd deploy)
 
-   WARNING: Feature 'springapp' is in alpha stage.
-   To learn more about alpha features and their support, visit https://aka.ms/azd-feature-stages.
+   (✓) Done: Deploying service demo
+   - Endpoint: https://demo.xxx.<your-azure-location>.azurecontainerapps.io
 
-   ...
-
-   Deploying service demo (Fetching endpoints for spring app service)
-   - Endpoint: https://<your-Azure-Spring-Apps-instance-name>-demo.azuremicroservices.io/
 
    SUCCESS: Your application was deployed to Azure in xx minutes xx seconds.
    You can view the resources created under the resource group rg-<your-environment-name> in Azure Portal:

@@ -166,7 +166,7 @@ The following guidance is provided to illustrate the usage of the snapshot tools
 
 - [What are the prerequisites for the storage snapshot](azacsnap-installation.md#prerequisites-for-installation)
   - [Enable communication with storage](azacsnap-installation.md#enable-communication-with-storage)
-  - [Enable communication with database](azacsnap-installation.md#enable-communication-with-database)
+  - [Enable communication with database](azacsnap-installation.md#enable-communication-with-the-database)
 - [How to take snapshots manually](azacsnap-tips.md#take-snapshots-manually)
 - [How to set up automatic snapshot backup](azacsnap-tips.md#setup-automatic-snapshot-backup)
 - [How to monitor the snapshots](azacsnap-tips.md#monitor-the-snapshots)

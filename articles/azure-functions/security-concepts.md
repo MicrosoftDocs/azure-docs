@@ -217,7 +217,7 @@ At this time, Key Vault isn't supported for deployment credentials. To learn mor
 
 By default, each function app has an FTP endpoint enabled. The FTP endpoint is accessed using deployment credentials. 
 
-FTP isn't recommended for deploying your function code. FTP deployments are manual, and they require you to synchronize triggers. To learn more, see [FTP deployment](functions-deployment-technologies.md#ftp). 
+FTP isn't recommended for deploying your function code. FTP deployments are manual, and they require you to synchronize triggers. To learn more, see [FTP deployment](functions-deployment-technologies.md#ftps). 
 
 When you're not planning on using FTP, you should disable it in the portal. If you do choose to use FTP, you should [enforce FTPS](../app-service/deploy-ftp.md#enforce-ftps).
 

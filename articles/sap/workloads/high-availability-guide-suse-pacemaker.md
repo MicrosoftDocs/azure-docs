@@ -10,7 +10,7 @@ ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure-services
 ms.custom: devx-track-azurepowershell
-ms.date: 06/23/2023
+ms.date: 10/03/2023
 ms.author: radeltch
 ---
 
@@ -50,7 +50,7 @@ You can configure the SBD device by using either of two options:
 
 - SBD with an Azure shared disk:
   
-  To configure an SBD device, you need to attach at least one [Azure shared disk](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/virtual-machines/disks-shared.md) to all virtual machines that are part of Pacemaker cluster. The advantage of SBD device using an Azure shared disk is that you don’t need to deploy additional virtual machines.
+  To configure an SBD device, you need to attach at least one [Azure shared disk](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/virtual-machines/disks-shared.md) to all virtual machines that are part of Pacemaker cluster. The advantage of SBD device using an Azure shared disk is that you don't need to deploy additional virtual machines.
   
   ![Diagram of the Azure shared disk SBD device for SLES Pacemaker cluster.](./media/high-availability-guide-suse-pacemaker/azure-shared-disk-sbd-device.png)
   
@@ -63,7 +63,7 @@ You can configure the SBD device by using either of two options:
   - An SBD device using LRS for Azure premium shared disk (skuName - Premium_LRS) is only supported with deployment in availability set.
   - An SBD device using ZRS for an Azure premium shared disk (skuName - Premium_ZRS) is recommended with deployment in availability zones.
   - A ZRS for managed disk is currently unavailable in all regions with availability zones. For more information, review the ZRS "Limitations" section in [Redundancy options for managed disks](../../virtual-machines/disks-redundancy.md#limitations).
-  - The Azure shared disk that you use for SBD devices doesn’t need to be large. The [maxShares](../../virtual-machines/disks-shared-enable.md#disk-sizes) value determines how many cluster nodes can use the shared disk. For example, you can use P1 or P2 disk sizes for your SBD device on two-node cluster such as SAP ASCS/ERS or SAP HANA scale-up.
+  - The Azure shared disk that you use for SBD devices doesn't need to be large. The [maxShares](../../virtual-machines/disks-shared-enable.md#disk-sizes) value determines how many cluster nodes can use the shared disk. For example, you can use P1 or P2 disk sizes for your SBD device on two-node cluster such as SAP ASCS/ERS or SAP HANA scale-up.
   - For [HANA scale-out with HANA system replication (HSR) and Pacemaker](sap-hana-high-availability-scale-out-hsr-suse.md), you can use an Azure shared disk for SBD devices in clusters with up to four nodes per replication site because of the current limit of [maxShares](../../virtual-machines/disks-shared-enable.md#disk-sizes).
   - We do *not* recommend attaching an Azure shared disk SBD device across Pacemaker clusters.
   - If you use multiple Azure shared disk SBD devices, check on the limit for a maximum number of data disks that can be attached to a VM.
@@ -238,6 +238,12 @@ Run the following commands on the nodes of the new cluster that you want to crea
 > - **[A]**: Applies to all nodes.
 > - **[1]**: Applies only to node 1.
 > - **[2]**: Applies only to node 2.
+
+1. **[A]** Install iSCSI package.
+
+   ```bash
+   sudo zypper install open-iscsi
+   ```
 
 1. **[A]** Connect to the iSCSI devices. First, enable the iSCSI and SBD services.
 
@@ -911,7 +917,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
 
    ```bash
    sudo crm configure property stonith-enabled=true
-   crm configure property concurrent-fencing=true
+   sudo crm configure property concurrent-fencing=true
    ```
 
    > [!NOTE]
@@ -954,7 +960,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
 
 ## Configure Pacemaker for Azure scheduled events
 
-Azure offers [scheduled events](../../virtual-machines/linux/scheduled-events.md). Scheduled events are provided via the metadata service and allow time for the application to prepare for such events. Resource agent [azure-events-az](https://github.com/ClusterLabs/resource-agents/pull/1161) monitors for scheduled Azure events. If events are detected and the resource agent determines that another cluster node is available, it sets a cluster health attribute. When the cluster health attribute is set for a node, the location constraint triggers and all resources, whose name doesn’t start with “health-“ are migrated away from the node with scheduled event. Once the affected cluster node is free of running cluster resources, scheduled event is acknowledged and can execute its action, such as restart.
+Azure offers [scheduled events](../../virtual-machines/linux/scheduled-events.md). Scheduled events are provided via the metadata service and allow time for the application to prepare for such events. Resource agent [azure-events-az](https://github.com/ClusterLabs/resource-agents/pull/1161) monitors for scheduled Azure events. If events are detected and the resource agent determines that another cluster node is available, it sets a cluster health attribute. When the cluster health attribute is set for a node, the location constraint triggers and all resources, whose name doesn't start with "health-" are migrated away from the node with scheduled event. Once the affected cluster node is free of running cluster resources, scheduled event is acknowledged and can execute its action, such as restart.
 
 > [!IMPORTANT]
 > Previously, this document described the use of resource agent [azure-events](https://github.com/ClusterLabs/resource-agents/blob/main/heartbeat/azure-events.in). New resource agent [azure-events-az](https://github.com/ClusterLabs/resource-agents/blob/main/heartbeat/azure-events-az.in) fully supports Azure environments deployed in different availability zones.
@@ -978,6 +984,7 @@ Azure offers [scheduled events](../../virtual-machines/linux/scheduled-events.md
    ```bash
    #Place the cluster in maintenance mode
    sudo crm configure property maintenance-mode=true
+   ```
 
 3. **[1]** Set the pacemaker cluster health node strategy and constraint
 
@@ -989,7 +996,7 @@ Azure offers [scheduled events](../../virtual-machines/linux/scheduled-events.md
 
    > [!IMPORTANT]
    >
-   > Don't define any other resources in the cluster starting with “health-”, besides the resources described in the next steps of the documentation.
+   > Don't define any other resources in the cluster starting with "health-", besides the resources described in the next steps of the documentation.
 
 4. **[1]** Set initial value of the cluster attributes.
    Run for each cluster node. For scale-out environments including majority maker VM.
@@ -1000,13 +1007,20 @@ Azure offers [scheduled events](../../virtual-machines/linux/scheduled-events.md
    ```
 
 5. **[1]** Configure the resources in Pacemaker.
-   Important: The resources must start with ‘health-azure’.
+   Important: The resources must start with 'health-azure'.
 
    ```bash
-   sudo crm configure primitive health-azure-events \
-   ocf:heartbeat:azure-events-az op monitor interval=10s
+   sudo crm configure primitive health-azure-events ocf:heartbeat:azure-events-az \ 
+   meta allow-unhealthy-nodes=true \ 
+   op monitor interval=10s
+
    sudo crm configure clone health-azure-events-cln health-azure-events
    ```
+
+   > [!NOTE]
+   > On configuring 'health-azure-events' resource, following warning message can be ignored.
+   >
+   > WARNING: health-azure-events: unknown attribute 'allow-unhealthy-nodes'.
 
 6. Take the Pacemaker cluster out of maintenance mode
 

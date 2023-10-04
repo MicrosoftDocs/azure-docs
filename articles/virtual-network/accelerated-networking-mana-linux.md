@@ -21,7 +21,7 @@ For more info regarding Azure MANA, see [Microsoft Azure Network Adapter (MANA) 
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Supported Marketplace Images
-Several [Azure marketplace](https://learn.microsoft.com/marketplace/azure-marketplace-overview) Linux images have built-in support for Azure MANA's ethernet driver.
+Several [Azure marketplace](/marketplace/azure-marketplace-overview) Linux images have built-in support for Azure MANA's ethernet driver.
 
 - Ubuntu 20.04 LTS
 - Ubuntu 22.04 LTS

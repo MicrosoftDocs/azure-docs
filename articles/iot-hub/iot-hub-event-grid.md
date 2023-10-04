@@ -172,6 +172,8 @@ Event Grid enables [filtering](../event-grid/event-filtering.md) on event types,
 * Subject: For IoT Hub events, the subject is the device name. The subject takes the format `devices/{deviceId}`. You can filter subjects based on **Begins With** (prefix) and **Ends With** (suffix) matches. The filter uses an `AND` operator, so events with a subject that match both the prefix and suffix are delivered to the subscriber.
 * Data content: The data content is populated by IoT Hub using the message format. You can choose what events are delivered based on the contents of the telemetry message. For examples, see [advanced filtering](../event-grid/event-filtering.md#advanced-filtering). For filtering on the telemetry message body, you must set the contentType to **application/json** and contentEncoding to **UTF-8** in the message [system properties](./iot-hub-devguide-routing-query-syntax.md#system-properties). Both of these properties are case insensitive.
 
+For device telemetry events, IoT Hub will create the default [message route](iot-hub-devguide-messages-d2c.md) called *RouteToEventGrid* based on the subscription. To filter messages before telemetry data is sent, update the [routing query](iot-hub-devguide-routing-query-syntax.md).
+
 ## Limitations for device connection state events
 
 Device connected and device disconnected events are available for devices connecting using either the MQTT or AMQP protocol, or using either of these protocols over WebSockets. Requests made only with HTTPS won't trigger device connection state notifications.

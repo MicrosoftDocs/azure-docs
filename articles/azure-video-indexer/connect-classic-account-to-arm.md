@@ -8,7 +8,9 @@ ms.author: itnorman
 author: IngridAtMicrosoft
 ---
 
-# Connect an existing classic paid Azure AI Video Indexer account to ARM-based account  
+# Connect an existing classic paid Azure AI Video Indexer account to ARM-based account
+
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
 
 This article shows how to connect an existing classic paid Azure AI Video Indexer account to an Azure Resource Manager (ARM)-based (recommended) account. To create a new ARM-based account, see [create a new account](create-account-portal.md). To understand the Azure AI Video Indexer account types, review [account types](accounts-overview.md).
 

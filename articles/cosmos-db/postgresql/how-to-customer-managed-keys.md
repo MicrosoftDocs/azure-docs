@@ -8,7 +8,7 @@ ms.subservice: postgresql
 ms.topic: how-to
 ms.date: 05/16/2023
 ---
-# Enable data encryption with customer-managed keys (preview) in Azure Cosmos DB for PostgreSQL
+# Enable data encryption with customer-managed keys in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
@@ -116,7 +116,7 @@ Make sure <b>Vault access policy</b> is selected under Permission model and then
 
    1. Select the Key created in the previous step, and then select Review+create.
 
-   1. Verify that CMK is encryption is enabled by Navigating to the Data Encryption(preview) blade of the Cosmos DB for PostgreSQL cluster in the Azure portal.
+   1. Verify that CMK is encryption is enabled by Navigating to the Data Encryption blade of the Cosmos DB for PostgreSQL cluster in the Azure portal.
       ![Screenshot of data encryption tab.](media/how-to-customer-managed-keys/data-encryption-tab-note.png)
 
    > [!NOTE]
@@ -257,7 +257,7 @@ Encryption configuration can be changed from service managed encryption to CMK e
   1. Navigate to the Data Encryption blade, and select Initiate restore operation. Alternatively, you can perform PITR by selecting the Restore option in the overview blade.
    [ ![Screenshot of PITR.](media/how-to-customer-managed-keys/point-in-time-restore.png)](media/how-to-customer-managed-keys/point-in-time-restore.png#lightbox)
 
-  1. You can change/configure the Data Encryption from the Encryption(preview) Tab.
+  1. You can change/configure the Data Encryption from the Encryption Tab.
 
 # [ARM Template](#tab/arm)
 

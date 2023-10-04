@@ -75,7 +75,7 @@ The following table lists the different tools available for performing the migra
 The next section of the document gives an overview of the Single to Flex Migration tool, its implementation, limitations, and the experience that makes it the recommended tool to perform migrations from single to flexible server.
 
 > [!NOTE]  
-> The Single to Flex Migration tool currently supports only **Offline** migrations. Support for online migrations will be introduced later in the tool.
+> The Single to Flex Migration tool is available in all Azure regions and currently supports only **Offline** migrations. Support for online migrations will be introduced later in the tool.
 
 ## Single to Flexible Migration tool - Overview
 
@@ -108,15 +108,14 @@ Along with data migration, the tool automatically provides the following built-i
 - Migration of permissions of database objects on your source server such as GRANTS/REVOKES to the target server.
 
 > [!NOTE]  
-> This functionality is enabled only for flexible servers in **North Europe** region. It will be enabled for flexible servers in other Azure regions soon. In the meantime, you can follow the steps mentioned in this [doc](../single-server/how-to-upgrade-using-dump-and-restore.md#migrate-the-roles) to perform user/roles migration
+> This functionality is enabled only for flexible servers in **Central US**, **Canada Central**, **France Central**, **Japan East** and **Australia East** regions. It will be enabled for flexible servers in other Azure regions soon. In the meantime, you can follow the steps mentioned in this [doc](../single-server/how-to-upgrade-using-dump-and-restore.md#migrate-the-roles) to perform user/roles migration
 
 ## Limitations
 
 - You can have only one active migration to your flexible server.
-- You can select a max of eight databases in one migration attempt. If you've more than eight databases, you must wait for the first migration to be complete before initiating another migration for the rest of the databases. Support for migration of more than eight databases in a single migration will be introduced later.
-- The source and target server must be in the same Azure region. Cross region migrations are not supported.
+- The source and target server must be in the same Azure region. Cross region migrations is enabled only for servers in China regions.
 - The tool takes care of the migration of data and schema. It doesn't migrate managed service features such as server parameters, connection security details and firewall rules.
-- The migration tool shows the number of tables copied from source to target server. You need to validate the data in target server post migration.
+- The migration tool shows the number of tables copied from source to target server. You need to manually validate the data in target server post migration.
 - The tool only migrates user databases and not system databases like template_0, template_1, azure_sys and azure_maintenance.
 
 > [!NOTE]  

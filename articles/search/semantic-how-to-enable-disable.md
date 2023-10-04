@@ -8,19 +8,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 8/22/2023
+ms.date: 09/04/2023
 ---
 
-# Enable or disable semantic search
+# Enable or disable semantic ranking
 
 > [!IMPORTANT]
 > Semantic search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through Azure portal, preview REST APIs, and beta SDKs. This feature is billable. See [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
 
 Semantic search is a premium feature that's billed by usage. By default, semantic search is disabled on all services. 
 
-## Enable semantic search
+## Enable semantic ranking
 
-Follow these steps to enable [semantic search](semantic-search-overview.md) for your search service.
+Follow these steps to enable [semantic search](semantic-search-overview.md) at the service level. Once enabled, it's available to all indexes. You can't turn it on or off for specific indexes.
 
 ### [**Azure portal**](#tab/enable-portal)
 
@@ -66,7 +66,7 @@ PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegrou
 
 ---
 
-## Disable semantic search using the REST API
+## Disable semantic ranking using the REST API
 
 To reverse feature enablement, or for full protection against accidental usage and charges, you can disable semantic search using the [Create or Update Service API](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchsemanticsearch) on your search service. After the feature is disabled, any requests that include the semantic query type will be rejected.
 

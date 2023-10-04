@@ -31,7 +31,7 @@ There are two ways to enable monitoring for applications hosted on App Service:
 
 * **Manually instrumenting the application through code** by installing the Application Insights SDK.
 
-  This approach is much more customizable, but it requires the following approaches: SDK for [.NET Core](./asp-net-core.md), [.NET](./asp-net.md), [Node.js](./nodejs.md), [Python](./opencensus-python.md), and a standalone agent for [Java](./opentelemetry-enable.md?tabs=java). This method also means you must manage the updates to the latest version of the packages yourself.
+  This approach is much more customizable, but it requires the following approaches: SDK for [.NET Core](./asp-net-core.md), [.NET](./asp-net.md), [Node.js](./nodejs.md), [Python](/previous-versions/azure/azure-monitor/app/opencensus-python), and a standalone agent for [Java](./opentelemetry-enable.md?tabs=java). This method also means you must manage the updates to the latest version of the packages yourself.
   
   If you need to make custom API calls to track events/dependencies not captured by default with autoinstrumentation monitoring, you need to use this method. To learn more, see [Application Insights API for custom events and metrics](./api-custom-events-metrics.md).
 
@@ -138,6 +138,30 @@ To find which version of the extension you're currently using, go to `https://<y
 #### 2.8.10
 
 - Fix for incomplete HTML response for ASP.NET Core apps.
+
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### What does Application Insights modify in my project?
+
+The details depend on the type of project. For a web application:
+          
+* Adds these files to your project:
+  * ApplicationInsights.config
+  * ai.js
+* Installs these NuGet packages:
+  * Application Insights API: The core API
+  * Application Insights API for Web Applications: Used to send telemetry from the server
+  * Application Insights API for JavaScript Applications: Used to send telemetry from the client
+* The packages include these assemblies:
+  * Microsoft.ApplicationInsights
+  * Microsoft.ApplicationInsights.Platform
+* Inserts items into:
+  * Web.config
+  * packages.config
+* (For new projects only, you [add Application Insights to an existing project manually](./app-insights-overview.md).) Inserts snippets into the client and server code to initialize them with the Application Insights resource ID. For example, in an MVC app, code is inserted into the main page *Views/Shared/\_Layout.cshtml*.
+          
 
 ## Next steps
 

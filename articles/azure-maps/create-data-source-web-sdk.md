@@ -1,8 +1,8 @@
 ---
 title: Create a data source for a map in Microsoft Azure Maps
 description: "Find out how to create a data source for a map. Learn about the data sources that the Azure Maps Web SDK uses: GeoJSON sources and vector tiles."
-author: dubiety
-ms.author: yuchungchen 
+author: sinnypan
+ms.author: sipa
 ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
@@ -80,7 +80,7 @@ Azure Maps adheres to the [Mapbox Vector Tile Specification], an open standard. 
 * [Road tiles]
 * [Traffic incidents]
 * [Traffic flow]
-* Azure Maps Creator also allows custom vector tiles to be created and accessed through the [Render V2-Get Map Tile API]
+* Azure Maps Creator also allows custom vector tiles to be created and accessed through the [Render - Get Map Tile] API
 
 > [!TIP]
 > When using vector or raster image tiles from the Azure Maps render service with the web SDK, you can replace `atlas.microsoft.com` with the placeholder `{azMapsDomain}`. This placeholder will be replaced with the same domain used by the map and will automatically append the same authentication details as well. This greatly simplifies authentication with the render service when using Azure Active Directory authentication.
@@ -271,7 +271,7 @@ See the following articles for more code samples to add to your maps:
 [Line layer]: map-add-line-layer.md
 [Mapbox Vector Tile Specification]: https://github.com/mapbox/vector-tile-spec
 [Polygon layer]: map-add-shape.md
-[Render V2-Get Map Tile API]: /rest/api/maps/render-v2/get-map-tile
+[Render - Get Map Tile]: /rest/api/maps/render-v2/get-map-tile
 [Road tiles]: /rest/api/maps/render-v2/get-map-tile
 [SourceManager]: /javascript/api/azure-maps-control/atlas.sourcemanager
 [Symbol layer]: map-add-pin.md

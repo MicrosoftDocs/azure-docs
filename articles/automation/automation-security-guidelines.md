@@ -3,14 +3,14 @@ title: Azure Automation security guidelines, security best practices Automation 
 description: This article helps you with the guidelines that Azure Automation offers to ensure a secured configuration of Automation account, Hybrid Runbook worker role, authentication certificate and identities, network isolation and policies.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 02/16/2022
+ms.date: 10/03/2023
 ms.topic: conceptual 
 ---
 
 # Security best practices in Azure Automation
 
 > [!IMPORTANT]
-> Azure Automation Run As Account will retire on September 30, 2023 and will be replaced with Managed Identities. Before that date, you'll need to start migrating your runbooks to use [managed identities](automation-security-overview.md#managed-identities). For more information, see [migrating from an existing Run As accounts to managed identity](migrate-run-as-accounts-managed-identity.md?tabs=run-as-account#sample-scripts) to start migrating the runbooks from Run As account to managed identities before 30 September 2023.
+> Azure Automation Run as accounts, including  Classic Run as accounts have retired on **30 September 2023** and replaced with [Managed Identities](automation-security-overview.md#managed-identities). You would no longer be able to create or renew Run as accounts through the Azure portal. For more information, see [migrating from an existing Run As accounts to managed identity](migrate-run-as-accounts-managed-identity.md?tabs=run-as-account#sample-scripts).
 
 This article details the best practices to securely execute the automation jobs.
 [Azure Automation](./overview.md) provides you the platform to orchestrate frequent, time consuming, error-prone infrastructure management and operational tasks, as well as mission-critical operations. This service allows you to execute scripts, known as automation runbooks seamlessly across cloud and hybrid environments. 
@@ -56,12 +56,6 @@ This section guides you in configuring your Automation account securely.
    - **User-assigned identity** is a standalone Azure resource that can be assigned to your app. An app can have multiple user-assigned identities. 
 
    Follow the [Managed identity best practice recommendations](../active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations.md#choosing-system-or-user-assigned-managed-identities) for more details. 
-
-1. If you use Run As accounts as the authentication mechanism for your runbooks, ensure the following:
-   - Track the service principals in your inventory. Service principals often have elevated permissions.
-   - Delete any unused Run As accounts to minimize your exposed attack surface. 
-   - [Renew the Run As certificate](./manage-runas-account.md#cert-renewal) periodically.
-   - Follow the RBAC guidelines to limit the permissions assigned to Run As account using this [script](./manage-runas-account.md#limit-run-as-account-permissions). Do not assign high privilege permissions like Contributor, Owner and so on.
 
 1. Rotate the [Azure Automation keys](./automation-create-standalone-account.md?tabs=azureportal#manage-automation-account-keys) periodically. The key regeneration prevents future DSC or hybrid worker node registrations from using previous keys. We recommend to use the [Extension based hybrid workers](./automation-hybrid-runbook-worker.md) that use Azure AD authentication instead of Automation keys. Azure AD centralizes the control and management of identities and resource credentials.
 
