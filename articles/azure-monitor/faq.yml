@@ -697,12 +697,7 @@ sections:
           Can I view metrics collected in Grafana?
         answer: |
           Container insights support viewing metrics stored in your Log Analytics workspace in Grafana dashboards. We've provided a template that you can download from the Grafana [dashboard repository](https://grafana.com/grafana/dashboards?dataSource=grafana-azure-monitor-datasource&category=docker). Use it to get started and as a reference to help you learn how to query data from your monitored clusters to visualize in custom Grafana dashboards.
-          
-      - question: |
-          Can I monitor my AKS-engine cluster with Container insights?
-        answer: |
-          Container insights supports monitoring container workloads deployed to AKS-engine (formerly known as ACS-engine) clusters hosted on Azure. For more information and an overview of steps required to enable monitoring for this scenario, see [Using Container insights for Azure Kubernetes Service-engine](https://github.com/microsoft/OMS-docker/tree/aks-engine).
-          
+
       - question: |
           Why don't I see data in my Log Analytics workspace?
         answer: |

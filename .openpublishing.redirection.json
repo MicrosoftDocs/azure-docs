@@ -7560,7 +7560,12 @@
         },
         {
             "source_path_from_root": "/articles/automation/manage-runas-account.md",
-            "redirect_url": "/azure/automation/manage-run-as-account",
+            "redirect_url": "/azure/automation/migrate-run-as-accounts-managed-identity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/automation/manage-run-as-account.md",
+            "redirect_url": "/azure/automation/migrate-run-as-accounts-managed-identity",
             "redirect_document_id": false
         },
         {

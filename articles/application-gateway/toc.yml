@@ -105,7 +105,9 @@
       href: monitor-application-gateway.md
     - name: Health probe
       href: application-gateway-probe-overview.md
-    - name: Diagnostic logs and backend health
+    - name: Backend health
+      href: application-gateway-backend-health.md      
+    - name: Diagnostic logs
       href: application-gateway-diagnostics.md
     - name: Metrics
       href: application-gateway-metrics.md

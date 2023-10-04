@@ -5461,6 +5461,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory/fundamentals/identity-secure-score.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/concept-identity-secure-score",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory/reports-monitoring/reference-azure-ad-sla-performance.md",
       "redirect_url": "/azure/active-directory/reports-monitoring/reference-sla-performance",
       "redirect_document_id": true
