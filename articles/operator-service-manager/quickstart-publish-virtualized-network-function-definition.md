@@ -31,9 +31,9 @@ Once you execute this command, an input.json file generates.
 > [!NOTE]
 >Edit the input.json file, replacing it with the values shown in the sample. Save the file as **input-vnf-nfd.json**.
 
-```json
-Sample input-vnf-nfd.json 
+Here's sample input-vnf-nfd.json file:
 
+```json 
 { 
     "publisher_name": "ubuntu-publisher", 
     "publisher_resource_group_name": "ubuntu-publisher-rg", 
