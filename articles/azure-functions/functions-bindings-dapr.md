@@ -18,7 +18,7 @@ With the integration between Dapr and Functions, you can build functions that re
 
 | Action  | Direction | Type |
 |---------|-----------|------|
-| Trigger on a Dapr input binding | N/A | [daprBindingTrigger](./functions-bindings-dapr-trigger-input.md) |
+| Trigger on a Dapr input binding | N/A | [daprBindingTrigger](./functions-bindings-dapr-trigger.md) |
 | Trigger on a Dapr service invocation | N/A | [daprServiceInvocationTrigger](./functions-bindings-dapr-trigger-svc-invoke.md) |
 | Trigger on a Dapr topic subscription | N/A | [daprTopicTrigger](./functions-bindings-dapr-trigger-topic.md) |
 | Pull in Dapr state for an execution | In | [daprState](./functions-bindings-dapr-input-state.md) |

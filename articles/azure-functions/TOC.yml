@@ -789,8 +789,8 @@
               displayName: Dapr
             - name: Trigger
               items: 
-              - name: Input Binding
-                href: functions-bindings-dapr-trigger-input.md
+              - name: Binding
+                href: functions-bindings-dapr-trigger.md
                 displayName: Dapr
               - name: Service Invocation
                 href: functions-bindings-dapr-trigger-svc-invoke.md
