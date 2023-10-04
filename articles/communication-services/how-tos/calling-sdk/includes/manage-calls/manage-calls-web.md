@@ -410,3 +410,7 @@ reaction.on('reaction', event => {
    console.log("reaction message - " + JSON.stringify(event.reactionMessage));
 }
 ```
+
+### Key things to note about using Reactions:
+- Reactions will not work if the meeting organizer updates the meeting policy to disallow the reaction in a Teams interop call.
+- Sending of reactions does not work on 1:1 calls.
