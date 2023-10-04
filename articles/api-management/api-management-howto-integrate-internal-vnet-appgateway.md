@@ -84,7 +84,7 @@ If you use Azure Active Directory or third-party authentication, enable the [coo
 
 ## Setting Variables
 
-Throughout this guide, you will need to define several variables. Naming is based on the [Cloud Adoption Framework abbreviation](../cloud-adoption-framework/ready/azure-best-practices/resource-abbreviations) guidance.
+Throughout this guide, you will need to define several variables. Naming is based on the [Cloud Adoption Framework abbreviation](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-abbreviations) guidance.
 
 ```powershell
 # These variables must be changed.
