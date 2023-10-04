@@ -1,12 +1,12 @@
 ---
-title: Create IoTHub Flink jobs in an HDInsight on AKS
-description: How to create IoTHub Flink jobs in an HDInsight on AKS
+title: Process real-time IoT data on Flink with Azure HDInsight on AKS
+description: How to integrate Azure IoT Hub and Apache Flink
 ms.service: hdinsight-aks
 ms.topic: how-to
 ms.date: 10/03/2023
 ---
 
-# Create IoTHub Flink jobs in an HDInsight on AKS
+# Process real-time IoT data on Flink with Azure HDInsight on AKS
 
 Azure IoT Hub is a managed service hosted in the cloud that acts as a central message hub for communication between an IoT application and its attached devices. You can connect millions of devices and their backend solutions reliably and securely. Almost any device can be connected to an IoT hub.
 
@@ -45,7 +45,7 @@ StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironm
 
 This set up is required for Flink to authenticate with your ABFS storage account to write data to it.
 
-### Defining the IoTHub source
+### Defining the IoT Hub source
 
 IoTHub is build on top of event hub and hence supports a kafka-like API. So in our Flink job, we can define a `KafkaSource` with appropriate parameters to consume messages from IoTHub.
 
@@ -94,7 +94,7 @@ final FileSink<String> sink = FileSink
 kafka.sinkTo(sink);
 ```
 
-### Overall job code
+### Flink job code
 
 ```java
 package org.example;
@@ -206,6 +206,6 @@ public class StreamingJob {
 
 ### Submit job
 
-Submit job using HDInsight on AKS's Flink job submission API
+Submit job using HDInsight on AKS's [Flink job submission API](./flink-job-management.md)
 
 :::image type="content" source="./media/azure-iot-hub/create-new-job.png" alt-text="Screenshot shows create a new job." lightbox="./media/azure-iot-hub/create-new-job.png":::
