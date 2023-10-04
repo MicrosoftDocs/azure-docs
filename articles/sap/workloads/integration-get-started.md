@@ -210,6 +210,8 @@ Complimenting that, use the [SAP certified](https://www.sap.com/dmc/exp/2013_09_
 
 Learn more about identity focused integration capabilities that power the analysis on Defender and Sentinel via the [Microsoft Entra ID section](#microsoft-entra-id-formerly-azure-ad).
 
+Leverage the [immutable vault for Azure Backup](/azure/backup/backup-azure-immutable-vault-concept) to protect your SAP data from ransomware attacks.
+
 #### Microsoft Defender for Cloud
 
 The [Defender product family](../../defender-for-cloud/defender-for-cloud-introduction.md) consist of multiple products tailored to provide "cloud security posture management" (CSPM) and "cloud workload protection" (CWPP) for the various workload types. Below excerpt serves as entry point to start securing your SAP system.
