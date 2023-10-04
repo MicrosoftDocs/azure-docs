@@ -29,17 +29,17 @@ Azure OpenAI now supports automatic updates for select model deployments. On mod
 
 When **Auto-update to default** is selected your model deployment will be automatically updated within two weeks of a change in the default version.
 
-If you are still in the early testing phases for inference models, we recommend deploying models with **auto-update to default** set whenever it is available.
+If you're still in the early testing phases for inference models, we recommend deploying models with **auto-update to default** set whenever it's available.
 
 ### Specific model version
 
 As your use of Azure OpenAI evolves, and you start to build and integrate with applications you may want to manually control model updates so that you can first test and validate that model performance is remaining consistent for your use case prior to upgrade.
 
-When you select a specific model version for a deployment this version will remain selected until you either choose to manually update yourself, or once you reach the retirement date for the model. When the retirement date is reached the model will auto-upgrade to the default version at the time of retirement.
+When you select a specific model version for a deployment this version will remain selected until you either choose to manually update yourself, or once you reach the retirement date for the model. When the retirement date is reached the model will automatically upgrade to the default version at the time of retirement.
 
 ### GPT-35-Turbo 0301 and GPT-4 0314 retirement
 
-The `gpt-35-turbo` (`0301`) and both `gpt-4` (`0314`) models will be retired no earlier than July 5, 2024. Upon retirement, deployments will automatically be upgraded to the default version at the time of retirement. If you would like your deployment to stop accepting completion requests rather than upgrading, then you will be able to set the model upgrade option to expire through the API. We will publish guidelines on this by September 1.
+The `gpt-35-turbo` (`0301`) and both `gpt-4` (`0314`) models will be retired no earlier than July 5, 2024. Upon retirement, deployments will automatically be upgraded to the default version at the time of retirement. If you would like your deployment to stop accepting completion requests rather than upgrading, then you'll be able to set the model upgrade option to expire through the API.
 
 ## Viewing deprecation dates
 
@@ -57,9 +57,9 @@ There are three distinct model deployment upgrade options which are configurable
 
 | Name | Description |
 |------|--------|
-| `OnceNewDefaultVersionAvailable` | Once a new version is designated as the default, the model deployment will auto-upgrade to the default version within two weeks of that designation change being made. |
-`OnceCurrentVersionExpired` | Once the retirement date is reached the model deployment will auto-upgrade to the current default version. |
-`NoAutoUpgrade` | The model deployment will never auto-upgrade. Once the retirement date is reached the model deployment will stop working. You will need to update your code referencing that deployment to point to a non-expired model deployment. |
+| `OnceNewDefaultVersionAvailable` | Once a new version is designated as the default, the model deployment will automatically upgrade to the default version within two weeks of that designation change being made. |
+`OnceCurrentVersionExpired` | Once the retirement date is reached the model deployment will automatically upgrade to the current default version. |
+`NoAutoUpgrade` | The model deployment will never automatically upgrade. Once the retirement date is reached the model deployment will stop working. You will need to update your code referencing that deployment to point to a non-expired model deployment. |
 
 To query the current model deployment settings including the deployment upgrade configuration for a given resource use [`Deployments List`](/rest/api/cognitiveservices/accountmanagement/deployments/list?tabs=HTTP#code-try-0)  
 
