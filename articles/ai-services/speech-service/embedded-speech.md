@@ -165,7 +165,7 @@ For embedded speech, you'll need to download the speech recognition models for [
 
 The following [speech to text](speech-to-text.md) models are available: de-DE, en-AU, en-CA, en-GB, en-IE, en-IN, en-NZ, en-US, es-ES, es-MX, fr-CA, fr-FR, hi-IN, it-IT, ja-JP, ko-KR, nl-NL, pt-BR, ru-RU, sv-SE, tr-TR, zh-CN, zh-HK, and zh-TW.
 
-All 147 locales [here](language-support.md?tabs=tts) (except fa-IR, Persian (Iran)) are available out of box with either 1 selected female and/or 1 selected male voices. We welcome your input to help us gauge demand for additional languages and voices. 
+All text to speech locales [here](language-support.md?tabs=tts) (except fa-IR, Persian (Iran)) are available out of box with either 1 selected female and/or 1 selected male voices. We welcome your input to help us gauge demand for additional languages and voices. 
 
 ## Embedded speech configuration
 
