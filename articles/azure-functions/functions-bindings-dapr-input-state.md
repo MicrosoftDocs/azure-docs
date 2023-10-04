@@ -217,19 +217,19 @@ def main(payload, data: str) -> None:
 
 In the [in-process model](./functions-dotnet-class-library.md), use the `DaprState` to read Dapr state into your function, which supports these parameters:
 
-| Parameter | Description | 
-| --------- | ----------- | 
-| **StateStore** | The name of the state store to retrieve state. | 
-| **Key** | The name of the key to retrieve from the specified state store. | 
+| Parameter | Description | Sent via | 
+| --------- | ----------- | -------- | 
+| **StateStore** | The name of the state store to retrieve state. | The attribute itself or the `RequestBody`. |
+| **Key** | The name of the key to retrieve from the specified state store. | The attribute itself or the `RequestBody`. |
 
 # [Isolated process](#tab/isolated-process)
 
 In the [isolated worker model](./dotnet-isolated-process-guide.md), use the `DaprStateInput` to read Dapr state into your function, which supports these parameters:
 
-| Parameter | Description | 
-| --------- | ----------- | 
-| **StateStore** | The name of the state store to retrieve state. | 
-| **Key** | The name of the key to retrieve from the specified state store. | 
+| Parameter | Description | Sent via | 
+| --------- | ----------- | -------- | 
+| **StateStore** | The name of the state store to retrieve state. | The attribute itself or the `RequestBody`. |
+| **Key** | The name of the key to retrieve from the specified state store. | The attribute itself or the `RequestBody`. |
 
 ::: zone-end
 
@@ -239,10 +239,10 @@ In the [isolated worker model](./dotnet-isolated-process-guide.md), use the `Dap
 
 The `DaprStateInput` annotation allows you to read Dapr state into your function.  
 
-| Element | Description | 
-| --------- | ----------- | 
-| **stateStore** | The name of the Dapr state store. | 
-| **key** | The state store key value. | 
+| Element | Description | Sent via | 
+| ------- | ----------- | -------- | 
+| **stateStore** | The name of the Dapr state store. | The attribute itself or the `RequestBody`. |
+| **key** | The state store key value. | The attribute itself or the `RequestBody`. |
 
 ::: zone-end
 
@@ -256,14 +256,14 @@ The `DaprStateInput` annotation allows you to read Dapr state into your function
 
 The following table explains the binding configuration properties that you set in the function.json file.
 
-|function.json property | Description|
-|---------|----------------------|
-|**type** | Must be set to `daprState`. |
-|**direction** | Must be set to `in`.  |
-|**dataType** | The data type used by the state store. |
-|**name** | The name of the variable that represents the Dapr data in function code. |
-|**stateStore** | The name of the state store. |
-|**key** | The name of the key to retrieve from the specified state store. |
+|function.json property | Description | Sent via |
+|-----------------------|-------------| -------- |
+|**type** | Must be set to `daprState`. | The attribute itself or the `RequestBody`. |
+|**direction** | Must be set to `in`.  | The attribute itself or the `RequestBody`. |
+|**dataType** | The data type used by the state store. | The attribute itself or the `RequestBody`. |
+|**name** | The name of the variable that represents the Dapr data in function code. | The attribute itself or the `RequestBody`. |
+|**stateStore** | The name of the state store. | The attribute itself or the `RequestBody`. |
+|**key** | The name of the key to retrieve from the specified state store. | The attribute itself or the `RequestBody`. |
 
 ::: zone-end
 
@@ -271,13 +271,13 @@ The following table explains the binding configuration properties that you set i
 
 The following table explains the binding configuration properties that you set in the function.json file.
 
-|function.json property | Description|
-|---------|----------------------|
-|**type** | Must be set to `daprState`. |
-|**direction** | Must be set to `in`.  |
-|**key** | The name of the key to retrieve from the specified state store. |
-|**stateStore** | The name of the state store. |
-|**name** | The name of the variable that represents the Dapr data in function code. |
+|function.json property | Description | Sent via |
+|-----------------------|-------------| -------- |
+|**type** | Must be set to `daprState`. | The attribute itself or the `RequestBody`. |
+|**direction** | Must be set to `in`.  | The attribute itself or the `RequestBody`. |
+|**key** | The name of the key to retrieve from the specified state store. | The attribute itself or the `RequestBody`. |
+|**stateStore** | The name of the state store. | The attribute itself or the `RequestBody`. |
+|**name** | The name of the variable that represents the Dapr data in function code. | The attribute itself or the `RequestBody`. |
 
 ::: zone-end
 
@@ -287,24 +287,24 @@ The following table explains the binding configuration properties that you set i
 
 The following table explains the binding configuration properties for `@dapp.dapr_state_input` that you set in your Python code.
 
-|Property | Description|
-|---------|----------------------|
-|**arg_name** | Argument/variable name that should match with the parameter of the function. In the example, this value is set to `data`. |
-|**state_store** | The name of the state store. |
-|**key** | The secret key value. The name of the key to retrieve from the specified state store. |
+|Property | Description | Sent via |
+|---------|-------------| -------- |
+|**arg_name** | Argument/variable name that should match with the parameter of the function. | The attribute itself or the `RequestBody`. |
+|**state_store** | The name of the state store. | The attribute itself or the `RequestBody`. |
+|**key** | The secret key value. The name of the key to retrieve from the specified state store. | The attribute itself or the `RequestBody`. |
 
 # [Python v1](#tab/v1)
 
 The following table explains the binding configuration properties that you set in the function.json file.
 
-|function.json property | Description|
-|---------|----------------------|
-|**type** | Must be set to `daprState`. |
-|**direction** | Must be set to `in`.  |
-|**dataType** | The data type used by the state store. |
-|**name** | The name of the variable that represents the Dapr data in function code. |
-|**stateStore** | The name of the state store. |
-|**key** | The name of the key to retrieve from the specified state store. |
+|function.json property | Description | Sent via |
+|-----------------------|-------------| -------- |
+|**type** | Must be set to `daprState`. | The attribute itself or the `RequestBody`. |
+|**direction** | Must be set to `in`.  | The attribute itself or the `RequestBody`. |
+|**dataType** | The data type used by the state store. | The attribute itself or the `RequestBody`. |
+|**name** | The name of the variable that represents the Dapr data in function code. | The attribute itself or the `RequestBody`. |
+|**stateStore** | The name of the state store. | The attribute itself or the `RequestBody`. |
+|**key** | The name of the key to retrieve from the specified state store. | The attribute itself or the `RequestBody`. |
 
 --- 
 

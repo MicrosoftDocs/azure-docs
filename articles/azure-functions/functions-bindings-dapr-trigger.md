@@ -204,17 +204,19 @@ def main(triggerData: str) -> None:
 
 In the [in-process model](./functions-dotnet-class-library.md), use the `DaprBindingTrigger` to trigger a Dapr input binding, which supports the following properties.
 
-| Parameter | Description | 
-| --------- | ----------- | 
-| **BindingName** | The name of the Dapr trigger. If not specified, the name of the function is used as the trigger name. | 
+| Parameter | Description | Sent via |
+| --------- | ----------- | -------- |
+| **BindingName** | The name of the Dapr trigger. If not specified, the name of the function is used as the trigger name. | The attribute itself or the `RequestBody`. |
+| **Data** | **Required**. Todo | The `RequestBody`. |
 
 # [Isolated process](#tab/isolated-process)
 
 In the [isolated worker model](./dotnet-isolated-process-guide.md), use the `DaprBindingTrigger` to define a Dapr binding trigger, which supports these parameters:
 
-| Parameter | Description | 
-| --------- | ----------- | 
-| **BindingName** | The name of the Dapr trigger. If not specified, the name of the function is used as the trigger name. | 
+| Parameter | Description | Sent via | 
+| --------- | ----------- | -------- | 
+| **BindingName** | The name of the Dapr trigger. If not specified, the name of the function is used as the trigger name. | The attribute itself or the `RequestBody`. |
+| **Data** | **Required**. Todo | The `RequestBody`. |
 
 ---
 
@@ -226,9 +228,10 @@ In the [isolated worker model](./dotnet-isolated-process-guide.md), use the `Dap
 
 The `DaprBindingTrigger` annotation allows you to create a function that gets triggered by the binding component you created. 
 
-| Element | Description | 
-| --------- | ----------- | 
-| **bindingName** | The name of the Dapr binding. | 
+| Element | Description | Sent via | 
+| ------- | ----------- | -------- | 
+| **bindingName** | The name of the Dapr binding. | The attribute itself or the `RequestBody`. |
+| **data** | **Required**. Todo | The `RequestBody`. |
 
 ::: zone-end
 
@@ -242,12 +245,13 @@ The `DaprBindingTrigger` annotation allows you to create a function that gets tr
 
 The following table explains the binding configuration properties that you set in the function.json file.
 
-|function.json property | Description|
-|---------|----------------------|
-|**type** | Must be set to `daprBindingTrigger`. |
-|**bindingName** | The name of the binding. |
-|**name** | The name of the variable that represents the Dapr data in function code. |
-|**direction** | Must be set to `in`. |
+|function.json property | Description| Sent via |
+|-----------------------|------------| -------- |
+|**type** | Must be set to `daprBindingTrigger`. | The attribute itself or the `RequestBody`. |
+|**bindingName** | The name of the binding. | The attribute itself or the `RequestBody`. |
+|**name** | The name of the variable that represents the Dapr data in function code. | The attribute itself or the `RequestBody`. |
+|**direction** | Must be set to `in`. | The attribute itself or the `RequestBody`. |
+| **data** | **Required**. Todo | The `RequestBody`. |
 
 ::: zone-end
 
@@ -257,21 +261,23 @@ The following table explains the binding configuration properties that you set i
 
 The following table explains the binding configuration properties for `@dapp.dapr_binding_trigger` that you set in your Python code.
 
-|Property | Description|
-|---------|----------------------|
-|**arg_name** | Argument/variable name that should match with the parameter of the function. In the example, this value is set to `triggerData`. |
-|**binding_name** | The name of the binding. |
+|Property | Description| Sent via |
+|---------|------------| -------- |
+|**arg_name** | Argument/variable name that should match with the parameter of the function. In the example, this value is set to `triggerData`. | The attribute itself or the `RequestBody`. |
+|**binding_name** | The name of the binding. | The attribute itself or the `RequestBody`. |
+| **data** | **Required**. Todo | The `RequestBody`. |
 
 # [Python v1](#tab/v1)
 
 The following table explains the binding configuration properties that you set in the function.json file.
 
-|function.json property | Description|
-|---------|----------------------|
-|**type** | Must be set to `daprBindingTrigger`. |
-|**bindingName** | The name of the binding. |
-|**name** | The name of the variable that represents the Dapr data in function code. |
-|**direction** | Must be set to `in`. |
+|function.json property | Description| Sent via |
+|-----------------------|------------| -------- |
+|**type** | Must be set to `daprBindingTrigger`. | The attribute itself or the `RequestBody`. |
+|**bindingName** | The name of the binding. | The attribute itself or the `RequestBody`. |
+|**name** | The name of the variable that represents the Dapr data in function code. | The attribute itself or the `RequestBody`. |
+|**direction** | Must be set to `in`. | The attribute itself or the `RequestBody`. |
+| **data** | **Required**. Todo | The `RequestBody`. |
 
 ---
 

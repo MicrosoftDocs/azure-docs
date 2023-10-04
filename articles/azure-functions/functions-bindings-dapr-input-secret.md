@@ -229,21 +229,21 @@ def main (payload, secret) -> None:
 
 In the [in-process model](./functions-dotnet-class-library.md), use the `DaprSecret` to define a Dapr secret input binding, which supports these parameters:
 
-| Parameter | Description | 
-| --------- | ----------- | 
-| **SecretStoreName** | The name of the secret store to get the secret. | 
-| **Key** | The key identifying the name of the secret to get. | 
-| **Metadata** | _Optional._ An array of metadata properties in the form `"key1=value1&key2=value2"`. | 
+| Parameter | Description | Send via |
+| --------- | ----------- | -------- |
+| **SecretStoreName** | The name of the secret store to get the secret. | The attribute itself or the `RequestBody`. |
+| **Key** | The key identifying the name of the secret to get. | The attribute itself or the `RequestBody`. |
+| **Metadata** | _Optional._ An array of metadata properties in the form `"key1=value1&key2=value2"`. | The attribute itself or the `RequestBody`. |
 
 # [Isolated process](#tab/isolated-process)
 
 In the [isolated worker model](./dotnet-isolated-process-guide.md), use the `DaprSecretInput` to define a Dapr secret input binding, which supports these parameters:
 
-| Parameter | Description | 
-| --------- | ----------- | 
-| **SecretStoreName** | The name of the secret store to get the secret. | 
-| **Key** | The key identifying the name of the secret to get. | 
-| **Metadata** | _Optional._ An array of metadata properties in the form `"key1=value1&key2=value2"`. | 
+| Parameter | Description | Send via |
+| --------- | ----------- | -------- |
+| **SecretStoreName** | The name of the secret store to get the secret. | The attribute itself or the `RequestBody`. |
+| **Key** | The key identifying the name of the secret to get. | The attribute itself or the `RequestBody`. |
+| **Metadata** | _Optional._ An array of metadata properties in the form `"key1=value1&key2=value2"`. | The attribute itself or the `RequestBody`. |
 
 ---
 
@@ -255,11 +255,11 @@ In the [isolated worker model](./dotnet-isolated-process-guide.md), use the `Dap
 
 The `DaprSecretInput` annotation allows you to have your function access a secret. 
 
-| Element | Description | 
-| --------- | ----------- | 
-| **secretStoreName** | The name of the Dapr secret store. | 
-| **key** | The secret key value. | 
-| **metadata** | _Optional_. The metadata values. | 
+| Element | Description | Send via |
+| ------- | ----------- | -------- |
+| **secretStoreName** | The name of the Dapr secret store. | The attribute itself or the `RequestBody`. |
+| **key** | The secret key value. | The attribute itself or the `RequestBody`. |
+| **metadata** | _Optional_. The metadata values. | The attribute itself or the `RequestBody`. |
 
 ::: zone-end
 
@@ -273,14 +273,14 @@ The `DaprSecretInput` annotation allows you to have your function access a secre
 
 The following table explains the binding configuration properties that you set in the function.json file.
 
-|function.json property | Description|
-|---------|----------------------|
-|**type** | Must be set to `daprSecret`. |
-|**direction** | Must be set to `in`. |
-|**name** | The name of the variable that represents the Dapr data in function code. |
-|**key** | The secret key value. |
-|**secretStoreName** | Name of the secret store as defined in the _local-secret-store.yaml_ component file. |
-|**metadata** | The metadata namespace. |
+|function.json property | Description | Send via |
+|-----------------------|-------------| -------- |
+|**type** | Must be set to `daprSecret`. | The attribute itself or the `RequestBody`. |
+|**direction** | Must be set to `in`. | The attribute itself or the `RequestBody`. |
+|**name** | The name of the variable that represents the Dapr data in function code. | The attribute itself or the `RequestBody`. |
+|**key** | The secret key value. | The attribute itself or the `RequestBody`. |
+|**secretStoreName** | Name of the secret store as defined in the _local-secret-store.yaml_ component file. | The attribute itself or the `RequestBody`. |
+|**metadata** | The metadata namespace. | The attribute itself or the `RequestBody`. |
 
 ::: zone-end
 
@@ -290,25 +290,25 @@ The following table explains the binding configuration properties that you set i
 
 The following table explains the binding configuration properties for `@dapp.dapr_secret_input` that you set in your Python code.
 
-|Property | Description|
-|---------|----------------------|
-|**arg_name** | Argument/variable name that should match with the parameter of the function. In the example, this value is set to `secret`. |
-|**secret_store_name** | The name of the secret store. |
-|**key** | The secret key value. |
-|**metadata** | The metadata namespace. |
+|Property | Description | Send via |
+|---------|-------------| -------- |
+|**arg_name** | Argument/variable name that should match with the parameter of the function. | The attribute itself or the `RequestBody`. |
+|**secret_store_name** | The name of the secret store. | The attribute itself or the `RequestBody`. |
+|**key** | The secret key value. | The attribute itself or the `RequestBody`. |
+|**metadata** | The metadata namespace. | The attribute itself or the `RequestBody`. |
 
 # [Python v1](#tab/v1)
 
 The following table explains the binding configuration properties that you set in the function.json file.
 
-|function.json property | Description|
-|---------|----------------------|
-|**type** | Must be set to `daprSecret`. |
-|**direction** | Must be set to `in`. |
-|**name** | The name of the variable that represents the Dapr data in function code. |
-|**key** | The secret key value. |
-|**secretStoreName** | Name of the secret store as defined in the _local-secret-store.yaml_ component file. |
-|**metadata** | The metadata namespace. |
+|function.json property | Description | Send via |
+|-----------------------|-------------| -------- |
+|**type** | Must be set to `daprSecret`. | The attribute itself or the `RequestBody`. |
+|**direction** | Must be set to `in`. | The attribute itself or the `RequestBody`. |
+|**name** | The name of the variable that represents the Dapr data in function code. | The attribute itself or the `RequestBody`. |
+|**key** | The secret key value. | The attribute itself or the `RequestBody`. |
+|**secretStoreName** | Name of the secret store as defined in the _local-secret-store.yaml_ component file. | The attribute itself or the `RequestBody`. |
+|**metadata** | The metadata namespace. | The attribute itself or the `RequestBody`. |
 
 ---
 

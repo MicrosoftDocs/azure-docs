@@ -216,20 +216,22 @@ def main(args, messages: func.Out[bytes]) -> None:
 
 In the [in-process model](./functions-dotnet-class-library.md), use the `DaprBinding` to define a Dapr binding output binding, which supports these parameters:
 
-| Parameter | Description | 
-| --------- | ----------- | 
-| **BindingName** | The name of the Dapr binding. | 
-| **Operation** | The configured binding operation. | 
+| Parameter | Description | Sent via | 
+| --------- | ----------- | -------- | 
+| **BindingName** | The name of the Dapr binding. |  The attribute itself or the `RequestBody`. |
+| **Operation** | The configured binding operation. |  The attribute itself or the `RequestBody`. |
+| **Data** | **Requested**. Todo. | The `RequestBody`. |
 
 
 # [Isolated process](#tab/isolated-process)
 
 In the [isolated worker model](./dotnet-isolated-process-guide.md), use the `DaprBindingOutput` to define a Dapr binding output binding, which supports these parameters:
 
-| Parameter | Description | 
-| --------- | ----------- | 
-| **BindingName** | The name of the Dapr binding. | 
-| **Operation** | The configured binding operation. | 
+| Parameter | Description | Sent via | 
+| --------- | ----------- | -------- | 
+| **BindingName** | The name of the Dapr binding. |  The attribute itself or the `RequestBody`. |
+| **Operation** | The configured binding operation. |  The attribute itself or the `RequestBody`. |
+| **Data** | **Requested**. Todo. | The `RequestBody`. |
 
 ---
 
@@ -241,10 +243,11 @@ In the [isolated worker model](./dotnet-isolated-process-guide.md), use the `Dap
 
 The `DaprBindingOutput` annotation allows you to create a function that sends an output binding. 
 
-| Element | Description | 
-| --------- | ----------- | 
-| **bindingName** | The name of the Dapr binding. | 
-| **output** | The configured binding operation. | 
+| Element | Description | Sent via | 
+| ------- | ----------- | -------- | 
+| **bindingName** | The name of the Dapr binding. |  The attribute itself or the `RequestBody`. |
+| **output** | The configured binding operation. |  The attribute itself or the `RequestBody`. |
+| **data** | **Requested**. Todo. | The `RequestBody`. |
 
 ::: zone-end
 
@@ -257,13 +260,14 @@ The `DaprBindingOutput` annotation allows you to create a function that sends an
 ::: zone pivot="programming-language-javascript, programming-language-powershell"
 The following table explains the binding configuration properties that you set in the function.json file.
 
-|function.json property | Description|
-|---------|----------------------|
-|**type** | Must be set to `daprBinding`. |
-|**direction** | Must be set to `out`. |
-|**bindingName** | The name of the binding. |
-|**operation** | The binding operation. |
-|**name** | The name of the variable that represents the Dapr data in function code. |
+|function.json property | Description| Sent via |
+|-----------------------|------------| -------- |
+|**type** | Must be set to `daprBinding`. | The attribute itself or the `RequestBody`. |
+|**direction** | Must be set to `out`. | The attribute itself or the `RequestBody`. |
+|**bindingName** | The name of the binding. | The attribute itself or the `RequestBody`. |
+|**operation** | The binding operation. | The attribute itself or the `RequestBody`. |
+|**name** | The name of the variable that represents the Dapr data in function code. | The attribute itself or the `RequestBody`. |
+| **data** | **Requested**. Todo. | The `RequestBody`. |
 
 ::: zone-end
 
@@ -273,23 +277,25 @@ The following table explains the binding configuration properties that you set i
 
 The following table explains the binding configuration properties for `@dapp.dapr_binding_output` that you set in your Python code.
 
-|Property | Description|
-|---------|----------------------|
-|**arg_name** | Argument/variable name that should match with the parameter of the function. In the example, this value is set to `messages`. |
-|**binding_name** | The name of the binding event. |
-|**operation** | The binding operation name/identifier. |
+|Property | Description| Sent via |
+|---------|------------| -------- |
+|**arg_name** | Argument/variable name that should match with the parameter of the function. | The attribute itself or the `RequestBody`. |
+|**binding_name** | The name of the binding event. | The attribute itself or the `RequestBody`. |
+|**operation** | The binding operation name/identifier. | The attribute itself or the `RequestBody`. |
+| **data** | **Requested**. Todo. | The `RequestBody`. |
 
 # [Python v1](#tab/v1)
 
 The following table explains the binding configuration properties that you set in the function.json file.
 
-|function.json property | Description|
-|---------|----------------------|
-|**type** | Must be set to `daprBinding`. |
-|**direction** | Must be set to `out`. |
-|**bindingName** | The name of the binding. |
-|**operation** | The binding operation. |
-|**name** | The name of the variable that represents the Dapr data in function code. |
+|function.json property | Description| Sent via |
+|-----------------------|------------| -------- |
+|**type** | Must be set to `daprBinding`. | The attribute itself or the `RequestBody`. |
+|**direction** | Must be set to `out`. | The attribute itself or the `RequestBody`. |
+|**bindingName** | The name of the binding. | The attribute itself or the `RequestBody`. |
+|**operation** | The binding operation. | The attribute itself or the `RequestBody`. |
+|**name** | The name of the variable that represents the Dapr data in function code. | The attribute itself or the `RequestBody`. |
+| **data** | **Requested**. Todo. | The `RequestBody`. |
 
 ---
 

@@ -219,19 +219,19 @@ def main(subEvent) -> None:
 
 In the [in-process model](./functions-dotnet-class-library.md), use the `DaprTopicTrigger` to trigger a Dapr pub/sub binding, which supports the following properties.
 
-| Parameter | Description | 
-| --------- | ----------- | 
-| **PubSubName** | The name of the Dapr pub/sub. | 
-| **Topic** | The name of the Dapr topic. | 
+| Parameter | Description | Sent via | 
+| --------- | ----------- | -------- | 
+| **PubSubName** | The name of the Dapr pub/sub. | The attribute itself or the `RequestBody`. | 
+| **Topic** | The name of the Dapr topic. | The attribute itself or the `RequestBody`. |
 
 # [Isolated process](#tab/isolated-process)
 
 In the [isolated worker model](./dotnet-isolated-process-guide.md), use the `DaprTopicTrigger` to define a Dapr topic trigger, which supports these parameters:
 
-| Parameter | Description | 
-| --------- | ----------- | 
-| **PubSubName** | The name of the Dapr pub/sub. | 
-| **Topic** | The name of the Dapr topic. | 
+| Parameter | Description | Sent via | 
+| --------- | ----------- | -------- | 
+| **PubSubName** | The name of the Dapr pub/sub. | The attribute itself or the `RequestBody`. |
+| **Topic** | The name of the Dapr topic. | The attribute itself or the `RequestBody`. |
 
 ---
 
@@ -243,10 +243,10 @@ In the [isolated worker model](./dotnet-isolated-process-guide.md), use the `Dap
 
 The `DaprTopicTrigger` annotation allows you to create a function that runs when a topic is received. 
 
-| Element | Description | 
-| --------- | ----------- | 
-| **pubSubName** | The name of the Dapr pub/sub. | 
-| **topic** | The name of the Dapr topic. | 
+| Element | Description | Sent via | 
+| ------- | ----------- | -------- | 
+| **pubSubName** | The name of the Dapr pub/sub. | The attribute itself or the `RequestBody`. |
+| **topic** | The name of the Dapr topic. | The attribute itself or the `RequestBody`. |
 
 ::: zone-end
 
@@ -260,13 +260,13 @@ The `DaprTopicTrigger` annotation allows you to create a function that runs when
 
 The following table explains the binding configuration properties that you set in the _function.json_ file.
 
-|function.json property | Description|
-|---------|----------------------|
-|**type** | Must be set to `daprTopicTrigger`. |
-|**pubsubname** | The name of the Dapr pub/sub component type. |
-|**topic** | Name of the topic. |
-|**name** | The name of the variable that represents the Dapr data in function code. |
-|**direction** | Must be set to `in`.  |
+|function.json property | Description| Sent via |
+|-----------------------|------------| -------- |
+|**type** | Must be set to `daprTopicTrigger`. | The attribute itself or the `RequestBody`. |
+|**pubsubname** | The name of the Dapr pub/sub component type. | The attribute itself or the `RequestBody`. |
+|**topic** | Name of the topic. | The attribute itself or the `RequestBody`. |
+|**name** | The name of the variable that represents the Dapr data in function code. | The attribute itself or the `RequestBody`. |
+|**direction** | Must be set to `in`.  | The attribute itself or the `RequestBody`. |
 
 ::: zone-end
 
@@ -276,24 +276,24 @@ The following table explains the binding configuration properties that you set i
 
 The following table explains the binding configuration properties for `@dapp.dapr_topic_trigger` that you set in your Python code.
 
-|Property | Description|
-|---------|----------------------|
-|**arg_name** | Argument/variable name that should match with the parameter of the function. In the example, this value is set to `subEvent`. |
-|**pub_sub_name** | The name of the Dapr subscription component type. |
-|**topic** | The subscription topic. |
-|**route** | The subscription route. |
+|Property | Description | Sent via |
+|---------|-------------| -------- |
+|**arg_name** | Argument/variable name that should match with the parameter of the function. | The attribute itself or the `RequestBody`. |
+|**pub_sub_name** | The name of the Dapr subscription component type. | The attribute itself or the `RequestBody`. |
+|**topic** | The subscription topic. | The attribute itself or the `RequestBody`. |
+|**route** | The subscription route. | The attribute itself or the `RequestBody`. |
 
 # [Python v1](#tab/v1)
 
 The following table explains the binding configuration properties that you set in the _function.json_ file.
 
-|function.json property | Description|
-|---------|----------------------|
-|**type** | Must be set to `daprTopicTrigger`. |
-|**pubsubname** | The name of the Dapr subscription component type. |
-|**topic** | Name of the topic. |
-|**name** | The name of the variable that represents the Dapr data in function code. |
-|**direction** | Must be set to `in`.  |
+|function.json property | Description | Sent via |
+|-----------------------|-------------| -------- |
+|**type** | Must be set to `daprTopicTrigger`. | The attribute itself or the `RequestBody`. |
+|**pubsubname** | The name of the Dapr subscription component type. | The attribute itself or the `RequestBody`. |
+|**topic** | Name of the topic. | The attribute itself or the `RequestBody`. |
+|**name** | The name of the variable that represents the Dapr data in function code. | The attribute itself or the `RequestBody`. |
+|**direction** | Must be set to `in`.  | The attribute itself or the `RequestBody`. |
 
 ::: zone-end
 

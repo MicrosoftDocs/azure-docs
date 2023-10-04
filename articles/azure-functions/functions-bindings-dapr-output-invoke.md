@@ -244,22 +244,22 @@ def main(req: func.HttpRequest,
 
 In the [in-process model](./functions-dotnet-class-library.md), use the `DaprInvoke` attribute to define a Dapr invoke output binding, which supports these parameters:
 
-| Parameter | Description | 
-| --------- | ----------- | 
-| **AppId** | The Dapr app ID to invoke. |
-| **MethodName** | The method name of the app to invoke. |
-| **HttpVerb** | _Optional._ HTTP verb to use of the app to invoke. Default is `POST`. |
+| Parameter | Description | Sent via |
+| --------- | ----------- | -------- |
+| **AppId** | The Dapr app ID to invoke. | The attribute itself or the `RequestBody`. |
+| **MethodName** | The method name of the app to invoke. | The attribute itself or the `RequestBody`. |
+| **HttpVerb** | _Optional._ HTTP verb to use of the app to invoke. Default is `POST`. | The attribute itself or the `RequestBody`. |
 
 
 # [Isolated process](#tab/isolated-process)
 
 In the [isolated worker model](./dotnet-isolated-process-guide.md), use the `DaprInvokeOutput` attribute to define a Dapr invoke output binding, which supports these parameters:
 
-| Parameter | Description | 
-| --------- | ----------- | 
-| **AppId** | The Dapr app ID to invoke. |
-| **MethodName** | The method name of the app to invoke. |
-| **HttpVerb** | _Optional._ HTTP verb to use of the app to invoke. Default is `POST`. |
+| Parameter | Description | Sent via | 
+| --------- | ----------- | -------- | 
+| **AppId** | The Dapr app ID to invoke. | The attribute itself or the `RequestBody`. |
+| **MethodName** | The method name of the app to invoke. | The attribute itself or the `RequestBody`. |
+| **HttpVerb** | _Optional._ HTTP verb to use of the app to invoke. Default is `POST`. | The attribute itself or the `RequestBody`. |
 
 
 ---
@@ -272,11 +272,11 @@ In the [isolated worker model](./dotnet-isolated-process-guide.md), use the `Dap
 
 The `DaprInvokeOutput` annotation allows you to have your function invoke and listen to an output binding. 
 
-| Element | Description | 
-| --------- | ----------- | 
-| **appId** | The app ID of the application involved in the invoke binding. | 
-| **methodName** | The name of the method variable. | 
-| **httpVerb** | Post or get. | 
+| Element | Description | Sent via | 
+| ------- | ----------- | -------- | 
+| **appId** | The app ID of the application involved in the invoke binding. |  The attribute itself or the `RequestBody`. |
+| **methodName** | The name of the method variable. |  The attribute itself or the `RequestBody`. |
+| **httpVerb** | Post or get. |  The attribute itself or the `RequestBody`. |
 
 ::: zone-end
 
@@ -289,14 +289,14 @@ The `DaprInvokeOutput` annotation allows you to have your function invoke and li
 ::: zone pivot="programming-language-javascript, programming-language-powershell"
 The following table explains the binding configuration properties that you set in the function.json file.
 
-|function.json property | Description|
-|---------|----------------------|
-|**type** | Must be set to `daprInvoke`. |
-|**direction** | Must be set to `out`. |
-|**appId** | The app ID of the application involved in the invoke binding. |
-|**methodName** | The name of the method variable. |
-|**httpVerb** | Post or get. |
-|**name** | The name of the variable that represents the Dapr data in function code. |
+|function.json property | Description| Sent via |
+|-----------------------|------------| -------- |
+|**type** | Must be set to `daprInvoke`. | The attribute itself or the `RequestBody`. |
+|**direction** | Must be set to `out`. | The attribute itself or the `RequestBody`. |
+|**appId** | The app ID of the application involved in the invoke binding. | The attribute itself or the `RequestBody`. |
+|**methodName** | The name of the method variable. | The attribute itself or the `RequestBody`. |
+|**httpVerb** | Post or get. | The attribute itself or the `RequestBody`. |
+|**name** | The name of the variable that represents the Dapr data in function code. | The attribute itself or the `RequestBody`. |
 
 ::: zone-end
 
@@ -306,25 +306,25 @@ The following table explains the binding configuration properties that you set i
 
 The following table explains the binding configuration properties for `@dapp.dapr_invoke_output` that you set in your Python code.
 
-|Property | Description|
-|---------|----------------------|
-|**arg_name** | Argument/variable name that should match with the parameter of the function. In the example, this value is set to `payload`. |
-|**app_id** | The app ID of the application involved in the invoke binding. |
-|**method_name** | The name of the method variable. |
-|**http_verb** | Set to `post` or `get`. |
+|Property | Description| Sent via |
+|---------|------------| -------- |
+|**arg_name** | Argument/variable name that should match with the parameter of the function. |  The attribute itself or the `RequestBody`. |
+|**app_id** | The app ID of the application involved in the invoke binding. | The attribute itself or the `RequestBody`. |
+|**method_name** | The name of the method variable. | The attribute itself or the `RequestBody`. |
+|**http_verb** | Set to `post` or `get`. | The attribute itself or the `RequestBody`. |
 
 # [Python v1](#tab/v1)
 
 The following table explains the binding configuration properties that you set in the function.json file.
 
-|function.json property | Description|
-|---------|----------------------|
-|**type** | Must be set to `daprInvoke`. |
-|**direction** | Must be set to `out`. |
-|**appId** | The app ID of the application involved in the invoke binding. |
-|**methodName** | The name of the method variable. |
-|**httpVerb** | Post or get. |
-|**name** | The name of the variable that represents the Dapr data in function code. |
+|function.json property | Description| Sent via |
+|-----------------------|------------| -------- |
+|**type** | Must be set to `daprInvoke`. | The attribute itself or the `RequestBody`. |
+|**direction** | Must be set to `out`. | The attribute itself or the `RequestBody`. |
+|**appId** | The app ID of the application involved in the invoke binding. | The attribute itself or the `RequestBody`. |
+|**methodName** | The name of the method variable. | The attribute itself or the `RequestBody`. |
+|**httpVerb** | Post or get. | The attribute itself or the `RequestBody`. |
+|**name** | The name of the variable that represents the Dapr data in function code. | The attribute itself or the `RequestBody`. |
 
 ---
 

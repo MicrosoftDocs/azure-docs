@@ -243,19 +243,21 @@ def main(payload,
 
 In the [in-process model](./functions-dotnet-class-library.md), use the `DaprState` to define a Dapr state output binding, which supports these parameters:
 
-| Parameter | Description | 
-| --------- | ----------- | 
-| **StateStore** | The name of the state store to save state. | 
-| **Key** | The name of the key to save state within the state store. | 
+| Parameter | Description | Sent via |
+| --------- | ----------- | -------- |
+| **StateStore** | The name of the state store to save state. | The attribute itself or the `RequestBody`. |
+| **Key** | The name of the key to save state within the state store. | The attribute itself or the `RequestBody`. |
+| **Value** | **Required** Todo. | The `RequestBody`. |
 
 # [Isolated process](#tab/isolated-process)
 
 In the [isolated worker model](./dotnet-isolated-process-guide.md), use the `DaprStateOutput` to define a Dapr state output binding, which supports these parameters:
 
-| Parameter | Description | 
-| --------- | ----------- | 
-| **StateStore** | The name of the state store to save state. | 
+| Parameter | Description |  Sent via |
+| --------- | ----------- |  -------- |
+| **StateStore** | The name of the state store to save state. | The attribute itself or the `RequestBody`. |
 | **Key** | The name of the key to save state within the state store. | 
+| **Value** | **Required** Todo. | The `RequestBody`. |
 
 ::: zone-end
 
@@ -265,10 +267,11 @@ In the [isolated worker model](./dotnet-isolated-process-guide.md), use the `Dap
 
 The `DaprStateOutput` annotation allows you to function access a state store. 
 
-| Element | Description | 
-| --------- | ----------- | 
-| **stateStore** | The name of the state store to save state. | 
-| **key** | The name of the key to save state within the state store. | 
+| Element | Description | Sent via |
+| ------- | ----------- | -------- |
+| **stateStore** | The name of the state store to save state. | The attribute itself or the `RequestBody`. |
+| **key** | The name of the key to save state within the state store. | The attribute itself or the `RequestBody`. |
+| **value** | **Required** Todo. | The `RequestBody`. |
 
 ::: zone-end
 
@@ -282,13 +285,14 @@ The `DaprStateOutput` annotation allows you to function access a state store.
 
 The following table explains the binding configuration properties that you set in the _function.json_ file.
 
-|function.json property | Description|
-|---------|----------------------|
-|**type** | Must be set to `daprState`. |
-|**direction** | Must be set to `out`. |
-|**name** | The name of the variable that represents the Dapr data in function code. |
-|**stateStore** | The name of the state store. |
-|**key** | The name of the key to save state within the state store. |
+|function.json property | Description| Sent via |
+|-----------------------|------------| -------- |
+|**type** | Must be set to `daprState`. | The attribute itself or the `RequestBody`. |
+|**direction** | Must be set to `out`. | The attribute itself or the `RequestBody`. |
+|**name** | The name of the variable that represents the Dapr data in function code. | The attribute itself or the `RequestBody`. |
+|**stateStore** | The name of the state store. | The attribute itself or the `RequestBody`. |
+|**key** | The name of the key to save state within the state store. | The attribute itself or the `RequestBody`. |
+| **value** | **Required** Todo. | The `RequestBody`. |
 
 ::: zone-end
 
@@ -298,23 +302,25 @@ The following table explains the binding configuration properties that you set i
 
 The following table explains the binding configuration properties for `@dapp.dapr_state_output` that you set in your Python code.
 
-|Property | Description|
-|---------|----------------------|
-|**arg_name** | Argument/variable name that should match with the parameter of the function. In the example, this value is set to `state`. |
-|**state_store** | The name of the state store. |
-|**key** | The name of the key to save state within the state store. |
+|Property | Description| Sent via |
+|---------|------------| -------- |
+|**arg_name** | Argument/variable name that should match with the parameter of the function. In the example, this value is set to `state`. | The attribute itself or the `RequestBody`. |
+|**state_store** | The name of the state store. | The attribute itself or the `RequestBody`. |
+|**key** | The name of the key to save state within the state store. | The attribute itself or the `RequestBody`. |
+| **value** | **Required** Todo. | The `RequestBody`. |
 
 # [Python v1](#tab/v1)
 
 The following table explains the binding configuration properties that you set in the _function.json_ file.
 
-|function.json property | Description|
-|---------|----------------------|
-|**type** | Must be set to `daprState`. |
-|**direction** | Must be set to `out`. |
-|**name** | The name of the variable that represents the Dapr data in function code. |
-|**stateStore** | The name of the state store. |
-|**key** | The name of the key to save state within the state store. |
+|function.json property | Description| Sent via |
+|-----------------------|------------| -------- |
+|**type** | Must be set to `daprState`. | The attribute itself or the `RequestBody`. |
+|**direction** | Must be set to `out`. | The attribute itself or the `RequestBody`. |
+|**name** | The name of the variable that represents the Dapr data in function code. | The attribute itself or the `RequestBody`. |
+|**stateStore** | The name of the state store. | The attribute itself or the `RequestBody`. |
+|**key** | The name of the key to save state within the state store. | The attribute itself or the `RequestBody`. |
+| **value** | **Required** Todo. | The `RequestBody`. |
 
 ---
 
