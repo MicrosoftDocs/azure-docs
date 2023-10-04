@@ -60,7 +60,7 @@ items:
     - name: Playwright documentation
       href: https://playwright.dev
     - name: Pricing
-      href: https://azure.microsoft.com/pricing/details/playwright-testing/
+      href: https://aka.ms/mpt/pricing
     - name: Regional availability
       href: https://azure.microsoft.com/regions/services/
     - name: Service limits

@@ -34,7 +34,7 @@ The following table lists the limits for the Microsoft Playwright Testing free t
 
 ³ If you delete the free trial workspace, you can't create a new free trial workspace anymore.
 
-If you exceed any of these limits, the workspace is automatically converted to the pay-as-you-go billing model. Learn more about the [Microsoft Playwright Testing pricing](https://azure.microsoft.com/pricing/details/playwright-testing/).
+If you exceed any of these limits, the workspace is automatically converted to the pay-as-you-go billing model. Learn more about the [Microsoft Playwright Testing pricing](https://aka.ms/mpt/pricing).
 
 ## Create a workspace
 
