@@ -12382,7 +12382,12 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/cloud-infrastructure-entitlement-management/permissions-management-trial-playbook.md",
-      "redirect_url": "/azure/active-directory/cloud-infrastructure-entitlement-management/permissions-management-trial-user-guide",
+      "redirect_url": "/azure/active-directory/cloud-infrastructure-entitlement-management/permissions-management-quickstart-guide",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/cloud-infrastructure-entitlement-management/permissions-management-trial-user-guide.md",
+      "redirect_url": "/azure/active-directory/cloud-infrastructure-entitlement-management/permissions-management-quickstart-guide",
       "redirect_document_id": false
     },
     {
