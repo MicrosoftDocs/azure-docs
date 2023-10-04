@@ -61,7 +61,7 @@ AutoUpdate.Enabled=y
 - To enable it, run:
 
 ```bash
-sudo sed -i 's/# AutoUpdate.Enabled=y/AutoUpdate.Enabled=y/g' /etc/waagent.conf
+perl -pi -e 's/^AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/' /etc/waagent.conf
 ```
 
 5. Restart the waagent service
@@ -113,7 +113,7 @@ AutoUpdate.Enabled=y
 - To enable it, run:
 
 ```bash
-sudo sed -i 's/\# AutoUpdate.Enabled=y/AutoUpdate.Enabled=y/g' /etc/waagent.conf
+perl -pi -e 's/^AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/' /etc/waagent.conf
 ```
 
 5. Restart the waagent service
@@ -161,7 +161,7 @@ AutoUpdate.Enabled=y
 - To enable it, run:
 
 ```bash
-sudo sed -i 's/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
+perl -pi -e 's/^AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/' /etc/waagent.conf
 ```
 
 5. Restart the waagent service
@@ -213,7 +213,7 @@ AutoUpdate.Enabled=y
 - To enable it, run:
 
 ```bash
-sudo sed -i 's/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
+perl -pi -e 's/^AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/' /etc/waagent.conf
 ```
 
 5. Restart the waagent service:
@@ -336,7 +336,7 @@ AutoUpdate.Enabled=y
 - To enable it, run:
 
 ```bash
-sudo sed -i 's/\# AutoUpdate.Enabled=y/AutoUpdate.Enabled=y/g' /etc/waagent.conf
+perl -pi -e 's/^AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/' /etc/waagent.conf
 ```
 
 4. Restart the waagent service:
@@ -411,7 +411,7 @@ AutoUpdate.Enabled=y
 4. To enable it, run:
 
 ```bash
-sudo sed -i 's/# AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
+perl -pi -e 's/^AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/' /etc/waagent.conf
 ```
 
 ### 3. Restart the waagent service
