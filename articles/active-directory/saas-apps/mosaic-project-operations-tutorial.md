@@ -94,7 +94,7 @@ Follow these steps to enable Microsoft Entra SSO in the Microsoft Entra admin ce
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
-	![Screenshot shows the Certificate download link](common/certificatebase64.png "Certificate")
+	![Screenshot shows the Certificate download link.](common/certificatebase64.png "Certificate")
 
 1. On the **Set up Mosaic Project Operations** section, copy the appropriate URL(s) based on your requirement.
 
