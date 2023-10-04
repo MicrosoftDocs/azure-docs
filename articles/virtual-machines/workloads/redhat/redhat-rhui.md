@@ -192,7 +192,7 @@ Run the following as root:
 
 RHUI is available in all regions where RHEL on-demand images are available. Availability currently includes all public regions listed in the [Azure status dashboard](https://azure.microsoft.com/status/), Azure US Government, and Microsoft Azure Germany regions.
 
-If you're using a network configuration to further restrict access from RHEL PAYG VMs, make sure the following IPs are allowed for `yum update` to work depending on your environment:
+If you're using a network configuration `(custom Firewall or UDR configurations)` to further restrict https access from RHEL PAYG VMs, make sure the following IPs are allowed for `yum update` to work depending on your environment:
 
 ```output
 # Azure Global
@@ -203,19 +203,13 @@ RHUI 3
 52.174.163.213
 52.237.203.198
 
+# For RHUI 4 connections, You are required to allow all IPs in your firewall/UDR configuration as updates are delivered from the nearest healthy region.
 RHUI 4
 westeurope - 52.136.197.163
 southcentralus - 20.225.226.182
 eastus - 52.142.4.99
 australiaeast - 20.248.180.252
 southeastasia - 20.24.186.80
-
-# Azure US Government.
-# To be deprecated after 10th April 2023.
-# For RHUI 4 connections, use public RHUI IPs as provided above.
-13.72.186.193
-13.72.14.155
-52.244.249.194
 
 ```
 
