@@ -22,13 +22,13 @@ An [Azure Database for PostgreSQL server](quickstart-create-server-portal.md) to
 
  1. Browse to the PostgreSQL [Create Server REST API Page](/rest/api/postgresql/flexibleserver/servers/create) and select the **Try It** tab highlighted in green. Sign in with your Azure account.
 
-2. Provide the **resourceGroupName**(Target Resource group name), **serverName** (Target server name), **subscriptionId** (Target subscription) properties. Please use the latest api-version which is available. For this example we are using 2023-06-01-preview
+2. Provide the **resourceGroupName**(Target Resource group name), **serverName** (Target server name), **subscriptionId** (Target subscription) properties. Please use the latest api-version, that is available. For this example we're using 2023-06-01-preview.
 
     ![Screenshot showing the REST API Try It page.](./media/how-to-restore-server-portal/geo-restore-different-subscription-or-resource-group-api.png)
 
 
 
-3. Go to **Request Body** section and paste the following replacing the "location" (e.g. CentralUS, EastUS etc.), "pointInTimeUTC", and SourceServerResourceID , For "pointInTimeUTC", specify a timestamp value  to which you want to restore. Finally, you can use createMode as **PointInTimeRestore** for performing regular restore and **GeoRestore** for restoring geo-redundant backups.
+3. Go to **Request Body** section and paste the following replacing the "location" (e.g. CentralUS, EastUS etc.), "pointInTimeUTC", and ))"SourceServerResourceID", For "pointInTimeUTC", specify a timestamp value  to which you want to restore. Finally, you can use createMode as **PointInTimeRestore** for performing regular restore and **GeoRestore** for restoring geo-redundant backups.
 
     ```json
    {
@@ -66,7 +66,7 @@ An [Azure Database for PostgreSQL server](quickstart-create-server-portal.md) to
 ## Commom Errors
 
 1. If you utilize the incorrect API version, you may experience restore failures or timeouts. Please use 2023-06-01-preview API to avoid such issues.
-2. To avoid potential DNS errors, it is recommended to use a different name when initiating the restore process, as some restore operations may fail with the same name.
+2. To avoid potential DNS errors, it's recommended to use a different name when initiating the restore process, as some restore operations may fail with the same name.
 
 ## Next steps
 
