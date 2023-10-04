@@ -103,7 +103,7 @@ To pass inline parameters, provide the values in `parameters`. For example, to p
 az deployment group create \
   --resource-group testgroup \
   --template-file <path-to-bicep> \
-  --parameters exampleString='inline string' exampleArray='("value1", "value2")'
+  --parameters exampleString='inline string' exampleArray='["value1", "value2"]'
 ```
 
 If you're using Azure CLI with Windows Command Prompt (CMD) or PowerShell, pass the array in the format: `exampleArray="['value1','value2']"`.
