@@ -281,6 +281,50 @@ With hybrid speech configuration for [text to speech](text-to-speech.md) (voices
 
 For cloud speech, you use the `SpeechConfig` object, as shown in the [speech to text quickstart](get-started-speech-to-text.md) and [text to speech quickstart](get-started-text-to-speech.md). To run the quickstarts for embedded speech, you can replace `SpeechConfig` with `EmbeddedSpeechConfig` or `HybridSpeechConfig`. Most of the other speech recognition and synthesis code are the same, whether using cloud, embedded, or hybrid configuration.
 
+## Embedded voices capabilities
+
+For embedded voices, it is essential to note that certain SSML tags may not be currently supported due to differences in the model structure. For detailed information regarding the unsupported SSML tags, please refer to the table below.
+
+| Level 1            | Level 2        | Sub values                                           | Support in embedded NTTS |
+|-----------------|-----------|-------------------------------------------------------|--------------------------|
+| audio           | src       |                                                       | No                       |
+| bookmark        |           |                                                       | Yes                      |
+| break           | strength  |                                                       | No                       |
+|                 | time      |                                                       | No                       |
+| silence         | type      | Leading, Tailing, Comma-exact, etc.                   | No                       |
+|                 | value     |                                                       | No                       |
+| emphasis        | level     |                                                       | No                       |
+| lang            |           |                                                       | No                       |
+| lexicon         | uri       |                                                       | Yes                      |
+| math            |           |                                                       | No                       |
+| msttsaudioduration | value   |                                                       | No                       |
+| msttsbackgroundaudio | src    |                                                       | No                       |
+|                 | volume    |                                                       | No                       |
+|                 | fadein    |                                                       | No                       |
+|                 | fadeout   |                                                       | No                       |
+| msttsexpress-as | style     |                                                       | No                       |
+|                 | styledegree |                                                     | No                       |
+|                 | role      |                                                       | No                       |
+| msttssilence    |           |                                                       | No                       |
+| msttsviseme     | type      | redlips_front, FacialExpression                       | No                       |
+| p               |           |                                                       | Yes                      |
+| phoneme         | alphabet  | ipa, sapi, ups, etc.                                  | Yes                      |
+|                 | ph        |                                                       | Yes                      |
+| prosody         | contour   | Sentences level support, word level only en-US and zh-CN | Yes                      |
+|                 | pitch     |                                                       | Yes                      |
+|                 | range     |                                                       | Yes                      |
+|                 | rate      |                                                       | Yes                      |
+|                 | volume    |                                                       | Yes                      |
+| s               |           |                                                       | Yes                      |
+| say-as          | interpret-as | characters, spell-out, number_digit, date, etc.     | Yes                      |
+|                 | format    |                                                       | Yes                      |
+|                 | detail    |                                                       | Yes                      |
+| sub             | alias     |                                                       | Yes                      |
+| speak           |           |                                                       | Yes                      |
+| voice           |           |                                                       | No                       |
+
+
+
 
 ## Next steps
 
