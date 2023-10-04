@@ -8,7 +8,7 @@ ms.date: 10/04/2023
 
 # Manage SSH for secure access to Azure Kubernetes Service (AKS) nodes
 
-This article describes how to enable and disable SSH on your AKS clusters or node pools, and how to update the SSH key on your AKS cluster.
+This article describes how to disable SSH and update the SSH key on your AKS clusters or node pools.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
