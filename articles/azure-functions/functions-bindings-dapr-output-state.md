@@ -243,22 +243,21 @@ def main(payload,
 
 In the [in-process model](./functions-dotnet-class-library.md), use the `DaprState` to define a Dapr state output binding, which supports these parameters:
 
-| Parameter | Description | Sent via |
-| --------- | ----------- | -------- |
-| **StateStore** | The name of the state store to save state. | The attribute itself or the `RequestBody`. |
-| **Key** | The name of the key to save state within the state store. | The attribute itself or the `RequestBody`. |
-| **Value** | **Required** Todo. | The `RequestBody`. |
+| Parameter | Description | Can be sent via Attribute | Can be sent via RequestBody |
+| --------- | ----------- |  :---------------------:  |  :-----------------------:  |
+| **StateStore** | The name of the state store to save state. | :heavy_check_mark: | :x: |
+| **Key** | The name of the key to save state within the state store. | :heavy_check_mark: | :heavy_check_mark: | 
+| **Value** | _Required._ Todo. | :x: | :heavy_check_mark: |
 
 # [Isolated process](#tab/isolated-process)
 
 In the [isolated worker model](./dotnet-isolated-process-guide.md), use the `DaprStateOutput` to define a Dapr state output binding, which supports these parameters:
 
-| Parameter | Description |  Sent via |
-| --------- | ----------- |  -------- |
-| **StateStore** | The name of the state store to save state. | The attribute itself or the `RequestBody`. |
-| **Key** | The name of the key to save state within the state store. | 
-| **Value** | **Required** Todo. | The `RequestBody`. |
-
+| Parameter | Description | Can be sent via Attribute | Can be sent via RequestBody |
+| --------- | ----------- |  :---------------------:  |  :-----------------------:  |
+| **StateStore** | The name of the state store to save state. | :heavy_check_mark: | :x: |
+| **Key** | The name of the key to save state within the state store. | :heavy_check_mark: | :heavy_check_mark: | 
+| **Value** | _Required._ Todo. | :x: | :heavy_check_mark: |
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
@@ -267,11 +266,11 @@ In the [isolated worker model](./dotnet-isolated-process-guide.md), use the `Dap
 
 The `DaprStateOutput` annotation allows you to function access a state store. 
 
-| Element | Description | Sent via |
-| ------- | ----------- | -------- |
-| **stateStore** | The name of the state store to save state. | The attribute itself or the `RequestBody`. |
-| **key** | The name of the key to save state within the state store. | The attribute itself or the `RequestBody`. |
-| **value** | **Required** Todo. | The `RequestBody`. |
+| Element | Description | Can be sent via Attribute | Can be sent via RequestBody |
+| ------- | ----------- |  :---------------------:  |  :-----------------------:  |
+| **stateStore** | The name of the state store to save state. | :heavy_check_mark: | :x: |
+| **key** | The name of the key to save state within the state store. | :heavy_check_mark: | :heavy_check_mark: |
+| **value** | _Required._ Todo. | :x: | :heavy_check_mark: |
 
 ::: zone-end
 
@@ -285,14 +284,11 @@ The `DaprStateOutput` annotation allows you to function access a state store.
 
 The following table explains the binding configuration properties that you set in the _function.json_ file.
 
-|function.json property | Description| Sent via |
-|-----------------------|------------| -------- |
-|**type** | Must be set to `daprState`. | The attribute itself or the `RequestBody`. |
-|**direction** | Must be set to `out`. | The attribute itself or the `RequestBody`. |
-|**name** | The name of the variable that represents the Dapr data in function code. | The attribute itself or the `RequestBody`. |
-|**stateStore** | The name of the state store. | The attribute itself or the `RequestBody`. |
-|**key** | The name of the key to save state within the state store. | The attribute itself or the `RequestBody`. |
-| **value** | **Required** Todo. | The `RequestBody`. |
+|function.json property | Description| Can be sent via Attribute | Can be sent via RequestBody |
+|-----------------------|------------|  :---------------------:  |  :-----------------------:  |
+| **stateStore** | The name of the state store to save state. | :heavy_check_mark: | :x: |
+| **key** | The name of the key to save state within the state store. | :heavy_check_mark: | :heavy_check_mark: |
+| **value** | _Required._ Todo. | :x: | :heavy_check_mark: |
 
 ::: zone-end
 
@@ -302,25 +298,21 @@ The following table explains the binding configuration properties that you set i
 
 The following table explains the binding configuration properties for `@dapp.dapr_state_output` that you set in your Python code.
 
-|Property | Description| Sent via |
-|---------|------------| -------- |
-|**arg_name** | Argument/variable name that should match with the parameter of the function. In the example, this value is set to `state`. | The attribute itself or the `RequestBody`. |
-|**state_store** | The name of the state store. | The attribute itself or the `RequestBody`. |
-|**key** | The name of the key to save state within the state store. | The attribute itself or the `RequestBody`. |
-| **value** | **Required** Todo. | The `RequestBody`. |
+|Property | Description| Can be sent via Attribute | Can be sent via RequestBody |
+|---------|------------|  :---------------------:  |  :-----------------------:  |
+| **stateStore** | The name of the state store to save state. | :heavy_check_mark: | :x: |
+| **key** | The name of the key to save state within the state store. | :heavy_check_mark: | :heavy_check_mark: |
+| **value** | _Required._ Todo. | :x: | :heavy_check_mark: |
 
 # [Python v1](#tab/v1)
 
 The following table explains the binding configuration properties that you set in the _function.json_ file.
 
-|function.json property | Description| Sent via |
-|-----------------------|------------| -------- |
-|**type** | Must be set to `daprState`. | The attribute itself or the `RequestBody`. |
-|**direction** | Must be set to `out`. | The attribute itself or the `RequestBody`. |
-|**name** | The name of the variable that represents the Dapr data in function code. | The attribute itself or the `RequestBody`. |
-|**stateStore** | The name of the state store. | The attribute itself or the `RequestBody`. |
-|**key** | The name of the key to save state within the state store. | The attribute itself or the `RequestBody`. |
-| **value** | **Required** Todo. | The `RequestBody`. |
+|function.json property | Description| Can be sent via Attribute | Can be sent via RequestBody |
+|-----------------------|------------|  :---------------------:  |  :-----------------------:  |
+| **stateStore** | The name of the state store to save state. | :heavy_check_mark: | :x: |
+| **key** | The name of the key to save state within the state store. | :heavy_check_mark: | :heavy_check_mark: |
+| **value** | _Required._ Todo. | :x: | :heavy_check_mark: |
 
 ---
 

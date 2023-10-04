@@ -245,7 +245,7 @@ def main(req: func.HttpRequest,
 In the [in-process model](./functions-dotnet-class-library.md), use the `DaprInvoke` attribute to define a Dapr invoke output binding, which supports these parameters:
 
 | Parameter | Description | Can be sent via Attribute | Can be sent via RequestBody |
-| --------- | ----------- | ------------------------- | --------------------------- |
+| --------- | ----------- |  :---------------------:  |  :-----------------------:  |
 | **AppId** | The Dapr app ID to invoke. | :heavy_check_mark: | :heavy_check_mark: |
 | **MethodName** | The method name of the app to invoke. | :heavy_check_mark: | :heavy_check_mark: |
 | **HttpVerb** | _Optional._ HTTP verb to use of the app to invoke. Default is `POST`. | :heavy_check_mark: | :heavy_check_mark: |
@@ -257,7 +257,7 @@ In the [in-process model](./functions-dotnet-class-library.md), use the `DaprInv
 In the [isolated worker model](./dotnet-isolated-process-guide.md), use the `DaprInvokeOutput` attribute to define a Dapr invoke output binding, which supports these parameters:
 
 | Parameter | Description | Can be sent via Attribute | Can be sent via RequestBody | 
-| --------- | ----------- | ------------------------- | --------------------------- | 
+| --------- | ----------- |  :---------------------:  |  :-----------------------:  | 
 | **AppId** | The Dapr app ID to invoke. | :heavy_check_mark: | :heavy_check_mark: |
 | **MethodName** | The method name of the app to invoke. | :heavy_check_mark: | :heavy_check_mark: |
 | **HttpVerb** | _Optional._ HTTP verb to use of the app to invoke. Default is `POST`. | :heavy_check_mark: | :heavy_check_mark: |
@@ -274,7 +274,7 @@ In the [isolated worker model](./dotnet-isolated-process-guide.md), use the `Dap
 The `DaprInvokeOutput` annotation allows you to have your function invoke and listen to an output binding. 
 
 | Element | Description | Can be sent via Attribute | Can be sent via RequestBody | 
-| ------- | ----------- | ------------------------- | --------------------------- | 
+| ------- | ----------- |  :---------------------:  |  :-----------------------:  | 
 | **appId** | The app ID of the application involved in the invoke binding. | :heavy_check_mark: | :heavy_check_mark: |
 | **methodName** | The name of the method variable. | :heavy_check_mark: | :heavy_check_mark: |
 | **httpVerb** | Post or get. | :heavy_check_mark: | :heavy_check_mark: |
@@ -292,13 +292,10 @@ The `DaprInvokeOutput` annotation allows you to have your function invoke and li
 The following table explains the binding configuration properties that you set in the function.json file.
 
 |function.json property | Description| Can be sent via Attribute | Can be sent via RequestBody |
-|-----------------------|------------| ------------------------- | --------------------------- |
-|**type** | Must be set to `daprInvoke`. | :heavy_check_mark: | :heavy_check_mark: |
-|**direction** | Must be set to `out`. | :heavy_check_mark: | :heavy_check_mark: |
+|-----------------------|------------|  :---------------------:  |  :-----------------------:  |
 |**appId** | The app ID of the application involved in the invoke binding. | :heavy_check_mark: | :heavy_check_mark: |
 |**methodName** | The name of the method variable. | :heavy_check_mark: | :heavy_check_mark: |
 |**httpVerb** | Post or get. | :heavy_check_mark: | :heavy_check_mark: |
-|**name** | The name of the variable that represents the Dapr data in function code. | :heavy_check_mark: | :heavy_check_mark: |
 | **body** | _Required._ The body of the request. | :x: | :heavy_check_mark: |
 
 ::: zone-end
@@ -310,8 +307,7 @@ The following table explains the binding configuration properties that you set i
 The following table explains the binding configuration properties for `@dapp.dapr_invoke_output` that you set in your Python code.
 
 |Property | Description| Can be sent via Attribute | Can be sent via RequestBody |
-|---------|------------| ------------------------- | --------------------------- |
-|**arg_name** | Argument/variable name that should match with the parameter of the function. | :heavy_check_mark: | :heavy_check_mark: |
+|---------|------------|  :---------------------:  |  :-----------------------:  |
 |**app_id** | The app ID of the application involved in the invoke binding. | :heavy_check_mark: | :heavy_check_mark: |
 |**method_name** | The name of the method variable. | :heavy_check_mark: | :heavy_check_mark: |
 |**http_verb** | Set to `post` or `get`. | :heavy_check_mark: | :heavy_check_mark: |
@@ -322,13 +318,10 @@ The following table explains the binding configuration properties for `@dapp.dap
 The following table explains the binding configuration properties that you set in the function.json file.
 
 |function.json property | Description| Can be sent via Attribute | Can be sent via RequestBody |
-|-----------------------|------------| ------------------------- | --------------------------- |
-|**type** | Must be set to `daprInvoke`. | :heavy_check_mark: | :heavy_check_mark: |
-|**direction** | Must be set to `out`. | :heavy_check_mark: | :heavy_check_mark: |
+|-----------------------|------------|  :---------------------:  |  :-----------------------:  |
 |**appId** | The app ID of the application involved in the invoke binding. | :heavy_check_mark: | :heavy_check_mark: |
 |**methodName** | The name of the method variable. | :heavy_check_mark: | :heavy_check_mark: |
 |**httpVerb** | Post or get. | :heavy_check_mark: | :heavy_check_mark: |
-|**name** | The name of the variable that represents the Dapr data in function code. | :heavy_check_mark: | :heavy_check_mark: |
 | **body** | _Required._ The body of the request. | :x: | :heavy_check_mark: |
 
 ---

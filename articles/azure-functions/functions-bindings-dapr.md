@@ -82,6 +82,50 @@ You can add the preview extension by adding or replacing the following code in y
 
 ::: zone-end
 
+## Dapr enablement
+
+You can configure Dapr using various [arguments and annotations][dapr-args] based on the runtime context. You can configure Dapr for Azure Functions through two channels:
+
+- Infrastructure as Code (IaC) templates, as in Bicep or Azure Resource Manager (ARM) templates
+- The Azure portal
+
+When using an IaC template, specify the following arguments in the `properties` section of the container app resource definition.
+
+# [Bicep](#tab/bicep1)
+
+```bicep
+DaprConfig: {
+  enabled: true
+  appId: '${envResourceNamePrefix}-funcapp'
+  appPort: 3001
+  httpReadBufferSize: ''
+  httpMaxRequestSize: ''
+  logLevel: ''
+  enableApiLogging: true
+}
+```
+
+# [ARM](#tab/arm1)
+
+```json
+"DaprConfig": {
+  "enabled": true,
+  "appId": "${envResourceNamePrefix}-funcapp",
+  "appPort": 3001,
+  "httpReadBufferSize": "",
+  "httpMaxRequestSize": "",
+  "logLevel": "",
+  "enableApiLogging": true
+}
+```
+---
+
+The above Dapr configuration values are considered application-scope changes. When you run a container app in multiple-revision mode, changes to these settings won't create a new revision. Instead, all existing revisions are restarted to ensure they're configured with the most up-to-date values.
+
+When configuring Dapr using the Azure portal, navigate to your function app and select **Dapr** from the left-side menu:
+
+:::image type="content" source="media/functions-bindings-dapr/dapr-enablement-portal.png" alt-text="Screenshot demonstrating where to find Dapr enablement for a Function App in the Azure Portal." :::
+
 ::: zone pivot="programming-language-csharp"
 
 ## Binding types

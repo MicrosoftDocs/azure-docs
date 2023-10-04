@@ -216,22 +216,24 @@ def main(args, messages: func.Out[bytes]) -> None:
 
 In the [in-process model](./functions-dotnet-class-library.md), use the `DaprBinding` to define a Dapr binding output binding, which supports these parameters:
 
-| Parameter | Description | Sent via | 
-| --------- | ----------- | -------- | 
-| **BindingName** | The name of the Dapr binding. |  The attribute itself or the `RequestBody`. |
-| **Operation** | The configured binding operation. |  The attribute itself or the `RequestBody`. |
-| **Data** | **Requested**. Todo. | The `RequestBody`. |
+| Parameter | Description | Can be sent via Attribute | Can be sent via RequestBody |
+| --------- | ----------- |  :---------------------:  |  :-----------------------:  |
+| **BindingName** | The name of the Dapr binding. | :heavy_check_mark: | :heavy_check_mark: |
+| **Operation** | The configured binding operation. | :heavy_check_mark: | :heavy_check_mark: |
+| **Metadata** | _Requested._ Todo. |  :x: | :heavy_check_mark: |
+| **Data** | _Requested._ Todo. |  :x: | :heavy_check_mark: |
 
 
 # [Isolated process](#tab/isolated-process)
 
 In the [isolated worker model](./dotnet-isolated-process-guide.md), use the `DaprBindingOutput` to define a Dapr binding output binding, which supports these parameters:
 
-| Parameter | Description | Sent via | 
-| --------- | ----------- | -------- | 
-| **BindingName** | The name of the Dapr binding. |  The attribute itself or the `RequestBody`. |
-| **Operation** | The configured binding operation. |  The attribute itself or the `RequestBody`. |
-| **Data** | **Requested**. Todo. | The `RequestBody`. |
+| Parameter | Description | Can be sent via Attribute | Can be sent via RequestBody |
+| --------- | ----------- |  :---------------------:  |  :-----------------------:  |
+| **BindingName** | The name of the Dapr binding. | :heavy_check_mark: | :heavy_check_mark: |
+| **Operation** | The configured binding operation. | :heavy_check_mark: | :heavy_check_mark: |
+| **Metadata** | _Requested._ Todo. |  :x: | :heavy_check_mark: |
+| **Data** | _Requested._ Todo. |  :x: | :heavy_check_mark: |
 
 ---
 
@@ -243,11 +245,12 @@ In the [isolated worker model](./dotnet-isolated-process-guide.md), use the `Dap
 
 The `DaprBindingOutput` annotation allows you to create a function that sends an output binding. 
 
-| Element | Description | Sent via | 
-| ------- | ----------- | -------- | 
-| **bindingName** | The name of the Dapr binding. |  The attribute itself or the `RequestBody`. |
-| **output** | The configured binding operation. |  The attribute itself or the `RequestBody`. |
-| **data** | **Requested**. Todo. | The `RequestBody`. |
+| Element | Description | Can be sent via Attribute | Can be sent via RequestBody |
+| ------- | ----------- |  :---------------------:  |  :-----------------------:  |
+| **bindingName** | The name of the Dapr binding. | :heavy_check_mark: | :heavy_check_mark: |
+| **output** | The configured binding operation. | :heavy_check_mark: | :heavy_check_mark: |
+| **metadata** | _Requested._ Todo. |  :x: | :heavy_check_mark: |
+| **data** | _Requested._ Todo. |  :x: | :heavy_check_mark: |
 
 ::: zone-end
 
@@ -260,14 +263,12 @@ The `DaprBindingOutput` annotation allows you to create a function that sends an
 ::: zone pivot="programming-language-javascript, programming-language-powershell"
 The following table explains the binding configuration properties that you set in the function.json file.
 
-|function.json property | Description| Sent via |
-|-----------------------|------------| -------- |
-|**type** | Must be set to `daprBinding`. | The attribute itself or the `RequestBody`. |
-|**direction** | Must be set to `out`. | The attribute itself or the `RequestBody`. |
-|**bindingName** | The name of the binding. | The attribute itself or the `RequestBody`. |
-|**operation** | The binding operation. | The attribute itself or the `RequestBody`. |
-|**name** | The name of the variable that represents the Dapr data in function code. | The attribute itself or the `RequestBody`. |
-| **data** | **Requested**. Todo. | The `RequestBody`. |
+|function.json property | Description| Can be sent via Attribute | Can be sent via RequestBody |
+|-----------------------|------------|  :---------------------:  |  :-----------------------:  |
+|**bindingName** | The name of the binding. | :heavy_check_mark: | :heavy_check_mark: |
+|**operation** | The binding operation. | :heavy_check_mark: | :heavy_check_mark: |
+| **metadata** | _Requested._ Todo. |  :x: | :heavy_check_mark: |
+| **data** | _Requested._ Todo. |  :x: | :heavy_check_mark: |
 
 ::: zone-end
 
@@ -277,25 +278,23 @@ The following table explains the binding configuration properties that you set i
 
 The following table explains the binding configuration properties for `@dapp.dapr_binding_output` that you set in your Python code.
 
-|Property | Description| Sent via |
-|---------|------------| -------- |
-|**arg_name** | Argument/variable name that should match with the parameter of the function. | The attribute itself or the `RequestBody`. |
-|**binding_name** | The name of the binding event. | The attribute itself or the `RequestBody`. |
-|**operation** | The binding operation name/identifier. | The attribute itself or the `RequestBody`. |
-| **data** | **Requested**. Todo. | The `RequestBody`. |
+|Property | Description| Can be sent via Attribute | Can be sent via RequestBody |
+|---------|------------|  :---------------------:  |  :-----------------------:  |
+|**binding_name** | The name of the binding event. | :heavy_check_mark: | :heavy_check_mark: |
+|**operation** | The binding operation name/identifier. | :heavy_check_mark: | :heavy_check_mark: |
+| **metadata** | _Requested._ Todo. |  :x: | :heavy_check_mark: |
+| **data** | _Requested._ Todo. |  :x: | :heavy_check_mark: |
 
 # [Python v1](#tab/v1)
 
 The following table explains the binding configuration properties that you set in the function.json file.
 
-|function.json property | Description| Sent via |
-|-----------------------|------------| -------- |
-|**type** | Must be set to `daprBinding`. | The attribute itself or the `RequestBody`. |
-|**direction** | Must be set to `out`. | The attribute itself or the `RequestBody`. |
-|**bindingName** | The name of the binding. | The attribute itself or the `RequestBody`. |
-|**operation** | The binding operation. | The attribute itself or the `RequestBody`. |
-|**name** | The name of the variable that represents the Dapr data in function code. | The attribute itself or the `RequestBody`. |
-| **data** | **Requested**. Todo. | The `RequestBody`. |
+|function.json property | Description| Can be sent via Attribute | Can be sent via RequestBody |
+|-----------------------|------------|  :---------------------:  |  :-----------------------:  |
+|**bindingName** | The name of the binding. | :heavy_check_mark: | :heavy_check_mark: |
+|**operation** | The binding operation. | :heavy_check_mark: | :heavy_check_mark: |
+| **metadata** | _Requested._ Todo. |  :x: | :heavy_check_mark: |
+| **data** | _Requested._ Todo. |  :x: | :heavy_check_mark: |
 
 ---
 

@@ -217,19 +217,19 @@ def main(payload, data: str) -> None:
 
 In the [in-process model](./functions-dotnet-class-library.md), use the `DaprState` to read Dapr state into your function, which supports these parameters:
 
-| Parameter | Description | Sent via | 
-| --------- | ----------- | -------- | 
-| **StateStore** | The name of the state store to retrieve state. | The attribute itself or the `RequestBody`. |
-| **Key** | The name of the key to retrieve from the specified state store. | The attribute itself or the `RequestBody`. |
+| Parameter | Description | Can be sent via Attribute |
+| --------- | ----------- |  :---------------------:  |
+| **StateStore** | The name of the state store to retrieve state. | :heavy_check_mark: |
+| **Key** | The name of the key to retrieve from the specified state store. | :heavy_check_mark: |
 
 # [Isolated process](#tab/isolated-process)
 
 In the [isolated worker model](./dotnet-isolated-process-guide.md), use the `DaprStateInput` to read Dapr state into your function, which supports these parameters:
 
-| Parameter | Description | Sent via | 
-| --------- | ----------- | -------- | 
-| **StateStore** | The name of the state store to retrieve state. | The attribute itself or the `RequestBody`. |
-| **Key** | The name of the key to retrieve from the specified state store. | The attribute itself or the `RequestBody`. |
+| Parameter | Description | Can be sent via Attribute |
+| --------- | ----------- |  :---------------------:  |
+| **StateStore** | The name of the state store to retrieve state. | :heavy_check_mark: |
+| **Key** | The name of the key to retrieve from the specified state store. | :heavy_check_mark: |
 
 ::: zone-end
 
@@ -239,10 +239,10 @@ In the [isolated worker model](./dotnet-isolated-process-guide.md), use the `Dap
 
 The `DaprStateInput` annotation allows you to read Dapr state into your function.  
 
-| Element | Description | Sent via | 
-| ------- | ----------- | -------- | 
-| **stateStore** | The name of the Dapr state store. | The attribute itself or the `RequestBody`. |
-| **key** | The state store key value. | The attribute itself or the `RequestBody`. |
+| Element | Description | Can be sent via Attribute |
+| ------- | ----------- |  :---------------------:  |
+| **stateStore** | The name of the Dapr state store. | :heavy_check_mark: |
+| **key** | The state store key value. | :heavy_check_mark: |
 
 ::: zone-end
 
@@ -256,14 +256,10 @@ The `DaprStateInput` annotation allows you to read Dapr state into your function
 
 The following table explains the binding configuration properties that you set in the function.json file.
 
-|function.json property | Description | Sent via |
-|-----------------------|-------------| -------- |
-|**type** | Must be set to `daprState`. | The attribute itself or the `RequestBody`. |
-|**direction** | Must be set to `in`.  | The attribute itself or the `RequestBody`. |
-|**dataType** | The data type used by the state store. | The attribute itself or the `RequestBody`. |
-|**name** | The name of the variable that represents the Dapr data in function code. | The attribute itself or the `RequestBody`. |
-|**stateStore** | The name of the state store. | The attribute itself or the `RequestBody`. |
-|**key** | The name of the key to retrieve from the specified state store. | The attribute itself or the `RequestBody`. |
+|function.json property | Description | Can be sent via Attribute |
+|-----------------------|-------------|  :---------------------:  |
+|**stateStore** | The name of the state store. | :heavy_check_mark: |
+|**key** | The name of the key to retrieve from the specified state store. | :heavy_check_mark: |
 
 ::: zone-end
 
@@ -271,13 +267,10 @@ The following table explains the binding configuration properties that you set i
 
 The following table explains the binding configuration properties that you set in the function.json file.
 
-|function.json property | Description | Sent via |
-|-----------------------|-------------| -------- |
-|**type** | Must be set to `daprState`. | The attribute itself or the `RequestBody`. |
-|**direction** | Must be set to `in`.  | The attribute itself or the `RequestBody`. |
-|**key** | The name of the key to retrieve from the specified state store. | The attribute itself or the `RequestBody`. |
-|**stateStore** | The name of the state store. | The attribute itself or the `RequestBody`. |
-|**name** | The name of the variable that represents the Dapr data in function code. | The attribute itself or the `RequestBody`. |
+|function.json property | Description | Can be sent via Attribute |
+|-----------------------|-------------|  :---------------------:  |
+|**key** | The name of the key to retrieve from the specified state store. | :heavy_check_mark: |
+|**stateStore** | The name of the state store. | :heavy_check_mark: |
 
 ::: zone-end
 
@@ -287,24 +280,19 @@ The following table explains the binding configuration properties that you set i
 
 The following table explains the binding configuration properties for `@dapp.dapr_state_input` that you set in your Python code.
 
-|Property | Description | Sent via |
-|---------|-------------| -------- |
-|**arg_name** | Argument/variable name that should match with the parameter of the function. | The attribute itself or the `RequestBody`. |
-|**state_store** | The name of the state store. | The attribute itself or the `RequestBody`. |
-|**key** | The secret key value. The name of the key to retrieve from the specified state store. | The attribute itself or the `RequestBody`. |
+|Property | Description | Can be sent via Attribute |
+|---------|-------------|  :---------------------:  |
+|**state_store** | The name of the state store. | :heavy_check_mark: |
+|**key** | The secret key value. The name of the key to retrieve from the specified state store. | :heavy_check_mark: |
 
 # [Python v1](#tab/v1)
 
 The following table explains the binding configuration properties that you set in the function.json file.
 
-|function.json property | Description | Sent via |
-|-----------------------|-------------| -------- |
-|**type** | Must be set to `daprState`. | The attribute itself or the `RequestBody`. |
-|**direction** | Must be set to `in`.  | The attribute itself or the `RequestBody`. |
-|**dataType** | The data type used by the state store. | The attribute itself or the `RequestBody`. |
-|**name** | The name of the variable that represents the Dapr data in function code. | The attribute itself or the `RequestBody`. |
-|**stateStore** | The name of the state store. | The attribute itself or the `RequestBody`. |
-|**key** | The name of the key to retrieve from the specified state store. | The attribute itself or the `RequestBody`. |
+|function.json property | Description | Can be sent via Attribute |
+|-----------------------|-------------|  :---------------------:  |
+|**stateStore** | The name of the state store. | :heavy_check_mark: |
+|**key** | The name of the key to retrieve from the specified state store. | :heavy_check_mark: |
 
 --- 
 
