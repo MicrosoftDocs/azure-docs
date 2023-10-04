@@ -6,7 +6,7 @@ ms.custom: build-2023
 ms.date: 10/04/2023
 ---
 
-# Authentication and authorization with Azure Active Directory
+# Authentication and authorization with Azure Active Directory when using Event Grid namespaces
 This article describes how to authenticate clients publishing events to Azure Event Grid namespaces using Azure Active Directory.
 
 ## Overview
