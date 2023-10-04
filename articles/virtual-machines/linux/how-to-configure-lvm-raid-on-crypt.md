@@ -20,7 +20,7 @@ This article is a step-by-step process for how to perform Logical Volume Managem
 
 - Linux distributions
     - RHEL 7.6+
-    - Ubuntu 18.04+
+    - Ubuntu 20.04+
     - SUSE 12+
 - Azure Disk Encryption single-pass extension
 - Azure Disk Encryption dual-pass extension
