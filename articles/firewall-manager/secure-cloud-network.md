@@ -283,8 +283,8 @@ Now you must ensure that network traffic gets routed through your firewall.
 4. Under **Internet traffic**, select **Azure Firewall**.
 5. Under **Private traffic**, select **Send via Azure Firewall**.
    > [!NOTE]
-   > If public IP address ranges are used as private networks in connected Virtual Networks or on-premise branches, specify those IP prefixes next to RFC1918 address prefixes explicitly by clicking on the "Private Traffic Prefixes" section.
-7. Under **Inter-hub**, select **Enabled** to enable the Virtual WAN routing intent feature. Routing intent is the mechanism through which you can configure Virtual WAN to route branch-to-branch (on-premises to on-premises) traffic via Azure Firewall deployed in the Virtual WAN Hub. For more information regarding pre-requisites and considerations associated with the routing intent feature, see [Routing Intent documentation](../virtual-wan/how-to-routing-policies.md). 
+   > If you're using public IP address ranges for private networks in a virtual network or an on-premises branch, you need to explicitly specify these IP address prefixes. Select the **Private Traffic Prefixes** section and then add them alongside the RFC1918 address prefixes.
+7. Under **Inter-hub**, select **Enabled** to enable the Virtual WAN routing intent feature. Routing intent is the mechanism through which you can configure Virtual WAN to route branch-to-branch (on-premises to on-premises) traffic via Azure Firewall deployed in the Virtual WAN Hub. For more information regarding prerequisites and considerations associated with the routing intent feature, see [Routing Intent documentation](../virtual-wan/how-to-routing-policies.md). 
 8. Select **Save**.
 9. Select **OK** on the **Warning** dialog.
 
