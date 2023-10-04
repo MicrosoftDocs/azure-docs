@@ -14,7 +14,6 @@ ms.custom: references_regions
 # Release notes: Azure Health Data Services
 
 > Azure Health Data Services is Generally Available. 
->
 >For more information about Azure Health Data Services Service Level Agreements, see [SLA for Azure Health Data Services](https://azure.microsoft.com/support/legal/sla/health-data-services/v1_1/).
 
 Azure Health Data Services is a set of managed API services based on open standards and frameworks for the healthcare industry. They enable you to build scalable and secure healthcare solutions by bringing protected health information (PHI) datasets together and connecting them end-to-end with tools for machine learning, analytics, and AI. 
@@ -22,6 +21,10 @@ Azure Health Data Services is a set of managed API services based on open standa
 This article provides details about the features and enhancements made to Azure Health Data Services, including the different services (FHIR service, DICOM service, and MedTech service) that seamlessly work with one another.
 
 ## September 2023
+
+#### Retirement Announcement: Azure API for FHIR
+
+**Azure API for FHIR will be retired on September 30, 2026.** **[Azure Health Data Services FHIR service](/azure/healthcare-apis/healthcare-apis-overview)** is the evolved version of Azure API for FHIR that enables customers to manage FHIR, DICOM, and MedTech services with integrations into other Azure services. The [migration strategies](/azure/healthcare-apis/fhir/migration-strategies) are published. Due to retirement of Azure API for FHIR, new deployments will not be allowed beginning April 1, 2025.
 
 Documentation navigation improvements include a new hub page for Azure Health Data Services: [Azure Health Data Services Documentation | Microsoft Learn](./index.yml). Also, fixes to breadcrumbs across the FHIR, DICOM, and MedTech services documentation and the table of contents make it easier and more intuitive to find the documentation you need.
 
@@ -794,3 +797,4 @@ Learn about:
 [Release notes: Azure API for FHIR](./azure-api-for-fhir/release-notes.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
+
