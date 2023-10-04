@@ -829,6 +829,15 @@ productDirectory:
         - devops
       url: load-testing/index.yml
     # Card
+    - title: Microsoft Playwright Testing (Preview)
+      summary: Run end-to-end Playwright tests at scale
+      imageSrc: ./media/index/playwright-testing-icon.svg
+      azureCategories:
+        - devops
+        - developer-tools
+        - web
+      url: playwright-testing/index.yml
+    # Card
     - title: Azure Managed Grafana
       summary: Deploy Grafana dashboards as a fully managed Azure service
       imageSrc: ./media/index/managed-grafana.svg

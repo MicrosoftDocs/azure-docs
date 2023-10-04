@@ -7,7 +7,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 10/03/2023
+ms.date: 10/04/2023
 ---
 
 # Create or modify an Exchange peering using the Azure portal
@@ -69,7 +69,7 @@ As an Internet Exchange Provider, you can create an exchange peering request by 
 ## <a name="delete"></a>Deprovision an Exchange peering
 [!INCLUDE [peering-exchange-delete-portal](./includes/delete.md)]
 
-## Next steps
+## Related content
 
 - [Create or modify a Direct peering by using the portal](howto-direct-portal.md).
 - [Convert a legacy Direct peering to an Azure resource by using the portal](howto-legacy-direct-portal.md).
