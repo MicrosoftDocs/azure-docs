@@ -18,11 +18,11 @@ In this quickstart, you use Terraform to deploy an Azure Firewall in three Avail
 
 [!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
-The Bicep file creates a test network environment with a firewall. The network has one virtual network (VNet) with three subnets: *AzureFirewallSubnet*, *subnet-server*, and *subnet-jump*. The *subnet-server* and *subnet-jump* subnet each have a single, two-core Windows Server virtual machine.
+The Bicep file creates a test network environment with a firewall. The network has one virtual network (VNet) with three subnets: *AzureFirewallSubnet*, *subnet-server*, and *subnet-jump*. The *subnet-server* and *subnet-jump* subnet each have a single two-core Windows Server virtual machine.
 
-The firewall is in the *AzureFirewallSubnet* subnet, and has an application rule collection with a single rule that allows access to `www.microsoft.com`.
+The firewall is in the *AzureFirewallSubnet* subnet and has an application rule collection with a single rule that allows access to `www.microsoft.com`.
 
-A user-defined route points network traffic from the *subnet-server* subnet through the firewall, where the firewall rules are applied.
+A user-defined route points network traffic from the *subnet-server* subnet through the firewall where the firewall rules are applied.
 
 For more information about Azure Firewall, see [Deploy and configure Azure Firewall using the Azure portal](tutorial-firewall-deploy-portal.md).
 
