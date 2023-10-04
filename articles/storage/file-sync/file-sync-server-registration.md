@@ -164,7 +164,7 @@ Because Azure File Sync will rarely be the only service running in your datacent
 You can throttle the network utilization of Azure File Sync by using the `StorageSyncNetworkLimit` cmdlets.
 
 > [!NOTE]  
-> Network limits do not apply to the following scenarios:
+> Network limits does not apply to the following scenarios:
 > - When a tiered file is accessed.
 > - Sync metadata that is exchanged between the registered server and Storage Sync Service.
 >  
