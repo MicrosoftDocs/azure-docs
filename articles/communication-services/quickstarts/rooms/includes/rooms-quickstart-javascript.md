@@ -171,7 +171,6 @@ The lifetime of a `room` can be modified by issuing an update request for the `v
 validFrom.setTime(validUntil.getTime());
 validUntil.setTime(validFrom.getTime() + 5 * 60 * 1000);
 pstnDialOutEnabled = true;
-
 // request payload to update a room
 const updateRoomOptions = {
   validFrom,
