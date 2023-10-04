@@ -104,7 +104,7 @@ In this article, you learn how to:
     firewall_name=$(terraform output -raw firewall_name)
     ```
 
-1. Run [az network firewall show](/cli/azure/network/firewall#az-network-firewall-show) with a [JMESPath](/cli/azure/query-azure-cli) query to display the availability zones for the firewall.
+1. Run [az network firewall show](/cli/azure/network/firewall#az-network-firewall-show(azure-firewall)) with a [JMESPath](/cli/azure/query-azure-cli) query to display the availability zones for the firewall.
 
     ```azurecli
     az network firewall show --name $firewall_name --resource-group $resource_group_name --query "{Zones:zones"}
