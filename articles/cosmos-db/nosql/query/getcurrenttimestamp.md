@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/19/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -43,7 +43,7 @@ The following example shows how to get the current timestamp.
 - This function doesn't use the index.
 - If you need to compare values to the current time, obtain the current time before query execution and use that constant string value in the `WHERE` clause.
 
-## Next steps
+## Related content
 
 - [System functions](system-functions.yml)
 - [`GetCurrentTimestampStatic`](getcurrenttimestampstatic.md)

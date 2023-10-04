@@ -149,7 +149,7 @@ Fine grain control over the Application Gateway subnet via Route Table rules is 
 With current functionality there are some restrictions: 
 
 > [!IMPORTANT]
-> Using UDRs on the Application Gateway subnet might cause the health status in the [backend health view](./application-gateway-diagnostics.md#backend-health) to appear as **Unknown**. It also might cause generation of Application Gateway logs and metrics to fail. We recommend that you don't use UDRs on the Application Gateway subnet so that you can view the backend health, logs, and metrics.
+> Using UDRs on the Application Gateway subnet might cause the health status in the [backend health view](application-gateway-backend-health.md) to appear as **Unknown**. It also might cause generation of Application Gateway logs and metrics to fail. We recommend that you don't use UDRs on the Application Gateway subnet so that you can view the backend health, logs, and metrics.
 
 - **v1**
 

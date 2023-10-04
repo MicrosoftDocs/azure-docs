@@ -14,7 +14,7 @@ ms.date: 03/03/2023
 
 # Increase the resilience of authentication and authorization in daemon applications you develop
 
-Learn to use the Microsoft identity platform and Azure Active Directory (Azure AD) to increase the resilience of daemon applications. Find information about background processes, services, server to server apps, and applications without users.
+Learn to use the Microsoft identity platform and Microsoft Entra ID to increase the resilience of daemon applications. Find information about background processes, services, server to server apps, and applications without users.
 
 See, [What is the Microsoft identity platform?](../develop/v2-overview.md)
 

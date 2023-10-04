@@ -5,6 +5,7 @@ author: dcurwin
 ms.service: defender-for-cloud
 ms.topic: reference
 ms.date: 09/12/2023
+ms.date: 09/27/2023
 ms.author: dacurwin
 ms.custom: generated
 ---
@@ -51,8 +52,6 @@ impact on your secure score.
 ## <a name='recs-data'></a>Data recommendations
 
 [!INCLUDE [asc-recs-data](../../includes/asc-recs-data.md)]
-
-[!INCLUDE [devops-recommendations](includes/defender-for-devops-recommendations.md)]
 
 ## <a name='recs-identityandaccess'></a>IdentityAndAccess recommendations
 

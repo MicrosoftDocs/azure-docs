@@ -1,6 +1,6 @@
 ---
-title: Continuous access evaluation for workload identities in Azure AD
-description: Respond to changes to applications with continuous access evaluation for workload identities in Azure AD
+title: Continuous access evaluation for workload identities in Microsoft Entra ID
+description: Respond to changes to applications with continuous access evaluation for workload identities in Microsoft Entra ID
 
 services: active-directory
 ms.service: active-directory
@@ -21,7 +21,7 @@ Continuous access evaluation (CAE) for [workload identities](../workload-identit
 
 Continuous access evaluation doesn't currently support managed identities.
 
-## Scope of preview
+## Scope of support
 
 The continuous access evaluation for workload identities is supported only on access requests sent to Microsoft Graph as a resource provider.  More resource providers will be added over time.
 
@@ -31,7 +31,7 @@ We support the following revocation events:
 
 - Service principal disable
 - Service principal delete
-- High service principal risk as detected by Azure AD Identity Protection
+- High service principal risk as detected by Microsoft Entra ID Protection
 
 Continuous access evaluation for workload identities supports [Conditional Access policies that target location and risk](workload-identity.md#implementation).
 
@@ -43,7 +43,7 @@ Developers can opt in to Continuous access evaluation for workload identities wh
 
 In order to opt out, don't send the `xms_cc` claim with a value of `cp1`. 
 
-Organizations who have Azure AD Premium can create a [Conditional Access policy to disable continuous access evaluation](concept-conditional-access-session.md#customize-continuous-access-evaluation) applied to specific workload identities as an immediate stop-gap measure.
+Organizations who have Microsoft Entra ID P1 or P2 can create a [Conditional Access policy to disable continuous access evaluation](concept-conditional-access-session.md#customize-continuous-access-evaluation) applied to specific workload identities as an immediate stop-gap measure.
 
 ## Troubleshooting
 
@@ -57,8 +57,8 @@ The following steps detail how an admin can verify sign in activity in the sign-
 
 ## Next steps
 
-- [Register an application with Azure AD and create a service principal](../develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)
+- [Register an application with Microsoft Entra ID and create a service principal](../develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)
 - [How to use Continuous Access Evaluation enabled APIs in your applications](../develop/app-resilience-continuous-access-evaluation.md)
 - [Sample application using continuous access evaluation](https://github.com/Azure-Samples/ms-identity-dotnetcore-daemon-graph-cae)
-- [Securing workload identities with Azure AD Identity Protection](../identity-protection/concept-workload-identity-risk.md)
+- [Securing workload identities with Microsoft Entra ID Protection](../identity-protection/concept-workload-identity-risk.md)
 - [What is continuous access evaluation?](../conditional-access/concept-continuous-access-evaluation.md)

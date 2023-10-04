@@ -180,6 +180,9 @@
           href: flexible-server/concepts-connection-libraries.md
         - name: Connection resilience
           href: flexible-server/concepts-connectivity.md
+        - name: Connection Pooling Best Practices
+          href: flexible-server/concepts-connection-pooling-best-practices.md
+
     - name: Azure Advisor recommendations
       href: flexible-server/concepts-azure-advisor-recommendations.md
   - name: Integrations
@@ -255,6 +258,10 @@
         items:
         - name: Restore a dropped server
           href: flexible-server/how-to-restore-dropped-server.md
+      - name: Cross subscription and cross resource group restore
+        items:
+        - name: Cross subscription and cross resource group restore
+          href: flexible-server/how-to-restore-to-different-subscription-or-resource-group.md
       - name: Restart a server
         items:
         - name: Azure portal

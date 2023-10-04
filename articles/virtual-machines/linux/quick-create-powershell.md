@@ -47,7 +47,7 @@ New-AzVm `
     -ResourceGroupName 'myResourceGroup' `
     -Name 'myVM' `
     -Location 'East US' `
-    -Image Debian `
+    -image Debian11 `
     -size Standard_B2s `
     -PublicIpAddressName myPubIP `
     -OpenPorts 80 `

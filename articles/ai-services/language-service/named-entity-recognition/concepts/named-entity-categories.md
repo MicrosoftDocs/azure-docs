@@ -5,8 +5,7 @@ description: Learn about the entities the NER feature can recognize from unstruc
 services: cognitive-services
 author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: jboback

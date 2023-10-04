@@ -2,7 +2,7 @@
 title: Delete resource group and resources
 description: Describes how to delete resource groups and resources. It describes how Azure Resource Manager orders the deletion of resources when a deleting a resource group. It describes the response codes and how Resource Manager handles them to determine if the deletion succeeded. 
 ms.topic: conceptual
-ms.date: 04/10/2023
+ms.date: 09/27/2023
 ms.custom: seodec18, devx-track-arm-template
 content_well_notification: 
   - AI-contribution
@@ -163,15 +163,27 @@ To delete a resource group, you need access to the delete action for the **Micro
 
 For a list of operations, see [Azure resource provider operations](../../role-based-access-control/resource-provider-operations.md). For a list of built-in roles, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
-If you have the required access, but the delete request fails, it may be because there's a [lock on the resources or resource group](lock-resources.md). Even if you didn't manually lock a resource group, it may have been [automatically locked by a related service](lock-resources.md#managed-applications-and-locks). Or, the deletion can fail if the resources are connected to resources in other resource groups that aren't being deleted. For example, you can't delete a virtual network with subnets that are still in use by a virtual machine.
+If you have the required access, but the delete request fails, it may be because there's a [lock on the resources or resource group](lock-resources.md). Even if you didn't manually lock a resource group, [a related service may have automatically locked it](lock-resources.md#managed-applications-and-locks). Or, the deletion can fail if the resources are connected to resources in other resource groups that aren't being deleted. For example, you can't delete a virtual network with subnets that are still in use by a virtual machine.
 
-## Accidental deletion
+## Can I recover a deleted resource group?
 
-If you accidentally delete a resource group or resource, in some situations it might be possible to recover it.
+No, you can't recover a deleted resource group. However, you might be able to resore some recently deleted resources.
 
-Some resource types support *soft delete*. You might have to configure soft delete before you can use it. For more information about enabling soft delete, see the documentation for [Azure Key Vault](../../key-vault/general/soft-delete-overview.md), [Azure Backup](../../backup/backup-azure-delete-vault.md), and [Azure Storage](../../storage/blobs/soft-delete-container-overview.md). 
+Some resource types support *soft delete*. You might have to configure soft delete before you can use it. For information about enabling soft delete, see:
 
-You can also [open an Azure support case](../../azure-portal/supportability/how-to-create-azure-support-request.md). Provide as much detail as you can about the deleted resources, including their resource IDs, types, and resource names, and request that the support engineer check if the resources can be restored.
+* [Azure Key Vault soft-delete overview](../../key-vault/general/soft-delete-overview.md)
+* [Azure Storage - Soft delete for containers](../../storage/blobs/soft-delete-container-overview.md)
+* [Azure Storage - Soft delete for blobs](../../storage/blobs/soft-delete-blob-overview.md)
+* [Soft delete for Azure Backup](../../backup/backup-azure-security-feature-cloud.md)
+* [Soft delete for SQL server in Azure VM and SAP HANA in Azure VM workloads](../../backup/soft-delete-sql-saphana-in-azure-vm.md)
+* [Soft delete for virtual machines](../..//backup/soft-delete-virtual-machines.md)
+
+To restore deleted resources, see:
+
+* [Recover deleted Azure AI services resources](../../ai-services/manage-resources.md)
+* [Microsoft Entra - Recover from deletions](../../active-directory/architecture/recover-from-deletions.md)
+
+You can also [open an Azure support case](../../azure-portal/supportability/how-to-create-azure-support-request.md). Provide as much detail as you can about the deleted resources, including their resource IDs, types, and resource names. Request that the support engineer check if the resources can be restored.
 
 > [!NOTE]
 > Recovery of deleted resources is not possible under all circumstances. A support engineer will investigate your scenario and advise you whether it's possible.

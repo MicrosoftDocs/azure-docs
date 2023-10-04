@@ -1,6 +1,6 @@
 ---
-title: Plan an Azure AD Identity Protection deployment
-description: Deploy Azure Active Directory Identity Protection
+title: Plan a Microsoft Entra ID Protection deployment
+description: Deploy Microsoft Entra ID Protection
 
 services: active-directory
 ms.service: active-directory
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Plan an Identity Protection deployment
 
-Azure Active Directory (Azure AD) Identity Protection detects identity-based risks, reports them, and allows administrators to investigate and remediate these risks to keep organizations safe and secure. The risks can be further fed into tools like Conditional Access to make access decisions or fed back to a security information and event management (SIEM) tool for further investigation. 
+Microsoft Entra ID Protection detects identity-based risks, reports them, and allows administrators to investigate and remediate these risks to keep organizations safe and secure. The risks can be further fed into tools like Conditional Access to make access decisions or fed back to a security information and event management (SIEM) tool for further investigation. 
 
 :::image type="content" source="media/how-to-deploy-identity-protection/identity-protection-overview.png" alt-text="Screenshot showing the Identity Protection Overview page showing some risky users and sign-ins." lightbox="media/how-to-deploy-identity-protection/identity-protection-overview.png":::
 
@@ -25,8 +25,8 @@ This deployment plan extends concepts introduced in the [Conditional Access depl
 
 ## Prerequisites
 
-* A working Azure AD tenant with Azure AD Premium P2, or trial license enabled. If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-   * Azure AD Premium P2 is required to include Identity Protection risk in Conditional Access policies.
+* A working Microsoft Entra tenant with Microsoft Entra ID P2, or trial license enabled. If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+   * Microsoft Entra ID P2 is required to include Identity Protection risk in Conditional Access policies.
 * Administrators who interact with Identity Protection must have one or more of the following role assignments depending on the tasks they're performing. To follow the [Zero Trust principle of least privilege](/security/zero-trust/), consider using [Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) to just-in-time activate privileged role assignments.
    * Read Identity Protection and Conditional Access policies and configurations 
       * [Security Reader](../roles/permissions-reference.md#security-reader)
@@ -37,8 +37,8 @@ This deployment plan extends concepts introduced in the [Conditional Access depl
    * Create or modify Conditional Access policies 
       * [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator)
       * [Security Administrator](../roles/permissions-reference.md#security-administrator)
-* A test user (non-administrator) that allows you to verify policies work as expected before deploying to real users. If you need to create a user, see [Quickstart: Add new users to Azure Active Directory](../fundamentals/add-users.md).
-* A group that the non-administrator user is a member of. If you need to create a group, see [Create a group and add members in Azure Active Directory](../fundamentals/how-to-manage-groups.md).
+* A test user (non-administrator) that allows you to verify policies work as expected before deploying to real users. If you need to create a user, see [Quickstart: Add new users to Microsoft Entra ID](../fundamentals/add-users.md).
+* A group that the non-administrator user is a member of. If you need to create a group, see [Create a group and add members in Microsoft Entra ID](../fundamentals/how-to-manage-groups.md).
 
 ### Engage the right stakeholders
 
@@ -68,11 +68,11 @@ Identity Protection sends risk signals to Conditional Access, to make decisions 
 
 ### Multifactor authentication
 
-For users to self-remediate risk though, they must register for Azure AD Multifactor Authentication before they become risky. For more information, see the article [Plan an Azure Active Directory Multi-Factor Authentication deployment](../authentication/howto-mfa-getstarted.md).
+For users to self-remediate risk though, they must register for Microsoft Entra multifactor authentication before they become risky. For more information, see the article [Plan a Microsoft Entra multifactor authentication deployment](../authentication/howto-mfa-getstarted.md).
 
 ### Known network locations
 
-It's important to configure named locations in Conditional Access and add your VPN ranges to [Defender for Cloud Apps](/defender-cloud-apps/ip-tags#create-an-ip-address-range). Sign-ins from named locations, marked as trusted or known, improve the accuracy of Azure AD Identity Protection risk calculations. These sign-ins lower a user's risk when they authenticate from a location marked as trusted or known. This practice reduces false positives for some detections in your environment.
+It's important to configure named locations in Conditional Access and add your VPN ranges to [Defender for Cloud Apps](/defender-cloud-apps/ip-tags#create-an-ip-address-range). Sign-ins from named locations, marked as trusted or known, improve the accuracy of Microsoft Entra ID Protection risk calculations. These sign-ins lower a user's risk when they authenticate from a location marked as trusted or known. This practice reduces false positives for some detections in your environment.
 
 ### Report only mode 
 
@@ -82,11 +82,11 @@ It's important to configure named locations in Conditional Access and add your V
 
 ### Identity Protection MFA registration policy
 
-Use the Identity Protection multifactor authentication registration policy to help get your users registered for Azure AD Multifactor Authentication before they need to use it. Follow the steps in the article [How To: Configure the Azure AD multifactor authentication registration policy](howto-identity-protection-configure-mfa-policy.md) to enable this policy.
+Use the Identity Protection multifactor authentication registration policy to help get your users registered for Microsoft Entra multifactor authentication before they need to use it. Follow the steps in the article [How To: Configure the Microsoft Entra multifactor authentication registration policy](howto-identity-protection-configure-mfa-policy.md) to enable this policy.
 
 ### Conditional Access policies
 
-**Sign-in risk** - Most users have a normal behavior that can be tracked, when they fall outside of this norm it could be risky to allow them to just sign in. You may want to block that user or maybe just ask them to perform multi-factor authentication to prove that they're really who they say they are. You may want to start by scoping these policies to admins only. 
+**Sign-in risk** - Most users have a normal behavior that can be tracked, when they fall outside of this norm it could be risky to allow them to just sign in. You may want to block that user or maybe just ask them to perform multifactor authentication to prove that they're really who they say they are. You may want to start by scoping these policies to admins only. 
 
 **User risk** - Microsoft works with researchers, law enforcement, various security teams at Microsoft, and other trusted sources to find leaked username and password pairs. When these vulnerable users are detected, we recommend requiring users perform multifactor authentication then reset their password.
 
