@@ -8,13 +8,10 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 09/22/2023
+ms.date: 10/04/2023
 ---
 
 # Configure semantic ranking and return captions in search results
-
-> [!IMPORTANT]
-> Semantic search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through Azure portal, preview REST APIs, and beta SDKs. This feature is billable. See [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
 
 In this article, learn how to invoke a semantic ranking algorithm over a result set, promoting the most semantically relevant results to the top of the stack. You can also get semantic captions, with highlights over the most relevant terms and phrases, and [semantic answers](semantic-answers.md).
 
@@ -69,7 +66,7 @@ Across all semantic configuration properties, the fields you assign must be:
 
 ### [**Azure portal**](#tab/portal)
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to a search service that has [semantic search enabled](semantic-how-to-enable-disable.md).
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to a search service that has [semantic ranking enabled](semantic-how-to-enable-disable.md).
 
 1. Open an index.
 
@@ -155,7 +152,7 @@ adminClient.CreateOrUpdateIndex(definition);
 ---
 
 > [!TIP]
-> To see an example of creating a semantic configuration and using it to issue a semantic query, check out the [semantic search Postman sample](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/semantic-search).
+> To see an example of creating a semantic configuration and using it to issue a semantic query, check out the [semantic ranking Postman sample](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/semantic-search).
 
 ## 3 - Avoid features that bypass relevance scoring
 
@@ -181,7 +178,7 @@ Your next step is adding parameters to the query request. To be successful, your
 
    :::image type="content" source="./media/semantic-search-overview/semantic-portal-json-query.png" alt-text="Screenshot showing JSON query syntax in the Azure portal." border="true":::
 
-1. Using options, specify that you want to use semantic search and select a query language. If you don't see these options, make sure semantic search is enabled and also refresh your browser.
+1. Using options, specify that you want to use semantic ranking and select a query language. If you don't see these options, make sure semantic ranking is enabled and also refresh your browser.
 
     :::image type="content" source="./media/semantic-search-overview/search-explorer-semantic-query-options-v2.png" alt-text="Screenshot showing query options in Search explorer." border="true":::
 
@@ -215,7 +212,7 @@ The following example in this section uses the [hotels-sample-index](search-get-
 
 1. Set "queryType" to "semantic".
 
-   In other queries, the "queryType" is used to specify the query parser. In semantic search, it's set to "semantic". For the "search" field, you can specify queries that conform to the [simple syntax](query-simple-syntax.md).
+   In other queries, the "queryType" is used to specify the query parser. In semantic ranking, it's set to "semantic". For the "search" field, you can specify queries that conform to the [simple syntax](query-simple-syntax.md).
 
 1. Set "queryLanguage" to a [supported language](/rest/api/searchservice/preview-api/search-documents#queryLanguage).
 
@@ -225,9 +222,9 @@ The following example in this section uses the [hotels-sample-index](search-get-
 
    While content in a search index can be composed in multiple languages, the query input is most likely in one. The search engine doesn't check for compatibility of queryLanguage, language analyzer, and the language in which content is composed, so be sure to scope queries accordingly to avoid producing incorrect results.
 
-1. Set "search" to a full text search query based on the [simple syntax](query-simple-syntax.md). Semantic search is an extension of full text search, so while this parameter isn't required, you won't get an expected outcome if it's null.
+1. Set "search" to a full text search query based on the [simple syntax](query-simple-syntax.md). Semantic ranking is an extension of full text search, so while this parameter isn't required, you won't get an expected outcome if it's null.
 
-1. Set "semanticConfiguration" to a [predefined semantic configuration](#2---create-a-semantic-configuration) that's embedded in your index, assuming your client supports it. For some clients and API versions, "semanticConfiguration" is required and important for getting the best results from semantic search.
+1. Set "semanticConfiguration" to a [predefined semantic configuration](#2---create-a-semantic-configuration) that's embedded in your index, assuming your client supports it. For some clients and API versions, "semanticConfiguration" is required and important for getting the best results from semantic ranking.
 
 1. Set "searchFields" to a prioritized list of searchable string fields. If you didn't use a semantic configuration, this field provides important hints to the underlying models as to which fields the most important. If you do have a semantic configuration, setting this parameter is still useful because it scopes the query to high-value fields.
 
@@ -255,7 +252,7 @@ The following example in this section uses the [hotels-sample-index](search-get-
 
 ### [**.NET SDK**](#tab/dotnet-query)
 
-Beta versions of the Azure SDKs include support for semantic search. Because the SDKs are beta versions, there's no documentation or samples, but you can refer to the REST API content in the next tab for insights on how the APIs should work.
+Beta versions of the Azure SDKs include support for semantic ranking. Because the SDKs are beta versions, there's no documentation or samples, but you can refer to the REST API content in the next tab for insights on how the APIs should work.
 
 The following beta versions support semantic configuration:
 
@@ -281,7 +278,7 @@ These beta versions use "searchFields" for field prioritization:
 
 Only the top 50 matches from the initial results can be semantically ranked. As with all queries, a response is composed of all fields marked as retrievable, or just those fields listed in the select parameter. A response includes the original relevance score, and might also include a count, or batched results, depending on how you formulated the request.
 
-In semantic search, the response has more elements: a new semantically ranked relevance score, an optional caption in plain text and with highlights, and an optional [answer](semantic-answers.md). If your results don't include these extra elements, then your query might be misconfigured. As a first step towards troubleshooting the problem, check the semantic configuration to ensure it's specified in both the index definition and query.
+In semantic ranking, the response has more elements: a new semantically ranked relevance score, an optional caption in plain text and with highlights, and an optional [answer](semantic-answers.md). If your results don't include these extra elements, then your query might be misconfigured. As a first step towards troubleshooting the problem, check the semantic configuration to ensure it's specified in both the index definition and query.
 
 In a client app, you can structure the search page to include a caption as the description of the match, rather than the entire contents of a specific field. This approach is useful when individual fields are too dense for the search results page.
 
@@ -313,9 +310,9 @@ The response for the above example query returns the following match as the top 
 
 ## Next steps
 
-Recall that semantic ranking and responses are built over an initial result set. Any logic that improves the quality of the initial results carry forward to semantic search. As a next step, review the features that contribute to initial results, including analyzers that affect how strings are tokenized, scoring profiles that can tune results, and the default relevance algorithm.
+Recall that semantic ranking and responses are built over an initial result set. Any logic that improves the quality of the initial results carry forward to semantic ranking. As a next step, review the features that contribute to initial results, including analyzers that affect how strings are tokenized, scoring profiles that can tune results, and the default relevance algorithm.
 
 + [Analyzers for text processing](search-analyzers.md)
 + [Configure BM25 relevance scoring](index-similarity-and-scoring.md)
 + [Add scoring profiles](index-add-scoring-profiles.md)
-+ [Semantic search overview](semantic-search-overview.md)
++ [Semantic ranking overview](semantic-search-overview.md)

@@ -20,7 +20,7 @@ In Azure Cognitive Search, if you added vector fields to a search index, this ar
 > [!div class="checklist"]
 > + [Query vector fields](#query-syntax-for-vector-search).
 > + [Filter and query vector fields](#filter-and-vector-queries)
-> + [Combine vector, full text search, and semantic search in a hybrid query](#query-syntax-for-hybrid-search).
+> + [Combine vector, full text search, and semantic ranking in a hybrid query](#query-syntax-for-hybrid-search).
 > + [Query multiple vector fields at once](#query-syntax-for-vector-query-over-multiple-fields).
 > + [Run multiple vector queries in parallel](#query-syntax-for-multiple-vector-queries).
 
@@ -34,7 +34,7 @@ Code samples in the [cognitive-search-vector-pr](https://github.com/Azure/cognit
 
 + Use REST API version **2023-07-01-Preview**, the [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr/tree/main), or Search Explorer in the Azure portal.
 
-+ (Optional) If you want to also use [semantic search (preview)](semantic-search-overview.md) and vector search together, your search service must be Basic tier or higher, with [semantic search enabled](semantic-how-to-enable-disable.md).
++ (Optional) If you want to also use [semantic ranking](semantic-search-overview.md) and vector search together, your search service must be Basic tier or higher, with [semantic ranking enabled](semantic-how-to-enable-disable.md).
 
 ## Limitations
 
@@ -260,9 +260,9 @@ api-key: {{admin-api-key}}
 
 A hybrid query combines full text search and vector search, where the `"search"` parameter takes a query string and `"vectors.value"` takes the vector query. The search engine runs full text and vector queries in parallel. All matches are evaluated for relevance using Reciprocal Rank Fusion (RRF) and a single result set is returned in the response.
 
-Hybrid queries are useful because they add support for filters, orderby, and [semantic search](semantic-how-to-query-request.md) For example, in addition to the vector query, you could search over people or product names or titles, scenarios for which similarity search isn't a good fit.
+Hybrid queries are useful because they add support for filters, orderby, and [semantic ranking](semantic-how-to-query-request.md) For example, in addition to the vector query, you could search over people or product names or titles, scenarios for which similarity search isn't a good fit.
 
-The following example is from the [Postman collection of REST APIs](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python) that demonstrate query configurations. It shows a complete request that includes vector search, full text search with filters, and semantic search with captions and answers. Semantic search is an optional premium feature. It's not required for vector search or hybrid search. For content that includes rich descriptive text *and* vectors, it's possible to benefit from all of the search modalities in one request.
+The following example is from the [Postman collection of REST APIs](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python) that demonstrate query configurations. It shows a complete request that includes vector search, full text search with filters, and semantic ranking with captions and answers. Semantic ranking is an optional premium feature. It's not required for vector search or hybrid search. For content that includes rich descriptive text *and* vectors, it's possible to benefit from all of the search modalities in one request.
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-07-01-Preview
@@ -388,7 +388,7 @@ Ranking of results is computed by either:
 
 Azure OpenAI embedding models use cosine similarity, so if you're using Azure OpenAI embedding models, `cosine` is the recommended metric. Other supported ranking metrics include `euclidean` and `dotProduct`.
 
-Multiple sets are created if the query targets multiple vector fields, or if the query is a hybrid of vector and full text search, with or without the optional semantic reranking capabilities of [semantic search](semantic-search-overview.md). Within vector search, a vector query can only target one internal vector index. So for [multiple vector fields](#query-syntax-for-vector-query-over-multiple-fields) and [multiple vector queries](#query-syntax-for-multiple-vector-queries), the search engine generates multiple queries that target the respective vector indexes of each field. Output is a set of ranked results for each query, which are fused using RRF. For more information, see [Vector query execution and scoring](vector-search-ranking.md).
+Multiple sets are created if the query targets multiple vector fields, or if the query is a hybrid of vector and full text search, with or without the optional semantic reranking capabilities of [semantic ranking](semantic-search-overview.md). Within vector search, a vector query can only target one internal vector index. So for [multiple vector fields](#query-syntax-for-vector-query-over-multiple-fields) and [multiple vector queries](#query-syntax-for-multiple-vector-queries), the search engine generates multiple queries that target the respective vector indexes of each field. Output is a set of ranked results for each query, which are fused using RRF. For more information, see [Vector query execution and scoring](vector-search-ranking.md).
 
 ## Next steps
 

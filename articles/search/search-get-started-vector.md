@@ -23,7 +23,7 @@ Get started with vector search in Azure Cognitive Search using the **2023-07-01-
 
 + An Azure subscription. [Create one for free](https://azure.microsoft.com/free/).
 
-+ Azure Cognitive Search, in any region and on any tier. However, if you want to also use [semantic search](semantic-search-overview.md), as shown in the last two examples, your search service must be Basic tier or higher, with [semantic search enabled](semantic-how-to-enable-disable.md).
++ Azure Cognitive Search, in any region and on any tier. However, if you want to also use [semantic ranking](semantic-search-overview.md), as shown in the last two examples, your search service must be Basic tier or higher, with [semantic ranking enabled](semantic-how-to-enable-disable.md).
 
   Most existing services support vector search. For a small subset of services created prior to January 2019, an index containing vector fields will fail on creation. In this situation, a new service must be created.
 
@@ -78,7 +78,7 @@ You're now ready to send the requests to your search service. For each request, 
 
 Use the [Create or Update Index](/rest/api/searchservice/preview-api/create-or-update-index) REST API for this request.
 
-The index schema is organized around a product catalog scenario. Sample data consists of titles, categories, and descriptions of 108 Azure services. This schema includes fields for vector and traditional keyword search, with configurations for vector and semantic search.
+The index schema is organized around a product catalog scenario. Sample data consists of titles, categories, and descriptions of 108 Azure services. This schema includes fields for vector and traditional keyword search, with configurations for vector and semantic ranking.
 
 ```http
 PUT https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}?api-version={{api-version}}
@@ -174,7 +174,7 @@ You should get a status HTTP 201 success.
 
 + The "vectorSearch" object is an array of algorithm configurations used by vector fields. Currently, only HNSW is supported. HNSW is a graph-based Approximate Nearest Neighbors (ANN) algorithm optimized for high-recall, low-latency applications.
 
-+ [Optional]: The "semanticSearch" configuration enables reranking of search results. You can rerank results in queries of type "semantic" for string fields that are specified in the configuration. See [Semantic Search overview](semantic-search-overview.md) to learn more.
++ [Optional]: The "semanticSearch" configuration enables reranking of search results. You can rerank results in queries of type "semantic" for string fields that are specified in the configuration. See [Semantic ranking](semantic-search-overview.md) to learn more.
 
 ## Upload documents
 
@@ -446,7 +446,7 @@ api-key: {{admin-api-key}}
 
 ### Semantic hybrid search
 
-Assuming that you've [enabled semantic search](semantic-how-to-enable-disable.md) and your index definition includes a [semantic configuration](semantic-how-to-query-request.md), you can formulate a query that includes vector search, plus keyword search with semantic ranking, caption, answers, and spell check. 
+Assuming that you've [enabled semantic ranking](semantic-how-to-enable-disable.md) and your index definition includes a [semantic configuration](semantic-how-to-query-request.md), you can formulate a query that includes vector search, plus keyword search with semantic ranking, caption, answers, and spell check. 
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version={{api-version}}

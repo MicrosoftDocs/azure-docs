@@ -1,24 +1,21 @@
 ---
-title: Semantic search
+title: Semantic ranking
 titleSuffix: Azure Cognitive Search
-description: Learn how Cognitive Search uses deep learning semantic search models from Bing to make search results more intuitive.
+description: Learn how Cognitive Search uses deep learning semantic ranking models from Bing to make search results more intuitive.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/08/2023
+ms.date: 10/04/2023
 ---
 
-# Semantic search in Azure Cognitive Search
+# Semantic ranking in Azure Cognitive Search
 
-> [!IMPORTANT]
-> Semantic search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and beta SDKs. These features are billable (see [Availability and pricing](semantic-search-overview.md#availability-and-pricing)).
+In Azure Cognitive Search, *semantic ranking* measurably improves search relevance by using language understanding to rerank search results. This article is a high-level introduction to semantic ranking. The [embedded video](#how-semantic-ranking-works) describes the technology, and the section at the end covers availability and pricing.
 
-In Azure Cognitive Search, *semantic search* measurably improves search relevance by using language understanding to rerank search results. This article is a high-level introduction to semantic ranking. The [embedded video](#how-semantic-ranking-works) describes the technology, and the section at the end covers availability and pricing.
-
-Semantic search is a premium feature that's billed by usage. We recommend this article for background, but if you'd rather get started, follow these steps:
+Semantic ranking is a premium feature that's billed by usage. We recommend this article for background, but if you'd rather get started, follow these steps:
 
 > [!div class="checklist"]
 > * [Check regional availability](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=search).
@@ -29,15 +26,15 @@ Semantic search is a premium feature that's billed by usage. We recommend this a
 > [!NOTE]
 > Looking for vector support and similarity search? See [Vector search in Azure Cognitive Search](vector-search-overview.md) for details.
 
-## What is semantic search?
+## What is semantic ranking?
 
-Semantic search is a collection of query-related capabilities that improve the quality of an initial BM25-ranked search result for text-based queries. When you enable it on your search service, semantic search extends the query execution pipeline in two ways: 
+Semantic ranking is a collection of query-related capabilities that improve the quality of an initial BM25-ranked search result for text-based queries. When you enable it on your search service, semantic ranking extends the query execution pipeline in two ways: 
 
 * First, it adds secondary ranking over an initial result set that was scored using the BM25 algorithm, using multi-lingual, deep learning models adapted from Microsoft Bing to promote the most semantically relevant results. 
 
 * Second, it extracts and returns captions and answers in the response, which you can render on a search page to improve the user's search experience.
 
-Here are the features of semantic search.
+Here are the features of semantic ranking.
 
 | Feature | Description |
 |---------|-------------|
@@ -103,17 +100,17 @@ Scoring is done over captions.
 
 ## Semantic capabilities and limitations
 
-Semantic search is a newer technology so it's important to set expectations about what it can and can't do. What it can do:
+Semantic ranking is a newer technology so it's important to set expectations about what it can and can't do. What it can do:
 
 * Promote matches that are semantically closer to the intent of original query.
 
 * Find strings to use as captions and answers. Captions and answers are returned in the response and can be rendered on a search results page.
 
-What semantic search can't do is rerun the query over the entire corpus to find semantically relevant results. Semantic search reranks the *existing* result set, consisting of the top 50 results as scored by the default ranking algorithm. Furthermore, semantic search can't create new information or strings. Captions and answers are extracted verbatim from your content so if the results don't include answer-like text, the language models won't produce one.
+What semantic ranking can't do is rerun the query over the entire corpus to find semantically relevant results. Semantic ranking reranks the *existing* result set, consisting of the top 50 results as scored by the default ranking algorithm. Furthermore, semantic ranking can't create new information or strings. Captions and answers are extracted verbatim from your content so if the results don't include answer-like text, the language models won't produce one.
 
-Although semantic search isn't beneficial in every scenario, certain content can benefit significantly from its capabilities. The language models in semantic search work best on searchable content that is information-rich and structured as prose. A knowledge base, online documentation, or documents that contain descriptive content see the most gains from semantic search capabilities.
+Although semantic ranking isn't beneficial in every scenario, certain content can benefit significantly from its capabilities. The language models in semantic ranking work best on searchable content that is information-rich and structured as prose. A knowledge base, online documentation, or documents that contain descriptive content see the most gains from semantic ranking capabilities.
 
-The underlying technology is from Bing and Microsoft Research, and integrated into the Cognitive Search infrastructure as an add-on feature. For more information about the research and AI investments backing semantic search, see [How AI from Bing is powering Azure Cognitive Search (Microsoft Research Blog)](https://www.microsoft.com/research/blog/the-science-behind-semantic-search-how-ai-from-bing-is-powering-azure-cognitive-search/).
+The underlying technology is from Bing and Microsoft Research, and integrated into the Cognitive Search infrastructure as an add-on feature. For more information about the research and AI investments backing semantic ranking, see [How AI from Bing is powering Azure Cognitive Search (Microsoft Research Blog)](https://www.microsoft.com/research/blog/the-science-behind-semantic-search-how-ai-from-bing-is-powering-azure-cognitive-search/).
 
 The following video provides an overview of the capabilities.
 
@@ -121,18 +118,18 @@ The following video provides an overview of the capabilities.
 
 ## Availability and pricing
 
-Semantic search is available on search services at the Basic and higher tiers, subject to [regional availability](https://azure.microsoft.com/global-infrastructure/services/?products=search).
+Semantic ranking is available on search services at the Basic and higher tiers, subject to [regional availability](https://azure.microsoft.com/global-infrastructure/services/?products=search).
 
-When you enable semantic search, choose a pricing plan for the feature:
+When you enable semantic ranking, choose a pricing plan for the feature:
 
-* At lower query volumes (under 1000 monthly), semantic search is free.
+* At lower query volumes (under 1000 monthly), semantic ranking is free.
 * At higher query volumes, choose the standard pricing plan.
 
 The [Cognitive Search pricing page](https://azure.microsoft.com/pricing/details/search/) shows you the billing rate for different currencies and intervals.
 
-Charges for semantic search are levied when query requests include `queryType=semantic` and the search string isn't empty (for example, `search=pet friendly hotels in New York`). If your search string is empty (`search=*`), you aren't charged, even if the queryType is set to semantic.
+Charges for semantic ranking are levied when query requests include `queryType=semantic` and the search string isn't empty (for example, `search=pet friendly hotels in New York`). If your search string is empty (`search=*`), you aren't charged, even if the queryType is set to semantic.
 
 ## Next steps
 
-* [Enable semantic search](semantic-how-to-enable-disable.md) for your search service.
-* [Configure semantic ranking](semantic-how-to-query-request.md) so that you can try out semantic search on your content.
+* [Enable semantic ranking](semantic-how-to-enable-disable.md) for your search service.
+* [Configure semantic ranking](semantic-how-to-query-request.md) so that you can try out semantic ranking on your content.

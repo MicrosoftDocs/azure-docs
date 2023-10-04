@@ -164,7 +164,7 @@ For either algorithm, a "@search.score" equal to 1.00 indicates an unscored or u
 
 ### Order by the semantic reranker
 
-If you're using [semantic search](semantic-search-overview.md), the "@search.rerankerScore" determines the sort order of your results. 
+If you're using [semantic ranking](semantic-search-overview.md), the "@search.rerankerScore" determines the sort order of your results. 
 
 The "@search.rerankerScore" range is 1 to 4.00, where a higher score indicates a stronger semantic match.
 
