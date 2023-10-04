@@ -10,4 +10,4 @@ ms.author: jboback
 ---
 
 > [!NOTE]
-> Starting on the 20th of September, 2026 you won’t be able to create new Personalizer resources. The Personalizer service is being retired on the 1st of October, 2026.
+> Starting on the 20th of September, 2023 you won’t be able to create new Personalizer resources. The Personalizer service is being retired on the 1st of October, 2026.

@@ -19,7 +19,7 @@ sections:
       - question: |
           When will Anomaly Detector be deprecated?
         answer:  |
-          Starting on the 20th of September, 2026 you won’t be able to create new Anomaly Detector resources. The Anomaly Detector service is being retired on the 1st of October, 2026.
+          Starting on the 20th of September, 2023 you won’t be able to create new Anomaly Detector resources. The Anomaly Detector service is being retired on the 1st of October, 2026.
       - question: |
           When to use Univariate Anomaly Detection v.s. Multivariate Anomaly Detection?
         answer:  |
