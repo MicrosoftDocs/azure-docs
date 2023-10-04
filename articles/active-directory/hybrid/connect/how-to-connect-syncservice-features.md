@@ -36,7 +36,7 @@ To see the configuration in your Microsoft Entra directory using the Graph Power
 ```powershell
 Connect-MgGraph -Scopes OnPremDirectorySynchronization.Read.All, OnPremDirectorySynchronization.ReadWrite.All
 
-Get-MgDirectoryOnPremisSynchronization | Select-Object -ExpandProperty Features | Format-List
+Get-MgDirectoryOnPremiseSynchronization | Select-Object -ExpandProperty Features | Format-List
 ```
 
 The output looks similar to `Get-MsolDirSyncFeatures`:
