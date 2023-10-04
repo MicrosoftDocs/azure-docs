@@ -28,19 +28,25 @@ In this tutorial, you learn how to:
 
 - An Azure subscription - [create one for free](https://azure.microsoft.com/free)
 - We assume you already have an App Configuration store. To create one, [create an App Configuration store](quickstart-aspnet-core-app.md).
+- The [Azure CLI](/cli/azure/install-azure-cli)
 
 ## Sentinel key
 
 A *sentinel key* is a key that you update after you complete the change of all other keys. Your app monitors the sentinel key. When a change is detected, your app refreshes all configuration values. This approach helps to ensure the consistency of configuration in your app and reduces the overall number of requests made to your App Configuration store, compared to monitoring all keys for changes.
 
-## Reload data from App Configuration
+The suggested usage of a sentinel key is to create a key with a value that either increments or use a timestamp.
 
-1. Create two configurations in your App Configuration store.
-
-```cli
-az appconfig kv set --name <app-configuration-store-name> --key message --value "Hello World!"
+```azurecli
 az appconfig kv set --name <app-configuration-store-name> --key Sentinel --value "1"
 ```
+
+## Reload data from App Configuration
+
+1. Create a configurations in your App Configuration store that will be updated.
+
+    ```azurecli
+    az appconfig kv set --name <app-configuration-store-name> --key message --value "Hello World!"
+    ```
 
 1. Create a new Python file named *app.py* and add the following code:
 
@@ -55,13 +61,12 @@ az appconfig kv set --name <app-configuration-store-name> --key Sentinel --value
     config = load(
         connection_string=connection_string,
         refresh_on=[SentinelKey("Sentinel")],
-        refresh_interval=1, # Default value is 30 seconds, shorted for this sample
+        refresh_interval=10, # Default value is 30 seconds, shorted for this sample
     )
 
     # Printing the initial value
     print("Starting configuration values:")
     print(config["message"])
-    print(config["Sentinel"])
 
     print("Updating configuration values now.")
 
@@ -74,37 +79,34 @@ az appconfig kv set --name <app-configuration-store-name> --key Sentinel --value
     # Printing the updated value
     print("Updated configuration values:")
     print(config["message"])
-    print(config["Sentinel"])
     ```
 
 1. Run your script:
 
-    ```cli
+    ```azurecli
     python app.py
     ```
 
 1. Verify Output:
 
-```cli
-Starting configuration values:
-Hello World!
-1
-```
+    ```azurecli
+    Starting configuration values:
+    Hello World!
+    ```
 
 1. Update the values in your App Configuration store, making sure to update the sentinel key last.
 
-```cli
-az appconfig kv set --name <app-configuration-store-name> --key message --value "Hello World Refreshed!"
-az appconfig kv set --name <app-configuration-store-name> --key Sentinel --value "2"
-```
+    ```azurecli
+    az appconfig kv set --name <app-configuration-store-name> --key message --value "Hello World Refreshed!"
+    az appconfig kv set --name <app-configuration-store-name> --key Sentinel --value "2"
+    ```
 
 1. Wait for the refresh interval to pass the refresh to be called, the configuration settings will print again with new values.
 
-```cli
-Updated configuration values:
-Hello World Refreshed!
-2
-```
+    ```azurecli
+    Updated configuration values:
+    Hello World Refreshed!
+    ```
 
 ## Web App Usage
 
