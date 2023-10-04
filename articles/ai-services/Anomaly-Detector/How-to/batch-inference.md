@@ -13,6 +13,8 @@ ms.author: mbullwin
 
 # Trigger batch inference with trained model
 
+[!INCLUDE [Deprecation announcement](../includes/deprecation.md)]
+
 You could choose the batch inference API, or the streaming inference API for detection.
 
 | Batch inference API | Streaming inference API           |

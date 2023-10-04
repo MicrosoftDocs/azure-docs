@@ -12,6 +12,8 @@ ms.author: mbullwin
 
 # How-to: Create a credential entity
 
+[!INCLUDE [Deprecation announcement](../includes/deprecation.md)]
+
 When onboarding a data feed, you should select an authentication type, some authentication types like *Azure SQL Connection String* and *Service Principal* need a credential entity to store credential-related information, in order to manage your credential in secure. This article will tell how to create a credential entity for different credential types in Metrics Advisor.
     
 
