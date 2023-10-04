@@ -26,7 +26,7 @@ Azure API for FHIR is a service that was purpose built for protected health info
 
 ## What are the benefits of migrating to Azure Health Data Services FHIR service?
 
-AHDS FHIR service offers a rich set of capabilities such as:
+Azure Health Data Service FHIR service offers a rich set of capabilities such as:
 
 - Consumption-based pricing model where customers pay only for used storage and throughput
 - Support for transaction bundles
