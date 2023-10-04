@@ -109,7 +109,7 @@ Let's see how to package the previously registered MLflow model to deploy it to 
 
     Create a package YAML specification:
     
-    __package-azure-app.yml__
+    __package-external.yml__
     
     ```yml
     $schema: http://azureml/sdk-2-0/ModelVersionPackage.json
@@ -141,7 +141,7 @@ Let's see how to package the previously registered MLflow model to deploy it to 
     # [Azure CLI](#tab/cli)
     
     ```azurecli
-    az ml model package -n $MODEL_NAME -l latest --file package-docker.yml
+    az ml model package -n $MODEL_NAME -l latest --file package-external.yml
     ```
     
     # [Python](#tab/sdk)

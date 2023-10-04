@@ -705,7 +705,7 @@ The following example shows how to configure copy in a package:
 
 # [Azure CLI](#tab/cli)
 
-__package-azure-app.yml__
+__package-external.yml__
 
 ```yml
 $schema: http://azureml/sdk-2-0/ModelVersionPackage.json
