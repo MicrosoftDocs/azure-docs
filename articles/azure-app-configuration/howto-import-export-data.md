@@ -4,6 +4,7 @@ description: Learn how to import or export configuration data to or from Azure A
 services: azure-app-configuration
 author: maud-lv
 ms.service: azure-app-configuration
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 08/24/2022
 ms.author: malev

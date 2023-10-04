@@ -4,6 +4,7 @@ description: This article shows you how to use the UI to deploy the container th
 author: limwainstein
 ms.author: lwainstein
 ms.topic: how-to
+ms.custom: devx-track-azurecli
 ms.date: 01/18/2023
 ---
 
