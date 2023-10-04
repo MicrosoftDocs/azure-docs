@@ -88,19 +88,19 @@ To get the PRT error code, run the `dsregcmd` command, and then locate the `SSO 
 
 <a name='method-2-use-event-viewer-to-examine-azure-ad-analytic-and-operational-logs'></a>
 
-#### Method 2: Use Event Viewer to examine Microsoft Entra analytic and operational logs
+#### Method 2: Use Event Viewer to examine AAD analytic and operational logs
 
 1. Select **Start**, and then search for and select **Event Viewer**.
 1. If the console tree doesn't appear in the **Event Viewer** window, select the **Show/Hide Console Tree** icon to make the console tree visible.
 1. In the console tree, select **Event Viewer (Local)**. If child nodes don't appear underneath this item, double-click your selection to show them.
 1. Select the **View** menu. If a check mark isn't displayed next to **Show Analytic and Debug Logs**, select that menu item to enable that feature.
-1. In the console tree, expand **Applications and Services Logs** > **Microsoft** > **Windows** > **Microsoft Entra ID**. The **Operational** and **Analytic** child nodes appear. 
+1. In the console tree, expand **Applications and Services Logs** > **Microsoft** > **Windows** > **AAD**. The **Operational** and **Analytic** child nodes appear. 
 
    > [!NOTE]  
    > In the Microsoft Entra Cloud Authentication Provider (CloudAP) plug-in, **Error** events are written to the **Operational** event logs, and information events are written to the **Analytic** event logs. You have to examine both the **Operational** and **Analytic** event logs to troubleshoot PRT issues.
 
-1. In the console tree, select the **Analytic** node to view Microsoft Entra ID-related analytic events.
-1. In the list of analytic events, search for Event IDs 1006 and 1007. Event ID 1006 denotes the beginning of the PRT acquisition flow, and Event ID 1007 denotes the end of the PRT acquisition flow. All events in the **Microsoft Entra ID** logs (both **Analytic** and **Operational**) that occurred between Event ID 1006 and Event ID 1007 are logged as part of the PRT acquisition flow. The following table shows an example event listing.
+1. In the console tree, select the **Analytic** node to view AAD-related analytic events.
+1. In the list of analytic events, search for Event IDs 1006 and 1007. Event ID 1006 denotes the beginning of the PRT acquisition flow, and Event ID 1007 denotes the end of the PRT acquisition flow. All events in the **AAD** logs (both **Analytic** and **Operational**) that occurred between Event ID 1006 and Event ID 1007 are logged as part of the PRT acquisition flow. The following table shows an example event listing.
 
    | Level           | Date and Time            | Source  | Event ID | Task Category                  |
    |-----------------|--------------------------|---------|----------|--------------------------------|
