@@ -12,11 +12,14 @@ metadata:
 title: Metrics Advisor frequently asked questions
 summary: |
 
-[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
-
 sections:
   - name: Basic concepts
     questions:
+      - question: |
+          When will Metrics Advisor be deprecated?
+        answer:  |
+          Starting on the 20th of September, 2026 you won’t be able to create new Metrics Advisor resources. The Metrics Advisor service is being retired on the 1st of October, 2026.
+
       - question: |
           What is multi-dimensional time-series data?
         answer: |
