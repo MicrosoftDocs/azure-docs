@@ -189,7 +189,7 @@ items:
         href: ./flink/azure-iot-hub.md  
       - name:  Azure Pipelines
         href: ./flink/use-azure-pipelines-to-run-flink-jobs.md  
-      - name:  Azure data factory managed airflow
+      - name:  Azure Data Factory Managed Airflow
         href: ./flink/flink-job-orchestration.md  
       - name:  Delta connectors
         href: ./flink/use-flink-delta-connector.md  
