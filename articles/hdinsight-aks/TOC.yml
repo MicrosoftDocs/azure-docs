@@ -185,11 +185,11 @@ items:
         href: ./flink/integration-of-azure-data-explorer.md   
       - name:  Azure Event Hubs
         href: ./flink/flink-how-to-setup-event-hub.md
-      - name:  Azure IoT Hubs
+      - name:  Azure IoT Hub
         href: ./flink/azure-iot-hub.md  
       - name:  Azure Pipelines
         href: ./flink/use-azure-pipelines-to-run-flink-jobs.md  
-      - name:  Azure data factory managed airflow
+      - name:  Azure Data Factory Managed Airflow
         href: ./flink/flink-job-orchestration.md  
       - name:  Delta connectors
         href: ./flink/use-flink-delta-connector.md  
