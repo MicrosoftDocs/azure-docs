@@ -1,6 +1,6 @@
 ---
 title: How to manage groups
-description: Instructions about how to manage Microsoft Entra groups and group membership.
+description: Instructions about how to create and update Microsoft Entra groups, such as membership and settings.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -12,6 +12,9 @@ ms.topic: how-to
 ms.date: 09/12/2023
 ms.author: sarahlipsey
 ms.reviewer: krbain
+
+# Customer Intent: As an IT admin, I want to learn how to create groups, add members, and adjust setting so that I can grant the right access to the right services for the right people.
+
 ---
 # Manage Microsoft Entra groups and group membership
 
@@ -42,6 +45,8 @@ To create a basic group and add members:
     - Selecting the **Microsoft 365** Group type enables the **Group email address** option.
 
 1. Enter a **Group name.** Choose a name that you'll remember and that makes sense for the group. A check will be performed to determine if the name is already in use. If the name is already in use, you'll be asked to change the name of your group.
+
+    - The name of the group can't start with a space. Starting the name with a space prevents the group from appearing as an option for steps such as adding role assignments to group members.
 
 1. **Group email address**: Only available for Microsoft 365 group types. Enter an email address manually or use the email address built from the Group name you provided.
  
@@ -192,7 +197,7 @@ You can remove an existing Security group from another Security group; however, 
 
 You can delete a group for any number of reasons, but typically it will be because you:
 
-- Chose the incorrect **Group type** option.
+- Choose the incorrect **Group type** option.
 - Created a duplicate group by mistake. 
 - No longer need the group.
 

@@ -166,6 +166,7 @@ You need to complete the following tasks prior to deploying Application Gateway 
     helm upgrade alb-controller oci://mcr.microsoft.com/application-lb/charts/alb-controller \
         --namespace <helm-resource-namespace> \
         --version 0.5.024542 \
+        --set albController.namespace=<alb-controller-namespace> \
         --set albController.podIdentity.clientID=$(az identity show -g $RESOURCE_GROUP -n azure-alb-identity --query clientId -o tsv)
     ```
 

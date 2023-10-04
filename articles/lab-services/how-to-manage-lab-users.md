@@ -166,7 +166,7 @@ To view the list of lab users that have already registered for the lab by using 
     The list shows the list of lab users with their registration status. The user status should show **Registered**, and their name should also be available after registration.
 
     > [!NOTE]
-    > If you [republish a lab](how-to-create-manage-template.md#publish-the-template-vm) or [Reset VMs](how-to-manage-vm-pool.md#reset-lab-vms), the users remain registered for the labs' VMs.  However, the contents of the VMs will be deleted and the VMs will be recreated with the template VM's image.
+    > If you [republish a lab](how-to-create-manage-template.md#publish-the-template-vm) or [Reimage VMs](how-to-manage-vm-pool.md#reimage-lab-vms), the users remain registered for the labs' VMs.  However, the contents of the VMs will be deleted and the VMs will be recreated with the template VM's image.
 
 # [Azure AD group](#tab/aad)
 
