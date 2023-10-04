@@ -13,7 +13,7 @@ Azure IoT Hub is a managed service hosted in the cloud that acts as a central me
 ## Prerequisites
 
 1. [Create an Azure IoTHub](/azure/iot-hub/iot-hub-create-through-portal/)
-2. [Create a HDInsight on AKS Flink cluster](./flink-create-cluster-portal.md)
+2. [Create an HDInsight on AKS Flink cluster](./flink-create-cluster-portal.md)
 
 ## Configure Flink cluster
 
