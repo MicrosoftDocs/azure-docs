@@ -44,7 +44,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (bring your
 
 1. Configure the Azure and Hyper-V modules if required.
 
-    If your software hypervisor is not Hyper-V, other modules need to be added into the initramfs file to successfully boot in Azure.
+    If your software hypervisor is not Hyper-V, other modules need to be added into the initial RAM disk (initramfs) to successfully boot in Azure.
 
     Edit the */etc/dracut.conf* file and add the following line to the file:
 
@@ -296,7 +296,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (bring your
 
     The Azure Linux Agent can automatically configure swap space by using the local resource disk that's attached to the VM after provisioning on Azure. The local resource disk is a *temporary* disk and will be emptied when the VM is deprovisioned.
 
-    After you install the Azure Linux Agent, modify the following parameters in */etc/waagent.conf* as follows:
+    After you install the Azure Linux Agent, modify the parameters in */etc/waagent.conf* as follows:
 
     ```config-conf
     ResourceDisk.Format=n

@@ -39,7 +39,7 @@ This article focuses on general guidance for running your Linux distribution on 
 
 * Kernel support for mounting user-defined function (UDF) file systems is necessary. At first boot on Azure, the provisioning configuration is passed to the Linux VM via UDF-formatted media that are attached to the guest. The Azure Linux agent must mount the UDF file system to read its configuration and provision the VM.
 
-* Linux kernel versions earlier than 2.6.37 don't support Non-Uniform Memory Access (NUMA) on Hyper-V with larger VM sizes. This issue primarily affects older distributions that use the upstream Red Hat 2.6.32 kernel and was fixed in Red Hat Enterprise Linux (RHEL) 6.6 (kernel-2.6.32-504).
+* Linux kernel versions earlier than 2.6.37 don't support Non-Uniform Memory Access (NUMA) on Hyper-V with larger VM sizes. This issue primarily affects older distributions that use the upstream Red Hat 2.6.32 kernel. It was fixed in Red Hat Enterprise Linux (RHEL) 6.6 (kernel-2.6.32-504).
 
   Systems running custom kernels older than 2.6.37, or RHEL-based kernels older than 2.6.32-504, must set the boot parameter `numa=off` on the kernel command line in *grub.conf*. For more information, see [Red Hat KB 436883](https://access.redhat.com/solutions/436883).
 
@@ -77,7 +77,7 @@ The mechanism for rebuilding the initrd or initramfs image can vary, depending o
 
 ### Resize VHDs
 
-VHD images on Azure must have a virtual size aligned to 1 MB. Typically, VHDs created through Hyper-V are aligned correctly. If the VHD isn't aligned correctly, you might get an error message similar to the following when you try to create an image from your VHD:
+VHD images on Azure must have a virtual size aligned to 1 MB. Typically, VHDs created through Hyper-V are aligned correctly. If the VHD isn't aligned correctly, you might get an error message similar to the following example when you try to create an image from your VHD:
 
 ```config
 The VHD http:\//\<mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd has an unsupported virtual size of 21475270656 bytes. The size must be a whole number (in MBs).
@@ -205,7 +205,7 @@ Here are considerations for using the Azure Linux Agent:
     sudo grub2-mkconfig -o /boot/grub2/grub.cfg
     ```
 
-3. Add Hyper-V module for initramfs by using `dracut`:
+3. Add the Hyper-V module for initramfs by using `dracut`:
 
    ```bash
    cd /boot
@@ -215,7 +215,7 @@ Here are considerations for using the Azure Linux Agent:
    sudo grub2-mkconfig -o /boot/grub2/grub.cfg 
    ```
 
-   Add Hyper-V module for initrd by using `mkinitramfs`:
+   Add the Hyper-V module for initrd by using `mkinitramfs`:
 
    ```bash
    cd /boot
@@ -235,7 +235,7 @@ Here are considerations for using the Azure Linux Agent:
 
    Install the Azure Linux Agent, cloud-init, and other necessary utilities by running one of the following commands.
 
-   Use this command for Red Hat or Centos:
+   Use this command for Red Hat or CentOS:
 
    ```bash
    sudo yum install -y WALinuxAgent cloud-init cloud-utils-growpart gdisk hyperv-daemons
@@ -384,4 +384,4 @@ Here are considerations for using the Azure Linux Agent:
 
 ## Next steps
 
-[Create a Linux VM from a custom disk by using the Azure CLI](upload-vhd.md).
+[Create a Linux VM from a custom disk by using the Azure CLI](upload-vhd.md)
