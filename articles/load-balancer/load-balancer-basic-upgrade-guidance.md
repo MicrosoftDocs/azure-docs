@@ -66,7 +66,7 @@ When manually migrating from a Basic to Standard SKU Load Balancer, there are a 
 
 - It is not possible to mix Basic and Standard SKU IPs or Load Balancers. All Public IPs associated with a Load Balancer and its backend pool members must match.
 - Public IP allocation method must be set to 'static' when a Public IP is disassociated from a Load Balancer or Virtual Machine, or the allocated IP will be lost. 
-- Standard SKU public IP addresses are secure by default, requiring that a Network Security Group explicitly allow traffic to any Public IPs
+- Standard SKU public IP addresses are secure by default, requiring that a Network Security Group explicitly allow traffic to any public IPs
 - Standard SKU Load Balancers block outbound access by default. To enable outbound access, a public load balancer needs an outbound rule for backend members. For private load balancers, either configure a NAT Gateway on the backend pool members' subnet or add instance-level publc IP addresses to each backend member. 
 
 Recommended order of operations for manually upgrading a Load Balancer:
@@ -88,6 +88,7 @@ Recommended order of operations for manually upgrading a Load Balancer:
 1. Upgrade all Public IPs associated with the Basic Load Balancer and backend Virtual Machines to Standard SKU. For Virtual Machine Scale Sets, remove any instance-level public IP configuration, update the instances, then add a new one with Standard SKU and update the instances again. 
 1. Recreate the frontend configurations from the Basic Load Balancer, using the same public or private IP addresses
 1. Update the load balancing and NAT rules to use the appropriate frontend configurations
+1. For public Load Balanacers, create one or more outbound rule to enable internet access for backend pools
 1. Remove the temporary frontend configuration
 
 ## Next Steps
