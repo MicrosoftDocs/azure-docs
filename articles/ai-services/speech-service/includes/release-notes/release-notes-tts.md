@@ -14,7 +14,7 @@ ms.author: eur
 | ----- | ----- | ----- |
 | `en-US` | English (United States) | `en-US-EmmaNeural` (Female) |
 | `en-US` | English (United States) | `en-US-AndrewNeural` (Male) |
-| `en-US` | English (United States) | `en-US-BrianlNeural` (Male) |
+| `en-US` | English (United States) | `en-US-BrianNeural` (Male) |
 
 See the [full language and voice list](../../language-support.md?tabs=tts#custom-neural-voice) for more information.
 
