@@ -3,7 +3,7 @@ title: Artificial Intelligence (AI) shared responsibility model
 description: "Understand the shared responsibility model and which tasks are handled by the AI platform or application provider, and which tasks are handled by you."
 services: security
 documentationcenter: na
-author: TerryLanfear
+author: richarddiver-ms
 manager: rkarlin
 editor: na
 
@@ -13,7 +13,7 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2023
+ms.date: 10/03/2023
 ms.author: terrylan
 
 ---
@@ -32,7 +32,7 @@ An AI enabled application consists of three layers of functionality that group t
 ### AI platform
 The AI platform layer provides the AI capabilities to the applications. At the platform layer, there's a need to build and safeguard the infrastructure that runs the AI model, training data, and specific configurations that change the behavior of the model, such as weights and biases. This layer provides access to functionality via APIs, which pass text known as a *Metaprompt* to the AI model for processing, then return the generated outcome, known as a *Prompt-Response*.
 
-**AI platform security considerations** - To protect the AI platform from malicious inputs, a safety system must be built to filter out the potentially harmful instructions sent to the AI model (inputs). As AI models are generative, there's also a potential that some harmful content may be generated and returned to the user (outputs). Thus, any safety system must first protect inputs and generated content based on classification, and outputs. Additionally, these classifications will evolve over time based on model knowledge, locale, and industry.
+**AI platform security considerations** - To protect the AI platform from malicious inputs, a safety system must be built to filter out the potentially harmful instructions sent to the AI model (inputs). As AI models are generative, there's also a potential that some harmful content may be generated and returned to the user (outputs). Any safety system must first protect against potentially harmful inputs and outputs of many classifications including hate, jailbreaks, and others. These classifications will likely evolve over time based on model knowledge, locale, and industry.
 
 ### AI application
 The AI application accesses the AI capabilities and provides the service or interface that the user consumes. The components in this layer can vary from relatively simple to highly complex, depending on the application. The simplest standalone AI applications act as an interface to a set of APIs taking a text-based user-prompt and passing that data to the model for a response. More complex AI applications include the ability to ground the user-prompt with extra context, including a persistence layer, semantic index, or via plugins to allow access to more data sources. Advanced AI applications may also interface with existing applications and systems. Existing applications and systems may work across text, audio, and images to generate various types of content.
@@ -65,8 +65,14 @@ As with security for other types of capability, it's critical to plan for a comp
 
 This is described in the [NIST Cybersecurity framework](https://www.nist.gov/itl/smallbusinesscyber/nist-cybersecurity-framework).
 
-## Copilot security advantages
-To help bring AI to the world, Microsoft is developing Copilot solutions for each of the main productivity solutions: from Bing and Windows, to GitHub and Office 365, Microsoft is developing full stack solutions for all types of productivity scenarios. These are offered as SaaS solutions. Built into the user interface of the product, they're tuned to assist the user with. *(Tuned to assist the user with what?)*
+## Configure before customize
+Microsoft recommends organizations start with SaaS based approaches  like the Copilot model for their initial adoption of AI and for all subsequent AI workloads. This minimizes the level of respolnsibility and expertise your organization has to provide to design, operate, and secure these highly complex capabilities.
+
+If the current "offthe shelf" capabilities don't meet the specific needs for a workload, you can adopt a PaaS model by using AI services like *xxxxx* to meet those specific requirements.
+
+Custom model building should only be adopted by organizations with deep expertise on data science and the security, privacy, and ethical considerations of AI.
+
+To help bring AI to the world, Microsoft is developing Copilot solutions for each of the main productivity solutions: from Bing and Windows, to GitHub and Office 365, Microsoft is developing full stack solutions for all types of productivity scenarios. These are offered as SaaS solutions. Built into the user interface of the product, they're tuned to assist the user with specific tasks to increase productivity.
 
 Microsoft ensures that every Copilot solution is engineered following our [strong principles](https://www.microsoft.com/ai/principles-and-approach/) for AI governance.
 
