@@ -485,15 +485,19 @@ groups:
   - id: java
     title: Java
 - id: functions-hosting-plan
-  title: Functions hosting plan options
-  prompt: Choose the hosting plan of your function app
+  title: Function app hosting options
+  prompt: Choose a hosting option for your function app
   pivots:
-  - id: consumption
+  - id: consumption-plan
     title: Consumption plan
-  - id: premium
+  - id: premium-plan
     title: Elastic Premium plan
-  - id: dedicated
+  - id: dedicated-plan
     title: Dedicated (App Service) plan
+  - id: container-apps
+    title: Azure Container Apps
+  - id: azure-arc
+    title: Azure Arc
 ### end azure-functions
 #Owner: shinardi
 - id: bring-third-party-dependency-programming-functions
