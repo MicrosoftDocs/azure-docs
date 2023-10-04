@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Uberflip'
-description: Learn how to configure single sign-on between Azure Active Directory and Uberflip.
+title: 'Tutorial: Microsoft Entra integration with Uberflip'
+description: Learn how to configure single sign-on between Microsoft Entra ID and Uberflip.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -12,28 +12,28 @@ ms.topic: tutorial
 ms.date: 11/21/2022
 ms.author: jeedes
 ---
-# Tutorial: Azure Active Directory integration with Uberflip
+# Tutorial: Microsoft Entra integration with Uberflip
 
-In this tutorial, you learn how to integrate Uberflip with Azure Active Directory (Azure AD).
+In this tutorial, you learn how to integrate Uberflip with Microsoft Entra ID.
 
-Integrating Uberflip with Azure AD provides you with the following benefits:
+Integrating Uberflip with Microsoft Entra ID provides you with the following benefits:
 
-* You can control in Azure AD who has access to Uberflip.
-* You can enable your users to be automatically signed in to Uberflip (single sign-on) with their Azure AD accounts.
+* You can control in Microsoft Entra ID who has access to Uberflip.
+* You can enable your users to be automatically signed in to Uberflip (single sign-on) with their Microsoft Entra accounts.
 * You can manage your accounts in one central location: the Azure portal.
 
-For details about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+For details about software as a service (SaaS) app integration with Microsoft Entra ID, see [What is application access and single sign-on with Microsoft Entra ID?](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
-To configure Azure AD integration with Uberflip, you need the following items:
+To configure Microsoft Entra integration with Uberflip, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+* A Microsoft Entra subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 * An Uberflip subscription with single sign-on enabled.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+In this tutorial, you configure and test Microsoft Entra single sign-on in a test environment.
 
 Uberflip supports the following features:
 
@@ -42,7 +42,7 @@ Uberflip supports the following features:
 
 ## Add Uberflip from the Azure Marketplace
 
-To configure the integration of Uberflip into Azure AD, you need to add Uberflip from the Azure Marketplace to your list of managed SaaS apps:
+To configure the integration of Uberflip into Microsoft Entra ID, you need to add Uberflip from the Azure Marketplace to your list of managed SaaS apps:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
@@ -53,24 +53,28 @@ To configure the integration of Uberflip into Azure AD, you need to add Uberflip
 
    ![Uberflip in the results list](common/search-new-app.png)
 
-## Configure and test Azure AD single sign-on
+<a name='configure-and-test-azure-ad-single-sign-on'></a>
 
-In this section, you configure and test Azure AD single sign-on with Uberflip based on a test user named **B Simon**. For single sign-on to work, you need to establish a link between an Azure AD user and a related user in Uberflip.
+## Configure and test Microsoft Entra single sign-on
 
-To configure and test Azure AD single sign-on with Uberflip, you need to complete the following building blocks:
+In this section, you configure and test Microsoft Entra single sign-on with Uberflip based on a test user named **B Simon**. For single sign-on to work, you need to establish a link between a Microsoft Entra user and a related user in Uberflip.
 
-1. **[Configure Azure AD single sign-on](#configure-azure-ad-single-sign-on)** to enable your users to use this feature.
+To configure and test Microsoft Entra single sign-on with Uberflip, you need to complete the following building blocks:
+
+1. **[Configure Microsoft Entra single sign-on](#configure-azure-ad-single-sign-on)** to enable your users to use this feature.
 1. **[Configure Uberflip single sign-on](#configure-uberflip-single-sign-on)** to configure the single sign-on settings on the application side.
-1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with B. Simon.
-1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable B. Simon to use Azure AD single sign-on.
-1. **[Create an Uberflip test user](#create-an-uberflip-test-user)** so that there's a user named B. Simon in Uberflip who's linked to the Azure AD user named B. Simon.
+1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** to test Microsoft Entra single sign-on with B. Simon.
+1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** to enable B. Simon to use Microsoft Entra single sign-on.
+1. **[Create an Uberflip test user](#create-an-uberflip-test-user)** so that there's a user named B. Simon in Uberflip who's linked to the Microsoft Entra user named B. Simon.
 1. **[Test single sign-on](#test-single-sign-on)** to verify whether the configuration works.
 
-### Configure Azure AD single sign-on
+<a name='configure-azure-ad-single-sign-on'></a>
 
-In this section, you enable Azure AD single sign-on.
+### Configure Microsoft Entra single sign-on
 
-To configure Azure AD single sign-on with Uberflip, take the following steps:
+In this section, you enable Microsoft Entra single sign-on.
+
+To configure Microsoft Entra single sign-on with Uberflip, take the following steps:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Uberflip** application integration page, select **Single sign-on**.
@@ -109,7 +113,7 @@ To configure Azure AD single sign-on with Uberflip, take the following steps:
 1. In the **Set up Uberflip** pane, copy the URL or URLs that you need:
 
    * **Login URL**
-   * **Azure AD Identifier**
+   * **Microsoft Entra Identifier**
    * **Logout URL**
 
    ![Copy configuration URLs](common/copy-configuration-urls.png)
@@ -118,7 +122,9 @@ To configure Azure AD single sign-on with Uberflip, take the following steps:
 
 To configure single sign-on on the Uberflip side, you need to send the downloaded Federation Metadata XML and the appropriate copied URLs to the [Uberflip support team](mailto:support@uberflip.com). The Uberflip team will make sure the SAML SSO connection is set properly on both sides.
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
+
+### Create a Microsoft Entra test user
 
 In this section, you create a test user named B. Simon.
 
@@ -132,7 +138,9 @@ In this section, you create a test user named B. Simon.
    1. Select **Review + create**.
 1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
+
+### Assign the Microsoft Entra test user
 
 In this section, you enable B. Simon to use Azure single sign-on by granting their access to Uberflip.
 
@@ -167,14 +175,14 @@ A user named B. Simon is now created in Uberflip. You don't have to do anything 
 
 ### Test single sign-on
 
-In this section, you test your Azure AD single sign-on configuration by using the My Apps portal.
+In this section, you test your Microsoft Entra single sign-on configuration by using the My Apps portal.
 
 When you select **Uberflip** in the My Apps portal, you should be automatically signed in to the Uberflip subscription for which you set up single sign-on. For more information about the My Apps portal, see [Access and use apps on the My Apps portal](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Additional resources
 
-* [List of tutorials for integrating SaaS applications with Azure Active Directory](./tutorial-list.md)
+* [List of tutorials for integrating SaaS applications with Microsoft Entra ID](./tutorial-list.md)
 
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Microsoft Entra ID?](../manage-apps/what-is-single-sign-on.md)
 
-* [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)
+* [What is Conditional Access in Microsoft Entra ID?](../conditional-access/overview.md)

@@ -24,7 +24,7 @@
     href: quick-backup-vm-bicep-template.md
   - name: Back up Azure Database for PostgreSQL server - Azure portal
     href: quick-backup-postgresql-database-portal.md
-  - name: Enable Multi-user authorization on Recovery Services vault
+  - name: Enable Multi-user authorization (MUA)
     href: enable-multi-user-authorization-quickstart.md
   - name: Backup SAP HANA System Replication database
     items:
@@ -32,6 +32,8 @@
       href: quick-backup-hana-cli.md
     - name: Restore
       href: quick-restore-hana-cli.md
+  - name: Enable enhanced soft delete
+    href: quick-backup-azure-enable-enhanced-soft-delete.md
 - name: Tutorials
   items:
   - name: Back up multiple Azure VMs
@@ -60,8 +62,10 @@
       href: tutorial-sap-hana-restore-cli.md
     - name: Manage backed up SAP HANA databases - CLI
       href: tutorial-sap-hana-manage-cli.md
-  - name: Configure Multi-user authorization (MUA) on Recovery Services vault
+  - name: Configure Multi-user authorization (MUA)
     href: multi-user-authorization-tutorial.md
+  - name: Recover soft deleted items with enhanced soft delete
+    href: backup-azure-enhanced-soft-delete-tutorial.md
 - name: Concepts
   items:
   - name: Resiliency

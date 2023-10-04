@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with SolarWinds Orion'
-description: Learn how to configure single sign-on between Azure Active Directory and SolarWinds Orion.
+title: 'Tutorial: Microsoft Entra single sign-on (SSO) integration with SolarWinds Orion'
+description: Learn how to configure single sign-on between Microsoft Entra ID and SolarWinds Orion.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -13,30 +13,30 @@ ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with SolarWinds Orion
+# Tutorial: Microsoft Entra single sign-on (SSO) integration with SolarWinds Orion
 
-In this tutorial, you'll learn how to integrate SolarWinds Orion with Azure Active Directory (Azure AD). When you integrate SolarWinds Orion with Azure AD, you can:
+In this tutorial, you'll learn how to integrate SolarWinds Orion with Microsoft Entra ID. When you integrate SolarWinds Orion with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to SolarWinds Orion.
-* Enable your users to be automatically signed-in to SolarWinds Orion with their Azure AD accounts.
+* Control in Microsoft Entra ID who has access to SolarWinds Orion.
+* Enable your users to be automatically signed-in to SolarWinds Orion with their Microsoft Entra accounts.
 * Manage your accounts in one central location.
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * SolarWinds Orion single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment.
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment.
 
 * SolarWinds Orion supports **SP and IDP** initiated SSO.
 
 ## Add SolarWinds Orion from the gallery
 
-To configure the integration of SolarWinds Orion into Azure AD, you need to add SolarWinds Orion from the gallery to your list of managed SaaS apps.
+To configure the integration of SolarWinds Orion into Microsoft Entra ID, you need to add SolarWinds Orion from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
@@ -46,22 +46,26 @@ To configure the integration of SolarWinds Orion into Azure AD, you need to add 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 
-## Configure and test Azure AD SSO for SolarWinds Orion
+<a name='configure-and-test-azure-ad-sso-for-solarwinds-orion'></a>
 
-Configure and test Azure AD SSO with SolarWinds Orion using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in SolarWinds Orion.
+## Configure and test Microsoft Entra SSO for SolarWinds Orion
 
-To configure and test Azure AD SSO with SolarWinds Orion, perform the following steps:
+Configure and test Microsoft Entra SSO with SolarWinds Orion using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in SolarWinds Orion.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+To configure and test Microsoft Entra SSO with SolarWinds Orion, perform the following steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
 1. **[Configure SolarWinds Orion SSO](#configure-solarwinds-orion-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create SolarWinds Orion test user](#create-solarwinds-orion-test-user)** - to have a counterpart of B.Simon in SolarWinds Orion that is linked to the Azure AD representation of user.
+    1. **[Create SolarWinds Orion test user](#create-solarwinds-orion-test-user)** - to have a counterpart of B.Simon in SolarWinds Orion that is linked to the Microsoft Entra representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO.
+## Configure Microsoft Entra SSO
+
+Follow these steps to enable Microsoft Entra SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **SolarWinds Orion**
@@ -118,7 +122,9 @@ application integration page, find the **Manage** section and select **single si
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
+
+### Create a Microsoft Entra test user
 
 In this section, you'll create a test user called B.Simon.
 
@@ -132,7 +138,9 @@ In this section, you'll create a test user called B.Simon.
    1. Select **Review + create**.
 1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
+
+### Assign the Microsoft Entra test user
 
 In this section, you'll enable B.Simon to use single sign-on by granting access to Evergreen.
 
@@ -168,7 +176,7 @@ In this section, you'll enable B.Simon to use single sign-on by granting access 
 
     c. In the **SSO Target URL** textbox, paste the **Login URL** value, which you copied previously.
 
-    d.  In the **Issuer URL** textbox, paste the **Azure AD Identifier** value, which you copied previously.
+    d.  In the **Issuer URL** textbox, paste the **Microsoft Entra Identifier** value, which you copied previously.
 
     e. Open the downloaded **Certificate (Base64)** into Notepad and paste the content into the **X.509 Signing Certificate** textbox.
 
@@ -192,15 +200,15 @@ In this section, you'll enable B.Simon to use single sign-on by granting access 
 
     ![Screenshot shows Add New Account where you can select the type of account.](./media/solarwinds-orion-tutorial/create-user-new-account.png)
 
-1.  In the **NAME ID** textbox, enter the name that must match with the username or group name exactly as in Azure AD.
+1.  In the **NAME ID** textbox, enter the name that must match with the username or group name exactly as in Microsoft Entra ID.
 
 1.  Click on **Next** and then submit the page.
 
-    ![Screenshot shows Add New Account where you can enter the Name I D from Azure A D.](./media/solarwinds-orion-tutorial/create-user-name-id.png)
+    ![Screenshot shows Add New Account where you can enter the Name I D from Microsoft Entra ID.](./media/solarwinds-orion-tutorial/create-user-name-id.png)
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
 #### SP initiated:
 

@@ -6,8 +6,7 @@ services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 zone_pivot_groups: programming-languages-set-conmod
-ms.service: cognitive-services
-ms.subservice: content-moderator
+ms.service: azure-ai-content-moderator
 ms.topic: quickstart
 ms.date: 09/28/2021
 ms.author: pafarley

@@ -24,6 +24,8 @@ items:
     href: quickstart.md?pivots=sc-enterprise
   - name: Launch your first web app
     href: quickstart-deploy-web-app.md?pivots=sc-enterprise
+  - name: Launch your first RESTful API app
+    href: quickstart-deploy-restful-api-app.md
   - name: Launch your first event-driven app
     href: quickstart-deploy-event-driven-app.md?pivots=sc-enterprise
   - name: Launch your first microservice apps
@@ -229,8 +231,6 @@ items:
         href: tutorial-alerts-action-groups.md
       - name: Circuit Breaker Dashboard
         href: tutorial-circuit-breaker.md
-      - name: Distributed tracing and App Insights
-        href: how-to-distributed-tracing.md
       - name: Analyze logs and metrics
         href: diagnostic-services.md
       - name: Stream logs in real time
@@ -443,8 +443,6 @@ items:
         href: tutorial-alerts-action-groups.md
       - name: Circuit Breaker Dashboard
         href: tutorial-circuit-breaker.md
-      - name: Distributed tracing and App Insights
-        href: how-to-distributed-tracing.md
       - name: Analyze logs and metrics
         href: diagnostic-services.md
       - name: Stream logs in real time
@@ -471,6 +469,8 @@ items:
         href: how-to-elastic-diagnostic-settings.md
       - name: Health probes and graceful termination
         href: how-to-configure-health-probes-graceful-termination.md
+      - name: Optimize application observability
+        href: application-observability.md
     - name: Network
       items:
       - name: Custom DNS name

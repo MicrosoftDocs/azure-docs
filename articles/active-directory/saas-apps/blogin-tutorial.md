@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with BlogIn'
-description: Learn how to configure single sign-on between Azure Active Directory and BlogIn.
+title: 'Tutorial: Microsoft Entra single sign-on (SSO) integration with BlogIn'
+description: Learn how to configure single sign-on between Microsoft Entra ID and BlogIn.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -13,24 +13,24 @@ ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with BlogIn
+# Tutorial: Microsoft Entra single sign-on (SSO) integration with BlogIn
 
-In this tutorial, you'll learn how to integrate BlogIn with Azure Active Directory (Azure AD). When you integrate BlogIn with Azure AD, you can:
+In this tutorial, you'll learn how to integrate BlogIn with Microsoft Entra ID. When you integrate BlogIn with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to BlogIn.
-* Enable your users to be automatically signed-in to BlogIn with their Azure AD accounts.
+* Control in Microsoft Entra ID who has access to BlogIn.
+* Enable your users to be automatically signed-in to BlogIn with their Microsoft Entra accounts.
 * Manage your accounts in one central location.
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * BlogIn single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment.
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment.
 
 * BlogIn supports **SP and IDP** initiated SSO.
 * BlogIn supports **Just In Time** user provisioning.
@@ -38,7 +38,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 ## Add BlogIn from the gallery
 
-To configure the integration of BlogIn into Azure AD, you need to add BlogIn from the gallery to your list of managed SaaS apps.
+To configure the integration of BlogIn into Microsoft Entra ID, you need to add BlogIn from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
@@ -47,22 +47,26 @@ To configure the integration of BlogIn into Azure AD, you need to add BlogIn fro
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD SSO for BlogIn
+<a name='configure-and-test-azure-ad-sso-for-blogin'></a>
 
-Configure and test Azure AD SSO with BlogIn using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in BlogIn.
+## Configure and test Microsoft Entra SSO for BlogIn
 
-To configure and test Azure AD SSO with BlogIn, perform the following steps:
+Configure and test Microsoft Entra SSO with BlogIn using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in BlogIn.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+To configure and test Microsoft Entra SSO with BlogIn, perform the following steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
 1. **[Configure BlogIn SSO](#configure-blogin-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create BlogIn test user](#create-blogin-test-user)** - to have a counterpart of B.Simon in BlogIn that is linked to the Azure AD representation of user.
+    1. **[Create BlogIn test user](#create-blogin-test-user)** - to have a counterpart of B.Simon in BlogIn that is linked to the Microsoft Entra representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO.
+## Configure Microsoft Entra SSO
+
+Follow these steps to enable Microsoft Entra SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **BlogIn** > **Single sign-on**.
@@ -102,7 +106,9 @@ Follow these steps to enable Azure AD SSO.
 
 	![The Certificate download link](common/copy-metadataurl.png)
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
+
+### Create a Microsoft Entra test user
 
 In this section, you'll create a test user called B.Simon.
 
@@ -116,7 +122,9 @@ In this section, you'll create a test user called B.Simon.
    1. Select **Review + create**.
 1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
+
+### Assign the Microsoft Entra test user
 
 In this section, you'll enable B.Simon to use single sign-on by granting access to BlogIn.
 
@@ -135,13 +143,13 @@ To configure single sign-on on **BlogIn** side login to your BlogIn account and 
 1. Go to **Settings** > **User Authentication** > **Configure SSO & User provisioning**.
 2. On the next screen, change Single Sign-On status to **On** and choose a custom name for the SSO login button that will be displayed on the login screen.
 
-3. If you saved the **App Federation Metadata Url** in the last step of the previous section, choose the configuration method **Metadata URL** and paste **App Federation Metadata Url** into the Metadata URL field. Otherwise, change the Configuration method to **manual**, manually populate **Identity Provider SSO URL (Login URL)** and **Identity Provider Issuer (entity ID)**, and upload the **Certificate (base64)** you got from Azure AD.
+3. If you saved the **App Federation Metadata Url** in the last step of the previous section, choose the configuration method **Metadata URL** and paste **App Federation Metadata Url** into the Metadata URL field. Otherwise, change the Configuration method to **manual**, manually populate **Identity Provider SSO URL (Login URL)** and **Identity Provider Issuer (entity ID)**, and upload the **Certificate (base64)** you got from Microsoft Entra ID.
 
 4. Choose the default user role for new users joining BlogIn using SSO.
 
 5. Select **Save changes**.
 
-For a more detailed explanation of setting up SSO on BlogIn, see [How to set up SSO for Microsoft Azure AD on BlogIn](https://blogin.co/blog/how-to-set-up-single-sign-on-sso-for-microsoft-azure-active-directory-azure-ad-267/). Feel free to contact the [BlogIn support team](mailto:support@blogin.co) at any time if you have any questions or need help.
+For a more detailed explanation of setting up SSO on BlogIn, see [How to set up SSO for Microsoft Entra ID on BlogIn](https://blogin.co/blog/how-to-set-up-single-sign-on-sso-for-microsoft-azure-active-directory-azure-ad-267/). Feel free to contact the [BlogIn support team](mailto:support@blogin.co) at any time if you have any questions or need help.
 
 ### Create BlogIn test user
 
@@ -151,7 +159,7 @@ BlogIn also supports automatic user provisioning, you can find more details [her
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
 #### SP initiated:
 

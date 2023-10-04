@@ -15,12 +15,12 @@ ms.collection: M365-identity-device-management
 ms.custom: contperf-fy22q2, enterprise-apps
 zone_pivot_groups: enterprise-apps-minus-former-powershell
 
-#customer intent: As an admin, I want to grant tenant-wide admin consent to an application in Azure AD.
+#customer intent: As an admin, I want to grant tenant-wide admin consent to an application in Microsoft Entra ID.
 ---
 
 # Grant tenant-wide admin consent to an application
 
-  In this article, you'll learn how to grant tenant-wide admin consent to an application in Azure Active Directory (Azure AD). To understand how individual users consent, see [Configure how end-users consent to applications](configure-user-consent.md).
+  In this article, you'll learn how to grant tenant-wide admin consent to an application in Microsoft Entra ID. To understand how individual users consent, see [Configure how end-users consent to applications](configure-user-consent.md).
 
 When you grant tenant-wide admin consent to an application, you give the application access on behalf of the whole organization to the permissions requested. Granting admin consent on behalf of an organization is a sensitive operation, potentially allowing the application's publisher access to significant portions of your organization's data, or the permission to do highly privileged operations. Examples of such operations might be role management, full access to all mailboxes or all sites, and full user impersonation. Carefully review the permissions that the application is requesting before you grant consent.
 
@@ -34,7 +34,7 @@ Granting tenant-wide admin consent requires you to sign in as a user that is aut
 
 To grant tenant-wide admin consent, you need:
 
-- An Azure AD user account with one of the following roles:
+- A Microsoft Entra user account with one of the following roles:
 
    - Global Administrator or Privileged Role Administrator, for granting consent for apps requesting any permission, for any API.
    - Cloud Application Administrator or Application Administrator, for granting consent for apps requesting any permission for any API, _except_ Azure AD Graph or Microsoft Graph app roles (application permissions).
@@ -44,7 +44,7 @@ To grant tenant-wide admin consent, you need:
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-You can grant tenant-wide admin consent through the **Enterprise applications** panel if the application has already been provisioned in your tenant. For example, an app could be provisioned in your tenant if at least one user has already consented to the application. For more information, see [How and why applications are added to Azure Active Directory](../develop/how-applications-are-added.md).
+You can grant tenant-wide admin consent through the **Enterprise applications** panel if the application has already been provisioned in your tenant. For example, an app could be provisioned in your tenant if at least one user has already consented to the application. For more information, see [How and why applications are added to Microsoft Entra ID](../develop/how-applications-are-added.md).
 
 :::zone pivot="portal"
 
@@ -59,11 +59,11 @@ To grant tenant-wide admin consent to an app listed in **Enterprise applications
 
 ## Grant admin consent in App registrations
 
-For applications your organization has developed, or which are registered directly in your Azure AD tenant, you can also grant tenant-wide admin consent from **App registrations** in the Microsoft Entra admin centerMicrosoft Entra admin center.
+For applications your organization has developed, or which are registered directly in your Microsoft Entra tenant, you can also grant tenant-wide admin consent from **App registrations** in the Microsoft Entra admin centerMicrosoft Entra admin center.
 
 To grant tenant-wide admin consent from **App registrations**:
 
-1. On the Entra admin center, browse to **Identity** > **Applications** > **App registrations** > **All applications**.
+1. On the Microsoft Entra admin center, browse to **Identity** > **Applications** > **App registrations** > **All applications**.
 1. Enter the name of the existing application in the search box, and then select the application from the search results.
 1. Select **API permissions** under **Manage**.
 1. Carefully review the permissions that the application requires. If you agree, select **Grant admin consent**.
@@ -131,7 +131,7 @@ New-MgOauth2PermissionGrant -BodyParameter $params |
 4. Confirm that you've granted tenant wide admin consent by running the following request.   
     
   ```powershell
-   Get-MgOauth2PermissionGrant -Filter "clientId eq 'b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94' consentType eq 'AllPrincipals'" 
+   Get-MgOauth2PermissionGrant -Filter "clientId eq 'b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94' and consentType eq 'AllPrincipals'" 
   ```      
 ## Grant admin consent for application permissions
 

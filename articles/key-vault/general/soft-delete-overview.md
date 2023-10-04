@@ -47,7 +47,7 @@ You can't reuse the name of a key vault that has been soft-deleted until the ret
 
 ### Purge protection
 
-Purge protection is an optional Key Vault behavior and is **not enabled by default**. Purge protection can only be enabled once soft-delete is enabled.  It can be turned on via [CLI](./key-vault-recovery.md?tabs=azure-cli) or [PowerShell](./key-vault-recovery.md?tabs=azure-powershell). Purge protection is recommended when using keys for encryption to prevent data loss. Most Azure services that integrate with Azure Key Vault, such as Storage, require purge protection to prevent data loss.
+Purge protection is an optional Key Vault behavior and is **not enabled by default**. Purge protection can only be enabled once soft-delete is enabled.  It can be turned on, for example, via [CLI](./key-vault-recovery.md?tabs=azure-cli) or [PowerShell](./key-vault-recovery.md?tabs=azure-powershell). Purge protection is recommended when using keys for encryption to prevent data loss. Most Azure services that integrate with Azure Key Vault, such as Storage, require purge protection to prevent data loss.
 
 When purge protection is on, a vault or an object in the deleted state can't be purged until the retention period has passed. Soft-deleted vaults and objects can still be recovered, ensuring that the retention policy will be followed.
 
@@ -59,7 +59,7 @@ Permanently deleting, purging, a key vault is possible via a POST operation on t
 
 Exceptions are:
 - When the Azure subscription has been marked as *undeletable*. In this case, only the service may then perform the actual deletion, and does so as a scheduled process. 
-- When the `--enable-purge-protection` argument is enabled on the vault itself. In this case, Key Vault will wait for 90 days from when the original secret object was marked for deletion to permanently delete the object.
+- When the `--enable-purge-protection` argument is enabled on the vault itself. In this case, Key Vault will wait for 7 to 90 days from when the original secret object was marked for deletion to permanently delete the object.
 
 For steps, see [How to use Key Vault soft-delete with CLI: Purging a key vault](./key-vault-recovery.md?tabs=azure-cli#key-vault-cli) or [How to use Key Vault soft-delete with PowerShell: Purging a key vault](./key-vault-recovery.md?tabs=azure-powershell#key-vault-powershell).
 

@@ -5,6 +5,7 @@ description: Learn how to deploy your flow to a managed online endpoint or Kuber
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: prompt-flow
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
@@ -39,7 +40,7 @@ For managed online endpoints, Azure Machine Learning reserves 20% of your comput
 
 Each flow will have a folder which contains codes/prompts, definition and other artifacts of the flow. If you have developed your flow with UI, you can download the flow folder from the flow details page. If you have developed your flow with CLI or SDK, you should have the flow folder already.
 
-This article will use the [sample flow "basic-chat"](https://github.com/Azure/azureml-examples/examples/flows/chat/basic-chat) as an example to deploy to Azure Machine Learning managed online endpoint.
+This article will use the [sample flow "basic-chat"](https://github.com/microsoft/promptflow/tree/main/examples/flows/chat/basic-chat) as an example to deploy to Azure Machine Learning managed online endpoint.
 
 > [!IMPORTANT]
 >
