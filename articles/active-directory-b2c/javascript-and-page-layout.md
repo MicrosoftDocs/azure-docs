@@ -155,6 +155,7 @@ Follow these guidelines when you customize the interface of your application usi
 - Azure AD B2C settings can be read by calling `window.SETTINGS`, `window.CONTENT` objects, such as the current UI language. Don’t change the value of these objects.
 - To customize the Azure AD B2C error message, use localization in a policy.
 - If anything can be achieved by using a policy, generally it's the recommended way.
+- It is recommended to use the default controls and buttons on the page rather than hiding the default controls and buttons and adding click bindings on them. This will allow for an easier page contract upgrade process.
 
 ## JavaScript samples
 
