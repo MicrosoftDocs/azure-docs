@@ -18,7 +18,7 @@ Azure API for FHIR will be retired on September 30, 2026.
 
 ## Are new deployments of Azure API for FHIR allowed?
 
-Due to the retirement of Azure API for FHIR after April 1, 2025 customers will not be able to create new deployments of Azure API of FHIR. Until April 1, 2025 new deployments are allowed.
+Due to the retirement of Azure API for FHIR after April 1, 2025 customers won't be able to create new deployments of Azure API of FHIR. Until April 1, 2025 new deployments are allowed.
 
 ## Why is Microsoft retiring Azure API for FHIR?
 
