@@ -1129,6 +1129,9 @@
   - name: Load Testing
     tocHref: /azure/load-testing/
     topicHref: /azure/load-testing/overview-what-is-azure-load-testing
+  - name: Playwright Testing
+    tocHref: /azure/playwright-testing/
+    topicHref: /azure/playwright-testing/index
   - name: Azure Spring Apps
     tocHref: /azure/spring-apps/
     topicHref: /azure/spring-apps/index
