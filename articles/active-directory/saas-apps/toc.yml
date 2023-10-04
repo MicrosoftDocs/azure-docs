@@ -3466,6 +3466,8 @@
         href: sap-successfactors-writeback-tutorial.md
       - name: SchoolStream ASA
         href: schoolstream-asa-provisioning-tutorial.md
+      - name: ScreenSteps
+        href: screensteps-provisioning-tutorial.md
       - name: SECURE DELIVER
         href: secure-deliver-provisioning-tutorial.md
       - name: SecureLogin
@@ -3610,6 +3612,8 @@
         href: wrike-provisioning-tutorial.md
       - name: Xledger
         href: xledger-provisioning-tutorial.md
+      - name: XM Fax and XM SendSecure
+        href: xm-fax-and-xm-send-secure-provisioning-tutorial.md
       - name: Yellowbox
         href: yellowbox-provisioning-tutorial.md
       - name: Zapier
