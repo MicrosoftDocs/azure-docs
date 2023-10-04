@@ -18,6 +18,9 @@ ms.author: eur
 
 See the [full language and voice list](../../language-support.md?tabs=tts#custom-neural-voice) for more information.
 
+#### Embedded neural voice
+- All 147 locales here (except fa-IR, Persian (Iran)) are available out of box with either 1 selected female and/or 1 selected male voices.
+
 ### August 2023 release
 
 #### Custom neural voice
