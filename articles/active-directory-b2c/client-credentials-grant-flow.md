@@ -86,12 +86,13 @@ can't contain spaces. The following example demonstrates two app roles, read and
 
 To enable your app to sign in with Azure AD B2C using client credentials flow, you can use an existing application or register a new one (**App 1**). 
 
-If you're using an existing app, make sure the app's `accessTokenAcceptedVersion` is set to `2`:
+If you're using an existing app, make sure the app's `accessTokenAcceptedVersion` is set to `2` and supported account types is set to All Users ('accounts in any identity provider or organizational directory (for authenticating users with user flows)'):
 
 1. In the Azure portal, search for and select **Azure AD B2C**. 
 1. Select **App registrations**, and then select the your existing app from the list.
 1. In the left menu, under **Manage**, select **Manifest** to open the manifest editor.
-1. Locate the `accessTokenAcceptedVersion` element, and set its value to `2`. 
+1. Locate the `accessTokenAcceptedVersion` element, and set its value to `2`.
+1. Locate the `signInAudience` element, and set its value to `AzureADMultipleOrgs`.
 1. At the top of the page, select **Save** to save the changes. 
 
 To create a new web app registration, follow these steps:
@@ -99,6 +100,7 @@ To create a new web app registration, follow these steps:
 1. In the Azure portal, search for and select **Azure AD B2C**
 1. Select **App registrations**, and then select **New registration**.
 1. Enter a **Name** for the application. For example, *ClientCredentials_app*.
+1. For **Supported account types**, select **Accounts in any identity provider or organizational directory (for authenticating users with user flows)**.
 1. Leave the other values as they are, and then select **Register**.
 1. Record the **Application (client) ID** for use in a later step.
 
@@ -205,6 +207,9 @@ curl --location --request POST 'https://<your-tenant>.b2clogin.com/<your-tenant>
 --form 'client_secret="<client secret>"' \
 --form 'scope="<Your API id uri>/.default"'
 ```
+
+> [!NOTE]
+> If you encounter the error `AADB2C90085: The service has encountered an internal error. Please reauthenticate and try again`, ensure your application's **Supported account types** is set to **All Users** as described in [Step 2 Register an application](#step-2-register-an-application).
 
 ## Step 4: Customize the token
 
