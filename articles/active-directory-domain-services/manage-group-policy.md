@@ -1,6 +1,6 @@
 ---
-title: Create and manage group policy in Azure AD Domain Services | Microsoft Docs
-description: Learn how to edit the built-in group policy objects (GPOs) and create your own custom policies in an Azure Active Directory Domain Services managed domain.
+title: Create and manage group policy in Microsoft Entra Domain Services | Microsoft Docs
+description: Learn how to edit the built-in group policy objects (GPOs) and create your own custom policies in a Microsoft Entra Domain Services managed domain.
 author: justinha
 manager: amycolannino
 
@@ -9,24 +9,24 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/29/2023
+ms.date: 09/15/2023
 ms.author: justinha
 
 ---
-# Administer Group Policy in an Azure Active Directory Domain Services managed domain
+# Administer Group Policy in a Microsoft Entra Domain Services managed domain
 
-Settings for user and computer objects in Azure Active Directory Domain Services (Azure AD DS) are often managed using Group Policy Objects (GPOs). Azure AD DS includes built-in GPOs for the *AADDC Users* and *AADDC Computers* containers. You can customize these built-in GPOs to configure Group Policy as needed for your environment. Members of the *Azure AD DC administrators* group have Group Policy administration privileges in the Azure AD DS domain, and can also create custom GPOs and organizational units (OUs). For more information on what Group Policy is and how it works, see [Group Policy overview][group-policy-overview].
+Settings for user and computer objects in Microsoft Entra Domain Services are often managed using Group Policy Objects (GPOs). Domain Services includes built-in GPOs for the *AADDC Users* and *AADDC Computers* containers. You can customize these built-in GPOs to configure Group Policy as needed for your environment. Members of the *Microsoft Entra DC administrators* group have Group Policy administration privileges in the Domain Services domain, and can also create custom GPOs and organizational units (OUs). For more information on what Group Policy is and how it works, see [Group Policy overview][group-policy-overview].
 
-In a hybrid environment, group policies configured in an on-premises AD DS environment aren't synchronized to Azure AD DS. To define configuration settings for users or computers in Azure AD DS, edit one of the default GPOs or create a custom GPO.
+In a hybrid environment, group policies configured in an on-premises AD DS environment aren't synchronized to Domain Services. To define configuration settings for users or computers in Domain Services, edit one of the default GPOs or create a custom GPO.
 
 This article shows you how to install the Group Policy Management tools, then edit the built-in GPOs and create custom GPOs.
 
 If you are interested in server management strategy, including machines in Azure and
-[hybrid connected](../azure-arc/servers/overview.md),
+[hybrid connected](/azure/azure-arc/servers/overview),
 consider reading about the
-[guest configuration](../governance/machine-configuration/overview.md)
+[guest configuration](/azure/governance/machine-configuration/overview)
 feature of
-[Azure Policy](../governance/policy/overview.md).
+[Azure Policy](/azure/governance/policy/overview).
 
 ## Before you begin
 
@@ -34,13 +34,13 @@ To complete this article, you need the following resources and privileges:
 
 * An active Azure subscription.
     * If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* An Azure Active Directory tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
-    * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
-* An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
-    * If needed, complete the tutorial to [create and configure an Azure Active Directory Domain Services managed domain][create-azure-ad-ds-instance].
-* A Windows Server management VM that is joined to the Azure AD DS managed domain.
+* A Microsoft Entra tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
+    * If needed, [create a Microsoft Entra tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
+* A Microsoft Entra Domain Services managed domain enabled and configured in your Microsoft Entra tenant.
+    * If needed, complete the tutorial to [create and configure a Microsoft Entra Domain Services managed domain][create-azure-ad-ds-instance].
+* A Windows Server management VM that is joined to the Domain Services managed domain.
     * If needed, complete the tutorial to [create a Windows Server VM and join it to a managed domain][create-join-windows-vm].
-* A user account that's a member of the *Azure AD DC administrators* group in your Azure AD tenant.
+* A user account that's a member of the *Microsoft Entra DC administrators* group in your Microsoft Entra tenant.
 
 > [!NOTE]
 > You can use Group Policy Administrative Templates by copying the new templates to the management workstation. Copy the *.admx* files into `%SYSTEMROOT%\PolicyDefinitions` and copy the locale-specific *.adml* files to `%SYSTEMROOT%\PolicyDefinitions\[Language-CountryRegion]`, where `Language-CountryRegion` matches the language and region of the *.adml* files.
@@ -51,7 +51,7 @@ To complete this article, you need the following resources and privileges:
 
 To create and configure Group Policy Object (GPOs), you need to install the Group Policy Management tools. These tools can be installed as a feature in Windows Server. For more information on how to install the administrative tools on a Windows client, see install [Remote Server Administration Tools (RSAT)][install-rsat].
 
-1. Sign in to your management VM. For steps on how to connect using the Azure portal, see [Connect to a Windows Server VM][connect-windows-server-vm].
+1. Sign in to your management VM. For steps on how to connect using the Microsoft Entra admin center, see [Connect to a Windows Server VM][connect-windows-server-vm].
 1. **Server Manager** should open by default when you sign in to the VM. If not, on the **Start** menu, select **Server Manager**.
 1. In the *Dashboard* pane of the **Server Manager** window, select **Add Roles and Features**.
 1. On the **Before You Begin** page of the *Add Roles and Features Wizard*, select **Next**.
@@ -97,7 +97,7 @@ There are two built-in Group Policy Objects (GPOs) in a managed domain - one for
 
 ## Create a custom Group Policy Object
 
-To group similar policy settings, you often create additional GPOs instead of applying all of the required settings in the single, default GPO. With Azure AD DS, you can create or import your own custom group policy objects and link them to a custom OU. If you need to first create a custom OU, see [create a custom OU in a managed domain](create-ou.md).
+To group similar policy settings, you often create additional GPOs instead of applying all of the required settings in the single, default GPO. With Domain Services, you can create or import your own custom group policy objects and link them to a custom OU. If you need to first create a custom OU, see [create a custom OU in a managed domain](create-ou.md).
 
 1. In the **Group Policy Management** console, select your custom organizational unit (OU), such as *MyCustomOU*. Right-select the OU and choose **Create a GPO in this domain, and Link it here...**:
 
@@ -122,8 +122,8 @@ To group similar policy settings, you often create additional GPOs instead of ap
 For more information on the available Group Policy settings that you can configure using the Group Policy Management Console, see [Work with Group Policy preference items][group-policy-console].
 
 <!-- INTERNAL LINKS -->
-[create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
-[associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
+[create-azure-ad-tenant]: /azure/active-directory/fundamentals/sign-up-organization
+[associate-azure-ad-tenant]: /azure/active-directory/fundamentals/how-subscriptions-associated-directory
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [create-join-windows-vm]: join-windows-vm.md
 [tutorial-create-management-vm]: tutorial-create-management-vm.md

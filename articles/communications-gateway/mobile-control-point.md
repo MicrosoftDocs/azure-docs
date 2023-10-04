@@ -76,7 +76,6 @@ For example, you could use the following iFC (replacing *`<mcp-hostname>`* with 
         <ServerName>sip:<mcp-hostname>;transport=tcp;service=mcp</ServerName>
         <DefaultHandling>0</DefaultHandling>
     </ApplicationServer>
-    <ProfilePartIndicator>0</ProfilePartIndicator>
 </InitialFilterCriteria>
 ```
 

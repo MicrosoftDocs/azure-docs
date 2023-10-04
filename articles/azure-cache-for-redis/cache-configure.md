@@ -5,7 +5,7 @@ author: flang-msft
 
 ms.service: cache
 ms.topic: conceptual
-ms.date: 11/21/2022
+ms.date: 09/29/2023
 ms.author: franlanglois 
 ms.custom: engagement-fy23
 ---
@@ -185,7 +185,7 @@ Use the **Maxmemory policy**, **maxmemory-reserved**, and **maxfragmentationmemo
 
 **Maxmemory policy** configures the eviction policy for the cache and allows you to choose from the following eviction policies:
 
-- `volatile-lru`: The default eviction policy, removes the least recently used key out of all the keys with an expiration set. 
+- `volatile-lru`: The default eviction policy. It removes the least recently used key out of all the keys with an expiration set.
 - `allkeys-lru`: Removes the least recently used key.
 - `volatile-random`: Removes a random key that has an expiration set.
 - `allkeys-random`: Removes a random key.
@@ -264,7 +264,7 @@ The **Schedule updates** section on the left allows you to choose a maintenance 
 
 To specify a maintenance window, check the days you want. Then, specify the maintenance window start hour for each day, and select **OK**. The maintenance window time is in UTC.
 
-For more information and instructions, see [Azure Cache for Redis administration - Schedule updates](cache-administration.md#schedule-updates)
+For more information and instructions, see [Update channel and Schedule updates](cache-administration.md#update-channel-and-schedule-updates).
 
 ### Geo-replication
 
@@ -478,7 +478,7 @@ New Azure Cache for Redis instances are configured with the following default Re
 | `lua-event-limit` |500 |Max size of script event queue. |
 | `client-output-buffer-limit normal` / `client-output-buffer-limit pubsub` |`0 0 0` / `32mb 8mb 60` |The client output buffer limits can be used to force disconnection of clients that aren't reading data from the server fast enough for some reason. A common reason is that a Pub/Sub client can't consume messages as fast as the publisher can produce them. For more information, see [https://redis.io/topics/clients](https://redis.io/topics/clients). |
 
-<a name="databases"></a>
+### Databases
 
 <sup>1</sup>The limit for `databases` is different for each Azure Cache for Redis pricing tier and can be set at cache creation. If no `databases` setting is specified during cache creation, the default is 16.
 
@@ -504,9 +504,9 @@ For more information about databases, see [What are Redis databases?](cache-deve
 > The `databases` setting can be configured only during cache creation and only using PowerShell, CLI, or other management clients. For an example of configuring `databases` during cache creation using PowerShell, see [New-AzRedisCache](cache-how-to-manage-redis-cache-powershell.md#databases).
 >
 
-<a name="maxclients"></a>
+### Maxclients
 
-<sup>2</sup>`maxclients` is different for each Azure Cache for Redis pricing tier.
+<sup>2</sup>The `maxclients` property is different for each Azure Cache for Redis pricing tier.
 
 - Basic and Standard caches
   - C0 (250 MB) cache - up to 256 connections
@@ -556,8 +556,7 @@ For cache instances using active geo-replication, the following commands are als
 
 For more information about Redis commands, see [https://redis.io/commands](https://redis.io/commands).
 
-## Next steps
+## Related content
 
 - [How can I run Redis commands?](cache-development-faq.yml#how-can-i-run-redis-commands-)
 - [Monitor Azure Cache for Redis](cache-how-to-monitor.md)
-

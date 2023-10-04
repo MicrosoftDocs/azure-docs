@@ -1,16 +1,16 @@
 ---
 title: Vector search
 titleSuffix: Azure Cognitive Search
-description: Describes concepts, scenarios, and availability of the vector search feature in Cognitive Search.
+description: Describes concepts, scenarios, and availability of the vector search feature in Azure Cognitive Search.
 
 author: robertklee
 ms.author: robertlee
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/10/2023
+ms.date: 09/27/2023
 ---
 
-# Vector search within Azure Cognitive Search
+# Vector search in Azure Cognitive Search
 
 > [!IMPORTANT]
 > Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr#readme).
@@ -41,7 +41,7 @@ On the indexing side, prepare source documents that contain embeddings. Cognitiv
 
 On the query side, in your client application, collect the query input. Add a step that converts the input into a vector, and then send the vector query to your index on Cognitive Search for a similarity search. Cognitive Search returns documents with the requested `k` nearest neighbors (kNN) in the results.
 
-You can index vector data as fields in documents alongside alphanumeric content. Vector queries can be issued singly or in combination with other query types, including term queries (hybrid search) and filters and semantic re-ranking in the same search request.
+You can index vector data as fields in documents alongside alphanumeric content. Vector queries can be issued singly or in combination with filters and other query types, including term queries (hybrid search) and semantic ranking in the same search request.
 
 ## Limitations
 
@@ -66,9 +66,9 @@ Scenarios for vector search include:
 
 + **Multi-lingual search**. Use a multi-lingual embeddings model to represent your document in multiple languages in a single vector space to find documents regardless of the language they are in.
 
-+ **Hybrid search**. Vector search is implemented at the field level, which means you can build queries that include vector fields and searchable text fields. The queries execute in parallel and the results are merged into a single response. Optionally, add [semantic search (preview)](semantic-search-overview.md) for even more accuracy with L2 reranking using the same language models that power Bing.
++ [**Hybrid search**](hybrid-search-overview.md). Vector search is implemented at the field level, which means you can build queries that include both vector fields and searchable text fields. The queries execute in parallel and the results are merged into a single response. Optionally, add [semantic search (preview)](semantic-search-overview.md) for even more accuracy with L2 reranking using the same language models that power Bing.
 
-+ **Filtered vector search**. A query request can include a vector query and a [filter expression](search-filters.md). Filters apply to text and numeric fields, and are useful for including or excluding search documents based on filter criteria. Although a vector field isn't filterable itself, you can set up a filterable text or numeric field. The search engine processes the filter first, reducing the surface area of the search corpus before running the vector query.
++ **Filtered vector search**. A query request can include a vector query and a [filter expression](search-filters.md). Filters apply to text and numeric fields, and are useful for including or excluding search documents based on filter criteria. Although a vector field isn't filterable itself, you can set up a filterable text or numeric field. The search engine processes the filter after the vector query executes, trimming search results from query response.
 
 + **Vector database**. Use Cognitive Search as a vector store to serve as long-term memory or an external knowledge base for Large Language Models (LLMs), or other applications. For example, you can use Azure Cognitive Search as a [*vector index* in an Azure Machine Learning prompt flow](/azure/machine-learning/concept-vector-stores) for Retrieval Augmented Generation (RAG) applications. 
 
@@ -134,4 +134,4 @@ Azure Cognitive Search uses Hierarchical Navigable Small Worlds (HNSW), which is
 + [Try the quickstart](search-get-started-vector.md)
 + [Learn more about vector indexing](vector-search-how-to-create-index.md)
 + [Learn more about vector queries](vector-search-how-to-query.md)
-
++ [Azure Cognitive Search and LangChain: A Seamless Integration for Enhanced Vector Search Capabilities](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/azure-cognitive-search-and-langchain-a-seamless-integration-for/ba-p/3901448)

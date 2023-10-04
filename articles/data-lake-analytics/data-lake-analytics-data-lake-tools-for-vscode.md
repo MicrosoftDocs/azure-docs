@@ -254,7 +254,7 @@ To sign out, enter the command **ADL: Logout**.
 
 Expand **AZURE DATALAKE**, select **Sign in to Azure**, and then follow step 3 and step 4 of [To connect to Azure by using a command](#sign-in-by-command).
 
-!["Sign in to Azure" selection in the explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-sign-in-from-explorer.png )  
+!["Sign in to Azure" selection in the explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-sign-in-from-explorer.png)  
 
 You can't sign out from the explorer. To sign out, see [To connect to Azure by using a command](#sign-in-by-command).
 

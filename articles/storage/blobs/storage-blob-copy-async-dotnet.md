@@ -14,6 +14,8 @@ ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
 
 # Copy a blob with asynchronous scheduling using .NET
 
+[!INCLUDE [storage-dev-guide-selector-copy-async](../../../includes/storage-dev-guides/storage-dev-guide-selector-copy-async.md)]
+
 This article shows how to copy a blob with asynchronous scheduling using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage). You can copy a blob from a source within the same storage account, from a source in a different storage account, or from any accessible object retrieved via HTTP GET request on a given URL. You can also abort a pending copy operation.
 
 The client library methods covered in this article use the [Copy Blob](/rest/api/storageservices/copy-blob) REST API operation, and can be used when you want to perform a copy with asynchronous scheduling. For most copy scenarios where you want to move data into a storage account and have a URL for the source object, see [Copy a blob from a source object URL with .NET](storage-blob-copy-url-dotnet.md).

@@ -79,7 +79,7 @@ To learn more, go to techdocs.akamai.com for [What is a Property?](https://techd
 4. For **Property hostnames**, add a property hostname, your custom domain. For example, `login.domain.com`. 
 
   > [!IMPORTANT]
-  > Create or modify certificates with correct custom domain name settings. </br> Go to techdocs.akamai.com for [Configure HTTPS hostnames](https://learn.akamai.com/en-us/webhelp/property-manager/https-delivery-with-property-manager/GUID-9EE0EB6A-E62B-4F5F-9340-60CBD093A429.html). 
+  > Create or modify certificates with correct custom domain name settings. </br> Go to techdocs.akamai.com for [Configure HTTPS hostnames](https://techdocs.akamai.com/property-mgr/docs/serve-content-over-https). 
 
 #### Origin server property configuration settings
 
@@ -115,4 +115,3 @@ To ensure traffic to Azure AD B2C goes through the custom domain:
 
 * [Enable custom domains for Azure Active Directory B2C](./custom-domain.md?pivots=b2c-user-flow)
 * [Tutorial: Create user flows and custom policies in Azure AD B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy&tabs=applications)
-

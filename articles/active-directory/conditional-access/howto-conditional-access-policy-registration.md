@@ -17,9 +17,9 @@ ms.collection: M365-identity-device-management
 ---
 # Common Conditional Access policy: Securing security info registration
 
-Securing when and how users register for Azure AD multifactor Authentication and self-service password reset is possible with user actions in a Conditional Access policy. This feature is available to organizations who have enabled the [combined registration](../authentication/concept-registration-mfa-sspr-combined.md). This functionality allows organizations to treat the registration process like any application in a Conditional Access policy and use the full power of Conditional Access to secure the experience. Users signing in to the Microsoft Authenticator app or enabling passwordless phone sign-in are subject to this policy.
+Securing when and how users register for Microsoft Entra multifactor authentication and self-service password reset is possible with user actions in a Conditional Access policy. This feature is available to organizations who have enabled the [combined registration](../authentication/concept-registration-mfa-sspr-combined.md). This functionality allows organizations to treat the registration process like any application in a Conditional Access policy and use the full power of Conditional Access to secure the experience. Users signing in to the Microsoft Authenticator app or enabling passwordless phone sign-in are subject to this policy.
 
-Some organizations in the past may have used trusted network location or device compliance as a means to secure the registration experience. With the addition of [Temporary Access Pass](../authentication/howto-authentication-temporary-access-pass.md) in Azure AD, administrators can provide time-limited credentials to their users that allow them to register from any device or location. Temporary Access Pass credentials satisfy Conditional Access requirements for multifactor authentication.
+Some organizations in the past may have used trusted network location or device compliance as a means to secure the registration experience. With the addition of [Temporary Access Pass](../authentication/howto-authentication-temporary-access-pass.md) in Microsoft Entra ID, administrators can provide time-limited credentials to their users that allow them to register from any device or location. Temporary Access Pass credentials satisfy Conditional Access requirements for multifactor authentication.
 
 ## Template deployment
 
@@ -60,7 +60,7 @@ The following policy applies to the selected users, who attempt to register usin
 
 After administrators confirm the settings using [report-only mode](howto-conditional-access-insights-reporting.md), they can move the **Enable policy** toggle from **Report-only** to **On**.
 
-Administrators will now have to issue Temporary Access Pass credentials to new users so they can satisfy the requirements for multifactor authentication to register. Steps to accomplish this task, are found in the section [Create a Temporary Access Pass in the Azure AD Portal](../authentication/howto-authentication-temporary-access-pass.md#create-a-temporary-access-pass).
+Administrators will now have to issue Temporary Access Pass credentials to new users so they can satisfy the requirements for multifactor authentication to register. Steps to accomplish this task, are found in the section [Create a Temporary Access Pass in the Microsoft Entra admin centerl](../authentication/howto-authentication-temporary-access-pass.md#create-a-temporary-access-pass).
 
 Organizations may choose to require other grant controls with or in place of **Require multifactor authentication** at step 8a. When selecting multiple controls, be sure to select the appropriate radio button toggle to require **all** or **one** of the selected controls when making this change.
 

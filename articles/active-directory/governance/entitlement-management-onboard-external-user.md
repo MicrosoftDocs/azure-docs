@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Onboard external users to Azure AD through an approval process
+title: Tutorial - Onboard external users to Microsoft Entra ID through an approval process
 description: Step-by-step tutorial for how to create an access package for external users requiring approvals in entitlement management.
 services: active-directory
 documentationCenter: ''
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As a IT admin, I want step-by-step instructions for creating an access package for managing external users through approvals.
 
 ---
-# Tutorial - Onboard external users to Azure AD through an approval process
+# Tutorial - Onboard external users to Microsoft Entra ID through an approval process
 
 You can use entitlement management as a way of onboarding external users. This feature allows external users to request access to a set of resources and where you can set up approvals before they gain access to your directory. For external users onboarded through entitlement, you can manage their lifecycle through access packages. When their last access package expires, they'll be removed from your directory.
 
@@ -25,7 +25,7 @@ In this tutorial, you work for WoodGrove Bank as an IT administrator. You’ve b
 Approval is needed by an internal sponsor for collaborating organizations. Also, you've been informed that the partner's access needs to expire after 60 days.
 To use entitlement management, you must have one of the following licenses:
 
-- Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance
+- Microsoft Entra ID P2 or Microsoft Entra ID Governance
 - Enterprise Mobility + Security (EMS) E5 license
 
 For more information, see [License requirements](entitlement-management-overview.md#license-requirements).
@@ -40,7 +40,7 @@ For more information, see [License requirements](entitlement-management-overview
 
 1. Browse to **Identity governance** > **Entitlement management** > **Access package**.
 
-3. When selecting the access package page if you see Access denied, ensure that a Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance license is present in your directory.
+3. When selecting the access package page if you see Access denied, ensure that a Microsoft Entra ID P2 or Microsoft Entra ID Governance license is present in your directory.
 
 4. Select **New access package**.
 

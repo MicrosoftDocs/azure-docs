@@ -25,6 +25,7 @@ To help you troubleshoot certain types of issues, you may be asked for any of th
 * **Call ID**: This ID is used to identify Communication Services calls.
 * **SMS message ID**: This ID is used to identify SMS messages.
 * **Short Code Program Brief ID**: This ID is used to identify a short code program brief application.
+* **Toll-free verification campaign brief ID**: This ID is used to identify a toll-free verification campaign brief application.
 * **Email message ID**: This ID is used to identify Send Email requests.
 * **Correlation ID**: This ID is used to identify requests made using Call Automation. 
 * **Call logs**: These logs contain detailed information can be used to troubleshoot calling and network issues.
@@ -137,6 +138,12 @@ console.log(result); // your message ID is in the result
 The program brief ID can be found on the [Azure portal](https://portal.azure.com) in the Short Codes blade. 
 
 :::image type="content" source="./media/short-code-trouble-shooting.png" alt-text="Screenshot showing a short code program brief ID.":::
+
+---
+## Access your toll-free verification campaign brief ID
+The program brief ID can be found on the [Azure portal](https://portal.azure.com) in the Regulatory Documents blade. 
+
+:::image type="content" source="./media/toll-free-troubleshooting.png" alt-text="Screenshot showing a toll free verification campaign brief ID.":::
 
 ---
 

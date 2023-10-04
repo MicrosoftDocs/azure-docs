@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 08/26/2022
+ms.date: 09/13/2023
 ---
 
 # Enterprise security and governance for Azure Machine Learning
@@ -77,11 +77,11 @@ For more information, see the following articles:
 
 ## Network security and isolation
 
-To restrict network access to Azure Machine Learning resources, you can use an [Azure Machine Learning managed virtual network](how-to-managed-network.md) (preview) or [Azure Virtual Network (VNet)](../virtual-network/virtual-networks-overview.md). Using a virtual network reduces the attack surface for your solution, and the chances of data exfiltration.
+To restrict network access to Azure Machine Learning resources, you can use an [Azure Machine Learning managed virtual network](how-to-managed-network.md) or [Azure Virtual Network (VNet)](../virtual-network/virtual-networks-overview.md). Using a virtual network reduces the attack surface for your solution, and the chances of data exfiltration.
 
 You don't have to pick one or the other. For example, you can use a managed virtual network to secure managed compute resources and an Azure Virtual Network for your unmanaged resources or to secure client access to the workspace.
 
-* __Azure Machine Learning managed virtual network__ (preview) provides a fully managed solution that enables network isolation for your workspace and managed compute resources. You can use private endpoints to secure communication with other Azure services, and can restrict outbound communications. The following managed compute resources are secured with a managed network:
+* __Azure Machine Learning managed virtual network__ provides a fully managed solution that enables network isolation for your workspace and managed compute resources. You can use private endpoints to secure communication with other Azure services, and can restrict outbound communications. The following managed compute resources are secured with a managed network:
 
     * Serverless compute (including Spark serverless)
     * Compute cluster
@@ -89,7 +89,7 @@ You don't have to pick one or the other. For example, you can use a managed virt
     * Managed online endpoints
     * Batch online endpoints
 
-    For more information, see [Azure Machine Learning managed virtual network](how-to-managed-network.md) (preview).
+    For more information, see [Azure Machine Learning managed virtual network](how-to-managed-network.md).
 
 * __Azure Virtual Networks__ provides a more customizable virtual network offering. However, you're responsible for configuration and management. You may need to use network security groups, user-defined routing, or a firewall to restrict outbound communication.
 

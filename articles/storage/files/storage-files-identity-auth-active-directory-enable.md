@@ -29,7 +29,7 @@ If you're new to Azure Files, we recommend reading our [planning guide](storage-
 - Supports Azure file shares managed by Azure File Sync.
 - Supports Kerberos authentication with AD with [AES 256 encryption](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication?toc=/azure/storage/files/toc.json#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption) (recommended) and RC4-HMAC. AES 128 Kerberos encryption isn't yet supported.
 - Supports single sign-on experience.
-- Only supported on clients running OS versions Windows 8/Windows Server 2012 or newer.
+- Only supported on Windows clients running OS versions Windows 8/Windows Server 2012 or newer, or Linux VMs (Ubuntu 18.04+ or an equivalent RHEL or SLES VM) running on Azure.
 - Only supported against the AD forest that the storage account is registered to. Users belonging to different domains within the same forest should be able to access the file share and underlying directories/files as long as they have the appropriate permissions.  
 - You can only access Azure file shares with the AD DS credentials from a single forest by default. If you need to access your Azure file share from a different forest, make sure that you have the proper forest trust configured. For details, see [Use Azure Files with multiple Active Directory forests](storage-files-identity-multiple-forests.md).
 - Doesn't support assigning share-level permissions to computer accounts (machine accounts) using Azure RBAC. You can either [use a default share-level permission](storage-files-identity-ad-ds-assign-permissions.md#share-level-permissions-for-all-authenticated-identities) to allow computer accounts to access the share, or consider using a service logon account instead.

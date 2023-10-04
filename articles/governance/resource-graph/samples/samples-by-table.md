@@ -31,8 +31,6 @@ details, see [Resource Graph tables](../concepts/query-language.md#resource-grap
 
 [!INCLUDE [authorization-resources-classic-administrators-key-properties](../../includes/resource-graph/query/authorization-resources-classic-administrators-key-properties.md)]
 
-[!INCLUDE [authorization-resources-summarize-count](../../includes/resource-graph/query/authorization-resources-summarize-count.md)]
-
 ## ExtendedLocationResources
 
 [!INCLUDE [azure-resource-graph-samples-table-extendedlocationresources](../../../../includes/resource-graph/samples/bytable/extendedlocationresources.md)]

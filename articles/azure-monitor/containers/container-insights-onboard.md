@@ -1,5 +1,4 @@
 ---
-
 title: Enable Container insights
 description: This article describes how to enable and configure Container insights so that you can understand how your container is performing and what performance-related issues have been identified. 
 ms.topic: conceptual
@@ -19,7 +18,6 @@ Container insights supports the following environments:
 - [Azure Kubernetes Service (AKS)](../../aks/index.yml)
 - [Azure Arc-enabled Kubernetes cluster](../../azure-arc/kubernetes/overview.md)
    - [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview) or on-premises
-   - [AKS engine](https://github.com/Azure/aks-engine)
    - [Red Hat OpenShift](https://docs.openshift.com/container-platform/latest/welcome/index.html) version 4.x
 
 The versions of Kubernetes and support policy are the same as those versions [supported in AKS](../../aks/supported-kubernetes-versions.md).
@@ -61,14 +59,13 @@ If you're going to configure the cluster to [collect Prometheus metrics](contain
 
 ### Permissions
 
-To enable container monitoring, you require the following permissions:
+To enable Container insights, you require the following permissions:
 
-- You must be a member of the [Log Analytics contributor](../logs/manage-access.md#azure-rbac) role.
-- You must be a member of the [*Owner* group](../../role-based-access-control/built-in-roles.md#owner) on any AKS cluster resources.
+- You must have at least [Contributor](../../role-based-access-control/built-in-roles.md#contributor) access to the AKS cluster. 
 
 To view data after container monitoring is enabled, you require the following permissions:
 
-- You must be a member of the [Log Analytics reader](../logs/manage-access.md#azure-rbac) role if you aren't already a member of the [Log Analytics contributor](../logs/manage-access.md#azure-rbac) role.
+- You must have [Monitoring Reader](../roles-permissions-security.md#monitoring-reader) or [Monitoring Contributor](../roles-permissions-security.md#monitoring-contributor) role.
 
 ### Kubelet secure port
 
@@ -160,3 +157,4 @@ The following table lists the extra firewall configuration required for managed 
 After you've enabled monitoring, you can begin analyzing the performance of your Kubernetes clusters that are hosted on AKS, Azure Stack, or another environment.
 
 To learn how to use Container insights, see [View Kubernetes cluster performance](container-insights-analyze.md).
+

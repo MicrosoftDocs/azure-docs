@@ -132,7 +132,12 @@ This sandbox setup is designed to help developers begin building the application
 |Send typing indicator|Chat thread|10|30|
 
 ### Chat storage
-Chat messages are stored for 90 days. Submit [a request to Azure Support](../../azure-portal/supportability/how-to-create-azure-support-request.md) if you require storage for longer time period. If the time period is less than 90 days for chat messages, use the delete chat thread APIs.
+Azure Communication Services stores chat messages indefinitely till they are deleted by the customer. 
+
+Beginning in CY24 Q1, customers must choose between indefinite message retention or automatic deletion after 90 days. Existing messages remain unaffected, but customers can opt for a 90-day retention period if desired.
+
+> [!NOTE] 
+> Accidentally deleted messages are not recoverable by the system.
 
 ## Voice and video calling
 

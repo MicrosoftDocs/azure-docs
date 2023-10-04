@@ -372,7 +372,7 @@ If you would like to use certificate authentication, you can upload one to your 
 If you would like to use certificate authentication and wrap the encryption key with a KEK, you can use the below script as an example. Before using the PowerShell script, you should be familiar with  all of the previous Azure Disk Encryption prerequisites to understand the steps in the script. The sample script might need changes for your environment.
 
 
- ```powershell
+```powershell
 # Fill in 'MyKeyVaultResourceGroup', 'MySecureVault', and 'MyLocation' (if needed)
 
    $KVRGname = 'MyKeyVaultResourceGroup'

@@ -1,16 +1,16 @@
 ---
-title: How to create snapshots (preview) in Azure App Configuration
-description: How to create and manage snapshots Azure App Configuration store.
+title: How to manage and use snapshots (preview) in Azure App Configuration
+description: How to manage and use snapshots in an Azure App Configuration store.
 author: Muksvso
 ms.author: mubatra
 ms.service: azure-app-configuration
 ms.topic: how-to 
-ms.date: 05/16/2023
+ms.date: 09/28/2023
 ---
 
-# Use snapshots (preview)
+# Manage and use snapshots (preview)
 
-In this article, learn how to create and manage snapshots in Azure App Configuration. Snapshot is a set of App Configuration settings stored in an immutable state.
+In this article, learn how to create, use and manage snapshots in Azure App Configuration. Snapshot is a set of App Configuration settings stored in an immutable state.
 
 ## Prerequisites
 
@@ -85,6 +85,67 @@ To create sample snapshots and check how the snapshots feature work, use the sna
 1. Review the sample data and practice creating snapshots by filling out the form with a composition type and one or more filters.
 1. Select **Create** to generate the sample snapshot.
 1. Check out the snapshot result generated under **Generated sample snapshot**. The sample snapshot displays all keys that are included in the sample snapshot, according to your selection.
+
+## Use snapshots
+
+You can select any number of snapshots for the application's configuration. Selecting a snapshot adds all of its key-values. Once added to a configuration, the key-values from snapshots are treated the same as any other key-value.
+
+If you have an application using Azure App Configuration, you can update it with the following sample code to use snapshots. You only need to provide the name of the snapshot, which is case-sensitive.
+
+### [.NET](#tab/dotnet)
+
+Edit the call to the `AddAzureAppConfiguration` method, which is often found in the `Program.cs` file of your application. If you don't have an application, you can reference any of the .NET quickstart guides, like [creating an ASP.NET core app with Azure App Configuration](./quickstart-aspnet-core-app.md).
+
+**Add snapshots to your configuration**
+
+```csharp
+configurationBuilder.AddAzureAppConfiguration(options =>
+{
+    options.Connect(Environment.GetEnvironmentVariable("ConnectionString"));
+
+    // Select an existing snapshot by name. This will add all of the key-values from the snapshot to this application's configuration.
+    options.SelectSnapshot("SnapshotName");
+    
+    // Other changes to options
+});
+```
+
+> [!NOTE]
+> Snapshot support is available if you use version **7.0.0-preview** or later of any of the following packages.
+> - `Microsoft.Extensions.Configuration.AzureAppConfiguration`
+> - `Microsoft.Azure.AppConfiguration.AspNetCore`
+> - `Microsoft.Azure.AppConfiguration.Functions.Worker`
+
+### [Spring](#tab/spring)
+
+Update the `bootstrap.yml` file of your application with the following configurations.
+
+```yml
+spring:
+  cloud:
+    azure:
+      appconfiguration:
+        stores:
+         -
+           endpoint: <your-endpoint>
+           selects:
+             -
+              snapshot-name: <name-of-your-snapshot>
+           trim-key-prefix: 
+             - <prefix-to-trim>
+```
+
+> [!NOTE]
+> Any prefix such as `/application/` which is automatically trimmed when using a key filter will need to be specified for snapshots or they will not be properly mapped to the correct `@ConfigurationProperties` classes.
+> Snapshot support is available if you use version **4.12.0-beta.1**/**5.6.0-beta.1** or later of any of the following packages.
+> - `spring-cloud-azure-appconfiguration-config`
+> - `spring-cloud-azure-appconfiguration-config-web`
+> - `spring-cloud-azure-starter-appconfiguration-config`
+
+---
+
+> [!NOTE]
+> Only snapshots created with composition type `Key` can be loaded using the code samples shown above.
 
 ## Manage active snapshots
 
