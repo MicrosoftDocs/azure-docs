@@ -5,6 +5,18 @@ ms.topic: include
 ms.date: 02/28/2023
 ms.author: eur
 ---
+### September 2023 release
+
+#### Prebuilt neural voice
+- Introducing new multilingual voices for public preview:
+
+| Locale (BCP-47) | Language | Text to speech voices |
+| ----- | ----- | ----- |
+| `en-US` | English (United States) | `en-US-EmmaNeural` (Female) |
+| `en-US` | English (United States) | `en-US-AndrewNeural` (Male) |
+| `en-US` | English (United States) | `en-US-BrianlNeural` (Male) |
+
+See the [full language and voice list](../../language-support.md?tabs=tts#custom-neural-voice) for more information.
 
 ### August 2023 release
 
