@@ -22,17 +22,18 @@ This article provides details about the features and enhancements made to Azure 
 
 ## September 2023
 
-#### Retirement Announcement: Azure API for FHIR
+**Retirement announcement for Azure API for FHIR**
 
-**Azure API for FHIR will be retired on September 30, 2026.** **[Azure Health Data Services FHIR service](/azure/healthcare-apis/healthcare-apis-overview)** is the evolved version of Azure API for FHIR that enables customers to manage FHIR, DICOM, and MedTech services with integrations into other Azure services. The [migration strategies](/azure/healthcare-apis/fhir/migration-strategies) are published. Due to retirement of Azure API for FHIR, new deployments will not be allowed beginning April 1, 2025.
+Azure API for FHIR will be retired on September 30, 2026. [Azure Health Data Services FHIR service](/azure/healthcare-apis/healthcare-apis-overview) is the evolved version of Azure API for FHIR that enables customers to manage FHIR, DICOM, and MedTech services with integrations into other Azure services. Due to retirement of Azure API for FHIR, new deployments won't be allowed beginning April 1, 2025. For more information, see [migration strategies](/azure/healthcare-apis/fhir/migration-strategies). 
 
-Documentation navigation improvements include a new hub page for Azure Health Data Services: [Azure Health Data Services Documentation | Microsoft Learn](./index.yml). Also, fixes to breadcrumbs across the FHIR, DICOM, and MedTech services documentation and the table of contents make it easier and more intuitive to find the documentation you need.
+**Documentation navigation updates**
+Documentation navigation improvements include a new hub page for Azure Health Data Services: [Azure Health Data Services Documentation](./index.yml). Also, fixes to breadcrumbs across the FHIR, DICOM, and MedTech services documentation and the table of contents make it easier and more intuitive to find documentation.
 
 ## August 2023
 
 ### FHIR service
 
-**Incremental Import feature is Generally Available (GA)**
+**Incremental Import feature is generally available (GA)**
 
 $Import operation supports new capability of "Incremental Load" mode, which is optimized for periodically loading data into the FHIR service. 
 
@@ -94,7 +95,7 @@ For details on Incremental Import, visit [Import Documentation](./../healthcare-
 **Reindex operation provides job status at resource level**
 
 Reindex operation supports determining the status of the reindex operation with help of API call `GET {{FHIR_URL}}/_operations/reindex/{{reindexJobId}}`.
-Details per resource, on the number of completed reindexed resources can be obtained with help of the new field, added in the response- "resourceReindexProgressByResource". For details, visit [3286](https://github.com/microsoft/fhir-server/pull/3286).
+Details per resource, on the number of completed reindexed resources can be obtained with help of the new field, added in the response- "resourceReindexProgressByResource". For details, see [3286](https://github.com/microsoft/fhir-server/pull/3286).
 
 **FHIR Search Query optimization of complex queries**
 
@@ -152,7 +153,7 @@ For more information, visit [#3207](https://github.com/microsoft/fhir-server/pul
 
 **Fixed transient issues associated with loading custom search parameters**
 
-This bug fix addresses the issue, where the FHIR service wouldn't load the latest SearchParameter status in event of failure.
+This bug fix addresses the issue where the FHIR service wouldn't load the latest SearchParameter status in a failure.
 For more information, visit [#3222](https://github.com/microsoft/fhir-server/pull/3222)
 
 ## March 2023
@@ -169,9 +170,9 @@ General availability (GA) of Azure Health Data services in Japan East region.
 **Introduction of _till parameters and throughput improvement by 50x**
 
 _till parameter is introduced as optional parameter and allows you to export resources that have been modified until the specified time. 
-This feature improvement is applicable to System export, for more information on export, visit [FHIR specification](https://hl7.org/fhir/uv/bulkdata/export/index.html)
+This feature improvement is applicable to System export, for more information on export, see [FHIR specification](https://hl7.org/fhir/uv/bulkdata/export/index.html)
 
-Also visit [Export your FHIR data by invoking the $export command on the FHIR service | Microsoft Learn](./../healthcare-apis/fhir/export-data.md)
+Also see [Export your FHIR data by invoking the $export command on the FHIR service](./../healthcare-apis/fhir/export-data.md)
 
 
 **Fixed issue for Chained search with :contains modifier results with no resources are returned**
@@ -192,7 +193,7 @@ For more information, visit [#2971](https://github.com/microsoft/fhir-server/pul
 
 **Fixed issue related to HTTP Status code 500 was encountered when :not modifier was used with chained searches**
 
-This bug fix addresses the issue. Identified resources are returned per search criteria with :contains modifier . for more information on bug fix visit [#3041](https://github.com/microsoft/fhir-server/pull/3041) 
+This bug fix addresses the issue. Identified resources are returned per search criteria with :contains modifier. for more information on bug fix visit [#3041](https://github.com/microsoft/fhir-server/pull/3041) 
 
 
 **Versioning policy enabled at resource level still required If-match header for transaction requests.**
@@ -328,7 +329,7 @@ The issue is fixed and querying with :not operator should provide correct result
 
 **Provided an Error message for failure in export resulting from long time span**
 
-With failure in export job due to a long time span, a customer will see `RequestEntityTooLarge` HTTP status code. For more information, see [#2790](https://github.com/microsoft/fhir-server/pull/2790).
+With failure in export job due to a long time span, a customer sees `RequestEntityTooLarge` HTTP status code. For more information, see [#2790](https://github.com/microsoft/fhir-server/pull/2790).
 
 **Fixed issue in a query sort, where functionality throws an error when chained search is performed with same field value.**
 
@@ -355,9 +356,9 @@ Performance improvements have cut the time to deploy new instances of the DICOM 
 
 **Reduced strictness when validating STOW requests**
 
-Some customers have run into issues storing DICOM files that don't  perfectly conform to the specification. To enable those files to be stored in the DICOM service, we have reduced the strictness of the validation performed on STOW. 
+Some customers have run into issues storing DICOM files that don't perfectly conform to the specification. To enable those files to be stored in the DICOM service, we reduced the strictness of the validation performed on STOW. 
 
-The service accepts the following: 
+The service accepts: 
 * DICOM UIDs that contain trailing whitespace 
 * IS, DS, SV, and UV VRs that aren't valid numbers
 * Invalid private creator tags
@@ -495,7 +496,7 @@ All REST API requests to the DICOM service must include the API version in the U
 
 **Index the first value for DICOM tags that incorrectly specify multiple values**
 
-Attributes that are defined to have a single value but have specified multiple values are leniently accepted. The first value for such attributes are indexed.
+Attributes that are defined to have a single value but have specified multiple values are leniently accepted. The first value for such attributes is indexed.
 
 ## April 2022
 
@@ -627,7 +628,7 @@ Fixed an issue with `SearchParameter` if it had a null value for Code, the resul
  
 **Returned `BadRequestException` with valid message when input JSON body is invalid**
 
-For invalid JSON body requests, the FHIR server was returning a 500 error. Now we'll return a `BadRequestException` with a valid message instead of 500. [#2239](https://github.com/microsoft/fhir-server/pull/2239) 
+For invalid JSON body requests, the FHIR server was returning a 500 error. Now the server returns a `BadRequestException` with a valid message instead of 500. [#2239](https://github.com/microsoft/fhir-server/pull/2239) 
 
 
 **Handled SQL Timeout issue**
@@ -648,7 +649,7 @@ In the capability statement, the software name distinguishes if you're using Azu
 
 **Compress continuation tokens**
 
-In certain instances, the continuation token was too long to be able to follow the [next link](./../healthcare-apis/fhir/overview-of-search.md#pagination) in searches and would result in a 404. To resolve this, we compressed the continuation token to ensure it stays below the size limit [#2279](https://github.com/microsoft/fhir-server/pull/2279). Addresses issue [#2250](https://github.com/microsoft/fhir-server/issues/2250). 
+In certain instances, the continuation token was too long to be able to follow the [next link](./../healthcare-apis/fhir/overview-of-search.md#pagination) in searches and would result in a 404. To resolve the issue, we compressed the continuation token to ensure it stays below the size limit [#2279](https://github.com/microsoft/fhir-server/pull/2279). Addresses issue [#2250](https://github.com/microsoft/fhir-server/issues/2250). 
 
 **FHIR service autoscale**
 
