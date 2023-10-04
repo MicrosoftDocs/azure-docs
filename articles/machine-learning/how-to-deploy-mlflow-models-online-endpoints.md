@@ -28,8 +28,7 @@ For no-code-deployment, Azure Machine Learning
     * [`mlflow-skinny`](https://github.com/mlflow/mlflow/blob/master/README_SKINNY.rst)
     * A scoring script to perform inference.
 
-> [!TIP]
-> __Workspaces without public network access:__ MLflow models have to be [packaged before deployment (preview)](how-to-package-models.md#package-models-before-deployments) to online endpoints without egress connectivity. Azure Machine Learning performs dynamic installation of packages when deploying MLflow models which requires an internet connection unless model packaging is use.
+[!INCLUDE [mlflow-model-package-for-workspace-without-egress](includes/mlflow-model-package-for-workspace-without-egress.md)]
 
 
 ## About this example
@@ -333,7 +332,7 @@ version = registered_model.version
     )
     ```
 
-    If your endpoint doesn't have egress connectivity, use the argument `with-package=True`:
+    If your endpoint doesn't have egress connectivity, use model packaging (preview) by including the argument `with-package=True`:
 
     ```python
     blue_deployment = ManagedOnlineDeployment(
@@ -387,7 +386,7 @@ version = registered_model.version
     
     :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-ncd.sh" ID="create_sklearn_deployment":::
 
-    If your endpoint doesn't have egress connectivity, use the flag `--with-package`:
+    If your endpoint doesn't have egress connectivity, model packaging (preview) by including use the flag `--with-package`:
 
     ```azurecli
     az ml online-deployment create --with-package --name sklearn-deployment --endpoint $ENDPOINT_NAME -f endpoints/online/ncd/sklearn-deployment.yaml --all-traffic

@@ -5,6 +5,7 @@ description:  Deploy models in a reliable and reproducible way using model packa
 author: santiagxf
 ms.author: fasantia
 ms.reviewer: mopeakande
+reviewer: msakande
 ms.service: machine-learning
 ms.subservice: mlops
 ms.date: 10/04/2023

@@ -33,8 +33,7 @@ For no-code-deployment, Azure Machine Learning:
     * Packages required for Azure Machine Learning to perform inference, including [`mlflow-skinny`](https://github.com/mlflow/mlflow/blob/master/README_SKINNY.rst).
     * A scoring script to perform inference.
 
-> [!TIP]
-> __Workspaces without public network access:__ MLflow models have to be [packaged before deployment (preview)](how-to-package-models.md#package-models-before-deployments) to online endpoints without egress connectivity. Azure Machine Learning performs dynamic installation of packages when deploying MLflow models which requires an internet connection unless model packaging is use.
+[!INCLUDE [mlflow-model-package-for-workspace-without-egress](includes/mlflow-model-package-for-workspace-without-egress.md)]
 
 ### Python packages and dependencies
 
@@ -201,7 +200,7 @@ For more information about MLflow built-in deployment tools, see [MLflow documen
 
 ## How to customize inference when deploying MLflow models
 
-You may be used to author scoring scripts to customize how inference is executed for your custom models. However, when deploying MLflow models to Azure Machine Learning, the decision about how inference should be executed is done by the model builder (the person who built the model) rather than by the DevOps engineer (the person who is trying to deploy it). Each model framework may automatically apply specific inference routines.
+You may be used to authoring scoring scripts to customize how inference is executed for your custom models. However, when deploying MLflow models to Azure Machine Learning, the decision about how inference should be executed is done by the model builder (the person who built the model), rather than by the DevOps engineer (the person who is trying to deploy it). Each model framework may automatically apply specific inference routines.
 
 If you need to change the behavior at any point about how inference of an MLflow model is executed, you can either [change how your model is being logged in the training routine](#change-how-your-model-is-logged-during-training) or [customize inference with a scoring script at deployment time](#customize-inference-with-a-scoring-script).
 
@@ -240,13 +239,13 @@ Each workflow has different capabilities, particularly around which type of comp
 | Deploy to web services (ACI/AKS - with a scoring script) | <sup>3</sup> | Legacy support<sup>2</sup> | Legacy support<sup>2</sup> |
 
 > [!NOTE]
-> - <sup>1</sup> Deployment to online endpoints in private link-enabled workspaces required [packaging them before deployment (preview)](how-to-package-models.md#package-models-before-deployments)
+> - <sup>1</sup> Deployment to online endpoints in private link-enabled workspaces requires [packaging models before deployment (preview)](how-to-package-models.md#package-models-before-deployments).
 > - <sup>2</sup> We recommend switching to our [managed online endpoints](concept-endpoints.md) instead.
-> - <sup>3</sup> MLflow (OSS) doesn't have the concept of an scoring script and doesn't support batch execution by the moment.
+> - <sup>3</sup> MLflow (OSS) doesn't have the concept of a scoring script and doesn't support batch execution currently.
 
 ### Which option to use?
 
-If you are familiar with MLflow or your platform support MLflow natively (like Azure Databricks) and you wish to continue using the same set of methods, use the MLflow SDK. On the other hand, if you are more familiar with the [Azure Machine Learning CLI v2](concept-v2.md), you want to automate deployments using automation pipelines, or you want to keep deployments configuration in a git repository; we recommend you to use the [Azure Machine Learning CLI v2](concept-v2.md). If you want to quickly deploy and test models trained with MLflow, you can use [Azure Machine Learning studio](https://ml.azure.com) UI deployment.
+If you're familiar with MLflow or your platform supports MLflow natively (like Azure Databricks), and you wish to continue using the same set of methods, use the MLflow SDK. On the other hand, if you're more familiar with the [Azure Machine Learning CLI v2](concept-v2.md), you want to automate deployments using automation pipelines, or you want to keep deployments configuration in a git repository; we recommend that you use the [Azure Machine Learning CLI v2](concept-v2.md). If you want to quickly deploy and test models trained with MLflow, you can use [Azure Machine Learning studio](https://ml.azure.com) UI deployment.
 
 
 

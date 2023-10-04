@@ -101,7 +101,7 @@ The following table shows a summary of the different features available to onlin
 | Deployment types              | Models                                          | Models and Pipeline components (preview)      |
 | MLflow model deployment       | Yes                                             | Yes                                           |
 | Custom model deployment       | Yes, with scoring script                        | Yes, with scoring script                      |
-| Model package deployment      | Yes (preview)                                   | No                                            |
+| Model package deployment  <sup>1</sup>    | Yes (preview)                                   | No                                            |
 | Inference server <sup>2</sup> | - Azure Machine Learning Inferencing Server<br /> - Triton<br /> - Custom (using BYOC)  | Batch Inference        |
 | Compute resource consumed     | Instances or granular resources                 | Cluster instances                             |
 | Compute type                  | Managed compute and Kubernetes                  | Managed compute and Kubernetes                |

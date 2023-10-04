@@ -319,7 +319,7 @@ So far, the endpoint is empty. There are no deployments on it. Let's create the 
     )
     ```
 
-    If your endpoint doesn't have egress connectivity, use the argument `with-package=True`:
+    If your endpoint doesn't have egress connectivity, use model packaging (preview) by including the argument `with-package=True`:
 
     ```python
     blue_deployment = ManagedOnlineDeployment(
@@ -366,7 +366,7 @@ So far, the endpoint is empty. There are no deployments on it. Let's create the 
     az ml online-deployment create --endpoint-name $ENDPOINT_NAME -f blue-deployment.yml --all-traffic
     ```
 
-    If your endpoint doesn't have egress connectivity, use the flag `--with-package`:
+    If your endpoint doesn't have egress connectivity, use model packaging (preview) by including the flag `--with-package`:
 
     ```azurecli
     az ml online-deployment create --with-package --endpoint-name $ENDPOINT_NAME -f blue-deployment.yml --all-traffic
@@ -613,7 +613,7 @@ Let's imagine that there is a new version of the model created by the developmen
     )
     ```
 
-    If your endpoint doesn't have egress connectivity, use the flag `with-package=True`:
+    If your endpoint doesn't have egress connectivity, use model packaging (preview) by including the flag `with-package=True`:
 
     ```python
     green_deployment = ManagedOnlineDeployment(
@@ -660,7 +660,7 @@ Let's imagine that there is a new version of the model created by the developmen
     az ml online-deployment create -n $GREEN_DEPLOYMENT_NAME --endpoint-name $ENDPOINT_NAME -f green-deployment.yml
     ```
 
-    If your endpoint doesn't have egress connectivity, use the flag `--with-package`:
+    If your endpoint doesn't have egress connectivity, use model packaging (preview) by including the flag `--with-package`:
 
     ```azurecli
     az ml online-deployment create --with-package -n $GREEN_DEPLOYMENT_NAME --endpoint-name $ENDPOINT_NAME -f green-deployment.yml

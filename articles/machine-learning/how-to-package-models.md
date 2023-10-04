@@ -1,5 +1,5 @@
 ---
-title: Package a model for online deployment
+title: Package a model for online deployment (preview)
 titleSuffix: Azure Machine Learning
 description:  Learn how you can package a model for online serving using model packages
 author: santiagxf
@@ -11,9 +11,11 @@ ms.date: 10/04/2023
 ms.topic: how-to
 ---
 
-# Package a model for online deployment
+# Package a model for online deployment (preview)
 
 Model packages is a capability in Azure Machine Learning that allows you to collect all the dependencies required to deploy a machine learning model to a serving platform. Creating packages before deploying models provides robust and reliable deployment and a more efficient MLOps practice. Packages can be moved across workspaces and even outside of Azure Machine Learning. 
+
+[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 In this article, you learn how package a model and deploy it to an Online Endpoint in Azure Machine Learning.
 
