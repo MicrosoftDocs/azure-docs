@@ -47,7 +47,7 @@ landingContent:
           - text: Create a site
             url: how-to-create-site.md
           - text: Delete operator services
-            url: how-to-delete-operator-services.md.md
+            url: how-to-delete-operator-services.md
           - text: Create site network service
             url: how-to-create-site-network-service.md
 
