@@ -9,9 +9,9 @@ items:
       href: whats-new.md
     - name: Choose the right tier
       href: choose-right-tier.md
-  - name: Event Grid Namespaces
+  - name: Event Grid namespaces
     items:
-    - name: MQTT messaging
+    - name: MQTT broker
       items:
       - name: Overview
         href: mqtt-overview.md
