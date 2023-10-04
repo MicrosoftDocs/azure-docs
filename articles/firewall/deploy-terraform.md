@@ -90,13 +90,6 @@ In this article, you learn how to:
 
 ## Verify the results
 
-1. When you apply the execution plan, Terraform displays the frontend public IP address. If you've cleared the screen, you can retrieve that value with the following Terraform command:
-
-    ```console
-    echo $(terraform output -raw gateway_frontend_ip)
-    ```
-
-1. Paste the public IP address into the address bar of your web browser. Refresh the browser to see the name of the virtual machine. A valid response verifies the application gateway is successfully created and can connect with the backend.
 
 ## Clean up resources
 
@@ -108,5 +101,7 @@ In this article, you learn how to:
 
 ## Next steps
 
+Next, you can monitor the Azure Firewall logs.
+
 > [!div class="nextstepaction"]
-> [Learn more about using Application Gateway](/azure/application-gateway/overview)
+> [Tutorial: Monitor Azure Firewall logs](./firewall-diagnostics.md)
