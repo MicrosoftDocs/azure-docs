@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 10/03/2023
+ms.date: 10/04/2023
 ---
 
 # Convert a legacy Exchange peering to an Azure resource using the Azure portal
@@ -55,7 +55,7 @@ As an Internet Exchange Provider, you can create an exchange peering request by 
 ### <a name=get></a>Verify Exchange peering
 [!INCLUDE [peering-exchange-get-portal](./includes/exchange-portal-get.md)]
 
-## Next steps
+## Related content
 
 - [Create or modify an Exchange peering by using the portal](howto-exchange-portal.md).
 - [Internet peering frequently asked questions (FAQ)](faqs.md).
