@@ -17,7 +17,7 @@ In this how-to guide, you learn how to delete operator services. In Azure Operat
 - You must already have a site, in your deployment, that you want to delete.
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create the site(s).
 
-## Delete a Site with no child resources
+## Delete a site with no child resources
 
 If a site has no child resources deployed, you can proceed with the deletion process. 
 
