@@ -113,7 +113,9 @@ items:
         - name: Create, view, and manage event subscriptions
           href: create-view-manage-event-subscriptions.md
         - name: Enable managed identity for namespace
-          href: event-grid-namespace-managed-identity.md      
+          href: event-grid-namespace-managed-identity.md
+        - name: Authenticate publishing clients using Azure Active Directory      
+          href: authenticate-with-active-directory-namespaces.md
       - name: Monitor
         items:
         - name: Monitoring data reference (pull delivery)
