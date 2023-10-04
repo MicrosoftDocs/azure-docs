@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Configure Amazon Business for automatic user provisioning with Microsoft Entra ID'
-description: Learn how to automatically provision and de-provision user accounts from Microsoft Entra ID to Amazon Business.
+description: Learn how to automatically provision and deprovision user accounts from Microsoft Entra ID to Amazon Business.
 services: active-directory
 author: twimmers
 writer: twimmers
@@ -16,7 +16,7 @@ ms.author: thwimmer
 
 # Tutorial: Configure Amazon Business for automatic user provisioning
 
-This tutorial describes the steps you need to perform in both Amazon Business and Microsoft Entra ID to configure automatic user provisioning. When configured, Microsoft Entra ID automatically provisions and de-provisions users and groups to [Amazon Business](https://www.amazon.com/b2b/info/amazon-business?layout=landing) using the Microsoft Entra provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Microsoft Entra ID](../app-provisioning/user-provisioning.md). 
+This tutorial describes the steps you need to perform in both Amazon Business and Microsoft Entra ID to configure automatic user provisioning. When configured, Microsoft Entra ID automatically provisions and deprovisions users and groups to [Amazon Business](https://www.amazon.com/b2b/info/amazon-business?layout=landing) using the Microsoft Entra provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Microsoft Entra ID](../app-provisioning/user-provisioning.md). 
 
 
 ## Supported capabilities
@@ -51,24 +51,24 @@ Before configuring and enabling the provisioning service, you need to identify a
 * Follow the principle of least privilege by having REQUISITIONER only permissions for the default users group.
 * Follow the group naming convention referenced below for ease of referencing the groups throughout this document. 
    * Default SCIM Parent Group
-      * This is the root of your SCIM directory in AmazonBusiness. All SCIM groups will be placed directly under this default group. You may select an existing group as the default SCIM parent group. 
+      * This is the root of your SCIM directory in AmazonBusiness. All SCIM groups are placed directly under this default group. You may select an existing group as the default SCIM parent group. 
    * Default SCIM Users Group
       * Users who are assigned to your Amazon Business app will be placed into this group by default with a Requisitioner role. It is recommended to have this group at the same level as the Default SCIM Parent Group.
       * If a user is provisioned without a group assignment, they will be placed into this group by default with a Requisitioner role.
 
-Once you identify/create the Default SCIM Groups, send a URL link for both these groups to your Account Manager. An Amazon Business Integrations Specialist will initialize both the groups for your SCIM integration. It is necessary to complete this step before proceeding to the next step.
+Once you identify/create the Default SCIM Groups, send a URL link for both these groups to your Account Manager. An Amazon Business Integrations Specialist initializes both the groups for your SCIM integration. It is necessary to complete this step before proceeding to the next step.
 
 <a name='step-3-add-amazon-business-from-the-azure-ad-application-gallery'></a>
 
 ## Step 3: Add Amazon Business from the Microsoft Entra application gallery
 
-Add Amazon Business from the Microsoft Entra application gallery to start managing provisioning to Amazon Business. If you have previously setup Amazon Business for SSO you can use the same application. However it's recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
+Add Amazon Business from the Microsoft Entra application gallery to start managing provisioning to Amazon Business. If you have previously setup Amazon Business for SSO, you can use the same application. However it's recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
 
 ## Step 4: Define who will be in scope for provisioning 
 
 The Microsoft Entra provisioning service allows you to scope who will be provisioned based on assignment to the application and or based on attributes of the user / group. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. If you choose to scope who will be provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* When assigning users and groups to Amazon Business, you must select a role other than **Default Access**. Users with the Default Access role are excluded from provisioning and will be marked as not effectively entitled in the provisioning logs. If the only role available on the application is the default access role, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add additional roles.
+* When assigning users and groups to Amazon Business, you must select a role other than **Default Access**. Users with the Default Access role are excluded from provisioning and will be marked as not effectively entitled in the provisioning logs. If the only role available on the application is the default access role, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add other roles.
 * Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 * You can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add Amazon Business roles. The user can have one of the following roles:
    * **Requisitioner** (to place orders or submits order requests for approval).
@@ -162,12 +162,12 @@ Once you've configured provisioning, use the following resources to monitor your
 
 ## Feature limitations
 
-* Flat structure is created on the Amazon Business account, i.e. all pushed groups are at the same level under the Default SCIM Group. Nested structure/hierarchy is not supported.
+* Flat structure is created on the Amazon Business account, that is, all pushed groups are at the same level under the Default SCIM Group. Nested structure/hierarchy is not supported.
 * Groups names will be same in Azure and Amazon Business account.
-* As new groups will be created on the Amazon Business Account, Admins will need to re-configure the business settings (e.g. turning on purchasing, updating shared settings, adding guided buying policies, etc.) for the new groups as needed.
-* Deleting old Groups / removing users from old groups in Amazon Business will result in losing visibility into orders placed with that old Group, hence it is recommended to 
+* As new groups will be created on the Amazon Business Account, Admins need to re-configure the business settings (for example, turning on purchasing, updating shared settings, adding guided buying policies, etc.) for the new groups as needed.
+* Deleting old Groups / removing users from old groups in Amazon Business results in losing visibility into orders placed with that old Group, hence it is recommended to 
    * Not delete the old groups/assignments, and
-   * Turn-off purchasing for the old groups.
+   * Turn off purchasing for the old groups.
 * Email / Username Update - Updating email and / or username via SCIM is not supported at this time. 
 * Password Sync - Password sync is not supported.
 
