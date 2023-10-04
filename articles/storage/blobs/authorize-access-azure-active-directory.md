@@ -59,15 +59,24 @@ While Microsoft recommends using the Azure Identity client library when possible
 
 When you use MSAL to acquire an OAuth token for access to Azure Storage, you need to provide an Azure AD resource ID. The Azure AD resource ID indicates the audience for which a token that is issued can be used to provide access to an Azure resource. In the case of Azure Storage, the resource ID may be specific to a single storage account, or it may apply to any storage account.
 
-The following table describes the values that you can provide for the resource ID, based on the cloud you're using:
+##### Resource ID value for a specific storage account
 
-| Cloud | Resource ID | Description |
+When you provide a resource ID that is specific to a single storage account and service, the resource ID is used to acquire a token for authorizing requests to the specified account and service only. The following table lists the value to use for the resource ID, based on the cloud you're working with. Replace `<account-name>` with the name of your storage account.
+
+| Cloud | Resource ID |
+| --- | --- |
+| Azure Global | `https://<account-name>.blob.core.windows.net` |
+| Azure Government | `https://<account-name>.blob.core.usgovcloudapi.net` |
+| Azure Germany | `https://<account-name>.blob.core.cloudapi.de` |
+| Azure China | `https://<account-name>.blob.core.chinacloudapi.cn` |
+
+##### Resource ID value for any storage account
+
+You can also provide a resource ID that applies to any storage account, as described in the table below. This resource ID is the same for all public and sovereign clouds.
+
+Resource ID | Description |
 | --- | --- | --- |
-| Azure Global | `https://<account-name>.blob.core.windows.net` | Use this resource ID to acquire a token for authorizing requests to a specific Azure Storage account and service only. Replace `<account-name>` with the name of your storage account. |
-| Azure Government | `https://<account-name>.blob.core.usgovcloudapi.net` | Use this resource ID to acquire a token for authorizing requests to a specific Azure Storage account and service only. Replace `<account-name>` with the name of your storage account. |
-| Azure Germany | `https://<account-name>.blob.core.cloudapi.de` | Use this resource ID to acquire a token for authorizing requests to a specific Azure Storage account and service only. Replace `<account-name>` with the name of your storage account. |
-| Azure China | `https://<account-name>.blob.core.chinacloudapi.cn` | Use this resource ID to acquire a token for authorizing requests to a specific Azure Storage account and service only. Replace `<account-name>` with the name of your storage account. |
-| Azure Global</br>Azure Government</br>Azure Germany</br>Azure China | `https://storage.azure.com/` | Use to acquire a token for authorizing requests to any Azure Storage account. |
+| `https://storage.azure.com/` | Use this resource ID to acquire a token for authorizing requests to any Azure Storage account. |
 
 ## Assign Azure roles for access rights
 
