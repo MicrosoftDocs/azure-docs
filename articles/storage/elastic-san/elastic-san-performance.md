@@ -20,7 +20,7 @@ Your application's performance gets throttled when it requests more IOPS or thro
 
 ### Elastic SAN performance
 
-An Elastic SAN has three attributes that determine its performance: total capacity, IOPS, and throughput.
+An Elastic SAN has three attributes that determine its performance: total capacity, IOPS, and throughput. Note that for the best possible performance, the SAN should be in the same zone as the VM you're provisioning.
 
 ### Capacity
 
@@ -64,7 +64,7 @@ Each of the example scenarios in this article uses the following configuration f
 
 ## Example scenarios
 
-The following example scenarios depict how your Elastic SAN handles performance allocation.
+The following example scenarios depict how your Elastic SAN handles performance allocation. Note that for best performance both the VMs and the SAN are located in the same zone.
 
 ### Typical workload
 
