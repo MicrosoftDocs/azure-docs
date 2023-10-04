@@ -1,6 +1,6 @@
 ---
-title: Deploy Azure IoT Operations
-description: "Quickstart: Use the Azure IoT Orchestrator to deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster."
+title: Deploy Azure IoT Operations – enabled by Azure Arc Preview
+description: "Quickstart: Use Azure IoT Orchestrator to deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster."
 author: dominicbetts
 ms.author: dobett
 ms.topic: quickstart
@@ -34,7 +34,7 @@ For example: "Quickstart: Demonstrate the incident response capabilities of Micr
 
 -->
 
-# Quickstart: Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster
+# Quickstart: Deploy Azure IoT Operations – enabled by Azure Arc Preview to an Arc-enabled Kubernetes cluster
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 

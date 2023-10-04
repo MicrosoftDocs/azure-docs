@@ -6,7 +6,7 @@ items:
       items:
       - name: Overview
         href: get-started/overview-iot-operations.md
-      - name: Deploy IoT Operations
+      - name: Deploy Azure IoT Operations
         href: get-started/quickstart-deploy.md
     - name: Deploy
       items:
