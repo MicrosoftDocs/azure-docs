@@ -12,17 +12,15 @@ ms.author: manvsingh
 ---
 # Managing SAP HANA data footprint for balancing cost and performance
 
-Data archiving has always been a critical decision-making item and is heavily used by many companies to organize their legacy data to achieve cost benefits. Customers planning to migrate to S/4HANA or HANA based
-solution can leverage on the various data tiering options supported on Azure.
+Data archiving has always been a critical decision-making item and is heavily used by many companies to organize their legacy data to achieve cost benefits, balancing the need to comply with regulations and retain data for certain period with the cost of storing the data. Customers planning to migrate to S/4HANA or HANA based solution or reduce existing data storage footprint can leverage on the various data tiering options supported on Azure. 
 
-This article describes options on Azure with emphasis on classifying the data usage pattern.
+This article describes options on Azure with emphasis on classifying the data usage pattern. 
 
 ## Overview
 
-SAP HANA is an in-memory database and is supported on SAP certified servers. Azure provides 129 solutions
-[certified](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;ve:24) to run SAP HANA. In-memory capabilities of SAP HANA allows customers to execute business transactions at an incredible speed. But do you need fast access to all data, at any given point in time? Food for thought.
+SAP HANA is an in-memory database and is supported on SAP certified servers. Azure provides more than 100 solutions [certified](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;ve:24) to run SAP HANA. In-memory capabilities of SAP HANA allow customers to execute business transactions at an incredible speed. But do you need fast access to all data, at any given point in time? Food for thought. 
 
-Most organizations choose to offload less accessed SAP data to HANA storage tier OR archive legacy data to an extended solution to attain maximum performance out of their investment. This tiering of data helps balance SAP HANA footprint and reduces cost and complexity throughout effectively.
+Most organizations choose to offload less accessed SAP data to HANA storage tier OR archive legacy data to an extended solution to attain maximum performance out of their investment. This tiering of data helps balance SAP HANA footprint and reduces cost and complexity throughout effectively.  
 
 Customers can refer to the table below for data tier characteristics and choose to move data to the temperature tier as per desired usage.
 
@@ -41,7 +39,7 @@ Frequently accessed, high-value data is classified as "hot" and is stored in-mem
 | Native SAP HANA | SAP certified VMs | HANA Dynamic Tiering, HANA extension Node, NSE | DLM with Data Intelligence, DLM with Hadoop |
 | SAP S/4HANA  | SAP certified VMs | Data aging via NSE | SAP IQ |
 | SAP Business Suite on HANA | SAP certified VMs | Data aging via NSE | SAP IQ |
-| SAP BW/4 HANA | SAP certified VMs | NSE, HANA extension Node | NLS with SAP IQ and Hadoop, Data hub with ADLS |
+| SAP BW/4 HANA | SAP certified VMs | NSE, HANA extension Node | NLS with SAP IQ and Hadoop, Data Intelligence with ADLS |
 | SAP BW on HANA | SAP certified VMs | NSE, HANA extension Node | NLS with SAP IQ and Hadoop, Data Intelligence with ADLS |
 
 [2462641 - Is HANA Dynamic Tiering supported for Business Suite on HANA, or other SAP applications ( S/4, BW ) ? - SAP ONE Support Launchpad](https://launchpad.support.sap.com/#/notes/2462641)
@@ -77,6 +75,22 @@ The capacity of SAP HANA database with NSE is the amount of hot data memory and 
 NSE is supported for scale-up and scale-out systems. Availability for scale out systems starts with SAP HANA 2.0 SPS 04. Please refer SAP Note 2927591 to understand the functional restrictions.
 
 [2927591 - SAP HANA Native Storage Extension 2.0 SPS 05 Functional Restrictions - SAP ONE Support Launchpad](https://launchpad.support.sap.com/#/notes/2927591)
+
+SAP HANA NSE disaster recovery on Azure can be achieved using a variety of methods, including: 
+
+- HANA System replication: HANA System replication allows you to create a copy of your SAP HANA NSE system in another Azure zone or region of choice. This copy is periodically replicated with your production SAP HANA NSE system. In the event of a disaster, fail over can be triggered to the disaster recovery SAP HANA NSE system. 
+
+- Backup and restore: You can also use backup and restore to protect your SAP HANA NSE system from disaster. You can back up your SAP HANA NSE system to Azure Backup, and then restore it to a new SAP HANA NSE system in the event of a disaster. Native Azure backup capabilities can be leveraged here. 
+
+- Azure Site Recovery: Azure Site Recovery is a disaster recovery service that can be used to replicate and recover your SAP HANA NSE system to another Azure region. Azure Site Recovery provides several features that make it a good choice for SAP HANA NSE disaster recovery, such as: 
+
+    - Asynchronous replication, which can reduce the impact of replication on your production SAP HANA NSE system. 
+
+    - Point-in-time restore, which allows you to restore your SAP HANA NSE system to a specific point in time. 
+
+    - Automated failover and failback, which can help you to quickly recover your SAP HANA NSE system in the event of a disaster. 
+
+The best method for SAP HANA NSE disaster recovery on Azure will depend on your specific needs and requirements. 
 
 [Restore SAP HANA database instances on Azure VMs - Azure Backup | Microsoft Learn](/azure/backup/sap-hana-database-instances-restore)
 
