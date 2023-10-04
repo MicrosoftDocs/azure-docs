@@ -14,8 +14,6 @@ ms.author: jfields
 
 # What's Microsoft Entra Permissions Management
 
-## Overview
-
 Microsoft Entra Permissions Management is a cloud infrastructure entitlement management (CIEM) solution that provides comprehensive visibility into permissions assigned to all identities. For example, over-privileged workload and user identities, actions, and resources across multicloud infrastructures in Microsoft Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP).
 
 Permissions Management  detects, automatically right-sizes, and continuously monitors unused and excessive permissions.
