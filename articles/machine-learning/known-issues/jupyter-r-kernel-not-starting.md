@@ -15,13 +15,11 @@ ms.custom: known-issue
 
 [!INCLUDE [dev v2](../includes/machine-learning-dev-v2.md)]
 
-When trying to launch an R kernel in JupyterLab or a notebook in a new compute instance, the kernel fails to start with `Error: .onLoad failed in loadNamespace()`
+When trying to launch an R kernel in JupyterLab or a notebook in a new compute instance, the kernel fails to start with `Error: .onLoad failed in loadNamespace()`.
 
 **Status:** Open
 
-
 **Problem area:** Compute
-
 
 ## Symptoms
 

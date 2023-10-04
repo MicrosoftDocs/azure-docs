@@ -13,7 +13,6 @@ ms.custom: known-issue
 
 # Known issue  - Existing Kubernetes compute can't be updated with `az ml compute attach` command
 
-
 [!INCLUDE [dev v2](../includes/machine-learning-dev-v2.md)]
 
 Updating a Kubernetes attached compute instance using the `az ml attach` command appears to succeed but doesn't.
