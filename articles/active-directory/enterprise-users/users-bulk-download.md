@@ -76,6 +76,8 @@ You can see the status of your pending bulk requests in the **Bulk operation res
 
 Each bulk activity to export a list of users can run for up to one hour. This pace enables export and download of a list of up to 500,000 users.
 
+[!INCLUDE [Bulk update warning](~/articles/active-directory/includes/bulk-export.md)]
+
 ## Next steps
 
 - [Bulk add users](users-bulk-add.md)
