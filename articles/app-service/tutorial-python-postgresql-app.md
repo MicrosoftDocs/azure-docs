@@ -13,7 +13,7 @@ zone_pivot_groups: app-service-portal-azd
 # Deploy a Python (Django or Flask) web app with PostgreSQL in Azure
 
 
-:::zone pivot="azure-portal"  
+::: zone pivot="azure-portal"  
 In this tutorial, you'll deploy a data-driven Python web app (**[Django](https://www.djangoproject.com/)** or **[Flask](https://flask.palletsprojects.com/)**) to **[Azure App Service](./overview.md#app-service-on-linux)** with the **[Azure Database for PostgreSQL](../postgresql/index.yml)** relational database service. Azure App Service supports [Python](https://www.python.org/downloads/) in a Linux server environment.
 
 :::image type="content" border="False" source="./media/tutorial-python-postgresql-app/python-postgresql-app-architecture-240px.png" lightbox="./media/tutorial-python-postgresql-app/python-postgresql-app-architecture.png" alt-text="An architecture diagram showing an App Service with a PostgreSQL database in Azure.":::
@@ -27,33 +27,19 @@ In this tutorial, you'll deploy a data-driven Python web app (**[Django](https:/
 
 Sample Python applications using the Flask and Django framework are provided to help you follow along with this tutorial. To deploy them without running them locally, skip this part. 
 
-To run the application locally, make sure you have [Python 3.7 or higher](https://www.python.org/downloads/) and [PostgreSQL](https://www.postgresql.org/download/) installed locally. Then, download or clone the app:
+To run the application locally, make sure you have [Python 3.7 or higher](https://www.python.org/downloads/) and [PostgreSQL](https://www.postgresql.org/download/) installed locally. Then, download or clone the app and go to the application folder:
 
 ### [Flask](#tab/flask)
 
 ```bash
-git clone https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app.git
+git clone git clone https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app
+cd msdocs-flask-postgresql-sample-app
 ```
 
 ### [Django](#tab/django)
 
 ```bash
 git clone https://github.com/Azure-Samples/msdocs-django-postgresql-sample-app.git
-```
-
------
-
-Go to the application folder:
-
-### [Flask](#tab/flask)
-
-```bash
-cd msdocs-python-flask-webapp-quickstart
-```
-
-### [Django](#tab/django)
-
-```bash
 cd msdocs-django-postgresql-sample-app
 ```
 
@@ -552,8 +538,8 @@ Sample Python applications using the Flask and Django framework are provided to 
 Download the sample repository and change to the sample directory.
 
 ```bash
-git clone https://github.com/cephalin/msdocs-flask-postgresql.git
-cd msdocs-flask-postgresql
+git clone https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app
+cd msdocs-flask-postgresql-sample-app
 ```
 
 Create an *.env* file as shown below using the *.env.sample* file as a guide. Set the values of `DBNAME`, `DBHOST`, `DBUSER`, and `DBPASS` as appropriate for your local PostgreSQL instance.
@@ -622,12 +608,13 @@ In this step, you create the Azure resources and deploy a sample app to App Serv
 
 ### Initialize the project
 
-1. If you haven't already, clone the sample application locally.
+1. If you haven't already, clone the sample application locally and checkout the branch `merged-projects`. `merged-projects` branch isn't needed for production.
 
     ### [Flask](#tab/flask)
 
     ```bash
-    git clone https://github.com/cephalin/msdocs-flask-postgresql.git
+    git clone https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app
+    git checkout merged-projects //development only
     ```
 
     ### [Django](#tab/django)
@@ -639,7 +626,7 @@ In this step, you create the Azure resources and deploy a sample app to App Serv
     ### [Flask](#tab/flask)
 
     ```bash
-    azd init --template cephalin/msdocs-python-postgresql-infra
+    azd init --template https://github.com/cephalin/msdocs-python-postgresql-infra
     ```
 
     ### [Django](#tab/django)
