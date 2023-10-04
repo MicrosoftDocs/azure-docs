@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure IoT Operations
+title: Troubleshoot Azure IoT Operations – enabled by Azure Arc Preview
 description: Troubleshoot your Azure IoT Operations deployment
 author: kgremban
 ms.author: kgremban

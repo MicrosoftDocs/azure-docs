@@ -25,7 +25,7 @@ Required: Use an H1 that includes the feature name and the product or service na
 
 -->
 
-# Use the Data Processor Preview in Azure IoT Operations Preview
+# Use the Data Processor Preview in Azure IoT Operations – enabled by Azure Arc Preview
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 

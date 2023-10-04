@@ -1,5 +1,5 @@
 ---
-title: Route messages by using IoT MQ
+title: Route messages by using Azure IoT MQ
 description: Use Azure IoT MQ to publish and subscribe to messages. Destinations include other MQTT brokers, Azure IoT Data Processor, and Azure cloud services.
 author: PatAltimore
 ms.author: patricka
@@ -24,7 +24,7 @@ Required: Use an H1 that includes the feature name and the product or service na
 
 -->
 
-# Publish and subscribe to messages by using IoT MQ broker
+# Publish and subscribe to messages by using Azure IoT MQ
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
