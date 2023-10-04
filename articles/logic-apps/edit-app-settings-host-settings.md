@@ -48,7 +48,7 @@ App settings in Azure Logic Apps work similarly to app settings in Azure Functio
 | Setting | Default value | Description |
 |---------|---------------|-------------|
 | `AzureWebJobsStorage` | None | Sets the connection string for an Azure storage account. |
-| `FUNCTIONS_WORKER_RUNTIME` | `node` | Specifies whether your logic app resource is extension bundle-based (`node` for Node.js) or NuGet package-based (`dotnet` for .NET). |
+| `FUNCTIONS_WORKER_RUNTIME` | `node` | Specifies whether your logic app resource is extension bundle-based (`node` for Node.js) or NuGet package-based (`dotnet` for .NET). <br><br>**Note**: For actions that use XSLT maps with references or calls to .NET Framework assemblies, such as **Transform XML** or running .NET code, set `FUNCTIONS_WORKER_RUNTIME` to `dotnet-isolated` instead. |
 | `ServiceProviders.Sftp.FileUploadBufferTimeForTrigger` | `00:00:20` <br>(20 seconds) | Sets the buffer time to ignore files that have a last modified timestamp that's greater than the current time. This setting is useful when large file writes take a long time and avoids fetching data for a partially written file. |
 | `ServiceProviders.Sftp.OperationTimeout` | `00:02:00` <br>(2 min) | Sets the time to wait before timing out on any operation. |
 | `ServiceProviders.Sftp.ServerAliveInterval` | `00:30:00` <br>(30 min) | Send a "keep alive" message to keep the SSH connection active if no data exchange with the server happens during the specified period. For more information, see the [ServerAliveInterval setting](https://man.openbsd.org/ssh_config.5#ServerAliveInterval). |
