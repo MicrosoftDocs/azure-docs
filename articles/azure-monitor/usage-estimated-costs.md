@@ -135,6 +135,8 @@ To gain more understanding of your usage and costs, create exports using Cost An
 
 These exports are in CSV format and will contain a list of daily usage (billed quantity and cost) by resource, billing meter and a few more fields such as [AdditionalInfo](../cost-management-billing/automate/understand-usage-details-fields.md#list-of-fields-and-descriptions). You can use Microsoft Excel to do rich analyses of your usage not possible in the Cost Analytics experiences in the portal.
 
+The usage export has both the cost for your usage, and the number of units of usage. Consequently, you can use this export to see the amount of benefits you are receiving from various offers such as the [Defender for Servers data allowance](logs/cost-logs.md#workspaces-with-microsoft-defender-for-cloud) and the [Microsoft Sentinel benefit for Microsoft 365 E5, A5, F5, and G5 customers](https://azure.microsoft.com/offers/sentinel-microsoft-365-offer/). 
+
 For instance, usage from Log Analytics can be found by first filtering on the **Meter Category** column to show 
 
 1. **Log Analytics** (for Pay-as-you-go data ingestion and interactive Data Retention), 
@@ -270,7 +272,7 @@ To investigate your Application Insights usage more deeply, open the **Metrics**
 
 ## View data allocation benefits
 
-To view data allocation benefits from sources such as [Microsoft Defender for Servers](https://azure.microsoft.com/pricing/details/defender-for-cloud/), [Microsoft Sentinel benefit for Microsoft 365 E5, A5, F5, and G5 customers](https://azure.microsoft.com/offers/sentinel-microsoft-365-offer/), or the [Sentinel Free Trial](https://azure.microsoft.com/pricing/details/microsoft-sentinel/), you need to export your usage details.
+To view data allocation benefits from sources such as [Microsoft Defender for Servers](https://azure.microsoft.com/pricing/details/defender-for-cloud/), [Microsoft Sentinel benefit for Microsoft 365 E5, A5, F5, and G5 customers](https://azure.microsoft.com/offers/sentinel-microsoft-365-offer/), or the [Sentinel Free Trial](https://azure.microsoft.com/pricing/details/microsoft-sentinel/), you need to export your usage details as described above.
 
 Open the exported usage spreadsheet and filter the **Instance ID** column to your workspace. (To select all your workspaces in the spreadsheet, filter the **Instance ID** column to **contains /workspaces/**.) Next, filter the **ResourceRate** column to show only rows where this rate is equal to zero. Now you'll see the data allocations from these various sources.
 
@@ -296,5 +298,6 @@ Also, if you move a subscription to the new Azure monitoring pricing model in Ap
 - For details on how to analyze the data in your workspace to determine the source of any higher-than-expected usage and opportunities to reduce your amount of data collected, see [Analyze usage in Log Analytics workspace](logs/analyze-usage.md).
 - To control your costs by setting a daily limit on the amount of data that can be ingested in a workspace, see [Set daily cap on Log Analytics workspace](logs/daily-cap.md).
 - For best practices on how to configure and manage Azure Monitor to minimize your charges, see [Azure Monitor best practices - Cost management](best-practices-cost.md).
+
 
 

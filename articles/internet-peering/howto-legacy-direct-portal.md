@@ -1,13 +1,12 @@
 ﻿---
 title: Convert a legacy Direct peering to an Azure resource - Azure portal
-description: Convert a legacy Direct peering to an Azure resource using the Azure portal.
-services: internet-peering
+titleSuffix: Internet Peering
+description: Learn how to convert a legacy Direct peering to an Azure resource using the Azure portal.
 author: halkazwini
+ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 01/23/2023
-ms.author: halkazwini
-ms.custom: template-how-to, engagement-fy23
+ms.date: 10/03/2023
 ---
 
 # Convert a legacy Direct peering to an Azure resource using the Azure portal
@@ -41,9 +40,6 @@ As an Internet Service Provider, you can convert legacy direct peering connectio
 *    Select your Azure Subscription.
 
 * For Resource group, you can either choose an existing resource group from the drop-down list or create a new group by selecting Create new. We'll create a new resource group for this example.
-
-    >[!NOTE]
-    >Once a subscription and resource group have been selected for the peering resource, it cannot be moved to another subscription or resource group.
 
 * Name corresponds to the resource name and can be anything you choose.
 

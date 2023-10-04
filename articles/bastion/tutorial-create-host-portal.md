@@ -4,7 +4,7 @@ description: Learn how to deploy Bastion using settings that you specify - Azure
 author: cherylmc
 ms.service: bastion
 ms.topic: tutorial
-ms.date: 06/08/2023
+ms.date: 10/03/2023
 ms.author: cherylmc
 
 ---
@@ -110,7 +110,7 @@ This section helps you deploy Bastion to your VNet. Once Bastion is deployed, yo
 
 1. On the **Subnets** page, select **+Subnet** to open the **Add subnet** page.
 
-1. On the **Add subnet page**, create the 'AzureBastionSubnet' subnet using the following values. Leave the other values as default.
+1. On the **Add subnet page**, create the 'AzureBastionSubnet' subnet using the following values. Leave the other values as default. 
 
    * The subnet name must be **AzureBastionSubnet**.
    * The subnet must be at least **/26 or larger** (/26, /25, /24 etc.) to accommodate features available with the Standard SKU.
