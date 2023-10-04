@@ -29,7 +29,7 @@ items:
     - name: Publish/Subscribe with MQTT
       items:
       - name: Overview
-        href: pub-sub-mqtt/overview-pub-sub-mqtt.md
+        href: pub-sub-mqtt/overview-iot-mq.md
       - name: Secure communications with TLS
         href: pub-sub-mqtt/howto-configure-listeners.md
       - name: Configure TLS auto certificates
@@ -94,8 +94,8 @@ items:
         href: develop/overview-develop-customizations.md
       - name: About the MQ state store
         href: develop/concept-about-state-store.md
-      - name: About highly available apps
-        href: develop/concept-about-ha-apps.md
+      - name: About distributed apps
+        href: develop/concept-about-distributed-apps.md
       - name: Develop Dapr apps
         href: develop/howto-develop-dapr-apps.md
       - name: Develop MQTTnet apps

@@ -1,5 +1,5 @@
 ---
-title: Develop highly available applications
+title: Develop highly available distributed applications
 # titleSuffix: Azure IoT MQ
 description: Learn how to develop highly available distributed applications that work with Azure IoT MQ.
 author: PatAltimore
