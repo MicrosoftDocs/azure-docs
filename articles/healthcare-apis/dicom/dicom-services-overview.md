@@ -22,7 +22,7 @@ The DICOM service offers many benefits, including:
 
 - **Advanced threat protection**. The DICOM service uses machine learning and AI to identify and block any potential or emerging threats to your organization's data, such as ransomware, SQL injection, or data exfiltration.
 
-- **Multi-region failover**. The DICOM service replicates your organization's data across multiple regions. If one region fails or becomes unavailable, your data can be accessed from another region without interruption.
+- **Automatic data replication**. The DICOM service replicates your organization's data across multiple data centers within a region. If one datacenter fails or becomes unavailable, your data can be accessed without interruption.
 
 - **Role-based access control (RBAC)**. RBAC enables you to manage how your organization's data is stored and accessed. You determine who has access to datasets based on roles you define for your environment.
 
