@@ -775,8 +775,12 @@ items:
         href: ./hbase/apache-hbase-backup-replication.md
       - name: Migrate Apache HBase cluster to newer version
         href: ./hbase/apache-hbase-migrate-new-version.md
+      - name: Migrate an Apache HBase cluster to an HDInsight 5.1
+        href: ./hbase/apache-hbase-migrate-hdinsight-5-1.md
       - name: Migrate Apache HBase version and storage account
         href: ./hbase/apache-hbase-migrate-new-version-new-storage-account.md
+      - name: Migrate Apache HBase to an HDInsight 5.1 and new storage account
+        href: ./hbase/apache-hbase-migrate-hdinsight-5-1-new-storage-account.md
       - name: Apache Phoenix performance best practices
         href: ./hbase/apache-hbase-phoenix-performance.md
       - name: Create Apache HBase cluster in Azure VNet
