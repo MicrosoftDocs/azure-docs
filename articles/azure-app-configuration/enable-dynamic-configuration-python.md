@@ -14,7 +14,7 @@ ms.author: mametcal
 ---
 # Tutorial: Use dynamic configuration in Python (preview)
 
-This tutorial shows how you can enable dynamic configuration updates in Python. It builds a script to leverage the App Configuration provider library for its built-in configuration caching and refreshing capabilities.
+This tutorial shows how you can enable dynamic configuration updates in Python. It builds a script to use the App Configuration provider library for its built-in configuration caching and refreshing capabilities.
 
 In this tutorial, you learn how to:
 
@@ -35,7 +35,7 @@ A *sentinel key* is a key that you update after you complete the change of all o
 
 ## Reload data from App Configuration
 
-1. Create two configuration in your App Configuration store.
+1. Create two configurations in your App Configuration store.
 
 ```cli
 az appconfig kv set --name <app-configuration-store-name> --key message --value "Hello World!"
@@ -106,7 +106,7 @@ az appconfig kv set --name <app-configuration-store-name> --key message --value 
 az appconfig kv set --name <app-configuration-store-name> --key Sentinel --value "2"
 ```
 
-1. Wait for the refresh interval to pass the refresh to be called, the configuration settings will print out again with new values.
+1. Wait for the refresh interval to pass the refresh to be called, the configuration settings will print again with new values.
 
 ```cli
 Updated configuration values:
@@ -150,7 +150,7 @@ You can find a full sample project [here](https://github.com/Azure/AppConfigurat
 
 ---
 
-NOTE: If the refresh interval hasn't passed, then the refresh will not be attempted and returned right away.
+NOTE: If the refresh interval hasn't passed, then the refresh won't be attempted and returned right away.
 
 ## Next steps
 
