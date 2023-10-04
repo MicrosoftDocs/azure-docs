@@ -12,6 +12,8 @@ metadata:
 title: Metrics Advisor frequently asked questions
 summary: |
 
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
+
 sections:
   - name: Basic concepts
     questions:

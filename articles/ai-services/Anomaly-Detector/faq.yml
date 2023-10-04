@@ -12,6 +12,7 @@ metadata:
 title: Anomaly Detector frequently asked questions
 summary: This article contains answers to frequently asked troubleshooting questions about the Anomaly Detector service.
 
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 sections:
 
