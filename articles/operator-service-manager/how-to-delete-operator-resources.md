@@ -1,5 +1,5 @@
 ---
-title: How to delete operator services
+title: How to delete operator resources
 description: Learn how to delete operator services
 author: sherrygonz
 ms.author: sherryg
@@ -8,9 +8,9 @@ ms.topic: how-to
 ms.service: azure-operator-service-manager
 ---
 
-# Delete operator services in Azure Operator Service Manager
+# Delete operator resources in Azure Operator Service Manager
 
-In this how-to guide, you learn how to delete operator services. In Azure Operator Service Manager (AOSM), deleting a site requires careful consideration of the associated child resources. To ensure a smooth deletion process, it's important to follow specific guidelines based on the presence of child resources. 
+In this how-to guide, you learn how to delete operator resources. In Azure Operator Service Manager (AOSM), deleting a site resource requires careful consideration of the associated child resources. To ensure a smooth deletion process, it's important to follow specific guidelines based on the presence of child resources. 
 
 ## Prerequisites
 

@@ -60,8 +60,8 @@
   items:
   - name: Create a site
     href: how-to-create-site.md
-  - name: Delete operator services
-    href: how-to-delete-operator-services.md
+  - name: Delete operator resources
+    href: how-to-delete-operator-resources.md
   - name: Create site network service
     href: how-to-create-site-network-service.md
 - name: Resources
