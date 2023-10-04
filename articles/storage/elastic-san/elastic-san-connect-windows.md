@@ -26,14 +26,10 @@ In this article, you'll add the Storage service endpoint to an Azure virtual net
 
 [!INCLUDE [elastic-san-regions](../../../includes/elastic-san-regions.md)]
 
-## Connect to a volume
+## Connect to Volumes
 
-You can either create single sessions or multiple-sessions to every Elastic SAN volume based on your application's multi-threaded capabilities and performance requirements. To achieve higher IOPS and throughput to a volume and reach its maximum limits, use multiple sessions and adjust the queue depth and IO size as needed, if your workload allows.
-
-When using multiple sessions, generally, you should aggregate them with Multipath I/O. It allows you to aggregate multiple sessions from an iSCSI initiator to the target into a single device, and can improve performance by optimally distributing I/O over all available paths based on a load balancing policy.
-
-### Set up your environment
-
+### Set up your client environment
+#### Enable iSCSI Initiator
 To create iSCSI connections from a Windows client, confirm the iSCSI service is running. If it's not, start the service, and set it to start automatically.
 
 ```powershell
@@ -47,7 +43,9 @@ Start-Service -Name MSiSCSI
 Set-Service -Name MSiSCSI -StartupType Automatic
 ```
 
-#### Multipath I/O - for multi-session connectivity
+#### Install Multipath I/O
+
+To achieve higher IOPS and throughput to a volume and reach its maximum limits, you need to create multiple-sessions from the iSCSI initiator to the target volume based on your application's multi-threaded capabilities and performance requirements. You need Multipath I/O to aggregate these multiple paths into a single device, and to improve performance by optimally distributing I/O over all available paths based on a load balancing policy.
 
 Install Multipath I/O, enable multipath support for iSCSI devices, and set a default load balancing policy.
 
@@ -66,26 +64,20 @@ Enable-MSDSMAutomaticClaim -BusType iSCSI
 Set-MSDSMGlobalDefaultLoadBalancePolicy -Policy RR
 ```
 
-
-### Multi-session configuration
-
-To create multiple sessions to each volume, you must configure the target and connect to it multiple times, based on the number of sessions you want to that volume.
+### Attach Volumes to the client
 
 You can use the following script to create your connections:
 
 Copy the script from [here](https://github.com/Azure-Samples/azure-elastic-san/blob/main/CLI%20(Linux)%20Multi-Session%20Connect%20Scripts/connect_for_documentation.py) and save it as a .ps1 file. Then execute it with the required parameters. Below is an example of how you would execute the command: 
 
 ```bash
-./test.ps1 --subscription <subid> -g <rgname> -e <esanname> -v <vgname> -n <vol1, vol2> -s 32
+./test.ps1 $rgname $esanname $vgname $vol1,$vol2,$vol3 32
 ```
 
 Verify the number of sessions your volume has with either `iscsicli SessionList` or `mpclaim -s -d`
 
-## Determine sessions to create
-
-To achieve higher IOPS and throughput to a volume and reach its maximum limits, use 32 sessions and adjust the queue depth and IO size as needed, if your workload allows. Our recommendation is to leave it at 32 sessions but based on your environment you can make changes.
-
-For multi-session connections, install [Multipath I/O - for multi-session connectivity](#multipath-io---for-multi-session-connectivity).
+#### Number of sessions
+Our current recommendation is to use 32 sessions to each target volume to achieve its maximum IOPS and/or throughput limits. Please note that Windows iSCSI initiator has a limit of maximum 256 sessions. If you need to connect more than 8 volumes to a Windows client, reduce the number of sessions to each volume. 
 
 ## Next steps
 
