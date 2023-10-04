@@ -10,7 +10,7 @@ ms.reviewer: maghan
 ms.date: 09/30/2023
 ---
 
-# Cross Subscription and Cross Resource Group Restore in Azure Database for PostgreSQL Flexible server
+# Cross Subscription and Cross Resource Group Restore in Azure Database for PostgreSQL Flexible Server
 
 [!INCLUDE [applies-to-postgresql-Flexible-server](../includes/applies-to-postgresql-Flexible-server.md)]
 
@@ -36,7 +36,7 @@ To complete this how-to guide, you need Azure Database for PostgreSQL - Flexible
 
 5. Under **Server details**, for **Name**, provide a server name. For **Availability zone**, you can optionally choose an availability zone to restore to.
    
-   :::image type="content" source="./media/how-to-restore-server-portal/choose-different-sub-or-rg.png" alt-text="Screenshot that shows selections for restoring to different subscription or resource group.":::
+   :::image type="content" source="./media/how-to-restore-server-portal/choose-different-subscription-or-resource-group.png" alt-text="Screenshot that shows selections for restoring to different subscription or resource group.":::
 
 6. Select **Review + create** and click **create**, a notification shows that the restore operation has started.
 
@@ -62,7 +62,7 @@ If your source server is configured with geo-redundant backup, you can restore t
 
 6. Under **Server details**, for **Name**, provide a server name. For **Availability zone**, you can optionally choose an availability zone to restore to.
    
-   :::image type="content" source="./media/how-to-restore-server-portal/geo-restore-different-sub-or-rg.png" alt-text="Screenshot that shows selections for restoring to the latest point.":::
+   :::image type="content" source="./media/how-to-restore-server-portal/geo-restore-different-subscription-or-resource-group.png" alt-text="Screenshot that shows selections for restoring to the latest point.":::
 
 6. Select **Review + create** and click **create**, a notification shows that the restore operation has started.
 
