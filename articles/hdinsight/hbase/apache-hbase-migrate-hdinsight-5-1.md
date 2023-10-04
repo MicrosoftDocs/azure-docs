@@ -11,7 +11,7 @@ ms.date: 10/03/2023
 
 This article discusses how to update your Apache HBase cluster on Azure HDInsight to a newer version.
 
-This article applies only if you use the same Azure Storage account for your source and destination clusters. To upgrade with a new or different Storage account for your destination cluster, see [Migrate Apache HBase to HDInsight 5.1 with a new Storage account](./apache-hbase-migrate-to-hdinsight-5-1-new-storage-account.md).
+This article applies only if you use the same Azure Storage account for your source and destination clusters. To upgrade with a new or different Storage account for your destination cluster, see [Migrate Apache HBase to HDInsight 5.1 with a new Storage account](./apache-hbase-migrate-hdinsight-5-1-new-storage-account.md).
 
 The downtime for upgrading may take more than 20 minutes. This downtime caused by the steps to flush all in-memory data, and wait for all procedure to complete and the time to configure and restart the services on the new cluster. Your results vary, depending on the number of nodes, amount of data, and other variables.
 
