@@ -74,9 +74,9 @@ After administrators confirm the settings using [report-only mode](howto-conditi
 
 In organizations with existing Conditional Access policies that target: 
 
-- The **All cloud apps** resource
-- The **Mobile apps and desktop clients** condition
-- Use **Require app protection policy** or a **Block access** grant control
+- The **All cloud apps** resource.
+- The **Mobile apps and desktop clients** condition.
+- Use **Require app protection policy** or a **Block access** grant control.
 
 End users are unable to enroll their Windows device in MAM without the following policy changes.
 
