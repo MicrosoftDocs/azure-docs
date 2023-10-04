@@ -135,8 +135,8 @@ CancellationToken cancellationToken = new CancellationTokenSource().Token;
 
 CommunicationRoom createdRoom = await roomsClient.CreateRoomAsync(validFrom, validUntil, participants, cancellationToken);
 
-// Starting in 1.1.0b1 release, CreateRoom or CreateRoomAsync methods can be called with CreateRoomOptions type as an input parameter.
-bool pstnDialOutEnabled = true;
+// CreateRoom or CreateRoomAsync methods can take CreateRoomOptions type as an input parameter.
+bool pstnDialOutEnabled = false;
 CreateRoomOptions createRoomOptions = new CreateRoomOptions()
 {
     ValidFrom = validFrom,
@@ -176,7 +176,7 @@ DateTimeOffset updatedValidFrom = DateTimeOffset.UtcNow;
 DateTimeOffset updatedValidUntil = DateTimeOffset.UtcNow.AddDays(10);
 CommunicationRoom updatedRoom = await roomsClient.UpdateRoomAsync(roomId, updatedValidFrom, updatedValidUntil, cancellationToken);
 
-// Starting in 1.1.0b1 release, UpdateRoom or UpdateRoomAsync methods can be called with UpdateRoomOptions type as an input parameter.
+// UpdateRoom or UpdateRoomAsync methods can take UpdateRoomOptions type as an input parameter.
 bool pstnDialOutEnabled = true;
 UpdateRoomOptions updateRoomOptions = new UpdateRoomOptions()
 {

@@ -26,6 +26,7 @@ You can review and download the sample code for this quick start on [GitHub](htt
 ## Setting up
 
 ### Create a new web application
+
 In a terminal or console window, create a new folder for your application and navigate to it.
 
 ```console
@@ -128,16 +129,19 @@ const participants = [
 ```
 
 ### Initialize the room
+
 Create a new `room` using the `participants` defined in the code snippet above:
 
 ```javascript
 // Create a room
 var validFrom = new Date(Date.now());
 var validUntil = new Date(validFrom.getTime() + 60 * 60 * 1000);
+var pstnDialOutEnabled = false;
 
 const createRoomOptions = {
   validFrom,
   validUntil,
+  pstnDialOutEnabled,
   participants
 };
 
@@ -166,17 +170,21 @@ The lifetime of a `room` can be modified by issuing an update request for the `v
 // Update room lifetime
 validFrom.setTime(validUntil.getTime());
 validUntil.setTime(validFrom.getTime() + 5 * 60 * 1000);
+pstnDialOutEnabled = true;
 
+// request payload to update a room
 const updateRoomOptions = {
   validFrom,
-  validUntil
+  validUntil,
+  pstnDialOutEnabled,
 };
 
 const updateRoom = await roomsClient.updateRoom(roomId, updateRoomOptions);
-console.log("\nUpdated room with validFrom: ", updateRoom.validFrom, " and validUntil: ", updateRoom.validUntil);
+console.log("\nUpdated room with validFrom: ", updateRoom.validFrom, ", validUntil: ", updateRoom.validUntil, " and pstnDialOutEnabled: ", updateRoom.pstnDialOutEnabled);
 ```
 
 ## Get list of rooms
+
 Retrieve your list of rooms by using the `listRooms` method:
 
 ```javascript
@@ -242,6 +250,7 @@ console.log("\nRemoved participants from room");
 ```
 
 ## Delete room
+
 If you wish to disband an existing `room`, you may issue an explicit delete request. All `rooms` and their associated resources are automatically deleted at the end of their validity plus a grace period.
 
 ```javascript
@@ -261,13 +270,13 @@ node index.js
 The expected output describes each completed action:
 
 ```console
-Azure Communication Services - Rooms Quickstart
+Azure Communication Services - Rooms QuickStart
 
 Created a room with id:  99445276259151407
 
 Retrieved room with id:  99445276259151407
 
-Updated room with validFrom:  2023-05-11T22:11:46.784Z  and validUntil:  2023-05-11T22:16:46.784Z
+Updated room with validFrom:  2023-05-11T22:11:46.784Z, validUntil:  2023-05-11T22:16:46.784Z and pstnDialOutEnabled: true
 
 Retrieved list of rooms; printing first room:
 
