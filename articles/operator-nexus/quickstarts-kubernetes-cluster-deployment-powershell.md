@@ -11,11 +11,13 @@ ms.date: 09/26/2023
 
 # Quickstart: Create an Azure Nexus Kubernetes cluster by using Azure PowerShell
 
-* Deploy an Azure Nexus Kubernetes cluster using Azure PowerShell.
+ Deploy an Azure Nexus Kubernetes cluster using Azure PowerShell.
+
+This quick-start guide is designed to help you get started with using Nexus kubernetes cluster. By following the steps outlined in this guide, you're able to quickly and easily create a customized Nexus kubernetes cluster that meets your specific needs and requirements. Whether you're a beginner or an expert in Nexus networking, this guide is here to help. You learn everything you need to know to customize and create Nexus kubernetes cluster.
 
 ## Before you begin
 
-[!INCLUDE [kubernetes-cluster-prereq](./includes/kubernetes-cluster/quickstart-prereq-ps.md)]
+[!INCLUDE [kubernetes-cluster-prereq](./includes/kubernetes-cluster/quickstart-prerequisite-powershell.md)]
 
 ## Create an Azure Nexus Kubernetes cluster
 
@@ -120,11 +122,11 @@ After a few minutes, the command completes and returns information about the clu
 
 ## Review deployed resources
 
-[!INCLUDE [quickstart-review-deployment-cli](./includes/kubernetes-cluster/quickstart-review-deployment-ps.md)]
+[!INCLUDE [quickstart-review-deployment-cli](./includes/kubernetes-cluster/quickstart-review-deployment-powershell.md)]
 
 ## Connect to the cluster
 
-[!INCLUDE [quickstart-cluster-connect](./includes/kubernetes-cluster/quickstart-cluster-connect-ps.md)]
+[!INCLUDE [quickstart-cluster-connect](./includes/kubernetes-cluster/quickstart-cluster-connect-powershell.md)]
 
 ## Add an agent pool
 
@@ -162,11 +164,11 @@ New-AzNetworkCloudAgentPool -KubernetesClusterName $CLUSTER_NAME `
 
 After a few minutes, the command completes and returns information about the agent pool. For more advanced options, see [Quickstart: Deploy an Azure Nexus Kubernetes cluster using Bicep](./quickstarts-kubernetes-cluster-deployment-bicep.md).
 
-[!INCLUDE [quickstart-review-nodepool](./includes/kubernetes-cluster/quickstart-review-nodepool-ps.md)]
+[!INCLUDE [quickstart-review-nodepool](./includes/kubernetes-cluster/quickstart-review-nodepool-powershell.md)]
 
 ## Clean up resources
 
-[!INCLUDE [quickstart-cleanup](./includes/kubernetes-cluster/quickstart-cleanup-ps.md)]
+[!INCLUDE [quickstart-cleanup](./includes/kubernetes-cluster/quickstart-cleanup-powershell.md)]
 
 ## Next steps
 

@@ -10,4 +10,4 @@ Now that the Nexus Kubernetes cluster has been successfully created and connecte
 
 For more detailed information about available options, see [Connect to an Azure Operator Nexus Kubernetes cluster](../../howto-kubernetes-cluster-connect.md).
 
-[!INCLUDE [cluster-connect](./cluster-connect-ps.md)]
+[!INCLUDE [cluster-connect](./cluster-connect-powershell.md)]

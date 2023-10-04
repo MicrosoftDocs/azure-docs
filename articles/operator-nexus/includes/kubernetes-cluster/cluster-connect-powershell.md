@@ -7,7 +7,7 @@ ms.service: azure-operator-nexus
 ---
 
 > [!NOTE]
-> When you create a Nexus Kubernetes cluster, Nexus automatically creates a managed resource group dedicated to storing the cluster resources, within this group, the Arc connected cluster resource is established.
+> When you create a Nexus Kubernetes cluster, Nexus automatically creates a managed resource group dedicated to storing the cluster resources. Within this group, the Arc connected cluster resource is established.
 
 To access your cluster, you need to set up the cluster connect `kubeconfig`. After logging into Azure PowerShell with the relevant Azure AD entity, you can obtain the `kubeconfig` necessary to communicate with the cluster from anywhere, even outside the firewall that surrounds it.
 
