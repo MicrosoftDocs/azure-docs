@@ -393,10 +393,10 @@ Below is the package certificate, compromised of. p7b (Full Certificate Authorit
 
 [!INCLUDE [p7b](../virtual-machines/includes/trusted-launch-tpm-certs/full-certificate-authority.md)]
 
-[!INCLUDE [json](../virtual-machines/includes/trusted-launch-tpm-certs/full-certificate-authority-json.md)]
+[!INCLUDE [json](../virtual-machines/includes/trusted-launch-tpm-certs/root-certificate-authority.md)]
 
 [!INCLUDE [cert](../virtual-machines/includes/trusted-launch-tpm-certs/intermediate-ca.md)]
 
 [!INCLUDE [json](../virtual-machines/includes/trusted-launch-tpm-certs/intermediate-ca-json.md)]
 
-[!INCLUDE [json](../virtual-machines/includes/trusted-launch-tpm-certs/root-certificate-authority.md)]
+[!INCLUDE [json](../virtual-machines/includes/trusted-launch-tpm-certs/tpm-root-certificate-authority.md)]
