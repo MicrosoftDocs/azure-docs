@@ -87,7 +87,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (bring your
     sudo zypper update
     ```
 
-5. Install the Azure Linux VM Agent (waagent) and cloud-init:
+5. Install the Azure Linux VM Agent (`waagent`) and cloud-init:
 
     ```bash
     sudo SUSEConnect -p sle-module-public-cloud/15.2/x86_64  (SLES 15 SP2)
@@ -96,7 +96,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (bring your
     sudo zypper install cloud-init
     ```
 
-6. Enable waagent and cloud-init to start on boot:
+6. Enable `waagent` and cloud-init to start on boot:
 
     ```bash
     sudo systemctl enable  waagent 
@@ -136,7 +136,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (bring your
     sudo sed -i '/cloud_init_modules/a\\ - disk_setup' /etc/cloud/cloud.cfg
     ```
 
-8. If you want to mount, format, and create a swap partition, one option is to pass in this configuration as a cloud-init configuration every time you create a VM.
+8. If you want to mount, format, and create a swap partition, one option is to pass in a cloud-init configuration every time you create a VM.
 
     Another option is to use a cloud-init directive in the image to configure swap space every time the VM is created:
 
@@ -272,7 +272,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (bring your
      console=ttyS0 earlyprintk=ttyS0 
     ```
 
-   This option ensures that all console messages are sent to the first serial port, which can assist Azure support in debugging issues. In addition, remove the following parameters from the kernel boot line if they exist:
+   This option ensures that all console messages are sent to the first serial port, which can assist Azure support with debugging issues. In addition, remove the following parameters from the kernel boot line if they exist:
 
     ```config-grub
      libata.atapi_enabled=0 reserve=0x1f0,0x8
