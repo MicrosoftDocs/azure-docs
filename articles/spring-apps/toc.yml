@@ -469,6 +469,8 @@ items:
         href: how-to-elastic-diagnostic-settings.md
       - name: Health probes and graceful termination
         href: how-to-configure-health-probes-graceful-termination.md
+      - name: Optimize application observability
+        href: application-observability.md
     - name: Network
       items:
       - name: Custom DNS name

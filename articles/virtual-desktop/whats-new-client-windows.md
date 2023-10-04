@@ -4,7 +4,7 @@ description: Learn about recent changes to the Remote Desktop client for Windows
 ms.topic: release-notes
 author: heidilohr
 ms.author: helohr
-ms.date: 10/03/2023
+ms.date: 10/04/2023
 ---
 
 # What's new in the Remote Desktop client for Windows
@@ -26,7 +26,7 @@ The following table lists the current versions available for the public and Insi
 
 Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368)
 
-- Enhanced web to Microsoft Remote Desktop Client launch capabilities by adding multiple monitor configuration parameters to support internal and external customers. 
+- Added new parameters for multiple monitor configuration when connecting to a remote resource using the [Uniform Resource Identifier (URI) scheme](uri-scheme.md).
 - Added support for the following languages: Czech (Czechia), Hungarian (Hungary), Indonesian (Indonesia), Korean (Korea), Portuguese (Portugal), Turkish (Turkey).
 - Fixed a bug that caused a crash when using Teams Media Optimization. 
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 

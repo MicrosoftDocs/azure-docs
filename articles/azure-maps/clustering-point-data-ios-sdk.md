@@ -2,8 +2,8 @@
 title: Clustering point data in the iOS SDK
 titleSuffix: Microsoft Azure Maps
 description: Learn how to cluster point data on maps. See how to use the Azure Maps iOS SDK to cluster data, react to cluster mouse events, and display cluster aggregates.
-author: dubiety
-ms.author: yuchungchen 
+author: sinnypan
+ms.author: sipa
 ms.date: 11/18/2021
 ms.topic: how-to
 ms.service: azure-maps
