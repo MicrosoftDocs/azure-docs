@@ -41,7 +41,7 @@ Operational excellence refers to operations processes required keep a service ru
 
 
 ## Performance efficiency
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. Use the following information to monitor the persofmance of your Kubernetes clusters and ensure they're configured for maximum performance.
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. Use the following information to monitor the performance of your Kubernetes clusters and ensure they're configured for maximum performance.
 
 [!INCLUDE [waf-containers-performance](includes/waf-containers-performance.md)]
 
