@@ -159,3 +159,5 @@
       href: reference-limits-and-quotas.md
     - name: Nexus Kubernetes service VM SKUs
       href: reference-nexus-kubernetes-cluster-sku.md
+    - name: Supported Nexus Kubernetes Versions
+      href: reference-nexus-kubernetes-cluster-supported-versions.md
