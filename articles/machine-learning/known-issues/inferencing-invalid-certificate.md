@@ -13,12 +13,11 @@ ms.custom: known-issue
 
 # Known issue  - Invalid certificate error during deployment with an AKS cluster
 
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
+
 During machine learning deployments using an AKS cluster, you may receive an invalid certificate error, such as `{"code":"BadRequest","statusCode":400,"message":"The request is invalid.","details":[{"code":"KubernetesUnaccessible","message":"Kubernetes error: AuthenticationException. Reason: InvalidCertificate"}],`
 
  
-
-[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
-
 **Status:** Open
 
 **Problem area:** Inferencing
