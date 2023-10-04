@@ -194,10 +194,10 @@ This section steps through using an ARM template to enable Trusted launch on exi
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "vmsToMigrate": {
+        "vmsToUpgrade": {
             "type": "object",
             "metadata": {
-                "description": "Specifies the list of Gen2 virtual machines to be migrated to Trusted launch."
+                "description": "Specifies the list of Gen2 virtual machines to be upgraded to Trusted launch."
             }
         },
         "vTpmEnabled": {
@@ -212,12 +212,12 @@ This section steps through using an ARM template to enable Trusted launch on exi
         {
             "type": "Microsoft.Compute/virtualMachines",
             "apiVersion": "2022-11-01",
-            "name": "[parameters('vmsToMigrate').virtualMachines[copyIndex()].vmName]",
-            "location": "[parameters('vmsToMigrate').virtualMachines[copyIndex()].location]",
+            "name": "[parameters('vmsToUpgrade').virtualMachines[copyIndex()].vmName]",
+            "location": "[parameters('vmsToUpgrade').virtualMachines[copyIndex()].location]",
             "properties": {
                 "securityProfile": {
                     "uefiSettings": {
-                        "secureBootEnabled": "[parameters('vmsToMigrate').virtualMachines[copyIndex()].secureBootEnabled]",
+                        "secureBootEnabled": "[parameters('vmsToUpgrade').virtualMachines[copyIndex()].secureBootEnabled]",
                         "vTpmEnabled": "[parameters('vTpmEnabled')]"
                     },
                     "securityType": "TrustedLaunch"
@@ -225,7 +225,7 @@ This section steps through using an ARM template to enable Trusted launch on exi
             },
             "copy": {
                 "name": "vmCopy",
-                "count": "[length(parameters('vmsToMigrate').virtualMachines)]"
+                "count": "[length(parameters('vmsToUpgrade').virtualMachines)]"
             }
         }
     ]
@@ -239,7 +239,7 @@ This section steps through using an ARM template to enable Trusted launch on exi
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "vmsToMigrate": {
+        "vmsToUpgrade": {
             "value": {
                 "virtualMachines": [
                     {
