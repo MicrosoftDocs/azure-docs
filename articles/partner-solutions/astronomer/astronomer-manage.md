@@ -18,7 +18,7 @@ Once your Astronomer resource is created in the Azure portal, you might need to 
 - [Changing the configuration](#changing-the-configuration)
 - [Adding certificates](#adding-certificates)
 - [Send metrics to monitoring](#send-metrics-to-monitoring)
-- [Delete an Astronomer deployment](#delete-an-Astronomer-deployment)
+- [Delete an Astronomer deployment](#delete-an-astronomer-deployment)
 - [GitHub integration](#github-integration)
 
 ## Configure managed identity

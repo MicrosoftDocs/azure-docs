@@ -3,7 +3,7 @@ title: Partner services
 description: Learn about services  offered by partners on Azure. 
 
 ms.topic: conceptual
-ms.date: 04/25/2023
+ms.date: 10/04/2023
 
 ---
 
