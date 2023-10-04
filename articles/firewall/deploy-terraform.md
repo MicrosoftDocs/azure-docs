@@ -2,7 +2,7 @@
 title: 'Quickstart: Create an Azure Firewall with Availability Zones - Terraform'
 description: In this quickstart, you deploy Azure Firewall using Terraform. The virtual network has one VNet with three subnets. Two Windows Server virtual machines, a jump box, and a server are deployed.
 services: firewall
-author: vhorne
+author: cshea15
 ms.service: firewall
 ms.topic: quickstart
 ms.custom: devx-track-terraform
@@ -90,6 +90,27 @@ In this article, you learn how to:
 
 ## Verify the results
 
+#### [Azure CLI](#tab/azure-cli)
+
+1. Get the Azure resource group name.
+
+    ```console
+    resource_group_name=$(terraform output -raw resource_group_name)
+    ```
+
+1. Get the firewall name.
+
+    ```console
+    firewall_name=$(terraform output -raw firewall_name)
+    ```
+
+1. Run [az network firewall show](/cli/azure/network/firewall#az-network-firewall-show) with a [JMESPath](/cli/azure/query-azure-cli) query to display the availability zones for the firewall.
+
+    ```azurecli
+    az network firewall show --name $firewall_name --resource-group $resource_group_name --query "{Zones:zones"}
+    ```
+
+---
 
 ## Clean up resources
 
