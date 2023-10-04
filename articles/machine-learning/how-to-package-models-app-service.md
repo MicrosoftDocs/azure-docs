@@ -21,7 +21,27 @@ In this article, you learn how package a model and deploy it to an Azure App Ser
 
 Follow these steps to prepare your environment:
 
-1. First, let's connect to Azure Machine Learning workspace where we're going to work on.
+1. The example in this article is based on code samples contained in the [azureml-examples](https://github.com/azure/azureml-examples) repository. To run the commands locally without having to copy/paste YAML and other files, first clone the repo and then change directories to the folder:
+
+    # [Azure CLI](#tab/cli)
+    
+    ```azurecli
+    git clone https://github.com/Azure/azureml-examples --depth 1
+    cd azureml-examples/cli
+    ```
+    
+    # [Python](#tab/python)
+    
+    ```azurecli
+    !git clone https://github.com/Azure/azureml-examples --depth 1
+    !cd azureml-examples/sdk/python
+    ```
+    
+    ---
+    
+    This article uses the example in the folder **endpoints/online/deploy-packages/mlflow-model**.
+
+1. Let's connect to Azure Machine Learning workspace where we're going to work on.
 
     # [Azure CLI](#tab/cli)
     

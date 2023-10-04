@@ -23,13 +23,15 @@ The simplest way to deploy models with packages is by indicating Azure Machine L
 
 # [Azure CLI](#tab/cli)
 
+Use flag `--with-package` when creating a deployment:
+
 ```azurecli
 az ml online-deployment create  -f deployment.yml --package-model
 ```
 
 # [Python](#tab/sdk)
 
-The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, we connect to the workspace in which you perform deployment tasks.
+Use the argument `--with_package=True` when creating a deployment:
 
 ```python
 ml_client.batch_deployment.create(
@@ -45,7 +47,7 @@ ml_client.batch_deployment.create(
 
 # [Studio](#tab/studio)
 
-In the model detail page in [Azure Machine Learning studio](https://ml.azure.com), select the option **Deploy** and then click on **Online Endpoints**. In the creation wizard, you see an option to package the model before deployment.
+In the model detail page in [Azure Machine Learning studio](https://ml.azure.com), select the option **Deploy** and then click on **Online Endpoints**. In the creation wizard, you see an option **Package Model (preview)** to package the model before deployment.
 
 :::image type="content" source="./media/model-packaging/model-package-ux.png" alt-text="An screenshot of the model deployment wizard to Online Endpoints highlighting the Package model option.":::
 
@@ -74,6 +76,38 @@ Model packages can be creating by indicating the model to package, the serving t
 ### Example: Packaging a custom model
 
 In the following example, we package a model of type **custom** to finally deploy it to an online endpoint for online inference.
+
+#### Clone the repo
+
+The example in this article is based on code samples contained in the [azureml-examples](https://github.com/azure/azureml-examples) repository. To run the commands locally without having to copy/paste YAML and other files, first clone the repo and then change directories to the folder:
+
+# [Azure CLI](#tab/cli)
+
+```azurecli
+git clone https://github.com/Azure/azureml-examples --depth 1
+cd azureml-examples/cli
+```
+
+# [Python](#tab/python)
+
+```azurecli
+!git clone https://github.com/Azure/azureml-examples --depth 1
+!cd azureml-examples/sdk/python
+```
+
+# [Studio](#tab/studio)
+
+1. On the left navigation bar, select the option __Notebooks__.
+
+1. Then, clic on __Samples__.
+
+1. Navigate to the folder __SDK v2/sdk/python/endpoints/online/deploy-packages__.
+
+1. Select the notebook you want to try out and click on __Clone this notebook__.
+
+---
+
+This section uses the example in the folder **endpoints/online/deploy-packages/custom-model**.
 
 #### Connect to your workspace
 

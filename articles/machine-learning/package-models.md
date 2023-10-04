@@ -52,13 +52,15 @@ The simplest way to deploy models with packages is by indicating Azure Machine L
 
 # [Azure CLI](#tab/cli)
 
+Use flag `--with-package` when creating a deployment:
+
 ```azurecli
 az ml online-deployment create  -f deployment.yml --package-model
 ```
 
 # [Python](#tab/sdk)
 
-The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, we connect to the workspace in which you perform deployment tasks.
+Use the argument `--with_package=True` when creating a deployment:
 
 ```python
 ml_client.batch_deployment.create(
@@ -74,7 +76,7 @@ ml_client.batch_deployment.create(
 
 # [Studio](#tab/studio)
 
-In the model detail page in [Azure Machine Learning studio](https://ml.azure.com), select the option **Deploy** and then click on **Online Endpoints**. In the creation wizard, you see an option to package the model before deployment.
+In the model detail page in [Azure Machine Learning studio](https://ml.azure.com), select the option **Deploy** and then click on **Online Endpoints**. In the creation wizard, you see an option **Package Model (preview)** to package the model before deployment.
 
 :::image type="content" source="./media/model-packaging/model-package-ux.png" alt-text="An screenshot of the model deployment wizard to Online Endpoints highlighting the Package model option.":::
 
