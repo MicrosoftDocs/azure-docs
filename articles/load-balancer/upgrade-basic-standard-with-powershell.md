@@ -11,7 +11,7 @@ ms.author: mbender
 ms.custom: template-how-to, engagement-fy23
 ---
 
-# Upgrade a basic load balancer used with Virtual Machine Scale Sets
+# Upgrade a basic load balancer with PowerShell
 
 >[!Important]
 >On September 30, 2025, Basic Load Balancer will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer/). If you are currently using Basic Load Balancer, make sure to upgrade to Standard Load Balancer prior to the retirement date. 
@@ -37,7 +37,7 @@ The PowerShell module performs the following functions:
 > Migrating _internal_ Basic Load Balancers where the backend VMs or VMSS instances do not have Public IP Addresses assigned requires additional action post-migration to enable backend pool members to connect to the internet. The recommended approach is to create a NAT Gateway and assign it to the backend pool members' subnet (see: [**Integrate NAT Gateway with Internal Load Balancer**](../virtual-network/nat-gateway/tutorial-nat-gateway-load-balancer-internal-portal.md)). Alternatively, Public IP Addresses can be allocated to each Virtual Machine Scale Set or Virtual Machine instance by adding a Public IP Configuration to the Network Profile (see: [**VMSS Public IPv4 Address Per Virtual Machine**](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md)) for Virtual Machine Scale Sets or [**Associate a Public IP address with a Virtual Machine**](../virtual-network/ip-services/associate-public-ip-address-vm.md) for Virtual Machines. 
 
 >[!NOTE]
-> If the Virtual Machine Scale Set in the Load Balancer backend pool has Public IP Addresses in its network configuration, the Public IP Addresses will change during migration (the Public IPs must be removed prior to the migration, then added back post migration with a Standard SKU configuration). The Public IP addresses associated with Virtual Machines will be retained through the migration. 
+> If the Virtual Machine Scale Set in the Load Balancer backend pool has Public IP Addresses in its network configuration, the Public IP Addresses will change during migration when they are upgraded to Standard SKU. The Public IP addresses associated with Virtual Machines will be retained through the migration. 
 
 >[!NOTE]
 > If the Virtual Machine Scale Set behind the Load Balancer is a **Service Fabric Cluster**, migration with this script will take more time. In testing, a 5-node Bronze cluster was unavailable for about 30 minutes and a 5-node Silver cluster was unavailable for about 45 minutes. For Service Fabric clusters that require minimal / no connectivity downtime, adding a new nodetype with Standard Load Balancer and IP resources is a better solution.
@@ -149,44 +149,39 @@ Yes. The Azure PowerShell script migrates the Virtual Machine Scale Sets and Vir
 
 The script migrates the following from the Basic Load Balancer to the Standard Load Balancer:
 
+**Public and Private Load Balancers:**
+
+- Health Probes:
+  - All probes are migrated to the new Standard Load Balancer
+- Load balancing rules:
+  - All load balancing rules are migrated to the new Standard Load Balancer
+- Inbound NAT Rules:
+  - All user-created NAT rules are migrated to the new Standard Load Balancer
+- Inbound NAT Pools:
+  - All inbound NAT Pools will be migrated to the new Standard Load Balancer
+- Backend pools:
+  - All backend pools are migrated to the new Standard Load Balancer
+  - All Virtual Machine Scale Set and Virtual Machine network interfaces and IP configurations are migrated to the new Standard Load Balancer
+  - If a Virtual Machine Scale Set is using Rolling Upgrade policy, the script will update the Virtual Machine Scale Set upgrade policy to "Manual" during the migration process and revert it back to "Rolling" after the migration is completed.
+- Instance-level Public IP addresses
+    - For both Virtual Machines and Virtual Machine Scale Sets, converts attached Public IPs from Basic to Standard SKU. Note, Scale Set instance Public IPs will change during the upgrade; virtual machine IPs will not. 
+- Tags from the Basic Load Balancer to Standard Load Balancer
+
 **Public Load Balancer:**
 
 - Public frontend IP configuration
   - Converts the public IP to a static IP, if dynamic
   - Updates the public IP SKU to Standard, if Basic
   - Upgrade all associated public IPs to the new Standard Load Balancer
-- Health Probes:
-  - All probes are migrated to the new Standard Load Balancer
-- Load balancing rules:
-  - All load balancing rules are migrated to the new Standard Load Balancer
-- Inbound NAT Rules:
-  - All user-created NAT rules are migrated to the new Standard Load Balancer
-- Inbound NAT Pools:
-  - All inbound NAT Pools will be migrated to the new Standard Load Balancer
 - Outbound Rules:
   - Basic load balancers don't support configured outbound rules. The script creates an outbound rule in the Standard load balancer to preserve the outbound behavior of the Basic load balancer. For more information about outbound rules, see [Outbound rules](./outbound-rules.md).
 - Network security group
   - Basic Load Balancer doesn't require a network security group to allow outbound connectivity. In case there's no network security group associated with the Virtual Machine Scale Set, a new network security group is created to preserve the same functionality. This new network security group is associated to the Virtual Machine Scale Set backend pool member network interfaces. It allows the same load balancing rules ports and protocols and preserve the outbound connectivity.
-- Backend pools:
-  - All backend pools are migrated to the new Standard Load Balancer
-  - All Virtual Machine Scale Set and Virtual Machine network interfaces and IP configurations are migrated to the new Standard Load Balancer
-  - If a Virtual Machine Scale Set is using Rolling Upgrade policy, the script will update the Virtual Machine Scale Set upgrade policy to "Manual" during the migration process and revert it back to "Rolling" after the migration is completed.
+
 
 **Internal Load Balancer:**
 
 - Private frontend IP configuration
-- Health Probes:
-  - All probes are migrated to the new Standard Load Balancer
-- Load balancing rules:
-  - All load balancing rules are migrated to the new Standard Load Balancer
-- Inbound NAT Pools:
-  - All inbound NAT Pools will be migrated to the new Standard Load Balancer
-- Inbound NAT Rules:
-  - All user-created NAT rules are migrated to the new Standard Load Balancer
-- Backend pools:
-  - All backend pools are migrated to the new Standard Load Balancer
-  - All Virtual Machine Scale Set or Virtual Machine network interfaces and IP configurations are migrated to the new Standard Load Balancer
-  - If there's a Virtual Machine Scale Set using Rolling Upgrade policy, the script will update the Virtual Machine Scale Set upgrade policy to "Manual" during the migration process and revert it back to "Rolling" after the migration is completed.
 
 >[!NOTE]
 > Network security group are not configured as part of Internal Load Balancer upgrade. To learn more about NSGs, see [Network security groups](../virtual-network/network-security-groups-overview.md)
