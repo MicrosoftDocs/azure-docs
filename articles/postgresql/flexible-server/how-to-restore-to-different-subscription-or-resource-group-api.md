@@ -2,7 +2,6 @@
 title: Cross Subscription and Cross Resource Group Restore - Azure REST API in Azure Database for PostgreSQL - Flexible Server
 description: This article describes how to restore to a different Subscription or resource group server in Azure Database for  PostgreSQL - Flexible Server using  Azure REST API.
 ms.service: postgresql
-ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
 author: kabharati
@@ -32,7 +31,8 @@ An [Azure Database for PostgreSQL server](quickstart-create-server-portal.md) to
 3. Go to **Request Body** section and paste the following replacing the "location" (e.g. CentralUS, EastUS etc.), "pointInTimeUTC", and ))"SourceServerResourceID", For "pointInTimeUTC", specify a timestamp value  to which you want to restore. Finally, you can use createMode as **PointInTimeRestore** for performing regular restore and **GeoRestore** for restoring geo-redundant backups.
 
 ## GeoRestore
-    ```json
+
+```json
    {
   "location": "NorthEurope",  
   "properties": 
@@ -42,9 +42,10 @@ An [Azure Database for PostgreSQL server](quickstart-create-server-portal.md) to
        "createMode": "GeoRestore"
    }
 }
-    ```
+```
 ## Point In Time Restore
-    ```json
+
+```json
     {
       "location": "EastUS",  
       "properties": 
@@ -54,7 +55,7 @@ An [Azure Database for PostgreSQL server](quickstart-create-server-portal.md) to
         "sourceServerResourceId": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/SourceResourceGroup-Name/providers/Microsoft.DBforPostgreSQL/flexibleServers/SourceServer-Name"
       }
     }
-    ```
+```
 
 
 4. If you see Response Code 201 or 202, the restore request is successfully submitted.
