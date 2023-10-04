@@ -23,6 +23,7 @@ This tutorial describes the steps you need to perform in both Amazon Business an
 > [!div class="checklist"]
 > * Create users in Amazon Business.
 > * Remove users in Amazon Business when they do not require access anymore.
+> * Assign Amazon Business roles to user.
 > * Keep user attributes synchronized between Microsoft Entra ID and Amazon Business.
 > * Provision groups and group memberships in Amazon Business.
 > * [Single sign-on](amazon-business-tutorial.md) to Amazon Business (recommended).
@@ -33,8 +34,8 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 * [A Microsoft Entra tenant](../develop/quickstart-create-new-tenant.md). 
 * A user account in Microsoft Entra ID with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
-* An Amazon Business tenant.
-* A user account in Amazon Business with Admin permissions.
+* An Amazon Business account.
+* A user account in Amazon Business with Admin permissions (Admin on all Legal Entity groups in your AB account).
 
 ## Step 1: Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
@@ -44,7 +45,18 @@ The scenario outlined in this tutorial assumes that you already have the followi
 <a name='step-2-configure-amazon-business-to-support-provisioning-with-azure-ad'></a>
 
 ## Step 2: Configure Amazon Business to support provisioning with Microsoft Entra ID
-Contact Amazon Business support to configure Amazon Business to support provisioning with Microsoft Entra ID.
+
+Before configuring and enabling the provisioning service, you need to identify a default group for both users and groups. We recommend you to
+
+* Follow the principle of least privilege by having REQUISITIONER only permissions for the default users group.
+* Follow the group naming convention referenced below for ease of referencing the groups throughout this document. 
+   * Default SCIM Parent Group
+      * This is the root of your SCIM directory in AmazonBusiness. All SCIM groups will be placed directly under this default group. You may select an existing group as the default SCIM parent group. 
+   * Default SCIM Users Group
+      * Users who are assigned to your Amazon Business app will be placed into this group by default with a Requisitioner role. It is recommended to have this group at the same level as the Default SCIM Parent Group.
+      * If a user is provisioned without a group assignment, they will be placed into this group by default with a Requisitioner role.
+
+Once you identify/create the Default SCIM Groups, send a URL link for both these groups to your Account Manager. An Amazon Business Integrations Specialist will initialize both the groups for your SCIM integration. It is necessary to complete this step before proceeding to the next step.
 
 <a name='step-3-add-amazon-business-from-the-azure-ad-application-gallery'></a>
 
@@ -58,7 +70,13 @@ The Microsoft Entra provisioning service allows you to scope who will be provisi
 
 * When assigning users and groups to Amazon Business, you must select a role other than **Default Access**. Users with the Default Access role are excluded from provisioning and will be marked as not effectively entitled in the provisioning logs. If the only role available on the application is the default access role, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add additional roles.
 * Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+* You can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add Amazon Business roles. The user can have one of the following roles:
+   * **Requisitioner** (to place orders or submits order requests for approval).
+   * **Administrator** (to manage people, groups, roles and approvals. View orders. Run order reports)
+   * **Finance** (to access invoices, credit notes, analytics, and order history).
+   * **Tech** (to set up system integrations with the programs used at work).
 
+![Screenshot of the application roles list.](media/amazon-business-provisioning-tutorial/roles.png)
 
 ## Step 5: Configure automatic user provisioning to Amazon Business
 
@@ -85,7 +103,7 @@ This section guides you through the steps to configure the Microsoft Entra provi
 
 	![Screenshot of Provisioning tab automatic.](common/provisioning-automatic.png)
 
-1. Under the **Admin Credentials** section, input your Amazon Business Tenant URL, Authorization Endpoint and Token Endpoint. Click **Test Connection** to ensure Microsoft Entra ID can connect to Amazon Business. If the connection fails, ensure your Amazon Business account has Admin permissions and try again.
+1. Under the **Admin Credentials** section, input your Amazon Business Tenant URL, Authorization Endpoint. Click **Test Connection** to ensure Microsoft Entra ID can connect to Amazon Business. If the connection fails, ensure your Amazon Business account has Admin permissions and try again.
 
  	![Screenshot of Token.](media/amazon-business-provisioning-tutorial/test-connection.png)
 
@@ -118,7 +136,6 @@ This section guides you through the steps to configure the Microsoft Entra provi
    |displayName|String|&check;|&check;
    |members|Reference||
 
-
 1. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 1. To enable the Microsoft Entra provisioning service for Amazon Business, change the **Provisioning Status** to **On** in the **Settings** section.
@@ -136,11 +153,30 @@ This section guides you through the steps to configure the Microsoft Entra provi
 This operation starts the initial synchronization cycle of all users and groups defined in **Scope** in the **Settings** section. The initial cycle takes longer to perform than subsequent cycles, which occur approximately every 40 minutes as long as the Microsoft Entra provisioning service is running. 
 
 ## Step 6: Monitor your deployment
+
 Once you've configured provisioning, use the following resources to monitor your deployment:
 
 * Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
 * Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it's to completion
 * If the provisioning configuration seems to be in an unhealthy state, the application goes into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).
+
+## Feature limitations
+
+* Flat structure is created on the Amazon Business account, i.e. all pushed groups are at the same level under the Default SCIM Group. Nested structure/hierarchy is not supported.
+* Groups names will be same in Azure and Amazon Business account.
+* As new groups will be created on the Amazon Business Account, Admins will need to re-configure the business settings (e.g. turning on purchasing, updating shared settings, adding guided buying policies, etc.) for the new groups as needed.
+* Deleting old Groups / removing users from old groups in Amazon Business will result in losing visibility into orders placed with that old Group, hence it is recommended to 
+   * Not delete the old groups/assignments, and
+   * Turn-off purchasing for the old groups.
+* Email / Username Update - Updating email and / or username via SCIM is not supported at this time. 
+* Password Sync - Password sync is not supported.
+
+## Troubleshooting Tips
+
+* If Amazon Business administrators have only logged in using SSO or don’t know their passwords, they can use the forgot password flow to reset their password and then sign in to Amazon Business.
+* If Admin and Requisitioner roles have already been applied to customer in a group, assigning Finance or Tech roles will not result in updates on Amazon Business side.
+* Customer with MASE accounts (Multiple Account Same Email) who delete one of their accounts can see errors that account doesn't exist when provisioning new users for short amount of time (24-48 hours).
+* Customers cannot be removed immediately via Provision on Demand. Provisioning must be turned on and the removal will happen 40 mins after the action is taken.
 
 ## More resources
 
