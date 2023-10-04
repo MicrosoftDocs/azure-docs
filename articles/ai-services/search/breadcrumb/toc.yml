@@ -8,7 +8,7 @@
     items:
     - name: Azure Cognitive Search
       tocHref: /azure/ai-services/search
-      topicHref: /azure/ai-services/search/index
+      topicHref: /azure/search/index
 - name: Azure
   tocHref: /legal/
   topicHref: /azure/index
