@@ -59,7 +59,7 @@ If in-place major version upgrade pre-check operations fail then it aborts with 
 
 -	When upgrading servers with PostGIS extension installed, set the 'search_path' server parameter to explicitly include the schemas of the PostGIS extension, extensions that depend on PostGIS, and extensions that serve as dependencies for the below extensions.
   
-        e.g postgis,postgis_raster,postgis_sfcgal,postgis_tiger_geocoder,postgis_topology,address_standardizer,address_standardizer_data_us,fuzzystrmatch (required for postgis_tiger_geocoder),
+ **e.g postgis,postgis_raster,postgis_sfcgal,postgis_tiger_geocoder,postgis_topology,address_standardizer,address_standardizer_data_us,fuzzystrmatch (required for postgis_tiger_geocoder).**
 
 
 -	Servers configured with logical replication slots aren't supported. 
