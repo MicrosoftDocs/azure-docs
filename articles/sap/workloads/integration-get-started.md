@@ -237,6 +237,7 @@ For more information about using Microsoft Defender for Endpoint (MDE) via Micro
 
 Also see the following SAP resources:
 
+- [3356389 - Antivirus or other security software affecting SAP operations](https://me.sap.com/notes/3356389)
 - [2808515 - Installing security software on SAP servers running on Linux](https://me.sap.com/notes/2808515)
 - [1730997 - Unrecommended versions of antivirus software](https://me.sap.com/notes/1730997)
 
