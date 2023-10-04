@@ -341,10 +341,10 @@ If you configured a custom value for the `databases` setting during cache creati
 
 While Standard, Premium, Enterprise, and Enterprise Flash caches have a SLA for availability, there's no SLA for data loss.
 
-### Is my cache be available during scaling?
+### Will my cache be available during scaling?
 
 - **Standard**, **Premium**, **Enterprise**, and **Enterprise Flash** caches remain available during the scaling operation. However, connection blips can occur while scaling these caches, and also while scaling from **Basic** to **Standard** caches. These connection blips are expected to be small and redis clients can generally re-establish their connection instantly.
-- For Enterprise and Enterprise Flash caches using active geo-replication, scaling only a subset of linked caches can introduce issues over time in some cases. We recommend scaling all caches in the geo-replication group together were possible. 
+- For Enterprise and Enterprise Flash caches using active geo-replication, scaling only a subset of linked caches can introduce issues over time in some cases. We recommend scaling all caches in the geo-replication group together where possible. 
 - **Basic** caches are offline during scaling operations to a different size. Basic caches remain available when scaling from **Basic** to **Standard** but might experience a small connection blip. If a connection blip occurs, Redis clients can generally re-establish their connection instantly.
 
 ### Are there scaling limitations with geo-replication?
