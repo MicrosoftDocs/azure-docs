@@ -1,5 +1,5 @@
 ---
-title: Model packages for deployment
+title: Model packages for deployment (preview)
 titleSuffix: Azure Machine Learning
 description:  Deploy models in a reliable and reproducible way using model packages in Azure Machine Learning.
 author: santiagxf
@@ -12,9 +12,11 @@ ms.date: 10/04/2023
 ms.topic: how-to
 ---
 
-# Model packages for deployment
+# Model packages for deployment (preview)
 
 After you train a machine learning model, you need to deploy it so others can consume their predictions. However, deploying a model requires more than just the weights or the model's artifacts. Model packages are a capability in Azure Machine Learning that allows you to collect all the dependencies required to deploy a machine learning model to a serving platform. Packages can be moved across workspaces and even outside of Azure Machine Learning.
+
+[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## What's a model package?
 

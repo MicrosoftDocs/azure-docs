@@ -112,7 +112,7 @@ The following table shows a summary of the different features available to onlin
 | Cost basis<sup>4</sup>        | Per deployment: compute instances running       | Per job: compute instanced consumed in the job  (capped to the maximum number of instances of the cluster). |
 | Local testing of deployments  | Yes                                             | No                                            |
 
-<sup>1</sup> Deploying MLflow models to endpoints without outbound internet connectivity or private networks requires [packaging the model](package-models.md) first.
+<sup>1</sup> Deploying MLflow models to endpoints without outbound internet connectivity or private networks requires [packaging the model](concept-package-models.md) first.
 
 <sup>2</sup> *Inference server* refers to the serving technology that takes requests, processes them, and creates responses. The inference server also dictates the format of the input and the expected outputs.
 

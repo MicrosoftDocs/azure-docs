@@ -13,7 +13,7 @@ ms.topic: how-to
 
 # Package and deploy models outside Azure Machine Learning (preview)
 
-Models can be deployed outside of Azure Machine Learning for online serving by creating [model packages](package-models.md), a capability in Azure Machine Learning that allows you to collect all the dependencies required to deploy a machine learning model to a serving platform. Packages can be moved across workspaces and even outside of Azure Machine Learning. To learn more about model packages in general, read [Model packages for deployment](package-models.md).
+Models can be deployed outside of Azure Machine Learning for online serving by creating model packages (preview), a capability in Azure Machine Learning that allows you to collect all the dependencies required to deploy a machine learning model to a serving platform. Packages can be moved across workspaces and even outside of Azure Machine Learning. To learn more about model packages, read [Model packages for deployment (preview)](concept-package-models.md).
 
 [!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -214,6 +214,6 @@ Let's see how to package the previously registered MLflow model to deploy it to 
 
 ## Next steps
 
-* [Model packages for deployment](package-models.md)
+* [Model packages for deployment (preview)](concept-package-models.md)
 
 

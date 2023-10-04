@@ -7,4 +7,4 @@ ms.author: mopeakande
 ---
 
 > [!TIP]
-> __Workspaces without public network access:__ Before you can deploy MLflow models to online endpoints without egress connectivity, you have to [package the models (preview)](how-to-package-models.md#package-models-before-deployments). By using model packaging, you can avoid the need for an internet connection, which Azure Machine Learning would require to dynamically install packages when deploying MLflow models.
+> __Workspaces without public network access:__ Before you can deploy MLflow models to online endpoints without egress connectivity, you have to [package the models (preview)](../how-to-package-models.md#package-models-before-deployments). By using model packaging, you can avoid the need for an internet connection, which Azure Machine Learning would require to dynamically install packages when deploying MLflow models.
