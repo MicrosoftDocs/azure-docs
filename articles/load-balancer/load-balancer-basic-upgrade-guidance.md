@@ -60,6 +60,36 @@ Use these PowerShell scripts to help with upgrading from Basic to Standard SKU:
 
 - [Upgrading a basic to standard public load balancer with PowerShell](./upgrade-basic-standard-with-powershell.md)
 
+## Upgrade manually
+
+When manually migrating from a Basic to Standard SKU Load Balancer, there are a couple key considerations to keep in mind:
+
+- It is not possible to mix Basic and Standard SKU IPs or Load Balancers. All Public IPs associated with a Load Balancer and its backend pool members must match.
+- Public IP allocation method must be set to 'static' when a Public IP is disassociated from a Load Balancer or Virtual Machine, or the allocated IP will be lost. 
+- Standard SKU public IP addresses are secure by default, requiring that a Network Security Group explicitly allow traffic to any Public IPs
+- Standard SKU Load Balancers block outbound access by default. To enable outbound access, a public load balancer needs an outbound rule for backend members. For private load balancers, either configure a NAT Gateway on the backend pool members' subnet or add instance-level publc IP addresses to each backend member. 
+
+Recommended order of operations for manually upgrading a Load Balancer:
+
+1. Change all Public IPs associated with the Basic Load Balancer and backend Virtual Machines to 'static' allocation
+1. For private Load Balancers, record the private IP addresses allocated to the frontend IP configurations
+1. Record the backend pool membership of the Basic Load Balancer
+1. Record the load balancing rules, NAT rules, inbound NAT Pools, and health probe configuration of the Basic Load Balancer
+1. Create a new Standard SKU Load Balancer, matching the public or private configuiration of the Basic Load Balancer. Name the frontend IP configuration something temporary. For public load balancers, use a new Public IP address for the frontend configuration. 
+1. Duplicate the Basic SKU load balancer configuration for the following:
+    1. Backend pool names and membership
+    1. Health probes
+    1. Load balancing rules - use the temporary frontend configuration
+    1. Inbound NAT Pools (uncommon)
+    1. NAT rules - use the temporary frontend configuration
+1. For public load balancers, if you do not have one already, create a new Network Security Group with allow rules for the traffic coming through the Load Balancer rules
+1. For Virtual Machine Scale Set backends, remove the Load Balancer association in the Networking settings and update the instances 
+1. Delete the Basic Load Balancer 
+1. Upgrade all Public IPs associated with the Basic Load Balancer and backend Virtual Machines to Standard SKU. For Virtual Machine Scale Sets, remove any instance-level public IP configuration, update the instances, then add a new one with Standard SKU and update the instances again. 
+1. Recreate the frontend configurations from the Basic Load Balancer, using the same public or private IP addresses
+1. Update the load balancing and NAT rules to use the appropriate frontend configurations
+1. Remove the temporary frontend configuration
+
 ## Next Steps
 
 For guidance on upgrading basic Public IP addresses to Standard SKUs, see:
