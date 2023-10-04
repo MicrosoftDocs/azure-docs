@@ -73,10 +73,10 @@ To create multiple sessions to each volume, you must configure the target and co
 
 You can use the following script to create your connections:
 
-Copy the script from [here]([url](https://github.com/Azure-Samples/azure-elastic-san/blob/main/CLI%20(Linux)%20Multi-Session%20Connect%20Scripts/connect_for_documentation.py)) and save it as a .py file. Then execute it with the required parameters. Below is an example of how you would execute the command: 
+Copy the script from [here](https://github.com/Azure-Samples/azure-elastic-san/blob/main/CLI%20(Linux)%20Multi-Session%20Connect%20Scripts/connect_for_documentation.py) and save it as a .ps1 file. Then execute it with the required parameters. Below is an example of how you would execute the command: 
 
 ```bash
-./test.py --subscription <subid> -g <rgname> -e <esanname> -v <vgname> -n <vol1, vol2> -s 32
+./test.ps1 --subscription <subid> -g <rgname> -e <esanname> -v <vgname> -n <vol1, vol2> -s 32
 ```
 
 Verify the number of sessions your volume has with either `iscsicli SessionList` or `mpclaim -s -d`
