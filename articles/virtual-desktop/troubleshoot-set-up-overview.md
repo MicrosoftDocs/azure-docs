@@ -26,7 +26,7 @@ When you make a post asking for help or propose a new feature, make sure you des
 
 ## Help with application issues
 
-If you encounter application issues, App Assure is a service from Microsoft designed to help you resolve them at no additional cost. For more information, go to [App Assure](/microsoft-365/fasttrack/windows-and-other-services).
+If you encounter issues with your applications running in Azure Virtual Desktop, App Assure is a service from Microsoft designed to help you resolve them at no additional cost. For more information, go to [App Assure](/microsoft-365/fasttrack/windows-and-other-services).
 
 ## Escalation tracks
 
