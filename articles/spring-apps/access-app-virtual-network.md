@@ -19,7 +19,9 @@ ms.devlang: azurecli
 
 This article explains how to access an endpoint for your application in a private network.
 
-When you assign an endpoint on an application in an Azure Spring Apps service instance deployed in your virtual network, the endpoint uses a private fully qualified domain name (FQDN). The domain is only accessible in the private network. Apps and services use the application endpoint. They include the *Test Endpoint* described in [View apps and deployments](./how-to-staging-environment.md#view-apps-and-deployments). *Log streaming*, described in [Stream Azure Spring Apps app logs in real-time](./how-to-log-streaming.md), also works only within the private network.
+When you assign an endpoint on an application in an Azure Spring Apps service instance deployed in your virtual network, the endpoint uses a private fully qualified domain name (FQDN). The domain is only accessible in the private network and apps and services use the application endpoint. *Test Endpoint* and *Log streaming* also works only within the private network.
+
+For more information, see [View apps and deployments](./how-to-staging-environment.md#view-apps-and-deployments) and [Stream Azure Spring Apps app logs in real-time](./how-to-log-streaming.md).
 
 ## Find the IP for your application
 
@@ -35,7 +37,7 @@ When you assign an endpoint on an application in an Azure Spring Apps service in
 
 #### [Azure CLI](#tab/azure-CLI)
 
-Find the IP Address for your Spring Cloud services. Customize the value of your Azure Spring Apps instance name based on your real environment.
+Find the IP Address for your Spring cloud services. Customize the value of your Azure Spring Apps instance name based on your real environment.
 
 ```azurecli
 export SPRING_CLOUD_NAME='spring-cloud-name'
@@ -55,10 +57,10 @@ export IP_ADDRESS=$(az network lb frontend-ip list \
 
 ## Add a DNS for the IP
 
-If you have your own DNS solution for your virtual network, like Active Directory Domain Controller, Infoblox, or another, you need to point the domain `*.private.azuremicroservices.io` to the [IP address](#find-the-ip-for-your-application). Otherwise, you can follow the following instructions to create an **Azure Private DNS Zone** in your subscription to translate/resolve the private fully qualified domain name (FQDN) to its IP address.
+If you have your own DNS solution for your virtual network, like Active Directory Domain Controller, Infoblox, or another, you need to point the domain `*.private.azuremicroservices.io` to the [IP address](#find-the-ip-for-your-application). Otherwise, use the following instructions to create an **Azure Private DNS Zone** in your subscription to translate/resolve the private fully qualified domain name (FQDN) to its IP address.
 
 > [!NOTE]
-> If you're using Microsoft Azure operated by 21Vianet, be sure to replace `private.azuremicroservices.io` with `private.microservices.azure.cn` in this article. Learn more about [Check Endpoints in Azure](/azure/china/resources-developer-guide#check-endpoints-in-azure).
+> If you're using Microsoft Azure operated by 21Vianet, be sure to replace `private.azuremicroservices.io` with `private.microservices.azure.cn` in this article. For more information, see [Check Endpoints in Azure](/azure/china/resources-developer-guide#check-endpoints-in-azure).
 
 ## Create a private DNS zone
 
@@ -66,7 +68,7 @@ The following procedure creates a private DNS zone for an application in the pri
 
 #### [Azure portal](#tab/azure-portal)
 
-1. Open the Azure portal. From the top search box, search for **Private DNS zones**, and select **Private DNS zones** from the results.
+1. Open the Azure portal.  Search for **Private DNS zones** and select **Private DNS zones** from the results.
 
 2. On the **Private DNS zones** page, select **Add**.
 
@@ -156,7 +158,7 @@ To use the private DNS zone to translate/resolve DNS, you must create an "A" typ
     |Type        |Select **A**                                                               |
     |TTL         |Enter *1*                                                                  |
     |TTL unit    |Select **Hours**                                                           |
-    |IP address  |Enter the IP address copied in step 3. In the sample, the IP is *10.1.0.7*.    |
+    |IP address  |Enter the IP address copied in step 3. In the sample, the IP is *10.1.0.7*.|
 
 1. Select **OK**.
 
