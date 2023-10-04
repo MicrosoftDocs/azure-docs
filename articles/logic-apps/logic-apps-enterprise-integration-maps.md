@@ -266,7 +266,7 @@ A Standard logic app resource supports referencing external assemblies from maps
    | **Client/SDK Assembly (Java)** | This assembly type provides storage and deployment of custom SDK for Java. For example, the [JDBC built-in connector](/azure/logic-apps/connectors/built-in/reference/jdbc/) uses these JAR files to find JDBC drivers for custom relational databases (RDBs). |
    | **Custom Assembly (.NET Framework)** | This assembly type provides storage and deployment of custom DLLs. For example, the [**Transform XML** operation](logic-apps-enterprise-integration-transform.md) uses these assemblies for the custom transformation functions that are required during XML transformation. | 
 
-1. Now, either drag-and-drop your assemblies to the **Upload Files** area, or browse to and select those fileslist appears, browse to and select your assemblies.
+1. Now, either drag-and-drop your assemblies to the **Upload Files** area, or browse to and select your assemblies.
 
 1. When you're done, select **Upload Files**.
 
