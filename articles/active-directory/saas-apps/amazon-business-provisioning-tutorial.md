@@ -35,7 +35,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * [A Microsoft Entra tenant](../develop/quickstart-create-new-tenant.md). 
 * A user account in Microsoft Entra ID with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
 * An Amazon Business account.
-* A user account in Amazon Business with Admin permissions (Admin on all Legal Entity groups in your AB account).
+* A user account in Amazon Business with Admin permissions (Admin on all Legal Entity groups in your Amazon Business account).
 
 ## Step 1: Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
@@ -163,7 +163,7 @@ Once you've configured provisioning, use the following resources to monitor your
 ## Feature limitations
 
 * Flat structure is created on the Amazon Business account, that is, all pushed groups are at the same level under the Default SCIM Group. Nested structure/hierarchy is not supported.
-* Groups names will be same in Azure and Amazon Business account.
+* Group names will be same in Azure and Amazon Business account.
 * As new groups will be created on the Amazon Business Account, Admins need to re-configure the business settings (for example, turning on purchasing, updating shared settings, adding guided buying policies, etc.) for the new groups as needed.
 * Deleting old Groups / removing users from old groups in Amazon Business results in losing visibility into orders placed with that old Group, hence it is recommended to 
    * Not delete the old groups/assignments, and
@@ -171,11 +171,11 @@ Once you've configured provisioning, use the following resources to monitor your
 * Email / Username Update - Updating email and / or username via SCIM is not supported at this time. 
 * Password Sync - Password sync is not supported.
 
-## Troubleshooting Tips
+## Troubleshooting tips
 
 * If Amazon Business administrators have only logged in using SSO or don’t know their passwords, they can use the forgot password flow to reset their password and then sign in to Amazon Business.
 * If Admin and Requisitioner roles have already been applied to customer in a group, assigning Finance or Tech roles will not result in updates on Amazon Business side.
-* Customer with MASE accounts (Multiple Account Same Email) who delete one of their accounts can see errors that account doesn't exist when provisioning new users for short amount of time (24-48 hours).
+* Customers with MASE accounts (Multiple Account Same Email) who delete one of their accounts can see errors that account doesn't exist when provisioning new users for short amount of time (24-48 hours).
 * Customers cannot be removed immediately via Provision on Demand. Provisioning must be turned on and the removal will happen 40 mins after the action is taken.
 
 ## More resources
