@@ -5,7 +5,7 @@ author: flang-msft
 
 ms.topic: quickstart
 ms.author: franlanglois
-ms.date: 01/18/2023
+ms.date: 10/04/2023
 
 ms.custom: references_regions, event-tier1-build-2022
 
@@ -33,10 +33,13 @@ In this quickstart, you'll use the Azure Marketplace to find and create an insta
     | **Region** | Select West Central US. West Central US is the only Azure region supported by Astronomer during preview. |
     | **Pricing Plan**     | Specified based on the selected Astronomer plan. |
 
+<!-- probably need to remove this
 
-> [!NOTE]
-> West Central US is the only Azure region supported by Astronomer during preview.
-<!-- Is this still true at GA -->
+ > [!NOTE]
+> West Central US is the only Azure region supported by Astronomer during preview. 
+
+-->
+
 
 ### Networking
 
@@ -85,9 +88,10 @@ You can specify custom tags for the new Astronomer resource in Azure by adding c
 
 - [Manage the Astronomer resource](astronomer-manage.md)
 - Get started with Astronomer – An Azure Native ISV Service on
-
+<!-- fix  links when marketplace links work.
     > [!div class="nextstepaction"]
     > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/astronomer.astronomerPLUS%2FastronomerDeployments)
 
     > [!div class="nextstepaction"]
     > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-astronomer-for-azure?tab=Overview)
+ -->

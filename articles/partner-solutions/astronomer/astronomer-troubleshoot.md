@@ -5,10 +5,9 @@ author: flang-msft
 
 ms.author: franlanglois
 ms.topic: conceptual
-ms.date: 01/18/2023
+ms.date: 10/04/2023
 
-ms.custom: event-tier1-build-2022
-
+ms.custom: ignite-2023-metadata-update
 ---
 
 # Troubleshooting Astronomer integration with Azure
@@ -35,9 +34,9 @@ The Astronomer integration can only be set up by users who have Owner access on 
 
 - Learn about [managing your instance](astronomer-manage.md) of Astronomer.
 - Get started with Astronomer – An Azure Native ISV Service on
-
-    > [!div class="nextstepaction"]
+<!-- fix when marketplace is fixed
+     > [!div class="nextstepaction"]
     > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/astronomer.astronomerPLUS%2FastronomerDeployments)
 
     > [!div class="nextstepaction"]
-    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-astronomer-for-azure?tab=Overview)
+    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-astronomer-for-azure?tab=Overview) -->

@@ -5,10 +5,9 @@ author: flang-msft
 
 ms.author: franlanglois
 ms.topic: conceptual
-ms.custom: event-tier1-build-2022
-ms.date: 01/18/2023
+ms.date: 10/04/2023
 
-
+ms.custom: ignite-2023-metadata-update
 ---
 
 # Manage your Astronomer integration through the portal
@@ -115,9 +114,10 @@ Enable CI/CD deployments via GitHub Actions integrations.
 
 - For help with troubleshooting, see [Troubleshooting Astronomer integration with Azure](astronomer-troubleshoot.md).
 - Get started with Astronomer – An Azure Native ISV Service on
-
+<!--  fix links when marketplace information exists
     > [!div class="nextstepaction"]
     > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/astronomer.astronomerPLUS%2FastronomerDeployments)
 
     > [!div class="nextstepaction"]
-    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-astronomer-for-azure?tab=Overview)
+    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-astronomer-for-azure?tab=Overview) 
+-->
