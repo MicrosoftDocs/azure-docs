@@ -6,7 +6,7 @@ ms.date: 08/17/2023
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
-# Dapr triggers and bindings for Azure Functions
+# Dapr Extension for Azure Functions
 
 [!INCLUDE [preview-support](../../includes/functions-dapr-support-limitations.md)]
 
@@ -35,22 +35,22 @@ The extension NuGet package you install depends on the C# mode [in-process](func
 
 # [In-process](#tab/in-process)
 
-This extension is available by installing the [NuGet package](https://www.nuget.org/packages?q=Functions.Extensions.Dapr&frameworks=&tfms=&packagetype=&prerel=true&sortby=relevance), version 0.14.0-preview01.
+This extension is available by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Dapr), version 0.17.0-preview01.
 
 Using the .NET CLI:
 
 ```dotnetcli
-dotnet add package Dapr.AzureFunctions.Extension --version 0.10.0-preview01
+dotnet add package Microsoft.Azure.WebJobs.Extensions.Dapr --version 0.17.0-preview01
 ``` 
 
 # [Isolated process](#tab/isolated-process)
 
-Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages?q=Functions.Extensions.Dapr&frameworks=&tfms=&packagetype=&prerel=true&sortby=relevance), version 0.14.0-preview01.
+Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Dapr), version 0.17.0-preview01.
 
 Using the .NET CLI:
 
 ```dotnetcli
-dotnet add package Dapr.AzureFunctions.Extension --version 0.10.0-preview01
+dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Dapr --version 0.17.0-preview01
 ``` 
 
 ---
