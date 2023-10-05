@@ -84,8 +84,8 @@ The *BrokerListener* resource has these fields:
 - `authenticationEnabled`: A boolean flag that indicates whether this listener requires authentication from clients. If set to `true`, this listener uses any BrokerAuthentication resources associated with it to verify and authorize the clients. If set to `false`, this listener allows any client to connect without authentication. This field is optional and defaults to `false`.
 - `authorizationEnabled`: A boolean flag that indicates whether to enable policy checking for the authorization policies. If set to `true`, the broker checks the BrokerAuthorization policies for each client and topic request, and deny any request that does not match any rule. If no BrokerAuthorization is provided, DenyAll is used and all requests will fail. If set to `false`, the broker allows any request that does not match any rule, as long as the client is authenticated. This field is optional and defaults to `false`.
 - `tls`: The TLS settings for this listener. This field is optional and can be omitted to disable TLS for the listener. To configure TLS, set it one of these types:
-  - `automatic`: Indicates that this listener uses cert-manager to get and renew a certificate for the listener. To use this type, [specify an `issuerRef` field to reference the cert-manager Issuer](/docs/mqtt-broker/listeners/automatic/).
-  - `manual`: Indicates that this listener uses a manually provided certificate for the listener. To use this type, [specify a `secret` field that references a Kubernetes Secret resource containing the certificate and the private key](/docs/mqtt-broker/listeners/manual/).
+  - `automatic`: Indicates that this listener uses cert-manager to get and renew a certificate for the listener. To use this type, specify an `issuerRef` field to reference the cert-manager Issuer.
+  - `manual`: Indicates that this listener uses a manually provided certificate for the listener. To use this type, specify a `secret` field that references a Kubernetes Secret resource containing the certificate and the private key.
 
 ### Example configuration
 

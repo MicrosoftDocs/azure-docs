@@ -281,9 +281,9 @@ Then, if there's an error like:
 
 > User "system:serviceaccount:default:azedge-dmqtt-health-manager" cannot patch resource "certificates" in API group "cert-manager.io" in the namespace "default"
 
-This is because IoT MQ wasn't installed with `e4koperator.operator.cert_manager_enabled=true`. To resolve, [enable the setting with Helm](#enable-cert-manager-support-for-e4k), and try again.
+This is because IoT MQ wasn't installed with `e4koperator.operator.cert_manager_enabled=true`. To resolve, enable the setting with Helm and try again.
 
-###  Connect to the broker with TLS
+### Connect to the broker with TLS
 
 Once the server certificate is configured, TLS is enabled. To test with mosquitto:
 
@@ -303,11 +303,11 @@ Remember to specify authentication methods (username, password, etc.) if needed.
 
 ## Manual certificate management
 
-To manually configure E4K to use a specific TLS certificate, specify it in a Broker Listener resource with a reference to a Kubernetes secret. Then [deploy it using kubectl](/docs/mqtt-broker/deploy/#deploy-mqtt-broker-custom-resources). This guide shows an example to set this up with self-signed certificates for testing.
+To manually configure E4K to use a specific TLS certificate, specify it in a Broker Listener resource with a reference to a Kubernetes secret. Then deploy it using kubectl. This guide shows an example to set this up with self-signed certificates for testing.
 
 ### Create certificate authority with Step CLI
 
-[Step](https://smallstep.com/) is a certificate manager that can quickly get you up and running when creating and managing your own private CA. [Install Step CLI](../../tools/community-tools/) and initialize a certificate authority.
+[Step](https://smallstep.com/) is a certificate manager that can quickly get you up and running when creating and managing your own private CA. [Install Step CLI]() and initialize a certificate authority.
 
 ```bash
 step init ca
