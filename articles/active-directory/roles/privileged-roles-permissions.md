@@ -1,6 +1,6 @@
 ---
-title: Privileged roles and permissions in Azure AD (preview) - Azure Active Directory
-description: Privileged roles and permissions in Azure Active Directory.
+title: Privileged roles and permissions in Microsoft Entra ID (preview) - Microsoft Entra ID
+description: Privileged roles and permissions in Microsoft Entra ID.
 services: active-directory
 author: rolyon
 manager: amycolannino
@@ -8,22 +8,22 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: conceptual
-ms.date: 09/01/2023
+ms.date: 09/14/2023
 ms.author: rolyon
 ms.custom: it-pro
 ---
 
-# Privileged roles and permissions in Azure AD (preview)
+# Privileged roles and permissions in Microsoft Entra ID (preview)
 
 > [!IMPORTANT]
 > Privileged roles and permissions are currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Azure Active Directory (Azure AD) has roles and permissions that are identified as privileged. These roles and permissions can be used to delegate management of directory resources to other users or make either network or data security configuration changes. Privileged role assignments can lead to elevation of privilege if not used in a secure and intended manner. Privileged roles and permissions can pose a security threat so they should be used with caution. This article describes privileged roles and permissions and best practices for how to use.
+Microsoft Entra ID has roles and permissions that are identified as privileged. These roles and permissions can be used to delegate management of directory resources to other users, modify credentials, authentication or authorization policies, or access restricted data. Privileged role assignments can lead to elevation of privilege if not used in a secure and intended manner. This article describes privileged roles and permissions and best practices for how to use.
 
 ## Which roles and permissions are privileged?
 
-For a list of privileged roles and permissions, see [Azure AD built-in roles](permissions-reference.md). You can also use the Microsoft Entra admin center, Microsoft Graph PowerShell, or Microsoft Graph API to identify roles, permissions, and role assignments that are identified as privileged.
+For a list of privileged roles and permissions, see [Microsoft Entra built-in roles](permissions-reference.md). You can also use the Microsoft Entra admin center, Microsoft Graph PowerShell, or Microsoft Graph API to identify roles, permissions, and role assignments that are identified as privileged.
 
 # [Admin center](#tab/admin-center)
 
@@ -33,11 +33,11 @@ In the Microsoft Entra admin center, look for the **PRIVILEGED** label.
 
 On the **Roles and administrators** page, privileged roles are identified in the **Privileged** column. The **Assignments** column lists the number of role assignments. You can also filter privileged roles. 
 
-:::image type="content" source="./media/privileged-roles-permissions/privileged-roles-portal.png" alt-text="Screenshot of the Azure AD Roles and administrators page that shows the Privileged and Assignments columns." lightbox="./media/privileged-roles-permissions/privileged-roles-portal.png":::
+:::image type="content" source="./media/privileged-roles-permissions/privileged-roles-portal.png" alt-text="Screenshot of the Microsoft Entra roles and administrators page that shows the Privileged and Assignments columns." lightbox="./media/privileged-roles-permissions/privileged-roles-portal.png":::
 
 When you view the permissions for a privileged role, you can see which permissions are privileged. If you view the permissions as a default user, you won't be able to see which permissions are privileged.
 
-:::image type="content" source="./media/privileged-roles-permissions/privileged-roles-permissions.png" alt-text="Screenshot of the Azure AD Roles and administrators page that shows the privileged permissions for a role." lightbox="./media/privileged-roles-permissions/privileged-roles-permissions.png":::
+:::image type="content" source="./media/privileged-roles-permissions/privileged-roles-permissions.png" alt-text="Screenshot of the Microsoft Entra roles and administrators page that shows the privileged permissions for a role." lightbox="./media/privileged-roles-permissions/privileged-roles-permissions.png":::
 
 When you create a custom role, you can see which permissions are privileged and the custom role will be labeled as privileged.
 
@@ -393,18 +393,11 @@ Here are some best practices for using privileged roles.
 - Limit the number of Global Administrators to less than 5
 - Limit the number of privileged role assignments to less than 10
 
-If you have 5 or more privileged Global Administrator role assignments, a **Global Administrators** alert card is displayed on the Azure AD Overview page to help you monitor Global Administrator role assignments.
-
-:::image type="content" source="./media/privileged-roles-permissions/overview-privileged-roles-card.png" alt-text="Screenshot of the Azure AD Overview page that shows a card with the number of privileged role assignments." lightbox="./media/privileged-roles-permissions/overview-privileged-roles-card.png":::
-
-If you exceed 10 privileged role assignments, a warning is displayed on the Roles and administrators page.
-
-:::image type="content" source="./media/privileged-roles-permissions/privileged-role-assignments-warning.png" alt-text="Screenshot of the Azure AD Roles and administrators page that shows the privileged role assignments warning." lightbox="./media/privileged-roles-permissions/privileged-role-assignments-warning.png":::
-For more information, see [Best practices for Azure AD roles](best-practices.md).
+For more information, see [Best practices for Microsoft Entra roles](best-practices.md).
 
 ## Privileged permissions versus protected actions
 
-Privileged permissions and protected actions are security-related capabilities that have different purposes. Permissions that have the **PRIVILEGED** label help you identify permissions that can lead to elevation of privilege if not used in a secure and intended manner. Protected actions are role permissions that have been assigned Conditional Access policies for added security, such as requiring multi-factor authentication. Conditional Access requirements are enforced when a user performs the protected action. Protected actions are currently in Preview. For more information, see [What are protected actions in Azure AD?](./protected-actions-overview.md).
+Privileged permissions and protected actions are security-related capabilities that have different purposes. Permissions that have the **PRIVILEGED** label help you identify permissions that can lead to elevation of privilege if not used in a secure and intended manner. Protected actions are role permissions that have been assigned Conditional Access policies for added security, such as requiring multi-factor authentication. Conditional Access requirements are enforced when a user performs the protected action. Protected actions are currently in Preview. For more information, see [What are protected actions in Microsoft Entra ID?](./protected-actions-overview.md).
 
 | Capability | Privileged permission | Protected action |
 | --- | --- | --- |
@@ -413,13 +406,13 @@ Privileged permissions and protected actions are security-related capabilities t
 
 ## Terminology
 
-To understand privileged roles and permissions in Azure AD, it helps to know some of the following terminology.
+To understand privileged roles and permissions in Microsoft Entra ID, it helps to know some of the following terminology.
 
 | Term | Definition |
 | --- | --- |
 | action | An activity a security principal can perform on an object type. Sometimes referred to as an operation. |
 | permission | A definition that specifies the activity a security principal can perform on an object type. A permission includes one or more actions. |
-| privileged permission | In Azure AD, permissions that can be used to delegate management of directory resources to other users or make either network or data security configuration changes. Privileged permissions can lead to elevation of privilege if not used in a secure and intended manner. |
+| privileged permission | In Microsoft Entra ID, permissions that can be used to delegate management of directory resources to other users, modify credentials, authentication or authorization policies, or access restricted data. |
 | privileged role | A built-in or custom role that has one or more privileged permissions. |
 | privileged role assignment | A role assignment that uses a privileged role. |
 | elevation of privilege | When a security principal obtains more permissions than their assigned role initially provided by impersonating another role. |
@@ -437,8 +430,8 @@ For example:
 
 | Permission element | Description |
 | --- | --- |
-| namespace | Product or service that exposes the task and is prepended with `microsoft`. For example, all tasks in Azure AD use the `microsoft.directory` namespace. |
-| entity | Logical feature or component exposed by the service in Microsoft Graph. For example, Azure AD exposes User and Groups, OneNote exposes Notes, and Exchange exposes Mailboxes and Calendars. There is a special `allEntities` keyword for specifying all entities in a namespace. This is often used in roles that grant access to an entire product. |
+| namespace | Product or service that exposes the task and is prepended with `microsoft`. For example, all tasks in Microsoft Entra ID use the `microsoft.directory` namespace. |
+| entity | Logical feature or component exposed by the service in Microsoft Graph. For example, Microsoft Entra ID exposes User and Groups, OneNote exposes Notes, and Exchange exposes Mailboxes and Calendars. There is a special `allEntities` keyword for specifying all entities in a namespace. This is often used in roles that grant access to an entire product. |
 | propertySet | Specific properties or aspects of the entity for which access is being granted. For example, `microsoft.directory/applications/authentication/read` grants the ability to read the reply URL, logout URL, and implicit flow property on the application object in Azure AD.<ul><li>`allProperties` designates all properties of the entity, including privileged properties.</li><li>`standard` designates common properties, but excludes privileged ones related to `read` action. For example, `microsoft.directory/user/standard/read` includes the ability to read standard properties like public phone number and email address, but not the private secondary phone number or email address used for multifactor authentication.</li><li>`basic` designates common properties, but excludes privileged ones related to the `update` action. The set of properties that you can read may be different from what you can update. That’s why there are `standard` and `basic` keywords to reflect that.</li></ul> |
 | action | Operation being granted, most typically create, read, update, or delete (CRUD). There is a special `allTasks` keyword for specifying all of the above abilities (create, read, update, and delete). |
 
@@ -521,5 +514,5 @@ The following table is for roles assigned at the scope of a tenant. For roles as
 
 ## Next steps
 
-- [Best practices for Azure AD roles](best-practices.md)
-- [Azure AD built-in roles](permissions-reference.md)
+- [Best practices for Microsoft Entra roles](best-practices.md)
+- [Microsoft Entra built-in roles](permissions-reference.md)

@@ -25,7 +25,18 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     Most of unstructured data is typically infrequently accessed. It can account for more than 50% of the total storage capacity in many storage environments. Infrequently accessed data associated with productivity software, completed projects, and old datasets are an inefficient use of a high-performance storage. You can now use the cool access option in a capacity pool of Azure NetApp Files standard service level to have inactive data transparently moved from Azure NetApp Files standard service-level storage (the hot tier) to an Azure storage account (the cool tier). This option lets you free up storage that resides within Azure NetApp Files volumes by moving data blocks to the lower cost cool tier, resulting in overall cost savings. You can configure this option on a volume by specifying the number of days (the *coolness period*, ranging from 7 to 63 days) for inactive data to be considered "cool". Viewing and accessing the data stay transparent, except for a higher access time to data blocks that were moved to the cool tier.
 
+
+## October 2023
+
+* [Snapshot manageability enhancement: Identify parent snapshot](snapshots-restore-new-volume.md)
+
+    You can now see the name of the snapshot used to create a new volume. In the Volume overview page, the **Originated from** field identifies the source snapshot used in volume creation. If the field is empty, no snapshot was used. 
+
 ## September 2023
+
+* [Azure NetApp Files customer-managed keys for Azure NetApp Files volume encryption is now available in select US Gov regions (Preview)](configure-customer-managed-keys.md#supported-regions)
+
+    Customer keys are protected from attacks for maximum security of their Azure NetApp File volumes. This capability is now available US Gov Virginia (preview). This increased security complements the additional security for deployments in US Gov. Healthcare, Finance, Government, and many other customers can now protect their customer-managed encryption keys within the secure confines of US Gov Virginia region.
 
 * [Standard network features in select US Gov regions (Preview)](azure-netapp-files-network-topologies.md)
 

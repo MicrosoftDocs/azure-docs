@@ -28,7 +28,9 @@ This article provides instructions on how to recover an Azure AI services resour
 
 Your subscription must have `Microsoft.CognitiveServices/locations/resourceGroups/deletedAccounts/delete` permissions to purge resources, such as [Cognitive Services Contributor](../role-based-access-control/built-in-roles.md#cognitive-services-contributor) or [Contributor](../role-based-access-control/built-in-roles.md#contributor). 
 
-## Recover a deleted resource 
+When using `Contributor` to purge a resource the role must be assigned at the subscription level. If the role assignment is only present at the resource or resource group level you will be unable to access the purge functionality.
+
+## Recover a deleted resource
 
 To recover a deleted Azure AI services resource, use the following commands. Where applicable, replace:
 

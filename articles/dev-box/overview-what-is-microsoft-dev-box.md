@@ -45,7 +45,7 @@ Dev Box has the following benefits for IT admins:
 - Manage dev boxes like any other device on your network:
   - Dev boxes automatically enroll in Intune. Use the [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431) to manage dev boxes.
   - Keep all Windows devices up to date by using expedited quality updates in Intune to deploy zero-day patches across your organization.
-  - If a dev box is compromised, isolate it while helping users get back up and running on a new dev box.
+  - If a dev box is compromised, isolate it while helping users get backup and running on a new dev box.
 - Dev Box provides secure access in a secure environment. Access controls in Azure Active Directory (Azure AD) organize access by project or user type:
   - Join dev boxes natively to an Azure AD or Active Directory domain.
   - Set conditional access policies that require users to connect via a compliant device.
@@ -87,9 +87,19 @@ When the configuration of the service is complete, developers can create and man
 
 [!INCLUDE [supported accounts note](./includes/note-supported-accounts.md)]
 
+## Components shared with Azure Deployment Environments
+
+Microsoft Dev Box and [Azure Deployment Environments](../deployment-environments/overview-what-is-azure-deployment-environments.md) are complementary services that share certain architectural components. Deployment Environments provides developers with preconfigured cloud-based environments for developing applications. Dev centers and projects are common to both services, and they help organize resources in an enterprise.  
+
+When configuring Dev Box, you may see Deployment Environments resources and components. You may even see informational messages regarding Deployment Environments features. If you're not configuring any Deployment Environments features, you can safely ignore these messages.
+
+For example, as you create a project, you might see this informational message about catalogs: 
+
+:::image type="content" source="media/overview-what-is-microsoft-dev-box/project-catalog-message.png" alt-text="Screenshot showing an informational message that reads The dev center that contains this project does not have a catalog assigned." lightbox="media/overview-what-is-microsoft-dev-box/project-catalog-message.png":::
+
 ## Next steps
 
-Start using Microsoft Dev Box :
+Start using Microsoft Dev Box:
 
 - [Quickstart: Configure Microsoft Dev Box ](./quickstart-configure-dev-box-service.md)
 - [Quickstart: Create a dev box](./quickstart-create-dev-box.md)

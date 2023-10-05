@@ -16,6 +16,8 @@ ms.custom: devx-track-js, devguide-js
 
 # List blobs with JavaScript
 
+[!INCLUDE [storage-dev-guide-selector-list-blob](../../../includes/storage-dev-guides/storage-dev-guide-selector-list-blob.md)]
+
 This article shows how to list blobs using the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob).
 
 ## Prerequisites

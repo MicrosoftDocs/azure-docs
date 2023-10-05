@@ -54,7 +54,7 @@ Before you run a test failover, verify the VM properties and make sure that the 
    * The network and subnet in which the Azure VM will be located after failover.
    * The IP address that will be assigned to the network and subnet.
 
-4 In **Disks**, you can get information about the operating system and data disks on the VM.
+4. In **Disks**, you can get information about the operating system and data disks on the VM.
 
 ## Create a network for test failover
 

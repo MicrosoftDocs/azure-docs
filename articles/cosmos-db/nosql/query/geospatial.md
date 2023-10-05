@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 08/01/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -210,7 +210,7 @@ await container.CreateItemAsync(
 
 If you don't have the latitude and longitude information, but have the physical addresses or location name, look up the actual coordinates using an online service. Services like Bing Maps can assist with finding the actual geography data from a known location name. For more information about Bing Maps geocoding, see [Bing Maps REST Services](/bingmaps/rest-services/).
 
-## Next steps
+## Related content
 
 - [Objects and arrays](object-array.md)
 - [Index and query GeoJSON location data](../how-to-geospatial-index-query.md)

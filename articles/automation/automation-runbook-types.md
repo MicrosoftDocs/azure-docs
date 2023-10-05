@@ -3,7 +3,7 @@ title: Azure Automation runbook types
 description: This article describes the types of runbooks that you can use in Azure Automation and considerations for determining which type to use.
 services: automation
 ms.subservice: process-automation
-ms.date: 08/02/2023
+ms.date: 09/13/2023
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-python
 ---
@@ -71,6 +71,11 @@ The following are the current limitations and known issues with PowerShell runbo
 
 **Known issues**
 
+* Runbooks taking dependency on internal file paths such as `C:\modules` might fail due to changes in service backend infrastructure. Change runbook code to ensure there are no dependencies on internal file paths and use [Get-ChildItem](/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7.3) to get the required directory.
+* Modules imported through an ARM template might not load with `Import-module`. As a workaround, create a .zip file (with name as module name) and add the module files directly to the .zip file instead of zipping the named folder (for example - *ModuleNamedZipFile.zip\ModuleFiles*). You can then delete or again add the modules to the new .zip file. 
+* `Get-AzStorageAccount` cmdlet might fail with an error: *The `Get-AzStorageAccount` command was found in the module `Az.Storage`, but the module could not be loaded*.
+* PowerShell 5.1 modules uploaded through .zip files might not load in Runbooks. As a workaround, create a .zip file (with name as module name) and add the module files directly to the .zip file instead of zipping the named folder (for example - *ModuleNamedZipFile.zip\ModuleFiles*).  You can then delete or again add the modules to the new .zip file. 
+* Completed jobs might show a warning message: *Both Az and AzureRM modules were detected on this machine. Az and AzureRM modules cannot be imported in the same session or used in the same script or runbook*. This is just a warning message and does not impact job execution.
 * PowerShell runbooks can't retrieve an unencrypted [variable asset](./shared-resources/variables.md) with a null value.
 * PowerShell runbooks can't retrieve a variable asset with `*~*` in the name.
 * A [Get-Process](/powershell/module/microsoft.powershell.management/get-process) operation in a loop in a PowerShell runbook can crash after about 80 iterations.
@@ -96,7 +101,6 @@ The following are the current limitations and known issues with PowerShell runbo
 **Limitations**
 
 - You must be familiar with PowerShell scripting.
-
 - The Azure Automation internal PowerShell cmdlets aren't supported on a Linux Hybrid Runbook Worker. You must import the `automationassets` module at the beginning of your PowerShell runbook to access the Automation account shared resources (assets) functions.
 - For the PowerShell 7 runtime version, the module activities aren't extracted for the imported modules.
 - *PSCredential* runbook parameter type isn't supported in PowerShell 7 runtime version.
@@ -110,6 +114,9 @@ The following are the current limitations and known issues with PowerShell runbo
 
 **Known issues**
 
+- Runbooks taking dependency on internal file paths such as `C:\modules` might fail due to changes in service backend infrastructure. Change runbook code to ensure there are no dependencies on internal file paths and use [Get-ChildItem](/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7.3) to get the required directory.
+- Modules imported through an ARM template might not load with `Import-module`. As a workaround, create a .zip file (with name as module name) and add the module files directly to the .zip file instead of zipping the named folder (for example - *ModuleNamedZipFile.zip\ModuleFiles*). You can then delete or again add the modules to the new .zip file. 
+- `Get-AzStorageAccount` cmdlet might fail with an error: *The `Get-AzStorageAccount` command was found in the module `Az.Storage`, but the module could not be loaded*.
 - Executing child scripts using `.\child-runbook.ps1` isn't supported in this preview.
   **Workaround**: Use `Start-AutomationRunbook` (internal cmdlet) or `Start-AzAutomationRunbook` (from `Az.Automation` module) to start another runbook from parent runbook.
 - Runbook properties defining logging preference isn't supported in PowerShell 7 runtime.
@@ -151,7 +158,9 @@ The following are the current limitations and known issues with PowerShell runbo
 - Azure doesn't support all PowerShell input parameters. [Learn more](runbook-input-parameters.md).
 
 **Known issues**
-
+- Runbooks taking dependency on internal file paths such as `C:\modules` might fail due to changes in service backend infrastructure. Change runbook code to ensure there are no dependencies on internal file paths and use [Get-ChildItem](/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7.3) to get the required directory.
+- Modules imported through an ARM template might not load with `Import-module`. As a workaround, create a .zip file (with name as module name) and add the module files directly to the .zip file instead of zipping the named folder (for example - *ModuleNamedZipFile.zip\ModuleFiles*). You can then delete or again add the modules to the new .zip file. 
+- `Get-AzStorageAccount` cmdlet might fail with an error: *The `Get-AzStorageAccount` command was found in the module `Az.Storage`, but the module could not be loaded*.
 - Executing child scripts using `.\child-runbook.ps1` is not supported in this preview.
   **Workaround**: Use `Start-AutomationRunbook` (internal cmdlet) or `Start-AzAutomationRunbook` (from *Az.Automation* module) to start another runbook from parent runbook.
 - Runbook properties defining logging preference isn't supported in PowerShell 7 runtime.
@@ -227,9 +236,8 @@ Following are the limitations of Python runbooks
 - Azure Automation doesn't support **sys.stderr**.
 - The Python **automationassets** package isn't available on pypi.org, so it's not available for import onto a Windows machine.
 
-# [Python 3.10 (preview)](#tab/py10)
 
-**Limitations**
+# [Python 3.10 (preview)](#tab/py10)
 
 - For Python 3.10 (preview) modules, currently, only the wheel files targeting cp310 Linux OS are supported. [Learn more](./python-3-packages.md)
 - Custom packages for Python 3.10 (preview) are only validated during job runtime. Job is expected to fail if the package is not compatible in the runtime or if required dependencies of packages aren't imported into automation account.

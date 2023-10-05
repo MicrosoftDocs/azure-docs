@@ -28,6 +28,21 @@ Make sure the [ImageAnalysisOptions](/python/api/azure-ai-vision/azure.ai.vision
 
 To help resolve issues, look at the [Image Analysis Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk) repository and run the closest sample to your scenario. Search the [GitHub issues](https://github.com/Azure-Samples/azure-ai-vision-sdk/issues) to see if your issue was already address. If not, create a new.
 
+# [Java](#tab/java)
+
+The sample code for getting analysis results shows how to handle errors and get the [ImageAnalysisErrorDetails](/java/api/com.azure.ai.vision.imageanalysis.imageanalysiserrordetails) object that contains the error information. The error information includes:
+
+* Error reason. See enum [ImageAnalysisErrorReason](/java/api/com.azure.ai.vision.imageanalysis.imageanalysiserrorreason).
+* Error code and error message. Select the **REST API** tab to see a list of some common error codes and messages.
+
+In addition to those errors, the SDK has a few other error messages, including:
+  * `Missing Image Analysis options: You must set at least one visual feature (or model name) for the 'analyze' operation. Or set segmentation mode for the 'segment' operation`
+  * `Invalid combination of Image Analysis options: You cannot set both visual features (or model name), and segmentation mode`
+
+Make sure the [ImageAnalysisOptions](/java/api/com.azure.ai.vision.imageanalysis.imageanalysisoptions) object is set correctly to fix these errors. 
+
+To help resolve issues, look at the [Image Analysis Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk) repository and run the closest sample to your scenario. Search the [GitHub issues](https://github.com/Azure-Samples/azure-ai-vision-sdk/issues) to see if your issue was already address. If not, create a new.
+
 # [C++](#tab/cpp)
 
 The sample code for getting analysis results shows how to handle errors and get the [ImageAnalysisErrorDetails](/cpp/cognitive-services/vision/imageanalysis-imageanalysiserrordetails) object that contains the error information. The error information includes:

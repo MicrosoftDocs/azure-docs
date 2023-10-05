@@ -5,12 +5,11 @@ description: Encryption scopes provide the ability to manage encryption at the l
 services: storage
 author: akashdubey-ms
 
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.date: 06/01/2023
 ms.topic: conceptual
 ms.author: akashdubey
 ms.reviewer: ozgun
-ms.subservice: storage-common-concepts
 ms.custom: engagement-fy23
 ---
 

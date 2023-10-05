@@ -33,7 +33,7 @@ All [Azure NetApp Files features](whats-new.md) available on Azure public cloud 
 |:--- |:--- |:--- |
 | Azure NetApp Files backup | Public preview | No |
 | Azure NetApp Files datastores for AVS | Generally available (GA) | No | 
-| Azure NetApp Files customer-managed keys | Public preview | No |
+| Azure NetApp Files customer-managed keys | Public preview | Public preview [(in select regions)](configure-customer-managed-keys.md#supported-regions) |
 | Azure NetApp Files large volumes | Public preview | No |
 | Edit network features for existing volumes | Public preview | No |
 | Standard network features | Generally available (GA) | Public preview [(in select regions)](azure-netapp-files-network-topologies.md#supported-regions) |

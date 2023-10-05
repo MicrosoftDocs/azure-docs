@@ -23,79 +23,7 @@ As part of this preview, the Azure Communication Services SDKs can be used to bu
 
 To enable calling and chat between your Communication Services users and Teams tenant, allow your tenant via the [form](https://forms.office.com/r/F3WLqPjw0D) and enable the connection between the tenant and Communication Services resource.
 
-
-
-## Enable interoperability in your Teams tenant
-Azure AD user with [Teams administrator role](../../../active-directory/roles/permissions-reference.md#teams-administrator) can run PowerShell cmdlet with MicrosoftTeams module to enable the Communication Services resource in the tenant. 
-
-### 1. Prepare the Microsoft Teams module
-
-First, open the PowerShell and validate the existence of the Teams module with the following command:
-
-```script
-Get-module *teams* 
-```
-
-If you don't see the `MicrosoftTeams` module, install it first. To install the module, you need to run PowerShell as an administrator. Then run the following command:
-
-```script
-	Install-Module -Name MicrosoftTeams
-```
-
-You'll be informed about the modules that will be installed, which you can confirm with a `Y` or `A` answer. If the module is installed but is outdated, you can run the following command to update the module:
-
-```script
-	Update-Module MicrosoftTeams
-```
-
-### 2. Connect to Microsoft Teams module
-
-When the module is installed and ready, you can connect to the MicrosftTeams module with the following command. You'll be prompted with an interactive window to log in. The user account that you're going to use needs to have Teams administrator permissions. Otherwise, you might get an `access denied` response in the next steps.
-
-```script
-Connect-MicrosoftTeams
-```
-
-### 3. Enable tenant configuration
-
-Interoperability with Communication Services resources is controlled via tenant configuration and assigned policy. Teams tenant has a single tenant configuration, and Teams users have assigned global policy or custom policy. The following table shows possible scenarios and impacts on interoperability.
-
-| Tenant configuration | Global policy | Custom policy | Assigned policy | Interoperability |
-| --- | --- | --- | --- | --- |
-| True | True | True | Global | **Enabled** |
-| True | True | True | Custom | **Enabled** |
-| True | True | False | Global | **Enabled** |
-| True | True | False | Custom | Disabled |
-| True | False | True | Global | Disabled |
-| True | False | True | Custom | **Enabled** |
-| True | False | False | Global | Disabled |
-| True | False | False | Custom | Disabled |
-| False | True | True | Global | Disabled |
-| False | True | True | Custom | Disabled |
-| False | True | False | Global | Disabled |
-| False | True | False | Custom | Disabled |
-| False | False | True | Global | Disabled |
-| False | False | True | Custom | Disabled |
-| False | False | False | Global | Disabled |
-| False | False | False | Custom | Disabled |
-
-After successful login, you can run the cmdlet [Set-CsTeamsAcsFederationConfiguration](/powershell/module/teams/set-csteamsacsfederationconfiguration) to enable Communication Services resource in your tenant. Replace the text `IMMUTABLE_RESOURCE_ID` with an immutable resource ID in your communication resource. You can find more details on how to get this information [here](../troubleshooting-info.md#getting-immutable-resource-id).
-
-```script
-$allowlist = @('IMMUTABLE_RESOURCE_ID')
-Set-CsTeamsAcsFederationConfiguration -EnableAcsUsers $True -AllowedAcsResources $allowlist
-```
-
-### 4. Enable tenant policy
-
-Each Teams user has assigned an `External Access Policy` that determines whether Communication Services users can call this Teams user. Use cmdlet
-[Set-CsExternalAccessPolicy](/powershell/module/skype/set-csexternalaccesspolicy) to ensure that the policy assigned to the Teams user has set `EnableAcsFederationAccess` to  `$true`
-
-```script
-Set-CsExternalAccessPolicy -Identity Global -EnableAcsFederationAccess $true
-```
-
-
+[!INCLUDE [Enable interoperability in your Teams tenant](./../includes/enable-interoperability-for-teams-tenant.md)]
 ## Get Teams user ID
 
 To start a call or chat with a Teams user or Teams Voice application, you need an identifier of the target. You have the following options to retrieve the ID:
@@ -154,11 +82,14 @@ To make testing easier, we've published a sample app [here](https://github.com/A
 **Limitations and known issues** </br>
 While in private preview, a Communication Services user can do various actions using the Communication Services Chat SDK, including sending and receiving plain and rich text messages, typing indicators, read receipts, real-time notifications, and more. However, most of the Teams chat features aren't supported. Here are some key behaviors and known issues:
 - Communication Services users can only initiate chats. 
--    Communication Services users can't send or receive GIFs, images, or files. Links to files and images can be shared.
+-    Communication Services users can't send images, or files to the Teams user. But they can receive images and files from the Teams user. Links to files and images can also be shared.
 -    Communication Services users can delete the chat. This action removes the Teams user from the chat thread and hides the message history from the Teams client.
-- Known issue: Communication Services users aren't displayed correctly in the participant list. They're currently displayed as External, but their people cards show inconsistent data. 
+- Known issue: Communication Services users aren't displayed correctly in the participant list. They're currently displayed as External, but their people cards show inconsistent data. In addition, their displayname might not be shown properly in the Teams client.
+- Known issue: The typing event from Teams side might contain a blank display name.
 - Known issue: A chat can't be escalated to a call from within the Teams app. 
 - Known issue: Editing of messages by the Teams user isn't supported. 
+
+Please refer to [Chat Capabilities](../interop/guest/capabilities.md) to learn more. 
 
 ## Privacy
 Interoperability between Azure Communication Services and Microsoft Teams enables your applications and users to participate in Teams calls, meetings, and chats. It is your responsibility to ensure that the users of your application are notified when recording or transcription are enabled in a Teams call or meeting.

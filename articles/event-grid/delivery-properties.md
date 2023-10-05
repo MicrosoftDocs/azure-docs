@@ -28,7 +28,7 @@ To set headers with a fixed value, provide the name of the header and its value 
 You might want to check **Is secret?** when you're providing sensitive data. The visibility of sensitive data on the Azure portal depends on the user's RBAC permission. 
 
 ## Setting dynamic header values
-You can set the value of a header based on a property in an incoming event. Use JsonPath syntax to refer to an incoming event's property value to be used as the value for a header in outgoing requests. For example, to set the value of a header named **Channel** using the value of the incoming event property **system** in the event data, configure your event subscription in the following way:
+You can set the value of a header based on a property in an incoming event. Use JsonPath syntax to refer to an incoming event's property value to be used as the value for a header in outgoing requests. Only JSON values of string, number and boolean are supported. For example, to set the value of a header named **Channel** using the value of the incoming event property **system** in the event data, configure your event subscription in the following way:
 
 :::image type="content" source="./media/delivery-properties/dynamic-header-property.png" alt-text="Delivery properties - dynamic":::
 
@@ -67,7 +67,7 @@ Authorization: BEARER SlAV32hkKG...
 ```
 
 > [!NOTE]
-> Defining authorization headers is a sensible option when your destination is a Webhook. It should not be used for [functions subscribed with a resource id](/rest/api/eventgrid/controlplane-version2023-06-01-preview/event-subscriptions/create-or-update#azurefunctioneventsubscriptiondestination), Service Bus, Event Hubs, and Hybrid Connections as those destinations support their own authentication schemes when used with Event Grid.
+> Defining authorization headers is a sensible option when your destination is a Webhook. It should not be used for [functions subscribed with a resource id](/rest/api/eventgrid/controlplane-preview/event-subscriptions/create-or-update#azurefunctioneventsubscriptiondestination), Service Bus, Event Hubs, and Hybrid Connections as those destinations support their own authentication schemes when used with Event Grid.
 
 ### Service Bus example
 Azure Service Bus supports the use of following message properties when sending single messages. 

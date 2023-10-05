@@ -9,6 +9,8 @@ author: IngridAtMicrosoft
 
 # Add video clips to your projects
 
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
+
 The [Azure AI Video Indexer](https://www.videoindexer.ai/) website enables you to use your video's deep insights to: find the right media content, locate the parts that you’re interested in, and use the results to create an entirely new project. 
 
 Once created, the project can be rendered and downloaded from Azure AI Video Indexer and be used in your own editing applications or downstream workflows.

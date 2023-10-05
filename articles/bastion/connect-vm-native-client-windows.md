@@ -4,8 +4,9 @@ titleSuffix: Azure Bastion
 description: Learn how to connect to a VM from a Windows computer by using Bastion and a native client.
 author: cherylmc
 ms.service: bastion
+ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 08/08/2023
+ms.date: 09/21/2023
 ms.author: cherylmc
 ---
 
@@ -58,9 +59,7 @@ The steps in the following sections help you connect to a VM from a Windows nati
 
 Optionally, you can also specify the authentication method as part of the command.
 
-* **Azure AD authentication:** `--auth-type "AAD"` For more information, see [Azure Windows VMs and Azure AD](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md).
-
-* **User name and password:** `--auth-type "password" --username "<Username>"`
+* **Azure AD authentication:** For Windows 10 version 20H2+, Windows 11 21H2+, and Windows Server 2022, use `--enable-mfa`. For more information, see [az network bastion rdp - optional parameters](/cli/azure/network/bastion?#az-network-bastion-rdp(bastion)-optional-parameters).
 
 #### Specify a custom port
 

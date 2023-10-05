@@ -4,7 +4,7 @@ description: Learn about recent changes to the Remote Desktop client for Windows
 ms.topic: release-notes
 author: heidilohr
 ms.author: helohr
-ms.date: 08/31/2023
+ms.date: 10/04/2023
 ---
 
 # What's new in the Remote Desktop client for Windows
@@ -17,14 +17,25 @@ The following table lists the current versions available for the public and Insi
 
 | Release | Latest version | Download |
 |---------|----------------|----------|
-| Public  | 1.2.4487       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
-| Insider | 1.2.4577       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
+| Public  | 1.2.4582       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
+| Insider | 1.2.4675       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
 
-## Updates for version 1.2.4577 (Insider)
+## Updates for version 1.2.4675 (Insider)
 
-*Date published: August 29, 2023*
+*Date published: October 3, 2023*
 
 Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368)
+
+- Added new parameters for multiple monitor configuration when connecting to a remote resource using the [Uniform Resource Identifier (URI) scheme](uri-scheme.md).
+- Added support for the following languages: Czech (Czechia), Hungarian (Hungary), Indonesian (Indonesia), Korean (Korea), Portuguese (Portugal), Turkish (Turkey).
+- Fixed a bug that caused a crash when using Teams Media Optimization. 
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
+
+## Updates for version 1.2.4582
+
+*Date published: September 19, 2023*
+
+Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1byOF), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1bwjL), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1byOV)
 
 In this release, we've made the following changes:
 
@@ -37,11 +48,14 @@ In this release, we've made the following changes:
    - Tooltip for the close button on the **About** panel now dismisses when keyboard focus moves.
    - Keyboard focus is now properly displayed for certain drop-down selectors in the **Settings** panel for published desktops.
 
+> [!NOTE]
+> This release was originally version 1.2.4577, but we made a hotfix after reports that connections to machines with watermarking policy enabled were failing. Version 1.2.4582, which fixes this issue, has replaced version 1.2.4577.
+
 ## Updates for version 1.2.4487
 
 *Date published: July 21, 2023*
 
-Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370)
+Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW17VPy), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW17Yn9), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW17VPx)
 
 In this release, we've made the following changes:
 
@@ -50,8 +64,6 @@ In this release, we've made the following changes:
 ## Updates for version 1.2.4485
 
 *Date published: July 11, 2023*
-
-Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW17f1J), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW17mKo), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW17sgF)
 
 In this release, we've made the following changes:
 

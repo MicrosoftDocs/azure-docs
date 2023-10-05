@@ -5,8 +5,7 @@ description: To receive alignment information, use the Translate method and incl
 services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: lajanuar

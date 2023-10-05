@@ -33,8 +33,7 @@ These steps use AZD to initialize the event-driven application from the Azure De
 
    The following list describes the command interactions:
 
-   - **OAuth2 login**: You need to authorize the login to Azure based on the OAuth2 protocol.
-   - **Please enter a new environment name**: Provide an environment name, which is used as a suffix for the resource group that is created to hold all Azure resources. This name should be unique within your Azure subscription.
+   - **Enter a new environment name**: Provide an environment name, which is used as a suffix for the resource group that is created to hold all Azure resources. This name should be unique within your Azure subscription.
 
    The console outputs messages similar to the following example:
 
