@@ -77,7 +77,19 @@ Our support benefits include:
 
 ## Backup and restore
 
-Snapshot backups are enabled by default and taken every 24 hours. Backups are stored in an internal Azure Blob Storage account and are retained for up to 2 days (48 hours). There's no cost for the initial 2 backups. Additional backups will be charged, see [pricing](https://azure.microsoft.com/pricing/details/managed-instance-apache-cassandra/). To change the backup interval or retention period, or to restore from an existing backup, file a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal. 
+Snapshot backups are enabled by default and taken every 24 hours. Backups are stored in an internal Azure Blob Storage account and are retained for up to 2 days (48 hours). There's no cost for the initial 2 backups. Additional backups will be charged, see [pricing](https://azure.microsoft.com/pricing/details/managed-instance-apache-cassandra/). To change the backup interval or retention period, you can edit the policy in the portal:
+
+:::image type="content" source="./media/resilient-applications/backup.png" alt-text="Screenshot of backup schedule configuration page." lightbox="./media/resilient-applications/backup.png" border="true":::
+
+To restore from an existing backup, file a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal. When filing the support case, you need to:
+
+1. Provide the backup id from portal for the backup you want to restore. This can be found in the portal:
+
+    :::image type="content" source="./media/management-operations/backup.png" alt-text="Screenshot of backup schedule configuration page." lightbox="./media/resilient-applications/backup.png" border="true":::
+    
+1. If restore of the whole cluster is not required, provide the keyspace and table (if applicable) that needs to be restored.
+1. Advise whether you want the backup to be restored in the existing cluster, or in a new cluster.
+1. If you want to restore to a new cluster, you will need to create the new cluster first. Ensure that the target cluster matches the source cluster in terms of the number of data centers, and that corresponding data center has the same number of nodes. You can also decide whether to keep the credentials (username/password) in the new target cluster, or allow restore to override username/password with what was originally created.
 
 > [!NOTE]
 > The time it takes to respond to a request to restore from backup will depend both on the severity of support case you raise, and the amount of data to be restored. For example, if you raise a Sev-A support case, the SLA for response to the ticket is 15 minutes. However, we do not provide an SLA for time to complete the restore, as this is very dependent on the volume of data being restored.
