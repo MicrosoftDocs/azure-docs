@@ -172,7 +172,7 @@ To associate the RAM role with the Microsoft Entra user, you must create a role 
       ![Graph config2](./media/alibaba-cloud-service-role-based-sso-tutorial/graph02.png)
 
       >[!NOTE]
-       >After permissions are granted, sign in to the Graph Explorer again.
+      >After permissions are granted, sign in to the Graph Explorer again.
 
    1. On the Graph Explorer page, select **GET** from the first drop-down list and **beta** from the second drop-down list. Then enter `https://graph.microsoft.com/beta/servicePrincipals` in the field next to the drop-down lists, and click **Run Query**.
 
