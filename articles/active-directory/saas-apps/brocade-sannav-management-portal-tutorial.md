@@ -35,7 +35,7 @@ In this tutorial, you configure and test Microsoft Entra SSO in a test environme
 
 * Brocade SANnav Management Portal supports both **SP and IDP** initiated SSO.
 
-## Adding Brocade SANnav Management Portal from the gallery
+## Add Brocade SANnav Management Portal from the gallery
 
 To configure the integration of Brocade SANnav Management Portal into Microsoft Entra ID, you need to add Brocade SANnav Management Portal from the gallery to your list of managed SaaS apps.
 
@@ -74,9 +74,7 @@ Follow these steps to enable Microsoft Entra SSO in the Microsoft Entra admin ce
 
 	a. Click **Upload metadata file**.
 
-    ![Screenshot shows how to upload metadata file.](common/upload-metadata.png "File")
-
-	b. Click on **folder logo** to select the metadata file and click **Upload**.
+	b. Click on **folder logo** to select the metadata file and click **Add**.
 
 	![Screenshot shows how to choose metadata file.](common/browse-upload-metadata.png "Folder")
 
@@ -166,6 +164,6 @@ In this section, you test your Microsoft Entra single sign-on configuration with
 
 You can also use Microsoft My Apps to test the application in any mode. When you click the Brocade SANnav Management Portal tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Brocade SANnav Management Portal for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
-## Next Steps
+## Next steps
 
 Once you configure Brocade SANnav Management Portal you can enforce session control, which protects exfiltration and infiltration of your organization's sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).
