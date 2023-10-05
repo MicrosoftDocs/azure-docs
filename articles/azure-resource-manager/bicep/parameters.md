@@ -172,7 +172,7 @@ Storage account name restrictions:
 param storageAccountName string
 ```
 
-When you hover your cursor over **storageAccountName** in VSCode, you see the formatted text:
+When you hover your cursor over **storageAccountName** in VS Code, you see the formatted text:
 
 :::image type="content" source="./media/parameters/vscode-bicep-extension-description-decorator-markdown.png" alt-text="Use Markdown-formatted text in VSCode":::
 
@@ -193,7 +193,7 @@ You might use this decorator to track information about the parameter that doesn
 param settings object
 ```
 
-When you provides a `@metadata()` decorator with a property that conflicts with another decorator. That decorator always take precedence over anything in the `@metadata()` decorator. Consequently, the conflicting property within the @metadata() value is redundant and will be replaced. For more information, see [No conflicting metadata](./linter-rule-no-conflicting-metadata.md).
+When you provide a `@metadata()` decorator with a property that conflicts with another decorator, that decorator always takes precedence over anything in the `@metadata()` decorator. Consequently, the conflicting property within the @metadata() value is redundant and will be replaced. For more information, see [No conflicting metadata](./linter-rule-no-conflicting-metadata.md).
 
 ## Use parameter
 
