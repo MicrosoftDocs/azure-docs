@@ -4,7 +4,7 @@ description: Significant updates to Azure Automation updated each month.
 services: automation
 ms.subservice:
 ms.topic: overview
-ms.date: 09/17/2023
+ms.date: 10/03/2023
 ms.custom: references_regions
 ---
 
@@ -21,6 +21,13 @@ Azure Automation receives improvements on an ongoing basis. To stay up to date w
 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Automation](whats-new-archive.md).
 
+## October 2023
+
+### Retirement of Run As accounts
+
+**Type: Retirement**
+
+Azure Automation Run As Accounts, including Classic Run as accounts have retired on **30 September 2023** and replaced with Managed Identities. You would no longer be able to create or renew Run as accounts through the Azure portal. For more information, see [migrating from an existing Run As accounts to managed identity](migrate-run-as-accounts-managed-identity.md).
 
 ## May 2023
 

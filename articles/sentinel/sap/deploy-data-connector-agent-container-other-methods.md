@@ -4,6 +4,7 @@ description: This article shows you how to manually deploy the container that ho
 author: limwainstein
 ms.author: lwainstein
 ms.topic: how-to
+ms.custom: devx-track-azurecli
 ms.date: 01/18/2023
 ---
 
