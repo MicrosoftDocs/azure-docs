@@ -137,7 +137,11 @@ First, create a SQL Server virtual machine (VM) using the Azure portal.
     - **Name**: Enter a name for the backend pool, for example **sql-vm**.
     - **Target type**: Select **IP address or FQDN** and enter the public IP address of the SQL server virtual machine that you wrote down previously.
 
-    <img src="./media/how-to-tcp-tls-proxy/add-backend-pool.png" alt="A screenshot displaying backend pool creation." width="70%">
+    <!-- Below is a comparison of two methods of displaying the same image in an article on the learn platform. The first is markdown, the second is HTML -->
+
+    ![A screenshot displaying backend pool creation.](i./media/how-to-tcp-tls-proxy/add-backend-pool.png)
+
+    <img src="./media/how-to-tcp-tls-proxy/add-backend-pool.png" alt="A screenshot displaying backend pool creation." width="60%">
  
 9. Select **Add** and then select **Next: Configuration**.
 
