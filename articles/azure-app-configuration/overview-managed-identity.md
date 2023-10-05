@@ -7,7 +7,7 @@ ms.date: 02/25/2020
 ms.author: malev
 ms.reviewer: lcozzens
 ms.service: azure-app-configuration
-
+ms.custom: devx-track-azurecli
 ---
 
 # How to use managed identities for Azure App Configuration

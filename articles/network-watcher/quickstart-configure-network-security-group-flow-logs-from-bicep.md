@@ -7,7 +7,7 @@ ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: quickstart
 ms.date: 09/29/2023
-ms.custom: devx-track-bicep, devx-track-azurecli, devx-track-azurepowershell, subject-bicepqs, mode-arm, 
+ms.custom: devx-track-bicep, subject-bicepqs, mode-arm
 
 #CustomerIntent: As an Azure administrator, I need to enable NSG flow logs using a Bicep file so that I can log the traffic flowing through a network security group.
 ---

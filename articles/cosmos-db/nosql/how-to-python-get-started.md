@@ -8,7 +8,7 @@ ms.subservice: nosql
 ms.devlang: python
 ms.topic: how-to
 ms.date: 12/06/2022
-ms.custom: devx-track-python, devguide-python, cosmos-db-dev-journey, devx-track-azurepowershell
+ms.custom: devx-track-python, devguide-python, cosmos-db-dev-journey, devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Get started with Azure Cosmos DB for NoSQL using Python

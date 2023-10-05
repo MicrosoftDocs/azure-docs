@@ -1,5 +1,4 @@
 ---
-# Mandatory fields.
 title: Automanage devices using Device Provisioning Service
 titleSuffix: Azure Digital Twins
 description: Learn how to set up an automated process to provision and retire IoT devices in Azure Digital Twins using Device Provisioning Service (DPS).
@@ -8,10 +7,10 @@ ms.author: baanders # Microsoft employees only
 ms.date: 11/18/2022
 ms.topic: how-to
 ms.service: digital-twins
+ms.custom: devx-track-azurecli
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 

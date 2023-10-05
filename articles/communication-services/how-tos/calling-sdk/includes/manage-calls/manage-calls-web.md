@@ -158,7 +158,7 @@ await call.muteIncomingAudio();
 await call.unmuteIncomingAudio();
 ```
 
-When incoming audio is muted, the participant will still receive the call audio (remote participant's audio). The call audio will not play in the speaker and the participant will not be able to listen until 'call.unmuteIncomingAudio()' is called. However, we can apply filter on call audio and play the filtered audio.
+When incoming audio is muted, the participant will still receive the call audio (remote participant's audio). The call audio won't play in the speaker and the participant won't be able to listen until 'call.unmuteIncomingAudio()' is called. However, we can apply filter on call audio and play the filtered audio.
 
 ## Mute other participants
 > [!NOTE]
@@ -250,7 +250,7 @@ The state can be:
     ```
     Note:
     - This property is only set when adding a remote participant via the Call.addParticipant() API, and the remote participant declines for example.
-    - In the scenario, where for example, UserB kicks UserC, from UserA's perspective, UserA will not see this flag get set for UserC. In other words UserA will not see UserC's callEndReason property get set at all.
+    - In the scenario, where for example, UserB kicks UserC, from UserA's perspective, UserA won't see this flag get set for UserC. In other words UserA won't see UserC's callEndReason property get set at all.
 
 - `isMuted` status: To find out if a remote participant is muted, check the `isMuted` property. It returns `Boolean`.
 
@@ -312,7 +312,7 @@ This returns a string representing the current state of a call:
 
 - `None`: Initial call state.
 - `Connecting`: Initial transition state when a call is placed or accepted.
-- `Ringing`: For an outgoing call, indicates that a call is ringing for remote participants. It is `Incoming` on their side.
+- `Ringing`: For an outgoing call, indicates that a call is ringing for remote participants. It's `Incoming` on their side.
 - `EarlyMedia`: Indicates a state in which an announcement is played before the call is connected.
 - `Connected`: Indicates that the call is connected.
 - `LocalHold`: Indicates that the call is put on hold by a local participant. No media is flowing between the local endpoint and remote participants.
@@ -365,3 +365,57 @@ Check is screen sharing is on. It returns `Boolean`.
 ```js
 const isScreenSharingOn = call.isScreenSharingOn;
 ```
+## Send or receive a reaction from other participants
+> [!NOTE]
+> This API is provided as a preview for developers and may change based on feedback that we receive. To use this api please use 'beta' release of Azure Communication Services Calling Web SDK version 1.18.1 or higher
+
+Within ACS you can send and receive reactions when on a group call:
+- Like :+1:
+- Love :heart:
+- Applause :clap:
+- Laugh :smile:
+- Surprise :open_mouth:
+
+To send a reaction you'll use the `sendReaction(reactionMessage)` API. To receive a reaction message will be built with Type `ReactionMessage` which uses `Reaction` enums as an attribute. 
+
+You'll need to subscribe for events which provide the subscriber event data as:
+```javascript
+export interface ReactionEventPayload {
+    /**
+     * identifier for a participant
+     */
+    identifier: CommunicationUserIdentifier | MicrosoftTeamsUserIdentifier;
+    /**
+     * reaction type received
+     */
+    reactionMessage: ReactionMessage;
+}
+```
+
+You can determine which reaction is coming from which participant with `identifier` attribute and gets the reaction type from `ReactionMessage`. 
+
+### Sample on how to send a reaction in a meeting
+```javascript
+const reaction = call.feature(SDK.Features.Reaction);
+const reactionMessage: SDK.ReactionMessage = {
+       reactionType: 'like'
+};
+await reaction.sendReaction(reactionMessage);
+```
+
+### Sample on how to receive a reaction in a meeting
+```javascript
+const reaction = call.feature(SDK.Features.Reaction);
+reaction.on('reaction', event => {
+    // user identifier
+    console.log("User Mri - " + event.identifier);
+    // received reaction
+    console.log("User Mri - " + event.reactionMessage.name);
+    // reaction message
+    console.log("reaction message - " + JSON.stringify(event.reactionMessage));
+}
+```
+
+### Key things to note about using Reactions:
+- Reactions won't work if the meeting organizer updates the meeting policy to disallow the reaction in a Teams interop call.
+- Sending of reactions doesn't work on 1:1 calls.
