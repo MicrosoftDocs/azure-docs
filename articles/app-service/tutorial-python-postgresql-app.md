@@ -613,10 +613,6 @@ In this step, you create the Azure resources and deploy a sample app to App Serv
       - Service-to-service communication with Managed Identities
     - Packages and deploys the code (`azd deploy`)
 
-1. At the end of success output, copy the link to the resource group and open it in the browser.
-
-1. Click the App Service resource.
-
 ## 2. Use the database connection string
 
 The azd template generated the connectivity variables for you already as [app settings](configure-common.md#configure-app-settings). App settings are one way to keep connection secrets out of your code repository.
@@ -661,7 +657,7 @@ App Service app has the following settings:
 
 ## 4. Generate database schema
 
-In the output, find the link to SSH to the App Service container.
+In the output, find the link to SSH to the App Service container. Select the SSH link.
 
 The following text shows an example of the link to SSH to the App Service container:
 
@@ -671,11 +667,7 @@ Open SSH session to App Service container at: https://test11-r5ez3q26g3zia-app-s
 
 With the PostgreSQL database protected by the virtual network, the easiest way to run [Flask database migrations](https://flask-migrate.readthedocs.io/en/latest/) is in an SSH session with the App Service container. 
 
-1.  Back in the App Service page, in the left menu, select **SSH**, then select **Go**.
-
-    :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-flask-1.png" alt-text="A screenshot showing how to open the SSH shell for your app from the Azure portal (Flask)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-flask-1.png":::
-
-2. In the SSH terminal, run `flask db upgrade`. If it succeeds, App Service is [connecting successfully to the database](#i-get-an-error-when-running-database-migrations).
+In the SSH terminal, run `flask db upgrade`. If it succeeds, App Service is [connecting successfully to the database](#i-get-an-error-when-running-database-migrations).
     Only changes to files in `/home` can persist beyond app restarts. Changes outside of `/home` aren't persisted.
 
     :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-flask-2.png" alt-text="A screenshot showing the commands to run in the SSH shell and their output (Flask)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-flask-2.png":::
@@ -686,12 +678,23 @@ With the PostgreSQL database protected by the virtual network, the easiest way t
 
 ## 5. Browse to the app
 
-1. In the App Service page, from the left menu, select **Overview**.
-2. Select the URL of your app. You can also navigate directly to `https://<app-name>.azurewebsites.net`. <!-- update this here to use the output -->
+1. In the output, select the URL of your app.
+
+The following text shows an example of the URL:
+
+<pre>
+...
+Deploying services (azd deploy)
+
+  (✓) Done: Deploying service web
+  - Endpoint: https://cephalin-test11-r5ez3q26g3zia-app-service.azurewebsites.net/
+
+< Output removed for brevity. >
+</pre>
 
     :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-browse-app-1.png" alt-text="A screenshot showing how to launch an App Service from the Azure portal." lightbox="./media/tutorial-python-postgresql-app/azure-portal-browse-app-1.png":::
 
-3. Add a few restaurants to the list.
+2. Add a few restaurants to the list.
     Congratulations, you're running a web app in Azure App Service, with secure connectivity to Azure Database for PostgreSQL.
 
     :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-browse-app-2.png" alt-text="A screenshot of the Flask web app with PostgreSQL running in Azure showing restaurants and restaurant reviews." lightbox="./media/tutorial-python-postgresql-app/azure-portal-browse-app-2.png":::
@@ -700,7 +703,7 @@ With the PostgreSQL database protected by the virtual network, the easiest way t
 
 Azure App Service captures all messages output to the console to help you diagnose issues with your application. The sample app includes `print()` statements to demonstrate this capability as shown below.
 
-:::code language="python" source="~/msdocs-flask-postgresql/app.py" range="37-41" highlight="3":::
+:::code language="python" source="~/msdocs-flask-postgresql-sample-app/app.py" range="37-41" highlight="3":::
 
 In the output, select the link to stream App Service logs. 
 
