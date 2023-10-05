@@ -44,7 +44,7 @@ In the current implementation, the application volume group has a focus on the i
 
 ### What snapshot policy should I use for my database volumes? 
 
-As a short answer, you can use products such as [AzAcSnap](azacsnap-introduction.md) or Commvault for an application-consistent backup for your database environment. You can't use the standard snapshots scheduled by the Azure NetApp Files built-in snapshot policy for a consistent backup.
+You can use products such as [AzAcSnap](azacsnap-introduction.md) or CommVault for an application-consistent backup for your database environment. You can't use the standard snapshots scheduled by the Azure NetApp Files built-in snapshot policy for consistent data protection.
 
 General recommendations for snapshots in a database environment are as follows:
 
@@ -115,10 +115,10 @@ Application volume group for SAP HANA was not built with a dedicated focus on mu
 The basics for multiple partitions are as follows:  
 
 * Multiple partitions mean that a single SAP HANA host is using more than one volume to store its persistence. 
-* Multiple partitions need to mount on a different path. For example, the first volume is on `/hana/data/SID/mnt00001`, and the second volume needs a different path (`/hana/data2/SID/mnt00001`). To achieve this outcome, you should adapt the naming convention manually. That is, `SID_DATA_MNT00001; SID_DATA2_MNT00001,...`.
+* Multiple partitions need to mount on a different path. For example, the first volume is on `/hana/data/SID/mnt00001`, and the second volume needs a different path (`/hana/data2/SID/mnt00001`). To achieve this outcome, you should adapt the naming convention manually. That is, `SID_DATA_MNT00001; SID_DATA2_MNT00001, ...`.
 * Memory is the key for application volume group for SAP HANA to size for capacity and throughput. As such, you need to adapt the size to accommodate the number of partitions. For two partitions, you should only use 50% of the memory. For three partitions, you should use 1/3 of the memory, and so on. 
 
-For each host and each partition you want to create, you need to rerun application volume group for SAP HANA. And you should adapt the naming proposal to meet the above recommendation.
+For each host and each partition you want to create, you need to rerun application volume group for SAP HANA. And you should adapt the naming proposal to meet the above recommendations.
 
 ### What are the rules behind the proposed throughput for my HANA data and log volumes?
 
@@ -149,7 +149,7 @@ No. This scenario is currently one of the very few cases where you need to manua
 
 ### I want to create the data-backup volume for not only a single instance but for more than one SAP HANA database. How can I do this?
 
-Log-back and data-backup volumes are optional, and they do not require close proximity. The best way to achieve the intended outcome is to remove the data-backup or log-backup volume when you create the first volume from the application volume group for SAP HANA. Then you can create your own volume as a single, independent volume using the standard volume provisioning and selecting the proper capacity and throughput that meet your needs. You should use a naming convention that indicates a data-backup volume and that it's used for multiple SIDs.
+Log-back and data-backup volumes are optional, and they do not require close proximity. The best way to achieve the intended outcome is to remove the data-backup or log-backup volume when you create the first volume from the application volume group for SAP HANA. You can then create your own volume as a single, independent volume using the standard volume provisioning and selecting the proper capacity and throughput that meet your needs. You should use a naming convention that indicates a data-backup volume and that it's used for multiple SIDs.
 
 
 ## FAQs about application volume group for Oracle
@@ -193,7 +193,7 @@ Use Oracle dNFS at the client to mount your volumes. While mounting with dNFS wo
 
 ### What snapshot policy should I use for my Oracle volumes? 
 
-This question isn't directly related to application volume group for Oracle. As a short answer, you can use products such as AzAcSnap or Commvault for an application-consistent backup for your Oracle databases. You **cannot** use the standard snapshots scheduled by the Azure NetApp Files built-in snapshot policy for a consistent backup of your Oracle database.
+This question isn't directly related to application volume group for Oracle. As a short answer, you can use products such as AzAcSnap or CommVault for an application-consistent backup for your Oracle databases. You **cannot** use the standard snapshots scheduled by the Azure NetApp Files built-in snapshot policy for consistent data protection of your Oracle database.
 General recommendations for snapshots in an Oracle environment are as follows:
 
 * Use database-aware snapshot tooling to ensure database-consistent snapshot creation.
