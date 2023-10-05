@@ -20,7 +20,7 @@ ms.author: anfdocs
 This article describes how to delete an application volume group.
 
 > [!IMPORTANT]
-> You can delete a volume group only if it contains no volumes. Before deleting a volume group, delete all volumes in the group. Otherwise, an error occurs, preventing you from deleting the volume group.  
+> You can delete a volume group only if it contains no volumes. Before deleting a volume group, delete all volumes in the group. An error occurs preventing you from deleting the volume group if it contains one or more volumes.
 
 ## Steps
 

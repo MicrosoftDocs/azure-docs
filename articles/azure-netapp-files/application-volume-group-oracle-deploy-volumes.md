@@ -51,12 +51,12 @@ You should understand the [requirements and considerations for application volum
     * **Group name / Group description**:  
         Provide the volume group name and description.
     * **Number of Oracle data volumes (1-8)**:  
-        Depending on your sizing and performance requirements of the database you may can create a minimum of 1 and up to 8 data volumes. 
+        Depending on your sizing and performance requirements of the database you can create a minimum of 1 and up to 8 data volumes. 
     * **Oracle database size in (TiB)**:   
         Specify the total capacity required for your database. If you select more than one database volume, the capacity is distributed evenly among all volumes. You may change each individual volume once the proposals have been created. See Step 8 in this article.
     * **Additional capacity for snapshots (%)**:   
         If you use snapshots for data protection, you need to plan for extra capacity. This field will add an additional size (%) for the data volume.
-    * **Oracle Throughput (MiB/s)**:   
+    * **Oracle database storage throughput (MiB/s)**:   
         Specify the total throughput required for your database. If you select more than one database volume, the throughput is distributed evenly among all volumes. You may change each individual volume once the proposals have been created. See Step in this article.
 
     Click **Next: Volume Group**.
@@ -70,7 +70,7 @@ You should understand the [requirements and considerations for application volum
     * **Availability Zone**:  
         Select the zone where Azure NetApp Files is available. In regions without zones, you can select **none**.
     * **Network features**:  
-        Select either **Basic** network or **Standard** network. Because all volumes should use the same network feature, this selection is set for each individual volume.
+        Select either **Basic** or **Standard** network features. All volumes should use the same network feature. This selection is set for each individual volume.
     * **Capacity pool**:  
         All volumes will be placed in a single manual QoS capacity pool.
     * **Virtual network**:  
@@ -78,7 +78,7 @@ You should understand the [requirements and considerations for application volum
     * **Subnet**:  
         Specify the delegated subnet where the IP addresses for the NFS exports will be created. Ensure that you have a delegated subnet with enough free IP addresses.
 
-    Click **Next: Tag**. Continue with Step 6. 
+    Click **Next: Tags**. Continue with Step 6. 
 
     [ ![Screenshot that shows the Volume Group tag for Oracle.](../media/azure-netapp-files/application-volume-group-tag-oracle.png) ](../media/azure-netapp-files/application-volume-group-tag-oracle.png#lightbox)
 
@@ -92,7 +92,7 @@ You should understand the [requirements and considerations for application volum
     > [!NOTE]
     > The use of proximity placement group requires activation and needs to be requested.
 
-    Click **Next: Tag**. 
+    Click **Next: Tags**. 
 
     [ ![Screenshot that shows the option for proximity placement group.](../media/azure-netapp-files/proximity-placement-group-oracle.png) ](../media/azure-netapp-files/proximity-placement-group-oracle.png#lightbox)
 
@@ -103,10 +103,10 @@ You should understand the [requirements and considerations for application volum
     [ ![Screenshot that shows how to add tags for Oracle.](../media/azure-netapp-files/application-add-tags-oracle.png) ](../media/azure-netapp-files/application-add-tags-oracle.png#lightbox)
 
 
-7. In the **Protocols** section of the Volume Group tab, you can select the NFS version, modify the Export Policy, and select [LDAP-enabled volume](lightweight-directory-access-protocol.md). These settings need to be common to all volumes.  
+7. In the **Protocols** section of the Volume Group tab, you can select the NFS version, modify the Export Policy, and select [LDAP-enabled volumes](configure-ldap-extended-groups.md). These settings need to be common to all volumes. 
 
     > [!NOTE]
-    > For optimal performance, use Oracle dNFS to mount the volumes at the database server. Consider using NFSv3 as a base for dNFS, although NFSv4.1 is also supported. Check the support documentation of your Azure VM operating system for guidance about which NFS protocol version to use in combination with dNFS and your operating system. 
+    > For optimal performance, use Oracle dNFS to mount the volumes at the database server. We recommend using NFSv3 as a base for dNFS, but NFSv4.1 is also supported. Check the support documentation of your Azure VM operating system for guidance about which NFS protocol version to use in combination with dNFS and your operating system. 
 
     Click **Next: Volumes**. 
 
@@ -129,7 +129,7 @@ You should understand the [requirements and considerations for application volum
     * **Throughput**:  
         You can edit the proposed throughput requirements for the selected volume.
 
-    Click **Next: Protocols** to review the protocol settings. 
+    Click **Next: Protocol** to review the protocol settings. 
 
     [ ![Screenshot that shows the Basics tab of Create a Volume Group page for Oracle.](../media/azure-netapp-files/application-create-volume-basics-tab-oracle.png) ](../media/azure-netapp-files/application-create-volume-basics-tab-oracle.png#lightbox)
 
@@ -156,16 +156,18 @@ You should understand the [requirements and considerations for application volum
     > [!IMPORTANT]    
     > You cannot add a removed volume back to the volume group again.
 
-    Click **Next: Review + Create** after completing the changes of the volumes.
+    Click **Volumes** after completing the changes of volumes.
+
+    Click **Next: Review + Create**.
 
     [ ![Screenshot that shows how to remove an optional volume for Oracle.](../media/azure-netapp-files/application-volume-remove-oracle.png) ](../media/azure-netapp-files/application-volume-remove-oracle.png#lightbox)   
 
     [ ![Screenshot that shows confirmation about removing an optional volume for Oracle.](../media/azure-netapp-files/application-volume-remove-confirm-oracle.png) ](../media/azure-netapp-files/application-volume-remove-confirm-oracle.png#lightbox)
 
 
-13.	The **Review + Create** tab lists all the volumes that will be created.  
+13.	The **Review + Create** tab lists all the volumes that will be created. The process also validates the creation.  
 
-    Click **Create Volume Group** to start the volume group creation.
+    Click **Create Volume Group** to start the volume group creation. 
 
     [ ![Screenshot that shows the Review and Create tab for Oracle.](../media/azure-netapp-files/application-review-create-oracle.png) ](../media/azure-netapp-files/application-review-create-oracle.png#lightbox)
 
@@ -174,7 +176,7 @@ You should understand the [requirements and considerations for application volum
 
     [ ![Screenshot that shows the Deployment in Progress window for Oracle.](../media/azure-netapp-files/application-deployment-in-progress-oracle.png) ](../media/azure-netapp-files/application-deployment-in-progress-oracle.png#lightbox)
 
-    Creating a volume group is an "all-or-none" operation. If one volume can't be created, all remaining volumes will be removed also.
+    Creating a volume group is an "all-or-none" operation. If one volume can't be created, the operation is cancelled, and all remaining volumes will be removed also.
 
     [ ![Screenshot that shows the new volume group for Oracle.](../media/azure-netapp-files/application-new-volume-group-oracle.png) ](../media/azure-netapp-files/application-new-volume-group-oracle.png#lightbox)
 

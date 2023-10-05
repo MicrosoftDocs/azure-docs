@@ -12,7 +12,7 @@ ms.date: 05/19/2022
 
 This article answers frequently asked questions (FAQs) about Azure NetApp Files application volume group. 
 
-## General FAQs
+## Generic FAQs
 
 ### Why should I use a manual QoS capacity pool for all of my database volumes?
 
@@ -49,7 +49,7 @@ As a short answer, you can use products such as [AzAcSnap](azacsnap-introduction
 General recommendations for snapshots in a database environment are as follows:
 
 * Closely monitor the data volume snapshots. Keeping snapshots for a long period might increase your capacity needs. Be sure to monitor the used capacity vs. allocated capacity.
-* If you automatically create snapshots for your backups, be sure to monitor their retention to avoid unpredicted volume growth.
+* If you automatically create snapshots for primary data protection, be sure to monitor their retention to avoid unpredicted volume capacity consumption.
 
 ## FAQs about application volume group for SAP HANA
 
@@ -161,6 +161,52 @@ You can use either NFSv3 or NFSv4.1. For achieve best performance for large data
 ### Where can I find the option to use proximity placement group (PPG) for deployment? 
 
 PPG imposes a lot of constraints on VM and volume placement. For Oracle, the preferred method is a zonal deployment. Contact your account team about enabling the use of PPG. 
+
+### How do I size Azure NetApp Files volumes for use with Oracle for optimal performance and cost-effectiveness?
+
+For optimal sizing it is important to size for the complete database landscape including HA, snapshots and backup. Decide your volume layout for production, HA and data protection, and perform your sizing according to [Run Your Most Demanding Oracle Workloads in Azure without Sacrificing Performance or Scalability and Estimate Tool for Sizing Oracle Workloads to Azure IaaS VMs](https://techcommunity.microsoft.com/t5/azure-architecture-blog/run-your-most-demanding-oracle-workloads-in-azure-without/ba-p/3264545). You can also use the [SAP on Azure NetApp Files Sizing Estimator](https://aka.ms/anfsapcalc) by using the **Add Single Volume** input option.
+
+Important information you need to provide for sizing each of the volumes include the following: SID, role (production, Dev, pre-prod/QA), snapshot reserve in percentage, number of days for local snapshot retention, number of file-based backups, single-host/multiple-host with the number of hosts, and Data Guard requirements (primary, secondary). Contact an Oracle on Azure NetApp Files sizing expert to help you plan the overall Oracle system sizing.
+
+### How long does it take to create a volume group for Oracle?
+
+Creating a volume group involves many different steps, and not all of them can be done in parallel. The first volume group may take 9-12 minutes for completion. Subsequent volume groups will likely be created quicker.
+
+### The mount instructions of a volume include a list of IP addresses. Which IP address should I use for Oracle?
+
+Application volume group ensures that data, log, mirror log and backup volumes have separate storage endpoints with different IP addresses to achieve best performance. Although all listed IP addresses can be used for mounting, the first listed IP address is the one that provides the lowest latency. It is recommended to always use the first IP address.
+
+### Will all the volumes be provisioned in the same availability zone as my database server for Oracle?  
+
+The deployment workflow ensures that all volumes are placed in the availability zone you have selected at time of creation, which should match the availability zone of your Oracle virtual machines. For regions that do not support availability zones, the volumes are placed with a regional scope. 
+
+### Why does application volume group for Oracle use a manual QoS capacity pool for all database volumes?
+
+Manual QoS capacity pool provides the best balance between capacity and throughput to fit the database needs. It avoids over-provisioning to reach the performance of, for example, the log volume or data volume. It can also reserve larger space for backups while keeping the performance to a value that suits your needs. Overall, using a manual QoS capacity pool results in a cost advantage.
+
+> [!NOTE]
+> Only manual QoS capacity pools will be displayed in the list of capacity pools to select from. You cannot deploy an application volume group without the presence of a manual QoS capacity pool.
+
+### What version of NFS should I use for my Oracle volumes?
+
+Use Oracle dNFS at the client to mount your volumes. While mounting with dNFS works with volumes created with NFSv3 as well as NFSv4.1, we recommend deploying the volumes using NFSv3.  Consult your client operating system and Oracle notes for more details and release dependencies. More details are found in the [Benefits of using Azure NetApp Files with Oracle Database](solutions-benefits-azure-netapp-files-oracle-database.md) and [Oracle database performance on Azure NetApp Files multiple volumes](performance-oracle-multiple-volumes.md).
+
+### What snapshot policy should I use for my Oracle volumes? 
+
+This question isn't directly related to application volume group for Oracle. As a short answer, you can use products such as AzAcSnap or Commvault for an application-consistent backup for your Oracle databases. You **cannot** use the standard snapshots scheduled by the Azure NetApp Files built-in snapshot policy for a consistent backup of your Oracle database.
+General recommendations for snapshots in an Oracle environment are as follows:
+
+* Use database-aware snapshot tooling to ensure database-consistent snapshot creation.
+* Closely monitor the data volume snapshots. Keeping snapshots for a long period might increase your capacity needs. Be sure to monitor the used capacity vs. allocated capacity.
+* If you automatically create snapshots for your backup volume, be sure to monitor their retention to avoid unpredicted volume growth.
+
+### Can Oracle ASM be used with AVG for Oracle created volumes?  
+
+The use of Oracle ASM in combination with Azure NetApp Files Application volume group for Oracle is supported, but without support for snapshot consistency across the volumes in an application volume group. Customers are advised to use other compatible data protection options when using ASM until further notice.
+
+### Why can I optionally use a proximity placement group (PPG) for Oracle deployment? 
+
+When deploying in regions with limited resource availability it may not be possible to deploy volumes in the most optimal locations. In such cases you can choose to deploy volumes using the Proximity placement group function to achieve a deployment with the best possible volume placement in the given conditions. As default setting the use of PPG is disabled. You need to request enabling the use of proximity placement groups via the support channel.
 
 
 ## Next steps  
