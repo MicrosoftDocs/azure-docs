@@ -5,7 +5,7 @@ description: Learn how to view a SKU and upgrade SKU tiers.
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 09/12/2023
+ms.date: 10/05/2023
 ms.author: cherylmc
 
 ---
@@ -32,12 +32,13 @@ When you upgrade from a Developer SKU to a dedicated deployment SKU, you need to
 
 Use the following steps to upgrade to a higher SKU.
 
-1. In the Azure portal, go to your Bastion host.
+1. In the Azure portal, go to your virtual network and add a new subnet. The subnet must be named **AzureBastionSubnet** and must be /26 or larger. (/25, /24 etc.). This subnet will be used exclusively by Azure Bastion.
+1. Next, go to the portal page for your **Bastion** host.
 1. On the **Configuration** page, for **Tier**, select a SKU.  Notice that the available features change, depending on the SKU you select. The following screenshot shows the required values.
 
    :::image type="content" source="./media/upgrade-sku/sku-values.png" alt-text="Screenshot of tier select dropdown with Standard selected." lightbox="./media/upgrade-sku/sku-values.png":::
 1. Create a new public IP address value unless you have already created one for your bastion host, in which case, select the value.
-1. Click **Manage Subnets** to add a subnet for your bastion host. The subnet name must be "AzureBastionSubnet". The subnet prefix must be at least /26 (/25, /24 etc.). Save your subnet. Using the breadcrumbs at the top of the page, go back to the Configuration page.
+1. Because you already created the AzureBastionSubnet, the **Subnet** field will automatically populate.
 1. You can add features at the same time you upgrade the SKU. You don't need to upgrade the SKU and then go back to add the features as a separate step.
 1. Select **Apply** to apply changes. The bastion host updates. This takes about 10 minutes to complete.
 

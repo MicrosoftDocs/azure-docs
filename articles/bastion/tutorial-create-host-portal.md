@@ -4,7 +4,7 @@ description: Learn how to deploy Bastion using settings that you specify - Azure
 author: cherylmc
 ms.service: bastion
 ms.topic: tutorial
-ms.date: 10/03/2023
+ms.date: 10/05/2023
 ms.author: cherylmc
 
 ---
@@ -29,7 +29,7 @@ In this tutorial, you'll learn how to:
 ## Prerequisites
 
 * If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-* A [virtual network](../virtual-network/quick-create-portal.md). This will be the VNet to which you deploy Bastion.
+* A [virtual network](../virtual-network/quick-create-portal.md). This will be the virtual network to which you deploy Bastion.
 * A virtual machine in the virtual network. This VM isn't a part of the Bastion configuration and doesn't become a bastion host. You connect to this VM later in this tutorial via Bastion. If you don't have a VM, create one using [Quickstart: Create a VM](../virtual-machines/windows/quick-create-portal.md).
 * **Required VM roles:**
 
@@ -74,7 +74,7 @@ You can use the following example values when creating this configuration, or yo
 
 ## <a name="createhost"></a>Deploy Bastion
 
-This section helps you deploy Bastion to your VNet. Once Bastion is deployed, you can connect securely to any VM in the VNet using its private IP address.
+This section helps you deploy Bastion to your virtual network. Once Bastion is deployed, you can connect securely to any VM in the virtual network using its private IP address.
 
 > [!IMPORTANT]
 > [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
@@ -86,7 +86,8 @@ This section helps you deploy Bastion to your VNet. Once Bastion is deployed, yo
 
 1. On the page for your virtual network, in the left pane, select **Bastion** to open the **Bastion** page.
 
-1. On the Bastion page, select **Configure manually**. This lets you configure specific additional settings when deploying Bastion to your VNet.
+1. On the Bastion page, expand **Dedicated Deployment Options**.
+1. Select **Configure manually**. This lets you configure specific additional settings (such as the SKU) when deploying Bastion to your virtual network.
 
    :::image type="content" source="./media/tutorial-create-host-portal/manual-configuration.png" alt-text="Screenshot of Bastion page showing configure bastion on my own." lightbox="./media/tutorial-create-host-portal/manual-configuration.png":::
 
@@ -96,13 +97,13 @@ This section helps you deploy Bastion to your VNet. Once Bastion is deployed, yo
 
    * **Region**: The Azure public region in which the resource will be created. Choose the region in which your virtual network resides.
 
-   * **Tier:** The tier is also known as the **SKU**. For this tutorial, select **Standard**. The Standard SKU lets you configure the instance count for host scaling and other features. For more information about features that require the Standard SKU, see [Configuration settings - SKU](configuration-settings.md#skus).
+   * **Tier:** The tier is also known as the **SKU**. For this tutorial, select **Standard**. For information about the features available for each SKU, see [Configuration settings - SKU](configuration-settings.md#skus).
 
-   * **Instance count:** This is the setting for **host scaling**. It's configured in scale unit increments. Use the slider or type a number to configure the instance count that you want. For this tutorial, you can select the instance count you'd prefer. For more information, see [Host scaling](configuration-settings.md#instance) and [Pricing](https://azure.microsoft.com/pricing/details/azure-bastion).
+   * **Instance count:** This is the setting for **host scaling** and is available for the Standard SKU. Host scaling is configured in scale unit increments. Use the slider or type a number to configure the instance count that you want. For this tutorial, you can select the instance count you'd prefer. For more information, see [Host scaling](configuration-settings.md#instance) and [Pricing](https://azure.microsoft.com/pricing/details/azure-bastion).
 
    :::image type="content" source="./media/tutorial-create-host-portal/instance-values.png" alt-text="Screenshot of Bastion page instance values." lightbox="./media/tutorial-create-host-portal/instance-values.png":::
 
-1. Configure the **virtual networks** settings. Select your VNet from the dropdown. If you don't see your VNet in the dropdown list, make sure you selected the correct Region in the previous settings on this page.
+1. Configure the **virtual networks** settings. Select your virtual network from the dropdown. If you don't see your virtual network in the dropdown list, make sure you selected the correct Region in the previous settings on this page.
 
 1. To configure the AzureBastionSubnet, select **Manage subnet configuration**.
 
@@ -133,7 +134,7 @@ You can use any of the following detailed articles to connect to a VM. Some conn
 
 [!INCLUDE [Links to Connect to VM articles](../../includes/bastion-vm-connect-article-list.md)]
 
-You can also use the basic [Connection steps](#steps) in the section below to connect to your VM.
+You can also use the basic [Connection steps](#steps) in the following section to connect to your VM.
 
 ### <a name="steps"></a>Connection steps
 
