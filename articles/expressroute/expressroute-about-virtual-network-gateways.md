@@ -109,6 +109,10 @@ The ExpressRoute virtual network gateway facilitates connectivity to private end
 > * Throughput and control plane capacity may be half compared to connectivity to non-private-endpoint resources.
 > * During a maintenance period, you may experience intermittent connectivity issues to private endpoint resources.
 
+### Private Endpoint Connectivity and Planned Maintenance Events
+Private endpoint connectivity is stateful. When customers connect to a Private endpoint, over ExpressRoute private peering, inbound and outbound connections are established through one of the gateway infrastructure backend instances. During a maintenance event, backend instances of the Virtual network gateway infrastucture are rebooted one-at-time, resulting in interimittent connectivity issues throughout the entire maintenance event.
+
+To reduce the impact of Private endpoint connectivity issues during a maintenance event, we recommend that customers reduce the TCP time-out value configured on the on-premises application.
 
 ## Route Server
 
