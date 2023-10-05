@@ -7,7 +7,7 @@ author: mrm9084
 ms.service: azure-app-configuration
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 09/13/2023
+ms.date: 10/05/2023
 ms.custom: devx-track-python, devx-track-extended-python
 ms.author: mametcal
 #Customer intent: As a Python developer, I want to dynamically update my app to use the latest configuration data in App Configuration.
@@ -26,9 +26,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- An Azure subscription - [create one for free](https://azure.microsoft.com/free)
-- We assume you already have an App Configuration store. To create one, [create an App Configuration store](quickstart-aspnet-core-app.md).
-- The [Azure CLI](/cli/azure/install-azure-cli)
+Finish the quickstart: [Create a Python app with Azure App Configuration](./quickstart-python-provider.md).
 
 ## Sentinel key
 
@@ -36,17 +34,19 @@ A *sentinel key* is a key that you update after you complete the change of all o
 
 The suggested usage of a sentinel key is to create a key with a value that either increments or use a timestamp.
 
-```azurecli
-az appconfig kv set --name <app-configuration-store-name> --key Sentinel --value "1"
-```
+Add the following key-value to the App Configuration store. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Create a key-value](./quickstart-azure-app-configuration-create.md#create-a-key-value).
+
+| Key            | Value             | Label       | Content type       |
+|----------------|-------------------|-------------|--------------------|
+| *Sentinel*     | *1*               | Leave empty | Leave empty        |
 
 ## Reload data from App Configuration
 
-1. Create a configurations in your App Configuration store that will be updated.
+1. Add the following key-values to the App Configuration store.
 
-    ```azurecli
-    az appconfig kv set --name <app-configuration-store-name> --key message --value "Hello World!"
-    ```
+    | Key            | Value             | Label       | Content type       |
+    |----------------|-------------------|-------------|--------------------|
+    | *message*      | *Hello*           | Leave empty | Leave empty        |
 
 1. Create a new Python file named *app.py* and add the following code:
 
@@ -68,10 +68,10 @@ az appconfig kv set --name <app-configuration-store-name> --key Sentinel --value
     print("Starting configuration values:")
     print(config["message"])
 
-    print("Updating configuration values now.")
+    print("Update the configuration setting values now! First update message value, then update the sentinel key value.")
 
     # Waiting for the refresh interval to pass
-    time.sleep(60)
+    time.sleep(120)
 
     # Refreshing the configuration setting
     config.refresh()
@@ -83,53 +83,38 @@ az appconfig kv set --name <app-configuration-store-name> --key Sentinel --value
 
 1. Run your script:
 
-    ```azurecli
+    ```console
     python app.py
     ```
 
 1. Verify Output:
 
-    ```azurecli
+    ```console
     Starting configuration values:
     Hello World!
     ```
 
-1. Update the values in your App Configuration store, making sure to update the sentinel key last.
+1. Update the following key-values to the App Configuration store.
 
-    ```azurecli
-    az appconfig kv set --name <app-configuration-store-name> --key message --value "Hello World Refreshed!"
-    az appconfig kv set --name <app-configuration-store-name> --key Sentinel --value "2"
-    ```
+    | Key            | Value                     | Label       | Content type       |
+    |----------------|---------------------------|-------------|--------------------|
+    | *message*      | *Hello World Refreshed!*  | Leave empty | Leave empty        |
+    | *Sentinel*     | *2*                       | Leave empty | Leave empty        |
 
 1. Wait for the refresh interval to pass the refresh to be called, the configuration settings will print again with new values.
 
-    ```azurecli
+    ```console
     Updated configuration values:
     Hello World Refreshed!
     ```
 
-## Web App Usage
+## Web applications
 
 The following examples show how to update an existing flask app to use refreshable configuration values.
 
-### [Django](#tab/django)
-
-Update a view endpoint to check for updated configuration values.
-
-```python
-from django.conf import settings
-
-def index(request):
-    settings.AZURE_APPCONFIGURATION.refresh()
-    # Once this returns AZURE_APPCONFIGURATION will be updated with the latest values
-    ...
-```
-
-You can find a full sample project [here](https://github.com/Azure/AppConfiguration/tree/main/examples/Python/python-django-webapp-sample).
-
 ### [Flask](#tab/flask)
 
-Update a view endpoint to check for updated configuration values.
+Update your view endpoints to check for updated configuration values.
 
 ```python
 @app.route('/')
@@ -142,7 +127,26 @@ Update a view endpoint to check for updated configuration values.
 
 You can find a full sample project [here](https://github.com/Azure/AppConfiguration/tree/main/examples/Python/python-flask-webapp-sample).
 
+### [Django](#tab/django)
+
+Update your view endpoints to check for updated configuration values.
+
+```python
+from django.conf import settings
+
+def index(request):
+    settings.AZURE_APPCONFIGURATION.refresh()
+    # Once this returns AZURE_APPCONFIGURATION will be updated with the latest values
+    ...
+```
+
+You can find a full sample project [here](https://github.com/Azure/AppConfiguration/tree/main/examples/Python/python-django-webapp-sample).
+
 ---
+
+Now whenever those endpoints are triggered, a refresh check can be made to ensure the latest configuration values are being used. This check can returns immediately if the refresh interval hasn't passed, or it something else is currently checking for or triggering a refresh.
+
+When a refresh is complete all values are updated at once, so the configuration is always consistent within the object.
 
 NOTE: If the refresh interval hasn't passed, then the refresh won't be attempted and returned right away.
 
