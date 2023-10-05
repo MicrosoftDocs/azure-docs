@@ -19,7 +19,7 @@ To transition to ContainerLogV2, we recommend the following approach.
 
 1. Learn about the feature differences between ContainerLog and ContainerLogV2
 2. Assess the impact migrating to ContainerLogV2 may have on your existing queries, alerts, or dashboards
-3. Enable the ContainerLogV2 schema through either the container insights data collection rules (DCRs) or ConfigMap
+3. [Enable the ContainerLogV2 schema](container-insights-logging-v2.md) through either the container insights data collection rules (DCRs) or ConfigMap
 4. Validate that you are now ingesting ContainerLogV2 to your Log Analytics workspace.
 
 ## ContainerLog vs ContainerLogV2 schema
@@ -28,10 +28,12 @@ The following table highlights the key differences between using ContainerLog an
 
 | Feature differences  | ContainerLog | ContainerLogV2 |
 | ------------------- | ----------------- | ------------------- |
-| Onboarding | Only configurable through the ConfigMap | Configurable through both the ConfigMap and DCR |
+| Onboarding | Only configurable through the ConfigMap | Configurable through both the ConfigMap and DCR\* |
 | Pricing | Only compatible with full-priced analytics logs | Supports the low cost basic logs tier in addition to analytics logs |
 | Querying | Requires multiple join operations with inventory tables for standard queries | Includes additional pod and container metadata to reduce query complexity and join operations |
 | Multiline | Not supported, multiline entries are split into multiple rows | Support for multiline logging to allow consolidated, single entries for multiline output |
+
+\* DCR enablement is not supported for service principal based clusters, must be enabled through the ConfigMap
 
 ## Assess the impact on existing alerts
 
