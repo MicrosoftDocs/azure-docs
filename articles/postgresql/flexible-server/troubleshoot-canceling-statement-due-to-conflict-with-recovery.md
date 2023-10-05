@@ -42,10 +42,10 @@ If a query on a read replica tries to read a row that is simultaneously being up
 3. **Off-Peak Query Execution**: Consider running heavy or long-running queries during off-peak hours to reduce the chances of a conflict.
 4. **Enable `hot_standby_feedback`**: Consider setting `hot_standby_feedback` to `on` on the read replica. When enabled, it informs the primary server about the queries currently being executed by the replica. This prevents the primary from removing rows that are still needed by the replica, reducing the likelihood of a replication conflict. This parameter is dynamic, meaning changes take effect without requiring a server restart.
 
-    **Caveats:**
-    * This setting can prevent some necessary cleanup operations on the primary, potentially leading to table bloat (increased disk space usage due to unvacuumed old row versions).
-    * Regular monitoring of the primary's disk space and table sizes is essential. Learn more about monitoring for Azure Database for PostgreSQL - Flexible Server [here](concepts-monitoring.md).
-    * Be prepared to manage potential table bloat manually if it becomes problematic. Consider enabling [autovacuum tuning](how-to-enable-intelligent-performance-portal.md) in Azure Database for PostgreSQL - Flexible Server to help mitigate this issue.
+    * **Caveats:**
+      * This setting can prevent some necessary cleanup operations on the primary, potentially leading to table bloat (increased disk space usage due to unvacuumed old row versions).
+      * Regular monitoring of the primary's disk space and table sizes is essential. Learn more about monitoring for Azure Database for PostgreSQL - Flexible Server [here](concepts-monitoring.md).
+      * Be prepared to manage potential table bloat manually if it becomes problematic. Consider enabling [autovacuum tuning](how-to-enable-intelligent-performance-portal.md) in Azure Database for PostgreSQL - Flexible Server to help mitigate this issue.
 
 
 
