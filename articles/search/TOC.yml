@@ -15,7 +15,7 @@
   items:
   - name: Full text search
     href: search-get-started-text.md
-  - name: Semantic search (preview)
+  - name: Semantic ranking
     href: search-get-started-semantic.md
   - name: Vector search (preview)
     href: search-get-started-vector.md
@@ -143,7 +143,7 @@
       href: vector-search-ranking.md
     - name: Scoring in hybrid queries (RRF)
       href: hybrid-search-ranking.md
-    - name: Semantic search
+    - name: Semantic ranking
       href: semantic-search-overview.md
   - name: Indexing
     items:
@@ -470,7 +470,7 @@
       href: index-ranking-similarity.md
     - name: Add a scoring profile
       href: index-add-scoring-profiles.md
-    - name: Enable or disable semantic search
+    - name: Enable or disable semantic ranking
       href: semantic-how-to-enable-disable.md      
     - name: Configure semantic ranking
       href: semantic-how-to-query-request.md
