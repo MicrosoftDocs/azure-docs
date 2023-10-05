@@ -110,8 +110,7 @@ Traffic analytics requires:
     | ---------------- | ---- |
     | Resource Manager | [Owner](../role-based-access-control/built-in-roles.md#owner) |
     |                  | [Contributor](../role-based-access-control/built-in-roles.md#contributor) |
-    |                  | [Network contributor](../role-based-access-control/built-in-roles.md#network-contributor) <sup>1</sup> |
-    |                  | [Monitoring contributor](../role-based-access-control/built-in-roles.md#monitoring-contributor) <sup>2</sup> |
+    |                  | [Network contributor](../role-based-access-control/built-in-roles.md#network-contributor) <sup>1</sup> and [Monitoring contributor](../role-based-access-control/built-in-roles.md#monitoring-contributor) <sup>2</sup> |
 
     If none of the preceding built-in roles are assigned to your account, assign a [custom role](../role-based-access-control/custom-roles.md?toc=/azure/network-watcher/toc.json) to your account. The custom role should support the following actions at the subscription level:
     
@@ -135,7 +134,8 @@ Traffic analytics requires:
     - `Microsoft.Insights/dataCollectionEndpoints/delete` <sup>2</sup>
 
     <sup>1</sup> Network contributor doesn't cover `Microsoft.OperationalInsights/workspaces/*` actions.
-    <sup>2</sup> Only required when using traffic analytics to analyze VNet flow logs (preview). For more information, see [Data collection rules in Azure Monitor](../azure-monitor/essentials/data-collection-rule-overview.md?toc=/azure/network-watcher/toc.json) and [Data collection endpoints in Azure Monitor](/azure-monitor/essentials/data-collection-endpoint-overview.md?toc=/azure/network-watcher/toc.json).
+
+    <sup>2</sup> Only required when using traffic analytics to analyze VNet flow logs (preview). For more information, see [Data collection rules in Azure Monitor](../azure-monitor/essentials/data-collection-rule-overview.md?toc=/azure/network-watcher/toc.json) and [Data collection endpoints in Azure Monitor](../azure-monitor/essentials/data-collection-endpoint-overview.md?toc=/azure/network-watcher/toc.json).
 
     For information about how to check user access permissions, see [Traffic analytics FAQ](traffic-analytics-faq.yml#what-are-the-prerequisites-to-use-traffic-analytics-).
 
