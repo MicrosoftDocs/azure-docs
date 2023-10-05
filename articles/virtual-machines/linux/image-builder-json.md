@@ -808,7 +808,7 @@ The `errorHandling` property allows you to configure how errors are handled duri
 }
 ```
 
-# [Bicep](#bicep)
+# [Bicep](#tab/bicep)
 
 ```bicep
 errorHandling: {
@@ -816,6 +816,7 @@ errorHandling: {
   onValidationError: 'cleanup'
 }
 ```
+
 ---
 
 - **onCustomizerError**: Specifies the action to take when an error occurs during the customizer phase of image creation.
