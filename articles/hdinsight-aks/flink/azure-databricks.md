@@ -8,14 +8,14 @@ ms.date: 10/05/2023
 
 # Incorporate Flink DataStream into Azure Databricks Delta Lake Table
 
-This example shows how to sink stream data landed into Azure ADLS gen2 from HDInsight Flink cluster on AKS applications into Delta Lake tables using Azure Databricks Auto Loader.
+This example shows how to sink stream data landed into Azure ADLS Gen2 from HDInsight Flink cluster on AKS applications into Delta Lake tables using Azure Databricks Auto Loader.
 
 ## Prerequisites
 
-- HDInsight Flink 1.16.0 on AKS
-- HDInsight Kafka 3.2.0
-- Azure Databricks in the same VNET as HDInsight on AKS
-- ADLS gen2 and Service `Principle`
+- [HDInsight Flink 1.16.0 on AKS](./flink-create-cluster-portal.md)
+- [HDInsight Kafka 3.2.0](../../hdinsight/kafka/apache-kafka-get-started.md)
+- [Azure Databricks](/azure/databricks/getting-started/) in the same VNET as HDInsight on AKS
+- [ADLS Gen2](/azure/databricks/getting-started/connect-to-azure-storage/) and Service Principal
 
 ## Azure Databricks Auto Loader
 
@@ -25,7 +25,7 @@ Here are the steps how you can use data from Flink in Azure Databricks delta liv
 
 ### Step 1: Create Kafka table on Flink SQL
 
-In this step, you can create Kafka table and ADLS gen2 on Flink SQL.
+In this step, you can create Kafka table and ADLS Gen2 on Flink SQL.
 
 ```SQL
 CREATE TABLE kafka_airplanes_state_real_time (
