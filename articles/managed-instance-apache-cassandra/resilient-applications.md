@@ -37,6 +37,19 @@ We recommend auditing `keyspaces` and their replication settings from time to ti
 
 In particular, when setting up a second data center where an existing data center already has data, it's important to determine that all the data has been replicated and the system is ready. We recommend monitoring replication progress through our [DBA commands with `nodetool netstats`](dba-commands.md#how-to-run-a-nodetool-command). An alternate approach would be to count the rows in each table, but keep in mind that with big data sizes, due to the distributed nature of Cassandra, this can only give a rough estimate.
 
+## RPO and RTO
+
+RPO (recovery point objective) and RTO (recovery time objective), will both typically be very low (close to zero) for Apache Cassandra as long as you have:
+
+- A [multi-region deployment](create-multi-region-cluster.md) with cross region replication, and a [replication factor](https://cassandra.apache.org/doc/latest/cassandra/architecture/dynamo.html#replication-strategy) of 3.
+- Enabled availability zones (select option when creating a cluster in the [portal](create-cluster-portal.md) or via [Azure CLI](create-cluster-cli.md)).
+- Configured application-level failover using load balancing policy in the [client driver](https://cassandra.apache.org/doc/latest/cassandra/getting_started/drivers.html) and/or load balancing-level failover using traffic manager/Azure front door.
+
+RTO ("how long you are down in an outage") will be low because the cluster will be resilient across both zones and regions, and because Apache Cassandra itself is a highly fault tolerant, masterless system (all nodes can write) by default. RPO ("how much data can you lose in an outage") will be low because data will be sychronised between all nodes and data centers, so data loss in an outage would be minimal. 
+
+   > [!NOTE]
+   > It is not theoretically possible to achieve both RTO=0 *and* RPO=0 per [Cap Theorem](https://en.wikipedia.org/wiki/CAP_theorem). You will need to evaluate the trade off between consistency and availability/optimal performance - this will look different for each application. For example, if your application is read heavy, it might be better to cope with increased latency of cross-region writes to avoid data loss (favoring consistency). If the appplication is write heavy, and on a tight latency budget, the risk of losing some of the most recent writes in a major regional outage might be acceptable (favoring availability). 
+
 
 ## Balancing the cost of disaster recovery
 
