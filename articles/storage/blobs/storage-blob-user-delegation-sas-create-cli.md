@@ -3,12 +3,12 @@ title: Use Azure CLI to create a user delegation SAS for a container or blob
 titleSuffix: Azure Storage
 description: Learn how to create a user delegation SAS with Azure Active Directory credentials by using Azure CLI.
 services: storage
-author: tamram
+author: akashdubey-ms
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 12/18/2019
-ms.author: tamram
+ms.author: akashdubey
 ms.reviewer: dineshm
 ms.custom: devx-track-azurecli
 ---

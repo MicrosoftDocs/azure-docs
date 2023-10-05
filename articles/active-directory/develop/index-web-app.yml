@@ -8,7 +8,7 @@ summary: >
 metadata:
   author: Dickson-Mwendia
   ms.author: dmwendia
-  ms.date: 04/28/2022
+  ms.date: 09/21/2023
   ms.service: active-directory
   ms.subservice: develop
   ms.topic: landing-page
@@ -35,7 +35,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: ASP.NET
-            url: tutorial-v2-asp-webapp.md
+            url: ./web-app-tutorial-01-register-application.md
           - text: Blazor Server
             url: tutorial-blazor-server.md
           - text: Node.js with Express

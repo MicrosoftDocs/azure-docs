@@ -2,8 +2,8 @@
 title: Use Azure Maps TypeScript REST SDK
 titleSuffix: Microsoft Azure Maps
 description: Learn about the Azure Maps TypeScript REST SDK. See how to load and use this client library to access Azure Maps REST services in web or Node.js applications.
-author: dubiety
-ms.author: yuchungchen
+author: sinnypan
+ms.author: sipa
 ms.date: 07/01/2023
 ms.topic: how-to
 ms.service: azure-maps

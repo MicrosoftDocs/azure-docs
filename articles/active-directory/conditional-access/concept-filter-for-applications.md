@@ -24,7 +24,7 @@ Application filters are a new feature for Conditional Access that allows organiz
 In this document, you create a custom attribute set, assign a custom security attribute to your application, and create a Conditional Access policy to secure the application. 
 
 > [!IMPORTANT]
-> Filter for applications is currently in public preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Filter for applications is currently in public preview. For more information about previews, see [Universal License Terms For Online Services](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all).
 
 ## Assign roles
 
@@ -32,18 +32,18 @@ Custom security attributes are security sensitive and can only be managed by del
 
 | Role name | Description |
 | --- | --- |
-| Attribute assignment administrator | Assign custom security attribute keys and values to supported Azure AD objects. |
-| Attribute assignment reader | Read custom security attribute keys and values for supported Azure AD objects. |
+| Attribute assignment administrator | Assign custom security attribute keys and values to supported Microsoft Entra objects. |
+| Attribute assignment reader | Read custom security attribute keys and values for supported Microsoft Entra objects. |
 | Attribute definition administrator | Define and manage the definition of custom security attributes. |
 | Attribute definition reader | Read the definition of custom security attributes. |
 
 1. Assign the appropriate role to the users who will manage or report on these attributes at the directory scope.
 
-    For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+    For detailed steps, see [Assign Azure roles](../../role-based-access-control/role-assignments-portal.md).
 
 ## Create custom security attributes
 
-Follow the instructions in the article, [Add or deactivate custom security attributes in Azure AD (Preview)](../fundamentals/custom-security-attributes-add.md) to add the following **Attribute set** and **New attributes**. 
+Follow the instructions in the article, [Add or deactivate custom security attributes in Microsoft Entra ID (Preview)](../fundamentals/custom-security-attributes-add.md) to add the following **Attribute set** and **New attributes**. 
 
 - Create an **Attribute set** named *ConditionalAccessTest*.
 - Create **New attributes** named *policyRequirement* that **Allow multiple values to be assigned** and **Only allow predefined values to be assigned**. We add the following predefined values:
@@ -54,7 +54,7 @@ Follow the instructions in the article, [Add or deactivate custom security attri
    - requireHybridJoinedDevice
    - requireCompliantApp
 
-:::image type="content" source="media/concept-filter-for-applications/custom-attributes.png" alt-text="A screenshot showing custom security attribute and predefined values in Azure AD." lightbox="media/concept-filter-for-applications/custom-attributes.png":::
+:::image type="content" source="media/concept-filter-for-applications/custom-attributes.png" alt-text="A screenshot showing custom security attribute and predefined values in Microsoft Entra ID." lightbox="media/concept-filter-for-applications/custom-attributes.png":::
 
 > [!NOTE] 
 > Conditional Access filters for devices only works with custom security attributes of type "string". Custom Security Attributes support creation of Boolean data type but Conditional Access Policy only supports "string".
@@ -63,8 +63,8 @@ Follow the instructions in the article, [Add or deactivate custom security attri
 
 :::image type="content" source="media/concept-filter-for-applications/edit-filter-for-applications.png" alt-text="A screenshot showing a Conditional Access policy with the edit filter window showing an attribute of require MFA." lightbox="media/concept-filter-for-applications/edit-filter-for-applications.png":::
 
-1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator.
-1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Protection** > **Conditional Access**.
 1. Select **New policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Under **Assignments**, select **Users or workload identities**.
@@ -98,8 +98,8 @@ Set up a sample application that, demonstrates how a job or a Windows service ca
 
 When you don't have a service principal listed in your tenant, it can't be targeted. The Office 365 suite is an example of one such service principal.
 
-1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator.
-1. Browse to **Azure Active Directory** > **Enterprise applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 1. Select the service principal you want to apply a custom security attribute to.
 1. Under **Manage** > **Custom security attributes (preview)**, select **Add assignment**.
 1. Under **Attribute set**, select **ConditionalAccessTest**.

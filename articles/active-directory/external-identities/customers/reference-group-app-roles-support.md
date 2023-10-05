@@ -1,6 +1,6 @@
 ---
 title: Groups and app roles support in customer tenants
-description: Find out which core Azure AD features related to the user and group management model and application assignment are available in customer tenants.
+description: Find out which core Microsoft Entra features related to the user and group management model and application assignment are available in customer tenants.
 services: active-directory
 author: msmimart
 manager: celestedg
@@ -15,7 +15,7 @@ ms.custom: it-pro
 
 # Groups and application roles support
 
-A customer tenant follows the Azure Active Directory (Azure AD) user and group management model and application assignment. Many of the core Azure AD features are being phased into customer tenants. The following table shows which features are currently available.
+A customer tenant follows the Microsoft Entra user and group management model and application assignment. Many of the core Microsoft Entra features are being phased into customer tenants. The following table shows which features are currently available.
 
 | **Feature** | **Currently available?** |
 | ------------ | --------- |

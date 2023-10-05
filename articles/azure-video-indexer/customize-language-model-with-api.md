@@ -1,20 +1,22 @@
 ---
 title: Customize a Language model with Azure AI Video Indexer API
 description: Learn how to customize a Language model with the Azure AI Video Indexer API.
-author: anikaz
-manager: johndeu
 ms.topic: article
 ms.date: 02/04/2020
+ms.custom: prevauth-anikaz
 ms.author: kumud
+author: IngridAtMicrosoft
 ---
 
 # Customize a Language model with the Azure AI Video Indexer API
+
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
 
 Azure AI Video Indexer lets you create custom Language models to customize speech recognition by uploading adaptation text, namely text from the domain whose vocabulary you'd like the engine to adapt to. Once you train your model, new words appearing in the adaptation text will be recognized.
 
 For a detailed overview and best practices for custom Language models, see [Customize a Language model with Azure AI Video Indexer](customize-language-model-overview.md).
 
-You can use the Azure AI Video Indexer APIs to create and edit custom Language models in your account, as described in this topic. You can also use the website, as described in [Customize Language model using the Azure AI Video Indexer website](customize-language-model-with-api.md).
+You can use the Azure AI Video Indexer APIs to create and edit custom Language models in your account, as described in this article. You can also use the website, as described in [Customize Language model using the Azure AI Video Indexer website](customize-language-model-with-api.md).
 
 ## Create a Language model
 
@@ -25,8 +27,8 @@ The [create a language model](https://api-portal.videoindexer.ai/api-details#api
 
 To upload files to be added to the Language model, you must upload files in the body using FormData in addition to providing values for the required parameters above. There are two ways to do this task:
 
-* Key will be the file name and value will be the txt file.
-* Key will be the file name and value will be a URL to txt file.
+* Key is the file name and value is the txt file.
+* Key is the file name and value is a URL to txt file.
 
 ### Response
 
@@ -100,7 +102,7 @@ The returned `id` is a unique ID used to distinguish between language models, wh
 
 ## Delete a Language model
 
-The [delete a language model](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Delete-Language-Model) API deletes a custom Language model from the specified account. Any video that was using the deleted Language model will keep the same index until you reindex the video. If you reindex the video, you can assign a new Language model to the video. Otherwise, Azure AI Video Indexer will use its default model to reindex the video.
+The [delete a language model](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Delete-Language-Model) API deletes a custom Language model from the specified account. Any video that was using the deleted Language model keeps the same index until you reindex the video. If you reindex the video, you can assign a new Language model to the video. Otherwise, Azure AI Video Indexer uses its default model to reindex the video.
 
 ### Response
 
@@ -115,8 +117,8 @@ The [update a Language model](https://api-portal.videoindexer.ai/api-details#api
 
 To upload files to be added to the Language model, you must upload files in the body using FormData in addition to providing values for the required parameters above. There are two ways to do this task:
 
-* Key will be the file name and value will be the txt file.
-* Key will be the file name and value will be a URL to txt file.
+* Key is the file name and value is the txt file.
+* Key is the file name and value is a URL to txt file.
 
 ### Response
 
@@ -286,7 +288,7 @@ The [download a file](https://api-portal.videoindexer.ai/api-details#api=Operati
 
 ### Response
 
-The response will be the download of a text file with the contents of the file in the JSON format.
+The response is the download of a text file with the contents of the file in the JSON format.
 
 ## Next steps
 

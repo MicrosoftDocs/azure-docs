@@ -3,10 +3,13 @@ title:  Azure AI Video Indexer terminology & concepts overview
 description: This article gives a brief overview of Azure AI Video Indexer terminology and concepts.
 ms.topic: conceptual
 ms.date: 08/02/2023
-ms.author: juliako
+ms.author: inhenkel
+author: IngridAtMicrosoft
 ---
 
-# Azure AI Video Indexer terminology & concepts 
+# Azure AI Video Indexer terminology & concepts
+
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
 
 This article gives a brief overview of Azure AI Video Indexer terminology and concepts. Also, review [transparency note overview](/legal/azure-video-indexer/transparency-note?context=/azure/azure-video-indexer/context/context)
 

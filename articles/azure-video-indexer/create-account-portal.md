@@ -2,11 +2,14 @@
 title: Create an Azure AI Video Indexer account
 description: This article explains how to create an account for Azure AI Video Indexer.
 ms.topic: tutorial
-ms.author: itnorman
 ms.date: 06/10/2022
+ms.author: itnorman
+author: IngridAtMicrosoft
 ---
  
 # Tutorial: create an ARM-based account with Azure portal
+
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
 
 [!INCLUDE [Gate notice](./includes/face-limited-access.md)]
 

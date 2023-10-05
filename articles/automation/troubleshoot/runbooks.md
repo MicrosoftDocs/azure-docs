@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Automation runbook issues
 description: This article tells how to troubleshoot and resolve issues with Azure Automation runbooks.
 services: automation
-ms.date: 03/06/2023
+ms.date: 08/18/2023
 ms.topic: troubleshooting
 ms.custom: has-adal-ref, devx-track-azurepowershell
 ---
@@ -26,12 +26,15 @@ It fails with the following error:
  
 ### Cause
 
-The naming convention is not being followed. Ensure that your runbook name starts with a letter and can contain letters, numbers, underscores, and dashes. The naming convention requirements are now being enforced starting with the Az module version 1.9 through the portal and cmdlets.
+Code that was introduced in [1.9.0](https://www.powershellgallery.com/packages/Az.Automation/1.9.0) version of the Az.Automation module verifies the names of the runbooks to start and incorrectly flags runbooks with multiple "-" characters or with an "_" character in the name as invalid. 
 
 ### Workaround
 
-We recommend that you follow the runbook naming convention or revert to [1.8.0 version](https://www.powershellgallery.com/packages/Az.Automation/1.8.0) of the module where the naming convention isn't enforced.
+We recommend that you revert to [1.8.0 version](https://www.powershellgallery.com/packages/Az.Automation/1.8.0) of the module.
 
+### Resolution
+
+Currently, we are working to deploy a fix to address this issue.
 
 ## Diagnose runbook issues
 
@@ -55,7 +58,6 @@ When you receive errors during runbook execution in Azure Automation, you can us
 
 1. If your runbook is suspended or unexpectedly fails:
 
-    * [Renew the certificate](../manage-runas-account.md#cert-renewal) if the Run As account has expired.
     * [Renew the webhook](../automation-webhooks.md#update-a-webhook) if you're trying to use an expired webhook to start the runbook.
     * [Check job statuses](../automation-runbook-execution.md#job-statuses) to determine current runbook statuses and some possible causes of the issue.
     * [Add additional output](../automation-runbook-output-and-messages.md#working-with-message-streams) to the runbook to identify what happens before the runbook is suspended.
@@ -168,10 +170,6 @@ To determine what's wrong, follow these steps:
 1. If the error appears to be transient, try adding retry logic to your authentication routine to make authenticating more robust.
 
    ```powershell
-   # Get the connection "AzureRunAsConnection"
-   $connectionName = "AzureRunAsConnection"
-   $servicePrincipalConnection = Get-AutomationConnection -Name $connectionName
-
    $logonAttempt = 0
    $logonResult = $False
 
@@ -180,11 +178,6 @@ To determine what's wrong, follow these steps:
        $LogonAttempt++
        #Logging in to Azure...
        $connectionResult = Connect-AzAccount `
-                              -ServicePrincipal `
-                              -Tenant $servicePrincipalConnection.TenantId `
-                              -ApplicationId $servicePrincipalConnection.ApplicationId `
-                              -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint
-
        Start-Sleep -Seconds 30
    }
    ```
@@ -201,7 +194,7 @@ Run Login-AzureRMAccount to login.
 
 ### Cause
 
-This error can occur when you're not using a Run As account or the Run As account has expired. For more information, see [Azure Automation Run As accounts overview](../automation-security-overview.md#run-as-accounts).
+This error can occur when you're not using a Run As account or the Run As account has expired.
 
 This error has two primary causes:
 
@@ -281,7 +274,7 @@ The runbook isn't using the correct context when running. This may be because th
 You may see errors like this one:
 
 ```error
-Get-AzVM : The client '<automation-runas-account-guid>' with object id '<automation-runas-account-guid>' does not have authorization to perform action 'Microsoft.Compute/virtualMachines/read' over scope '/subscriptions/<subcriptionIdOfSubscriptionWichDoesntContainTheVM>/resourceGroups/REsourceGroupName/providers/Microsoft.Compute/virtualMachines/VMName '.
+Get-AzVM : The client '<client-id>' with object id '<object-id> does not have authorization to perform action 'Microsoft.Compute/virtualMachines/read' over scope '/subscriptions/<subcriptionIdOfSubscriptionWichDoesntContainTheVM>/resourceGroups/REsourceGroupName/providers/Microsoft.Compute/virtualMachines/VMName '.
    ErrorCode: AuthorizationFailed
    StatusCode: 403
    ReasonPhrase: Forbidden Operation
@@ -327,7 +320,7 @@ To use a service principal with Azure Resource Manager cmdlets, see [Creating se
 Your runbook fails with an error similar to the following example:
 
 ```error
-Exception: A task was canceled.
+Exception: A task was cancelled.
 ```
 
 ### Cause
@@ -726,7 +719,7 @@ Follow [Step 5 - Add authentication to manage Azure resources](../learn/powershe
 
 #### Insufficient permissions
 
-[Add permissions to Key Vault](../manage-runas-account.md#add-permissions-to-key-vault) to ensure that your Run As account has sufficient permissions to access Key Vault.
+Add permissions to Key Vault to ensure that your Run As account has sufficient permissions to access Key Vault.
 
 ## Scenario: Runbook fails with "Parameter length exceeded" error
 

@@ -6,6 +6,7 @@ manager: CelesteDG
 ms.author: ryanwi
 ms.topic: conceptual
 ms.date: 08/10/2023
+ms.custom: AppServiceIdentity
 ---
 # Authentication scenarios and recommendations
 

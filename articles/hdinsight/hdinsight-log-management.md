@@ -9,7 +9,7 @@ ms.date: 12/07/2022
 
 # Manage logs for an HDInsight cluster
 
-An HDInsight cluster produces variois log files. For example, Apache Hadoop and related services, such as Apache Spark, produce detailed job execution logs. Log file management is part of maintaining a healthy HDInsight cluster. There can also be regulatory requirements for log archiving.  Due to the number and size of log files, optimizing log storage and archiving helps with service cost management.
+An HDInsight cluster produces various log files. For example, Apache Hadoop and related services, such as Apache Spark, produce detailed job execution logs. Log file management is part of maintaining a healthy HDInsight cluster. There can also be regulatory requirements for log archiving.  Due to the number and size of log files, optimizing log storage and archiving helps with service cost management.
 
 Managing HDInsight cluster logs includes retaining information about all aspects of the cluster environment. This information includes all associated Azure Service logs, cluster configuration, job execution information, any error states, and other data as needed.
 
@@ -154,7 +154,7 @@ For certain log files, you can use a lower-priced log file archiving approach. F
 
 :::image type="content" source="./media/hdinsight-log-management/hdi-export-log-files.png" alt-text="Azure portal export activity log preview":::
 
-Alternatively, you can script log archiving with PowerShell.  For an example PowerShell script, see [Archive Azure Automation logs to Azure Blob Storage](https://gallery.technet.microsoft.com/scriptcenter/Archive-Azure-Automation-898a1aa8).
+Alternatively, you can script log archiving with PowerShell. 
 
 ### Accessing Azure Storage metrics
 

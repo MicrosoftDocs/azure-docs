@@ -1,13 +1,13 @@
 ---
 title: Manage custom security attributes for an application (Preview)
-description: Assign, update, list, or remove custom security attributes for an application that has been registered with your Azure Active Directory (Azure AD) tenant.
+description: Assign, update, list, or remove custom security attributes for an application that has been registered with your Microsoft Entra tenant.
 services: active-directory
 author: omondiatieno
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.date: 02/28/2023
+ms.date: 10/01/2023
 ms.author: jomondi
 ms.reviewer: rolyon
 zone_pivot_groups: enterprise-apps-all
@@ -19,17 +19,17 @@ ms.custom: not-enterprise-apps
 
 > [!IMPORTANT]
 > Custom security attributes are currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> For more information about previews, see [Universal License Terms For Online Services](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all).
 
-[Custom security attributes](../fundamentals/custom-security-attributes-overview.md) in Azure Active Directory (Azure AD) are business-specific attributes (key-value pairs) that you can define and assign to Azure AD objects. For example, you can assign custom security attribute to filter your applications or to help determine who gets access. This article describes how to assign, update, list, or remove custom security attributes for Azure AD enterprise applications.
+[Custom security attributes](../fundamentals/custom-security-attributes-overview.md) in Microsoft Entra ID are business-specific attributes (key-value pairs) that you can define and assign to Microsoft Entra objects. For example, you can assign custom security attribute to filter your applications or to help determine who gets access. This article describes how to assign, update, list, or remove custom security attributes for Microsoft Entra enterprise applications.
 
 ## Prerequisites
 
-To assign or remove custom security attributes for an application in your Azure AD tenant, you need:
+To assign or remove custom security attributes for an application in your Microsoft Entra tenant, you need:
 
-- Azure AD Premium P1 or P2 license
+- Microsoft Entra ID P1 or P2 license
 - [Attribute Assignment Administrator](../roles/permissions-reference.md#attribute-assignment-administrator)
-- Make sure you have existing custom security attributes. To learn how to create a security attribute, see [Add or deactivate custom security attributes in Azure AD](../fundamentals/custom-security-attributes-add.md).
+- Make sure you have existing custom security attributes. To learn how to create a security attribute, see [Add or deactivate custom security attributes in Microsoft Entra ID](../fundamentals/custom-security-attributes-add.md).
 
 
 > [!IMPORTANT]
@@ -37,7 +37,7 @@ To assign or remove custom security attributes for an application in your Azure 
 
 ## Assign, update, list, or remove  custom attributes for an application
 
-Learn how to work with custom attributes for applications in Azure AD.
+Learn how to work with custom attributes for applications in Microsoft Entra ID.
 ### Assign custom security attributes to an application
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
@@ -45,11 +45,10 @@ Learn how to work with custom attributes for applications in Azure AD.
 
 :::zone pivot="portal"
 
-Undertake the following steps to assign custom security attributes through the Azure portal.
+Undertake the following steps to assign custom security attributes through the Microsoft Entra admin center.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. Select **Azure Active Directory**, then select **Enterprise applications**. 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as an [Attribute Assignment Administrator](../roles/permissions-reference.md#attribute-assignment-administrator). 
+1. Browse to **Identity** > **Applications** > **Enterprise applications**. 
 
 1. Find and select the application you want to add a custom security attribute to.
 
@@ -73,9 +72,8 @@ Undertake the following steps to assign custom security attributes through the A
 
 ### Update custom security attribute assignment values for an application
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. Select **Azure Active Directory**, then select **Enterprise applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as an [Attribute Assignment Administrator](../roles/permissions-reference.md#attribute-assignment-administrator). 
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 
 1. Find and select the application that has a custom security attribute assignment value you want to update.
 
@@ -93,9 +91,8 @@ Undertake the following steps to assign custom security attributes through the A
 
 You can filter the list of custom security attributes assigned to applications on the **All applications** page.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. Select **Azure Active Directory**, then select **Enterprise applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Attribute Assignment Reader](../roles/permissions-reference.md#attribute-assignment-reader). 
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 
 1. Select **Add filters** to open the Pick a field pane.
 
@@ -115,9 +112,8 @@ You can filter the list of custom security attributes assigned to applications o
 
 ### Remove custom security attribute assignments from applications
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. Select **Azure Active Directory**, then select **Enterprise applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Attribute Assignment Administrator](../roles/permissions-reference.md#attribute-assignment-administrator). 
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 
 1. Find and select the application that has the custom security attribute assignments you want to remove.
 
@@ -132,7 +128,7 @@ You can filter the list of custom security attributes assigned to applications o
 :::zone pivot="aad-powershell"
 ### PowerShell
 
-To manage custom security attribute assignments for applications in your Azure AD organization, you can use PowerShell. The following commands can be used to manage assignments.
+To manage custom security attribute assignments for applications in your Microsoft Entra organization, you can use PowerShell. The following commands can be used to manage assignments.
 
 ### Assign a custom security attribute with a multi-string value to an application (service principal)
 
@@ -187,7 +183,7 @@ Get-AzureADMSServicePrincipal -Id 7d194b0c-bf17-40ff-9f7f-4b671de8dc20  -Select 
 
 :::zone pivot="ms-powershell"
 
-To manage custom security attribute assignments for applications in your Azure AD organization, you can use Microsoft Graph PowerShell. The following commands can be used to manage assignments.
+To manage custom security attribute assignments for applications in your Microsoft Entra organization, you can use Microsoft Graph PowerShell. The following commands can be used to manage assignments.
 
 ### Assign a custom security attribute with a multi-string value to an application (service principal)
 
@@ -266,13 +262,13 @@ Update-MgServicePrincipal -ServicePrincipalId $ServicePrincipal -BodyParameter $
 
 :::zone pivot="ms-graph"
 
-To manage custom security attribute assignments for applications in your Azure AD organization, you can use the Microsoft Graph API. Make the following API calls to manage assignments.
+To manage custom security attribute assignments for applications in your Microsoft Entra organization, you can use the Microsoft Graph API. Make the following API calls to manage assignments.
 
 For other similar Microsoft Graph API examples for users, see [Assign, update, list, or remove custom security attributes for a user](../enterprise-users/users-custom-security-attributes.md#powershell-or-microsoft-graph-api) and [Examples: Assign, update, list, or remove custom security attribute assignments using the Microsoft Graph API](/graph/custom-security-attributes-examples).
 
 ### Assign a custom security attribute with a multi-string value to an application (service principal)
 
-Use the [Update servicePrincipal](/graph/api/serviceprincipal-update?view=graph-rest-beta&preserve-view=true) API to assign a custom security attribute with a string value to an application.
+Use the [Update servicePrincipal](/graph/api/serviceprincipal-update) API to assign a custom security attribute with a string value to an application.
 
 Given the values
 
@@ -282,7 +278,7 @@ Given the values
 - Attribute value: "Baker"
 
 ```http
-PATCH https://graph.microsoft.com/beta/servicePrincipals/{id}
+PATCH https://graph.microsoft.com/v1.0/servicePrincipals/{id}
 Content-type: application/json
 
 {
@@ -303,7 +299,7 @@ Content-type: application/json
 Provide the new set of attribute values that you would like to reflect on the application. In this example, we're adding one more value for project attribute.
 
 ```http
-PATCH https://graph.microsoft.com/beta/servicePrincipals/{id}
+PATCH https://graph.microsoft.com/v1.0/servicePrincipals/{id}
 Content-type: application/json
 
 {
@@ -324,7 +320,7 @@ Content-type: application/json
 This example filters a list of applications with a custom security attribute assignment that equals the specified value.
 
 ```http
-GET https://graph.microsoft.com/beta/servicePrincipals?$count=true&$select=id,displayName,customSecurityAttributes&$filter=customSecurityAttributes/Engineering/Project eq 'Baker'ConsistencyLevel: eventual
+GET https://graph.microsoft.com/v1.0/servicePrincipals?$count=true&$select=id,displayName,customSecurityAttributes&$filter=customSecurityAttributes/Engineering/Project eq 'Baker'ConsistencyLevel: eventual
 ```
 
 ### Remove custom security attribute assignments from an application
@@ -332,7 +328,7 @@ GET https://graph.microsoft.com/beta/servicePrincipals?$count=true&$select=id,di
 In this example, we remove a custom security attribute assignment that supports multiple values. 
 
 ```http
-PATCH https://graph.microsoft.com/beta/servicePrincipals/{id}
+PATCH https://graph.microsoft.com/v1.0/servicePrincipals/{id}
 Content-type: application/json
 
 {
@@ -351,6 +347,6 @@ Content-type: application/json
 
 ## Next steps
 
-- [Add or deactivate custom security attributes in Azure AD](../fundamentals/custom-security-attributes-add.md)
+- [Add or deactivate custom security attributes in Microsoft Entra ID](../fundamentals/custom-security-attributes-add.md)
 - [Assign, update, list, or remove custom security attributes for a user](../enterprise-users/users-custom-security-attributes.md)
-- [Troubleshoot custom security attributes in Azure AD](../fundamentals/custom-security-attributes-troubleshoot.md)
+- [Troubleshoot custom security attributes in Microsoft Entra ID](../fundamentals/custom-security-attributes-troubleshoot.md)

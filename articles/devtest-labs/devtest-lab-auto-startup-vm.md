@@ -4,7 +4,7 @@ description: Learn how to configure auto-start settings for VMs in a lab. This s
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 04/24/2023
+ms.date: 09/30/2023
 ms.custom: UpdateFrequency2
 ---
 

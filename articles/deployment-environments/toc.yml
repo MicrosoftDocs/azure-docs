@@ -24,8 +24,8 @@ items:
       href: concept-environments-key-concepts.md
     - name: Usage scenarios
       href: concept-environments-scenarios.md
-    - name: Deployment Environments and Dev Box components 
-      href: concept-common-components.md
+    - name: Reliability in Azure Deployment Environments
+      href: concept-environments-reliability-availability.md  
 - name: How-to guides
   expanded: true
   items:
@@ -39,10 +39,14 @@ items:
       href: how-to-configure-devcenter-environment-types.md
     - name: Add & delete project environment types
       href: how-to-configure-project-environment-types.md
+    - name: Request a quota limit increase
+      href: how-to-request-quota-increase.md  
     - name: Provide access to dev managers
       href: how-to-configure-project-admin.md
     - name: Provide access to developers
       href: how-to-configure-deployment-environments-user.md
+    - name: Authenticate to REST APIs
+      href: how-to-authenticate.md
     - name: Manage environments as a developer
       href: how-to-manage-environments.md
     - name: Install Azure CLI dev center extension

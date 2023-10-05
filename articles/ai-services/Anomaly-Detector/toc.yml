@@ -45,7 +45,7 @@
                 displayName: docker, container, alike, billing, log, mount, run, pull, port
               - name: Use container instances
                 href: how-to/deploy-anomaly-detection-on-container-instances.md
-              - name: All Azure AI services containers documentation
+              - name: All Azure AI containers documentation
                 href: ../containers/index.yml
                 maintainContext: true
     - name: Multivariate Anomaly Detection
@@ -105,7 +105,7 @@
       - name: Java
         href: https://repo1.maven.org/maven2/com/azure/azure-ai-anomalydetector
       - name: Python
-        href: https://pypi.org/project/azure-ai-anomalydetector
+        href: https://pypi.org/project/azure-ai-anomalydetector/
       - name: Node.js
         href: https://www.npmjs.com/package/@azure/ai-anomaly-detector
 - name: Resources
@@ -139,7 +139,7 @@
         - name: Introducing Azure AI Anomaly Detector API (univariate)
           href: https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162
         - name: Introducing Multivariate Anomaly Detection
-          href: https://techcommunity.microsoft.com/t5/azure-ai/introducing-multivariate-anomaly-detection/ba-p/2260679
+          href: https://techcommunity.microsoft.com/t5/azure-ai-services-blog/introducing-multivariate-anomaly-detection/ba-p/2260679
         - name: Overview of SR-CNN algorithm 
           href: https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Overview-of-SR-CNN-algorithm-in-Azure-Anomaly-Detector/ba-p/982798
         - name: Spectral Residual (SR) and Convolutional Neural Net (CNN) anomaly detection

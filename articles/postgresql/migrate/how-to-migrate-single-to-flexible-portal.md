@@ -33,7 +33,7 @@ In this tutorial, you learn to:
 
 1. Create the target flexible server. For guided steps, refer to the quickstart [Create an Azure Database for PostgreSQL flexible server using the Portal](../flexible-server/quickstart-create-server-portal.md)
 
-2. Allowlist all required extensions as shown in [Migrate from Azure Database for PostgreSQL Single Server to Flexible Server](./concepts-single-to-flexible.md#allow-list-required-extensions). It is important to allowlist the extensions before you initiate a migration using this tool.
+2. Allowlist extensions whose libraries need to be loaded at server start, by following the steps mentioned in this [doc](./concepts-single-to-flexible.md#allow-list-required-extensions). It is important to allowlist these extensions before you initiate a migration using this tool.
 
 3. Check if the data distribution among all the tables of a database is skewed with most of the data present in a single (or few) tables. If it is skewed, the migration speed could be slower than expected. In this case, the migration speed can be increased by [migrating the large table(s) in parallel](./concepts-single-to-flexible.md#improve-migration-speed---parallel-migration-of-tables).
 
@@ -77,7 +77,7 @@ After deploying the Flexible Server, follow the steps 3 to 5 under [Configure th
 
 ### Setup tab
 
-The first tab is **Setup**. Just in case you missed it, allowlist all required extensions as shown in [Migrate from Azure Database for PostgreSQL Single Server to Flexible Server](./concepts-single-to-flexible.md#allow-list-required-extensions). It is important to allowlist the extensions before you initiate a migration using this tool.
+The first tab is **Setup**. Just in case you missed it, allowlist necessary extensions as shown in [Migrate from Azure Database for PostgreSQL Single Server to Flexible Server](./concepts-single-to-flexible.md#allow-list-required-extensions). It is important to allowlist these extensions before you initiate a migration using this tool.
 
 >[!NOTE]
 > If TIMESCALEDB, POSTGIS_TOPOLOGY, POSTGIS_TIGER_GEOCODER, POSTGRES_FDW or PG_PARTMAN extensions are used in your single server database, please raise a support request since the Single to Flex migration tool will not handle these extensions.
@@ -94,7 +94,7 @@ The **Source** tab prompts you to give details related to the Single Server that
 
 :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migration-source.png" alt-text="Screenshot of source database server details." lightbox="./media/concepts-single-to-flexible/single-to-flex-migration-source.png":::
 
-After you make the **Subscription** and  **Resource Group** selections, the dropdown list for server names shows Single Servers under that resource group across regions. Select the source that you want to migrate databases from. Note that you can migrate databases from a Single Server to a target Flexible Server in the same region - cross region migrations aren't supported.
+After you make the **Subscription** and  **Resource Group** selections, the dropdown list for server names shows Single Servers under that resource group across regions. Select the source that you want to migrate databases from. Note that you can migrate databases from a Single Server to a target Flexible Server in the same region - cross region migrations are supported only in China regions.
 
 After you choose the Single Server source, the **Location**, **PostgreSQL version**, and **Server admin login name** boxes are populated automatically. The server admin login name is the admin username used to create the Single Server. In the **Password** box, enter the password for that admin user. The migration tool performs the migration of single server databases as the admin user.
 
@@ -122,7 +122,7 @@ Select the **Next** button.
 ### Review + create tab
 
 >[!NOTE]
-> Gentle reminder to allowlist the [extensions](./concepts-single-to-flexible.md#allow-list-required-extensions) before you select **Create** in case it is not yet complete.
+> Gentle reminder to allowlist necessary [extensions](./concepts-single-to-flexible.md#allow-list-required-extensions) before you select **Create** in case it is not yet complete.
 
 The **Review + create** tab summarizes all the details for creating the migration. Review the details and select the **Create** button to start the migration.
 

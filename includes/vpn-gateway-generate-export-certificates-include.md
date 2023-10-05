@@ -30,7 +30,7 @@ Use the New-SelfSignedCertificate cmdlet to create a self-signed root certificat
        NotAfter = (Get-Date).AddMonths(24)
        CertStoreLocation = 'Cert:\CurrentUser\My'
    }
-   New-SelfSignedCertificate @params
+   $cert = New-SelfSignedCertificate @params
    ```
 
 1. Leave the PowerShell console open and proceed with the next steps to generate a client certificate.
@@ -61,6 +61,7 @@ Modify and run the example to generate a client certificate. If you run the foll
        HashAlgorithm = 'sha256'
        NotAfter = (Get-Date).AddMonths(18)
        CertStoreLocation = 'Cert:\CurrentUser\My'
+       Signer = $cert
        TextExtension = @(
         '2.5.29.37={text}1.3.6.1.5.5.7.3.2')
    }
@@ -111,6 +112,7 @@ If you're creating additional client certificates, or aren't using the same Powe
        HashAlgorithm = 'sha256'
        NotAfter = (Get-Date).AddMonths(18)
        CertStoreLocation = 'Cert:\CurrentUser\My'
+       Signer = $cert
        TextExtension = @(
         '2.5.29.37={text}1.3.6.1.5.5.7.3.2')
    }

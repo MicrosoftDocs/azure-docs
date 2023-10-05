@@ -1,7 +1,7 @@
 ---
 
 title: Add users with direct licenses to group licensing
-description: How to migrate from individual user licenses to group-based licensing using Azure Active Directory
+description: How to migrate from individual user licenses to group-based licensing using Microsoft Entra ID
 services: active-directory
 keywords: Azure AD licensing
 documentationcenter: ''
@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 
 # How to migrate users with individual licenses to groups for licensing
 
-In Azure Active DIrectory (Azure AD), part of Microsoft Entra, you can have licenses deployed to users in your tenant organizations by direct assignment, using PowerShell scripts or other tools to assign individual user licenses. Before you begin using group-based licensing to manage licenses in your organization, you can use this migration plan to seamlessly replace existing solutions with group-based licensing.
+In Microsoft Entra ID, part of Microsoft Entra, you can have licenses deployed to users in your tenant organizations by direct assignment, using PowerShell scripts or other tools to assign individual user licenses. Before you begin using group-based licensing to manage licenses in your organization, you can use this migration plan to seamlessly replace existing solutions with group-based licensing.
 
 The most important thing to keep in mind is that you should avoid a situation where migrating to group-based licensing will result in users temporarily losing their currently assigned licenses. Any process that may result in removal of licenses should be avoided to remove the risk of users losing access to services and their data.
 
@@ -48,11 +48,11 @@ Consider removing the original direct assignments. We recommend that you do it g
 
 ## An example
 
-An organization has 1,000 users. All users require Office 365 Enterprise E3 licenses. Currently the organization has a PowerShell script running on premises, adding and removing licenses from users as they come and go. However, the organization wants to replace the script with group-based licensing so licenses can be managed automatically by Azure AD.
+An organization has 1,000 users. All users require Office 365 Enterprise E3 licenses. Currently the organization has a PowerShell script running on premises, adding and removing licenses from users as they come and go. However, the organization wants to replace the script with group-based licensing so licenses can be managed automatically by Microsoft Entra ID.
 
 Here is what the migration process could look like:
 
-1. Using the Azure portal, assign the Office 365 E3 license to the **All users** group in Azure AD.
+1. Using the Azure portal, assign the Office 365 E3 license to the **All users** group in Microsoft Entra ID.
 
 1. Confirm that license assignment has completed for all users. Go to the overview page for the group, select **Licenses**, and check the processing status at the top of the **Licenses** blade.
 
@@ -78,9 +78,9 @@ Here is what the migration process could look like:
 
 Learn more about other scenarios for group license management:
 
-- [What is group-based licensing in Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
-- [Assigning licenses to a group in Azure Active Directory](licensing-groups-assign.md)
-- [Identifying and resolving license problems for a group in Azure Active Directory](licensing-groups-resolve-problems.md)
-- [How to migrate users between product licenses using group-based licensing in Azure Active Directory](licensing-groups-change-licenses.md)
-- [Azure Active Directory group-based licensing additional scenarios](licensing-group-advanced.md)
-- [PowerShell examples for group-based licensing in Azure Active Directory](licensing-ps-examples.md)
+- [What is group-based licensing in Microsoft Entra ID?](../fundamentals/licensing-whatis-azure-portal.md)
+- [Assigning licenses to a group in Microsoft Entra ID](licensing-groups-assign.md)
+- [Identifying and resolving license problems for a group in Microsoft Entra ID](licensing-groups-resolve-problems.md)
+- [How to migrate users between product licenses using group-based licensing in Microsoft Entra ID](licensing-groups-change-licenses.md)
+- [Microsoft Entra group-based licensing additional scenarios](licensing-group-advanced.md)
+- [PowerShell examples for group-based licensing in Microsoft Entra ID](licensing-ps-examples.md)

@@ -1,7 +1,7 @@
 ---
 title: Create your first containerized Azure Functions on Azure Container Apps
 description: Get started with Azure Functions on Azure Container Apps by deploying your first function app from a Linux image in a container registry.
-ms.date: 05/25/2023
+ms.date: 09/12/2023
 ms.topic: quickstart
 ms.custom: build-2023, devx-track-azurecli, devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: programming-languages-set-functions
@@ -109,7 +109,7 @@ az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --envir
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
 ```console
-az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime node --image <LOGIN_SERVER>/azurefunctionsimage:v1.0.0  --registry-username <REGISTRY_NAME> --registry-password <ADMIN_PASSWORD>
+az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime node --image <LOGIN_SERVER>/azurefunctionsimage:v1.0.0 --registry-server <LOGIN_SERVER>  --registry-username <REGISTRY_NAME> --registry-password <ADMIN_PASSWORD>
 ```
 ::: zone-end
 
@@ -188,6 +188,8 @@ az group delete --name AzureFunctionsContainers-rg
 ## Next steps
 
 > [!div class="nextstepaction"]  
-> [Azure Container Apps hosting of Azure Functions](./functions-container-apps-hosting.md)  
+> [Azure Container Apps hosting of Azure Functions](./functions-container-apps-hosting.md)   
 > [!div class="nextstepaction"]  
 > [Working with containers and Azure Functions](./functions-how-to-custom-container.md)  
+> [!div class="nextstepaction"]  
+> [Help make the experience better](https://microsoft.qualtrics.com/jfe/form/SV_byFGULLJlKPh9Xw)  

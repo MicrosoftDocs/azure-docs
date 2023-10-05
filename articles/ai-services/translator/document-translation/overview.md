@@ -4,8 +4,7 @@ description: An overview of the cloud-based batch Document Translation service a
 services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.topic: overview
 ms.date: 07/18/2023
 ms.author: lajanuar
@@ -30,7 +29,7 @@ Document Translation is a cloud-based feature of the [Azure AI Translator](../tr
 
 > [!NOTE]
 > When translating documents with content in multiple languages, the feature is intended for complete sentences in a single language. If sentences are composed of more than one language, the content may not all translate into the target language.
-> For more information on input requirements, *see* [Document Transaltion request limits](../service-limits.md#document-translation)
+> For more information on input requirements, *see* [Document Translation request limits](../service-limits.md#document-translation)
 
 ## Development options
 

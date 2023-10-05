@@ -14,6 +14,8 @@ This article shows you how to quickly stand up IBM WebSphere Liberty and Open Li
 
 For step-by-step guidance in setting up Liberty and Open Liberty on Azure Red Hat OpenShift, see [Deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Red Hat OpenShift cluster](/azure/developer/java/ee/liberty-on-aro).
 
+This article is intended to help you quickly get to deployment. Before going to production, you should explore [Tuning Liberty](https://www.ibm.com/docs/was-liberty/base?topic=tuning-liberty).
+
 ## Prerequisites
 
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]

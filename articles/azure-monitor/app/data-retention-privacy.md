@@ -321,6 +321,22 @@ You can [switch off some of the data by editing ApplicationInsights.config][conf
 
 No. Data is read-only and can only be deleted via the purge functionality. To learn more, see [Guidance for personal data stored in Log Analytics and Application Insights](../logs/personal-data-mgmt.md#delete).
 
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### What happens to Application Insight telemetry when a server or device loses connection with Azure?
+
+All of our SDKs, including the web SDK, include *reliable transport* or *robust transport*. When the server or device loses connection with Azure, telemetry is [stored locally on the file system](./data-retention-privacy.md#does-the-sdk-create-temporary-local-storage) (Server SDKs) or in HTML5 Session Storage (Web SDK). The SDK periodically retries to send this telemetry until our ingestion service considers it "stale" (48 hours for logs, 30 minutes for metrics). Stale telemetry is dropped. In some cases, such as when local storage is full, retry won't occur.
+
+### Is personal data sent in the telemetry?
+
+You can send personal data if your code sends such data. It can also happen if variables in stack traces include personal data. Your development team should conduct risk assessments to ensure that personal data is properly handled. Learn more about [data retention and privacy](./data-retention-privacy.md).
+          
+*All* octets of the client web address are always set to 0 after the geolocation attributes are looked up.
+          
+The [Application Insights JavaScript SDK](./javascript.md) doesn't include any personal data in its autocompletion, by default. However, some personal data used in your application might be picked up by the SDK (for example, full names in `window.title` or account IDs in XHR URL query parameters). For custom personal data masking, add a [telemetry initializer](./api-filtering-sampling.md#javascript-web-applications).   
+
 <!--Link references-->
 
 [api]: ./api-custom-events-metrics.md

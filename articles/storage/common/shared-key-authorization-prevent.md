@@ -3,12 +3,13 @@ title: Prevent authorization with Shared Key
 titleSuffix: Azure Storage
 description: To require clients to use Azure AD to authorize requests, you can disallow requests to the storage account that are authorized with Shared Key.
 services: storage
-author: tamram
+author: akashdubey-ms
 
-ms.service: storage
+ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ms.topic: how-to
 ms.date: 06/06/2023
-ms.author: tamram
+ms.author: akashdubey
 ms.reviewer: nachakra
 ms.custom: devx-track-azurecli, engagement-fy23
 ms.devlang: azurecli
@@ -303,7 +304,7 @@ az storage container create \
 ```
 
 > [!NOTE]
-> Anonymous requests are not authorized and will proceed if you have configured the storage account and container for anonymous public read access. For more information, see [Configure anonymous public read access for containers and blobs](../blobs/anonymous-read-access-configure.md).
+> Anonymous requests are not authorized and will proceed if you have configured the storage account and container for anonymous read access. For more information, see [Configure anonymous read access for containers and blobs](../blobs/anonymous-read-access-configure.md).
 
 ## Monitor the Azure Policy for compliance
 

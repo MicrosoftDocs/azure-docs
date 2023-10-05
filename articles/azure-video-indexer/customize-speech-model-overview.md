@@ -3,15 +3,19 @@ title: Customize a speech model in Azure AI Video Indexer
 description: This article gives an overview of what is a speech model in Azure AI Video Indexer. 
 ms.topic: conceptual
 ms.date: 03/06/2023
+ms.author: inhenkel
+author: IngridAtMicrosoft
 ---
 
 # Customize a speech model
+
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
 
 [!INCLUDE [speech model](./includes/speech-model.md)]
 
 Through Azure AI Video Indexer integration with [Azure AI Speech services](../ai-services/speech-service/captioning-concepts.md), a Universal Language Model is utilized as a base model that is trained with Microsoft-owned data and reflects commonly used spoken language. The base model is pretrained with dialects and phonetics representing various common domains. The base model works well in most speech recognition scenarios. 
 
-However, sometimes the base model’s transcription doesn't accurately handle some content. In these situations, a customized speech model can be used to improve recognition of domain-specific vocabulary or pronunciation that is specific to your content by providing text data to train the model. Through the process of creating and adapting speech customization models, your content can be properly transcribed. There is no additional charge for using Video Indexers speech customization. 
+However, sometimes the base model’s transcription doesn't accurately handle some content. In these situations, a customized speech model can be used to improve recognition of domain-specific vocabulary or pronunciation that is specific to your content by providing text data to train the model. Through the process of creating and adapting speech customization models, your content can be properly transcribed. There's no additional charge for using Video Indexers speech customization. 
 
 ## When to use a customized speech model?  
 
@@ -51,8 +55,8 @@ A dataset including plain text sentences of related text can be used to improve 
 - Try to have each sentence or keyword on a separate line.  
 - To increase the weight of a term such as product names, add several sentences that include the term.  
 - For common phrases that are used in your content, providing many examples is useful because it tells the system to listen for these terms.  
-- Avoid including uncommon symbols (~, # @ % &) as they'll get discarded. The sentences in which they appear will also get discarded.   
-- Avoid putting too large inputs, such as hundreds of thousands of sentences, because doing so will dilute the effect of boosting. 
+- Avoid including uncommon symbols (~, # @ % &) as get discarded. The sentences in which they appear also get discarded.   
+- Avoid putting too large inputs, such as hundreds of thousands of sentences, because doing so dilutes the effect of boosting. 
 
 Use this table to ensure that your plain text dataset file is formatted correctly: 
 

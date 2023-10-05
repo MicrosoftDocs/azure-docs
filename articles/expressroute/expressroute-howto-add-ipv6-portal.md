@@ -84,6 +84,7 @@ While IPv6 support is available for connections to deployments in global Azure r
 * FastPath with non-ExpressRoute Direct circuits
 * FastPath with circuits in the following peering locations: Dubai
 * Coexistence with VPN Gateway for IPv6 traffic. You can still configure coexistence with VPN Gateway in a dual-stack vnet, but VPN Gateway only supports IPv4 traffic.
+* It is not possible to connect a dual-stack ExpressRoute Virtual Network Gateway to an ExpressRoute Circuit that only has IPv4 enabled on the Private Peering. IPv6 must also be enabled on the ExpressRoute Circuit object, but this does not mandate IPv6 configuration on the customer CPE device.
 
 ## Next steps
 

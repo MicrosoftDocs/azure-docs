@@ -2,8 +2,8 @@
 title: How to use the Azure Maps web map control
 titleSuffix: Microsoft Azure Maps
 description: Learn how to add and localize maps to web and mobile applications by using the Map Control client-side JavaScript library in Azure Maps. 
-author: dubiety
-ms.author: yuchungchen
+author: sinnypan
+ms.author: sipa
 ms.date: 06/29/2023
 ms.topic: how-to
 ms.service: azure-maps
@@ -16,6 +16,12 @@ ms.custom: devx-track-js
 The Azure Maps Web SDK provides a [Map Control] that enables the customization of interactive maps with your own content and imagery for display in your web or mobile applications. This module is a helper library that makes it easy to use the Azure Maps REST services in web or Node.js applications by using JavaScript or TypeScript.
 
 This article uses the Azure Maps Web SDK, however the Azure Maps services work with any map control. For a list of third-party map control plug-ins, see [Azure Maps community - Open-source projects].
+
+> [!NOTE]
+>
+> **Azure Maps Web SDK Map Control v1 retirement**
+>
+> Version 1 of the Web SDK Map Control is now deprecated and will be retired on 9/19/26. To avoid service disruptions, migrate to version 3 of the Web SDK Map Control by 9/19/26. Version 3 is backwards compatible and has several benifits including [WebGL 2 Compatibility], increased performance and support for [3D terrain tiles]. For more information, see [The Azure Maps Web SDK v1 migration guide].
 
 ## Prerequisites
 
@@ -35,8 +41,8 @@ You can embed a map in a web page by using the Map Control client-side JavaScrip
     * Use the globally hosted CDN version of the Azure Maps Web SDK by adding references to the JavaScript and `stylesheet` in the `<head>` element of the HTML file:
 
       ```html
-      <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
-      <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
+      <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.css" type="text/css">
+      <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.js"></script>
       ```
 
     * Load the Azure Maps Web SDK source code locally using the [azure-maps-control] npm package and host it with your app. This package also includes TypeScript definitions.
@@ -46,7 +52,7 @@ You can embed a map in a web page by using the Map Control client-side JavaScrip
     Then add references to the Azure Maps `stylesheet` to the `<head>` element of the file:
 
     ```html
-    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.css" type="text/css" />
      ```
 
     > [!NOTE]
@@ -153,8 +159,8 @@ You can embed a map in a web page by using the Map Control client-side JavaScrip
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
-        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.css" type="text/css">
+        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.js"></script>
 
 
         <script type="text/javascript">
@@ -228,6 +234,168 @@ Here's an example of Azure Maps with the language set to "fr-FR" and the regiona
 
 For a list of supported languages and regional views, see [Localization support in Azure Maps].
 
+## WebGL 2 Compatibility
+
+Beginning with Azure Maps Web SDK 3.0, the Web SDK includes full compatibility with [WebGL 2], a powerful graphics technology that enables hardware-accelerated rendering in modern web browsers. By using WebGL 2, developers can harness the capabilities of modern GPUs to render complex maps and visualizations more efficiently, resulting in improved performance and visual quality.
+
+![Map image showing WebGL 2 Compatibility.](./media/how-to-use-map-control/webgl-2-compatability.png)
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, user-scalable=no" />
+        <title>WebGL2 - Azure Maps Web SDK Samples</title>
+        <link href=https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.css rel="stylesheet"/>
+        <script src=https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.js></script>
+        <script src="https://unpkg.com/deck.gl@latest/dist.min.js"></script>
+        <style>
+            html,
+            body {
+                width: 100%;
+                height: 100%;
+                padding: 0;
+                margin: 0;
+            }
+            #map {
+                width: 100%;
+                height: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="map"></div>
+        <script>
+            var map = new atlas.Map("map", {
+                center: [-122.44, 37.75],
+                bearing: 36,
+                pitch: 45,
+                zoom: 12,
+                style: "grayscale_light",
+                // Get an Azure Maps key at https://azuremaps.com/.
+                authOptions: {
+                    authType: "subscriptionKey",
+                    subscriptionKey: " <Your Azure Maps Key> "
+                }
+            });
+
+            // Wait until the map resources are ready.
+            map.events.add("ready", (event) => {
+                // Create a custom layer to render data points using deck.gl
+                map.layers.add(
+                    new DeckGLLayer({
+                        id: "grid-layer",
+                        data: "https://raw.githubusercontent.com/visgl/deck.gl-data/master/website/sf-bike-parking.json",
+                        cellSize: 200,
+                        extruded: true,
+                        elevationScale: 4,
+                        getPosition: (d) => d.COORDINATES,
+                        // GPUGridLayer leverages WebGL2 to perform aggregation on the GPU.
+                        // For more details, see https://deck.gl/docs/api-reference/aggregation-layers/gpu-grid-layer
+                        type: deck.GPUGridLayer
+                    })
+                );
+            });
+
+            // A custom implementation of WebGLLayer
+            class DeckGLLayer extends atlas.layer.WebGLLayer {
+                constructor(options) {
+                    super(options.id);
+                    // Create an instance of deck.gl MapboxLayer which is compatible with Azure Maps
+                    // https://deck.gl/docs/api-reference/mapbox/mapbox-layer
+                    this._mbLayer = new deck.MapboxLayer(options);
+
+                    // Create a renderer
+                    const renderer = {
+                        renderingMode: "3d",
+                        onAdd: (map, gl) => {
+                            this._mbLayer.onAdd?.(map["map"], gl);
+                        },
+                        onRemove: (map, gl) => {
+                            this._mbLayer.onRemove?.(map["map"], gl);
+                        },
+                        prerender: (gl, matrix) => {
+                            this._mbLayer.prerender?.(gl, matrix);
+                        },
+                        render: (gl, matrix) => {
+                            this._mbLayer.render(gl, matrix);
+                        }
+                    };
+                    this.setOptions({ renderer });
+                }
+            }
+        </script>
+    </body>    
+</html>
+```
+
+## 3D terrain tiles
+
+Beginning with Azure Maps Web SDK 3.0, developers can take advantage of 3D terrain visualizations. This feature allows you to incorporate elevation data into your maps, creating a more immersive experience for your users. Whether it's visualizing mountain ranges, valleys, or other geographical features, the 3D terrain support brings a new level of realism to your mapping applications.
+
+The following code example demonstrates how to implement 3D terrain tiles.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, user-scalable=no" />
+        <title>Elevation - Azure Maps Web SDK Samples</title>
+        <link href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.css rel="stylesheet" />
+        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.js></script>
+        <style>
+            html,
+            body {
+                width: 100%;
+                height: 100%;
+                padding: 0;
+                margin: 0;
+            }
+            #map {
+                width: 100%;
+                height: 100%;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="map"></div>
+        <script>
+            var map = new atlas.Map("map", {
+                center: [-121.7269, 46.8799],
+                maxPitch: 85,
+                pitch: 60,
+                zoom: 12,
+                style: "road_shaded_relief",
+                // Get an Azure Maps key at https://azuremaps.com/.
+                authOptions: {
+                    authType: "subscriptionKey",
+                    subscriptionKey: "<Your Azure Maps Key>"
+                }
+            });
+
+            // Create a tile source for elevation data. For more information on creating
+            // elevation data & services using open data, see https://aka.ms/elevation
+            var elevationSource = new atlas.source.ElevationTileSource("elevation", {
+                url: "<tileSourceUrl>"
+            });
+
+            // Wait until the map resources are ready.
+            map.events.add("ready", (event) => {
+
+                // Add the elevation source to the map.
+                map.sources.add(elevationSource);
+
+                // Enable elevation on the map.
+                map.enableElevation(elevationSource);
+            });
+        </script>
+    </body>
+</html>
+```
+
 ## Azure Government cloud support
 
 The Azure Maps Web SDK supports the Azure Government cloud. All JavaScript and CSS URLs used to access the Azure Maps Web SDK remain the same. The following tasks need to be done to connect to the Azure Government cloud version of the Azure Maps platform.
@@ -274,6 +442,7 @@ For a list of samples showing how to integrate Azure AD with Azure Maps, see:
 > [!div class="nextstepaction"]
 > [Azure AD authentication samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)
 
+[3D terrain tiles]: #3d-terrain-tiles
 [authentication options]: /javascript/api/azure-maps-control/atlas.authenticationoptions
 [Authentication with Azure Maps]: azure-maps-authentication.md
 [Azure Maps & Azure Active Directory Samples]: https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples
@@ -283,7 +452,10 @@ For a list of samples showing how to integrate Azure AD with Azure Maps, see:
 [AzureMapsControl.Components]: https://github.com/arnaudleclerc/AzureMapsControl.Components
 [azure-maps-control]: https://www.npmjs.com/package/azure-maps-control
 [Localization support in Azure Maps]: supported-languages.md
+[Map Control]: https://www.npmjs.com/package/azure-maps-control
 [ng-azure-maps]: https://github.com/arnaudleclerc/ng-azure-maps
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
+[The Azure Maps Web SDK v1 migration guide]: web-sdk-migration-guide.md
 [Vue Azure Maps]: https://github.com/rickyruiz/vue-azure-maps
-[Map Control]: https://www.npmjs.com/package/azure-maps-control
+[WebGL 2 Compatibility]: #webgl-2-compatibility
+[WebGL 2]: https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API#webgl_2

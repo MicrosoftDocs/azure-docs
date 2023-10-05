@@ -1,4 +1,4 @@
-- name: Microsoft Entra Workload Identities documentation
+- name: Microsoft Entra Workload ID documentation
   href: index.yml
 - name: Overview
   expanded: true
@@ -34,7 +34,7 @@
       - name: Block creation of federated credentials
         href: workload-identity-federation-block-using-azure-policy.md
   - name: Create an access review
-    href: ../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json
+    href: ../privileged-identity-management/pim-create-roles-and-resource-roles-review.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json
   - name: Manage custom security attributes for an app
     href: ../manage-apps/custom-security-attributes-apps.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json
   - name: Check app health status and mitigate risk

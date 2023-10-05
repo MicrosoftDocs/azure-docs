@@ -324,7 +324,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Cognitive Search](../../search/index.yml) (formerly Azure Search) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure AI services: Computer Vision](../../ai-services/computer-vision/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure AI services: Content Moderator](../../ai-services/content-moderator/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
-| [Azure AI services containers](../../ai-services/cognitive-services-container-support.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
+| [Azure AI containers](../../ai-services/cognitive-services-container-support.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure AI services: Custom Vision](../../ai-services/custom-vision-service/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure AI services: Face](../../ai-services/computer-vision/overview-identity.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure AI services: LUIS](../../ai-services/luis/index.yml) </br> (part of [Azure AI Language](../../ai-services/language-service/index.yml)) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |

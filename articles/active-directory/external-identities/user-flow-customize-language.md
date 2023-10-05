@@ -1,6 +1,6 @@
 ---
-title: Language customization in Azure AD user flows
-description: Learn about customizing the language experience in your user flows in Azure Active Directory.
+title: Language customization in Microsoft Entra user flows
+description: Learn about customizing the language experience in your user flows in Microsoft Entra External ID.
 services: active-directory
 author: msmimart
 manager: celestedg
@@ -16,9 +16,12 @@ ms.custom: engagement-fy23
 # Customer intent: As a tenant administrator, I want to modify the user flow language, when the users are signing up via the self-service sign-up user flow.
 ---
 
-# Language customization in Azure Active Directory
+# Language customization in Microsoft Entra External ID
 
-Language customization in Azure Active Directory (Azure AD) allows your user flow to accommodate different languages to suit your user's needs. Microsoft provides the translations for [36 languages](#supported-languages). In this article, you'll learn how to customize the attribute names on the [attribute collection page](self-service-sign-up-user-flow.md#select-the-layout-of-the-attribute-collection-form), even if your experience is provided for only a single language.
+> [!TIP]
+> This article applies to B2B collaboration user flows. If your tenant is configured for customer identity and access management, see [Customize the language of the authentication experience](customers/how-to-customize-languages-customers.md) for customers.
+
+Language customization in Microsoft Entra External ID allows your user flow to accommodate different languages to suit your user's needs. Microsoft provides the translations for [36 languages](#supported-languages). In this article, you'll learn how to customize the attribute names on the [attribute collection page](self-service-sign-up-user-flow.md#select-the-layout-of-the-attribute-collection-form), even if your experience is provided for only a single language.
 
 ## How language customization works
 
@@ -30,15 +33,13 @@ By default, language customization is enabled for users signing up to ensure a c
 
 Language customization enables you to customize any string in your user flow.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
-2. Under **Azure services**, select **Azure Active Directory**.
-3. In the left menu, select **External Identities**.
-4. Select **User flows**.
-3. Select the user flow that you want to enable for translations.
-4. Select **Languages**.
-5. On the **Languages** page for the user flow, select the language that you want to customize.
-6. Expand **Attribute collection page**.
-7. Select **Download defaults** (or **Download overrides** if you've previously edited this language).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [External ID User Flow Administrator](../roles/permissions-reference.md#external-id-user-flow-administrator).
+1. Browse to **Identity** > **External Identities** > **User flows**.
+1. Select the user flow that you want to enable for translations.
+1. Select **Languages**.
+1. On the **Languages** page for the user flow, select the language that you want to customize.
+1. Expand the **Attribute collection page**.
+1. Select **Download defaults** (or **Download overrides** if you've previously edited this language).
 
 These steps give you a JSON file that you can use to start editing your strings.
 
@@ -143,7 +144,7 @@ Chrome and Firefox both request for their set language. If it's a supported lang
 
 ## Supported languages
 
-Azure AD includes support for the following languages. User flow languages are provided by Azure AD. The multi-factor authentication (MFA) notification languages are provided by [Azure AD MFA](../authentication/concept-mfa-howitworks.md).
+Microsoft Entra External ID includes support for the following languages. User flow languages are provided by Microsoft Entra External ID. The multifactor authentication notification languages are provided by [Microsoft Entra multifactor authentication](../authentication/concept-mfa-howitworks.md).
 
 | Language              | Language code | User flows         | MFA notifications  |
 |-----------------------| :-----------: | :----------------: | :----------------: |

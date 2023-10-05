@@ -6,16 +6,17 @@ ms.topic: include
 ms.date: 05/02/2023
 ---
 
-At this time, a test or preview build is not available for the next release.
-
 <!--
 
-Aug 2023 preview release is now available.
+At this time, a test or preview build is not available for the next release.
+ -->
+ 
+Oct 2023 preview release is now available.
 
 |Component|Value|
 |-----------|-----------|
 |Container images registry/repository |`mcr.microsoft.com/arcdata/preview`|
-|Container images tag |`v1.22.0_2023-08-08`|
+|Container images tag |`v1.24.0_2023-10-10`|
 |**CRD names and version:**| |
 |`activedirectoryconnectors.arcdata.microsoft.com`| v1beta1, v1beta2, v1, v2|
 |`datacontrollers.arcdata.microsoft.com`| v1beta1, v1 through v5|
@@ -32,17 +33,17 @@ Aug 2023 preview release is now available.
 |`telemetrycollectors.arcdata.microsoft.com`| v1beta1 through v1beta5|
 |`telemetryrouters.arcdata.microsoft.com`| v1beta1 through v1beta5|
 |Azure Resource Manager (ARM) API version|2023-01-15-preview|
-|`arcdata` Azure CLI extension version|1.5.4 ([Download](https://aka.ms/az-cli-arcdata-ext))|
-|Arc-enabled Kubernetes helm chart extension version|1.22.0|
+|`arcdata` Azure CLI extension version|1.5.6 ([Download](https://aka.ms/az-cli-arcdata-ext))|
+|Arc-enabled Kubernetes helm chart extension version|1.24.0|
 |Azure Arc Extension for Azure Data Studio<br/>`arc`<br/>`azcli`|<br/>1.8.0 ([Download](https://aka.ms/ads-arcdata-ext))</br>1.8.0 ([Download](https://aka.ms/ads-azcli-ext))|
 |SQL Database version | 957 |
 
+
+
 ### Release notes
 
-- Arc Enabled SQL Server | Automatic certificate rotation for certificates used for Azure Active Directory authentication is now supported.
-    - For Service Managed Certificates the certificate rotation is automatic.
-    - For Customer Managed Certificates user needs to upload the certificate to App Registration manually.
-- Support for configuring and managing Azure Failover groups between two Arc enabled SQL managed instances using Azure portal. 
-- Upgraded OpenSearch and OpenSearch Dashboards from 2.7.0 to 2.8.0
-
--->
+- Arc SQL Server | Arc enable SQL Server FCI - General Support | Public Preview
+- Arc SQL Server | Arc enable SQL Server FCI - DB Inventory | Public Preview
+- Arc SQL Server | Arc enable SQL Server FCI - Defender | Public Preview
+- Arc SQL Server | Point-in-time restore | Private Preview
+- Arc SQL Server | Billing | Enable ESU for FCI clusters | GA

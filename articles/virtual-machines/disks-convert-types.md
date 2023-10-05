@@ -5,7 +5,7 @@ author: roygara
 ms.service: azure-disk-storage
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 08/08/2023
+ms.date: 08/18/2023
 ms.author: rogarana
 ---
 
@@ -13,7 +13,7 @@ ms.author: rogarana
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows 
 
-There are five disk types of Azure managed disks: Azure Ultra Disks, Premium SSD v2, premium SSD, Standard SSD, and Standard HDD. You can easily switch between Premium SSD, Standard SSD, and Standard HDD based on your performance needs. You aren't yet able to switch from or to an Ultra Disk or a Premium SSD v2, you must deploy a new one.
+There are five disk types of Azure managed disks: Azure Ultra Disks, Premium SSD v2, premium SSD, Standard SSD, and Standard HDD. You can easily switch between Premium SSD, Standard SSD, and Standard HDD based on your performance needs. Premium SSD and Standard SSD are also available with [Zone-redundant storage](disks-redundancy.md#zone-redundant-storage-for-managed-disks). You aren't yet able to switch from or to an Ultra Disk or a Premium SSD v2, you must deploy a new one.
 
 This functionality isn't supported for unmanaged disks. But you can easily convert an unmanaged disk to a managed disk with [CLI](linux/convert-unmanaged-to-managed-disks.md) or [PowerShell](windows/convert-unmanaged-to-managed-disks.md) to be able to switch between disk types.
 
@@ -27,7 +27,7 @@ Because conversion requires a restart of the virtual machine (VM), schedule the 
 - You can only change disk type twice per day.
 - You can only change the disk type of managed disks. If your disk is unmanaged, convert it to a managed disk with [CLI](linux/convert-unmanaged-to-managed-disks.md) or [PowerShell](windows/convert-unmanaged-to-managed-disks.md) to switch between disk types.
 
-## Switch all managed disks of a VM between from one account to another
+## Switch all managed disks of a VM from one account to another
 
 This example shows how to convert all of a VM's disks to premium storage. However, by changing the $storageType variable in this example, you can convert the VM's disks type to standard SSD or standard HDD. To use Premium managed disks, your VM must use a [VM size](sizes.md) that supports Premium storage. This example also switches to a size that supports premium storage:
 
@@ -40,7 +40,7 @@ $rgName = 'yourResourceGroup'
 # Name of the your virtual machine
 $vmName = 'yourVM'
 
-# Choose between Standard_LRS, StandardSSD_LRS and Premium_LRS based on your scenario
+# Choose between Standard_LRS, StandardSSD_LRS, StandardSSD_ZRS, Premium_ZRS, and Premium_LRS based on your scenario
 $storageType = 'Premium_LRS'
 
 # Premium capable size
@@ -87,7 +87,7 @@ vmName='yourVM'
 #Required only if converting from Standard to Premium
 size='Standard_DS2_v2'
 
-#Choose between Standard_LRS, StandardSSD_LRS and Premium_LRS based on your scenario
+#Choose between Standard_LRS, StandardSSD_LRS, StandardSSD_ZRS, Premium_ZRS, and Premium_LRS based on your scenario
 sku='Premium_LRS'
 
 #Deallocate the VM before changing the size of the VM
@@ -124,7 +124,7 @@ For your dev/test workload, you might want a mix of Standard and Premium disks t
 $diskName = 'yourDiskName'
 # resource group that contains the managed disk
 $rgName = 'yourResourceGroupName'
-# Choose between Standard_LRS, StandardSSD_LRS and Premium_LRS based on your scenario
+# Choose between Standard_LRS, StandardSSD_LRS, StandardSSD_ZRS, Premium_ZRS, and Premium_LRS based on your scenario
 $storageType = 'Premium_LRS'
 # Premium capable size 
 $size = 'Standard_DS2_v2'
@@ -169,7 +169,7 @@ diskName='yourManagedDiskName'
 #Required only if converting from Standard to Premium
 size='Standard_DS2_v2'
 
-#Choose between Standard_LRS, StandardSSD_LRS and Premium_LRS based on your scenario
+#Choose between Standard_LRS, StandardSSD_LRS, StandardSSD_ZRS, Premium_ZRS, and Premium_LRS based on your scenario
 sku='Premium_LRS'
 
 #Get the parent VM Id 

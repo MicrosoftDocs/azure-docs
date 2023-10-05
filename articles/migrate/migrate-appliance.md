@@ -6,7 +6,7 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 12/12/2022
+ms.date: 08/22/2023
 ms.custom: engagement-fy23
 ---
 
@@ -67,7 +67,7 @@ The following table summarizes the Azure Migrate appliance requirements for VMwa
 **Project limits** |  An appliance can only be registered with a single project.<br> A single project can have multiple registered appliances.
 **Discovery limits** | An appliance can discover up to 10,000 severs running across multiple vCenter Servers.<br>A single appliance can connect to up to 10 vCenter Servers.
 **Supported deployment** | Deploy as new server running on vCenter Server using OVA template.<br><br> Deploy on an existing server running Windows Server 2022 using PowerShell installer script.
-**OVA template** | Download from project or from [here](https://go.microsoft.com/fwlink/?linkid=2140333)<br><br> Download size is 11.9 GB.<br><br> The downloaded appliance template comes with a Windows Server 2022 evaluation license, which is valid for 180 days.<br>If the evaluation period is close to expiry, we recommend that you download and deploy a new appliance using OVA template, or you activate the operating system license of the appliance server.
+**OVA template** | Download from project or from [here](https://go.microsoft.com/fwlink/?linkid=2191954).<br><br> Download size is 11.9 GB.<br><br> The downloaded appliance template comes with a Windows Server 2022 evaluation license, which is valid for 180 days.<br>If the evaluation period is close to expiry, we recommend that you download and deploy a new appliance using OVA template, or you activate the operating system license of the appliance server.
 **OVA verification** | [Verify](tutorial-discover-vmware.md#verify-security) the OVA template downloaded from project by checking the hash values.
 **PowerShell script** | Refer to this [article](./deploy-appliance-script.md#set-up-the-appliance-for-vmware) on how to deploy an appliance using the PowerShell installer script.<br/><br/> 
 **Hardware and network requirements** |  The appliance should run on server with Windows Server 2022, 32-GB RAM, 8 vCPUs, around 80 GB of disk storage, and an external virtual switch.<br/> The appliance requires internet access, either directly or through a proxy.<br/><br/> If you deploy the appliance using OVA template, you need enough resources on the vCenter Server to create a server that meets the hardware requirements.<br/><br/> If you run the appliance on an existing server, make sure that it is running Windows Server 2022, and meets hardware requirements.<br/>_(Currently the deployment of appliance is only supported on Windows Server 2022.)_

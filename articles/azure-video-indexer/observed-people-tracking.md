@@ -3,10 +3,13 @@ title: Track observed people in a video
 description: This topic gives an overview of Track observed people in a video concept.
 ms.topic: how-to
 ms.date: 08/07/2023
-ms.author: juliako
+ms.author: inhenkel
+author: IngridAtMicrosoft
 ---
 
-# Track observed people in a video (preview)
+# Track observed people in a video
+
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
 
 Azure AI Video Indexer detects observed people in videos and provides information such as the location of the person in the video frame and the exact timestamp (start, end) when a person appears. The API returns the bounding box coordinates (in pixels) for each person instance detected, including detection confidence.  
  

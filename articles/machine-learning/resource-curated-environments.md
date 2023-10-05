@@ -9,7 +9,7 @@ ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.date: 10/21/2021
+ms.date: 09/10/2023
 monikerRange: 'azureml-api-1 || azureml-api-2'
 ---
 

@@ -32,9 +32,9 @@ sections:
         answer: |
           The latest pricing details can be found on the [Notification Hubs Pricing](https://azure.microsoft.com/pricing/details/notification-hubs/) page. Notification Hubs is billed at the namespace level. (For the definition of a namespace, see "What is the resource structure of Notification Hubs?") Notification Hubs offers three tiers:
           
-          * **Free**: This tier is a good starting point for exploring push capabilities. It's not recommended for production apps. You get 500 devices and 1 million pushes included per namespace per month, with no service level agreement (SLA) guarantee.
-          * **Basic**: This tier (or the Standard tier) is recommended for smaller production apps. You get 200,000 devices and 10 million pushes included per namespace per month as a baseline.
-          * **Standard**: This tier is recommended for medium to large production apps. You get 10 million devices and 10 million pushes included per namespace per month as a baseline. Includes rich telemetry (additional data about push status provided).
+          * **Free**: This tier is a good starting point for exploring push capabilities. It's not recommended for production apps. You get 500 devices and 1 million pushes included per subscription per month, with no service level agreement (SLA) guarantee.
+          * **Basic**: This tier (or the Standard tier) is recommended for smaller production apps. You get 200,000 devices and 10 million pushes included per subscription per month as a baseline.
+          * **Standard**: This tier is recommended for medium to large production apps. You get 10 million devices and 10 million pushes included per subscription per month as a baseline. Includes rich telemetry (additional data about push status provided).
           
           Standard tier features:
           

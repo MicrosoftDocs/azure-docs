@@ -3,22 +3,18 @@ title: Use Confidential Virtual Machines (CVM) in Azure Kubernetes Service (AKS)
 description: Learn how to create Confidential Virtual Machines (CVM) node pools with Azure Kubernetes Service (AKS)
 ms.topic: article
 ms.custom: ignite-2022
-ms.date: 05/08/2023
+ms.date: 08/14/2023
 ---
 
 # Use Confidential Virtual Machines (CVM) in Azure Kubernetes Service (AKS) cluster
 
 You can use [confidential VM sizes (DCav5/ECav5)][cvm-announce] to add a node pool to your AKS cluster with CVM. Confidential VMs with AMD SEV-SNP support bring a new set of security features to protect data-in-use with full VM memory encryption. These features enable node pools with CVM to target the migration of highly sensitive container workloads to AKS without any code refactoring while benefiting from the features of AKS. The nodes in a node pool created with CVM use a customized Ubuntu 20.04 image specially configured for CVM. For more details on CVM, see [Confidential VM node pools support on AKS with AMD SEV-SNP confidential VMs][cvm].
 
-Adding a node pool with CVM to your AKS cluster is currently in preview.
-
 ## Before you begin
 
 Before you begin, make sure you have the following:
 
-- An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
-- [Azure CLI installed](/cli/azure/install-azure-cli).
-- An existing AKS cluster in the *westus*, *eastus*, *westeurope*, or *northeurope* region.
+- An existing AKS cluster.
 - The [DCasv5 and DCadsv5-series][cvm-subs-dc] or [ECasv5 and ECadsv5-series][cvm-subs-ec] SKUs available for your subscription.
 
 ## Limitations
