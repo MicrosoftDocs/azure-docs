@@ -10,6 +10,7 @@ ms.topic: reference
 ms.custom:
   - mvc
   - ignite-2022
+  - sql-migration-content
 ---
 
 # Services and tools available for data migration scenarios

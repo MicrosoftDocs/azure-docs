@@ -100,6 +100,7 @@ var recognizeResult = await callAutomationClient.GetCallConnection(callConnectio
   .GetCallMedia()
   .StartRecognizingAsync(recognizeOptions);
 ```
+For speech-to-text flows, Call Automation recognize action also supports the use of custom speech models. Features like custom speech models can be useful when you're building an application that needs to listen for complex words which the default speech-to-text models may not be capable of understanding, a good example of this can be when you're building an application for the telemedical industry and your virtual agent needs to be able to recognize medical terms. You can learn more about creating and deploying custom speech models [here](../../../../ai-services/speech-service/how-to-custom-speech-create-project.md).
 
 ### Speech-to-Text Choices (Public Preview)
 ``` csharp
@@ -126,7 +127,9 @@ var recognizeOptions = new CallMediaRecognizeChoiceOptions(targetParticipant, ch
   InterruptPrompt = true,
     InitialSilenceTimeout = TimeSpan.FromSeconds(30),
     Prompt = playSource,
-    OperationContext = "AppointmentReminderMenu"
+    OperationContext = "AppointmentReminderMenu",
+    //Only add the SpeechModelEndpointId if you have a custom speech model you would like to use
+    SpeechModelEndpointId = "YourCustomSpeechModelEndpointId"
 };
 var recognizeResult = await callAutomationClient.GetCallConnection(callConnectionId)
   .GetCallMedia()
@@ -141,7 +144,9 @@ var playSource = new TextSource(textToPlay, "en-US-ElizabethNeural");
 var recognizeOptions = new CallMediaRecognizeSpeechOptions(targetParticipant) {
   Prompt = playSource,
     EndSilenceTimeout = TimeSpan.FromMilliseconds(1000),
-    OperationContext = "OpenQuestionSpeech"
+    OperationContext = "OpenQuestionSpeech",
+    //Only add the SpeechModelEndpointId if you have a custom speech model you would like to use
+    SpeechModelEndpointId = "YourCustomSpeechModelEndpointId"
 };
 var recognizeResult = await callAutomationClient.GetCallConnection(callConnectionId)
   .GetCallMedia()
@@ -160,7 +165,9 @@ var recognizeOptions = new CallMediaRecognizeSpeechOrDtmfOptions(targetParticipa
     EndSilenceTimeout = TimeSpan.FromMilliseconds(1000), 
     InitialSilenceTimeout = TimeSpan.FromSeconds(30), 
     InterruptPrompt = true, 
-    OperationContext = "OpenQuestionSpeechOrDtmf" 
+    OperationContext = "OpenQuestionSpeechOrDtmf",
+    //Only add the SpeechModelEndpointId if you have a custom speech model you would like to use
+    SpeechModelEndpointId = "YourCustomSpeechModelEndpointId" 
 }; 
 var recognizeResult = await callAutomationClient.GetCallConnection(callConnectionId) 
     .GetCallMedia() 
