@@ -47,7 +47,7 @@ This tutorial uses on-time performance flight data for January 2016 from the Bur
 
 2. Unzip the contents of the zipped file and make a note of the file name and the path of the file. You need this information in a later step.
 
-If you want to learn about the information captured in the on-time reporting performance data, you can see the [field descriptions](https://www.transtats.bts.gov/Fields.asp?gnoyr_VQ=FGJ) on the Burea of Transportation Statistics website.  
+If you want to learn about the information captured in the on-time reporting performance data, you can see the [field descriptions](https://www.transtats.bts.gov/Fields.asp?gnoyr_VQ=FGJ) on the Bureau of Transportation Statistics website.  
 
 ## Create an Azure Databricks workspace, cluster, and notebook
 
@@ -57,15 +57,15 @@ If you want to learn about the information captured in the on-time reporting per
 
 3. Create a notebook. See [Create a notebook](/azure/databricks/notebooks/notebooks-manage#--create-a-notebook). Choose Python as the default language of the notebook.
 
-Leave your notebuook open. You'll use it in the following sections.
+Keep your notebook open. You use it in the following sections.
 
 ## Ingest data
 
 ### Upload the flight data into your storage account
 
-Use AzCopy to copy data from your *.csv* file into your Data Lake Storage Gen2 account. You'll use the `azcopy make` command to create a container in your storage account. Then you'll use the `azcopy copy` command to copy the *csv* data you just downloaded to a directory in that container.
+Use AzCopy to copy data from your *.csv* file into your Data Lake Storage Gen2 account. You use the `azcopy make` command to create a container in your storage account. Then you use the `azcopy copy` command to copy the *csv* data you just downloaded to a directory in that container.
 
-In the following steps, you'll need to enter names for the container you want to create, and the directory and blob that you want to upload the flight data to in the container. You can use the suggested names in each step or specify your own observing the [naming conventions for containers, directories, and blobs](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
+In the following steps, you need to enter names for the container you want to create, and the directory and blob that you want to upload the flight data to in the container. You can use the suggested names in each step or specify your own observing the [naming conventions for containers, directories, and blobs](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
 1. Open a command prompt window, and enter the following command to log in Azure Active Directory to access your storage account.
 
@@ -85,7 +85,7 @@ In the following steps, you'll need to enter names for the container you want to
 
    - Replace the `<container-name>` placeholder with a name for the container you want to create to store the *csv* data; for example, *flight-data-container*.
 
-1. To uplaod (copy) the *csv* data to your storage account, enter the following command.
+1. To upload (copy) the *csv* data to your storage account, enter the following command.
 
    ```bash
    azcopy copy "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<container-name>/<folder-name>/On_Time.csv
@@ -101,11 +101,11 @@ In the following steps, you'll need to enter names for the container you want to
 
 ### Mount your Azure Datalake Gen2 storage account to your Databricks cluster
 
-In this section, you'll mount your ADLS Gen 2 cloud object storage to the Databricks File System (DBFS). You'll use the Azure AD service principle you created previously for authentication with the storage account.
+In this section, you mount your ADLS Gen 2 cloud object storage to the Databricks File System (DBFS). You use the Azure AD service principle you created previously for authentication with the storage account.
 
-The commands in this section will make the container and directory in your storage account accessible in your cluster through the mount point */mnt/flightdata*. For more information, see [Mounting clould object storate on Azure Databricks](/azure/databricks/dbfs/mounts).
+The commands in this section make the container and directory in your storage account accessible in your cluster through the mount point */mnt/flightdata*. For more information, see [Mounting cloud object storage on Azure Databricks](/azure/databricks/dbfs/mounts).
 
-To run the commands, you'll need:
+To run the commands, you need:
 
 - The name of the storage account you created in the prerequisites.
 - The application ID, tenant ID, and client secret you copied when you created the service principal and granted it access to your storage account in the prerequisites.
@@ -134,8 +134,6 @@ To run the commands, you'll need:
 4. In this code block, replace the `<appId>`, `<clientSecret>`, `<tenantId>`, and `<storage-account-name>` placeholder values in this code block with the values that you collected while completing the prerequisites of this tutorial. Replace the `<container-name>` and `<directory-name>` placeholder values with the name of the container and directory you specified when you uploaded the flight data to your storage account.
 
 5. Press the **SHIFT + ENTER** keys to run the code in this block.
-
-   Keep this notebook open as you will add commands to it in the following sections.
 
 ### Use Databricks Notebook to convert CSV to Parquet
 
@@ -202,10 +200,10 @@ flight_df = spark.read.format('parquet').options(
     header='true', inferschema='true').load("/mnt/flightdata/parquet/flights")
 
 # print the schema of the dataframe
-flightDF.printSchema()
+flight_df.printSchema()
 
 # print the flight database size
-print("Number of flights in the database: ", flightDF.count())
+print("Number of flights in the database: ", flight_df.count())
 
 # show the first 20 rows (20 is the default)
 # to show the first n rows, run: df.show(n)
@@ -213,7 +211,7 @@ flight_df.show(100, False)
 
 # Display to run visualizations
 # preferably run this in a separate cmd cell
-display(flight_df_)
+display(flight_df)
 ```
 
 Enter this script to run some basic analysis queries against the data.
@@ -226,11 +224,11 @@ flight_data.createOrReplaceTempView('FlightTable')
 
 # using spark sql, query the parquet file to return total flights in January and February 2016
 jan2016_flights = spark.sql("SELECT * FROM FlightTable WHERE Month=1 and Year= 2016")
-num_Jan2016_flights = jan2016_flights.count()
+num_jan2016_flights = jan2016_flights.count()
 feb2016_flights = spark.sql("SELECT * FROM FlightTable WHERE Month=2 and Year= 2016")
 num_feb2016_flights = feb2016_flights.count()
 print("Jan 2016: ", num_jan2016_flights, " Feb 2016: ", num_feb2016_flights)
-total = num_Jjn2016_flights+num_feb2016_flights
+total = num_jan2016_flights+num_feb2016_flights
 print("Total flights combined: ", total)
 
 # List out all the airports in Texas
