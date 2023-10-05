@@ -239,7 +239,7 @@ For your MedTech service metrics, you can see that your MedTech service complete
 
 ## View test data in the FHIR service
 
-If you provided your own Azure AD user object ID as the optional value for **Fhir Contributor Principal ID** in the deployment template, you can query FHIR resources in your FHIR service.
+If you provided your own Azure AD user object ID as the optional value for the **Fhir Contributor Principal ID** option in the deployment template, you can query FHIR resources in your FHIR service.
 
 To learn how to get an Azure AD access token and view FHIR resources in your FHIR service, see [Access by using Postman](../fhir/use-postman.md).
 
@@ -263,4 +263,3 @@ For frequently asked questions (FAQs) about the MedTech service, see
 > [Frequently asked questions about the MedTech service](frequently-asked-questions.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
-
