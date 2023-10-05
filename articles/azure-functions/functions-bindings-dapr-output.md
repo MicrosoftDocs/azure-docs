@@ -2,7 +2,7 @@
 title: Dapr Binding output binding for Azure Functions
 description: Learn how to provide Dapr Binding output binding data during a function execution in Azure Functions.
 ms.topic: reference
-ms.date: 08/17/2023
+ms.date: 10/05/2023
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, devx-track-python"
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -220,8 +220,8 @@ In the [in-process model](./functions-dotnet-class-library.md), use the `DaprBin
 | --------- | ----------- |  :---------------------:  |  :-----------------------:  |
 | **BindingName** | The name of the Dapr binding. | :heavy_check_mark: | :heavy_check_mark: |
 | **Operation** | The configured binding operation. | :heavy_check_mark: | :heavy_check_mark: |
-| **Metadata** | _Requested._ Todo. |  :x: | :heavy_check_mark: |
-| **Data** | _Requested._ Todo. |  :x: | :heavy_check_mark: |
+| **Metadata** | The metadata namespace. |  :x: | :heavy_check_mark: |
+| **Data** | _Required._ The data for the binding operation. |  :x: | :heavy_check_mark: |
 
 
 # [Isolated process](#tab/isolated-process)
@@ -232,8 +232,8 @@ In the [isolated worker model](./dotnet-isolated-process-guide.md), use the `Dap
 | --------- | ----------- |  :---------------------:  |  :-----------------------:  |
 | **BindingName** | The name of the Dapr binding. | :heavy_check_mark: | :heavy_check_mark: |
 | **Operation** | The configured binding operation. | :heavy_check_mark: | :heavy_check_mark: |
-| **Metadata** | _Requested._ Todo. |  :x: | :heavy_check_mark: |
-| **Data** | _Requested._ Todo. |  :x: | :heavy_check_mark: |
+| **Metadata** | The metadata namespace. |  :x: | :heavy_check_mark: |
+| **Data** | _Required._ The data for the binding operation. |  :x: | :heavy_check_mark: |
 
 ---
 
@@ -249,8 +249,8 @@ The `DaprBindingOutput` annotation allows you to create a function that sends an
 | ------- | ----------- |  :---------------------:  |  :-----------------------:  |
 | **bindingName** | The name of the Dapr binding. | :heavy_check_mark: | :heavy_check_mark: |
 | **output** | The configured binding operation. | :heavy_check_mark: | :heavy_check_mark: |
-| **metadata** | _Requested._ Todo. |  :x: | :heavy_check_mark: |
-| **data** | _Requested._ Todo. |  :x: | :heavy_check_mark: |
+| **metadata** |The metadata namespace. |  :x: | :heavy_check_mark: |
+| **data** | _Required._ The data for the binding operation. |  :x: | :heavy_check_mark: |
 
 ::: zone-end
 
@@ -267,8 +267,8 @@ The following table explains the binding configuration properties that you set i
 |-----------------------|------------|  :---------------------:  |  :-----------------------:  |
 |**bindingName** | The name of the binding. | :heavy_check_mark: | :heavy_check_mark: |
 |**operation** | The binding operation. | :heavy_check_mark: | :heavy_check_mark: |
-| **metadata** | _Requested._ Todo. |  :x: | :heavy_check_mark: |
-| **data** | _Requested._ Todo. |  :x: | :heavy_check_mark: |
+| **metadata** | The metadata namespace. |  :x: | :heavy_check_mark: |
+| **data** | _Required._ The data for the binding operation. |  :x: | :heavy_check_mark: |
 
 ::: zone-end
 
@@ -282,8 +282,8 @@ The following table explains the binding configuration properties for `@dapp.dap
 |---------|------------|  :---------------------:  |  :-----------------------:  |
 |**binding_name** | The name of the binding event. | :heavy_check_mark: | :heavy_check_mark: |
 |**operation** | The binding operation name/identifier. | :heavy_check_mark: | :heavy_check_mark: |
-| **metadata** | _Requested._ Todo. |  :x: | :heavy_check_mark: |
-| **data** | _Requested._ Todo. |  :x: | :heavy_check_mark: |
+| **metadata** | The metadata namespace. |  :x: | :heavy_check_mark: |
+| **data** | _Required._ The data for the binding operation. |  :x: | :heavy_check_mark: |
 
 # [Python v1](#tab/v1)
 
@@ -293,12 +293,14 @@ The following table explains the binding configuration properties that you set i
 |-----------------------|------------|  :---------------------:  |  :-----------------------:  |
 |**bindingName** | The name of the binding. | :heavy_check_mark: | :heavy_check_mark: |
 |**operation** | The binding operation. | :heavy_check_mark: | :heavy_check_mark: |
-| **metadata** | _Requested._ Todo. |  :x: | :heavy_check_mark: |
-| **data** | _Requested._ Todo. |  :x: | :heavy_check_mark: |
+| **metadata** | The metadata namespace. |  :x: | :heavy_check_mark: |
+| **data** | _Required._ The data for the binding operation. |  :x: | :heavy_check_mark: |
 
 ---
 
 ::: zone-end
+
+If properties are defined in both Attributes and `RequestBody`, priority is given to data provided in `RequestBody`.
 
 See the [Example section](#example) for complete examples.
 

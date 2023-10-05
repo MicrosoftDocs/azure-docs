@@ -247,7 +247,7 @@ In the [in-process model](./functions-dotnet-class-library.md), use the `DaprSta
 | --------- | ----------- |  :---------------------:  |  :-----------------------:  |
 | **StateStore** | The name of the state store to save state. | :heavy_check_mark: | :x: |
 | **Key** | The name of the key to save state within the state store. | :heavy_check_mark: | :heavy_check_mark: | 
-| **Value** | _Required._ Todo. | :x: | :heavy_check_mark: |
+| **Value** | _Required._ The value being stored. | :x: | :heavy_check_mark: |
 
 # [Isolated process](#tab/isolated-process)
 
@@ -257,7 +257,7 @@ In the [isolated worker model](./dotnet-isolated-process-guide.md), use the `Dap
 | --------- | ----------- |  :---------------------:  |  :-----------------------:  |
 | **StateStore** | The name of the state store to save state. | :heavy_check_mark: | :x: |
 | **Key** | The name of the key to save state within the state store. | :heavy_check_mark: | :heavy_check_mark: | 
-| **Value** | _Required._ Todo. | :x: | :heavy_check_mark: |
+| **Value** | _Required._ The value being stored. | :x: | :heavy_check_mark: |
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
@@ -270,7 +270,7 @@ The `DaprStateOutput` annotation allows you to function access a state store.
 | ------- | ----------- |  :---------------------:  |  :-----------------------:  |
 | **stateStore** | The name of the state store to save state. | :heavy_check_mark: | :x: |
 | **key** | The name of the key to save state within the state store. | :heavy_check_mark: | :heavy_check_mark: |
-| **value** | _Required._ Todo. | :x: | :heavy_check_mark: |
+| **value** | _Required._ The value being stored. | :x: | :heavy_check_mark: |
 
 ::: zone-end
 
@@ -288,7 +288,7 @@ The following table explains the binding configuration properties that you set i
 |-----------------------|------------|  :---------------------:  |  :-----------------------:  |
 | **stateStore** | The name of the state store to save state. | :heavy_check_mark: | :x: |
 | **key** | The name of the key to save state within the state store. | :heavy_check_mark: | :heavy_check_mark: |
-| **value** | _Required._ Todo. | :x: | :heavy_check_mark: |
+| **value** | _Required._ The value being stored. | :x: | :heavy_check_mark: |
 
 ::: zone-end
 
@@ -302,7 +302,7 @@ The following table explains the binding configuration properties for `@dapp.dap
 |---------|------------|  :---------------------:  |  :-----------------------:  |
 | **stateStore** | The name of the state store to save state. | :heavy_check_mark: | :x: |
 | **key** | The name of the key to save state within the state store. | :heavy_check_mark: | :heavy_check_mark: |
-| **value** | _Required._ Todo. | :x: | :heavy_check_mark: |
+| **value** | _Required._ The value being stored. | :x: | :heavy_check_mark: |
 
 # [Python v1](#tab/v1)
 
@@ -312,11 +312,13 @@ The following table explains the binding configuration properties that you set i
 |-----------------------|------------|  :---------------------:  |  :-----------------------:  |
 | **stateStore** | The name of the state store to save state. | :heavy_check_mark: | :x: |
 | **key** | The name of the key to save state within the state store. | :heavy_check_mark: | :heavy_check_mark: |
-| **value** | _Required._ Todo. | :x: | :heavy_check_mark: |
+| **value** | _Required._ The value being stored. | :x: | :heavy_check_mark: |
 
 ---
 
 ::: zone-end
+
+If properties are defined in both Attributes and `RequestBody`, priority is given to data provided in `RequestBody`.
 
 See the [Example section](#example) for complete examples.
 

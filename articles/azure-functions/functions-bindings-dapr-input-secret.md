@@ -229,21 +229,21 @@ def main (payload, secret) -> None:
 
 In the [in-process model](./functions-dotnet-class-library.md), use the `DaprSecret` to define a Dapr secret input binding, which supports these parameters:
 
-| Parameter | Description | Can be sent via Attribute |
-| --------- | ----------- |  :---------------------:  |
-| **SecretStoreName** | The name of the secret store to get the secret. | :heavy_check_mark: |
-| **Key** | The key identifying the name of the secret to get. | :heavy_check_mark: |
-| **Metadata** | _Optional._ An array of metadata properties in the form `"key1=value1&key2=value2"`. | :heavy_check_mark: |
+| Parameter | Description |
+| --------- | ----------- |
+| **SecretStoreName** | The name of the secret store to get the secret. |
+| **Key** | The key identifying the name of the secret to get. |
+| **Metadata** | _Optional._ An array of metadata properties in the form `"key1=value1&key2=value2"`. |
 
 # [Isolated process](#tab/isolated-process)
 
 In the [isolated worker model](./dotnet-isolated-process-guide.md), use the `DaprSecretInput` to define a Dapr secret input binding, which supports these parameters:
 
-| Parameter | Description | Can be sent via Attribute |
-| --------- | ----------- |  :---------------------:  |
-| **SecretStoreName** | The name of the secret store to get the secret. | :heavy_check_mark: |
-| **Key** | The key identifying the name of the secret to get. | :heavy_check_mark: |
-| **Metadata** | _Optional._ An array of metadata properties in the form `"key1=value1&key2=value2"`. | :heavy_check_mark: |
+| Parameter | Description |
+| --------- | ----------- |
+| **SecretStoreName** | The name of the secret store to get the secret. |
+| **Key** | The key identifying the name of the secret to get. |
+| **Metadata** | _Optional._ An array of metadata properties in the form `"key1=value1&key2=value2"`. |
 
 ---
 
@@ -255,11 +255,11 @@ In the [isolated worker model](./dotnet-isolated-process-guide.md), use the `Dap
 
 The `DaprSecretInput` annotation allows you to have your function access a secret. 
 
-| Element | Description | Can be sent via Attribute |
-| ------- | ----------- |  :---------------------:  |
-| **secretStoreName** | The name of the Dapr secret store. | :heavy_check_mark: |
-| **key** | The secret key value. | :heavy_check_mark: |
-| **metadata** | _Optional_. The metadata values. | :heavy_check_mark: |
+| Element | Description |
+| ------- | ----------- |
+| **secretStoreName** | The name of the Dapr secret store. |
+| **key** | The secret key value. |
+| **metadata** | _Optional_. The metadata values. |
 
 ::: zone-end
 
@@ -273,11 +273,11 @@ The `DaprSecretInput` annotation allows you to have your function access a secre
 
 The following table explains the binding configuration properties that you set in the function.json file.
 
-|function.json property | Description | Can be sent via Attribute |
-|-----------------------|-------------|  :---------------------:  |
-|**key** | The secret key value. | :heavy_check_mark: |
-|**secretStoreName** | Name of the secret store as defined in the _local-secret-store.yaml_ component file. | :heavy_check_mark: |
-|**metadata** | The metadata namespace. | :heavy_check_mark: |
+|function.json property | Description |
+|-----------------------|-------------|
+|**key** | The secret key value. |
+|**secretStoreName** | Name of the secret store as defined in the _local-secret-store.yaml_ component file. |
+|**metadata** | The metadata namespace. |
 
 ::: zone-end
 
@@ -287,21 +287,21 @@ The following table explains the binding configuration properties that you set i
 
 The following table explains the binding configuration properties for `@dapp.dapr_secret_input` that you set in your Python code.
 
-|Property | Description | Can be sent via Attribute |
-|---------|-------------|  :---------------------:  |
-|**secret_store_name** | The name of the secret store. | :heavy_check_mark: |
-|**key** | The secret key value. | :heavy_check_mark: |
-|**metadata** | The metadata namespace. | :heavy_check_mark: |
+|Property | Description |
+|---------|-------------|
+|**secret_store_name** | The name of the secret store. |
+|**key** | The secret key value. |
+|**metadata** | The metadata namespace. |
 
 # [Python v1](#tab/v1)
 
 The following table explains the binding configuration properties that you set in the function.json file.
 
-|function.json property | Description | Can be sent via Attribute |
-|-----------------------|-------------|  :---------------------:  |
-|**key** | The secret key value. | :heavy_check_mark: |
-|**secretStoreName** | Name of the secret store as defined in the _local-secret-store.yaml_ component file. | :heavy_check_mark: |
-|**metadata** | The metadata namespace. | :heavy_check_mark: |
+|function.json property | Description |
+|-----------------------|-------------|
+|**key** | The secret key value. |
+|**secretStoreName** | Name of the secret store as defined in the _local-secret-store.yaml_ component file. |
+|**metadata** | The metadata namespace. |
 
 ---
 

@@ -2,7 +2,7 @@
 title: Dapr Service Invocation trigger for Azure Functions
 description: Learn how to run Azure Functions as Dapr service invocation data changes.
 ms.topic: reference
-ms.date: 09/19/2023
+ms.date: 10/05/2023
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, devx-track-python"
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -212,17 +212,17 @@ def main(payload, data: str) -> None:
 
 In the [in-process model](./functions-dotnet-class-library.md), use the `DaprServiceInvocationTrigger` to trigger a Dapr service invocation binding, which supports the following properties.
 
-| Parameter | Description | Can be sent via Attribute | Can be sent via RequestBody |
-| --------- | ----------- |  :---------------------:  |  :-----------------------:  |
-| **MethodName** | _Optional._ The name of the method the Dapr caller should use. If not specified, the name of the function is used as the method name. | :heavy_check_mark: | :x: | 
+| Parameter | Description |
+| --------- | ----------- |
+| **MethodName** | _Optional._ The name of the method the Dapr caller should use. If not specified, the name of the function is used as the method name. |
 
 # [Isolated process](#tab/isolated-process)
 
 In the [isolated worker model](./dotnet-isolated-process-guide.md), use the `DaprServiceInvocationTrigger` to define a Dapr service invocation trigger, which supports these parameters:
 
-| Parameter | Description | Can be sent via Attribute | Can be sent via RequestBody |
-| --------- | ----------- |  :---------------------:  |  :-----------------------:  |
-| **MethodName** | _Optional._ The name of the method the Dapr caller should use. If not specified, the name of the function is used as the method name. |  :heavy_check_mark: | :x: | 
+| Parameter | Description |
+| --------- | ----------- |
+| **MethodName** | _Optional._ The name of the method the Dapr caller should use. If not specified, the name of the function is used as the method name. |
 
 ---
 
@@ -234,9 +234,9 @@ In the [isolated worker model](./dotnet-isolated-process-guide.md), use the `Dap
 
 The `DaprServiceInvocationTrigger` annotation allows you to create a function that gets invoked by Dapr runtime. 
 
-| Element | Description | Can be sent via Attribute | Can be sent via RequestBody |
-| ------- | ----------- |  :---------------------:  |  :-----------------------:  |
-| **methodName** | The method name. | :heavy_check_mark: | :x: | 
+| Element | Description |
+| ------- | ----------- |
+| **methodName** | The method name. | 
 
 ::: zone-end
 
@@ -250,10 +250,10 @@ The `DaprServiceInvocationTrigger` annotation allows you to create a function th
 
 The following table explains the binding configuration properties that you set in the function.json file.
 
-|function.json property | Description| Can be sent via Attribute | Can be sent via RequestBody |
-|-----------------------|------------|  :---------------------:  |  :-----------------------:  |
-|**type** | Must be set to `daprServiceInvocationTrigger`.| :heavy_check_mark: | :x: |
-|**name** | The name of the variable that represents the Dapr data in function code. | :heavy_check_mark: | :x: |
+|function.json property | Description|
+|-----------------------|------------|
+|**type** | Must be set to `daprServiceInvocationTrigger`.|
+|**name** | The name of the variable that represents the Dapr data in function code. |
 
 ::: zone-end
 
@@ -263,18 +263,18 @@ The following table explains the binding configuration properties that you set i
 
 The following table explains the binding configuration properties for `@dapp.dapr_service_invocation_trigger` that you set in your Python code.
 
-|Property | Description| Can be sent via Attribute | Can be sent via RequestBody |
-|---------|------------|  :---------------------:  |  :-----------------------:  |
-|**method_name** | The name of the variable that represents the Dapr data. | :heavy_check_mark: | :x: |
+|Property | Description|
+|---------|------------|
+|**method_name** | The name of the variable that represents the Dapr data. |
 
 # [Python v1](#tab/v1)
 
 The following table explains the binding configuration properties that you set in the function.json file.
 
-|function.json property | Description| Can be sent via Attribute | Can be sent via RequestBody |
-|-----------------------|------------|  :---------------------:  |  :-----------------------:  |
-|**type** | Must be set to `daprServiceInvocationTrigger`.| :heavy_check_mark: | :x: |
-|**name** | The name of the variable that represents the Dapr data in function code. | :heavy_check_mark: | :x: |
+|function.json property | Description| 
+|-----------------------|------------|
+|**type** | Must be set to `daprServiceInvocationTrigger`.|
+|**name** | The name of the variable that represents the Dapr data in function code. | 
 
 ---
 

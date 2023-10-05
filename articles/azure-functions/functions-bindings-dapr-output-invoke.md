@@ -328,6 +328,8 @@ The following table explains the binding configuration properties that you set i
 
 ::: zone-end
 
+If properties are defined in both Attributes and `RequestBody`, priority is given to data provided in `RequestBody`.
+
 See the [Example section](#example) for complete examples.
 
 ## Usage

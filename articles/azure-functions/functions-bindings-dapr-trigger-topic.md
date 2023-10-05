@@ -2,7 +2,7 @@
 title: Dapr Topic trigger for Azure Functions
 description: Learn how to run Azure Functions as Dapr topic data changes.
 ms.topic: reference
-ms.date: 09/19/2023
+ms.date: 10/05/2023
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, devx-track-python"
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -219,19 +219,19 @@ def main(subEvent) -> None:
 
 In the [in-process model](./functions-dotnet-class-library.md), use the `DaprTopicTrigger` to trigger a Dapr pub/sub binding, which supports the following properties.
 
-| Parameter | Description | Can be sent via Attribute | Can be sent via RequestBody |
-| --------- | ----------- |  :---------------------:  |  :-----------------------:  |
-| **PubSubName** | The name of the Dapr pub/sub. | :heavy_check_mark: | :x: | 
-| **Topic** | The name of the Dapr topic. | :heavy_check_mark: | :x: |
+| Parameter | Description |
+| --------- | ----------- |
+| **PubSubName** | The name of the Dapr pub/sub. | 
+| **Topic** | The name of the Dapr topic. |
 
 # [Isolated process](#tab/isolated-process)
 
 In the [isolated worker model](./dotnet-isolated-process-guide.md), use the `DaprTopicTrigger` to define a Dapr topic trigger, which supports these parameters:
 
-| Parameter | Description | Can be sent via Attribute | Can be sent via RequestBody |
-| --------- | ----------- |  :---------------------:  |  :-----------------------:  |
-| **PubSubName** | The name of the Dapr pub/sub. | :heavy_check_mark: | :x: |
-| **Topic** | The name of the Dapr topic. | :heavy_check_mark: | :x: |
+| Parameter | Description |
+| --------- | ----------- |
+| **PubSubName** | The name of the Dapr pub/sub. |
+| **Topic** | The name of the Dapr topic. |
 
 ---
 
@@ -243,10 +243,10 @@ In the [isolated worker model](./dotnet-isolated-process-guide.md), use the `Dap
 
 The `DaprTopicTrigger` annotation allows you to create a function that runs when a topic is received. 
 
-| Element | Description | Can be sent via Attribute | Can be sent via RequestBody |
-| ------- | ----------- |  :---------------------:  |  :-----------------------:  |
-| **pubSubName** | The name of the Dapr pub/sub. | :heavy_check_mark: | :x: |
-| **topic** | The name of the Dapr topic. | :heavy_check_mark: | :x: |
+| Element | Description |
+| ------- | ----------- |
+| **pubSubName** | The name of the Dapr pub/sub. |
+| **topic** | The name of the Dapr topic. |
 
 ::: zone-end
 
@@ -260,10 +260,10 @@ The `DaprTopicTrigger` annotation allows you to create a function that runs when
 
 The following table explains the binding configuration properties that you set in the _function.json_ file.
 
-|function.json property | Description| Can be sent via Attribute | Can be sent via RequestBody |
-|-----------------------|------------|  :---------------------:  |  :-----------------------:  |
-|**pubsubname** | The name of the Dapr pub/sub component type. | :heavy_check_mark: | :x: |
-|**topic** | Name of the topic. | :heavy_check_mark: | :x: |
+|function.json property | Description|
+|-----------------------|------------|
+|**pubsubname** | The name of the Dapr pub/sub component type. |
+|**topic** | Name of the topic. |
 
 ::: zone-end
 

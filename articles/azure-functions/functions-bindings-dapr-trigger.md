@@ -2,7 +2,7 @@
 title: Dapr Input Bindings trigger for Azure Functions
 description: Learn how to run Azure Functions as Dapr input binding data changes.
 ms.topic: reference
-ms.date: 09/19/2023
+ms.date: 10/05/2023
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, devx-track-python"
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -204,19 +204,17 @@ def main(triggerData: str) -> None:
 
 In the [in-process model](./functions-dotnet-class-library.md), use the `DaprBindingTrigger` to trigger a Dapr input binding, which supports the following properties.
 
-| Parameter | Description | Can be sent via Attribute | Can be sent via RequestBody |
-| --------- | ----------- |  :---------------------:  |  :-----------------------:  |
-| **BindingName** | The name of the Dapr trigger. If not specified, the name of the function is used as the trigger name. | :heavy_check_mark: | :x: |
-| **Data** | _Required._ Data to be passed. | :heavy_check_mark: | :x: |
+| Parameter | Description |
+| --------- | ----------- |
+| **BindingName** | The name of the Dapr trigger. If not specified, the name of the function is used as the trigger name. |
 
 # [Isolated process](#tab/isolated-process)
 
 In the [isolated worker model](./dotnet-isolated-process-guide.md), use the `DaprBindingTrigger` to define a Dapr binding trigger, which supports these parameters:
 
-| Parameter | Description | Can be sent via Attribute | Can be sent via RequestBody |
-| --------- | ----------- |  :---------------------:  |  :-----------------------:  |
-| **BindingName** | The name of the Dapr trigger. If not specified, the name of the function is used as the trigger name. | :heavy_check_mark: | :x: |
-| **Data** | _Required._ Data to be passed. | :heavy_check_mark: | :x: |
+| Parameter | Description |
+| --------- | ----------- |
+| **BindingName** | The name of the Dapr trigger. If not specified, the name of the function is used as the trigger name. |
 
 ---
 
@@ -228,10 +226,9 @@ In the [isolated worker model](./dotnet-isolated-process-guide.md), use the `Dap
 
 The `DaprBindingTrigger` annotation allows you to create a function that gets triggered by the binding component you created. 
 
-| Element | Description | Can be sent via Attribute | Can be sent via RequestBody |
-| ------- | ----------- |  :---------------------:  |  :-----------------------:  |
-| **bindingName** | The name of the Dapr binding. | :heavy_check_mark: | :x: |
-| **data** | _Required._ Data to be passed. | :heavy_check_mark: | :x: |
+| Element | Description |
+| ------- | ----------- |
+| **bindingName** | The name of the Dapr binding. |
 
 ::: zone-end
 
@@ -245,10 +242,9 @@ The `DaprBindingTrigger` annotation allows you to create a function that gets tr
 
 The following table explains the binding configuration properties that you set in the function.json file.
 
-|function.json property | Description| Can be sent via Attribute | Can be sent via RequestBody |
-|-----------------------|------------|  :---------------------:  |  :-----------------------:  |
-|**bindingName** | The name of the binding. | :heavy_check_mark: | :x: |
-| **data** | _Required._ Data to be passed. | :heavy_check_mark: | :x: |
+|function.json property | Description| 
+|-----------------------|------------|
+|**bindingName** | The name of the binding. |
 
 ::: zone-end
 
@@ -258,19 +254,17 @@ The following table explains the binding configuration properties that you set i
 
 The following table explains the binding configuration properties for `@dapp.dapr_binding_trigger` that you set in your Python code.
 
-|Property | Description| Can be sent via Attribute | Can be sent via RequestBody |
-|---------|------------|  :---------------------:  |  :-----------------------:  |
-|**binding_name** | The name of the binding. | :heavy_check_mark: | :x: |
-| **data** | _Required._ Data to be passed. | :heavy_check_mark: | :x: |
+|Property | Description|
+|---------|------------|
+|**binding_name** | The name of the binding. |
 
 # [Python v1](#tab/v1)
 
 The following table explains the binding configuration properties that you set in the function.json file.
 
-|function.json property | Description| Can be sent via Attribute | Can be sent via RequestBody |
-|-----------------------|------------|  :---------------------:  |  :-----------------------:  |
-|**bindingName** | The name of the binding. | :heavy_check_mark: | :x: |
-| **data** | _Required._ Data to be passed. | :heavy_check_mark: | :x: |
+|function.json property | Description|
+|-----------------------|------------|
+|**bindingName** | The name of the binding. |
 
 ---
 

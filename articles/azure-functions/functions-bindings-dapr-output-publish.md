@@ -233,7 +233,7 @@ In the [in-process model](./functions-dotnet-class-library.md), use the `DaprPub
 |-----------------------|------------|  :---------------------:  |  :-----------------------:  |
 | **PubSubName** | The name of the Dapr pub/sub to send the message. | :heavy_check_mark: | :heavy_check_mark: |
 | **Topic** | The name of the Dapr topic to send the message. | :heavy_check_mark: | :heavy_check_mark: |
-| **Payload** | _Required._ Todo. | :x: | :heavy_check_mark: |
+| **Payload** | _Required._ The message being published. | :x: | :heavy_check_mark: |
 
 # [Isolated process](#tab/isolated-process)
 
@@ -243,7 +243,7 @@ In the [isolated worker model](./dotnet-isolated-process-guide.md), use the `Dap
 |-----------------------|------------|  :---------------------:  |  :-----------------------:  |
 | **PubSubName** | The name of the Dapr pub/sub to send the message. | :heavy_check_mark: | :heavy_check_mark: |
 | **Topic** | The name of the Dapr topic to send the message. | :heavy_check_mark: | :heavy_check_mark: |
-| **Payload** | _Required._ Todo. | :x: | :heavy_check_mark: |
+| **Payload** | _Required._ The message being published. | :x: | :heavy_check_mark: |
 
 
 ---
@@ -260,7 +260,7 @@ The `DaprPublishOutput` annotation allows you to have a function access a publis
 | --------| ----------- |  :---------------------:  |  :-----------------------:  |
 | **pubSubName** | The name of the Dapr pub/sub to send the message. | :heavy_check_mark: | :heavy_check_mark: |
 | **topic** | The name of the Dapr topic to send the message. | :heavy_check_mark: | :heavy_check_mark: |
-| **payload** | _Required._ Todo. | :x: | :heavy_check_mark: |
+| **payload** | _Required._ The message being published. | :x: | :heavy_check_mark: |
 
 ::: zone-end
 
@@ -278,7 +278,7 @@ The following table explains the binding configuration properties that you set i
 |-----------------------|------------|  :---------------------:  |  :-----------------------:  |
 |**pubsubname** | The name of the publisher component service. | :heavy_check_mark: | :heavy_check_mark: |
 |**topic** | The name/identifier of the publisher topic. | :heavy_check_mark: | :heavy_check_mark: |
-| **payload** | _Required._ Todo. | :x: | :heavy_check_mark: |
+| **payload** | _Required._ The message being published. | :x: | :heavy_check_mark: |
 
 ::: zone-end
 
@@ -292,7 +292,7 @@ The following table explains the binding configuration properties for `@dapp.dap
 |---------|------------|  :---------------------:  |  :-----------------------:  |
 |**pub_sub_name** | The name of the publisher event. | :heavy_check_mark: | :heavy_check_mark: |
 |**topic** | The publisher topic name/identifier. | :heavy_check_mark: | :heavy_check_mark: |
-| **payload** | _Required._ Todo. | :x: | :heavy_check_mark: |
+| **payload** | _Required._ The message being published. | :x: | :heavy_check_mark: |
 
 # [Python v1](#tab/v1)
 
@@ -302,11 +302,13 @@ The following table explains the binding configuration properties that you set i
 |-----------------------|------------|  :---------------------:  |  :-----------------------:  |
 |**pubsubname** | The name of the publisher component service. | :heavy_check_mark: | :heavy_check_mark: |
 |**topic** | The name/identifier of the publisher topic. | :heavy_check_mark: | :heavy_check_mark: |
-| **payload** | _Required._ Todo. | :x: | :heavy_check_mark: |
+| **payload** | _Required._ The message being published. | :x: | :heavy_check_mark: |
 
 ---
 
 ::: zone-end
+
+If properties are defined in both Attributes and `RequestBody`, priority is given to data provided in `RequestBody`.
 
 See the [Example section](#example) for complete examples.
 
