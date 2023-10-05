@@ -41,22 +41,10 @@ TurboRater supports IDP-initiated single sign-on (SSO).
 
 To configure the integration of TurboRater into Microsoft Entra ID, you need to add TurboRater from the Azure Marketplace to your list of managed SaaS apps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com?azure-portal=true).
-1. In the left pane, select **Microsoft Entra ID**.
-
-    ![The Microsoft Entra option](common/select-azuread.png)
-
-1. Go to **Enterprise Applications**, and then select **All Applications**.
-
-    ![The Enterprise applications option](common/enterprise-applications.png)
-
-1. To add a new application, select **+ New application** at the top of the pane.
-
-    ![The New application option](common/add-new-app.png)
-
-1. In the search box, enter **TurboRater**. In the search results, select **TurboRater**, and then select **Add** to add the application.
-
-    ![TurboRater in the results list](common/search-new-app.png)
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type **TurboRater** in the search box.
+1. Select **TurboRater** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
 <a name='configure-and-test-azure-ad-single-sign-on'></a>
 
