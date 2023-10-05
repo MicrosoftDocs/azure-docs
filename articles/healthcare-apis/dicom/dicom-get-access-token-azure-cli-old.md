@@ -15,11 +15,11 @@ To use the DICOM service, users and applications need to prove their identity an
 
 ## Use the Azure command-line interface
 
- You get an access token using the [Azure command-line interface (CLI)](/cli/azure/what-is-azure-cli). Azure CLI is a set of commands used to create and manage Azure resources. You can use it to interact with Azure services, including the DICOM service. You can install Azure CLI on your computer or use it in the [Azure Cloud Shell](https://azure.microsoft.com/en-us/get-started/azure-portal/cloud-shell/).
+ You get an access token using the [Azure command-line interface (CLI)](/cli/azure/what-is-azure-cli). Azure CLI is a set of commands used to create and manage Azure resources. You can use it to interact with Azure services, including the DICOM service. You can install Azure CLI on your computer or use it in the [Azure Cloud Shell](https://azure.microsoft.com/get-started/azure-portal/cloud-shell/).
 
 ## Provide object IDs during deployment
 
-Object IDs are assigned by Microsoft Entra ID to every user or application in your organization. When you [deploy the DICOM service](deploy-dicom-services-in-azure.md), you configure a set of users or service principals that have access by providing their object IDs, either as a variable or by passing them to another command with pipes or loops. 
+Object IDs are assigned by Microsoft Entra ID to every user or application in your organization. When you [deploy the DICOM service](deploy-dicom-services-in-azure.md), you configure access for a set of users or service principals by providing their object IDs, either as a variable or by passing them to another command with pipes or loops. 
 
 ## Get a token
 
