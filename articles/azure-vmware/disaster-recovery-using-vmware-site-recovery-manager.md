@@ -18,7 +18,7 @@ In this article, you'll implement disaster recovery for on-premises VMware vSphe
 
 
 > [!NOTE]
-> The current version of VMware Site Recovery Manager (SRM) in Azure VMware Solution is 8.5.0.3.
+> The current version of VMware Site Recovery Manager (SRM) in Azure VMware Solution is 8.7.0.3.
 ## Supported scenarios
 
 VMware SRM helps you plan, test, and run the recovery of VMs between a protected VMware vCenter Server site and a recovery VMware vCenter Server site. You can use VMware SRM with Azure VMware Solution with the following two DR scenarios: 
@@ -102,6 +102,7 @@ Make sure you've explicitly provided the remote user the VMware VRM administrato
 
 > [!NOTE]
 > The current version of VMware Site Recovery Manager (SRM) in Azure VMware Solution is 8.5.0.3.
+
 1. From the **Disaster Recovery Solution** drop-down, select **VMware Site Recovery Manager (SRM) – vSphere Replication**. 
 
    :::image type="content" source="media/VMware-srm-vsphere-replication/disaster-recovery-solution-srm-add-on.png" alt-text="Screenshot showing the Disaster recovery tab under Add-ons with VMware Site Recovery Manager (SRM) - vSphere replication selected." border="true" lightbox="media/VMware-srm-vsphere-replication/disaster-recovery-solution-srm-add-on.png":::
@@ -309,5 +310,6 @@ VMware and Microsoft support teams will engage each other as needed to troublesh
 - [Pre-requisites and Best Practices for SRM installation](https://docs.vmware.com/en/Site-Recovery-Manager/8.3/com.vmware.srm.install_config.doc/GUID-BB0C03E4-72BE-4C74-96C3-97AC6911B6B8.html)
 - [Network ports for SRM](https://docs.vmware.com/en/Site-Recovery-Manager/8.3/com.vmware.srm.install_config.doc/GUID-499D3C83-B8FD-4D4C-AE3D-19F518A13C98.html)
 - [Network ports for vSphere Replication](https://kb.vmware.com/s/article/2087769)
+
 
 

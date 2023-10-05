@@ -5,7 +5,7 @@ services: key-vault
 author: mbaldwin
 manager: devtiw
 tags: azure-resource-manager
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 ms.service: key-vault
 ms.subservice: keys

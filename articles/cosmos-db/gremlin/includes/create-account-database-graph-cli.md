@@ -3,6 +3,7 @@ author: seesharprun
 ms.author: sidandrews
 ms.service: cosmos-db
 ms.subservice: apache-gremlin
+ms.custom: devx-track-azurecli
 ms.topic: include
 ms.date: 09/27/2023
 ---
