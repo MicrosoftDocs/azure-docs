@@ -72,11 +72,14 @@ Microsoft Teams Direct Routing allows a customer admin to assign any phone numbe
 
 To prevent caller ID spoofing, Azure Communications Gateway screens all Direct Routing calls originating from Microsoft Teams. This screening ensures that customers can only place calls from numbers that you have assigned to them. However, you can disable this screening on a per-customer basis, as part of "account" configuration available over the Provisioning API.
 
-The following diagram shows the call flow for an INVITE from a number that has been assigned to a customer. In this case, Azure Communications Gateway's configuration for the number also includes custom header configuration, so Azure Communications Gateway adds an X-MS-Operator-Content header with the contents.
+The following diagram shows the call flow for an INVITE from a number that has been assigned to a customer. In this case, Azure Communications Gateway's configuration for the number also includes custom header configuration, so Azure Communications Gateway adds a custom header with the contents.
 
 :::image type="complex" source="media/interoperability-direct-routing/azure-communications-gateway-teams-direct-routing-call-screening-allowed.svg" alt-text="Call flow showing outbound call from Microsoft Teams permitted by call screening and custom header configuration.":::
     Call flow diagram showing an invite from a number assigned to a customer. Azure Communications Gateway checks its internal database to determine if the calling number is assigned to a customer. The number is assigned, so Azure Communications Gateway allows the call. The number configuration on Azure Communications Gateway includes custom header contents. Azure Communications Gateway adds the header contents as an X-MS-Operator-Content header before forwarding the call to the operator network.
 :::image-end:::
+
+> [!NOTE]
+> The name of the custom header must be configured as part of [deploying Azure Communications Gateway](deploy.md#collect-configuration-values-for-each-communications-service). The name is the same for all messages. In this example, the name of the custom header is `X-MS-Operator-Content`.
 
 The following diagram shows the call flow for an INVITE from a number that hasn't been assigned to a customer. Azure Communications Gateway rejects the call with a 403.
 
