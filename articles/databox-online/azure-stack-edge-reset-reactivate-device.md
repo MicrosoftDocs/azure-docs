@@ -32,7 +32,10 @@ Before you reset, create a copy of the local data on the device if needed. You c
 
 >[!IMPORTANT]
 > - Resetting your device will erase all local data and workloads from your device, and that can't be reversed. Reset your device only if you want to start afresh with the device.
-> - Each time you change the Kubernetes profile, you are prompted for the Kubernetes update. Go ahead and apply the update.
+> - If running AP5GC/SAP Kubernetes workload profiles and you updated your Azure Stack Edge to 2309, and reset your Azure Stack Edge device, you see the following behavior: 
+> -- In the local web UI, if you go to Software updates page, you see that the Kubernetes version is unavailable.
+> -- In Azure portal, you are prompted to apply a Kubernetes update.
+> Go ahead and apply the Kubernetes update.   
 
 You can reset your device in the local web UI or in PowerShell. For PowerShell instructions, see [Reset your device](./azure-stack-edge-connect-powershell-interface.md#reset-your-device).
 
