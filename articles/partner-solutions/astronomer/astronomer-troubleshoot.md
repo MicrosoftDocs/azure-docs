@@ -50,9 +50,9 @@ If the deployment process takes more than three hours to complete, contact suppo
 
 If the deployment fails and the Astro resource has a status of `Failed`, delete the resource. After deletion, try to create the resource again.
 
-### Unable to use single sign-on
+### Unable to use Single sign-on
 
-If SSO isn't working for the Confluent Cloud SaaS portal, verify you're using the correct Azure Active Directory email. You must also have consented to allow access for the Confluent Cloud software as a service (SaaS) portal. For more information, see the [single sign-on guidance](astronomer-manage.md#single-sign-on).
+If SSO isn't working for the Astronomer portal, verify you're using the correct Azure Active Directory email. You must also have consented to allow access for the Astronomer Software as a service (SaaS) portal. For more information, see the [single sign-on guidance](astronomer-manage.md#single-sign-on).
 
 
 ## Next steps
