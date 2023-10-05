@@ -37,7 +37,7 @@ Support has been added for updating Azure Compute Gallery distribution targets.
 
 **Changes**
 
-New `errorHandling` property. This property provides users with more control over how errors are handled during the image building process. For more information, see [errorHandling](../virtual-machines/linux/image-builder-json.md#errorhandling)
+New `errorHandling` property. This property provides users with more control over how errors are handled during the image building process. For more information, see [errorHandling](../virtual-machines/linux/image-builder-json.md#properties-errorhandling)
 
 ### Version 2022-07-01
 

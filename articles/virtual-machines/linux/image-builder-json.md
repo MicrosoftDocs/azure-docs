@@ -800,9 +800,11 @@ The `errorHandling` property allows you to configure how errors are handled duri
 # [JSON](#tab/json)
 
 ```json
-"errorHandling": {
-  "onCustomizerError": "abort",
-  "onValidationError": "cleanup"
+{
+  "errorHandling": {
+    "onCustomizerError": "abort",
+    "onValidationError": "cleanup"
+  }
 }
 ```
 
