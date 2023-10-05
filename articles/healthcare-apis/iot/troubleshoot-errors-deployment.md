@@ -94,8 +94,8 @@ Here's a list of errors that can be found in the Azure Resource Manager (ARM) AP
 |-----|
 |[The maximum number of resource type iotconnectors/fhirdestinations has been reached.](#the-maximum-number-of-resource-type-iotconnectorsdestinations-has-been-reached)|
 |[The fhirServiceResourceId provided is invalid.](#the-fhirserviceresourceid-provided-is-invalid)|
-|[Ancestor resources must be fully provisioned before a child resource can be provisioned.](#ancestor-resources-must-be-fully-provisioned-before-a-child-resource-can-be-provisioned-1)
-|[The location property of child resources must match the location property of parent resources.](#the-location-property-of-child-resources-must-match-the-location-property-of-parent-resources-1)
+|[Ancestor resources must be fully provisioned before a child resource can be provisioned.](#ancestor-resources-must-be-fully-provisioned-before-a-child-resource-can-be-provisioned-1)|
+|[The location property of child resources must match the location property of parent resources.](#the-location-property-of-child-resources-must-match-the-location-property-of-parent-resources-1)|
 
 ### The maximum number of resource type iotconnectors/destinations has been reached
 

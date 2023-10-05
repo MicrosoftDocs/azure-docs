@@ -6,8 +6,8 @@ services: cognitive-services
 author: aahill
 ms.author: aahi
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
+ms.service: azure-ai-language
+ms.subservice: azure-ai-luis
 ms.topic: how-to
 ms.date: 07/19/2022
 ms.custom: contperf-fy21q4, devx-track-azurecli 

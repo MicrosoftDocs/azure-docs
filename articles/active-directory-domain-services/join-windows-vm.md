@@ -237,11 +237,11 @@ To administer your managed domain, configure a management VM using the Active Di
 > [Install administration tools on a management VM](tutorial-create-management-vm.md)
 
 <!-- INTERNAL LINKS -->
-[create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
-[associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
+[create-azure-ad-tenant]: /azure/active-directory/fundamentals/sign-up-organization
+[associate-azure-ad-tenant]: /azure/active-directory/fundamentals/how-subscriptions-associated-directory
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
-[vnet-peering]: ../virtual-network/virtual-network-peering-overview.md
+[vnet-peering]: /azure/virtual-network/virtual-network-peering-overview
 [password-sync]: ./tutorial-create-instance.md
 [add-computer]: /powershell/module/microsoft.powershell.management/add-computer
-[azure-bastion]: ../bastion/tutorial-create-host-portal.md
+[azure-bastion]: /azure/bastion/tutorial-create-host-portal
 [set-azvmaddomainextension]: /powershell/module/az.compute/set-azvmaddomainextension

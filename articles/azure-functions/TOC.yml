@@ -381,11 +381,11 @@
       href: supported-languages.md
     - name: C#
       items: 
-        - name: In-process
-          href: functions-dotnet-class-library.md
-        - name: Isolated worker process 
-          displayName: .NET isolated, .NET 5
+        - name: Isolated worker model 
+          displayName: .NET isolated
           href: dotnet-isolated-process-guide.md
+        - name: In-process model
+          href: functions-dotnet-class-library.md
         - name: Script (.csx)
           href: functions-reference-csharp.md
         - name: Execution mode comparison

@@ -31,10 +31,10 @@ The following table shows the scheduling (trigger) relevant attributes and the m
 > [!NOTE]
 > Manually setting the employeeLeaveDateTime for cloud-only users requires special permissions. For more information, see: [Configure the employeeLeaveDateTime property for a user](/graph/tutorial-lifecycle-workflows-set-employeeleavedatetime)
 
-This document explains how to set up synchronization from on-premises Microsoft Entra Connect cloud sync and Microsoft Entra Connect for the required attributes.
+This document explains how to set up synchronization from on-premises Microsoft Entra Connect cloud sync or Microsoft Entra Connect for the required attributes.
 
 >[!NOTE]
-> There's no corresponding EmployeeHireDate or EmployeeLeaveDateTime attribute in Active Directory. If you're importing from on-premises AD, you'll need to identify an attribute in AD that can be used. This attribute must be a string.
+> There's no corresponding EmployeeHireDate or EmployeeLeaveDateTime attribute in Active Directory. If you're synchronizing from on-premises AD, you'll need to identify an attribute in AD that can be used. This attribute must be a string.
 
 
 ## Understanding EmployeeHireDate and EmployeeLeaveDateTime formatting
@@ -118,7 +118,7 @@ The following example walks you through setting up a custom synchronization rule
       - Connected System:  contoso.com
       - Connected System Object Type: user
       - Metaverse Object Type: person
-      - Precedence: 200
+      - Precedence: 20
      ![Screenshot of creating an inbound synchronization rule basics.](media/how-to-lifecycle-workflow-sync-attributes/create-inbound-rule.png)
    1. On the **Scoping filter** screen, select **Next.**
    1. On the **Join rules** screen, select **Next**.
@@ -135,7 +135,7 @@ The following example walks you through setting up a custom synchronization rule
        - Connected System:  &lt;your tenant&gt;
        - Connected System Object Type: user
        - Metaverse Object Type: person
-       - Precedence: 201
+       - Precedence: 21
    1. On the **Scoping filter** screen, select **Next.**
    1. On the **Join rules** screen, select **Next**.
    1. On the **Transformations** screen, Under **Add transformations,** enter the following information.
@@ -173,7 +173,7 @@ To update this mapping, you'd do the following:
 1.  Add your source attribute(s) created as Type String, and select on the CheckBox for required.
     :::image type="content" source="media/how-to-lifecycle-workflow-sync-attributes/edit-attribute-list.png" alt-text="Screenshot of source api list.":::
     > [!NOTE]
-    > The number, and name, of source attributes added will depend on which attributes you are syncing.
+    > The number, and name, of source attributes added will depend on which attributes you are syncing from Active Directory.
 1.  Select Save. 
 
 1. From there you must map the HRM attributes to the added Active Directory attributes. To do this, Add New Mapping using an Expression. 
@@ -208,3 +208,4 @@ Get-MgUser -UserId "44198096-38ea-440d-9497-bb6b06bcaf9b" | Select-Object Displa
 - [Create a custom workflow using the Microsoft Entra admin center](tutorial-onboard-custom-workflow-portal.md)
 - [Configure API-driven inbound provisioning app (Public preview)](../app-provisioning/inbound-provisioning-api-configure-app.md)
 - [Create a Lifecycle workflow](create-lifecycle-workflow.md)
+

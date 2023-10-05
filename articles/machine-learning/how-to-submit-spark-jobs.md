@@ -50,7 +50,8 @@ These prerequisites cover the submission of a Spark job from Azure Machine Learn
 ---
 
 > [!NOTE]
-> To learn more about resource access while using Azure Machine Learning serverless Spark compute, and attached Synapse Spark pool, see [Ensuring resource access for Spark jobs](apache-spark-environment-configuration.md#ensuring-resource-access-for-spark-jobs).
+>- To learn more about resource access while using Azure Machine Learning serverless Spark compute, and attached Synapse Spark pool, see [Ensuring resource access for Spark jobs](apache-spark-environment-configuration.md#ensuring-resource-access-for-spark-jobs).
+>- Azure Machine Learning provides a [shared quota](how-to-manage-quotas.md#azure-machine-learning-shared-quota) pool from which all users can access compute quota to perform testing for a limited time. When you use the serverless Spark compute, Azure Machine Learning allows you to access this shared quota for a short time.
 
 ### Attach user assigned managed identity using CLI v2
 

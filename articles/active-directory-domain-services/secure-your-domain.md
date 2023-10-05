@@ -116,14 +116,14 @@ It takes a few moments for the security settings to be applied to the managed do
 To learn more about the synchronization process, see [How objects and credentials are synchronized in a managed domain][synchronization].
 
 <!-- INTERNAL LINKS -->
-[create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
-[associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
+[create-azure-ad-tenant]: /azure/active-directory/fundamentals/sign-up-organization
+[associate-azure-ad-tenant]: /azure/active-directory/fundamentals/how-subscriptions-associated-directory
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
-[global-admin]: ../role-based-access-control/elevate-access-global-admin.md
+[global-admin]: /azure/role-based-access-control/elevate-access-global-admin
 [synchronization]: synchronization.md
 
 <!-- EXTERNAL LINKS -->
-[Get-AzResource]: /powershell/module/az.resources/Get-AzResource
-[Set-AzResource]: /powershell/module/Az.Resources/Set-AzResource
+[Get-AzResource]: /powershell/module/az.resources/get-azresource
+[Set-AzResource]: /powershell/module/az.resources/set-azresource
 [Connect-AzAccount]: /powershell/module/Az.Accounts/Connect-AzAccount
 [Connect-AzureAD]: /powershell/module/AzureAD/Connect-AzureAD

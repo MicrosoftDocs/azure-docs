@@ -158,6 +158,6 @@ For hybrid user accounts synced from on-premises AD DS environment using Microso
 
 ## Next steps
 
-For more information on the specifics of password synchronization, see [How password hash synchronization works with Microsoft Entra Connect](../active-directory/hybrid/how-to-connect-password-hash-synchronization.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context).
+For more information on the specifics of password synchronization, see [How password hash synchronization works with Microsoft Entra Connect](/azure/active-directory/hybrid/connect/how-to-connect-password-hash-synchronization?context=/azure/active-directory-domain-services/context/azure-ad-ds-context).
 
 To get started with Domain Services, [create a managed domain](tutorial-create-instance.md).

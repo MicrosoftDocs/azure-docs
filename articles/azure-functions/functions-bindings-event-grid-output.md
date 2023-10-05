@@ -45,7 +45,13 @@ The type of the output parameter used with an Event Grid output binding depends 
 * [In-process class library](functions-dotnet-class-library.md): compiled C# function that runs in the same process as the Functions runtime. 
 * [Isolated worker process class library](dotnet-isolated-process-guide.md): compiled C# function that runs in a worker process isolated from the runtime.
 
-# [In-process](#tab/in-process)
+# [Isolated worker model](#tab/isolated-process)
+
+The following example shows how the custom type is used in both the trigger and an Event Grid output binding:
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="4-49":::
+
+# [In-process model](#tab/in-process)
 
 The following example shows a C# function that publishes a `CloudEvent` using version 3.x of the extension:
 
@@ -171,12 +177,6 @@ When you use the `Connection` property, the `topicEndpointUri` must be specified
 }
 ```
 When deployed, you must add this same information to application settings for the function app. For more information, see [Identity-based authentication](#identity-based-authentication).
-
-# [Isolated process](#tab/isolated-process)
-
-The following example shows how the custom type is used in both the trigger and an Event Grid output binding:
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="4-49":::
 
 ---
 
@@ -525,25 +525,25 @@ Both [in-process](functions-dotnet-class-library.md) and [isolated worker proces
 
 The attribute's constructor takes the name of an application setting that contains the name of the custom topic, and the name of an application setting that contains the topic key. 
 
-# [In-process](#tab/in-process)
-
-The following table explains the parameters for the `EventGridAttribute`.
-
-|Parameter | Description|
-|---------|---------|----------------------|
-|**TopicEndpointUri** | The name of an app setting that contains the URI for the custom topic, such as `MyTopicEndpointUri`. |
-|**TopicKeySetting** | The name of an app setting that contains an access key for the custom topic. |
-|**Connection**<sup>*</sup> | The value of the common prefix for the setting that contains the topic endpoint URI. For more information about the naming format of this application setting, see [Identity-based authentication](#identity-based-authentication).  | 
-
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 The following table explains the parameters for the `EventGridOutputAttribute`.
 
 |Parameter | Description|
-|---------|---------|----------------------|
+|---------|---------|
 |**TopicEndpointUri** | The name of an app setting that contains the URI for the custom topic, such as `MyTopicEndpointUri`. |
 |**TopicKeySetting** | The name of an app setting that contains an access key for the custom topic. |
 |**connection**<sup>*</sup> | The value of the common prefix for the setting that contains the topic endpoint URI. For more information about the naming format of this application setting, see [Identity-based authentication](#identity-based-authentication).  | 
+
+# [In-process model](#tab/in-process)
+
+The following table explains the parameters for the `EventGridAttribute`.
+
+|Parameter | Description|
+|---------|---------|
+|**TopicEndpointUri** | The name of an app setting that contains the URI for the custom topic, such as `MyTopicEndpointUri`. |
+|**TopicKeySetting** | The name of an app setting that contains an access key for the custom topic. |
+|**Connection**<sup>*</sup> | The value of the common prefix for the setting that contains the topic endpoint URI. For more information about the naming format of this application setting, see [Identity-based authentication](#identity-based-authentication).  | 
 
 ---
 

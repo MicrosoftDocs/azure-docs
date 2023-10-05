@@ -4,7 +4,7 @@ titleSuffix: Azure Database Migration Service
 description: Learn which migration scenarios are currently supported for Azure Database Migration Service and their availability status.
 author: croblesm
 ms.author: roblescarlos
-ms.reviewer: craigg, randolphwest
+ms.reviewer: randolphwest
 ms.date: 04/27/2022
 ms.service: dms
 ms.topic: troubleshooting

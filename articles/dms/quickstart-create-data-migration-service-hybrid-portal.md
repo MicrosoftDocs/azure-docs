@@ -4,7 +4,7 @@ titleSuffix: Azure Database Migration Service
 description: Use the Azure portal to create an instance of Azure Database Migration Service in hybrid mode.
 author: abhims14
 ms.author: abhishekum
-ms.reviewer: craigg
+ms.reviewer: randolphwest
 ms.date: 03/13/2020
 ms.service: dms
 ms.topic: quickstart

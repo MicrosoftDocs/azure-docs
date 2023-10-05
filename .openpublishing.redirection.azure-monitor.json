@@ -6319,6 +6319,21 @@
             "source_path_from_root": "/articles/azure-monitor/containers/container-insights-optout-openshift-v4.md",
             "redirect_url": "/azure/azure-monitor/containers/container-insights-optout",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/opencensus-python-dependency.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/opencensus-python-dependency",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/opencensus-python-request.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/opencensus-python-request",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/opencensus-python.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/opencensus-python",
+            "redirect_document_id": false
         }
     ]
 }

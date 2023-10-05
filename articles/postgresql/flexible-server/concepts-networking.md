@@ -103,6 +103,8 @@ After you create a private DNS zone in Azure, you'll need to [link](../../dns/pr
   > [!IMPORTANT]
   > We no longer validate virtual network link presence on server creation for Azure Database for PostgreSQL - Flexible Server with private networking. When creating server through the Portal we provide customer choice to create link on server creation via checkbox *"Link Private DNS Zone your virtual network"* in the Azure Portal. 
 
+[DNS private zones are resilient](../../dns/private-dns-overview.md) to regional outages because zone data is globally available. Resource records in a private zone are automatically replicated across regions. Azure Private DNS is an availability zone foundational, zone-reduntant service. For more information, see [Azure services with availability zone support](../../reliability/availability-zones-service-support.md#azure-services-with-availability-zone-support).
+
 ### Integration with a custom DNS server
 
 If you're using a custom DNS server, you must use a DNS forwarder to resolve the FQDN of Azure Database for PostgreSQL - Flexible Server. The forwarder IP address should be [168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md). 

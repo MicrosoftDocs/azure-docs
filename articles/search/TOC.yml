@@ -123,32 +123,34 @@
     href: samples-rest.md
 - name: Concepts
   items:
-  - name: Retrieval Augmented Generation (RAG)
-    href: retrieval-augmented-generation-overview.md
   - name: Search
     items:
     - name: Full-text search
-      items:
-      - name: Overview
-        href: search-lucene-query-architecture.md
-      - name: Query types and composition
-        href: search-query-overview.md
-      - name: Relevance scoring
-        href: index-similarity-and-scoring.md
+      href: search-lucene-query-architecture.md
     - name: Vector search
-      items:
-      - name: Overview
-        href: vector-search-overview.md
-      - name: Vector index size limit
-        href: vector-search-index-size.md
-      - name: Vector query execution
-        href: vector-search-ranking.md
+      href: vector-search-overview.md
+    - name: Hybrid search
+      href: hybrid-search-overview.md
+    - name: Retrieval Augmented Generation (RAG)
+      href: retrieval-augmented-generation-overview.md
+    - name: Other query types
+      href: search-query-overview.md
+  - name: Relevance
+    items:
+    - name: Scoring in keyword queries (BM25)
+      href: index-similarity-and-scoring.md
+    - name: Scoring in vector queries
+      href: vector-search-ranking.md
+    - name: Scoring in hybrid queries (RRF)
+      href: hybrid-search-ranking.md
     - name: Semantic search
       href: semantic-search-overview.md
   - name: Indexing
     items:
     - name: Search indexes
       href: search-what-is-an-index.md
+    - name: Vector index size limit
+      href: vector-search-index-size.md
     - name: Import
       href: search-what-is-data-import.md
     - name: Import Data wizard

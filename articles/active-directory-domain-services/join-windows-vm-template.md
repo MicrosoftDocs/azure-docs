@@ -137,9 +137,9 @@ It takes a few moments for the deployment to complete successfully. When finishe
 In this article, you used the Azure portal to configure and deploy resources using templates. You can also deploy resources with Resource Manager templates using [Azure PowerShell][deploy-powershell] or the [Azure CLI][deploy-cli].
 
 <!-- INTERNAL LINKS -->
-[create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
-[associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
+[create-azure-ad-tenant]: /azure/active-directory/fundamentals/sign-up-organization
+[associate-azure-ad-tenant]: /azure/active-directory/fundamentals/how-subscriptions-associated-directory
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
-[template-overview]: ../azure-resource-manager/templates/overview.md
-[deploy-powershell]: ../azure-resource-manager/templates/deploy-powershell.md
-[deploy-cli]: ../azure-resource-manager/templates/deploy-cli.md
+[template-overview]: /azure/azure-resource-manager/templates/overview
+[deploy-powershell]: /azure/azure-resource-manager/templates/deploy-powershell
+[deploy-cli]: /azure/azure-resource-manager/templates/deploy-cli

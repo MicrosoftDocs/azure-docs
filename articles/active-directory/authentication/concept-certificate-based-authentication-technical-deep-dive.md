@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 09/25/2023
+ms.date: 10/02/2023
 
 
 ms.author: justinha
@@ -16,6 +16,7 @@ ms.reviewer: vimrang
 
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
+ms.localizationpriority: high
 ---
 
 # Microsoft Entra certificate-based authentication technical deep dive
@@ -49,15 +50,21 @@ Now we'll walk through each step:
 
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/sign-in-alt.png" alt-text="Screenshot of the Sign-in if FIDO2 is also enabled.":::
 
-1. Once the user selects certificate-based authentication, the client is redirected to the certauth endpoint, which is [https://certauth.login.microsoftonline.com](https://certauth.login.microsoftonline.com) or [`https://t<tenant id>.certauth.login.microsoftonline.com`](`https://t<tenant id>.certauth.login.microsoftonline.com`) for Azure Global. For [Azure Government](../../azure-government/compare-azure-government-global-azure.md#guidance-for-developers), the certauth endpoint is [https://certauth.login.microsoftonline.us](https://certauth.login.microsoftonline.us).  
+1. Once the user selects certificate-based authentication, the client is redirected to the certauth endpoint, which is [https://certauth.login.microsoftonline.com](https://certauth.login.microsoftonline.com) for Azure Global. For [Azure Government](../../azure-government/compare-azure-government-global-azure.md#guidance-for-developers), the certauth endpoint is [https://certauth.login.microsoftonline.us](https://certauth.login.microsoftonline.us).  
 
-   The endpoint performs TLS mutual authentication, and requests the client certificate as part of the TLS handshake. You'll see an entry for this request in the Sign-ins log.
+However, with the issue hints feature enabled (coming soon), the new certauth endpoint will change to `https://t{tenantid}.certauth.login.microsoftonline.com`.
+
+The endpoint performs TLS mutual authentication, and requests the client certificate as part of the TLS handshake. You'll see an entry for this request in the Sign-ins log.
+
+   >[!NOTE]
+   >The network administrator should allow access to the User sign-in page and certauth endpoint `*.certauth.login.microsoftonline.com` for the customer's cloud environment. Disable TLS inspection on the certauth endpoint to make sure the client certificate request succeeds as part of the TLS handshake.
+
+   Customers should make sure their TLS inspection disablement also work for the new url with issuer hints. Our recommendation is not to hardcode the url with tenantId as for B2B users the tenantId might change. Use a regular expression to allow both the old and new URL to work for TLS inspection disablement. For example, use `*.certauth.login.microsoftonline.com` or `*certauth.login.microsoftonline.com`for Azure Global tenants, and `*.certauth.login.microsoftonline.us` or `*certauth.login.microsoftonline.us` for Azure Government tenants, depending on the proxy used.
+
+   Without this change, certificate-based authentication will fail when you enable Issuer Hints feature.
 
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/sign-in-log.png" alt-text="Screenshot of the Sign-ins log in Microsoft Entra ID." lightbox="./media/concept-certificate-based-authentication-technical-deep-dive/sign-in-log.png":::
    
-   >[!NOTE]
-   >The network administrator should allow access to the User sign-in page and certauth endpoint *.certauth.login.microsoftonline.com for the customer’s cloud environment. Disable TLS inspection on the certauth endpoint to make sure the client certificate request succeeds as part of the TLS handshake.
-
    Click the log entry to bring up **Activity Details** and click **Authentication Details**. You'll see an entry for the X.509 certificate.
 
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/entry.png" alt-text="Screenshot of the entry for X.509 certificate.":::
@@ -116,7 +123,7 @@ For passwordless sign-in to work, users should disable legacy notification throu
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
 
-1. Follow the steps at [Enable passwordless phone sign-in authentication](../authentication/howto-authentication-passwordless-phone.md#enable-passwordless-phone-sign-in-authentication-methods)
+1. Follow the steps at [Enable passwordless phone sign-in authentication](../authentication/howto-authentication-passwordless-phone.md#enable-passwordless-phone-sign-in-authentication-methods).
 
    >[!IMPORTANT]
    >In the above configuration under step 4, please choose **Passwordless** option. Change the mode for each groups added for PSI for **Authentication mode**, choose **Passwordless** for passwordless sign-in to work with CBA. If the admin configures "Any", CBA and PSI don't work.

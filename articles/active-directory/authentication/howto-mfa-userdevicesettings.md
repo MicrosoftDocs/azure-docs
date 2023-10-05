@@ -91,19 +91,16 @@ If you're assigned the *Authentication Administrator* role, you can require user
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Administrator](../roles/permissions-reference.md#authentication-administrator).
 1. Browse to **Identity** > **Users** > **All users**. 
 1. Choose the user you wish to perform an action on and select **Authentication methods**. At the top of the window, then choose one of the following options for the user:
-   - **Reset Password** resets the user's password and assigns a temporary password that must be changed on the next sign-in.
-   - **Require Re-register MFA** makes it so that when the user signs in next time, they're requested to set up a new MFA authentication method.
-      > [!NOTE]
-      > The user's currently registered authentication methods aren't deleted when an admin requires re-registration for MFA. After a user re-registers for MFA, we recommend they review their security info and delete any previously registered authentication methods that are no longer usable.
-   - **Revoke MFA Sessions** clears the user's remembered MFA sessions and requires them to perform MFA the next time it's required by the policy on the device.
-   
-    :::image type="content" source="media/howto-mfa-userdevicesettings/manage-authentication-methods-in-azure.png" alt-text="Manage authentication methods from the Microsoft Entra admin center":::
+   - **Reset password** resets the user's password and assigns a temporary password that must be changed on the next sign-in.
+   - **Require re-register MFA** deactivates the user's hardware OATH tokens and deletes the following authentication methods from this user: phone numbers, Microsoft Authenticator apps and software OATH tokens. If needed, the user is requested to set up a new MFA authentication method the next time they sign in.
+   - **Revoke MFA sessions** clears the user's remembered MFA sessions and requires them to perform MFA the next time it's required by the policy on the device.
+       :::image type="content" source="media/howto-mfa-userdevicesettings/manage-authentication-methods-in-azure.png" alt-text="Manage authentication methods from the Microsoft Entra admin center":::
 
-## Delete users' existing app passwords
+   ## Delete users' existing app passwords
 
-For users that have defined app passwords, administrators can also choose to delete these passwords, causing legacy authentication to fail in those applications. These actions may be necessary if you need to provide assistance to a user, or need to reset their authentication methods. Non-browser apps that were associated with these app passwords will stop working until a new app password is created. 
+   For users that have defined app passwords, administrators can also choose to delete these passwords, causing legacy authentication to fail in those applications. These actions may be necessary if you need to provide assistance to a user, or need to reset their authentication methods. Non-browser apps that were associated with these app passwords will stop working until a new app password is created. 
 
-To delete a user's app passwords, complete the following steps:
+   To delete a user's app passwords, complete the following steps:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Administrator](../roles/permissions-reference.md#authentication-administrator).
 1. Browse to **Identity** > **Users** > **All users**. 
@@ -119,3 +116,5 @@ To delete a user's app passwords, complete the following steps:
 This article showed you how to configure individual user settings. To configure overall Microsoft Entra multifactor authentication service settings, see [Configure Microsoft Entra multifactor authentication settings](howto-mfa-mfasettings.md).
 
 If your users need help, see the [User guide for Microsoft Entra multifactor authentication](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc).
+
+

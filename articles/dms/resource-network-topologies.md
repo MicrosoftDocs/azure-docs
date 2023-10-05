@@ -4,7 +4,7 @@ titleSuffix: Azure Database Migration Service
 description: Learn the source and target configurations for Azure SQL Managed Instance migrations using the Azure Database Migration Service.
 author: abhims14
 ms.author: abhishekum
-ms.reviewer: craigg
+ms.reviewer: randolphwest
 ms.date: 01/08/2020
 ms.service: dms
 ms.topic: reference

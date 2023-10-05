@@ -174,6 +174,17 @@ The ability to completely block routes isn't supported by the Azure VPN Client. 
 > - If you encounter the error "_Destination cannot be empty or have more than one entry inside route tag_", check the profile XML file and ensure that the includeroutes/excluderoutes section has only one destination address inside a route tag.
 >
 
+## Version Information
+
+Version 3.2.0.0 
+
+New in this Release:
+  - AAD Authentication is now available from the settings page. 
+  - Server High Availability(HA), releasing on a rolling basis until October 20. 
+  - Accesibility Improvements
+  - Connection logs in UTC
+  - Minor bug fixes
+     
 ## Next steps
 
 For more information about P2S VPN, see the following articles:

@@ -52,7 +52,7 @@ To complete this tutorial, you need the following resources and privileges:
 
 ## Sign in to the Microsoft Entra admin center
 
-In this tutorial, you create and configure the outbound forest trust from Domain Services using the Microsoft Entra admin center. To get started, first sign in to the [Microsoft Entra admin center](https://entra.microsoft.com). You need [Application Administrator](../active-directory/roles/permissions-reference.md#application-administrator) and [Groups Administrator](../active-directory/roles/permissions-reference.md#groups-administrator) Microsoft Entra roles in your tenant to modify a Domain Services instance. 
+In this tutorial, you create and configure the outbound forest trust from Domain Services using the Microsoft Entra admin center. To get started, first sign in to the [Microsoft Entra admin center](https://entra.microsoft.com). You need [Application Administrator](/azure/active-directory/roles/permissions-reference#application-administrator) and [Groups Administrator](/azure/active-directory/roles/permissions-reference#groups-administrator) Microsoft Entra roles in your tenant to modify a Domain Services instance. 
 
 ## Networking considerations
 
@@ -154,7 +154,7 @@ The following common scenarios let you validate that forest trust correctly auth
 
 You should have Windows Server virtual machine joined to the managed domain. Use this virtual machine to test your on-premises user can authenticate on a virtual machine. If needed, [create a Windows VM and join it to the managed domain][join-windows-vm].
 
-1. Connect to the Windows Server VM joined to the Domain Services forest using [Azure Bastion](../bastion/bastion-overview.md) and your Domain Services administrator credentials.
+1. Connect to the Windows Server VM joined to the Domain Services forest using [Azure Bastion](/azure/bastion/bastion-overview) and your Domain Services administrator credentials.
 1. Open a command prompt and use the `whoami` command to show the distinguished name of the currently authenticated user:
 
     ```console
@@ -178,7 +178,7 @@ Using the Windows Server VM joined to the Domain Services forest, you can test t
 
 #### Enable file and printer sharing
 
-1. Connect to the Windows Server VM joined to the Domain Services forest using [Azure Bastion](../bastion/bastion-overview.md) and your Domain Services administrator credentials.
+1. Connect to the Windows Server VM joined to the Domain Services forest using [Azure Bastion](/azure/bastion/bastion-overview) and your Domain Services administrator credentials.
 
 1. Open **Windows Settings**, then search for and select **Network and Sharing Center**.
 1. Choose the option for **Change advanced sharing** settings.
@@ -239,10 +239,10 @@ For more conceptual information about forest in Domain Services, see [How do for
 
 <!-- INTERNAL LINKS -->
 [concepts-trust]: concepts-forest-trust.md
-[create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
-[associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
+[create-azure-ad-tenant]: /azure/active-directory/fundamentals/sign-up-organization
+[associate-azure-ad-tenant]: /azure/active-directory/fundamentals/how-subscriptions-associated-directory
 [create-azure-ad-ds-instance-advanced]: tutorial-create-instance-advanced.md
 [howto-change-sku]: change-sku.md
-[vpn-gateway]: ../vpn-gateway/vpn-gateway-about-vpngateways.md
-[expressroute]: ../expressroute/expressroute-introduction.md
+[vpn-gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways
+[expressroute]: /azure/expressroute/expressroute-introduction
 [join-windows-vm]: join-windows-vm.md

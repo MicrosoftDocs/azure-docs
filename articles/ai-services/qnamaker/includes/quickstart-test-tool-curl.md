@@ -3,8 +3,8 @@ title: include file
 description: include file
 services: cognitive-services
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
+ms.service: azure-ai-language
+ms.subservice: azure-ai-qna-maker
 ms.topic: include
 ms.custom: include file, ignite-fall-2021
 ms.date: 09/13/2021

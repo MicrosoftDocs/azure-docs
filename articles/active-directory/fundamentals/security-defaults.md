@@ -92,11 +92,13 @@ After registration is finished, the following administrator roles will be requir
 - Global Administrator
 - Application Administrator
 - Authentication Administrator
+- Authentication Policy Administrator
 - Billing Administrator
 - Cloud Application Administrator
 - Conditional Access Administrator
 - Exchange Administrator
 - Helpdesk Administrator
+- Identity Governance Administrator
 - Password Administrator
 - Privileged Authentication Administrator
 - Privileged Role Administrator

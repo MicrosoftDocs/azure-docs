@@ -232,7 +232,7 @@ Response Body:
 
 Here are some API payload examples:
 
-- Git sync properties for Github with PAT: 
+- Git sync properties for GitHub with PAT: 
   ```rest
   "gitSyncProperties":  {
           "gitServiceType": "Github",
@@ -267,7 +267,7 @@ Here are some API payload examples:
           "tenantId": <service principal tenant id>
   }```
  
-- Git sync properties for Github public repo: 
+- Git sync properties for GitHub public repo: 
   ```rest
   "gitSyncProperties":  {
           "gitServiceType": "Github",

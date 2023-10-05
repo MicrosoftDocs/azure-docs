@@ -112,24 +112,24 @@ Specify one of the following sizes in your ARM template in the VM resource. This
 Under **properties**, you also have to specify an image under **storageProfile**. Use *only one* of the following images for your **imageReference**.
 
 ```json
-      "2019-datacenter-gensecond": {
-        "offer": "WindowsServer",
-        "publisher": "MicrosoftWindowsServer",
-        "sku": "2019-datacenter-gensecond",
-        "version": "latest"
-      },
-      "20_04-lts-gen2": {
-        "offer": "0001-com-ubuntu-server-focal",
-        "publisher": "Canonical",
-        "sku": "20_04-lts-gen2",
-        "version": "latest"
-      }
-      "22_04-lts-gen2": {
-        "offer": "0001-com-ubuntu-server-jammy",
-        "publisher": "Canonical",
-        "sku": "22_04-lts-gen2",
-        "version": "latest"
-      },
+  "2019-datacenter-gensecond": {
+    "offer": "WindowsServer",
+    "publisher": "MicrosoftWindowsServer",
+    "sku": "2019-datacenter-gensecond",
+    "version": "latest"
+  },
+  "20_04-lts-gen2": {
+    "offer": "0001-com-ubuntu-server-focal",
+    "publisher": "Canonical",
+    "sku": "20_04-lts-gen2",
+    "version": "latest"
+  }
+  "22_04-lts-gen2": {
+    "offer": "0001-com-ubuntu-server-jammy",
+    "publisher": "Canonical",
+    "sku": "22_04-lts-gen2",
+    "version": "latest"
+  },
 ```
 
 ## Next step

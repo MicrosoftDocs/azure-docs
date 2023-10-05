@@ -9,7 +9,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.custom: has-azure-ad-ps-ref
 ms.topic: tutorial
-ms.date: 09/15/2023
+ms.date: 09/28/2023
 ms.author: justinha
 #Customer intent: As an identity administrator, I want to create a Microsoft Entra Domain Services managed domain so that I can synchronize identity information with my Microsoft Entra tenant and provide Domain Services connectivity to virtual machines and applications in Azure.
 ---
@@ -37,8 +37,8 @@ To complete this tutorial, you need the following resources and privileges:
     * If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * A Microsoft Entra tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
     * If needed, [create a Microsoft Entra tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
-* You need [Application Administrator](../active-directory/roles/permissions-reference.md#application-administrator) and [Groups Administrator](../active-directory/roles/permissions-reference.md#groups-administrator) Microsoft Entra roles in your tenant to enable Domain Services.
-* You need [Domain Services Contributor](../role-based-access-control/built-in-roles.md#domain-services-contributor) Azure role to create the required Domain Services resources.
+* You need [Application Administrator](/azure/active-directory/roles/permissions-reference#application-administrator) and [Groups Administrator](/azure/active-directory/roles/permissions-reference#groups-administrator) Microsoft Entra roles in your tenant to enable Domain Services.
+* You need [Domain Services Contributor](/azure/role-based-access-control/built-in-roles#domain-services-contributor) Azure role to create the required Domain Services resources.
 * A virtual network with DNS servers that can query necessary infrastructure such as storage. DNS servers that can't perform general internet queries might block the ability to create a managed domain. 
 
 Although not required for Domain Services, it's recommended to [configure self-service password reset (SSPR)][configure-sspr] for the Microsoft Entra tenant. Users can change their password without SSPR, but SSPR helps if they forget their password and need to reset it.
@@ -152,7 +152,7 @@ With Domain Services successfully deployed, now configure the virtual network to
 1. To update the DNS server settings for the virtual network, select the **Configure** button. The DNS settings are automatically configured for your virtual network.
 
 > [!TIP]
-> If you selected an existing virtual network in the previous steps, any VMs connected to the network only get the new DNS settings after a restart. You can restart VMs using the Microsoft Entra admin center, Azure PowerShell, or the Azure CLI.
+> If you selected an existing virtual network in the previous steps, any VMs connected to the network only get the new DNS settings after a restart. You can restart VMs using the Microsoft Entra admin center, Microsoft Graph PowerShell, or the Azure CLI.
 
 <a name='enable-user-accounts-for-azure-ad-ds'></a>
 
@@ -165,11 +165,11 @@ To authenticate users on the managed domain, Domain Services needs password hash
 >
 > Synchronized credential information in Microsoft Entra ID can't be re-used if you later create a managed domain - you must reconfigure the password hash synchronization to store the password hashes again. Previously domain-joined VMs or users won't be able to immediately authenticate - Microsoft Entra ID needs to generate and store the password hashes in the new managed domain.
 >
-> [Microsoft Entra Connect Cloud Sync is not supported with Domain Services](../active-directory/cloud-sync/what-is-cloud-sync.md#comparison-between-azure-ad-connect-and-cloud-sync). On-premises users need to be synced using Microsoft Entra Connect in order to be able to access domain-joined VMs. For more information, see [Password hash sync process for Domain Services and Microsoft Entra Connect][password-hash-sync-process].
+> [Microsoft Entra Connect Cloud Sync is not supported with Domain Services](/azure/active-directory/hybrid/cloud-sync/what-is-cloud-sync#comparison-between-azure-ad-connect-and-cloud-sync). On-premises users need to be synced using Microsoft Entra Connect in order to be able to access domain-joined VMs. For more information, see [Password hash sync process for Domain Services and Microsoft Entra Connect][password-hash-sync-process].
 
 The steps to generate and store these password hashes are different for cloud-only user accounts created in Microsoft Entra ID versus user accounts that are synchronized from your on-premises directory using Microsoft Entra Connect.
 
-A cloud-only user account is an account that was created in your Microsoft Entra directory using either the Microsoft Entra admin center or Azure AD PowerShell cmdlets. These user accounts aren't synchronized from an on-premises directory.
+A cloud-only user account is an account that was created in your Microsoft Entra directory by using either the Microsoft Entra admin center or PowerShell. These user accounts aren't synchronized from an on-premises directory.
 
 > In this tutorial, let's work with a basic cloud-only user account. For more information on the additional steps required to use Microsoft Entra Connect, see [Synchronize password hashes for user accounts synced from your on-premises AD to your managed domain][on-prem-sync].
 
@@ -210,18 +210,18 @@ Before you domain-join VMs and deploy applications that use the managed domain, 
 
 <!-- INTERNAL LINKS -->
 [tutorial-create-instance-advanced]: tutorial-create-instance-advanced.md
-[create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
-[associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
+[create-azure-ad-tenant]: /azure/active-directory/fundamentals/sign-up-organization
+[associate-azure-ad-tenant]: /azure/active-directory/fundamentals/how-subscriptions-associated-directory
 [network-considerations]: network-considerations.md
-[create-dedicated-subnet]: ../virtual-network/virtual-network-manage-subnet.md#add-a-subnet
+[create-dedicated-subnet]: /azure/virtual-network/virtual-network-manage-subnet#add-a-subnet
 [scoped-sync]: scoped-synchronization.md
 [on-prem-sync]: tutorial-configure-password-hash-sync.md
-[configure-sspr]: ../active-directory/authentication/tutorial-enable-sspr.md
-[password-hash-sync-process]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md#password-hash-sync-process-for-azure-ad-domain-services
+[configure-sspr]: /azure/active-directory/authentication/tutorial-enable-sspr
+[password-hash-sync-process]: /azure/active-directory/hybrid/connect/how-to-connect-password-hash-synchronization#password-hash-sync-process-for-azure-ad-domain-services
 [tutorial-create-instance-advanced]: tutorial-create-instance-advanced.md
 [skus]: overview.md
-[resource-forests]: concepts-resource-forest.md
-[availability-zones]: ../reliability/availability-zones-overview.md
+[resource-forests]: ./concepts-forest-trust.md
+[availability-zones]: /azure/reliability/availability-zones-overview
 [concepts-sku]: administration-concepts.md#azure-ad-ds-skus
 
 <!-- EXTERNAL LINKS -->
