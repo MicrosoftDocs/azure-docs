@@ -32,7 +32,7 @@ This article shows you how to enable private network access for an Event Grid na
         :::image type="content" source="./media/configure-private-endpoints-mqtt/create-private-endpoint-basics-page.png" alt-text="Screenshot showing the Basics page of the Create a private endpoint wizard.":::
 1. On the **Resource** page, follow these steps.
     1. Confirm that the **Azure subscription**, **Resource type**, and **Resource** (that is, your Event Grid namespace) looks correct
-    1. Select a **Target sub-resource**. For example: **topicspace**. You see **topicspace** only if you have **MQTT** enabled on the namespace.
+    1. Select a **Target sub-resource**. For example: `topicspace`. You see `topicspace` only if you have **MQTT** enabled on the namespace.
     1. Select **Next: Virtual Network >** button at the bottom of the page. 
 
         :::image type="content" source="./media/configure-private-endpoints-mqtt/create-private-endpoint-resource-page.png" alt-text="Screenshot showing the Resource page of the Create a private endpoint wizard.":::
