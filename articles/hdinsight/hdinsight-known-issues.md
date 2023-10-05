@@ -2,21 +2,21 @@
 title: Azure HDInsight known issues
 description: Track known issues and the ETA for the fix in Azure HDInsight
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: troubleshooting-known-issue
 ms.date: 10/04/2023
 ---
 
 # Azure HDInsight known issues
 
-This page lists known issues for the Azure HDInsight service. Before submitting a Support request, review this list to see if the issue that you are experiencing is already known and being addressed.
+This page lists known issues for the Azure HDInsight service. Before submitting a Support request, review this list to see if the issue that you're experiencing is already known and being addressed.
 
-For service level outages or degradation notifications, check the [Azure serivce health status](https://azure.status.microsoft/status) page. 
+For service level outages or degradation notifications, check the [Azure service health status](https://azure.status.microsoft/status) page.
 
 ## Currently active known issues
 
 Select the **Title** to view more information about that specific known issue.
 
-| Issue ID         | Area                   |Title                    | Issue Publish date|
+| Issue ID         | Area                   |Title                    | Issue publish date|
 |------------------|------------------------|-------------------------|-------------------|
 | 450              | Cluster Creation       | [Linux VM agent 9.9.9.9](https://github.com/Azure/SelfHelpContent/blob/master/articles/microsoft.hdinsight/asc-hdinsight-vmagent9999.md)| October 12, 2023  |
 | 451              | Spark Library management       | [Conda version regression in recent HDInsight release](https://github.com/Azure/SelfHelpContent/blob/master/articles/microsoft.hdinsight/asc-hdinsight-condaregressionversion429.md)| October 12, 2023  |
@@ -26,10 +26,9 @@ Select the **Title** to view more information about that specific known issue.
 
 Select the **Title** to view more information about that specific known issue. Fixed issues are removed after 60 days.
 
-| Issue ID         | Area                   |Title                    | Issue Publish date| Status|
+| Issue ID         | Area                   |Title                    | Issue publish date| Status|
 |------------------|------------------------|-------------------------|-------------------|-------|
 |NA|NA|NA|NA|NA|
-
 
 ## Next steps
 
