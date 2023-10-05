@@ -4,7 +4,7 @@ description: Learn how to set up and enable Arc for your Azure VMware Solution p
 ms.topic: how-to 
 ms.service: azure-vmware
 ms.date: 08/28/2023
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 ---
 
 

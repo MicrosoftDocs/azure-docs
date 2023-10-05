@@ -11,7 +11,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.custom: has-azure-ad-ps-ref
 ms.topic: troubleshooting
-ms.date: 09/15/2023
+ms.date: 10/05/2023
 ms.author: justinha
 ---
 # Common errors and troubleshooting steps for Microsoft Entra Domain Services
@@ -138,7 +138,7 @@ If one or more users in your Microsoft Entra tenant can't sign in to the managed
       * You've deployed, or updated to, the [latest recommended release of Microsoft Entra Connect](https://www.microsoft.com/download/details.aspx?id=47594).
       * You've configured Microsoft Entra Connect to [perform a full synchronization][hybrid-phs].
       * Depending on the size of your directory, it may take a while for user accounts and credential hashes to be available in the managed domain. Make sure you wait long enough before trying to authenticate against the managed domain.
-      * If the issue persists after verifying the previous steps, try restarting the *Microsoft Entra ID Sync Service*. From your Microsoft Entra Connect server, open a command prompt, then run the following commands:
+      * If the issue persists after verifying the previous steps, try restarting the *Azure AD Sync Service*. From your Microsoft Entra Connect server, open a command prompt, then run the following commands:
     
         ```console
         net stop 'Microsoft Azure AD Sync'
