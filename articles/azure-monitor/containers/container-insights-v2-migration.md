@@ -8,7 +8,7 @@ ms.reviewer: aul
 
 # Migrate from ContainerLog to ContainerLogV2
 
-With the upgraded offering of ContainerLogV2 becoming generally available, on 30th September 2026, the ContainerLog table will be retired. If you currently ingest container insights data to the ContainerLog table, please make sure to transition to using ContainerLogV2 prior to that date.
+With the upgraded offering of ContainerLogV2 becoming generally available, on 30th September 2026, the ContainerLog table will be retired. If you currently ingest container insights data to the ContainerLog table, please transition to using ContainerLogV2 prior to that date.
 
 >[!NOTE]
 > Support for ingesting the ContainerLog table will be **retired on 30th September 2026**.
@@ -37,7 +37,7 @@ The following table highlights the key differences between using ContainerLog an
 
 ## Assess the impact on existing alerts
 
-If you are currently using ContainerLog in your alerts, then migrating to ContainerLogV2 will require updates to your alert queries for them to continue functioning as expected.
+If you are currently using ContainerLog in your alerts, then migrating to ContainerLogV2 requires updates to your alert queries for them to continue functioning as expected.
 
 To scan for alerts that may be referencing the ContainerLog table, run the following Azure Resource Graph query:
 
