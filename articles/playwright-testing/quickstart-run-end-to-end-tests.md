@@ -139,32 +139,61 @@ To add the service configuration to your project:
 
 You've now prepared the configuration for running your Playwright tests in the cloud with Microsoft Playwright Testing. To run your Playwright tests, you use the Playwright CLI and specify the service configuration file and number of workers on the command-line.
 
-Perform the following steps to run your Playwright tests:
+Perform the following steps to run your Playwright tests with Microsoft Playwright Testing.
 
-1. Open a terminal window and enter the following command to run your Playwright tests on remote browsers in your workspace:
+# [Playwright CLI](#tab/playwrightcli)
 
-    Depending on the size of your test suite, the tests run on up to 20 parallel workers.
+Open a terminal window and enter the following command to run your Playwright tests on remote browsers in your workspace:
 
-    ```bash
-    npx playwright test --config=playwright.service.config.ts --workers=20
-    ```
+Depending on the size of your test suite, the tests run on up to 20 parallel workers.
 
-    You should see a similar output when the tests complete:
+```bash
+npx playwright test --config=playwright.service.config.ts --workers=20
+```
 
-    ```output
-    Running 6 tests using 6 workers
-      6 passed (18.2s)
-    
-    To open last HTML report run:
-    
-      npx playwright show-report
-    ```
+You should see a similar output when the tests complete:
 
-1. Go to the [Playwright portal](https://aka.ms/mpt/portal) to view your test run.
+```output
+Running 6 tests using 6 workers
+    6 passed (18.2s)
 
-    The activity log lists for each test run the following details: the total test completion time, the number of parallel workers, and the number of test minutes.
+To open last HTML report run:
 
-    :::image type="content" source="./media/quickstart-run-end-to-end-tests/playwright-testing-activity-log.png" alt-text="Screenshot that shows the activity log for a workspace in the Playwright Testing portal." lightbox="./media/quickstart-run-end-to-end-tests/playwright-testing-activity-log.png":::
+    npx playwright show-report
+```
+
+# [Visual Studio Code](#tab/vscode)
+
+1. Install the [Playwright Test Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright).
+
+1. Open the **Test Explorer** view in the activity bar.
+
+    The test explorer automatically detects your Playwright tests.
+
+    :::image type="content" source="./media/quickstart-run-end-to-end-tests/visual-studio-code-test-explorer.png" alt-text="Screenshot that shows the Test Explorer view in Visual Studio Code, which lists the Playwright tests." lightbox="./media/quickstart-run-end-to-end-tests/visual-studio-code-test-explorer.png":::
+
+1. Select a service profile to run your tests with Microsoft Playwright Testing.
+
+    Notice that the service run profiles are coming from the `playwright.service.config.ts` file you added previously.
+
+    Optionally, select **Select Default Profile**, and then select your default projects. By setting a default profile, you can automatically run your services with the service, or run multiple Playwright projects simultaneously.
+
+    :::image type="content" source="./media/quickstart-run-end-to-end-tests/visual-studio-code-choose-run-profile.png" alt-text="Screenshot that shows the menu to choose a run profile for your tests, highlighting the projects from the service configuration file." lightbox="./media/quickstart-run-end-to-end-tests/visual-studio-code-choose-run-profile.png":::
+
+    > [!TIP]
+    > You can still debug your test code when you run your tests on remote browsers.
+
+1. You can view the test results directly in Visual Studio Code.
+
+    :::image type="content" source="./media/quickstart-run-end-to-end-tests/visual-studio-code-test-results.png" alt-text="Screenshot that shows the Playwright test results in Visual Studio Code." lightbox="./media/quickstart-run-end-to-end-tests/visual-studio-code-test-results.png":::
+
+---
+
+Go to the [Playwright portal](https://aka.ms/mpt/portal) to view the test run metadata and activity log for your workspace.
+
+:::image type="content" source="./media/quickstart-run-end-to-end-tests/playwright-testing-activity-log.png" alt-text="Screenshot that shows the activity log for a workspace in the Playwright Testing portal." lightbox="./media/quickstart-run-end-to-end-tests/playwright-testing-activity-log.png":::
+
+The activity log lists for each test run the following details: the total test completion time, the number of parallel workers, and the number of test minutes.
 
 ## Optimize parallel worker configuration
 
