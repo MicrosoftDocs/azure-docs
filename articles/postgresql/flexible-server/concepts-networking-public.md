@@ -20,7 +20,7 @@ When you create an Azure Database for PostgreSQL - Flexible Server instance (a *
 The following characteristics apply whether you choose to use the private access or the public access option:
 
 * Connections from allowed IP addresses need to authenticate to the PostgreSQL server with valid credentials.
-* [Connection encryption](#tls-and-ssl) is enforced for your network traffic.
+* Connection encryption is enforced for your network traffic.
 * The server has a fully qualified domain name (FQDN). For the `hostname` property in connection strings, we recommend using the FQDN instead of an IP address.
 * Both options control access at the server level, not at the database  or table level. You would use PostgreSQL's roles properties to control database, table, and other object access.
 
