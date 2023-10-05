@@ -64,6 +64,8 @@ CREATE TABLE kafka_airplanes_state_real_time (
 ```
 Next, you can create ADLSgen2 table on Flink SQL.
 
+Update the container-name and storage-account-name in the code snippet with your ADLS Gen2 details.
+
 ```SQL
 CREATE TABLE adlsgen2_airplanes_state_real_time (
    `date` STRING,
