@@ -140,10 +140,10 @@ Depending on your scenario, you can choose to bind the certificate to either the
 1. Bind the certificate to the ingress controller using the `helm install` command. The ingress controller’s deployment references the Secrets Store CSI Driver's Azure Key Vault provider.
 
     > [!NOTE]
-    > If not using Azure Active Directory (Azure AD) pod-managed identity as your method of access, remove the line with `--set controller.podLabels.aadpodidbinding=$AAD_POD_IDENTITY_NAME`
-
-    > [!NOTE]
-    > Binding the SecretProviderClass to a pod is required for the Secrets Store CSI Driver to mount it and generate the Kubernetes secret, see [Sync mounted content with a Kubernetes secret][az-keyvault-mirror-as-secret]
+    > 
+    > - If not using Azure Active Directory (Azure AD) pod-managed identity as your method of access, remove the line with `--set controller.podLabels.aadpodidbinding=$AAD_POD_IDENTITY_NAME` .
+    > 
+    > - Also, binding the SecretProviderClass to a pod is required for the Secrets Store CSI Driver to mount it and generate the Kubernetes secret. See [Sync mounted content with a Kubernetes secret][az-keyvault-mirror-as-secret] .
 
 
     ```bash
