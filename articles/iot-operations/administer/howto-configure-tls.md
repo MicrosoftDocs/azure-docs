@@ -73,7 +73,7 @@ This step must be completed only *after* cert-manager is installed. This is beca
 
 ###  Create an Issuer for the TLS server certificate
 
-The cert-manager Issuer resource defines how certificates are automatically issued. Cert-manager [supports several Issuers types natively](https://cert-manager.io/docs/configuration/). It also supports an [External](https://cert-manager.io/docs/configuration/external/) issuer type for extending functionality beyond the natively-supported Issuers. IoT MQ can be used with any type of cert-manager Issuer.
+The cert-manager Issuer resource defines how certificates are automatically issued. Cert-manager [supports several Issuers types natively](https://cert-manager.io/docs/configuration/). It also supports an [External](https://cert-manager.io/docs/configuration/external/) issuer type for extending functionality beyond the natively supported Issuers. IoT MQ can be used with any type of cert-manager Issuer.
 
 The approach to create the Issuer is different depending on your scenario, below are some examples to help you get started.
 
@@ -130,7 +130,7 @@ From the file above, cert-manager creates a CA certificate using its defaults. T
 
 ##### Distribute the root certificate
 
-The example above stores the CA certificate in a Kubernetes secret called `test-ca`.The certificate in PEM format can be retrieved with the following command:
+The example above stores the CA certificate in a Kubernetes secret called `test-ca`. The certificate in PEM format can be retrieved with the following command:
 
 ```bash
 kubectl get secret test-ca -o json | jq -r '.data["tls.crt"]' | base64 -d
@@ -165,11 +165,11 @@ The command above creates an Issuer for issuing the TLS server certificates. Not
 
 For production, check cert-manager documentation to see which Issuer works best for you. For example, with [Vault Issuer](https://developer.hashicorp.com/vault/tutorials/kubernetes/kubernetes-cert-manager):
 
-1. Deploy the Vault in a environment of choice, like [Kubernetes](https://developer.hashicorp.com/vault/tutorials/kubernetes/kubernetes-raft-deployment-guide). Initialize and unseal the Vault accordingly.
+1. Deploy the Vault in an environment of choice, like [Kubernetes](https://developer.hashicorp.com/vault/tutorials/kubernetes/kubernetes-raft-deployment-guide). Initialize and unseal the Vault accordingly.
 1. Create and configure the PKI secrets engine by importing your CA certificate.
 1. Configure Vault with role and policy for issuing server certificates.
 
-   Example role, note `ExtKeyUsageServerAuth` makes the server cert work:
+   The following is an example role. Note `ExtKeyUsageServerAuth` makes the server cert work:
 
    ```bash
    vault write pki/roles/e4k-frontend-server \
@@ -188,7 +188,7 @@ For production, check cert-manager documentation to see which Issuer works best 
    }
    ```
 
-1. Setup authentication between cert-manager and Vault using a method of choice, like [SAT](https://developer.hashicorp.com/vault/docs/auth/kubernetes).
+1. Set up authentication between cert-manager and Vault using a method of choice, like [SAT](https://developer.hashicorp.com/vault/docs/auth/kubernetes).
 1. [Configure the cert-manager Vault Issuer](https://cert-manager.io/docs/configuration/vault/).
 
 ###  Enable TLS for a port
@@ -313,7 +313,7 @@ To manually configure E4K to use a specific TLS certificate, specify it in a Bro
 step init ca
 ```
 
-Follow the prompts to finish setup. Use a memorable password (e.g. "e4k") when prompted, as the password is used many times later.
+Follow the prompts to finish setup. Use a memorable password (For example, "mqtt") when prompted, as the password is used many times later.
 
 ### Create server certificate
 
