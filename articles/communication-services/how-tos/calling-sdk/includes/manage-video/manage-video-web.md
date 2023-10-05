@@ -460,7 +460,7 @@ view.updateScalingMode('Crop');
 
 ## Send video streams from two different cameras, in the same call from the same desktop device.
 [!INCLUDE [Public Preview Disclaimer](../../../../includes/public-preview-include.md)]
-This is supported as part of version 1.17.1-beta.1+ on desktop.
+This is supported as part of version 1.17.1-beta.1+ on desktop supported browsers.
 - You can send video streams from two different cameras from a single desktop browser tab/app, in the same call, with the following code snippet:
 ```js
 // Create your first CallAgent with identity A
@@ -490,3 +490,58 @@ Limitations:
 - Sending the same camera in both CallAgent, is not supported. They must be two different cameras.
 - Sending two different cameras with one CallAgent is currently not supported.
 - On MacOS Safari, background blur video effects (from @azure/communication-effects), can only be applied to one camera, and not both at the same time.
+
+## Send or receive a reaction from other participants
+[!INCLUDE [Public Preview Disclaimer](../../../../includes/public-preview-include.md)]
+Sending and receiving of reactions is in public preview and available as part of versions 1.18.1-beta.1+.
+
+Within ACS you can send and receive reactions when on a group call:
+- Like :+1:
+- Love :heart:
+- Applause :clap:
+- Laugh :smile:
+- Surprise :open_mouth:
+
+To send a reaction you'll use the `sendReaction(reactionMessage)` API. To receive a reaction message will be built with Type `ReactionMessage` which uses `Reaction` enums as an attribute. 
+
+You'll need to subscribe for events which provide the subscriber event data as:
+```javascript
+export interface ReactionEventPayload {
+    /**
+     * identifier for a participant
+     */
+    identifier: CommunicationUserIdentifier | MicrosoftTeamsUserIdentifier;
+    /**
+     * reaction type received
+     */
+    reactionMessage: ReactionMessage;
+}
+```
+
+You can determine which reaction is coming from which participant with `identifier` attribute and gets the reaction type from `ReactionMessage`. 
+
+### Sample on how to send a reaction in a meeting
+```javascript
+const reaction = call.feature(SDK.Features.Reaction);
+const reactionMessage: SDK.ReactionMessage = {
+       reactionType: 'like'
+};
+await reaction.sendReaction(reactionMessage);
+```
+
+### Sample on how to receive a reaction in a meeting
+```javascript
+const reaction = call.feature(SDK.Features.Reaction);
+reaction.on('reaction', event => {
+    // user identifier
+    console.log("User Mri - " + event.identifier);
+    // received reaction
+    console.log("User Mri - " + event.reactionMessage.name);
+    // reaction message
+    console.log("reaction message - " + JSON.stringify(event.reactionMessage));
+}
+```
+
+### Key things to note about using Reactions:
+- Reactions won't work if the meeting organizer updates the meeting policy to disallow the reaction in a Teams interop call.
+- Sending of reactions doesn't work on 1:1 calls.
