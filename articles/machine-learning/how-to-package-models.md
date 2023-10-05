@@ -34,6 +34,7 @@ Before following the steps in this article, make sure you have the following pre
 
 ## Prepare your system
 
+Follow these steps to prepare your system. 
 In this example, you package a model of type **custom** and deploy it to an online endpoint for online inference.
 
 #### Clone the repository
@@ -243,7 +244,11 @@ Create a model in Azure Machine Learning as follows:
 
 ---
 
-#### Create the base environment
+## Create the model package
+
+In this section, you create the base environment, package a custom model, and deploy the model package to an online endpoint for inference.
+
+### Create the base environment
 
 Models require an environment indicating all the packages and software they need to run. In packages, such an environment is called the *base environment*. For an MLflow model, Azure Machine Learning automatically detects the base environment, therefore it's optional. For a custom model, the base environment is required.
 
