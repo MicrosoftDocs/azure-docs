@@ -70,7 +70,7 @@ lobby.admitAll(options: options, completionHandler: { result, error in
 ```
 
 ### Handle lobby updated event
-You could subscribe to the `addOnLobbyParticipantsUpdatedListener` event listener to handle the changes in the `participants` collection. This event is triggered when the participants are added or removed from the lobby and it provides the added or removed participants list.
+You could subscribe to the event listener to handle the changes in the `participants` collection. This event is triggered when the participants are added or removed from the lobby and it provides the added or removed participants list.
 
 ```swift
 //To register listener:
