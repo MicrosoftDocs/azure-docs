@@ -759,13 +759,17 @@
           "redirect_url": "/azure/healthcare-apis/events/events-use-metrics",
           "redirect_document_id": false
       },
-      {    "source_path_from_root": "/articles/healthcare-apis/events/events-export-logs-metrics.md",
+      {   "source_path_from_root": "/articles/healthcare-apis/events/events-export-logs-metrics.md",
           "redirect_url": "/azure/healthcare-apis/events/events-enable-diagnostic-settings",
           "redirect_document_id": false
       },
-      {    "source_path_from_root": "/articles/healthcare-apis/dicom/dicom-get-access-token-azure-cli-old.md",
-        "redirect_url": "/azure/healthcare-apis/dicom/get-access-token",
-        "redirect_document_id": true
+      {   "source_path_from_root": "/articles/healthcare-apis/dicom/dicom-services-overview.md",
+          "redirect_url": "/azure/healthcare-apis/dicom/overview",
+          "redirect_document_id": true
+      },
+      {   "source_path_from_root": "/articles/healthcare-apis/dicom/dicom-get-access-token-azure-cli-old.md",
+          "redirect_url": "/azure/healthcare-apis/dicom/get-access-token",
+          "redirect_document_id": true
       }
     ]
 }
