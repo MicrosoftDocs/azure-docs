@@ -19,7 +19,7 @@ ms.devlang: azurecli
 
 Azure NAT Gateway is a fully managed, highly resilient service that can be associated with one or more subnets. It ensures that all outbound internet-facing traffic is routed through a network address translation (NAT) gateway. With Azure App Service, there are two important scenarios where you can use a NAT gateway.
 
-The NAT gateway gives you a static, predictable public IP address for outbound internet-facing traffic. It also significantly increases the available [source network address translation (SNAT) ports](../troubleshoot-intermittent-outbound-connection-errors.md) in scenarios where you have a high number of concurrent connections to the same public address/port combination.
+The NAT gateway gives you a static, predictable public IP address for outbound internet-facing traffic. It also significantly increases the available [source network address translation (SNAT) ports](./troubleshoot-intermittent-outbound-connection-errors.md) in scenarios where you have a high number of concurrent connections to the same public address/port combination.
 
 :::image type="content" source="./media/nat-gateway-integration/nat-gateway-overview.png" alt-text="Diagram that shows internet traffic flowing to a NAT gateway in an Azure virtual network.":::
 
@@ -29,14 +29,14 @@ Here are important considerations about Azure NAT Gateway integration:
 * When you're using a NAT gateway together with App Service, all traffic to Azure Storage must use private endpoints or service endpoints.
 * You can't use a NAT gateway together with App Service Environment v1 or v2.
 
-For more information and pricing, see the [Azure NAT Gateway overview](../../virtual-network/nat-gateway/nat-overview.md).
+For more information and pricing, see the [Azure NAT Gateway overview](../virtual-network/nat-gateway/nat-overview.md).
 
 ## Configure NAT gateway integration
 
 To configure NAT gateway integration with App Service, first complete the following tasks:
 
-* Configure regional virtual network integration with your app, as described in [Integrate your app with an Azure virtual network](../overview-vnet-integration.md).
-* Ensure that [Route All](../overview-vnet-integration.md#routes) is enabled for your virtual network integration, so routes in your virtual network affect the internet-bound traffic.
+* Configure regional virtual network integration with your app, as described in [Integrate your app with an Azure virtual network](./overview-vnet-integration.md).
+* Ensure that [Route All](./overview-vnet-integration.md#routes) is enabled for your virtual network integration, so routes in your virtual network affect the internet-bound traffic.
 * Provision a NAT gateway with a public IP address and associate it with the subnet for virtual network integration.
 
 Then, set up Azure NAT Gateway through the Azure portal:
@@ -85,10 +85,10 @@ If you prefer to use the Azure CLI to configure your environment, these are the 
 
 You can use the same NAT gateway across multiple subnets in the same virtual network. That approach allows you to use a NAT gateway across multiple apps and App Service plans.
 
-Azure NAT Gateway supports both public IP addresses and public IP prefixes. A NAT gateway can support up to 16 IP addresses across individual IP addresses and prefixes. Each IP address allocates 64,512 ports (SNAT ports), which allows up to 1 million available ports. Learn more in [Azure NAT Gateway resource](../../virtual-network/nat-gateway/nat-gateway-resource.md#scalability).
+Azure NAT Gateway supports both public IP addresses and public IP prefixes. A NAT gateway can support up to 16 IP addresses across individual IP addresses and prefixes. Each IP address allocates 64,512 ports (SNAT ports), which allows up to 1 million available ports. Learn more in [Azure NAT Gateway resource](../virtual-network/nat-gateway/nat-gateway-resource.md#scalability).
 
 ## Next steps
 
-For more information on Azure NAT Gateway, see the [Azure NAT Gateway documentation](../../virtual-network/nat-gateway/nat-overview.md).
+For more information on Azure NAT Gateway, see the [Azure NAT Gateway documentation](../virtual-network/nat-gateway/nat-overview.md).
 
-For more information on virtual network integration, see the [documentation about virtual network integration](../overview-vnet-integration.md).
+For more information on virtual network integration, see the [documentation about virtual network integration](./overview-vnet-integration.md).
