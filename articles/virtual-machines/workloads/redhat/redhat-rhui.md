@@ -211,7 +211,15 @@ eastus - 52.142.4.99
 australiaeast - 20.248.180.252
 southeastasia - 20.24.186.80
 
+# Azure US Government.
+# These IPs are deprecated since 10th April 2023. Newer RHEL images are already redirected to Public region for updates. If you have already added below IPs to your UDR/firewall, you are not required to remove these IPs until next update on this doc.
+# For RHUI 4 connections, use public RHUI IPs as provided above.
+13.72.186.193
+13.72.14.155
+52.244.249.194
 ```
+> [!NOTE]
+> As of October 12th 2023 all PAYG clients will be directed to the RHUI4 IPs. During this time the RHUI3 IPs will exist for continued updates but will be removed at a future time. Existing routes and rules allowing access to RHUI3 IPs should be updated to also include RHUI4 IP addresses for uninterrupted access to packages and updates. You should not remove RHUI3 IPs to continue receiving updates during the transition period.
 
 > [!NOTE]
 > The new Azure US Government images, as of January 2020, uses Public IP mentioned previously under the Azure Global header.
@@ -242,7 +250,7 @@ If you experience problems connecting to Azure RHUI from your Azure RHEL PAYG VM
 
 In September 2016, Azure deployed an updated Azure RHUI. In April 2017, the old Azure RHUI was shut down. If you have been using the RHEL PAYG images or their snapshots from September 2016 or later, you're automatically connecting to the new Azure RHUI. If, however, you have older snapshots on your VMs, you need to manually update their configuration to access the Azure RHUI as described in a following section.
 
-The new Azure RHUI servers are deployed with [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/). In Traffic Manager, any VM can use a single endpoint, rhui-1.microsoft.com, regardless of region.
+The new Azure RHUI servers are deployed with [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/). In Traffic Manager, any VM can use a single endpoint, rhui-1.microsoft.com and rhui4-1.microfot.com, regardless of region.
 
 ### Manual update procedure to use the Azure RHUI servers
 
