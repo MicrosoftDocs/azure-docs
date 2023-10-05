@@ -113,7 +113,7 @@ The ExpressRoute virtual network gateway facilitates connectivity to private end
 
 Private endpoint connectivity is a stateful process. When a connection to a private endpoint is established over ExpressRoute private peering, inbound and outbound connections are routed through one of the backend instances of the gateway infrastructure. During maintenance activities, these backend instances are rebooted sequentially, which may cause intermittent connectivity issues during the maintenance event.
 
-To mitigate the potential effects of connectivity issues with private endpoints during maintenance activities, we suggest that you lower the TCP time-out value that is set on your on-premises applications.
+To prevent or reduce the impact of connectivity issues with private endpoints during maintenance activities, we recommend that you adjust the TCP time-out value to a value between 15-30 seconds on your on-premises applications. Please examine the requirements of your application to test and configure the optimal value.
 
 ## Route Server
 
