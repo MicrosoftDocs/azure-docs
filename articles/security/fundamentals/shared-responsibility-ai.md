@@ -13,7 +13,7 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/03/2023
+ms.date: 10/05/2023
 ms.author: terrylan
 
 ---
@@ -22,7 +22,9 @@ ms.author: terrylan
 As you consider and evaluate AI enabled integration, it's critical to understand the shared responsibility model and which tasks the AI platform or application provider handle and which tasks you handle. The workload responsibilities vary depending on whether the AI integration is based on Software as a Service (SaaS), Platform as a Service (PaaS), or Infrastructure as a Service (IaaS).
 
 ## Division of responsibility
-When developing your own AI capabilities, such as training a new Machine Learning (ML) algorithm or fine-tuning Large Language Models (LLMs), you own the compute and Microsoft provides the AI infrastructure. As you move towards more managed solutions, such as one of many [Microsoft Copilot solutions](https://www.microsoft.com/security/business/ai-machine-learning/microsoft-security-copilot), responsibilities transfer to Microsoft. The following diagram illustrates the areas of responsibility between you and Microsoft according to the type of deployment.
+As with cloud services, you have options when implementing AI capabilities for your organization. Depending on which option you choose, you take responsibility for different parts of the necessary operations and policies needed to use AI safely.
+
+The following diagram illustrates the areas of responsibility between you and Microsoft according to the type of deployment.
 
 :::image type="content" source="media/shared-responsibility-ai/ai-shared-responsibility.svg" alt-text="Diagram showing responsibility zones." border="false":::
 
@@ -34,17 +36,22 @@ The AI platform layer provides the AI capabilities to the applications. At the p
 
 **AI platform security considerations** - To protect the AI platform from malicious inputs, a safety system must be built to filter out the potentially harmful instructions sent to the AI model (inputs). As AI models are generative, there's also a potential that some harmful content may be generated and returned to the user (outputs). Any safety system must first protect against potentially harmful inputs and outputs of many classifications including hate, jailbreaks, and others. These classifications will likely evolve over time based on model knowledge, locale, and industry.
 
+Microsoft has built-in safety systems for both PaaS and SaaS offerings:
+
+- PaaS - [Azure OpenAI Service](../../ai-services/openai/overview.md)
+- SaaS - [Microsoft Security CoPilot](https://www.microsoft.com/security/business/ai-machine-learning/microsoft-security-copilot)
+
 ### AI application
 The AI application accesses the AI capabilities and provides the service or interface that the user consumes. The components in this layer can vary from relatively simple to highly complex, depending on the application. The simplest standalone AI applications act as an interface to a set of APIs taking a text-based user-prompt and passing that data to the model for a response. More complex AI applications include the ability to ground the user-prompt with extra context, including a persistence layer, semantic index, or via plugins to allow access to more data sources. Advanced AI applications may also interface with existing applications and systems. Existing applications and systems may work across text, audio, and images to generate various types of content.
 
-**AI application security considerations** - An application safety system must be built to protect the AI application from malicious activities. The safety system provides deep inspection of the content being used in a request sent to the AI model. The safety system also inspects the interactions with any plugins, data connectors, and other AI applications (known as AI Orchestration).
+**AI application security considerations** - An application safety system must be built to protect the AI application from malicious activities. The safety system provides deep inspection of the content being used in the Metaprompt sent to the AI model. The safety system also inspects the interactions with any plugins, data connectors, and other AI applications (known as AI Orchestration). One way you can incorporate this in your own IaaS/PaaS based AI application is to use the [Azure AI Content Safety](https://azure.microsoft.com/products/ai-services/ai-content-safety/) service. Other capabilities are available depending on your needs.
 
 ### AI usage
 The AI usage layer describes how the AI capabilities are ultimately used and consumed. Generative AI offers a new type of user/computer interface that is fundamentally different from other computer interfaces, such as API, command-prompt, and graphical user interfaces (GUIs). The generative AI interface is both interactive and dynamic, allowing the computer capabilities to adjust to the user and their intent. The generative AI interface contrasts with previous interfaces that primarily force users to learn the system design and functionality and adjust to it. This interactivity allows user input, instead of application designers, to have a high level of influence of the output of the system, making safety guardrails critical to protecting people, data, and business assets.
 
 **AI usage security considerations** - Protecting AI usage is similar to any computer system as it relies on security assurances for identity and access controls, device protections and monitoring, data protection and governance, administrative controls, and other controls.
 
-More emphasis is required on user behavior and accountability because of the increased influence users have on the output of the systems. It's critical to update acceptable use policies and educate users on them. These should include AI specific considerations related to security, privacy, and ethics. Additionally, users should be educated on AI based attacks that can be used to trick them with convincing fake text, voices, videos, and more.
+More emphasis is required on user behavior and accountability because of the increased influence users have on the output of the systems. It's critical to update acceptable use policies and educate users on the difference of standard IT applications to AI enabled applications. These should include AI specific considerations related to security, privacy, and ethics. Additionally, users should be educated on AI based attacks that can be used to trick them with convincing fake text, voices, videos, and more.
 
 AI specific attack types are defined in:
 
@@ -63,18 +70,18 @@ As with security for other types of capability, it's critical to plan for a comp
 - Unable to rapidly restore business critical services
 - Apply controls inconsistently
 
-This is described in the [NIST Cybersecurity framework](https://www.nist.gov/itl/smallbusinesscyber/nist-cybersecurity-framework).
+To learn more about the unique nature of AI threat testing, read how [Microsoft AI Red Team is building the future of safer AI](https://www.microsoft.com/security/blog/2023/08/07/microsoft-ai-red-team-building-future-of-safer-ai/).
 
 ## Configure before customize
 Microsoft recommends organizations start with SaaS based approaches  like the Copilot model for their initial adoption of AI and for all subsequent AI workloads. This minimizes the level of respolnsibility and expertise your organization has to provide to design, operate, and secure these highly complex capabilities.
 
-If the current "offthe shelf" capabilities don't meet the specific needs for a workload, you can adopt a PaaS model by using AI services like *xxxxx* to meet those specific requirements.
+If the current "offthe shelf" capabilities don't meet the specific needs for a workload, you can adopt a PaaS model by using AI services, such as [Azure OpenAI Service](../../ai-services/openai/overview.md), to meet those specific requirements.
 
-Custom model building should only be adopted by organizations with deep expertise on data science and the security, privacy, and ethical considerations of AI.
+Custom model building should only be adopted by organizations with deep expertise in data science and the security, privacy, and ethical considerations of AI.
 
-To help bring AI to the world, Microsoft is developing Copilot solutions for each of the main productivity solutions: from Bing and Windows, to GitHub and Office 365, Microsoft is developing full stack solutions for all types of productivity scenarios. These are offered as SaaS solutions. Built into the user interface of the product, they're tuned to assist the user with specific tasks to increase productivity.
+To help bring AI to the world, Microsoft is developing Copilot solutions for each of the main productivity solutions: from Bing and Windows, to GitHub and Office 365. Microsoft is developing full stack solutions for all types of productivity scenarios. These are offered as SaaS solutions. Built into the user interface of the product, they're tuned to assist the user with specific tasks to increase productivity.
 
-Microsoft ensures that every Copilot solution is engineered following our [strong principles](https://www.microsoft.com/ai/principles-and-approach/) for AI governance.
+Microsoft ensures that every Copilot solution is engineered following our strong principles for [AI governance](https://blogs.microsoft.com/on-the-issues/2023/05/25/how-do-we-best-govern-ai/).
 
 ## Next steps
 Learn more about the security of AI systems by reading the [Microsoft Principles of Secure AI](https://www.microsoft.com/ai/principles-and-approach/).
