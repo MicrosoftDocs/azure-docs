@@ -359,8 +359,8 @@ Start-AzPolicyRemediation -Name 'myRemedation' -PolicyAssignmentId '/subscriptio
 
 You may also choose to adjust remediation settings through these optional parameters:
 - `-FailureThreshold` - Used to specify whether the remediation task should fail if the percentage of failures exceeds the given threshold. Provided as a number between 0 to 100. By default, the failure threshold is 100%.
-- `-ParallelDeploymentCount` - Determines how many non-compliant resources to remediate in a given remediation task. The default value is 500 (the previous limit). The maximum number is 50,000 resources.
-- `-ResourceCount` - Determines how many resources to remediate at the same time. The allowed values are 1 to 30 resources at a time. The default value is 10.
+- `-ResourceCount` - Determines how many non-compliant resources to remediate in a given remediation task. The default value is 500 (the previous limit). The maximum number is 50,000 resources.
+- `-ParallelDeploymentCount` - Determines how many resources to remediate at the same time. The allowed values are 1 to 30 resources at a time. The default value is 10.
 
 For more remediation cmdlets and examples, see the [Az.PolicyInsights](/powershell/module/az.policyinsights/#policy_insights)
 module.

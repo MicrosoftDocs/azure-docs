@@ -63,6 +63,9 @@ Organizations can choose to deploy this policy using the steps outlined below or
 
 After administrators confirm the settings using [report-only mode](howto-conditional-access-insights-reporting.md), they can move the **Enable policy** toggle from **Report-only** to **On**.
 
+> [!TIP]
+> Organizations should also deploy a policy that [blocks access from unsupported or unknown device platforms](howto-policy-unknown-unsupported-device.md) along with this policy.
+
 ### Block Exchange ActiveSync on all devices
 
 This policy will block all Exchange ActiveSync clients using basic authentication from connecting to Exchange Online.
