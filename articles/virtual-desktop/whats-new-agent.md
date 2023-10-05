@@ -34,13 +34,13 @@ The agent is automatically installed when adding session hosts in most scenarios
 
 ## Version 1.0.7755.1100 (validation) 
 
-This update was released at the beginning of September 2023 and includes the following changes: 
+This update was released at the end of September 2023 and includes the following changes: 
 
 - Security improvements and bug fixes. 
 
 ## Version 1.0.7539.8300  
 
-This update was released at the beginning of September 2023 and includes the following changes: 
+This update was released at the end of September 2023 and includes the following changes: 
 
 - Security improvements and bug fixes. 
 
