@@ -17,30 +17,22 @@ Please follow the next sections to create, view and manage an Azure Event Grid n
 
 To create a namespace:
 
-1. Sign-in to the Azure portal.
+1. Sign-in to the [Azure portal](https://portal.azure.com).
+1. In the **search box**, enter **Event Grid Namespaces** and select **Event Grid Namespaces** from the results.
 
-2. In the **search box**, enter **Event Grid** and select Event Grid Namespaces service.
-  
-    :::image type="content" source="../media/create-view-manage-namespaces/search-event-grid.png" alt-text="Screenshot showing Event Grid the search results in the Azure portal.":::
+    :::image type="content" source="../media/create-view-manage-namespaces/portal-search-box-namespaces.png" alt-text="Screenshot showing Event Grid Namespaces in the search results.":::
+1. On the **Event Grid Namespaces** page, select **+ Create** on the toolbar. 
 
-3. In the **Overview** page, select **Create** in any of the namespace cards available in the MQTT events or Custom events sections.
-
-    :::image type="content" source="../media/create-view-manage-namespaces/overview-create.png" alt-text="Screenshot showing Event Grid overview.":::
-
-4. On the **Basics** tab, select the Azure subscription, resource group, name, location, [availability zone](../concepts.md#availability-zones), and [throughput units](../concepts-pull-delivery.md#throughput-units) for your Event Grid namespace.
-
-    :::image type="content" source="../media/create-view-manage-namespaces/namespace-creation-basics.png" alt-text="Screenshot showing Event Grid namespace creation basic tab.":::
-
-> [!NOTE]
-> If the selected region supports availability zones the "Availability zones" checkbox can be enabled or disabled.  The checkbox is selected by default if the region supports availability zones. However, you can uncheck and disable Availability zones if needed. The selection cannot be changed once the namespace is created.
-
-5. On the **Tags** tab, add the tags in case you need them.
-
-    :::image type="content" source="../media/create-view-manage-namespaces/namespace-creation-tags.png" alt-text="Screenshot showing Event Grid namespace creation tags tab.":::
-
-6. On the **Review + create** tab, review your settings and select **Create**.
-
-    :::image type="content" source="../media/create-view-manage-namespaces/namespace-creation-review.png" alt-text="Screenshot showing Event Grid namespace creation review + create tab.":::
-
-7. Once the deployment of the resource is successful, select **Go to resource** on the deployment page. 
+    :::image type="content" source="../media/create-view-manage-namespaces/namespace-create-button.png" alt-text="Screenshot showing Event Grid Namespaces page with the Create button on the toolbar selected.":::
+1. On the **Basics** page, follow these steps.
+    1. Select the **Azure subscription** in which you want to create the namespace.
+    1. Select an existing **resource group** or create a resource group.
+    1. Enter a **name** for the namespace.
+    1. Select the region or **location** where you want to create the namespace. 
+    1. If the selected region supports availability zones, the **Availability zones** checkbox can be enabled or disabled. The checkbox is selected by default if the region supports availability zones. However, you can uncheck and disable availability zones if needed. The selection cannot be changed once the namespace is created.
+    1. Use the slider or text box to specify the number of **throughput units** for the namespace.
+    1. Select **Review + create** at the bottom of the page. 
     
+        :::image type="content" source="../media/create-view-manage-namespaces/create-namespace-basics-page.png" alt-text="Screenshot showing the Basics tab of Create namespace page.":::        
+6. On the **Review + create** tab, review your settings and select **Create**.
+1. On the **Deployment succeeded** page, select **Go to resource** to navigate to your namespace. 
