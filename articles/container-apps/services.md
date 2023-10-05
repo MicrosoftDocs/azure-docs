@@ -5,19 +5,17 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 05/22/2023
+ms.date: 10/05/2023
 ms.author: cshoe
 ---
 
 # Connect to services in Azure Container Apps (preview)
 
-As you develop applications in Azure Container Apps, you often need to connect to different services.
+As you develop applications in Azure Container Apps, you often need to connect to different services. Rather than creating services ahead of time and manually connecting them to your container app, you can quickly create instances of development-grade services that are designed for nonproduction environments known as "add-ons".
 
-Rather than creating services ahead of time and manually connecting them to your container app, you can quickly create instances of development-grade services that are designed for nonproduction environments known as "dev services".
+Add-ons allow you to use OSS services without the burden of manual downloads, creation, and configuration.
 
-Dev services allow you to use OSS services without the burden of manual downloads, creation, and configuration.
-
-Services available as dev services include:
+Services available as an add-on include:
 
 - Open-source Redis
 - Open-source PostgreSQL
@@ -26,7 +24,7 @@ Once you're ready for your app to use a production level service, you can connec
 
 ## Features
 
-dev services come with the following features:
+Add-ons come with the following features:
 
 - **Scope**: The service runs in the same environment as the connected container app.
 - **Scaling**: The service can scale in to zero when there's no demand for the service.
@@ -38,7 +36,7 @@ See the service-specific features for managed services.
 
 ## Binding
 
-Both dev mode and managed services connect to a container via a "binding".
+Both add-ons and managed services connect to a container via a "binding".
 
 The Container Apps runtime binds a container app to a service by:
 
