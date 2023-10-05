@@ -23,7 +23,7 @@ Databricks Auto Loader makes it easy to stream data land into object storage fro
 
 Here are the steps how you can use data from Flink in Azure Databricks delta live tables.
 
-### Step 1: Create Kafka table on Flink SQL
+### Create Kafka table on Flink SQL
 
 In this step, you can create Kafka table and ADLS Gen2 on Flink SQL. For the purpose of this document, we are using a airplanes_state_real_time table, you can use any topic of your choice. 
 
@@ -102,15 +102,15 @@ Further, you can insert Kafka table into ADLSgen2 table on Flink SQL.
 
 :::image type="content" source="media/azure-databricks/insert-kafka-table.png" alt-text="Screenshot shows insert Kafka table into ADLSgen2 table." lightbox="media/azure-databricks/insert-kafka-table.png":::
 
-### Step 2: Validate the streaming job on Flink
+### Validate the streaming job on Flink
 
 :::image type="content" source="media/azure-databricks/validate-streaming-job.png" alt-text="Screenshot shows validate the streaming job on Flink." lightbox="media/azure-databricks/validate-streaming-job.png":::
 
-### Step 3: Check data sink from Kafka in Azure Storage on Azure portal
+### Check data sink from Kafka in Azure Storage on Azure portal
 
 :::image type="content" source="media/azure-databricks/check-data-sink.png" alt-text="Screenshot shows check data sink from Kafka on Azure Storage." lightbox="media/azure-databricks/check-data-sink.png":::
 
-### Step 4: Authentication of Azure Storage and Azure Databricks notebook
+### Authentication of Azure Storage and Azure Databricks notebook
 
 ADLS Gen2 provides OAuth 2.0 with your Azure AD application service principal for authentication from an Azure Databricks notebook and then mount into Azure Databricks DBFS.
 
@@ -135,12 +135,12 @@ CREATE OR REFRESH STREAMING TABLE airplanes_state_real_time2
 AS SELECT * FROM cloud_files("dbfs:/mnt/contosoflinkgen2/flink/airplanes_state_real_time/", "json")
 ```
 
-### Step 5: Define Delta Live Table Pipeline and run on Azure Databricks
+### Define Delta Live Table Pipeline and run on Azure Databricks
 
 :::image type="content" source="media/azure-databricks/delta-live-table-pipeline.png" alt-text="Screenshot shows Delta Live Table Pipeline and run on Azure Databricks." lightbox="media/azure-databricks/delta-live-table-pipeline.png":::
 
 :::image type="content" source="media/azure-databricks/delta-live-table-pipeline-2.png" alt-text="Screenshot shows Delta Live Table Pipeline and run on the Azure Databricks." lightbox="media/azure-databricks/delta-live-table-pipeline-2.png":::
 
-### Step 6: Check Delta Live Table on Azure Databricks Notebook
+### Check Delta Live Table on Azure Databricks Notebook
 
 :::image type="content" source="media/azure-databricks/delta-live-table-azure.png" alt-text="Screenshot shows check Delta Live Table on Azure Databricks Notebook." lightbox="media/azure-databricks/delta-live-table-azure.png":::
