@@ -23,7 +23,7 @@ A service principal is an application whose tokens can be used to authenticate a
 
 1. Save the tenant ID, new client ID, and client secret value for your app for use in token requests.
 
-1. Configure your app to grant **Monitoring Metrics Publisher** permissions to the resource you want to emit metrics against. If you plan to use the app to emit custom metrics against many resources, you can grant these permissions at the resource group or subscription level. For more information, see [Assign Azure roles by using the Azure portal](../../role-based-access-control/role-assignments-portal?tabs=delegate-condition).
+1. Configure your app to grant **Monitoring Metrics Publisher** permissions to the resource you want to emit metrics against. If you plan to use the app to emit custom metrics against many resources, you can grant these permissions at the resource group or subscription level. For more information, see [Assign Azure roles by using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## Get an authorization token
 
