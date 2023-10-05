@@ -401,9 +401,9 @@
     - name: Go
       items:
         - name: Client library
-          href: https://pkg.go.dev/github.com/Azure/azure-event-hubs-go?tab=doc
+          href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/messaging/azeventhubs?tab=doc
         - name: Management library
-          href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/eventhub/mgmt/2017-04-01/eventhub?tab=doc
+          href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/eventhub/armeventhub?tab=doc
     - name: Azure CLI
       href: /cli/azure/eventhubs
     - name: REST
