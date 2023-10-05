@@ -368,7 +368,7 @@ To configure a deployment:
 ```python
 model = Model(path="../model-1/model/sklearn_regression_model.pkl")
 env = Environment(
-    conda_file="../model-1/environment/conda.yml",
+    conda_file="../model-1/environment/conda.yaml",
     image="mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:latest",
 )
 
