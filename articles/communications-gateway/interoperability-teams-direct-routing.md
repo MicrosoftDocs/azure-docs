@@ -60,11 +60,17 @@ Each of your customers needs _customer subdomains_ of these per-region domains. 
 
 For each customer, you must:
 
-- Choose a suitable subdomain.
+- Choose a suitable subdomain. The label for the subdomain must:
+    - Contain only letters, numbers, underscores and dashes.
+    - Be up to 63 characters in length.
+    - Not contain a wildcard or multiple labels separated by `.`.
 - Configure Azure Communications Gateway with this information, as part of "account" configuration available over the Provisioning API.
 - Liaise with the customer to update their tenant with the appropriate subdomain, by following the [Microsoft Teams documentation for registering subdomain names in customer tenants](/microsoftteams/direct-routing-sbc-multiple-tenants#register-a-subdomain-name-in-a-customer-tenant).
 
 As part of arranging updates to customer tenants, you must create DNS records containing a verification code (provided by Microsoft 365 when the customer updates their tenant with the domain name) on a DNS server that you control. These records allow Microsoft 365 to verify that the customer tenant is authorized to use the domain name. Azure Communications Gateway provides the DNS server that you must use. You must obtain the verification code from the customer and upload it with Azure Communications Gateway's Provisioning API to generate the DNS TXT records that verify the domain.
+
+> [!TIP]
+> For a walkthrough of setting up a customer tenant and subdomain for your testing, see [Configure a test customer for Microsoft Teams Direct Routing with Azure Communications Gateway](configure-test-customer-teams-direct-routing.md). When you onboard a real customer, you'll need to follow a similar process, but you'll typically need to ask them to carry out the steps that need access to their tenant.
 
 ## Support for caller ID screening
 

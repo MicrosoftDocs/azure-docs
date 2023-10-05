@@ -69,7 +69,7 @@ Azure Communications Gateway includes a DNS server. You must use Azure Communica
 
 ## Finish verifying the domains in the customer tenant
 
-When you have used Azure Communications Gateway to generate the DNS records for the customer subdomains, verify the  subdomains in the Microsoft 365 admin center for your customer tenant:
+When you have used Azure Communications Gateway to generate the DNS records for the customer subdomains, verify the subdomains in the Microsoft 365 admin center for your customer tenant.
 
 1. Sign into the Microsoft 365 admin center for the customer tenant as a Global Administrator.
 1. Select **Settings** > **Domains**.
