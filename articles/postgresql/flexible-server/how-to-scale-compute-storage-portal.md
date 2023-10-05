@@ -104,7 +104,7 @@ Please use below steps to enable storage autogrow for your flexible server and a
 
 
 > [!IMPORTANT]
-> Storage autogrow always trigger disk scaling operations online. In specific scenarios where disk scaling process cannot be done online storage autogrow does not trigger and you need to manually increase the storage. These scenarios include reaching, starting at, or crossing the 4,096-GiB limit. 
+> Storage autogrow initiates disk scaling operations online, but there are specific situations where online scaling is not possible. In such cases, like when approaching or surpassing the 4,096-GiB limit, storage autogrow does not activate, and you must manually increase the storage. A portal informational message is displayed when this happens.
 
 ### Next steps
 
