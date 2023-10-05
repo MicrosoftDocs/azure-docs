@@ -1,7 +1,7 @@
 ---
 title: Model packages for deployment (preview)
 titleSuffix: Azure Machine Learning
-description:  Deploy models in a reliable and reproducible way using model packages in Azure Machine Learning.
+description:  Learn how the use of model packages in Azure Machine Learning is useful for deploying models in a reliable and reproducible way.
 author: santiagxf
 ms.author: fasantia
 ms.reviewer: mopeakande
@@ -9,53 +9,56 @@ reviewer: msakande
 ms.service: machine-learning
 ms.subservice: mlops
 ms.date: 10/04/2023
-ms.topic: how-to
+ms.topic: concept-article
 ---
 
 # Model packages for deployment (preview)
 
-After you train a machine learning model, you need to deploy it so others can consume their predictions. However, deploying a model requires more than just the weights or the model's artifacts. Model packages are a capability in Azure Machine Learning that allows you to collect all the dependencies required to deploy a machine learning model to a serving platform. Packages can be moved across workspaces and even outside of Azure Machine Learning.
+After you train a machine learning model, you need to deploy it so others can consume its predictions. However, deploying a model requires more than just the weights or the model's artifacts. Model packages are a capability in Azure Machine Learning that allows you to collect all the dependencies required to deploy a machine learning model to a serving platform. You can move packages across workspaces and even outside Azure Machine Learning.
 
 [!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## What's a model package?
 
-As a best practice before deploying a model, all the dependencies the model requires for running successful have to be collected and resolved so you can deploy it in a reproducible and robust approach.
+As a best practice before deploying a model, all the dependencies the model requires for running successfully have to be collected and resolved so you can deploy the model in a reproducible and robust approach.
 
-:::image type="content" source="media/model-packaging/model-package-dependencies.png" alt-text="Screenshot that shows the dependencies that are collected by a model package operation." :::
+:::image type="content" source="media/model-packaging/model-package-dependencies.png" alt-text="Screenshot that shows the dependencies collected during a model package operation." :::
 
-Typically, model's dependencies include:
+Typically, a model's dependencies include:
 
-* The base image or environment where your model executes on.
-* The list of packages and dependencies that the model depends on to function properly.
-* Extra assets that your model may need to generate inference. Those can be label's maps, preprocessing parameters, etc.
-* The software required for the inference server to serve the requests (like the flask server, TensorFlow Serving, etc.).
-* The inference routine (if required).
+* Base image or environment in which your model gets executed.
+* List of Python packages and dependencies that the model depends on to function properly.
+* Extra assets that your model may need to generate inference. These assets can include label's maps and preprocessing parameters.
+* Software required for the inference server to serve requests; for example, flask server or TensorFlow Serving.
+* Inference routine (if required).
 
-All these elements need to be collected to then be deployed in the serving infrastructure. The resulting asset generated after all the dependencies are collected is called a **model package**.
+All these elements need to be collected to then be deployed in the serving infrastructure. The resulting asset generated after you've collected all the dependencies is called a **model package**.
 
 
 ## Benefits of packaging models
 
 Packaging models before deployment has the following advantages:
 
-* **Reproducibility:**: All dependencies are collected at packaging time, rather than at deployment time. Once dependencies are resolved, you can deploy the package as many times as needed while guaranteeing that dependencies were resolved once.
-* **Faster conflict resolution:** Any misconfiguration related with the dependencies, like a missing Python package, will be detected while packaging the model. You don't need to deploy the model to discover such issue.
-* **Easier integration with the inference server:** Because the inference server you're using may need specific software configurations (for instance, Torch Serve package), such software can generate conflicts with your model's dependencies. Azure Machine Learning packages inject the dependencies required by the inference server to help you detect conflicts before deploying the model.
-* **Portability:** Azure Machine Learning model packages can be moved from one workspace to another using registries. You can also generate packages that can be deployed outside of Azure Machine Learning.
-* **MLflow support with private networks**: MLflow models require an internet connection to allow the resolution of the packages they need to run. By packaging MLflow models, all those packages are resolved during the package operation and hence they don't require an internet connection when deployed.
+* **Reproducibility:** All dependencies are collected at packaging time, rather than deployment time. Once dependencies are resolved, you can deploy the package as many times as needed while guaranteeing that dependencies have already been resolved.
+* **Faster conflict resolution:** Azure Machine Learning will detect any misconfigurations related with the dependencies, like a missing Python package, while packaging the model. You don't need to deploy the model to discover such issues.
+* **Easier integration with the inference server:** Because the inference server you're using may need specific software configurations (for instance, Torch Serve package), such software can generate conflicts with your model's dependencies. Model packages in Azure Machine Learning inject the dependencies required by the inference server to help you detect conflicts before deploying a model.
+* **Portability:** You can move Azure Machine Learning model packages from one workspace to another, using registries. You can also generate packages that can be deployed outside Azure Machine Learning.
+* **MLflow support with private networks**: For MLflow models, Azure Machine Learning requires an internet connection to be able to dynamically install necessary Python packages for the models to run. By packaging MLflow models, these Python packages get resolved during the model packaging operation, so that the MLflow model package wouldn't require an internet connection to be deployed.
 
-## Deploying with packages
+> [!TIP] 
+> Packaging an MLflow model before deployment is highly recommended and even required for endpoints that don't have outbound networking connectivity. An MLflow model indicates its dependencies in the model itself, thereby requiring dynamic installation of packages. When an MLflow model is packaged, this dynamic installation is performed at packaging time rather than deployment time.
 
-Packages can be used directly as inputs to Online Endpoints. This helps streamline your MLOps workflows by reducing the changes of errors at deployment time since dependencies are all collected at once at packaging. You can also configure the package to generate docker images you can deploy anywhere outside of Azure Machine Learning, either on premise or in the cloud.
+## Deployment of model packages
+
+You can provide model packages as inputs to online endpoints. Use of model packages helps to streamline your MLOps workflows by reducing the chances of errors at deployment time, since all dependencies would have been collected during the packaging operation. You can also configure the model package to generate docker images for you to deploy anywhere outside Azure Machine Learning, either on premises or in the cloud.
 
 :::image type="content" source="media/model-packaging/model-package-targets.png" alt-text="Screenshot that shows all the possible targets for a model package.":::
 
-The simplest way to deploy models with packages is by indicating Azure Machine Learning to do so before executing the deployment. When creating a deployment in an Online Endpoints, just indicate to prepackage the model. This is supported in the Azure CLI, Azure Machine Learning SDK, and Azure Machine Learning studio.
+The simplest way to deploy using a model package is by specifying to Azure Machine Learning to deploy a model package, before executing the deployment. When using the Azure CLI, Azure Machine Learning SDK, or Azure Machine Learning studio to create a deployment in an online endpoint, you can specify the use of model packaging as follows:
 
 # [Azure CLI](#tab/cli)
 
-Use flag `--with-package` when creating a deployment:
+Use the `--with-package` flag when creating a deployment:
 
 ```azurecli
 az ml online-deployment create  -f deployment.yml --package-model
@@ -63,7 +66,7 @@ az ml online-deployment create  -f deployment.yml --package-model
 
 # [Python](#tab/sdk)
 
-Use the argument `--with_package=True` when creating a deployment:
+Use the `--with_package=True` argument when creating a deployment:
 
 ```python
 ml_client.batch_deployment.create(
@@ -79,18 +82,23 @@ ml_client.batch_deployment.create(
 
 # [Studio](#tab/studio)
 
-In the model detail page in [Azure Machine Learning studio](https://ml.azure.com), select the option **Deploy** and then click on **Online Endpoints**. In the creation wizard, you see an option **Package Model (preview)** to package the model before deployment.
+From the model's details page in [the studio](https://ml.azure.com),
 
-:::image type="content" source="./media/model-packaging/model-package-ux.png" alt-text="An screenshot of the model deployment wizard to Online Endpoints highlighting the Package model option.":::
+1. Select the **Deploy**.
+1. Select **Online Endpoints**. 
+1. Enable the **Package model (preview)** option in the creation wizard to package the model before deployment.
+
+:::image type="content" source="./media/model-packaging/model-package-ux.png" alt-text="An screenshot of the model deployment wizard to Online Endpoints highlighting the Package model option." lightbox="media/model-packaging/model-package-ux.png":::
 
 ---
 
-Azure Machine Learning packages the model first and then execute the deployment. Notice that when using packages, if you indicate a base environment with conda or pip dependencies, you don't need to include the dependencies of the inference server (`azureml-inference-server-http`). It's automatically added for you.
+Azure Machine Learning packages the model first and then executes the deployment.
 
-> [!TIP] 
-> Packaging MLflow models before deployment is highly advisable and required for endpoints without outbound networking connectivity. MLflow models indicate their dependencies in the model itself, which requires dynamic installation of packages. When an MLflow model is packaged, this dynamic installation is performed at packaging time, avoiding the installation of software at deployment time.
+> [!NOTE]
+> When using packages, if you indicate a base environment with `conda` or `pip` dependencies, you don't need to include the dependencies of the inference server (`azureml-inference-server-http`). Rather, these dependencies are automatically added for you.
 
-## Next steps
+
+## Next step
 
 > [!div class="nextstepaction"]
 > [Create your first model package](how-to-package-models.md)
