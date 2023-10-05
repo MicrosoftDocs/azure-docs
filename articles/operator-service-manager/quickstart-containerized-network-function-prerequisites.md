@@ -15,7 +15,7 @@ In this Quickstart, you complete the tasks necessary prior to using the Azure Op
 
 ## Prerequisites
 
-An Azure account with an active subscription. If you don't have an Azure subscription, request access via [partner registration form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR7lMzG3q6a5Hta4AIflS-llUMlNRVVZFS00xOUNRM01DNkhENURXU1o2TS4u)
+An Azure account with an active subscription. If you don't have an Azure subscription, request access via [partner registration form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR7lMzG3q6a5Hta4AIflS-llUMlNRVVZFS00xOUNRM01DNkhENURXU1o2TS4u).
 
 ## Download and install Azure CLI
 
