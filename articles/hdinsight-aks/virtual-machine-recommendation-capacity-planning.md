@@ -3,7 +3,7 @@ title: Azure Virtual Machine recommendations and capacity planning
 description: Default and minimum virtual machine size recommendations and capacity planning for HDInsight on AKS.
 ms.service: hdinsight-aks
 ms.topic: conceptual
-ms.date: 09/06/2023
+ms.date: 10/05/2023
 ---
 
 # Default and minimum virtual machine size recommendations and capacity planning for HDInsight on AKS
@@ -11,7 +11,7 @@ ms.date: 09/06/2023
 This article discusses default and recommended node configurations for Azure HDInsight on AKS clusters.
 
 ## Cluster pools
-For creating cluster pools, the currently available VM Options are F4s_v2, D4a_v4, D4as_v4, E4_v3, and E4s_v3.
+For creating cluster pools, the currently available VM Options are F4s_v2, D4a_v4, D4as_v4, and E4s_v3.
 
 ## Clusters
 HDInsight on AKS currently supports Virtual Machines (VMs) from the [Memory Optimized](/azure/virtual-machines/sizes-memory) and [General Purpose](/azure/virtual-machines/sizes-general) categories for cluster creation. Memory optimized VM sizes offer a high Memory-to-CPU ratio, which is great for relational database servers, medium to large caches, and in-memory analytics. General purpose VM sizes provide balanced Memory-to-CPU ratio and are ideal for testing and development, small to medium databases, and low to medium traffic web servers. 
