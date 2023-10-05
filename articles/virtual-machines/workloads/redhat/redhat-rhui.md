@@ -219,7 +219,7 @@ southeastasia - 20.24.186.80
 52.244.249.194
 ```
 > [!NOTE]
-> As of October 12th 2023 all PAYG clients will be directed to the RHUI4 IPs. During this time the RHUI3 IPs will exist for continued updates but will be removed at a future time. Existing routes and rules allowing access to RHUI3 IPs should be updated to also include RHUI4 IP addresses for uninterrupted access to packages and updates. You should not remove RHUI3 IPs to continue receiving updates during the transition period.
+> As of October 12th 2023 all PAYG clients will be directed to the RHUI4 IPs in phases over next two months. During this time the RHUI3 IPs will exist for continued updates but will be removed at a future time. Existing routes and rules allowing access to RHUI3 IPs should be updated to also include RHUI4 IP addresses for uninterrupted access to packages and updates. You should not remove RHUI3 IPs to continue receiving updates during the transition period.
 
 > [!NOTE]
 > The new Azure US Government images, as of January 2020, uses Public IP mentioned previously under the Azure Global header.
