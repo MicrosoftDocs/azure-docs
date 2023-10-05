@@ -33,11 +33,11 @@ You can use Azure **diagnose and solve problems** tool to troubleshoot issues of
 
 3. After specifying the problem type, select an option (problem subtype) from the pull-down menu to describe the specific problem you are experiencing. Then follow the on-screen directions to troubleshoot the problem. 
 
-    :::image type="content" source="../media/azure-netapp-files/troubleshoot-diagnose-pull-down.png" alt-text="Screenshot that shows an example of issue types in Diagnose and Solve Problems page." lightbox="../media/azure-netapp-files/troubleshoot-diagnose-pull-down.png":::
+    :::image type="content" source="../media/azure-netapp-files/troubleshoot-diagnose-pull-down.png" alt-text="Screenshot that shows the pull-down menu for problem subtype selection." lightbox="../media/azure-netapp-files/troubleshoot-diagnose-pull-down.png":::
 
     This page presents general guidelines and relevant resources for the problem subtype you select. In some situations, you might be prompted to fill out a questionnaire to trigger diagnostics. If issues are identified, the tool presents a diagnosis and possible solutions.  
 
-    :::image type="content" source="../media/azure-netapp-files/troubleshoot-problem-subtype.png" alt-text="Screenshot that shows an example of issue types in Diagnose and Solve Problems page." lightbox="../media/azure-netapp-files/troubleshoot-problem-subtype.png":::
+    :::image type="content" source="../media/azure-netapp-files/troubleshoot-problem-subtype.png" alt-text="Screenshot that shows the capacity pool troubleshoot page." lightbox="../media/azure-netapp-files/troubleshoot-problem-subtype.png":::
 
 For more information about using this tool, see [Diagnostics and solve tool - Azure App Service](../app-service/overview-diagnostics.md).  
 
