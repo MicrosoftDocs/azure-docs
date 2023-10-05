@@ -69,18 +69,17 @@ When manually migrating from a Basic to Standard SKU Load Balancer, there are a 
 - Standard SKU public IP addresses are secure by default, requiring that a Network Security Group explicitly allow traffic to any public IPs
 - Standard SKU Load Balancers block outbound access by default. To enable outbound access, a public load balancer needs an outbound rule for backend members. For private load balancers, either configure a NAT Gateway on the backend pool members' subnet or add instance-level publc IP addresses to each backend member. 
 
-Recommended order of operations for manually upgrading a Load Balancer:
+Suggested order of operations for manually upgrading a Basic Load Balancer in common configurations using the Portal:
 
 1. Change all Public IPs associated with the Basic Load Balancer and backend Virtual Machines to 'static' allocation
 1. For private Load Balancers, record the private IP addresses allocated to the frontend IP configurations
 1. Record the backend pool membership of the Basic Load Balancer
-1. Record the load balancing rules, NAT rules, inbound NAT Pools, and health probe configuration of the Basic Load Balancer
+1. Record the load balancing rules, NAT rules and health probe configuration of the Basic Load Balancer
 1. Create a new Standard SKU Load Balancer, matching the public or private configuiration of the Basic Load Balancer. Name the frontend IP configuration something temporary. For public load balancers, use a new Public IP address for the frontend configuration. 
-1. Duplicate the Basic SKU load balancer configuration for the following:
+1. Duplicate the Basic SKU Load Balancer configuration for the following:
     1. Backend pool names and membership
     1. Health probes
     1. Load balancing rules - use the temporary frontend configuration
-    1. Inbound NAT Pools (uncommon)
     1. NAT rules - use the temporary frontend configuration
 1. For public load balancers, if you do not have one already, create a new Network Security Group with allow rules for the traffic coming through the Load Balancer rules
 1. For Virtual Machine Scale Set backends, remove the Load Balancer association in the Networking settings and update the instances 
