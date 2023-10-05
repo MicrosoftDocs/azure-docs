@@ -14,54 +14,9 @@ ms.date: 08/14/2023
 > [!NOTE]
 > To use this feature, your organization must have an [Azure support plan](https://azure.microsoft.com/support/plans/) with a minimal level of **Developer**.
 
-Most operations, support, and troubleshooting performed by Microsoft personnel and sub-processors do not require access to customer data. In those rare circumstances where such access is required,  Customer Lockbox for Microsoft Azure provides an interface for customers to review and approve or reject customer data access requests. It is used in cases where a Microsoft engineer needs to access customer data, whether in response to a customer-initiated support ticket or a problem identified by Microsoft.
+Most operations, support, and troubleshooting performed by Microsoft personnel and sub-processors do not require access to customer data. In those rare circumstances where such access is required,  Customer Lockbox for Microsoft Azure provides an interface for customers to review and approve or reject customer data access requests. It is used in cases where a Microsoft engineer needs to access customer data, whether in response to a customer-initiated support ticket or a problem identified by Microsoft. Microsoft Azure services that have the potential to access customer data are required to onboard to Customer Lockbox for Microsoft Azure.
 
 This article covers how to enable Customer Lockbox and how Lockbox requests are initiated, tracked, and stored for later reviews and audits.
-
-## Supported services and scenarios
-
-### General Availability
-
-The following services are generally available for Customer Lockbox:
-
-- Azure API Management
-- Azure App Service
-- Azure Cognitive Search
-- Azure AI services
-- Azure Container Registry
-- Azure Data Box
-- Azure Data Explorer
-- Azure Data Factory
-- Azure Database for MySQL
-- Azure Database for MySQL Flexible Server
-- Azure Database for PostgreSQL
-- Azure Databricks
-- Azure Edge Zone Platform Storage
-- Azure Functions
-- Azure HDInsight
-- Azure Health Bot
-- Azure Intelligent Recommendations
-- Azure Kubernetes Service
-- Azure Logic Apps
-- Azure Monitor
-- Azure OpenAI
-- Azure Spring Apps
-- Azure SQL Database
-- Azure SQL managed Instance
-- Azure Storage
-- Azure subscription transfers
-- Azure Synapse Analytics
-- Azure Unified Vision Service
-- Microsoft Azure Attestation
-- Azure Data Manager for Energy Preview
-- Virtual machines in Azure (covering remote desktop access, access to memory dumps, and managed disks)
-
-
-### Public Preview
-The following services are currently in preview for Customer Lockbox:
-
-- Azure Machine Learning
-- Azure Batch
 
 ## Enable Customer Lockbox
 
