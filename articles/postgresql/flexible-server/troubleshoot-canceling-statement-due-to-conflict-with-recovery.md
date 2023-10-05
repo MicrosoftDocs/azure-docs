@@ -39,15 +39,15 @@ If a query on a read replica tries to read a row that is simultaneously being up
 ## Resolution
 1. **Adjust `max_standby_streaming_delay`**:  Increase the `max_standby_streaming_delay` parameter on the read replica. This allows the replica more time to resolve conflicts before deciding to cancel a query. However, this might also increase replication lag, so it's a trade-off. This parameter is dynamic, meaning changes take effect without requiring a server restart.
 2. **Monitor and Optimize Queries**: Review the types and frequencies of queries run against the read replica. Long-running or complex queries might be more susceptible to conflicts. Optimizing or scheduling them differently can help.
-3. **Enable `hot_standby_feedback`**: Consider setting `hot_standby_feedback` to `on` on the read replica. When enabled, it informs the primary server about the queries currently being executed by the standby. This prevents the primary from removing rows that are still needed by the standby, reducing the likelihood of a replication conflict. This parameter is dynamic, meaning changes take effect without requiring a server restart.
+3. **Off-Peak Query Execution**: Consider running heavy or long-running queries during off-peak hours to reduce the chances of a conflict.
+4. **Enable `hot_standby_feedback`**: Consider setting `hot_standby_feedback` to `on` on the read replica. When enabled, it informs the primary server about the queries currently being executed by the standby. This prevents the primary from removing rows that are still needed by the standby, reducing the likelihood of a replication conflict. This parameter is dynamic, meaning changes take effect without requiring a server restart.
 
   **Caveats:**
   * This setting can prevent some necessary cleanup operations on the primary, potentially leading to table bloat (increased disk space usage due to unvacuumed old row versions).
   * Regular monitoring of the primary's disk space and table sizes is essential.
   * Be prepared to manage potential table bloat manually if it becomes problematic.
-4. **Off-Peak Query Execution**: Consider running heavy or long-running queries during off-peak hours to reduce the chances of a conflict.
 
 
-Monitor and Optimize Queries: Review the types and frequencies of queries run against the read replica. Long-running or complex queries might be more susceptible to conflicts. Optimizing or scheduling them differently can help.
+
 
 
