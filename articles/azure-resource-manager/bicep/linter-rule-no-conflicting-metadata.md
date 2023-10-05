@@ -28,7 +28,7 @@ The following example fails this test because the `description` property of the 
 param foo string
 ```
 
-The `@description()` decorator always take precedence over anything in the `@metadata()` decorator. Consequently, the linter rule notifies that the `description` property within the @metadata() value is redundant and will be replaced.
+The `@description()` decorator always takes precedence over anything in the `@metadata()` decorator. So, the linter rule notifies that the `description` property within the @metadata() value is redundant and will be replaced.
 
 ## Next steps
 
