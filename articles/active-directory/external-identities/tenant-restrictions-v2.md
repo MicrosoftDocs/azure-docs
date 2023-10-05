@@ -91,10 +91,6 @@ The following table compares the features in each version.
 |**Unsupported apps**      |     N/A    |   Block unsupported app use with Microsoft endpoints by using Windows Defender Application Control (WDAC) or Windows Firewall  (for example, for Chrome, Firefox, and so on). See [Block Chrome, Firefox and .NET applications like PowerShell](#block-chrome-firefox-and-net-applications-like-powershell).      |
 
 
-
-<!-->
-When using tenant restrictions v2 to manage access for your Windows device users, we recommend also configuring your corporate proxy to enforce tenant restrictions v2 to manage other devices and apps in your corporate network.
--->
 ### Tenant restrictions vs. inbound and outbound settings
 
 Although tenant restrictions are configured along with your cross-tenant access settings, they operate separately from inbound and outbound access settings. Cross-tenant access settings give you control when users sign in with an account from your organization. By contrast, tenant restrictions give you control when users are using an external account. Your inbound and outbound settings for B2B collaboration and B2B direct connect don't affect (and are unaffected by) your tenant restrictions settings.
