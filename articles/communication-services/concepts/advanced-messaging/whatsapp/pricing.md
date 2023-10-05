@@ -43,13 +43,13 @@ For service conversations, WhatsApp provides 1,000 free conversations each month
 
 WhatsApp rates vary based on conversation category and country/region rate. Rates vary between \$0.003 and \$0.1597 depending on the category and country/region. WhatsApp provides a detailed explanation of their pricing, including the current rate card here: [Conversation-Based Pricing](https://developers.facebook.com/docs/whatsapp/pricing).
 
-**Pricing example: Alice sends appointment reminders to their WhatsApp customers**
+## Pricing example: Alice sends appointment reminders to their WhatsApp customers
 
 Alice is managing a virtual visit solution for her organization’s patients. Alice is scheduling the visit and sends WhatsApp invites to all patients reminding them about their upcoming visit. WhatsApp classifies appointment reminders as **Utility Conversations**. In this case, each WhatsApp conversation is a single message.
 
 Alice sends appointment reminders to 2,000 patients in North America each month and the pricing would be:
 
-### Advanced Messaging usage for messages
+**Advanced Messaging usage for messages:**
 
 2,000 WhatsApp Conversations = 2,000 messages x \$0.005/message = \$10 USD
 
@@ -59,13 +59,13 @@ Alice sends appointment reminders to 2,000 patients in North America each month 
 
 To get the latest WhatsApp rates, refer to WhatsApp’s pricing documentation: [Conversation-Based Pricing](https://developers.facebook.com/docs/whatsapp/pricing).
 
-**Pricing example: A WhatsApp user reaches out to a business for support**
+## Pricing example: A WhatsApp user reaches out to a business for support
 
 Contoso is a business that provides a contact center for customers to seek product information and support. All these cases are closed within 24 hours and have an average of 20 messages each. Each case equals one WhatsApp Conversation. WhatsApp classifies contact center conversations as “Service Conversations.”
 
 Contoso manages 2,000 cases in North America each month and the pricing would be:
 
-### Advanced Messaging usage for conversation
+**Advanced Messaging usage for conversation:**
 
 2,000 WhatsApp Conversations \* 20 messages/conversation x \$0.005/message = \$200 USD
 
