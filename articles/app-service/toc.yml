@@ -517,8 +517,6 @@
           href: ../migrate/tutorial-app-containerization-aspnet-app-service.md?bc=/azure/bread/toc.json&toc=/azure/app-service/toc.json
         - name: Migrate Java
           href: app-service-java-migration.md
-        - name: Migrate Spring Boot
-          href: /azure/developer/java/migration/migrate-spring-boot-to-app-service?toc=/azure/app-service/toc.json&bc=/azure/bread/toc.json
         - name: Migrate Tomcat
           href: /azure/developer/java/migration/migrate-tomcat-to-tomcat-app-service?toc=/azure/app-service/toc.json&bc=/azure/bread/toc.json
         - name: Migrate JBoss EAP
