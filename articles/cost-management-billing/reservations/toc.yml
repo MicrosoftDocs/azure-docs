@@ -1,0 +1,198 @@
+- name: Azure Reservations documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What are Azure Reservations?
+    href: save-compute-costs-reservations.md
+- name: Concepts
+  items:
+  - name: VM instance size flexibility
+    href: ../../virtual-machines/reserved-vm-instance-size-flexibility.md
+  - name: Reservation recommendations
+    href: reserved-instance-purchase-recommendations.md
+  - name: How discount is applied
+    items:
+    - name: How an Azure reservation discount is applied
+      href: reservation-discount-application.md
+    - name: App Service
+      href: reservation-discount-app-service.md
+    - name: Azure Backup
+      href: ../../backup/backup-azure-reserved-pricing-overview.md
+    - name: Azure Cache for Redis
+      href: understand-azure-cache-for-redis-reservation-charges.md
+    - name: Azure Data Factory
+      href: ../../data-factory/data-flow-understand-reservation-charges.md
+    - name: Azure VMware Solution
+      href: ../../azure-vmware/reserved-instance.md
+    - name: Azure Cosmos DB
+      href: understand-cosmosdb-reservation-charges.md
+    - name: Azure Cosmos DB for PostgreSQL
+      href: ../../cosmos-db/postgresql/resources-pricing.md
+    - name: Azure Database for PostgreSQL
+      href: ../../postgresql/single-server/concept-reserved-pricing.md
+    - name: Azure SQL Edge
+      href: discount-sql-edge.md
+    - name: Database for MariaDB
+      href: understand-reservation-charges-mariadb.md
+    - name: Database for MySQL
+      href: understand-reservation-charges-mysql.md
+    - name: Databricks
+      href: reservation-discount-databricks.md
+    - name: Data Explorer
+      href: understand-azure-data-explorer-reservation-charges.md
+    - name: Dedicated Hosts
+      href: billing-understand-dedicated-hosts-reservation-charges.md
+    - name: Disk Storage
+      href: understand-disk-reservations.md
+    - name: Red Hat Linux Enterprise
+      href: understand-rhel-reservation-charges.md
+    - name: Software plans
+      href: understand-suse-reservation-charges.md
+    - name: Storage
+      href: understand-storage-charges.md
+    - name: SQL Database
+      href: understand-reservation-charges.md
+    - name: Synapse Analytics - Data warehouse
+      href: reservation-discount-azure-sql-dw.md
+    - name: Virtual machines
+      href: ../manage/understand-vm-reservation-charges.md
+    - name: Virtual machine software
+      href: understand-vm-software-reservation-discount.md
+  - name: Windows and SQL costs not included
+    href: reserved-instance-windows-software-costs.md
+  - name: Usage data for individual subscriptions
+    href: understand-reserved-instance-usage.md
+  - name: Enterprise and Microsoft Customer Agreement usage data
+    href: understand-reserved-instance-usage-ea.md
+- name: How-to guides
+  expanded: true
+  items:
+  - name: Determine what to purchase
+    items:
+    - name: Choose reservation to purchase
+      href: determine-reservation-purchase.md
+  - name: Limited-time offers
+    items:
+    - name: US West Dv3 VMs
+      href: limited-time-us-west.md
+    - name: Sweden Central select Linux VMs
+      href: limited-time-central-sweden.md
+    - name: Poland Central VMs
+      href: limited-time-central-poland.md
+  - name: Buy reservations
+    items:
+    - name: Buy an Azure reservation
+      href: prepare-buy-reservation.md
+    - name: App Service
+      href: prepay-app-service.md
+    - name: App Service - JBoss EAP Integrated Support
+      href: prepay-jboss-eap-integrated-support-app-service.md
+    - name: Azure Backup
+      href: ../../backup/backup-azure-reserved-pricing-optimize-cost.md
+    - name: Azure Cache for Redis reservation
+      href: ../../azure-cache-for-redis/cache-reserved-pricing.md
+    - name: Azure Data Factory
+      href: ../../data-factory/data-flow-reserved-capacity-overview.md
+    - name: Azure Database for MariaDB
+      href: ../../mariadb/concept-reserved-pricing.md
+    - name: Azure Database for MySQL
+      href: ../../mysql/concept-reserved-pricing.md
+    - name: Azure Database for PostgreSQL
+      href: ../../postgresql/single-server/concept-reserved-pricing.md
+    - name: Azure Blob storage
+      href: ../../storage/blobs/storage-blob-reserved-capacity.md
+    - name: Azure Files
+      href: ../../storage/files/files-reserve-capacity.md
+    - name: Azure VMware Solution
+      href: ../../azure-vmware/reserved-instance.md
+    - name: Azure Cosmos DB
+      href: ../../cosmos-db/cosmos-db-reserved-capacity.md
+    - name: Azure SQL Edge
+      href: prepay-sql-edge.md
+    - name: Databricks
+      href: prepay-databricks-reserved-capacity.md
+    - name: Data Explorer
+      href: /azure/data-explorer/pricing-reserved-capacity
+    - name: Dedicated Host
+      href: ../../virtual-machines/prepay-dedicated-hosts-reserved-instances.md
+    - name: Disk Storage
+      href: ../../virtual-machines/disks-reserved-capacity.md
+    - name: SAP HANA Large Instances
+      href: prepay-hana-large-instances-reserved-capacity.md
+    - name: Software plans
+      href: ../../virtual-machines/linux/prepay-suse-software-charges.md
+    - name: SQL Database
+      href: /azure/azure-sql/database/reserved-capacity-overview
+    - name: Synapse Analytics - data warehouse
+      href: prepay-sql-data-warehouse-charges.md
+    - name: Synapse Analytics - Pre-Purchase
+      href: synapse-analytics-pre-purchase-plan.md
+    - name: Virtual machines
+      href: ../../virtual-machines/prepay-reserved-vm-instances.md
+    - name: Virtual machine software
+      href: buy-vm-software-reservation.md
+  - name: Permissions, View and Manage
+    items:
+    - name: Permissions to view and manage
+      href: view-reservations.md
+    - name: View reservations as a CSP
+      href: how-to-view-csp-reservations.md
+    - name: Manage reservations
+      href: manage-reserved-vm-instance.md
+    - name: Change optimize setting
+      href: manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances
+  - name: Utilization and cost reports
+    items:
+    - name: View reservation utilization
+      href: reservation-utilization.md
+    - name: View reservation transactions
+      href: view-purchase-refunds.md
+    - name: View amortized costs
+      href: view-amortized-costs.md
+    - name: Charge back reservation costs
+      href: charge-back-usage.md
+    - name: Calculate EA cost savings
+      href: calculate-ea-reservations-savings.md
+  - name: Exchange and refund
+    items:
+    - name: Exchange and refund reservations
+      href: exchange-and-refund-azure-reservations.md
+    - name: Changes to the reservation exchange policy
+      href: reservation-exchange-policy-changes.md
+  - name: Renew reservations
+    items:
+    - name: Renew a reservation
+      href: reservation-renew.md
+  - name: Troubleshoot
+    items:
+    - name: Find a reservation purchaser from Azure logs
+      href: find-reservation-purchaser-from-logs.md
+    - name: Change reservation directory
+      href: troubleshoot-reservation-transfers-between-tenants.md
+    - name: No eligible subscriptions
+      href: troubleshoot-no-eligible-subscriptions.md
+    - name: Troubleshoot reservation utilization
+      href: troubleshoot-reservation-utilization.md
+    - name: Troubleshoot reservation recommendations
+      href: troubleshoot-reservation-recommendation.md
+    - name: Troubleshoot reservation SKU disabled
+      href: troubleshoot-product-not-available.md
+    - name: Troubleshoot download usage details
+      href: troubleshoot-download-usage.md
+- name: Reference
+  items:
+  - name: Reservations REST API
+    href: reservation-apis.md
+  - name: Reservations - Azure PowerShell
+    href: /powershell/module/az.reservations
+  - name: Reservations - CLI
+    href: /cli/azure/reservations
+  - name: Cost Management - Consumption Usage Details REST API
+    href: /rest/api/consumption/usagedetails
+  - name: Cost Management - Consumption Reservations Details REST API
+    href: /rest/api/consumption/reservationsdetails
+- name: Resources
+  items:
+  - name: Save money with reserved instances Learn module
+    href: /training/modules/save-money-with-azure-reserved-instances

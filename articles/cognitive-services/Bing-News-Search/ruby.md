@@ -1,24 +1,28 @@
 ---
-title: "Quickstart: Perform a news search with Ruby - Bing News Search REST API"
-titlesuffix: Azure Cognitive Services
+title: "Quickstart: Perform a news search with Ruby and the Bing News Search REST API"
+titleSuffix: Azure AI services
 description: Use this quickstart to send a request to the Bing News Search REST API using Ruby, and receive a JSON response.
 services: cognitive-services
 author: aahill
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 1/10/2019
+ms.date: 05/22/2020
 ms.author: aahi
-ms.custom: seodec2018
+ms.devlang: ruby
+ms.custom: seodec2018, mode-api
 ---
 
 # Quickstart: Perform a news search using Ruby and the Bing News Search REST API
 
-Use this quickstart to make your first call to the Bing News Search API and receive a JSON response. This simple JavaScript application sends a search query to the API and processes the results.
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
-While this application is written in Python, the API is a RESTful Web service compatible most programming languages. The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingNewsSearchv7.rb).
+Use this quickstart to make your first call to the Bing News Search API. This simple Ruby application sends a search query to the API and processes the JSON response.
+
+Although this application is written in Ruby, the API is a RESTful Web service compatible with most programming languages. 
+
+The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingNewsSearchv7.rb).
 
 ## Prerequisites
 
@@ -26,11 +30,9 @@ While this application is written in Python, the API is a RESTful Web service co
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
-See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
-
 ## Create and initialize the application
 
-1. import the following packages into your code file.
+1. Import the following packages into your code file:
 
     ```ruby
     require 'net/https'
@@ -38,7 +40,7 @@ See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.
     require 'json'
     ```
 
-2. Create variables for the API endpoint, News search URL, your subscription key, and search term.
+2. Create variables for the API endpoint, news search URL, your subscription key, and search term. You can use the global endpoint in the following code, or use the [custom subdomain](../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```ruby
     accessKey = "enter key here"
@@ -49,7 +51,7 @@ See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.
 
 ## Format and make an API request
 
-Use the variables from the last step to format a search URL for the API request. Then send the request.
+Use the variables from the previous step to format a search URL for the API request. Then, send the request.
 
 ```ruby
 uri = URI(uri + path + "?q=" + URI.escape(term))
@@ -62,7 +64,7 @@ end
 
 ## Process and print the JSON response
 
-After the response is received, you can parse the JSON, and print both the response body, and its headers:
+After the response is received, parse the JSON, and then print both the response body and its headers.
 
 ```ruby
 puts "\nRelevant Headers:\n\n"
@@ -76,7 +78,7 @@ puts "\nJSON Response:\n\n"
 puts JSON::pretty_generate(JSON(response.body))
 ```
 
-## JSON Response
+## Example JSON response
 
 A successful response is returned in JSON, as shown in the following example:
 
@@ -175,4 +177,4 @@ A successful response is returned in JSON, as shown in the following example:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a signle-page app](tutorial-bing-news-search-single-page-app.md)
+> [Create a single-page web app](tutorial-bing-news-search-single-page-app.md)

@@ -1,104 +1,78 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Infinite Campus | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Infinite Campus.
+title: 'Tutorial: Microsoft Entra SSO integration with Infinite Campus'
+description: Learn how to configure single sign-on between Microsoft Entra ID and Infinite Campus.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 3995b544-e751-4e0f-ab8b-c9a3862da6ba
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/28/2019
+ms.date: 03/07/2023
 ms.author: jeedes
-
 ---
-# Tutorial: Azure Active Directory integration with Infinite Campus
+# Tutorial: Microsoft Entra SSO integration with Infinite Campus
 
-In this tutorial, you learn how to integrate Infinite Campus with Azure Active Directory (Azure AD).
-Integrating Infinite Campus with Azure AD provides you with the following benefits:
+In this tutorial, you learn how to integrate Infinite Campus with Microsoft Entra ID. When you integrate Infinite Campus with Microsoft Entra ID, you can:
 
-* You can control in Azure AD who has access to Infinite Campus.
-* You can enable your users to be automatically signed-in to Infinite Campus (Single Sign-On) with their Azure AD accounts.
-* You can manage your accounts in one central location - the Azure portal.
-
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+* Control in Microsoft Entra ID who has access to Infinite Campus.
+* Enable your users to be automatically signed-in to Infinite Campus with their Microsoft Entra accounts.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
-To configure Azure AD integration with Infinite Campus, you need the following items:
+To configure Microsoft Entra integration with Infinite Campus, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/)
-* Infinite Campus single sign-on enabled subscription
-* At minimum, you need to be an Azure Active Directory administrator, and have a Campus Product Security Role of "Student Information System (SIS)" to complete the configuration.
+* A Microsoft Entra subscription. If you don't have a Microsoft Entra environment, you can get a [free account](https://azure.microsoft.com/free/).
+* Infinite Campus single sign-on enabled subscription.
+* At minimum, you need to be a Microsoft Entra administrator, and have a Campus Product Security Role of "Student Information System (SIS)" to complete the configuration.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+In this tutorial, you configure and test Microsoft Entra single sign-on in a test environment.
 
-* Infinite Campus supports **SP** initiated SSO
+* Infinite Campus supports **SP** initiated SSO.
 
-## Adding Infinite Campus from the gallery
+## Add Infinite Campus from the gallery
 
-To configure the integration of Infinite Campus into Azure AD, you need to add Infinite Campus from the gallery to your list of managed SaaS apps.
+To configure the integration of Infinite Campus into Microsoft Entra ID, you need to add Infinite Campus from the gallery to your list of managed SaaS apps.
 
-**To add Infinite Campus from the gallery, perform the following steps:**
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type **Infinite Campus** in the search box.
+1. Select **Infinite Campus** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, and walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-	![The Azure Active Directory button](common/select-azuread.png)
+<a name='configure-and-test-azure-ad-sso-for-infinite-campus'></a>
 
-2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
+## Configure and test Microsoft Entra SSO for Infinite Campus
 
-	![The Enterprise applications blade](common/enterprise-applications.png)
+Configure and test Microsoft Entra SSO with Infinite Campus using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in Infinite Campus.
 
-3. To add a new application, click the **New application** button at the top of the dialog.
+To configure and test Microsoft Entra SSO with Infinite Campus, perform the following steps:
 
-	![The New application button](common/add-new-app.png)
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
+1. **[Configure Infinite Campus SSO](#configure-infinite-campus-sso)** - to configure the single sign-on settings on application side.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-4. In the search box, type **Infinite Campus**, select **Infinite Campus** from the result panel then click the **Add** button to add the application.
+<a name='configure-azure-ad-sso'></a>
 
-	![Infinite Campus in the results list](common/search-new-app.png)
+## Configure Microsoft Entra SSO
 
-## Configure and test Azure AD single sign-on
+Follow these steps to enable Microsoft Entra SSO.
 
-In this section, you configure and test Azure AD single sign-on with Infinite Campus based on a test user called **Britta Simon**.
-For single sign-on to work, a link relationship between an Azure AD user and the related user in Infinite Campus needs to be established.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Infinite Campus** > **Single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-To configure and test Azure AD single sign-on with Infinite Campus, you need to complete the following building blocks:
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Configure Infinite Campus Single Sign-On](#configure-infinite-campus-single-sign-on)** - to configure the Single Sign-On settings on application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create Infinite Campus test user](#create-infinite-campus-test-user)** - to have a counterpart of Britta Simon in Infinite Campus that is linked to the Azure AD representation of user.
-6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
-
-### Configure Azure AD single sign-on
-
-In this section, you enable Azure AD single sign-on in the Azure portal.
-
-To configure Azure AD single sign-on with Infinite Campus, perform the following steps:
-
-1. In the [Azure portal](https://portal.azure.com/), on the **Infinite Campus** application integration page, select **Single sign-on**.
-
-    ![Configure single sign-on link](common/select-sso.png)
-
-2. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
-
-    ![Single sign-on select mode](common/select-saml-option.png)
-
-3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
-
-	![Edit Basic SAML Configuration](common/edit-urls.png)
-
-4. On the Basic SAML Configuration section, perform the following steps (note that the domain will vary with Hosting Model, but the **FULLY-QUALIFIED-DOMAIN** value must match your Infinite Campus installation):
+4. On the Basic SAML Configuration section, perform the following steps (note that the domain varies with Hosting Model, but the **FULLY-QUALIFIED-DOMAIN** value must match your Infinite Campus installation):
 
 	a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
 
@@ -106,105 +80,83 @@ To configure Azure AD single sign-on with Infinite Campus, perform the following
 
 	c. In the **Reply URL** textbox, type a URL using the following pattern: `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>`
 
-	![Infinite Campus Domain and URLs single sign-on information](common/sp-identifier-reply.png)
-
-5. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
+1. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
 	![The Certificate download link](common/copy-metadataurl.png)
 
-### Configure Infinite Campus Single Sign-On
+<a name='create-an-azure-ad-test-user'></a>
 
-1. In a different web browser window, sign in to Infinite Campus as a Security Administrator.
+### Create a Microsoft Entra test user
 
-2. On the left side of menu, click **System Administration**.
+In this section, you create a test user called B.Simon.
 
-	![The Admin](./media/infinitecampus-tutorial/tutorial_infinitecampus_admin.png)
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Select **Review + create**.
+1. Select **Create**.
 
-3. Navigate to **User Security** > **SAML Management** > **SSO Service Provider Configuration**.
+<a name='assign-the-azure-ad-test-user'></a>
 
-	![The saml](./media/infinitecampus-tutorial/tutorial_infinitecampus_saml.png)
+### Assign the Microsoft Entra test user
 
-4. On the **SSO Service Provider Configuration** page, perform the following steps:
+In this section, you enable B.Simon to use Azure single sign-on by granting access to Infinite Campus.
 
-	![The sso](./media/infinitecampus-tutorial/tutorial_infinitecampus_sso.png)
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Infinite Campus**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you're expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+1. In the **Add Assignment** dialog, click the **Assign** button.
 
-	a. Select **Enable SAML Single Sign On**.
+## Configure Infinite Campus SSO
 
-	b. Edit the **Optional Attribute Name** to contain **name**
+For detailed steps on how to configure SSO within Infinite Campus, [please follow the steps in this document](https://kb.infinitecampus.com/help/sso-service-provider-configuration#SSOServiceProviderConfiguration-EnableandConfigureSAMLSSOFunctionality).
 
-	c. On the **Select an option to retrieve Identity Provider (IDP) server data** section, select **Metadata URL**, paste the **App Federation Metadata Url** value, which you have copied from the Azure portal in the box, and then click **Sync**.
+Once you have completed configuring SSO within Infinite Campus, if you would like users to be signed out their Azure SSO connection when logging out of Infinite Campus, [follow these steps](https://kb.infinitecampus.com/help/sso-service-provider-configuration#SSOServiceProviderConfiguration-AddtheInfiniteCampusLogoutURLtotheMicrosoftAzureSAMLSSOConfiguration).
 
-	d. After clicking **Sync** the values get auto-populated in **SSO Service Provider Configuration** page. These values can be verified to match the values seen in Step 4 above.
+## Test SSO
 
-	e. Click **Save**.
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
-### Create an Azure AD test user
+* Click on **Test this application**, this will redirect to Infinite Campus Sign-on URL where you can initiate the login flow. 
 
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+* Go to Infinite Campus Sign-on URL directly and initiate the login flow from there.
 
-1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
+* You can use Microsoft My Apps. When you click the Infinite Campus tile in the My Apps, this will redirect to Infinite Campus Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
-    ![The "Users and groups" and "All users" links](common/users.png)
+## Configure Azure SSO for Non-Production Infinite Campus Environments (Sandbox, Staging)
 
-2. Select **New user** at the top of the screen.
+If your district has other Infinite Campus environments, this entire setup process must be repeated for each environment. For example, if your district has an Infinite Campus sandbox site, add the Infinite Campus app from the gallery again and complete the process while referencing the SSO Service Provider Configuration screen within your Infinite Campus sandbox site. If your district also has, for example, an Infinite Campus staging site, you need to complete this process a third time.
 
-    ![New user Button](common/new-user.png)
+See Infinite Campus [documentation](https://kb.infinitecampus.com/help/sso-service-provider-configuration#sandbox/staging/non-production-environments) for more information about this process. 
 
-3. In the User properties, perform the following steps.
+## Replacing an Expiring SAML Certificate
 
-    ![The User dialog box](common/user-properties.png)
+The SAML certificate of this integration relies on which eventually need to be renewed so users can continue logging into Infinite Campus through single sign-on. For districts with proper Campus Messenger Email Settings established, Infinite Campus sends warning emails as the certificate expiration approaches. (Subject: "Action required: Your certificate is expiring.") 
 
-    a. In the **Name** field enter **BrittaSimon**.
-  
-    b. In the **User name** field type `brittasimon@yourcompanydomain.extension`. For example, BrittaSimon@contoso.com.
+These are the steps to take to replace an expiring SAML certificate: 
+1. Have your district's Microsoft Entra admin sign in to the Azure portal.
+1.	On the left navigation pane, select the Microsoft Entra service.
+1.	Navigate to Enterprise Applications and select your Infinite Campus application set up previously. (If you have multiple Infinite Campus environments like a sandbox or staging site, you have multiple Infinite Campus applications set up here. You need to complete this process in each respective Infinite Campus environment for any with an expiring certificate.)
+1.	Select Single sign-on.
+1.	Navigate to the SAML Certificate and copy the App Federation Metadata URL.
+1.	Within Infinite Campus, navigate to the SSO Service Provider Configuration tool, select the configuration, and paste the App Federation Metadata URL copied in the previous step into the Metadata URL field.
+1.	In a separate window, go back to the Azure portal. Under SAML Certificates, in the Token Signing Certificate area, select Edit.
+1.	Select New Certificate. Modify the expiration date if desired. 
+1.	Select Save. (Leave the Signing Option and Signing Algorithm as-is)
+1.	Return to the Infinite Campus window and click the Sync button next to the Metadata URL. It says "IDP Synchronization successful". Select OK and Save.
+1.	Return to the Azure portal, still on the SAML Signing Certificate edit screen, select the three dots (...) next to the new certificate. Select Make Certificate Active and click Save.
+1.	Select the three dots next to the old certificate. Select Delete Certificate.
+1.	Return to Infinite Campus and hit the Sync button next to the Metadata URL again. It says "IDP Synchronization successful" again. Hit OK and Save again.
 
-    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
+This completes the process of replacing an expiring certificate. For more information, see Infinite Campus [documentation](https://kb.infinitecampus.com/help/sso-service-provider-configuration#SSOServiceProviderConfiguration-CertificateExpirationWarnings).
 
-    d. Click **Create**.
+## Next steps
 
-### Assign the Azure AD test user
-
-> [!NOTE]
-> If you want all of your Azure users to have single sign-on access to Infinite Campus and rely on Infinite Campus internal permissions system to control access, you can set the **User Assignment Required** property of the application to No and skip the following steps.
-
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Infinite Campus.
-
-1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Infinite Campus**.
-
-	![Enterprise applications blade](common/enterprise-applications.png)
-
-2. In the applications list, select **Infinite Campus**.
-
-	![The Infinite Campus link in the Applications list](common/all-applications.png)
-
-3. In the menu on the left, select **Users and groups**.
-
-    ![The "Users and groups" link](common/users-groups-blade.png)
-
-4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
-
-    ![The Add Assignment pane](common/add-assign-user.png)
-
-5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
-
-6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
-
-7. In the **Add Assignment** dialog click the **Assign** button.
-
-### Create Infinite Campus test user
-
-Infinite Campus has a demographics centered architecture. Please contact [Infinite Campus support team](mailto:sales@infinitecampus.com) to add the users in the Infinite Campus platform.
-
-### Test single sign-on
-
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
-
-When you click the Infinite Campus tile in the Access Panel, you should be automatically signed in to the Infinite Campus for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
-
-## Additional resources
-
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+Once you configure Infinite Campus you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

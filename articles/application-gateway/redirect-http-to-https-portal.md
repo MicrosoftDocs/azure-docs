@@ -1,36 +1,36 @@
 ---
-title: Create an application gateway with HTTP to HTTPS redirection using the Azure portal
+title: HTTP to HTTPS redirection in portal - Azure Application Gateway
 description: Learn how to create an application gateway with redirected traffic from HTTP to HTTPS using the Azure portal.
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
-ms.topic: article
-ms.date: 12/7/2018
-ms.author: victorh
+ms.topic: how-to
+ms.date: 05/19/2023
+ms.author: greglin 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Create an application gateway with HTTP to HTTPS redirection using the Azure portal
 
-You can use the Azure portal to create an [application gateway](overview.md) with a certificate for SSL termination. A routing rule is used to redirect HTTP traffic to the HTTPS port in your application gateway. In this example, you also create a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) for the backend pool of the application gateway that contains two virtual machine instances.
+You can use the Azure portal to create an [application gateway](overview.md) with a certificate for TLS termination. A routing rule is used to redirect HTTP traffic to the HTTPS port in your application gateway. In this example, you also create a [virtual machine scale set](../virtual-machine-scale-sets/overview.md) for the backend pool of the application gateway that contains two virtual machine instances.
 
 In this article, you learn how to:
 
-> [!div class="checklist"]
-> * Create a self-signed certificate
-> * Set up a network
-> * Create an application gateway with the certificate
-> * Add a listener and redirection rule
-> * Create a virtual machine scale set with the default backend pool
+* Create a self-signed certificate
+* Set up a network
+* Create an application gateway with the certificate
+* Add a listener and redirection rule
+* Create a virtual machine scale set with the default backend pool
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-This tutorial requires the Azure PowerShell module version 1.0.0 or later to create a certificate and install IIS. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). To run the commands in this tutorial, you also need to run `Login-AzAccount` to create a connection with Azure.
+This tutorial requires the Azure PowerShell module version 1.0.0 or later to create a certificate and install IIS. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). To run the commands in this tutorial, you also need to run `Login-AzAccount` to create a connection with Azure.
 
 ## Create a self-signed certificate
 
-For production use, you should import a valid certificate signed by a trusted provider. For this tutorial, you create a self-signed certificate using [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate). You can use [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) with the Thumbprint that was returned to export a pfx file from the certificate.
+For production use, you should import a valid certificate signed by a trusted provider. For this tutorial, you create a self-signed certificate using [New-SelfSignedCertificate](/powershell/module/pki/new-selfsignedcertificate). You can use [Export-PfxCertificate](/powershell/module/pki/export-pfxcertificate) with the Thumbprint that was returned to export a pfx file from the certificate.
 
 ```powershell
 New-SelfSignedCertificate `
@@ -62,7 +62,7 @@ Export-PfxCertificate `
 
 A virtual network is needed for communication between the resources that you create. Two subnets are created in this example: one for the application gateway, and the other for the backend servers. You can create a virtual network at the same time that you create the application gateway.
 
-1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Click **Create a resource** found on the upper left-hand corner of the Azure portal.
 3. Select **Networking** and then select **Application Gateway** in the Featured list.
 4. Enter these values for the application gateway:
@@ -78,7 +78,7 @@ A virtual network is needed for communication between the resources that you cre
    - *myVNet* - for the name of the virtual network.
    - *10.0.0.0/16* - for the virtual network address space.
    - *myAGSubnet* - for the subnet name.
-   - *10.0.1.0/24* - for the subnet address space.
+   - *10.0.0.0/24* - for the subnet address space.
 
      ![Create virtual network](./media/create-url-route-portal/application-gateway-vnet.png)
 
@@ -114,15 +114,18 @@ First, add the listener named *myListener* for port 80.
 
 ### Add a routing rule with a redirection configuration
 
-1. On **myAppGateway**, select **Rules** and then select **+Basic**.
-2. For the **Name**, type *Rule2*.
+1. On **myAppGateway**, select **Rules** and then select **+Request routing rule**.
+2. For the **Rule name**, type *Rule2*.
 3. Ensure **MyListener** is selected for the listener.
-4. Select the **Configure redirection** check box.
+4. Click on **Backend targets** tab and select **Target type** as *Redirection*.
 5. For **Redirection type**, select **Permanent**.
 6. For **Redirection target**, select **Listener**.
 7. Ensure the **Target listener** is set to **appGatewayHttpListener**.
-8. Select the **Include query string** and **Include path** check boxes.
-9. Select **OK**.
+8. For the **Include query string** and **Include path** select *Yes*.
+9. Select **Add**.
+
+> [!NOTE]
+> **appGatewayHttpListener** is the default listener name. For more information, see [Application Gateway listener configuration](configuration-listeners.md).
 
 ## Create a virtual machine scale set
 
@@ -133,7 +136,7 @@ In this example, you create a virtual machine scale set to provide servers for t
 3. In the search box, type *scale set* and press Enter.
 4. Select **Virtual machine scale set**, and then select **Create**.
 5. For **Virtual machine scale set name**, type *myvmss*.
-6. For Operating system disk image,** ensure **Windows Server 2016 Datacenter** is selected.
+6. For **Operating system disk image**, ensure **Windows Server 2016 Datacenter** is selected.
 7. For **Resource group**, select **myResourceGroupAG**.
 8. For **User name**, type *azureuser*.
 9. For **Password**, type *Azure123456!* and confirm the password.

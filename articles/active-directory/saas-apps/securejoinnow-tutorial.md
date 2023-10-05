@@ -1,221 +1,145 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with SecureW2 JoinNow Connector | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and SecureW2 JoinNow Connector.
+title: 'Tutorial: Microsoft Entra integration with SecureW2 JoinNow Connector'
+description: Learn how to configure single sign-on between Microsoft Entra ID and SecureW2 JoinNow Connector.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
-
-ms.assetid: 2445b3af-f827-40de-9097-6f5c933d0f53
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: tutorial
+ms.date: 11/21/2022
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
-# Tutorial: Azure Active Directory integration with SecureW2 JoinNow Connector
 
-In this tutorial, you learn how to integrate SecureW2 JoinNow Connector with Azure Active Directory (Azure AD).
+# Tutorial: Integrate SecureW2 JoinNow Connector with Microsoft Entra ID
 
-Integrating SecureW2 JoinNow Connector with Azure AD provides you with the following benefits:
+In this tutorial, you'll learn how to integrate SecureW2 JoinNow Connector with Microsoft Entra ID. When you integrate SecureW2 JoinNow Connector with Microsoft Entra ID, you can:
 
-- You can control in Azure AD who has access to SecureW2 JoinNow Connector.
-- You can enable your users to automatically get signed-on to SecureW2 JoinNow Connector (Single Sign-On) with their Azure AD accounts.
-- You can manage your accounts in one central location - the Azure portal.
-
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+* Control in Microsoft Entra ID who has access to SecureW2 JoinNow Connector.
+* Enable your users to be automatically signed-in to SecureW2 JoinNow Connector with their Microsoft Entra accounts.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
-To configure Azure AD integration with SecureW2 JoinNow Connector, you need the following items:
+To get started, you need the following items:
 
-- An Azure AD subscription
-- A SecureW2 JoinNow Connector single sign-on enabled subscription
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* SecureW2 JoinNow Connector single sign-on (SSO) enabled subscription.
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding SecureW2 JoinNow Connector from the gallery
-2. Configuring and testing Azure AD single sign-on
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment.
 
-## Adding SecureW2 JoinNow Connector from the gallery
-To configure the integration of SecureW2 JoinNow Connector into Azure AD, you need to add SecureW2 JoinNow Connector from the gallery to your list of managed SaaS apps.
+* SecureW2 JoinNow Connector supports **SP** initiated SSO.
 
-**To add SecureW2 JoinNow Connector from the gallery, perform the following steps:**
+## Add SecureW2 JoinNow Connector from the gallery
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+To configure the integration of SecureW2 JoinNow Connector into Microsoft Entra ID, you need to add SecureW2 JoinNow Connector from the gallery to your list of managed SaaS apps.
 
-	![The Azure Active Directory button][1]
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type **SecureW2 JoinNow Connector** in the search box.
+1. Select **SecureW2 JoinNow Connector** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-2. Navigate to **Enterprise applications**. Then go to **All applications**.
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-	![The Enterprise applications blade][2]
-	
-3. To add new application, click **New application** button on the top of dialog.
+<a name='configure-and-test-azure-ad-sso-for-securew2-joinnow-connector'></a>
 
-	![The New application button][3]
+## Configure and test Microsoft Entra SSO for SecureW2 JoinNow Connector
 
-4. In the search box, type **SecureW2 JoinNow Connector**, select **SecureW2 JoinNow Connector** from result panel then click **Add** button to add the application.
+Configure and test Microsoft Entra SSO with SecureW2 JoinNow Connector using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in SecureW2 JoinNow Connector.
 
-	![SecureW2 JoinNow Connector in the results list](./media/securejoinnow-tutorial/tutorial_securejoinnow_addfromgallery.png)
+To configure and test Microsoft Entra SSO with SecureW2 JoinNow Connector, perform the following steps:
 
-## Configure and test Azure AD single sign-on
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
+1. **[Configure SecureW2 JoinNow Connector SSO](#configure-securew2-joinnow-connector-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create SecureW2 JoinNow Connector test user](#create-securew2-joinnow-connector-test-user)** - to have a counterpart of B.Simon in SecureW2 JoinNow Connector that is linked to the Microsoft Entra representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-In this section, you configure and test Azure AD single sign-on with SecureW2 JoinNow Connector based on a test user called "Britta Simon".
+<a name='configure-azure-ad-sso'></a>
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in SecureW2 JoinNow Connector is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in SecureW2 JoinNow Connector needs to be established.
+## Configure Microsoft Entra SSO
 
-To configure and test Azure AD single sign-on with SecureW2 JoinNow Connector, you need to complete the following building blocks:
+Follow these steps to enable Microsoft Entra SSO.
 
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create a SecureW2 JoinNow Connector test user](#create-a-securew2-joinnow-connector-test-user)** - to have a counterpart of Britta Simon in SecureW2 JoinNow Connector that is linked to the Azure AD representation of user.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **SecureW2 JoinNow Connector** application integration page, find the **Manage** section and select **Single sign-on**.
+1. On the **Select a Single sign-on method** page, select **SAML**.
+1. On the **Set up Single Sign-On with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-### Configure Azure AD single sign-on
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your SecureW2 JoinNow Connector application.
+1. On the **Basic SAML Configuration** section, perform the following steps:
 
-**To configure Azure AD single sign-on with SecureW2 JoinNow Connector, perform the following steps:**
+	a. In the **Sign on URL** text box, type a URL using the following pattern:
+    `https://<organization-identifier>-auth.securew2.com/auth/saml/SSO`
 
-1. In the Azure portal, on the **SecureW2 JoinNow Connector** application integration page, click **Single sign-on**.
+    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+    `https://<organization-identifier>-auth.securew2.com/auth/saml`
 
-	![Configure single sign-on link][4]
+	> [!NOTE]
+	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [SecureW2 JoinNow Connector Client support team](mailto:support@securew2.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
-	![Single sign-on dialog box](./media/securejoinnow-tutorial/tutorial_securejoinnow_samlbase.png)
+1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  find **Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
-3. On the **SecureW2 JoinNow Connector Domain and URLs** section, perform the following steps:
+	![The Certificate download link](common/metadataxml.png)
 
-	![SecureW2 JoinNow Connector Domain and URLs single sign-on information](./media/securejoinnow-tutorial/tutorial_securejoinnow_url.png)
+1. On the **Set up SecureW2 JoinNow Connector** section, copy the appropriate URL(s) based on your requirement.
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<organization-identifier>-auth.securew2.com/auth/saml/SSO`
+	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<organization-identifier>-auth.securew2.com/auth/saml`
+<a name='create-an-azure-ad-test-user'></a>
 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [SecureW2 JoinNow Connector Client support team](mailto:support@securew2.com) to get these values. 
+### Create a Microsoft Entra test user
 
-4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+In this section, you'll create a test user called B.Simon.
 
-	![The Certificate download link](./media/securejoinnow-tutorial/tutorial_securejoinnow_certificate.png) 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Select **Review + create**.
+1. Select **Create**.
 
-5. Click **Save** button.
+<a name='assign-the-azure-ad-test-user'></a>
 
-	![Configure Single Sign-On Save button](./media/securejoinnow-tutorial/tutorial_general_400.png)
+### Assign the Microsoft Entra test user
 
-6. To configure single sign-on on **SecureW2 JoinNow Connector** side, you need to send the downloaded **Metadata XML** to [SecureW2 JoinNow Connector support team](mailto:support@securew2.com). They set this setting to have the SAML SSO connection set properly on both sides.
+In this section, you'll enable B.Simon to use single sign-on by granting access to SecureW2 JoinNow Connector.
 
-### Create an Azure AD test user
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **SecureW2 JoinNow Connector**.
+1. In the app's overview page, select **Users and groups**.
+1. Select **Add user/group**, then select **Users and groups** in the **Add Assignment** dialog.
+   1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+   1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+   1. In the **Add Assignment** dialog, click the **Assign** button.
 
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+## Configure SecureW2 JoinNow Connector SSO
 
-   ![Create an Azure AD test user][100]
+To configure single sign-on on **SecureW2 JoinNow Connector** side, you need to send the downloaded **Metadata XML** and appropriate copied URLs from the application configuration to [SecureW2 JoinNow Connector support team](mailto:support@securew2.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
-**To create a test user in Azure AD, perform the following steps:**
+### Create SecureW2 JoinNow Connector test user
 
-1. In the Azure portal, in the left pane, click the **Azure Active Directory** button.
+In this section, you create a user called Britta Simon in SecureW2 JoinNow Connector. Work with [SecureW2 JoinNow Connector support team](mailto:support@securew2.com) to add the users in the SecureW2 JoinNow Connector platform. Users must be created and activated before you use single sign-on.
 
-    ![The Azure Active Directory button](./media/securejoinnow-tutorial/create_aaduser_01.png)
+## Test SSO
 
-2. To display the list of users, go to **Users and groups**, and then click **All users**.
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
-    ![The "Users and groups" and "All users" links](./media/securejoinnow-tutorial/create_aaduser_02.png)
+* Click on **Test this application**, this will redirect to SecureW2 JoinNow Connector Sign-on URL where you can initiate the login flow. 
 
-3. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
+* Go to SecureW2 JoinNow Connector Sign-on URL directly and initiate the login flow from there.
 
-    ![The Add button](./media/securejoinnow-tutorial/create_aaduser_03.png)
+* You can use Microsoft My Apps. When you click the SecureW2 JoinNow Connector tile in the My Apps, this will redirect to SecureW2 JoinNow Connector Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
-4. In the **User** dialog box, perform the following steps:
+## Next steps
 
-    ![The User dialog box](./media/securejoinnow-tutorial/create_aaduser_04.png)
-
-    a. In the **Name** box, type **BrittaSimon**.
-
-    b. In the **User name** box, type the email address of user Britta Simon.
-
-    c. Select the **Show Password** check box, and then write down the value that's displayed in the **Password** box.
-
-    d. Click **Create**.
- 
-### Create a SecureW2 JoinNow Connector test user
-
-In this section, you create a user called Britta Simon in SecureW2 JoinNow Connector. Work with [SecureW2 JoinNow Connector Client support team](mailto:support@securew2.com) to add the users in the SecureW2 JoinNow Connector platform. Users must be created and activated before you use single sign-on.
-
-### Assign the Azure AD test user
-
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to SecureW2 JoinNow Connector.
-
-![Assign the user role][200] 
-
-**To assign Britta Simon to SecureW2 JoinNow Connector, perform the following steps:**
-
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
-
-	![Assign User][201] 
-
-2. In the applications list, select **SecureW2 JoinNow Connector**.
-
-	![The SecureW2 JoinNow Connector link in the Applications list](./media/securejoinnow-tutorial/tutorial_securejoinnow_app.png)  
-
-3. In the menu on the left, click **Users and groups**.
-
-	![The "Users and groups" link][202]
-
-4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
-
-	![The Add Assignment pane][203]
-
-5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
-
-6. Click **Select** button on **Users and groups** dialog.
-
-7. Click **Assign** button on **Add Assignment** dialog.
-	
-### Test single sign-on
-
-**To test the application, perform the following steps:** 
-
-a. Open the SecureW2 JoinNow Connector client, select your appropriate device from the list and click on **Sign In** button.
-
-b. The default browser should open and you should be re-directed to the Azure portal for authentication.
-
-c. On successful authentication, it should return back to the initial landing page of SecureW2 JoinNow Connector.
-
-## Additional resources
-
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-
-
-<!--Image references-->
-
-[1]: ./media/securejoinnow-tutorial/tutorial_general_01.png
-[2]: ./media/securejoinnow-tutorial/tutorial_general_02.png
-[3]: ./media/securejoinnow-tutorial/tutorial_general_03.png
-[4]: ./media/securejoinnow-tutorial/tutorial_general_04.png
-
-[100]: ./media/securejoinnow-tutorial/tutorial_general_100.png
-
-[200]: ./media/securejoinnow-tutorial/tutorial_general_200.png
-[201]: ./media/securejoinnow-tutorial/tutorial_general_201.png
-[202]: ./media/securejoinnow-tutorial/tutorial_general_202.png
-[203]: ./media/securejoinnow-tutorial/tutorial_general_203.png
-
+Once you configure SecureW2 JoinNow Connector you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

@@ -1,64 +1,237 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure Sentinel Preview Documentation
+### YamlMime:Landing
+
+title: Microsoft Sentinel documentation # < 60 chars
+summary: This article presents use cases to get started using Microsoft Sentinel. See and stop threats before they cause harm, with SIEM reinvented for a modern world. Microsoft Sentinel is your birds-eye view across the enterprise. # < 160 chars
+
 metadata:
-  title: Azure Sentinel Preview Documentation - Tutorials, Quickstarts | Microsoft Doc
-  meta.description: Azure Sentinel is a cloud-native SIEM that provides intelligent security analytics for your entire enterprise at cloud scale.
-  services: sentinel
-  author: cmcclister
-  manager: carolz
-  ms.service: sentinel
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  title: Microsoft Sentinel documentation
+  description: This article presents use cases and scenarios to get started using Microsoft Sentinel. See and stop threats before they cause harm, with SIEM reinvented for a modern world. Microsoft Sentinel is your birds-eye view across the enterprise.
+  ms.service: microsoft-sentinel
   ms.topic: landing-page
-  ms.date: 02/28/19
-  ms.author: cmcclister
-abstract:
-  description: Azure Sentinel Preview is a cloud-native SIEM that provides intelligent security analytics for your entire enterprise at cloud scale. Get limitless cloud speed and scale to help focus on what really matters. Easily collect data from all your cloud or on-premises assets, Office 365, Azure resources, and other clouds. Effectively detect threats with built-in machine learning from Microsoft’s security analytics experts. Automate threat response, using built-in orchestration and automation playbooks.
-sections:
-- title: 5-Minute Quickstarts
-  items: 
-  - type: paragraph
-    text: Learn how to onboard your data to Azure Sentinel, and get visibility into your data, and potential threats.
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: media/index/deploy.svg
-      text: Onboard Azure Sentinel
-      href: /azure/sentinel/quickstart-onboard
-    - image: 
-        src: media/index/get-started.svg
-      text: Get started with Azure Sentinel
-      href: /azure/sentinel/quickstart-get-visibility
-- title: Step-by-Step Tutorials
-  items:
-  - type: paragraph
-    text: Learn how to define security policies, protect your resources against malicious activity, and respond to security alerts and incidents.
-  - type: list
-    style: ordered
-    items:
-    - html: <a href="/azure/sentinel/tutorial-detect-threats">Detect threats with Azure Sentinel</a>
-    - html: <a href="/azure/sentinel/tutorial-respond-threats-playbook">Set up automated threat responses</a>
-- title: Build your skills with Microsoft Learn
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
-    items:
-    - title: Introduction to Security in Azure
-      href: https://docs.microsoft.com/learn/azure
-      image: 
-        src: media/index/tutorial.svg
-        href: https://docs.microsoft.com/learn/azure
+  author: yelevin
+  ms.author: yelevin
+  ms.date: 11/09/2021
 
-  - type: paragraph
-    text: <a href="/learn/browse/?term=security">More interactive learning...</a>
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
-- title: Reference
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - html: <a href="https://azure.microsoft.com/updates/?product=sentinel">Service updates</a>
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: About Microsoft Sentinel
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Microsoft Sentinel?
+            url: overview.md
+          - text: Useful resources
+            url: resources.md
+      - linkListType: whats-new
+        links:
+          - text: What's new in Microsoft Sentinel?
+            url: whats-new.md
+      - linkListType: concept
+        links:
+          - text: Best practices
+            url: best-practices.md
+
+
+  # Card (optional)
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Onboard Microsoft Sentinel
+            url: quickstart-onboard.md
+      - linkListType: concept
+        links:
+          - text: Prerequisites
+            url: prerequisites.md
+      - linkListType: how-to-guide
+        links:
+          - text: Install Microsoft Sentinel solutions (Preview)
+            url: sentinel-solutions-deploy.md
+          - text: Visualize collected data
+            url: get-visibility.md
+          - text: Investigate incidents
+            url: investigate-cases.md
+          - text: Microsoft 365 Defender integration with Microsoft Sentinel
+            url: microsoft-365-defender-sentinel-integration.md
+      - linkListType: reference
+        links:
+          - text: Content hub catalog
+            url: sentinel-solutions-catalog.md
+      - linkListType: learn
+        links:
+          - text: Create KQL queries for Microsoft Sentinel
+            url: /training/paths/sc-200-utilize-kql-for-azure-sentinel/
+
+  # Card
+  - title: Collect data
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Data collection best practices
+            url: best-practices-data.md
+          - text: Normalizing and parsing data
+            url: normalization.md
+      - linkListType: how-to-guide
+        links:
+          - text: Connect data to Microsoft Sentinel
+            url: connect-data-sources.md
+          - text: Connect Microsoft 365 Defender
+            url: connect-microsoft-365-defender.md
+          - text: Create a custom connector
+            url: create-custom-connector.md
+          - text: Monitor connector health
+            url: monitor-data-connector-health.md
+          - text: Integrate Azure Data Explorer
+            url: store-logs-in-azure-data-explorer.md
+      - linkListType: reference
+        links:
+          - text: Data connector reference
+            url: data-connectors-reference.md
+          - text: Data source schema reference
+            url: data-source-schema-reference.md
+          - text: CEF log field mapping
+            url: cef-name-mapping.md
+          - text: Network normalization schema
+            url: ./normalization-schema-network.md
+
+ # Card (optional)
+  - title: Kusto Query Language in Microsoft Sentinel
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Kusto Query Language in Microsoft Sentinel
+            url: kusto-overview.md
+      - linkListType: tutorial
+        links:
+          - text: Kusto Query Language tutorial (Azure Monitor)
+            url: /azure/data-explorer/kusto/query/tutorial?pivots=azuremonitor
+      - linkListType: learn
+        links:
+          - text: Write your first query with Kusto Query Language
+            url: /training/modules/write-first-query-kusto-query-language/
+          - text: More KQL learning and skilling resources
+            url: kusto-resources.md
+      - linkListType: reference
+        links:
+          - text: KQL quick reference guide
+            url: /azure/data-explorer/kql-quick-reference
+
+ # Card (optional)
+  - title: Threat intelligence
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Understand threat intelligence in Microsoft Sentinel
+            url: understand-threat-intelligence.md
+          - text: Threat intelligence integrations
+            url: threat-intelligence-integration.md
+      - linkListType: how-to-guide
+        links:
+          - text: Connect threat intelligence platforms to Microsoft Sentinel
+            url: connect-threat-intelligence-tip.md
+          - text: Connect Microsoft Sentinel to STIX/TAXII feeds
+            url: connect-threat-intelligence-taxii.md
+          - text: Work with threat indicators
+            url: work-with-threat-indicators.md
+
+ # Card (optional)
+  - title: Threat detection
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: User and entity behavior analytics (UEBA)
+            url: identify-threats-with-entity-behavior-analytics.md
+          - text: Customizable anomalies
+            url: soc-ml-anomalies.md
+      - linkListType: how-to-guide
+        links:
+          - text: Use built-in analytics to detect threats
+            url: detect-threats-built-in.md
+          - text: Create custom detection rules
+            url: detect-threats-custom.md
+      - linkListType: reference
+        links:
+          - text: Entities reference
+            url: entities-reference.md
+          - text: UEBA enrichments
+            url: ueba-reference.md
+
+ # Card (optional)
+  - title: Threat hunting
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Hunt for threats
+            url: hunting.md
+      - linkListType: how-to-guide
+        links:
+          - text: Hunt with Jupyter notebooks
+            url: notebooks.md
+          - text: Hunt with bookmarks
+            url: bookmarks.md
+          - text: Hunt with livestream
+            url: livestream.md
+
+ # Card (optional)
+  - title: Investigate
+    linkLists:
+      - linkListType: tutorial
+        links:
+        - text: Investigate with UEBA
+          url: investigate-with-ueba.md
+      - linkListType: how-to-guide
+        links:
+          - text: Investigate incidents
+            url: investigate-cases.md
+          - text: Monitor your data
+            url: monitor-your-data.md
+      - linkListType: reference
+        links:
+        - text: Commonly used Microsoft Sentinel workbooks
+          url: top-workbooks.md
+
+
+# Card (optional)
+  - title: Respond
+    linkLists:
+      - linkListType: tutorial
+        links:
+        - text: Respond automatically to threats
+          url: tutorial-respond-threats-playbook.md
+        - text: Use Jupyter Notebooks to hunt for security threats
+          url: notebooks.md
+      - linkListType: concept
+        links:
+          - text: Automation rules
+            url: automate-incident-handling-with-automation-rules.md
+          - text: Playbooks
+            url: automate-responses-with-playbooks.md
+      - linkListType: reference
+        links:
+          - text: SOAR content catalog
+            url: sentinel-soar-content.md
+
+
+
+
+  # Card
+  - title: Manage Microsoft Sentinel
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Workspace architecture best practices
+            url: best-practices-workspace-architecture.md
+      - linkListType: how-to-guide
+        links:
+          - text: Design your workspace architecture
+            url: design-your-workspace-architecture.md
+          - text: Manage multiple tenants
+            url: multiple-tenants-service-providers.md
+          - text: Work with incidents in multiple workspaces
+            url: multiple-workspace-view.md
+          - text: Manage your intellectual property
+            url: mssp-protect-intellectual-property.md

@@ -1,0 +1,140 @@
+- name: Microsoft Entra roles documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Microsoft Entra RBAC?
+    href: custom-overview.md
+- name: Quickstarts
+  items:
+  - name: Assign roles to users
+    href: ../fundamentals/how-subscriptions-associated-directory.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
+- name: Concepts
+  items:
+  - name: Understand Microsoft Entra roles
+    href: concept-understand-roles.md
+  - name: Compare roles
+    items:
+    - name: Compare Azure and Microsoft Entra roles    
+      href: ../../role-based-access-control/rbac-and-directory-admin-roles.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
+    - name: Microsoft 365 roles
+      href: m365-workload-docs.md
+  - name: Use groups to manage role assignments
+    href: groups-concept.md
+  - name: Administrative units
+    items:
+    - name: Administrative units
+      href: administrative-units.md
+    - name: Restricted management
+      href: admin-units-restricted-management.md
+  - name: Best practices
+    href: best-practices.md
+  - name: Security
+    items:
+    - name: Privileged roles and permissions
+      href: privileged-roles-permissions.md
+    - name: Role security planning
+      href: security-planning.md
+    - name: Create emergency accounts
+      href: security-emergency-access.md
+    - name: Protected actions
+      href: protected-actions-overview.md
+- name: How-to guides
+  items:
+  - name: Prerequisites
+    href: prerequisites.md
+  - name: List role definitions
+    href: role-definitions-list.md
+  - name: List role assignments
+    items: 
+    - name: List role assignments
+      href: view-assignments.md
+    - name: List role assignments for a user
+      href: list-role-assignments-users.md
+    - name: List role assignments for a group
+      href: groups-view-assignments.md
+  - name: Assign roles
+    items:
+    - name: Assign roles to users
+      href: manage-roles-portal.md
+    - name: Assign roles to a user at different scopes
+      href: assign-roles-different-scopes.md
+    - name: Create a role-assignable group
+      href: groups-create-eligible.md
+    - name: Assign roles to groups
+      href: groups-assign-role.md
+    - name: Assign roles with scope using PowerShell
+      href: custom-assign-powershell.md
+    - name: Assign roles using Microsoft Graph
+      href: custom-assign-graph.md
+  - name: Remove role assignments
+    items: 
+    - name: Remove role assignments from groups
+      href: groups-remove-assignment.md
+  - name: Create custom roles
+    items: 
+    - name: Create a custom role
+      href: custom-create.md
+    - name: Create custom roles for enterprise apps
+      href: custom-enterprise-apps.md
+    - name: Create unlimited app registrations
+      href: quickstart-app-registration-limits.md
+  - name: Administrative units
+    items:
+    - name: Create or delete
+      href: admin-units-manage.md
+    - name: Add members
+      href: admin-units-members-add.md
+    - name: List members
+      href: admin-units-members-list.md
+    - name: Remove members
+      href: admin-units-members-remove.md
+    - name: Manage members with dynamic membership rules
+      href: admin-units-members-dynamic.md
+    - name: Assign roles with scope
+      href: admin-units-assign-roles.md
+  - name: Protected actions
+    items:
+    - name: Add, remove, or test
+      href: protected-actions-add.md
+  - name: Delegate
+    items:
+    - name: Delegate admin role
+      href: delegate-app-roles.md
+    - name: My Staff delegation
+      href: my-staff-configure.md
+  - name: Troubleshoot
+    items:
+    - name: Troubleshoot roles assigned to groups
+      href: groups-faq-troubleshooting.yml
+    - name: Troubleshoot administrative units
+      href: admin-units-faq-troubleshoot.yml
+    - name: Get support for Microsoft Entra ID
+      href: ../fundamentals/how-to-get-support.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
+- name: Reference
+  items:
+  - name: Built-in roles
+    href: permissions-reference.md
+  - name: Least privileged roles by task   
+    href: delegate-by-task.md
+  - name: Default user permissions    
+    href: ../fundamentals/users-default-permissions.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
+  - name: Custom role permissions
+    items:
+    - name: App registration permissions
+      href: custom-available-permissions.md
+    - name: Enterprise app permissions
+      href: custom-enterprise-app-permissions.md
+    - name: App consent permissions
+      href: custom-consent-permissions.md
+    - name: Device management permissions
+      href: custom-device-permissions.md
+    - name: User management permissions
+      href: custom-user-permissions.md
+    - name: Group management permissions
+      href: custom-group-permissions.md
+  - name: Microsoft Entra service limits
+    href: ../enterprise-users/directory-service-limits-restrictions.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
+  - name:  Azure AD PowerShell
+    href: /powershell/module/azuread/#directory-roles
+  - name: Microsoft Graph API
+    href: /graph/api/resources/directoryrole

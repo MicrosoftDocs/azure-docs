@@ -1,15 +1,10 @@
 ---
-title: 'Quickstart: Execute Apache Hive queries in Azure HDInsight - Apache Zeppelin'
-description: Learn how to use Apache Zeppelin to run Apache Hive queries.
-keywords: hdinsight,hadoop,hive,interactive query,LLAP 
-author: hrasheed-msft
-ms.reviewer: jasonh
-
+title: 'Quickstart: Apache Hive in Azure HDInsight with Apache Zeppelin'
+description: In this quickstart, you learn how to use Apache Zeppelin to run Apache Hive queries.
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: quickstart
-ms.date: 05/06/2019
-ms.author: hrasheed
+ms.custom: hdinsightactive, mode-other
+ms.date: 04/25/2023
 #Customer intent: As a Hive user, I want learn Zeppelin so that I can run queries.
 ---
 
@@ -21,7 +16,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-An HDInsight Interactive Query cluster. See [Create cluster](../hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster) to create an HDInsight cluster.  Make sure to choose the **Interactive Query** cluster type.
+An HDInsight Interactive Query cluster. See [Create cluster](../hadoop/apache-hadoop-linux-tutorial-get-started.md) to create an HDInsight cluster.  Make sure to choose the **Interactive Query** cluster type.
 
 ## Create an Apache Zeppelin Note
 
@@ -29,7 +24,7 @@ An HDInsight Interactive Query cluster. See [Create cluster](../hadoop/apache-ha
 
 2. Enter your cluster login username and password. From the Zeppelin page, you can either create a new note or open existing notes. **HiveSample** contains some sample Hive queries.  
 
-    ![HDInsight Interactive Query zeppelin](./media/hdinsight-connect-hive-zeppelin/hdinsight-hive-zeppelin.png)
+    :::image type="content" source="./media/hdinsight-connect-hive-zeppelin/hdinsight-hive-zeppelin.png" alt-text="HDInsight Interactive Query zeppelin" border="true":::
 
 3. Select **Create new note**.
 
@@ -47,7 +42,7 @@ An HDInsight Interactive Query cluster. See [Create cluster](../hadoop/apache-ha
     show tables
     ```
 
-    ![HDInsight Interactive Query zeppelin runs query](./media/hdinsight-connect-hive-zeppelin/hdinsight-hive-zeppelin-query.png)
+    :::image type="content" source="./media/hdinsight-connect-hive-zeppelin/hdinsight-hive-zeppelin-query.png" alt-text="HDInsight Interactive Query zeppelin runs query" border="true":::
 
     The **%jdbc(hive)** statement in the first line tells the notebook to use the Hive JDBC interpreter.
 
@@ -68,9 +63,47 @@ An HDInsight Interactive Query cluster. See [Create cluster](../hadoop/apache-ha
 
     Comparing to the traditional Hive, the query results come back must faster.
 
+### Additional examples
+
+1. Create a table. Execute the code below in the Zeppelin Notebook:
+
+    ```hql
+    %jdbc(hive)
+    CREATE EXTERNAL TABLE log4jLogs (
+        t1 string,
+        t2 string,
+        t3 string,
+        t4 string,
+        t5 string,
+        t6 string,
+        t7 string)
+    ROW FORMAT DELIMITED
+    FIELDS TERMINATED BY ' '
+    STORED AS TEXTFILE;
+    ```
+
+1. Load data into the new table. Execute the code below in the Zeppelin Notebook:
+
+    ```hql
+    %jdbc(hive)
+    LOAD DATA
+    INPATH 'wasbs:///example/data/sample.log'
+    INTO TABLE log4jLogs;
+    ```
+
+1. Insert a single record. Execute the code below in the Zeppelin Notebook:
+
+    ```hql
+    %jdbc(hive)
+    INSERT INTO TABLE log4jLogs2
+    VALUES ('A', 'B', 'C', 'D', 'E', 'F', 'G');
+    ```
+
+Review the [Hive language manual](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) for additional syntax.
+
 ## Clean up resources
 
-After you complete the quickstart, you may want to delete the cluster. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it is not in use. You are also charged for an HDInsight cluster, even when it is not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they are not in use.
+After you complete the quickstart, you may want to delete the cluster. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it isn't in use. You're also charged for an HDInsight cluster, even when it isn't in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they aren't in use.
 
 To delete a cluster, see [Delete an HDInsight cluster using your browser, PowerShell, or the Azure CLI](../hdinsight-delete-cluster.md).
 
@@ -80,12 +113,3 @@ In this quickstart, you learned how to use Apache Zeppelin to run Apache Hive qu
 
 > [!div class="nextstepaction"]
 > [Connect to Azure HDInsight and run Apache Hive queries using Data Lake Tools for Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)
-
-## See also
-
-* [Visualize Apache Hive data with Microsoft Power BI in Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md).
-* [Visualize Interactive Query Apache Hive data with Power BI in Azure HDInsight](./apache-hadoop-connect-hive-power-bi-directquery.md).
-* [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md).
-* [Connect Excel to Apache Hadoop by using Power Query](../hadoop/apache-hadoop-connect-excel-power-query.md).
-* [Use Azure HDInsight Tool for Visual Studio Code](../hdinsight-for-vscode.md).
-* [Upload Data to HDInsight](../hdinsight-upload-data.md).

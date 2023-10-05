@@ -1,25 +1,21 @@
 ---
-title: Manage your Azure Service Fabric applications in Visual Studio | Microsoft Docs
+title: Manage applications in Visual Studio 
 description: Use Visual Studio to create, develop, package, deploy, and debug your Azure Service Fabric applications and services.
-services: service-fabric
-documentationcenter: .net
-author: mikkelhegn
-manager: chackdan
-editor: ''
-
-ms.assetid: c317cb7e-7eae-466e-ba41-6aa2518be5cf
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
 ms.service: service-fabric
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.custom: vs-azure
-ms.workload: azure-vs
-ms.date: 03/26/2018
-ms.author: mikhegn
-
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Use Visual Studio to simplify writing and managing your Service Fabric applications
 You can manage your Azure Service Fabric applications and services through Visual Studio. Once you've [set up your development environment](service-fabric-get-started.md), you can use Visual Studio to create Service Fabric applications, add services, or package, register, and deploy applications in your local development cluster.
+
+> [!NOTE]
+> With the transition from ADAL to MSAL, administrators are now required to explicitly grant permission to the Visual Studio client for publishing applications by adding the following in the cluster's Azure AD App Registration.
+> - Visual Studio 2022 and future versions: 04f0c124-f2bc-4f59-8241-bf6df9866bbd 
+> - Visual Studio 2019 and earlier: 872cd9fa-d31f-45e0-9eab-6e460a02d1f1
 
 ## Deploy your Service Fabric application
 By default, deploying an application combines the following steps into one simple operation:
@@ -33,7 +29,7 @@ By default, deploying an application combines the following steps into one simpl
 In Visual Studio, pressing **F5** deploys your application and attach the debugger to all application instances. You can use **Ctrl+F5** to deploy an application without debugging, or you can publish to a local or remote cluster by using the publish profile.
 
 ### Application Debug Mode
-Visual Studio provide a property called **Application Debug Mode**, which controls how you want Visual Studios to handle Application deployment as part of debugging.
+Visual Studio provides a property called **Application Debug Mode**, which controls how you want Visual Studios to handle Application deployment as part of debugging.
 
 #### To set the Application Debug Mode property
 1. On the Service Fabric application project's (*.sfproj) shortcut menu, choose **Properties** (or press the **F4** key).

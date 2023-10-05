@@ -1,45 +1,45 @@
 ---
-title: Azure CLI script sample - Peer two virtual networks | Microsoft Docs
-description: Azure CLI script sample - Peer two virtual networks.
+title:  Peer two virtual networks - Azure CLI script sample
+description: Create and connect two virtual networks in the same region through the Azure network by using an Azure CLI script sample.
 services: virtual-network
 documentationcenter: virtual-network
-author: KumudD
-manager: twooley
-editor: ''
-tags:
-
-ms.assetid:
+author: asudbring
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm:
 ms.workload: infrastructure
-ms.date: 03/20/2018
-ms.author: kumud
+ms.date: 02/03/2022
+ms.author: allensu 
+ms.custom: devx-track-azurecli
 ---
 
-# Peer two virtual networks script sample
+# Peer two virtual networks with an Azure CLI script sample
 
 This script sample creates and connects two virtual networks in the same region through the Azure network. After running the script, you have a peering between two virtual networks.
 
-You can execute the script from the Azure [Cloud Shell](https://shell.azure.com/bash), or from a local Azure CLI installation. If you use the CLI locally, this script requires that you are running version 2.0.28 or later. To find the installed version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). If you are running the CLI locally, you also need to run `az login` to create a connection with Azure.
-
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 
-[!code-azurecli-interactive[main](../../../cli_scripts/virtual-network/peer-two-virtual-networks/peer-two-virtual-networks.sh "Peer two networks")]
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
 
-## Clean up deployment 
+### Run the script
 
-Run the following command to remove the resource group, VM, and all related resources:
+:::code language="azurecli" source="~/azure_cli_scripts/virtual-network/peer-two-virtual-networks/peer-two-virtual-networks.sh" id="FullScript":::
+
+## Clean up deployment
+
+[!INCLUDE [cli-clean-up-resources.md](../../../includes/cli-clean-up-resources.md)]
 
 ```azurecli
-az group delete --name myResourceGroup --yes
+az group delete --name $resourceGroup
 ```
 
-## Script explanation
+## Sample reference
 
 This script uses the following commands to create a resource group, virtual machine, and all related resources. Each command in the following table links to command-specific documentation:
 
@@ -52,6 +52,6 @@ This script uses the following commands to create a resource group, virtual mach
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
+For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
 Additional virtual network CLI script samples can be found in [Virtual network CLI samples](../cli-samples.md).

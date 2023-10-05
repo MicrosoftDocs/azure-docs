@@ -1,32 +1,27 @@
 ---
-title: Create an application gateway with internal redirection - Azure PowerShell | Microsoft Docs
-description: Learn how to create an application gateway that redirects internal web traffic to the appropriate backend pool of servers using Azure Powershell.
+title: Internal redirection using PowerShell
+titleSuffix: Azure Application Gateway
+description: Learn how to create an application gateway that redirects internal web traffic to the appropriate backend pool of servers using Azure PowerShell.
 services: application-gateway
-author: vhorne
-manager: jpconnock
-editor: tysonn
-
+author: greg-lindsay
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 7/13/2018
-ms.author: victorh
-
+ms.topic: how-to
+ms.date: 09/28/2020
+ms.author: greglin 
+ms.custom: devx-track-azurepowershell
 ---
+
 # Create an application gateway with internal redirection using Azure PowerShell
 
-You can use Azure Powershell to configure [web traffic redirection](multiple-site-overview.md) when you create an [application gateway](overview.md). In this tutorial, you define a backend pool using a virtual machines scale set. You then configure listeners and rules based on domains that you own to make sure web traffic arrives at the appropriate pool. This tutorial assumes that you own multiple domains and uses examples of *www\.contoso.com* and *www\.contoso.org*.
+You can use Azure PowerShell to configure [web traffic redirection](multiple-site-overview.md) when you create an [application gateway](overview.md). In this article, you define a backend pool using a virtual machines scale set. You then configure listeners and rules based on domains that you own to make sure web traffic arrives at the appropriate pool. This article assumes that you own multiple domains and uses examples of *www\.contoso.com* and *www\.contoso.org*.
 
 In this article, you learn how to:
 
-> [!div class="checklist"]
-> * Set up the network
-> * Create an application gateway
-> * Add listeners and redirection rule
-> * Create a virtual machine scale set with the backend pool
-> * Create a CNAME record in your domain
+* Set up the network
+* Create an application gateway
+* Add listeners and redirection rule
+* Create a virtual machine scale set with the backend pool
+* Create a CNAME record in your domain
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -34,7 +29,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 1.0.0 or later. To find the version, run `Get-Module -ListAvailable Az` . If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Login-AzAccount` to create a connection with Azure.
+If you choose to install and use the PowerShell locally, this article requires the Azure PowerShell module version 1.0.0 or later. To find the version, run `Get-Module -ListAvailable Az` . If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Login-AzAccount` to create a connection with Azure.
 
 ## Create a resource group
 
@@ -107,7 +102,7 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 ### Create the first listener and rule
 
-A listener is required to enable the application gateway to route traffic appropriately to the backend pool. In this tutorial, you create two listeners for your two domains. In this example, listeners are created for the domains of *www\.contoso.com* and *www\.contoso.org*.
+A listener is required to enable the application gateway to route traffic appropriately to the backend pool. In this article, you create two listeners for your two domains. In this example, listeners are created for the domains of *www\.contoso.com* and *www\.contoso.org*.
 
 Create the first listener named *contosoComListener* using [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) with the frontend configuration and frontend port that you previously created. A rule is required for the listener to know which backend pool to use for incoming traffic. Create a basic rule named *contosoComRule* using [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
 
@@ -247,7 +242,7 @@ Set-AzVmssStorageProfile $vmssConfig `
   -ImageReferencePublisher MicrosoftWindowsServer `
   -ImageReferenceOffer WindowsServer `
   -ImageReferenceSku 2016-Datacenter `
-  -ImageReferenceVersion latest
+  -ImageReferenceVersion latest `
   -OsDiskCreateOption FromImage
 Set-AzVmssOsProfile $vmssConfig `
   -AdminUsername azureuser `
@@ -292,19 +287,12 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ## Test the application gateway
 
-Enter your domain name into the address bar of your browser. Such as, http://www.contoso.com.
+Enter your domain name into the address bar of your browser. Such as, `https://www.contoso.com`.
 
 ![Test contoso site in application gateway](./media/redirect-internal-site-powershell/application-gateway-iistest.png)
 
-Change the address to your other domain, for example http://www.contoso.org and you should see that the traffic has been redirected back to the listener for www\.contoso.com.
+Change the address to your other domain, for example `https://www.contoso.org` and you should see that the traffic has been redirected back to the listener for www\.contoso.com.
 
 ## Next steps
 
-In this article, you learned how to:
-
-> [!div class="checklist"]
-> * Set up the network
-> * Create an application gateway
-> * Add listeners and redirection rule
-> * Create a virtual machine scale set with the backend pools
-> * Create a CNAME record in your domain
+- [Application Gateway redirect overview](redirect-overview.md)

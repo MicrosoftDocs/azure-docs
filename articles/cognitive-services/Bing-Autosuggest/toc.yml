@@ -1,27 +1,33 @@
 - name: Bing Autosuggest Documentation
-  href: index.yml
+  href: ../bing-web-search/index.yml
 - name: Overview
   items:
   - name: What is Bing Autosuggest?
     href: get-suggested-search-terms.md
   - name: Compare the Bing Search APIs
-    href: ../Bing-Web-Search/bing-api-comparison.md
+    href: ../bing-web-search/bing-api-comparison.md
     maintainContext: true
-- name: REST API Quickstarts
+- name: Quickstarts
   expanded: true
   items:
-  - name: C#
-    href: quickstarts/csharp.md
-  - name: Java
-    href: quickstarts/java.md
-  - name: Node.js
-    href: quickstarts/nodejs.md
-  - name: PHP
-    href: quickstarts/php.md
-  - name: Python
-    href: quickstarts/python.md
-  - name: Ruby
-    href: quickstarts/ruby.md
+    - name: REST API
+      items:
+      - name: C#
+        href: quickstarts/csharp.md
+      - name: Java
+        href: quickstarts/java.md
+      - name: Node.js
+        href: quickstarts/nodejs.md
+      - name: PHP
+        href: quickstarts/php.md
+      - name: Python
+        href: quickstarts/python.md
+      - name: Ruby
+        href: quickstarts/ruby.md
+    - name: Client library
+      items:
+      - name: Bing Autosuggest client libraries
+        href: ./quickstarts/client-libraries.md
 - name: Tutorials
   items:
   - name: Single-page web app
@@ -39,41 +45,40 @@
 - name: Reference
   items:
   - name: Bing Autosuggest API v7
-    href: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference
+    href: /rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference
   - name: Bing Autosuggest API v5
-    href: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v5-reference
+    href: /rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v5-reference
   - name: SDKs
     items:
     - name: .NET
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-dotnet
+      href: /dotnet/api/overview/azure/cognitiveservices/bing-autosuggest-readme
     - name: Java
-      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/autosuggest?view=azure-java-stable
+      href: /java/api/overview/azure/cognitiveservices/client/bingautosuggest
     - name: Go
       href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/autosuggest
+    - name: Node.js
+      href: /javascript/api/@azure/cognitiveservices-autosuggest/
   - name: Use and display requirements
-    href: ../Bing-Web-Search/use-display-requirements.md
+    href: ../bing-web-search/use-display-requirements.md
     maintainContext: true
 - name: Resources
   items:
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/autosuggest-api/
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/598198-bing-autosuggest
   - name: Stack Overflow
     href: https://stackoverflow.com/search?q=bing+autosuggest
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: Knowledge Base
-    href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
   - name: Get API key
-    href: https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api
+    href: https://azure.microsoft.com/free/cognitive-services
   - name: Try it!
     href: https://azure.microsoft.com/services/cognitive-services/autosuggest/
-  - name: Language and region support
+  - name: Language support
     href: language-support.md
   - name: Analytics for Bing Autosuggest API
-    href: bing-autosuggest-stats.md
+    maintainContext: true
+    href: ../bing-web-search/bing-web-stats.md
   - name: Compliance
     href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/

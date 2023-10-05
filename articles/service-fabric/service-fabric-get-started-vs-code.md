@@ -1,21 +1,12 @@
 ---
-title: Azure Service Fabric with VS Code Getting Started | Microsoft Docs
+title: Azure Service Fabric with VS Code Getting Started 
 description: This article is an overview of creating Service Fabric applications using Visual Studio Code. 
-services: service-fabric
-documentationcenter: .net
-author: peterpogorski
-manager: chackdan
-editor: ''
-
-ms.assetid: 
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
 ms.service: service-fabric
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 06/29/2018
-ms.author: pepogors
-
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Service Fabric for Visual Studio Code
@@ -34,7 +25,7 @@ The following prerequisites must be installed on all environments.
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Node.js](https://nodejs.org/)
 * [Git](https://git-scm.com/)
-* [Service Fabric SDK](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started)
+* [Service Fabric SDK](./service-fabric-get-started.md)
 * Yeoman Generators -- install the appropriate generators for your application
 
    ```sh
@@ -47,14 +38,14 @@ The following prerequisites must be installed on all environments.
 
 The following prerequisites must be installed for Java development:
 
-* [Java SDK](https://aka.ms/azure-jdks) (version 1.8)
+* [Java SDK](/azure/developer/java/fundamentals/java-support-on-azure) (version 1.8)
 * [Gradle](https://gradle.org/install/)
 * [Debugger for Java VS Code extension](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) Needed to debug Java services. Debugging Java services is supported on Linux only. You can install either by clicking the Extensions icon in the **Activity Bar** in VS Code and searching for the extension, or from the VS Code Marketplace.
 
 The following prerequisites must be installed for .NET Core/C# development:
 
-* [.NET Core](https://www.microsoft.com/net/learn/get-started) (version 2.0.0 or later)
-* [C# for Visual Studio Code (powered by OmniSharp) VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) Needed to debug C# services. You can install either by clicking the Extensions icon in the **Activity Bar** in VS Code and searching for the extension, or from the VS Code Marketplace.
+* [.NET Core](https://dotnet.microsoft.com/download) (version 2.0.0 or later)
+* [C# for Visual Studio Code (powered by OmniSharp) VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) Needed to debug C# services. You can install either by clicking the Extensions icon in the **Activity Bar** in VS Code and searching for the extension, or from the VS Code Marketplace.
 
 ## Setup
 
@@ -75,7 +66,7 @@ The Service Fabric Reliable Services extension for VS Code provides many command
 
 The **Service Fabric: Create Application** command creates a new Service Fabric application in your current workspace. Depending on which yeoman generators are installed on your development machine, you can create several types of Service Fabric application, including Java, C#, Container, and Guest projects. 
 
-1.  Select the **Service Fabric: Add Service** command
+1.  Select the **Service Fabric: Create Application** command
 2.  Select the type for your new Service Fabric application. 
 3.  Enter the name of application you want to create
 3.  Select the type of service that you want to add to your Service Fabric application. 

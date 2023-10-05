@@ -1,25 +1,16 @@
 ---
-title: Debug Azure Service Fabric apps in Linux | Microsoft Docs
+title: Debug Azure Service Fabric apps in Linux 
 description: Learn how to monitor and diagnose your Service Fabric services on a local Linux development machine.
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: chackdan
-editor: ''
-
-ms.assetid: 4eebe937-ab42-4429-93db-f35c26424321
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
 ms.service: service-fabric
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 2/23/2018
-ms.author: subramar
-
+ms.custom: devx-track-extended-java
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
-# Monitor and diagnose services in a local machine development setup
-
+# Monitor and diagnose services in a local Linux machine development setup
 
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
@@ -67,7 +58,7 @@ For more information, see the [code examples in GitHub](https://github.com/Azure
 ## Debugging Service Fabric C# applications
 
 
-Multiple frameworks are available for tracing CoreCLR applications on Linux. For more information, see [GitHub: logging](http:/github.com/aspnet/logging).  Since EventSource is familiar to C# developers,`this article uses EventSource for tracing in CoreCLR samples on Linux.
+Multiple frameworks are available for tracing CoreCLR applications on Linux. For more information, see [.NET Extensions for Logging](https://github.com/dotnet/extensions/tree/master/src/Logging).  Since EventSource is familiar to C# developers,`this article uses EventSource for tracing in CoreCLR samples on Linux.
 
 The first step is to include System.Diagnostics.Tracing so that you can write your logs to memory, output streams, or console files.  For logging using EventSource, add the following project to your project.json:
 
@@ -140,4 +131,4 @@ The samples at [C# Samples](https://github.com/Azure-Samples/service-fabric-dotn
 
 ## Next steps
 The same tracing code added to your application also works with the diagnostics of your application on an Azure cluster. Check out these articles that discuss the different options for the tools and describe how to set them up.
-* [How to collect logs with Azure Diagnostics](service-fabric-diagnostics-how-to-setup-lad.md)
+* [How to collect logs with Azure Diagnostics](./service-fabric-diagnostics-event-aggregation-lad.md)

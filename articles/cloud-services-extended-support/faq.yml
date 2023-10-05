@@ -1,0 +1,240 @@
+### YamlMime:FAQ
+metadata:
+  title: Frequently asked questions for Azure Cloud Services (extended support)
+  description: Frequently asked questions for Azure Cloud Services (extended support)
+  ms.topic: faq
+  ms.service: cloud-services-extended-support
+  author: hirshah
+  ms.author: hirshah
+  ms.reviewer: mimckitt
+  ms.date: 10/13/2020
+  ms.custom: references_regions
+title: Frequently asked questions for Azure Cloud Services (extended support)
+summary: This article covers frequently asked questions related to Azure Cloud Services (extended support).
+
+
+sections:
+  - name: General
+    questions:
+      - question: |
+          What is the resource name for Cloud Services (classic) & Cloud Services (extended support)?
+        answer: |
+          - Cloud Services (classic): `microsoft.classiccompute/domainnames`
+          - Cloud Services (extended support): `microsoft.compute/cloudservices`
+          
+      - question: |
+          What locations are available to deploy Cloud Services (extended support)?
+        answer: |
+          Cloud Services (extended support) is available in all public and sovereign cloud regions.
+
+      - question: |
+          How does my quota change? 
+        answer: |
+          Customers will need to request quota using the same processes as any other Azure Resource Manager product. Quota in Azure Resource Manager is regional and a separate quota request will be needed for each region.
+
+      - question: |
+          Why don’t I see a production & staging slot anymore?
+        answer: |
+          Cloud Services (extended support) doesn't support the logical concept of a hosted service, which included two slots (Production & Staging). Each deployment is an independent Cloud Service (extended support) deployment. To test and stage a new release of a cloud service, deploy a cloud service (extended support) and tag it as VIP swappable with another cloud service (extended support)
+
+      - question: |
+          Why can’t I create an empty Cloud Service anymore?
+        answer: |
+          The concept of hosted service names doesn't exist anymore, you can't create an empty Cloud Service (extended support).
+
+      - question: |
+          Does Cloud Services (extended support) support Resource Health Check (RHC)?
+        answer: |
+          No, Cloud Services (extended support) doesn't support Resource Health Check (RHC).
+
+      - question: |
+          How are role instance metrics changing?
+        answer: |
+          There are no changes in the role instance metrics. 
+
+      - question: |
+          How are web & worker roles changing?
+        answer: |
+          There are no changes to the design, architecture or components of web and worker roles. 
+
+      - question: |
+          Role Instance Scaling keeps failing, how to mitigate this?
+        answer: |
+          When multiple Scale calls happen on the same Cloud Service (for different roles) at the same approximate time, due to a race condition, the Microsoft Platform components go out of sync leading to failures. Microsoft is actively working on resolving this issue. The workaround suggested for the interim is not to auto scale all roles simultaneously.
+          
+      - question: |
+          How are role instances changing?
+        answer: |
+          There are no changes to the design, architecture or components of the role instances. 
+
+      - question: |
+          How will guest os updates change?
+        answer:  There are no changes to the rollout method. Cloud Services (classic) and Cloud Services (extended support) will get the same updates.
+
+      - question: |
+          Does Cloud Services (extended support) support stopped-allocated and stopped-deallocated states?
+        answer: |
+          Cloud Services (extended support) deployment only supports the Stopped- Allocated state which appears as "stopped" in the Azure portal. Stopped- Deallocated state isn't supported. 
+
+      - question: |
+          Do Cloud Services (extended support) deployments support scaling across clusters, availability zones, and regions?
+        answer: |
+          Cloud Services (extended support) deployments can't scale across multiple clusters, availability zones and regions. 
+
+      - question: |
+          How can I get the deployment ID for my Cloud Service (extended support)
+        answer: |
+          Deployment ID, also known as Private ID, can be accessed using the [CloudServiceInstanceView](/rest/api/compute/cloudservices/getinstanceview#cloudserviceinstanceview) API. It is also available on the Azure portal under the Role and Instances blade of the Cloud Service (extended support)
+          
+      - question: |
+          Are there any pricing differences between Cloud Services (classic) and Cloud Services (extended support)?
+        answer: |
+          Cloud Services (extended support) uses Azure Key Vault and Basic (ARM) Public IP addresses. Customers requiring certificates need to use Azure Key Vault for certificate management ([learn more](https://azure.microsoft.com/pricing/details/key-vault/) about Azure Key Vault pricing.)  Each Public IP address for Cloud Services (extended support) is charged separately ([learn more](https://azure.microsoft.com/pricing/details/ip-addresses/) about Public IP Address pricing.) 
+          
+      - question: |
+          Why do I see a change in billing amount after November 2022 for Cloud Services (extended support) deployments?
+        answer: |
+          A bug in Bandwidth billing was fixed in November 2022, resulting in customers possibly seeing increased billing based on their data transfer out to other regions or internet. For additional reference, visit the [Azure bandwidth pricing page](https://azure.microsoft.com/pricing/details/bandwidth/).  
+
+      - question: |
+          What is the Service Level Agreement (SLA) for Cloud Services (extended support)?
+        answer: |
+          The Service Level Agreement (SLA) for Cloud Services (extended support) is same as SLA for Cloud Services (classic). Please refer [Licensing Documents](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
+  
+  - name: Resources 
+    questions:
+      - question: |
+          What resources linked to a Cloud Services (extended support) deployment need to live in the same resource group?
+        answer: |
+          Load balancers, network security groups and route tables need to live in the same region and resource group. 
+
+      - question: |
+          What resources linked to a Cloud Services (extended support) deployment need to live in the same region?
+        answer: |
+          Key Vault, virtual network, public IP addresses, network security groups and route tables need to live in the same region.
+
+      - question: |
+          What resources linked to a Cloud Services (extended support) deployment need to live in the same virtual network?
+        answer: |
+          Public IP addresses, load balancers, network security groups and route tables need to live in the same virtual network. 
+
+  - name: Deployment files 
+    questions:
+      - question: |
+          How can I use a template to deploy or manage my deployment?
+        answer: |
+          Template and parameter files can be passed as a parameter using REST, PowerShell and CLI. They can also be uploaded using the Azure portal.  
+
+      - question: |
+          Do I need to maintain four files now? (template, parameter, csdef, cscfg)
+        answer: |
+          Template and parameter files are only used for deployment automation. Like Cloud Services (classic), you can manually create dependent resources first and then a Cloud Services (extended support) deployment using PowerShell, CLI commands or through Portal with existing csdef, cscfg.
+
+      - question: |
+          How does my application code change on Cloud Services (extended support)
+        answer: |
+          There are no changes required for your application code packaged in cspkg. Your existing applications will continue to work as before. 
+
+      - question: |
+          Does Cloud Services (extended support) allow CTP package format?
+        answer: |
+          CTP package format isn't supported in Cloud Services (extended support). However, it allows an enhanced package size limit of 800 MB
+                    
+      - question: |
+          CSES requires its package files to be stored in a storage account. Can the storage account be set as "enable access from selected virtual networks"
+        answer: |
+          CSES doesn't support Managed Identity Support. So, Storage account by design doesn't allow CSES to access the package files when storage account is enabled only selected VNet in the setting.
+
+  - name: Migration
+    questions:
+      - question: |
+          Will Cloud Services (extended support) mitigate the failures due to allocation failures?
+        answer: |
+          No, Cloud Service (extended support) deployments are tied to a cluster like Cloud Services (classic). Therefore, allocation failures will continue to exist if the cluster is full. 
+
+      - question: |
+          When do I need to migrate? 
+        answer: |
+          Estimating the time required and complexity migration depends on a range of variables. Planning is the most effective step to understand the scope of work, blockers and complexity of migration.
+
+  - name: Networking 
+    questions:
+      - question: |
+          Why can’t I create a deployment without virtual network?
+        answer: |
+          Virtual networks are a required resource for any deployment on Azure Resource Manager. Cloud Services (extended support) deployment must live inside a virtual network. 
+
+      - question: |
+          Why am I now seeing so many networking resources? 
+        answer: |
+          In Azure Resource Manager, components of your Cloud Services (extended support) deployment are exposed as a resource for better visibility and improved control. The same type of resources were used in Cloud Services (classic) however they were just hidden. One example of such a resource is the Public Load Balancer, which is now an explicit 'read only' resource automatically created by the platform
+
+      - question: |
+          What restrictions apply for a subnet with respective to Cloud Services (extended support)?
+        answer: |
+          A subnet containing Cloud Services (extended support) deployments can't be shared with deployments from other compute products such as Virtual Machines, Virtual Machines Scale Sets, Service Fabric, etc.
+
+      - question: |
+          What IP allocation methods are supported on Cloud services (extended support)?
+        answer: |
+          Cloud Services (extended support) supports dynamic & static IP allocation methods. Static IP addresses are referenced as reserved IPs in the cscfg file.
+
+      - question: |
+          Why am I getting charged for IP addresses?
+        answer: |
+          Customers are billed for IP Address use on Cloud Services (extended support) just as users are billed for IP addresses associated with virtual machines. 
+
+      - question: |
+          Can the reserved IP be updated after a successful deployment?
+        answer: |
+          A reserved IP can't be added, removed or changed during deployment update or upgrade. If the IP addresses need to be changed, please use a swappable Cloud Service or deploy two Cloud Services with a CName in Azure DNS\Traffic Manager so that the IP can be pointed to either of them.
+
+      - question: |
+          Can I use a DNS name with Cloud Services (extended support)? 
+        answer: |
+          Yes. Cloud Services (extended support) can also be given a DNS name. With Azure Resource Manager, the DNS label is an optional property of the public IP address that is assigned to the Cloud Service. The format of the DNS name for Azure Resource Manager based deployments is `<userlabel>.<region>.cloudapp.azure.com`
+
+      - question: |
+          Can I update or change the virtual network reference for an existing cloud service (extended support)? 
+        answer: |
+          No. Virtual network reference is mandatory during the creation of a cloud service. For an existing cloud  service, the virtual network reference cannot be changed. The virtual network address space itself can be  modified using VNet APIs. 
+
+  - name: 'Certificates & Key Vault'
+    questions:
+      - question: |
+          Why do I need to manage my certificates on Cloud Services (extended support)?
+        answer: |
+          Cloud Services (extended support) has adopted the same process as other compute offerings where certificates reside within customer managed Key Vaults. This enables customers to have complete control over their secrets & certificates. 
+
+      - question: |
+          Can I use one Key Vault for all my deployments in all regions?
+        answer: |
+          No. Key Vault is a regional resource and customers need one Key Vault in each region. However, one Key Vault can be used for all deployments within a given region.
+
+      - question: |
+          When specifying secrets/certificates to be installed to a Cloud Service, must the KeyVault resource be in the same Azure subscription as the Cloud Service resource?
+        answer: |
+          Yes. We don't allow cross subscription key vault references in Cloud Services to guard against escalation of privilege attacks through CS-ES. The subscription isn't a boundary that CS-ES will cross for references to secrets.  The reason we do not allow cross subscription references is as an important final step to prevent malicious users from using CS-ES as a privilege escalation mechanism to access other users secrets. Subscription isn’t a security boundary, but defense in depth is a requirement. However, you can use the Key Vault extension to get cross subscription and cross region support for your certificates. Please refer to the documentation [here](./enable-key-vault-virtual-machine.md)
+          
+      - question: |
+          When specifying secrets/certificates to be installed to a Cloud Service, must the KeyVault resource be in the same region as the Cloud Service resource?
+        answer: |
+          Yes. The reason that we enforce region boundaries is to prevent users from creating architectures that have cross region dependencies. Regional isolation is a key design principle of cloud based applications. However, you can use the Key Vault extension to get cross subscription and cross region support for your certificates. Please refer to the documentation [here](./enable-key-vault-virtual-machine.md)
+          
+  - name: Known Issues
+    questions:
+      - question: |
+          Role Instance Scaling keeps failing, how to mitigate this?
+        answer: |
+          When multiple Scale calls happen on the same Cloud Service (for different roles) at the same approximate time, due to a race condition, the Microsoft Platform components go out of sync leading to failures. Microsoft is actively working on resolving this issue. The workaround suggested for the interim is not to auto scale all roles simultaneously.
+          
+      - question: |
+          Visual Studio/Tools doesn't support deployment of CS-ES when VNET is located in a different Resource Group. How to deploy? 
+        answer: |
+          This scenario isn't supported via Visual Studio. Please deploy via PowerShell or Portal.
+          
+additionalContent: |
+
+  ## Next steps
+  
+  To start using Cloud Services (extended support), see [Deploy a Cloud Service (extended support) using PowerShell](deploy-powershell.md)

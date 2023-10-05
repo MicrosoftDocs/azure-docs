@@ -1,11 +1,10 @@
 ---
 title: Azure Analysis Services alias server names | Microsoft Docs
-description: Describes how to create and use server name aliases.
+description: Learn how to create Azure Analysis Services server name aliases. Users can then connect to your server with a shorter alias name instead of the server name.
 author: minewiskan
-manager: kfile
-ms.service: azure-analysis-services
+ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 12/07/2021
 ms.author: owend
 ms.reviewer: minewiskan
 ---
@@ -29,11 +28,17 @@ When connecting from a client, the alias server name is entered using **link://*
 
 ![Power BI Desktop connection](media/analysis-services-alias/aas-alias-connect-pbid.png)
 
+> [!NOTE]
+> The link is evaluated on the client.
+
 ## Create an alias
 
 To create an alias endpoint, you can use any method that returns a valid Azure Analysis Services server name. For example, a reference to a file in Azure Blob Storage containing the real server name, or create and publish an ASP.NET Web Forms application.
 
-In this example, an ASP.NET Web Forms Application is created in Visual Studio. The master page reference and user control are removed from the Default.aspx page. The contents of Default.aspx are simply the following Page directive:
+> [!IMPORTANT]
+> The location of the link file cannot require authentication.
+
+In this example, an ASP.NET Web Forms Application is created in Visual Studio. The page reference and user control are removed from the Default.aspx page. The contents of Default.aspx are simply the following Page directive:
 
 ```
 <%@ Page Title="Home Page" Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="FriendlyRedirect._Default" %>
@@ -50,5 +55,5 @@ protected void Page_Load(object sender, EventArgs e)
 
 ## See also
 
-[Client libraries](analysis-services-data-providers.md)   
+[Client libraries](/analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true)   
 [Connect from Power BI Desktop](analysis-services-connect-pbi.md)

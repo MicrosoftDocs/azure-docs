@@ -1,0 +1,219 @@
+items:
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+    - name: Reliability
+      tocHref: /azure/virtual-machines
+    - name: Reliability
+      tocHref:  /azure/batch/
+    - name: Reliability
+      tocHref: /azure/cloud-services-extended-support
+    - name: Reliability
+      tocHref: /azure/app-service/environment/
+    - name: Reliability
+      tocHref: /azure/api-management
+    - name: Reliability
+      tocHref: /azure/azure-cache-for-redis
+    - name: Reliability
+      tocHref: /azure/azure-resource-manager
+    - name: Reliability
+      tocHref: /azure/logic-apps/export-from-ise-to-standard-logic-app
+    - name: Reliability
+      tocHref: /powershell/high-performance-computing
+    - name: Reliability
+      tocHref: /azure/virtual-wan/
+    - name: Reliability
+      tocHref: /azure/storage/
+    - name: Reliability
+      tocHref: /azure/storage/common/
+    - name: Reliability
+      tocHref: /azure/virtual-network
+    - name: Reliability
+      tocHref: /azure/application-gateway/
+    - name: Reliability
+      tocHref: /azure/virtual-network/
+    - name: Reliability
+      tocHref: /azure/expressroute/
+    - name: Reliability
+      tocHref: /azure/vpn-gateway/
+    - name: Reliability
+      tocHref: /azure/api-management/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/azure-sql/database/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/databox/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/route-server/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/active-directory-domain-services/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/azure-app-configuration/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/application-gateway/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/backup/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/bastion/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/search/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/communications-gateway/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/container-instances/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/container-registry/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/governance/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/machine-learning/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/azure-netapp-files/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/cosmos-db/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/devops/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/data-explorer/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/data-factory/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/mysql/flexible-server/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/postgresql/flexible-server/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/ddos-protection/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/virtual-machines/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/dns/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/event-hubs/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/event-grid/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/expressroute/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/firewall/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/firewall-manager/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/iot-hub/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/hdinsight/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/key-vault/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/aks/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/expressroute/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/load-balancer/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/azure-monitor/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/network-watcher/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/private-link/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/hdinsight/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/key-vault/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/virtual-network/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/route-server/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/service-bus-messaging/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/service-fabric/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/storage/common/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/virtual-wan/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/vpn-gateway/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/app-service/environment/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/app-service/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/logic-apps/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/notification-hubs/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/azure-government/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/private-5g-core/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/energy-data-services/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/migrate/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/media-services/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/data-share/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /sql/sql-server/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/azure-monitor/
+      topicHref: /azure/reliability/index

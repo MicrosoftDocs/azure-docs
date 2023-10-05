@@ -1,5 +1,6 @@
 ---
-title: Monitor APIs with Azure API Management, Event Hubs, and Moesif | Microsoft Docs
+title: Monitor APIs with Azure API Management, Event Hubs, and Moesif
+titleSuffix: Azure API Management
 description: Sample application demonstrating the log-to-eventhub policy by connecting Azure API Management, Azure Event Hubs and Moesif for HTTP  logging and monitoring
 services: api-management
 documentationcenter: ''
@@ -11,15 +12,16 @@ ms.assetid: c528cf6f-5f16-4a06-beea-fa1207541a47
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: dotnet
+ms.devlang: csharp
+ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 01/23/2018
-ms.author: apimpm
+ms.author: danlep
 ---
 # Monitor your APIs with Azure API Management, Event Hubs, and Moesif
 The [API Management service](api-management-key-concepts.md) provides many capabilities to enhance the processing of HTTP requests sent to your HTTP API. However, the existence of the requests and responses is transient. The request is made and it flows through the API Management service to your backend API. Your API processes the request and a response flows back through to the API consumer. The API Management service keeps some important statistics about the APIs for display in the Azure portal dashboard, but beyond that, the details are gone.
 
-By using the log-to-eventhub policy in the API Management service, you can send any details from the request and response to an [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md). There are a variety of reasons why you may want to generate events from HTTP messages being sent to your APIs. Some examples include audit trail of updates, usage analytics, exception alerting, and third-party integrations.
+By using the log-to-eventhub policy in the API Management service, you can send any details from the request and response to an [Azure Event Hub](../event-hubs/event-hubs-about.md). There are a variety of reasons why you may want to generate events from HTTP messages being sent to your APIs. Some examples include audit trail of updates, usage analytics, exception alerting, and third-party integrations.
 
 This article demonstrates how to capture the entire HTTP request and response message, send it to an Event Hub and then relay that message to a third-party service that provides HTTP logging and monitoring services.
 
@@ -42,7 +44,7 @@ An Event Hub accepts event data as a simple string. The contents of that string 
 
 An alternative option was to use the `application/http` media type as described in the HTTP specification [RFC 7230](https://tools.ietf.org/html/rfc7230). This media type uses the exact same format that is used to actually send HTTP messages over the wire, but the entire message can be put in the body of another HTTP request. In our case, we are just going to use the body as our message to send to Event Hubs. Conveniently, there is a parser that exists in [Microsoft ASP.NET Web API 2.2 Client](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/) libraries that can parse this format and convert it into the native `HttpRequestMessage` and `HttpResponseMessage` objects.
 
-To be able to create this message, we need to take advantage of C# based [Policy expressions](/azure/api-management/api-management-policy-expressions) in Azure API Management. Here is the policy, which sends an HTTP request message to Azure Event Hubs.
+To be able to create this message, we need to take advantage of C# based [Policy expressions](./api-management-policy-expressions.md) in Azure API Management. Here is the policy, which sends an HTTP request message to Azure Event Hubs.
 
 ```xml
 <log-to-eventhub logger-id="conferencelogger" partition-id="0">
@@ -291,7 +293,7 @@ public class MoesifHttpMessageProcessor : IHttpMessageProcessor
 The `MoesifHttpMessageProcessor` takes advantage of a [C# API library for Moesif](https://www.moesif.com/docs/api?csharp#events) that makes it easy to push HTTP event data into their service. In order to send HTTP data to the Moesif Collector API, you need an account and an Application Id. You get a Moesif Application Id by creating an account on [Moesif's website](https://www.moesif.com) and then go to the _Top Right Menu_ -> _App Setup_.
 
 ## Complete sample
-The [source code](https://github.com/dgilling/ApimEventProcessor) and tests for the sample are on GitHub. You need an [API Management Service](get-started-create-service-instance.md), [a connected Event Hub](api-management-howto-log-event-hubs.md), and a [Storage Account](../storage/common/storage-create-storage-account.md) to run the sample for yourself.   
+The [source code](https://github.com/dgilling/ApimEventProcessor) and tests for the sample are on GitHub. You need an [API Management Service](get-started-create-service-instance.md), [a connected Event Hub](api-management-howto-log-event-hubs.md), and a [Storage Account](../storage/common/storage-account-create.md) to run the sample for yourself.   
 
 The sample is just a simple Console application that listens for events coming from Event Hub, converts them into a Moesif `EventRequestModel` and `EventResponseModel` objects and then forwards them on to the Moesif Collector API.
 
@@ -305,9 +307,9 @@ Azure API Management service provides an ideal place to capture the HTTP traffic
 ## Next steps
 * Learn more about Azure Event Hubs
   * [Get started with Azure Event Hubs](../event-hubs/event-hubs-c-getstarted-send.md)
-  * [Receive messages with EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
+  * [Receive messages with EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
   * [Event Hubs programming guide](../event-hubs/event-hubs-programming-guide.md)
 * Learn more about API Management and Event Hubs integration
   * [How to log events to Azure Event Hubs in Azure API Management](api-management-howto-log-event-hubs.md)
-  * [Logger entity reference](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity)
-  * [log-to-eventhub policy reference](/azure/api-management/api-management-advanced-policies#log-to-eventhub)
+  * [Logger entity reference](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity)
+  * [log-to-eventhub policy reference](./log-to-eventhub-policy.md)

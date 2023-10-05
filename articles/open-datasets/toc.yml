@@ -9,7 +9,115 @@
 - name: Tutorial
   items:
   - name: Regression with automated machine learning
-    href: tutorial-opendatasets-automl.md
+    href: ../machine-learning/tutorial-auto-train-models.md?bc=%2fazure%2fopen-datasets%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fopen-datasets%2ftoc.json
+  - name: Enrich an image classification model
+    href: ../machine-learning/tutorial-train-models-with-aml.md?bc=%2fazure%2fopen-datasets%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fopen-datasets%2ftoc.json
+- name: How-to guides
+  items:
+  - name: Datasets in Azure Machine Learning
+    href: how-to-create-azure-machine-learning-dataset-from-open-dataset.md
+- name: Dataset catalog
+  items:
+  - name: Dataset catalog
+    href: dataset-catalog.md
+  - name: Transportation
+    items:
+    - name: Tartanair AirSim
+      href: dataset-tartanair-simulation.md
+    - name: NYC Taxi - yellow
+      href: dataset-taxi-yellow.md
+    - name: NYC Taxi - green
+      href: dataset-taxi-green.md
+    - name: NYC Taxi - for-hire vehicle
+      href: dataset-taxi-for-hire-vehicle.md
+  - name: Health and genomics
+    items:
+    - name: COVID-19 data lake
+      items: 
+      - name: COVID-19 data lake
+        href: dataset-covid-19-data-lake.md
+      - name: Bing COVID-19 Data
+        href: dataset-bing-covid-19.md
+      - name: COVID Tracking Project
+        href: dataset-covid-tracking.md
+      - name: ECDC COVID-19 cases
+        href: dataset-ecdc-covid-cases.md
+      - name: Oxford COVID-19 Government Response Tracker
+        href: dataset-oxford-covid-government-response-tracker.md
+    - name: COVID-19 Open Research
+      href: dataset-covid-19-open-research.md
+    - name: Genomics Data lake
+      items: 
+      - name: Genomics data lake
+        href: dataset-genomics-data-lake.md
+      - name: Illumina Platinum Genomes
+        href: dataset-illumina-platinum-genomes.md
+      - name: Human Reference Genomes
+        href: dataset-human-reference-genomes.md
+      - name: ClinVar Annotations
+        href: dataset-clinvar-annotations.md
+      - name: SnpEff
+        href: dataset-snpeff.md
+      - name: gnomAD
+        href: dataset-gnomad.md
+      - name: 1000 Genomes
+        href: dataset-1000-genomes.md
+      - name: OpenCravat
+        href: dataset-open-cravat.md
+      - name: ENCODE
+        href: dataset-encode.md
+      - name: GATK Resource Bundle
+        href: dataset-gatk-resource-bundle.md
+      - name: TCGA Open Data
+        href: dataset-the-cancer-genome-atlas.md
+      - name: Pan UK-Biobank
+        href: dataset-panancestry-uk-bio-bank.md
+  - name: Labor and economics
+    items:
+    - name: US Labor Force Statistics
+      href: dataset-us-labor-force.md
+    - name: US National Employment Hours and Earnings
+      href: dataset-us-national-employment-earnings.md
+    - name: US State Employment Hours and Earnings
+      href: dataset-us-state-employment-earnings.md
+    - name: US Local Area Unemployment Statistics
+      href: dataset-us-local-unemployment.md
+    - name: US Consumer Price Index
+      href: dataset-us-consumer-price-index.md
+    - name: US Producer Price Index - Industry
+      href: dataset-us-producer-price-index-industry.md
+    - name: US Producer Price Index - Commodities
+      href: dataset-us-producer-price-index-commodities.md
+  - name: Population and safety
+    items:
+    - name: US Population by County
+      href: dataset-us-population-county.md
+    - name: US Population by ZIP Code
+      href: dataset-us-population-zip.md
+    - name: Boston Safety Data
+      href: dataset-boston-safety.md
+    - name: Chicago Safety Data
+      href: dataset-chicago-safety.md
+    - name: New York City Safety Data
+      href: dataset-new-york-city-safety.md
+    - name: San Francisco Safety Data
+      href: dataset-san-francisco-safety.md
+    - name: Seattle Safety Data
+      href: dataset-seattle-safety.md
+  - name: Common datasets
+    items:
+    - name: Diabetes
+      href: dataset-diabetes.md
+    - name: OJ Sales Simulated Data
+      href: dataset-oj-sales-simulated.md
+    - name: MNIST
+      href: dataset-mnist.md
+    - name: Microsoft News recommendation dataset
+      href: dataset-microsoft-news.md
+    - name: Public holidays
+      href: dataset-public-holidays.md
+    - name: Russian open speech to text
+      href: dataset-open-speech-text.md
 - name: Samples
   displayName: example, examples, Jupyter, azure notebooks, python, notebook, GitHub
   href: samples.md
@@ -17,7 +125,7 @@
   items:
   - name: Python SDK
     displayName: api open datasets reference sdk
-    href: https://aka.ms/open-datasets-api
+    href: /python/api/azureml-opendatasets/azureml.opendatasets
   - name: Jupyter notebooks
     displayName: python notebooks
     href: https://github.com/Azure/OpenDatasetsNotebooks
@@ -32,9 +140,8 @@
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/open-datasets/
   - name: Regional availability
-    href: https://azure.microsoft.com/regions/services/
-  - name: User forum
-    href: https://aka.ms/open-datasets-forum
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=open-datasets&regions=non-regional
+  - name: Microsoft Q & A
+    href: /answers/topics/azure-open-datasets.html
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-open-datasets
-

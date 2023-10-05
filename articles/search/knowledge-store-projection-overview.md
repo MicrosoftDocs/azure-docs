@@ -1,174 +1,176 @@
 ---
-title: Working with projections in a knowledge store (preview) - Azure Search
-description: Save and shape your enriched data from the AI indexing pipeline for use in scenarios other than search
-manager: eladz
-author: vkurpad
-services: search
-ms.service: search
-ms.devlang: NA
+title: Projection concepts
+titleSuffix: Azure Cognitive Search
+description: Introduces projection concepts and best practices. If you are creating a knowledge store in Cognitive Search, projections will determine the type, quantity, and composition of objects in Azure Storage.
+
+manager: nitinme
+author: HeidiSteen
+ms.author: heidist
+ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/02/2019
-ms.author: vikurpad
-ms.custom: seomay2019
+ms.date: 10/25/2022
 ---
-# Working with projections in a knowledge store in Azure Search
 
-> [!Note]
-> Knowledge store is in preview and not intended for production use. The [REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no .NET SDK support at this time.
->
+# Knowledge store "projections" in Azure Cognitive Search
 
-Azure Search enables content enrichment through AI cognitive skills and custom skills as part of indexing. Enrichments add structure to your documents and make searching more effective. In many instances, the enriched documents are useful for scenarios other than search, such as for knowledge mining.
+Projections are the physical tables, objects, and files in a [**knowledge store**](knowledge-store-concept-intro.md) that accept content from a Cognitive Search AI enrichment pipeline. If you're creating a knowledge store, defining and shaping projections is most of the work.
 
-Projections, a component of [knowledge store](knowledge-store-concept-intro.md), are views of enriched documents that can be saved to physical storage for knowledge mining purposes. A projection lets you "project" your data into a shape that aligns with your needs, preserving relationships so that tools like Power BI can read the data with no additional effort. 
+This article introduces projection concepts and workflow so that you have some background before you start coding.
 
-Projections can be tabular, with data stored in rows and columns in Azure Table storage, or JSON objects stored in Azure Blob storage. You can define multiple projections of your data as it is being enriched. This is useful when you want the same data shaped differently for individual use cases. 
+Projections are defined in Cognitive Search skillsets, but the end results are the table, object, and image file projections in Azure Storage.
 
-The knowledge store supports two types of projections:
+:::image type="content" source="media/knowledge-store-concept-intro/kstore-in-storage-explorer.png" alt-text="Projections expressed in Azure Storage" border="true":::
 
-+ **Tables**: For data that is best represented as rows and columns, table projections allow you to define a schematized shape or projection in Table storage. 
+## Types of projections and usage
 
-+ **Objects**: When you need a JSON representation of your data and enrichments, object projections are saved as blobs.
+A knowledge store is a logical construction that's physically expressed as a loose collection of tables, JSON objects, or binary image files in Azure Storage.
 
-To see projections defined in context, step through [How to get started with knowledge store](knowledge-store-howto.md)
+| Projection | Storage | Usage |
+|------------|---------|-------|
+| [Tables](knowledge-store-projections-examples.md#define-a-table-projection) | Azure Table Storage | Used for data that's best represented as rows and columns, or whenever you need granular representations of your data (for example, as data frames). Table projections allow you to define a schematized shape, using a [Shaper skill or use inline shaping](knowledge-store-projection-shape.md) to specify columns and rows. You can organize content into multiple tables based on familiar normalization principles. Tables that are in the same group are automatically related. |
+| [Objects](knowledge-store-projections-examples.md#define-an-object-projection) | Azure Blob Storage | Used when you need the full JSON representation of your data and enrichments in one JSON document. As with table projections, only valid JSON objects can be projected as objects, and shaping can help you do that. |
+| [Files](knowledge-store-projections-examples.md#define-a-file-projection) | Azure Blob Storage | Used when you need to save normalized, binary image files. |
+
+## Projection definition
+
+Projections are specified under the "knowledgeStore" property of a [skillset](/rest/api/searchservice/create-skillset). Projection definitions are used during indexer invocation to create and load objects in Azure Storage with enriched content. If you are unfamiliar with these concepts, start with [AI enrichment](cognitive-search-concept-intro.md) for an introduction.
+
+The following example illustrates the placement of projections under knowledgeStore, and the basic construction. The name, type, and content source make up a projection definition.
+
+```json
+"knowledgeStore" : {
+    "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<Acct Name>;AccountKey=<Acct Key>;",
+    "projections": [
+      {
+        "tables": [
+          { "tableName": "ks-museums-main", "generatedKeyName": "ID", "source": "/document/tableprojection" },
+          { "tableName": "ks-museumEntities", "generatedKeyName": "ID","source": "/document/tableprojection/Entities/*" }
+        ],
+        "objects": [
+          { "storageContainer": "ks-museums", "generatedKeyName": "ID", "source": "/document/objectprojection" }
+        ],
+        "files": [ ]
+      }
+    ]
+```
 
 ## Projection groups
 
-In some cases, you will need to project your enriched data in different shapes to meet different objectives. The knowledge store allows you to define multiple groups of projections. Projection groups have the following key characteristics of mutual exclusivity and relatedness.
+Projections are an array of complex collections, which means that you can specify multiple sets of each type. It's common to use just one projection group, but you might use multiple if storage requirements include supporting different tools and scenarios. For example, you might use one group for design and debug of a skillset, while a second set collects output used for an online app, with a third for data science workloads.
 
-### Mutually exclusivity
-
-All content projected into a single group is independent of data projected into other projection groups. 
-This implies that you can have the same data shaped differently, yet repeated in each projection group. 
-
-One constraint enforced in projection groups is the mutual exclusivity of projection types with a projection group. You can only define either table projections or object projections within a single group. If you want both tables and objects, define one projection group for tables, and a second projection group for objects.
-
-### Relatedness
-
-All content projected within a single projection group preserves relationships within the data. Relationships are based on a generated key and each child node retains a reference to the parent node. Relationships do not span projection groups, and tables or objects created in one projection group have no relationship to data generated in other projection groups.
-
-## Input shaping
-Getting your data in the right shape or structure is key to effective use, be it tables or objects. The ability to shape or structure your data based on how you plan to access and use it is a key capability exposed as the **Shaper** skill within the skillset.  
-
-Projections are easier to define when you have an object in the enrichment tree that matches the schema of the projection. The updated [Shaper skill](cognitive-search-skill-shaper.md) allows you to compose an object from different nodes of the enrichment tree and parent them under a new node. The **Shaper** skill allows you to define complex types with nested objects.
-
-When you have a new shape defined that contains all the elements you need to project out, you can now use this shape as the source for your projections or as an input to another skill.
-
-## Table projections
-
-Because it makes importing easier, we recommend table projections for data exploration with Power BI. Additionally, table projections allow for changing change the cardinality between table relationship. 
-
-You can project a single document in your index into multiple tables, preserving the relationships. When projecting to multiple tables, the complete shape will be projected into each table, unless a child node is the source of another table within the same group.
-
-### Defining a table projection
-
-When defining a table projection within the `knowledgeStore` element of your skillset, start by mapping a node on the enrichment tree to the table source. Typically this node is the output of a **Shaper** skill that you added to the list of skills to produce a specific shape that you need to project into tables. The node you choose to project can be sliced to project into multiple tables. The tables definition is a list of tables that you want to project. 
-
-Each table requires three properties:
-
-+ tableName: The name of the table in Azure Storage.
-
-+ generatedKeyName: The column name for the key that uniquely identifies this row.
-
-+ source: The node from the enrichment tree you are sourcing your enrichments from. This is usually the output of a shaper, but could be the output of any of the skills.
-
-Here is an example of table projections.
+The same skillset output is used to populate all groups under projections. The following example shows two.
 
 ```json
-{
-    "name": "your-skillset",
-    "skills": [
-      …your skills
-      
-    ],
-"cognitiveServices": {
-… your cognitive services key info
-    },
-
-    "knowledgeStore": {
-      "storageConnectionString": "an Azure storage connection string",
-      "projections" : [
+"knowledgeStore" : {
+    "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<Acct Name>;AccountKey=<Acct Key>;",
+    "projections": [
         {
-          "tables": [
-            { "tableName": "MainTable", "generatedKeyName": "SomeId", "source": "/document/EnrichedShape" },
-            { "tableName": "KeyPhrases", "generatedKeyName": "KeyPhraseId", "source": "/document/EnrichedShape/*/KeyPhrases/*" },
-            { "tableName": "Entities", "generatedKeyName": "EntityId", "source": "/document/EnrichedShape/*/Entities/*" }
-          ]
-        },
+            "tables": [],
+            "objects": [],
+            "files": []
+        }, 
         {
-          "objects": [
-            
-          ]
+            "tables": [],
+            "objects": [],
+            "files": []
         }
-      ]
-    }
-}
-```
-As demonstrated in this example, the key phrases and entities are modeled into different tables and will contain a reference back to the parent (MainTable) for each row. 
-
-The following illustration is a reference to the Caselaw exercise in [How to get started with knowledge store](knowledge-store-howto.md). In a scenario where a case has multiple opinions, and each opinion is enriched by identifying entities contained within it, you could model the projections as shown here.
-
-![Entities and relationships in tables](media/knowledge-store-projection-overview/TableRelationships.png "Modeling relationships in table projections")
-
-## Object projections
-
-Object projections are JSON representations of the enrichment tree that can be sourced from any node. In many cases, the same **Shaper** skill that creates a table projection can be used to generate an object projection. 
-
-```json
-{
- 
-    "name": "your-skillset",
-    "skills": [
-      …your skills
-      
-    ],
-"cognitiveServices": {
-… your cognitive services key info
-    },
-
-    "knowledgeStore": {
-      "storageConnectionString": "an Azure storage connection string",
-      "projections" : [
-        {
-          "tables": [ ]
-        },
-        {
-          "objects": [
-            {
-              "storageContainer": "Reviews", 
-              "format": "json", 
-              "source": "/document/Review", 
-              "key": "/document/Review/Id" 
-            }
-          ]
-        }
-      ]
-    }
+    ]
 }
 ```
 
-Generating an object projection requires a few object-specific attributes:
+Projection groups have the following key characteristics of mutual exclusivity and relatedness. 
 
-+ storageContainer: The container where the objects will be saved
-+ source: The path to the node of the enrichment tree that is the root of the projection
-+ key: A path that represents a unique key for the object to be stored. It will be used to create the name of the blob in the container.
+| Principle | Description |
+|-----------|-------------|
+| Mutual exclusivity | Each group is fully isolated from other groups to support different data shaping scenarios. For example, if you are testing different table structures and combinations, you would put each set in a different projection group for AB testing. Each group obtains data from the same source (enrichment tree) but is fully isolated from the table-object-file combination of any peer projection groups.|
+| Relatedness | Within a projection group, content in tables, objects, and files are related. Knowledge store uses generated keys as reference points to a common parent node. For example, consider a scenario where you have a document containing images and text. You could project the text to tables and the images to binary files, and both tables and objects will have a column/property containing the file URL.|
 
-## Projection Lifecycle
+## Projection "source"
 
-Your projections have a lifecycle that is tied to the source data in your data source. As your data is updated and re-indexed, your projections are updated with the results of the enrichments ensuring your projections are eventually consistent with the data in your data source. The projections inherit the delete policy you have configured for your index. 
+The source parameter is the third component of a projection definition. Because projections store data from an AI enrichment pipeline, the source of a projection is always the output of a skill. As such, output might be a single field (for example, a field of translated text), but often it's a reference to a data shape.
 
-## Using projections
+Data shapes come from your skillset. Among all of the built-in skills provided in Cognitive Search, there is a utility skill called the [**Shaper skill**](cognitive-search-skill-shaper.md) that's used to create data shapes. You can include Shaper skills (as many as you need) to support the projections in the knowledge store.
 
-After the indexer is run, you can read the projected data in the containers or tables you specified through projections. 
+Shapes are frequently used with table projections, where the shape not only specifies which rows go into the table, but also which columns are created (you can also pass a shape to an object projection).
 
-For analytics, exploration in Power BI is as simple as setting Azure Table storage as the data source. You can very easily create a set of visualizations on your data leveraging the relationships within.
+Shapes can be complex and it's out of scope to discuss them in depth here, but the following example briefly illustrates a basic shape. The output of the Shaper skill is specified as the source of a table projection. Within the table projection itself will be columns for "metadata-storage_path", "reviews_text", "reviews_title", and so forth, as specified in the shape.
 
-Alternatively, if you need to use the enriched data in a data science pipeline, you could [load the data from blobs into a Pandas DataFrame](../machine-learning/team-data-science-process/explore-data-blob.md).
+```json
+{
+    "@odata.type": "#Microsoft.Skills.Util.ShaperSkill",
+    "name": "ShaperForTables",
+    "description": null,
+    "context": "/document",
+    "inputs": [
+        {
+            "name": "metadata_storage_path",
+            "source": "/document/metadata_storage_path",
+            "sourceContext": null,
+            "inputs": []
+        },
+        {
+          "name": "reviews_text",
+          "source": "/document/reviews_text"
+        }, 
+        {
+          "name": "reviews_title",
+          "source": "/document/reviews_title"
+        },
+        {
+          "name": "reviews_username",
+          "source": "/document/reviews_username"
+        },
+    ],
+    "outputs": [
+      {
+        "name": "output",
+        "targetName": "mytableprojection"
+      }
+    ]
+}
+```
 
-Finally, if you need to export your data from the knowledge store, Azure Data Factory has connectors to export the data and land it in the database of your choice. 
+## Projection lifecycle
+
+Projections have a lifecycle that is tied to the source data in your data source. As source data is updated and reindexed, projections are updated with the results of the enrichments, ensuring your projections are eventually consistent with the data in your data source. However, projections are also independently stored in Azure Storage. They will not be deleted when the indexer or the search service itself is deleted. 
+
+## Consume in apps
+
+After the indexer is run, connect to projections and consume the data in other apps and workloads.
+
++ Use Azure portal to verify object creation and content in Azure Storage.
+
++ Use [Power BI for data exploration](knowledge-store-connect-power-bi.md). This tool works best when the data is in Azure Table Storage. Within Power BI, you can manipulate data into new tables that are easier to query and analyze.
+
++ Use enriched data in blob container in a data science pipeline. For example, you can [load the data from blobs into a Pandas DataFrame](/azure/architecture/data-science-process/explore-data-blob).
+
++ Finally, if you need to export your data from the knowledge store, Azure Data Factory has connectors to export the data and land it in the database of your choice.
+
+## Checklist for getting started
+
+Recall that projections are exclusive to knowledge stores, and are not used to structure a search index.
+
+1. In Azure Storage, get a connection string from **Access Keys** and verify the account is StorageV2 (general purpose V2).
+
+1. While in Azure Storage, familiarize yourself with existing content in containers and tables so that you choose non-conflicting names for the projections. A knowledge store is a loose collection of tables and containers. Consider adopting a naming convention to keep track of related objects.
+
+1. In Cognitive Search, [enable enrichment caching (preview)](search-howto-incremental-index.md) in the indexer and then [run the indexer](search-howto-run-reset-indexers.md) to execute the skillset and populate the cache. This is a preview feature, so be sure to use the preview REST API (api-version=2020-06-30-preview or later) on the indexer request. Once the cache is populated, you can modify projection definitions in a knowledge store free of charge (as long as the skills themselves are not modified).
+
+1. In your code, all projections are defined solely in a skillset. There are no indexer properties (such as field mappings or output field mappings) that apply to projections. Within a skillset definition, you will focus on two areas: knowledgeStore property and skills array.
+
+   1. Under knowledgeStore, specify table, object, file projections in the `projections` section. Object type, object name, and quantity (per the number of projections you define) are determined in this section.
+
+   1. From the skills array, determine which skill outputs will be referenced in the `source` of each projection. All projections have a source. The source can be the output of an upstream skill, but is often the output of a Shaper skill. The composition of your projection is determined through shapes. 
+
+1. If you're adding projections to an existing skillset, [update the skillset](/rest/api/searchservice/update-skillset) and [run the indexer](/rest/api/searchservice/run-indexer).
+
+1. Check your results in Azure Storage. On subsequent runs, avoid naming collisions by deleting objects in Azure Storage or changing project names in the skillset.
+
+1. If you are using [Table projections](knowledge-store-projections-examples.md#define-a-table-projection) check [Understanding the Table Service data model](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model) and [Scalability and performance targets for Table storage](../storage/tables/scalability-targets.md) to make sure your data requirements are within Table storage documented limits.
 
 ## Next steps
 
-As a next step, create your first knowledge store using sample data and instructions.
+Review syntax and examples for each projection type.
 
 > [!div class="nextstepaction"]
-> [How to create a knowlege store](knowledge-store-howto.md).
+> [Define projections in a knowledge store](knowledge-store-projections-examples.md)

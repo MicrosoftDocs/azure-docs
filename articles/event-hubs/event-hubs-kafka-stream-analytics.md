@@ -1,26 +1,15 @@
 ---
-title: Process Apache Kafka events using Stream analytics - Azure Event Hubs | Microsoft Docs
-description: This article shows how to process Kafka events that are ingested through event hubs by using Azure Stream Analytics
-services: event-hubs
-documentationcenter: ''
-author: spelluru
-manager: 
-
-ms.service: event-hubs
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.custom: seodec18
-ms.date: 12/06/2018
-ms.author: spelluru
-
+title: 'Azure Event Hubs - Process Apache Kafka events'
+description: 'Tutorial: This article shows how to process Kafka events that are ingested through event hubs by using Azure Stream Analytics'
+ms.topic: tutorial
+ms.date: 05/10/2021
+ms.devlang: java
 ---
 
-# Process Apache Kafka for Event Hubs events using Stream analytics 
-This article shows how to stream data into Kafka-enabled Event Hubs and process it with Azure Stream Analytics. It walks you through the following steps: 
+# Tutorial: Process Apache Kafka for Event Hubs events using Stream analytics 
+This article shows how to stream data into Event Hubs and process it with Azure Stream Analytics. It walks you through the following steps: 
 
-1. Create a Kafka enabled Event Hubs namespace.
+1. Create an Event Hubs namespace.
 2. Create a Kafka client that sends messages to the event hub.
 3. Create a Stream Analytics job that copies data from the event hub into an Azure blob storage. 
 
@@ -32,41 +21,17 @@ You do not need to change your protocol clients or run your own clusters when yo
 To complete this quickstart, make sure you have the following prerequisites:
 
 * An Azure subscription. If you do not have one, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
-* [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks).
+* [Java Development Kit (JDK) 1.7+](/azure/developer/java/fundamentals/java-support-on-azure).
 * [Download](https://maven.apache.org/download.cgi) and [install](https://maven.apache.org/install.html) a Maven binary archive.
 * [Git](https://www.git-scm.com/)
-* An **Azure Storage account**. If you don't have one, [create one](../storage/common/storage-quickstart-create-account.md) before proceeding further. The Stream Analytics job in this walkthrough stores the output data in an Azure blob storage. 
+* An **Azure Storage account**. If you don't have one, [create one](../storage/common/storage-account-create.md) before proceeding further. The Stream Analytics job in this walkthrough stores the output data in an Azure blob storage. 
 
 
-## Create a Kafka enabled Event Hubs namespace
+## Create an Event Hubs namespace
+When you create an Event Hubs namespace, the Kafka endpoint for the namespace is automatically enabled. You can stream events from your applications that use the Kafka protocol into event hubs. Follow step-by-step instructions in the [Create an event hub using Azure portal](event-hubs-create.md) to create an Event Hubs namespace. If you are using a dedicated cluster, see [Create a namespace and event hub in a dedicated cluster](event-hubs-dedicated-cluster-create-portal.md#create-a-namespace-and-event-hub-within-a-cluster).
 
-1. Sign in to the [Azure portal](https://portal.azure.com), and click **Create a resource** at the top left of the screen.
-2. Search for **Event Hubs** and select the options shown here:
-    
-    ![Search for Event Hubs in the portal](./media/event-hubs-kafka-stream-analytics/select-event-hubs.png) 
-3. On the **Event Hubs** page, select **Create**.
-4. On the **Create Namespace** page, do the following actions: 
-    1. Provide a unique **name** for the namespace. 
-    2. Select a **pricing tier**. 
-    3. Select **Enable Kafka**. This step is an **important** step. 
-    4. Select your **subscription** in which you want the event hub namespace to be created. 
-    5. Create a new **resource group** or select an existing resource group. 
-    6. Select a **location**. 
-    7. Click **Create**.
-    
-        ![Create a namespace](./media/event-hubs-kafka-stream-analytics/create-event-hub-namespace-page.png) 
-4. In the **notification message**, select the **resource group name**. 
-
-    ![Create a namespace](./media/event-hubs-kafka-stream-analytics/creation-station-message.png)
-1. Select the **event hub namespace** in the resource group. 
-2. Once the namespace is created, select **Shared access policies** under **SETTINGS**.
-
-    ![Click Shared access policies](./media/event-hubs-kafka-stream-analytics/shared-access-policies.png)
-5. You can choose the default **RootManageSharedAccessKey**, or add a new policy. Click the policy name and copy the **connection string**. You use the connection string to configure the Kafka client. 
-    
-    ![Select a policy](./media/event-hubs-kafka-stream-analytics/connection-string.png)  
-
-You can now stream events from your applications that use the Kafka protocol into Event Hubs.
+> [!NOTE]
+> Event Hubs for Kafka isn't supported in the **basic** tier.
 
 ## Send messages with Kafka in Event Hubs
 
@@ -81,7 +46,7 @@ You can now stream events from your applications that use the Kafka protocol int
     sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{CONNECTION STRING for EVENT HUB NAMESPACE}";
     ```
 
-5. Navigate to `azure-event-hubs-for-kafka/quickstart/java/producer/src/main/java/com/example/app`, and open **TestDataReporter.java** file in an editor of your choice. 
+5. Navigate to `azure-event-hubs-for-kafka/quickstart/java/producer/src/main/java/`, and open **TestDataReporter.java** file in an editor of your choice. 
 6. Comment out the following line of code:
 
     ```java
@@ -94,7 +59,7 @@ You can now stream events from your applications that use the Kafka protocol int
     ```
 
     This code sends the event data in **JSON** format. When you configure input for a Stream Analytics job, you specify JSON as the format for the input data. 
-7. **Run the producer** and stream into Kafka-enabled Event Hubs. On a Windows machine, when using a **Node.js command prompt**, switch to the `azure-event-hubs-for-kafka/quickstart/java/producer` folder before running these commands. 
+7. **Run the producer** and stream into Event Hubs. On a Windows machine, when using a **Node.js command prompt**, switch to the `azure-event-hubs-for-kafka/quickstart/java/producer` folder before running these commands. 
    
     ```shell
     mvn clean package
@@ -111,7 +76,7 @@ You can now stream events from your applications that use the Kafka protocol int
     ![Event hub - messages](./media/event-hubs-kafka-stream-analytics/confirm-event-hub-messages.png)
 
 ## Process event data using a Stream Analytics job
-In this section, you create an Azure Stream Analytics job. The Kafka client sends events to the event hub. You create a Stream Analytics job that takes event data as input and outputs it to an Azure blob storage. If you don't have  an **Azure Storage account**, [create one](../storage/common/storage-quickstart-create-account.md).
+In this section, you create an Azure Stream Analytics job. The Kafka client sends events to the event hub. You create a Stream Analytics job that takes event data as input and outputs it to an Azure blob storage. If you don't have  an **Azure Storage account**, [create one](../storage/common/storage-account-create.md).
 
 The query in the Stream Analytics job passes through the data without performing any analytics. You can create a query that transforms the input data to produce output data in a different format or with gained insights.  
 
@@ -160,14 +125,14 @@ The query in the Stream Analytics job passes through the data without performing
  
 
 ### Define a query
-After you have a Stream Analytics job setup to read an incoming data stream, the next step is to create a transformation that analyzes data in real time. You define the transformation query by using [Stream Analytics Query Language](https://msdn.microsoft.com/library/dn834998.aspx). In this walkthrough, you define a query that passes through the data without performing any transformation.
+After you have a Stream Analytics job setup to read an incoming data stream, the next step is to create a transformation that analyzes data in real time. You define the transformation query by using [Stream Analytics Query Language](/stream-analytics-query/stream-analytics-query-language-reference). In this walkthrough, you define a query that passes through the data without performing any transformation.
 
 1. Select **Query**.
 2. In the query window, replace `[YourOutputAlias]` with the output alias you created earlier.
 3. Replace `[YourInputAlias]` with the input alias you created earlier. 
 4. Select **Save** on the toolbar. 
 
-    ![Query](./media/event-hubs-kafka-stream-analytics/query.png)
+    ![Screen capture shows the query window with values for input and output variables.](./media/event-hubs-kafka-stream-analytics/query.png)
 
 
 ### Run the Stream Analytics job
@@ -202,15 +167,4 @@ After you have a Stream Analytics job setup to read an incoming data stream, the
 
 
 ## Next steps
-In this article, you learned how to stream into Kafka-enabled Event Hubs without changing your protocol clients or running your own clusters. To learn more about Event Hubs and Event Hubs for Kafka, see the following topic:  
-
-- [Learn about Event Hubs](event-hubs-what-is-event-hubs.md)
-- [Event Hubs for Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)
-- [How to create Kafka enabled Event Hubs](event-hubs-create-kafka-enabled.md)
-- [Stream into Event Hubs from your Kafka applications](event-hubs-quickstart-kafka-enabled-event-hubs.md)
-- [Mirror a Kafka broker in a Kafka-enabled event hub](event-hubs-kafka-mirror-maker-tutorial.md)
-- [Connect Apache Spark to a Kafka-enabled event hub](event-hubs-kafka-spark-tutorial.md)
-- [Connect Apache Flink to a Kafka-enabled event hub](event-hubs-kafka-flink-tutorial.md)
-- [Integrate Kafka Connect with a Kafka-enabled event hub](event-hubs-kafka-connect-tutorial.md)
-- [Connect Akka Streams to a Kafka-enabled event hub](event-hubs-kafka-akka-streams-tutorial.md)
-- [Explore samples on our GitHub](https://github.com/Azure/azure-event-hubs-for-kafka) 
+In this article, you learned how to stream into Event Hubs without changing your protocol clients or running your own clusters. To learn more about Event Hubs for Apache Kafka, see [Apache Kafka developer guide for Azure Event Hubs](apache-kafka-developer-guide.md).

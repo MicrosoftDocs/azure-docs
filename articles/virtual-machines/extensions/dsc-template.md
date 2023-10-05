@@ -1,29 +1,35 @@
-﻿---
+---
 title: Desired State Configuration extension with Azure Resource Manager templates
 description: Learn about the Resource Manager template definition for the Desired State Configuration (DSC) extension in Azure.
-services: virtual-machines-windows
-author: bobbytreed
-manager: carmonm
+services: virtual-machines
+author: mgoedtel
 tags: azure-resource-manager
+ms.custom: devx-track-arm-template
 keywords: 'dsc'
 ms.assetid: b5402e5a-1768-4075-8c19-b7f7402687af
-ms.service: virtual-machines-windows
-ms.devlang: na
+ms.service: virtual-machines
+ms.subservice: extensions
+ms.collection: windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
-ms.date: 10/05/2018
-ms.author: robreed
+ms.date: 03/13/2022
+ms.author: magoedte
 ---
 # Desired State Configuration extension with Azure Resource Manager templates
+
+> [!NOTE]
+> Before you enable the DSC extension, we would like you to know that a newer version of DSC is now generally available, managed by a feature of Azure Automange named [machine configuration](../../governance/machine-configuration/overview.md). The machine configuration feature combines features of the Desired State Configuration (DSC) extension handler, Azure Automation State Configuration, and the most commonly requested features from customer feedback. Machine configuration also includes hybrid machine support through [Arc-enabled servers](../../azure-arc/servers/overview.md).
 
 This article describes the Azure Resource Manager template for the [Desired State Configuration
 (DSC) extension handler](dsc-overview.md). Many of the examples use **RegistrationURL** (provided
 as a String) and **RegistrationKey** (provided as a
-[PSCredential](/dotnet/api/system.management.automation.pscredential)) to onboard with Azure
-Automation. For details about obtaining those values, see [Onboarding machines for management by
-Azure Automation State Configuration - Secure
-registration](/azure/automation/automation-dsc-onboarding#secure-registration).
+[PSCredential](/dotnet/api/system.management.automation.pscredential) to onboard with Azure
+Automation. For details about obtaining those values, see
+[Use DSC metaconfiguration to register hybrid machines](../../automation/automation-dsc-onboarding.md#use-dsc-metaconfiguration-to-register-hybrid-machines).
+
+> [!NOTE]
+> Before you enable the DSC extension, we would like you to know that a newer version of DSC is now generally available, managed by a feature of Azure Automange named [machine configuration](../../governance/machine-configuration/overview.md). The machine configuration feature combines features of the Desired State Configuration (DSC) extension handler, Azure Automation State Configuration, and the most commonly requested features from customer feedback. Machine configuration also includes hybrid machine support through [Arc-enabled servers](../../azure-arc/servers/overview.md).
 
 > [!NOTE]
 > You might encounter slightly different schema examples. The change in schema occurred in the October 2016 release. For details, see [Update from a previous format](#update-from-a-previous-format).
@@ -33,13 +39,13 @@ registration](/azure/automation/automation-dsc-onboarding#secure-registration).
 The following snippet goes in the **Resource** section of the template.
 The DSC extension inherits default extension properties.
 For more information, see
-[VirtualMachineExtension class](/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet).
+[VirtualMachineExtension class](/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension).
 
 ```json
 {
   "type": "Microsoft.Compute/virtualMachines/extensions",
-  "name": "Microsoft.Powershell.DSC",
-  "apiVersion": "2018-06-30",
+  "name": "[concat(parameters('VMName'), '/Microsoft.Powershell.DSC')]",
+  "apiVersion": "2018-06-01",
   "location": "[parameters('location')]",
   "dependsOn": [
     "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
@@ -88,7 +94,7 @@ Under **extensions**, add the details for DSC Extension.
 
 The DSC extension inherits default extension properties.
 For more information,
-see [VirtualMachineScaleSetExtension class](/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet).
+see [VirtualMachineScaleSetExtension class](/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension).
 
 ```json
 "extensionProfile": {
@@ -192,8 +198,8 @@ for the default configuration script, see
 | settings.configuration.function |string |Specifies the name of your DSC configuration. The configuration that is named must be included in the script that **settings.configuration.script** defines. This property is required if **settings.configuration.url** or **settings.configuration.function** are defined. If no value is given for these properties, the extension calls the default configuration script to set LCM metadata, and arguments should be supplied. |
 | settings.configurationArguments |Collection |Defines any parameters that you want to pass to your DSC configuration. This property is not encrypted. |
 | settings.configurationData.url |string |Specifies the URL from which to download your configuration data (.psd1) file to use as input for your DSC configuration. If the URL provided requires an SAS token for access, set the **protectedSettings.configurationDataUrlSasToken** property to the value of your SAS token. |
-| settings.privacy.dataCollection |string |Enables or disables telemetry collection. The only possible values for this property are **Enable**, **Disable**, **''**, or **$null**. Leaving this property blank or null enables telemetry. The default value is **''**. For more information, see [Azure DSC extension data collection](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/). |
-| settings.advancedOptions.downloadMappings |Collection |Defines alternate locations from which to download WMF. For more information, see [Azure DSC extension 2.8 and how to map downloads of the extension dependencies to your own location](https://blogs.msdn.com/b/powershell/archive/2015/10/21/azure-dsc-extension-2-2-amp-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location.aspx). |
+| settings.privacy.dataCollection |string |Enables or disables telemetry collection. The only possible values for this property are **Enable**, **Disable**, **''**, or **$null**. Leaving this property blank or null enables telemetry. The default value is **''**. For more information, see [Azure DSC extension data collection](https://devblogs.microsoft.com/powershell/azure-dsc-extension-data-collection-2/). |
+| settings.advancedOptions.downloadMappings |Collection |Defines alternate locations from which to download WMF. For more information, see [Azure DSC extension 2.8 and how to map downloads of the extension dependencies to your own location](https://devblogs.microsoft.com/powershell/azure-dsc-extension-2-8-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location/). |
 | protectedSettings.configurationArguments |Collection |Defines any parameters that you want to pass to your DSC configuration. This property is encrypted. |
 | protectedSettings.configurationUrlSasToken |string |Specifies the SAS token to use to access the URL that **settings.configuration.url** defines. This property is encrypted. |
 | protectedSettings.configurationDataUrlSasToken |string |Specifies the SAS token to use to access the URL that  **settings.configurationData.url** defines. This property is encrypted. |
@@ -201,7 +207,7 @@ for the default configuration script, see
 ## Default configuration script
 
 For more information about the following values, see
-[Local Configuration Manager basic settings](/powershell/dsc/metaconfig#basic-settings).
+[Local Configuration Manager basic settings](/powershell/dsc/managing-nodes/metaConfig#basic-settings).
 You can use the DSC extension default configuration script
 to configure only the LCM properties that are listed in the following table.
 
@@ -250,8 +256,10 @@ to set LCM metadata.
 
 ```json
 "settings": {
-    "RegistrationUrl" : "[parameters('registrationUrl1')]",
-    "NodeConfigurationName" : "nodeConfigurationNameValue1"
+    "configurationArguments": {
+        "RegistrationUrl" : "[parameters('registrationUrl1')]",
+        "NodeConfigurationName" : "nodeConfigurationNameValue1"
+    }
 },
 "protectedSettings": {
     "configurationArguments": {

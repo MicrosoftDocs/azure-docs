@@ -1,19 +1,19 @@
 ---
-title: 'Microsoft Genomics: How to file a support request | Microsoft Docs'
-titleSuffix: Azure
-description: This overview describes how to file a support request to contact Microsoft Genomics. This can be helpful if you are not able to troubleshoot your issue using the troubleshooting guide or the FAQ. 
+title: How to file a support request
+titleSuffix: Microsoft Genomics
+description: This article describes how to file a support request to contact Microsoft Genomics if you're not able to resolve your issue with the troubleshooting guide or FAQ. 
 keywords: troubleshooting, error, debugging, support
 services: genomics
-author: grhuynh
+author: vigunase
 manager: cgronlun
-ms.author: grhuynh
+ms.author: vigunase
 ms.service: genomics
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/23/2018
 
 ---
 # How to contact Microsoft Genomics for support
-This overview describes how to file a support request to contact Microsoft Genomics. This can be helpful if you are not able to troubleshoot your issue using the [troubleshooting guide](troubleshooting-guide-genomics.md) or the [FAQ](frequently-asked-questions-genomics.md). 
+This overview describes how to file a support request to contact Microsoft Genomics. This can be helpful if you are not able to troubleshoot your issue using the [troubleshooting guide](troubleshooting-guide-genomics.md) or the [FAQ](frequently-asked-questions-genomics.yml). 
 
 
 ## File a support ticket through the Azure portal
@@ -41,4 +41,4 @@ Last, add your contact information and select `Create` at the bottom of the scre
 ![Support request contact](./media/file-support-ticket/support-request-contact.png "Support request contact")
 
 ## Next steps
-In this article, you learned how to submit a support request. You can also resolve common issues using our [FAQ](frequently-asked-questions-genomics.md) and our [troubleshooting guide](troubleshooting-guide-genomics.md). 
+In this article, you learned how to submit a support request. You can also resolve common issues using our [FAQ](frequently-asked-questions-genomics.yml) and our [troubleshooting guide](troubleshooting-guide-genomics.md). 

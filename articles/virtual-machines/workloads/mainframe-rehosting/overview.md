@@ -1,7 +1,8 @@
 ---
 title: Mainframe rehosting on Azure virtual machines
 description: Rehost your mainframe workloads such as IBM Z-based systems using virtual machines (VMs) on Microsoft Azure.
-services: virtual-machines-linux
+ms.service: virtual-machines
+ms.subservice: mainframe-rehosting
 documentationcenter:
 author: njray
 manager: edprice
@@ -9,7 +10,6 @@ editor: edprice
 ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
-ms.service: multiple
 ---
 
 # Mainframe rehosting on Azure virtual machines
@@ -65,11 +65,11 @@ To get started:
 
 The IBM DB2 pureScale environment provides a database cluster for Azure. It's not identical to the original environment, but it delivers similar availability and scale as IBM DB2 for z/OS running in a Parallel Sysplex setup.
 
-To get started, see [IBM DB2 pureScale on Azure](/azure/virtual-machines/linux/ibm-db2-purescale-azure).
+To get started, see [IBM DB2 pureScale on Azure](.//ibm/ibm-db2-purescale-azure.md).
 
 ## Considerations
 
-When you migrate mainframe workloads to Azure infrastructure as a service (IaaS), you can choose from several types of on-demand, scalable computing resources, including Azure VMs. Azure offers a range of [Linux](/azure/virtual-machines/linux/overview) and [Windows](/azure/virtual-machines/windows/overview) VMs.
+When you migrate mainframe workloads to Azure infrastructure as a service (IaaS), you can choose from several types of on-demand, scalable computing resources, including Azure VMs. Azure offers a range of [Linux](../../linux/overview.md) and [Windows](../../windows/overview.md) VMs.
 
 ### Compute
 
@@ -81,23 +81,23 @@ Learn how to [move mainframe compute to Azure](./concepts/mainframe-compute-azur
 
 Azure offers commitment-based service-level agreements (SLAs). Multiple-nines availability is the default, and SLAs can be optimized with local or geo-based replication of services. The full [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) explains the guaranteed availability of Azure as a whole.
 
-With Azure IaaS such as a VM, specific system functions provide failover support—for example, failover clustering instances and [availability sets](/azure/virtual-machines/windows/regions-and-availability#availability-sets). When you use Azure platform as a service (PaaS) resources, the platform handles failover automatically. Examples include [Azure SQL Database](/azure/sql-database/sql-database-technical-overview) and [Azure Cosmos DB](/azure/cosmos-db/introduction).
+With Azure IaaS such as a VM, specific system functions provide failover support—for example, failover clustering instances and availability sets. When you use Azure platform as a service (PaaS) resources, the platform handles failover automatically. Examples include [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview) and [Azure Cosmos DB](../../../cosmos-db/introduction.md).
 
 ### Scalability
 
-Mainframes typically scale up, while cloud environments scale out. Azure offers a range of [Linux](/azure/virtual-machines/linux/sizes) and [Windows](/azure/virtual-machines/windows/sizes) sizes to meet your needs. The cloud also scales up or down to match exact user specifications. Compute power, storage, and services
+Mainframes typically scale up, while cloud environments scale out. Azure offers a range of [Linux](../../sizes.md) and [Windows](../../sizes.md) sizes to meet your needs. The cloud also scales up or down to match exact user specifications. Compute power, storage, and services
 [scale](/azure/architecture/best-practices/auto-scaling) on demand under a usage-based billing model.
 
 ### Storage
 
-In the cloud, you have a range of flexible, scalable storage options, and you pay only for what you need. [Azure Storage](/azure/storage/common/storage-introduction) offers a massively scalable object store for data objects, a file system service for the cloud, a reliable messaging store, and a NoSQL store. For VMs, managed and unmanaged disks provide persistent, secure disk storage.
+In the cloud, you have a range of flexible, scalable storage options, and you pay only for what you need. [Azure Storage](../../../storage/common/storage-introduction.md) offers a massively scalable object store for data objects, a file system service for the cloud, a reliable messaging store, and a NoSQL store. For VMs, managed and unmanaged disks provide persistent, secure disk storage.
 
 Learn how to [move mainframe storage to Azure](./concepts/mainframe-storage-azure.md).
 
 ### Backup and recovery
 
 Maintaining your own disaster recovery site can be an expensive proposition. Azure has easy-to-implement and cost-effective options for
-[backup](/azure/backup/backup-introduction-to-azure-backup), [recovery](/azure/site-recovery/site-recovery-overview), and [redundancy](/azure/storage/common/storage-redundancy)
+[backup](../../../backup/backup-overview.md), [recovery](../../../site-recovery/site-recovery-overview.md), and [redundancy](../../../storage/common/storage-redundancy.md)
 at local or regional levels, or via geo-redundancy.
 
 ## Azure Government for mainframe migrations
@@ -110,13 +110,13 @@ To get started, download [Microsoft Azure Government cloud for mainframe applica
 
 ## Next steps
 
-Ask our [partners](partner-workloads.md) to help you migrate or rehost your mainframe applications. For detailed guidance about choosing a partner solution, see the [Platform Modernization Alliance](https://www.platformmodernization.org/pages/mainframe.aspx) website.
+Ask our [partners](partner-workloads.md) to help you migrate or rehost your mainframe applications. 
 
 See also:
 
 - [White papers about mainframe topics](mainframe-white-papers.md)
 - [Mainframe migration](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
-- [Troubleshooting](/azure/virtual-machines/troubleshooting/)
+- [Troubleshooting](/troubleshoot/azure/virtual-machines/welcome-virtual-machines)
 - [Demystifying mainframe to Azure migration](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
 
 <!-- INTERNAL LINKS -->

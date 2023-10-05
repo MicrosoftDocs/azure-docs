@@ -1,31 +1,32 @@
 ---
-title: Manage Apache Hadoop clusters in HDInsight with PowerShell - Azure 
+title: Manage Apache Hadoop clusters with PowerShell - Azure HDInsight
 description: Learn how to perform administrative tasks for the Apache Hadoop clusters in HDInsight using Azure PowerShell.
-ms.reviewer: tyfox
-author: hrasheed-msft
-
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/17/2019
-ms.author: tylerfox
+ms.custom: hdinsightactive, devx-track-azurepowershell
+ms.date: 09/19/2022
 ---
 
 # Manage Apache Hadoop clusters in HDInsight by using Azure PowerShell
-[!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Azure PowerShell can be used to control and automate the deployment and management of your workloads in Azure. In this article, you learn how to manage [Apache Hadoop](https://hadoop.apache.org/) clusters in Azure HDInsight by using the Azure PowerShell Az module. For the list of the HDInsight PowerShell cmdlets, see the [Az.HDInsight reference](https://docs.microsoft.com/powershell/module/az.hdinsight).
+[!INCLUDE [selector](includes/hdinsight-portal-management-selector.md)]
+
+Azure PowerShell can be used to control and automate the deployment and management of your workloads in Azure. In this article, you learn how to manage [Apache Hadoop](https://hadoop.apache.org/) clusters in Azure HDInsight by using the Azure PowerShell Az module. For the list of the HDInsight PowerShell cmdlets, see the [Az.HDInsight reference](/powershell/module/az.hdinsight).
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
-* An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* The PowerShell [Az Module](https://docs.microsoft.com/powershell/azure/overview) installed.
+The PowerShell [Az Module](/powershell/azure/) installed.
 
 ## Create clusters
+
 See [Create Linux-based clusters in HDInsight using Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
 
 ## List clusters
+
 Use the following command to list all clusters in the current subscription:
 
 ```powershell
@@ -33,6 +34,7 @@ Get-AzHDInsightCluster
 ```
 
 ## Show cluster
+
 Use the following command to show details of a specific cluster in the current subscription:
 
 ```powershell
@@ -40,6 +42,7 @@ Get-AzHDInsightCluster -ClusterName <Cluster Name>
 ```
 
 ## Delete clusters
+
 Use the following command to delete a cluster:
 
 ```powershell
@@ -53,102 +56,29 @@ Remove-AzResourceGroup -Name <Resource Group Name>
 ```
 
 ## Scale clusters
-The cluster scaling feature allows you to change the number of worker nodes used by a cluster that is running in Azure HDInsight without having to re-create the cluster.
 
-The impact of changing the number of data nodes for each type of cluster supported by HDInsight:
-
-* Apache Hadoop
-
-    You can seamlessly increase the number of worker nodes in a Hadoop cluster that is running without impacting any pending or running jobs. New jobs can also be submitted while the operation is in progress. Failures in a scaling operation are gracefully handled so that the cluster is always left in a functional state.
-
-    When a Hadoop cluster is scaled down by reducing the number of data nodes, some of the services in the cluster are restarted. Restarting services causes all running and pending jobs to fail at the completion of the scaling operation. You can, however, resubmit the jobs once the operation is complete.
-* Apache HBase
-
-    You can seamlessly add or remove nodes to your HBase cluster while it is running. Regional Servers are automatically balanced within a few minutes of completing the scaling operation. However, you can also manually balance the regional servers by logging in to the headnode of cluster, and then run the following commands from a command prompt window:
-
-    ```bash
-    pushd %HBASE_HOME%\bin
-    hbase shell
-    balancer
-    ```
-
-* Apache Storm
-
-    You can seamlessly add or remove data nodes to your Storm cluster while it is running. But after a successful completion of the scaling operation, you will need to rebalance the topology.
-
-    Rebalancing can be accomplished in two ways:
-
-  * Storm web UI
-  * Command-line interface (CLI) tool
-
-    Refer to the [Apache Storm documentation](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) for more details.
-
-    The Storm web UI is available on the HDInsight cluster:
-
-    ![HDInsight storm scale rebalance](./media/hdinsight-administer-use-powershell/hdinsight.portal.scale.cluster.png)
-
-    Here is an example how to use the CLI command to rebalance the Storm topology:
-
-    ```cli
-    ## Reconfigure the topology "mytopology" to use 5 worker processes,
-    ## the spout "blue-spout" to use 3 executors, and
-    ## the bolt "yellow-bolt" to use 10 executors
-    $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
-    ```
-
-To change the Hadoop cluster size by using Azure PowerShell, run the following command from a client machine:
+The cluster scaling feature allows you to change the number of worker nodes used by a cluster that is running in Azure HDInsight without having to re-create the cluster. To change the Hadoop cluster size by using Azure PowerShell, run the following command from a client machine:
 
 ```powershell
 Set-AzHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
 ```
 
-
-## Grant/revoke access
-HDInsight clusters have the following HTTP web services (all of these services have RESTful endpoints):
-
-* ODBC
-* JDBC
-* Ambari
-* Oozie
-* Templeton
-
-By default, these services are granted for access. You can revoke/grant the access. To revoke:
-
-```powershell
-Revoke-AzHDInsightHttpServicesAccess -ClusterName <Cluster Name>
-```
-
-To grant:
-
-```powershell
-$clusterName = "<HDInsight Cluster Name>"
-
-# Credential option 1
-$hadoopUserName = "admin"
-$hadoopUserPassword = "<Enter the Password>"
-$hadoopUserPW = ConvertTo-SecureString -String $hadoopUserPassword -AsPlainText -Force
-$credential = New-Object System.Management.Automation.PSCredential($hadoopUserName,$hadoopUserPW)
-
-# Credential option 2
-#$credential = Get-Credential -Message "Enter the HTTP username and password:" -UserName "admin"
-
-Grant-AzHDInsightHttpServicesAccess -ClusterName $clusterName -HttpCredential $credential
-```
-
-> [!NOTE]  
-> By granting/revoking the access, you reset the cluster user name and password.
-
-Granting and revoking access can also be done via the portal. See [Manage Apache Hadoop clusters in HDInsight by using the Azure portal](hdinsight-administer-use-portal-linux.md).
+ For more information about scaling clusters, see [Scale HDInsight clusters](./hdinsight-scaling-best-practices.md).
 
 ## Update HTTP user credentials
-It is the same procedure as Grant/revoke HTTP access. If the cluster has been granted the HTTP access, you must first revoke it.  And then grant the access with new HTTP user credentials.
+
+[Set-AzHDInsightGatewayCredential](/powershell/module/az.hdinsight/set-azhdinsightgatewaycredential) sets the gateway HTTP credentials of an Azure HDInsight cluster.
+
+```powershell
+$clusterName = "CLUSTERNAME"
+$credential = Get-Credential -Message "Enter the HTTP username and password:" -UserName "admin"
+
+Set-AzHDInsightGatewayCredential -ClusterName $clusterName -HttpCredential $credential
+```
 
 ## Find the default storage account
+
 The following PowerShell script demonstrates how to get the default storage account name and the related information:
-
-> [!IMPORTANT]  
-> The values for `DefaultStorageAccount`, and `DefaultStorageContainer` are not returned from [Get-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) when [secure transfer](../storage/common/storage-require-secure-transfer.md) is enabled on the storage account.
-
 
 ```powershell
 #Connect-AzAccount
@@ -173,8 +103,8 @@ if ($defaultStoreageType -eq "blob")
 }
 ```
 
-
 ## Find the resource group
+
 In the Resource Manager mode, each HDInsight cluster belongs to an Azure resource group.  To find the resource group:
 
 ```powershell
@@ -184,8 +114,8 @@ $cluster = Get-AzHDInsightCluster -ClusterName $clusterName
 $resourceGroupName = $cluster.ResourceGroup
 ```
 
-
 ## Submit jobs
+
 **To submit MapReduce jobs**
 
 See [Run the MapReduce examples included in HDInsight](hadoop/apache-hadoop-run-samples-linux.md).
@@ -193,10 +123,6 @@ See [Run the MapReduce examples included in HDInsight](hadoop/apache-hadoop-run-
 **To submit Apache Hive jobs**
 
 See [Run Apache Hive queries using PowerShell](hadoop/apache-hadoop-use-hive-powershell.md).
-
-**To submit Apache Pig jobs**
-
-See [Run Apache Pig jobs using PowerShell](hadoop/apache-hadoop-use-pig-powershell.md).
 
 **To submit Apache Sqoop jobs**
 
@@ -212,7 +138,7 @@ See [Upload data to HDInsight](hdinsight-upload-data.md).
 
 ## See Also
 
-* [HDInsight cmdlet reference documentation](https://msdn.microsoft.com/library/azure/dn479228.aspx)
+* [Az.HDInsight cmdlets](/powershell/module/az.hdinsight/#hdinsight)
 * [Manage Apache Hadoop clusters in HDInsight by using the Azure portal](hdinsight-administer-use-portal-linux.md)
 * [Administer HDInsight using a command-line interface](hdinsight-administer-use-command-line.md)
 * [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md)

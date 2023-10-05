@@ -1,11 +1,10 @@
 ---
-title: Azure Analysis Services code, project, and database samples | Microsoft Docs
-description: Learn about code, project, and database samples for Azure Analysis Services.
+title: Azure Analysis Services code, project, and database samples
+description: This article describes resources to learn about code, project, and database samples for Azure Analysis Services.
 author: minewiskan
-manager: kfile
-ms.service: azure-analysis-services
+ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 04/25/2019
+ms.date: 04/27/2021
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -22,12 +21,15 @@ The [Analysis Services](https://github.com/Microsoft/Analysis-Services) reposito
 
 [Adventure Works for Analysis Services](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks-analysis-services) on GitHub is the most commonly used sample tabular model project. You can download a VS project or a completed sample tabular model database.
 
+## Sample database on Azure
+
+Azure Synapse Analytics provides a sample AdventureWorksDW database that can be included in a provisioned resource. To learn more, see [Quickstart: Create and query a dedicated SQL pool in Azure Synapse Analytics ](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md).
 
 ## Sample databases on GitHub
 
 These sample databases on GitHub can be used for creating and testing your own models. 
 
-[Adventure Works sample databases](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks2014)
+[Adventure Works sample databases](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks)
 
 [Wide World Importers sample databases](https://github.com/Microsoft/sql-server-samples/releases/tag/wide-world-importers-v1.0)
 
@@ -39,5 +41,5 @@ If you have an Analysis Services server in Azure portal, you can quickly and eas
 
 ## Next steps
 
-[Adventure Works tutorial](https://docs.microsoft.com/sql/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial)   
-[Azure On-premises Data Gateway](analysis-services-gateway.md)  
+[Adventure Works tutorial](/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial)   
+[Azure On-premises Data Gateway](analysis-services-gateway.md)

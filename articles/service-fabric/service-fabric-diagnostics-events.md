@@ -1,30 +1,22 @@
 ---
-title: Azure Service Fabric Events | Microsoft Docs
+title: Azure Service Fabric Events 
 description: Learn about the Service Fabric events provided out of the box to help you monitor your Azure Service Fabric cluster.
-services: service-fabric
-documentationcenter: .net
-author: srrengar
-manager: chackdan
-editor: ''
-
-ms.assetid:
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 11/21/2018
-ms.author: srrengar
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
-# Service Fabric events 
+# Service Fabric events
 
 The Service Fabric platform writes several structured events for key operational activities happening within your cluster. These range from cluster upgrades to replica placement decisions. Each event that Service Fabric exposes maps to one of the following entities in the cluster:
 * Cluster
 * Application
 * Service
 * Partition
-* Replica 
+* Replica
 * Container
 
 To see a full list of events exposed by the platform - [List of Service Fabric events](service-fabric-diagnostics-event-generation-operational.md).
@@ -42,7 +34,7 @@ Here are some examples of scenarios that you should see events for in your clust
 
 There are a few different ways through which Service Fabric events can be accessed:
 * The events are logged through standard channels such as ETW/Windows Event logs and can be visualized by any monitoring tool that supports these such as Azure Monitor logs. By default, clusters created in the portal have diagnostics turned on and have the Windows Azure diagnostics agent sending the events to Azure table storage, but you still need to integrate this with your log analytics resource. Read more about configuring the [Azure Diagnostics agent](service-fabric-diagnostics-event-aggregation-wad.md) to modify the diagnostics configuration of your cluster to pick up more logs or performance counters and the [Azure Monitor logs integration](service-fabric-diagnostics-event-analysis-oms.md)
-* EventStore service's Rest APIs that allow you to query the cluster directly, or through the Service Fabric Client Library. See [Query EventStore APIs for cluster events](service-fabric-diagnostics-eventstore-query.md).
+* EventStore service's REST APIs that allow you to query the cluster directly, or through the Service Fabric Client Library. See [Query EventStore APIs for cluster events](service-fabric-diagnostics-eventstore-query.md).
 
 ## Next steps
 * More information on monitoring your cluster - [Monitoring the cluster and platform](service-fabric-diagnostics-event-generation-infra.md).

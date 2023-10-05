@@ -1,37 +1,36 @@
 ---
-title: How to create Windows VM Images with Packer in Azure | Microsoft Docs
-description: Learn how to use Packer to create images of Windows virtual machines in Azure
-services: virtual-machines-windows
-documentationcenter: virtual-machines
-author: cynthn
-manager: jeconnoc
-editor: tysonn
-tags: azure-resource-manager
-
-ms.assetid: 
-ms.service: virtual-machines-windows
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+title: PowerShell - How to create VM Images with Packer
+description: Learn how to use Packer and PowerShell to create images of virtual machines in Azure
+author: ericd-mst-github
+ms.service: virtual-machines
+ms.subservice: imaging
+ms.collection: windows
+ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 02/22/2019
-ms.author: cynthn
+ms.date: 03/31/2023
+ms.author: erd 
+ms.custom: devx-track-azurepowershell, devx-track-linux
 ---
 
-# How to use Packer to create Windows virtual machine images in Azure
+# PowerShell: How to use Packer to create virtual machine images in Azure
+
+**Applies to:** :heavy_check_mark: Windows VMs 
+
+
 Each virtual machine (VM) in Azure is created from an image that defines the Windows distribution and OS version. Images can include pre-installed applications and configurations. The Azure Marketplace provides many first and third-party images for most common OS' and application environments, or you can create your own custom images tailored to your needs. This article details how to use the open-source tool [Packer](https://www.packer.io/) to define and build custom images in Azure.
 
-This article was last tested on 2/21/2019 using the [Az PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) version 1.3.0 and [Packer](https://www.packer.io/docs/install/index.html) version 1.3.4.
+This article was last tested on 8/5/2020 using [Packer](https://www.packer.io/docs/install) version 1.8.1.
 
 > [!NOTE]
-> Azure now has a service, Azure Image Builder (preview), for defining and creating your own custom images. Azure Image Builder is built on Packer, so you can even use your existing Packer shell provisioner scripts with it. To get started with Azure Image Builder, see [Create a Windows VM with Azure Image Builder](image-builder.md).
+> Azure now has a service, Azure Image Builder, for defining and creating your own custom images. Azure Image Builder is built on Packer, so you can even use your existing Packer shell provisioner scripts with it. To get started with Azure Image Builder, see [Create a Windows VM with Azure Image Builder](image-builder.md).
 
 ## Create Azure resource group
 During the build process, Packer creates temporary Azure resources as it builds the source VM. To capture that source VM for use as an image, you must define a resource group. The output from the Packer build process is stored in this resource group.
 
-Create a resource group with [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
+Create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). The following example creates a resource group named *myPackerGroup* in the *eastus* location:
 
 ```azurepowershell
-$rgName = "mypackerGroup"
+$rgName = "myPackerGroup"
 $location = "East US"
 New-AzResourceGroup -Name $rgName -Location $location
 ```
@@ -39,27 +38,26 @@ New-AzResourceGroup -Name $rgName -Location $location
 ## Create Azure credentials
 Packer authenticates with Azure using a service principal. An Azure service principal is a security identity that you can use with apps, services, and automation tools like Packer. You control and define the permissions as to what operations the service principal can perform in Azure.
 
-Create a service principal with [New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal) and assign permissions for the service principal to create and manage resources with [New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment). The value for `-DisplayName` needs to be unique; replace with your own value as needed.  
+Create a service principal with [New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal). The value for `-DisplayName` needs to be unique; replace with your own value as needed.  
 
 ```azurepowershell
-$sp = New-AzADServicePrincipal -DisplayName "PackerServicePrincipal"
-$BSTR = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($sp.Secret)
-$plainPassword = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR)
-New-AzRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
+$sp = New-AzADServicePrincipal -DisplayName "PackerPrincipal" -role Contributor -scope /subscriptions/yyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyy
+$plainPassword = (New-AzADSpCredential -ObjectId $sp.Id).SecretText
 ```
 
 Then output the password and application ID.
 
 ```powershell
 $plainPassword
-$sp.ApplicationId
+$sp.AppId
 ```
 
 
-To authenticate to Azure, you also need to obtain your Azure tenant and subscription IDs with [Get-AzSubscription](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription):
+To authenticate to Azure, you also need to obtain your Azure tenant and subscription IDs with [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription):
 
 ```powershell
-Get-AzSubscription
+$subName = "mySubscriptionName"
+$sub = Get-AzSubscription -SubscriptionName $subName
 ```
 
 
@@ -70,7 +68,7 @@ Create a file named *windows.json* and paste the following content. Enter your o
 
 | Parameter                           | Where to obtain |
 |-------------------------------------|----------------------------------------------------|
-| *client_id*                         | View service principal ID with `$sp.applicationId` |
+| *client_id*                         | View service principal ID with `$sp.AppId` |
 | *client_secret*                     | View the auto-generated password with `$plainPassword` |
 | *tenant_id*                         | Output from `$sub.TenantId` command |
 | *subscription_id*                   | Output from `$sub.SubscriptionId` command |
@@ -106,35 +104,80 @@ Create a file named *windows.json* and paste the following content. Enter your o
         "task": "Image deployment"
     },
 
-    "location": "East US",
-    "vm_size": "Standard_DS2_v2"
+    "build_resource_group_name": "myPackerGroup",
+    "vm_size": "Standard_D2_v2"
   }],
   "provisioners": [{
     "type": "powershell",
     "inline": [
       "Add-WindowsFeature Web-Server",
+      "while ((Get-Service RdAgent).Status -ne 'Running') { Start-Sleep -s 5 }",
+      "while ((Get-Service WindowsAzureGuestAgent).Status -ne 'Running') { Start-Sleep -s 5 }",
       "& $env:SystemRoot\\System32\\Sysprep\\Sysprep.exe /oobe /generalize /quiet /quit",
       "while($true) { $imageState = Get-ItemProperty HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Setup\\State | Select ImageState; if($imageState.ImageState -ne 'IMAGE_STATE_GENERALIZE_RESEAL_TO_OOBE') { Write-Output $imageState.ImageState; Start-Sleep -s 10  } else { break } }"
     ]
   }]
 }
 ```
+You can also create a file named *windows.pkr.hcl* and paste the following content with your own values as used for the above parameters table.
+
+```HCL
+source "azure-arm" "autogenerated_1" {
+  azure_tags = {
+    dept = "Engineering"
+    task = "Image deployment"
+  }
+  build_resource_group_name         = "myPackerGroup"
+  client_id                         = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx"
+  client_secret                     = "ppppppp-pppp-pppp-pppp-ppppppppppp"
+  communicator                      = "winrm"
+  image_offer                       = "WindowsServer"
+  image_publisher                   = "MicrosoftWindowsServer"
+  image_sku                         = "2016-Datacenter"
+  managed_image_name                = "myPackerImage"
+  managed_image_resource_group_name = "myPackerGroup"
+  os_type                           = "Windows"
+  subscription_id                   = "yyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyy"
+  tenant_id                         = "zzzzzzz-zzzz-zzzz-zzzz-zzzzzzzzzzzz"
+  vm_size                           = "Standard_D2_v2"
+  winrm_insecure                    = true
+  winrm_timeout                     = "5m"
+  winrm_use_ssl                     = true
+  winrm_username                    = "packer"
+}
+
+build {
+  sources = ["source.azure-arm.autogenerated_1"]
+
+  provisioner "powershell" {
+    inline = ["Add-WindowsFeature Web-Server", "while ((Get-Service RdAgent).Status -ne 'Running') { Start-Sleep -s 5 }", "while ((Get-Service WindowsAzureGuestAgent).Status -ne 'Running') { Start-Sleep -s 5 }", "& $env:SystemRoot\\System32\\Sysprep\\Sysprep.exe /oobe /generalize /quiet /quit", "while($true) { $imageState = Get-ItemProperty HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Setup\\State | Select ImageState; if($imageState.ImageState -ne 'IMAGE_STATE_GENERALIZE_RESEAL_TO_OOBE') { Write-Output $imageState.ImageState; Start-Sleep -s 10  } else { break } }"]
+  }
+
+}
+```
 
 This template builds a Windows Server 2016 VM, installs IIS, then generalizes the VM with Sysprep. The IIS install shows how you can use the PowerShell provisioner to run additional commands. The final Packer image then includes the required software install and configuration.
 
+The Windows Guest Agent participates in the Sysprep process. The agent must be fully installed before the VM can be sysprep'ed. To ensure that this is true, all agent services must be running before you execute sysprep.exe. The preceding JSON snippet shows one way to do this in the PowerShell provisioner. This snippet is required only if the VM is configured to install the agent, which is the default.
+
 
 ## Build Packer image
-If you don't already have Packer installed on your local machine, [follow the Packer installation instructions](https://www.packer.io/docs/install/index.html).
+If you don't already have Packer installed on your local machine, [follow the Packer installation instructions](https://learn.hashicorp.com/packer/getting-started/install).
 
 Build the image by opening a cmd prompt and specifying your Packer template file as follows:
 
+```powershell
+packer build windows.json
 ```
-./packer build windows.json
+You can also build the image by specifying the *windows.pkr.hcl* file as follows:
+
+```
+packer build windows.pkr.hcl
 ```
 
 An example of the output from the preceding commands is as follows:
 
-```bash
+```powershell
 azure-arm output will be in this color.
 
 ==> azure-arm: Running builder ...
@@ -210,7 +253,7 @@ It takes a few minutes for Packer to build the VM, run the provisioners, and cle
 
 
 ## Create a VM from the Packer image
-You can now create a VM from your Image with [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). The supporting network resources are created if they do not already exist. When prompted, enter an administrative username and password to be created on the VM. The following example creates a VM named *myVM* from *myPackerImage*:
+You can now create a VM from your Image with [New-AzVM](/powershell/module/az.compute/new-azvm). The supporting network resources are created if they do not already exist. When prompted, enter an administrative username and password to be created on the VM. The following example creates a VM named *myVM* from *myPackerImage*:
 
 ```powershell
 New-AzVm `
@@ -225,13 +268,13 @@ New-AzVm `
     -Image "myPackerImage"
 ```
 
-If you wish to create VMs in a different resource group or region than your Packer image, specify the image ID rather than image name. You can obtain the image ID with [Get-AzImage](https://docs.microsoft.com/powershell/module/az.compute/Get-AzImage).
+If you wish to create VMs in a different resource group or region than your Packer image, specify the image ID rather than image name. You can obtain the image ID with [Get-AzImage](/powershell/module/az.compute/get-azimage).
 
 It takes a few minutes to create the VM from your Packer image.
 
 
 ## Test VM and webserver
-Obtain the public IP address of your VM with [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress). The following example obtains the IP address for *myPublicIP* created earlier:
+Obtain the public IP address of your VM with [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress). The following example obtains the IP address for *myPublicIP* created earlier:
 
 ```powershell
 Get-AzPublicIPAddress `

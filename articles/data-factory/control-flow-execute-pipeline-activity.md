@@ -1,23 +1,33 @@
 ---
-title: Execute Pipeline Activity in Azure Data Factory | Microsoft Docs
-description: Learn how you can use the Execute Pipeline Activity to invoke one Data Factory pipeline from another Data Factory pipeline.
-services: data-factory
-documentationcenter: ''
-author: sharonlo101
-manager: craigg
-editor: 
-
+title: Execute Pipeline Activity
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn how you can use the Execute Pipeline Activity to invoke one pipeline from another pipeline in Azure Data Factory or Synapse Analytics.
+author: chez-charlie
+ms.author: chez
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-
+ms.subservice: orchestration
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 01/10/2018
-ms.author: shlo
-
+ms.date: 10/25/2022
 ---
-# Execute Pipeline activity in Azure Data Factory
-The Execute Pipeline activity allows a Data Factory pipeline to invoke another pipeline.
+
+# Execute Pipeline activity in Azure Data Factory and Synapse Analytics
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+The Execute Pipeline activity allows a Data Factory or Synapse pipeline to invoke another pipeline.
+
+## Create an Execute Pipeline activity with UI
+
+To use an Execute Pipeline activity in a pipeline, complete the following steps:
+
+1. Search for _pipeline_ in the pipeline Activities pane, and drag an Execute Pipeline activity to the pipeline canvas.
+1. Select the new Execute Pipeline activity on the canvas if it is not already selected, and its  **Settings** tab, to edit its details.
+
+   :::image type="content" source="media/control-flow-execute-pipeline-activity/execute-pipeline-activity.png" alt-text="Shows the UI for an execute pipeline activity.":::
+
+1. Select an existing pipeline or create a new one using the New button.  Select other options and configure any parameters for the pipeline as required to complete your configuration.
 
 ## Syntax
 
@@ -63,7 +73,7 @@ name | Name of the execute pipeline activity. | String | Yes
 type | Must be set to: **ExecutePipeline**. | String | Yes
 pipeline | Pipeline reference to the dependent pipeline that this pipeline invokes. A pipeline reference object has two properties: **referenceName** and **type**. The referenceName property specifies the name of the reference pipeline. The type property must be set to PipelineReference. | PipelineReference | Yes
 parameters | Parameters to be passed to the invoked pipeline | A JSON object that maps parameter names to argument values | No
-waitOnCompletion | Defines whether activity execution waits for the dependent pipeline execution to finish. Default is false. | Boolean | No
+waitOnCompletion | Defines whether activity execution waits for the dependent pipeline execution to finish. Default is true. | Boolean | No
 
 ## Sample
 This scenario has two pipelines:
@@ -166,10 +176,7 @@ This scenario has two pipelines:
     "properties": {
     "type": "AzureStorage",
     "typeProperties": {
-      "connectionString": {
-        "value": "DefaultEndpointsProtocol=https;AccountName=*****",
-        "type": "SecureString"
-      }
+      "connectionString": "DefaultEndpointsProtocol=https;AccountName=*****;AccountKey=*****"
     }
   }
 }
@@ -252,8 +259,12 @@ The master pipeline forwards these values to the invoked pipeline as shown in th
 }
 
 ```
+
+> [!WARNING]
+>Execute Pipeline activity passes array parameter as string to the child pipeline.This is due to the fact that the payload is passed from the parent pipeline to the >child as string. We can see it when we check the input passed to the child pipeline. Plese check this [section](./data-factory-troubleshoot-guide.md#execute-pipeline-passes-array-parameter-as-string-to-the-child-pipeline) for more details. 
+
 ## Next steps
-See other control flow activities supported by Data Factory: 
+See other supported control flow activities: 
 
 - [For Each Activity](control-flow-for-each-activity.md)
 - [Get Metadata Activity](control-flow-get-metadata-activity.md)

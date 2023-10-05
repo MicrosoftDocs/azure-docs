@@ -1,0 +1,106 @@
+- name: Microsoft Azure Attestation
+  href: index.yml
+- name: Overview
+  items:
+  - name: About Microsoft Azure Attestation
+    href: overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Terraform
+    href: quickstart-terraform.md
+  - name: Bicep
+    displayName: Resource Manager, ARM
+    href: quickstart-bicep.md
+  - name: ARM template
+    displayName: Resource Manager
+    href: quickstart-template.md
+  - name: PowerShell
+    href: quickstart-powershell.md
+  - name: Portal
+    href: quickstart-portal.md
+  - name: CLI
+    href: quickstart-azure-cli.md
+- name: Tutorials
+  items:
+  - name: Authoring an attestation policy
+    href: author-sign-policy.md
+  - name: Enforce custom TCB baseline for SGX attestation
+    href: custom-tcb-baseline-enforcement.md
+  - name: Create a Private Endpoint - PowerShell
+    href: private-endpoint-powershell.md
+  - name: Azure Diagnostic Monitoring
+    href: azure-diagnostic-monitoring.md
+  - name: How to perform TPM and VBS attestation
+    href: azure-tpm-vbs-attestation-usage.md
+  - name: How to perform SGX attestation
+    href: /samples/browse/?expanded=azure&terms=attestation
+- name: Examples
+  items:
+    - name: Attestation policy
+      items:
+      - name: SGX
+        href: policy-examples.md
+      - name: TPM
+        href: tpm-attestation-sample-policies.md
+    - name: Policy signer certificate
+      href: policy-signer-examples.md
+    - name: Attestation token
+      href: attestation-token-examples.md
+- name: Concepts
+  items:
+  - name: Basic concepts
+    href: basic-concepts.md
+  - name: TPM attestation overview
+    href: tpm-attestation-concepts.md
+  - name: Attestation policy
+    items:
+      - name: Claim rule grammar
+        href: claim-rule-grammar.md
+      - name: Claim sets
+        href: claim-sets.md
+      - name: Claim Rule Functions
+        href: claim-rule-functions.md
+      - name: Policy Version 1.0
+        href: policy-version-1-0.md
+      - name: Policy Version 1.1
+        href: policy-version-1-1.md
+      - name: Policy Version 1.2
+        href: policy-version-1-2.md
+  - name: Workflow
+    href: workflow.md
+  - name: View logs
+    href: view-logs.md
+- name: References
+  items:
+  - name: Regional availability
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=azure-attestation
+  - name: FAQ
+    href: faq.yml
+  - name: REST
+    href: /rest/api/attestation/
+  - name: C++ data-plane SDK
+    href: https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-security-attestation/1.0.0-beta.2/index.html
+  - name: .NET data-plane SDK
+    href: https://www.nuget.org/packages/Azure.Security.Attestation
+  - name: Java data-plane SDK
+    href: https://search.maven.org/artifact/com.azure/azure-security-attestation/1.1.2/jar
+  - name: Python data-plane SDK
+    href: https://pypi.org/project/azure-security-attestation/
+  - name: JavaScript SDK
+    href: https://www.npmjs.com/package/@azure/attestation/v/1.0.0
+  - name: Azure PowerShell
+    href: /powershell/module/az.attestation/#attestation
+  - name: Azure CLI
+    href: /cli/azure/attestation
+  - name: Azure DCAP library for Windows
+    href: https://www.nuget.org/packages/Microsoft.Azure.DCAP/
+  - name: Azure DCAP library for Linux
+    href: https://packages.microsoft.com/ubuntu/18.04/prod/pool/main/a/az-dcap-client/
+  - name: Troubleshoot issues
+    href: troubleshoot-guide.md
+  - name: TPM and VBS attestation protocol
+    href: virtualization-based-security-protocol.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md

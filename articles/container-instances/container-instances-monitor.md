@@ -1,13 +1,13 @@
 ---
-title: Monitor containers in Azure Container Instances
+title: Monitor container instances
 description: How to monitor the consumption of compute resources like CPU and memory by your containers in Azure Container Instances.
-services: container-instances
-author: dlepow
-
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
 ms.service: container-instances
-ms.topic: overview
-ms.date: 04/24/2019
-ms.author: danlep
+ms.custom: devx-track-azurecli
+services: container-instances
+ms.date: 06/17/2022
 ---
 # Monitor container resources in Azure Container Instances
 
@@ -24,13 +24,13 @@ At this time, Azure Monitor metrics are only available for Linux containers.
 
 ## Available metrics
 
-Azure Monitor provides the following [metrics for Azure Container Instances][supported-metrics]. These metrics are available for a container group and individual containers.
+Azure Monitor provides the following [metrics for Azure Container Instances][supported-metrics]. These metrics are available for a container group and individual containers. By default, the metrics are aggregated as averages.
 
-* **CPU Usage** - measured in **millicores**. One millicore is 1/1000th of a CPU core, so 500 millicores (or 500 m) represents 50% usage of a CPU core. Aggregated as **average usage** across all cores.
-
-* **Memory Usage** -  aggregated as **average bytes**.
-
-* **Network Bytes Received Per Second** and **Network Bytes Transmitted Per Second** - aggregated as **average bytes per second**. 
+- **CPU Usage** measured in **millicores**. 
+  - One millicore is 1/1000th of a CPU core, so 500 millicores represents usage of 0.5 CPU core.
+- **Memory Usage** in bytes
+- **Network bytes received** per second
+- **Network bytes transmitted** per second 
 
 ## Get metrics - Azure portal
 
@@ -38,48 +38,45 @@ When a container group is created, Azure Monitor data is available in the Azure 
 
 ![dual-chart][dual-chart]
 
-In a container group that contains multiple containers, use a [dimension][monitor-dimension] to present metrics by container. To create a chart with individual container metrics, perform the following steps:
+In a container group that contains multiple containers, use a [dimension][monitor-dimension] to display metrics by container. To create a chart with individual container metrics, perform the following steps:
 
 1. In the **Overview** page, select one of the metric charts, such as **CPU**. 
 1. Select the **Apply splitting** button, and select **Container Name**.
 
-![dimension][dimension]
+![Screen capture shows the metrics for a container instance with Apply splitting selected and Container Name selected.][dimension]
 
 ## Get metrics - Azure CLI
 
 Metrics for container instances can also be gathered using the Azure CLI. First, get the ID of the container group using the following command. Replace `<resource-group>` with your resource group name and `<container-group>` with the name of your container group.
 
 
-```console
+```azurecli
 CONTAINER_GROUP=$(az container show --resource-group <resource-group> --name <container-group> --query id --output tsv)
 ```
 
 Use the following command to get **CPU** usage metrics.
 
-```console
-$ az monitor metrics list --resource $CONTAINER_GROUP --metric CPUUsage --output table
+```azurecli
+az monitor metrics list --resource $CONTAINER_GROUP --metric CPUUsage --output table
+```
 
+```output
 Timestamp            Name       Average
 -------------------  ---------  ---------
-2019-04-23 22:59:00  CPU Usage
-2019-04-23 23:00:00  CPU Usage
-2019-04-23 23:01:00  CPU Usage  0.0
-2019-04-23 23:02:00  CPU Usage  0.0
-2019-04-23 23:03:00  CPU Usage  0.5
-2019-04-23 23:04:00  CPU Usage  0.5
-2019-04-23 23:05:00  CPU Usage  0.5
-2019-04-23 23:06:00  CPU Usage  1.0
-2019-04-23 23:07:00  CPU Usage  0.5
-2019-04-23 23:08:00  CPU Usage  0.5
-2019-04-23 23:09:00  CPU Usage  1.0
-2019-04-23 23:10:00  CPU Usage  0.5
+2020-12-17 23:34:00  CPU Usage
+. . .
+2020-12-18 00:25:00  CPU Usage
+2020-12-18 00:26:00  CPU Usage  0.4
+2020-12-18 00:27:00  CPU Usage  0.0
 ```
 
 Change the value of the `--metric` parameter in the command to get other [supported metrics][supported-metrics]. For example, use the following command to get **memory** usage metrics. 
 
-```console
-$ az monitor metrics list --resource $CONTAINER_GROUP --metric MemoryUsage --output table
+```azurecli
+az monitor metrics list --resource $CONTAINER_GROUP --metric MemoryUsage --output table
+```
 
+```output
 Timestamp            Name          Average
 -------------------  ------------  ----------
 2019-04-23 22:59:00  Memory Usage
@@ -98,9 +95,11 @@ Timestamp            Name          Average
 
 For a multi-container group, the `containerName` dimension can be added to return metrics per container.
 
-```console
-$ az monitor metrics list --resource $CONTAINER_GROUP --metric MemoryUsage --dimension containerName --output table
+```azurecli
+az monitor metrics list --resource $CONTAINER_GROUP --metric MemoryUsage --dimension containerName --output table
+```
 
+```output
 Timestamp            Name          Containername             Average
 -------------------  ------------  --------------------  -----------
 2019-04-23 22:59:00  Memory Usage  aci-tutorial-app
@@ -146,6 +145,6 @@ Learn how to create [metric alerts][metric-alert] to get notified when a metric 
 
 <!-- LINKS - Internal -->
 [azure-monitoring]: ../azure-monitor/overview.md
-[metric-alert]: ..//azure-monitor/platform/alerts-metric.md
-[monitor-dimension]: ../azure-monitor/platform/data-platform-metrics.md#multi-dimensional-metrics
-[supported-metrics]: ../azure-monitor/platform/metrics-supported.md#microsoftcontainerinstancecontainergroups
+[metric-alert]: ..//azure-monitor/alerts/alerts-metric.md
+[monitor-dimension]: ../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics
+[supported-metrics]: ../azure-monitor/essentials/metrics-supported.md#microsoftcontainerinstancecontainergroups

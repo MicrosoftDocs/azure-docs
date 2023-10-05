@@ -1,0 +1,293 @@
+- name: Billing and subscriptions documentation
+  href: manage/index.yml
+- name: Overview
+  items:
+  - name: What is Cost Management and Billing?
+    displayName: azure cost management, cost management azure, azure cost management and billing
+    href: cost-management-billing-overview.md
+  - name: What's new?
+    href: https://azure.microsoft.com/blog/tag/cost-management/
+- name: Tutorials
+  items:
+  - name: Review your individual account bill
+    href: understand/review-individual-bill.md
+  - name: Review your Enterprise Agreement bill
+    href: understand/review-enterprise-agreement-bill.md
+  - name: Review your Microsoft Customer Agreement bill
+    href: understand/review-customer-agreement-bill.md
+  - name: Review your Microsoft Partner Agreement bill
+    href: understand/review-partner-agreement-bill.md
+- name: Concepts
+  items:
+  - name: Individual subscription usage terms
+    href: understand/understand-usage.md
+  - name: Individual subscription invoice terms
+    href: understand/understand-invoice.md
+  - name: Microsoft Customer Agreement usage terms
+    href: understand/mca-understand-your-usage.md
+  - name: Microsoft Customer Agreement invoice terms
+    href: understand/mca-understand-your-invoice.md
+  - name: Microsoft Customer Agreement price sheet terms
+    href: manage/mca-understand-pricesheet.md
+  - name: Microsoft Partner Agreement invoice terms
+    href: understand/mpa-invoice-terms.md
+  - name: Changes to your updated pay-as-you-go billing account
+    href: understand/mosp-new-customer-experience.md
+  - name: Billing accounts for Microsoft Customer Agreement
+    href: understand/mca-overview.md
+  - name: Billing accounts for Microsoft Partner Agreement
+    href: understand/mpa-overview.md
+  - name: Get started in the Azure EA portal
+    href: manage/ea-portal-get-started.md
+  - name: Get started with EA billing in the Azure portal
+    href: manage/ea-direct-portal-get-started.md
+  - name: Direct EA billing invoice documents
+    href: manage/direct-ea-billing-invoice-documents.md
+  - name: Request Withholding Tax credit - India
+    href: manage/withholding-tax-credit-india.md
+- name: How-to guides
+  items:
+  - name: Configure billing
+    items:
+    - name: Administer accounts
+      items:
+      - name: Account administrator tasks
+        href: manage/account-admin-tasks.md
+      - name: Edit billing contact information
+        href: manage/change-azure-account-profile.md
+      - name: Update tax details
+        href: manage/manage-tax-information.md
+      - name: Grant access to billing
+        displayName: azure billing administrator, billing administrator azure, billing admin, add billing admin, azure billing administrator role
+        href: manage/manage-billing-access.md
+      - name: Microsoft Customer Agreements roles in Azure
+        href: manage/understand-mca-roles.md
+      - name: Copy MCA billing roles across tenants
+        href: manage/mca-role-migration.md
+      - name: Manage billing across tenants
+        href: manage/manage-billing-across-tenants.md
+      - name: Link partner ID
+        displayName: partner admin link, azure pal, microsoft pal, azure partner admin link, pal azure
+        href: manage/link-partner-id.md
+      - name: Link partner ID to Power Apps accounts
+        href: manage/link-partner-id-power-apps-accounts.md
+      - name: View billing accounts
+        displayName: azure billing account, azure billing, check azure billing, azure billing account id
+        href: manage/view-all-accounts.md
+      - name: Elevate access
+        displayName: azure billing account, azure billing, global admin billing access
+        href: manage/elevate-access-global-admin.md
+      - name: Organize costs with invoice sections
+        href: manage/mca-section-invoice.md
+      - name: Set up Microsoft Customer Agreement billing account
+        href: manage/mca-setup-account.md
+      - name: Pay using strong customer authentication
+        href: manage/open-banking-strong-customer-authentication.md
+      - name: Find tenant ID and primary domain name
+        href: manage/find-tenant-id-domain.md
+      - name: Understand spending limit
+        href: manage/spending-limit.md
+      - name: Track credits for Microsoft Customer Agreement
+        href: manage/mca-check-azure-credits-balance.md
+      - name: Track your Microsoft Azure Consumption Commitment
+        href: manage/track-consumption-commitment.md
+      - name: Markup - China
+        href: manage/markup-china.md
+    - name: Administer subscriptions
+      items:
+      - name: Assign access to cost management data
+        href: costs/assign-access-acm-data.md
+      - name: Subscription states
+        href: manage/subscription-states.md
+      - name: Reactivate subscription
+        displayName: azure subscription disabled, how to enable azure subscription, enable azure subscription, azure subscription is disabled
+        href: manage/subscription-disabled.md
+      - name: Reactivate Azure Student subscription
+        href: manage/azurestudents-subscription-disabled.md
+      - name: Set up and configure AWS integration
+        href: costs/aws-integration-set-up-configure.md
+      - name: Create an MCA subscription
+        href: manage/create-subscription.md
+      - name: Create an MCA subscription request
+        href: manage/create-subscription-request.md
+      - name: Create an EA subscription
+        href: manage/create-enterprise-subscription.md
+      - name: Create a subscription for a partner's customer
+        href: manage/create-customer-subscription.md
+      - name: Grant access to create EA subscriptions
+        href: manage/grant-access-to-create-subscription.md
+      - name: Change administrator
+        displayName: azure subcription owner, add user to azure subscription, azure subscription permissions, azure change account admin
+        href: manage/add-change-subscription-administrator.md
+      - name: Switch subscription offer
+        href: manage/switch-azure-offer.md
+      - name: Cancel subscription
+        displayName: delete azure account, delete azure subscription
+        href: manage/cancel-azure-subscription.md
+      - name: Manage subscription policies
+        href: manage/manage-azure-subscription-policy.md
+      - name: Filter and view subscriptions
+        href: manage/filter-view-subscriptions.md
+    - name: Transfer billing products
+      items:
+      - name: Azure billing product transfers
+        href: manage/subscription-transfer.md
+      - name: Transfer MOSP subscription ownership
+        displayName: azure transfer subscription
+        href: manage/billing-subscription-transfer.md
+      - name: Transfer subscriptions between partners
+        href: manage/azure-plan-subscription-transfer-partners.md
+      - name: Transfer EA accounts
+        href: manage/ea-transfers.md
+      - name: Transfer subscription to EA
+        href: manage/mosp-ea-transfer.md
+      - name: Transfer CSP subscriptions
+        href: manage/transfer-subscriptions-subscribers-csp.md
+      - name: Transfer Microsoft Customer Agreement ownership
+        href: manage/mca-request-billing-ownership.md
+      - name: Transfer Microsoft Partner Agreement ownership
+        href: manage/mpa-request-ownership.md
+  - name: Perform key billing administration tasks
+    items:
+    - name: Create subscriptions programmatically
+      items:
+      - name: Create subscriptions programmatically
+        href: manage/programmatically-create-subscription.md
+      - name: Create EA subscriptions programmatically
+        href: manage/programmatically-create-subscription-enterprise-agreement.md
+      - name: Create MCA subscriptions programmatically
+        href: manage/programmatically-create-subscription-microsoft-customer-agreement.md
+      - name: Create MCA subscriptions programmatically across AD tenants
+        href: manage/programmatically-create-subscription-microsoft-customer-agreement-across-tenants.md
+      - name: Create MPA subscriptions programmatically
+        href: manage/programmatically-create-subscription-microsoft-partner-agreement.md
+      - name: Create subscriptions programmatically - legacy APIs
+        href: manage/programmatically-create-subscription-preview.md
+    - name: Manage Enterprise Agreement subscriptions
+      items:
+      - name: EA roles in Azure
+        href: manage/understand-ea-roles.md
+      - name: Azure EA portal administration
+        href: manage/ea-portal-administration.md
+      - name: EA billing administration
+        href: manage/direct-ea-administration.md
+      - name: Azure portal administration for partners
+        href: manage/ea-billing-administration-partners.md
+      - name: Azure EA portal administration for partners
+        href: manage/ea-partner-portal-administration.md
+      - name: EA tasks in Microsoft Customer Agreement
+        href: manage/mca-enterprise-operations.md
+      - name: Azure EA agreements and amendments
+        href: manage/ea-portal-agreements.md
+      - name: Enterprise enrollment invoices
+        href: manage/ea-portal-enrollment-invoices.md
+      - name: View and download EA usage details
+        href: manage/direct-ea-azure-usage-charges-invoices.md
+      - name: Azure EA pricing
+        href: manage/ea-pricing-overview.md
+      - name: Azure Enterprise REST APIs
+        href: manage/enterprise-rest-apis.md
+      - name: Azure EA VM reserved instances
+        href: manage/ea-portal-vm-reservations.md
+      - name: Azure Marketplace
+        href: manage/ea-azure-marketplace.md
+    - name: Download cost and billing information
+      items:
+      - name: View and download your Azure invoice
+        href: understand/download-azure-invoice.md
+      - name: View and download your Azure usage and charges
+        href: understand/download-azure-daily-usage.md
+      - name: Download your invoice
+        href: manage/download-azure-invoice-daily-usage-date.md
+      - name: View and download tax documents
+        href: understand/mca-download-tax-document.md
+      - name: View external Azure service charges
+        href: understand/understand-azure-marketplace-charges.md
+      - name: View and download your organization's pricing
+        href: manage/ea-pricing.md
+    - name: Free account
+      items:
+      - name: Create free services
+        href: manage/create-free-services.md
+      - name: Avoid charges
+        href: manage/avoid-charges-free-account.md
+      - name: Check usage
+        href: manage/check-free-service-usage.md
+      - name: Upgrade free account
+        href: manage/upgrade-azure-subscription.md
+  - name: Manage payment methods
+    items:
+    - name: Pay your Azure bill
+      href: understand/pay-bill.md
+    - name: Set up pay by wire transfer
+      href: manage/pay-by-invoice.md
+    - name: Resolve pay-as-you-go past due balance
+      href: manage/resolve-past-due-balance.md
+    - name: Add, update, or delete payment method
+      href: manage/change-credit-card.md
+    - name: View payment history
+      href: manage/view-payment-history.md
+  - name: Troubleshoot
+    items:
+    - name: Can't view or find invoices
+      href: manage/troubleshoot-cant-find-invoice.md
+    - name: View billing account
+      href: manage/troubleshoot-account-not-found.md
+    - name: EA billing issues with usage files
+      href: manage/troubleshoot-ea-billing-issues-usage-file-pivot-tables.md
+    - name: MCA billing issues with usage files
+      href: manage/troubleshoot-customer-agreement-billing-issues-usage-file-pivot-tables.md
+    - name: CSP billing issues with usage files
+      href: manage/troubleshoot-csp-billing-issues-usage-file-pivot-tables.md
+    - name: No subscriptions found
+      href: manage/no-subscriptions-found.md
+    - name: Payment issues
+      href: manage/billing-troubleshoot-azure-payment-issues.md
+    - name: Declined card
+      href: manage/troubleshoot-declined-card.md
+    - name: Troubleshoot threshold billing
+      href: manage/troubleshoot-threshold-billing.md
+    - name: Azure account sign-up issues
+      href: manage/troubleshoot-azure-sign-up.md
+    - name: Subscription sign-in issues
+      href: manage/troubleshoot-sign-in-issue.md
+    - name: Create multiple subscriptions message
+      href: manage/create-subscriptions-deploy-resources.md
+    - name: Not available due to conflict error
+      href: manage/troubleshoot-not-available-conflict.md
+    - name: Enterprise cost view disabled
+      href: manage/enterprise-mgmt-grp-troubleshoot-cost-view.md
+    - name: Troubleshoot Azure EA portal access
+      href: manage/ea-portal-troubleshoot.md
+    - name: Contact support
+      href: ../azure-portal/supportability/how-to-create-azure-support-request.md
+    - name: Create EA support request
+      href: manage/how-to-create-azure-support-request-ea.md
+- name: Reference
+  items:
+  - name: Billing Automation Scenarios
+    href: manage/cost-management-automation-scenarios.md
+  - name: Azure Billing REST API
+    href: /rest/api/billing
+  - name: Azure CLI
+    href: /cli/azure/billing
+  - name: Cost Management REST API
+    href: /rest/api/cost-management
+  - name: Azure Retail Prices REST API
+    href: /rest/api/cost-management/retail-prices/azure-retail-prices
+  - name: Enterprise reporting REST API overview
+    href: manage/enterprise-api.md
+  - name: Enterprise reporting REST APIs
+    href: /rest/api/billing/enterprise/billing-enterprise-api-balance-summary
+- name: Resources
+  items:
+  - name: FAQ
+    href: cost-management-billing-faq.yml
+- name: Samples
+  items:
+  - name: REST API
+    items:
+    - name: Review enterprise costs
+      href: manage/review-enterprise-billing.md
+    - name: Review subscription use
+      href: manage/review-subscription-billing.md

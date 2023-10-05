@@ -1,92 +1,83 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with ExpenseIn | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and ExpenseIn.
+title: 'Tutorial: Microsoft Entra SSO integration with ExpenseIn'
+description: Learn how to configure single sign-on between Microsoft Entra ID and ExpenseIn.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: CelesteDG
 ms.reviewer: celested
-
-ms.assetid: 6ac8053b-a216-45d8-bf5e-ecd37d808e57
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/31/2019
+ms.date: 11/21/2022
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Integrate ExpenseIn with Azure Active Directory
+# Tutorial: Microsoft Entra SSO integration with ExpenseIn
 
-In this tutorial, you'll learn how to integrate ExpenseIn with Azure Active Directory (Azure AD). When you integrate ExpenseIn with Azure AD, you can:
+In this tutorial, you'll learn how to integrate ExpenseIn with Microsoft Entra ID. When you integrate ExpenseIn with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to ExpenseIn.
-* Enable your users to be automatically signed-in to ExpenseIn with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
-
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+* Control in Microsoft Entra ID who has access to ExpenseIn.
+* Enable your users to be automatically signed-in to ExpenseIn with their Microsoft Entra accounts.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * ExpenseIn single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment. ExpenseIn supports **SP and IDP** initiated SSO.
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment. 
 
-## Adding ExpenseIn from the gallery
+* ExpenseIn supports **SP and IDP** initiated SSO.
 
-To configure the integration of ExpenseIn into Azure AD, you need to add ExpenseIn from the gallery to your list of managed SaaS apps.
+## Add ExpenseIn from the gallery
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
-1. On the left navigation pane, select the **Azure Active Directory** service.
-1. Navigate to **Enterprise Applications** and then select **All Applications**.
-1. To add new application, select **New application**.
+To configure the integration of ExpenseIn into Microsoft Entra ID, you need to add ExpenseIn from the gallery to your list of managed SaaS apps.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
 1. In the **Add from the gallery** section, type **ExpenseIn** in the search box.
 1. Select **ExpenseIn** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Configure and test Azure AD single sign-on
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-Configure and test Azure AD SSO with ExpenseIn using a test user called **B. Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in ExpenseIn.
+<a name='configure-and-test-azure-ad-sso-for-expensein'></a>
 
-To configure and test Azure AD SSO with ExpenseIn, complete the following building blocks:
+## Configure and test Microsoft Entra SSO for ExpenseIn
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** to enable your users to use this feature.
-2. **[Configure ExpenseIn](#configure-expensein)** to configure the SSO settings on application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with B. Simon.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable B. Simon to use Azure AD single sign-on.
-5. **[Create ExpenseIn test user](#create-expensein-test-user)** to have a counterpart of B. Simon in ExpenseIn that is linked to the Azure AD representation of user.
-6. **[Test SSO](#test-sso)** to verify whether the configuration works.
+Configure and test Microsoft Entra SSO with ExpenseIn using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in ExpenseIn.
 
-### Configure Azure AD SSO
+To configure and test Microsoft Entra SSO with ExpenseIn, perform the following steps:
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** to enable B.Simon to use Microsoft Entra single sign-on.
+1. **[Configure ExpenseIn SSO](#configure-expensein-sso)** to configure the SSO settings on application side.
+    1. **[Create ExpenseIn test user](#create-expensein-test-user)** to have a counterpart of B.Simon in ExpenseIn that is linked to the Microsoft Entra representation of user.
+1. **[Test SSO](#test-sso)** to verify whether the configuration works.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **ExpenseIn** application integration page, find the **Manage** section and select **Single sign-on**.
+<a name='configure-azure-ad-sso'></a>
+
+## Configure Microsoft Entra SSO
+
+Follow these steps to enable Microsoft Entra SSO.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **ExpenseIn** application integration page, find the **Manage** section and select **Single sign-on**.
 1. On the **Select a Single sign-on method** page, select **SAML**.
-1. On the **Set up Single Sign-On with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up Single Sign-On with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following step:
-
-	In the **Reply URL** text box, type any one of the URL:
-
-    | |
-    |--|
-    | `https://app.expensein.com/samlcallback` |
-    | `https://mobileapi.expensein.com/identity/samlcallback` |
+1. On the **Basic SAML Configuration** section, the user does not have to perform any steps as the app is already pre-integrated with Azure.
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    In the **Sign-on URL** text box, type a URL:
+    In the **Sign-on URL** text box, type the URL:
     `https://app.expensein.com/saml`
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and click **Download** to download the **Certificate (Base64)** and save it on your computer.
@@ -97,61 +88,66 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
-### Configure ExpenseIn
+<a name='create-an-azure-ad-test-user'></a>
 
-1. In a different web browser window, sign in to ExpenseIn as an Administrator.
+### Create a Microsoft Entra test user
 
-2. Click on **Admin** on the top of the page then navigate to **Single Sign-On** and click **Add provider**.
+In this section, you'll create a test user called B.Simon.
 
-	 ![ExpenseIn configuration](./media/expenseIn-tutorial/config01.png)
-
-3. On the **New Identity Provider** pop-up, Perform the following steps:
-
-    ![ExpenseIn configuration](./media/expenseIn-tutorial/config02.png)
-
-	a. In the **Provider Name** text box, type the name like ex:Azure.
-
-	b. In the **Target Url** text box, paste the value of **Login URL**, which you have copied from Azure portal.
-
-    c. In the **Issuer** text box, paste the value of **Azure AD Identifier**, which you have copied from Azure portal.
-
-    d. Open the Certificate (Base64) in Notepad, copy its content and paste it in the **Certificate** text box.
-
-	e. Click **Create**.
-
-### Create an Azure AD test user
-
-In this section, you'll create a test user in the Azure portal called B. Simon.
-
-1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
-1. Select **New user** at the top of the screen.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
 1. In the **User** properties, follow these steps:
-   1. In the **Name** field, enter `B. Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. For example, `BrittaSimon@contoso.com`.
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-   1. Click **Create**.
+   1. Select **Review + create**.
+1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
 
-In this section, you'll enable B. Simon to use Azure single sign-on by granting access to ExpenseIn.
+### Assign the Microsoft Entra test user
 
-1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
-1. In the applications list, select **ExpenseIn**.
+In this section, you'll enable B.Simon to use single sign-on by granting access to ExpenseIn.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **ExpenseIn**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
-
-   ![The "Users and groups" link](common/users-groups-blade.png)
-
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
-
-	![The Add User link](common/add-assign-user.png)
-
-1. In the **Users and groups** dialog, select **B. Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
+## Configure ExpenseIn SSO
+
+
+
+
+1. In a different web browser window, sign in to your ExpenseIn company site as an administrator
+
+1. Click on **Admin** on the top of the page then navigate to **Single Sign-On** and click **Add provider**.
+
+	 ![Screenshot that shows the "Admin" tab and the "Single Sign-On - Providers" page and "Add Provider" selected.](./media/expenseIn-tutorial/admin.png)
+
+1. On the **New Identity Provider** pop-up, Perform the following steps:
+
+    ![Screenshot that shows the "Edit Identity Provider" pop-up with values entered.](./media/expenseIn-tutorial/certificate.png)
+
+	a. In the **Provider Name** text box, type the name; for example, Azure.
+
+	b. Select **Yes** for **Allow Provider Initiated Sign-On**.
+
+	c. In the **Target Url** text box, paste the value of **Login URL**.
+
+    d. In the **Issuer** text box, paste the value of **Microsoft Entra Identifier**.
+
+    e. Open the Certificate (Base64) in Notepad, copy its content and paste it in the **Certificate** text box.
+
+	f. Click **Create**.
+
 ### Create ExpenseIn test user
 
-To enable Azure AD users to sign in to ExpenseIn, they must be provisioned into ExpenseIn. In ExpenseIn, provisioning is a manual task.
+To enable Microsoft Entra users to sign in to ExpenseIn, they must be provisioned into ExpenseIn. In ExpenseIn, provisioning is a manual task.
 
 **To provision a user account, perform the following steps:**
 
@@ -159,28 +155,36 @@ To enable Azure AD users to sign in to ExpenseIn, they must be provisioned into 
 
 2. Click on **Admin** on the top of the page then navigate to **Users** and click **New User**.
 
-	 ![ExpenseIn configuration](./media/expenseIn-tutorial/config03.png)
+	 ![Screenshot that shows the "Admin" tab and the "Manage Users" page with "New User" selected.](./media/expenseIn-tutorial/users.png)
 
 3. On the **Details** pop-up, perform the following steps:
 
-    ![ExpenseIn configuration](./media/expenseIn-tutorial/config04.png)
+    ![ExpenseIn configuration](./media/expenseIn-tutorial/details.png)
 
     a. In **First Name** text box, enter the first name of user like **B**.
 
     b. In **Last Name** text box, enter the last name of user like **Simon**.
 
-    c. In **Email** text box, enter the email of user like `B. Simon@contoso.com`.
+    c. In **Email** text box, enter the email of user like `B.Simon@contoso.com`.
 
     d. Click **Create**.
 
-### Test SSO
+## Test SSO
 
-When you select the ExpenseIn tile in the Access Panel, you should be automatically signed in to the ExpenseIn for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
-## Additional resources
+#### SP initiated:
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+* Click on **Test this application**, this will redirect to ExpenseIn Sign on URL where you can initiate the login flow.  
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+* Go to ExpenseIn Sign-on URL directly and initiate the login flow from there.
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+#### IDP initiated:
+
+* Click on **Test this application**, and you should be automatically signed in to the ExpenseIn for which you set up the SSO. 
+
+You can also use Microsoft My Apps to test the application in any mode. When you click the ExpenseIn tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the ExpenseIn for which you set up the SSO. For more information, see [Microsoft Entra My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
+
+## Next steps
+
+Once you configure ExpenseIn you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

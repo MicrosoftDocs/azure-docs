@@ -1,12 +1,12 @@
 ---
 title: Set up a scale-out process server during disaster recovery of VMware VMs and physical servers with Azure Site Recovery | Microsoft Docs'
 description: This article describes how to set up scale-out process server during disaster recovery of VMware VMs and physical servers.
-author: Rajeswari-Mamilla
-manager: rochakm
+author: ankitaduttaMSFT
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/23/2019
-ms.author: ramamill
+ms.author: ankitadutta
+ms.date: 05/27/2021
 ---
 
 # Scale with additional process servers
@@ -47,7 +47,7 @@ The prerequisites for the additional process server are summarized in the follow
 Download the installation file for the process server as follows:
 
 1. Sign in to the Azure portal, and browse to your Recovery Services Vault.
-2. Open **Site Recovery Infrastructure** > **VMWare and Physical Machines** > **Configuration Servers** (under For VMware & Physical Machines).
+2. Open **Site Recovery Infrastructure** > **VMware and Physical Machines** > **Configuration Servers** (under For VMware & Physical Machines).
 3. Select the configuration server to drill down into the server details. Then click **+ Process Server**.
 4. In **Add Process server** >  **Choose where you want to deploy your process server**, select **Deploy a Scale-out Process Server on-premises**.
 
@@ -69,7 +69,7 @@ Install as follows. After setting up the server, you migrate source machines to 
 Install by running the following command:
 
 ```
-UnifiedSetup.exe [/ServerMode <CS/PS>] [/InstallDrive <DriveLetter>] [/MySQLCredsFilePath <MySQL credentials file path>] [/VaultCredsFilePath <Vault credentials file path>] [/EnvType <VMWare/NonVMWare>] [/PSIP <IP address to be used for data transfer] [/CSIP <IP address of CS to be registered with>] [/PassphraseFilePath <Passphrase file path>]
+UnifiedSetup.exe [/ServerMode <CS/PS>] [/InstallDrive <DriveLetter>] [/MySQLCredsFilePath <MySQL credentials file path>] [/VaultCredsFilePath <Vault credentials file path>] [/EnvType <VMware/NonVMware>] [/PSIP <IP address to be used for data transfer] [/CSIP <IP address of CS to be registered with>] [/PassphraseFilePath <Passphrase file path>]
 ```
 
 Where command line parameters are as follows:
@@ -81,7 +81,7 @@ For example:
 ```
 MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Temp\Extracted
 cd C:\Temp\Extracted
-UNIFIEDSETUP.EXE /AcceptThirdpartyEULA /servermode "PS" /InstallLocation "D:\" /EnvType "VMWare" /CSIP "10.150.24.119" /PassphraseFilePath "C:\Users\Administrator\Desktop\Passphrase.txt" /DataTransferSecurePort 443
+UNIFIEDSETUP.EXE /AcceptThirdpartyEULA /servermode "PS" /InstallLocation "D:\" /EnvType "VMware" /CSIP "10.150.24.119" /PassphraseFilePath "C:\Users\Administrator\Desktop\Passphrase.txt" /DataTransferSecurePort 443
 ```
 ### Create a proxy settings file
 

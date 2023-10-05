@@ -1,16 +1,12 @@
 ---
-title: Create a VM and storage account for a scalable application in Azure | Microsoft Docs 
+title: Create a VM and storage account for a scalable application in Azure
 description: Learn how to deploy a VM to be used to run a scalable application using Azure blob storage
-services: storage
 author: roygara
-
-ms.service: storage
-ms.devlang: dotnet
+ms.service: azure-blob-storage
 ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
-ms.custom: mvc
-ms.subservice: blobs
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create a virtual machine and storage account for a scalable application
@@ -20,9 +16,9 @@ This tutorial is part one of a series. This tutorial shows you deploy an applica
 In part one of the series, you learn how to:
 
 > [!div class="checklist"]
-> * Create a storage account
-> * Create a virtual machine
-> * Configure a custom script extension
+> - Create a storage account
+> - Create a virtual machine
+> - Configure a custom script extension
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -30,7 +26,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module Az version 0.7 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module Az version 0.7 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 ## Create a resource group
 
@@ -41,7 +37,7 @@ New-AzResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
 ## Create a storage account
- 
+
 The sample uploads 50 large files to a blob container in an Azure Storage account. A storage account provides a unique namespace to store and access your Azure storage data objects. Create a storage account in the resource group you created by using the [New-AzStorageAccount](/powershell/module/az.Storage/New-azStorageAccount) command.
 
 In the following command, substitute your own globally unique name for the Blob storage account where you see the `<blob_storage_account>` placeholder.
@@ -52,6 +48,7 @@ $storageAccount = New-AzStorageAccount -ResourceGroupName myResourceGroup `
   -Location EastUS `
   -SkuName Standard_LRS `
   -Kind Storage `
+  -AllowBlobPublicAccess $false
 ```
 
 ## Create a virtual machine
@@ -101,12 +98,12 @@ Write-host "Your public IP address is $($pip.IpAddress)"
 For this tutorial, there are pre-requisites that must be installed on the virtual machine. The custom script extension is used to run a PowerShell script that completes the following tasks:
 
 > [!div class="checklist"]
-> * Install .NET core 2.0
-> * Install chocolatey
-> * Install GIT
-> * Clone the sample repo
-> * Restore NuGet packages
-> * Creates 50 1-GB files with random data
+> - Install .NET core 2.0
+> - Install chocolatey
+> - Install GIT
+> - Clone the sample repo
+> - Restore NuGet packages
+> - Creates 50 1-GB files with random data
 
 Run the following cmdlet to finalize configuration of the virtual machine. This step takes 5-15 minutes to complete.
 
@@ -125,9 +122,9 @@ Set-AzVMCustomScriptExtension -ResourceGroupName myResourceGroup `
 In part one of the series, you learned about creating a storage account, deploying a virtual machine and configuring the virtual machine with the required pre-requisites such as how to:
 
 > [!div class="checklist"]
-> * Create a storage account
-> * Create a virtual machine
-> * Configure a custom script extension
+> - Create a storage account
+> - Create a virtual machine
+> - Configure a custom script extension
 
 Advance to part two of the series to upload large amounts of data to a storage account using exponential retry and parallelism.
 

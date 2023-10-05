@@ -1,129 +1,72 @@
 ---
-title: What is the what if tool in Azure Active Directory conditional access?
-description: Learn how you can understand the impact of your conditional access policies on your environment.
-services: active-directory
-keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-editor: ''
+title: The Conditional Access What If tool
+description: Learn how you can understand the impact of your Conditional Access policies on your environment.
 
-ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
+services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 11/20/2018
+ms.topic: conceptual
+ms.date: 08/16/2022
+
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: amycolannino
 ms.reviewer: nigu
-
-#Customer intent: As an IT admin, I want to know how to use the What If tool for my existing conditional access policies, so that I can understand the impact they have on my environment. 
-
 ms.collection: M365-identity-device-management
 ---
+# Use the What If tool to troubleshoot Conditional Access policies
 
-# What is the what if tool in Azure Active Directory conditional access?
+The **Conditional Access What If policy tool** allows you to understand the impact of [Conditional Access](./overview.md) policies in your environment. Instead of test driving your policies by performing multiple sign-ins manually, this tool enables you to evaluate a simulated sign-in of a user. The simulation estimates the impact this sign-in has on your policies and generates a simulation report.
 
-[Conditional access](../active-directory-conditional-access-azure-portal.md) is a capability of Azure Active Directory (Azure AD) that enables you to control how authorized users access your cloud apps. How do you know what to expect form the conditional access policies in your environment? To answer this question, you can use the **conditional access what if tool**.
+The **What If** tool provides a way to quickly determine the policies that apply to a specific user. You can use the information, for example, if you need to troubleshoot an issue.	
 
-This article explains how you can use this tool to test your conditional access policies.
-
-## What it is
-
-The **conditional access what if policy tool** allows you to understand the impact of your conditional access policies on your environment. Instead of test driving your policies by performing multiple sign-ins manually, this tool enables you to evaluate a simulated sign-in of a user. The simulation estimates the impact this sign-in has on your policies and generates a simulation report. The report does not only list the applied conditional access policies but also [classic policies](policy-migration.md#classic-policies) if they exist.    
-
-The what if tools also provides a way to quickly determine the policies that apply to a specific user. You can use the information, for example, if you need to troubleshoot an issue.	
+> [!VIDEO https://www.youtube.com/embed/M_iQVM-3C3E]
 
 ## How it works
 
-In the **conditional access what if tool**, you first need to configure the settings of the sign-in scenario you want to simulate. These settings include:
+In the **Conditional Access What If tool**, you first need to configure the conditions of the sign-in scenario you want to simulate. These settings may include:
 
 - The user you want to test 
-
 - The cloud apps the user would attempt to access
+- The conditions under which access to the configured cloud apps is performed
 
-- The conditions under which access to the configures cloud apps is performed
+The What If tool doesn't test for [Conditional Access service dependencies](service-dependencies.md). For example, if you're using What If to test a Conditional Access policy for Microsoft Teams, the result doesn't take into consideration any policy that would apply to Office 365 Exchange Online, a Conditional Access service dependency for Microsoft Teams.
      
 As a next step, you can initiate a simulation run that evaluates your settings. Only policies that are enabled are part of an evaluation run.
 
-
-When the evaluation has finished, the tool generates a report of the affected policies.
-
-
+When the evaluation has finished, the tool generates a report of the affected policies. To gather more information about a Conditional Access policy, the [Conditional Access insights and reporting workbook](howto-conditional-access-insights-reporting.md) can provide more details about policies in report-only mode and those policies currently enabled.
 
 ## Running the tool
 
-You can find the **what if** tool on the **[Conditional access - Policies](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies)** page in the Azure portal.
+You can find the **What If** tool in the **Microsoft Entra admin center** > **Protection** > **Conditional Access** > **Policies** > **What If**.
 
-To start the tool, in the toolbar on top of the list of policies, click **What if**.
+:::image type="content" source="./media/what-if-tool/portal-showing-location-of-what-if-tool.png" alt-text="Screenshot of the Conditional Access Policies page. In the toolbar, the What if item is highlighted." border="false" lightbox="media/what-if-tool/portal-showing-location-of-what-if-tool.png":::
 
-![What if](./media/what-if-tool/01.png)
+Before you can run the What If tool, you must provide the conditions you want to evaluate.
 
-Before you can run an evaluation, you must configure the settings.
+## Conditions
 
-## Settings
+The only condition you must make is selecting a user or workload identity. All other conditions are optional. For a definition of these conditions, see the article [Building a Conditional Access policy](concept-conditional-access-policies.md).
 
-This section provides you with information about the settings of simulation run.
+:::image type="content" source="./media/what-if-tool/supply-conditions-to-evaluate-in-the-what-if-tool.png" alt-text="Screenshot of the What If page ready for conditions to be entered." border="false" lightbox="media/what-if-tool/supply-conditions-to-evaluate-in-the-what-if-tool.png":::
 
-![What if](./media/what-if-tool/02.png)
+## Evaluation
 
+You start an evaluation by clicking **What If**. The evaluation result provides you with a report that consists of: 
 
-### User
+- An indicator whether classic policies exist in your environment.
+- Policies that will apply to your user or workload identity.
+- Policies that don't apply to your user or workload identity.
 
-You can only select one user. This is the only required field.
+If [classic policies](policy-migration.md#classic-policies) exist for the selected cloud apps, an indicator is presented to you. By clicking the indicator, you're redirected to the classic policies page. On the classic policies page, you can migrate a classic policy or just disable it. You can return to your evaluation result by closing this page.
 
-### Cloud apps
+:::image type="content" source="media/what-if-tool/conditional-access-what-if-evaluation-result-example.png" alt-text="Screenshot of an example of the policy evaluation in the What If tool showing policies that would apply." lightbox="media/what-if-tool/conditional-access-what-if-evaluation-result-example.png":::
 
-The default for this setting is **All cloud apps**. The default setting performs an evaluation of all available policies in your environment. You can narrow down the scope to policies affecting specific cloud apps.
+On the list of policies that apply, you can also find a list of [grant controls](concept-conditional-access-grant.md) and [session controls](concept-conditional-access-session.md) that must be satisfied.
 
-
-### IP address
-
-The IP address is a single IPv4 address to mimic the [location condition](location-condition.md). The address represents Internet facing address of the device used by your user to sign in. You can verify the IP address of a device by, for example, navigating to [What is my IP address](https://whatismyipaddress.com).    
-
-### Device platforms
-
-This setting mimics the [device platforms condition](conditions.md#device-platforms) and represents the equivalent of **All platforms (including unsupported)**. 
-### Client apps
-
-This setting mimics the [client apps condition](conditions.md#client-apps).
-By default, this setting causes an evaluation of all policies having **Browser** or **Mobile apps and desktop clients** either individually or both selected. It also detects policies that enforce **Exchange ActiveSync (EAS)**. You can narrow this setting down by selecting:
-
-- **Browser** to evaluate all policies having at least **Browser** selected. 
-
-- **Mobile apps and desktop clients** to evaluate all policies having at least **Mobile apps and desktop clients** selected. 
-
-
-### Sign-in risk
-
-This setting mimics the [sign-in risk condition](conditions.md#sign-in-risk).   
-
-
-## Evaluation 
-
-You start an evaluation by clicking **What if**. The evaluation result provides you with a report that consists of: 
-
-![What if](./media/what-if-tool/03.png)
-
-- An indicator whether classic policies exist in your environment
-- Policies that apply to your user
-- Policies that don't apply to your user
-
-
-If [classic policies](policy-migration.md#classic-policies) exist for the selected cloud apps, an indicator is presented to you. By clicking the indicator, you are redirected to the classic policies page. On the classic policies page, you can migrate a classic policy or just disable it. You can return to your evaluation result by closing this page.
-
-On the list of policies that apply to your selected user, you can also find a list of [grant controls](controls.md#grant-controls) and [session](controls.md#session-controls) controls your user must satisfy.
-
-On the list of policies that don't apply to your user, you can and also find the reasons why these policies don't apply. For each listed policy, the reason represents the first condition that was not satisfied. A possible reason for a policy that is not applied is a disabled policy because they are not further evaluated.   
-
-
+On the list of policies that don't apply, you can find the reasons why these policies don't apply. For each listed policy, the reason represents the first condition that wasn't satisfied.
 
 ## Next steps
 
-- If you want to know how to configure a conditional access policy, see [Require MFA for specific apps with Azure Active Directory conditional access](app-based-mfa.md).
-
-- If you are ready to configure conditional access policies for your environment, see the [best practices for conditional access in Azure Active Directory](best-practices.md). 
-
-- if you want to migrate classic policies, see [Migrate classic policies in the Azure portal](policy-migration.md)  
+- More information about Conditional Access policy application can be found using the policies report-only mode using [Conditional Access insights and reporting](howto-conditional-access-insights-reporting.md).
+- If you're ready to configure Conditional Access policies for your environment, see the [Conditional Access common policies](concept-conditional-access-policy-common.md).

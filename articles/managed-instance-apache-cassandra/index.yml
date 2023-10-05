@@ -1,0 +1,81 @@
+### YamlMime:Landing
+
+title: Azure Managed Instance for Apache Cassandra documentation # < 60 chars
+summary: Azure Managed Instance for Apache Cassandra provides automated deployment and scaling operations for managed open-source Apache Cassandra datacenters. It accelerates hybrid scenarios and reduces ongoing maintenance. # < 160 chars
+
+metadata:
+  title: Azure Managed Instance for Apache Cassandra
+  description: Azure Managed Instance for Apache Cassandra provides automated deployment and scaling operations for managed open-source Apache Cassandra datacenters. It accelerates hybrid scenarios and reduces ongoing maintenance.
+  ms.service: managed-instance-apache-cassandra
+  ms.custom: ignite-2022
+  ms.topic: landing-page
+  ms.collection: collection
+  author: TheovanKraay
+  ms.author: thvankra
+  ms.date: 11/02/2021
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: About Azure Managed Instance for Apache Cassandra
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Managed Instance for Apache Cassandra?
+            url: introduction.md
+          - text: Management Operations
+            url: management-operations.md            
+      - linkListType: tutorial
+        links:
+          - text: Live migration
+            url: dual-write-proxy-migration.md
+          - text: Offline migration
+            url: spark-migration.md
+
+  # Card 
+  - title: Create and deploy a cluster
+    linkLists:  
+      - linkListType: quickstart
+        links:
+          - text: Create a cluster - Portal
+            url: create-cluster-portal.md
+          - text: Create a cluster - CLI
+            url: create-cluster-cli.md
+          - text: Create a multi-region cluster - CLI
+            url: create-multi-region-cluster.md            
+          - text: Deploy a Spark cluster with Azure Databricks
+            url: deploy-cluster-databricks.md 
+          - text: Search using Lucene Index
+            url: search-lucene-index.md             
+      - linkListType: concept
+        links:
+          - text: Security overview
+            url: security.md            
+          - text: Frequently asked questions
+            url: faq.md 
+
+  # Card 
+  - title: Configure and manage the cluster resources
+    linkLists:  
+      - linkListType: quickstart
+        links:
+          - text: Configure a hybrid cluster
+            url: configure-hybrid-cluster.md               
+      - linkListType: how-to-guide
+        links: 
+          - text: Best practices for optimal performance
+            url: best-practice-performance.md   
+          - text: Manage resources with Azure CLI
+            url: manage-resources-cli.md   
+          - text: Enable LDAP Authentication
+            url: ldap.md            
+          - text: Monitor cluster resources
+            url: monitor-clusters.md 
+          - text: Configure Customer-Managed Keys
+            url: customer-managed-keys.md                     
+          - text: Visualize metrics in Prometheus with Grafana
+            url: visualize-prometheus-grafana.md
+          - text: Networking Configuration
+            url: network-rules.md            

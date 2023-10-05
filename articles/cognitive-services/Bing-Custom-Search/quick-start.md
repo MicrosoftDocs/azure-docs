@@ -1,19 +1,21 @@
 ---
-title: "Quickstart: Create a first Bing Custom Search instance | Microsoft Docs"
-titlesuffix: Azure Cognitive Services
-description: Use this article to create a custom Bing instance that can search domains and webpages that you define. 
+title: "Quickstart: Create a first Bing Custom Search instance"
+titleSuffix: Azure AI services
+description: Use this quickstart to create a custom Bing instance that can search domains and webpages that you define.
 services: cognitive-services
 author: aahill
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 02/12/2019
+ms.date: 03/24/2020
 ms.author: aahi
+ms.custom: mode-other
 ---
 
 # Quickstart: Create your first Bing Custom Search instance
+
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 To use Bing Custom Search, you need to create a custom search instance that defines your view or slice of the web. This instance contains the public domains, websites, and webpages that you want to search, along with any ranking adjustments you may want. 
 
@@ -42,7 +44,7 @@ To create a Bing Custom Search instance:
 
 5. Click **Publish** to publish your changes to the production environment, and update the instance's endpoints.
 
-6.  Click on the **Production** tab. under **Endpoints**, copy your **Custom Configuration ID**. You need this ID to call the Custom Search API by appending it to the `customconfig=` query parameter in your calls.
+6.  Click on the **Production** tab under **Endpoints**, and copy your **Custom Configuration ID**. You need this ID to call the Custom Search API by appending it to the `customconfig=` query parameter in your calls.
 
 
 ## Next steps

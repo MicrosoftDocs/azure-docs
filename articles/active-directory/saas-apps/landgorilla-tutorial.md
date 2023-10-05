@@ -1,242 +1,153 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Land Gorilla Client | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Land Gorilla.
+title: 'Tutorial: Microsoft Entra SSO integration with Land Gorilla'
+description: Learn how to configure single sign-on between Microsoft Entra ID and Land Gorilla.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-
-ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/13/2017
+ms.topic: tutorial
+ms.date: 11/21/2022
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
-# Tutorial: Azure Active Directory integration with Land Gorilla Client
 
-In this tutorial, you learn how to integrate Land Gorilla Client with Azure Active Directory (Azure AD).
+# Tutorial: Microsoft Entra SSO integration with Land Gorilla
 
-Integrating Land Gorilla Client with Azure AD provides you with the following benefits:
+In this tutorial, you'll learn how to integrate Land Gorilla with Microsoft Entra ID. When you integrate Land Gorilla with Microsoft Entra ID, you can:
 
-- You can control in Azure AD who has access to Land Gorilla Client
-- You can enable your users to automatically get signed-on to Land Gorilla Client (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure Management portal
-
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
-
+* Control in Microsoft Entra ID who has access to Land Gorilla.
+* Enable your users to be automatically signed-in to Land Gorilla with their Microsoft Entra accounts.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
-To configure Azure AD integration with Land Gorilla Client, you need the following items:
+To get started, you need the following items:
 
-- An Azure AD subscription
-- A Land Gorilla Client single-sign on enabled subscription
-
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- You should not use your production environment, unless this is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
-
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* Land Gorilla single sign-on (SSO) enabled subscription.
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding Land Gorilla Client from the gallery
-1. Configuring and testing Azure AD single sign-on
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment.
 
+* Land Gorilla supports **IDP** initiated SSO.
 
-## Adding Land Gorilla Client from the gallery
-To configure the integration of Land Gorilla Client into Azure AD, you need to add Land Gorilla Client from the gallery to your list of managed SaaS apps.
+## Add Land Gorilla from the gallery
 
-**To add Land Gorilla Client from the gallery, perform the following steps:**
+To configure the integration of Land Gorilla into Microsoft Entra ID, you need to add Land Gorilla from the gallery to your list of managed SaaS apps.
 
-1. In the **[Azure Management Portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type **Land Gorilla** in the search box.
+1. Select **Land Gorilla** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-	![Active Directory][1]
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-1. Navigate to **Enterprise applications**. Then go to **All applications**.
+<a name='configure-and-test-azure-ad-sso-for-land-gorilla'></a>
 
-	![Applications][2]
-	
-1. Click **Add** button on the top of the dialog.
+## Configure and test Microsoft Entra SSO for Land Gorilla
 
-	![Applications][3]
+Configure and test Microsoft Entra SSO with Land Gorilla using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in Land Gorilla.
 
-1. In the search box, type **Land Gorilla Client**.
+To configure and test Microsoft Entra SSO with Land Gorilla, perform the following steps:
 
-	![Creating an Azure AD test user](./media/landgorilla-tutorial/tutorial_landgorilla_search.png)
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+   1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+   1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
+1. **[Configure Land Gorilla SSO](#configure-land-gorilla-sso)** - to configure the single sign-on settings on application side.
+   1. **[Create Land Gorilla test user](#create-land-gorilla-test-user)** - to have a counterpart of B.Simon in Land Gorilla that is linked to the Microsoft Entra representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-1. In the results panel, select **Land Gorilla Client**, and then click **Add** button to add the application.
+<a name='configure-azure-ad-sso'></a>
 
-	![Creating an Azure AD test user](./media/landgorilla-tutorial/tutorial_landgorilla_addfromgallery.png)
+## Configure Microsoft Entra SSO
 
+Follow these steps to enable Microsoft Entra SSO.
 
-##  Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with Land Gorilla Client based on a test user called "B. Simon".
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Land Gorilla** application integration page, find the **Manage** section and select **Single sign-on**.
+1. On the **Select a Single sign-on method** page, select **SAML**.
+1. On the **Set up Single Sign-On with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Land Gorilla Client is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Land Gorilla Client needs to be established.
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in Land Gorilla Client.
+1. On the **Basic SAML Configuration** section, perform the following steps:
 
-To configure and test Azure AD single sign-on with Land Gorilla Client, you need to complete the following building blocks:
+   a. In the **Identifier** text box, type a URL using one of the following patterns:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-1. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with limited group.
-1. **[Creating a Land Gorilla test user](#creating-a-land-gorilla-test-user)** - to test Azure AD single sign-on with B. Simon.
-1. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable B. Simon to use Azure AD single sign-on.
-1. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+   | **Identifier** |
+   |------|
+   | `https://<customer domain>.landgorilla.com/` |
+   | `https://www.<customer domain>.landgorilla.com` |
 
-### Configuring Azure AD single sign-on
+   b. In the **Reply URL** text box, type a URL using one of the following patterns:
 
-In this section, you enable Azure AD single sign-on in the Azure Management portal and configure single sign-on in your Land Gorilla Client application.
+   | **Reply URL** |
+   |-----|
+   | `https://<customer domain>.landgorilla.com/simplesaml/module.php/core/authenticate.php` |
+   | `https://www.<customer domain>.landgorilla.com/simplesaml/module.php/core/authenticate.php` |
+   | `https://<customer domain>.landgorilla.com/simplesaml/module.php/saml/sp/saml2-acs.php/default-sp` |
+   | `https://www.<customer domain>.landgorilla.com/simplesaml/module.php/saml/sp/saml2-acs.php/default-sp` |
 
-**To configure Azure AD single sign-on with Land Gorilla Client, perform the following steps:**
+	> [!NOTE]
+	> These values are not real. Update these values with the actual Identifier and Reply URL. Here we suggest you to use the unique value of string in the Identifier. Contact [Land Gorilla Client support team](https://www.landgorilla.com/support/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
-1. In the Azure Management portal, on the **Land Gorilla Client** application integration page, click **Single sign-on**.
+1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
-	![Configure Single Sign-On][4]
+	![The Certificate download link](common/metadataxml.png)
 
-1. On the **Single sign-on** dialog, as **Mode** select **SAML-based Sign-on** to enable single sign on.
- 
-	![Configure Single Sign-On](./media/landgorilla-tutorial/tutorial_landgorilla_samlbase.png)
+1. On the **Set up Land Gorilla** section, copy the appropriate URL(s) based on your requirement.
 
-1. On the **Land Gorilla Client Domain and URLs** section, perform the following steps:
+	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-	![Configure Single Sign-On](./media/landgorilla-tutorial/tutorial_landgorilla_url_02.png)
+<a name='create-an-azure-ad-test-user'></a>
 
-    a. In the **Identifier** textbox, type the value using one of the following pattern: 
-	
-	`https://<customer domain>.landgorilla.com/` 
-	
-	`https://www.<customer domain>.landgorilla.com`
+### Create a Microsoft Entra test user
 
-	b. In the **Reply URL** textbox, type a URL using one of the following pattern:
+In this section, you'll create a test user called B.Simon.
 
-	`https://<customer domain>.landgorilla.com/simplesaml/module.php/core/authenticate.php`
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Select **Review + create**.
+1. Select **Create**.
 
-	`https://www.<customer domain>.landgorilla.com/simplesaml/module.php/core/authenticate.php`
+<a name='assign-the-azure-ad-test-user'></a>
 
-	`https://<customer domain>.landgorilla.com/simplesaml/module.php/saml/sp/saml2-acs.php/default-sp`
-	
-	`https://www.<customer domain>.landgorilla.com/simplesaml/module.php/saml/sp/saml2-acs.php/default-sp`
+### Assign the Microsoft Entra test user
 
-	> [!NOTE] 
-	> Please note that these are not the real values. You have to update these values with the actual Identifier and Reply URL. Here we suggest you to use the unique value of string in the Identifier. Contact [Land Gorilla Client 
-	>  team](https://www.landgorilla.com/support/) to get these values. 
+In this section, you'll enable B.Simon to use single sign-on by granting access to Land Gorilla.
 
-1. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the XML file on your computer.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Land Gorilla**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
+1. In the **Add Assignment** dialog, click the **Assign** button.
 
-	![Configure Single Sign-On](./media/landgorilla-tutorial/tutorial_landgorilla_certificate.png) 
+## Configure Land Gorilla SSO
 
-1. Click **Save** button.
+To configure single sign-on on **Land Gorilla** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from the application configuration to [Land Gorilla support team](https://www.landgorilla.com/support/). They set this setting to have the SAML SSO connection set properly on both sides.
 
-	![Configure Single Sign-On](./media/landgorilla-tutorial/tutorial_general_400.png) 
+### Create Land Gorilla test user
 
-1. To get SSO configuration complete for your application at Land Gorilla end, Contact [Land Gorilla Client support team](https://www.landgorilla.com/support/) and provide them with the downloaded **“Metadata XML** file.
+In this section, you create a user called Britta Simon in Land Gorilla. Work with [Land Gorilla support team](https://www.landgorilla.com/support/) to add the users in the Land Gorilla platform. Users must be created and activated before you use single sign-on.
 
+## Test SSO
 
-### Creating an Azure AD test user
-The objective of this section is to create a test user in the Azure Management portal called B. Simon.
+In this section, you test your Microsoft Entra single sign-on configuration with following options.
 
-![Create Azure AD User][100]
+* Click on **Test this application**, and you should be automatically signed in to the Land Gorilla for which you set up the SSO.
 
-**To create a test user in Azure AD, perform the following steps:**
+* You can use Microsoft My Apps. When you click the Land Gorilla tile in the My Apps, you should be automatically signed in to the Land Gorilla for which you set up the SSO. For more information, see [Microsoft Entra My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
-1. In the **Azure Management portal**, on the left navigation pane, click **Azure Active Directory** icon.
+## Next steps
 
-	![Creating an Azure AD test user](./media/landgorilla-tutorial/create_aaduser_01.png) 
-
-1. Go to **Users and groups** and click **All users** to display the list of users.
-	
-	![Creating an Azure AD test user](./media/landgorilla-tutorial/create_aaduser_02.png) 
-
-1. At the top of the dialog click **Add** to open the **User** dialog.
- 
-	![Creating an Azure AD test user](./media/landgorilla-tutorial/create_aaduser_03.png) 
-
-1. On the **User** dialog page, perform the following steps:
- 
-	![Creating an Azure AD test user](./media/landgorilla-tutorial/create_aaduser_04.png) 
-
-    a. In the **Name** textbox, type **B. Simon**.
-
-    b. In the **User name** textbox, type the **email address** of B. Simon.
-
-	c. Select **Show Password** and write down the value of the **Password**.
-
-    d. Click **Create**. 
-
-### Creating a Land Gorilla test user
-
-Please work with [Land Gorilla support team](https://www.landgorilla.com/support/) to add the users in the Land Gorilla platform.
-    
-### Assigning the Azure AD test user
-
-In this section, you enable B. Simon to use Azure single sign-on by granting them access to Land Gorilla Client.
-
-![Assign User][200] 
-
-**To assign B. Simon to Land Gorilla Client, perform the following steps:**
-
-1. In the Azure Management portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
-
-	![Assign User][201] 
-
-1. In the applications list, select **Land Gorilla Client**.
-
-	![Configure Single Sign-On](./media/landgorilla-tutorial/tutorial_landgorilla_app.png) 
-
-1. In the menu on the left, click **Users and groups**.
-
-	![Assign User][202] 
-
-1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
-
-	![Assign User][203]
-
-1. On **Users and groups** dialog, select **B. Simon** in the Users list.
-
-1. Click **Select** button on **Users and groups** dialog.
-
-1. Click **Assign** button on **Add Assignment** dialog.
-	
-
-
-### Testing single sign-on
-
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
-
-When you click the Land Gorilla Client tile in the Access Panel, you should get automatically signed-on to your Land Gorilla Client application.
-
-
-## Additional resources
-
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-
-
-<!--Image references-->
-
-[1]: ./media/landgorilla-tutorial/tutorial_general_01.png
-[2]: ./media/landgorilla-tutorial/tutorial_general_02.png
-[3]: ./media/landgorilla-tutorial/tutorial_general_03.png
-[4]: ./media/landgorilla-tutorial/tutorial_general_04.png
-
-[100]: ./media/landgorilla-tutorial/tutorial_general_100.png
-[200]: ./media/landgorilla-tutorial/tutorial_general_200.png
-[201]: ./media/landgorilla-tutorial/tutorial_general_201.png
-[202]: ./media/landgorilla-tutorial/tutorial_general_202.png
-[203]: ./media/landgorilla-tutorial/tutorial_general_203.png
+Once you configure Land Gorilla you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

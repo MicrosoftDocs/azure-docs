@@ -1,89 +1,125 @@
 ---
-title: Import SOAP API using the Azure portal | Microsoft Docs
-description: Learn how to import SOAP API with API Management.
-services: api-management
-documentationcenter: ''
-author: vladvino
-manager: cfowler
-editor: ''
-
+title: Import SOAP API to Azure API Management | Microsoft Docs
+description: Learn how to import a SOAP API to Azure API Management as a WSDL specification using the Azure portal, Azure CLI, or Azure PowerShell. Then, test the API in the Azure portal.
+author: dlepow
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: tutorial
-ms.date: 11/22/2017
-ms.author: apimpm
-
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.topic: how-to
+ms.date: 10/26/2022
+ms.author: danlep
 ---
-# Import SOAP API
+# Import SOAP API to API Management
 
-This article shows how to import a standard XML representation of a SOAP API. The article also shows how to test the APIM API.
+This article shows how to import a WSDL specification, which is a standard XML representation of a SOAP API. The article also shows how to test the API in API Management.
 
 In this article, you learn how to:
 
 > [!div class="checklist"]
-> * Import SOAP API
+> * Import a SOAP API
 > * Test the API in the Azure portal
-> * Test the API in the Developer portal
+
+[!INCLUDE [api-management-wsdl-import](../../includes/api-management-wsdl-import.md)]
 
 ## Prerequisites
 
-Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md)
+* An API Management instance. If you don't already have one, complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
 
-[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
+* Azure CLI
+    [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
-## <a name="create-api"> </a>Import and publish a back-end API
 
-1. Select **APIs** from under **API MANAGEMENT**.
-2. Select **WSDL** from the **Add a new API** list.
+* Azure PowerShell
+    [!INCLUDE [azure-powershell-requirements-no-header](../../includes/azure-powershell-requirements-no-header.md)]
 
-    ![Soap api](./media/import-soap-api/wsdl-api.png)
-3. In the **WSDL specification**, enter the URL to where your SOAP API resides.
-4. The **SOAP pass-through** radio button is selected by default. With this selection, the API is going to be exposed as SOAP. Consumer has to use SOAP rules. If you want to "restify" the API, follow the steps in [Import a SOAP API and convert it to REST](restify-soap-api.md).
 
-    ![Pass-through](./media/import-soap-api/pass-through.png)
-5. Press tab.
+ 
+## <a name="create-api"> </a>Import a backend API
 
-    The following fields get filled up with the info from the SOAP API: Display name, Name, Description.
-6. Add an API URL suffix. The suffix is a name that identifies this specific API in this APIM instance. It has to be unique in this APIM instance.
-9. Publish the API by associating the API with a product. In this case, the "*Unlimited*" product is used.  If you want for the API to be published and be available to developers, add it to a product. You can do it during API creation or set it later.
+#### [Portal](#tab/portal)
 
-    Products are associations of one or more APIs. You can include a number of APIs and offer them to developers through the developer portal. Developers must first subscribe to a product to get access to the API. When they subscribe, they get a subscription key that is good for any API in that product. If you created the APIM instance, you are an administrator already, so you are subscribed to every product by default.
+1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
+1. In the left menu, select **APIs** > **+ Add API**.
+1. Under **Create from definition**, select **WSDL**.
 
-    By default, each API Management instance comes with two sample products:
+    ![SOAP API](./media/import-soap-api/wsdl-api.png)
+1. In **WSDL specification**, enter the URL to your SOAP API, or click **Select a file** to select a local WSDL file.
+1. In **Import method**, **SOAP pass-through** is selected by default. 
+    With this selection, the API is exposed as SOAP, and API consumers have to use SOAP rules. If you want to "restify" the API, follow the steps in [Import a SOAP API and convert it to REST](restify-soap-api.md).
 
-    * **Starter**
-    * **Unlimited**   
-10. Select **Create**.
+    ![Create SOAP API from WSDL specification](./media/import-soap-api/pass-through.png)
+1. The following fields are filled automatically with information from the SOAP API: **Display name**, **Name**, **Description**.
+1. Enter other API settings. You can set the values during creation or configure them later by going to the **Settings** tab. 
 
-### Test the new APIM API in the administrative portal
+    For more information about API settings, see [Import and publish your first API](import-and-publish.md#import-and-publish-a-backend-api) tutorial.
+1. Select **Create**.
 
-Operations can be called directly from the administrative portal, which provides a convenient way to view and test the operations of an API.  
+#### [Azure CLI](#tab/cli)
 
-1. Select the API you created in the previous step.
-2. Press the **Test** tab.
-3. Select some operation.
+The following example uses the [az apim api import](/cli/azure/apim/api#az-apim-api-import) command to import a WSDL specification from the specified URL to an API Management instance named *apim-hello-world*. To import using a path to a specification instead of a URL, use the `--specification-path` parameter.
 
-    The page displays fields for query parameters and fields for the headers. One of the headers is "Ocp-Apim-Subscription-Key", for the subscription key of the product that is associated with this API. If you created the APIM instance, you are an administrator already, so the key is filled in automatically. 
-1. Press **Send**.
+For this example WSDL, the service name is *OrdersAPI*, and one of the available endpoints (interfaces) is *basic*.
 
-    Backend responds with **200 OK** and some data.
+```azurecli-interactive
+# API Management service-specific details
+APIMServiceName="apim-hello-world"
+ResourceGroupName="myResourceGroup"
 
-### <a name="call-operation"> </a>Call an operation from the developer portal
+# API-specific details
+APIId="order-api"
+APIPath="order"
+SpecificationFormat="Wsdl"
+SpecificationURL="https://fazioapisoap.azurewebsites.net/FazioService.svc?singleWsdl"
+WsdlServiceName="OrdersAPI"
+WsdlEndpointName="basic"
 
-Operations can also be called **Developer portal** to test APIs. 
+# Import API
+az apim api import --path $APIPath --resource-group $ResourceGroupName \
+    --service-name $APIMServiceName --api-id $APIId \
+    --specification-format $SpecificationFormat --specification-url $SpecificationURL \
+    --wsdl-service-name $WsdlServiceName --wsdl-endpoint-name $WsdlEndpointName
+```
 
-1. Select the API you created in the "Import and publish a back-end API" step.
-2. Press **Developer portal**.
+#### [PowerShell](#tab/powershell)
 
-    The "Developer portal" site opens up.
-3. Select the **API** that you created.
-4. Click the operation you want to test.
-5. Press **Try it**.
-6. Press **Send**.
-    
-    After an operation is invoked, the developer portal displays the **Response status**, the **Response headers**, and any **Response content**.
+The following example uses the [Import-AzApiManagementApi](/powershell/module/az.apimanagement/import-azapimanagementapi?) Azure PowerShell cmdlet to import a WSDL specification from the specified URL to an API Management instance named *apim-hello-world*. To import using a path to a specification instead of a URL, use the `-SpecificationPath` parameter.
+
+For this example WSDL, the service name is *OrdersAPI*, and one of the available endpoints (interfaces) is *basic*.
+
+```powershell-interactive
+# API Management service-specific details
+$apimServiceName = "apim-hello-world"
+$resourceGroupName = "myResourceGroup"
+
+# API-specific det
+$apiId = "orders-api"
+$apiPath = "orders"
+$specificationFormat = "Wsdl"
+$specificationUrl = "https://fazioapisoap.azurewebsites.net/FazioService.svc?singleWsdl"
+$wsdlServiceName = "OrdersAPI"
+$wsdlEndpointName = "basic"
+
+# Get context of the API Management instance. 
+$context = New-AzApiManagementContext -ResourceGroupName $resourceGroupName -ServiceName $apimServiceName
+
+# Import API
+Import-AzApiManagementApi -Context $context -ApiId $apiId -SpecificationFormat $specificationFormat -SpecificationUrl $specificationUrl -Path $apiPath -WsdlServiceName $wsdlServiceName -WsdlEndpointName $wsdlEndpointName
+```
+
+---
+
+[!INCLUDE [api-management-test-api-portal](../../includes/api-management-test-api-portal.md)]
+
+## Wildcard SOAP action
+
+If you need to pass a SOAP request that doesn't have a dedicated action defined in the API, you can configure a wildcard SOAP action. The wildcard action will match any SOAP request that isn't defined in the API.  
+
+To define a wildcard SOAP action:
+
+1. In the portal, select the API you created in the previous step.
+1. In the **Design** tab, select **+ Add Operation**.
+1. Enter a **Display name** for the operation.
+1. In the URL, select `POST` and enter `/soapAction={any}` in the resource. The template parameter inside the curly brackets is arbitrary and doesn't affect the execution.
+
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 

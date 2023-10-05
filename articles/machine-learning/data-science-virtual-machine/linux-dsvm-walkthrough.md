@@ -1,392 +1,361 @@
 ---
-title: Learn how to use Linux Data Science Virtual Machine
-titleSuffix: Azure
-description: How to perform several common data science tasks with the Linux Data Science VM.
+title: Explore Linux
+titleSuffix: Azure Data Science Virtual Machine 
+description: Learn how to complete several common data science tasks by using the Linux Data Science Virtual Machine.
 services: machine-learning
-documentationcenter: ''
-author: gopitk
-manager: cgronlun
-editor: cgronlun
-ms.custom: seodec18
+ms.service: data-science-vm
 
-ms.assetid: 34ef0b10-9270-474f-8800-eecb183bbce4
-ms.service: machine-learning
-ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: jesscioffi
+ms.author: jcioffi
 ms.topic: conceptual
-ms.date: 07/16/2018
-ms.author: gokuma
+ms.date: 06/23/2022
 
 ---
-# Data science with a Linux Data Science Virtual Machine on Azure
-This walkthrough shows you how to perform several common data science tasks with the Linux Data Science VM. The Linux Data Science Virtual Machine (DSVM) is a virtual machine image available on Azure that is pre-installed with a collection of tools commonly used for data analytics and machine learning. The key software components are itemized in the [Provision the Linux Data Science Virtual Machine](linux-dsvm-intro.md) topic. The VM image makes it easy to get started doing data science in minutes, without having to install and configure each of the tools individually. You can easily scale up the VM, if needed, and stop it when not in use. So this resource is both elastic and cost-efficient.
 
-The data science tasks demonstrated in this walkthrough follow the steps outlined in the [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview). This process provides a systematic approach to data science that enables teams of data scientists to effectively collaborate over the lifecycle of building intelligent applications. The data science process also provides an iterative framework for data science that can be followed by an individual.
+# Data science with an Ubuntu Data Science Virtual Machine in Azure
 
-We analyze the [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) dataset in this walkthrough. This is a set of emails that are marked as either spam or ham (meaning they are not spam), and also contains some statistics on the content of the emails. The statistics included are discussed in the next but one section.
+This walkthrough shows you how to complete several common data science tasks by using the Ubuntu Data Science Virtual Machine (DSVM). The Ubuntu DSVM is a virtual machine image available in Azure that's preinstalled with a collection of tools commonly used for data analytics and machine learning. The key software components are itemized in [Provision the Ubuntu Data Science Virtual Machine](./dsvm-ubuntu-intro.md). The DSVM image makes it easy to get started doing data science in minutes, without having to install and configure each of the tools individually. You can easily scale up the DSVM if you need to, and you can stop it when it's not in use. The DSVM resource is both elastic and cost-efficient.
+
+In this walkthrough, we analyze the [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) dataset. Spambase is a set of emails that are marked either spam or ham (not spam). Spambase also contains some statistics about the content of the emails. We talk about the statistics later in the walkthrough.
 
 ## Prerequisites
-Before you can use a Linux Data Science Virtual Machine, you must have the following:
 
-* An **Azure subscription**. If you do not already have one, see [Create your free Azure account today](https://azure.microsoft.com/free/).
-* A [**Linux data science VM**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). For information on provisioning this VM, see [Provision the Linux Data Science Virtual Machine](linux-dsvm-intro.md).
-* [X2Go](https://wiki.x2go.org/doku.php) installed on your computer and opened an XFCE session. For information on installing and configuring an **X2Go client**, see [Installing and configuring X2Go client](linux-dsvm-intro.md#installing-and-configuring-x2go-client).
-* For a smoother scrolling experience, toggle the gfx.xrender.enabled flag in about:config in VMs FireFox browser. [See more here.](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Also consider toggling *mousewheel.enable_pixel_scrolling* to False. [Instructions here.](https://support.mozilla.org/en-US/questions/981140)
-* An **AzureML account**. If you don't already have one, sign up for new one at the [AzureML homepage](https://studio.azureml.net/). There is a free usage tier to help you get started.
+Before you can use a Linux DSVM, you must have the following prerequisites:
+
+* **Azure subscription**. To get an Azure subscription, see [Create your free Azure account today](https://azure.microsoft.com/free/).
+
+* [**Ubuntu Data Science Virtual Machine**](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004). For information about provisioning the virtual machine, see [Provision the Ubuntu Data Science Virtual Machine](./release-notes.md).
+* [**X2Go**](https://wiki.x2go.org/doku.php) installed on your computer with an open XFCE session. For more information, see [Install and configure the X2Go client](dsvm-ubuntu-intro.md#x2go).
 
 ## Download the spambase dataset
-The [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) dataset is a relatively small set of data that contains only 4601 examples. This is a convenient size to use when demonstrating that some of the key features of the Data Science VM as it keeps the resource requirements modest.
+
+The [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) dataset is a relatively small set of data that contains 4,601 examples. The dataset is a convenient size for demonstrating some of the key features of the DSVM because it keeps the resource requirements modest.
 
 > [!NOTE]
-> This walkthrough was created on a D2 v2-sized Linux Data Science Virtual Machine (CentOS Edition). This size DSVM is capable of handling the procedures in this walkthrough.
->
->
+> This walkthrough was created by using a D2 v2-size Linux DSVM. You can use a DSVM this size to complete the procedures that are demonstrated in this walkthrough.
 
-If you need more storage space, you can create additional disks and attach them to your VM. These disks use persistent Azure storage, so their data is preserved even when the server is reprovisioned due to resizing or is shut down. To add a disk and attach it to your VM, follow the instructions in [Add a disk to a Linux VM](../../virtual-machines/linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). These steps use the Azure Command-Line Interface (Azure CLI), which is already installed on the DSVM. So these procedures can be done entirely from the VM itself. Another option to increase storage is to use [Azure files](../../storage/files/storage-how-to-use-files-linux.md).
+If you need more storage space, you can create additional disks and attach them to your DSVM. The disks use persistent Azure storage, so their data is preserved even if the server is reprovisioned due to resizing or is shut down. To add a disk and attach it to your DSVM, complete the steps in [Add a disk to a Linux VM](../../virtual-machines/linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). The steps for adding a disk use the Azure CLI, which is already installed on the DSVM. You can complete the steps entirely from the DSVM itself. Another option to increase storage is to use [Azure Files](../../storage/files/storage-how-to-use-files-linux.md).
 
-To download the data, open a terminal window and run this command:
+To download the data, open a terminal window, and then run this command:
 
-    wget https://archive.ics.uci.edu/ml/machine-learning-databases/spambase/spambase.data
+```bash
+wget --no-check-certificate https://archive.ics.uci.edu/ml/machine-learning-databases/spambase/spambase.data
+```
 
-The downloaded file does not have a header row, so let's create another file that does have a header. Run this command to create a file with the appropriate headers:
+The downloaded file doesn't have a header row. Let's create another file that does have a header. Run this command to create a file with the appropriate headers:
 
-    echo 'word_freq_make, word_freq_address, word_freq_all, word_freq_3d,word_freq_our, word_freq_over, word_freq_remove, word_freq_internet,word_freq_order, word_freq_mail, word_freq_receive, word_freq_will,word_freq_people, word_freq_report, word_freq_addresses, word_freq_free,word_freq_business, word_freq_email, word_freq_you, word_freq_credit,word_freq_your, word_freq_font, word_freq_000, word_freq_money,word_freq_hp, word_freq_hpl, word_freq_george, word_freq_650, word_freq_lab,word_freq_labs, word_freq_telnet, word_freq_857, word_freq_data,word_freq_415, word_freq_85, word_freq_technology, word_freq_1999,word_freq_parts, word_freq_pm, word_freq_direct, word_freq_cs, word_freq_meeting,word_freq_original, word_freq_project, word_freq_re, word_freq_edu,word_freq_table, word_freq_conference, char_freq_semicolon, char_freq_leftParen,char_freq_leftBracket, char_freq_exclamation, char_freq_dollar, char_freq_pound, capital_run_length_average,capital_run_length_longest, capital_run_length_total, spam' > headers
+```bash
+echo 'word_freq_make, word_freq_address, word_freq_all, word_freq_3d,word_freq_our, word_freq_over, word_freq_remove, word_freq_internet,word_freq_order, word_freq_mail, word_freq_receive, word_freq_will,word_freq_people, word_freq_report, word_freq_addresses, word_freq_free,word_freq_business, word_freq_email, word_freq_you, word_freq_credit,word_freq_your, word_freq_font, word_freq_000, word_freq_money,word_freq_hp, word_freq_hpl, word_freq_george, word_freq_650, word_freq_lab,word_freq_labs, word_freq_telnet, word_freq_857, word_freq_data,word_freq_415, word_freq_85, word_freq_technology, word_freq_1999,word_freq_parts, word_freq_pm, word_freq_direct, word_freq_cs, word_freq_meeting,word_freq_original, word_freq_project, word_freq_re, word_freq_edu,word_freq_table, word_freq_conference, char_freq_semicolon, char_freq_leftParen,char_freq_leftBracket, char_freq_exclamation, char_freq_dollar, char_freq_pound, capital_run_length_average,capital_run_length_longest, capital_run_length_total, spam' > headers
+```
 
-Then concatenate the two files together with the command:
+Then, concatenate the two files together:
 
-    cat spambase.data >> headers
-    mv headers spambaseHeaders.data
+```bash
+cat spambase.data >> headers
+mv headers spambaseHeaders.data
+```
 
-The dataset has several types of statistics on each email:
+The dataset has several types of statistics for each email:
 
-* Columns like ***word\_freq\_WORD*** indicate the percentage of words in the email that match *WORD*. For example, if *word\_freq\_make* is 1, then 1% of all words in the email were *make*.
-* Columns like ***char\_freq\_CHAR*** indicate the percentage of all characters in the email that were *CHAR*.
-* ***capital\_run\_length\_longest*** is the longest length of a sequence of capital letters.
-* ***capital\_run\_length\_average*** is the average length of all sequences of capital letters.
-* ***capital\_run\_length\_total*** is the total length of all sequences of capital letters.
-* ***spam*** indicates whether the email was considered spam or not (1 = spam, 0 = not spam).
+* Columns like **word\_freq\__WORD_** indicate the percentage of words in the email that match *WORD*. For example, if **word\_freq\_make** is **1**, then 1% of all words in the email were *make*.
+* Columns like **char\_freq\__CHAR_** indicate the percentage of all characters in the email that are *CHAR*.
+* **capital\_run\_length\_longest** is the longest length of a sequence of capital letters.
+* **capital\_run\_length\_average** is the average length of all sequences of capital letters.
+* **capital\_run\_length\_total** is the total length of all sequences of capital letters.
+* **spam** indicates whether the email was considered spam or not (1 = spam, 0 = not spam).
 
-## Explore the dataset with Microsoft R Open
-Let's examine the data and do some basic machine learning with R. The Data Science VM comes with [Microsoft R Open](https://mran.revolutionanalytics.com/open/) pre-installed. The multithreaded math libraries in this version of R offer better performance than various single-threaded versions. Microsoft R Open also provides reproducibility by using a snapshot of the CRAN package repository.
+## Explore the dataset by using R Open
 
-To get copies of the code samples used in this walkthrough, clone the **Azure-Machine-Learning-Data-Science** repository using git, which is pre-installed on the VM. From the git command line, run:
+Let's examine the data and do some basic machine learning by using R. The DSVM comes with CRAN R pre-installed.
 
-    git clone https://github.com/Azure/Azure-MachineLearning-DataScience.git
+To get copies of the code samples that are used in this walkthrough, use git to clone the Azure-Machine-Learning-Data-Science repository. Git is preinstalled on the DSVM. At the git command line, run:
 
-Open a terminal window and start a new R session with the R interactive console or use RStudio preinstalled on the machine.
+```bash
+git clone https://github.com/Azure/Azure-MachineLearning-DataScience.git
+```
 
+Open a terminal window and start a new R session in the R interactive console.
+To import the data and set up the environment:
 
-To import the data and set up the environment, run:
-
-    data <- read.csv("spambaseHeaders.data")
-    set.seed(123)
+```R
+data <- read.csv("spambaseHeaders.data")
+set.seed(123)
+```
 
 To see summary statistics about each column:
 
-    summary(data)
+```R
+summary(data)
+```
 
 For a different view of the data:
 
-    str(data)
+```R
+str(data)
+```
 
-This shows you the type of each variable and the first few values in the dataset.
+This view shows you the type of each variable and the first few values in the dataset.
 
-The *spam* column was read as an integer, but it's actually a categorical variable (or factor). To set its type:
+The **spam** column was read as an integer, but it's actually a categorical variable (or factor). To set its type:
 
-    data$spam <- as.factor(data$spam)
+```R
+data$spam <- as.factor(data$spam)
+```
 
-To do some exploratory analysis, use the [ggplot2](https://ggplot2.tidyverse.org/) package, a popular graphing library for R that is already installed on the VM. Note, from the summary data displayed earlier, that we have summary statistics on the frequency of the exclamation mark character. Let's plot those frequencies here with the following commands:
+To do some exploratory analysis, use the [ggplot2](https://ggplot2.tidyverse.org/) package, a popular graphing library for R that's preinstalled on the DSVM. Based on the summary data displayed earlier, we have summary statistics on the frequency of the exclamation mark character. Let's plot those frequencies here by running the following commands:
 
-    library(ggplot2)
-    ggplot(data) + geom_histogram(aes(x=char_freq_exclamation), binwidth=0.25)
+```R
+library(ggplot2)
+ggplot(data) + geom_histogram(aes(x=char_freq_exclamation), binwidth=0.25)
+```
 
-Since the zero bar is skewing the plot, let's get rid of it:
+Because the zero bar is skewing the plot, let's eliminate it:
 
-    email_with_exclamation = data[data$char_freq_exclamation > 0, ]
-    ggplot(email_with_exclamation) + geom_histogram(aes(x=char_freq_exclamation), binwidth=0.25)
+```R
+email_with_exclamation = data[data$char_freq_exclamation > 0, ]
+ggplot(email_with_exclamation) + geom_histogram(aes(x=char_freq_exclamation), binwidth=0.25)
+```
 
-There is a non-trivial density above 1 that looks interesting. Let's look at just that data:
+There is a nontrivial density above 1 that looks interesting. Let's look at only that data:
 
-    ggplot(data[data$char_freq_exclamation > 1, ]) + geom_histogram(aes(x=char_freq_exclamation), binwidth=0.25)
+```R
+ggplot(data[data$char_freq_exclamation > 1, ]) + geom_histogram(aes(x=char_freq_exclamation), binwidth=0.25)
+```
 
-Then split it by spam vs ham:
+Then, split it by spam versus ham:
 
-    ggplot(data[data$char_freq_exclamation > 1, ], aes(x=char_freq_exclamation)) +
-    geom_density(lty=3) +
-    geom_density(aes(fill=spam, colour=spam), alpha=0.55) +
-    xlab("spam") +
-    ggtitle("Distribution of spam \nby frequency of !") +
-    labs(fill="spam", y="Density")
+```R
+ggplot(data[data$char_freq_exclamation > 1, ], aes(x=char_freq_exclamation)) +
+geom_density(lty=3) +
+geom_density(aes(fill=spam, colour=spam), alpha=0.55) +
+xlab("spam") +
+ggtitle("Distribution of spam \nby frequency of !") +
+labs(fill="spam", y="Density")
+```
 
-These examples should enable you to make similar plots of the other columns to explore the data contained in them.
+These examples should help you make similar plots and explore data in the other columns.
 
-## Train and test an ML model
-Now let's train a couple of machine learning models to classify the emails in the dataset as containing either span or ham. We train a decision tree model and a random forest model in this section and then test their accuracy of their predictions.
+## Train and test a machine learning model
+
+Let's train a couple of machine learning models to classify the emails in the dataset as containing either spam or ham. In this section, we train a decision tree model and a random forest model. Then, we test the accuracy of the predictions.
 
 > [!NOTE]
-> The rpart (Recursive Partitioning and Regression Trees) package used in the following code is already installed on the Data Science VM.
->
->
+> The *rpart* (Recursive Partitioning and Regression Trees) package used in the following code is already installed on the DSVM.
 
-First, let's split the dataset into training and test sets:
+First, let's split the dataset into training sets and test sets:
 
-    rnd <- runif(dim(data)[1])
-    trainSet = subset(data, rnd <= 0.7)
-    testSet = subset(data, rnd > 0.7)
+```R
+rnd <- runif(dim(data)[1])
+trainSet = subset(data, rnd <= 0.7)
+testSet = subset(data, rnd > 0.7)
+```
 
-And then create a decision tree to classify the emails.
+Then, create a decision tree to classify the emails:
 
-    require(rpart)
-    model.rpart <- rpart(spam ~ ., method = "class", data = trainSet)
-    plot(model.rpart)
-    text(model.rpart)
+```R
+require(rpart)
+model.rpart <- rpart(spam ~ ., method = "class", data = trainSet)
+plot(model.rpart)
+text(model.rpart)
+```
 
-Here is the result:
+Here's the result:
 
-![1](./media/linux-dsvm-walkthrough/decision-tree.png)
+![A diagram of the decision tree that's created](./media/linux-dsvm-walkthrough/decision-tree.png)
 
 To determine how well it performs on the training set, use the following code:
 
-    trainSetPred <- predict(model.rpart, newdata = trainSet, type = "class")
-    t <- table(`Actual Class` = trainSet$spam, `Predicted Class` = trainSetPred)
-    accuracy <- sum(diag(t))/sum(t)
-    accuracy
+```R
+trainSetPred <- predict(model.rpart, newdata = trainSet, type = "class")
+t <- table(`Actual Class` = trainSet$spam, `Predicted Class` = trainSetPred)
+accuracy <- sum(diag(t))/sum(t)
+accuracy
+```
 
 To determine how well it performs on the test set:
 
-    testSetPred <- predict(model.rpart, newdata = testSet, type = "class")
-    t <- table(`Actual Class` = testSet$spam, `Predicted Class` = testSetPred)
-    accuracy <- sum(diag(t))/sum(t)
-    accuracy
+```R
+testSetPred <- predict(model.rpart, newdata = testSet, type = "class")
+t <- table(`Actual Class` = testSet$spam, `Predicted Class` = testSetPred)
+accuracy <- sum(diag(t))/sum(t)
+accuracy
+```
 
-Let's also try a random forest model. Random forests train a multitude of decision trees and output a class that is the mode of the classifications from all of the individual decision trees. They provide a more powerful machine learning approach as they correct for the tendency of a decision tree model to overfit a training dataset.
+Let's also try a random forest model. Random forests train a multitude of decision trees and output a class that's the mode of the classifications from all the individual decision trees. They provide a more powerful machine learning approach because they correct for the tendency of a decision tree model to overfit a training dataset.
 
-    require(randomForest)
-    trainVars <- setdiff(colnames(data), 'spam')
-    model.rf <- randomForest(x=trainSet[, trainVars], y=trainSet$spam)
+```R
+require(randomForest)
+trainVars <- setdiff(colnames(data), 'spam')
+model.rf <- randomForest(x=trainSet[, trainVars], y=trainSet$spam)
 
-    trainSetPred <- predict(model.rf, newdata = trainSet[, trainVars], type = "class")
-    table(`Actual Class` = trainSet$spam, `Predicted Class` = trainSetPred)
+trainSetPred <- predict(model.rf, newdata = trainSet[, trainVars], type = "class")
+table(`Actual Class` = trainSet$spam, `Predicted Class` = trainSetPred)
 
-    testSetPred <- predict(model.rf, newdata = testSet[, trainVars], type = "class")
-    t <- table(`Actual Class` = testSet$spam, `Predicted Class` = testSetPred)
-    accuracy <- sum(diag(t))/sum(t)
-    accuracy
+testSetPred <- predict(model.rf, newdata = testSet[, trainVars], type = "class")
+t <- table(`Actual Class` = testSet$spam, `Predicted Class` = testSetPred)
+accuracy <- sum(diag(t))/sum(t)
+accuracy
+```
 
+<a name="deep-learning"></a>
 
-## Deploy a model to Azure Machine Learning studio
-[Azure Machine Learning Studio](https://studio.azureml.net/) is a cloud service that makes it easy to build and deploy predictive analytics models. One of the nice features of Azure Machine Learning studio is its ability to publish any R function as a web service. The Azure Machine Learning studio R package makes deployment easy to do right from our R session on the DSVM.
+## Deep learning tutorials and walkthroughs
 
-To deploy the decision tree code from the previous section, you need to sign in to Azure Machine Learning Studio. You need your workspace ID and an authorization token to sign in. To find these values and initialize the Azure Machine Learning variables with them:
+In addition to the framework-based samples, a set of comprehensive walkthroughs is also provided. These walkthroughs help you jump-start your development of deep learning applications in domains like image and text/language understanding.
 
-Select **Settings** on the left-hand menu. Note your **WORKSPACE ID**. ![2](./media/linux-dsvm-walkthrough/workspace-id.png)
+- [Running neural networks across different frameworks](https://github.com/ilkarman/DeepLearningFrameworks): A comprehensive walkthrough that shows you how to migrate code from one framework to another. It also demonstrates how to compare model and runtime performance across frameworks. 
 
-Select **Authorization Tokens** from the overhead menu and note your **Primary Authorization Token**.![3](./media/linux-dsvm-walkthrough/workspace-token.png)
+- [A how-to guide for building an end-to-end solution to detect products within images](https://github.com/Azure/cortana-intelligence-product-detection-from-images): Image detection is a technique that can locate and classify objects within images. The technology has the potential to bring huge rewards in many real-life business domains. For example, retailers can use this technique to determine which product a customer has picked up from the shelf. This information in turn helps stores manage product inventory. 
 
-Load the **AzureML** package and then set values of the variables with your token and workspace ID in your R session on the DSVM:
+- [Deep learning for audio](/archive/blogs/machinelearning/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure): This tutorial shows how to train a deep learning model for audio event detection on the [urban sounds dataset](https://urbansounddataset.weebly.com/). The tutorial provides an overview of how to work with audio data.
 
-    if(!require("AzureML")) install.packages("AzureML")
-    require(AzureML)
-    wsAuth = "<authorization-token>"
-    wsID = "<workspace-id>"
+- [Classification of text documents](https://github.com/anargyri/lstm_han): This walkthrough demonstrates how to build and train two different neural network architectures: Hierarchical Attention Network and Long Short Term Memory (LSTM). These neural networks use the Keras API for deep learning to classify text documents. Keras is a front end to three of the most popular deep learning frameworks: Microsoft Cognitive Toolkit, TensorFlow, and Theano.
 
+## Other tools
 
-Let's simplify the model to make this demonstration easier to implement. Pick the three variables in the decision tree closest to the root and build a new tree using just those three variables:
-
-    colNames <- c("char_freq_dollar", "word_freq_remove", "word_freq_hp", "spam")
-    smallTrainSet <- trainSet[, colNames]
-    smallTestSet <- testSet[, colNames]
-    model.rpart <- rpart(spam ~ ., method = "class", data = smallTrainSet)
-
-We need a prediction function that takes the features as an input and returns the predicted values:
-
-    predictSpam <- function(newdata) {
-      predictDF <- predict(model.rpart, newdata = newdata)
-      return(colnames(predictDF)[apply(predictDF, 1, which.max)])
-    }
-
-
-Publish the predictSpam function to AzureML using the **publishWebService** function:
-
-    spamWebService <- publishWebService(ws, fun = predictSpam, name="spamWebService", inputSchema = smallTrainSet, data.frame=TRUE)
-
-
-This function takes the **predictSpam** function, creates a web service named **spamWebService** with defined inputs and outputs, and returns information about the new endpoint.
-
-View details of the latest published web service, including its API endpoint and access keys with the command:
-
-    s<-tail(services(ws, name = "spamWebService"), 1)
-    ep <- endpoints(ws,s)
-    ep
-
-To try it out on the first 10 rows of the test set:
-
-    consume(ep, smallTestSet[1:10, ])
-
-
-## Use other tools available
-The remaining sections show how to use some of the tools installed on the Linux Data Science VM.Here is the list of tools discussed:
+The remaining sections show you how to use some of the tools that are installed on the Linux DSVM. We discuss these tools:
 
 * XGBoost
 * Python
-* Jupyterhub
+* JupyterHub
 * Rattle
-* PostgreSQL & Squirrel SQL
-* SQL Server Data Warehouse
+* PostgreSQL and SQuirreL SQL
+* Azure Synapse Analytics (formerly SQL DW)
 
-## XGBoost
-[XGBoost](https://xgboost.readthedocs.org/en/latest/) is a tool that provides a fast and accurate boosted tree implementation.
+### XGBoost
 
-    require(xgboost)
-    data <- read.csv("spambaseHeaders.data")
-    set.seed(123)
+[XGBoost](https://xgboost.readthedocs.org/en/latest/) provides a fast and accurate boosted tree implementation.
 
-    rnd <- runif(dim(data)[1])
-    trainSet = subset(data, rnd <= 0.7)
-    testSet = subset(data, rnd > 0.7)
+```R
+require(xgboost)
+data <- read.csv("spambaseHeaders.data")
+set.seed(123)
 
-    bst <- xgboost(data = data.matrix(trainSet[,0:57]), label = trainSet$spam, nthread = 2, nrounds = 2, objective = "binary:logistic")
+rnd <- runif(dim(data)[1])
+trainSet = subset(data, rnd <= 0.7)
+testSet = subset(data, rnd > 0.7)
 
-    pred <- predict(bst, data.matrix(testSet[, 0:57]))
-    accuracy <- 1.0 - mean(as.numeric(pred > 0.5) != testSet$spam)
-    print(paste("test accuracy = ", accuracy))
+bst <- xgboost(data = data.matrix(trainSet[,0:57]), label = trainSet$spam, nthread = 2, nrounds = 2, objective = "binary:logistic")
 
-XGBoost can also call from python or a command line.
+pred <- predict(bst, data.matrix(testSet[, 0:57]))
+accuracy <- 1.0 - mean(as.numeric(pred > 0.5) != testSet$spam)
+print(paste("test accuracy = ", accuracy))
+```
 
-## Python
-For development using Python, the Anaconda Python distributions 2.7 and 3.5 have been installed in the DSVM.
+XGBoost also can call from Python or a command line.
+
+### Python
+
+For Python development, the Anaconda Python distributions 3.5 and 2.7 are installed on the DSVM.
 
 > [!NOTE]
-> The Anaconda distribution includes [Conda](https://conda.pydata.org/docs/index.html), which can be used to create custom environments for Python that have different versions and/or packages installed in them.
->
->
+> The Anaconda distribution includes [Conda](https://conda.pydata.org/docs/index.html). You can use Conda to create custom Python environments that have different versions or packages installed in them.
 
-Let's read in some of the spambase dataset and classify the emails with support vector machines in scikit-learn:
+Let's read in some of the spambase dataset and classify the emails with support vector machines in Scikit-learn:
 
-    import pandas
-    from sklearn import svm
-    data = pandas.read_csv("spambaseHeaders.data", sep = ',\s*')
-    X = data.ix[:, 0:57]
-    y = data.ix[:, 57]
-    clf = svm.SVC()
-    clf.fit(X, y)
+```Python
+import pandas
+from sklearn import svm
+data = pandas.read_csv("spambaseHeaders.data", sep = ',\s*')
+X = data.ix[:, 0:57]
+y = data.ix[:, 57]
+clf = svm.SVC()
+clf.fit(X, y)
+```
 
 To make predictions:
 
-    clf.predict(X.ix[0:20, :])
+```Python
+clf.predict(X.ix[0:20, :])
+```
 
-To show how to publish an AzureML endpoint, let's make a simpler model the three variables as we did when we published the R model previously.
+To demonstrate how to publish an Azure Machine Learning endpoint, let's make a more basic model. We'll use the three variables that we used when we published the R model earlier:
 
-    X = data[["char_freq_dollar", "word_freq_remove", "word_freq_hp"]]
-    y = data.ix[:, 57]
-    clf = svm.SVC()
-    clf.fit(X, y)
+```Python
+X = data[["char_freq_dollar", "word_freq_remove", "word_freq_hp"]]
+y = data.ix[:, 57]
+clf = svm.SVC()
+clf.fit(X, y)
+```
 
-To publish the model to AzureML:
+### JupyterHub
 
-    # Publish the model.
-    workspace_id = "<workspace-id>"
-    workspace_token = "<workspace-token>"
-    from azureml import services
-    @services.publish(workspace_id, workspace_token)
-    @services.types(char_freq_dollar = float, word_freq_remove = float, word_freq_hp = float)
-    @services.returns(int) # 0 or 1
-    def predictSpam(char_freq_dollar, word_freq_remove, word_freq_hp):
-        inputArray = [char_freq_dollar, word_freq_remove, word_freq_hp]
-        return clf.predict(inputArray)
-
-    # Get some info about the resulting model.
-    predictSpam.service.url
-    predictSpam.service.api_key
-
-    # Call the model
-    predictSpam.service(1, 1, 1)
+The Anaconda distribution in the DSVM comes with a Jupyter Notebook, a cross-platform environment for sharing Python, R, or Julia code and analysis. The Jupyter Notebook is accessed through JupyterHub. You sign in by using your local Linux user name and password at https://\<DSVM DNS name or IP address\>:8000/. All configuration files for JupyterHub are found in /etc/jupyterhub.
 
 > [!NOTE]
-> This is only available for python 2.7 and is not yet supported on 3.5. Run with **/anaconda/bin/python2.7**.
+> To use the Python Package Manager (via the `pip` command) from a Jupyter Notebook in the current kernel, use this command in the code cell:
 >
->
-
-## Jupyterhub
-The Anaconda distribution in the DSVM comes with a Jupyter notebook, a cross-platform environment to share Python, R, or Julia code and analysis. The Jupyter notebook is accessed through JupyterHub. You sign in using your local Linux user name and password at ***https://\<VM DNS name or IP Address\>:8000/***. All configuration files for JupyterHub are found in directory **/etc/jupyterhub**.
-
-> [!NOTE]
-> To use the Python Package Manager (via the `pip` command) from a Jupyter notebook in the current kernel, the following command may be used in code cell, for example:
->   ```python
+>   ```Python
 >    import sys
 >    ! {sys.executable} -m pip install numpy -y
 >   ```
 > 
-> 
-> 
-> [!NOTE]
-> To use the Conda installer (via the `conda` command) from a Jupyter notebook in the current kernel, the following command may be used in code cell, for example:
->   ```python
+> To use the Conda installer (via the `conda` command) from a Jupyter Notebook in the current kernel, use this command in a code cell:
+>
+>   ```Python
 >    import sys
 >    ! {sys.prefix}/bin/conda install --yes --prefix {sys.prefix} numpy
 >   ```
 
-Several sample notebooks are already installed on the VM:
+Several sample notebooks are already installed on the DSVM:
 
-* See the [IntroToJupyterPython.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Data-Science-Virtual-Machine/Samples/Notebooks/IntroToJupyterPython.ipynb) for a sample Python notebook.
-* See [IntroTutorialinR](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Data-Science-Virtual-Machine/Samples/Notebooks/IntroTutorialinR.ipynb) for a sample **R** notebook.
-* See the [IrisClassifierPyMLWebService](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Data-Science-Virtual-Machine/Samples/Notebooks/IrisClassifierPyMLWebService.ipynb) for another sample **Python** notebook.
-
-> [!NOTE]
-> The Julia language is also available from the command line on the Linux Data Science VM.
->
->
-
-## Rattle
-[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) (the R Analytical Tool To Learn Easily) is a graphical R tool for data mining. It has an intuitive interface that makes it easy to load, explore, and transform data and build and evaluate models.  The article [Rattle: A Data Mining GUI for R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) provides a walkthrough that demonstrates its features.
-
-Install and start Rattle with the following commands:
-
-    if(!require("rattle")) install.packages("rattle")
-    require(rattle)
-    rattle()
+* Sample Python notebooks:
+  * [IntroToJupyterPython.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Data-Science-Virtual-Machine/Samples/Notebooks/IntroToJupyterPython.ipynb)
+* Sample R notebook:
+  * [IntroTutorialinR](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Data-Science-Virtual-Machine/Samples/Notebooks/IntroTutorialinR.ipynb) 
 
 > [!NOTE]
-> Installation is not required on the DSVM. But Rattle may prompt you to install additional packages when it loads.
->
->
+> The Julia language also is available from the command line on the Linux DSVM.
 
-Rattle uses a tab-based interface. Most of the tabs correspond to steps in the [Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), like loading data or exploring it. The data science process flows from left to right through the tabs. But the last tab contains a log of the R commands run by Rattle.
+### Rattle
+
+[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) (*R* *A*nalytical *T*ool *T*o *L*earn *E*asily) is a graphical R tool for data mining. Rattle has an intuitive interface that makes it easy to load, explore, and transform data, and to build and evaluate models. [Rattle: A Data Mining GUI for R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) provides a walkthrough that demonstrates Rattle's features.
+
+Install and start Rattle by running these commands:
+
+```R
+if(!require("rattle")) install.packages("rattle")
+require(rattle)
+rattle()
+```
+
+> [!NOTE]
+> You don't need to install Rattle on the DSVM. However, you might be prompted to install additional packages when Rattle opens.
+
+Rattle uses a tab-based interface. Most of the tabs correspond to steps in the [Team Data Science Process](/azure/architecture/data-science-process/overview), like loading data or exploring data. The data science process flows from left to right through the tabs. The last tab contains a log of the R commands that were run by Rattle.
 
 To load and configure the dataset:
 
-* To load the file, select the **Data** tab, then
-* Choose the selector next to **Filename** and choose **spambaseHeaders.data**.
-* To load the file. select **Execute** in the top row of buttons. You should see a summary of each column, including its identified data type, whether it's an input, a target, or other type of variable, and the number of unique values.
-* Rattle has correctly identified the **spam** column as the target. Select the spam column, then set the **Target Data Type** to **Categoric**.
+1. To load the file, select the **Data** tab.
+1. Choose the selector next to **Filename**, and then select **spambaseHeaders.data**.
+1. To load the file. select **Execute**. You should see a summary of each column, including its identified data type; whether it's an input, a target, or other type of variable; and the number of unique values.
+1. Rattle has correctly identified the **spam** column as the target. Select the **spam** column, and then set the **Target Data Type** to **Categoric**.
 
 To explore the data:
 
-* Select the **Explore** tab.
-* Click **Summary**, then **Execute**, to see some information about the variable types and some summary statistics.
-* To view other types of statistics about each variable, select other options like **Describe** or **Basics**.
+1. Select the **Explore** tab.
+1. To see information about the variable types and some summary statistics, select **Summary** > **Execute**.
+1. To view other types of statistics about each variable, select other options, like **Describe** or **Basics**.
 
-The **Explore** tab also allows you to generate many insightful plots. To plot a histogram of the data:
+You can also use the **Explore** tab to generate insightful plots. To plot a histogram of the data:
 
-* Select **Distributions**.
-* Check **Histogram** for **word_freq_remove** and **word_freq_you**.
-* Select **Execute**. You should see both density plots in a single graph window, where it is clear that the word "you" appears much more frequently in emails than "remove".
+1. Select **Distributions**.
+1. For **word_freq_remove** and **word_freq_you**, select **Histogram**.
+1. Select **Execute**. You should see both density plots in a single graph window, where it's clear that the word _you_ appears much more frequently in emails than _remove_.
 
-The Correlation plots are also interesting. To create one:
+The **Correlation** plots also are interesting. To create a plot:
 
-* Choose **Correlation** as the **Type**, then
-* Select **Execute**.
-* Rattle warns you that it recommends a maximum of 40 variables. Select **Yes** to view the plot.
+1. For **Type**, select **Correlation**.
+1. Select **Execute**.
+1. Rattle warns you that it recommends a maximum of 40 variables. Select **Yes** to view the plot.
 
-There are some interesting correlations that come up: "technology" is strongly correlated to "HP" and "labs", for example. It is also strongly correlated to "650", because the area code of the dataset donors is 650.
+There are some interesting correlations that come up: _technology_ is strongly correlated to _HP_ and _labs_, for example. It's also strongly correlated to _650_ because the area code of the dataset donors is 650.
 
-The numeric values for the correlations between words are available in the Explore window. It is interesting to note, for example, that "technology" is negatively correlated with "your" and "money".
+The numeric values for the correlations between words are available in the **Explore** window. It's interesting to note, for example, that _technology_ is negatively correlated with _your_ and _money_.
 
-Rattle can transform the dataset to handle some common issues. For example, it allows you to rescale features, impute missing values, handle outliers, and remove variables or observations with missing data. Rattle can also identify association rules between observations and/or variables. These tabs are out of scope for this introductory walkthrough.
+Rattle can transform the dataset to handle some common issues. For example, it can rescale features, impute missing values, handle outliers, and remove variables or observations that have missing data. Rattle can also identify association rules between observations and variables. These tabs aren't covered in this introductory walkthrough.
 
-Rattle can also perform cluster analysis. Let's exclude some features to make the output easier to read. On the **Data** tab, choose **Ignore** next to each of the variables except these ten items:
+Rattle also can run cluster analysis. Let's exclude some features to make the output easier to read. On the **Data** tab, select **Ignore** next to each of the variables except these 10 items:
 
 * word_freq_hp
 * word_freq_technology
@@ -399,147 +368,167 @@ Rattle can also perform cluster analysis. Let's exclude some features to make th
 * word_freq_business
 * spam
 
-Then go back to the **Cluster** tab, choose **KMeans**, and set the *Number of clusters* to 4. Then **Execute**. The results are displayed in the output window. One cluster has high frequency of "george" and "hp" and is probably a legitimate business email.
+Return to the **Cluster** tab. Select **KMeans**, and then set **Number of clusters** to **4**. Select **Execute**. The results are displayed in the output window. One cluster has high frequency of _george_ and _hp_, and is probably a legitimate business email.
 
-To build a simple decision tree machine learning model:
+To build a basic decision tree machine learning model:
 
-* Select the **Model** tab,
-* Choose **Tree** as the **Type**.
-* Select **Execute** to display the tree in text form in the output window.
-* Select the **Draw** button to view a graphical version. This looks quite similar to the tree we obtained earlier using *rpart*.
+1. Select the **Model** tab,
+1. For the **Type**, select **Tree**.
+1. Select **Execute** to display the tree in text form in the output window.
+1. Select the **Draw** button to view a graphical version. The decision tree looks similar to the tree we obtained earlier by using rpart.
 
-One of the nice features of Rattle is its ability to run several machine learning methods and quickly evaluate them. Here is the procedure:
+A helpful feature of Rattle is its ability to run several machine learning methods and quickly evaluate them. Here's are the steps:
 
-* Choose **All** for the **Type**.
-* Select **Execute**.
-* After it finishes you can click any single **Type**, like **SVM**, and view the results.
-* You can also compare the performance of the models on the validation set using the **Evaluate** tab. For example, the **Error Matrix** selection shows you the confusion matrix, overall error, and averaged class error for each model on the validation set.
-* You can also plot ROC curves, perform sensitivity analysis, and do other types of model evaluations.
+1. For **Type**, select **All**.
+1. Select **Execute**.
+1. When Rattle finishes running, you can select any **Type** value, like **SVM**, and view the results.
+1. You also can compare the performance of the models on the validation set by using the **Evaluate** tab. For example, the **Error Matrix** selection shows you the confusion matrix, overall error, and averaged class error for each model on the validation set. You also can plot ROC curves, run sensitivity analysis, and do other types of model evaluations.
 
-Once you're finished building models, select the **Log** tab to view the R code run by Rattle during your session. You can select the **Export** button to save it.
+When you're finished building models, select the **Log** tab to view the R code that was run by Rattle during your session. You can select the **Export** button to save it.
 
 > [!NOTE]
-> There is a bug in current release of Rattle. To modify the script or use it to repeat your steps later, you must insert a # character in front of *Export this log ...* in the text of the log.
->
->
+> The current release of Rattle contains a bug. To modify the script or to use it to repeat your steps later, you must insert a **#** character in front of *Export this log ...* in the text of the log.
 
-## PostgreSQL & Squirrel SQL
-The DSVM comes with PostgreSQL installed. PostgreSQL is a sophisticated, open-source relational database. This section shows how to load our spam dataset into PostgreSQL and then query it.
+### PostgreSQL and SQuirreL SQL
 
-Before you can load the data, you need to allow password authentication from the localhost. At a command prompt:
+The DSVM comes with PostgreSQL installed. PostgreSQL is a sophisticated, open-source relational database. This section shows you how to load the spambase dataset into PostgreSQL and then query it.
 
-    sudo gedit /var/lib/pgsql/data/pg_hba.conf
+Before you can load the data, you must allow password authentication from the localhost. At a command prompt, run:
+
+```Bash
+sudo gedit /var/lib/pgsql/data/pg_hba.conf
+```
 
 Near the bottom of the config file are several lines that detail the allowed connections:
 
-    # "local" is for Unix domain socket connections only
-    local   all             all                                     trust
-    # IPv4 local connections:
-    host    all             all             127.0.0.1/32            ident
-    # IPv6 local connections:
-    host    all             all             ::1/128                 ident
+```
+# "local" is only for Unix domain socket connections:
+local   all             all                                     trust
+# IPv4 local connections:
+host    all             all             127.0.0.1/32            ident
+# IPv6 local connections:
+host    all             all             ::1/128                 ident
+```
 
-Change the "IPv4 local connections" line to use md5 instead of ident, so we can log in using a username and password:
+Change the **IPv4 local connections** line to use **md5** instead of **ident**, so we can log in by using a username and password:
 
-    # IPv4 local connections:
-    host    all             all             127.0.0.1/32            md5
+```
+# IPv4 local connections:
+host    all             all             127.0.0.1/32            md5
+```
 
-And restart the postgres service:
+Then, restart the PostgreSQL service:
 
-    sudo systemctl restart postgresql
+```Bash
+sudo systemctl restart postgresql
+```
 
-To launch psql, an interactive terminal for PostgreSQL, as the built-in postgres user, run the following command from a prompt:
+To launch *psql* (an interactive terminal for PostgreSQL) as the built-in postgres user, run this command:
 
-    sudo -u postgres psql
+```Bash
+sudo -u postgres psql
+```
 
-Create a new user account, using the same username as the Linux account you're currently logged in as, and give it a password:
+Create a new user account by using the username of the Linux account you used to log in. Create a password:
 
-    CREATE USER <username> WITH CREATEDB;
-    CREATE DATABASE <username>;
-    ALTER USER <username> password '<password>';
-    \quit
+```Bash
+CREATE USER <username> WITH CREATEDB;
+CREATE DATABASE <username>;
+ALTER USER <username> password '<password>';
+\quit
+```
 
-Then log in to psql as your user:
+Log in to psql:
 
-    psql
+```Bash
+psql
+```
 
-And import the data into a new database:
+Import the data to a new database:
 
-    CREATE DATABASE spam;
-    \c spam
-    CREATE TABLE data (word_freq_make real, word_freq_address real, word_freq_all real, word_freq_3d real,word_freq_our real, word_freq_over real, word_freq_remove real, word_freq_internet real,word_freq_order real, word_freq_mail real, word_freq_receive real, word_freq_will real,word_freq_people real, word_freq_report real, word_freq_addresses real, word_freq_free real,word_freq_business real, word_freq_email real, word_freq_you real, word_freq_credit real,word_freq_your real, word_freq_font real, word_freq_000 real, word_freq_money real,word_freq_hp real, word_freq_hpl real, word_freq_george real, word_freq_650 real, word_freq_lab real,word_freq_labs real, word_freq_telnet real, word_freq_857 real, word_freq_data real,word_freq_415 real, word_freq_85 real, word_freq_technology real, word_freq_1999 real,word_freq_parts real, word_freq_pm real, word_freq_direct real, word_freq_cs real, word_freq_meeting real,word_freq_original real, word_freq_project real, word_freq_re real, word_freq_edu real,word_freq_table real, word_freq_conference real, char_freq_semicolon real, char_freq_leftParen real,char_freq_leftBracket real, char_freq_exclamation real, char_freq_dollar real, char_freq_pound real, capital_run_length_average real, capital_run_length_longest real, capital_run_length_total real, spam integer);
-    \copy data FROM /home/<username>/spambase.data DELIMITER ',' CSV;
-    \quit
+```SQL
+CREATE DATABASE spam;
+\c spam
+CREATE TABLE data (word_freq_make real, word_freq_address real, word_freq_all real, word_freq_3d real,word_freq_our real, word_freq_over real, word_freq_remove real, word_freq_internet real,word_freq_order real, word_freq_mail real, word_freq_receive real, word_freq_will real,word_freq_people real, word_freq_report real, word_freq_addresses real, word_freq_free real,word_freq_business real, word_freq_email real, word_freq_you real, word_freq_credit real,word_freq_your real, word_freq_font real, word_freq_000 real, word_freq_money real,word_freq_hp real, word_freq_hpl real, word_freq_george real, word_freq_650 real, word_freq_lab real,word_freq_labs real, word_freq_telnet real, word_freq_857 real, word_freq_data real,word_freq_415 real, word_freq_85 real, word_freq_technology real, word_freq_1999 real,word_freq_parts real, word_freq_pm real, word_freq_direct real, word_freq_cs real, word_freq_meeting real,word_freq_original real, word_freq_project real, word_freq_re real, word_freq_edu real,word_freq_table real, word_freq_conference real, char_freq_semicolon real, char_freq_leftParen real,char_freq_leftBracket real, char_freq_exclamation real, char_freq_dollar real, char_freq_pound real, capital_run_length_average real, capital_run_length_longest real, capital_run_length_total real, spam integer);
+\copy data FROM /home/<username>/spambase.data DELIMITER ',' CSV;
+\quit
+```
 
-Now, let's explore the data and run some queries using **Squirrel SQL**, a graphical tool that lets you interact with databases via a JDBC driver.
+Now, let's explore the data and run some queries by using SQuirreL SQL, a graphical tool that you can use to interact with databases via a JDBC driver.
 
-To get started, launch Squirrel SQL from the Applications menu. To set up the driver:
+To get started, on the **Applications** menu, open SQuirreL SQL. To set up the driver:
 
-* Select **Windows**, then **View Drivers**.
-* Right-click on **PostgreSQL** and select **Modify Driver**.
-* Select **Extra Class Path**, then **Add**.
-* Enter ***/usr/share/java/jdbcdrivers/postgresql-9.4.1208.jre6.jar*** for the **File Name** and
-* Select **Open**.
-* Choose List Drivers, then select **org.postgresql.Driver** in **Class Name**, and select **OK**.
+1. Select **Windows** > **View Drivers**.
+1. Right-click **PostgreSQL** and select **Modify Driver**.
+1. Select **Extra Class Path** > **Add**.
+1. For **File Name**, enter **/usr/share/java/jdbcdrivers/postgresql-9.4.1208.jre6.jar**.
+1. Select **Open**.
+1. Select **List Drivers**. For **Class Name**, select **org.postgresql.Driver**, and then select **OK**.
 
 To set up the connection to the local server:
 
-* Select **Windows**, then **View Aliases.**
-* Choose the **+** button to make a new alias.
-* Name it *Spam database*, choose **PostgreSQL** in the **Driver** drop-down.
-* Set the URL to *jdbc:postgresql://localhost/spam*.
-* Enter your *username* and *password*.
-* Click **OK**.
-* To open the **Connection** window, double-click the ***Spam database*** alias.
-* Select **Connect**.
+1. Select **Windows** > **View Aliases.**
+1. Select the **+** button to create a new alias. For the new alias name, enter **Spam database**. 
+1. For **Driver**, select **PostgreSQL**.
+1. Set the URL to **jdbc:postgresql://localhost/spam**.
+1. Enter your username and password.
+1. Select **OK**.
+1. To open the **Connection** window, double-click the **Spam database** alias.
+1. Select **Connect**.
 
 To run some queries:
 
-* Select the **SQL** tab.
-* Enter a simple query such as `SELECT * from data;` in the query textbox at the top of the SQL tab.
-* Press **Ctrl-Enter** to run it. By default Squirrel SQL returns the first 100 rows from your query.
+1. Select the **SQL** tab.
+1. In the query box at the top of the **SQL** tab, enter a basic query, like `SELECT * from data;`.
+1. Press Ctrl+Enter to run the query. By default, SQuirreL SQL returns the first 100 rows from your query.
 
-There are many more queries you could run to explore this data. For example, how does the frequency of the word *make* differ between spam and ham?
+There are many more queries you can run to explore this data. For example, how does the frequency of the word *make* differ between spam and ham?
 
-    SELECT avg(word_freq_make), spam from data group by spam;
+```SQL
+SELECT avg(word_freq_make), spam from data group by spam;
+```
 
-Or what are the characteristics of email that frequently contain *3d*?
+Or, what are the characteristics of email that frequently contain *3d*?
 
-    SELECT * from data order by word_freq_3d desc;
+```SQL
+SELECT * from data order by word_freq_3d desc;
+```
 
-Most emails that have a high occurrence of *3d* are apparently spam, so it could be a useful feature for building a predictive model to classify the emails.
+Most emails that have a high occurrence of *3d* apparently are spam. This information might be useful for building a predictive model to classify emails.
 
-If you wanted to perform machine learning with data stored in a PostgreSQL database, consider using [MADlib](https://madlib.incubator.apache.org/).
+If you want to do machine learning by using data stored in a PostgreSQL database, consider using [MADlib](https://madlib.incubator.apache.org/).
 
-## SQL Server Data Warehouse
-Azure SQL Data Warehouse is a cloud-based, scale-out database capable of processing massive volumes of data, both relational and non-relational. For more information, see [What is Azure SQL Data Warehouse?](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
+### Azure Synapse Analytics (formerly SQL DW)
+
+Azure Synapse Analytics is a cloud-based, scale-out database that can process massive volumes of data, both relational and non-relational. For more information, see [What is Azure Synapse Analytics?](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
 
 To connect to the data warehouse and create the table, run the following command from a command prompt:
 
-    sqlcmd -S <server-name>.database.windows.net -d <database-name> -U <username> -P <password> -I
+```Bash
+sqlcmd -S <server-name>.database.windows.net -d <database-name> -U <username> -P <password> -I
+```
 
-Then at the sqlcmd prompt:
+At the sqlcmd prompt, run this command:
 
-    CREATE TABLE spam (word_freq_make real, word_freq_address real, word_freq_all real, word_freq_3d real,word_freq_our real, word_freq_over real, word_freq_remove real, word_freq_internet real,word_freq_order real, word_freq_mail real, word_freq_receive real, word_freq_will real,word_freq_people real, word_freq_report real, word_freq_addresses real, word_freq_free real,word_freq_business real, word_freq_email real, word_freq_you real, word_freq_credit real,word_freq_your real, word_freq_font real, word_freq_000 real, word_freq_money real,word_freq_hp real, word_freq_hpl real, word_freq_george real, word_freq_650 real, word_freq_lab real,word_freq_labs real, word_freq_telnet real, word_freq_857 real, word_freq_data real,word_freq_415 real, word_freq_85 real, word_freq_technology real, word_freq_1999 real,word_freq_parts real, word_freq_pm real, word_freq_direct real, word_freq_cs real, word_freq_meeting real,word_freq_original real, word_freq_project real, word_freq_re real, word_freq_edu real,word_freq_table real, word_freq_conference real, char_freq_semicolon real, char_freq_leftParen real,char_freq_leftBracket real, char_freq_exclamation real, char_freq_dollar real, char_freq_pound real, capital_run_length_average real, capital_run_length_longest real, capital_run_length_total real, spam integer) WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
-    GO
+```SQL
+CREATE TABLE spam (word_freq_make real, word_freq_address real, word_freq_all real, word_freq_3d real,word_freq_our real, word_freq_over real, word_freq_remove real, word_freq_internet real,word_freq_order real, word_freq_mail real, word_freq_receive real, word_freq_will real,word_freq_people real, word_freq_report real, word_freq_addresses real, word_freq_free real,word_freq_business real, word_freq_email real, word_freq_you real, word_freq_credit real,word_freq_your real, word_freq_font real, word_freq_000 real, word_freq_money real,word_freq_hp real, word_freq_hpl real, word_freq_george real, word_freq_650 real, word_freq_lab real,word_freq_labs real, word_freq_telnet real, word_freq_857 real, word_freq_data real,word_freq_415 real, word_freq_85 real, word_freq_technology real, word_freq_1999 real,word_freq_parts real, word_freq_pm real, word_freq_direct real, word_freq_cs real, word_freq_meeting real,word_freq_original real, word_freq_project real, word_freq_re real, word_freq_edu real,word_freq_table real, word_freq_conference real, char_freq_semicolon real, char_freq_leftParen real,char_freq_leftBracket real, char_freq_exclamation real, char_freq_dollar real, char_freq_pound real, capital_run_length_average real, capital_run_length_longest real, capital_run_length_total real, spam integer) WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
+GO
+```
 
-Copy data with bcp:
+Copy the data by using bcp:
 
-    bcp spam in spambaseHeaders.data -q -c -t  ',' -S <server-name>.database.windows.net -d <database-name> -U <username> -P <password> -F 1 -r "\r\n"
+```bash
+bcp spam in spambaseHeaders.data -q -c -t  ',' -S <server-name>.database.windows.net -d <database-name> -U <username> -P <password> -F 1 -r "\r\n"
+```
 
 > [!NOTE]
-> The line endings in the downloaded file are Windows-style, but bcp expects UNIX-style, so we need to tell bcp that with the -r flag.
->
->
+> The downloaded file contains Windows-style line endings. The bcp tool expects Unix-style line endings. Use the -r flag to tell bcp.
 
-And query with sqlcmd:
+Then, query by using sqlcmd:
 
-    select top 10 spam, char_freq_dollar from spam;
-    GO
+```sql
+select top 10 spam, char_freq_dollar from spam;
+GO
+```
 
-You could also query with Squirrel SQL. Follow similar steps for PostgreSQL, using the Microsoft MSSQL Server JDBC Driver, which can be found in ***/usr/share/java/jdbcdrivers/sqljdbc42.jar***.
-
-## Next steps
-For an overview of topics that walk you through the tasks that comprise the Data Science process in Azure, see [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview).
-
-For a description of other end-to-end walkthroughs that demonstrate the steps in the Team Data Science Process for specific scenarios, see [Team Data Science Process walkthroughs](../team-data-science-process/walkthroughs.md). The walkthroughs also illustrate how to combine cloud and on-premises tools and services into a workflow or pipeline to create an intelligent application.
+You can also query by using SQuirreL SQL. Follow steps similar to PostgreSQL by using the SQL Server JDBC driver. The JDBC driver is in the /usr/share/java/jdbcdrivers/sqljdbc42.jar folder.

@@ -1,48 +1,41 @@
-﻿---
-title: Using Azure Application Gateway with Internal Load Balancer - PowerShell | Microsoft Docs
-description: This page provides instructions to create, configure, start, and delete an Azure application gateway with internal load balancer (ILB) for Azure Resource Manager
-documentationcenter: na
-services: application-gateway
-author: vhorne
-manager: jpconnock
-editor: tysonn
-
-ms.assetid: 75cfd5a2-e378-4365-99ee-a2b2abda2e0d
-ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/23/2018
-ms.author: victorh
-
 ---
+title: Use with Internal Load Balancer - Azure Application Gateway
+description: This article provides instructions to create, configure, start, and delete an Azure application gateway with internal load balancer (ILB)
+services: application-gateway
+author: greg-lindsay
+ms.service: application-gateway
+ms.topic: how-to
+ms.date: 09/13/2022
+ms.author: greglin 
+ms.custom: devx-track-azurepowershell
+---
+
 # Create an application gateway with an internal load balancer (ILB)
 
-Azure Application Gateway can be configured with an Internet-facing VIP or with an internal endpoint that is not exposed to the Internet, also known as an internal load balancer (ILB) endpoint. Configuring the gateway with an ILB is useful for internal line-of-business applications that are not exposed to the Internet. It's also useful for services and tiers within a multi-tier application that sit in a security boundary that is not exposed to the Internet but still require round-robin load distribution, session stickiness, or Secure Sockets Layer (SSL) termination.
+Azure Application Gateway Standard v1 can be configured with an Internet-facing VIP or with an internal endpoint that is not exposed to the Internet, also known as an internal load balancer (ILB) endpoint. Configuring the gateway with an ILB is useful for internal line-of-business applications that are not exposed to the Internet. It's also useful for services and tiers within a multi-tier application that sit in a security boundary that is not exposed to the Internet but still require round-robin load distribution, session stickiness, or Transport Layer Security (TLS), previously known as Secure Sockets Layer (SSL), termination.
 
-This article walks you through the steps to configure an application gateway with an ILB.
+This article walks you through the steps to configure a Standard v1 Application Gateway with an ILB.
 
 ## Before you begin
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-1. Install the latest version of the Azure PowerShell module by following the [install instructions](/powershell/azure/install-az-ps).
+1. Install the latest version of the Azure PowerShell module by following the [install instructions](/powershell/azure/install-azure-powershell).
 2. You create a virtual network and a subnet for Application Gateway. Make sure that no virtual machines or cloud deployments are using the subnet. Application Gateway must be by itself in a virtual network subnet.
 3. The servers that you configure to use the application gateway must exist or have their endpoints created either in the virtual network or with a public IP/VIP assigned.
 
 ## What is required to create an application gateway?
 
-* **Back-end server pool:** The list of IP addresses of the back-end servers. The IP addresses listed should either belong to the virtual network but in a different subnet for the application gateway or should be a public IP/VIP.
-* **Back-end server pool settings:** Every pool has settings like port, protocol, and cookie-based affinity. These settings are tied to a pool and are applied to all servers within the pool.
-* **Front-end port:** This port is the public port that is opened on the application gateway. Traffic hits this port, and then gets redirected to one of the back-end servers.
-* **Listener:** The listener has a front-end port, a protocol (Http or Https, these are case-sensitive), and the SSL certificate name (if configuring SSL offload).
-* **Rule:** The rule binds the listener and the back-end server pool and defines which back-end server pool the traffic should be directed to when it hits a particular listener. Currently, only the *basic* rule is supported. The *basic* rule is round-robin load distribution.
+* **Backend server pool:** The list of IP addresses of the backend servers. The IP addresses listed should either belong to the virtual network but in a different subnet for the application gateway or should be a public IP/VIP.
+* **Backend server pool settings:** Every pool has settings like port, protocol, and cookie-based affinity. These settings are tied to a pool and are applied to all servers within the pool.
+* **Frontend port:** This port is the public port that is opened on the application gateway. Traffic hits this port, and then gets redirected to one of the backend servers.
+* **Listener:** The listener has a frontend port, a protocol (Http or Https, these are case-sensitive), and the SSL certificate name (if configuring SSL offload).
+* **Rule:** The rule binds the listener and the backend server pool and defines which backend server pool the traffic should be directed to when it hits a particular listener. Currently, only the *basic* rule is supported. The *basic* rule is round-robin load distribution.
 
 ## Create an application gateway
 
 The difference between using Azure Classic and Azure Resource Manager is the order in which you create the application gateway and the items that need to be configured.
-With Resource Manager, all items that make an application gateway is configured individually and then put together to create the application gateway resource.
+With Resource Manager, all items that make an application gateway are configured individually and then put together to create the application gateway resource.
 
 Here are the steps that are needed to create an application gateway:
 
@@ -53,7 +46,7 @@ Here are the steps that are needed to create an application gateway:
 
 ## Create a resource group for Resource Manager
 
-Make sure that you switch PowerShell mode to use the Azure Resource Manager cmdlets. More info is available at [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md).
+Make sure that you switch PowerShell mode to use the Azure Resource Manager cmdlets. More info is available at [Using Windows PowerShell with Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md).
 
 ### Step 1
 
@@ -127,7 +120,7 @@ This step assigns the subnet object to variable $subnet for the next steps.
 $gipconfig = New-AzApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 ```
 
-This step creates an application gateway IP configuration named "gatewayIP01". When Application Gateway starts, it picks up an IP address from the subnet configured and route network traffic to the IP addresses in the back-end IP pool. Keep in mind that each instance takes one IP address.
+This step creates an application gateway IP configuration named "gatewayIP01". When Application Gateway starts, it picks up an IP address from the subnet configured and route network traffic to the IP addresses in the backend IP pool. Keep in mind that each instance takes one IP address.
 
 ### Step 2
 
@@ -135,7 +128,7 @@ This step creates an application gateway IP configuration named "gatewayIP01". W
 $pool = New-AzApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 10.1.1.8,10.1.1.9,10.1.1.10
 ```
 
-This step configures the back-end IP address pool named "pool01" with IP addresses "10.1.1.8, 10.1.1.9, 10.1.1.10". Those are the IP addresses that receive the network traffic that comes from the front-end IP endpoint. You replace the preceding IP addresses to add your own application IP address endpoints.
+This step configures the backend IP address pool named "pool01" with IP addresses "10.1.1.8, 10.1.1.9, 10.1.1.10". Those are the IP addresses that receive the network traffic that comes from the frontend IP endpoint. You replace the preceding IP addresses to add your own application IP address endpoints.
 
 ### Step 3
 
@@ -143,7 +136,7 @@ This step configures the back-end IP address pool named "pool01" with IP address
 $poolSetting = New-AzApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Disabled
 ```
 
-This step configures application gateway setting "poolsetting01" for the load balanced network traffic in the back-end pool.
+This step configures application gateway setting "poolsetting01" for the load balanced network traffic in the backend pool.
 
 ### Step 4
 
@@ -151,7 +144,7 @@ This step configures application gateway setting "poolsetting01" for the load ba
 $fp = New-AzApplicationGatewayFrontendPort -Name frontendport01  -Port 80
 ```
 
-This step configures the front-end IP port named "frontendport01" for the ILB.
+This step configures the frontend IP port named "frontendport01" for the ILB.
 
 ### Step 5
 
@@ -159,7 +152,7 @@ This step configures the front-end IP port named "frontendport01" for the ILB.
 $fipconfig = New-AzApplicationGatewayFrontendIPConfig -Name fipconfig01 -Subnet $subnet
 ```
 
-This step creates the front-end IP configuration called "fipconfig01" and associates it with a private IP from the current virtual network subnet.
+This step creates the frontend IP configuration called "fipconfig01" and associates it with a private IP from the current virtual network subnet.
 
 ### Step 6
 
@@ -167,7 +160,7 @@ This step creates the front-end IP configuration called "fipconfig01" and associ
 $listener = New-AzApplicationGatewayHttpListener -Name listener01  -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
 ```
 
-This step creates the listener called "listener01" and associates the front-end port to the front-end IP configuration.
+This step creates the listener called "listener01" and associates the frontend port to the frontend IP configuration.
 
 ### Step 7
 
@@ -256,17 +249,14 @@ Get-AzApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 ```
 VERBOSE: 10:52:46 PM - Begin Operation: Get-AzureApplicationGateway
 
-Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist.
+Get-AzureApplicationGateway : ResourceNotFound: The gateway doesn't exist.
 ```
 
 ## Next steps
 
-If you want to configure SSL offload, see [Configure an application gateway for SSL offload](application-gateway-ssl.md).
-
-If you want to configure an application gateway to use with an ILB, see [Create an application gateway with an internal load balancer (ILB)](application-gateway-ilb.md).
+If you want to configure SSL offload, see [Configure an application gateway for SSL offload](./tutorial-ssl-powershell.md).
 
 If you want more information about load balancing options in general, see:
 
-* [Azure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
-* [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
-
+* [Azure Load Balancer](../load-balancer/index.yml)
+* [Azure Traffic Manager](../traffic-manager/index.yml)

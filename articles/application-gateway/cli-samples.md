@@ -1,28 +1,20 @@
 ---
-title: Azure Application Gateway Azure CLI Samples | Microsoft Docs
-description: Application Gateway Azure CLI Samples
+title: Azure CLI examples for Azure Application Gateway
+description: This article has links to Azure CLI examples so you can quickly deploy Azure Application Gateway configured in various ways.
 services: application-gateway
-documentationcenter: networking
-author: vhorne
-manager: jpconnock
-editor: tysonn
-tags: azure-resource-manager
-
+author: greg-lindsay
 ms.service: application-gateway
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure
-ms.date: 01/30/2018
-ms.author: victorh
-ms.custom: mvc
+ms.topic: sample
+ms.date: 11/16/2019
+ms.author: greglin 
+ms.custom: devx-track-azurecli
 
 ---
-# Azure Application Gateway Azure CLI samples
+# Azure CLI examples for Azure Application Gateway
 
-The following table includes links to Azure CLI script samples that create application gateways.
+The following table includes links to Azure CLI script examples for Azure Application Gateway.
 
-| | |
-|---|---|
+| Example | Description |
+|-------- | ----------- |
 | [Manage web traffic](./scripts/create-vmss-cli.md) | Creates an application gateway and all related resources. |
 | [Restrict web traffic](./scripts/create-vmss-waf-cli.md) | Creates an application gateway that restricts traffic using OWASP rules.|
-| | |

@@ -1,22 +1,21 @@
 ---
-title: Add switch statements to workflows - Azure Logic Apps | Microsoft Docs
-description: How to create switch statements that control workflow actions based on specific values in Azure Logic Apps
+title: Add switch actions to workflows
+description: Create switch actions that control workflow actions based on specific values in Azure Logic Apps.
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.topic: article
-ms.date: 10/08/2018
+ms.reviewer: estfan, azla
+ms.topic: how-to
+ms.date: 09/01/2022
 ---
 
-# Create switch statements that run workflow actions based on specific values in Azure Logic Apps
+# Create switch actions that run workflow actions based on specific values in Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 To run specific actions based on the values of objects, expressions, 
-or tokens, add a *switch* statement. This structure evaluates the object, 
+or tokens, add a *switch* action. This structure evaluates the object, 
 expression, or token, chooses the case that matches the result, 
-and runs specific actions only for that case. When the switch statement runs, 
+and runs specific actions only for that case. When the switch action runs, 
 only one case should match the result.
 
 For example, suppose you want a logic app that takes different 
@@ -27,10 +26,10 @@ email to an approver. Based on whether the approver selects
 "Approve" or "Reject", the logic app follows different steps.
 
 > [!TIP]
-> Like all programming languages, switch statements 
+> Like all programming languages, switch actions 
 > support only equality operators. If you need other 
 > relational operators, such as "greater than", use a 
-> [conditional statement](../logic-apps/logic-apps-control-flow-conditional-statement.md).
+> [condition action](../logic-apps/logic-apps-control-flow-conditional-statement.md).
 > To ensure deterministic execution behavior, 
 > cases must contain a unique and static value 
 > instead of dynamic tokens or expressions.
@@ -40,9 +39,7 @@ email to an approver. Based on whether the approver selects
 * An Azure subscription. If you don't have a subscription, 
 [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-* To follow the example in this article, 
-[create this sample logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
-with an Outlook.com or Office 365 Outlook account.
+* To follow the example in this article, [create the example Consumption logic app workflow](../logic-apps/quickstart-create-example-consumption-workflow.md) with an Outlook.com account or a work or school account.
 
   1. When you add the action to send email, 
   find and select this action instead: 
@@ -56,14 +53,14 @@ with an Outlook.com or Office 365 Outlook account.
 
      ![Enter email details](./media/logic-apps-control-flow-switch-statement/send-approval-email-details.png)
 
-## Add switch statement
+## Add a switch action
 
-1. For this example, add a switch statement at the end 
+1. For this example, add a switch action at the end 
 your sample workflow. After the last step, choose **New step**.
 
-   When you want to add a switch statement between steps, 
+   When you want to add a switch action between steps, 
    move the pointer over the arrow where you want to add 
-   the switch statement. Choose the **plus sign** (**+**) 
+   the switch action. Choose the **plus sign** (**+**) 
    that appears, then choose **Add an action**.
 
 1. In the search box, enter "switch" as your filter. 
@@ -71,10 +68,10 @@ Select this action: **Switch - Control**
 
    ![Add switch](./media/logic-apps-control-flow-switch-statement/add-switch-statement.png)
 
-   A switch statement appears with one case and a default case. 
-   By default, a switch statement requires at least one case plus the default case. 
+   A switch action appears with one case and a default case. 
+   By default, a switch action requires at least one case plus the default case. 
 
-   ![Empty default switch statement](./media/logic-apps-control-flow-switch-statement/empty-switch.png)
+   ![Empty default switch action](./media/logic-apps-control-flow-switch-statement/empty-switch.png)
 
 1. Click inside the **On** box so that the dynamic content list appears. 
 From that list, select the **SelectedOption** field whose output 
@@ -96,7 +93,7 @@ add another case between **Case** and **Default**.
    | Default | None | No action necessary. In this example, the **Default** case is empty because **SelectedOption** has only two options. |
    |||
 
-   ![Finished switch statement](./media/logic-apps-control-flow-switch-statement/finished-switch.png)
+   ![Finished switch action](./media/logic-apps-control-flow-switch-statement/finished-switch.png)
 
 1. Save your logic app. 
 
@@ -106,8 +103,8 @@ add another case between **Case** and **Default**.
 
 ## JSON definition
 
-Now that you created a logic app using a switch statement, 
-let's look at the high-level code definition behind the switch statement.
+Now that you created a logic app using a switch action, 
+let's look at the high-level code definition behind the switch action.
 
 ``` json
 "Switch": {
@@ -140,23 +137,23 @@ let's look at the high-level code definition behind the switch statement.
 
 | Label | Description |
 |-------|-------------|
-| `"Switch"`         | The name of the switch statement, which you can rename for readability |
-| `"type": "Switch"` | Specifies that the action is a switch statement |
+| `"Switch"`         | The name of the switch action, which you can rename for readability |
+| `"type": "Switch"` | Specifies that the action is a switch action |
 | `"expression"`     | In this example, specifies the approver's selected option that's evaluated against each case as declared later in the definition |
 | `"cases"` | Defines any number of cases. For each case, `"Case_*"` is the default name for that case, which you can rename for readability |
-| `"case"` | Specifies the case's value, which must be a constant and unique value that the switch statement uses for comparison. If no cases match the switch expression result, the actions in the `"default"` section are run. | 
+| `"case"` | Specifies the case's value, which must be a constant and unique value that the switch action uses for comparison. If no cases match the switch expression result, the actions in the `"default"` section are run. | 
 | | | 
 
 ## Get support
 
 * For questions, visit the 
-[Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+[Microsoft Q&A question page for Azure Logic Apps](/answers/topics/azure-logic-apps.html).
 * To submit or vote on features or suggestions, visit the 
 [Azure Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
 ## Next steps
 
-* [Run steps based on a condition (conditional statements)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
+* [Run steps based on a condition (condition action)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
 * [Run and repeat steps (loops)](../logic-apps/logic-apps-control-flow-loops.md)
 * [Run or merge parallel steps (branches)](../logic-apps/logic-apps-control-flow-branches.md)
 * [Run steps based on grouped action status (scopes)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)

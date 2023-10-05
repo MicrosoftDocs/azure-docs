@@ -1,85 +1,122 @@
 ---
-title: Protected web API - app registration | Azure
-description: Learn how to build a protected Web API and the information you need to register the app.
-services: active-directory
-documentationcenter: dev-center-name
-author: jmprieur
+title: Protected web API app registration
+description: Learn how to build a protected web API and the information you need to register the app.
+author: cilwerner
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 05/07/2019
-ms.author: jmprieur
-ms.custom: aaddev 
-#Customer intent: As an application developer, I want to know how to write a protected Web API using the Microsoft identity platform for developers.
-ms.collection: M365-identity-device-management
+ms.date: 01/27/2022
+ms.author: cwerner
+ms.reviewer: jmprieur
+ms.custom: aaddev
+# Customer intent: As an application developer, I want to know how to write a protected web API using the Microsoft identity platform for developers.
 ---
 
-# Protected web API - app registration
+# Protected web API: App registration
 
-This article explains the app registration specifics for a protected web API.
+This article explains the specifics of app registration for a protected web API.
 
-See [Quickstart: Register an application with the Microsoft identity platform](quickstart-register-app.md) for the common steps on how to register the application.
+For the common steps to register an app, see [Quickstart: Register an application with the Microsoft identity platform](quickstart-register-app.md).
 
 ## Accepted token version
 
-The Microsoft identity platform endpoint can issue two types of tokens: v1.0 tokens and v2.0 tokens. You can learn more about these tokens in [Access tokens](access-tokens.md). The accepted token version depends on the **Supported account types** you chose when you created your application:
+The Microsoft identity platform can issue v1.0 tokens and v2.0 tokens. For more information about these tokens, see [Access tokens](access-tokens.md).
 
-- If the value of **Supported account types** is **Accounts in any organizational directory and personal Microsoft accounts (e.g. Skype, Xbox, Outlook.com)**, the accepted token version will be v2.0.
-- Otherwise, the accepted token version will be v1.0.
+The token version your API may accept depends on your **Supported account types** selection when you create your web API application registration in the Azure portal.
 
-Once you've created the application, you can change the accepted token version by following these steps:
+- If the value of **Supported account types** is **Accounts in any organizational directory and personal Microsoft accounts (e.g. Skype, Xbox, Outlook.com)**, the accepted token version must be v2.0.
+- Otherwise, the accepted token version can be v1.0.
 
-1. In the Azure portal, select your app and then select the **Manifest** for your app.
-2. In the manifest, search for **"accessTokenAcceptedVersion"**, and see that its value is **2**. This property lets Azure AD know that the web API accepts v2.0 tokens. If it's **null**, the accepted token version will be v1.0.
-3. Select **Save**.
+After you create the application, you can determine or change the accepted token version by following these steps:
 
-> [!NOTE]
-> It's up to the web API to decide which token version (v1.0 or v2.0) it accepts. When clients request a token for your web API using the Microsoft identity platform v2.0 endpoint, they'll get a token that indicates which version is accepted by the web API.
+1. In the Azure portal, select your app and then select **Manifest**.
+1. Find the property **accessTokenAcceptedVersion** in the manifest.
+1. The value specifies to Microsoft Entra ID which token version the web API accepts.
+   - If the value is 2, the web API accepts v2.0 tokens.
+   - If the value is **null**, the web API accepts v1.0 tokens.
+1. If you changed the token version, select **Save**.
+
+The web API specifies which token version it accepts. When a client requests a token for your web API from the Microsoft identity platform, the client gets a token that indicates which token version the web API accepts.
 
 ## No redirect URI
 
-Web APIs don't need to register a redirect URI as no user is signed-in interactively.
+Web APIs don't need to register a redirect URI because no user is interactively signed in.
 
-## Expose an API
+## Exposed API
 
-Another setting specific to web APIs is the exposed API and the exposed scopes.
+Other settings specific to web APIs are the exposed API and the exposed scopes or app roles.
 
-### Resource URI and scopes
+## Scopes and the Application ID URI
 
-Scopes are usually of the form `resourceURI/scopeName`. For Microsoft Graph, the scopes have shortcuts like `User.Read`, but this string is just a shortcut for `https://graph.microsoft.com/user.read`.
+Scopes usually have the form `resourceURI/scopeName`. For Microsoft Graph, the scopes have shortcuts. For example, `User.Read` is a shortcut for `https://graph.microsoft.com/user.read`.
 
-During app registration, you'll need to define the following parameters:
+During app registration, define these parameters:
 
-- One resource URI - By default the application registration portal recommends that you to use `api://{clientId}`. This resource URI is unique, but it's not human readable. You can change it, but make sure that it's unique.
-- One or several scopes
+- The resource URI
+- One or more scopes
+- One or more app roles
 
-The scopes are also displayed on the consent screen that's presented to end-users who use your application. Therefore, you'll need to provide the corresponding strings that describe the scope:
+By default, the application registration portal recommends that you use the resource URI `api://{clientId}`. This URI is unique but not human readable. If you change the URI, make sure the new value is unique. The application registration portal will ensure that you use a [configured publisher domain](howto-configure-publisher-domain.md).
 
-- As seen by the end user
-- As seen by the tenant admin, who can grant admin consent
+To client applications, scopes show up as _delegated permissions_ and app roles show up as _application permissions_ for your web API.
 
-### How to expose the API
+Scopes also appear on the consent window that's presented to users of your app. Therefore, provide the corresponding strings that describe the scope:
 
-1. Select the **Expose an API** section in the application registration, and:
-   1. Select **Add a scope**.
-   1. Accept the proposed Application ID URI (api://{clientId}) by selecting **Save and Continue**.
-   1. Enter the following parameters:
-      - For **Scope name**, use `access_as_user`.
-      - For **Who can consent**, make sure the **Admins and users** option is selected.
-      - In **Admin consent display name**, type `Access TodoListService as a user`.
-      - In **Admin consent description**, type `Accesses the TodoListService Web API as a user`.
-      - In **User consent display name**, type `Access TodoListService as a user`.
-      - In **User consent description**, type `Accesses the TodoListService Web API as a user`.
-      - Keep **State** set to **Enabled**.
-      - Select **Add scope**.
+- As seen by a user.
+- As seen by a tenant admin, who can grant admin consent.
+
+App roles cannot be consented to by a user (as they're used by an application that call the web API on behalf of itself). A tenant administrator will need to consent to client applications of your web API exposing app roles. See [Admin consent](v2-admin-consent.md) for details.
+
+### Expose delegated permissions (scopes)
+
+To expose delegated permissions, or _scopes_, follow the steps in [Configure an application to expose a web API](quickstart-configure-app-expose-web-apis.md).
+
+If you're following along with the web API scenario described in this set of articles, use these settings:
+
+- **Application ID URI**: Accept the proposed application ID URI (_api://\<clientId\>_) (if prompted)
+- **Scope name**: _access_as_user_
+- **Who can consent**: _Admins and users_
+- **Admin consent display name**: _Access TodoListService as a user_
+- **Admin consent description**: _Accesses the TodoListService web API as a user_
+- **User consent display name**: _Access TodoListService as a user_
+- **User consent description**: _Accesses the TodoListService web API as a user_
+- **State**: _Enabled_
+
+> [!TIP] 
+> For the **Application ID URI**, you have the option to set it to the physical authority of the API, for example `https://graph.microsoft.com`. This can be useful if the URL of the API that needs to be called is known.
+
+### If your web API is called by a service or daemon app
+
+Expose _application permissions_ instead of delegated permissions if your API should be accessed by daemons, services, or other non-interactive (by a human) applications. Because daemon- and service-type applications run unattended and authenticate with their own identity, there is no user to "delegate" their permission.
+
+
+#### Expose application permissions (app roles)
+
+To expose application permissions, follow the steps in [Add app roles to your app](./howto-add-app-roles-in-apps.md).
+
+In the **Create app role** pane under **Allowed member types**, select **Applications**. Or, add the role by using the **Application manifest editor** as described in the article.
+
+#### Restrict access tokens to specific clients apps
+
+App roles are the mechanism an application developer uses to expose their app's permissions. Your web API's code should check for app roles in the access tokens it receives from callers.
+
+To add another layer of security, a Microsoft Entra tenant administrator can configure their tenant so the Microsoft identity platform issues security tokens _only_ to the client apps they've approved for API access.
+
+To increase security by restricting token issuance only to client apps that have been assigned app roles:
+
+1. In the [Microsoft Entra admin center](https://entra.microsoft.com), select your app under **Identity** > **Applications** > **App registrations**.
+1. On the application's overview page, select its **Managed application in local directory** link to navigate to its **Enterprise Application Overview** page.
+1. Under **Manage**, select **Properties**.
+1. Set **Assignment required?** to **Yes**.
+1. Select **Save**.
+
+Microsoft Entra ID will now check for app role assignments of client applications that request access tokens for your web API. If a client app hasn't been assigned any app roles, Microsoft Entra ID returns an error message to the client similar to _invalid_client: AADSTS501051: Application \<application name\> isn't assigned to a role for the \<web API\>_.
+
+> [!WARNING]
+> **DO NOT use AADSTS error codes** or their message strings as literals in your application's code. The "AADSTS" error codes and the error message strings returned by Microsoft Entra ID are _not immutable_, and may be changed by Microsoft at any time and without your knowledge. If you make branching decisions in your code based on the values of either the AADSTS codes or their message strings, you put your application's functionality and stability at risk.
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [App's code configuration](scenario-protected-web-api-app-configuration.md)
+The next article in this series is [App code configuration](scenario-protected-web-api-app-configuration.md).

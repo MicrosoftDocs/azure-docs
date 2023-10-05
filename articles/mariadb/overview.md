@@ -1,17 +1,19 @@
 ---
-title: Overview of the Azure Database for MariaDB relational database service
-description: Overview of the Azure Database for MariaDB relational database service.
-author: ajlam
-ms.author: andrela
+title: Overview - Azure Database for MariaDB
+description: Learn about the Azure Database for MariaDB service, a relational database service in the Microsoft cloud based on the MariaDB community edition.
 ms.service: mariadb
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: overview
 ms.custom: mvc
-ms.date: 03/20/2019
+ms.date: 06/24/2022
 ---
 
 # What is Azure Database for MariaDB?
 
-Azure Database for MariaDB is a relational database service in the Microsoft cloud. Azure Database for MariaDB is based on the [MariaDB community edition](https://mariadb.org/download/) (available under the GPLv2 license) database engine, version 10.2.
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
+
+Azure Database for MariaDB is a relational database service in the Microsoft cloud. Azure Database for MariaDB is based on the [MariaDB community edition](https://mariadb.org/download/) (available under the GPLv2 license) database engine, version 10.2 and 10.3.
 
 Azure Database for MariaDB delivers:
 
@@ -48,11 +50,7 @@ Azure's industry-leading 99.99% availability SLA is powered by a global network 
 
 ## Secure your data
 
-Azure database services have a tradition of data security that Azure Database for MariaDB upholds. Azure Database for MariaDB offers features that limit access, protect data at rest and in motion, and help you monitor activity. Visit the [Azure Trust Center](https://www.microsoft.com/en-us/trustcenter/security) for information about Azure's platform security.
-
-The Azure Database for MariaDB service uses storage encryption for data at-rest and is FIPS 140-2 compliant. Data, including backup data, is encrypted on disk. (Temporary files that are created by the engine when it runs queries are not encrypted on disk.) The service uses AES 256-bit cipher, which is included in Azure Storage encryption. The keys are system managed. Storage encryption is always on and can't be disabled.
-
-By default, the Azure Database for MariaDB service is configured to require [SSL connection security](./concepts-ssl-connection-security.md) for data in motion across the network. Enforcing SSL connections between your database server and your client applications helps protect against "man in the middle" attacks by encrypting the data stream between the server and your application. Optionally, you can disable the SSL requirement for connecting to your database service if your client application doesn't support SSL connectivity.
+Azure database services have a tradition of data security that Azure Database for MariaDB upholds. Azure Database for MariaDB offers features that limit access, protect data at rest and in motion, and help you monitor activity. Visit the [Azure Trust Center](https://www.microsoft.com/trustcenter/security) for information about Azure's platform security. For more information about Azure Database for MariaDB security features, see the [security overview](concepts-security.md).
 
 ## Contacts
 
@@ -61,7 +59,7 @@ You can send any questions or suggestions you have about working with Azure Data
 You can also use the following points of contact:
 - To contact Azure Support, [open a support request](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) in the Azure portal.
 - To fix an issue with your account, [open a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
-- To provide feedback or to request new features, create an entry in the [Azure Feedback Forums](https://feedback.azure.com/forums/915439-azure-database-for-mariadb).
+- To provide feedback or to request new features, create an entry in the [Azure Feedback Forums](https://feedback.azure.com/d365community/forum/8f6502f1-ed24-ec11-b6e6-000d3a4f0da0).
 
 ## Next steps
 

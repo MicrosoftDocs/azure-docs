@@ -1,35 +1,33 @@
 ---
-title: Fail over and fail back Hyper-V VMs during disaster recovery to Azure with Azure Site Recovery | Microsoft Docs
-description: Learn how to fail over and fail back Hyper-V VMs during disaster recovery to Azure using the Azure Site Recovery service.
-services: site-recovery
-author: rayne-wiselman
-manager: carmonm
+title: Set up failover of Hyper-V VMs to Azure in Azure Site Recovery 
+description: Learn how to fail over Hyper-V VMs to Azure with Azure Site Recovery.
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/30/2019
-ms.author: raynew
+ms.date: 12/16/2019
 ms.custom: MVC
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 
-# Fail over and fail back Hyper-V VMs replicated to Azure
+# Fail over Hyper-V VMs to Azure
 
-This tutorial describes how to fail over a Hyper-V VM to Azure. After you've failed over, you fail back to your on-premises site when it's available. In this tutorial, you learn how to:
+This tutorial describes how to fail over Hyper-V VMs to Azure with [Azure Site Recovery](site-recovery-overview.md). After you've failed over, you fail back to your on-premises site when it's available. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Verify the Hyper-V VM properties to check conform with Azure requirements
-> * Run a failover to Azure
-> * Fail back from Azure to on-premises
-> * Reverse replicate on-premises VMs, to start replicating to Azure again
+> * Verify the Hyper-V VM properties to check conform with Azure requirements.
+> * Fail over specific VMs to Azure.
+
 
 This tutorial is the fifth tutorial in a series. It assumes that you have already completed the tasks in the previous tutorials.    
 
 1. [Prepare Azure](tutorial-prepare-azure.md)
-2. [Prepare on-premises Hyper-V](tutorial-prepare-on-premises-hyper-v.md)
-3. Set up disaster recovery for [Hyper-V VMs](tutorial-hyper-v-to-azure.md), or for [Hyper-V VMs managed in System Center VMM clouds](tutorial-hyper-v-vmm-to-azure.md)
+2. [Prepare on-premises Hyper-V](./hyper-v-prepare-on-premises-tutorial.md)
+3. Set up disaster recovery for [Hyper-V VMs](./hyper-v-azure-tutorial.md), or for [Hyper-V VMs managed in System Center VMM clouds](./hyper-v-vmm-azure-tutorial.md)
 4. [Run a disaster recovery drill](tutorial-dr-drill-azure.md)
 
-## Prepare for failover and failback
+[Learn about](failover-failback-overview.md#types-of-failover) different types of failover. If you want to fail over multiple VMs in a recovery plan, review [this article](site-recovery-failover.md).
 
+## Prepare for failover 
 Make sure there are no snapshots on the VM, and that the on-premises VM is turned off during failback. It helps ensure data consistency during replication. Don't turn on on-premises VM during failback. 
 
 Failover and failback have three stages:
@@ -55,7 +53,7 @@ In **Protected Items**, click **Replicated Items** > VM.
 
 1. In **Disks**, you can see information about the operating system and data disks on the VM.
 
-## Failover to Azure
+## Fail over to Azure
 
 1. In **Settings** > **Replicated items**, click the VM > **Failover**.
 2. In **Failover**, select the **Latest** recovery point. 
@@ -66,15 +64,18 @@ In **Protected Items**, click **Replicated Items** > VM.
 > [!WARNING]
 > **Don't cancel a failover in progress**: If you cancel in progress, failover stops, but the VM won't replicate again.
 
-## Failback Azure VM to on-premises and reverse replicate the on-premises VM
+## Connect to failed-over VM
 
-Failback operation is basically a failover from Azure to the on-premises site and  in reverse replicate it again starts replicating VMs from the on-premises site to Azure.
+1. If you want to connect to Azure VMs after failover by using Remote Desktop Protocol (RDP) and Secure Shell (SSH), [verify that the requirements have been met](failover-failback-overview.md#connect-to-azure-after-failover).
+2. After failover, go to the VM and validate by [connecting](../virtual-machines/windows/connect-logon.md) to it.
+3. Use **Change recovery point** if you want to use a different recovery point after failover. After you commit the failover in the next step, this option will no longer be available.
+4. After validation, select **Commit** to finalize the recovery point of the VM after failover.
+5. After you commit, all the other available recovery points are deleted. This step completes the failover.
 
-1. In **Settings** > **Replicated items**, click the VM > **Planned Failover**.
-2. In **Confirm Planned Failover**, verify the failover direction (from Azure), and select the source and target locations.
-3. Select **Synchronize data before failover (synchronize delta changes only)**. This option minimizes VM downtime because it synchronizes without shutting down the VM.
-4. Initiate the failover. You can follow the failover progress on the **Jobs** tab.
-5. After the initial data synchronization is done and you're ready to shut down the Azure VMs click **Jobs** > planned-failover-job-name > **Complete Failover**. It shuts down the Azure VM, transfers the latest changes on-premises, and starts the on-premises VM.
-6. Log on to the on-premises VM to check it's available as expected.
-7. The on-premises VM is now in a **Commit Pending** state. Click **Commit**. It deletes the Azure VMs and its disks, and prepares the on-premises VM for reverse replication.
-To start replicating the on-premises VM to Azure, enable **Reverse Replicate**. It triggers replication of delta changes that have occurred since the Azure VM was switched off.  
+>[!TIP]
+> If you encounter any connectivity issues after failover, follow the [troubleshooting guide](site-recovery-failover-to-azure-troubleshoot.md).
+
+
+## Next steps
+
+After failover, reprotect the Azure VMs so that they replicate from Azure to on-premises. Then, after the VMs are reprotected and replicating to the on-premises site, fail back from Azure when you're ready.

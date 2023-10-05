@@ -1,14 +1,13 @@
 ---
 title: Set up the business glossary in Azure Data Catalog
 description: How-to article highlighting the business glossary in Azure Data Catalog for defining and using a common business vocabulary to tag registered data assets.
-author: JasonWHowell
-ms.author: jasonh
 ms.service: data-catalog
-ms.topic: conceptual
-ms.date: 04/05/2019
+ms.topic: how-to
+ms.date: 12/14/2022
 ---
-
 # Set up the business glossary for governed tagging
+
+[!INCLUDE [Microsoft Purview redirect](includes/catalog-to-purview-migration-flag.md)]
 
 ## Introduction
 
@@ -31,11 +30,11 @@ The business glossary is available only in the Standard Edition of Azure Data Ca
 
 You can access the business glossary via the **Glossary** option in the Data Catalog portal's navigation menu.  
 
-![Accessing the business glossary](./media/data-catalog-how-to-business-glossary/01-portal-menu.png)
+:::image type="content" source="./media/data-catalog-how-to-business-glossary/01-portal-menu.png" alt-text="The data catalog navigation menu, with the glossary tab highlighted.":::
 
 Data Catalog administrators and members of the glossary administrators role can create, edit, and delete glossary terms in the business glossary. All Data Catalog users can view the term definitions and tag assets with glossary terms.
 
-![Adding a new glossary term](./media/data-catalog-how-to-business-glossary/02-new-term.png)
+:::image type="content" source="./media/data-catalog-how-to-business-glossary/02-new-term.png" alt-text="The new business term menu, which includes information like term name, parent term, definition, description, and stakeholders. The information is editable.":::
 
 ## Creating glossary terms
 
@@ -50,7 +49,7 @@ Data Catalog administrators and glossary administrators can create glossary term
 
 By using the Data Catalog business glossary, an organization can describe its business vocabulary as a hierarchy of terms, and it can create a classification of terms that better represents its business taxonomy.
 
-A term must be unique at a given level of hierarchy. Duplicate names aren't allowed. There is no limit to the number of levels in a hierarchy, but a hierarchy is often more easily understood when there are three levels or fewer.
+A term must be unique at a given level of hierarchy. Duplicate names aren't allowed. There's no limit to the number of levels in a hierarchy, but a hierarchy is often more easily understood when there are three levels or fewer.
 
 The use of hierarchies in the business glossary is optional. Leaving the parent term field blank for glossary terms creates a flat (non-hierarchical) list of terms in the glossary.  
 
@@ -58,7 +57,7 @@ The use of hierarchies in the business glossary is optional. Leaving the parent 
 
 After glossary terms have been defined within the catalog, the experience of tagging assets is optimized to search the glossary as a user types a tag. The Data Catalog portal displays a list of matching glossary terms to choose from. If the user selects a glossary term from the list, the term is added to the asset as a tag (also called a glossary tag). The user can also choose to create a new tag by typing a term that's not in the glossary (also called a user tag).
 
-![Data asset tagged with one user tag and two glossary tags](./media/data-catalog-how-to-business-glossary/03-tagged-asset.png)
+:::image type="content" source="./media/data-catalog-how-to-business-glossary/03-tagged-asset.png" alt-text="An example data asset is selected, and its tags are highlighted in the middle of its card. The properties pane is open, with the tags section highlighted. There's an Add button that can be used to add more tags.":::
 
 > [!NOTE]
 > User tags are the only type of tag supported in the Free Edition of Data Catalog.

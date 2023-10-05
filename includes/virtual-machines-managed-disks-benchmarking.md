@@ -1,103 +1,68 @@
 ---
  title: include file
  description: include file
- services: virtual-machines
  author: roygara
- ms.service: virtual-machines
+ ms.service: azure-disk-storage
  ms.topic: include
- ms.date: 01/11/2019
+ ms.date: 01/29/2021
  ms.author: rogarana
  ms.custom: include file
 ---
 
-*Warming up the Cache*  
-The disk with ReadOnly host caching are able to give higher IOPS than the disk limit. To get this maximum read performance from the host cache, first you must warm up the cache of this disk. This ensures that the Read IOs that the benchmarking tool will drive on CacheReads volume, actually hits the cache, and not the disk directly. The cache hits result in additional IOPS from the single cache enabled disk.
+## Warm up the Cache
+
+The disk with ReadOnly host caching is able to give higher IOPS than the disk limit. To get this maximum read performance from the host cache, first you must warm up the cache of this disk. This ensures that the Read IOs that the benchmarking tool will drive on CacheReads volume, actually hits the cache, and not the disk directly. The cache hits result in more IOPS from the single cache enabled disk.
 
 > [!IMPORTANT]
-> You must warm up the cache before running benchmarking, every time VM is rebooted.
+> You must warm up the cache before running benchmarks every time VM is rebooted.
 
-## Tools
+## DISKSPD
 
-### Iometer
+[Download the DISKSP tool](https://github.com/Microsoft/diskspd) on the VM. DISKSPD is a tool that you can customize to create your own synthetic workloads. We will use the same setup described above to run benchmarking tests. You can change the specifications to test different workloads.
 
-[Download the Iometer tool](http://sourceforge.net/projects/iometer/files/iometer-stable/2006-07-27/iometer-2006.07.27.win32.i386-setup.exe/download) on the VM.
+In this example, we use the following set of baseline parameters:
 
-#### Test file
+- -c200G: Creates (or recreates) the sample file used in the test. It can be set in bytes, KiB, MiB, GiB, or blocks. In this case, a large file of 200-GiB target file is used to minimize memory caching.
+- -w100: Specifies the percentage of operations that are write requests (-w0 is equivalent to 100% read).
+- -b4K: Indicates the block size in bytes, KiB, MiB, or GiB. In this case, 4K block size is used to simulate a random I/O test.
+- -F4: Sets a total of four threads.
+- -r: Indicates the random I/O test (overrides the -s parameter).
+- -o128: Indicates the number of outstanding I/O requests per target per thread. This is also known as the queue depth. In this case, 128 is used to stress the CPU.
+- -W7200: Specifies the duration of the warm-up time before measurements start.
+- -d30: Specifies the duration of the test, not including warm-up.
+- -Sh: Disable software and hardware write caching (equivalent to -Suw).
 
-Iometer uses a test file that is stored on the volume on which you run the benchmarking test. It drives Reads and Writes on this test file to measure the disk IOPS and Throughput. Iometer creates this test file if you have not provided one. Create a 200 GB test file called iobw.tst on the CacheReads and NoCacheWrites volumes.
+For a complete list of parameters, see the [GitHub repository](https://github.com/Microsoft/diskspd/wiki/Command-line-and-parameters).
 
-#### Access specifications
+### Maximum write IOPS
+We use a high queue depth of 128, a small block size of 8 KB, and four worker threads for driving Write operations. The write workers are driving traffic on the “NoCacheWrites” volume, which has three disks with cache set to “None”.
 
-The specifications, request IO size, % read/write, % random/sequential are configured using the "Access Specifications" tab in Iometer. Create an access specification for each of the scenarios described below. Create the access specifications and "Save" with an appropriate name like – RandomWrites\_8K, RandomReads\_8K. Select the corresponding specification when running the test scenario.
+Run the following command for 30 seconds of warm-up and 30 seconds of measurement:
 
-An example of access specifications for maximum Write IOPS scenario is shown below,  
-    ![Example of access specifications for maximum write IOPS](../articles/virtual-machines/linux/media/premium-storage-performance/image8.png)
+`diskspd -c200G -w100 -b8K -F4 -r -o128 -W30 -d30 -Sh testfile.dat`
 
-#### Maximum IOPS test specifications
+Results show that the Standard_D8ds_v4 VM is delivering its maximum write IOPS limit of 12,800.
 
-To demonstrate maximum IOPs, use smaller request size. Use 8K request size and create specifications for Random Writes and Reads.
+:::image type="content" source="../articles/virtual-machines/linux/media/premium-storage-performance/disks-benchmarks-diskspd-max-write-io-per-second.png" alt-text="For 3208642560 total bytes, max total I/Os of 391680, with a total of 101.97 MiB/s, and a total of 13052.65 I/O per second.":::
 
-| Access Specification | Request size | Random % | Read % |
-| --- | --- | --- | --- |
-| RandomWrites\_8K |8K |100 |0 |
-| RandomReads\_8K |8K |100 |100 |
+### Maximum read IOPS
 
-#### Maximum throughput test specifications
+We use a high queue depth of 128, a small block size of four KB, and four worker threads for driving Read operations. The read workers are driving traffic on the “CacheReads” volume, which has one disk with cache set to “ReadOnly”.
 
-To demonstrate maximum Throughput, use larger request size. Use 64 K request size and create specifications for Random Writes and Reads.
+Run the following command for two hours of warm-up and 30 seconds of measurement:
 
-| Access Specification | Request size | Random % | Read % |
-| --- | --- | --- | --- |
-| RandomWrites\_64K |64 K |100 |0 |
-| RandomReads\_64K |64 K |100 |100 |
+`diskspd -c200G -b4K -F4 -r -o128 -W7200 -d30 -Sh testfile.dat`
 
-#### Run the Iometer test
+Results show that the Standard_D8ds_v4 VM is delivering its maximum read IOPS limit of 77,000.
 
-Perform the steps below to warm up cache
+:::image type="content" source="../articles/virtual-machines/linux/media/premium-storage-performance/disks-benchmarks-diskspd-max-read-io-per-second.png" alt-text="For 9652785152 total bytes, there were 2356637 total I/Os, at 306.72 total MiB/s, and a total of 78521.23 I/Os per second.":::
 
-1. Create two access specifications with values shown below,
+### Maximum throughput
 
-   | Name | Request size | Random % | Read % |
-   | --- | --- | --- | --- |
-   | RandomWrites\_1MB |1 MB |100 |0 |
-   | RandomReads\_1MB |1 MB |100 |100 |
-1. Run the Iometer test for initializing cache disk with following parameters. Use three worker threads for the target volume and a queue depth of 128. Set the "Run time" duration of the test to 2 hrs on the "Test Setup" tab.
+To get the maximum read and write throughput, you can change to a larger block size of 64 KB.
+## FIO
 
-   | Scenario | Target Volume | Name | Duration |
-   | --- | --- | --- | --- |
-   | Initialize Cache Disk |CacheReads |RandomWrites\_1MB |2 hrs |
-1. Run the Iometer test for warming up cache disk with following parameters. Use three worker threads for the target volume and a queue depth of 128. Set the "Run time" duration of the test to 2 hrs on the "Test Setup" tab.
-
-   | Scenario | Target Volume | Name | Duration |
-   | --- | --- | --- | --- |
-   | Warm up Cache Disk |CacheReads |RandomReads\_1MB |2 hrs |
-
-After cache disk is warmed up, proceed with the test scenarios listed below. To run the Iometer test, use at least three worker threads for **each** target volume. For each worker thread, select the target volume, set queue depth and select one of the saved test specifications, as shown in the table below, to run the corresponding test scenario. The table also shows expected results for IOPS and Throughput when running these tests. For all scenarios, a small IO size of 8 KB and a high queue depth of 128 is used.
-
-| Test Scenario | Target Volume | Name | Result |
-| --- | --- | --- | --- |
-| Max. Read IOPS |CacheReads |RandomWrites\_8K |50,000 IOPS |
-| Max. Write IOPS |NoCacheWrites |RandomReads\_8K |64,000 IOPS |
-| Max. Combined IOPS |CacheReads |RandomWrites\_8K |100,000 IOPS |
-| NoCacheWrites |RandomReads\_8K | &nbsp; | &nbsp; |
-| Max. Read MB/sec |CacheReads |RandomWrites\_64K |524 MB/sec |
-| Max. Write MB/sec |NoCacheWrites |RandomReads\_64K |524 MB/sec |
-| Combined MB/sec |CacheReads |RandomWrites\_64K |1000 MB/sec |
-| NoCacheWrites |RandomReads\_64K | &nbsp; | &nbsp; |
-
-Below are screenshots of the Iometer test results for combined IOPS and Throughput scenarios.
-
-#### Combined reads and writes maximum IOPS
-
-![Combined Reads and Writes Maximum IOPS](../articles/virtual-machines/linux/media/premium-storage-performance/image9.png)
-
-#### Combined reads and writes maximum throughput
-
-![Combined Reads and Writes Maximum Throughput](../articles/virtual-machines/linux/media/premium-storage-performance/image10.png)
-
-### FIO
-
-FIO is a popular tool to benchmark storage on the Linux VMs. It has the flexibility to select different IO sizes, sequential or random reads and writes. It spawns worker threads or processes to perform the specified I/O operations. You can specify the type of I/O operations each worker thread must perform using job files. We created one job file per scenario illustrated in the examples below. You can change the specifications in these job files to benchmark different workloads running on Premium Storage. In the examples, we are using a Standard DS 14 VM running **Ubuntu**. Use the same setup described in the beginning of the Benchmarking section and warm up the cache before running the benchmarking tests.
+FIO is a popular tool to benchmark storage on the Linux VMs. It has the flexibility to select different IO sizes, sequential or random reads and writes. It spawns worker threads or processes to perform the specified I/O operations. You can specify the type of I/O operations each worker thread must perform using job files. We created one job file per scenario illustrated in the examples below. You can change the specifications in these job files to benchmark different workloads running on Premium Storage. In the examples, we are using a Standard_D8ds_v4 running **Ubuntu**. Use the same setup described in the beginning of the benchmark section and warm up the cache before running the benchmark tests.
 
 Before you begin, [download FIO](https://github.com/axboe/fio) and install it on your virtual machine.
 
@@ -107,9 +72,9 @@ Run the following command for Ubuntu,
 apt-get install fio
 ```
 
-We use four worker threads for driving Write operations and four worker threads for driving Read operations on the disks. The Write workers are driving traffic on the "nocache" volume, which has 10 disks with cache set to "None". The Read workers are driving traffic on the "readcache" volume, which has one disk with cache set to "ReadOnly".
+We use four worker threads for driving Write operations and four worker threads for driving Read operations on the disks. The write workers are driving traffic on the "nocache" volume, which has three disks with cache set to "None". The read workers are driving traffic on the "readcache" volume, which has one disk with cache set to "ReadOnly".
 
-#### Maximum write IOPS
+### Maximum write IOPS
 
 Create the job file with following specifications to get maximum Write IOPS. Name it "fiowrite.ini".
 
@@ -119,18 +84,10 @@ size=30g
 direct=1
 iodepth=256
 ioengine=libaio
-bs=8k
+bs=4k
+numjobs=4
 
 [writer1]
-rw=randwrite
-directory=/mnt/nocache
-[writer2]
-rw=randwrite
-directory=/mnt/nocache
-[writer3]
-rw=randwrite
-directory=/mnt/nocache
-[writer4]
 rw=randwrite
 directory=/mnt/nocache
 ```
@@ -138,7 +95,7 @@ directory=/mnt/nocache
 Note the follow key things that are in line with the design guidelines discussed in previous sections. These specifications are essential to drive maximum IOPS,  
 
 * A high queue depth of 256.  
-* A small block size of 8 KB.  
+* A small block size of 4 KB.  
 * Multiple threads performing random writes.
 
 Run the following command to kick off the FIO test for 30 seconds,  
@@ -147,10 +104,10 @@ Run the following command to kick off the FIO test for 30 seconds,
 sudo fio --runtime 30 fiowrite.ini
 ```
 
-While the test runs, you are able to see the number of write IOPS the VM and Premium disks are delivering. As shown in the sample below, the DS14 VM is delivering its maximum write IOPS limit of 50,000 IOPS.  
-    ![Number of write IOPS VM and Premium disks are delivering](../articles/virtual-machines/linux/media/premium-storage-performance/image11.png)
+While the test runs, you are able to see the number of write IOPS the VM and Premium disks are delivering. As shown in the sample below, the Standard_D8ds_v4 VM is delivering its maximum write IOPS limit of 12,800 IOPS.  
+    :::image type="content" source="../articles/virtual-machines/linux/media/premium-storage-performance/fio-uncached-writes-1.jpg" alt-text="Number of write IOPS VM and premium SSDs are delivering, shows that writes are 13.1k IOPS.":::
 
-#### Maximum read IOPS
+### Maximum read IOPS
 
 Create the job file with following specifications to get maximum Read IOPS. Name it "fioread.ini".
 
@@ -160,18 +117,10 @@ size=30g
 direct=1
 iodepth=256
 ioengine=libaio
-bs=8k
+bs=4k
+numjobs=4
 
 [reader1]
-rw=randread
-directory=/mnt/readcache
-[reader2]
-rw=randread
-directory=/mnt/readcache
-[reader3]
-rw=randread
-directory=/mnt/readcache
-[reader4]
 rw=randread
 directory=/mnt/readcache
 ```
@@ -179,7 +128,7 @@ directory=/mnt/readcache
 Note the follow key things that are in line with the design guidelines discussed in previous sections. These specifications are essential to drive maximum IOPS,
 
 * A high queue depth of 256.  
-* A small block size of 8 KB.  
+* A small block size of 4 KB.  
 * Multiple threads performing random writes.
 
 Run the following command to kick off the FIO test for 30 seconds,
@@ -188,10 +137,10 @@ Run the following command to kick off the FIO test for 30 seconds,
 sudo fio --runtime 30 fioread.ini
 ```
 
-While the test runs, you are able to see the number of read IOPS the VM and Premium disks are delivering. As shown in the sample below, the DS14 VM is delivering more than 64,000 Read IOPS. This is a combination of the disk and the cache performance.  
-    ![](../articles/virtual-machines/linux/media/premium-storage-performance/image12.png)
+While the test runs, you are able to see the number of read IOPS the VM and Premium disks are delivering. As shown in the sample below, the Standard_D8ds_v4 VM is delivering more than 77,000 Read IOPS. This is a combination of the disk and the cache performance.  
+    :::image type="content" source="../articles/virtual-machines/linux/media/premium-storage-performance/fio-cached-reads-1.jpg" alt-text="Screenshot of the number of write IOPS VM and premium SSDs are delivering, shows that reads are 78.6k.":::
 
-#### Maximum read and write IOPS
+### Maximum read and write IOPS
 
 Create the job file with following specifications to get maximum combined Read and Write IOPS. Name it "fioreadwrite.ini".
 
@@ -202,36 +151,16 @@ direct=1
 iodepth=128
 ioengine=libaio
 bs=4k
+numjobs=4
 
 [reader1]
-rw=randread
-directory=/mnt/readcache
-[reader2]
-rw=randread
-directory=/mnt/readcache
-[reader3]
-rw=randread
-directory=/mnt/readcache
-[reader4]
 rw=randread
 directory=/mnt/readcache
 
 [writer1]
 rw=randwrite
 directory=/mnt/nocache
-rate_iops=12500
-[writer2]
-rw=randwrite
-directory=/mnt/nocache
-rate_iops=12500
-[writer3]
-rw=randwrite
-directory=/mnt/nocache
-rate_iops=12500
-[writer4]
-rw=randwrite
-directory=/mnt/nocache
-rate_iops=12500
+rate_iops=3200
 ```
 
 Note the follow key things that are in line with the design guidelines discussed in previous sections. These specifications are essential to drive maximum IOPS,
@@ -246,9 +175,9 @@ Run the following command to kick off the FIO test for 30 seconds,
 sudo fio --runtime 30 fioreadwrite.ini
 ```
 
-While the test runs, you are able to see the number of combined read and write IOPS the VM and Premium disks are delivering. As shown in the sample below, the DS14 VM is delivering more than 100,000 combined Read and Write IOPS. This is a combination of the disk and the cache performance.  
-    ![Combined read and write IOPS](../articles/virtual-machines/linux/media/premium-storage-performance/image13.png)
+While the test runs, you are able to see the number of combined read and write IOPS the VM and Premium disks are delivering. As shown in the sample below, the Standard_D8ds_v4 VM is delivering more than 90,000 combined Read and Write IOPS. This is a combination of the disk and the cache performance.  
+    :::image type="content" source="../articles/virtual-machines/linux/media/premium-storage-performance/fio-both-1.jpg" alt-text="Combined read and write IOPS, shows that reads are 78.3k and writes are 12.6k IOPS.":::
 
-#### Maximum combined throughput
+### Maximum combined throughput
 
 To get the maximum combined Read and Write Throughput, use a larger block size and large queue depth with multiple threads performing reads and writes. You can use a block size of 64 KB and queue depth of 128.

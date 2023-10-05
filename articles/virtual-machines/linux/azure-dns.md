@@ -1,23 +1,19 @@
 ---
-title: DNS Name resolution options for Linux virtual machines in Azure
+title: DNS Name resolution options for Linux VMs
 description: Name Resolution scenarios for Linux virtual machines in Azure IaaS, including provided DNS services, hybrid external DNS and Bring Your Own DNS server.
-services: virtual-machines
-documentationcenter: na
 author: RicksterCDN
-manager: jeconnoc
-editor: tysonn
-
-ms.assetid: 787a1e04-cebf-4122-a1b4-1fcf0a2bbf5f
-ms.service: virtual-machines-linux
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/19/2016
+ms.service: virtual-machines
+ms.subservice: networking
+ms.custom: devx-track-linux
+ms.topic: conceptual
+ms.date: 04/11/2023
 ms.author: rclaus
-
+ms.collection: linux
 ---
 # DNS Name Resolution options for Linux virtual machines in Azure
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 Azure provides DNS name resolution by default for all virtual machines that are in a single virtual network. You can implement your own DNS name resolution solution by configuring your own DNS services on your virtual machines that Azure hosts. The following scenarios should help you choose the one that works for your situation.
 
 * [Name resolution that Azure provides](#name-resolution-that-azure-provides)
@@ -36,9 +32,11 @@ The following table illustrates scenarios and corresponding name resolution solu
 | Reverse DNS for internal IPs |[Name resolution using your own DNS server](#name-resolution-using-your-own-dns-server) |n/a |
 
 ## Name resolution that Azure provides
+
 Along with resolution of public DNS names, Azure provides internal name resolution for virtual machines and role instances that are in the same virtual network. In virtual networks that are based on Azure Resource Manager, the DNS suffix is consistent across the virtual network; the FQDN is not needed. DNS names can be assigned to both network interface cards (NICs) and virtual machines. Although the name resolution that Azure provides does not require any configuration, it is not the appropriate choice for all deployment scenarios, as seen on the preceding table.
 
 ### Features and considerations
+
 **Features:**
 
 * No configuration is required to use name resolution that Azure provides.
@@ -56,7 +54,8 @@ Along with resolution of public DNS names, Azure provides internal name resoluti
     Names must use only 0-9, a-z, and '-', and they cannot start or end with a '-'. See RFC 3696 Section 2.
 * DNS query traffic is throttled for each virtual machine. Throttling shouldn't impact most applications.  If request throttling is observed, ensure that client-side caching is enabled.  For more information, see [Getting the most from name resolution that Azure provides](#getting-the-most-from-name-resolution-that-azure-provides).
 
-### Getting the most from name resolution that Azure provides
+### Getting the most from name resolution that Azure provides\
+
 **Client-side caching:**
 
 Some DNS queries are not sent across the network. Client-side caching helps reduce latency and improve resilience to network inconsistencies by resolving recurring DNS queries from a local cache. DNS records contain a Time-To-Live (TTL), which enables the cache to store the record for as long as possible without impacting record freshness. As a result, client-side caching is suitable for most situations.
@@ -65,27 +64,89 @@ Some Linux distributions do not include caching by default. We recommend that yo
 
 Several different DNS caching packages, such as dnsmasq, are available. Here are the steps to install dnsmasq on the most common distributions:
 
-**Ubuntu (uses resolvconf)**
-  * Install the dnsmasq package (“sudo apt-get install dnsmasq”).
+# [Ubuntu](#tab/ubuntu)
 
-**SUSE (uses netconf)**:
-1. Install the dnsmasq package (“sudo zypper install dnsmasq”).
-2. Enable the dnsmasq service (“systemctl enable dnsmasq.service”).
-3. Start the dnsmasq service (“systemctl start dnsmasq.service”).
-4. Edit “/etc/sysconfig/network/config”, and change NETCONFIG_DNS_FORWARDER="" to ”dnsmasq”.
-5. Update resolv.conf ("netconfig update") to set the cache as the local DNS resolver.
+1. Install the dnsmasq package:
 
-**CentOS by Rogue Wave Software (formerly OpenLogic; uses NetworkManager)**
-1. Install the dnsmasq package (“sudo yum install dnsmasq”).
-2. Enable the dnsmasq service (“systemctl enable dnsmasq.service”).
-3. Start the dnsmasq service (“systemctl start dnsmasq.service”).
-4. Add “prepend domain-name-servers 127.0.0.1;” to “/etc/dhclient-eth0.conf”.
-5. Restart the network service (“service network restart”) to set the cache as the local DNS resolver
+```bash
+sudo apt-get install dnsmasq
+```
+
+2. Enable the dnsmasq service:
+
+```bash
+sudo systemctl enable dnsmasq.service
+```
+
+3. Start the dnsmasq service:
+
+```bash
+sudo systemctl start dnsmasq.service
+```
+
+# [SUSE](#tab/sles)
+
+1. Install the dnsmasq package:
+
+```bash
+sudo zypper install dnsmasq
+```
+
+2. Enable the dnsmasq service:
+
+```bash
+sudo systemctl enable dnsmasq.service
+```
+
+3. Start the dnsmasq service:
+
+```bash
+sudo systemctl start dnsmasq.service
+```
+
+4. Edit `/etc/sysconfig/network/config` file using a text editor, and change `NETCONFIG_DNS_FORWARDER=""` to `dnsmasq`.
+5. Update `/etc/resolv.conf` to set the cache as the local DNS resolver.
+
+```bash
+sudo netconfig update
+```
+
+# [CentOS/RHEL](#tab/rhel)
+
+1. Install the dnsmasq package:
+
+```bash
+sudo yum install dnsmasq -y
+```
+
+2. Enable the dnsmasq service:
+
+```bash
+sudo systemctl enable dnsmasq.service
+```
+
+3. Start the dnsmasq service:
+
+```bash
+sudo systemctl start dnsmasq.service
+```
+
+4. Add `prepend domain-name-servers 127.0.0.1;` to `/etc/dhcp/dhclient.conf`.
+
+```bash
+sudo echo "prepend domain-name-servers 127.0.0.1;" >>  /etc/dhcp/dhclient.conf
+```
+
+5. Restart the network service to set the cache as the local DNS resolver
+
+```bash
+sudo systemctl restart NetworkManager
+```
 
 > [!NOTE]
-> : The 'dnsmasq' package is only one of the many DNS caches that are available for Linux. Before you use it, check its suitability for your needs and that no other cache is installed.
->
->
+> The `dnsmasq` package is only one of the many DNS caches that are available for Linux. Before you use it, check its suitability for your needs and that no other cache is installed.
+
+---
 
 **Client-side retries**
 
@@ -96,23 +157,33 @@ DNS is primarily a UDP protocol. Because the UDP protocol doesn't guarantee mess
 
 To check the current settings on a Linux virtual machine, 'cat /etc/resolv.conf', and look at the 'options' line, for example:
 
-    options timeout:1 attempts:5
+```bash
+sudo cat /etc/resolv.conf
+```
 
-The resolv.conf file is auto-generated and should not be edited. The specific steps that add the 'options' line vary by distribution:
+```config-conf
+options timeout:1 attempts:5
+```
+
+The `/etc/resolv.conf` file is auto-generated and should not be edited. The specific steps that add the 'options' line vary by distribution:
 
 **Ubuntu** (uses resolvconf)
-1. Add the options line to '/etc/resolveconf/resolv.conf.d/head'.
-2. Run 'resolvconf -u' to update.
+
+1. Add the options line to `/etc/resolvconf/resolv.conf.d/head` file.
+2. Run `sudo resolvconf -u` to update.
 
 **SUSE** (uses netconf)
-1. Add 'timeout:1 attempts:5' to the NETCONFIG_DNS_RESOLVER_OPTIONS="" parameter in '/etc/sysconfig/network/config'.
-2. Run 'netconfig update' to update.
+
+1. Add `timeout:1 attempts:5` to the `NETCONFIG_DNS_RESOLVER_OPTIONS=""` parameter in `/etc/sysconfig/network/config`.
+2. Run `sudo netconfig update` to update.
 
 **CentOS by Rogue Wave Software (formerly OpenLogic)** (uses NetworkManager)
-1. Add 'RES_OPTIONS="timeout:1 attempts:5"' to '/etc/sysconfig/network'.
-2. Run 'service network restart' to update.
+
+1. Add `RES_OPTIONS="timeout:1 attempts:5"` to `/etc/sysconfig/network`.
+2. Run `systemctl restart NetworkManager` to update.
 
 ## Name resolution using your own DNS server
+
 Your name resolution needs may go beyond the features that Azure provides. For example, you might require DNS resolution between virtual networks. To cover this scenario, you can use your own DNS servers.  
 
 DNS servers within a virtual network can forward DNS queries to recursive resolvers of Azure to resolve hostnames that are in the same virtual network. For example, a DNS server that runs in Azure can respond to DNS queries for its own DNS zone files and forward all other queries to Azure. This functionality enables virtual machines to see both your entries in your zone files and hostnames that Azure provides (via the forwarder). Access to the recursive resolvers of Azure is provided via the virtual IP 168.63.129.16.
@@ -123,7 +194,7 @@ DNS forwarding also enables DNS resolution between virtual networks and enables 
 
 When you use name resolution that Azure provides, the internal DNS suffix is provided to each virtual machine by using DHCP. When you use your own name resolution solution, this suffix is not supplied to virtual machines because the suffix interferes with other DNS architectures. To refer to machines by FQDN or to configure the suffix on your virtual machines, you can use PowerShell or the API to determine the suffix:
 
-* For virtual networks that are managed by Azure Resource Manager, the suffix is available via the [network interface card](https://msdn.microsoft.com/library/azure/mt163668.aspx) resource. You can also run the `azure network public-ip show <resource group> <pip name>` command to display the details of your public IP, which includes the FQDN of the NIC.
+* For virtual networks that are managed by Azure Resource Manager, the suffix is available via the [network interface card](/rest/api/virtualnetwork/networkinterfaces) resource. You can also run the `azure network public-ip show <resource group> <pip name>` command to display the details of your public IP, which includes the FQDN of the NIC.
 
 If forwarding queries to Azure doesn't suit your needs, you need to provide your own DNS solution.  Your DNS solution needs to:
 
@@ -133,6 +204,6 @@ If forwarding queries to Azure doesn't suit your needs, you need to provide your
 * Be secured against access from the Internet to mitigate threats posed by external agents.
 
 > [!NOTE]
-> For best performance, when you use virtual machines in Azure DNS servers, disable IPv6 and assign an [Instance-Level Public IP](../../virtual-network/virtual-networks-instance-level-public-ip.md) to each DNS server virtual machine.  
+> For best performance, when you use virtual machines in Azure DNS servers, disable IPv6 and assign an [Instance-Level Public IP](/previous-versions/azure/virtual-network/virtual-networks-instance-level-public-ip) to each DNS server virtual machine.  
 >
 >

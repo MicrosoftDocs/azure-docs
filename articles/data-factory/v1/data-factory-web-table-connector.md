@@ -1,21 +1,12 @@
 ---
-title: Move data from Web Table using Azure Data Factory | Microsoft Docs
+title: Move data from Web Table using Azure Data Factory 
 description: Learn about how to move data from a table in a Web page using Azure Data Factory.
-services: data-factory
-documentationcenter: ''
-author: linda33wj
-manager: craigg
-
-
-ms.assetid: f54a26a4-baa4-4255-9791-5a8f935898e2
+author: jianleishen
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-
+ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/05/2018
-ms.author: jingwang
-
+ms.date: 04/12/2023
+ms.author: jianleishen
 robots: noindex
 ---
 # Move data from a Web table source using Azure Data Factory
@@ -54,7 +45,7 @@ To use this Web table connector, you need to set up a Self-hosted Integration Ru
 You can create a pipeline with a copy activity that moves data from an on-premises Cassandra data store by using different tools/APIs. 
 
 - The easiest way to create a pipeline is to use the **Copy Wizard**. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard. 
-- You can also use the following tools to create a pipeline: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity. 
+- You can also use the following tools to create a pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity. 
 
 Whether you use the tools or APIs, you perform the following steps to create a pipeline that moves data from a source data store to a sink data store:
 
@@ -288,24 +279,24 @@ See WebSource type properties for the list of properties supported by the WebSou
 1. Launch **Excel 2016** and switch to the **Data** tab.  
 2. Click **New Query** on the toolbar, point to **From Other Sources** and click **From Web**.
 
-    ![Power Query menu](./media/data-factory-web-table-connector/PowerQuery-Menu.png)
+    :::image type="content" source="./media/data-factory-web-table-connector/PowerQuery-Menu.png" alt-text="Power Query menu":::
 3. In the **From Web** dialog box, enter **URL** that you would use in linked service JSON (for example: https://en.wikipedia.org/wiki/) along with path you would specify for the dataset (for example: AFI%27s_100_Years...100_Movies), and click **OK**.
 
-    ![From Web dialog](./media/data-factory-web-table-connector/FromWeb-DialogBox.png)
+    :::image type="content" source="./media/data-factory-web-table-connector/FromWeb-DialogBox.png" alt-text="From Web dialog":::
 
     URL used in this example: https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Movies
 4. If you see **Access Web content** dialog box, select the right **URL**, **authentication**, and click **Connect**.
 
-   ![Access Web content dialog box](./media/data-factory-web-table-connector/AccessWebContentDialog.png)
+   :::image type="content" source="./media/data-factory-web-table-connector/AccessWebContentDialog.png" alt-text="Access Web content dialog box":::
 5. Click a **table** item in the tree view to see content from the table and then click **Edit** button at the bottom.  
 
-   ![Navigator dialog](./media/data-factory-web-table-connector/Navigator-DialogBox.png)
+   :::image type="content" source="./media/data-factory-web-table-connector/Navigator-DialogBox.png" alt-text="Navigator dialog":::
 6. In the **Query Editor** window, click **Advanced Editor** button on the toolbar.
 
-    ![Advanced Editor button](./media/data-factory-web-table-connector/QueryEditor-AdvancedEditorButton.png)
+    :::image type="content" source="./media/data-factory-web-table-connector/QueryEditor-AdvancedEditorButton.png" alt-text="Advanced Editor button":::
 7. In the Advanced Editor dialog box, the number next to "Source" is the index.
 
-    ![Advanced Editor - Index](./media/data-factory-web-table-connector/AdvancedEditor-Index.png)
+    :::image type="content" source="./media/data-factory-web-table-connector/AdvancedEditor-Index.png" alt-text="Advanced Editor - Index":::
 
 If you are using Excel 2013, use [Microsoft Power Query for Excel](https://www.microsoft.com/download/details.aspx?id=39379) to get the index. See [Connect to a web page](https://support.office.com/article/Connect-to-a-web-page-Power-Query-b2725d67-c9e8-43e6-a590-c0a175bd64d8) article for details. The steps are similar if you are using [Microsoft Power BI for Desktop](https://powerbi.microsoft.com/desktop/).
 

@@ -1,0 +1,95 @@
+### YamlMime:Landing
+
+title: Azure SQL Edge documentation
+summary: Azure SQL Edge is an optimized relational database engine geared for IoT and edge deployments.
+
+metadata:
+  title: Azure SQL Edge documentation
+  meta.description: Learn how to use Azure SQL Edge.
+  services: sql-edge
+  ms.service: sql-edge
+  ms.topic: landing-page
+  author: MashaMSFT
+  ms.author: mathoma
+  ms.date: 04/24/2023
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+
+  # Card 
+  - title: SQL Edge 
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is SQL Edge?
+            url: overview.md
+      - linkListType: deploy
+        links:
+          - text: Deploy SQL Edge using the portal
+            url: deploy-portal.md
+          - text: Deploy SQL Edge with Docker
+            url: disconnected-deployment.md
+      - linkListType: tutorial  
+        links:
+          - text: Deploy in Kubernetes
+            url: deploy-kubernetes.md
+
+  # Card 
+  - title: Sync data
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Sync SQL Edge data with Azure Data Factory
+            url: tutorial-sync-data-factory.md
+          - text: Sync SQL Edge data with SQL Database
+            url: tutorial-sync-data-sync.md
+        
+  # Card 
+  - title: Data streaming
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Data streaming
+            url: stream-data.md
+          - text: Streaming catalog views
+            url: streaming-catalog-views.md
+          - text: Create and Manage streaming jobs
+            url: create-stream-analytics-job.md
+
+  # Card 
+  - title: Machine learning
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Machine learning and artificial intelligence
+            url: onnx-overview.md
+      - linkListType: quickstart
+        links:
+          - text: Deploy ONNX on SQL Edge
+            url: deploy-onnx.md
+
+  # Card 
+  - title: Time series data processing
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Imputing missing values
+            url: imputing-missing-values.md
+          - text: Data retention policy 
+            url: data-retention-overview.md
+          - text: Date_Bucket (Transact-SQL)
+            url: date-bucket-tsql.md
+  
+   # Card 
+  - title: Configure SQL Edge
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Configure SQL Edge
+            url: configure.md
+          - text: Configure replication 
+            url: configure-replication.md
+    

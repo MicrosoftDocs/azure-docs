@@ -1,22 +1,14 @@
 ---
-title: Introduction to Reliable Collections in Azure Service Fabric stateful services | Microsoft Docs
+title: Introduction to Reliable Collections
 description: Service Fabric stateful services provide reliable collections that enable you to write highly available, scalable, and low-latency cloud applications.
-services: service-fabric
-documentationcenter: .net
-author: aljo-microsoft
-manager: chackdan
-editor: masnider,rajak,zhol
-
-ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
-ms.date: 1/3/2019
-ms.author: aljo
-
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Introduction to Reliable Collections in Azure Service Fabric stateful services
 
 Reliable Collections enable you to write highly available, scalable, and low-latency cloud applications as though you were writing single computer applications. The classes in the **Microsoft.ServiceFabric.Data.Collections** namespace provide a set of collections that automatically make your state highly available. Developers need to program only to the Reliable Collection APIs and let Reliable Collections manage the replicated and local state.
@@ -31,10 +23,9 @@ The key difference between Reliable Collections and other high-availability tech
 Reliable Collections can be thought of as the natural evolution of the **System.Collections** classes: a new set of collections that are designed for the cloud and multi-computer applications without increasing complexity for the developer. As such, Reliable Collections are:
 
 * Replicated: State changes are replicated for high availability.
-* Persisted: Data is persisted to disk for durability against large-scale outages (for example, a datacenter power outage).
-* Because writes are persisted and replicated, you cannot create a volatile ReliableDictionary, ReliableQueue, or other reliable collection that only persists data in memory.
 * Asynchronous: APIs are asynchronous to ensure that threads are not blocked when incurring IO.
 * Transactional: APIs utilize the abstraction of transactions so you can manage multiple Reliable Collections within a service easily.
+* Persisted or Volatile: Data can be persisted to disk for durability against large-scale outages (for example, a datacenter power outage). Some Reliable Collections also support a volatile mode (with [Caveats](service-fabric-reliable-services-reliable-collections-guidelines.md#additional-guidelines-for-volatile-reliable-collections)) where all data is kept in-memory, such as a replicated in-memory cache.
 
 Reliable Collections provide strong consistency guarantees out of the box to make reasoning about application state easier.
 Strong consistency is achieved by ensuring transaction commits finish only after the entire transaction has been logged on a majority quorum of replicas, including the primary.
@@ -49,8 +40,8 @@ The Reliable Collections APIs are an evolution of concurrent collections APIs
 
 Today, **Microsoft.ServiceFabric.Data.Collections** contains three collections:
 
-* [Reliable Dictionary](https://msdn.microsoft.com/library/azure/dn971511.aspx): Represents a replicated, transactional, and asynchronous collection of key/value pairs. Similar to **ConcurrentDictionary**, both the key and the value can be of any type.
-* [Reliable Queue](https://msdn.microsoft.com/library/azure/dn971527.aspx): Represents a replicated, transactional, and asynchronous strict first-in, first-out (FIFO) queue. Similar to **ConcurrentQueue**, the value can be of any type.
+* [Reliable Dictionary](/dotnet/api/microsoft.servicefabric.data.collections.ireliabledictionary-2#microsoft_servicefabric_data_collections_ireliabledictionary_2): Represents a replicated, transactional, and asynchronous collection of key/value pairs. Similar to **ConcurrentDictionary**, both the key and the value can be of any type.
+* [Reliable Queue](/dotnet/api/microsoft.servicefabric.data.collections.ireliablequeue-1#microsoft_servicefabric_data_collections_ireliablequeue_1): Represents a replicated, transactional, and asynchronous strict first-in, first-out (FIFO) queue. Similar to **ConcurrentQueue**, the value can be of any type.
 * [Reliable Concurrent Queue](service-fabric-reliable-services-reliable-concurrent-queue.md): Represents a replicated, transactional, and asynchronous best effort ordering queue for high throughput. Similar to the **ConcurrentQueue**, the value can be of any type.
 
 ## Next steps
@@ -65,5 +56,5 @@ Today, **Microsoft.ServiceFabric.Data.Collections** contains three collections:
   * [Serialization and Upgrade](service-fabric-application-upgrade-data-serialization.md)
   * [Reliable State Manager configuration](service-fabric-reliable-services-configuration.md)
 * Others
-  * [Reliable Services quick start](service-fabric-reliable-services-quick-start.md)
-  * [Developer reference for Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+  * [Reliable Services quickstart](service-fabric-reliable-services-quick-start.md)
+  * [Developer reference for Reliable Collections](/dotnet/api/microsoft.servicefabric.data.collections#microsoft_servicefabric_data_collections)

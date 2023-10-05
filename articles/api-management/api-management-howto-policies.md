@@ -1,41 +1,38 @@
 ---
 title: Policies in Azure API Management | Microsoft Docs
-description: Learn how to create, edit, and configure policies in API Management.
+description: Learn about policies in API Management, a way for API publishers to change API behavior through configuration. Policies are statements that run sequentially on the request or response of an API.
 services: api-management
 documentationcenter: ''
-author: vladvino
-manager: erikre
-editor: ''
+author: dlepow
 
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2017
-ms.author: apimpm
+ms.date: 03/07/2023
+ms.author: danlep
 
 ---
 # Policies in Azure API Management
 
-In Azure API Management (APIM), policies are a powerful capability of the system that allow the publisher to change the behavior of the API through configuration. Policies are a collection of Statements that are executed sequentially on the request or response of an API. Popular Statements include format conversion from XML to JSON and call rate limiting to restrict the amount of incoming calls from a developer. Many more policies are available out of the box.
+In Azure API Management, API publishers can change API behavior through configuration using *policies*. Policies are a collection of statements that are run sequentially on the request or response of an API. Popular statements include:
 
-Policies are applied inside the gateway which sits between the API consumer and the managed API. The gateway receives all requests and usually forwards them unaltered to the underlying API. However a policy can apply changes to both the inbound request and outbound response.
+* Format conversion from XML to JSON
+* Call rate limiting to restrict the number of incoming calls from a developer 
+* Filtering requests that come from certain IP addresses
 
-Policy expressions can be used as attribute values or text values in any of the API Management policies, unless the policy specifies otherwise. Some policies such as the [Control flow][Control flow] and [Set variable][Set variable] policies are based on policy expressions. For more information, see [Advanced policies][Advanced policies] and [Policy expressions][Policy expressions].
+Many more policies are available out of the box. For a complete list, see [API Management policy reference](api-management-policies.md).
+
+Policies are applied inside the gateway between the API consumer and the managed API. While the gateway receives requests and forwards them, unaltered, to the underlying API, a policy can apply changes to both the inbound request and outbound response.
 
 ## <a name="sections"> </a>Understanding policy configuration
 
-The policy definition is a simple XML document that describes a sequence of inbound and outbound statements. The XML can be edited directly in the definition window. A list of statements is provided to the right and statements applicable to the current scope are enabled and highlighted.
+Policy definitions are simple XML documents that describe a sequence of statements to apply to requests and responses. To help you configure policy definitions, the portal provides these options:
 
-Clicking an enabled statement will add the appropriate XML at the location of the cursor in the definition view. 
+* A guided, form-based editor to simplify configuring popular policies without coding XML 
+* A code editor where you can insert XML snippets or edit XML directly 
 
-> [!NOTE]
-> If the policy that you want to add is not enabled, ensure that you are in the correct scope for that policy. Each policy statement is designed for use in certain scopes and policy sections. To review the policy sections and scopes for a policy, check the **Usage** section for that policy in the [Policy Reference][Policy Reference].
-> 
-> 
+For more information about configuring policies, see [Set or edit policies](set-edit-policies.md).
 
-The configuration is divided into `inbound`, `backend`, `outbound`, and `on-error`. The series of specified policy statements is executes in order for a request and a response.
+The policy XML configuration is divided into `inbound`, `backend`, `outbound`, and `on-error` sections. This series of specified policy statements is executed in order for a request and a response.
 
 ```xml
 <policies>
@@ -55,25 +52,71 @@ The configuration is divided into `inbound`, `backend`, `outbound`, and `on-erro
 </policies> 
 ```
 
-If there is an error during the processing of a request, any remaining steps in the `inbound`, `backend`, or `outbound` sections are skipped and execution jumps to the statements in the `on-error` section. By placing policy statements in the `on-error` section you can review the error by using the `context.LastError` property, inspect and customize the error response using the `set-body` policy, and configure what happens if an error occurs. There are error codes for built-in steps and for errors that may occur during the processing of policy statements. For more information, see [Error handling in API Management policies](/azure/api-management/api-management-error-handling-policies).
+For policy XML examples, see [API Management policy snippets repo](https://github.com/Azure/api-management-policy-snippets). 
 
-## <a name="scopes"> </a>How to configure policies
+### Error handling
 
-For information on how to configure policies, see [Set or edit policies](set-edit-policies.md).
+If an error occurs during the processing of a request:
+* Any remaining steps in the `inbound`, `backend`, or `outbound` sections are skipped.
+* Execution jumps to the statements in the `on-error` section.
 
-## Policy Reference
+By placing policy statements in the `on-error` section, you can:
+* Review the error using the `context.LastError` property.
+* Inspect and customize the error response using the `set-body` policy.
+* Configure what happens if an error occurs. 
 
-See the [Policy reference](api-management-policy-reference.md) for a full list of policy statements and their settings.
+For more information, see [Error handling in API Management policies](./api-management-error-handling-policies.md) 
 
-## Policy samples
+## Policy expressions
 
-See [Policy samples](policy-samples.md) for more code examples.
+Unless the policy specifies otherwise, [policy expressions](api-management-policy-expressions.md) can be used as attribute values or text values in any of the API Management policies. A policy expression is either:
+
+* a single C# statement enclosed in `@(expression)`, or 
+* a multi-statement C# code block, enclosed in `@{expression}`, that returns a value
+
+Each expression has access to the implicitly provided `context` variable and an allowed subset of .NET Framework types.
+
+Policy expressions provide a sophisticated means to control traffic and modify API behavior without requiring you to write specialized code or modify backend services. Some policies are based on policy expressions, such as the [Control flow][Control flow] and [Set variable][Set variable]. For more information, see [Advanced policies][Advanced policies].
+
+## Scopes
+
+API Management allows you to define policies at the following *scopes*, from most broad to most narrow:
+
+* Global (all APIs)
+* Workspace (all APIs associated with a selected workspace)
+* Product (all APIs associated with a selected product)
+* API (all operations in an API)
+* Operation (single operation in an API) 
+
+When configuring a policy, you must first select the scope at which the policy applies. 
+
+:::image type="content" source="media/api-management-howto-policies/policy-scopes.png" alt-text="Policy scopes":::
+
+### Things to know
+
+* For fine-grained control for different API consumers, you can configure policy definitions at more than one scope
+* Not all policies can be applied at each scope and policy section
+* When configuring policy definitions at more than one scope, you control the policy evaluation order in each policy section by placement of the `base` element 
+
+For more information, see [Set or edit policies](set-edit-policies.md#use-base-element-to-set-policy-evaluation-order).
+
+### GraphQL resolver policies
+
+In API Management, a [GraphQL resolver](configure-graphql-resolver.md) is configured using policies scoped to a specific operation type and field in a [GraphQL schema](graphql-apis-overview.md#resolvers).
+
+* Currently, API Management supports GraphQL resolvers that specify either HTTP API, Cosmos DB, or Azure SQL data sources. For example, configure a single [`http-data-source`](http-data-source-policy.md) policy with elements to specify a request to (and optionally response from) an HTTP data source.
+* You can't include a resolver policy in policy definitions at other scopes such as API, product, or all APIs. It also doesn't inherit policies configured at other scopes.
+* The gateway evaluates a resolver-scoped policy *after* any configured `inbound` and `backend` policies in the policy execution pipeline.
+
+For more information, see [Configure a GraphQL resolver](configure-graphql-resolver.md).
 
 ## Examples
 
 ### Apply policies specified at different scopes
 
-If you have a policy at the global level and a policy configured for an API, then whenever that particular API is used both policies will be applied. API Management allows for deterministic ordering of combined policy statements via the base element. 
+If you have a policy at the global level and a policy configured for an API, both policies can be applied whenever that particular API is used. API Management allows for deterministic ordering of combined policy statements via the `base` element. 
+
+Example policy definition at API scope:
 
 ```xml
 <policies>
@@ -85,47 +128,39 @@ If you have a policy at the global level and a policy configured for an API, the
 </policies>
 ```
 
-In the example policy definition above, the `cross-domain` statement would execute before any higher policies which would in turn, be followed by the `find-and-replace` policy. 
+In the example policy definition above:
+* The `cross-domain` statement would execute first.
+* The [`find-and-replace` policy](find-and-replace-policy.md) would execute after any policies at a broader scope. 
 
-### Restrict incoming requests
+>[!NOTE]
+> If you remove the `base` element at the API scope, only policies configured at the API scope will be applied. Neither product nor global scope policies would be applied.
 
-To add a new statement to restrict incoming requests to specified IP addresses, place the cursor just inside the content of the `inbound` XML element and click the **Restrict caller IPs** statement.
+### Use policy expressions to modify requests
 
-![Restriction policies][policies-restrict]
-
-This will add an XML snippet to the `inbound` element that provides guidance on how to configure the statement.
-
-```xml
-<ip-filter action="allow | forbid">
-    <address>address</address>
-    <address-range from="address" to="address"/>
-</ip-filter>
-```
-
-To limit inbound requests and accept only those from an IP address of 1.2.3.4 modify the XML as follows:
+The following example uses [policy expressions][Policy expressions] and the [`set-header`](set-header-policy.md) policy to add user data to the incoming request. The added header includes the user ID associated with the subscription key in the request, and the region where the gateway processing the request is hosted.
 
 ```xml
-<ip-filter action="allow">
-    <address>1.2.3.4</address>
-</ip-filter>
+<policies>
+    <inbound>
+        <base />
+        <set-header name="x-request-context-data" exists-action="override">
+            <value>@(context.User.Id)</value>
+            <value>@(context.Deployment.Region)</value>
+      </set-header>
+    </inbound>
+</policies> 
+
 ```
 
-## Next steps
+[!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]
 
-For more information working with policies, see:
-
-+ [Transform APIs](transform-api.md)
-+ [Policy Reference](api-management-policy-reference.md) for a full list of policy statements and their settings
-+ [Policy samples](policy-samples.md)	
-
-[Policy Reference]: api-management-policy-reference.md
+[Policy Reference]: ./api-management-policies.md
 [Product]: api-management-howto-add-products.md
 [API]: api-management-howto-add-products.md
-[Operation]: api-management-howto-add-operations.md
+[Operation]: ./mock-api-responses.md
 
-[Advanced policies]: https://msdn.microsoft.com/library/azure/dn894085.aspx
-[Control flow]: https://msdn.microsoft.com/library/azure/dn894085.aspx#choose
-[Set variable]: https://msdn.microsoft.com/library/azure/dn894085.aspx#set_variable
-[Policy expressions]: https://msdn.microsoft.com/library/azure/dn910913.aspx
+[Advanced policies]: ./api-management-advanced-policies.md
+[Control flow]: choose-policy.md
+[Set variable]: set-variable-policy.md
+[Policy expressions]: ./api-management-policy-expressions.md
 
-[policies-restrict]: ./media/api-management-howto-policies/api-management-policies-restrict.png

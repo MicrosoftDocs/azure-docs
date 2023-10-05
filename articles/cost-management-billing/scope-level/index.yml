@@ -1,0 +1,64 @@
+### YamlMime:Landing
+
+title: Centrally managed Azure Hybrid Benefit
+summary: Azure Hybrid Benefit is a licensing benefit that lets you bring your on-premises core-based Windows Server and SQL Server licenses with active Software Assurance (or subscription) to Azure. It allows you to significantly reduce the costs of running your workloads in the cloud. In the Azure portal, you can now centrally manage your Azure Hybrid Benefit for SQL Server by assigning licenses to the scope of an entire Azure subscription or overall billing account.
+metadata:
+  title: Azure Hybrid Benefit documentation
+  description: Azure Hybrid Benefit is a licensing benefit that lets you bring your on-premises core-based Windows Server and SQL Server licenses with active Software Assurance (or subscription) to Azure. It allows you to significantly reduce the costs of running your workloads in the cloud. In the Azure portal, you can now centrally manage your Azure Hybrid Benefit for SQL Server by assigning licenses to the scope of an entire Azure subscription or overall billing account.
+  ms.service: cost-management-billing
+  ms.subservice: ahb
+  ms.topic: landing-page
+  ms.collection: collection
+  author: bandersmsft
+  ms.author: banders
+  ms.date: 04/23/2023
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+
+  - title: Get started
+    linkLists:
+    - linkListType: overview
+      links:
+      - text: What is centralized management?
+        url: overview-azure-hybrid-benefit-scope.md
+    - linkListType: video
+      links:
+      - text: Demo - Reduce costs and increase SQL license utilization using Azure Hybrid Benefit
+        url: https://aka.ms/azure/pricing/CM_AHB_SQL/DevVideo
+    - linkListType: tutorial
+      links:
+      - text: Create SQL Server license assignments
+        url: create-sql-license-assignments.md
+      - text: Optimize centrally managed Azure Hybrid Benefit
+        url: tutorial-azure-hybrid-benefits-sql.md
+
+  # Card (optional)
+  - title: Manage
+    linkLists:
+    - linkListType: concept
+      links:
+      - text: SQL IaaS extension registration options
+        url: sql-iaas-extension-registration.md
+    - linkListType: how-to-guide
+      links:
+      - text: Transition to centrally managed Azure Hybrid Benefit
+        url: transition-existing.md
+    - linkListType: reference
+      links:
+      - text: FAQ
+        url: faq-azure-hybrid-benefit-scope.yml
+
+  # Card (optional)
+  - title: Learn more
+    linkLists:
+    - linkListType: concept
+      links:
+      - text: How Azure applies assigned licenses
+        url: manage-licenses-centrally.md
+      - text: SQL Server HADR vs Azure Hybrid Benefit
+        url: sql-server-hadr-licenses.md

@@ -1,148 +1,188 @@
 ---
-title: Configure an application's publisher domain | Azure
-description: Learn how to configure an application's publisher domain to let users know where their information is being sent.
+title: Configure an app's publisher domain
+description: Learn how to configure an app's publisher domain to let users know where their information is being sent.
 services: active-directory
-documentationcenter: dev-center-name
-author: rwike77
+author: OwenRichards1
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: how-to
 ms.workload: identity
-ms.date: 04/05/2019
-ms.author: ryanwi
-ms.reviewer: lenalepa, sureshja, zachowd
-ms.custom: aaddev
-ms.collection: M365-identity-device-management
+ms.date: 04/27/2023
+ms.author: owenrichards
+ms.reviewer: xurobert
+ms.custom: contperf-fy21q4, aaddev
 ---
 
-# How to: Configure an application's publisher domain (Preview)
+# Configure an app's publisher domain
 
-An application’s publisher domain is displayed to users on the [application’s consent prompt](application-consent-experience.md) to let users know where their information is being sent. Multi-tenant applications that are registered after May 21, 2019 that don't have a publisher domain show up as **unverified**. Multi-tenant applications are applications that support accounts outside of a single organizational directory; for example, support all Azure AD accounts, or support all Azure AD accounts and personal Microsoft accounts.
+An app’s publisher domain informs users where their information is being sent. The publisher domain also acts as an input or prerequisite for [publisher verification](publisher-verification-overview.md). Depending on when the app was registered and the status of the Publisher Verification, it would be displayed directly to the user on the [application's consent prompt](application-consent-experience.md). An application’s publisher domain is displayed to users (depending on the state of Publisher Verification) on the consent UX to let users know where their information is being sent for trustworthiness.
 
-## New applications
+In an app's consent prompt, either the publisher domain or the publisher verification status appears. Which information is shown depends on whether the app is a [multitenant app](/azure/architecture/guide/multitenant/overview), when the app was registered, and the app's publisher verification status.
 
-When you register a new app, the publisher domain of your app may be set to a default value. The value depends on where the app is registered, particularly whether the app is registered in a tenant and whether the tenant has tenant verified domains.
+## Understand multitenant apps
 
-If there are tenant-verified domains, the app’s publisher domain will default to the primary verified domain of the tenant. If there are no tenant verified domains (which is the case when the application is not registered in a tenant), the app’s publisher domain will be set to null.
+A *multitenant app* is an app that supports user accounts that are outside a single organizational directory. For example, a multitenant app might support all Microsoft Entra work or school accounts, or it might support both Microsoft Entra work or school accounts and personal Microsoft accounts.
 
-The following table summarizes the default behavior of the publisher domain value.  
+## Understand default publisher domain values
 
-| Tenant-verified domains | Default value of publisher domain |
+Several factors determine the default value that's set for an app's publisher domain:
+
+- Whether the app is registered in a tenant.
+- Whether a tenant has tenant-verified domains.
+- The app registration date.
+
+### Tenant registration and tenant-verified domains
+
+When you register a new app, the publisher domain of your app might be set to a default value. The default value depends on where the app is registered. The publisher domain value depends especially on whether the app is registered in a tenant and whether the tenant has tenant-verified domains.
+
+If the app has tenant-verified domains, the app’s publisher domain defaults to the primary verified domain of the tenant. If the app doesn't have tenant-verified domains and the app isn't registered in a tenant, the app’s default publisher domain is null.
+
+The following table uses example scenarios to describe the default values for publisher domain:
+
+| Tenant-verified domain | Default value of publisher domain |
 |-------------------------|----------------------------|
 | null | null |
-| *.onmicrosoft.com | *.onmicrosoft.com |
-| - *.onmicrosoft.com<br/>- domain1.com<br/>- domain2.com (primary) | domain2.com |
+| `*.onmicrosoft.com` | `*.onmicrosoft.com` |
+| - `*.onmicrosoft.com`<br/>- `domain1.com`<br/>- `domain2.com` (primary) | `domain2.com` |
 
-If a multi-tenant application's publisher domain isn't set, or if it's set to a domain that ends in .onmicrosoft.com, the app's consent prompt will show **unverified** in place of the publisher domain.
+### App registration date
 
-## Grandfathered applications
+An app's registration date also determines the app's default publisher domain values.
 
-If your app was registered before May 21, 2019, your application's consent prompt will not show **unverified** if you have not set a publisher domain. We recommend that you set the publisher domain value so that users can see this information on your app's consent prompt.
+If your multitenant app was registered *between May 21, 2019, and November 30, 2020*:  
 
-## Configure publisher domain using the Azure portal
+- If the  app's publisher domain isn't set, or if it's set to a domain that ends in `.onmicrosoft.com`, the app's consent prompt shows *unverified* for the publisher domain value.
+- If the app has a verified app domain, the consent prompt shows the verified domain.
+- If the app is publisher verified, the publisher domain shows a [blue *verified* badge](publisher-verification-overview.md) that indicates the status.
 
-To set your app's publisher domain, follow these steps.
+If your multitenant was registered *after November 30, 2020*:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
+- If the app isn't publisher verified, the consent prompt for the app shows *unverified*. No publisher domain-related information appears.
+- If the app is publisher verified, the app consent prompt shows a [blue *verified* badge](publisher-verification-overview.md).
 
-1. If your account is present in more than one Azure AD tenant:
-   1. Select your profile from the menu on the top-right corner of the page, and then **Switch directory**.
-   1. Change your session to the Azure AD tenant where you want to create your application.
+#### Apps created before May 21, 2019
 
-1. Navigate to [Azure Active Directory > App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) to find and select the app that you want to configure.
+If your app was registered *before May 21, 2019*, your app's consent prompt shows *unverified*, even if you haven't set a publisher domain. We recommend that you set the publisher domain value so that users can see this information in your app's consent prompt.
 
-   Once you've selected the app, you'll see the app's **Overview** page.
+## Set a publisher domain in the Microsoft Entra admin center
 
-1. From the app's **Overview** page, select the **Branding** section.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Find the **Publisher domain** field and select one of the following options:
+To set a publisher domain for your app by using the Microsoft Entra admin center:
 
-   - Select **Configure a domain** if you haven't configured a domain already.
-   - Select **Update domain** if a domain has already been configured.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the portal global menu to select the tenant where the app is registered.
+1. In Azure Microsoft Entra admin center browse to **Identity** > **Applications** > **App registrations**. 
+1. Search for and select the app you want to configure.
+1. In **Overview**, in the resource menu under **Manage**, select **Branding**.
+1. In **Publisher domain**, select one of the following options:
 
-If your app is registered in a tenant, you'll see two tabs to select from: **Select a verified domain** and **Verify a new domain**.
+   - If you haven't already configured a domain, select **Configure a domain**.
+   - If you have configured a domain, select **Update domain**.
 
-If your app isn't registered in a tenant, you'll only see the option to verify a new domain for your application.
+1. If your app is registered in a tenant, next, select from two options:
 
-### To verify a new domain for your app
+   - **Select a verified domain**
+   - **Verify a new domain**
 
-1. Create a file named `microsoft-identity-association.json` and paste the following JSON code snippet.
+   If your domain isn't registered in the tenant, only the option to verify a new domain for your app appears.
+
+### Verify a new domain for your app
+
+To verify a new publisher domain for your app:
+
+1. Create a file named *microsoft-identity-association.json*. Copy the following JSON and paste it in the *microsoft-identity-association.json* file:
 
    ```json
    {
       "associatedApplications": [
-        {
-           "applicationId": "{YOUR-APP-ID-HERE}"
-        }
+         {
+            "applicationId": "<your-app-id>"
+         },
+         {
+            "applicationId": "<another-app-id>"
+         }
       ]
     }
    ```
 
-1. Replace the placeholder *{YOUR-APP-ID-HERE}* with the application (client) ID that corresponds to your app.
+1. Replace `<your-app-id>` with the application (client) ID for your app. Use all relevant app IDs if you're verifying a new domain for multiple apps.
+1. Host the file at `https://<your-domain>.com/.well-known/microsoft-identity-association.json`. Replace `<your-domain>` with the name of the verified domain.
+1. Select **Verify and save domain**.
 
-1. Host the file at: `https://{YOUR-DOMAIN-HERE}.com/.well-known/microsoft-identity-association.json`. Replace the placeholder *{YOUR-DOMAIN-HERE}* to match the verified domain.
+You're not required to maintain the resources that are used for verification after you verify a domain. When verification is finished, you can remove the hosted file.
 
-1. Click the **Verify and save domain** button.
+### Select a verified domain
 
-### To select a verified domain
+If your tenant has verified domains, in the **Select a verified domain** dropdown, select one of the domains.
 
-- If your tenant has verified domains, select one of the domains from the **Select a verified domain** dropdown.
+> [!NOTE]
+> Content will be interpreted as UTF-8 JSON for deserialization. Supported `Content-Type` headers that should return are `application/json`, `application/json; charset=utf-8`, or ` `. If you use any other header, you might see this error message:
+>
+> `Verification of publisher domain failed. Error getting JSON file from https:///.well-known/microsoft-identity-association. The server returned an unexpected content type header value.`
+>
 
-## Implications on the app consent prompt
+## Publisher domain and the app consent prompt
 
-Configuring the publisher domain has an impact on what users see on the app consent prompt. To fully understand the components of the consent prompt, see [Understanding the application consent experiences](application-consent-experience.md).
+Configuring the publisher domain affects what users see in the app consent prompt. For more information about the components of the consent prompt, see [Understand the application consent experience](application-consent-experience.md).
 
-The following table describes the behavior for applications created before May 21, 2019.
+The following figure shows how publisher domain appears in app consent prompts for apps that were created before May 21, 2019:
 
-![Consent prompt for apps created before May 21, 2019](./media/howto-configure-publisher-domain/old-app-behavior-table.png)
+:::image type="content" source="./media/howto-configure-publisher-domain/old-app-behavior-table.png" border="false" alt-text="Diagram that shows consent prompt behavior for apps created before May 21, 2019.":::
 
-The behavior for new applications created after May 21, 2019 will depend on the publisher domain and the type of application. The following table describes the changes you should expect to see with the different combinations of configurations.
+For apps that were created between May 21, 2019, and November 30, 2020, how the publisher domain appears in an app's consent prompt depends on the publisher domain and the type of app. The following figure describes what appears on the consent prompt for different combinations of configurations:
 
-![Consent prompt for apps created after May 21, 2019](./media/howto-configure-publisher-domain/new-app-behavior-table.png)
+:::image type="content" source="./media/howto-configure-publisher-domain/new-app-behavior-table.png" border="false" alt-text="Diagram that shows consent prompt behavior for apps created between May 21, 2019, and November 30, 2020.":::
 
-## Implications on redirect URIs
+For multitenant apps that were created after November 30, 2020, only publisher verification status is shown in an app's consent prompt. The following table describes what appears in a consent prompt depending on whether an app is verified. The consent prompt for single-tenant apps remains the same.
 
-Applications that sign in users with any work or school account, or personal Microsoft accounts ([multi-tenant](single-and-multi-tenant-apps.md)) are subject to few restrictions when specifying redirect URIs.
+:::image type="content" source="./media/howto-configure-publisher-domain/new-app-behavior-publisher-verification-table.png" border="false" alt-text="Diagram that shows  consent prompt results for apps that were created after November 30, 2020.":::
+
+## Publisher domain and redirect URIs
+
+Apps that sign in users by using any work or school account or by using a Microsoft account (multitenant) are subject to a few restrictions in redirect URIs.
 
 ### Single root domain restriction
 
-When the publisher domain value for multi-tenant apps is set to null, apps are restricted to share a single root domain for the redirect URIs. For example, the following combination of values isn't allowed because the root domain, contoso.com, doesn't match fabrikam.com.
+When the publisher domain value for a multitenant app is set to null, the app is restricted to sharing a single root domain for the redirect URIs. For example, the following combination of values isn't allowed because the root domain `contoso.com` doesn't match the root domain `fabrikam.com`.
 
-```
-"https://contoso.com",
+```json
+"https://contoso.com",  
 "https://fabrikam.com",
 ```
 
 ### Subdomain restrictions
 
-Subdomains are allowed, but you must explicitly register the root domain. For example, while the following URIs share a single root domain, the combination isn't allowed.
+Subdomains are allowed, but you must explicitly register the root domain. For example, although the following URIs share a single root domain, the combination isn't allowed:
 
-```
+```json
 "https://app1.contoso.com",
 "https://app2.contoso.com",
 ```
 
-However, if the developer explicitly adds the root domain, the combination is allowed.
+But if the developer explicitly adds the root domain, the combination is allowed:
 
-```
+```json
 "https://contoso.com",
 "https://app1.contoso.com",
 "https://app2.contoso.com",
 ```
 
-### Exceptions
+### Restriction exceptions
 
 The following cases aren't subject to the single root domain restriction:
 
-- Single tenant apps, or apps that target accounts in a single directory
-- Use of localhost as redirect URIs
-- Redirect URIs with custom schemes (non-HTTP or HTTPS)
+- Single-tenant apps or apps that target accounts in a single directory.
+- Use of localhost as redirect URIs.
+- Redirect URIs that have custom schemes (non-HTTP or HTTPS).
 
 ## Configure publisher domain programmatically
 
-Currently, there is no REST API or PowerShell support to configure publisher domain programmatically.
+Currently, you can't use REST API or PowerShell to programmatically set a publisher domain.
+
+## Next steps
+
+- Learn how to [mark an app as publisher verified](mark-app-as-publisher-verified.md).
+- [Troubleshoot](troubleshoot-publisher-verification.md) publisher verification.

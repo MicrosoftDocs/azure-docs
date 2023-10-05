@@ -1,139 +1,147 @@
 ---
-title: Configure an application to expose web APIs - Microsoft identity platform
-description: Learn how to configure an application to expose a new permission/scope and role to make the application available to client applications.
+title: "Quickstart: Register and expose a web API"
+description: In this quickstart, your register a web API with the Microsoft identity platform and configure its scopes, exposing it to clients for permissions-based access to the API's resources.
 services: active-directory
-documentationcenter: ''
-author: rwike77
+author: cilwerner
 manager: CelesteDG
-editor: ''
-
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/08/2019
-ms.author: ryanwi
-ms.custom: aaddev
+ms.date: 06/29/2023
+ms.author: cwerner
+ms.custom: aaddev, has-adal-ref, engagement-fy23
 ms.reviewer: aragra, lenalepa, sureshja
-#Customer intent: As an application developer, I need to know how to configure my application to expose new permissions (or scopes) and roles, to make my application available to client applications.
-ms.collection: M365-identity-device-management
+#Customer intent: As an application developer, I need learn to how to register my web API with the Microsoft identity platform and expose permissions (scopes) to make the API's resources available to users of my client application.
 ---
 
-# Quickstart: Configure an application to expose web APIs
+# Quickstart: Configure an application to expose a web API
 
-You can develop a web API and make it available to client applications by exposing [permissions/scopes](developer-glossary.md#scopes) and [roles](developer-glossary.md#roles). A correctly configured web API is made available just like the other Microsoft web APIs, including the Graph API and the Office 365 APIs.
-
-In this quickstart, you'll learn how to configure an application to expose a new scope to make it available to client applications.
+In this quickstart, you'll register a web API with the Microsoft identity platform and expose it to client apps by adding a scope. By registering your web API and exposing it through scopes, assigning an owner and app role, you can provide permissions-based access to its resources to authorized users and client apps that access your API.
 
 ## Prerequisites
 
-To get started, make sure you complete these prerequisites:
+* An Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Completion of [Quickstart: Set up a tenant](quickstart-create-new-tenant.md)
 
-* Learn about the supported [permissions and consent](v2-permissions-and-consent.md), which is important to understand when building applications that need to be used by other users or applications.
-* Have a tenant that has applications registered to it.
-  * If you don't have apps registered, [learn how to register applications with the Microsoft identity platform](quickstart-register-app.md).
+## Register the web API
 
-## Sign in to the Azure portal and select the app
+Access to APIs require configuration of access scopes and roles. If you want to expose your resource application web APIs to client applications, configure access scopes and roles for the API. If you want a client application to access a web API, configure permissions to access the API in the app registration.
 
-Before you can configure the app, follow these steps:
+To provide scoped access to the resources in your web API, you first need to register the API with the Microsoft identity platform.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account or a personal Microsoft account.
-1. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the desired Azure AD tenant.
-1. In the left-hand navigation pane, select the **Azure Active Directory** service and then select **App registrations**.
-1. Find and select the application you want to configure. Once you've selected the app, you'll see the application's **Overview** or main registration page.
-1. Choose which method you want to use, UI or application manifest, to expose a new scope:
-    * [Expose a new scope through the UI](#expose-a-new-scope-through-the-ui)
-    * [Expose a new scope or role through the application manifest](#expose-a-new-scope-or-role-through-the-application-manifest)
+Perform the steps in the **Register an application** section of [Quickstart: Register an app with the Microsoft identity platform](quickstart-register-app.md).
 
-## Expose a new scope through the UI
+Skip the **Redirect URI (optional)** section. You don't need to configure a redirect URI for a web API since no user is logged in interactively.
 
-[![Expose an API using the UI](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png#lightbox)
+## Assign application owner 
 
-To expose a new scope through the UI:
+1. In your app registration, under **Manage**, select **Owners**, and **Add owners**.
+1. In the new window, find and select the owner(s) that you want to assign to the application. Selected owners appear in the right panel. Once done, confirm with **Select**. The app owner(s) will now appear in the owner's list.
 
-1. From the app's **Overview** page, select the **Expose an API** section.
+>[!NOTE]
+>
+> Ensure that both the API application and the application you want to add permissions to both have an owner, otherwise the API will not be listed when requesting API permissions.
 
-1. Select **Add a scope**.
+## Assign app role
 
-1. If you have not set an **Application ID URI**, you will see a prompt to enter one. Enter your application ID URI or use the one provided and then select **Save and continue**.
+1. In your app registration, under **Manage**, select **App roles**, and **Create app role**.
+1. Next, specify the app role's attributes in the **Create app role** pane. For this walk-through, you can use the example values or specify your own. 
 
-1. When the **Add a scope** page appears, enter your scope's information:
+   | Field | Description | Example |
+   |-------|-------------|---------|
+   | **Display name** | The name of your app role | *Employee Records* |
+   | **Allowed member types** | Specifies whether the app role can be assigned to users/groups and/or applications | *Applications* |
+   | **Value** | The value displayed in the "roles" claim of a token | `Employee.Records` |
+   | **Description** | A more detailed description of the app role | *Applications have access to employee records* |
 
-    | Field | Description |
-    |-------|-------------|
-    | **Scope name** | Enter a meaningful name for your scope.<br><br>For example, `Employees.Read.All`. |
-    | **Who can consent** | Select whether this scope can be consented to by users, or if admin consent is required. Select **Admins only** for higher-privileged permissions. |
-    | **Admin consent display name** | Enter a meaningful description for your scope, which admins will see.<br><br>For example, `Read-only access to Employee records` |
-    | **Admin consent description** | Enter a meaningful description for your scope, which admins will see.<br><br>For example, `Allow the application to have read-only access to all Employee data.` |
+1. Select the checkbox to enable the app role.
 
-    If users can consent to your scope, also add values for the following fields:
+With the web API registered, assigned an app role and owner, you can add scopes to the API's code so it can provide granular permission to consumers.
 
-    | Field | Description |
-    |-------|-------------|
-    | **User consent display name** | Enter a meaningful name for your scope, which users will see.<br><br>For example, `Read-only access to your Employee records` |
-    | **User consent description** | Enter a meaningful description for your scope, which users will see.<br><br>For example, `Allow the application to have read-only access to your Employee data.` |
+## Add a scope
 
-1. Set the **State** and select **Add scope** when you're done.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Follow the steps to [verify that the web API is exposed to other applications](#verify-the-web-api-is-exposed-to-other-applications).
+The code in a client application requests permission to perform operations defined by your web API by passing an access token along with its requests to the protected resource (the web API). Your web API then performs the requested operation only if the access token it receives contains the scopes required for the operation.
 
-## Expose a new scope or role through the application manifest
+First, follow these steps to create an example scope named `Employees.Read.All`:
 
-[![Expose a new scope using the oauth2Permissions collection in the manifest](./media/quickstart-update-azure-ad-app-preview/expose-new-scope-through-app-manifest-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-new-scope-through-app-manifest-expanded.png#lightbox)
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant containing your client app's registration.
+1. Browse to **Identity** > **Applications** > **App registrations**, and then select your API's app registration.
+1. Select **Expose an API**
+1. Select **Add** next to **Application ID URI** if you haven't yet configured one.
 
-To expose a new scope through the application manifest:
+   You can use the default value of `api://<application-client-id>` or another [supported App ID URI pattern](reference-app-manifest.md#identifieruris-attribute). The App ID URI acts as the prefix for the scopes you'll reference in your API's code, and it must be globally unique.
+1. Select **Add a scope**:
 
-1. From the app's **Overview** page, select the **Manifest** section. A web-based manifest editor opens, allowing you to **Edit** the manifest within the portal. Optionally, you can select **Download** and edit the manifest locally, and then use **Upload** to reapply it to your application.
-    
-    The following example shows how to expose a new scope called `Employees.Read.All` in the resource/API by adding the following JSON element to the `oauth2Permissions` collection.
+    :::image type="content" source="media/quickstart-configure-app-expose-web-apis/portal-02-expose-api.png" alt-text="An app registration's Expose an API pane in the Azure portal":::
 
-      ```json
-      {
-        "adminConsentDescription": "Allow the application to have read-only access to all Employee data.",
-        "adminConsentDisplayName": "Read-only access to Employee records",
-        "id": "2b351394-d7a7-4a84-841e-08a6a17e4cb8",
-        "isEnabled": true,
-        "type": "User",
-        "userConsentDescription": "Allow the application to have read-only access to your Employee data.",
-        "userConsentDisplayName": "Read-only access to your Employee records",
-        "value": "Employees.Read.All"
-      }
-      ```
 
-   > [!NOTE]
-   > The `id` value must be generated programmatically or by using a GUID generation tool such as [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx). The `id` represents a unique identifier for the scope as exposed by the web API. Once a client is appropriately configured with permissions to access your web API, it is issued an OAuth 2.0 access token by Azure AD. When the client calls the web API, it presents the access token that has the scope (scp) claim set to the permissions requested in its application registration.
-   >
-   > You can expose additional scopes later as necessary. Consider that your web API might expose multiple scopes associated with a variety of different functions. Your resource can control access to the web API at runtime by evaluating the scope (`scp`) claim(s) in the received OAuth 2.0 access token.
+1. Next, specify the scope's attributes in the **Add a scope** pane. For this walk-through, you can use the example values or specify your own.
 
-1. When finished, click **Save**. Now your web API is configured for use by other applications in your directory.
-1. Follow the steps to [verify that the web API is exposed to other applications](#verify-the-web-api-is-exposed-to-other-applications).
+    | Field | Description | Example |
+    |-------|-------------|---------|
+    | **Scope name** | The name of your scope. A common scope naming convention is `resource.operation.constraint`. | `Employees.Read.All` |
+    | **Who can consent** | Whether this scope can be consented to by users or if admin consent is required. Select **Admins only** for higher-privileged permissions. | **Admins and users** |
+    | **Admin consent display name** | A short description of the scope's purpose that only admins will see. | `Read-only access to Employee records` |
+    | **Admin consent description** | A more detailed description of the permission granted by the scope that only admins will see. | `Allow the application to have read-only access to all Employee data.` |
+    | **User consent display name** | A short description of the scope's purpose. Shown to users only if you set **Who can consent** to **Admins and users**. | `Read-only access to your Employee records` |
+    | **User consent description** | A more detailed description of the permission granted by the scope. Shown to users only if you set **Who can consent** to **Admins and users**. | `Allow the application to have read-only access to your Employee data.` |
 
-## Verify the web API is exposed to other applications
+1. Set the **State** to **Enabled**, and then select **Add scope**.
 
-1. Go back to your Azure AD tenant, select **App registrations**, find and select the client application you want to configure.
-1. Repeat the steps outlined in Configure a client application to access web APIs.
-1. When you get to the **Select an API** step, select your resource. You should see the new scope, available for client permission requests.
+1. (Optional) To suppress prompting for consent by users of your app to the scopes you've defined, you can *pre-authorize* the client application to access your web API. Pre-authorize *only* those client applications you trust since your users won't have the opportunity to decline consent.
+    1. Under **Authorized client applications**, select **Add a client application**
+    1. Enter the **Application (client) ID** of the client application you want to pre-authorize. For example, that of a web application you've previously registered.
+    1. Under **Authorized scopes**, select the scopes for which you want to suppress consent prompting, then select **Add application**.
 
-## More on the application manifest
+    If you followed this optional step, the client app is now a pre-authorized client app (PCA), and users won't be prompted for their consent when signing in to it.
 
-The application manifest serves as a mechanism for updating the application entity, which defines all attributes of an Azure AD application's identity configuration. For more information on the Application entity and its schema, see the [Graph API Application entity documentation](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity). The article contains complete reference information on the Application entity members used to specify permissions for your API, including:  
+## Add a scope requiring admin consent
 
-* The appRoles member, which is a collection of [AppRole](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#approle-type) entities, used to define [application permissions](developer-glossary.md#permissions) for a web API.
-* The oauth2Permissions member, which is a collection of [OAuth2Permission](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permission-type) entities, used to define [delegated permissions](developer-glossary.md#permissions) for a web API.
+Next, add another example scope named `Employees.Write.All` that only admins can consent to. Scopes that require admin consent are typically used for providing access to higher-privileged operations, and often by client applications that run as backend services or daemons that don't sign in a user interactively.
 
-For more information on application manifest concepts in general, see [Understanding the Azure Active Directory application manifest](reference-app-manifest.md).
+To add the `Employees.Write.All` example scope, follow the steps in the [Add a scope](#add-a-scope) section and specify these values in the **Add a scope** pane:
+
+| Field                          | Example value                                                      |
+|--------------------------------|--------------------------------------------------------------------|
+| **Scope name**                 | `Employees.Write.All`                                              |
+| **Who can consent**            | **Admins only**                                                    |
+| **Admin consent display name** | `Write access to Employee records`                                 |
+| **Admin consent description**  | `Allow the application to have write access to all Employee data.` |
+| **User consent display name**  | *None (leave empty)*                                               |
+| **User consent description**   | *None (leave empty)*                                               |
+
+Set the State to Enabled, and then select Add scope.
+
+## Verify the exposed scopes
+
+If you have successfully added both example scopes described in the previous sections, they'll appear in the **Expose an API** pane of your web API's app registration, similar to the following image:
+
+:::image type="content" source="media/quickstart-configure-app-expose-web-apis/portal-03-scopes-list.png" alt-text="Screenshot of the Expose an API pane showing two exposed scopes.":::
+
+As shown in the image, a scope's full string is the concatenation of your web API's **Application ID URI** and the scope's **Scope name**.
+
+For example, if your web API's application ID URI is `https://contoso.com/api` and the scope name is `Employees.Read.All`, the full scope is:
+
+`https://contoso.com/api/Employees.Read.All`
+
+## Using the exposed scopes
+
+In the next article in this series, you configure a client app's registration with access to your web API and the scopes you defined by following the steps in this article.
+
+Once a client app registration is granted permission to access your web API, the client can be issued an OAuth 2.0 access token by the identity platform. When the client calls the web API, it presents an access token whose scope (`scp`) claim is set to the permissions you've specified in the client's app registration.
+
+You can expose additional scopes later as necessary. Consider that your web API can expose multiple scopes associated with several operations. Your resource can control access to the web API at runtime by evaluating the scope (`scp`) claims in the OAuth 2.0 access token it receives.
 
 ## Next steps
 
-Learn about these other related app management quickstarts for apps:
+Now that you've exposed your web API by configuring its scopes, configure your client app's registration with permission to access the scopes.
 
-* [Register an application with the Microsoft identity platform](quickstart-register-app.md)
-* [Configure a client application to access web APIs](quickstart-configure-app-access-web-apis.md)
-* [Modify the accounts supported by an application](quickstart-modify-supported-accounts.md)
-* [Remove an application registered with the Microsoft identity platform](quickstart-remove-app.md)
+> [!div class="nextstepaction"]
+> [Configure an app registration for web API access](quickstart-configure-app-access-web-apis.md)
 
-To learn more about the two Azure AD objects that represent a registered application and the relationship between them, see [Application objects and service principal objects](app-objects-and-service-principals.md).
-
-To learn more about the branding guidelines you should use when developing applications with Azure Active Directory, see [Branding guidelines for applications](howto-add-branding-in-azure-ad-apps.md).
+<!-- REF LINKS -->
+[ms-graph-application]: /graph/api/resources/application

@@ -1,105 +1,237 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Virtual Network Documentation
+### YamlMime:Landing
+
+title: Virtual Network documentation
+summary: Learn how to use Azure Virtual Network. Quickstarts, tutorials, samples, and more, show you how to deploy a virtual network, control traffic filtering and routing, and connect a virtual network to other virtual networks.
+
 metadata:
-  document_id: 44409b3f-ab8c-053d-cdf4-5d7e823a275f
-  title: Virtual Network Documentation - Tutorials, quickstarts, API references | Microsoft Docs
-  meta.description: Learn how to use Azure Virtual Network. Quickstarts, tutorials, samples, and more, show you how to deploy a virtual network, control traffic filtering and routing, and connect a virtual network to other virtual networks.
-  services: virtual-network
-  author: KumudD
-  manager: twooley
-  ms.service: virtual-network
-  ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.topic: landing-page
-  ms.date: 03/23/2018
-  ms.author: kumud
-abstract:
+  title: Azure Virtual Network Documentation - Tutorials, quickstarts, API references
   description: Learn how to use Azure Virtual Network. Quickstarts, tutorials, samples, and more, show you how to deploy a virtual network, control traffic filtering and routing, and connect a virtual network to other virtual networks.
-sections:
-- title: 5-Minute Quickstarts
-  items:
-  - type: paragraph
-    text: 'Learn how to create a virtual network, deploy virtual machines into it, and then communicate between the virtual machines, and the internet.'
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: https://docs.microsoft.com/azure/virtual-network/media/index/portal.svg
-      text: Azure portal
-      href: /azure/virtual-network/quick-create-portal
-    - image: 
-        src: https://docs.microsoft.com/azure/virtual-network/media/index/powershell.svg
-      text: Azure PowerShell
-      href: /azure/virtual-network/quick-create-powershell
-    - image: 
-        src: https://docs.microsoft.com/azure/virtual-network/media/index/cli.svg
-      text: Azure CLI
-      href: /azure/virtual-network/quick-create-cli
-- title: Step-by-Step Tutorials
-  items:
-  - type: paragraph
-    text: Learn how to create and connect virtual networks and control routing and filtering.
-  - type: list
-    style: ordered
-    items:
-    - html: <a href="/azure/virtual-network/tutorial-filter-network-traffic">Filter network traffic</a>
-    - html: <a href="/azure/virtual-network/tutorial-create-route-table-portal">Route network traffic</a>
-    - html: <a href="/azure/virtual-network/tutorial-restrict-network-access-to-resources">Restrict network access to resources</a>
-    - html: <a href="/azure/virtual-network/tutorial-connect-virtual-networks-portal">Connect virtual networks</a>
-- title: Build your skills with Microsoft Learn
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
-    items:
-    - title:  Introduction to Azure networking
-      href: /learn/modules/intro-to-azure-networking/
-      image: 
-        src: /learn/achievements/intro-to-azure-networking.svg
-        href: /learn/modules/intro-to-azure-networking/
-  - type: paragraph
-    text: <a href="/learn/browse/?products=azure">More interactive learning...</a>
-- title: Free Pluralsight Video Training
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
-    items:
-    - title: Azure Administrator
-      href: https://go.microsoft.com/fwlink/?linkid=2012827
-      image: 
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://go.microsoft.com/fwlink/?linkid=2012827
-    - title: Azure Solution Architect
-      href: https://go.microsoft.com/fwlink/?linkid=2012824
-      image: 
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://go.microsoft.com/fwlink/?linkid=2012824
-    - title: Azure Administration for AWS Administrators
-      href: https://app.pluralsight.com/library/courses/azure-administration-aws-administrators/table-of-contents
-      image: 
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://app.pluralsight.com/library/courses/azure-administration-aws-administrators/table-of-contents
-- title: Samples
-  items:
-  - type: paragraph
-    text: Script samples for common tasks.
-  - type: list
-    style: unordered
-    className: spaced noBullet
-    items:
-    - html: <a href="/azure/virtual-network/cli-samples">Azure CLI</a>
-    - html: <a href="/azure/virtual-network/powershell-samples">PowerShell</a>
-- title: Reference
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Command-Line
-      html: <p><a href="/powershell/module/az.network#networking">PowerShell</a></p><p><a href="/cli/azure/network">Azure CLI</a></p>
-    - title: Languages
-      html: <p><a href="/dotnet/api/overview/azure/virtual-network">.NET</a></p><p><a href="/java/api/overview/azure/network">Java</a></p><p><a href="/javascript/api/overview/azure/virtual-network">Node.js</a></p><p><a href="/python/api/overview/azure/network">Python</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/virtual-network/">REST API Reference</a></p>
+  services: virtual-network
+  ms.service: virtual-network
+  ms.topic: landing-page
+  ms.collection: collection
+  author: asudbring
+  ms.author: allensu
+  ms.date: 06/29/2022
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: About Virtual Network
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Virtual Network?
+            url: virtual-networks-overview.md
+      - linkListType: concept
+        links:
+          - text: Virtual network FAQ
+            url: virtual-networks-faq.md
+      - linkListType: learn
+        links:
+          - text: Introduction to Azure Virtual Networks
+            url: /training/modules/introduction-to-azure-virtual-networks
+      - linkListType: deploy
+        links: 
+          - text: Provision a network landing zone
+            url: https://mslabs.cloudguides.com/en-us/guides/Azure%20Networking%20Solutions%20-%20Exercise%201
+          - text: Provision a new application in an existing network
+            url: https://mslabs.cloudguides.com/en-us/guides/Azure%20Networking%20Solutions%20-%20Exercise%202
+          - text: Provision a secondary Azure region infrastructure
+            url: https://mslabs.cloudguides.com/en-us/guides/Azure%20Networking%20Solutions%20-%20Exercise%205
+          - text: Implement Azure network security
+            url: https://mslearn.cloudguides.com/guides/Azure%20network%20security
+ 
+  # Card (optional)
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create virtual network
+            url: quick-create-portal.md    
+      - linkListType: how-to-guide
+        links:
+          - text: Create, change, or delete a virtual network
+            url: manage-virtual-network.md
+          - text: Add, change, or delete a subnet
+            url: virtual-network-manage-subnet.md
+
+  # Card
+  - title: Secure network traffic
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Network security groups
+            url: ./network-security-groups-overview.md
+          - text: Application security groups
+            url: ./network-security-groups-overview.md#application-security-groups 
+          - text: Virtual network service endpoints
+            url: virtual-network-service-endpoints-overview.md
+          - text: Virtual network security FAQ
+            url: virtual-networks-faq.md#security
+          - text: Default outbound access
+            url: ./ip-services/default-outbound-access.md
+          - text: Virtual network encryption
+            url: ./virtual-network-encryption-overview.md
+      - linkListType: tutorial
+        links:
+          - text: Filter network traffic using network security groups
+            url: tutorial-filter-network-traffic.md
+          - text: Restrict network access using service endpoints
+            url: tutorial-restrict-network-access-to-resources.md
+          - text: Work with application security groups
+            url: manage-network-security-group.md#work-with-application-security-groups
+      - linkListType: how-to-guide
+        links:
+          - text: Create a virtual network with encryption
+            url: ./how-to-create-encryption-portal.md
+      - linkListType: learn
+        links:
+          - text: Secure and isolate access to Azure resources
+            url: /training/modules/secure-and-isolate-with-nsg-and-service-endpoints
+       
+  # Card
+  - title: Connect virtual networks
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Virtual network peering
+            url: virtual-network-peering-overview.md
+          - text: Virtual network peering FAQ
+            url: virtual-networks-faq.md#virtual-network-peering            
+      - linkListType: tutorial
+        links:
+          - text: Connect VNets with virtual network peering
+            url: tutorial-connect-virtual-networks-portal.md
+      - linkListType: how-to-guide
+        links:
+          - text: Same deployment model - same subscription
+            url: tutorial-connect-virtual-networks-powershell.md
+          - text: Same deployment model - different subscriptions
+            url: create-peering-different-subscriptions.md
+          - text: Different deployment models - same subscription
+            url: create-peering-different-deployment-models.md
+          - text: Different deployment models - different subscriptions
+            url: create-peering-different-deployment-models-subscriptions.md
+      - linkListType: learn
+        links:
+          - text: Communicate across virtual network with peering
+            url: /training/modules/integrate-vnets-with-vnet-peering
+
+  # Card
+  - title: Route network traffic
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Route network traffic with route tables
+            url: virtual-networks-udr-overview.md
+      - linkListType: tutorial
+        links:
+          - text: Route network traffic - Portal
+            url: tutorial-create-route-table-portal.md
+      - linkListType: learn
+        links:
+          - text: Manage and control traffic flow in your Azure deployment with routes
+            url: /training/modules/control-network-traffic-flow-with-routes/       
+
+  # Card
+  - title: Create IP addresses 
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: IP address types and allocation methods
+            url: ./ip-services/public-ip-addresses.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create, change, or delete a public IP address
+            url: ./ip-services/virtual-network-public-ip-address.md
+          - text: Add a public IP address to a VM
+            url: ./ip-services/associate-public-ip-address-vm.md
+          - text: Create a VM with static IP address
+            url: ./ip-services/virtual-network-deploy-static-pip-arm-portal.md
+          - text: Configure a static private IP address for a VM
+            url: ./ip-services/virtual-networks-static-private-ip-arm-pportal.md
+          - text: Assign multiple IP addresses to a VM
+            url: ./ip-services/virtual-network-multiple-ip-addresses-powershell.md
+  # Card
+  - title: Create IPv6 for virtual networks
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: What is IPv6 for Azure virtual network?
+            url: ./ip-services/ipv6-overview.md
+      - linkListType: deploy
+        links:
+          - text: Deploy an IPV6 dual stack application - Standard Load Balancer
+            url: ../load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
+
+  # Card
+  - title: Monitor virtual networks
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Virtual network Terminal Access Point (TAP)
+            url: virtual-network-tap-overview.md
+          - text: Virtual network TAP FAQ
+            url: virtual-networks-faq.md#virtual-network-tap    
+      - linkListType: how-to-guide
+        links:
+          - text: Create a virtual network TAP
+            url: tutorial-tap-virtual-network-cli.md
+
+  # Card
+  - title: Manage IP services
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: IP address types and allocation methods
+            url: ./ip-services/public-ip-addresses.md
+          - text: What is IPv6 for Azure virtual network?
+            url: ./ip-services/ipv6-overview.md
+          - text: Public IP address prefix
+            url: ./ip-services/public-ip-address-prefix.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create, change, or delete a public IP address
+            url: ./ip-services/virtual-network-public-ip-address.md
+          - text: Deploy an IPV6 dual stack application
+            url: ../load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
+          - text: Create, change, or delete a public IP address prefix
+            url: ./ip-services/manage-public-ip-address-prefix.md
+  
+  # Card
+  - title: Learn about Virtual Network architecture
+    linkLists:
+      - linkListType: overview
+        links:
+        - text: Networking architecture design
+          url: /azure/architecture/guide/networking/networking-start-here
+      - linkListType: learn
+        links:
+        - text: Architect network infrastructure in Azure
+          url: /training/paths/architect-network-infrastructure/
+      - linkListType: reference
+        links:
+        - text: Connect an on-premises network to Azure
+          url: /azure/architecture/reference-architectures/hybrid-networking/
+        - text: Implement a secure hybrid network
+          url: /azure/architecture/reference-architectures/dmz/secure-vnet-dmz?tabs=portal
+        - text: Hub-spoke network topology in Azure
+          url: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke?tabs=cli
+        - text: High availability and disaster recovery scenarios for IaaS apps
+          url: /azure/architecture/example-scenario/infrastructure/iaas-high-availability-disaster-recovery/
+
+  # Card
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure CLI
+            url: /cli/azure/network
+          - text: Azure PowerShell
+            url: /powershell/module/az.network
+          - text: REST
+            url: /rest/api/virtual-network      

@@ -1,6 +1,6 @@
 ---
 author: zhangmanling
-ms.service: cdn
+ms.service: azure-cdn
 ms.topic: include
 ms.date: 11/21/2018
 ms.author: mazha
@@ -20,10 +20,10 @@ Before writing CDN management code, you must do some preparation to enable the c
     ![Creating a new resource group](./media/cdn-app-dev-prep/cdn-new-rg-1-include.png)
 3. Name your resource group *CdnConsoleTutorial*.  Select your subscription and choose a location near you.  If you wish, you can click the **Pin to dashboard** checkbox to pin the resource group to the dashboard in the portal.  Pinning makes it easier to find later.  After you've made your selections, click **Create**.
 
-    ![Naming the resource group](./media/cdn-app-dev-prep/cdn-new-rg-2-include.png)
+    ![Screenshot of the Resource group dialog box.](./media/cdn-app-dev-prep/cdn-new-rg-2-include.png)
 4. After the resource group is created, if you didn't pin it to your dashboard, you can find it by clicking **Browse**, then **Resource Groups**.  To open it, click the resource group.  Make a note of your **Subscription ID**. We need it later.
 
-    ![Naming the resource group](./media/cdn-app-dev-prep/cdn-subscription-id-include.png)
+    ![Screenshot of the C D N Console Tutorial section.](./media/cdn-app-dev-prep/cdn-subscription-id-include.png)
 
 ### Creating the Azure AD application and applying permissions
 There are two approaches to app authentication with Azure Active Directory: Individual users or a service principal. A service principal is similar to a service account in Windows.  Instead of granting a particular user permissions to interact with the CDN profiles, permissions are instead granted to the service principal.  Service principals are typically used for automated, non-interactive processes.  Even though this tutorial is writing an interactive console app, we'll focus on the service principal approach.
@@ -35,7 +35,7 @@ Creating a service principal consists of several steps, including creating an Az
 >
 > When you get to the step named Configure multi-tenant application, select **No**.
 >
-> When you get to the step [Assign the application to a role](../articles/active-directory/develop/howto-create-service-principal-portal.md#assign-the-application-to-a-role), use the resource group created earlier,  *CdnConsoleTutorial*, but instead of the **Reader** role, assign the **CDN Profile Contributor** role.  After you assign the application the **CDN Profile Contributor** role on your resource group, return to this tutorial. 
+> When you get to the step [Assign the application to a role](../articles/active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application), use the resource group created earlier,  *CdnConsoleTutorial*, but instead of the **Reader** role, assign the **CDN Profile Contributor** role.  After you assign the application the **CDN Profile Contributor** role on your resource group, return to this tutorial. 
 >
 >
 
@@ -58,4 +58,4 @@ If, instead of a service principal, you'd rather have interactive individual use
 3. There is no need to create a **client authentication key**.
 4. Instead of assigning a service principal to the **CDN Profile Contributor** role, we're going to assign individual users or groups.  In this example, you can see that I've assigned  *CDN Demo User* to the **CDN Profile Contributor** role.  
 
-    ![Individual user access](./media/cdn-app-dev-prep/cdn-aad-user-include.png)
+    ![Individual user access](./media/cdn-app-dev-prep/cdn-user-include.png)

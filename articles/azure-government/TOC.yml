@@ -9,22 +9,30 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Azure Government Portal
+  - name: Azure Government portal
     href: documentation-government-get-started-connect-with-portal.md
   - name: Azure CLI
     href: documentation-government-get-started-connect-with-cli.md
+  - name: DoD DISA STIGs
+    items:
+    - name: Deploy Linux VM
+      href: documentation-government-stig-linux-vm.md
+    - name: Deploy Windows VM
+      href: documentation-government-stig-windows-vm.md
   - name: PowerShell
     href: documentation-government-get-started-connect-with-ps.md
+  - name: Visual Studio
+    href: documentation-government-connect-vs.md
 - name: Tutorials
   items:
-  - name: Deploy App Services
+  - name: Deploy App Service
     href: documentation-government-howto-deploy-webandmobile.md
   - name: Create Virtual Machines
     href: documentation-government-quickstarts-vm.md
 - name: Concepts
-  items: 
-  - name: Guidance for developers
-    href: documentation-government-developer-guide.md
+  items:
+  - name: Considerations for naming Azure resources
+    href: documentation-government-concept-naming-resources.md
   - name: Plan
     items:
     - name: Security
@@ -33,32 +41,62 @@
       href: documentation-government-plan-compliance.md
     - name: Identity
       href: documentation-government-plan-identity.md
+  - name: Industry segments
+    items:
+    - name: Department of Defense
+      href: documentation-government-overview-dod.md
+    - name: Export controls
+      href: documentation-government-overview-itar.md
+    - name: Power and utilities
+      href: documentation-government-overview-nerc.md
+    - name: Public safety and justice
+      href: documentation-government-overview-jps.md
+    - name: Worldwide public sector
+      href: documentation-government-overview-wwps.md
+- name: How-to guides
+  items: 
+  - name: Develop
+    items:
+    - name: Guidance for developers
+      href: documentation-government-developer-guide.md
+    - name: Azure Storage
+      href: documentation-government-get-started-connect-to-storage.md
+    - name: Azure AI services
+      href: documentation-government-cognitiveservices.md
+    - name: Integrate Azure AD authentication
+      href: documentation-government-aad-auth-qs.md
+    - name: SQL Server Management Studio
+      href: documentation-government-connect-ssms.md
+  - name: Secure
+    items:
+    - name: Impact Level 5 isolation guidance 
+      href: documentation-government-impact-level-5.md
+    - name: Azure secure isolation guidance
+      href: azure-secure-isolation-guidance.md
+    - name: Secure Azure computing architecture 
+      href: compliance/secure-azure-computing-architecture.md
+  - name: Deploy
+    items:
+    - name: Deploy with Azure Pipelines
+      href: connect-with-azure-pipelines.md
+    - name: Use DISA CAP
+      href: documentation-government-ase-disa-cap.md
   - name: Manage
     items:
     - name: Azure Monitor logs
       href: documentation-government-manage-oms.md
     - name: Marketplace
       href: documentation-government-manage-marketplace.md
-- name: How-to guides
-  items: 
-  - name: Deploy with Azure Pipelines
-    href: connect-with-azure-pipelines.md
-  - name: Use Visual Studio
-    href: documentation-government-get-started-connect-with-vs.md
-  - name: Use SQL Server Management Studio
-    href: documentation-government-connect-ssms.md
-  - name: Use Azure Storage
-    href: documentation-government-get-started-connect-to-storage.md    
-  - name: Use Cognitive Services API
-    href: documentation-government-cognitiveservices.md     
-  - name: Deploy Kubernetes cluster
-    href: documentation-government-k8.md
-  - name: Integrate Azure AD Authentication
-    href: documentation-government-aad-auth-qs.md
-  - name: Use DISA CAP
-    href: documentation-government-ase-disa-cap.md
-  - name: Impact Level 5 Isolation Guidance 
-    href: documentation-government-impact-level-5.md
+    - name: Access EA billing account
+      href: documentation-government-how-to-access-enterprise-agreement-billing-account.md
+- name: Compliance
+  items:
+  - name: Trusted Internet Connections with Azure
+    href: compliance/compliance-tic.md
+  - name: Cloud services by audit scope
+    href: compliance/azure-services-in-fedramp-auditscope.md
+  - name: Accelerate your path to ATO with Azure
+    href: compliance/documentation-accelerate-compliance.md
 - name: Reference
   items:
   - name: Marketplace
@@ -69,61 +107,25 @@
       href: documentation-government-extension.md
     - name: Marketplace for partners
       href: documentation-government-manage-marketplace-partners.md
-  - name: Services
+  - name: Cloud Solution Providers
     items:
-    - name: Compute
-      href: documentation-government-compute.md
-    - name: Networking
-      href: documentation-government-networking.md
-    - name: Storage
-      href: documentation-government-services-storage.md
-    - name: Web + Mobile
-      href: documentation-government-services-webandmobile.md
-    - name: Azure Stack
-      href: documentation-azure-stack-gov.md
-    - name: Media Services
-      href: documentation-government-services-media.md
-    - name: Databases
-      href: documentation-government-services-database.md
-    - name: Data + Analytics
-      href: documentation-government-services-dataandanalytics.md
-    - name: AI + Machine Learning
-      href: documentation-government-services-aiandcognitiveservices.md
-    - name: Internet of Things
-      href: documentation-government-services-iot-hub.md
-    - name: Integration Services
-      href: documentation-government-services-integration.md
-    - name: Security + Identity
-      href: documentation-government-services-securityandidentity.md
-    - name: Backup
-      href: documentation-government-services-backup.md
-    - name: Monitoring + Management
-      href: documentation-government-services-monitoringandmanagement.md
-    - name: Developer Tools
-      href: documentation-government-services-devtools.md
-  - name: CSP for Azure Government
-    href: documentation-government-csp-application.md
-  - name: Certifications
-    items:
-    - name: ITAR
-      href: documentation-government-overview-itar.md
-    - name: Justice and Public Safety
-      href: documentation-government-overview-jps.md
-    - name: Department of Defense
-      href: documentation-government-overview-dod.md
+    - name: CSP application process
+      href: documentation-government-csp-application.md
+    - name: Authorized reseller list
+      href: documentation-government-csp-list.md
 - name: Resources
   items:
   - name: Azure Government Website
-    href: https://azure.microsoft.com/overview/clouds/government/
+    href: https://azure.microsoft.com/global-infrastructure/government/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?tag=azure-government
   - name: Blog
-    href: https://blogs.msdn.microsoft.com/azuregov/
+    href: https://devblogs.microsoft.com/azuregov/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Trial
-    href: https://azuregov.microsoft.com/trial/azuregovtrial
+    href: https://azure.microsoft.com/global-infrastructure/government/request/

@@ -1,0 +1,136 @@
+### YamlMime:FAQ
+metadata:
+  title: Dedicated SQL pool (formerly SQL DW) frequently asked questions 
+  description: This article lists out frequently asked questions about dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics from customers and developers.
+  author: WilliamDAssafMSFT 
+  ms.service: synapse-analytics
+  ms.topic: faq
+  ms.subservice: sql-dw 
+  ms.date: 08/24/2022
+  ms.author: wiassaf
+  ms.reviewer: wiassaf
+title: Dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics frequently asked questions
+summary: |
+
+sections:
+  - name: General
+    questions:
+      - question: |
+          What is Azure Synapse?
+        answer: |
+          Azure Synapse is an analytics service that brings together data warehousing and Big Data analytics. Azure Synapse brings these two worlds together with a unified experience to ingest, prepare, manage, and serve data for BI and machine learning needs. For more information, see, [What is Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
+          
+      - question: |
+          What happened to Azure SQL Data Warehouse?
+        answer: |
+          Azure Synapse is Azure SQL Data Warehouse evolved. We've taken the same industry-leading data warehouse to a whole new level of performance and capabilities. You can continue running your existing data warehouse workloads in production with dedicated SQL pool (formerly SQL DW) in Azure Synapse. For more information, see [What is Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
+          
+      - question: |
+          What is a dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics?
+        answer: |
+          Dedicated SQL pool refers to the standalone platform of enterprise data warehousing features that are generally available with Azure Synapse. For more information, see [What is Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md). A dedicated SQL pool (formerly SQL DW) is a standalone or connected service outside of an Azure Synapse workspace. You can also create dedicated SQL pools in your Azure Synapse workspace.
+          
+      - question: |
+          What is the difference between dedicated SQL pools (SQL DW) and dedicated SQL pools in Azure Synapse workspaces?
+        answer: |
+          Not all features of the dedicated SQL pool in Azure Synapse workspaces apply to a standalone dedicated SQL pool (formerly SQL DW), and vice versa. For more information, see [What's the difference between Azure Synapse dedicated SQL pools (formerly SQL DW) and dedicated SQL pools in an Azure Synapse Analytics workspace?](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/msft-docs-what-s-the-difference-between-synapse-formerly-sql-dw/ba-p/3597772). To enable Azure Synapse workspace features for an existing dedicated SQL pool (formerly SQL DW), refer to [How to enable a workspace for your dedicated SQL pool (formerly SQL DW)](workspace-connected-create.md). 
+          
+      - question: |
+          How do I get started with Azure Synapse?
+        answer: |
+          You can get started with an [Azure free account](https://azure.microsoft.com/free/sql-data-warehouse/) or [contact sales for more information](https://info.microsoft.com/ww-landing-azure-sql-data-warehouse-contactme.html).
+          
+      - question: |
+          What does Azure Synapse offer for data security?
+        answer: |
+          Azure Synapse offers several solutions for protecting data such as TDE and auditing. For more information, see [Security](sql-data-warehouse-overview-manage-security.md).
+          
+      - question: |
+          Where can I find out what legal or business standards Azure Synapse is compliant with?
+        answer: |
+          Visit the [Microsoft Compliance](https://www.microsoft.com/trustcenter/compliance/complianceofferings) page for various compliance offerings by product such as SOC and ISO. First, choose by Compliance title. Then expand Azure in the Microsoft in-scope cloud services section on the right side of the page to see what services are Azure Synapse compliant.
+          
+      - question: |
+          Can I connect Power BI?
+        answer: |
+          Yes! Though Power BI supports direct query with Azure Synapse, it's not intended for a large number of users or real-time data. To optimize Power BI performance further, consider using Power BI on top of Azure Analysis Services or Analysis Service IaaS.
+
+      - question: |
+          What are a dedicated SQL pool (formerly SQL DW) capacity limits?
+        answer: |
+          See our current [capacity limits](sql-data-warehouse-service-capacity-limits.md) page.
+          
+      - question: |
+          Why is my Scale/Pause/Resume taking so long?
+        answer: |
+          Several factors can influence the time for compute management operations. A common case for long running operations is transactional rollback. When a scale or pause operation is initiated, all incoming sessions are blocked and queries are drained. In order to leave the system in a stable state, transactions must be rolled back before an operation can commence. The greater the number and larger the log size of transactions, the longer the operation will be stalled restoring the system to a stable state.
+
+  - name: User support
+    questions:
+      - question: |
+          I have a feature request, where do I submit it?
+        answer: |
+          If you have a feature request, submit it on our [UserVoice](https://feedback.azure.com/d365community/forum/9b9ba8e4-0825-ec11-b6e6-000d3a4f07b8) page
+          
+      - question: |
+          How can I do x?
+        answer: |
+          For help with developing with Azure Synapse, you can ask questions on our [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw) page.
+          
+      - question: |
+          How do I submit a support ticket?
+        answer: |
+          [Support Tickets](sql-data-warehouse-get-started-create-support-ticket.md) can be filed through Azure portal.
+          
+  - name: SQL language/feature support
+    questions:
+      - question: |
+          What data types are supported?
+        answer: |
+          See  [data types](sql-data-warehouse-tables-data-types.md).
+          
+      - question: |
+          What table features do you support?
+        answer: |
+          Many features are supported. Features that aren't supported can be found in [Unsupported Table Features](sql-data-warehouse-tables-data-types.md).
+          
+  - name: Tooling and administration
+    questions:
+      - question: |
+          Does dedicated SQL pool (formerly SQL DW) support REST APIs?
+        answer: |
+          Yes. Most REST functionality that can be used with SQL Database is also available with dedicated SQL pool (formerly SQL DW). You can find API information within REST documentation pages or
+          [Databases](/rest/api/sql/databases?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+          
+  - name: Loading
+    questions:
+      - question: |
+          What client drivers do you support?
+        answer: |
+          Driver support for dedicated SQL pool (formerly SQL DW) can be found on the [Connection Strings](sql-data-warehouse-connection-strings.md) page
+          
+      - question: |
+          What file formats are supported by PolyBase?
+        answer: |
+          Orc, RC, Parquet, and flat delimited text
+
+      - question: |
+          What data sources can I connect to using PolyBase?
+        answer: |
+          [Azure Data Lake Storage](sql-data-warehouse-load-from-azure-data-lake-store.md) and [Azure Storage Blobs](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
+          
+      - question: |
+          Is computation pushdown possible when connecting to Azure Storage Blobs or ADLS?
+        answer: |
+          No, PolyBase only interacts with the storage components.
+
+      - question: |
+          Can I connect to HDI?
+        answer: |
+          HDI can use either ADLS or WASB as the HDFS layer. If you have either as your HDFS layer, you can load that data into a dedicated SQL pool (formerly SQL DW). However, you cannot generate pushdown computation to the HDI instance.
+
+additionalContent: |
+
+  ## Next steps
+  
+  For more information on dedicated SQL pool (formerly SQL DW) in Azure Synapse, see our [Overview](sql-data-warehouse-overview-what-is.md) page.

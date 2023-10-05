@@ -1,34 +1,89 @@
 ---
-title: Azure Data Factory Mapping Data Flow Exists transformation
-description: How to check for existing rows using data factory mapping data flows with Exists transformation
+title: Exists transformation in mapping data flow 
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Check for existing rows using the exists transformation in Azure Data Factory and Synapse Analytics mapping data flow
 author: kromerm
 ms.author: makromer
+ms.reviewer: daperlov
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 01/30/2019
+ms.custom: synapse
+ms.date: 07/13/2023
 ---
 
-# Mapping data flow exists transformation
+# Exists transformation in mapping data flow
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-The Exists transformation is a row filtering transformation that stops or allows rows in your data to flow through. The Exists Transform is similar to ```SQL WHERE EXISTS``` and ```SQL WHERE NOT EXISTS```. After the Exists Transformation, the resulting rows from your data stream will either include all rows where column values from source 1 exist in source 2 or do not exist in source 2.
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
-![Exists settings](media/data-flow/exists.png "exists 1")
+The exists transformation is a row filtering transformation that checks whether your data exists in another source or stream. The output stream includes all rows in the left stream that either exist or don't exist in the right stream. The exists transformation is similar to ```SQL WHERE EXISTS``` and ```SQL WHERE NOT EXISTS```.
 
-Choose the second source for your Exists so that Data Flow can compare values from Stream 1 against Stream 2.
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4vZKz]
 
-Select the column from Source 1 and from Source 2 whose values you wish to check against for Exists or Not Exists.
+## Configuration
 
-## Multiple exists conditions
+1. Choose which data stream you're checking for existence in the **Right stream** dropdown.
+1. Specify whether you're looking for the data to exist or not exist in the **Exist type** setting.
+1. Select whether or not your want a **Custom expression**.
+1. Choose which key columns you want to compare as your exists conditions. By default, data flow looks for equality between one column in each stream. To compare via a computed value, hover over the column dropdown and select **Computed column**.
 
-Next to each row in your column conditions for Exists, you'll find a + sign available when you hover over reach row. This will allow you to add multiple rows for Exists conditions. Each additional condition is an "And".
+:::image type="content" source="media/data-flow/exists.png" alt-text="Exists settings":::
 
-## Custom expression
+### Multiple exists conditions
 
-![Exists custom settings](media/data-flow/exists1.png "exists custom")
+To compare multiple columns from each stream, add a new exists condition by clicking the plus icon next to an existing row. Each additional condition is joined by an "and" statement. Comparing two columns is the same as the following expression:
 
-You can click "Custom Expression" to instead create a free-form expression as your exists or not-exists condition. Checking this box will allow you to type in your own expression as a condition.
+`source1@column1 == source2@column1 && source1@column2 == source2@column2`
+
+### Custom expression
+
+To create a free-form expression that contains operators other than "and" and "equals to", select the **Custom expression** field. Enter a custom expression via the data flow expression builder by clicking on the blue box.
+
+:::image type="content" source="media/data-flow/exists1.png" alt-text="Exists custom settings":::
+
+If you are building dynamic patterns in your data flows by using "late binding" of columns via schema drift, you can use the ```byName()``` expression function to use the exists transformation without hardcoding (i.e. early binding) the column names. Example: ```toString(byName('ProductNumber','source1')) == toString(byName('ProductNumber','source2'))```
+
+## Broadcast optimization
+
+:::image type="content" source="media/data-flow/broadcast.png" alt-text="Broadcast Join":::
+
+In joins, lookups and exists transformation, if one or both data streams fit into worker node memory, you can optimize performance by enabling **Broadcasting**. By default, the spark engine will automatically decide whether or not to broadcast one side. To manually choose which side to broadcast, select **Fixed**.
+
+It's not recommended to disable broadcasting via the **Off** option unless your joins are running into timeout errors.
+
+## Data flow script
+
+### Syntax
+
+```
+<leftStream>, <rightStream>
+    exists(
+        <conditionalExpression>,
+        negate: { true | false },
+        broadcast: { 'auto' | 'left' | 'right' | 'both' | 'off' }
+    ) ~> <existsTransformationName>
+```
+
+### Example
+
+The below example is an exists transformation named `checkForChanges` that takes left stream `NameNorm2` and right stream `TypeConversions`.  The exists condition is the expression `NameNorm2@EmpID == TypeConversions@EmpID && NameNorm2@Region == DimEmployees@Region` that returns true if both the `EMPID` and `Region` columns in each stream matches. As we're checking for existence, `negate` is false. We aren't enabling any broadcasting in the optimize tab so `broadcast` has value `'none'`.
+
+In the UI experience, this transformation looks like the below image:
+
+:::image type="content" source="media/data-flow/exists-script.png" alt-text="Exists example":::
+
+The data flow script for this transformation is in the snippet below:
+
+```
+NameNorm2, TypeConversions
+    exists(
+        NameNorm2@EmpID == TypeConversions@EmpID && NameNorm2@Region == DimEmployees@Region,
+	    negate:false,
+	    broadcast: 'auto'
+    ) ~> checkForChanges
+```
 
 ## Next steps
 

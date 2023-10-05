@@ -1,17 +1,15 @@
 ---
 title: Real User Measurements in Azure Traffic Manager
-description: Introduction to Real User Measurements in Traffic Manager
+description: In this introduction, learn how Azure Traffic Manager Real User Measurements work.
 services: traffic-manager
 documentationcenter: traffic-manager
-author: KumudD
+author: greg-lindsay
 ms.service: traffic-manager
-ms.devlang: na
-ms.topic: article 
-ms.tgt_pltfrm: 
+ms.topic: conceptual 
 ms.workload: infrastructure
-ms.date: 03/16/2018
-ms.author: kumud
-ms.custom: 
+ms.date: 04/27/2023
+ms.author: greglin
+ms.custom: template-concept
 ---
 
 # Traffic Manager Real User Measurements overview
@@ -30,10 +28,49 @@ Over time, this happens many times and across many networks leading to Traffic M
 
 When you use Real User Measurements, you are billed based on the number of measurements sent to Traffic Manager. For more details on the pricing, visit the [Traffic Manager pricing page](https://azure.microsoft.com/pricing/details/traffic-manager/).
 
+## FAQs
+
+* [What are the benefits of using Real User Measurements?](./traffic-manager-faqs.md#what-are-the-benefits-of-using-real-user-measurements)
+
+* [Can I use Real User Measurements with non-Azure regions?](./traffic-manager-faqs.md#can-i-use-real-user-measurements-with-non-azure-regions)
+
+* [Which routing method benefits from Real User Measurements?](./traffic-manager-faqs.md#which-routing-method-benefits-from-real-user-measurements)
+
+* [Do I need to enable Real User Measurements each profile separately?](./traffic-manager-faqs.md#do-i-need-to-enable-real-user-measurements-each-profile-separately)
+
+* [How do I turn off Real User Measurements for my subscription?](./traffic-manager-faqs.md#how-do-i-turn-off-real-user-measurements-for-my-subscription)
+
+* [Can I use Real User Measurements with client applications other than web pages?](./traffic-manager-faqs.md#can-i-use-real-user-measurements-with-client-applications-other-than-web-pages)
+
+* [How many measurements are made each time my Real User Measurements enabled web page is rendered?](./traffic-manager-faqs.md#how-many-measurements-are-made-each-time-my-real-user-measurements-enabled-web-page-is-rendered)
+
+* [Is there a delay before Real User Measurements script runs in my webpage?](./traffic-manager-faqs.md#is-there-a-delay-before-real-user-measurements-script-runs-in-my-webpage)
+
+* [Can I use Real User Measurements with only the Azure regions I want to measure?](./traffic-manager-faqs.md#can-i-use-real-user-measurements-with-only-the-azure-regions-i-want-to-measure)
+
+* [Can I limit the number of measurements made to a specific number?](./traffic-manager-faqs.md#can-i-limit-the-number-of-measurements-made-to-a-specific-number)
+
+* [Can I see the measurements taken by my client application as part of Real User Measurements?](./traffic-manager-faqs.md#can-i-see-the-measurements-taken-by-my-client-application-as-part-of-real-user-measurements)
+
+* [Can I modify the measurement script provided by Traffic Manager?](./traffic-manager-faqs.md#can-i-modify-the-measurement-script-provided-by-traffic-manager)
+
+* [Will it be possible for others to see the key I use with Real User Measurements?](./traffic-manager-faqs.md#will-it-be-possible-for-others-to-see-the-key-i-use-with-real-user-measurements)
+
+* [Can others abuse my RUM key?](./traffic-manager-faqs.md#can-others-abuse-my-rum-key)
+
+* [Do I need to put the measurement JavaScript in all my web pages?](./traffic-manager-faqs.md#do-i-need-to-put-the-measurement-javascript-in-all-my-web-pages)
+
+* [Can information about my end users be identified by Traffic Manager if I use Real User Measurements?](./traffic-manager-faqs.md#can-information-about-my-end-users-be-identified-by-traffic-manager-if-i-use-real-user-measurements)
+
+* [Does the webpage measuring Real User Measurements need to be using Traffic Manager for routing?](./traffic-manager-faqs.md#does-the-webpage-measuring-real-user-measurements-need-to-be-using-traffic-manager-for-routing)
+
+* [Do I need to host any service on Azure regions to use with Real User Measurements?](./traffic-manager-faqs.md#do-i-need-to-host-any-service-on-azure-regions-to-use-with-real-user-measurements)
+
+* [Will my Azure bandwidth usage increase when I use Real User Measurements?](./traffic-manager-faqs.md#will-my-azure-bandwidth-usage-increase-when-i-use-real-user-measurements)
+
 ## Next steps
 - Learn how to use [Real User Measurements with web pages](traffic-manager-create-rum-web-pages.md)
 - Learn [how Traffic Manager works](traffic-manager-overview.md)
-- Learn more about [Mobile Center](https://docs.microsoft.com/mobile-center/)
+- Learn more about [Mobile Center](/mobile-center/)
 - Learn more about the [traffic-routing methods](traffic-manager-routing-methods.md) supported by Traffic Manager
-- Learn how to [create a Traffic Manager profile](traffic-manager-create-profile.md)
-
+- Learn how to [create a Traffic Manager profile](./quickstart-create-traffic-manager-profile.md)

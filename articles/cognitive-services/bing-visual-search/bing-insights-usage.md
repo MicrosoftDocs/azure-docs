@@ -1,19 +1,21 @@
 ---
 title: Examples of Bing insights - Bing Visual Search
-titleSuffix: Azure Cognitive Services
-description: Shows examples of image insights shown on Bing.com.
+titleSuffix: Azure AI services
+description: This article contains examples of how Bing Visual Search might use and display image insights on Bing.com.
 services: cognitive-services
-author: swhite-msft
+
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.author: scottwhi
+
 ---
 
 # Examples of Bing insights usage
+
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 This article contains examples of how Bing might use and display image insights on Bing.com.
 
@@ -71,9 +73,12 @@ Non-default tags include the bounding box that identifies the area of interest i
 
 ## Next steps
 
-To get started with your first request, see the quickstarts: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md)
+To get started with your first request, see the quickstarts:
 
+* [C#](quickstarts/csharp.md)
 
+* [Java](quickstarts/java.md)
 
+* [Node.js](quickstarts/nodejs.md)
 
-
+* [Python](quickstarts/python.md)

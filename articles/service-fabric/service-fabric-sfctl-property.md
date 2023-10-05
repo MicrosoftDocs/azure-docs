@@ -1,21 +1,12 @@
 ---
-title: Azure Service Fabric CLI- sfctl property | Microsoft Docs
-description: Describes the Service Fabric CLI sfctl property commands.
-services: service-fabric
-documentationcenter: na
-author: Christina-Kang
-manager: chackdan
-editor: ''
-
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: cli
+title: Azure Service Fabric CLI- sfctl property 
+description: Learn about sfctl, the Azure Service Fabric command line interface. Includes a list of commands for storing and querying properties.
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 
 # sfctl property
@@ -41,7 +32,7 @@ Deletes the specified Service Fabric property under a given name. A property mus
 | --- | --- |
 | --name-id       [Required] | The Service Fabric name, without the 'fabric\:' URI scheme. |
 | --property-name [Required] | Specifies the name of the property to get. |
-| --timeout -t | Server timeout in seconds.  Default\: 60. |
+| --timeout -t | The server timeout for performing the operation in seconds. This timeout specifies the time duration that the client is willing to wait for the requested operation to complete. The default value for this parameter is 60 seconds.  Default\: 60. |
 
 ### Global Arguments
 
@@ -64,7 +55,7 @@ Gets the specified Service Fabric property under a given name. This will always 
 | --- | --- |
 | --name-id       [Required] | The Service Fabric name, without the 'fabric\:' URI scheme. |
 | --property-name [Required] | Specifies the name of the property to get. |
-| --timeout -t | Server timeout in seconds.  Default\: 60. |
+| --timeout -t | The server timeout for performing the operation in seconds. This timeout specifies the time duration that the client is willing to wait for the requested operation to complete. The default value for this parameter is 60 seconds.  Default\: 60. |
 
 ### Global Arguments
 
@@ -88,7 +79,7 @@ A Service Fabric name can have one or more named properties that store custom in
 | --name-id [Required] | The Service Fabric name, without the 'fabric\:' URI scheme. |
 | --continuation-token | The continuation token parameter is used to obtain next set of results. A continuation token with a non-empty value is included in the response of the API when the results from the system do not fit in a single response. When this value is passed to the next API call, the API returns next set of results. If there are no further results, then the continuation token does not contain a value. The value of this parameter should not be URL encoded. |
 | --include-values | Allows specifying whether to include the values of the properties returned. True if values should be returned with the metadata; False to return only property metadata. |
-| --timeout -t | Server timeout in seconds.  Default\: 60. |
+| --timeout -t | The server timeout for performing the operation in seconds. This timeout specifies the time duration that the client is willing to wait for the requested operation to complete. The default value for this parameter is 60 seconds.  Default\: 60. |
 
 ### Global Arguments
 
@@ -111,9 +102,9 @@ Creates or updates the specified Service Fabric property under a given name.
 | --- | --- |
 | --name-id       [Required] | The Service Fabric name, without the 'fabric\:' URI scheme. |
 | --property-name [Required] | The name of the Service Fabric property. |
-| --value         [Required] | Describes a Service Fabric property value. This is a JSON string. <br><br> The json string has two fields, the 'Kind' of the data, and the 'Value' of the data. The 'Kind' value must be the first item to appear in the JSON string, and can be values 'Binary', 'Int64', 'Double', 'String', or 'Guid'. The value should be serialize-able to the given types. Both 'Kind' and 'Data' values should be provided as strings. |
-| --custom-id-type | The property's custom type id. Using this property, the user is able to tag the type of the value of the property. |
-| --timeout -t | Server timeout in seconds.  Default\: 60. |
+| --value         [Required] | Describes a Service Fabric property value. This is a JSON string. <br><br> The json string has two fields, the 'Kind' of the data, and the value, entered as 'Data' of the data. The 'Kind' value must be the first item to appear in the JSON string, and can be values 'Binary', 'Int64', 'Double', 'String', or 'Guid'. The value should be serialize-able to the given types. Both 'Kind' and 'Data' values should be provided as strings. |
+| --custom-id-type | The property's custom type ID. Using this property, the user is able to tag the type of the value of the property. |
+| --timeout -t | Default\: 60. |
 
 ### Global Arguments
 
@@ -128,4 +119,4 @@ Creates or updates the specified Service Fabric property under a given name.
 
 ## Next steps
 - [Set up](service-fabric-cli.md) the Service Fabric CLI.
-- Learn how to use the Service Fabric CLI using the [sample scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Learn how to use the Service Fabric CLI using the [sample scripts](./scripts/sfctl-upgrade-application.md).

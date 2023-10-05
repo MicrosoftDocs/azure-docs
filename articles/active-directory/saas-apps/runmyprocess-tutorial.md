@@ -1,271 +1,188 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with RunMyProcess | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and RunMyProcess.
+title: 'Tutorial: Microsoft Entra SSO integration with RunMyProcess'
+description: Learn how to configure single sign-on between Microsoft Entra ID and RunMyProcess.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-
-ms.assetid: d31f7395-048b-4a61-9505-5acf9fc68d9b
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 07/12/2017
+ms.topic: tutorial
+ms.date: 11/21/2022
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
-# Tutorial: Azure Active Directory integration with RunMyProcess
 
-In this tutorial, you learn how to integrate RunMyProcess with Azure Active Directory (Azure AD).
+# Tutorial: Microsoft Entra SSO integration with RunMyProcess
 
-Integrating RunMyProcess with Azure AD provides you with the following benefits:
+In this tutorial, you'll learn how to integrate RunMyProcess with Microsoft Entra ID. When you integrate RunMyProcess with Microsoft Entra ID, you can:
 
-- You can control in Azure AD who has access to RunMyProcess
-- You can enable your users to automatically get signed-on to RunMyProcess (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure portal
-
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+* Control in Microsoft Entra ID who has access to RunMyProcess.
+* Enable your users to be automatically signed-in to RunMyProcess with their Microsoft Entra accounts.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
-To configure Azure AD integration with RunMyProcess, you need the following items:
+To get started, you need the following items:
 
-- An Azure AD subscription
-- A RunMyProcess single sign-on enabled subscription
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial here:[Trial offer](https://azure.microsoft.com/pricing/free-trial/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* RunMyProcess single sign-on (SSO) enabled subscription.
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding RunMyProcess from the gallery
-1. Configuring and testing Azure AD single sign-on
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment.
 
-## Adding RunMyProcess from the gallery
-To configure the integration of RunMyProcess into Azure AD, you need to add RunMyProcess from the gallery to your list of managed SaaS apps.
+* RunMyProcess supports **SP** initiated SSO.
 
-**To add RunMyProcess from the gallery, perform the following steps:**
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+## Add RunMyProcess from the gallery
 
-	![Active Directory][1]
+To configure the integration of RunMyProcess into Microsoft Entra ID, you need to add RunMyProcess from the gallery to your list of managed SaaS apps.
 
-1. Navigate to **Enterprise applications**. Then go to **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type **RunMyProcess** in the search box.
+1. Select **RunMyProcess** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-	![Applications][2]
-	
-1. To add new application, click **New application** button on the top of dialog.
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-	![Applications][3]
+<a name='configure-and-test-azure-ad-sso-for-runmyprocess'></a>
 
-1. In the search box, type **RunMyProcess**.
+## Configure and test Microsoft Entra SSO for RunMyProcess
 
-	![Creating an Azure AD test user](./media/runmyprocess-tutorial/tutorial_runmyprocess_search.png)
+Configure and test Microsoft Entra SSO with RunMyProcess using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in RunMyProcess.
 
-1. In the results panel, select **RunMyProcess**, and then click **Add** button to add the application.
+To configure and test Microsoft Entra SSO with RunMyProcess, perform the following steps:
 
-	![Creating an Azure AD test user](./media/runmyprocess-tutorial/tutorial_runmyprocess_addfromgallery.png)
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
+1. **[Configure RunMyProcess SSO](#configure-runmyprocess-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create RunMyProcess test user](#create-runmyprocess-test-user)** - to have a counterpart of B.Simon in RunMyProcess that is linked to the Microsoft Entra representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-##  Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with RunMyProcess based on a test user called "Britta Simon".
+<a name='configure-azure-ad-sso'></a>
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in RunMyProcess is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in RunMyProcess needs to be established.
+## Configure Microsoft Entra SSO
 
-In RunMyProcess, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
+Follow these steps to enable Microsoft Entra SSO.
 
-To configure and test Azure AD single sign-on with RunMyProcess, you need to complete the following building blocks:
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **RunMyProcess** application integration page, find the **Manage** section and select **Single sign-on**.
+1. On the **Select a Single sign-on method** page, select **SAML**.
+1. On the **Set up Single Sign-On with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-1. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Creating a RunMyProcess test user](#creating-a-runmyprocess-test-user)** - to have a counterpart of Britta Simon in RunMyProcess that is linked to the Azure AD representation of user.
-1. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-1. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-### Configuring Azure AD single sign-on
+1. On the **Basic SAML Configuration** section, perform the following step:
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your RunMyProcess application.
+    In the **Sign-on URL** text box, type a URL using the following pattern:
+    `https://live.runmyprocess.com/live/<tenant id>`
 
-**To configure Azure AD single sign-on with RunMyProcess, perform the following steps:**
+	> [!NOTE]
+	> The value is not real. Update the value with the actual Sign-On URL. Contact [RunMyProcess Client support team](mailto:support@runmyprocess.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
-1. In the Azure portal, on the **RunMyProcess** application integration page, click **Single sign-on**.
+1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
-	![Configure Single Sign-On][4]
+	![The Certificate download link](common/certificatebase64.png)
 
-1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
-	![Configure Single Sign-On](./media/runmyprocess-tutorial/tutorial_runmyprocess_samlbase.png)
+1. On the **Set up RunMyProcess** section, copy the appropriate URL(s) based on your requirement.
 
-1. On the **RunMyProcess Domain and URLs** section, perform the following steps:
+	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-	![Configure Single Sign-On](./media/runmyprocess-tutorial/tutorial_runmyprocess_url.png)
+<a name='create-an-azure-ad-test-user'></a>
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://live.runmyprocess.com/live/<tenant id>`
+### Create a Microsoft Entra test user
 
-	> [!NOTE] 
-	> The value is not real. Update the value with the actual Sign-On URL. Contact [RunMyProcess Client support team](mailto:support@runmyprocess.com) to get the value. 
+In this section, you'll create a test user called B.Simon.
 
-1. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Select **Review + create**.
+1. Select **Create**.
 
-	![Configure Single Sign-On](./media/runmyprocess-tutorial/tutorial_runmyprocess_certificate.png) 
+<a name='assign-the-azure-ad-test-user'></a>
 
-1. Click **Save** button.
+### Assign the Microsoft Entra test user
 
-	![Configure Single Sign-On](./media/runmyprocess-tutorial/tutorial_general_400.png)
+In this section, you'll enable B.Simon to use single sign-on by granting access to RunMyProcess.
 
-1. On the **RunMyProcess Configuration** section, click **Configure RunMyProcess** to open **Configure sign-on** window. Copy the **Sign-Out URL, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **RunMyProcess**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
+1. In the **Add Assignment** dialog, click the **Assign** button.
 
-	![Configure Single Sign-On](./media/runmyprocess-tutorial/tutorial_runmyprocess_configure.png) 
+## Configure RunMyProcess SSO
 
 1. In a different web browser window, sign-on to your RunMyProcess tenant as an administrator.
 
 1. In left navigation panel, click **Account** and select **Configuration**.
-   
-    ![Configure Single Sign-On On App Side](./media/runmyprocess-tutorial/tutorial_runmyprocess_001.png)
+
+    ![Screenshot shows Configuration selected from Account.](./media/runmyprocess-tutorial/account.png)
 
 1. Go to **Authentication method** section and perform below steps:
-   
-    ![Configure Single Sign-On On App Side](./media/runmyprocess-tutorial/tutorial_runmyprocess_002.png)
 
-    a. As **Method**, select **SSO with Samlv2**. 
+    ![Screenshot shows the Authentication method tab where you can enter the values described.](./media/runmyprocess-tutorial/certificate.png)
 
-    b. In the **SSO redirect** textbox, paste the value of **SAML Single Sign-On Service URL**, which you have copied from Azure portal.
+    a. As **Method**, select **SSO with Samlv2**.
 
-    c. In the **Logout redirect** textbox, paste the value of **Sign-Out URL**, which you have copied from Azure portal.
+    b. In the **SSO redirect** textbox, paste the value of **Login URL**.
 
-    d. In the **Name Id Format** textbox, type the value of **Name Identifier Format** as **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress**.
+    c. In the **Logout redirect** textbox, paste the value of **Logout URL**.
 
-    e. Copy the content of the downloaded certificate file and then paste it into the **Certificate** textbox. 
- 
+    d. In the **Name ID Format** textbox, type the value of **Name Identifier Format** as **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress**.
+
+    e. Open the downloaded certificate file from Azure portal in notepad, copy the content of certificate file and then paste it into the **Certificate** textbox.
+
     f. Click **Save** icon.
 
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+### Create RunMyProcess test user
 
-### Creating an Azure AD test user
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
-
-![Create Azure AD User][100]
-
-**To create a test user in Azure AD, perform the following steps:**
-
-1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
-
-	![Creating an Azure AD test user](./media/runmyprocess-tutorial/create_aaduser_01.png) 
-
-1. To display the list of users, go to **Users and groups** and click **All users**.
-	
-	![Creating an Azure AD test user](./media/runmyprocess-tutorial/create_aaduser_02.png) 
-
-1. To open the **User** dialog, click **Add** on the top of the dialog.
- 
-	![Creating an Azure AD test user](./media/runmyprocess-tutorial/create_aaduser_03.png) 
-
-1. On the **User** dialog page, perform the following steps:
- 
-	![Creating an Azure AD test user](./media/runmyprocess-tutorial/create_aaduser_04.png) 
-
-    a. In the **Name** textbox, type **BrittaSimon**.
-
-    b. In the **User name** textbox, type the **email address** of BrittaSimon.
-
-	c. Select **Show Password** and write down the value of the **Password**.
-
-    d. Click **Create**.
- 
-### Creating a RunMyProcess test user
-
-In order to enable Azure AD users to log in to RunMyProcess, they must be provisioned into RunMyProcess. In the case of RunMyProcess, provisioning is a manual task.
+In order to enable Microsoft Entra users to sign in to RunMyProcess, they must be provisioned into RunMyProcess. In the case of RunMyProcess, provisioning is a manual task.
 
 **To provision a user account, perform the following steps:**
 
-1. Log in to your RunMyProcess company site as an administrator.
+1. Sign in to your RunMyProcess company site as an administrator.
 
 1. Click **Account** and select **Users** in left navigation panel, then click **New User**.
-   
-    ![New User](./media/runmyprocess-tutorial/tutorial_runmyprocess_003.png "New User")
+
+    ![New User](./media/runmyprocess-tutorial/user.png "New User")
 
 1. In the **User Settings** section, perform the following steps:
-   
-    ![Profile](./media/runmyprocess-tutorial/tutorial_runmyprocess_004.png "Profile") 
+
+    ![Profile](./media/runmyprocess-tutorial/new-user.png "Profile")
   
-    a. Type the **Name** and **E-mail** of a valid Azure AD account you want to provision into the related textboxes. 
+    a. Type the **Name** and **E-mail** of a valid Microsoft Entra account you want to provision into the related textboxes.
 
-    b. Select an **IDE language**, **Language**, and **Profile**. 
+    b. Select an **IDE language**, **Language**, and **Profile**.
 
-    c. Select **Send account creation e-mail to me**. 
+    c. Select **Send account creation e-mail to me**.
 
     d. Click **Save**.
-   
-    >[!NOTE]
-    >You can use any other RunMyProcess user account creation tools or APIs provided by RunMyProcess to provision Azure Active Directory user accounts. 
-    > 
 
-### Assigning the Azure AD test user
+    > [!NOTE]
+    > You can use any other RunMyProcess user account creation tools or APIs provided by RunMyProcess to provision Microsoft Entra user accounts.
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to RunMyProcess.
+## Test SSO 
 
-![Assign User][200] 
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
-**To assign Britta Simon to RunMyProcess, perform the following steps:**
+* Click on **Test this application**, this will redirect to RunMyProcess Sign-on URL where you can initiate the login flow. 
 
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
+* Go to RunMyProcess Sign-on URL directly and initiate the login flow from there.
 
-	![Assign User][201] 
+* You can use Microsoft My Apps. When you click the RunMyProcess tile in the My Apps, this will redirect to RunMyProcess Sign-on URL. For more information, see [Microsoft Entra My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
-1. In the applications list, select **RunMyProcess**.
+## Next steps
 
-	![Configure Single Sign-On](./media/runmyprocess-tutorial/tutorial_runmyprocess_app.png) 
-
-1. In the menu on the left, click **Users and groups**.
-
-	![Assign User][202] 
-
-1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
-
-	![Assign User][203]
-
-1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
-
-1. Click **Select** button on **Users and groups** dialog.
-
-1. Click **Assign** button on **Add Assignment** dialog.
-	
-### Testing single sign-on
-
-The objective of this section is to test your Azure AD SSO configuration using the Access Panel.
-
-When you click the RunMyProcess tile in the Access Panel, you should get automatically signed-on to your RunMyProcess application.
-
-## Additional resources
-
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-
-
-<!--Image references-->
-
-[1]: ./media/runmyprocess-tutorial/tutorial_general_01.png
-[2]: ./media/runmyprocess-tutorial/tutorial_general_02.png
-[3]: ./media/runmyprocess-tutorial/tutorial_general_03.png
-[4]: ./media/runmyprocess-tutorial/tutorial_general_04.png
-
-[100]: ./media/runmyprocess-tutorial/tutorial_general_100.png
-
-[200]: ./media/runmyprocess-tutorial/tutorial_general_200.png
-[201]: ./media/runmyprocess-tutorial/tutorial_general_201.png
-[202]: ./media/runmyprocess-tutorial/tutorial_general_202.png
-[203]: ./media/runmyprocess-tutorial/tutorial_general_203.png
-
+Once you configure RunMyProcess you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

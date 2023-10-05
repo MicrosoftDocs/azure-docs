@@ -1,410 +1,662 @@
 ---
-title: Get started with Azure Service Bus topics and subscriptions | Microsoft Docs
-description: Write a C# .NET Core console application that uses Service Bus messaging topics and subscriptions.
-services: service-bus-messaging
-documentationcenter: .net
-author: axisc
-manager: timlt
-editor: spelluru
-
-ms.assetid: 
-ms.service: service-bus-messaging
-ms.devlang: tbd
-ms.topic: conceptual
+title: Get started with Azure Service Bus topics (.NET)
+description: This tutorial shows you how to send messages to Azure Service Bus topics and receive messages from topics' subscriptions using the .NET programming language.
+ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
-ms.workload: na
-ms.date: 04/15/2019
-ms.author: aschhab
-
+ms.date: 11/08/2022
+ms.devlang: csharp
+ms.custom: contperf-fy22q2, mode-api, passwordless-dotnet, devx-track-dotnet
 ---
-# Get started with Service Bus topics
 
-[!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
+# Get started with Azure Service Bus topics and subscriptions (.NET)
 
-This tutorial covers the following steps:
+> [!div class="op_single_selector" title1="Select the programming language:"]
+> * [C#](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+> * [Java](service-bus-java-how-to-use-topics-subscriptions.md)
+> * [JavaScript](service-bus-nodejs-how-to-use-topics-subscriptions.md)
+> * [Python](service-bus-python-how-to-use-topics-subscriptions.md)
 
-1. Write a .NET Core console application to send a set of messages to the topic.
-2. Write a .NET Core console application to receive those messages from the subscription.
+
+This quickstart shows how to send messages to a Service Bus topic and receive messages from a subscription to that topic by using the [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus/) .NET library.
+
+In this quickstart, you'll do the following steps:
+
+1. Create a Service Bus namespace, using the Azure portal.
+2. Create a Service Bus topic, using the Azure portal.
+3. Create a Service Bus subscription to that topic, using the Azure portal.
+4. Write a .NET console application to send a set of messages to the topic.
+5. Write a .NET console application to receive those messages from the subscription.
+
+> [!NOTE]
+> This quick start provides step-by-step instructions to implement a simple scenario of sending a batch of messages to a Service Bus topic and receiving those messages from a subscription of the topic.  For more samples on other and advanced scenarios, see [Service Bus .NET samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples). 
+> - This quick start shows you two ways of connecting to Azure Service Bus: **connection string** and **passwordless**. The first option shows you how to use a connection string to connect to a Service Bus namespace. The second option shows you how to use your security principal in Azure Active Directory and the role-based access control (RBAC) to connect to a Service Bus namespace. You don't need to worry about having hard-coded connection string in your code or in a configuration file or in secure storage like Azure Key Vault. If you are new to Azure, you may find the connection string option easier to follow. We recommend using the passwordless option in real-world applications and production environments. For more information, see [Authentication and authorization](service-bus-authentication-and-authorization.md).
 
 ## Prerequisites
 
-1. An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [Visual Studio or MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) or sign-up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Follow steps in the [Quickstart: Use the Azure portal to create a Service Bus topic and subscriptions to the topic](service-bus-quickstart-topics-subscriptions-portal.md) to do the following tasks:
-    1. Create a Service Bus **namespace**.
-    2. Get the **connection string**.
-    3. Create a **topic** in the namespace.
-    4. Create **one subscription** to the topic in the namespace.
-3. [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) or later.
-4. [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 or later.
- 
-## Send messages to the topic
+If you're new to the service, see [Service Bus overview](service-bus-messaging-overview.md) before you do this quickstart.
 
-To send messages to the topic, write a C# console application using Visual Studio.
+- **Azure subscription**. To use Azure services, including Azure Service Bus, you need a subscription. If you don't have an existing Azure account, you can sign up for a [free trial](https://azure.microsoft.com/free/dotnet/).
+- **Visual Studio 2022**. The sample application makes use of new features that were introduced in C# 10. You can still use the Service Bus client library with previous C# language versions, but the syntax may vary. To use the latest syntax, we recommend that you install .NET 6.0 or higher and set the language version to `latest`. If you're using Visual Studio, versions before Visual Studio 2022 aren't compatible with the tools needed to build C# 10 projects.
+
+[!INCLUDE [service-bus-create-namespace-portal](./includes/service-bus-create-namespace-portal.md)]
+
+[!INCLUDE [service-bus-create-topic-subscription-portal](./includes/service-bus-create-topic-subscription-portal.md)]
+
+[!INCLUDE [service-bus-passwordless-template-tabbed](../../includes/passwordless/service-bus/service-bus-passwordless-template-tabbed.md)]
+
+## Launch Visual Studio and sign-in to Azure
+
+You can authorize access to the service bus namespace using the following steps:
+
+1. Launch Visual Studio. If you see the **Get started** window, select the **Continue without code** link in the right pane.
+1. Select the **Sign in** button in the top right of Visual Studio.
+
+    :::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/azure-sign-button-visual-studio.png" alt-text="Screenshot showing the button to sign in to Azure using Visual Studio.":::
+1. Sign-in using the Azure AD account you assigned a role to previously.
+
+    :::image type="content" source="..//storage/blobs/media/storage-quickstart-blobs-dotnet/sign-in-visual-studio-account-small.png" alt-text="Screenshot showing the account selection.":::
+
+## Send messages to the topic
+This section shows you how to create a .NET console application to send messages to a Service Bus topic. 
+
+> [!NOTE]
+> This quick start provides step-by-step instructions to implement a simple scenario of sending a batch of messages to a Service Bus topic and receiving those messages from a subscription of the topic.  For more samples on other and advanced scenarios, see [Service Bus .NET samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples).
 
 ### Create a console application
 
-Launch Visual Studio and create a new **Console App (.NET Core)** project.
+1. In Visual Studio, select **File** -> **New** -> **Project** menu. 
+1. On the **Create a new project** dialog box, do the following steps: If you don't see this dialog box, select **File** on the menu, select **New**, and then select **Project**.
+    1. Select **C#** for the programming language.
+    1. Select **Console** for the type of the application.
+    1. Select **Console App** from the results list.
+    1. Then, select **Next**.
 
-### Add the Service Bus NuGet package
+        :::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/new-send-project.png" alt-text="Image showing the Create a new project dialog box with C# and Console selected":::
+1. Enter **TopicSender** for the project name, **ServiceBusTopicQuickStart** for the solution name, and then select **Next**. 
+1. On the **Additional information** page, select **Create** to create the solution and the project.
 
-1. Right-click the newly created project and select **Manage NuGet Packages**.
-2. Click the **Browse** tab, search for **[Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/)**, and then select the **Microsoft.Azure.ServiceBus** item. Click **Install** to complete the installation, then close this dialog box.
-   
-    ![Select a NuGet package][nuget-pkg]
+### Add the NuGet packages to the project
 
-### Write code to send messages to the topic
+### [Passwordless](#tab/passwordless)
 
-1. In Program.cs, add the following `using` statements at the top of the namespace definition, before the class declaration:
-   
+1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console** from the menu.
+1. Run the following command to install the **Azure.Messaging.ServiceBus** NuGet package.
+
+    ```powershell
+    Install-Package Azure.Messaging.ServiceBus
+    ```
+1. Run the following command to install the **Azure.Identity** NuGet package.
+
+    ```powershell
+    Install-Package Azure.Identity
+    ```
+
+### [Connection String](#tab/connection-string)
+
+1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console** from the menu.
+1. Run the following command to install the **Azure.Messaging.ServiceBus** NuGet package:
+
+    ```Powershell
+    Install-Package Azure.Messaging.ServiceBus
+    ```
+---
+
+
+### Add code to send messages to the topic 
+
+1. Replace the contents of Program.cs with the following code. The important steps are outlined below, with additional information in the code comments.
+
+    ## [Passwordless](#tab/passwordless)
+
+    1. Creates a [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object using the `DefaultAzureCredential` object. `DefaultAzureCredential` will automatically discover and use the credentials of your Visual Studio login to authenticate to Azure Service Bus. 
+    1. Invokes the [CreateSender](/dotnet/api/azure.messaging.servicebus.servicebusclient.createsender) method on the `ServiceBusClient` object to create a [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender) object for the specific Service Bus topic.     
+    1. Creates a [ServiceBusMessageBatch](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch) object by using the [ServiceBusSender.CreateMessageBatchAsync](/dotnet/api/azure.messaging.servicebus.servicebussender.createmessagebatchasync).
+    1. Add messages to the batch using the [ServiceBusMessageBatch.TryAddMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch.tryaddmessage). 
+    1. Sends the batch of messages to the Service Bus topic using the [ServiceBusSender.SendMessagesAsync](/dotnet/api/azure.messaging.servicebus.servicebussender.sendmessagesasync) method.
+
+    > [!IMPORTANT]
+    > Update placeholder values (`<NAMESPACE-NAME>` and `<TOPIC-NAME>`) in the code snippet with names of your Service Bus namespace and topic.
+    
     ```csharp
-    using System.Text;
-    using System.Threading;
     using System.Threading.Tasks;
-    using Microsoft.Azure.ServiceBus;
-    ```
+    using Azure.Messaging.ServiceBus;
+    using Azure.Identity;
 
-2. Within the `Program` class, declare the following variables. Set the `ServiceBusConnectionString` variable to the connection string that you obtained when creating the namespace, and set `TopicName` to the name that you used when creating the topic:
-   
-    ```csharp
-    const string ServiceBusConnectionString = "<your_connection_string>";
-    const string TopicName = "<your_topic_name>";
-    static ITopicClient topicClient;
-    ``` 
+    // the client that owns the connection and can be used to create senders and receivers
+    ServiceBusClient client;
 
-3. Replace the default contents of `Main()` with the following line of code:
+    // the sender used to publish messages to the topic
+    ServiceBusSender sender;
 
-    ```csharp
-    MainAsync().GetAwaiter().GetResult();
-    ```
-   
-4. Directly after `Main()`, add the following asynchronous `MainAsync()` method that calls the send messages method:
+    // number of messages to be sent to the topic
+    const int numOfMessages = 3;
 
-    ```csharp
-    static async Task MainAsync()
+    // The Service Bus client types are safe to cache and use as a singleton for the lifetime
+    // of the application, which is best practice when messages are being published or read
+    // regularly.
+
+    //TODO: Replace the "<NAMESPACE-NAME>" and "<TOPIC-NAME>" placeholders.
+    client = new ServiceBusClient(
+        "<NAMESPACE-NAME>.servicebus.windows.net",
+        new DefaultAzureCredential());
+    sender = client.CreateSender("<TOPIC-NAME>");
+
+    // create a batch 
+    using ServiceBusMessageBatch messageBatch = await sender.CreateMessageBatchAsync();
+
+    for (int i = 1; i <= numOfMessages; i++)
     {
-        const int numberOfMessages = 10;
-        topicClient = new TopicClient(ServiceBusConnectionString, TopicName);
-
-        Console.WriteLine("======================================================");
-        Console.WriteLine("Press ENTER key to exit after sending all the messages.");
-        Console.WriteLine("======================================================");
-
-        // Send messages.
-        await SendMessagesAsync(numberOfMessages);
-
-        Console.ReadKey();
-
-        await topicClient.CloseAsync();
-    }
-    ```
-
-5. Directly after the `MainAsync()` method, add the following `SendMessagesAsync()` method that performs the work of sending the number of messages specified by `numberOfMessagesToSend` (currently set to 10):
-
-    ```csharp
-    static async Task SendMessagesAsync(int numberOfMessagesToSend)
-    {
-        try
+        // try adding a message to the batch
+        if (!messageBatch.TryAddMessage(new ServiceBusMessage($"Message {i}")))
         {
-            for (var i = 0; i < numberOfMessagesToSend; i++)
-            {
-                // Create a new message to send to the topic.
-                string messageBody = $"Message {i}";
-                var message = new Message(Encoding.UTF8.GetBytes(messageBody));
-
-                // Write the body of the message to the console.
-                Console.WriteLine($"Sending message: {messageBody}");
-
-                // Send the message to the topic.
-                await topicClient.SendAsync(message);
-            }
-        }
-        catch (Exception exception)
-        {
-            Console.WriteLine($"{DateTime.Now} :: Exception: {exception.Message}");
+            // if it is too large for the batch
+            throw new Exception($"The message {i} is too large to fit in the batch.");
         }
     }
-    ```
-  
-6. Here is what your sender Program.cs file should look like.
-   
-    ```csharp
-    namespace CoreSenderApp
+
+    try
     {
-        using System;
-        using System.Text;
-        using System.Threading;
-        using System.Threading.Tasks;
-        using Microsoft.Azure.ServiceBus;
-
-        class Program
-        {
-            const string ServiceBusConnectionString = "<your_connection_string>";
-            const string TopicName = "<your_topic_name>";
-            static ITopicClient topicClient;
-
-            static void Main(string[] args)
-            {
-                MainAsync().GetAwaiter().GetResult();
-            }
-
-            static async Task MainAsync()
-            {
-                const int numberOfMessages = 10;
-                topicClient = new TopicClient(ServiceBusConnectionString, TopicName);
-
-                Console.WriteLine("======================================================");
-                Console.WriteLine("Press ENTER key to exit after sending all the messages.");
-                Console.WriteLine("======================================================");
-
-                // Send messages.
-                await SendMessagesAsync(numberOfMessages);
-
-                Console.ReadKey();
-
-                await topicClient.CloseAsync();
-            }
-
-            static async Task SendMessagesAsync(int numberOfMessagesToSend)
-            {
-                try
-                {
-                    for (var i = 0; i < numberOfMessagesToSend; i++)
-                    {
-                        // Create a new message to send to the topic
-                        string messageBody = $"Message {i}";
-                        var message = new Message(Encoding.UTF8.GetBytes(messageBody));
-
-                        // Write the body of the message to the console
-                        Console.WriteLine($"Sending message: {messageBody}");
-
-                        // Send the message to the topic
-                        await topicClient.SendAsync(message);
-                    }
-                }
-                catch (Exception exception)
-                {
-                    Console.WriteLine($"{DateTime.Now} :: Exception: {exception.Message}");
-                }
-            }
-        }
+        // Use the producer client to send the batch of messages to the Service Bus topic
+        await sender.SendMessagesAsync(messageBatch);
+        Console.WriteLine($"A batch of {numOfMessages} messages has been published to the topic.");
     }
+    finally
+    {
+        // Calling DisposeAsync on client types is required to ensure that network
+        // resources and other unmanaged objects are properly cleaned up.
+        await sender.DisposeAsync();
+        await client.DisposeAsync();
+    }
+
+    Console.WriteLine("Press any key to end the application");
+    Console.ReadKey();
     ```
 
-3. Run the program, and check the Azure portal: click the name of your topic in the namespace **Overview** window. The topic **Essentials** screen is displayed. In the subscription listed near the bottom of the window, notice that the **Message Count** value for the subscription is now **10**. Each time you run the sender application without retrieving the messages (as described in the next section), this value increases by 10. Also note that the current size of the topic increments the **Current** value in the **Essentials** window each time the app adds messages to the topic.
-   
-      ![Message size][topic-message]
+    ## [Connection String](#tab/connection-string)
 
-## Receive messages from the subscription
+    > [!IMPORTANT]
+    > Update placeholder values (`<NAMESPACE-CONNECTION-STRING>` and `<TOPIC-NAME>`) in the code snippet with actual values you noted down earlier.
 
-To receive the messages you sent, create another .NET Core console application and install the **Microsoft.Azure.ServiceBus** NuGet package, similar to the previous sender application.
-
-### Write code to receive messages from the subscription
-
-1. In Program.cs, add the following `using` statements at the top of the namespace definition, before the class declaration:
-   
+    1. Creates a [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object using the connection string to the namespace. 
+    1. Invokes the [CreateSender](/dotnet/api/azure.messaging.servicebus.servicebusclient.createsender) method on the `ServiceBusClient` object to create a [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender) object for the specific Service Bus topic.     
+    1. Creates a [ServiceBusMessageBatch](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch) object by using the [ServiceBusSender.CreateMessageBatchAsync](/dotnet/api/azure.messaging.servicebus.servicebussender.createmessagebatchasync).
+    1. Add messages to the batch using the [ServiceBusMessageBatch.TryAddMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch.tryaddmessage). 
+    1. Sends the batch of messages to the Service Bus topic using the [ServiceBusSender.SendMessagesAsync](/dotnet/api/azure.messaging.servicebus.servicebussender.sendmessagesasync) method.
+    
     ```csharp
-    using System.Text;
-    using System.Threading;
     using System.Threading.Tasks;
-    using Microsoft.Azure.ServiceBus;
-    ```
+    using Azure.Messaging.ServiceBus;
 
-2. Within the `Program` class, declare the following variables. Set the `ServiceBusConnectionString` variable to the connection string that you obtained when creating the namespace, set `TopicName` to the name that you used when creating the topic, and set `SubscriptionName` to the name that you used when creating the subscription to the topic:
-   
-    ```csharp
-    const string ServiceBusConnectionString = "<your_connection_string>";
-    const string TopicName = "<your_topic_name>";
-    const string SubscriptionName = "<your_subscription_name>";
-    static ISubscriptionClient subscriptionClient;
-    ```
+    // the client that owns the connection and can be used to create senders and receivers
+    ServiceBusClient client;
 
-3. Replace the default contents of `Main()` with the following line of code:
+    // the sender used to publish messages to the topic
+    ServiceBusSender sender;
 
-    ```csharp
-    MainAsync().GetAwaiter().GetResult();
-    ```
+    // number of messages to be sent to the topic
+    const int numOfMessages = 3;
 
-4. Directly after `Main()`, add the following asynchronous `MainAsync()` method that calls the `RegisterOnMessageHandlerAndReceiveMessages()` method:
+    // The Service Bus client types are safe to cache and use as a singleton for the lifetime
+    // of the application, which is best practice when messages are being published or read
+    // regularly.
+    //TODO: Replace the "<NAMESPACE-CONNECTION-STRING>" and "<TOPIC-NAME>" placeholders.
+    client = new ServiceBusClient("<NAMESPACE-CONNECTION-STRING>");
+    sender = client.CreateSender("<TOPIC-NAME>");
 
-    ```csharp
-    static async Task MainAsync()
+    // create a batch 
+    using ServiceBusMessageBatch messageBatch = await sender.CreateMessageBatchAsync();
+
+    for (int i = 1; i <= numOfMessages; i++)
     {
-        subscriptionClient = new SubscriptionClient(ServiceBusConnectionString, TopicName, SubscriptionName);
-
-        Console.WriteLine("======================================================");
-        Console.WriteLine("Press ENTER key to exit after receiving all the messages.");
-        Console.WriteLine("======================================================");
-
-        // Register subscription message handler and receive messages in a loop
-        RegisterOnMessageHandlerAndReceiveMessages();
-
-        Console.ReadKey();
-
-        await subscriptionClient.CloseAsync();
-    }
-    ```
-
-5. Directly after the `MainAsync()` method, add the following method that registers the message handler and receives the messages sent by the sender application:
-
-    ```csharp
-    static void RegisterOnMessageHandlerAndReceiveMessages()
-    {
-        // Configure the message handler options in terms of exception handling, number of concurrent messages to deliver, etc.
-        var messageHandlerOptions = new MessageHandlerOptions(ExceptionReceivedHandler)
+        // try adding a message to the batch
+        if (!messageBatch.TryAddMessage(new ServiceBusMessage($"Message {i}")))
         {
-            // Maximum number of concurrent calls to the callback ProcessMessagesAsync(), set to 1 for simplicity.
-            // Set it according to how many messages the application wants to process in parallel.
-            MaxConcurrentCalls = 1,
-
-            // Indicates whether the message pump should automatically complete the messages after returning from user callback.
-            // False below indicates the complete operation is handled by the user callback as in ProcessMessagesAsync().
-            AutoComplete = false
-        };
-
-        // Register the function that processes messages.
-        subscriptionClient.RegisterMessageHandler(ProcessMessagesAsync, messageHandlerOptions);
-    }
-    ```    
-
-6. Directly after the previous method, add the following `ProcessMessagesAsync()` method to process the received messages:
- 
-    ```csharp
-    static async Task ProcessMessagesAsync(Message message, CancellationToken token)
-    {
-        // Process the message.
-        Console.WriteLine($"Received message: SequenceNumber:{message.SystemProperties.SequenceNumber} Body:{Encoding.UTF8.GetString(message.Body)}");
-
-        // Complete the message so that it is not received again.
-        // This can be done only if the subscriptionClient is created in ReceiveMode.PeekLock mode (which is the default).
-        await subscriptionClient.CompleteAsync(message.SystemProperties.LockToken);
-
-        // Note: Use the cancellationToken passed as necessary to determine if the subscriptionClient has already been closed.
-        // If subscriptionClient has already been closed, you can choose to not call CompleteAsync() or AbandonAsync() etc.
-        // to avoid unnecessary exceptions.
-    }
-    ```
-
-7. Finally, add the following method to handle any exceptions that might occur:
- 
-    ```csharp
-    // Use this handler to examine the exceptions received on the message pump.
-    static Task ExceptionReceivedHandler(ExceptionReceivedEventArgs exceptionReceivedEventArgs)
-    {
-        Console.WriteLine($"Message handler encountered an exception {exceptionReceivedEventArgs.Exception}.");
-        var context = exceptionReceivedEventArgs.ExceptionReceivedContext;
-        Console.WriteLine("Exception context for troubleshooting:");
-        Console.WriteLine($"- Endpoint: {context.Endpoint}");
-        Console.WriteLine($"- Entity Path: {context.EntityPath}");
-        Console.WriteLine($"- Executing Action: {context.Action}");
-        return Task.CompletedTask;
-    }    
-    ```    
-
-8. Here is what your receiver Program.cs file should look like:
-   
-    ```csharp
-    namespace CoreReceiverApp
-    {
-        using System;
-        using System.Text;
-        using System.Threading;
-        using System.Threading.Tasks;
-        using Microsoft.Azure.ServiceBus;
-
-        class Program
-        {
-            const string ServiceBusConnectionString = "<your_connection_string>";
-            const string TopicName = "<your_topic_name>";
-            const string SubscriptionName = "<your_subscription_name>";
-            static ISubscriptionClient subscriptionClient;
-
-            static void Main(string[] args)
-            {
-                MainAsync().GetAwaiter().GetResult();
-            }
-
-            static async Task MainAsync()
-            {
-                subscriptionClient = new SubscriptionClient(ServiceBusConnectionString, TopicName, SubscriptionName);
-
-                Console.WriteLine("======================================================");
-                Console.WriteLine("Press ENTER key to exit after receiving all the messages.");
-                Console.WriteLine("======================================================");
-
-                // Register subscription message handler and receive messages in a loop.
-                RegisterOnMessageHandlerAndReceiveMessages();
-
-                Console.ReadKey();
-
-                await subscriptionClient.CloseAsync();
-            }
-
-            static void RegisterOnMessageHandlerAndReceiveMessages()
-            {
-                // Configure the message handler options in terms of exception handling, number of concurrent messages to deliver, etc.
-                var messageHandlerOptions = new MessageHandlerOptions(ExceptionReceivedHandler)
-                {
-                    // Maximum number of concurrent calls to the callback ProcessMessagesAsync(), set to 1 for simplicity.
-                    // Set it according to how many messages the application wants to process in parallel.
-                    MaxConcurrentCalls = 1,
-
-                    // Indicates whether MessagePump should automatically complete the messages after returning from User Callback.
-                    // False below indicates the Complete will be handled by the User Callback as in `ProcessMessagesAsync` below.
-                    AutoComplete = false
-                };
-
-                // Register the function that processes messages.
-                subscriptionClient.RegisterMessageHandler(ProcessMessagesAsync, messageHandlerOptions);
-            }
-
-            static async Task ProcessMessagesAsync(Message message, CancellationToken token)
-            {
-                // Process the message.
-                Console.WriteLine($"Received message: SequenceNumber:{message.SystemProperties.SequenceNumber} Body:{Encoding.UTF8.GetString(message.Body)}");
-
-                // Complete the message so that it is not received again.
-                // This can be done only if the subscriptionClient is created in ReceiveMode.PeekLock mode (which is the default).
-                await subscriptionClient.CompleteAsync(message.SystemProperties.LockToken);
-
-                // Note: Use the cancellationToken passed as necessary to determine if the subscriptionClient has already been closed.
-                // If subscriptionClient has already been closed, you can choose to not call CompleteAsync() or AbandonAsync() etc.
-                // to avoid unnecessary exceptions.
-            }
-
-            static Task ExceptionReceivedHandler(ExceptionReceivedEventArgs exceptionReceivedEventArgs)
-            {
-                Console.WriteLine($"Message handler encountered an exception {exceptionReceivedEventArgs.Exception}.");
-                var context = exceptionReceivedEventArgs.ExceptionReceivedContext;
-                Console.WriteLine("Exception context for troubleshooting:");
-                Console.WriteLine($"- Endpoint: {context.Endpoint}");
-                Console.WriteLine($"- Entity Path: {context.EntityPath}");
-                Console.WriteLine($"- Executing Action: {context.Action}");
-                return Task.CompletedTask;
-            }
+            // if it is too large for the batch
+            throw new Exception($"The message {i} is too large to fit in the batch.");
         }
     }
-    ```
-9. Run the program, and check the portal again. Notice that the **Message Count** and **Current** values are now **0**.
-   
-    ![Topic length][topic-message-receive]
 
-Congratulations! Using the .NET Standard library, you have now created a topic and subscription, sent 10 messages, and received those messages.
+    try
+    {
+        // Use the producer client to send the batch of messages to the Service Bus topic
+        await sender.SendMessagesAsync(messageBatch);
+        Console.WriteLine($"A batch of {numOfMessages} messages has been published to the topic.");
+    }
+    finally
+    {
+        // Calling DisposeAsync on client types is required to ensure that network
+        // resources and other unmanaged objects are properly cleaned up.
+        await sender.DisposeAsync();
+        await client.DisposeAsync();
+    }
+
+    Console.WriteLine("Press any key to end the application");
+    Console.ReadKey();
+    ```
+
+    ---
+
+1. Build the project, and ensure that there are no errors. 
+1. Run the program and wait for the confirmation message.
+    
+    ```bash
+    A batch of 3 messages has been published to the topic
+    ```
+
+    > [!IMPORTANT]
+    > In most cases, it will take a minute or two for the role assignment to propagate in Azure. In rare cases, it may take up to **eight minutes**. If you receive authentication errors when you first run your code, wait a few moments and try again.
+1. In the Azure portal, follow these steps:
+    1. Navigate to your Service Bus namespace. 
+    1. On the **Overview** page, in the bottom-middle pane, switch to the **Topics** tab, and select the Service Bus topic. In the following example, it's `mytopic`.
+    
+        :::image type="content" source="./media/service-bus-dotnet-how-to-use-topics-subscriptions/select-topic.png" alt-text="Select topic":::
+    1. On the **Service Bus Topic** page, In the **Messages** chart in the bottom **Metrics** section, you can see that there are three incoming messages for the topic. If you don't see the value, wait for a few minutes, and refresh the page to see the updated chart. 
+
+        :::image type="content" source="./media/service-bus-dotnet-how-to-use-topics-subscriptions/sent-messages-essentials.png" alt-text="Messages sent to the topic" lightbox="./media/service-bus-dotnet-how-to-use-topics-subscriptions/sent-messages-essentials.png":::
+    4. Select the subscription in the bottom pane. In the following example, it's **S1**. On the **Service Bus Subscription** page, you see the **Active message count** as **3**. The subscription has received the three messages that you sent to the topic, but no receiver has picked them yet. 
+    
+        :::image type="content" source="./media/service-bus-dotnet-how-to-use-topics-subscriptions/subscription-page.png" alt-text="Messages received at the subscription" lightbox="./media/service-bus-dotnet-how-to-use-topics-subscriptions/subscription-page.png":::
+    
+## Receive messages from a subscription
+In this section, you'll create a .NET console application that receives messages from the subscription to the Service Bus topic. 
 
 > [!NOTE]
-> You can manage Service Bus resources with [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). The Service Bus Explorer allows users to connect to a Service Bus namespace and administer messaging entities in an easy manner. The tool provides advanced features like import/export functionality or the ability to test topic, queues, subscriptions, relay services, notification hubs and events hubs. 
+> This quick start provides step-by-step instructions to implement a simple scenario of sending a batch of messages to a Service Bus topic and receiving those messages from a subscription of the topic.  For more samples on other and advanced scenarios, see [Service Bus .NET samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples).
+
+### Create a project for the receiver
+
+1. In the Solution Explorer window, right-click the **ServiceBusTopicQuickStart** solution, point to **Add**, and select **New Project**. 
+1. Select **Console application**, and select **Next**. 
+1. Enter **SubscriptionReceiver** for the **Project name**, and select **Next**. 
+1. On the **Additional information** page, select **Create**. 
+1. In the **Solution Explorer** window, right-click **SubscriptionReceiver**, and select **Set as a Startup Project**. 
+
+### Add the NuGet packages to the project
+
+
+### [Passwordless](#tab/passwordless)
+
+1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console** from the menu.
+1. Select **SubscriptionReceiver** for **Default project** drop-down list. 
+1. Run the following command to install the **Azure.Messaging.ServiceBus** NuGet package.
+
+    ```powershell
+    Install-Package Azure.Messaging.ServiceBus
+    ```
+1. Run the following command to install the **Azure.Identity** NuGet package.
+
+    ```powershell
+    Install-Package Azure.Identity
+    ```
+
+### [Connection String](#tab/connection-string)
+
+1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console** from the menu.
+1. Run the following command to install the **Azure.Messaging.ServiceBus** NuGet package:
+
+    ```Powershell
+    Install-Package Azure.Messaging.ServiceBus
+    ```
+
+---
+
+### Add code to receive messages from the subscription
+
+In this section, you'll add code to retrieve messages from the subscription.
+
+1. Replace the existing contents of `Program.cs` with the following properties and methods:
+
+
+     ## [Passwordless](#tab/passwordless)
+
+    ```csharp
+    using System.Threading.Tasks;
+    using Azure.Messaging.ServiceBus;
+    using Azure.Identity;
+
+    // the client that owns the connection and can be used to create senders and receivers
+    ServiceBusClient client;
+
+    // the processor that reads and processes messages from the subscription
+    ServiceBusProcessor processor;    
+
+    // handle received messages
+    async Task MessageHandler(ProcessMessageEventArgs args)
+    {
+        string body = args.Message.Body.ToString();
+        Console.WriteLine($"Received: {body} from subscription.");
+
+        // complete the message. messages is deleted from the subscription. 
+        await args.CompleteMessageAsync(args.Message);
+    }
+
+    // handle any errors when receiving messages
+    Task ErrorHandler(ProcessErrorEventArgs args)
+    {
+        Console.WriteLine(args.Exception.ToString());
+        return Task.CompletedTask;
+    }
+    ```
+
+
+     ## [Connection String](#tab/connection-string)
+
+    ```csharp
+    using System.Threading.Tasks;
+    using Azure.Messaging.ServiceBus;
+
+    // the client that owns the connection and can be used to create senders and receivers
+    ServiceBusClient client;
+
+    // the processor that reads and processes messages from the subscription
+    ServiceBusProcessor processor;    
+
+    // handle received messages
+    async Task MessageHandler(ProcessMessageEventArgs args)
+    {
+        // TODO: Replace the <TOPIC-SUBSCRIPTION-NAME> placeholder
+        string body = args.Message.Body.ToString();
+        Console.WriteLine($"Received: {body} from subscription: <TOPIC-SUBSCRIPTION-NAME>");
+
+        // complete the message. messages is deleted from the subscription. 
+        await args.CompleteMessageAsync(args.Message);
+    }
+
+    // handle any errors when receiving messages
+    Task ErrorHandler(ProcessErrorEventArgs args)
+    {
+        Console.WriteLine(args.Exception.ToString());
+        return Task.CompletedTask;
+    }
+    ```
+
+    ---
+1. Append the following code to the end of `Program.cs`.
+
+     ## [Passwordless](#tab/passwordless)
+
+    * Creates a [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object using the `DefaultAzureCredential` object. `DefaultAzureCredential` will automatically discover and use the credentials of your Visual Studio login to authenticate to Azure Service Bus.
+    * Invokes the [CreateProcessor](/dotnet/api/azure.messaging.servicebus.servicebusclient.createprocessor) method on the `ServiceBusClient` object to create a [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) object for the specified Service Bus topic. 
+    * Specifies handlers for the [ProcessMessageAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processmessageasync) and [ProcessErrorAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processerrorasync) events of the `ServiceBusProcessor` object. 
+    * Starts processing messages by invoking the [StartProcessingAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.startprocessingasync) on the `ServiceBusProcessor` object. 
+    * When user presses a key to end the processing, invokes the [StopProcessingAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.stopprocessingasync) on the `ServiceBusProcessor` object. 
+    
+    > [!IMPORTANT]
+    > Update placeholder values (`<NAMESPACE-NAME>`, `<TOPIC-NAME>`, `<SUBSCRIPTION-NAME>`) in the code snippet with names of your Service Bus namespace, topic, and subscription.
+
+    For more information, see code comments.
+
+    ```csharp
+    // The Service Bus client types are safe to cache and use as a singleton for the lifetime
+    // of the application, which is best practice when messages are being published or read
+    // regularly.
+    //
+    // Create the clients that we'll use for sending and processing messages.
+    // TODO: Replace the <NAMESPACE-NAME> placeholder
+    client = new ServiceBusClient(
+        "<NAMESPACE-NAME>.servicebus.windows.net",
+        new DefaultAzureCredential());
+
+    // create a processor that we can use to process the messages
+    // TODO: Replace the <TOPIC-NAME> and <SUBSCRIPTION-NAME> placeholders
+    processor = client.CreateProcessor("<TOPIC-NAME>", "<SUBSCRIPTION-NAME>", new ServiceBusProcessorOptions());
+
+    try
+    {
+        // add handler to process messages
+        processor.ProcessMessageAsync += MessageHandler;
+
+        // add handler to process any errors
+        processor.ProcessErrorAsync += ErrorHandler;
+
+        // start processing 
+        await processor.StartProcessingAsync();
+
+        Console.WriteLine("Wait for a minute and then press any key to end the processing");
+        Console.ReadKey();
+
+        // stop processing 
+        Console.WriteLine("\nStopping the receiver...");
+        await processor.StopProcessingAsync();
+        Console.WriteLine("Stopped receiving messages");
+    }
+    finally
+    {
+        // Calling DisposeAsync on client types is required to ensure that network
+        // resources and other unmanaged objects are properly cleaned up.
+        await processor.DisposeAsync();
+        await client.DisposeAsync();
+    }
+    ```
+
+    ## [Connection String](#tab/connection-string)
+
+    > [!IMPORTANT]
+    > Update placeholder values (`<NAMESPACE-CONNECTION-STRING>`, `<TOPIC-NAME>`, `<SUBSCRIPTION-NAME>`) in the code snippet with actual values you noted down earlier.
+
+    * Creates a [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object using the connection string to the namespace. 
+    * Invokes the [CreateProcessor](/dotnet/api/azure.messaging.servicebus.servicebusclient.createprocessor) method on the `ServiceBusClient` object to create a [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) object for the specified Service Bus topic. 
+    * Specifies handlers for the [ProcessMessageAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processmessageasync) and [ProcessErrorAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processerrorasync) events of the `ServiceBusProcessor` object. 
+    * Starts processing messages by invoking the [StartProcessingAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.startprocessingasync) on the `ServiceBusProcessor` object. 
+    * When user presses a key to end the processing, invokes the [StopProcessingAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.stopprocessingasync) on the `ServiceBusProcessor` object. 
+    
+    For more information, see code comments.
+
+    ```csharp
+    // The Service Bus client types are safe to cache and use as a singleton for the lifetime
+    // of the application, which is best practice when messages are being published or read
+    // regularly.
+    //
+    // Create the clients that we'll use for sending and processing messages.
+    // TODO: Replace the <NAMESPACE-CONNECTION-STRING> placeholder
+    client = new ServiceBusClient("<NAMESPACE-CONNECTION-STRING>");
+
+    // create a processor that we can use to process the messages
+    // TODO: Replace the <TOPIC-NAME> and <SUBSCRIPTION-NAME> placeholders
+    processor = client.CreateProcessor("<TOPIC-NAME>", "<SUBSCRIPTION-NAME>", new ServiceBusProcessorOptions());
+
+    try
+    {
+        // add handler to process messages
+        processor.ProcessMessageAsync += MessageHandler;
+
+        // add handler to process any errors
+        processor.ProcessErrorAsync += ErrorHandler;
+
+        // start processing 
+        await processor.StartProcessingAsync();
+
+        Console.WriteLine("Wait for a minute and then press any key to end the processing");
+        Console.ReadKey();
+
+        // stop processing 
+        Console.WriteLine("\nStopping the receiver...");
+        await processor.StopProcessingAsync();
+        Console.WriteLine("Stopped receiving messages");
+    }
+    finally
+    {
+        // Calling DisposeAsync on client types is required to ensure that network
+        // resources and other unmanaged objects are properly cleaned up.
+        await processor.DisposeAsync();
+        await client.DisposeAsync();
+    }
+    ```
+
+    ---
+
+1. Here's what your `Program.cs` should look like:  
+
+    ## [Passwordless](#tab/passwordless)
+    
+    ```csharp
+    using System;
+    using System.Threading.Tasks;
+    using Azure.Messaging.ServiceBus;
+    using Azure.Identity;
+    
+    // the client that owns the connection and can be used to create senders and receivers
+    ServiceBusClient client;
+
+    // the processor that reads and processes messages from the subscription
+    ServiceBusProcessor processor;
+
+    // handle received messages
+    async Task MessageHandler(ProcessMessageEventArgs args)
+    {
+        string body = args.Message.Body.ToString();
+        Console.WriteLine($"Received: {body} from subscription.");
+
+        // complete the message. messages is deleted from the subscription. 
+        await args.CompleteMessageAsync(args.Message);
+    }
+
+    // handle any errors when receiving messages
+    Task ErrorHandler(ProcessErrorEventArgs args)
+    {
+        Console.WriteLine(args.Exception.ToString());
+        return Task.CompletedTask;
+    }
+    
+    // The Service Bus client types are safe to cache and use as a singleton for the lifetime
+    // of the application, which is best practice when messages are being published or read
+    // regularly.
+    //
+    // Create the clients that we'll use for sending and processing messages.
+    // TODO: Replace the <NAMESPACE-NAME> placeholder
+    client = new ServiceBusClient(
+        "<NAMESPACE-NAME>.servicebus.windows.net",
+        new DefaultAzureCredential());
+
+    // create a processor that we can use to process the messages
+    // TODO: Replace the <TOPIC-NAME> and <SUBSCRIPTION-NAME> placeholders
+    processor = client.CreateProcessor("<TOPIC-NAME>", "<SUBSCRIPTION-NAME>", new ServiceBusProcessorOptions());
+
+    try
+    {
+        // add handler to process messages
+        processor.ProcessMessageAsync += MessageHandler;
+
+        // add handler to process any errors
+        processor.ProcessErrorAsync += ErrorHandler;
+
+        // start processing 
+        await processor.StartProcessingAsync();
+
+        Console.WriteLine("Wait for a minute and then press any key to end the processing");
+        Console.ReadKey();
+
+        // stop processing 
+        Console.WriteLine("\nStopping the receiver...");
+        await processor.StopProcessingAsync();
+        Console.WriteLine("Stopped receiving messages");
+    }
+    finally
+    {
+        // Calling DisposeAsync on client types is required to ensure that network
+        // resources and other unmanaged objects are properly cleaned up.
+        await processor.DisposeAsync();
+        await client.DisposeAsync();
+    }
+    ```
+
+    ## [Connection String](#tab/connection-string)
+
+    ```csharp
+    using System;
+    using System.Threading.Tasks;
+    using Azure.Messaging.ServiceBus;
+    
+    // the client that owns the connection and can be used to create senders and receivers
+    ServiceBusClient client;
+
+    // the processor that reads and processes messages from the subscription
+    ServiceBusProcessor processor;
+
+    // handle received messages
+    async Task MessageHandler(ProcessMessageEventArgs args)
+    {
+        string body = args.Message.Body.ToString();
+        Console.WriteLine($"Received: {body} from subscription.");
+
+        // complete the message. messages is deleted from the subscription. 
+        await args.CompleteMessageAsync(args.Message);
+    }
+
+    // handle any errors when receiving messages
+    Task ErrorHandler(ProcessErrorEventArgs args)
+    {
+        Console.WriteLine(args.Exception.ToString());
+        return Task.CompletedTask;
+    }
+    
+    // The Service Bus client types are safe to cache and use as a singleton for the lifetime
+    // of the application, which is best practice when messages are being published or read
+    // regularly.
+    //
+    // Create the clients that we'll use for sending and processing messages.
+    // TODO: Replace the <NAMESPACE-CONNECTION-STRING> placeholder
+    client = new ServiceBusClient("<NAMESPACE-CONNECTION-STRING>");
+
+    // create a processor that we can use to process the messages
+    // TODO: Replace the <TOPIC-NAME> and <SUBSCRIPTION-NAME> placeholders
+    processor = client.CreateProcessor("<TOPIC-NAME>", "<SUBSCRIPTION-NAME>", new ServiceBusProcessorOptions());
+
+    try
+    {
+        // add handler to process messages
+        processor.ProcessMessageAsync += MessageHandler;
+
+        // add handler to process any errors
+        processor.ProcessErrorAsync += ErrorHandler;
+
+        // start processing 
+        await processor.StartProcessingAsync();
+
+        Console.WriteLine("Wait for a minute and then press any key to end the processing");
+        Console.ReadKey();
+
+        // stop processing 
+        Console.WriteLine("\nStopping the receiver...");
+        await processor.StopProcessingAsync();
+        Console.WriteLine("Stopped receiving messages");
+    }
+    finally
+    {
+        // Calling DisposeAsync on client types is required to ensure that network
+        // resources and other unmanaged objects are properly cleaned up.
+        await processor.DisposeAsync();
+        await client.DisposeAsync();
+    }
+    ```
+
+    ---
+
+1. Build the project, and ensure that there are no errors.
+1. Run the receiver application. You should see the received messages. Press any key to stop the receiver and the application. 
+
+    ```console
+    Wait for a minute and then press any key to end the processing
+    Received: Message 1 from subscription: S1
+    Received: Message 2 from subscription: S1
+    Received: Message 3 from subscription: S1
+    
+    Stopping the receiver...
+    Stopped receiving messages
+    ```
+1. Check the portal again. 
+    - On the **Service Bus Topic** page, in the **Messages** chart, you see three incoming messages and three outgoing messages. If you don't see these numbers, wait for a few minutes, and refresh the page to see the updated chart. 
+    
+        :::image type="content" source="./media/service-bus-dotnet-how-to-use-topics-subscriptions/messages-size-final.png" alt-text="Messages sent and received" lightbox="./media/service-bus-dotnet-how-to-use-topics-subscriptions/messages-size-final.png":::
+    - On the **Service Bus Subscription** page, you see the **Active message count** as zero. It's because a receiver has received messages from this subscription and completed the messages. 
+    
+        :::image type="content" source="./media/service-bus-dotnet-how-to-use-topics-subscriptions/subscription-page-final.png" alt-text="Active message count at the subscription at the end" lightbox="./media/service-bus-dotnet-how-to-use-topics-subscriptions/subscription-page-final.png":::
+        
+
 
 ## Next steps
+See the following documentation and samples:
 
-Check out the Service Bus [GitHub repository with samples](https://github.com/Azure/azure-service-bus/tree/master/samples) that demonstrate some of the more advanced features of Service Bus messaging.
-
-<!--Image references-->
-
-[nuget-pkg]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/nuget-package.png
-[topic-message]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/topic-message.png
-[topic-message-receive]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/topic-message-receive.png
-[createtopic1]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/create-topic1.png
-[createtopic2]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/create-topic2.png
-[createtopic3]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/create-topic3.png
-[createtopic4]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/create-topic4.png
-[github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
-[azure-portal]: https://portal.azure.com
+- [Azure Service Bus client library for .NET - Readme](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus)
+- [.NET samples for Azure Service Bus on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples)
+- [.NET API reference](/dotnet/api/azure.messaging.servicebus?preserve-view=true)

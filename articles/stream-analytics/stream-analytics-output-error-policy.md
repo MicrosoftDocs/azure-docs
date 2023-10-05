@@ -1,13 +1,11 @@
 ---
 title: Output error policies in Azure Stream Analytics
 description: Learn about the output error handling policies available in Azure Stream Analytics.
-services: stream-analytics
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: jasonh
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 05/30/2021
 ms.custom: seodec18
 ---
 # Azure Stream Analytics output error policy
@@ -19,7 +17,9 @@ Output data error handling policies apply only to data conversion errors that oc
 
 
 ## Retry
-When an error occurs, Azure Stream Analytics retries writing the event indefinitely until the write succeeds. There is no timeout for retries. Eventually all subsequent events are blocked from processing by the event that is retrying. This option is the default output error handling policy.
+When an error occurs, Azure Stream Analytics retries writing the event indefinitely until the write succeeds. There is no timeout for retries. Eventually all subsequent events are blocked from processing by the event that is retrying. This will then block the output on which the error happened, as well as any other outputs sharing the same input.
+This option is the default output error handling policy. Retry interval can vary based on each output and can range from a few seconds to a few minutes over subsequent retries.
+
 
 ## Drop
 Azure Stream Analytics will drop any output event that results in a data conversion error. The dropped events cannot be recovered for reprocessing later.
@@ -29,4 +29,4 @@ All transient errors (for example, network errors) are retried regardless of the
 
 
 ## Next steps
-[Troubleshooting guide for Azure Stream Analytics](stream-analytics-troubleshooting-guide.md)
+[Troubleshooting guide for Azure Stream Analytics](./stream-analytics-troubleshoot-query.md)

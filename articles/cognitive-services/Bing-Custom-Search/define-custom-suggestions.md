@@ -1,7 +1,7 @@
 ---
 title: Define Custom Autosuggest suggestions - Bing Custom Search
-titlesuffix: Azure Cognitive Services
-description: Describes how to configure Custom Autosuggest with custom suggestions
+titleSuffix: Azure AI services
+description: Custom Autosuggest returns a list of suggested search query strings that are relevant to your search experience.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,10 +10,12 @@ ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.author: maheshb
+ms.author: aahi
 ---
 
 # Configure your custom autosuggest experience
+
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 Custom Autosuggest returns a list of suggested search query strings that are relevant to your search experience. The suggested query strings are based on a partial query string that the user provides in the search box. The list will contain a maximum of 10 suggestions. 
 
@@ -84,6 +86,6 @@ If the user selects a suggested query string from the dropdown list, use the que
 
 ## Next steps
 
-- [Get custom suggestions](./get-custom-suggestions.md)
+- [Get custom suggestions]()
 - [Search your custom instance](./search-your-custom-view.md)
 - [Configure and consume custom hosted UI](./hosted-ui.md)

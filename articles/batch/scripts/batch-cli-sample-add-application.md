@@ -1,45 +1,62 @@
 ---
 title: Azure CLI Script Example - Add an Application in Batch | Microsoft Docs
-description: Azure CLI Script Example - Add an Application in Batch
-services: batch
-documentationcenter: ''
-author: laurenhughes
-manager: jeconnoc
-editor: 
-
-ms.assetid:
-ms.service: batch
-ms.devlang: azurecli
+description: Learn how to add an application for use with an Azure Batch pool or a task using the Azure CLI.
 ms.topic: sample
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 01/29/2018
-ms.author: lahugh
+ms.date: 05/24/2022
+ms.custom: devx-track-azurecli, seo-azure-cli
+keywords: batch, azure cli samples, azure cli code samples, azure cli script samples
 ---
 
 # CLI example: Add an application to an Azure Batch account
 
-This script demonstrates how to add an application for use with an Azure Batch
-pool or task. To set up an application to add to your Batch account, package your executable, together with any dependencies, into a zip file. 
+This script demonstrates how to add an application for use with an Azure Batch pool or task. To set up an application to add to your Batch account, package your executable, together with any dependencies, into a zip file.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0.20 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). 
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
-## Example script
+## Sample script
 
-[!code-azurecli-interactive[main](../../../cli_scripts/batch/add-application/add-application.sh "Add Application")]
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
 
-## Clean up deployment
+### Create batch account and new application
 
-Run the following command to remove the
-resource group and all resources associated with it.
+:::code language="azurecli" source="~/azure_cli_scripts/batch/add-application/add-application.sh" id="FullScript":::
 
-```azurecli-interactive
-az group delete --name myResourceGroup
+### Create batch application package
+
+An application can reference multiple application executable packages of different versions. The executables and any dependencies need to be zipped up for the package. Once uploaded, the CLI attempts to activate the package so that it's ready for use.
+
+```azurecli
+az batch application package create \
+    --resource-group $resourceGroup \
+    --name $batchAccount \
+    --application-name "MyApplication" \
+    --package-file my-application-exe.zip \
+    --version-name 1.0
 ```
 
-## Script explanation
+### Update the application
+
+Update the application to assign the newly added application package as the default version.
+
+```azurecli
+az batch application set \
+    --resource-group $resourceGroup \
+    --name $batchAccount \
+    --application-name "MyApplication" \
+    --default-version 1.0
+```
+
+## Clean up resources
+
+[!INCLUDE [cli-clean-up-resources.md](../../../includes/cli-clean-up-resources.md)]
+
+```azurecli
+az group delete --name $resourceGroup
+```
+
+## Sample reference
 
 This script uses the following commands.
 Each command in the table links to command-specific documentation.
@@ -57,4 +74,4 @@ Each command in the table links to command-specific documentation.
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
+For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).

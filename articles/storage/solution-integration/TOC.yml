@@ -1,0 +1,53 @@
+- name: Azure Storage partner solutions
+  href: ./index.yml
+- name: Analytics and big data partners
+  items:
+  - name: Overview of validated partners
+    href: .\validated-partners\analytics\partner-overview.md
+  expanded: false
+- name: Archive, backup, and BCDR partners
+  items:
+  - name: Overview of validated partners
+    href: .\validated-partners\backup-archive-disaster-recovery\partner-overview.md
+  - name: Commvault getting started guide
+    href: .\validated-partners\backup-archive-disaster-recovery\commvault\commvault-solution-guide.md
+  - name: Veeam getting started guide
+    href: .\validated-partners\backup-archive-disaster-recovery\veeam\veeam-solution-guide.md
+  - name: DobiProtect getting started guide
+    href: .\validated-partners\backup-archive-disaster-recovery\datadobi\datadobi-solution-guide.md
+  - name: Tiger Bridge archiving with CDP and DR
+    href: .\validated-partners\backup-archive-disaster-recovery\tiger-bridge-cdp-guide.md
+  expanded: false
+- name: Container solution partners
+  items:
+  - name: Overview of validated partners
+    href: .\validated-partners\container-solutions\partner-overview.md
+  expanded: false
+- name: Data management and migration partners
+  items:
+  - name: Overview of validated partners
+    href: .\validated-partners\data-management\partner-overview.md
+  - name: Migration tools comparison
+    href: ./validated-partners/data-management/migration-tools-comparison.md
+  - name: Azure Storage Migration Program Solutions
+    href: ./validated-partners/data-management/azure-file-migration-program-solutions.md
+  - name: DobiMigrate getting started guide
+    href: ./validated-partners/data-management/dobimigrate-quick-start-guide.md
+  - name: Komprise getting started guide
+    href: ./validated-partners/data-management/komprise-quick-start-guide.md
+  - name: Atempo getting started guide
+    href: ./validated-partners/data-management/atempo-quick-start-guide.md
+  - name: StorageX getting started guide
+    href: ./validated-partners/data-management/storagex-quick-start-guide.md
+  - name: Cirrus Data getting started guide
+    href: ./validated-partners/data-management/cirrus-data-migration-guide.md
+  expanded: false
+- name: Primary and secondary storage partners
+  items:
+  - name: Overview of validated partners
+    href: .\validated-partners\primary-secondary-storage\partner-overview.md
+  - name: ISV file services
+    href: .\validated-partners\primary-secondary-storage\isv-file-services.md
+  - name: Tiger Bridge getting started guide
+    href: ./validated-partners/primary-secondary-storage/tiger-bridge-deployment-guide.md
+  expanded: false

@@ -1,62 +1,52 @@
 ---
-title: Quickstart to create a Python app that uses Azure Cache for Redis | Microsoft Docs
-description: In this quickstart, you learn how to create an Python App that uses Azure Cache for Redis
-services: cache
-documentationcenter: ''
-author: yegu-ms
-manager: jhubbard
-editor: v-lincan
+title: 'Quickstart: Use Azure Cache for Redis in Python'
+description: In this quickstart, you learn how to create a Python App that uses Azure Cache for Redis.
+author: flang-msft
 
-ms.assetid: f186202c-fdad-4398-af8c-aee91ec96ba3
+ms.author: franlanglois
+
+ms.date: 02/15/2023
+ms.topic: quickstart
 ms.service: cache
 ms.devlang: python
-ms.topic: conceptual
-ms.tgt_pltfrm: cache
-ms.workload: tbd
-ms.topic: quickstart
-ms.date: 05/11/2018
-ms.author: yegu
-ms.custom: mvc
-#Customer intent: As a Python developer, new to Azure Cache for Redis, I want to create a new Python app that uses Azure Cache for Redis.
+ms.custom: mvc, seo-python-october2019, devx-track-python, mode-api, py-fresh-zinc
+
 ---
-# Quickstart: Use Azure Cache for Redis with Python
+# Quickstart: Use Azure Cache for Redis in Python
 
+In this article, you incorporate Azure Cache for Redis into a Python app to have access to a secure, dedicated cache that is accessible from any application within Azure.
 
-## Introduction
+## Skip to the code on GitHub
 
-This quickstart shows how to connect to an Azure Cache for Redis with Python to read and write to a cache. 
-
-![Python test completed](./media/cache-python-get-started/cache-python-completed.png)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+If you want to skip straight to the code, see the [Python quickstart](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/python) on GitHub.
 
 ## Prerequisites
 
-* [Python 2 or Python 3 environment](https://www.python.org/downloads/) installed with [pip](https://pypi.org/project/pip/). 
+- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Python 3
+   - For macOS or Linux, download from [python.org](https://www.python.org/downloads/).
+   - For Windows 11, use the [Windows Store](https://www.microsoft.com/en-us/p/python-3/9nblggh083nz?activetab=pivot:overviewtab).
 
-## Create an Azure Cache for Redis on Azure
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
+## Create an Azure Cache for Redis instance
+[!INCLUDE [redis-cache-create](includes/redis-cache-create.md)]
 
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
+[!INCLUDE [redis-cache-create](includes/redis-cache-access-keys.md)]
 
 ## Install redis-py
 
-[Redis-py](https://github.com/andymccurdy/redis-py) is a Python interface to Azure Cache for Redis. Use the Python packages tool, *pip*, to install the redis-py package. 
+[Redis-py](https://pypi.org/project/redis/) is a Python interface to Azure Cache for Redis. Use the Python packages tool, `pip`, to install the `redis-py` package from a command prompt. 
 
-The following example uses *pip3* for Python3 to install the redis-py package on Windows 10 using a Visual Studio 2019 Developer Command prompt running with elevated Administrator privileges.
+The following example used `pip3` for Python 3 to install `redis-py` on Windows 11 from an Administrator command prompt.
 
-    pip3 install redis
-
-![Install redis-py](./media/cache-python-get-started/cache-python-install-redis-py.png)
-
+:::image type="content" source="media/cache-python-get-started/cache-python-install-redis-py.png" alt-text="Screenshot of a terminal showing an install of redis-py interface to Azure Cache for Redis.":::
 
 ## Read and write to the cache
 
-Run Python and test using the cache from the command line. Replace `<Your Host Name>` and `<Your Access Key>` with the values for your Azure Cache for Redis. 
+Run Python from the command line and test your cache by using the following code. Replace `<Your Host Name>` and `<Your Access Key>` with the values from your Azure Cache for Redis instance. Your host name is of the form `<DNS name>.redis.cache.windows.net`.
 
 ```python
 >>> import redis
->>> r = redis.StrictRedis(host='<Your Host Name>.redis.cache.windows.net',
+>>> r = redis.StrictRedis(host='<Your Host Name>',
         port=6380, db=0, password='<Your Access Key>', ssl=True)
 >>> r.set('foo', 'bar')
 True
@@ -64,19 +54,21 @@ True
 b'bar'
 ```
 
-## Create a Python script
+> [!IMPORTANT]
+> For Azure Cache for Redis version 3.0 or higher, TLS/SSL certificate check is enforced. `ssl_ca_certs` must be explicitly set when connecting to Azure Cache for Redis. For RedHat Linux, `ssl_ca_certs` are in the `/etc/pki/tls/certs/ca-bundle.crt` certificate module.
 
-Create a new script text file named *PythonApplication1.py*.
+## Create a Python sample app
 
-Add the following script to *PythonApplication1.py* and save the file. This script will test the cache access. Replace `<Your Host Name>` and `<Your Access Key>` with the values for your Azure Cache for Redis. 
+Create a new text file, add the following script, and save the file as `PythonApplication1.py`. Replace `<Your Host Name>` and `<Your Access Key>` with the values from your Azure Cache for Redis instance. Your host name is of the form `<DNS name>.redis.cache.windows.net`.
 
 ```python
 import redis
 
-myHostname = "<Your Host Name>.redis.cache.windows.net"
+myHostname = "<Your Host Name>"
 myPassword = "<Your Access Key>"
 
-r = redis.StrictRedis(host=myHostname, port=6380,password=myPassword,ssl=True)
+r = redis.StrictRedis(host=myHostname, port=6380,
+                      password=myPassword, ssl=True)
 
 result = r.ping()
 print("Ping returned : " + str(result))
@@ -88,44 +80,34 @@ result = r.get("Message")
 print("GET Message returned : " + result.decode("utf-8"))
 
 result = r.client_list()
-print("CLIENT LIST returned : ") 
+print("CLIENT LIST returned : ")
 for c in result:
-	print("id : " + c['id'] + ", addr : " + c['addr'])
+    print(f"id : {c['id']}, addr : {c['addr']}")
 ```
 
-Run the script with Python.
+Run `PythonApplication1.py` with Python. You should see results like the following example:
 
-![Python test completed](./media/cache-python-get-started/cache-python-completed.png)
-
+:::image type="content" source="media/cache-python-get-started/cache-python-completed.png" alt-text="Screenshot of a terminal showing a Python script to test cache access.":::
 
 ## Clean up resources
 
-If you will be continuing with another tutorial, you can keep the resources created in this quickstart and reuse them.
-
-Otherwise, if you are finished with the quickstart sample application, you can delete the Azure resources created in this quickstart to avoid charges. 
+If you're finished with the Azure resource group and resources you created in this quickstart, you can delete them to avoid charges.
 
 > [!IMPORTANT]
-> Deleting a resource group is irreversible and that the resource group and all the resources in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the resources for hosting this sample inside an existing resource group that contains resources you want to keep, you can delete each resource individually from their respective blades instead of deleting the resource group.
->
+> Deleting a resource group is irreversible, and the resource group and all the resources in it are permanently deleted. If you created your Azure Cache for Redis instance in an existing resource group that you want to keep, you can delete just the cache by selecting **Delete** from the cache **Overview** page. 
 
-Sign in to the [Azure portal](https://portal.azure.com) and click **Resource groups**.
+To delete the resource group and its Redis Cache for Azure instance:
 
-In the **Filter by name...** textbox, type the name of your resource group. The instructions for this article used a resource group named *TestResources*. On your resource group in the result list, click **...** then **Delete resource group**.
+1. From the [Azure portal](https://portal.azure.com), search for and select **Resource groups**.
 
-![Delete](./media/cache-web-app-howto/cache-delete-resource-group.png)
+1. In the **Filter by name** text box, enter the name of the resource group that contains your cache instance, and then select it from the search results. 
 
-You will be asked to confirm the deletion of the resource group. Type the name of your resource group to confirm, and click **Delete**.
+1. On your resource group page, select **Delete resource group**.
 
-After a few moments, the resource group and all of its contained resources are deleted.
-
+1. Type the resource group name, and then select **Delete**.
+   
+   :::image type="content" source="./media/cache-python-get-started/delete-your-resource-group-for-azure-cache-for-redis.png" alt-text="Screenshot of the Azure portal showing how to delete the resource group for Azure Cache for Redis.":::
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Create a simple ASP.NET web app that uses an Azure Cache for Redis.](./cache-web-app-howto.md)
-
-
-
-<!--Image references-->
-[1]: ./media/cache-python-get-started/redis-cache-new-cache-menu.png
-[2]: ./media/cache-python-get-started/redis-cache-cache-create.png
+- [Create a simple ASP.NET web app that uses an Azure Cache for Redis.](./cache-web-app-howto.md)

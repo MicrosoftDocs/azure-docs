@@ -1,13 +1,12 @@
 ---
-title: Modeling relationships in Azure storage table design | Microsoft Docs
-description: Understand the modeling process when designing your table storage solution.
+title: Modeling relationships in Azure Table storage design
+description: Understand the modeling process when designing your Azure Table storage solution. Read about one-to-many, one-to-one, and inheritance relationships.
 services: storage
-author: MarkMcGeeAtAquent
-ms.service: storage
+ms.service: azure-table-storage
+author: akashdubey-ms
+ms.author: akashdubey
 ms.topic: article
 ms.date: 04/23/2018
-ms.author: sngun
-ms.subservice: tables
 ---
 # Modeling relationships
 This article discusses the modeling process to help you design your Azure Table storage solutions.
@@ -17,7 +16,7 @@ Building domain models is a key step in the design of complex systems. Typically
 ## One-to-many relationships
 One-to-many relationships between business domain objects occur frequently: for example, one department has many employees. There are several ways to implement one-to-many relationships in the Table service each with pros and cons that may be relevant to the particular scenario.  
 
-Consider the example of a large multi-national corporation with tens of thousands of departments and employee entities where every department has many employees and each employee as associated with one specific department. One approach is to store separate department and employee entities such as these:  
+Consider the example of a large multi-national/regional corporation with tens of thousands of departments and employee entities where every department has many employees and each employee as associated with one specific department. One approach is to store separate department and employee entities such as these:  
 
 
 ![Store separate department and employee entities](media/storage-table-design-guide/storage-table-design-IMAGE01.png)
@@ -45,7 +44,7 @@ The following table summarizes the pros and cons of each of the approaches outli
 <td>
 <ul>
 <li>You can update a department entity with a single operation.</li>
-<li>You can use an EGT to maintain consistency if you have a requirement to modify a department entity whenever you update/insert/delete an employee entity. For example, if you maintain a departmental employee count for each department.</li>
+<li>You can use an Entity Group Transaction* (EGT) to maintain consistency if you have a requirement to modify a department entity whenever you update/insert/delete an employee entity. For example, if you maintain a departmental employee count for each department.</li>
 </ul>
 </td>
 <td>
@@ -86,6 +85,9 @@ The following table summarizes the pros and cons of each of the approaches outli
 </td>
 </tr>
 </table>
+
+*for more information, see [Entity Group Transactions](table-storage-design.md#entity-group-transactions)  
+
 
 How you choose between these options, and which of the pros and cons are most significant, depends on your specific application scenarios. For example, how often do you modify department entities; do all your employee queries need the additional departmental information; how close are you to the scalability limits on your partitions or your storage account?  
 

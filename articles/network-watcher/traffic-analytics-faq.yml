@@ -1,0 +1,316 @@
+### YamlMime:FAQ
+metadata:
+  title: "Traffic analytics FAQ"
+  titleSuffix: Azure Network Watcher
+  description: Find answers to the most frequently asked questions (FAQ) about traffic analytics in Azure Network Watcher.
+  ms.author: halkazwini
+  author: halkazwini
+  ms.service: network-watcher
+  ms.topic: faq
+  ms.date: 09/21/2023
+title: Traffic analytics frequently asked questions (FAQ)
+summary: |
+  This article provides answers to the most frequently asked questions about traffic analytics in Azure Network Watcher.  
+
+sections:
+  - name: Ignored
+    questions:
+      - question: |
+          What are the prerequisites to use traffic analytics?
+        answer: |
+          Traffic analytics requires the following prerequisites:
+          
+          - A Network Watcher enabled subscription.
+          - NSG flow logs enabled for the network security groups you want to monitor.
+          - An Azure Log Analytics workspace, with read and write access.
+          
+          Your account must meet one of the following to enable traffic analytics:
+          
+          - Your account must have any one of the following Azure roles at the subscription scope: owner, contributor, or network contributor.
+          
+          > [!IMPORTANT]
+          > [Network contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-contributor) doesn't cover `Microsoft.OperationalInsights/workspaces/*` actions.
+          
+          - If your account isn't assigned to one of the previously listed roles, it must be assigned to a custom role that is assigned the following actions, at the subscription level.
+                      
+              - `Microsoft.Network/applicationGateways/read`
+              - `Microsoft.Network/connections/read`
+              - `Microsoft.Network/loadBalancers/read`
+              - `Microsoft.Network/localNetworkGateways/read`
+              - `Microsoft.Network/networkInterfaces/read`
+              - `Microsoft.Network/networkSecurityGroups/read`
+              - `Microsoft.Network/publicIPAddresses/read`
+              - `Microsoft.Network/routeTables/read`
+              - `Microsoft.Network/virtualNetworkGateways/read`
+              - `Microsoft.Network/virtualNetworks/read`
+              - `Microsoft.OperationalInsights/workspaces/*`
+    
+          To learn how to check roles assigned to a user for a subscription, see [List Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-list-portal.md):
+          
+          If you aren't able to see the role assignments, contact the respective subscription admin. For more information, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+          
+      - question: |
+          Can I enable flow logs for network security groups that are in different regions than my workspace region?
+        answer: |
+          Yes, these network security groups can be in different regions than your Log Analytics workspace.
+
+      - question: |
+          Can multiple network security groups be configured within a single workspace?
+        answer: |
+          Yes.
+
+      - question: |
+          Can I use an existing workspace?
+        answer: |
+          Yes. If you select an existing workspace, make sure that it has been migrated to the new query language. If you don't want to upgrade the workspace, you need to create a new one. For more information about Kusto Query Language (KQL), see [Log queries in Azure Monitor](../azure-monitor/logs/log-query-overview.md).
+          
+      - question: |
+          Can my Azure storage account be in one subscription and my Log Analytics workspace be in a different subscription?
+        answer: |
+          Yes, your Azure storage account can be in one subscription, and your Log Analytics workspace can be in a different subscription.
+
+      - question: |
+          Can I store raw logs in a different subscription?
+        answer: |
+          Yes. You can configure NSG flow Logs to be sent to a storage account located in a different subscription, provided you have the appropriate privileges, and that the storage account is located in the same region as the network security group. The network security group and the destination storage account must also share the same Azure Active Directory Tenant.
+
+      - question: |
+          Can my flow log resources and storage accounts be in different tenants?
+        answer: |
+          No. All resources must be in the same tenant including Network security groups, flow logs, storage accounts & Log Analytics workspaces (in cases where Traffic Analytics is enabled).
+
+      - question: |
+          What if I can't configure a network security group for traffic analytics due to a "Not found" error?
+        answer: |
+          Select a supported region. If you select a non-supported region, you receive a "Not found" error. For more information, see [Traffic analytics supported regions](./supported-region-traffic-analytics.md).
+
+      - question: |
+          What if I'm getting the status, “Failed to load,” under the NSG flow logs page?
+        answer: |
+          The `Microsoft.Insights` provider must be registered for flow logging to work properly. If you aren't sure whether the `Microsoft.Insights` provider is registered for your subscription, see [Azure portal](.//network-watcher-nsg-flow-logging-portal.md#register-insights-provider), [PowerShell](./network-watcher-nsg-flow-logging-powershell.md#register-insights-provider), or [Azure CLI](./network-watcher-nsg-flow-logging-cli.md#register-insights-provider) instructions on how to register it.
+          
+      - question: |
+          I have configured the solution. Why am I not seeing anything on the dashboard?
+        answer: |
+          The dashboard might take up to 30 minutes to show reports for the first time. The solution must first aggregate enough data for it to derive meaningful insights, then it generates reports. 
+
+      - question: |
+          What if I get this message: “We could not find any data in this workspace for selected time interval. Try changing the time interval or select a different workspace.”?
+        answer: |
+          Try the following options:
+          - Change the time interval in the upper bar.
+          - Select a different Log Analytics workspace in the upper bar.
+          - Try accessing traffic analytics after 30 minutes, if it was recently enabled.
+              
+          If problems persist, raise concerns in [Microsoft Q&A](/answers/topics/azure-network-watcher.html).
+          
+      - question: |
+          What if I get this message: "Analyzing your NSG flow logs for the first time. This process may take 20-30 minutes to complete. Check back after some time."?
+        answer: |
+          You might see this message because:
+          - Traffic analytics was recently enabled, and might not yet have aggregated enough data for it to derive meaningful insights.
+          - You're using the free version of the Log Analytics workspace, and it exceeded the quota limits. You might need to use a workspace with a larger capacity.
+
+          Try the suggested solutions for the previous question. If problems persist, raise concerns in [Microsoft Q&A](/answers/topics/azure-network-watcher.html).
+              
+      - question: |
+          What if I get this message: “Looks like we have resources data (Topology) and no flows information. For more information, click here to see resources data and refer to FAQ.”?
+        answer: |
+          You're seeing the resources information on the dashboard; however, no flow-related statistics are present. Data might not be present because of no communication flows between the resources. Wait for 60 minutes, and recheck status. If the problem persists, and you're sure that communication flows among resources exist, raise concerns in [Microsoft Q&A](/answers/topics/azure-network-watcher.html).
+
+      - question: |
+          Can I configure traffic analytics using PowerShell?
+        answer: |
+          You can configure traffic analytics using Windows PowerShell version 6.2.1 and higher. To configure flow logging and traffic analytics for a specific network security group using PowerShell, see [Enable network security group flow logs and traffic analytics](./network-watcher-nsg-flow-logging-powershell.md#create-a-flow-log-and-traffic-analytics-workspace).
+                    
+      - question: |
+          Can I configure traffic analytics using an Azure Resource Manager template or a Bicep file?
+        answer: |
+          Yes, you can use an Azure Resource Manager template or a Bicep file to configure traffic analytics. For more information, see [Configure NSG flow logs using an Azure Resource Manager (ARM) template](quickstart-configure-network-security-group-flow-logs-from-arm-template.md) and [Configure NSG flow logs using a Bicep file](quickstart-configure-network-security-group-flow-logs-from-bicep.md).
+
+      - question: |
+          How is traffic analytics priced?
+        answer: |
+          Traffic analytics is metered. The metering is based on processing of flow log data by the service, and storing the resulting enhanced logs in a Log Analytics workspace. 
+          
+          For example, as per the [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/) and [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/), considering West Central US region, if flow logs data stored in a storage account processed by traffic analytics is 10 GB and enhanced logs ingested in Log Analytics workspace is 1 GB then the applicable charges are:
+          10 x 2.3$ + 1 x 2.76$ = 25.76$
+          
+      - question: |
+          How frequently does traffic analytics process data?
+        answer: |
+          Default processing interval of traffic analytics is 60 minutes, however, you can select accelerated processing at 10 minutes intervals. For more information, see [Data aggregation in traffic analytics](./traffic-analytics-schema.md#data-aggregation).
+          
+      - question: |
+          How does traffic analytics decide that an IP is malicious? 
+        answer: |
+          Traffic analytics relies on Microsoft internal threat intelligence systems to deem an IP as malicious. These systems leverage diverse telemetry sources like Microsoft products and services, the Microsoft Digital Crimes Unit (DCU), the Microsoft Security Response Center (MSRC), and external feeds and build a lot of intelligence on top of it. 
+          Some of this data is Microsoft Internal. If a known IP is getting flagged as malicious, raise a support ticket to know the details.
+          
+      - question: |
+          How can I set alerts on traffic analytics data?
+        answer: |
+          Traffic analytics doesn't have built-in support for alerts. However, since traffic analytics data is stored in Log Analytics, you can write custom queries and set alerts on them. 
+          Follow these steps:
+          - You can use Log Analytics link in traffic analytics. 
+          - Use the [traffic analytics schema](traffic-analytics-schema.md) to write your queries.
+          - Select **New alert rule** to create the alert.
+          - See [Create a new alert rule](../azure-monitor/alerts/alerts-log.md) to create the alert.
+          
+      - question: |
+          How do I check which virtual machines are receiving most on-premises traffic?
+        answer: |
+          Use the following query:
+
+          ```
+          AzureNetworkAnalytics_CL
+          | where SubType_s == "FlowLog" and FlowType_s == "S2S" 
+          | where <Scoping condition>
+          | mvexpand vm = pack_array(VM1_s, VM2_s) to typeof(string)
+          | where isnotempty(vm) 
+          | extend traffic = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_d + DeniedOutFlows_d // For bytes use: | extend traffic = InboundBytes_d + OutboundBytes_d 
+          | make-series TotalTraffic = sum(traffic) default = 0 on FlowStartTime_t from datetime(<time>) to datetime(<time>) step 1 m by vm
+          | render timechart
+          ```
+          
+            For IPs, use the following query:
+          
+          ```
+          AzureNetworkAnalytics_CL
+          | where SubType_s == "FlowLog" and FlowType_s == "S2S" 
+          //| where <Scoping condition>
+          | mvexpand IP = pack_array(SrcIP_s, DestIP_s) to typeof(string)
+          | where isnotempty(IP) 
+          | extend traffic = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_d + DeniedOutFlows_d // For bytes use: | extend traffic = InboundBytes_d + OutboundBytes_d 
+          | make-series TotalTraffic = sum(traffic) default = 0 on FlowStartTime_t from datetime(<time>) to datetime(<time>) step 1 m by IP
+          | render timechart
+          ```
+          
+          For time, use format: yyyy-mm-dd 00:00:00
+          
+      - question: |
+          How do I check standard deviation in traffic received by my virtual machines from on-premises machines?
+        answer: |
+          Use the following query:
+          ```
+          AzureNetworkAnalytics_CL
+          | where SubType_s == "FlowLog" and FlowType_s == "S2S" 
+          //| where <Scoping condition>
+          | mvexpand vm = pack_array(VM1_s, VM2_s) to typeof(string)
+          | where isnotempty(vm) 
+          | extend traffic = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_d + DeniedOutFlows_d // For bytes use: | extend traffic = InboundBytes_d + utboundBytes_d
+          | summarize deviation = stdev(traffic) by vm
+          ```
+          
+          For IPs:
+          
+          ```
+          AzureNetworkAnalytics_CL
+          | where SubType_s == "FlowLog" and FlowType_s == "S2S" 
+          //| where <Scoping condition>
+          | mvexpand IP = pack_array(SrcIP_s, DestIP_s) to typeof(string)
+          | where isnotempty(IP) 
+          | extend traffic = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_d + DeniedOutFlows_d // For bytes use: | extend traffic = InboundBytes_d + OutboundBytes_d
+          | summarize deviation = stdev(traffic) by IP
+          ```
+          
+      - question: |
+          How do I check which ports are reachable (or blocked) between IP pairs with NSG rules?
+        answer: |
+          Use the following query:
+          ```
+          AzureNetworkAnalytics_CL
+          | where SubType_s == "FlowLog" and TimeGenerated between (startTime .. endTime)
+          | extend sourceIPs = iif(isempty(SrcIP_s), split(SrcPublicIPs_s," "), pack_array(SrcIP_s)),
+          destIPs = iif(isempty(DestIP_s), split(DestPublicIPs_s," "), pack_array(DestIP_s))
+          | mvexpand SourceIp = sourceIPs to typeof(string)
+          | mvexpand DestIp = destIPs to typeof(string)
+          | project SourceIp = tostring(split(SourceIp, "|")[0]), DestIp = tostring(split(DestIp, "|")[0]), NSGList_s, NSGRule_s, DestPort_d, L4Protocol_s, FlowStatus_s 
+          | summarize DestPorts= makeset(DestPort_d) by SourceIp, DestIp, NSGList_s, NSGRule_s, L4Protocol_s, FlowStatus_s
+          ```
+          
+      - question: |
+          How can I navigate using the keyboard in the geo map view?
+        answer: |
+          The geo map page contains two main sections:
+              
+          - **Banner**: The banner at the top of the geo map provides buttons to select traffic distribution filters (for example, **Deployment**, **Traffic from countries/regions**, and **Malicious**). When you select a button, the respective filter is applied on the map. For example, if you select the Active button, the map highlights the active datacenters in your deployment.
+          - **Map**: Below the banner, the map section shows traffic distribution among Azure datacenters and countries/regions.
+              
+          ### Keyboard navigation on the banner
+              
+          - By default, the selection on the geo map page for the banner is the “Azure DCs” filter.
+          - To move to another filter, use either the `Tab` or the `Right arrow` key. To move backward, use either the `Shift+Tab` or the `Left arrow` key. Forward navigation is left to right, followed by top to bottom.
+          - Press `Enter` or the `Down` arrow key to apply the selected filter. Based on filter selection and deployment, one or multiple nodes under the map section are highlighted.
+          - To switch between banner and map, press `Ctrl+F6`.
+                  
+          ### Keyboard navigation on the map
+              
+          - After you select any filter on the banner and press `Ctrl+F6`, focus moves to one of the highlighted nodes (**Azure datacenter** or **Country/Region**) in the map view.
+          - To move to other highlighted nodes in the map, use either `Tab` or the `Right arrow` key for forward movement. Use `Shift+Tab` or the `Left arrow` key for backward movement.
+          - To select any highlighted node in the map, use the `Enter` or `Down arrow` key.
+          - On selection of any such nodes, focus moves to the **Information Tool Box** for the node. By default, focus moves to the closed button on the **Information Tool Box**. To further move inside the **Box** view, use `Right arrow` and `Left arrow` keys to move forward and backward, respectively. Pressing `Enter` has same effect as selecting the focused button in the **Information Tool Box**.
+          - When you press `Tab` while the focus is on the **Information Tool Box**, the focus moves to the end points in the same continent as the selected node. Use the `Right arrow` and `Left arrow` keys to move through these endpoints.
+          - To move to other flow endpoints or continent clusters, use `Tab` for forward movement and `Shift+Tab` for backward movement.
+          - When the focus is on **Continent clusters**, use the `Enter` or `Down` arrow keys to highlight the endpoints inside the continent cluster. To move through endpoints and the close button on the information box of the continent cluster, use either the `Right arrow` or `Left arrow` key for forward and backward movement, respectively. On any endpoint, you can use `Shift+L` to switch to the connection line from the selected node to the endpoint. You can press `Shift+L` again to move to the selected endpoint.
+                  
+          ### Keyboard navigation at any stage
+              
+          - The `Esc` key collapses the expanded selection.
+          - The `Up-arrow` key performs the same action as `Esc`. The `Down arrow` key performs the same action as `Enter`.
+          - Use `Shift+Plus` to zoom in, and `Shift+Minus` to zoom out.
+          
+      - question: |
+          How can I navigate using the keyboard in the virtual network topology view?
+        answer: |
+          The virtual networks topology page contains two main sections:
+              
+          - **Banner**: The banner at the top of the virtual networks topology provides buttons to select traffic distribution filters (for example, Connected virtual networks, Disconnected virtual networks, and Public IPs). When you select a button, the respective filter is applied on the topology. For example, if you select the Active button, the topology highlights the active virtual networks in your deployment.
+          - **Topology**: Below the banner, the topology section shows traffic distribution among virtual networks.
+              
+          ### Keyboard navigation on the banner
+              
+          - By default, the selection on the virtual networks topology page for the banner is the “Connected VNets” filter.
+          - To move to another filter, use the `Tab` key to move forward. To move backward, use the `Shift+Tab` key. Forward navigation is left to right, followed by top to bottom.
+          - Press `Enter` to apply the selected filter. Based on the filter selection and deployment, one or multiple nodes (virtual network) under the topology section are highlighted.
+          - To switch between the banner and the topology, press `Ctrl+F6`.
+                  
+          ### Keyboard navigation on the topology
+              
+          - After you have selected any filter on the banner and pressed `Ctrl+F6`, focus moves to one of the highlighted nodes (**VNet**) in the topology view.
+          - To move to other highlighted nodes in the topology view, use the `Shift+Right arrow` key for forward movement. 
+          - On highlighted nodes, focus moves to the **Information Tool Box** for the node. By default, focus moves to the **More details** button on the **Information Tool Box**. To further move inside the **Box** view, use the `Right arrow` and `Left arrow` keys to move forward and backward, respectively. Pressing `Enter` has same effect as selecting the focused button in the **Information Tool Box**.
+          - On selection of any such nodes, you can visit all its connections, one by one, by pressing the `Shift+Left arrow` key. Focus moves to the **Information Tool Box** of that connection. At any point, the focus can be shifted back to the node by pressing `Shift+Right arrow` again.
+              
+          
+      - question: |
+          How can I navigate using the keyboard in the subnet topology view?
+        answer: |
+          The virtual subnetworks topology page contains two main sections:
+              
+          - **Banner**: The banner at the top of the virtual subnetworks topology provides buttons to select traffic distribution filters (for example, Active, Medium, and Gateway subnets). When you select a button, the respective filter is applied on the topology. For example, if you select the Active button, the topology highlights the active virtual subnetwork in your deployment.
+          - **Topology**: Below the banner, the topology section shows traffic distribution among virtual subnetworks.
+              
+          ### Keyboard navigation on the banner
+              
+          - By default, the selection on the virtual subnetworks topology page for the banner is the “Subnets” filter.
+          - To move to another filter, use the `Tab` key to move forward. To move backward, use the `Shift+Tab` key. Forward navigation is left to right, followed by top to bottom.
+          - Press `Enter` to apply the selected filter. Based on filter selection and deployment, one or multiple nodes (Subnet) under the topology section are highlighted.
+          - To switch between the banner and the topology, press `Ctrl+F6`.
+                  
+          ### Keyboard navigation on the topology
+              
+          - After you have selected any filter on the banner and pressed `Ctrl+F6`, focus moves to one of the highlighted nodes (**Subnet**) in the topology view.
+          - To move to other highlighted nodes in the topology view, use the `Shift+Right arrow` key for forward movement. 
+          - On highlighted nodes, focus moves to the **Information Tool Box** for the node. By default, focus moves to the **More details** button on the **Information Tool Box**. To further move inside the **Box** view, use `Right arrow` and `Left arrow` keys to move forward and backward, respectively. Pressing `Enter` has same effect as selecting the focused button in the **Information Tool Box**.
+          - On selection of any such nodes, you can visit all its connections, one by one, by pressing `Shift+Left arrow` key. Focus moves to the **Information Tool Box** of that connection. At any point, the focus can be shifted back to the node by pressing `Shift+Right arrow` again.
+          
+      - question: |
+          Are Classic network security groups supported?
+        answer: |
+          No, traffic analytics doesn't support classic network security groups. It's recommended to migrate IaaS resources from classic to Azure Resource Manager as classic resources will be [deprecated](../virtual-machines/classic-vm-deprecation.md). Refer this article to understand [how to migrate](../virtual-machines/migration-classic-resource-manager-overview.md).
+      
+      - question: |
+          Why doesn't traffic analytics display data for my traffic analytics enabled network security groups? 
+        answer: |
+          In the resource selection dropdown in the traffic analytics dashboard, the resource group of the **Virtual Network** resource must be selected, not the resource group of the virtual machine or network security group.  

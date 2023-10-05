@@ -1,0 +1,72 @@
+### YamlMime:Landing
+
+title: StorSimple documentation
+summary: Learn how to use Azure StorSimple, an integrated storage solution that manages storage tasks between on-premises devices and Azure cloud storage. 
+
+metadata:
+  title: StorSimple documentation
+  description: Learn how to use Azure StorSimple, an integrated storage solution that manages storage tasks between on-premises devices and Azure cloud storage. 
+  ms.service: storsimple
+  services: storsimple
+  ms.topic: landing-page
+  author: alkohli 
+  ms.author: alkohli 
+  ms.date: 03/11/2020 
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+  # Card
+  - title: About StorSimple
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Compare StorSimple with Azure File Sync and Data Box Edge
+            url: storsimple-8000-choose-storage-solution.md
+
+  # Card
+  - title: StorSimple Virtual Array
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is StorSimple Virtual Array?
+            url: storsimple-ova-overview.md
+      - linkListType: get-started
+        links:
+          - text: Review requirements
+            url: storsimple-ova-system-requirements.md
+
+  - title: StorSimple 8000 Series
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is StorSimple 8000 Series?
+            url: storsimple-overview.md
+      - linkListType: get-started
+        links: 
+          - text: Review requirements
+            url: storsimple-8000-system-requirements.md
+
+  # Card
+  - title: StorSimple Data Manager
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is StorSimple Data Manager?
+            url: storsimple-data-manager-overview.md
+      - linkListType: get-started
+        links:
+          - text: Manage in the Azure portal
+            url: storsimple-data-manager-ui.md
+
+  # Card
+  - title: StorSimple for Cloud Solutions Providers Program
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is the StorSimple for Cloud Solutions Providers Program?
+            url: storsimple-partner-csp-overview.md
+      - linkListType: get-started
+        links:
+          - text: Deploy
+            url: storsimple-partner-csp-deploy.md

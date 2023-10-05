@@ -2,22 +2,22 @@
 title: Host load-balanced Azure web apps at the zone apex 
 description: Use an Azure DNS alias record to host load-balanced web apps at the zone apex 
 services: dns
-author: vhorne
+author: greg-lindsay
 ms.service: dns
-ms.topic: article
-ms.date: 11/3/2018
-ms.author: victorh
+ms.topic: how-to
+ms.date: 09/27/2022
+ms.author: greglin
 ---
 
 # Host load-balanced Azure web apps at the zone apex
 
-The DNS protocol prevents the assignment of anything other than an A or AAAA record at the zone apex. An example zone apex is contoso.com. This restriction presents a problem for application owners who have load-balanced applications behind Traffic Manager. It isn't possible to point at the Traffic Manager profile from the zone apex record. As a result, application owners must use a workaround. A redirect at the application layer must redirect from the zone apex to another domain. An example is a redirect from contoso.com to www\.contoso.com. This arrangement presents a single point of failure for the redirect function.
+The DNS protocol prevents the assignment of anything other than an A or AAAA record at the zone apex. An example zone apex is contoso.com. This restriction presents a problem for application owners who have load-balanced applications behind Traffic Manager. Pointing at the Traffic Manager profile from the zone apex record isn't possible. As a result, application owners must use a workaround. A redirect at the application layer must redirect from the zone apex to another domain. An example is a redirect from `contoso.com` to `www.contoso.com`. This arrangement presents a single point of failure for the redirect function.
 
-With alias records, this problem no longer exists. Now application owners can point their zone apex record to a Traffic Manager profile that has external endpoints. Application owners can point to the same Traffic Manager profile that's used for any other domain within their DNS zone.
+With alias records, you no longer will have this problem. You can point your zone apex record to a Traffic Manager profile that has external endpoints. You can also point to the same Traffic Manager profile used for other domains within the DNS zone.
 
-For example, contoso.com and www\.contoso.com can point to the same Traffic Manager profile. This is the case as long as the Traffic Manager profile has only external endpoints configured.
+For example, you can point `contoso.com` and `www.contoso.com` to the same Traffic Manager profile. This set up will work as long as the Traffic Manager profile has only external endpoints configured.
 
-In this article, you learn how to create an alias record for your domain apex, and configure your Traffic Manager profile end points for your web apps.
+In this article, you learn how to create an alias record for your domain apex. Then you'll configure your Traffic Manager profile end points for your web apps.
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -35,7 +35,7 @@ Create a resource group to hold all the resources used in this article.
 
 ## Create App Service plans
 
-Create two Web App Service plans in your resource group using the following table for configuration information. For more information about creating an App Service plan, see [Manage an App Service plan in Azure](../app-service/app-service-plan-manage.md).
+Create two Web App service plans in your resource group. Use the following table to help you configure this set up. For more information about creating an App Service plan, see [Manage an App Service plan in Azure](../app-service/app-service-plan-manage.md).
 
 
 |Name  |Operating System  |Location  |Pricing Tier  |
@@ -47,39 +47,39 @@ Create two Web App Service plans in your resource group using the following tabl
 
 Create two web apps, one in each App Service plan.
 
-1. On upper left corner of the Azure portal page, click **Create a resource**.
+1. On upper left corner of the Azure portal page, select **Create a resource**.
 2. Type **Web app** in the search bar and press Enter.
-3. Click **Web App**.
-4. Click **Create**.
+3. Select **Web App**.
+4. Select **Create**.
 5. Accept the defaults, and use the following table to configure the two web apps:
 
-   |Name<br>(must be unique within .azurewebsites.net)|Resource Group |App Service Plan/Location
-   |---------|---------|---------|
-   |App-01|Use existing<br>Select your resource group|ASP-01(East US)|
-   |App-02|Use existing<br>Select your resource group|ASP-02(Central US)|
+   |Name<br>(must be unique within .azurewebsites.net)|Resource Group |Runtime stack|Region|App Service Plan/Location
+   |---------|---------|-|-|-------|
+   |App-01|Use existing<br>Select your resource group|.NET Core 2.2|East US|ASP-01(D1)|
+   |App-02|Use existing<br>Select your resource group|.NET Core 2.2|Central US|ASP-02(D1)|
 
 ### Gather some details
 
-Now you need to note the IP address and host name for the apps.
+Now you need to note the IP address and host name for the web apps.
 
-1. Open your resource group and click your first app (**App-01** in this example).
-2. In the left column, click **Properties**.
-3. Note the address under **URL**, and under **Outbound IP Addresses** note the first IP address in the list. You will use this information later when you configure your Traffic Manager end points.
+1. Open your resource group and select your first web app (**App-01** in this example).
+2. In the left column, select **Properties**.
+3. Note the address under **URL**, and under **Outbound IP Addresses** note the first IP address in the list. You'll use this information later when you configure your Traffic Manager end points.
 4. Repeat for **App-02**.
 
 ## Create a Traffic Manager profile
 
 Create a Traffic Manager profile in your resource group. Use the defaults and type a unique name within the trafficmanager.net namespace.
 
-For information about creating a Traffic Manager profile, see [Quickstart: Create a Traffic Manager profile for a highly available web application](../traffic-manager/quickstart-create-traffic-manager-profile.md).
+For more information, see [Quickstart: Create a Traffic Manager profile for a highly available web application](../traffic-manager/quickstart-create-traffic-manager-profile.md).
 
 ### Create endpoints
 
 Now you can create the endpoints for the two web apps.
 
-1. Open your resource group and click your Traffic Manager profile.
-2. In the left column, click **Endpoints**.
-3. Click **Add**.
+1. Open your resource group and select your Traffic Manager profile.
+2. In the left column, select **Endpoints**.
+3. Select **Add**.
 4. Use the following table to configure the endpoints:
 
    |Type  |Name  |Target  |Location  |Custom Header settings|
@@ -91,35 +91,50 @@ Now you can create the endpoints for the two web apps.
 
 You can either use an existing DNS zone for testing, or you can create a new zone. To create and delegate a new DNS zone in Azure, see [Tutorial: Host your domain in Azure DNS](dns-delegate-domain-azure-dns.md).
 
-### Add the alias record set
+## Add a TXT record for custom domain validation
 
-When your DNS zone is ready, you can add an alias record for the zone apex.
+When you add a custom hostname to your web apps, it will look for a specific TXT record to validate your domain.
 
-1. Open your resource group and click the DNS zone.
-2. Click **Record set**.
+1. Open your resource group and select the DNS zone.
+2. Select **Record set**.
+3. Add the record set using the following table. For the value, use the actual web app URL that you previously recorded:
+
+   |Name  |Type  |Value|
+   |---------|---------|-|
+   |@     |TXT|App-01.azurewebsites.net|
+
+
+## Add a custom domain
+
+Add a custom domain for both web apps.
+
+1. Open your resource group and select your first web app.
+2. In the left column, select **Custom domains**.
+3. Under **Custom Domains**, select **Add custom domain**.
+4. Under **Custom domain**, type your custom domain name. For example, contoso.com.
+5. Select **Validate**.
+
+   Your domain should pass validation and show green check marks next to **Hostname availability** and **Domain ownership**.
+5. Select **Add custom domain**.
+6. To see the new hostname under **Hostnames assigned to site**, refresh your browser. The refresh on the page doesn't always show changes right away.
+7. Repeat this procedure for your second web app.
+
+## Add the alias record set
+
+Now add an alias record for the zone apex.
+
+1. Open your resource group and select the DNS zone.
+2. Select **Record set**.
 3. Add the record set using the following table:
 
    |Name  |Type  |Alias record set  |Alias type  |Azure resource|
    |---------|---------|---------|---------|-----|
    |@     |A|Yes|Azure resource|Traffic Manager - your profile|
 
-## Add custom hostnames
-
-Add a custom hostname to both web apps.
-
-1. Open your resource group and click your first web app.
-2. In the left column, click **Custom domains**.
-3. Click **Add hostname**.
-4. Under Hostname, type your domain name. For example, contoso.com.
-
-   Your domain should pass validation and show green check marks next to **hostname availability** and **domain ownership**.
-5. Click **Add hostname**.
-6. To see the new hostname under **Hostnames assigned to site**, refresh your browser. The refresh on the page does not always show changes right away.
-7. Repeat this procedure for your second web app.
 
 ## Test your web apps
 
-Now you can test to make sure you can reach your web app and that it is being load balanced.
+Now you can test to make sure you can reach your web app and that it's being load balanced.
 
 1. Open a web browser and browse to your domain. For example, contoso.com. You should see the default web app page.
 2. Stop your first web app.
@@ -138,4 +153,6 @@ To learn more about alias records, see the following articles:
 
 - [Tutorial: Configure an alias record to refer to an Azure public IP address](tutorial-alias-pip.md)
 - [Tutorial: Configure an alias record to support apex domain names with Traffic Manager](tutorial-alias-tm.md)
-- [DNS FAQ](https://docs.microsoft.com/azure/dns/dns-faq#alias-records)
+- [DNS FAQ](./dns-faq.yml)
+
+To learn how to migrate an active DNS name, see [Migrate an active DNS name to Azure App Service](../app-service/manage-custom-dns-migrate-domain.md).

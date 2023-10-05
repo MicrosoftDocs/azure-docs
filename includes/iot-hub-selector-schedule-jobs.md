@@ -1,12 +1,13 @@
 ---
-author: wesmc7777
-ms.author: wesmc
+author: kgremban
+ms.author: kgremban
 ms.service: iot-hub
 ms.topic: include
-ms.date: 10/26/2018
+ms.date: 03/15/2023
 ---
 > [!div class="op_single_selector"]
-> * [Device: Node.js Service: Node.js](../articles/iot-hub/iot-hub-node-node-schedule-jobs.md)
-> * [Device: C# Service: C#](../articles/iot-hub/iot-hub-csharp-csharp-schedule-jobs.md)
-> * [Device: Java Service: Java](../articles/iot-hub/iot-hub-java-java-schedule-jobs.md)
-> * [Device: Python Service: Python](../articles/iot-hub/iot-hub-python-python-schedule-jobs.md)
+> * [CLI](../articles/iot-hub/schedule-jobs-cli.md)
+> * [.NET](../articles/iot-hub/schedule-jobs-dotnet.md)
+> * [Python](../articles/iot-hub/schedule-jobs-python.md)
+> * [Node.js](../articles/iot-hub/schedule-jobs-node.md)
+> * [Java](../articles/iot-hub/schedule-jobs-java.md)

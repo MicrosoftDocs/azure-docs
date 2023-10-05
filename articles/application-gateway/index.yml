@@ -1,72 +1,159 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Application Gateway Documentation
+### YamlMime:Landing
+
+title: Azure Application Gateway documentation
+summary: Learn how to create application gateways. This documentation helps you plan, deploy, and manage web traffic to your Azure resources.
+
 metadata:
-  title: Azure Application Gateway Documentation - Tutorials, API Reference
-  meta.description: Learn how to create application gateways. Documentation helps you plan, deploy, and manage web traffic to your Azure resources.
+  title: Azure Application Gateway documentation
+  description: Learn about Azure Application Gateway, a web traffic load balancer that enables you to manage traffic to your web applications.
   services: application-gateway
-  author: vhorne
   ms.service: application-gateway
   ms.topic: landing-page
-  ms.date: 5/20/2019
-  ms.author: victorh
-abstract:
-  description: Learn how to deploy Application Gateway, an application delivery controller (ADC) as a service. Tutorials, API references, and other documentation show you how to set up application-level routing and load balancing services that let you build a scalable and highly-available web front end.
-sections:
-- title: 5-Minute Quickstarts
-  items: 
-  - type: paragraph
-    text: 'Learn how to manage web traffic to your resources using Application Gateway:'
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: https://docs.microsoft.com/azure/application-gateway/media/index/portal.svg
-      text: Azure Portal
-      href: https://docs.microsoft.com/azure/application-gateway/quick-create-portal
-    - image: 
-        src: https://docs.microsoft.com/azure/application-gateway/media/index/logo_powershell.svg
-      text: Azure PowerShell
-      href: https://docs.microsoft.com/azure/application-gateway/quick-create-powershell
-    - image: 
-        src: https://docs.microsoft.com/azure/application-gateway/media/index/cli.svg
-      text: Azure CLI
-      href: https://docs.microsoft.com/azure/application-gateway/quick-create-cli
-- title: Step-by-Step Tutorials
-  items:
-  - type: paragraph
-    text: Learn how to deploy, manage, and monitor application gateways on Azure
-  - type: list
-    style: ordered
-    items:
-    - html: <a href="/azure/application-gateway/application-gateway-web-application-firewall-portal">Create an application gateway with a web application firewall</a>
-    - html: <a href="/azure/application-gateway/create-ssl-portal">Configure an application gateway with SSL termination</a>
-    - html: <a href="/azure/application-gateway/create-multiple-sites-portal">Create and configure an application gateway to host multiple web sites</a>
-    - html: <a href="/azure/application-gateway/create-url-route-portal">Create an application gateway with path-based routing rules</a>
-    - html: <a href="/azure/application-gateway/tutorial-url-redirect-cli">Create an application gateway with URL path-based redirection</a>
-    - html: <a href="/azure/application-gateway/tutorial-autoscale-ps">Create an application gateway that improves web application access</a>
-- title: Samples
-  items:
-  - type: paragraph
-    text: Manage web traffic with an application gateway.
-  - type: list
-    style: unordered
-    className: spaced noBullet
-    items:
-    - html: <a href="/azure/application-gateway/cli-samples">Azure CLI</a>
-    - html: <a href="/azure/application-gateway/powershell-samples">Azure PowerShell</a>
-- title: Reference
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Command-Line
-      html: <p><a href="/powershell/resourcemanager">Azure PowerShell</a></p><p><a href="/cli/azure/network/application-gateway">Azure CLI</a></p>
-    - title: Languages
-      html: <p><a href="/dotnet/api">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p><p><a href="/javascript/api/azure-arm-network/ApplicationGateways">Node​.js</a></p><p><a href="https://docs.microsoft.com/python/api/azure-mgmt-network/azure.mgmt.network.v2018_08_01.operations.application_gateways_operations.applicationgatewaysoperations?view=azure-python">Python</a></p>
-    - title: REST
-      html: <p><a href="https://msdn.microsoft.com/library/mt684941">Complete REST API Reference</a></p>
+  author: greg-lindsay
+  ms.author: greglin
+  ms.date: 07/20/2023
 
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: Learn about Application Gateway
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Application Gateway?
+            url: overview.md
+          - text: What is Application Gateway for Containers?
+            url: ./for-containers/overview.md
+      - linkListType: concept
+        links:
+          - text: Frequently asked questions
+            url: application-gateway-faq.yml
+      - linkListType: whats-new
+        links:
+          - text: What's new
+            url: https://azure.microsoft.com/updates/?category=networking&query=Application%20Gateway
+      - linkListType: learn
+        links:
+          - text: Intro to Azure Application Gateway
+            url: /training/modules/intro-to-azure-application-gateway
+          - text: Load balance your web service traffic with Application Gateway
+            url: /training/modules/load-balance-web-traffic-with-application-gateway/
+      - linkListType: deploy
+        links: 
+          - text: Provision and configure Azure Firewall and Application Gateway
+            url: https://mslabs.cloudguides.com/en-us/guides/Azure%20Networking%20Solutions%20-%20Exercise%204
+          - text: Secure your web application with Azure Web Application Firewall
+            url: https://mslearn.cloudguides.com/guides/Secure%20your%20web%20applications%20with%20Azure%20Web%20Application%20Firewall
 
+  # Card
+  - title: Support high traffic volumes
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Application Gateway high traffic support
+            url: high-traffic-support.md
+
+  # Card
+  - title: Deploy an Application Gateway
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Direct web traffic with Azure Application Gateway
+            url: quick-create-portal.md
+
+  # Card
+  - title: Deploy with SSL termination
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: SSL termination and end to end SSL with Application Gateway
+            url: ssl-overview.md
+          - text: SSL policy overview
+            url: application-gateway-ssl-policy-overview.md
+      - linkListType: tutorial
+        links:
+          - text: Configure an application gateway with SSL termination
+            url: create-ssl-portal.md
+
+# Card
+  - title: Autoscaling and Zone-redundant Application Gateways
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Autoscaling and Zone-redundant Application Gateway v2
+            url: application-gateway-autoscaling-zone-redundant.md
+      - linkListType: tutorial
+        links:
+          - text: Create an application gateway that improves web application access
+            url: tutorial-autoscale-ps.md
+
+# Card
+  - title: Application Gateway for Containers (preview)
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Application Gateway for Containers?
+            url: ./for-containers/overview.md
+      - linkListType: concept
+        links:
+          - text: Application Gateway for Containers components
+            url: ./for-containers/application-gateway-for-containers-components.md
+      - linkListType: quickstart
+        links:
+          - text: Deploy Application Gateway for Containers ALB Controller
+            url: ./for-containers/quickstart-deploy-application-gateway-for-containers-alb-controller.md
+          - text: Create Application Gateway for Containers - Bring your own deployment
+            url: ./for-containers/quickstart-create-application-gateway-for-containers-byo-deployment.md
+          - text: Create Application Gateway for Containers managed by ALB Controller
+            url: ./for-containers/quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md
+
+# Card
+  - title: Ingress Controller for AKS
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: What is Ingress Controller for AKS
+            url: ingress-controller-overview.md
+      - linkListType: tutorial
+        links:
+          - text: Deploy an Ingress Controller AKS Add-On for AKS 
+            url: tutorial-ingress-controller-add-on-new.md
+
+# Card
+  - title: Rewrite HTTP headers and URL using Application Gateway
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Rewrite HTTP headers and URL using Application Gateway
+            url: rewrite-http-headers-url.md
+      - linkListType: how-to-guide
+        links:
+          - text: Rewrite HTTP headers using Azure portal
+            url: rewrite-http-headers-portal.md
+          - text: Rewrite URL and query string using Azure portal
+            url: rewrite-url-portal.md            
+
+# Card
+  - title: Troubleshoot Application Gateway
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Application Gateway Resource Health overview
+            url: resource-health-overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Use Log Analytics to examine Application Gateway Web Application Firewall Logs
+            url: log-analytics.md
+          - text: Backend Health issues in Application Gateway
+            url: application-gateway-backend-health-troubleshooting.md
+
+# Card
+  - title: Review Application Gateway architecture
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: Well-Architected review of Application Gateway
+            url: /azure/architecture/framework/services/networking/azure-application-gateway

@@ -1,22 +1,14 @@
 ---
-title: Remote connect to an Azure Service Fabric cluster node | Microsoft Docs
+title: Remote connect to an Azure Service Fabric cluster node 
 description: Learn how to remotely connect to a scale set instance (a Service Fabric cluster node).
-services: service-fabric
-documentationcenter: .net
-author: aljo-microsoft
-manager: chackdan
-editor: ''
-
-ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
 ms.service: service-fabric
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 03/23/2018
-ms.author: aljo
-
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Remote connect to a virtual machine scale set instance or a cluster node
 In a Service Fabric cluster running in Azure, each cluster node type that you define [sets up a virtual machine separate scale](service-fabric-cluster-nodetypes.md).  You can remote connect to specific scale set instances (cluster nodes).  Unlike single-instance VMs, scale set instances don't have their own virtual IP addresses. This can be challenging when you are looking for an IP address and port that you can use to remotely connect to a specific instance.
 
@@ -28,11 +20,11 @@ To find an IP address and port that you can use to remotely connect to a specifi
     
     On the page for your load balancer in Azure portal, select **Settings** > **Inbound NAT rules**: 
 
-    ![Load balancer Inbound NAT rules](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/lb-window.png)
+    ![Screenshot of a load balancer page in the Azure portal. In the left-hand menu, under SETTINGS, Inbound NAT rules is selected.](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/lb-window.png)
 
     The following screenshot shows the inbound NAT rules for a node type named FrontEnd: 
 
-    ![Load balancer Inbound NAT rules](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/nat-rules.png)
+    ![Screenshot showing the inbound NAT rules for a load balancer. The Name, IP Version, Destination, Target and Service are listed for each rule.](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/nat-rules.png)
 
     For each node, the IP address appears in the **DESTINATION** column, the **TARGET** column gives the scale set instance, and the **SERVICE** column provides the port number. For remote connection, ports are allocated to each node in ascending order beginning with port 3389.
 

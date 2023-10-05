@@ -1,28 +1,19 @@
 ---
-title: Report and check health with Azure Service Fabric | Microsoft Docs
+title: Report and check health with Azure Service Fabric 
 description: Learn how to send health reports from your service code and how to check the health of your service by using the health monitoring tools that Azure Service Fabric provides.
-services: service-fabric
-documentationcenter: .net
-author: srrengar
-manager: mfussell
-editor: ''
-
-ms.assetid: 7c712c22-d333-44bc-b837-d0b3603d9da8
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
 ms.service: service-fabric
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 02/25/2019
-ms.author: srrengar
-
+services: service-fabric
+ms.date: 07/14/2022
 ---
 # Report and check service health
 When your services encounter problems, your ability to respond to and fix incidents and outages depends on your ability to detect the issues quickly. If you report problems and failures to the Azure Service Fabric health manager from your service code, you can use standard health monitoring tools that Service Fabric provides to check the health status.
 
 There are three ways that you can report health from the service:
 
-* Use [Partition](https://docs.microsoft.com/dotnet/api/system.fabric.istatefulservicepartition) or [CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext) objects.  
+* Use [Partition](/dotnet/api/system.fabric.istatefulservicepartition) or [CodePackageActivationContext](/dotnet/api/system.fabric.codepackageactivationcontext) objects.  
   You can use the `Partition` and `CodePackageActivationContext` objects to report the health of elements that are part of the current context. For example, code that runs as part of a replica can report health only on that replica, the partition that it belongs to, and the application that it is a part of.
 * Use `FabricClient`.   
   You can use `FabricClient` to report health from the service code if the cluster is not [secure](service-fabric-cluster-security.md) or if the service is running with admin privileges. Most real-world scenarios do not use unsecured clusters, or provide admin privileges. With `FabricClient`, you can report health on any entity that is a part of the cluster. Ideally, however, service code should only send reports that are related to its own health.
@@ -146,6 +137,5 @@ activationContext.ReportApplicationHealth(healthInformation);
 
 ## Next steps
 * [Deep dive on Service Fabric health](service-fabric-health-introduction.md)
-* [REST API for reporting service health](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-service)
-* [REST API for reporting application health](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-an-application)
-
+* [REST API for reporting service health](/rest/api/servicefabric/report-the-health-of-a-service)
+* [REST API for reporting application health](/rest/api/servicefabric/report-the-health-of-an-application)

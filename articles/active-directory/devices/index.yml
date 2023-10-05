@@ -1,35 +1,67 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure AD Device Identity Documentation
+### YamlMime:Landing
+
+title: Microsoft Entra device identity documentation
+summary: Learn how to configure and manage device identities in Microsoft Entra ID.
+
 metadata:
-  document_id: 
-  title: Azure Active Directory Device Identity Management Documentation - Tutorials, concepts, references | Microsoft Docs
-  description: Learn how to configure and manage device identities in Azure AD.
+  title: Microsoft Entra device identity documentation
+  description: Learn how to configure and manage device identities in Microsoft Entra ID.
   services: active-directory
-  ms.subservice: devices
-  author: MicrosoftGuyJFlo
-  manager: daveba
   ms.service: active-directory
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: devices
   ms.topic: landing-page
-  ms.date: 08/14/2018
+  author: MicrosoftGuyJFlo
   ms.author: joflore
-abstract:
-  description: "Through devices in Azure AD, your users are getting access to your corporate assets. To protect your corporate assets, as an IT administrator, you want to manage these device identities in Azure AD. This enables you to make sure that your users are accessing your resources from devices that meet your standards for security and compliance.<br>Device Identity management is also the foundation for device-based conditional access. With device-based conditional access, you can ensure that access to resources in your environment is only possible with managed devices."
-sections:
-- title: Step-by-step tutorials
-  items:
-  - type: paragraph
-    text: 'Learn how to integrate your on-premises AD-joined devices with Azure AD.'
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: ./media/index/i_security-management.png
-      text: Managed domains
-      href: hybrid-azuread-join-managed-domains.md
-    - image: 
-        src: ./media/index/i_security-management.png
-      text: Federated domains
-      href: hybrid-azuread-join-federated-domains.md
+  ms.date: 08/31/2022
+  ms.collection: M365-identity-device-management
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About device identity
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is a device identity?
+            url: overview.md
+          - text: What is enterprise state roaming?
+            url: ./enterprise-state-roaming-enable.md
+          - text: Plan your Microsoft Entra device deployment
+            url: plan-device-deployment.md
+      - linkListType: concept
+        links:
+          - text: Microsoft Entra registered devices
+            url: concept-device-registration.md
+          - text: Microsoft Entra joined devices
+            url: concept-directory-join.md
+          - text: Microsoft Entra hybrid joined devices
+            url: concept-hybrid-join.md
+          - text: SSO to on-premises resources
+            url: device-sso-to-on-premises-resources.md
+          - text: Primary Refresh Tokens
+            url: concept-primary-refresh-token.md
+
+  # Card
+  - title: Configure and manage Microsoft Entra joined devices
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Plan your Microsoft Entra join implementation
+            url: device-join-plan.md
+          - text: Manage the local administrators group on Microsoft Entra joined devices
+            url: assign-local-admin.md
+          - text: Find and manage stale devices in Microsoft Entra ID
+            url: manage-stale-devices.md
+  
+  # Card
+  - title: Configure and manage Microsoft Entra hybrid joined devices
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Plan your Microsoft Entra hybrid join implementation
+            url: hybrid-join-plan.md
+          - text: Troubleshooting Microsoft Entra hybrid joined devices
+            url: troubleshoot-hybrid-join-windows-current.md

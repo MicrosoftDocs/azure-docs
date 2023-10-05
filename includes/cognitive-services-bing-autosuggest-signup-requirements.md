@@ -3,7 +3,18 @@ author: aahill
 ms.author: aahi
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 02/19/2019
+ms.date: 05/06/2020
 ---
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with access to the Bing Autosuggest API. If you don't have an Azure subscription, you can [create an account](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api) for free. Before continuing, You will need the access key provided after activating your free trial, or a paid subscription key from your Azure dashboard.
+## Create an Azure resource
+
+Start using the Bing Autosuggest API by creating one of the following Azure resources.
+
+### [Bing Autosuggest resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingAutosuggest-v7)
+   * Available through the Azure portal until you delete the resource.
+   * Use the free pricing tier to try the service, and upgrade later to a paid tier for production.
+   * Bing Autosuggest is also offered in paid tiers of the [Bing Search v7 resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7).
+
+### [Multi-service resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne)
+   * Available through the Azure portal until you delete the resource.  
+   * Use the same key and endpoint for your applications, across multiple Azure AI services.

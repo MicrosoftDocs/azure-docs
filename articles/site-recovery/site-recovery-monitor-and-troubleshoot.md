@@ -1,35 +1,44 @@
 ---
 title: Monitor Azure Site Recovery | Microsoft Docs
 description: Monitor and troubleshoot Azure Site Recovery replication issues and operations using the portal 
-author: raynew
-manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/18/2019
-ms.author: raynew 
-
+ms.date: 07/30/2019
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 
 # Monitor Site Recovery
 
-In this article, you learn how to use Azure Site Recovery's in built monitoring features for monitoring and troubleshooting. 
+In this article, learn how to monitor Azure [Site Recovery](site-recovery-overview.md), using Site Recovery inbuilt monitoring.  You can monitor:
 
-## Use the dashboard
+- The health and status of machines replicated by Site Recovery
+- Test failover status of machines.
+- Issues and errors affecting configuration and replication.
+- Infrastructure components such as on-premises servers.
 
-1. In the vault, click **Overview** to open the Site Recovery dashboard. There are dashboard pages for both Site Recovery and Backup, and you can switch between them.
+
+## Before you start
+
+You might want to review [common monitoring questions](monitoring-common-questions.md) before you start.
+
+## Monitor in the dashboard
+
+1. In the vault, click **Overview**. The Recovery Services dashboard consolidates all monitoring information for the vault in a single location. There are pages for both Site Recovery and the Azure Backup service, and you can switch between them.
 
     ![Site Recovery dashboard](./media/site-recovery-monitor-and-troubleshoot/dashboard.png)
 
-2.  The dashboard consolidates all monitoring information for the vault in a single location. From the dashboard, you can drill down into different areas. 
+2. From the dashboard, drill down into different areas. 
 
-    ![Site Recovery dashboard](./media/site-recovery-monitor-and-troubleshoot/site-recovery-overview-page.png).
+    ![Screenshot that shows the areas on the dashboard where you can drill down.](./media/site-recovery-monitor-and-troubleshoot/site-recovery-overview-page.png).
 
-3. On **Replicated items**, click **View All** to see all the servers in the vault.
-4. Drill down by clicking the status details in each section. In **Infrastructure view**, you can sort monitoring information by the type of machines you're replicating.
+3. In **Replicated items**, click **View All** to see all the servers in the vault.
+4. Click the status details in each section to drill down.
+5. In **Infrastructure view**, sort monitoring information by the type of machines you're replicating.
 
 ## Monitor replicated items
 
-The replicated items section shows the health of all machines that have replication enabled in the vault.
+In **Replicated items**, monitor the health of all machines in the vault that have replication enabled.
 
 **State** | **Details**
 --- | ---
@@ -40,9 +49,9 @@ Not applicable | Servers that aren't currently expected to be replicating. This 
 
 ## Monitor test failovers
 
-You can view the test failover status for machines in the vault.
+In **Failover test success**, monitor the failover status for machines in the vault.
 
-- We recommend that you run a test failover on replicated machines at least once every six months. It's a way to check that failover is working as expected without disrupting your production environment. 
+- We recommend that you run a test failover on replicated machines at least once every six months. It's a way to check that failover is working as expected, without disrupting your production environment. 
 - A test failover is considered successful only after the failover and post-failover cleanup have completed successfully.
 
 **State** | **Details**
@@ -53,10 +62,10 @@ Not applicable | Machines that aren't currently eligible for a test failover. Fo
 
 ## Monitor configuration issues
 
-The **Configuration issues** section shows a list of issues that may impact your ability to successfully fail over.
+In **Configuration issues**, monitor any issues that might impact your ability to fail over successfully.
 
 - Configuration issues (except for software update availability), are detected by a periodic validator operation that runs every 12 hours by default. You can force the validator operation to run immediately by clicking the refresh icon next to the **Configuration issues** section heading.
-- Click the links to get more details. For issues impacting specific machines, click the **needs attention** in the **Target configurations** column. The details include remediation recommendations.
+- Click the links to get more details. For issues impacting specific machines, click **needs attention** in the **Target configurations** column. Details include remediation recommendations.
 
 **State** | **Details**
 --- | ---
@@ -66,18 +75,19 @@ Subscription quota |  The available subscription resource quota balance is compa
 Software updates | The availability of new software updates, and information about expiring software versions.
 
 
-## Monitoring errors 
-The **Error summary** section shows currently active error symptoms that may impact replication of servers in the vault, and the number of impacted machines.
+## Monitor errors
 
-- At the beginning of the section, errors impacting on-premises infrastructure components are shown. For example, non-receipt of a heartbeat from the Azure Site Recovery Provider running on the on-premises configuration server, VMM server, or Hyper-V host.
+In **Error summary**, monitor currently active error symptoms that might impact replication of servers in the vault, and monitor the number of impacted machines.
+
+- Errors impacting on-premises infrastructure components are shown are the beginning of the section. For example, non-receipt of a heartbeat from the Azure Site Recovery Provider on the on-premises configuration server, or Hyper-V host.
 - Next, replication error symptoms impacting replicated servers are shown.
 - The table entries are sorted by decreasing order of the error severity, and then by decreasing count order of the impacted machines.
-- The impacted server count is a useful way to understand whether a single underlying issue may be impacting multiple machines. For example, a network glitch could potentially impact all machines replicating to Azure. 
+- The impacted server count is a useful way to understand whether a single underlying issue might impact multiple machines. For example, a network glitch could potentially impact all machines that replicate to Azure. 
 - Multiple replication errors can occur on a single server. In this case, each error symptom counts that server in the list of its impacted servers. After the issue is fixed, replication parameters improve, and the error is cleared from the machine.
 
 ## Monitor the infrastructure.
 
-The **Infrastructure view** shows the infrastructure components involved in replication, and connectivity health between servers and the Azure services.
+In **Infrastructure view**, monitor the infrastructure components involved in replication, and connectivity health between servers and the Azure services.
 
 - A green line indicates that connection is healthy.
 - A red line with the overlaid error icon indicates the existence of one or more error symptoms that impact connectivity.
@@ -85,7 +95,7 @@ The **Infrastructure view** shows the infrastructure components involved in repl
 
     ![Site Recovery infrastructure view (vault)](./media/site-recovery-monitor-and-troubleshoot/site-recovery-vault-infra-view.png)
 
-## Tips for monitoring the infrastructure
+### Tips for monitoring the infrastructure
 
 - Make sure that the on-premises infrastructure components (configuration server, process servers, VMM servers, Hyper-V hosts, VMware machines) are running the latest versions of the Site Recovery Provider and/or agents.
 - To use all the features in the infrastructure view, you should be running [Update rollup 22](https://support.microsoft.com/help/4072852) for these components.
@@ -102,25 +112,16 @@ The **Infrastructure view** shows the infrastructure components involved in repl
 
 - To see the infrastructure view for a single replicating machine, in the vault menu, click **Replicated items**, and select a server.  
 
-### Common questions
 
-
-**Why is the count of virtual machines in the vault infrastructure view different from the total count shown in the replicated items?**
-
-The vault infrastructure view is scoped by replication scenarios. Only machines in currently selected replication scenario are included in the count for the view. In addition, we only count VMs that are configured to replicate to Azure. Failed over machines, or machines replicating back to an on-premises site aren't counted in the view.
-
-**Why is the count of replicated items shown in the Essentials drawer different from the total count of replicated items on the dashboard?**
-
-Only machines for which initial replication has completed are included in the count shown in the Essentials drawer. On the replicated items the total includes all the machines in the vault, including those for which initial replication is currently in progress.
 
 
 ## Monitor recovery plans
 
-In the **Recovery plans section** you can review the number of plans, create new plans, and modify existing ones.  
+In **Recovery plans**, monitor the number of plans, create new plans, and modify existing ones.  
 
 ## Monitor jobs
 
-The **Jobs** section reflects the status of Site Recovery operations.
+In **Jobs**, monitor the status of Site Recovery operations.
 
 - Most operations in Azure Site Recovery are executed asynchronously, with a tracking job being created and used to track progress of the operation. 
 - The job object has all the information you need to track the state and the progress of the operation. 
@@ -138,13 +139,10 @@ Monitor jobs as follows:
 
 ## Monitor virtual machines
 
-In addition dashboard, you can monitor machines in the virtual machines page. 
-
-1. In the vault, click **Replicated items** to get a list of replicated machines.  Alternately, you can get to a filtered list of the protected items by clicking any of the scoped shortcuts on the dashboard page.
-
+In **Replicated items**, get a list of replicated machines. 
     ![Site Recovery replicated items list view](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-list-view.png)
 
-2. On the **Replicated items** page,  you can view and filter information. On the action menu at the top, you can perform actions for a particular machine, including running a test failover, or viewing specific errors.
+2. You can view and filter information. On the action menu at the top, you can perform actions for a particular machine, including running a test failover, or viewing specific errors.
 3. Click **Columns** to show additional columns,  For example to show RPO, target configuration issues, and replication errors.
 4. Click **Filter** to view information based on specific parameters such as replication health, or a particular replication policy.
 5. Right-click a machine to initiate operations such as test failover for it, or to view specific error details associated with it.
@@ -158,23 +156,6 @@ In addition dashboard, you can monitor machines in the virtual machines page.
    - **Infrastructure view**: Shows state of infrastructure for the scenario when machines are replicating to Azure.
 
      ![Site Recovery replicated item details/overview](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
-
-
-### Common questions
-
-**How is RPO different from the latest available recovery point?**
-
-
-- Site Recovery uses a multi-step asynchronous process to replicate machines to Azure.
-- In the penultimate step of replication, recent changes on the machine, along with metadata, are copied into a log/cache storage account.
-- These changes, along with the tag to identify a recoverable point, are written to the storage account in the target region.
--  Site Recovery can now generate a recoverable point for the virtual machine.
-- At this point, the RPO has been met for the changes uploaded to the storage account thus far. In other words, the machine RPO at this point is equal to amount of time elapsed from the timestamp corresponding to the recoverable point.
-- Now, Site Recovery picks the uploaded data from the storage account, and applies it to the replica disks created for the machine.
-- Site Recovery then generates a recovery point, and makes this point available for recovery at failover. Thus the latest available recovery point indicates the timestamp corresponding to the latest recovery point that has already been processed and applied to the replica disks.
-
-> [!NOTE]
-> An incorrect system time on the replicating source machine, or on on-premises infrastructure servers will skew the computed RPO value. For accurate RPO reporting, make sure that the system clock is accurate on all servers and machines. 
 
 ## Subscribe to email notifications
 
@@ -191,3 +172,7 @@ In the vault > **Monitoring** section, click **Site Recovery Events**.
 1. In **Email notification**, turn on notifications and specify who to send to. You can send to all subscription admins be sent notifications, and optionally specific email addresses.
 
     ![Email notifications](./media/site-recovery-monitor-and-troubleshoot/email.png)
+
+## Next steps
+
+[Learn about](monitor-log-analytics.md) monitoring Site Recovery with Azure Monitor.

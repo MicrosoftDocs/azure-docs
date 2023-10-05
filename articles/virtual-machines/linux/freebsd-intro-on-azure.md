@@ -1,24 +1,19 @@
 ---
-title: Introduction to FreeBSD on Azure | Microsoft Docs
+title: Introduction to FreeBSD on Azure 
 description: Learn about using FreeBSD virtual machines on Azure
-services: virtual-machines-linux
-documentationcenter: ''
 author: thomas1206
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 32b87a5f-d024-4da0-8bf0-77e233d1422b
-ms.service: virtual-machines-linux
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
+ms.service: virtual-machines
+ms.collection: linux
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
-ms.author: huishao
+ms.author: mimckitt
 
 ---
 # Introduction to FreeBSD on Azure
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 This article provides an overview of running a FreeBSD virtual machine in Azure.
 
 ## Overview
@@ -26,22 +21,22 @@ FreeBSD for Microsoft Azure is an advanced computer operating system used to pow
 
 Microsoft Corporation is making images of FreeBSD available on Azure with the [Azure VM Guest Agent](https://github.com/Azure/WALinuxAgent/) pre-configured. Currently, the following FreeBSD versions are offered as images by Microsoft:
 
-- FreeBSD 10.3-RELEASE
-- FreeBSD 10.4-RELEASE
-- FreeBSD 11.1-RELEASE
+- FreeBSD 10.4 on the Azure Marketplace
+- FreeBSD 11.2 on the Azure Marketplace
+- FreeBSD 11.3 on the Azure Marketplace
+- FreeBSD 12.0 on the Azure Marketplace
+
+The following FreeBSD versions also include the [Azure VM Guest Agent](https://github.com/Azure/WALinuxAgent/), however, they are offered as images by the FreeBSD Foundation:
+- FreeBSD 11.4 on the Azure Marketplace
+- FreeBSD 12.2 on the Azure Marketplace
+- FreeBSD 13.0 on the Azure Marketplace
 
 The agent is responsible for communication between the FreeBSD VM and the Azure fabric for operations such as provisioning the VM on first use (user name, password or SSH key, host name, etc.) and enabling functionality for selective VM extensions.
 
 As for future versions of FreeBSD, the strategy is to stay current and make the latest releases available shortly after they are published by the FreeBSD release engineering team.
 
-## Deploying a FreeBSD virtual machine
-Deploying a FreeBSD virtual machine is a straightforward process using an image from the Azure Marketplace from the Azure portal:
-
-- [FreeBSD 10.4 on the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD104)
-- [FreeBSD 11.2 on the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD112)
-
 ### Create a FreeBSD VM through Azure CLI on FreeBSD
-First you need to install [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) though following command on a FreeBSD machine.
+First you need to install [Azure CLI](/cli/azure/get-started-with-azure-cli) though following command on a FreeBSD machine.
 
 ```bash 
 curl -L https://aka.ms/InstallAzureCli | bash
@@ -53,13 +48,13 @@ If bash is not installed on your FreeBSD machine, run following command before t
 sudo pkg install bash
 ```
 
-If python is not installed on your FreeBSD machine, run following commands before the installation. 
+If Python is not installed on your FreeBSD machine, run following commands before the installation. 
 
 ```bash
-sudo pkg install python35
+sudo pkg install python38
 cd /usr/local/bin 
 sudo rm /usr/local/bin/python 
-sudo ln -s /usr/local/bin/python3.5 /usr/local/bin/python
+sudo ln -s /usr/local/bin/python3.8 /usr/local/bin/python
 ```
 
 During the installation, you are asked `Modify profile to update your $PATH and enable shell/tab completion now? (Y/n)`. If you answer `y` and enter `/etc/rc.conf` as `a path to an rc file to update`, you may meet the problem `ERROR: [Errno 13] Permission denied`. To resolve this problem, you should grant the write right to current user against the file `etc/rc.conf`.
@@ -129,4 +124,4 @@ You can optionally obtain a root shell by using `sudo -s`.
 The [Azure VM Guest Agent](https://github.com/Azure/WALinuxAgent/) version 2.2.2 has a [known issue](https://github.com/Azure/WALinuxAgent/pull/517) that causes the provision failure for FreeBSD VM on Azure. The fix was captured by [Azure VM Guest Agent](https://github.com/Azure/WALinuxAgent/) version 2.2.3 and later releases. 
 
 ## Next steps
-* Go to [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD112) to create a FreeBSD VM.
+* Go to [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/thefreebsdfoundation.freebsd-12_2?tab=Overview) to create a FreeBSD VM.

@@ -1,21 +1,12 @@
 ---
-title: Replicas and instances in Azure Service Fabric | Microsoft Docs
-description: Understand replicas and instances--their function and lifecycles
-services: service-fabric
-documentationcenter: .net
-author: appi101
-manager: anuragg
-editor: 
-
-ms.assetid: d5ab75ff-98b9-4573-a2e5-7f5ab288157a
-ms.service: service-fabric
-ms.devlang: dotnet
+title: Replicas and instances in Azure Service Fabric 
+description: Learn about replicas and instances in Service Fabric, including an overview of their lifecycles and functions.
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 01/10/2018
-ms.author: aprameyr
-
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Replicas and instances 

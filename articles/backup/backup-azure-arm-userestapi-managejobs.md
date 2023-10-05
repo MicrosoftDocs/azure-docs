@@ -1,24 +1,20 @@
 ---
-title: 'Azure Backup: Manage Backup Jobs using REST API'
-description: manage backup and restore jobs of Azure Backup using REST API
-services: backup
-author: pvrk
-manager: shivamg
-keywords: REST API; Azure VM backup; Azure VM restore;
-ms.service: backup
+title:  Manage Backup Jobs using REST API
+description: In this article, learn how to track and manage backup and restore jobs of Azure Backup using REST API.
 ms.topic: conceptual
 ms.date: 08/03/2018
-ms.author: pullabhk
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Track backup and restore jobs using REST API
 
-Azure Backup service triggers jobs which run in background in various scenarios such as triggering backup, restore operations, disabling backup. These jobs can be tracked using their IDs.
+Azure Backup service triggers jobs that run in background in various scenarios such as triggering backup, restore operations, disabling backup. These jobs can be tracked using their IDs.
 
 ## Fetch Job information from operations
 
-An operation such as triggering backup will always return a jobID. For eg: The final response of a [trigger backup REST API operation](backup-azure-arm-userestapi-backupazurevms.md#example-responses-3) is as follows:
+An operation such as triggering backup will always return a jobID. For example: The final response of a [trigger backup REST API operation](backup-azure-arm-userestapi-backupazurevms.md#example-responses-for-on-demand-backup) is as follows:
 
 ```http
 {
@@ -34,21 +30,21 @@ An operation such as triggering backup will always return a jobID. For eg: The f
 }
 ```
 
-The Azure VM backup job is identified by "jobId" field and can be tracked as mentioned [here](https://docs.microsoft.com/rest/api/backup/jobdetails/) using a simple *GET* request.
+The Azure VM backup job is identified by "jobId" field and can be tracked as mentioned [here](/rest/api/backup/job-details) using a simple *GET* request.
 
 ## Tracking the job
 
 ```http
-GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupJobs/{jobName}?api-version=2017-07-01
+GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupJobs/{jobName}?api-version=2019-05-13
 ```
 
-The `{jobName}` is "jobId" mentioned above. The response is always 200 OK with the "status" field indicating the current status of the job. Once it is "Completed" or "CompletedWithWarnings", the 'extendedInfo' section reveals more details about the job.
+The `{jobName}` is "jobId" mentioned above. The response is always 200 OK with the "status" field indicating the current status of the job. Once it's "Completed" or "CompletedWithWarnings", the 'extendedInfo' section reveals more details about the job.
 
 ### Response
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
-|200 OK     | [JobResource](https://docs.microsoft.com/rest/api/backup/jobdetails/get#jobresource)        | OK        |
+|200 OK     | [JobResource](/rest/api/backup/job-details/get#jobresource)        | OK        |
 
 #### Example response
 

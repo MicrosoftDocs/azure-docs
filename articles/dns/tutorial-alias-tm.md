@@ -1,120 +1,247 @@
 ---
-title: Tutorial - Create an Azure DNS alias record to support domain apex names with Traffic Manager
-description: This tutorial shows you how to configure an Azure DNS alias record to support using your domain apex name with Traffic Manager.
+title: 'Tutorial: Create an alias record to support apex domain name with Traffic Manager'
+titleSuffix: Azure DNS
+description: In this tutorial, you learn how to create and configure an Azure DNS alias record to support using your apex domain name with Traffic Manager.
 services: dns
-author: vhorne
+author: greg-lindsay
 ms.service: dns
 ms.topic: tutorial
-ms.date: 9/25/2018
-ms.author: victorh
-#Customer intent: As an experienced network administrator, I want to configure Azure DNS alias records to use my domain apex name with Traffic Manager.
+ms.date: 09/27/2022
+ms.author: greglin
+ms.custom: template-tutorial #Required; leave this attribute/value as-is.
+#Customer intent: As an experienced network administrator, I want to configure Azure DNS alias records to use my apex domain name with Traffic Manager.
 ---
 
-# Tutorial: Configure an alias record to support apex domain names with Traffic Manager 
+# Tutorial: Create an alias record to support apex domain names with Traffic Manager 
 
-You can create an alias record for your domain name apex to reference an Azure Traffic Manager profile. An example is contoso.com. Instead of using a redirecting service, you configure Azure DNS to reference a Traffic Manager profile directly from your zone. 
-
+You can create an alias record for your apex domain name to reference an Azure Traffic Manager profile. Instead of using a redirecting service, you configure Azure DNS to reference a Traffic Manager profile directly from your zone. 
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a host VM and network infrastructure.
+> * Create a virtual network and a subnet.
+> * Create a web server virtual machine with a public IP.
+> * Add a DNS label to a public IP.
 > * Create a Traffic Manager profile.
 > * Create an alias record.
 > * Test the alias record.
 
-
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
-You must have a domain name available that you can host in Azure DNS to test with. You must have full control of this domain. Full control includes the ability to set the name server (NS) records for the domain.
 
-For instructions on how to host your domain in Azure DNS, see [Tutorial: Host your domain in Azure DNS](dns-delegate-domain-azure-dns.md).
+* An Azure account with an active subscription.
+* A domain name hosted in Azure DNS. If you don't have an Azure DNS zone, you can [create a DNS zone](./dns-delegate-domain-azure-dns.md#create-a-dns-zone), then [delegate your domain](dns-delegate-domain-azure-dns.md#delegate-the-domain) to Azure DNS.
 
-The example domain used for this tutorial is contoso.com, but use your own domain name.
+> [!NOTE]
+> In this tutorial, `contoso.com` is used as an example domain name. Replace `contoso.com` with your own domain name.
+
+## Sign in to Azure
+
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create the network infrastructure
-First, create a virtual network and a subnet to place your web servers in.
-1. Sign in to the Azure portal at https://portal.azure.com.
-2. In the upper left in the portal, select **Create a resource**. Enter *resource group* in the search box, and create a resource group named **RG-DNS-Alias-TM**.
-3. Select **Create a resource** > **Networking** > **Virtual network**.
-4. Create a virtual network named **VNet-Servers**. Place it in the **RG-DNS-Alias-TM** resource group, and name the subnet **SN-Web**.
 
-## Create two web server virtual machines
-1. Select **Create a resource** > **Windows Server 2016 VM**.
-2. Enter **Web-01** for the name, and place the VM in the **RG-DNS-Alias-TM** resource group. Enter a username and a password, and select **OK**.
-3. For **Size**, select an SKU with 8-GB RAM.
-4. For **Settings**, select the **VNet-Servers** virtual network and the **SN-Web** subnet.
-5. Select **Public IP address**. Under **Assignment**, select **Static**, and then select **OK**.
-6. For public inbound ports, select **HTTP** > **HTTPS** > **RDP (3389)**, and then select **OK**.
-7. On the **Summary** page, select **Create**. This procedure takes a few minutes to finish.
+Create a virtual network and a subnet to place your web servers in.
 
-Repeat this procedure to create another virtual machine named **Web-02**.
+1. In the Azure portal, enter *virtual network* in the search box at the top of the portal, and then select **Virtual networks** from the search results.
+1. In **Virtual networks**, select **+ Create**.
+1. In **Create virtual network**, enter or select the following information in the **Basics** tab:
+
+    | Setting | Value |
+    |---------|-------|
+    | **Project Details**  |   |
+    | Subscription   | Select your Azure subscription. |
+    | Resource Group       | Select **Create new**. </br> In **Name**, enter *TMResourceGroup*. </br> Select **OK**. |
+    | **Instance details** |     |
+    | Name   | Enter *myTMVNet*.    |
+    | Region    | Select your region. |
+
+1. Select the **IP Addresses** tab or select the **Next: IP Addresses** button at the bottom of the page.
+1. In the **IP Addresses** tab, enter the following information:
+
+    | Setting | Value |
+    |---------|-------|
+    | IPv4 address space | Enter *10.10.0.0/16*.  |
+
+1. Select **+ Add subnet**, and enter this information in the **Add subnet**:
+
+    | Setting | Value |
+    |---------|-------|
+    | Subnet name | Enter *WebSubnet*. |
+    | Subnet address range | Enter *10.10.0.0/24*. |
+
+1. Select **Add**.
+1. Select the **Review + create** tab or select the **Review + create** button.
+1. Select **Create**.
+
+## Create web server virtual machines
+
+Create two Windows Server virtual machines, and install IIS web server on them, and then add DNS labels to their public IPs.
+
+### Create the virtual machines
+
+Create two Windows Server 2019 virtual machines.
+
+1. In the Azure portal, enter *virtual machine* in the search box at the top of the portal, and then select **Virtual machines** from the search results.
+1. In **Virtual machines**, select **+ Create** and then select **Azure virtual machine**.
+1. In **Create a virtual machine**, enter or select the following information in the **Basics** tab:
+
+    | Setting | Value |
+    |---------|-------|
+    | **Project Details**   |  |
+    | Subscription  | Select your Azure subscription. |
+    | Resource Group   | Select **TMResourceGroup**. |
+    | **Instance details**   |   |
+    | Virtual machine name  | Enter *Web-01*. |
+    | Region    | Select **(US) East US**. |
+    | Availability options  | Select **No infrastructure redundancy required**. |
+    | Security type    | Select **Standard**. |
+    | Image   | Select **Windows Server 2019 Datacenter - Gen2**. |
+    | Size   | Select your VM size. |
+    | **Administrator account** |  |
+    | Username  | Enter a username. |
+    | Password  | Enter a password. |
+    | Confirm password  | Reenter the password. |
+    | **Inbound port rules** |    |
+    | Public inbound ports | Select **None**. |
+
+
+1. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**.
+
+1. In the **Networking** tab, enter or select the following information:
+
+    | Setting | Value |
+    |---------|-------|
+    | **Network interface** |  |
+    | Virtual network | Select **myTMVNet**. |
+    | Subnet  | Select **WebSubnet**. |
+    | Public IP   | Select **Create new**, and then enter *Web-01-ip* in **Name**. </br> Select **Basic** for the **SKU**, and **Static** for the **Assignment**. |
+    | NIC network security group | Select **Basic**. |
+    | Public inbound ports  | Select **Allow selected ports**. |
+    | Select inbound ports  | Select **HTTP (80)**, **HTTPS (443)** and **RDP (3389)**. |
+
+1. Select **Review + create**.
+1. Review the settings, and then select **Create**.
+1. Repeat previous steps to create the second virtual machine. Enter *Web-02* in the **Virtual machine name** and *Web-02-ip* in the **Name** of **Public IP**. For the other settings, use the same information from the previous steps used with first virtual machine.
+
+Each virtual machine deployment may take a few minutes to complete.
+
+### Install IIS web server
+
+Install IIS on both **Web-01** and **Web-02** virtual machines.
+
+1. In the **Connect** page of **Web-01** virtual machine, select **RDP** and then **Download RDP File**.
+1. Open *Web-01.rdp* file, and select **Connect**.
+1. Enter the username and password entered during virtual machine creation.
+1. On the **Server Manager** dashboard, select **Manage** then **Add Roles and Features**.
+1. Select **Server Roles** or select **Next** three times. On the **Server Roles** screen, select **Web Server (IIS)**.
+1. Select **Add Features**, and then select **Next**.
+
+    :::image type="content" source="./media/tutorial-alias-tm/iis-web-server-installation.png" alt-text="Screenshot of Add Roles and Features Wizard in Windows Server 2019 showing how to install the I I S Web Server by adding the Web Server role.":::
+
+1. Select **Confirmation** or select **Next** three times, and then select **Install**. The installation process takes a few minutes to finish.
+1. After the installation finishes, select **Close**.
+1. Go to *C:\inetpub\wwwroot* and open *iisstart.htm* with Notepad or any editor of your choice to edit the default IIS web page.
+1. Replace all the text in the file with `Hello World from Web-01` and save the changes to *iisstart.htm*. 
+1. Open a web browser. Browse to **localhost** to verify that the default IIS web page appears.
+
+    :::image type="content" source="./media/tutorial-alias-tm/iis-on-web-01-vm-in-web-browser.png" alt-text="Screenshot of Internet Explorer showing the I I S Web Server default page of first virtual machine.":::
+
+1. Repeat previous steps to install IIS web server on **Web-02** virtual machine. Use `Hello World from Web-02` to replace all the text in *iisstart.htm*.
 
 ### Add a DNS label
-The public IP addresses need a DNS label to work with Traffic Manager.
-1. In the **RG-DNS-Alias-TM** resource group, select the **Web-01-ip** public IP address.
-2. Under **Settings**, select **Configuration**.
-3. In the DNS name label text box, enter **web01pip**.
-4. Select **Save**.
 
-Repeat this procedure for the **Web-02-ip** public IP address by using **web02pip** for the DNS name label.
+Public IP addresses need DNS labels to work with Traffic Manager.
 
-### Install IIS
+1. In the Azure portal, enter *TMResourceGroup* in the search box at the top of the portal, and then select **TMResourceGroup** from the search results.
+1. In the **TMResourceGroup** resource group, select the **Web-01-ip** public IP address.
+1. Under **Settings**, select **Configuration**.
+1. Enter *web01pip* in the **DNS name label**.
+1. Select **Save**.
 
-Install IIS on both **Web-01** and **Web-02**.
+    :::image type="content" source="./media/tutorial-alias-tm/ip-dns-name-label-inline.png" alt-text="Screenshot of the Configuration page of Azure Public IP Address showing D N S name label." lightbox="./media/tutorial-alias-tm/ip-dns-name-label-expanded.png":::
 
-1. Connect to **Web-01**, and sign in.
-2. On the **Server Manager** dashboard, select **Add roles and features**.
-3. Select **Next** three times. On the **Server Roles** page, select **Web Server (IIS)**.
-4. Select **Add Features**, and select **Next**.
-5. Select **Next** four times. Then select **Install**. This procedure takes a few minutes to finish.
-6. When the installation finishes, select **Close**.
-7. Open a web browser. Browse to **localhost** to verify that the default IIS web page appears.
-
-Repeat this procedure to install IIS on **Web-02**.
-
+1. Repeat the previous steps for the **Web-02-ip** public IP address and enter *web02pip* in the **DNS name label**.
 
 ## Create a Traffic Manager profile
 
-1. Open the **RG-DNS-Alias-TM** resource group, and select the **Web-01-ip** Public IP address. Note the IP address for later use. Repeat this step for the **Web-02-ip** public IP address.
-1. Select **Create a resource** > **Networking** > **Traffic Manager profile**.
-2. For the name, enter **TM-alias-test**. Place it in the **RG-DNS-Alias-TM** resource group.
-3. Select **Create**.
-4. After deployment finishes, select **Go to resource**.
-5. On the Traffic Manager profile page, under **Settings**, select **Endpoints**.
-6. Select **Add**.
-7. For **Type**, select **External endpoint**, and for **Name**, enter **EP-Web01**.
-8. In the **Fully qualified domain name (FQDN) or IP** text box, enter the IP address for **Web-01-ip** that you noted previously.
-9. Select the same **Location** as your other resources, and then select **OK**.
+1. In the **Overview** page of **Web-01-ip** public IP address, note the IP address for later use. Repeat this step for the **Web-02-ip** public IP address.
+1. In the Azure portal, enter *Traffic Manager profile* in the search box at the top of the portal, and then select **Traffic Manager profiles**.
+1. Select **+ Create**.
+1. In the **Create Traffic Manager profile** page, enter or select the following information:
 
-Repeat this procedure to add the **Web-02** endpoint by using the IP address you noted previously for **Web-02-ip**.
+    | Setting | Value |
+    |---------|-------|
+    | Name | Enter *TM-alias-test*.  |
+    | Routing method   | Select **Priority**.   |
+    | Subscription  | Select your Azure subscription.  |
+    | Resource group  | Select **TMResourceGroup**.  |
+
+    :::image type="content" source="./media/tutorial-alias-tm/create-traffic-manager-profile.png" alt-text="Screenshot of the Create Traffic Manager profile page showing the selected settings.":::
+
+1. Select **Create**.
+
+1. After **TM-alias-test** deployment finishes, select **Go to resource**.
+1. In the **Endpoints** page of **TM-alias-test** Traffic Manager profile, select **+ Add** and enter or select the following information:
+
+    | Setting | Value |
+    |---------|-------|
+    | Type | Select **External endpoint**. |
+    | Name | Enter *EP-Web01*. |
+    | Fully qualified domain name (FQDN) or IP | Enter the IP address for **Web-01-ip** that you noted previously.  |
+    | Priority  | Enter *1*.  |
+
+    :::image type="content" source="./media/tutorial-alias-tm/add-endpoint-tm-inline.png" alt-text="Screenshot of the Endpoints page in Traffic Manager profile showing selected settings for adding an endpoint." lightbox="./media/tutorial-alias-tm/add-endpoint-tm-expanded.png":::
+
+1. Select **Add**.
+
+1. Repeat the last two steps to create the second endpoint. Enter or select the following information:
+
+    | Setting | Value |
+    |---------|-------|
+    | Type | Select **External endpoint**. |
+    | Name   | Enter *EP-Web02*. |
+    | Fully qualified domain name (FQDN) or IP | Enter the IP address for **Web-02-ip** that you noted previously.  |
+    | Priority  | Enter *2*. |
 
 ## Create an alias record
 
 Create an alias record that points to the Traffic Manager profile.
 
-1. Select your Azure DNS zone to open the zone.
-2. Select **Record set**.
-3. Leave the **Name** text box empty to represent the domain name apex. An example is contoso.com.
-4. Leave the **Type** as an **A** record.
-5. Select the **Alias Record Set** check box.
-6. Select **Choose Azure service**, and select the **TM-alias-test** Traffic Manager profile.
+1. In the Azure portal, enter *contoso.com* in the search box at the top of the portal, and then select **contoso.com** DNS zone from the search results.
+1. In the **Overview** page of **contoso.com** DNS zone, select the **+ Record set** button.
+1. In the **Add record set**, leave the **Name** box empty to represent the apex domain name. An example is `contoso.com`.
+1. Select **A** for the **Type**.
+1. Select **Yes** for the **Alias record set**, and then select the **Azure Resource** for the **Alias type**.
+1. Select the **TM-alias-test** Traffic Manager profile for the **Azure resource**.
+1. Select **OK**.
+
+    :::image type="content" source="./media/tutorial-alias-tm/add-record-set-tm-inline.png" alt-text="Screenshot of adding an alias record to refer to the Traffic Manager profile." lightbox="./media/tutorial-alias-tm/add-record-set-tm-expanded.png":::
 
 ## Test the alias record
 
-1. From a web browser, browse to your domain name apex. An example is contoso.com. You see the IIS default web page. Close the web browser.
-2. Shut down the **Web-01** virtual machine. Wait a few minutes for it to completely shut down.
-3. Open a new web browser, and browse to your domain name apex again.
-4. You see the IIS default web page again, because Traffic Manager handled the situation and directed traffic to **Web-02**.
+1. From a web browser, browse to `contoso.com` or your apex domain name. You see the IIS default page with `Hello World from Web-01`. The Traffic Manager directed traffic to **Web-01** IIS web server because it has the highest priority. Close the web browser and shut down **Web-01** virtual machine. Wait a few minutes for the virtual machine to completely shut down.
+1. Open a new web browser, and browse again to `contoso.com` or your apex domain name.
+1. You should see the IIS default page with `Hello World from Web-02`. The Traffic Manager handled the situation and directed traffic to the second IIS server after shutting down the first server that has the highest priority.
 
 ## Clean up resources
 
-When you no longer need the resources created for this tutorial, delete the **RG-DNS-Alias-TM** resource group.
+When no longer needed, you can delete all resources created in this tutorial by following these steps:
+
+1. On the Azure portal menu, select **Resource groups**.
+1. Select the **TMResourceGroup** resource group.
+1. On the **Overview** page, select **Delete resource group**.
+1. Enter *TMResourceGroup* and select **Delete**.
+1. On the Azure portal menu, select **All resources**.
+1. Select **contoso.com** DNS zone.
+1. On the **Overview** page, select the **@** record created in this tutorial.
+1. Select **Delete** and then **Yes**.
 
 ## Next steps
 
-In this tutorial, you created an alias record to use your apex domain name to reference a Traffic Manager profile. To learn about Azure DNS and web apps, continue with the tutorial for web apps.
+In this tutorial, you learned how to create an alias record to use your apex domain name to reference a Traffic Manager profile.
 
-> [!div class="nextstepaction"]
-> [Host load-balanced web apps at the zone apex](./dns-alias-appservice.md)
+- Learn more about [alias records](dns-alias.md).
+- Learn more about [zones and records](dns-zones-records.md).
+- Learn more about [Traffic Manager routing methods](../traffic-manager/traffic-manager-routing-methods.md).

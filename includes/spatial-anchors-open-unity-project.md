@@ -1,10 +1,10 @@
 ---
-author: ramonarguelles
-ms.service: spatial-anchors
+author: pamistel
+ms.service: azure-spatial-anchors
 ms.topic: include
-ms.date: 05/23/2019
-ms.author: rgarcia
+ms.date: 11/20/2020
+ms.author: pamistel
 ---
-In Unity, open the project in the `Unity` folder. Unity might prompt you about a different Unity version between the project and the one you've installed on your machine. This warning is okay, as long as your version of Unity Editor is newer than the one the project was created with. In that case, just click **Continue**. If your Unity Editor version is older than the one the project needs, click **Quit**, and upgrade your Unity Editor.
+In Unity, open the project in the *Unity* folder. Unity might prompt you about a difference between the version in the project and the version that's installed on your machine. This warning is okay, as long as your version of Unity Editor is newer than the one that the project was created with. If your version is newer, select **Continue**. If your version is older than the one the project needs, select **Quit**, and upgrade your Unity Editor.
 
-![Unity window](./media/spatial-anchors-unity/unity-window.png)
+![Screenshot of the Unity pane.](./media/spatial-anchors-unity/unity-window.png)

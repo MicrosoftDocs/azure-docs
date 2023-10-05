@@ -1,0 +1,94 @@
+### YamlMime:Landing
+
+title: Save with Azure reservations
+summary: Learn how Azure Reservations help you save money by committing to one-year or three-years plans for virtual machines, Azure Blob storage or Azure Data Lake Storage Gen2, SQL Database compute capacity, Azure Cosmos DB throughput, and other Azure resources. 
+metadata:
+  title: Save with Azure reservations
+  description: Learn how Azure Reservations help you save money by committing to one-year or three-years plans for virtual machines, Azure Blob storage or Azure Data Lake Storage Gen2, SQL Database compute capacity, Azure Cosmos DB throughput, and other Azure resources. 
+  ms.service: cost-management-billing
+  ms.subservice: reservations
+  ms.topic: landing-page
+  ms.collection: collection
+  author: bandersmsft
+  ms.author: banders
+  ms.date: 08/01/2023
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: Buy reservations
+    linkLists:
+    - linkListType: concept
+      links:
+      - text: What are Azure reservations?
+        url: save-compute-costs-reservations.md
+      - text: Reservation purchase recommendations
+        url: reserved-instance-purchase-recommendations.md
+      - text: Instance size flexibility
+        url: ../../virtual-machines/reserved-vm-instance-size-flexibility.md?toc=/azure/cost-management-billing/reservations/toc.json
+      - text: Windows and SQL software cost charged separately
+        url: reserved-instance-windows-software-costs.md
+                
+    - linkListType: how-to-guide
+      links:
+      - text: Buy a reservation
+        url: prepare-buy-reservation.md
+      - text: Renew reservations
+        url: reservation-renew.md
+
+  # Card (optional)
+  - title: Learn how discounts are applied
+    linkLists:
+    - linkListType: concept
+      links:
+      - text: How a reservation discount is applied
+        url: reservation-discount-application.md
+    - linkListType: learn
+      links:
+      - text: Save money with Azure reserved instances
+        url: /training/modules/save-money-with-azure-reserved-instances/
+
+
+  # Card (optional)
+  - title: Manage reservations after purchase
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+      - text: Permissions to view and manage reservations
+        url: view-reservations.md
+      - text: Change reservation scope, split, merge
+        url: manage-reserved-vm-instance.md
+      - text: Exchange and refund reservations
+        url: exchange-and-refund-azure-reservations.md
+      - text: Changes to the reservation exchange policy
+        url: reservation-exchange-policy-changes.md
+
+  # Card (optional)
+  - title: Report costs after purchase
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+      - text: Charge back Azure Reservation costs
+        url: charge-back-usage.md
+      - text: View reservation purchase and refund transactions
+        url: view-purchase-refunds.md
+    - linkListType: reference
+      links:
+      - text: Reservation APIs
+        url: reservation-apis.md
+
+  # Card (optional)
+  - title: Limited-time offers
+    linkLists:
+    - linkListType: concept
+      links:
+      - text: US West Dv3 VMs
+        url: limited-time-us-west.md
+      - text: Sweden Central select Linux VMs
+        url: limited-time-central-sweden.md
+      - text: Poland Central select VMs
+        url: limited-time-central-poland.md
+

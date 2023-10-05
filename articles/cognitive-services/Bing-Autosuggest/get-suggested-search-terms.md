@@ -1,18 +1,20 @@
 ---
 title: What is Bing Autosuggest?
-titlesuffix: Azure Cognitive Services
-description: Learn how to use the Bing Autosuggest API.
+titleSuffix: Azure AI services
+description: The Bing Autosuggest API returns a list of suggested queries based on the partial query string in the search box.
 services: cognitive-services
-author: swhite-msft
+
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: overview
-ms.date: 02/20/2019
-ms.author: scottwhi
+ms.date: 12/18/2019
+
 ---
 # What is Bing Autosuggest?
+
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 If your application sends queries to any of the Bing Search APIs, you can use the Bing Autosuggest API to improve your users' search experience. The Bing Autosuggest API returns a list of suggested queries based on the partial query string in the search box. As characters are entered into the search box, you can display suggestions in a drop-down list.
 
@@ -24,9 +26,9 @@ If your application sends queries to any of the Bing Search APIs, you can use th
 
 ## Workflow
 
-The Bing Autosuggest API is a RESTful web service, easy to call from any programming language that can make HTTP requests and parse JSON. 
+The Bing Autosuggest API is a RESTful web service, easy to call from any programming language that can make HTTP requests and parse JSON.
 
-1. Create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with access to the Bing Search APIs. If you don't have an Azure subscription, you can [create an account](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) for free.
+1. Create an [Azure AI services API account](../cognitive-services-apis-create-account.md) with access to the Bing Search APIs. If you don't have an Azure subscription, you can [create an account](https://azure.microsoft.com/free/cognitive-services/) for free.
 2. Send a request to this API each time a user types a new character in your application's search box.
 3. Process the API response by parsing the returned JSON message.
 
@@ -42,8 +44,11 @@ When a user selects a suggestion from the drop-down list, you can use it to begi
 
 To get started quickly with your first request, see [Making Your First Query](quickstarts/csharp.md).
 
-Familiarize yourself with the [Bing Autosuggest API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference) reference. The reference contains the list of endpoints, headers, and query parameters that you'd use to request suggested query terms, and the definitions of the response objects.
+Familiarize yourself with the [Bing Autosuggest API v7](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference) reference. The reference contains the list of endpoints, headers, and query parameters that you'd use to request suggested query terms, and the definitions of the response objects.
 
-Learn how to search the web by using the [Bing Web Search API](../bing-web-search/search-the-web.md).
+Visit the [Bing Search API hub page](../bing-web-search/overview.md) to explore the other available APIs.
 
-Be sure to read [Bing Use and Display Requirements](./useanddisplayrequirements.md) so you don't break any of the rules about using the search results.
+
+Learn how to search the web by using the [Bing Web Search API](../bing-web-search/overview.md), and explore the other [Bing Search APIs](../bing-web-search/index.yml).
+
+Be sure to read [Bing Use and Display Requirements](../bing-web-search/use-display-requirements.md) so you don't break any of the rules about using the search results.

@@ -1,35 +1,45 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Open Datasets Preview Documentation
+### YamlMime:Landing
+
+title:  Azure Open Datasets Documentation
+summary: Azure Open Datasets is curated and cleansed data - including weather, census, and holidays - that you can use with minimal preparation to enrich ML models. 
+
 metadata:
-  title: Azure Open Datasets Preview Documentation – Tutorials, API reference | Microsoft Docs
-  description: Learn how to use Azure Open Datasets, curated and cleansed data that you can use with minimal preparation. Open Datasets are public data such as weather, census, and holidays that can enrich machine learning models. Tutorials, examples, and API reference docs show you how. 
+  title: Open Datasets Documentation - Tutorials, API reference - Azure
+  description: Azure Open Datasets is curated and cleansed data - including weather, census, and holidays - that you can use with minimal preparation to enrich ML models. 
   ms.service: open-datasets
   ms.topic: landing-page
-  author: cjgronlund
-  ms.author: cgronlun
-  ms.date: 05/02/2019
-  ms.tgt_pltfrm: na
-  ms.devlang: na
-abstract:
-  description: Learn how to use Azure Open Datasets, curated and cleansed data that you can use with minimal preparation. Open Datasets include public data such as weather, census, and holidays that can enrich machine learning models. Tutorials, examples, and API reference docs show you how. 
-  
-sections:   
-- title: Step-by-Step Tutorial
-  items:
-  - type: paragraph
-    text: <a href="tutorial-opendatasets-automl">Build a regression model with automated machine learning</a>
+  ms.collection: collection
+  ms.date: 11/04/2019
 
-- title: Samples
-  items:
-  - type: paragraph
-    text: <a href="samples">Notebooks for enriching datasets</a> 
- 
-    
-- title: Reference
-  items:
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="https://aka.ms/open-datasets-api">API reference</a>
-  
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # OVERVIEW CARD
+  - title: About Open Datasets
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What are Open Datasets?
+            url: overview-what-are-open-datasets.md
+          - text: Samples
+            url: samples.md
+
+  # GET STARTED CARD
+  - title: Get started 
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Build a regression model with automated machine learning
+            url: ../machine-learning/tutorial-auto-train-models.md?context=%2fazure%2fopen-datasets%2fcontext%2fopen-datasets-context
+          - text: Enrich an image classification model in Azure Machine Learning
+            url: ../machine-learning/tutorial-train-models-with-aml.md?context=%2fazure%2fopen-datasets%2fcontext%2fopen-datasets-context
+
+# REFERENCE
+  - title: Explore reference content
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Python API
+            url: /python/api/azureml-opendatasets/

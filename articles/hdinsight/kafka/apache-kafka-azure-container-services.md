@@ -2,13 +2,11 @@
 title: Use Azure Kubernetes Service with Kafka on HDInsight 
 description: Learn how to use Kafka on HDInsight from container images hosted in Azure Kubernetes Service (AKS).
 ms.service: hdinsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
+ms.topic: how-to
 ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 11/17/2022
 ---
+
 # Use Azure Kubernetes Service with Apache Kafka on HDInsight
 
 Learn how to use Azure Kubernetes Service (AKS) with [Apache Kafka](https://kafka.apache.org/) on HDInsight cluster. The steps in this document use a Node.js application hosted in AKS to verify connectivity with Kafka. This application uses the [kafka-node](https://www.npmjs.com/package/kafka-node) package to communicate with Kafka. It uses [Socket.io](https://socket.io/) for event driven messaging between the browser client and the back-end hosted in AKS.
@@ -20,7 +18,7 @@ Learn how to use Azure Kubernetes Service (AKS) with [Apache Kafka](https://kafk
 
 ## Prerequisites
 
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* [Azure CLI](/cli/azure/install-azure-cli)
 * An Azure subscription
 
 This document assumes that you are familiar with creating and using the following Azure services:
@@ -29,7 +27,7 @@ This document assumes that you are familiar with creating and using the followin
 * Azure Kubernetes Service
 * Azure Virtual Networks
 
-This document also assumes that you have walked through the [Azure Kubernetes Service tutorial](../../aks/tutorial-kubernetes-prepare-app.md). This tutorial creates a container service, creates a Kubernetes cluster, a container registry, and configures the `kubectl` utility.
+This document also assumes that you have walked through the [Azure Kubernetes Service tutorial](../../aks/tutorial-kubernetes-prepare-app.md). This article creates a container service, creates a Kubernetes cluster, a container registry, and configures the `kubectl` utility.
 
 ## Architecture
 
@@ -37,10 +35,9 @@ This document also assumes that you have walked through the [Azure Kubernetes Se
 
 Both HDInsight and AKS use an Azure Virtual Network as a container for compute resources. To enable communication between HDInsight and AKS, you must enable communication between their networks. The steps in this document use Virtual Network Peering to the networks. Other connections, such as VPN, should also work. For more information on peering, see the [Virtual network peering](../../virtual-network/virtual-network-peering-overview.md) document.
 
-
 The following diagram illustrates the network topology used in this document:
 
-![HDInsight in one virtual network, AKS in another, and the networks connected using peering](./media/apache-kafka-azure-container-services/kafka-aks-architecture.png)
+:::image type="content" source="./media/apache-kafka-azure-container-services/kafka-aks-architecture.png" alt-text="HDInsight in one virtual network, AKS in another, using peering" border="false":::
 
 > [!IMPORTANT]  
 > Name resolution is not enabled between the peered networks, so IP addressing is used. By default, Kafka on HDInsight is configured to return host names instead of IP addresses when clients connect. The steps in this document modify Kafka to use IP advertising instead.
@@ -49,73 +46,78 @@ The following diagram illustrates the network topology used in this document:
 
 If you do not already have an AKS cluster, use one of the following documents to learn how to create one:
 
-* [Deploy an Azure Kubernetes Service (AKS) cluster - Portal](../../aks/kubernetes-walkthrough-portal.md)
-* [Deploy an Azure Kubernetes Service (AKS) cluster - CLI](../../aks/kubernetes-walkthrough.md)
+* [Deploy an Azure Kubernetes Service (AKS) cluster - Portal](../../aks/learn/quick-kubernetes-deploy-portal.md)
+* [Deploy an Azure Kubernetes Service (AKS) cluster - CLI](../../aks/learn/quick-kubernetes-deploy-cli.md)
+* [Deploy an Azure Kubernetes Service (AKS) cluster - PowerShell](../../aks/learn/quick-kubernetes-deploy-powershell.md)
 
-> [!NOTE]  
-> AKS creates a virtual network during installation. This network is peered to the one created for HDInsight in the next section.
+> [!IMPORTANT]  
+> AKS creates a virtual network during installation in an **additional** resource group. The additional resource group follows the naming convention of **MC_resourceGroup_AKSclusterName_location**.  
+> This network is peered to the one created for HDInsight in the next section.
 
 ## Configure virtual network peering
 
-1. From the [Azure portal](https://portal.azure.com), select __Resource groups__, and then find the resource group that contains the virtual network for your AKS cluster. The resource group name is `MC_<resourcegroup>_<akscluster>_<location>`. The `resourcegroup` and `akscluster` entries are the name of the resource group you created the cluster in, and the name of the cluster. The `location` is the location that the cluster was created in.
+### Identify preliminary information
 
-2. In the resource group, select the __Virtual network__ resource.
+1. From the [Azure portal](https://portal.azure.com), locate the additional **Resource group** that contains the virtual network for your AKS cluster.
 
-3. Select __Address space__. Note the address space listed.
+2. From the resource group, select the __Virtual network__ resource. Note the name for later use.
 
-4. To create a virtual network for HDInsight, select __+ Create a resource__, __Networking__, and then __Virtual network__.
+3. Under **Settings**, select __Address space__. Note the address space listed.
 
-    > [!IMPORTANT]  
-    > When entering the values for the new virtual network, you must use an address space that does not overlap the one used by the AKS cluster network.
+### Create virtual network
 
-    Use the same __Location__ for the virtual network that you used for the AKS cluster.
+1. To create a virtual network for HDInsight, navigate to __+ Create a resource__ > __Networking__ > __Virtual network__.
 
-    Wait until the virtual network has been created before going to the next step.
+1. Create the network using the following guidelines for certain properties:
 
-5. To configure the peering between the HDInsight network and the AKS cluster network, select the virtual network and then select __Peerings__. Select __+ Add__ and use the following values to populate the form:
+    |Property | Value |
+    |---|---|
+    |Address space|You must use an address space that does not overlap the one used by the AKS cluster network.|
+    |Location|Use the same __Location__ for the virtual network that you used for the AKS cluster.|
 
-   * __Name__: Enter a unique name for this peering configuration.
-   * __Virtual network__: Use this field to select the virtual network for the **AKS cluster**.
+1. Wait until the virtual network has been created before going to the next step.
 
-     Leave all other fields at the default value, then select __OK__ to configure the peering.
+### Configure peering
 
-6. To configure the peering between the AKS cluster network and the HDInsight network, select the __AKS cluster virtual network__, and then select __Peerings__. Select __+ Add__ and use the following values to populate the form:
+1. To configure the peering between the HDInsight network and the AKS cluster network, select the virtual network and then select __Peerings__.
 
-   * __Name__: Enter a unique name for this peering configuration.
-   * __Virtual network__: Use this field to select the virtual network for the __HDInsight cluster__.
+1. Select __+ Add__ and use the following values to populate the form:
 
-     Leave all other fields at the default value, then select __OK__ to configure the peering.
+    |Property |Value |
+    |---|---|
+    |Name of the peering from \<this VN> to remote virtual network|Enter a unique name for this peering configuration.|
+    |Virtual network|select the virtual network for the **AKS cluster**.|
+    |Name of the peering from \<AKS VN> to \<this VN>|Enter a unique name.|
 
-## Install Apache Kafka on HDInsight
+    Leave all other fields at the default value, then select __OK__ to configure the peering.
+
+## Create Apache Kafka cluster on HDInsight
 
 When creating the Kafka on HDInsight cluster, you must join the virtual network created earlier for HDInsight. For more information on creating a Kafka cluster, see the [Create an Apache Kafka cluster](apache-kafka-get-started.md) document.
-
-> [!IMPORTANT]  
-> When creating the cluster, you must use the __Advanced settings__ to join the virtual network that you created for HDInsight.
 
 ## Configure Apache Kafka IP Advertising
 
 Use the following steps to configure Kafka to advertise IP addresses instead of domain names:
 
-1. Using a web browser, go to https://CLUSTERNAME.azurehdinsight.net. Replace __CLUSTERNAME__ with the name of the Kafka on HDInsight cluster.
+1. Using a web browser, go to `https://CLUSTERNAME.azurehdinsight.net`. Replace CLUSTERNAME with the name of the Kafka on HDInsight cluster.
 
     When prompted, use the HTTPS user name and password for the cluster. The Ambari Web UI for the cluster is displayed.
 
 2. To view information on Kafka, select __Kafka__ from the list on the left.
 
-    ![Service list with Kafka highlighted](./media/apache-kafka-azure-container-services/select-kafka-service.png)
+    :::image type="content" source="./media/apache-kafka-azure-container-services/select-kafka-service.png" alt-text="Service list with Kafka highlighted" border="true":::
 
 3. To view Kafka configuration, select __Configs__ from the top middle.
 
-    ![Configs links for Kafka](./media/apache-kafka-azure-container-services/select-kafka-config.png)
+    :::image type="content" source="./media/apache-kafka-azure-container-services/select-kafka-config1.png" alt-text="Apache Ambari services configuration" border="true":::
 
 4. To find the __kafka-env__ configuration, enter `kafka-env` in the __Filter__ field on the upper right.
 
-    ![Kafka configuration, for kafka-env](./media/apache-kafka-azure-container-services/search-for-kafka-env.png)
+    :::image type="content" source="./media/apache-kafka-azure-container-services/search-for-kafka-env.png" alt-text="Kafka configuration, for kafka-env" border="true":::
 
 5. To configure Kafka to advertise IP addresses, add the following text to the bottom of the __kafka-env-template__ field:
 
-    ```
+    ```bash
     # Configure Kafka to advertise IP addresses instead of FQDN
     IP_ADDRESS=$(hostname -i)
     echo advertised.listeners=$IP_ADDRESS
@@ -129,15 +131,15 @@ Use the following steps to configure Kafka to advertise IP addresses instead of 
 
 8. To save the configuration changes, use the __Save__ button. Enter a text message describing the changes. Select __OK__ once the changes have been saved.
 
-    ![Save configuration button](./media/apache-kafka-azure-container-services/save-button.png)
+    :::image type="content" source="./media/apache-kafka-azure-container-services/save-configuration-button.png" alt-text="Apache Ambari save configuration" border="true":::
 
 9. To prevent errors when restarting Kafka, use the __Service Actions__ button and select __Turn On Maintenance Mode__. Select OK to complete this operation.
 
-    ![Service actions, with turn on maintenance highlighted](./media/apache-kafka-azure-container-services/turn-on-maintenance-mode.png)
+    :::image type="content" source="./media/apache-kafka-azure-container-services/turn-on-maintenance-mode.png" alt-text="Service actions, with turn on maintenance highlighted" border="true":::
 
 10. To restart Kafka, use the __Restart__ button and select __Restart All Affected__. Confirm the restart, and then use the __OK__ button after the operation has completed.
 
-    ![Restart button with restart all affected highlighted](./media/apache-kafka-azure-container-services/restart-button.png)
+    :::image type="content" source="./media/apache-kafka-azure-container-services/restart-required-button.png" alt-text="Restart button with restart all affected highlighted" border="true":::
 
 11. To disable maintenance mode, use the __Service Actions__ button and select __Turn Off Maintenance Mode__. Select **OK** to complete this operation.
 
@@ -152,9 +154,9 @@ At this point, Kafka and Azure Kubernetes Service are in communication through t
 3. Edit the `index.js` file and change the following lines:
 
     * `var topic = 'mytopic'`: Replace `mytopic` with the name of the Kafka topic used by this application.
-    * `var brokerHost = '176.16.0.13:9092`: Replace `176.16.0.13` with the internal IP address of one of the broker hosts for your cluster.
+    * `var brokerHost = '176.16.0.13:9092'`: Replace `176.16.0.13` with the internal IP address of one of the broker hosts for your cluster.
 
-        To find the internal IP address of the broker hosts (workernodes) in the cluster, see the [Apache Ambari REST API](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-internal-ip-address-of-cluster-nodes) document. Pick IP address of one of the entries where the domain name begins with `wn`.
+        To find the internal IP address of the broker hosts (workernodes) in the cluster, see the [Apache Ambari REST API](../hdinsight-hadoop-manage-ambari-rest-api.md#get-the-internal-ip-address-of-cluster-nodes) document. Pick IP address of one of the entries where the domain name begins with `wn`.
 
 4. From a command line in the `src` directory, install dependencies and use Docker to build an image for deployment:
 
@@ -167,7 +169,7 @@ At this point, Kafka and Azure Kubernetes Service are in communication through t
 
 5. Log in to your Azure Container Registry (ACR) and find the loginServer name:
 
-    ```bash
+    ```azurecli
     az acr login --name <acrName>
     az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
     ```
@@ -186,6 +188,7 @@ At this point, Kafka and Azure Kubernetes Service are in communication through t
     ```bash
     docker push <acrLoginServer>/kafka-aks-test:v1
     ```
+
     This operation takes several minutes to complete.
 
 8. Edit the Kubernetes manifest file (`kafka-aks-test.yaml`) and replace `microsoft` with the ACR loginServer name retrieved in step 4.
@@ -206,7 +209,7 @@ At this point, Kafka and Azure Kubernetes Service are in communication through t
 
 11. Open a web browser and enter the external IP address for the service. You arrive at a page similar to the following image:
 
-    ![Image of the web page](./media/apache-kafka-azure-container-services/test-web-page.png)
+    :::image type="content" source="./media/apache-kafka-azure-container-services/test-web-page-image1.png" alt-text="Apache Kafka test web page image" border="true":::
 
 12. Enter text into the field and then select the __Send__ button. The data is sent to Kafka. Then the Kafka consumer in the application reads the message and adds it to the __Messages from Kafka__ section.
 
@@ -221,7 +224,6 @@ Use the following links to learn how to use Apache Kafka on HDInsight:
 
 * [Use MirrorMaker to create a replica of Apache Kafka on HDInsight](apache-kafka-mirroring.md)
 
-* [Use Apache Storm with Apache Kafka on HDInsight](../hdinsight-apache-storm-with-kafka.md)
 
 * [Use Apache Spark with Apache Kafka on HDInsight](../hdinsight-apache-spark-with-kafka.md)
 

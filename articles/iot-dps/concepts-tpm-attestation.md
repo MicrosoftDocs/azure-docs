@@ -1,20 +1,20 @@
 ---
-title: Azure IoT Hub Device Provisioning Service - TPM Attestation
-description: This article provides a conceptual overview of the TPM attestation flow using IoT Device Provisioning Service.
-author: nberdy
-ms.author: nberdy
-ms.date: 04/04/2019
-ms.topic: conceptual
+title: TPM Attestation with Azure DPS
+titleSuffix: Azure IoT Hub Device Provisioning Service
+description: This article provides a conceptual overview of the TPM attestation flow using IoT Device Provisioning Service (DPS).
+author: kgremban
+
+ms.author: kgremban
+ms.date: 09/22/2021
+ms.topic: concept-article
 ms.service: iot-dps
-services: iot-dps 
-manager: briz
 ---
 
 # TPM attestation
 
 IoT Hub Device Provisioning Service is a helper service for IoT Hub that you use to configure zero-touch device provisioning to a specified IoT hub. With the Device Provisioning Service, you can provision millions of devices in a secure manner.
 
-This article describes the identity attestation process when using a [TPM](./concepts-device.md). TPM stands for Trusted Platform Module and is a type of hardware security module (HSM). This article assumes you are using a discrete, firmware, or integrated TPM. Software emulated TPMs are well-suited for prototyping or testing, but they do not provide the same level of security as discrete, firmware, or integrated TPMs do. We do not recommend using software TPMs in production. For more information about types of TPMs, see [A Brief Introduction to TPM](https://trustedcomputinggroup.org/wp-content/uploads/TPM-2.0-A-Brief-Introduction.pdf).
+This article describes the identity attestation process when using a Trusted Platform Module (TPM). A TPM is a type of hardware security module (HSM). This article assumes you are using a discrete, firmware, or integrated TPM. Software emulated TPMs are well-suited for prototyping or testing, but they do not provide the same level of security as discrete, firmware, or integrated TPMs do. We do not recommend using software TPMs in production. For more information about types of TPMs, see [A Brief Introduction to TPM](https://trustedcomputinggroup.org/wp-content/uploads/TPM-2.0-A-Brief-Introduction.pdf).
 
 This article is only relevant for devices using TPM 2.0 with HMAC key support and their endorsement keys. It is not for devices using X.509 certificates for authentication. TPM is an industry-wide, ISO standard from the Trusted Computing Group, and you can read more about TPM at the [complete TPM 2.0 spec](https://trustedcomputinggroup.org/tpm-library-specification/) or the [ISO/IEC 11889 spec](https://www.iso.org/standard/66510.html). This article also assumes you are familiar with public and private key pairs, and how they are used for encryption.
 
@@ -62,5 +62,6 @@ The device can then sign a SAS token using the decrypted nonce and reestablish a
 
 Now the device connects to IoT Hub, and you rest secure in the knowledge that your devices’ keys are securely stored. Now that you know how the Device Provisioning Service securely verifies a device’s identity using TPM, check out the following articles to learn more:
 
-* [Learn about all the concepts in auto-provisioning](./concepts-auto-provisioning.md)
-* [Get started using auto-provisioning](./quick-setup-auto-provision.md) using the SDKs to take care of the flow.
+* [Learn about the concepts of provisioning](about-iot-dps.md#provisioning-process)
+* [Get started using auto-provisioning](./quick-setup-auto-provision.md) 
+* [Create TPM enrollments using the SDKs](./quick-enroll-device-tpm.md)

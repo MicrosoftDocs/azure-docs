@@ -1,21 +1,12 @@
 ---
-title: Copy data to/from a file system using Azure Data Factory | Microsoft Docs
+title: Copy data to/from a file system using Azure Data Factory 
 description: Learn how to copy data to and from an on-premises file system by using Azure Data Factory.
-services: data-factory
-documentationcenter: ''
-author: linda33wj
-manager: craigg
-
-
-ms.assetid: ce19f1ae-358e-4ffc-8a80-d802505c9c84
+author: jianleishen
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-
+ms.subservice: v1
 ms.topic: conceptual
-ms.date: 04/13/2018
-ms.author: jingwang
-
+ms.date: 04/12/2023
+ms.author: jianleishen
 robots: noindex
 ---
 # Copy data to and from an on-premises file system by using Azure Data Factory
@@ -34,11 +25,11 @@ This article explains how to use the Copy Activity in Azure Data Factory to copy
 ## Supported scenarios
 You can copy data **from an on-premises file system** to the following data stores:
 
-[!INCLUDE [data-factory-supported-sink](../../../includes/data-factory-supported-sinks.md)]
+[!INCLUDE [data-factory-supported-sink](includes/data-factory-supported-sinks.md)]
 
 You can copy data from the following data stores **to an on-premises file system**:
 
-[!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
+[!INCLUDE [data-factory-supported-sources](includes/data-factory-supported-sources.md)]
 
 > [!NOTE]
 > Copy Activity does not delete the source file after it is successfully copied to the destination. If you need to delete the source file after a successful copy, create a custom activity to delete the file and use the activity in the pipeline.
@@ -53,7 +44,7 @@ You can create a pipeline with a copy activity that moves data to/from a file sy
 
 The easiest way to create a pipeline is to use the **Copy Wizard**. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
 
-You can also use the following tools to create a pipeline: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity.
+You can also use the following tools to create a pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity.
 
 Whether you use the tools or APIs, you perform the following steps to create a pipeline that moves data from a source data store to a sink data store:
 
@@ -72,7 +63,7 @@ You can link an on-premises file system to an Azure data factory with the **On-P
 | Property | Description | Required |
 | --- | --- | --- |
 | type |Ensure that the type property is set to **OnPremisesFileServer**. |Yes |
-| host |Specifies the root path of the folder that you want to copy. Use the escape character ‘ \ ’ for special characters in the string. See [Sample linked service and dataset definitions](#sample-linked-service-and-dataset-definitions) for examples. |Yes |
+| host |Specifies the root path of the folder that you want to copy. Use the escape character ' \ ' for special characters in the string. See [Sample linked service and dataset definitions](#sample-linked-service-and-dataset-definitions) for examples. |Yes |
 | userid |Specify the ID of the user who has access to the server. |No (if you choose encryptedCredential) |
 | password |Specify the password for the user (userid). |No (if you choose encryptedCredential |
 | encryptedCredential |Specify the encrypted credentials that you can get by running the New-AzDataFactoryEncryptValue cmdlet. |No (if you choose to specify userid and password in plain text) |
@@ -82,8 +73,8 @@ You can link an on-premises file system to an Azure data factory with the **On-P
 ### Sample linked service and dataset definitions
 | Scenario | Host in linked service definition | folderPath in dataset definition |
 | --- | --- | --- |
-| Local folder on Data Management Gateway machine: <br/><br/>Examples: D:\\\* or D:\folder\subfolder\\* |D:\\\\ (for Data Management Gateway 2.0 and later versions) <br/><br/> localhost (for earlier versions than Data Management Gateway 2.0) |.\\\\ or folder\\\\subfolder (for Data Management Gateway 2.0 and later versions) <br/><br/>D:\\\\ or D:\\\\folder\\\\subfolder (for gateway version below 2.0) |
-| Remote shared folder: <br/><br/>Examples: \\\\myserver\\share\\\* or \\\\myserver\\share\\folder\\subfolder\\* |\\\\\\\\myserver\\\\share |.\\\\ or folder\\\\subfolder |
+| Local folder on Data Management Gateway machine: <br/><br/>Examples: D:\\\* or D:\folder\subfolder\\\* |D:\\\\ (for Data Management Gateway 2.0 and later versions) <br/><br/> localhost (for earlier versions than Data Management Gateway 2.0) |.\\\\ or folder\\\\subfolder (for Data Management Gateway 2.0 and later versions) <br/><br/>D:\\\\ or D:\\\\folder\\\\subfolder (for gateway version below 2.0) |
+| Remote shared folder: <br/><br/>Examples: \\\\myserver\\share\\\* or \\\\myserver\\share\\folder\\subfolder\\\* |\\\\\\\\myserver\\\\share |.\\\\ or folder\\\\subfolder |
 
 >[!NOTE]
 >When authoring via UI, you don't need to input double backslash (`\\`) to escape like you do via JSON, specify single backslash.
@@ -204,7 +195,7 @@ This section describes the resulting behavior of the Copy operation for differen
 See [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md) article on details.
 
 ## JSON examples for copying data to and from file system
-The following examples provide sample JSON definitions that you can use to create a pipeline by using the [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data to and from an on-premises file system and Azure Blob storage. However, you can copy data *directly* from any of the sources to any of the sinks listed in [Supported sources and sinks](data-factory-data-movement-activities.md#supported-data-stores-and-formats) by using Copy Activity in Azure Data Factory.
+The following examples provide sample JSON definitions that you can use to create a pipeline by using [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data to and from an on-premises file system and Azure Blob storage. However, you can copy data *directly* from any of the sources to any of the sinks listed in [Supported sources and sinks](data-factory-data-movement-activities.md#supported-data-stores-and-formats) by using Copy Activity in Azure Data Factory.
 
 ### Example: Copy data from an on-premises file system to Azure Blob storage
 This sample shows how to copy data from an on-premises file system to Azure Blob storage. The sample has the following Data Factory entities:
@@ -435,7 +426,7 @@ The following sample shows:
 * A linked service of type [OnPremisesFileServer](#linked-service-properties).
 * An input dataset of type [AzureSqlTable](data-factory-azure-sql-connector.md#dataset-properties).
 * An output dataset of type [FileShare](#dataset-properties).
-* A pipeline with a copy activity that uses [SqlSource](data-factory-azure-sql-connector.md##copy-activity-properties) and [FileSystemSink](#copy-activity-properties).
+* A pipeline with a copy activity that uses [SqlSource](data-factory-azure-sql-connector.md#copy-activity-properties) and [FileSystemSink](#copy-activity-properties).
 
 The sample copies time-series data from an Azure SQL table to an on-premises file system every hour. The JSON properties that are used in these samples are described in sections after the samples.
 
@@ -474,9 +465,9 @@ We recommend using the **encryptedCredential** property instead of using the **u
 
 **Azure SQL input dataset:**
 
-The sample assumes that you've created a table “MyTable” in Azure SQL, and it contains a column called “timestampcolumn” for time-series data.
+The sample assumes that you've created a table "MyTable" in Azure SQL, and it contains a column called "timestampcolumn" for time-series data.
 
-Setting ``“external”: ”true”`` informs Data Factory that the dataset is external to the data factory and is not produced by an activity in the data factory.
+Setting ``"external": "true"`` informs Data Factory that the dataset is external to the data factory and is not produced by an activity in the data factory.
 
 ```JSON
 {

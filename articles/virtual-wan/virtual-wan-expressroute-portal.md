@@ -1,84 +1,83 @@
 ---
-title: 'Use Azure Virtual WAN to create ExpressRoute connections to Azure and on-premises environments | Microsoft Docs'
+title: 'Tutorial: Create an ExpressRoute association to Azure Virtual WAN'
 description: In this tutorial, learn how to use Azure Virtual WAN to create ExpressRoute connections to Azure and on-premises environments.
-services: virtual-wan
 author: cherylmc
-
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 04/02/2019
+ms.date: 04/28/2023
 ms.author: cherylmc
-Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
+# Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
 ---
-# Tutorial: Create an ExpressRoute association using Azure Virtual WAN (Preview)
+# Tutorial: Create an ExpressRoute association to Virtual WAN - Azure portal
 
-This tutorial shows you how to use Virtual WAN to connect to your resources in Azure over using an ExpressRoute circuit and association. For more information about Virtual WAN, see the [Virtual WAN Overview](virtual-wan-about.md)
+This tutorial shows you how to use Virtual WAN to connect to your resources in Azure over an ExpressRoute circuit. For more conceptual information about ExpressRoute in Virtual WAN, see [About ExpressRoute in Virtual WAN](virtual-wan-expressroute-about.md). You can also create this configuration using the [PowerShell](expressroute-powershell.md) steps.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a vWAN
-> * Create a hub
-> * Find and associate a circuit to the hub
-> * Associate the circuit to a hub(s)
+> * Create a virtual WAN
+> * Create a hub and a gateway
 > * Connect a VNet to a hub
-> * View your virtual WAN
-> * View resource health
-> * Monitor a connection
+> * Connect a circuit to a hub gateway
+> * Test connectivity
+> * Change a gateway size
+> * Advertise a default route
 
-> [!IMPORTANT]
-> This public preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
->
+## Prerequisites
 
-## Before you begin
+Verify that you've met the following criteria before beginning your configuration:
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+* You have a virtual network that you want to connect to. Verify that none of the subnets of your on-premises networks overlap with the virtual networks that you want to connect to. To create a virtual network in the Azure portal, see the [Quickstart](../virtual-network/quick-create-portal.md).
 
-[!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
+* Your virtual network doesn't have any virtual network gateways. If your virtual network has a gateway (either VPN or ExpressRoute), you must remove all gateways. This configuration requires that virtual networks are connected instead to the Virtual WAN hub gateway.
 
-## <a name="register"></a>Register this feature
+* Obtain an IP address range for your hub region. The hub is a virtual network that is created and used by Virtual WAN. The address range that you specify for the hub can't overlap with any of your existing virtual networks that you connect to. It also can't overlap with your address ranges that you connect to on-premises. If you're unfamiliar with the IP address ranges located in your on-premises network configuration, coordinate with someone who can provide those details for you.
 
-Before you can configure Virtual WAN, you must first enroll your subscription in the Preview. Otherwise, you will not be able to work with Virtual WAN in the portal. To enroll, send an email to **azurevirtualwan\@microsoft.com** with your subscription ID. You will receive an email back once your subscription has been enrolled.
+* The following ExpressRoute circuit SKUs can be connected to the hub gateway: Local, Standard, and Premium.
 
-**Preview Considerations:**
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-The ExpressRoute circuit must be enabled in a country/region that supports [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#where-is-expressroute-global-reach-supported).
-The ExpressRoute circuit must be a Premium Circuit to connect to Virtual WAN hub. 
+## <a name="openvwan"></a>Create a virtual WAN
 
-## <a name="vnet"></a>1. Create a virtual network
+[!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-create-vwan-include.md)]
 
-[!INCLUDE [Create a virtual network](../../includes/virtual-wan-tutorial-vnet-include.md)]
+## <a name="hub"></a>Create a virtual hub and gateway
 
-## <a name="openvwan"></a>2. Create a virtual WAN
+In this section, you'll create an ExpressRoute gateway for your virtual hub. You can either create the gateway when you [create a new virtual hub](#newhub), or you can create the gateway in an [existing hub](#existinghub) by editing it.
 
-From a browser, navigate to the [Azure portal (preview)](https://aka.ms/azurevirtualwanpreviewfeatures) and sign in with your Azure account.
 
-[!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-vwan-include.md)]
+### <a name="newhub"></a>To create a new virtual hub and a gateway
 
-### Getting started page
+Create a new virtual hub. Once a hub is created, you'll be charged for the hub, even if you don't attach any sites.
 
-[!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-gettingstarted-include.md)]
+#### Basics page
 
-## <a name="hub"></a>3. Create a hub
+[!INCLUDE [Create a hub](../../includes/virtual-wan-hub-basics.md)]
 
-[!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-hub-include.md)]
+#### ExpressRoute page
 
-## <a name="hub"></a>4. Find and associate a circuit to the hub
+[!INCLUDE [Create ExpressRoute gateway](../../includes/virtual-wan-hub-expressroute-gateway.md)]
 
-1. Select your vWAN and under **Virtual WAN Architecture**, select **ExpressRoute Circuits**.
-1. If the ExpressRoute circuit is in the same subscription as your vWAN, click **Select ExpressRoute circuit** from your subscription(s). 
-1. Using the pull-down, select your ExpressRoute you would like to associate to the hub.
-1. If the ExpressRoute circuit is not in the same subscription or you have been provided [an authorization key and peer ID](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md), select **Find a circuit redeeming an authorization key**
-1. Enter the following details:
-1. **Authorization key** - Generated by the circuit owner as described above
-1. **Peer circuit URI** - Circuit URI that is provided by the circuit owner and is the unique identifier for the circuit
-1. **Routing weight** - [Routing Weight](../expressroute/expressroute-optimize-routing.md) allows you to prefer certain paths when multiple circuits from different peering locations are connected to the same hub
-1. Click **Find circuit** and select the circuit, if found.
-1. Select 1 or more hubs from the drop down and click **Save**.
+### <a name="existinghub"></a>To create a gateway in an existing hub
 
-## <a name="vnet"></a>5. Connect your VNet to a hub
+You can also create a gateway in an existing hub by editing the hub.
 
-In this step, you create the peering connection between your hub and a VNet. Repeat these steps for each VNet that you want to connect.
+1. Go to the virtual WAN.
+1. In the left pane, select **Hubs**.
+1. On the **Virtual WAN | Hubs** page, click the hub that you want to edit.
+1. On the **Virtual HUB** page, at the top of the page, click **Edit virtual hub**.
+1. On the **Edit virtual hub** page, select the checkbox **Include ExpressRoute gateway** and adjust any other settings that you require.
+1. Select **Confirm** to confirm your changes. It takes about 30 minutes for the hub and hub resources to fully create.
+
+### To view a gateway
+
+Once you've created an ExpressRoute gateway, you can view gateway details. Navigate to the hub, select **ExpressRoute**, and view the gateway.
+
+:::image type="content" source="./media/virtual-wan-expressroute-portal/viewgw.png" alt-text="Screenshot shows viewing a gateway." border="false":::
+
+## <a name="connectvnet"></a>Connect your VNet to the hub
+
+In this section, you create the peering connection between your hub and a VNet. Repeat these steps for each VNet that you want to connect.
 
 1. On the page for your virtual WAN, click **Virtual network connection**.
 2. On the virtual network connection page, click **+Add connection**.
@@ -87,44 +86,70 @@ In this step, you create the peering connection between your hub and a VNet. Rep
     * **Connection name** - Name your connection.
     * **Hubs** - Select the hub you want to associate with this connection.
     * **Subscription** - Verify the subscription.
-    * **Virtual network** - Select the virtual network you want to connect to this hub. The virtual network cannot have an already existing virtual network gateway.
+    * **Virtual network** - Select the virtual network you want to connect to this hub. The virtual network can't have an already existing virtual network gateway (neither VPN nor ExpressRoute).
+
+## <a name="connectcircuit"></a>Connect your circuit to the hub gateway
+
+Once the gateway is created, you can connect an [ExpressRoute circuit](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) to it.
+
+### To connect the circuit to the hub gateway
+
+In the portal, go to the **Virtual hub -> Connectivity -> ExpressRoute** page. If you have access in your subscription to an ExpressRoute circuit, you'll see the circuit you want to use in the list of circuits. If you don’t see any circuits, but have been provided with an authorization key and peer circuit URI, you can redeem and connect a circuit. See [To connect by redeeming an authorization key](#authkey).
+
+1. Select the circuit.
+2. Select **Connect circuit(s)**.
+
+   :::image type="content" source="./media/virtual-wan-expressroute-portal/cktconnect.png" alt-text="Screenshot shows connect circuits." border="false":::
+
+### <a name="authkey"></a>To connect by redeeming an authorization key
+
+Use the authorization key and circuit URI you were provided in order to connect.
+
+1. On the ExpressRoute page, click **+Redeem authorization key**
+
+   :::image type="content" source="./media/virtual-wan-expressroute-portal/redeem.png" alt-text="Screenshot shows the ExpressRoute for a virtual hub with Redeem authorization key selected."border="false":::
+2. On the Redeem authorization key page, fill in the values.
+
+   :::image type="content" source="./media/virtual-wan-expressroute-portal/redeemkey2.png" alt-text="Screenshot shows redeem authorization key values." border="false":::
+3. Select **Add** to add the key.
+4. View the circuit. A redeemed circuit only shows the name (without the type, provider and other information) because it is in a different subscription than that of the user.
+
+## To test connectivity
+
+After the circuit connection is established, the hub connection status will indicate 'this hub', implying the connection is established to the hub ExpressRoute gateway. Wait approximately 5 minutes before you test connectivity from a client behind your ExpressRoute circuit, for example, a VM in the VNet that you created earlier.
 
 
-## <a name="viewwan"></a>6. View your virtual WAN
+## To change the size of a gateway
 
-1. Navigate to the virtual WAN.
-2. On the Overview page, each point on the map represents a hub. Hover over any point to view the hub health summary.
-3. In the Hubs and connections section, you can view hub status, site, region, VPN connection status, and bytes in and out.
+If you want to change the size of your ExpressRoute gateway, locate the ExpressRoute gateway inside the hub, and select the scale units from the dropdown. Save your change. It will take approximately 30 minutes to update the hub gateway.
 
-## <a name="viewhealth"></a>7. View your resource health
+:::image type="content" source="./media/virtual-wan-expressroute-portal/changescale.png" alt-text="Screenshot shows Edit ExpressRoute Gateway." border="false":::
 
-1. Navigate to your WAN.
-2. On your WAN page, in the **SUPPORT + Troubleshooting** section, click **Health** and view your resource.
+## To advertise default route 0.0.0.0/0 to endpoints
 
-## <a name="connectmon"></a>8. Monitor a connection
+If you would like the Azure virtual hub to advertise the default route 0.0.0.0/0 to your ExpressRoute end points, you'll need to enable 'Propagate default route'.
 
-Create a connection to monitor communication between an Azure VM and a remote site. For information about how to set up a connection monitor, see [Monitor network communication](~/articles/network-watcher/connection-monitor.md). The source field is the VM IP in Azure, and the destination IP is the Site IP.
+1. Select your **Circuit ->…-> Edit connection**.
 
-## <a name="cleanup"></a>9. Clean up resources
+   :::image type="content" source="./media/virtual-wan-expressroute-portal/defaultroute1.png" alt-text="Screenshot shows Edit ExpressRoute Gateway page." border="false":::
+1. Select **Enable** to propagate the default route.
 
-When you no longer need these resources, you can use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) to remove the resource group and all of the resources it contains. Replace "myResourceGroup" with the name of your resource group and run the following PowerShell command:
+   :::image type="content" source="./media/virtual-wan-expressroute-portal/defaultroute2.png" alt-text="Screenshot shows enable propagate default route." border="false":::
 
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name myResourceGroup -Force
-```
+## To see your Virtual WAN connection from the ExpressRoute circuit blade
+
+Navigate to the **Connections** blade for your ExpressRoute circuit to see each ExpressRoute gateway that your ExpressRoute circuit is connected to. 
+   :::image type="content" source="./media/virtual-wan-expressroute-portal/view-expressroute-connection.png" alt-text="Screenshot shows the initial container page." lightbox="./media/virtual-wan-expressroute-portal/view-expressroute-connection.png":::
+
+## <a name="cleanup"></a>Clean up resources
+
+When you no longer need the resources that you created, delete them. Some of the Virtual WAN resources must be deleted in a certain order due to dependencies. Deleting can take about 30 minutes to complete.
+
+[!INCLUDE [Delete resources](../../includes/virtual-wan-resource-cleanup.md)]
 
 ## Next steps
 
-In this tutorial, you learned how to:
+Next, to learn more about ExpressRoute in Virtual WAN, see:
 
-> [!div class="checklist"]
-> * Create a vWAN
-> * Create a hub
-> * Find and associate a circuit to the hub
-> * Associate the circuit to a hub(s)
-> * Connect a VNet to a hub
-> * View your virtual WAN
-> * View resource health
-> * Monitor a connection
-
-To learn more about Virtual WAN, see the [Virtual WAN Overview](virtual-wan-about.md) page.
+> [!div class="nextstepaction"]
+> * [About ExpressRoute in Virtual WAN](virtual-wan-expressroute-about.md)

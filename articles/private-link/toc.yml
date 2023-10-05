@@ -1,0 +1,129 @@
+- name: Azure Private Link documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Azure Private Link?
+    href: private-link-overview.md
+- name: Quickstarts
+  items:
+  - name: Create a private endpoint - Azure portal
+    href: create-private-endpoint-portal.md
+  - name: Create a private endpoint - PowerShell
+    href: create-private-endpoint-powershell.md
+  - name: Create a private endpoint - Azure CLI
+    href: create-private-endpoint-cli.md
+  - name: Create a private endpoint - Bicep
+    displayName: ARM, Resource Manager, Template
+    href: create-private-endpoint-bicep.md
+  - name: Create a private endpoint - ARM template
+    displayName: Azure Resource Manager
+    href: create-private-endpoint-template.md
+  - name: Create a Private Link service - Azure portal
+    href: create-private-link-service-portal.md
+  - name: Create a Private Link service - PowerShell
+    href: create-private-link-service-powershell.md
+  - name: Create a Private Link service - Azure CLI
+    href: create-private-link-service-cli.md
+  - name: Create a Private Link service - Bicep
+    displayName: ARM, Template, Resource Manager
+    href: create-private-link-service-bicep.md
+  - name: Create a Private Link service - ARM template
+    displayName: Azure Resource Manager
+    href: create-private-link-service-template.md
+  expanded: true
+- name: Tutorials
+  items: 
+  - name: Inspect private endpoint traffic with Azure Firewall
+    href: tutorial-inspect-traffic-azure-firewall.md
+  - name: Deploy a private endpoint with a private resolver
+    href: tutorial-dns-on-premises-private-resolver.md
+  - name: Connect to a storage account
+    href: tutorial-private-endpoint-storage-portal.md
+  - name: Connect to an Azure Cosmos DB account
+    href: /azure/cosmos-db/how-to-configure-private-endpoints?toc=/azure/private-link/toc.json
+  - name: SQL
+    items:
+    - name: Connect to a SQL server - Azure portal
+      href: tutorial-private-endpoint-sql-portal.md
+    - name: Connect to a SQL server - PowerShell
+      href: tutorial-private-endpoint-sql-powershell.md
+    - name: Connect to a SQL server - Azure CLI
+      href: tutorial-private-endpoint-sql-cli.md
+- name: Concepts
+  items:
+  - name: Availability
+    href: availability.md
+  - name: What is a private endpoint?
+    href: private-endpoint-overview.md
+  - name: Private Link service
+    href: private-link-service-overview.md    
+  - name: Private endpoint DNS integration
+    href: private-endpoint-dns.md   
+  - name: RBAC permissions
+    href: rbac-permissions.md 
+  - name: Private Link and DNS in Azure Virtual WAN
+    href: /azure/architecture/guide/networking/private-link-virtual-wan-dns-guide?toc=/azure/private-link/toc.json
+  - name: Azure Firewall traffic inspection
+    href: inspect-traffic-with-azure-firewall.md
+  - name: Security
+    items:
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/azure-private-link-security-baseline?toc=/azure/private-link/toc.json
+- name: How-to
+  items:
+  - name: Configure an application security group
+    href: configure-asg-private-endpoint.md
+  - name: Export private endpoint DNS records
+    href: private-endpoint-export-dns.md
+  - name: Manage network policies for private endpoints
+    href: disable-private-endpoint-network-policy.md
+  - name: Disable network policies for a Private Link service
+    href: disable-private-link-service-network-policy.md
+  - name: Manage private endpoints
+    href: manage-private-endpoint.md
+  - name: Troubleshoot
+    items:
+    - name: Troubleshoot private endpoint connectivity problems
+      href: troubleshoot-private-endpoint-connectivity.md
+    - name: Troubleshoot Private Link service connectivity problems
+      href: troubleshoot-private-link-connectivity.md 
+- name: Reference
+  items:
+  - name: The Azure CLI
+    href: /cli/azure/network/private-link-service
+  - name: Azure PowerShell
+    href: /powershell/module/az.network
+  - name: .NET
+    href: /dotnet/api/overview/azure/virtual-network
+  - name: Java
+    href: /java/api/
+  - name: Node.js
+    href: /javascript/azure#azure-sdk
+  - name: Python
+    href: https://azure.microsoft.com/develop/python/
+  - name: REST
+    href: /rest/api/virtualnetwork/privateendpoints
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.network/allversions
+  - name: Code samples
+    href: https://azure.microsoft.com/resources/samples/?service=virtual-network
+- name: Resources
+  items:
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/
+  - name: Azure roadmap
+    href: https://azure.microsoft.com/roadmap/?category=networking
+  - name: Networking blog
+    href: https://azure.microsoft.com/blog/topics/networking
+  - name: Microsoft Q&A question page for Networking
+    href: /answers/topics/azure-virtual-network.html
+  - name: Networking feedback
+    href: https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/private-link/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-virtual-network
+  - name: FAQ
+    href: private-link-faq.yml

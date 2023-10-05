@@ -1,180 +1,184 @@
 ---
-title: 'Quickstart: Build an AI-enriched index in Azure portal - Azure Search'
-description: Data extraction, natural language and image processing skills in an Azure Search indexing portal, using the Azure portal and sample data. 
-manager: cgronlun
+title: "Quickstart: Create a skillset in the Azure portal"
+titleSuffix: Azure Cognitive Search
+description: In this portal quickstart, use the Import Data wizard to generate searchable text from images and unstructured documents. Skills in this quickstart include OCR, image analysis, and natural language processing.
+
+manager: nitinme
 author: HeidiSteen
-services: search
-ms.service: search
-ms.topic: quickstart
-ms.date: 05/02/2019
 ms.author: heidist
-ms.custom: seodec2018
+ms.service: cognitive-search
+ms.topic: quickstart
+ms.date: 06/29/2023
 ---
-# Quickstart: Create an AI indexing pipeline using cognitive skills in Azure Search
+# Quickstart: Create a skillset in the Azure portal
 
-Azure Search integrates with [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/), adding content extraction, natural language processing (NLP), and image processing skills to an Azure Search indexing pipeline, making unsearchable or unstructured content more searchable. 
+In this Azure Cognitive Search quickstart, you learn how a skillset in Azure Cognitive Search adds Optical Character Recognition (OCR), image analysis, language detection, text translation, and entity recognition to create text-searchable content in a search index. 
 
-Many Cognitive Services resources - such as [OCR](cognitive-search-skill-ocr.md), [language detection](cognitive-search-skill-language-detection.md), [entity recognition](cognitive-search-skill-entity-recognition.md) to name a few - can be attached to an indexing process. The AI algorithms of Cognitive Services are used to find patterns, features, and characteristics in source data, returning structures and textual content that can be used in full-text search solutions based on Azure Search.
+You can run the **Import data** wizard in the Azure portal to apply skills that create and transform textual content during indexing. Output is a searchable index containing AI-generated image text, captions, and entities. Generated content is queryable in the portal using [**Search explorer**](search-explorer.md).
 
-In this quickstart, create your first enrichment pipeline in the [Azure portal](https://portal.azure.com) before writing a single line of code:
-
-> [!div class="checklist"]
-> * Begin with sample data in Azure Blob storage
-> * Configure the [**Import data**](search-import-data-portal.md) wizard for cognitive indexing and enrichment 
-> * Run the wizard (an entity skill detects people, location, and organizations)
-> * Use [**Search explorer**](search-explorer.md) to query the enriched data
-
-This quickstart runs on the Free service, but the number of free transactions is limited to 20 documents per day. If you want to run this quickstart more than once daily, use a smaller file set so that you can fit in more runs.
-
-> [!NOTE]
-> As you expand scope by increasing the frequency of processing, adding more documents, or adding more AI algorithms, you will need to [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md). Charges accrue when calling APIs in Cognitive Services, and for image extraction as part of the document-cracking stage in Azure Search. There are no charges for text extraction from documents.
->
-> Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/). Image extraction pricing is described on the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400).
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+To prepare, you create a few resources and upload sample files before running the wizard.
 
 ## Prerequisites
 
-[Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart.
+Before you begin, have the following prerequisites in place:
 
-[Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) provides the AI. This quickstart includes steps for adding these resources in-line, when specifying the pipeline. It's not necessary to set up accounts in advance.
++ An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 
-Azure services are required to provide the inputs to the indexing pipeline. You can use any data source supported by [Azure Search indexers](search-indexer-overview.md) except for Azure Table Storage, which is not supported for AI indexing. This quickstart uses [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/) as a container for source data files. 
++ Azure Cognitive Search. [Create a service](search-create-service-portal.md) or [find an existing service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). You can use a free service for this quickstart. 
 
-### Set up Azure Blob service and load sample data
++ Azure Storage account with Blob Storage.
 
-1. [Download sample data](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) consisting of a small file set of different types. 
+> [!NOTE]
+> This quickstart uses [Azure AI services](https://azure.microsoft.com/services/cognitive-services/) for the AI. Because the workload is so small, Azure AI services is tapped behind the scenes for free processing for up to 20 transactions. You can complete this exercise without having to create an Azure AI multi-service resource.
 
-1. [Sign up for Azure Blob storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal), create a storage account, open the Blob services pages, and create a container.  Create the storage account in the same region as Azure Search.
+## Set up your data
 
-1. In the container you created, click **Upload** to upload the sample files you downloaded in a previous step.
+In the following steps, set up a blob container in Azure Storage to store heterogeneous content files.
 
-   ![Source files in Azure blob storage](./media/cognitive-search-quickstart-blob/sample-data.png)
+1. [Download sample data](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) consisting of a small file set of different types. Unzip the files.
 
-## Create the enrichment pipeline
+1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account.
 
-Return to the Azure Search service dashboard page and click **Import data** on the command bar to set up cognitive enrichment in four steps.
+1. [Create an Azure Storage account](../storage/common/storage-account-create.md?tabs=azure-portal) or [find an existing account](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
 
-  ![Import data command](media/cognitive-search-quickstart-blob/import-data-cmd2.png)
+   + Choose the same region as Azure Cognitive Search to avoid bandwidth charges. 
+
+   + Choose the StorageV2 (general purpose V2).
+
+1. In Azure portal, open your Azure Storage page and create a container. You can use the default public access level. 
+
+1. In Container, select **Upload** to upload the sample files you downloaded in the first step. Notice that you have a wide range of content types, including images and application files that aren't full text searchable in their native formats.
+
+   :::image type="content" source="media/cognitive-search-quickstart-blob/sample-data.png" alt-text="Screenshot of source files in Azure Blob Storage." border="false":::
+
+You're now ready to move on the Import data wizard.
+
+## Run the Import data wizard
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account.
+
+1. [Find your search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) and on the Overview page, select **Import data** on the command bar to set up cognitive enrichment in four steps.
+
+   :::image type="content" source="media/search-import-data-portal/import-data-cmd.png" alt-text="Screenshot of the Import data command." border="true":::
 
 ### Step 1: Create a data source
 
-In **Connect to your data**, choose **Azure Blob storage**, select the account and container you created. Give the data source a name, and use default values for the rest. 
+1. In **Connect to your data**, choose **Azure Blob Storage**.
 
-  ![Azure blob configuration](./media/cognitive-search-quickstart-blob/blob-datasource.png)
+1. Choose an existing connection to the storage account and select the container you created. Give the data source a name, and use default values for the rest. 
 
-Continue to the next page.
+   :::image type="content" source="media/cognitive-search-quickstart-blob/blob-datasource.png" alt-text="Screenshot of the data source definition page." border="true":::
 
-  ![Next page button for cognitive search](media/cognitive-search-quickstart-blob/next-button-add-cog-search.png)
+    Continue to the next page.
+
+If you get "Error detecting index schema from data source", the indexer that's powering the wizard can't connect to your data source. Most likely, the data source has security protections. Try the following solutions and then rerun the wizard.
+
+| Security feature | Solution |
+|--------------------|----------|
+| Resource requires Azure roles or its access keys are disabled | [Connect as a trusted service](search-indexer-howto-access-trusted-service-exception.md) or [connect using a managed identity](search-howto-managed-identities-data-sources.md) |
+| Resource is behind an IP firewall | [Create an inbound rule for Search and for Azure portal](search-indexer-howto-access-ip-restricted.md) |
+| Resource requires a private endpoint connection | [Connect over a private endpoint](search-indexer-howto-access-private.md) |
 
 ### Step 2: Add cognitive skills
 
-Next, add enrichment steps to the indexing pipeline. If you do not have a Cognitive Services resource, you can sign up for a free version that gives you 20 transactions daily. The sample data consists of 14 files, so your daily allocation will be mostly used up once you run this wizard.
+Next, configure AI enrichment to invoke OCR, image analysis, and natural language processing. 
 
-1. Expand **Attach Cognitive Services** to view options for resourcing the Cognitive Services APIs. For the purposes of this tutorial, you can use the **Free** resource.
+1. For this quickstart, we're using the **Free** Azure AI services resource. The sample data consists of 14 files, so the free allotment of 20 transaction on Azure AI services is sufficient for this quickstart. 
 
-   ![Attach Cognitive Services](media/cognitive-search-quickstart-blob/cog-search-attach.png)
+   :::image type="content" source="media/cognitive-search-quickstart-blob/cog-search-attach.png" alt-text="Screenshot of the Attach Azure AI services tab." border="true":::
 
-2. Expand **Add Enrichments** and select skills that perform natural language processing. For this quickstart, choose entity recognition for people, organizations, and locations.
+1. Expand **Add enrichments** and make six selections. 
 
-   ![Attach Cognitive Services](media/cognitive-search-quickstart-blob/skillset.png)
+   Enable OCR to add image analysis skills to wizard page.
 
-   The portal offers built-in skills for OCR processing and text analysis. In the portal, a skillset operates over a single source field. That might seem like a small target, but for Azure blobs the `content` field contains most of the blob document (for example, a Word doc or PowerPoint deck). As such, this field is an ideal input because all of a blob's content is there.
+   Choose entity recognition (people, organizations, locations) and image analysis skills (tags, captions).
 
-3. Continue to the next page.
+   :::image type="content" source="media/cognitive-search-quickstart-blob/skillset.png" alt-text="Screenshot of the skillset definition page." border="true":::
 
-   ![Next page customize index](media/cognitive-search-quickstart-blob/next-button-customize-index.png)
-
-> [!NOTE]
-> Natural language processing skills operate over text content in the sample data set. Since we didn't select the OCR option, the JPEG and PNG files found in the sample data set won't be processed in this quickstart. 
+   Continue to the next page.
 
 ### Step 3: Configure the index
 
-The wizard can usually infer a default index. In this step, you can view the generated index schema and potentially revise any settings. Below is the default index created for the demo Blob data set.
+An index contains your searchable content and the **Import data** wizard can usually create the schema for you by sampling the data source. In this step, review the generated schema and potentially revise any settings. Below is the default schema created for the demo Blob data set.
 
-For this quickstart, the wizard does a good job setting reasonable defaults: 
+For this quickstart, the wizard does a good job setting reasonable defaults:  
 
-+ Default name is *azureblob-index* based on the data source type. 
++ Default fields are based on metadata properties for existing blobs, plus the new fields for the enrichment output (for example, `people`, `organizations`, `locations`). Data types are inferred from metadata and by data sampling.
 
-+ Default fields are based on the original source data field (`content`), plus the output fields (`people`, `organizations`, and `locations`) created by the cognitive pipeline. Default data types are inferred from metadata and data sampling.
++ Default document key is *metadata_storage_path* (selected because the field contains unique values).
 
-+ Default key is *metadata_storage_path* (this field contains unique values).
++ Default attributes are **Retrievable** and **Searchable**. **Searchable** allows full text search a field. **Retrievable** means field values can be returned in results. The wizard assumes you want these fields to be retrievable and searchable because you created them via a skillset. Select **Filterable** if you want to use fields in a filter expression.
 
-+ Default attributes are **Retrievable** and **Searchable** for these fields. **Searchable** indicates a field can be searched. **Retrievable** means it can be returned in results. The wizard assumes you want these fields to be retrievable and searchable because you created them via a skillset.
+  :::image type="content" source="media/cognitive-search-quickstart-blob/index-fields.png" alt-text="Screenshot of the index definition page." border="true":::
 
-  ![Index fields](media/cognitive-search-quickstart-blob/index-fields.png)
-
-Notice the strikethrough and question mark on the **Retrievable** attribute by the `content` field. For text-heavy blob documents, the `content` field contains the bulk of the file, potentially running into thousands of lines. If you need to pass file contents to client code, make sure that **Retrievable** stays selected. Otherwise, consider clearing this attribute on `content` if the extracted elements (`people`, `organizations`, and `locations`) are sufficient for your purposes.
-
-Marking a field as **Retrievable** does not mean that the field *must* be present in the search results. You can precisely control search results composition by using the **$select** query parameter to specify which fields to include. For text-heavy fields like `content`, the **$select** parameter is your solution for providing manageable search results to the human users of your application, while ensuring client code has access to all the information it needs via the **Retrievable** attribute.
+Marking a field as **Retrievable** doesn't mean that the field *must* be present in the search results. You can control search results composition by using the **$select** query parameter to specify which fields to include.
   
 Continue to the next page.
 
-  ![Next page create indexer](media/cognitive-search-quickstart-blob/next-button-create-indexer.png)
-
 ### Step 4: Configure the indexer
 
-The indexer is a high-level resource that drives the indexing process. It specifies the data source name, a target index, and frequency of execution. The end result of the **Import data** wizard is always an indexer that you can run repeatedly.
+The indexer drives the indexing process. It specifies the data source name, a target index, and frequency of execution. The **Import data** wizard creates several objects, including an indexer that you can reset and run repeatedly.
 
-In the **Indexer** page, you can accept the default name and use the **Run once** schedule option to run it immediately. 
+1. In the **Indexer** page, you can accept the default name and select **Once** to run it immediately. 
 
-  ![Indexer definition](media/cognitive-search-quickstart-blob/indexer-def.png)
+   :::image type="content" source="media/cognitive-search-quickstart-blob/indexer-def.png" alt-text="Screenshot of the indexer definition page." border="true":::
 
-Click **Submit** to create and simultaneously run the indexer.
+1. Select **Submit** to create and simultaneously run the indexer.
 
-## Monitor indexing
+## Monitor status
 
-Enrichment steps take longer to complete than typical text-based indexing. The wizard should open the Indexer list in the overview page so that you can track progress. For self-navigation, go to the Overview page and click **Indexers**.
+Cognitive skills indexing takes longer to complete than typical text-based indexing, especially OCR and image analysis. To monitor progress, go to the Overview page and select **Indexers** in the middle of page.
 
-The warning occurs because JPG and PNG files are image files, and we omitted the OCR skill from this pipeline. You'll also find truncation notifications. Azure Search limits extraction to 32,000 characters on the Free tier.
+  :::image type="content" source="media/cognitive-search-quickstart-blob/indexer-notification.png" alt-text="Screenshot of the indexer status page." border="true":::
 
-  ![Azure search notification](./media/cognitive-search-quickstart-blob/indexer-notification.png)
+To check details about execution status, select an indexer from the list, and then select **Success** (or **Failed**) to view execution details.
 
-Indexing and enrichment can take time, which is why smaller data sets are recommended for early exploration. 
+In this demo, there's one  warning: `"Could not execute skill because one or more skill input was invalid."` It tells you that a PNG file in the data source doesn't provide a text input to Entity Recognition. This warning occurs because the upstream OCR skill didn't recognize any text in the image, and thus couldn't provide a text input to the downstream Entity Recognition skill.
+
+Warnings are common in skillset execution. As you become familiar with how skills iterate over your data, you might begin to notice patterns and learn which warnings are safe to ignore.
 
 ## Query in Search explorer
 
-After an index is created, you can submit queries to return documents from the index. In the portal, use **Search explorer** to run queries and view results. 
+After an index is created, run queries in **Search explorer** to return results.
 
-1. On the search service dashboard page, click **Search explorer** on the command bar.
+1. On the search service dashboard page, select **Search explorer** on the command bar.
 
 1. Select **Change Index** at the top to select the index you created.
 
-1. Enter a search string to query the index, such as `search=Microsoft&searchFields=organizations`.
+1. Enter a search string to query the index, such as `search=Satya Nadella&$select=people,organizations,locations&$count=true`.
 
-Results are returned in JSON, which can be verbose and hard to read, especially in large documents originating from Azure blobs. If you can't scan results easily, use CTRL-F to search within documents. For this query, you could search within the JSON for specific terms. 
+Results are returned as verbose JSON, which can be hard to read, especially in large documents. Some tips for searching in this tool include the following techniques:
 
-CTRL-F can also help you determine how many documents are in a given result set. For Azure blobs, the portal chooses "metadata_storage_path" as the key because each value is unique to the document. Using CTRL-F, search for "metadata_storage_path" to get a count of documents. 
++ Append `$select` to limit the fields returned in results. 
++ Use CTRL-F to search within the JSON for specific properties or terms.
 
-  ![Search explorer example](./media/cognitive-search-quickstart-blob/search-explorer.png)
+Query strings are case-sensitive so if you get an "unknown field" message, check **Fields** or **Index Definition (JSON)** to verify name and case.
+
+  :::image type="content" source="media/cognitive-search-quickstart-blob/search-explorer.png" alt-text="Screenshot of the Search explorer page." border="true":::
 
 ## Takeaways
 
-You've now completed your first cognitive-enriched indexing exercise. The purpose of this quickstart was to introduce important concepts and walk you through the wizard so that you can quickly prototype a cognitive search solution using your own data.
+You've now created your first skillset and learned important concepts useful for prototyping an enriched search solution using your own data.
 
-Some key concepts that we hope you picked up include the dependency on Azure data sources. Cognitive search enrichment is bound to indexers, and indexers are Azure and source-specific. Although this quickstart uses Azure Blob storage, other Azure data sources are possible. For more information, see [Indexers in Azure Search](search-indexer-overview.md).
+Some key concepts that we hope you picked up include the dependency on Azure data sources. A skillset is bound to an indexer, and indexers are Azure and source-specific. Although this quickstart uses Azure Blob Storage, other Azure data sources are possible. For more information, see [Indexers in Azure Cognitive Search](search-indexer-overview.md). 
 
-Another important concept is that skills operate over input fields. In the portal, you have to choose a single source field for all the skills. In code, inputs can be other fields, or the output of an upstream skill.
+Another important concept is that skills operate over content types, and when working with heterogeneous content, some inputs are skipped. Also, large files or fields might exceed the indexer limits of your service tier. It's normal to see warnings when these events occur. 
 
- Inputs to a skill are mapped to an output field in an index. Internally, the portal sets up [annotations](cognitive-search-concept-annotations-syntax.md) and defines a [skillset](cognitive-search-defining-skillset.md), establishing the order of operations and general flow. These steps are hidden in the portal, but when you start writing code, these concepts become important.
+Output is directed to a search index, and there's a mapping between name-value pairs created during indexing and individual fields in your index. Internally, the portal sets up [annotations](cognitive-search-concept-annotations-syntax.md) and defines a [skillset](cognitive-search-defining-skillset.md), establishing the order of operations and general flow. These steps are hidden in the portal, but when you start writing code, these concepts become important.
 
-Finally, you learned that viewing results is achieved by querying the index. In the end, what Azure Search provides is a searchable index, which you can query using either the [simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) or [fully extended query syntax](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search). An index containing enriched fields is like any other. If you want to incorporate standard or [custom analyzers](search-analyzers.md), [scoring profiles](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [synonyms](search-synonyms.md), [faceted filters](search-filters-facets.md), geo-search, or any other Azure Search feature, you can certainly do so.
+Finally, you learned that can verify content by querying the index. In the end, what Azure Cognitive Search provides is a searchable index, which you can query using either the [simple](/rest/api/searchservice/simple-query-syntax-in-azure-search) or [fully extended query syntax](/rest/api/searchservice/lucene-query-syntax-in-azure-search). An index containing enriched fields is like any other. If you want to incorporate standard or [custom analyzers](search-analyzers.md), [scoring profiles](/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [synonyms](search-synonyms.md), [faceted navigation](search-faceted-navigation.md), geo-search, or any other Azure Cognitive Search feature, you can certainly do so.
 
 ## Clean up resources
 
-If your exploration is concluded, the fastest way to clean up is by deleting the resource group containing the Azure Search service and Azure Blob service.  
+When you're working in your own subscription, it's a good idea at the end of a project to identify whether you still need the resources you created. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
 
-Assuming you put both services in the same group, delete the resource group now to permanently delete everything in it, including the services and any stored content you created for this exercise. In the portal, the resource group name is on the Overview page of each service.
+You can find and manage resources in the portal, using the **All resources** or **Resource groups** link in the left-navigation pane.
+
+If you're using a free service, remember that you're limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit. 
 
 ## Next steps
 
-Depending on how you provisioned Cognitive Services resource, you can experiment with indexing and enrichment by rerunning the wizard with different skills and source data fields. To repeat the steps, delete the index and indexer, then recreate the indexer with a new mix of selections.
-
-+ In **Overview** > **Indexes**, select the index you created, and then click **Delete**.
-
-+ In **Overview**, double-click the **Indexers** tile. Find the indexer you created and delete it.
-
-Alternatively, reuse the sample data and services you created, and learn how to perform the same tasks programmatically in the next tutorial. 
+You can create skillsets using the portal, .NET SDK, or REST API. To further your knowledge, try the REST API using Postman and more sample data.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Learn the cognitive search REST APIs](cognitive-search-tutorial-blob.md)
+> [Tutorial: Extract text and structure from JSON blobs using REST APIs ](cognitive-search-tutorial-blob.md)

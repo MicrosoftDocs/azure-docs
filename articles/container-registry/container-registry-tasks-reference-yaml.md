@@ -1,13 +1,11 @@
 ---
-title: Azure Container Registry Tasks reference - YAML
+title: YAML reference - ACR Tasks
 description: Reference for defining tasks in YAML for ACR Tasks, including task properties, step types, step properties, and built-in variables.
-services: container-registry
-author: dlepow
-
-ms.service: container-registry
-ms.topic: article
-ms.date: 03/28/2019
-ms.author: danlep
+ms.topic: reference
+ms.custom: devx-track-azurecli
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ---
 
 # ACR Tasks reference: YAML
@@ -18,7 +16,7 @@ This article contains reference for creating multi-step task YAML files for ACR 
 
 ## acr-task.yaml file format
 
-ACR Tasks supports multi-step task declaration in standard YAML syntax. You define a task's steps in a YAML file. You can then run the task manually by passing the file to the [az acr run][az-acr-run] command. Or, use the file to create a task with [az acr task create][az-acr-task-create] that's triggered automatically on a Git commit or base image update. Although this article refers to `acr-task.yaml` as the file containing the steps, ACR Tasks supports any valid filename with a [supported extension](#supported-task-filename-extensions).
+ACR Tasks supports multi-step task declaration in standard YAML syntax. You define a task's steps in a YAML file. You can then run the task manually by passing the file to the [az acr run][az-acr-run] command. Or, use the file to create a task with [az acr task create][az-acr-task-create] that's triggered automatically on a Git commit, a base image update, or a schedule. Although this article refers to `acr-task.yaml` as the file containing the steps, ACR Tasks supports any valid filename with a [supported extension](#supported-task-filename-extensions).
 
 The top-level `acr-task.yaml` primitives are **task properties**, **step types**, and **step properties**:
 
@@ -63,12 +61,12 @@ There are several sample task files referenced in the following sections of this
 az acr run -f build-push-hello-world.yaml https://github.com/Azure-Samples/acr-tasks.git
 ```
 
-The formatting of the sample commands assumes you've configured a default registry in the Azure CLI, so they omit the `--registry` parameter. To configure a default registry, use the [az configure][az-configure] command with the `--defaults` parameter, which accepts an `acr=REGISTRY_NAME` value.
+The formatting of the sample commands assumes you've configured a default registry in the Azure CLI, so they omit the `--registry` parameter. To configure a default registry, use the [az config][az-config] command with the `set` command, which accepts an `defaults.acr=REGISTRY_NAME` key value pair.
 
 For example, to configure the Azure CLI with a default registry named "myregistry":
 
 ```azurecli
-az configure --defaults acr=myregistry
+az config set defaults.acr=myregistry
 ```
 
 ## Task properties
@@ -78,11 +76,12 @@ Task properties typically appear at the top of an `acr-task.yaml` file, and are 
 | Property | Type | Optional | Description | Override supported | Default value |
 | -------- | ---- | -------- | ----------- | ------------------ | ------------- |
 | `version` | string | Yes | The version of the `acr-task.yaml` file as parsed by the ACR Tasks service. While ACR Tasks strives to maintain backward compatibility, this value allows ACR Tasks to maintain compatibility within a defined version. If unspecified, defaults to the latest version. | No | None |
-| `stepTimeout` | int (seconds) | Yes | The maximum number of seconds a step can run. If the property is specified on a task, it sets the default `timeout` property of all the steps. If the `timeout` property is specified on a step, it overrides the property provided by the task. | Yes | 600 (10 minutes) |
-| `workingDirectory` | string | Yes | The working directory of the container during runtime. If the property is specified on a task, it sets the default `workingDirectory` property of all the steps. If specified on a step, it overrides the property provided by the task. | Yes | `$HOME` |
-| `env` | [string, string, ...] | Yes |  Array of strings in `key=value` format that define the environment variables for the task. If the property is specified on a task, it sets the default `env` property of all the steps. If specified on a step, it overrides any environment variables inherited from the task. | None |
-| `secrets` | [secret, secret, ...] | Yes | Array of [secret](#secret) objects. | None |
-| `networks` | [network, network, ...] | Yes | Array of [network](#network) objects. | None |
+| `stepTimeout` | int (seconds) | Yes | The maximum number of seconds a step can run. If the `stepTimeout` property is specified on a task, it sets the default `timeout` property of all the steps. If the `timeout` property is specified on a step, it overrides the `stepTimeout` property provided by the task.<br/><br/>The sum of the step timeout values for a task should equal the value of the task's run `timeout` property (for example, set by passing `--timeout` to the `az acr task create` command). If the tasks's run `timeout` value is smaller, it takes priority.  | Yes | 600 (10 minutes) |
+| `workingDirectory` | string | Yes | The working directory of the container during runtime. If the property is specified on a task, it sets the default `workingDirectory` property of all the steps. If specified on a step, it overrides the property provided by the task. | Yes | `c:\workspace` in Windows or `/workspace` in Linux |
+| `env` | [string, string, ...] | Yes |  Array of strings in `key=value` format that define the environment variables for the task. If the property is specified on a task, it sets the default `env` property of all the steps. If specified on a step, it overrides any environment variables inherited from the task. | Yes | None |
+| `secrets` | [secret, secret, ...] | Yes | Array of [secret](#secret) objects. | No | None |
+| `networks` | [network, network, ...] | Yes | Array of [network](#network) objects. | No | None |
+| `volumes` | [volume, volume, ...] | Yes | Array of [volume](#volume) objects. Specifies volumes with source content to mount to a step. | No | None |
 
 ### secret
 
@@ -92,7 +91,7 @@ The secret object has the following properties.
 | -------- | ---- | -------- | ----------- | ------- |
 | `id` | string | No | The identifier of the secret. | None |
 | `keyvault` | string | Yes | The Azure Key Vault Secret URL. | None |
-| `clientID` | string | Yes | The client ID of the user-assigned managed identity for Azure resources. | None |
+| `clientID` | string | Yes | The client ID of the [user-assigned managed identity](container-registry-tasks-authentication-managed-identity.md) for Azure resources. | None |
 
 ### network
 
@@ -104,7 +103,16 @@ The network object has the following properties.
 | `driver` | string | Yes | The driver to manage the network. | None |
 | `ipv6` | bool | Yes | Whether IPv6 networking is enabled. | `false` |
 | `skipCreation` | bool | Yes | Whether to skip network creation. | `false` |
-| `isDefault` | bool | Yes | Whether the network is a default network provided with Azure Container Registry | `false` |
+| `isDefault` | bool | Yes | Whether the network is a default network provided with Azure Container Registry. | `false` |
+
+### volume
+
+The volume object has the following properties.
+
+| Property | Type | Optional | Description | Default value |
+| -------- | ---- | -------- | ----------- | ------- | 
+| `name` | string | No | The name of the volume to mount. Can contain only alphanumeric characters, '-', and '_'. | None |
+| `secret` | map[string]string | No	| Each key of the map is the name of a file created and populated in the volume. Each value is the string version of the secret. Secret values must be Base64 encoded. | None |
 
 ## Task step types
 
@@ -123,13 +131,22 @@ Build a container image. The `build` step type represents a multi-tenant, secure
 ### Syntax: build
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
   - [build]: -t [imageName]:[tag] -f [Dockerfile] [context]
     [property]: [value]
 ```
 
+Run the [az acr run][az-acr-run]command to get the docker version.
+
+```azurecli
+az acr run -r $ACR_NAME --cmd "docker version" /dev/null
+```
+
+Add environment variable `DOCKER_BUILDKIT=1` in yaml file to enable `buildkit` and use `secret` with `buildkit`.
+
 The `build` step type supports the parameters in the following table. The `build` step type also supports all build options of the [docker build](https://docs.docker.com/engine/reference/commandline/build/) command, such as `--build-arg` to set build-time variables.
+
 
 | Parameter | Description | Optional |
 | --------- | ----------- | :-------: |
@@ -141,7 +158,7 @@ The `build` step type supports the parameters in the following table. The `build
 
 The `build` step type supports the following properties. Find details of these properties in the [Task step properties](#task-step-properties) section of this article.
 
-| | | |
+| Properties | Type | Required |
 | -------- | ---- | -------- |
 | `detach` | bool | Optional |
 | `disableWorkingDirectoryOverride` | bool | Optional |
@@ -161,6 +178,7 @@ The `build` step type supports the following properties. Find details of these p
 | `secret` | object | Optional |
 | `startDelay` | int (seconds) | Optional |
 | `timeout` | int (seconds) | Optional |
+| `volumeMount` | object | Optional |
 | `when` | [string, string, ...] | Optional |
 | `workingDirectory` | string | Optional |
 
@@ -178,9 +196,9 @@ az acr run -f build-hello-world.yaml https://github.com/AzureCR/acr-tasks-sample
 #### Build image - context in subdirectory
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
-  - build: -t {{.Run.Registry}}/hello-world -f hello-world.dockerfile ./subDirectory
+  - build: -t $Registry/hello-world -f hello-world.dockerfile ./subDirectory
 ```
 
 ## push
@@ -192,28 +210,28 @@ Push one or more built or retagged images to a container registry. Supports push
 The `push` step type supports a collection of images. YAML collection syntax supports inline and nested formats. Pushing a single image is typically represented using inline syntax:
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
   # Inline YAML collection syntax
-  - push: ["{{.Run.Registry}}/hello-world:{{.Run.ID}}"]
+  - push: ["$Registry/hello-world:$ID"]
 ```
 
 For increased readability, use nested syntax when pushing multiple images:
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
   # Nested YAML collection syntax
   - push:
-    - {{.Run.Registry}}/hello-world:{{.Run.ID}}
-    - {{.Run.Registry}}/hello-world:latest
+    - $Registry/hello-world:$ID
+    - $Registry/hello-world:latest
 ```
 
 ### Properties: push
 
 The `push` step type supports the following properties. Find details of these properties in the [Task step properties](#task-step-properties) section of this article.
 
-| | | |
+| Property | Type | Required |
 | -------- | ---- | -------- |
 | `env` | [string, string, ...] | Optional |
 | `id` | string | Optional |
@@ -249,7 +267,7 @@ The `cmd` step type runs a container.
 ### Syntax: cmd
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
   - [cmd]: [containerImage]:[tag (optional)] [cmdParameters to the image]
 ```
@@ -258,7 +276,7 @@ steps:
 
 The `cmd` step type supports the following properties:
 
-| | | |
+| Property | Type | Required |
 | -------- | ---- | -------- |
 | `detach` | bool | Optional |
 | `disableWorkingDirectoryOverride` | bool | Optional |
@@ -278,6 +296,7 @@ The `cmd` step type supports the following properties:
 | `secret` | object | Optional |
 | `startDelay` | int (seconds) | Optional |
 | `timeout` | int (seconds) | Optional |
+| `volumeMount` | object | Optional |
 | `when` | [string, string, ...] | Optional |
 | `workingDirectory` | string | Optional |
 
@@ -325,34 +344,45 @@ az acr run -f bash-echo-3.yaml https://github.com/Azure-Samples/acr-tasks.git
 The `cmd` step type references images using the standard `docker run` format. Images not prefaced with a registry are assumed to originate from docker.io. The previous example could equally be represented as:
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
   - cmd: docker.io/bash:3.0 echo hello world
 ```
 
 By using the standard `docker run` image reference convention, `cmd` can run images from any private registry or the public Docker Hub. If you're referencing images in the same registry in which ACR Task is executing, you don't need to specify any registry credentials.
 
-* Run an image that's from an Azure container registry
-
-    Replace `[myregistry]` with the name of your registry:
+* Run an image that's from an Azure container registry. The following example assumes you have a registry named `myregistry`, and a custom image `myimage:mytag`.
 
     ```yml
-    version: v1.0.0
+    version: v1.1.0
     steps:
-        - cmd: [myregistry].azurecr.io/bash:3.0 echo hello world
+        - cmd: myregistry.azurecr.io/myimage:mytag
     ```
 
-* Generalize the registry reference with a Run variable
+* Generalize the registry reference with a Run variable or alias
 
-    Instead of hard-coding your registry name in an `acr-task.yaml` file, you can make it more portable by using a [Run variable](#run-variables). The `Run.Registry` variable expands at runtime to the name of the registry in which the task is executing.
+    Instead of hard-coding your registry name in an `acr-task.yaml` file, you can make it more portable by using a [Run variable](#run-variables) or [alias](#aliases). The `Run.Registry` variable or `$Registry` alias expands at runtime to the name of the registry in which the task is executing.
 
-    To generalize the preceding task so that it works in any Azure container registry, reference the [Run.Registry](#runregistry) variable in the image name:
+    For example, to generalize the preceding task so that it works in any Azure container registry, reference the $Registry variable in the image name:
 
     ```yml
-    version: v1.0.0
+    version: v1.1.0
     steps:
-      - cmd: {{.Run.Registry}}/bash:3.0 echo hello world
+      - cmd: $Registry/myimage:mytag
     ```
+
+#### Access secret volumes
+
+The `volumes` property allows volumes and their secret contents to be specified for `build` and `cmd` steps in a task. Inside each step, an optional `volumeMounts` property lists the volumes and corresponding container paths to mount into the container at that step. Secrets are provided as files at each volume's mount path.
+
+Execute a task and mount two secrets to a step: one stored in a key vault and one specified on the command line:
+
+```azurecli
+az acr run -f mounts-secrets.yaml --set-secret mysecret=abcdefg123456 https://github.com/Azure-Samples/acr-tasks.git
+```
+
+<!-- SOURCE: https://github.com/Azure-Samples/acr-tasks/blob/master/mounts-secrets.yaml -->
+[!code-yml[task](~/acr-tasks/mounts-secrets.yaml)]
 
 ## Task step properties
 
@@ -376,12 +406,21 @@ Each step type supports several properties appropriate for its type. The followi
 | `repeat` | int | Yes | The number of retries to repeat the execution of a container. | 0 |
 | `retries` | int | Yes | The number of retries to attempt if a container fails its execution. A retry is only attempted if a container's exit code is non-zero. | 0 |
 | `retryDelay` | int (seconds) | Yes | The delay in seconds between retries of a container's execution. | 0 |
-| `secret` | object | Yes | Identifies an Azure Key Vault secret or managed identity for Azure resources. | None |
+| `secret` | object | Yes | Identifies an Azure Key Vault secret or [managed identity for Azure resources](container-registry-tasks-authentication-managed-identity.md). | None |
 | `startDelay` | int (seconds) | Yes | Number of seconds to delay a container's execution. | 0 |
 | `timeout` | int (seconds) | Yes | Maximum number of seconds a step may execute before being terminated. | 600 |
 | [`when`](#example-when) | [string, string, ...] | Yes | Configures a step's dependency on one or more other steps within the task. | None |
 | `user` | string | Yes | The user name or UID of a container | None |
-| `workingDirectory` | string | Yes | Sets the working directory for a step. By default, ACR Tasks creates a root directory as the working directory. However, if your build has several steps, earlier steps can share artifacts with later steps by specifying the same working directory. | `$HOME` |
+| `workingDirectory` | string | Yes | Sets the working directory for a step. By default, ACR Tasks creates a root directory as the working directory. However, if your build has several steps, earlier steps can share artifacts with later steps by specifying the same working directory. | `c:\workspace` in Windows or `/workspace` in Linux |
+
+### volumeMount
+
+The volumeMount object has the following properties.
+
+| Property | Type | Optional | Description | Default value |
+| -------- | ---- | -------- | ----------- | ------- | 
+| `name` | string | No | The name of the volume to mount. Must exactly match the name from a `volumes` property. | None |
+| `mountPath`	| string | no | The absolute path to mount files in the container.	| None |
 
 ### Examples: Task step properties
 
@@ -446,31 +485,54 @@ az acr run -f when-parallel-dependent.yaml https://github.com/Azure-Samples/acr-
 ACR Tasks includes a default set of variables that are available to task steps when they execute. These variables can be accessed by using the format `{{.Run.VariableName}}`, where `VariableName` is one of the following:
 
 * `Run.ID`
+* `Run.SharedVolume`
 * `Run.Registry`
+* `Run.RegistryName`
 * `Run.Date`
+* `Run.OS`
+* `Run.Architecture`
 * `Run.Commit`
 * `Run.Branch`
+* `Run.TaskName`
+
+The variable names are generally self-explanatory. Details follow for commonly used variables. As of YAML version `v1.1.0`, you can use an abbreviated, predefined [task alias](#aliases) in place of most run variables. For example, in place of `{{.Run.Registry}}`, use the `$Registry` alias.
 
 ### Run.ID
 
-Each Run, through `az acr run`, or trigger based execution of tasks created through `az acr task create` have a unique ID. The ID represents the Run currently being executed.
+Each Run, through `az acr run`, or trigger based execution of tasks created through `az acr task create`, has a unique ID. The ID represents the Run currently being executed.
 
 Typically used for a uniquely tagging an image:
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
-    - build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} .
+    - build: -t $Registry/hello-world:$ID .
 ```
+
+### Run.SharedVolume
+
+The unique identifier for a shared volume that is accessible by all task steps. The volume is mounted to `c:\workspace` in Windows or `/workspace` in Linux. 
 
 ### Run.Registry
 
 The fully qualified server name of the registry. Typically used to generically reference the registry where the task is being run.
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
-  - build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} .
+  - build: -t $Registry/hello-world:$ID .
+```
+
+### Run.RegistryName
+
+The name of the container registry. Typically used in task steps that don't require a fully qualified server name, for example, `cmd` steps that run Azure CLI commands on registries.
+
+```yml
+version 1.1.0
+steps:
+# List repositories in registry
+- cmd: az login --identity
+- cmd: az acr repository list --name $RegistryName
 ```
 
 ### Run.Date
@@ -485,11 +547,88 @@ For a task triggered by a commit to a GitHub repository, the commit identifier.
 
 For a task triggered by a commit to a GitHub repository, the branch name.
 
+## Aliases
+
+As of `v1.1.0`, ACR Tasks supports aliases that are available to task steps when they execute. Aliases are similar in concept to aliases (command shortcuts) supported in bash and some other command shells. 
+
+With an alias, you can launch any command or group of commands (including options and filenames) by entering a single word.
+
+ACR Tasks supports several predefined aliases and also custom aliases you create.
+
+### Predefined aliases
+
+The following task aliases are available to use in place of [run variables](#run-variables):
+
+| Alias | Run variable |
+| ----- | ------------ |
+| `ID` | `Run.ID` |
+| `SharedVolume` | `Run.SharedVolume` |
+| `Registry` | `Run.Registry` |
+| `RegistryName` | `Run.RegistryName` |
+| `Date` | `Run.Date` |
+| `OS` | `Run.OS` |
+| `Architecture` | `Run.Architecture` |
+| `Commit` | `Run.Commit` |
+| `Branch` | `Run.Branch` |
+
+In task steps, precede an alias with the `$` directive, as in this example:
+
+```yml
+version: v1.1.0
+steps:
+  - build: -t $Registry/hello-world:$ID -f hello-world.dockerfile .
+```
+
+### Image aliases
+
+Each of the following aliases points to a stable image in Microsoft Container Registry (MCR). You can refer to each of them in the `cmd` section of a Task file without using a directive.
+
+| Alias | Image |
+| ----- | ----- |
+| `acr` | `mcr.microsoft.com/acr/acr-cli:0.5` |
+| `az` | `mcr.microsoft.com/acr/azure-cli:7ee1d7f` |
+| `bash` | `mcr.microsoft.com/acr/bash:7ee1d7f` |
+| `curl` | `mcr.microsoft.com/acr/curl:7ee1d7f` |
+
+The following example task uses several aliases to [purge](container-registry-auto-purge.md) image tags older than 7 days in the repo `samples/hello-world` in the run registry:
+
+```yml
+version: v1.1.0
+steps:
+  - cmd: acr tag list --registry $RegistryName --repository samples/hello-world
+  - cmd: acr purge --registry $RegistryName --filter samples/hello-world:.* --ago 7d
+```
+
+### Custom alias
+
+Define a custom alias in your YAML file and use it as shown in the following example. An alias can contain only alphanumeric characters. The default directive to expand an alias is the `$` character.
+
+```yml
+version: v1.1.0
+alias:
+  values:
+    repo: myrepo
+steps:
+  - build: -t $Registry/$repo/hello-world:$ID -f Dockerfile .
+```
+
+You can link to a remote or local YAML file for custom alias definitions. The following example links to a YAML file in Azure blob storage:
+
+```yml
+version: v1.1.0
+alias:
+  src:  # link to local or remote custom alias files
+    - 'https://link/to/blob/remoteAliases.yml?readSasToken'
+[...]
+```
+
 ## Next steps
 
 For an overview of multi-step tasks, see the [Run multi-step build, test, and patch tasks in ACR Tasks](container-registry-tasks-multi-step.md).
 
 For single-step builds, see the [ACR Tasks overview](container-registry-tasks-overview.md).
+
+
 
 <!-- IMAGES -->
 
@@ -497,6 +636,6 @@ For single-step builds, see the [ACR Tasks overview](container-registry-tasks-ov
 [acr-tasks]: https://github.com/Azure-Samples/acr-tasks
 
 <!-- LINKS - Internal -->
-[az-acr-run]: /cli/azure/acr#az-acr-run
-[az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
-[az-configure]: /cli/azure/reference-index#az-configure
+[az-acr-run]: /cli/azure/acr#az_acr_run
+[az-acr-task-create]: /cli/azure/acr/task#az_acr_task_create
+[az-config]: /cli/azure/reference-index#az_config

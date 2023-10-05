@@ -1,0 +1,52 @@
+### YamlMime:Landing
+
+title: Network Function Manager documentation # < 60 chars
+summary: Azure Network Function Manager offers an Azure Marketplace experience for deploying network functions to your Azure Stack Edge device. # < 160 chars
+
+metadata:
+  title: Network Function Manager documentation
+  description: Learn about Network Function Manager.
+  ms.service: network-function-manager
+  ms.topic: landing-page
+  author: prmitt
+  ms.author: prmitt
+  ms.date: 06/09/2021
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Network Function Manager
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Network Function Manager?
+            url: overview.md
+      - linkListType: concept
+        links:
+          - text: Network Function Manager FAQ
+            url: faq.md
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a device resource
+            url: create-device.md
+      - linkListType: tutorial
+        links:
+          - text: Deploy network functions
+            url: deploy-functions.md
+ # Card
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: REST
+            url: /rest/api/hybridnetwork
+          - text: Python SDK
+            url: https://pypi.org/project/azure-mgmt-hybridnetwork/1.0.0/
+          - text: Java SDK
+            url: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/hybridnetwork/azure-resourcemanager-hybridnetwork

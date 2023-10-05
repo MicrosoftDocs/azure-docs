@@ -1,19 +1,19 @@
 ---
-title: 'Set up the source environment for VMware to Azure replication with Azure Site Recovery | Microsoft Docs'
+title: Set up source settings for VMware disaster recovery to Azure with Azure Site Recovery
 description: This article describes how to set up your on-premises environment to replicate VMware VMs to Azure with Azure Site Recovery.
 services: site-recovery
-author: Rajeswari-Mamilla
-manager: rochakm
+author: ankitaduttaMSFT
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/14/2019
-ms.author: ramamill
+ms.author: ankitadutta
+ms.date: 05/27/2021
 
 ---
 
 # Set up the source environment for VMware to Azure replication
 
-This article describes how to set up your source on-premises environment, to replicate VMware VMs to Azure. It includes steps for selecting your replication scenario, setting up an on-premises machine as the Site Recovery configuration server, and automatically discovering on-premises VMs. 
+This article describes how to set up your source on-premises environment, to replicate VMware VMs to Azure. The article includes steps for selecting your replication scenario, setting up an on-premises machine as the Site Recovery configuration server, and automatically discovering on-premises VMs.
 
 ## Prerequisites
 
@@ -33,10 +33,10 @@ The article assumes that you have already:
 
 ## Set up the configuration server
 
-You can set up the configuration server as an on-premises VMware VM through an Open Virtualization Application (OVA) template. [Learn more](concepts-vmware-to-azure-architecture.md) about the components that will be installed on the VMware VM.
+You can set up the configuration server as an on-premises VMware VM through an Open Virtualization Application (OVA) template. [Learn more](./vmware-azure-architecture.md) about the components that will be installed on the VMware VM.
 
 1. Learn about the [prerequisites](vmware-azure-deploy-configuration-server.md#prerequisites) for configuration server deployment.
-2. [Check capacity numbers](vmware-azure-deploy-configuration-server.md#capacity-planning) for deployment.
+2. [Check capacity numbers](vmware-azure-deploy-configuration-server.md#sizing-and-capacity-requirements) for deployment.
 3. [Download](vmware-azure-deploy-configuration-server.md#download-the-template) and [import](vmware-azure-deploy-configuration-server.md#import-the-template-in-vmware) the OVA template to set up an on-premises VMware VM that runs the configuration server. The license provided with the template is an evaluation license and is valid for 180 days. Post this period, customer needs to activate the windows with a procured license.
 4. Turn on the VMware VM, and [register it](vmware-azure-deploy-configuration-server.md#register-the-configuration-server-with-azure-site-recovery-services) in the Recovery Services vault.
 
@@ -65,7 +65,7 @@ Exclude following folders from Antivirus software for smooth replication and to 
   - C:\ProgramData\ASRSetupLogs
   - C:\ProgramData\LogUploadServiceLogs
   - C:\inetpub
-  - ASR server installation directory. For example: E:\Program Files (x86)\Microsoft Azure Site Recovery
+  - Site Recovery server installation directory. For example: E:\Program Files (x86)\Microsoft Azure Site Recovery
 
 ### If Antivirus Software is active on scale-out Process server/Master Target
 
@@ -77,7 +77,19 @@ Exclude following folders from Antivirus software
 4. C:\ProgramData\ASRSetupLogs
 5. C:\ProgramData\LogUploadServiceLogs
 6. C:\ProgramData\Microsoft Azure Site Recovery
-7. ASR load balanced process server installation directory, Example: C:\Program Files (x86)\Microsoft Azure Site Recovery
+7. Azure Site Recovery load balanced process server installation directory, Example: C:\Program Files (x86)\Microsoft Azure Site Recovery
+
+### If Antivirus Software is active on the Linux Master Target
+
+Exclude following folders from Antivirus software
+
+1.	/usr/local/ASR
+2.	/usr/local/InMage
+3.	/var/log/vxlogs
+4.	/var/log
+5.	/var/log/ApplicationPolicyLogs
+6.	/var/log/ASRsetuptelemetry
+7.	/var/log/ASRsetuptelemetry_uploaded
 
 
 ## Next steps

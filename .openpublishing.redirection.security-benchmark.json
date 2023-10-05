@@ -1,0 +1,549 @@
+{
+  "redirections": [
+    {
+        "source_path_from_root": "/articles/security/benchmarks/index.yml",
+        "redirect_url": "/security/benchmark/azure",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/benchmarks/introduction.md",
+        "redirect_url": "/security/benchmark/azure/introduction",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/benchmarks/overview-v1.md",
+        "redirect_url": "/security/benchmark/azure/overview-v1",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/benchmarks/overview.md",
+        "redirect_url": "/security/benchmark/azure/overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/benchmarks/security-baselines-overview.md",
+        "redirect_url": "/security/benchmark/azure/security-baselines-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/benchmarks/security-control-data-protection.md",
+        "redirect_url": "/security/benchmark/azure/security-control-data-protection",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/benchmarks/security-control-data-recovery.md",
+        "redirect_url": "/security/benchmark/azure/security-control-data-recovery",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/benchmarks/security-control-identity-access-control.md",
+        "redirect_url": "/security/benchmark/azure/security-control-identity-access-control",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/benchmarks/security-control-incident-response.md",
+        "redirect_url": "/security/benchmark/azure/security-control-incident-response",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/benchmarks/security-control-inventory-asset-management.md",
+        "redirect_url": "/security/benchmark/azure/security-control-inventory-asset-management",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/benchmarks/security-control-logging-monitoring.md",
+        "redirect_url": "/security/benchmark/azure/security-control-logging-monitoring",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/benchmarks/security-control-malware-defense.md",
+        "redirect_url": "/security/benchmark/azure/security-control-malware-defense",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/benchmarks/security-control-network-security.md",
+        "redirect_url": "/security/benchmark/azure/security-control-network-security",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/benchmarks/security-control-penetration-tests-red-team-exercises.md",
+        "redirect_url": "/security/benchmark/azure/security-control-penetration-tests-red-team-exercises",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/benchmarks/security-control-secure-configuration.md",
+        "redirect_url": "/security/benchmark/azure/security-control-secure-configuration",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/benchmarks/security-control-vulnerability-management.md",
+        "redirect_url": "/security/benchmark/azure/security-control-vulnerability-management",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/benchmarks/security-controls-v2-asset-management.md",
+        "redirect_url": "/security/benchmark/azure/security-controls-v2-asset-management",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/benchmarks/security-controls-v2-backup-recovery.md",
+        "redirect_url": "/security/benchmark/azure/security-controls-v2-backup-recovery",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/benchmarks/security-controls-v2-data-protection.md",
+        "redirect_url": "/security/benchmark/azure/security-controls-v2-data-protection",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/benchmarks/security-controls-v2-endpoint-security.md",
+        "redirect_url": "/security/benchmark/azure/security-controls-v2-endpoint-security",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/benchmarks/security-controls-v2-governance-strategy.md",
+        "redirect_url": "/security/benchmark/azure/security-controls-v2-governance-strategy",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/benchmarks/security-controls-v2-identity-management.md",
+        "redirect_url": "/security/benchmark/azure/security-controls-v2-identity-management",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/benchmarks/security-controls-v2-incident-response.md",
+        "redirect_url": "/security/benchmark/azure/security-controls-v2-incident-response",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/benchmarks/security-controls-v2-logging-threat-detection.md",
+        "redirect_url": "/security/benchmark/azure/security-controls-v2-logging-threat-detection",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/benchmarks/security-controls-v2-network-security.md",
+        "redirect_url": "/security/benchmark/azure/security-controls-v2-network-security",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/benchmarks/security-controls-v2-posture-vulnerability-management.md",
+        "redirect_url": "/security/benchmark/azure/security-controls-v2-posture-vulnerability-management",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/benchmarks/security-controls-v2-privileged-access.md",
+        "redirect_url": "/security/benchmark/azure/security-controls-v2-privileged-access",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/benchmarks/v2-cis-benchmark.md",
+        "redirect_url": "/security/benchmark/azure/v2-cis-benchmark",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/key-vault/general/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/key-vault-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/api-management-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/app-service/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/app-service-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/application-gateway/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/application-gateway-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/automation/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/automation-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/active-directory/fundamentals/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/aad-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/advisor/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/advisor-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/azure-app-configuration/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/app-config-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/backup/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/backup-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/bastion/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/bastion-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/azure-cache-for-redis/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/azure-cache-for-redis-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/search/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/cognitive-search-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/cosmos-db/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/cosmos-db-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/databox/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/databox-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/data-factory/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/data-factory-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/data-share/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/data-share-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/mysql-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mariadb/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/mariadb-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/dms/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/database-migration-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/postgresql-hyperscale-security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/postgresql-hyperscale-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/postgresql-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/fundamentals/ddos-protection-security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/ddos-protection-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/defender-for-iot/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/defender-for-iot-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/devtest-labs/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/devtest-labs-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/dns/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/dns-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/firewall/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/firewall-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/firewall-manager/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/firewall-manager-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/frontdoor/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/front-door-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/azure-functions/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/functions-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hpc-cache/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/hpc-cache-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/aks/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/aks-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/lighthouse/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/lighthouse-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/load-balancer/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/load-balancer-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/machine-learning-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/azure-resource-manager/managed-applications/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/managed-applications-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/azure-monitor/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/monitor-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/migrate/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/migrate-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/governance/policy/concepts/azure-security-benchmark-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/policy-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/private-link/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/private-link-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/virtual-network/public-ip-security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/public-ip-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/governance/resource-graph/concepts/azure-security-benchmark-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/resource-graph-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/azure-resource-manager/management/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/resource-manager-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/sentinel/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/sentinel-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/azure-signalr/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/signalr-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/azure-sql/database/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/sql-database-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/databox-online/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/stack-edge-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/storage/common/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/storage-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/web-application-firewall/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/web-application-firewall-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/batch/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/batch-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/cognitive-services/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/cognitive-services-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/container-instances/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/container-instances-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/container-registry/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/container-registry-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/cdn/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/content-delivery-network-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/cost-management-billing/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/cost-management-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security/fundamentals/customer-lockbox-security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/lockbox-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/data-lake-analytics/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/data-lake-analytics-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/event-grid/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/event-grid-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/event-hubs/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/event-hubs-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/expressroute/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/expressroute-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/hdinsight-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/iot-hub/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/iot-hub-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/logic-apps/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/logic-apps-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/network-watcher/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/network-watcher-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/security-center/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/security-center-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/service-bus-messaging/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/service-bus-messaging-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/service-fabric/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/service-fabric-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/site-recovery/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/site-recovery-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/stream-analytics/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/stream-analytics-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/synapse-analytics/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/synapse-analytics-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/traffic-manager/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/traffic-manager-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/virtual-machine-scale-sets/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/virtual-machine-scale-sets-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/virtual-machines/linux/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/virtual-machines-linux-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/virtual-machines/windows/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/virtual-machines-windows-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/virtual-network/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/virtual-network-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/virtual-network/nat-gateway/nat-security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/virtual-network-nat-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/virtual-network/nat-security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/virtual-network-nat-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/virtual-wan/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/virtual-wan-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/virtual-desktop/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/virtual-desktop-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/cloud-services/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/cloud-services-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/vpn-gateway/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/vpn-gateway-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/peering-service/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/peering-service-desktop-security-baseline",
+        "redirect_document_id": false
+    },
+  ]
+}

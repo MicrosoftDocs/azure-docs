@@ -1,20 +1,11 @@
 ---
-title: 'Troubleshoot VPN Gateway configurations and connections | Microsoft Docs'
+title: 'Troubleshoot configurations and connections'
+titleSuffix: Azure VPN Gateway
 description: This article helps link you to articles to troubleshoot your VPN Gateway configuration, connection, and to validate throughput.
-services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager,azure-service-management
-
-ms.assetid: 
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 01/31/2018
+ms.topic: troubleshooting
+ms.date: 04/28/2021
 ms.author: cherylmc
 
 ---
@@ -31,6 +22,8 @@ VPN Gateway connections can fail for a variety of reasons. This article contains
 * [Point-to-Site connections](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)<br>This article lists common point-to-site connection problems that you might experience. It also discusses possible causes and solutions for these problems.
 
 * [Site-to-Site connections](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md)<br>After you configure a site-to-site VPN connection between an on-premises network and an Azure virtual network, the VPN connection suddenly stops working and cannot be reconnected. This article provides troubleshooting steps to help you resolve this problem.
+
+* [Troubleshoot Azure VPN Gateway using diagnostic logs](troubleshoot-vpn-with-azure-diagnostics.md)<br>Using diagnostic logs, you can troubleshoot multiple VPN gateway related events including configuration activity, VPN Tunnel connectivity, IPsec logging, BGP route exchanges, Point to Site advanced logging. 
 
 ## Next steps
 

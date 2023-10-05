@@ -1,72 +1,66 @@
 ---
-title: Configure health notifications for existing problem management systems using a webhook | Microsoft Docs
-description: Get personalized notifications about service health events to your existing problem management system.
-author: stephbaron
-ms.author: stbaron
+title: Send Azure Service Health notifications via webhooks
+description: Send personalized notifications about service health events to your existing problem management system.
 ms.topic: conceptual
 ms.service: service-health
-ms.workload: Supportability
-
 ms.date: 3/27/2018
 
 ---
 
-# Configure health notifications for existing problem management systems using a webhook
+# Use a webhook to configure health notifications for problem management systems
 
-This article shows you how to configure your service health alerts to send data through Webhooks to your existing notification system.
+This article shows you how to configure Azure Service Health alerts to send data through webhooks to your existing notification system.
 
-Today, you can configure service health alerts so that when an Azure Service Incident affects you, you get notified via text message or e-mail.
-However, you might already have existing external notification system in place that you would like to use.
-This document shows you the most important parts of the webhook payload, and how you can create custom alerts to get notified when service issues affect you.
+You can configure Service Health alerts to notify you by text message or email when an Azure service incident affects you.
 
-If you want to use a preconfigured integration, see how to:
+But you might already have an existing external notification system in place that you prefer to use. This article identifies the most important parts of the webhook payload. And it describes how to create custom alerts to notify you when relevant service issues occur.
+
+If you want to use a preconfigured integration, see:
 * [Configure alerts with ServiceNow](service-health-alert-webhook-servicenow.md)
 * [Configure alerts with PagerDuty](service-health-alert-webhook-pagerduty.md)
 * [Configure alerts with OpsGenie](service-health-alert-webhook-opsgenie.md)
 
-### Watch an introductory video
+**Watch an introductory video:**
 
 >[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUV]
 
-## Configuring a custom notification using the service health webhook payload
-If you want to set up your own custom webhook integration, you need to parse the JSON payload that is sent during service health notifications.
+## Configure a custom notification by using the Service Health webhook payload
+To set up your own custom webhook integration, you need to parse the JSON payload that's sent via Service Health notification.
 
-Look [here to see an example](../azure-monitor/platform/activity-log-alerts-webhook.md) of what the `ServiceHealth` webhook payload looks like.
+See [an example](../azure-monitor/alerts/activity-log-alerts-webhook.md) `ServiceHealth` webhook payload.
 
-You can detect this is a service health alert by looking at `context.eventSource == "ServiceHealth"`. From there, the properties that are most relevant to ingest are:
- * `data.context.activityLog.status`
- * `data.context.activityLog.level`
- * `data.context.activityLog.subscriptionId`
- * `data.context.activityLog.properties.title`
- * `data.context.activityLog.properties.impactStartTime`
- * `data.context.activityLog.properties.communication`
- * `data.context.activityLog.properties.impactedServices`
- * `data.context.activityLog.properties.trackingId`
+You can confirm that it's a service health alert by looking at `context.eventSource == "ServiceHealth"`. The following properties are the most relevant:
+- **data.context.activityLog.status**
+- **data.context.activityLog.level**
+- **data.context.activityLog.subscriptionId**
+- **data.context.activityLog.properties.title**
+- **data.context.activityLog.properties.impactStartTime**
+- **data.context.activityLog.properties.communication**
+- **data.context.activityLog.properties.impactedServices**
+- **data.context.activityLog.properties.trackingId**
 
-## Creating a direct link to the Service Health dashboard for an incident
-You can create a direct link to your Service Health dashboard on desktop or mobile by generating a specialized URL. Use the `trackingId`, as well as the first and last three digits of your `subscriptionId`, to form:
-```
-https://app.azure.com/h/<trackingId>/<first and last three digits of subscriptionId>
-```
+## Create a link to the Service Health dashboard for an incident
+You can create a direct link to your Service Health dashboard on a desktop or mobile device by generating a specialized URL. Use the *trackingId* and the first three and last three digits of your *subscriptionId* in this format:
 
-For example, if your `subscriptionId` is `bba14129-e895-429b-8809-278e836ecdb3` and your `trackingId` is `0DET-URB`, then your Service Health URL is:
+https<i></i>://app.azure.com/h/*&lt;trackingId&gt;*/*&lt;first three and last three digits of subscriptionId&gt;*
 
-```
-https://app.azure.com/h/0DET-URB/bbadb3
-```
+For example, if your *subscriptionId* is bba14129-e895-429b-8809-278e836ecdb3 and your *trackingId* is 0DET-URB, your Service Health URL is:
 
-## Using the level to detect the severity of the issue
-From lowest severity to highest severity, the `level` property in the payload can be any of `Informational`, `Warning`, `Error`, and `Critical`.
+https<i></i>://app.azure.com/h/0DET-URB/bbadb3
 
-## Parsing the impacted services to understand the full scope of the incident
-Service health alerts can inform you about issues across multiple Regions and services. To get the full details, you need to parse the value of `impactedServices`.
-The content inside is a [JSON escaped](https://json.org/) string, when unescaped, contains another JSON object that can be parsed regularly.
+## Use the level to detect the severity of the issue
+From lowest to highest severity, the **level** property in the payload can be *Informational*, *Warning*, *Error*, or *Critical*.
+
+## Parse the impacted services to determine the incident scope
+Service Health alerts can inform you about issues across multiple regions and services. To get  complete details, you need to parse the value of `impactedServices`.
+
+The content that's inside is an escaped [JSON](https://json.org/) string that, when unescaped, contains another JSON object that can be parsed regularly. For example:
 
 ```json
 {"data.context.activityLog.properties.impactedServices": "[{\"ImpactedRegions\":[{\"RegionName\":\"Australia East\"},{\"RegionName\":\"Australia Southeast\"}],\"ServiceName\":\"Alerts & Metrics\"},{\"ImpactedRegions\":[{\"RegionName\":\"Australia Southeast\"}],\"ServiceName\":\"App Service\"}]"}
 ```
 
-Becomes:
+becomes:
 
 ```json
 [
@@ -92,13 +86,17 @@ Becomes:
 ]
 ```
 
-This shows that there are problems with "Alerts & Metrics" in both Australia East and Southeast, as well as problems with "App Service" in Australia Southeast.
+This example shows problems for:
+- "Alerts & Metrics" in Australia East and Australia Southeast.
+- "App Service" in Australia Southeast.
 
+## Test your webhook integration via an HTTP POST request
 
-## Testing your webhook integration via an HTTP POST request
-1. Create the service health payload you want to send. You can find an example service health webhook payload at [Webhooks for Azure activity log alerts](../azure-monitor/platform/activity-log-alerts-webhook.md).
+Follow these steps:
 
-2. Create an HTTP POST request as follows:
+1. Create the service health payload that you want to send. See an example service health webhook payload at [Webhooks for Azure activity log alerts](../azure-monitor/alerts/activity-log-alerts-webhook.md).
+
+1. Create an HTTP POST request as follows:
 
     ```
     POST        https://your.webhook.endpoint
@@ -107,11 +105,11 @@ This shows that there are problems with "Alerts & Metrics" in both Australia Eas
 
     BODY        <service health payload>
     ```
-3. You should receive a `2XX - Successful` response.
+   You should receive a "2XX - Successful" response.
 
-4. Go to [PagerDuty](https://www.pagerduty.com/) to confirm that your integration was set up successfully.
+1. Go to [PagerDuty](https://www.pagerduty.com/) to confirm that your integration was set up successfully.
 
 ## Next steps
-- Review the [activity log alert webhook schema](../azure-monitor/platform/activity-log-alerts-webhook.md). 
-- Learn about [service health notifications](../azure-monitor/platform/service-notifications.md).
-- Learn more about [action groups](../azure-monitor/platform/action-groups.md).
+- Review the [activity log alert webhook schema](../azure-monitor/alerts/activity-log-alerts-webhook.md). 
+- Learn about [service health notifications](./service-notifications.md).
+- Learn more about [action groups](../azure-monitor/alerts/action-groups.md).

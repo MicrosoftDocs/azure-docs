@@ -1,411 +1,415 @@
 ---
-title: Azure Government Isolation Guidelines for Impact Level 5 | Microsoft Docs
-description: 'This article provides guidance for Azure Government Cloud configurations required to implement Impact Level 5 workloads for the DoD'
-services: azure-government
-cloud: gov
-documentationcenter: ''
-author: dumartinmsft
-manager: zakramer
-
+title: Azure Government isolation guidelines for Impact Level 5
+description: Guidance for configuring Azure Government services for DoD Impact Level 5 workloads
 ms.service: azure-government
-ms.devlang: na
-ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: azure-government
-ms.date: 02/22/2019
-ms.author: dumartin
-
-#Customer intent: As a DoD mission owner I want to know how to implement a workload at Impact Level 5 in Microsoft Azure Government
+ms.topic: article
+ms.custom: references_regions, ignite-2022
+author: stevevi
+ms.author: stevevi
+recommendations: false
+ms.date: 04/02/2023
 ---
-# Isolation guidelines for Impact Level 5 Workloads
 
-Azure Government supports applications in all regions that require Impact Level 5 (IL5) data, as defined in the [US Department of Defense Cloud Security Requirements Guide (SRG)](https://iase.disa.mil/cloud_security/Lists/Cloud%20SRG/AllItems.aspx). IL5 workloads have a higher degree of impact to the US Department of Defense and must be secured to a higher standard.  When supporting these workloads on Azure Government, their isolation requirements can be met in different ways. The guidance below will address configurations and settings for the isolation required to support IL5 data.  This document will be updated as new implementations are enabled and as new services are accredited for IL5 data by DISA.
+# Isolation guidelines for Impact Level 5 workloads
+
+Azure Government supports applications that use Impact Level 5 (IL5) data in all available regions. IL5 requirements are defined in the [US Department of Defense (DoD) Cloud Computing Security Requirements Guide (SRG)](https://public.cyber.mil/dccs/dccs-documents/). IL5 workloads have a higher degree of impact to the DoD and must be secured to a higher standard. When you deploy these workloads on Azure Government, you can meet their isolation requirements in various ways. The guidance in this document addresses configurations and settings needed to meet the IL5 isolation requirements. We'll update this article as we enable new isolation options and the Defense Information Systems Agency (DISA) authorizes new services for IL5 data.
 
 ## Background
 
-In January 2017, the Impact Level 5 Provisional Authorization (PA) for Azure Government was the first provided to a Hyper Scale cloud provider.  This covered two regions of Azure Government (USDoD Central and USDoD East) that were dedicated to the DoD.  Based on mission owner feedback and evolving security capabilities, Microsoft has partnered with DISA to expand the IL5 PA in December 2018 to cover all six Azure Government regions while still honoring the isolation requirements needed by the Department of Defense.
+In January 2017, DISA awarded the [IL5 Provisional Authorization](/azure/compliance/offerings/offering-dod-il5) (PA) to [Azure Government](https://azure.microsoft.com/global-infrastructure/government/get-started/), making it the first IL5 PA awarded to a hyperscale cloud provider. The PA covered two Azure Government regions US DoD Central and US DoD East (US DoD regions) that are [dedicated to the DoD](https://azure.microsoft.com/global-infrastructure/government/dod/). Based on DoD mission owner feedback and evolving security capabilities, Microsoft has partnered with DISA to expand the IL5 PA boundary in December 2018 to cover the remaining Azure Government regions US Gov Arizona, US Gov Texas, and US Gov Virginia (US Gov regions). For service availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia&rar=true).
 
-Azure Government continues to provide more PaaS features and services to the DoD at Impact Level 5 than any other cloud provider.
+- For a list of services in scope for DoD IL5 PA in US Gov regions, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope).
+- For a list of services in scope for DoD IL5 PA in US DoD regions, see [Azure Government DoD regions IL5 audit scope](./documentation-government-overview-dod.md#us-dod-regions-il5-audit-scope).
+
+Azure Government is available to US federal, state, local, and tribal governments and their partners. The IL5 expansion to Azure Government honors the isolation requirements mandated by the DoD. Azure Government continues to provide more PaaS services suitable for DoD IL5 workloads than any other cloud services environment.
 
 ## Principles and approach
 
-To include a service in Impact Level 5 scope, there are two key areas that will be addressed – Storage Isolation and Compute Isolation.  We are focusing on how these services can isolate the compute and storage of Impact Level 5 data.  The SRG allows for a shared management and network infrastructure.
+You need to address two key areas for Azure services in IL5 scope: compute isolation and storage isolation. We'll focus in this article on how Azure services can help you isolate the compute and storage services for IL5 data. The SRG allows for a shared management and network infrastructure. **This article is focused on Azure Government compute and storage isolation approaches for US Gov Arizona, US Gov Texas, and US Gov Virginia regions (US Gov regions).** If an Azure service is available in Azure Government DoD regions US DoD Central and US DoD East (US DoD regions) and authorized at IL5, then it is by default suitable for IL5 workloads with no extra isolation configuration required. Azure Government DoD regions are reserved for DoD agencies and their partners, enabling physical separation from non-DoD tenants by design. For more information, see [DoD in Azure Government](./documentation-government-overview-dod.md).
+
+> [!IMPORTANT]
+> You are responsible for designing and deploying your applications to meet DoD IL5 compliance requirements. In doing so, you should not include sensitive or restricted information in Azure resource names, as explained in **[Considerations for naming Azure resources](./documentation-government-concept-naming-resources.md).**
 
 ### Compute isolation
 
-The SRG focuses on segmentation of compute when 'processing' data for Impact Level 5. This means ensuring that a virtual machine that compromises the physical host cannot impact a DoD workload.  To remove the risk of runtime attacks and ensure long running workloads are not compromised from other workloads on the same host, all Impact Level 5 virtual machines should be isolated on dedicated physical nodes.
+IL5 separation requirements are stated in Section 5.2.2.3 (Page 51) of the [Cloud Computing SRG](https://public.cyber.mil/dccs/dccs-documents/). The SRG focuses on compute separation during "processing" of IL5 data. This separation ensures that a virtual machine that could potentially compromise the physical host can't affect a DoD workload. To remove the risk of runtime attacks and ensure long running workloads aren't compromised from other workloads on the same host, **all IL5 virtual machines and virtual machine scale sets** should be isolated by DoD mission owners via [Azure Dedicated Host](https://azure.microsoft.com/services/virtual-machines/dedicated-host/) or [isolated virtual machines](../virtual-machines/isolation.md). Doing so provides a dedicated physical server to host your Azure Virtual Machines (VMs) for Windows and Linux.
 
-For services where the compute processes are obfuscated from access by the owner and stateless in their processing of data; isolation will be accomplished by focusing on the data being processed and how it is stored and retained. This approach ensures that the data in question is stored in protected mediums and not present on these services for extended periods unless also encrypted as necessary.
+For services where the compute processes are obfuscated from access by the owner and stateless in their processing of data, you should accomplish isolation by focusing on the data being processed and how it's stored and retained. This approach ensures the data is stored in protected mediums. It also ensures the data isn't present on these services for extended periods unless it's encrypted as needed.
 
 ### Storage isolation
 
-In the most recent PA for Azure Government, DISA has approved logical separation of IL5 from other data using cryptographic means.  In Azure this means encryption using keys that are maintained in Azure Key Vault.  The keys are owned and managed by the L5 system owner.
+The DoD requirements for encrypting data at rest are provided in Section 5.11 (Page 122) of the [Cloud Computing SRG](https://public.cyber.mil/dccs/dccs-documents/). DoD emphasizes encrypting all data at rest stored in virtual machine virtual hard drives, mass storage facilities at the block or file level, and database records where the mission owner doesn't have sole control over the database service. For cloud applications where encrypting data at rest with DoD key control isn't possible, mission owners must perform a risk analysis with relevant data owners before transmitting data into a cloud service offering.
 
-When applying this to services, the following evaluation is applied:
+In a recent PA for Azure Government, DISA approved logical separation of IL5 from other data via cryptographic means. In Azure, this approach involves data encryption via keys that are maintained in Azure Key Vault and stored in [FIPS 140 validated](/azure/compliance/offerings/offering-fips-140-2) Hardware Security Modules (HSMs). The keys are owned and managed by the IL5 system owner, also known as customer-managed keys (CMK).
 
-- If a service only hosts IL5 data, then the service can control the key on behalf of the end users but must use a dedicated key to protect IL5 data from all other data in the cloud.
-- If a service will host IL5 and non-DoD data, then the service must expose the option to use their own key for encryption. That key will be stored in Azure Key Vault.  This implementation gives consumers of the service the ability to implement cryptographic separation as needed.
+Here's how this approach applies to services:
 
-This will ensure all key material for decrypting data is stored separately of the data itself and done so with a hardware key management solution.
+- If a service hosts only IL5 data, the service can control the key for end users. But it must use a dedicated key to protect IL5 data from all other data in the cloud.
+- If a service will host IL5 and non-DoD data, the service must expose the option for end users to use their own encryption keys that are maintained in Azure Key Vault. This implementation gives consumers of the service the ability to implement cryptographic separation as needed.
+
+This approach ensures all key material for decrypting data is stored separately from the data itself using a hardware-based key management solution.
 
 ## Applying this guidance
 
-Impact Level 5 guidelines require workloads to be deployed with a high degree of security, isolation, and control. The below configurations are required in **addition** to any other configurations or controls needed to meet Impact Level 5. Network isolation, access controls, and other necessary security measures are not necessarily addressed in the guidance below.
-
-Make sure to review the entry for each service you are utilizing and ensure that all isolation requirements have been implemented.
-
-## Analytics services
-
-### [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
-
-Azure Event Hubs can be used in Azure Government supporting Impact Level 5 workloads in the following regions:
-
-| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Event Hubs** | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X | X |
-
-> [!IMPORTANT]  
-> <sup>1</sup>Use client-side encryption to encrypt data prior to leveraging Azure Event Hubs in the noted regions.
-
-### [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/)
-
-Azure HDInsight can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
-
-- Azure HDInsight can be deployed to existing storage accounts which have enabled appropriate [Storage Service Encryption](#storage-encryption-with-key-vault-managed-keys) as discussed in the Azure Storage for guidance.
-- Azure HDInsight enables a database option for certain configurations, ensure the appropriate database configuration for TDE is enabled on the chosen option as discussed in the SQL Database for guidance.
-
-| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Azure HDInsight** | X | X | X | X | X | X |
-
-### [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/)
-
-Azure SQL Warehouse can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
-
-- Add Transparent Data Encryption with customer managed keys via Azure Key Vault (additional documentation and guidance found in the documentation for [Azure SQL transparent data encryption](../sql-database/transparent-data-encryption-byok-azure-sql.md)).
+IL5 guidelines require workloads to be deployed with a high degree of security, isolation, and control. The following configurations are required *in addition* to any other configurations or controls needed to meet IL5 requirements. Network isolation, access controls, and other necessary security measures aren't necessarily addressed in this article.
 
 > [!NOTE]
-> The instructions to enable this are the same as for Azure SQL database.
+> This article tracks Azure services that have received DoD IL5 PA and that require extra configuration options to meet IL5 isolation requirements. Services with IL5 PA that do not require any extra configuration options are not mentioned in this article. For a list of services in scope for DoD IL5 PA in US Gov regions, see **[Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope).**
 
-| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Azure SQL Data Warehouse** | X | X | X | X | X | X |
+Be sure to review the entry for each service you're using and ensure that all isolation requirements are implemented.
 
-### [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded/)
+## AI + machine learning
 
-Power BI Embedded can be used in Azure Government supporting Impact Level 5 workloads with no additional configuration in the following regions:
+For AI and machine learning services availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=project-bonsai,genomics,search,bot-service,databricks,machine-learning-service,cognitive-services&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true). For a list of services in scope for DoD IL5 PA, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope). Guidance below is provided only for IL5 PA services that require extra configuration to support IL5 workloads.
 
-| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Power BI Embedded** |   |   |   |   | X | X |
+### [Azure Cognitive Search](../search/index.yml)
 
-## Compute services
+- Configure encryption at rest of content in Azure Cognitive Search by [using customer-managed keys in Azure Key Vault](../search/search-security-manage-encryption-keys.md).
 
-### [Azure Batch](https://azure.microsoft.com/services/batch/)
+### [Azure Machine Learning](../machine-learning/index.yml)
 
-Azure Batch can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
+- Configure encryption at rest of content in Azure Machine Learning by using customer-managed keys in Azure Key Vault. Azure Machine Learning stores snapshots, output, and logs in the Azure Blob Storage account that's associated with the Azure Machine Learning workspace and customer subscription. All the data stored in Azure Blob Storage is [encrypted at rest with Microsoft-managed keys](../machine-learning/concept-enterprise-security.md). Customers can use their own keys for data stored in Azure Blob Storage. See [Configure encryption with customer-managed keys stored in Azure Key Vault](../storage/common/customer-managed-keys-configure-key-vault.md).
 
-- Enable User Subscription Mode which will require a Key Vault instance for proper encryption and key storage (see documentation on [batch account configurations](../batch/batch-account-create-portal.md)).
+<a name='cognitive-services-content-moderator'></a>
 
-| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Azure Batch** | X | X | X | X | X | X |
+### [Azure AI services: Content Moderator](../ai-services/content-moderator/index.yml)
 
-### [Azure Functions](https://azure.microsoft.com/services/functions/)
+- Configure encryption at rest of content in the Content Moderator service by [using customer-managed keys in Azure Key Vault](../ai-services/content-moderator/encrypt-data-at-rest.md#customer-managed-keys-with-azure-key-vault).
 
-Azure Functions can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
+<a name='cognitive-services-custom-vision'></a>
 
-- To accommodate proper network and workload isolation, deploy your Azure Functions on App Service Plans configured to leverage the **Isolated SKU**. More information can be found in the [app services plan documentation](../app-service/overview-hosting-plans.md).
+### [Azure AI services: Custom Vision](../ai-services/custom-vision-service/index.yml)
 
-| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Azure Functions** | X | X | X | X | X | X |
+- Configure encryption at rest of content in Azure AI Custom Vision [using customer-managed keys in Azure Key Vault](../ai-services/custom-vision-service/encrypt-data-at-rest.md#customer-managed-keys-with-azure-key-vault).
 
-### [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/)
+<a name='cognitive-services-face'></a>
 
-Azure Service Fabric can be used in Azure Government supporting Impact Level 5 workloads with no additional configuration in the following regions:
+### [Azure AI services: Face](../ai-services/computer-vision/overview-identity.md)
 
-| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Service Fabric** |   |   |   |   | X | X |
+- Configure encryption at rest of content in the Face service by [using customer-managed keys in Azure Key Vault](../ai-services/computer-vision/identity-encrypt-data-at-rest.md#customer-managed-keys-with-azure-key-vault).
 
-### [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) &amp; [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/)
+<a name='cognitive-services-language-understanding-luis'></a>
 
-Microsoft Azure Virtual Machines can be used through multiple deployment mediums. This includes single Virtual Machines as well as Virtual Machines deployed using Azure's virtual machine scale sets feature.
+### [Azure AI Language Understanding (LUIS)](../ai-services/luis/index.yml)
 
-All Virtual Machines should use Disk Encryption for Virtual Machines, Disk Encryption for virtual machine scale sets, or place Virtual Machine disks in a storage account that can hold Impact Level 5 data as described in the [Azure Storage section](#storage-encryption-with-key-vault-managed-keys).
+- Configure encryption at rest of content in the Language Understanding service by [using customer-managed keys in Azure Key Vault](../ai-services/luis/encrypt-data-at-rest.md#customer-managed-keys-with-azure-key-vault).
 
-| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Virtual Machines** | X<sup>1</sup>  | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X | X |
-| **Virtual Machine Scale Sets** | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X | X |
+Azure AI Language Understanding (LUIS) is part of [Azure AI Language](../ai-services/language-service/index.yml).
+
+<a name='cognitive-services-personalizer'></a>
+
+### [Azure AI services: Personalizer](../ai-services/personalizer/index.yml)
+
+- Configure encryption at rest of content in Azure AI Personalizer [using customer-managed keys in Azure Key Vault](../ai-services/personalizer/encrypt-data-at-rest.md#customer-managed-keys-with-azure-key-vault).
+
+<a name='cognitive-services-qna-maker'></a>
+
+### [Azure AI services: QnA Maker](../ai-services/qnamaker/index.yml)
+
+- Configure encryption at rest of content in Azure AI QnA Maker [using customer-managed keys in Azure Key Vault](../ai-services/qnamaker/encrypt-data-at-rest.md).
+
+Azure AI QnA Maker is part of [Azure AI Language](../ai-services/language-service/index.yml).
+
+<a name='cognitive-services-speech'></a>
+
+### [Azure AI Speech](../ai-services/speech-service/index.yml)
+
+- Configure encryption at rest of content in Speech Services by [using customer-managed keys in Azure Key Vault](../ai-services/speech-service/speech-encryption-of-data-at-rest.md).
+
+<a name='cognitive-services-translator'></a>
+
+### [Azure AI services: Translator](../ai-services/translator/index.yml)
+
+- Configure encryption at rest of content in the Translator service by [using customer-managed keys in Azure Key Vault](../ai-services/translator/encrypt-data-at-rest.md).
+
+
+## Analytics
+
+For Analytics services availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=data-share,power-bi-embedded,analysis-services,event-hubs,data-lake-analytics,storage,data-catalog,monitor,data-factory,synapse-analytics,stream-analytics,databricks,hdinsight&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true). For a list of services in scope for DoD IL5 PA, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope). Guidance below is provided only for IL5 PA services that require extra configuration to support IL5 workloads.
+
+### [Azure Databricks](/azure/databricks/)
+
+- Azure Databricks can be deployed to existing storage accounts that have enabled appropriate [Storage encryption with Key Vault managed keys](#storage-encryption-with-key-vault-managed-keys).
+- Configure customer-managed Keys (CMK) for your [Azure Databricks Workspace](/azure/databricks/security/keys/customer-managed-key-managed-services-azure) and [Databricks File System](/azure/databricks/security/keys/customer-managed-keys-dbfs/) (DBFS). 
+
+### [Azure Data Explorer](/azure/data-explorer/)
+
+- Data in Azure Data Explorer clusters in Azure is secured and encrypted with Microsoft-managed keys by default. For extra control over encryption keys, you can supply customer-managed keys to use for data encryption and manage [encryption of your data](/azure/data-explorer/security#customer-managed-keys-with-azure-key-vault) at the storage level with your own keys.
+
+### [Azure HDInsight](../hdinsight/index.yml)
+
+- Azure HDInsight can be deployed to existing storage accounts that have enabled appropriate [Storage service encryption](#storage-encryption-with-key-vault-managed-keys), as discussed in the guidance for Azure Storage.
+- Azure HDInsight enables a database option for certain configurations. Ensure the appropriate database configuration for transparent data encryption (TDE) is enabled on the option you choose. This process is discussed in the guidance for [Azure SQL Database](#azure-sql-database).
+
+### [Azure Stream Analytics](../stream-analytics/index.yml)
+
+- Configure encryption at rest of content in Azure Stream Analytics by [using customer-managed keys in Azure Key Vault](../stream-analytics/data-protection.md#encrypt-your-data).
+
+### [Azure Synapse Analytics](../synapse-analytics/index.yml)
+
+- Add transparent data encryption with customer-managed keys via Azure Key Vault. For more information, see [Azure SQL transparent data encryption](/azure/azure-sql/database/transparent-data-encryption-byok-overview). The instructions to enable this configuration for Azure Synapse Analytics are the same as the instructions to do so for Azure SQL Database.
+
+### [Data Factory](../data-factory/index.yml)
+
+- Secure data store credentials by storing encrypted credentials in a Data Factory managed store. Data Factory helps protect your data store credentials by encrypting them with certificates managed by Microsoft. For more information about Azure Storage security, see [Azure Storage security overview](../storage/common/security-baseline.md). You can also store the data store's credentials in Azure Key Vault. Data Factory retrieves the credentials during the execution of an activity. For more information, see [Store credentials in Azure Key Vault](../data-factory/store-credentials-in-key-vault.md).
+
+### [Event Hubs](../event-hubs/index.yml)
+
+- Configure encryption at rest of content in Azure Event Hubs by [using customer-managed keys in Azure Key Vault](../event-hubs/configure-customer-managed-key.md).
+
+
+## Compute
+
+For Compute services availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud,azure-vmware,cloud-services,batch,app-service,service-fabric,functions,virtual-machine-scale-sets,virtual-machines&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true). For a list of services in scope for DoD IL5 PA, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope). Guidance below is provided only for IL5 PA services that require extra configuration to support IL5 workloads.
+
+### [Batch](../batch/index.yml)
+
+- Enable user subscription mode, which will require a Key Vault instance for proper encryption and key storage. For more information, see the documentation on [batch account configurations](../batch/batch-account-create-portal.md).
+
+### [Virtual machines](../virtual-machines/index.yml) and [virtual machine scale sets](../virtual-machine-scale-sets/index.yml)
+
+You can use Azure virtual machines with multiple deployment mediums. You can do so for single virtual machines and for virtual machines deployed via the Azure virtual machine scale sets feature.
+
+All virtual machines should use Disk Encryption for virtual machines or Disk Encryption for virtual machine scale sets, or place virtual machine disks in a storage account that can hold Impact Level 5 data as described in the [Azure Storage section](#storage-encryption-with-key-vault-managed-keys).
 
 > [!IMPORTANT]
-> <sup>1</sup> When deploying VMs in these regions you must use **Isolated Virtual Machines** as described below.
+> When you deploy VMs in Azure Government regions US Gov Arizona, US Gov Texas, and US Gov Virginia, you must use Azure Dedicated Host, as described in the next section.
 
-#### Isolated Virtual Machines
+#### [Azure Dedicated Host](../virtual-machines/dedicated-hosts.md)
 
-Specific VM types when deployed consume the entire physical host for that VM. These VMs provide the necessary level of isolation required to support IL5 workloads when deployed outside of the dedicated DoD regions.  In addition to deploying on these hosts, the underlying storage and disks for these virtual machines must be configured with encryption at rest.
+Azure Dedicated Host provides physical servers that can host one or more virtual machines and that are dedicated to one Azure subscription. Dedicated hosts are the same physical servers used in our datacenters, provided as a resource. You can provision dedicated hosts within a region, availability zone, and fault domain. You can then place VMs directly into your provisioned hosts, in whatever configuration meets your needs.
 
-Each of the above VM types can be deployed leveraging virtual machine scale sets to provide proper compute isolation with all the benefits of virtual machine scale sets in place. When configuring your scale set, select the appropriate SKU. To encrypt the data at rest, see the next section for supportable encryption options.
+These VMs provide the necessary level of isolation required to support IL5 workloads when deployed outside of the dedicated DoD regions. When you use Dedicated Host, your Azure VMs are placed on an isolated and dedicated physical server that runs only your organization’s workloads to meet compliance guidelines and standards.
 
-Current VM SKUs that offer necessary compute isolation include specific offerings from our VM families:
+Current Dedicated Host SKUs (VM series and Host Type) that offer the required compute isolation include SKUs in the VM families listed on the [Dedicated Host pricing page](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/).
 
-| **VM Family** | **VM SKU** |
-| --- | --- |
-| D-Series - General Purpose | Standard\_DS15\_v2Standard\_D15\_v2 |
-| Memory Optimized | Standard\_E64is\_v3Standard\_E64i\_v3 |
-| Compute Optimized | Standard\_F72s\_v2 |
-| Large Memory Optimized | Standard\_M128ms |
-| GPU Enabled VMs | Standard\_NV24 |
+#### [Isolated virtual machines](../virtual-machines/isolation.md)
+
+Virtual machine scale sets aren't currently supported on Azure Dedicated Host. But specific VM types, when deployed, consume the entire physical host for the VM. Isolated VM types can be deployed via virtual machine scale sets to provide proper compute isolation with all the benefits of virtual machine scale sets in place. When you configure your scale set, select the appropriate SKU. To encrypt the data at rest, see the next section for supportable encryption options.
 
 > [!IMPORTANT]
-> As new hardware generations become available, some VM types may require reconfiguration (scale up or migration to a new VM SKU) to ensure they remain on properly dedicated hardware. This document will be updated to reflect any changes.
+> As new hardware generations become available, some VM types might require reconfiguration (scale up or migration to a new VM SKU) to ensure they remain on properly dedicated hardware. For more information, see **[Virtual machine isolation in Azure](../virtual-machines/isolation.md).**
 
-#### Disk Encryption for Virtual Machines
+#### Disk encryption for virtual machines
 
-The storage supporting these Virtual Machines can be encrypted in one of two ways to support necessary encryption standards.
+You can encrypt the storage that supports these virtual machines in one of two ways to support necessary encryption standards.
 
-- Leverage Azure Disk Encryption to encrypt the drives using DM-Crypt (Linux) or BitLocker (Windows):
-  - [Enable Azure Disk Encryption for Linux](../security/azure-security-disk-encryption-linux.md)
-  - [Enable Azure Disk Encryption for Windows](../security/azure-security-disk-encryption-windows.md)
-- Leverage Azure Storage Service Encryption for Storage Accounts with your own key to encrypt the storage account that holds the disks:
-  - [Storage Service Encryption with Customer Managed Keys](../storage/common/storage-service-encryption-customer-managed-keys.md)
+- Use Azure Disk Encryption to encrypt the drives by using dm-crypt (Linux) or BitLocker (Windows):
+  - [Enable Azure Disk Encryption for Linux](../virtual-machines/linux/disk-encryption-overview.md)
+  - [Enable Azure Disk Encryption for Windows](../virtual-machines/windows/disk-encryption-overview.md)
+- Use Azure Storage service encryption for storage accounts with your own key to encrypt the storage account that holds the disks:
+  - [Storage service encryption with customer-managed keys](../storage/common/customer-managed-keys-configure-key-vault.md)
 
-#### Disk Encryption using Virtual Machine Scale Sets
+#### Disk encryption for virtual machine scale sets
 
-The disks that support Virtual Machine Scale Sets can be encrypted using Azure Disk Encryption:
+You can encrypt disks that support virtual machine scale sets by using Azure Disk Encryption:
 
-- [Encrypt Disks with Virtual Machine Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md)
+- [Encrypt disks in virtual machine scale sets](../virtual-machine-scale-sets/disk-encryption-key-vault.md)
 
-### [Azure Web Apps](https://azure.microsoft.com/services/app-service/web/)
+## Containers
 
-Azure Web Apps can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
+For Containers services availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=openshift,app-service-linux,container-registry,service-fabric,container-instances,kubernetes-service&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true). For a list of services in scope for DoD IL5 PA, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope). Guidance below is provided only for IL5 PA services that require extra configuration to support IL5 workloads.
 
-- To accommodate proper network and workload isolation, deploy your web apps on the **Isolated SKU**. More information can be found in the [app services plan documentation](../app-service/overview-hosting-plans.md).
+### [Azure Kubernetes Service](../aks/index.yml)
 
-| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Azure Web Apps** | X | X | X | X | X | X |
+- Configure encryption at rest of content in AKS by [using customer-managed keys in Azure Key Vault](../aks/azure-disk-customer-managed-keys.md).
 
-## Integration services
+### [Container Instances](../container-instances/index.yml)
 
-### [Azure Service Bus](https://azure.microsoft.com/services/service-bus/)
+- Azure Container Instances automatically encrypts data related to your containers when it's persisted in the cloud. Data in Container Instances is encrypted and decrypted with 256-bit AES encryption and enabled for all Container Instances deployments. You can rely on Microsoft-managed keys for the encryption of your container data, or you can manage the encryption by using your own keys. For more information, see [Encrypt deployment data](../container-instances/container-instances-encrypt-data.md). 
 
-Azure Service Bus can be used in Azure Government supporting Impact Level 5 workloads in the following regions:
+### [Container Registry](../container-registry/index.yml) 
 
-| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Service Bus** | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X | X |
+- When you store images and other artifacts in a Container Registry, Azure automatically encrypts the registry content at rest by using service-managed keys. You can supplement the default encryption with an extra encryption layer by [using a key that you create and manage in Azure Key Vault](../container-registry/tutorial-enable-customer-managed-keys.md).
 
-> [!IMPORTANT]
-> <sup>1</sup>Use client-side encryption to encrypt data prior to leveraging Azure Service Bus in the noted regions
+## Databases
 
-### [Azure API Management](https://azure.microsoft.com/services/api-management/)
+For Databases services availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-sql,sql-server-stretch-database,redis-cache,database-migration,postgresql,mariadb,mysql,sql-database,cosmos-db&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true). For a list of services in scope for DoD IL5 PA, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope). Guidance below is provided only for IL5 PA services that require extra configuration to support IL5 workloads.
 
-Azure API Management can be used in Azure Government supporting Impact Level 5 workloads with no additional configuration in the following regions:
+### [Azure Cosmos DB](../cosmos-db/index.yml)
 
-| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **API Management** | X | X | X | X | X | X |
+- Data stored in your Azure Cosmos DB account is automatically and seamlessly encrypted with keys managed by Microsoft (service-managed keys). Optionally, you can choose to add a second layer of encryption with keys you manage (customer-managed keys). For more information, see [Configure customer-managed keys for your Azure Cosmos DB account with Azure Key Vault](../cosmos-db/how-to-setup-cmk.md).
+
+### [Azure Database for MySQL](../mysql/index.yml) 
+
+- Data encryption with customer-managed keys for Azure Database for MySQL enables you to bring your own key (BYOK) for data protection at rest. This encryption is set at the server level. For a given server, a customer-managed key, called the key encryption key (KEK), is used to encrypt the data encryption key (DEK) used by the service. For more information, see [Azure Database for MySQL data encryption with a customer-managed key](../mysql/concepts-data-encryption-mysql.md).
+
+### [Azure Database for PostgreSQL](../postgresql/index.yml) 
+
+- Data encryption with customer-managed keys for Azure Database for PostgreSQL Single Server is set at the server level. For a given server, a customer-managed key, called the key encryption key (KEK), is used to encrypt the data encryption key (DEK) used by the service. For more information, see [Azure Database for PostgreSQL Single Server data encryption with a customer-managed key](../postgresql/concepts-data-encryption-postgresql.md).
+
+### [Azure Healthcare APIs](../healthcare-apis/index.yml) (formerly Azure API for FHIR)
+
+Azure Healthcare APIs supports Impact Level 5 workloads in Azure Government with this configuration:
+
+- Configure encryption at rest of content in Azure Healthcare APIs [using customer-managed keys in Azure Key Vault](../healthcare-apis/azure-api-for-fhir/customer-managed-key.md)
+
+### [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview)
+
+- Add transparent data encryption with customer-managed keys via Azure Key Vault. For more information, see [Azure SQL transparent data encryption with customer-managed key](/azure/azure-sql/database/transparent-data-encryption-byok-overview).
+
+### [SQL Server Stretch Database](../sql-server-stretch-database/index.yml)
+
+- Add transparent data encryption with customer-managed keys via Azure Key Vault. For more information, see [Azure SQL transparent data encryption with customer-managed key](/azure/azure-sql/database/transparent-data-encryption-byok-overview).
+
+
+## Hybrid
+
+### [Azure Stack Edge](../databox-online/index.yml)
+
+- You can protect data at rest via storage accounts because your device is associated with a storage account that's used as a destination for your data in Azure. You can configure your storage account to use data encryption with customer-managed keys stored in Azure Key Vault. For more information, see [Protect data in storage accounts](../databox-online/azure-stack-edge-pro-r-security.md#protect-data-in-storage-accounts).
+
+
+## Integration
+
+For Integration services availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=event-grid,api-management,service-bus,logic-apps&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true). For a list of services in scope for DoD IL5 PA, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope). Guidance below is provided only for IL5 PA services that require extra configuration to support IL5 workloads.
+
+### [Service Bus](../service-bus-messaging/index.yml)
+
+- Configure encryption of data at rest in Azure Service Bus by [using customer-managed keys in Azure Key Vault](../service-bus-messaging/configure-customer-managed-key.md).
+
+
+## Internet of Things
+
+For Internet of Things services availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=notification-hubs,azure-rtos,azure-maps,iot-central,iot-hub&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true). For a list of services in scope for DoD IL5 PA, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope). Guidance below is provided only for IL5 PA services that require extra configuration to support IL5 workloads.
+
+### [Azure IoT Hub](../iot-hub/index.yml)
+
+- IoT Hub supports encryption of data at rest with customer-managed keys, also known as *bring your own key* (BYOK). Azure IoT Hub provides encryption of data at rest and in transit. By default, Azure IoT Hub uses Microsoft-managed keys to encrypt the data. Customer-managed key support enables you to encrypt data at rest by using an [encryption key that you manage via Azure Key Vault](../iot-hub/iot-hub-customer-managed-keys.md).
+
 
 ## Management and governance
 
-### [Azure Backup](https://azure.microsoft.com/services/backup/)
+For Management and governance services availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-automanage,resource-mover,azure-portal,azure-lighthouse,cloud-shell,managed-applications,azure-policy,monitor,automation,scheduler,site-recovery,cost-management,backup,blueprints,advisor&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true). For a list of services in scope for DoD IL5 PA, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope).
 
-Azure Backup can be used in Azure Government supporting all impact levels with no additional configuration in the following regions:
+### [Automation](../automation/index.yml)
 
-| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Azure Backup** | X | X | X | X | X | X |
+- By default, your Azure Automation account uses Microsoft-managed keys. You can manage the encryption of secure assets for your Automation account by using your own keys. When you specify a customer-managed key at the level of the Automation account, that key is used to protect and control access to the account encryption key for the Automation account. For more information, see [Encryption of secure assets in Azure Automation](../automation/automation-secure-asset-encryption.md).
 
-### [Azure Monitor](https://azure.microsoft.com/services/monitor/)
+### [Azure Managed Applications](../azure-resource-manager/managed-applications/index.yml) 
 
-Azure Monitor can be used in Azure Government supporting all impact levels with no additional configuration in the following regions:
+- You can store your managed application definition in a storage account that you provide when you create the application. Doing so allows you to manage its location and access for your regulatory needs, including [storage encryption with customer-managed keys](#storage-encryption-with-key-vault-managed-keys). For more information, see [Bring your own storage](../azure-resource-manager/managed-applications/publish-service-catalog-bring-your-own-storage.md).
 
-| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Azure Monitor** | X | X | X | X | X | X |
+### [Azure Monitor](../azure-monitor/index.yml)
 
-### [Azure Scheduler](https://azure.microsoft.com/services/scheduler/)
+- By default, all data and saved queries are encrypted at rest using Microsoft-managed keys. Configure encryption at rest of your data in Azure Monitor [using customer-managed keys in Azure Key Vault](../azure-monitor/logs/customer-managed-keys.md).
 
-Azure Scheduler can be used in Azure Government supporting all impact levels with no additional configuration in the following regions:
+#### [Log Analytics](../azure-monitor/logs/data-platform-logs.md)
 
-| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Azure Scheduler** | X | X | X | X | X | X |
+Log Analytics, which is a feature of Azure Monitor, is intended to be used for monitoring the health and status of services and infrastructure. The monitoring data and logs primarily store [logs and metrics](../azure-monitor/logs/data-security.md#data-retention) that are service generated. When used in this primary capacity, Log Analytics supports Impact Level 5 workloads in Azure Government with no extra configuration required.
 
-## Media services
+Log Analytics may also be used to ingest extra customer-provided logs. These logs may include data ingested as part of operating Microsoft Defender for Cloud or Microsoft Sentinel. If the ingested logs or the queries written against these logs are categorized as IL5 data, then you should configure customer-managed keys (CMK) for your Log Analytics workspaces and Application Insights components. Once configured, any data sent to your workspaces or components is encrypted with your Azure Key Vault key. For more information, see [Azure Monitor customer-managed keys](../azure-monitor/logs/customer-managed-keys.md).
 
-### [Azure Media Services](https://azure.microsoft.com/services/media-services/)
+### [Azure Site Recovery](../site-recovery/index.yml)
 
-Azure Media Services can be used in Azure Government supporting Impact Level 5 workloads with no additional configuration in the following regions:
+- You can replicate Azure VMs with managed disks enabled for customer-managed keys from one Azure region to another. For more information, see [Replicate machines with customer-managed keys enabled disks](../site-recovery/azure-to-azure-how-to-enable-replication-cmk-disks.md).
 
-| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Media Services** |   |   |   |   | X | X |
+### [Microsoft Intune](/mem/intune/fundamentals/)
 
-## Networking services
+- Intune supports Impact Level 5 workloads in Azure Government with no extra configuration required. Line-of-business apps should be evaluated for IL5 restrictions prior to [uploading to Intune storage](/mem/intune/apps/apps-add). While Intune does encrypt applications that are uploaded to the service for distribution, it doesn't support customer-managed keys.
 
-### [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/)
 
-Application Gateway can be used in Azure Government supporting all impact levels with no additional configuration required between regions:
+## Media
 
-| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Application Gateway** | X | X | X | X | X | X |
+For Media services availability in Azure Government, see [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=cdn,media-services&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true). For a list of services in scope for DoD IL5 PA, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope). Guidance below is provided only for IL5 PA services that require extra configuration to support IL5 workloads.
 
-### [Azure DNS](https://azure.microsoft.com/services/dns/)
+### [Media Services](/azure/media-services/latest/)
 
-Azure DNS can be used in Azure Government supporting all impact levels with no additional configuration required in the following regions:
+- Configure encryption at rest of content in Media Services by [using customer-managed keys in Azure Key Vault](/azure/media-services/latest/concept-use-customer-managed-keys-byok).
 
-| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Azure DNS** | X | X | X | X | X | X |
 
-### [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/)
+## Migration
 
-ExpressRoute can be used in Azure Government supporting all impact levels with no additional configuration required in the following regions:
+For Migration services availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=database-migration,azure-migrate&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true). For a list of services in scope for DoD IL5 PA, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope). Guidance below is provided only for IL5 PA services that require extra configuration to support IL5 workloads.
 
-| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **ExpressRoute** | X | X | X | X | X | X |
+### [Azure Data Box](../databox/index.yml) 
 
-### [Azure Load Balancer](https://azure.microsoft.com/services/load-balancer/)
+- Configure encryption at rest of content in Azure Data Box [using customer-managed keys in Azure Key Vault](../databox/data-box-customer-managed-encryption-key-portal.md).
 
-Load Balancer can be used in Azure Government supporting all impact levels with no additional configuration required in the following regions:
+### [Azure Migrate](../migrate/index.yml)
 
-| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Load Balancer** | X | X | X | X | X | X |
+- Configure encryption at rest of content in Azure Migrate by [using customer-managed keys in Azure Key Vault](../migrate/how-to-migrate-vmware-vms-with-cmk-disks.md).
 
-### [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/)
 
-Azure Traffic Manager can be used in Azure Government supporting all impact levels with no additional configuration required in the following regions:
+## Security
 
-| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Traffic Manager** | X | X | X | X | X | X |
+For Security services availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-sentinel,azure-dedicated-hsm,security-center,key-vault&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true). For a list of services in scope for DoD IL5 PA, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope). Guidance below is provided only for IL5 PA services that require extra configuration to support IL5 workloads.
 
-### [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/)
+### [Azure Information Protection](/azure/information-protection/)
 
-Azure Virtual Network can be used in Azure Government supporting all impact levels with no additional configuration required in the following regions:
+- Configure encryption at rest of content in Azure Information Protection [using customer-managed keys in Azure Key Vault](/azure/information-protection/byok-price-restrictions).
 
-| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Virtual Network** | X | X | X | X | X | X |
+### [Microsoft Sentinel](../sentinel/index.yml) (formerly Azure Sentinel)
 
-### [Azure VPN Gateway](https://azure.microsoft.com/services/vpn-gateway/)
+- Configure encryption at rest of content in Microsoft Sentinel by [using customer-managed keys in Azure Key Vault](../sentinel/customer-managed-keys.md).
 
-Azure VPN Gateway can be used in Azure Government supporting all impact levels with no additional configuration required in the following regions:
+### [Microsoft Defender for Cloud Apps](/defender-cloud-apps/) (formerly Microsoft Cloud App Security)
 
-| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **VPN Gateway** | X | X | X | X | X | X |
+- Configure encryption at rest of content in Microsoft Defender for Cloud Apps [using customer-managed keys in Azure Key Vault](/enterprise-mobility-security/solutions/ems-cloud-app-security-govt-service-byok).
 
-## Security and identity services
 
-### [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
+## Storage
 
-Azure Active Directory can be used in all Azure Government regions, supporting all impact levels with no additional configuration required in the following regions:
+For Storage services availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=hpc-cache,managed-disks,storsimple,storage&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true). For a list of services in scope for DoD IL5 PA, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope). Guidance below is provided only for IL5 PA services that require extra configuration to support IL5 workloads.
 
-| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Azure Active Directory** | X | X | X | X | X | X |
+### [Azure Archive Storage](../storage/blobs/access-tiers-overview.md)
 
-### [Microsoft Graph](https://docs.microsoft.com/graph/overview)
+- Azure Archive Storage is a tier of Azure Storage. It automatically helps secure data at rest by using 256-bit AES encryption. Just like hot and cool tiers, Archive Storage can be set at the blob level. To enable access to the content, you need to rehydrate the archived blob or copy it to an online tier, at which point you can enforce customer-managed keys that are in place for your online storage tiers. When you create a target storage account for IL5 data in Archive Storage, add storage encryption via customer-managed keys. For more information, see [Storage encryption with Key Vault managed keys](#storage-encryption-with-key-vault-managed-keys).
+- The target storage account for Archive Storage can be located in any Azure Government region.
 
-Microsoft Graph can be used in Azure Government supporting all impact levels with no additional configuration required in the following regions:
+### [Azure File Sync](../storage/file-sync/index.yml)
 
-| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Microsoft Graph** | X | X | X | X | X | X |
+- Configure encryption at rest of content in Azure File Sync by [using customer-managed keys in Azure Key Vault](../storage/file-sync/file-sync-planning.md#azure-file-share-encryption-at-rest).
 
-### [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
+### [Azure HPC Cache](../hpc-cache/index.yml)
 
-Azure Key Vault can be used in Azure Government supporting all impact levels with no additional configuration required in the following regions:
+- Configure encryption at rest of content in Azure HPC Cache [using customer-managed keys in Azure Key Vault](../hpc-cache/customer-keys.md)
 
-| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Azure Key Vault** | X | X | X | X | X | X |
+### [Azure Import/Export](../import-export/index.yml)
 
-## Storage and database services 
+- By default, the Import/Export service will encrypt data that's written to the hard drive for transport. When you create a target storage account for import and export of IL5 data, add storage encryption via customer-managed keys. For more information, see [Storage encryption with Key Vault managed keys](#storage-encryption-with-key-vault-managed-keys) in this article.
+- The target storage account for import and source storage account for export can be located in any Azure Government region.
 
-### [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/)
+### [Azure NetApp Files](../azure-netapp-files/index.yml) 
 
-Azure Analysis Services can be used in Azure Government supporting Impact Level 5 workloads with no additional configuration in the following regions:
+- Configure encryption at rest of content in Azure NetApp Files [using customer-managed keys](../azure-netapp-files/faq-security.md#how-are-encryption-keys-managed)
 
-| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Azure Analysis Services** |  |  |  |  | X | X |
+### [Azure Storage](../storage/index.yml)
 
-### [Azure Cache for Redis](https://azure.microsoft.com/services/cache/)
+Azure Storage consists of multiple data features: Blob storage, File storage, Table storage, and Queue storage. Blob storage supports both standard and premium storage. Premium storage uses only SSDs, to provide the fastest performance possible. Storage also includes configurations that modify these storage types, like hot and cool to provide appropriate speed-of-availability for data scenarios.
 
-Azure Cache for Redis can be used in Azure Government supporting Impact Level 5 workloads with no additional configuration in the following regions:
+Blob storage and File storage always use the account encryption key to encrypt data. Queue storage and Table storage can be [optionally configured](../storage/common/account-encryption-key-create.md) to encrypt data with the account encryption key when the storage account is created. You can opt to use customer-managed keys to encrypt data at rest in all Azure Storage features, including Blob, File, Table, and Queue storage. When you use an Azure Storage account, you must follow the steps below to ensure the data is protected with customer-managed keys.
 
-| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Azure Cache for Redis** |  |  |  |  | X | X |
+#### Storage encryption with Key Vault managed keys
 
-### [Azure Import/Export](../storage/common/storage-import-export-service.md)
+To implement Impact Level 5 compliant controls on an Azure Storage account that runs in Azure Government outside of the dedicated DoD regions, you must use encryption at rest with the customer-managed key option enabled. The customer-managed key option is also known as *bring your own key.*
 
-Azure Import/Export can be used in Azure Government to import/export Impact Level 5 data.  By default, Import/Export will encrypt the data that is written to the disk drive for transport. When creating a target storage account for Import/Export of Impact Level 5 data add storage encryption with customer managed keys (additional documentation and guidance found in the [storage services section](#storage-encryption-with-key-vault-managed-keys)).
-
-The target storage account for Import and source storage account for Export can reside in any of the following regions:
-
-| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Azure Import/Export** | X | X | X | X | X | X |
-
-### [Azure CosmosDB](https://azure.microsoft.com/services/cosmos-db/)
-
-Azure CosmosDB can be used in Azure Government supporting Impact Level 5 workloads with no additional configuration in the following regions:
-
-| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Azure CosmosDB** |  |  |  |  | X | X |
-
-### [Azure Storage](https://azure.microsoft.com/services/storage/)
-
-Azure Storage consists of multiple data features: Blob storage, File storage, Table storage, and Queue storage. Blob storage supports both standard and premium storage, with premium storage using only SSDs for the fastest performance possible. Storage also includes configurations which modify these storage types, such as hot and cool to provide appropriate speed-of-availability for data scenarios. The below outlines which features of storage currently support IL5 workloads.
-
-When using an Azure Storage account, you must follow the steps for using **Storage Encryption with Key Vault Managed Keys** to ensure the data is protected with customer managed keys.
-
-| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Blobs** | X | X | X | X | X | X |
-| **Files** | X | X | X | X | X | X |
-| **Tables** | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X | X |
-| **Queues** | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X | X |
-
-> [!IMPORTANT]
-> <sup>1</sup>Tables and Queues when used outside the **USDoD Regions** must encrypt the data before inserting into the Table and Queue. For more information refer to the instructions for using [client side encryption](../storage/common/storage-client-side-encryption-java.md).
-
-#### Storage Encryption with Key Vault Managed Keys
-
-To implement Impact Level 5 compliant controls on an Azure Storage account running in Azure Government outside of the dedicated DoD regions, Encryption at Rest must be implemented with the customer-managed key option enabled (also known as bring-your-own-key).
-
-For more information on how to enable this Azure Storage Encryption feature, please review the supporting documentation for [Azure Storage](../storage/common/storage-service-encryption-customer-managed-keys.md).
+For more information about how to enable this Azure Storage encryption feature, see [Configure encryption with customer-managed keys stored in Azure Key Vault](../storage/common/customer-managed-keys-configure-key-vault.md).
 
 > [!NOTE]
-> When using this encryption method, it is important that it is enabled BEFORE content is added to the storage account. Any content added prior will not be encrypted with the selected key, and only encrypted using standard encryption at rest provided by Azure Storage.`
+> When you use this encryption method, you need to enable it before you add content to the storage account. Any content that's added before the customer-managed key is configured will be protected with Microsoft-managed keys.
 
-### [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
+### [StorSimple](../storsimple/index.yml)
 
-Azure SQL Database can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
+- To help ensure the security and integrity of data moved to the cloud, StorSimple allows you to [define cloud storage encryption keys](../storsimple/storsimple-8000-security.md#storsimple-data-protection). You specify the cloud storage encryption key when you create a volume container. 
 
-- Add Transparent Data Encryption with customer managed keys via Azure Key Vault (additional documentation and guidance found in the [Azure SQL documentation](../sql-database/transparent-data-encryption-byok-azure-sql.md)).
 
-| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Azure SQL DB** | X | X | X | X | X | X |
+## Next steps
 
-### [Azure SQL Stretch Database](https://azure.microsoft.com/services/sql-server-stretch-database/)
+Learn more about Azure Government:
 
-Azure SQL Stretch Database can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
+- [Acquiring and accessing Azure Government](https://azure.microsoft.com/offers/azure-government/)
+- [Azure Government overview](./documentation-government-welcome.md)
+- [Azure Government compliance](./documentation-government-plan-compliance.md)
+- [DoD Impact Level 5](/azure/compliance/offerings/offering-dod-il5)
+- [DoD in Azure Government](./documentation-government-overview-dod.md)
+- [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope)
+- [Azure Government security](./documentation-government-plan-security.md)
+- [Azure guidance for secure isolation](./azure-secure-isolation-guidance.md)
 
-- Add Transparent Data Encryption with customer managed keys via Azure Key Vault (additional documentation and guidance found in the documentation for [Azure SQL transparent data encryption](../sql-database/transparent-data-encryption-byok-azure-sql.md)).
+Start using Azure Government:
 
-| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Azure SQL Stretch DB** | X | X | X | X | X | X |
+- [Guidance for developers](./documentation-government-developer-guide.md)
+- [Connect with the Azure Government portal](./documentation-government-get-started-connect-with-portal.md)
+- [Deploy STIG-compliant Linux VMs](./documentation-government-stig-linux-vm.md)
+- [Deploy STIG-compliant Windows VMs](./documentation-government-stig-windows-vm.md)

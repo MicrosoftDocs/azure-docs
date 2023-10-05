@@ -1,22 +1,14 @@
 ---
-title: Scale a Service Fabric cluster in Azure | Microsoft Docs
-description: In this tutorial, you learn how to scale a Service Fabric cluster in Azure.
-services: service-fabric
-documentationcenter: .net
-author: aljo-microsoft
-manager: chackdan
-editor: ''
-
-ms.assetid:
-ms.service: service-fabric
-ms.devlang: dotNet
+title: Scale a Service Fabric cluster in Azure 
+description: In this tutorial, you learn how to scale an Service Fabric cluster in Azure out and in, and how to clean up leftover resources.
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 03/19/2019
-ms.author: aljo
-ms.custom: mvc
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Tutorial: Scale a Service Fabric cluster in Azure
 
 This tutorial is part three of a series, and shows you how to scale your existing cluster out and in. When you've finished, you will know how to scale your cluster and how to clean up any left-over resources.  For more information on scaling a cluster running in Azure, read [Scaling Service Fabric clusters](service-fabric-cluster-scaling.md).
@@ -44,7 +36,7 @@ In this tutorial series you learn how to:
 Before you begin this tutorial:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Install [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps) or [Azure CLI](/cli/azure/install-azure-cli).
+* Install [Azure PowerShell](/powershell/azure/install-azure-powershell) or [Azure CLI](/cli/azure/install-azure-cli).
 * Create a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) on Azure
 
 ## Important considerations and guidelines
@@ -70,7 +62,7 @@ For more information, read [cluster capacity guidance](service-fabric-cluster-ca
 
 ## Export the template for the resource group
 
-After creating a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) and setting up your resource group successfully, export the Resource Manager template for the resource group. Exporting the template allows you to automate future deployments of the cluster and its resources because the template contains all the complete infrastructure.  For more info on exporting templates, read [Manage Azure Resource Manager resource groups by using the Azure portal](/azure/azure-resource-manager/manage-resource-groups-portal).
+After creating a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) and setting up your resource group successfully, export the Resource Manager template for the resource group. Exporting the template allows you to automate future deployments of the cluster and its resources because the template contains all the complete infrastructure.  For more info on exporting templates, read [Manage Azure Resource Manager resource groups by using the Azure portal](../azure-resource-manager/management/manage-resource-groups-portal.md).
 
 1. In the [Azure portal](https://portal.azure.com), go to the resource group containing the cluster (**sfclustertutorialgroup**, if you are following this tutorial). 
 
@@ -90,7 +82,7 @@ Scaling in and out, or horizontal scaling, changes the number of nodes in the cl
 
 So, by updating the value of the *nt1InstanceCount* you change the number of nodes in the second node type.  Remember, you cannot scale a node type out to more than 100 nodes.  Non-primary node types running stateful production workloads should always have five or more nodes. Non-primary node types running stateless production workloads should always have two or more nodes.
 
-If you are scaling in, removing nodes from, a node type of Bronze [durability level][durability] you must [manually remove the state of those nodes](service-fabric-cluster-scale-up-down.md#manually-remove-vms-from-a-node-typevirtual-machine-scale-set).  For Silver and Gold durability tier, these steps are done automatically by the platform.
+If you are scaling in, removing nodes from, a node type of Bronze [durability level][durability] you must [manually remove the state of those nodes](service-fabric-cluster-scale-in-out.md#manually-remove-vms-from-a-node-typevirtual-machine-scale-set).  For Silver and Gold durability tier, these steps are done automatically by the platform.
 
 ### Deploy the updated template
 Save any changes to the *template.json* and *parameters.json* files.  To deploy the updated template, run the following command:
@@ -99,8 +91,8 @@ Save any changes to the *template.json* and *parameters.json* files.  To deploy 
 New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ChangingInstanceCount"
 ```
 Or the following Azure CLI command:
-```azure-cli
-az group deployment create --resource-group sfclustertutorialgroup --template-file c:\temp\template.json --parameters c:\temp\parameters.json
+```azurecli
+az deployment group create --resource-group sfclustertutorialgroup --template-file c:\temp\template.json --parameters c:\temp\parameters.json
 ```
 
 ## Add a node type to the cluster
@@ -805,8 +797,8 @@ Save any changes to the *template.json* and *parameters.json* files.  To deploy 
 New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "AddingNodeType"
 ```
 Or the following Azure CLI command:
-```azure-cli
-az group deployment create --resource-group sfclustertutorialgroup --template-file c:\temp\template.json --parameters c:\temp\parameters.json
+```azurecli
+az deployment group create --resource-group sfclustertutorialgroup --template-file c:\temp\template.json --parameters c:\temp\parameters.json
 ```
 
 ## Remove a node type from the cluster
@@ -817,7 +809,7 @@ After creating a Service Fabric cluster, you can scale a cluster horizontally by
 > not recommended to be used on a frequent basis. It is a dangerous command as it deletes the virtual machine scale set 
 > resource behind the node type. 
 
-To remove the node type, run the [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype) cmdlet.  The node type must be Silver or Gold [durability level][durability]  The cmdlet deletes the scale set associated with the node type and takes some time to complete.  Then run the [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) cmdlet on each of the nodes to remove, which deletes the node state and removes the nodes from the cluster. If there are services on the nodes, then the services are first moved out to another node. If the cluster manager cannot find a node for the replica/service, then the operation is delayed/blocked.
+To remove the node type, run the [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype) cmdlet.  The node type must be Silver or Gold [durability level][durability]  The cmdlet deletes the scale set associated with the node type and takes some time to complete.  Then run the [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate) cmdlet on each of the nodes to remove, which deletes the node state and removes the nodes from the cluster. If there are services on the nodes, then the services are first moved out to another node. If the cluster manager cannot find a node for the replica/service, then the operation is delayed/blocked.
 
 ```powershell
 $groupname = "sfclustertutorialgroup"
@@ -841,19 +833,18 @@ Foreach($node in $nodes)
 ```
 
 ## Increase node resources 
-After creating a Service Fabric cluster, you can scale a cluster node type vertically (change the resources of the nodes) or upgrade the operating system of the node type VMs.  
+After creating a Service Fabric cluster, you can scale a cluster node type vertically (change the resources of the nodes) or upgrade the operating system of the node type VMs by replacing the original node type with a new node type (with updated VM SKU or OS image). For further details, see [Scale up an Azure Service Fabric node type](service-fabric-scale-up-primary-node-type.md).
 
-> [!WARNING]
-> We recommend that you do not change the VM SKU of a scale set/node type unless it is running at Silver durability or greater. Changing the VM SKU size is a data-destructive in-place infrastructure operation. Without some ability to delay or monitor this change, it is possible that the operation can cause data loss for stateful services or cause other unforeseen operational issues, even for stateless workloads.
+> [!IMPORTANT]
+> Never attempt an in-place change of VM SKU or OS image, which is a dangerous operation and unsupported.
 
-> [!WARNING]
-> We recommend that you do not change the VM SKU of the primary node type, which is a dangerous operation and unsupported.  If you need more cluster capacity, you can add more VM instances or additional node types.  If that is not possible, you can create a new cluster and [restore application state](service-fabric-reliable-services-backup-restore.md) (if applicable) from your old cluster.  If that is not possible, you can [change the VM SKU of the primary node type](service-fabric-scale-up-node-type.md).
+If that not possible, you can create a new cluster and [restore application state](service-fabric-reliable-services-backup-restore.md) (if applicable) from your old cluster. You do not need to restore any system service state; they are recreated when you deploy your applications to your new cluster. If you were just running stateless applications on your cluster, then all you do is deploy your applications to the new cluster, you have nothing to restore.
 
 ### Update the template
 
 [Export a template and parameters file](#export-the-template-for-the-resource-group) from the resource group for the most recent deployment.  Open the *parameters.json* file.  If you deployed the cluster using the [sample template][template] in this tutorial, there are three node types in the cluster.  
 
-The size of the VMs in the second node type is set in the *vmNodeType1Size* parameter.  Change the *vmNodeType1Size* parameter value from Standard_D2_V2 to [Standard_D3_V2](/azure/virtual-machines/windows/sizes-general#dv2-series), which doubles the resources of each VM instance.
+The size of the VMs in the second node type is set in the *vmNodeType1Size* parameter.  Change the *vmNodeType1Size* parameter value from Standard_D2_V2 to [Standard_D3_V2](../virtual-machines/dv2-dsv2-series.md), which doubles the resources of each VM instance.
 
 The VM SKU for all three node types is set in the *vmImageSku* parameter.  Again, changing the VM SKU of a node type should be approached with caution and is not recommended for the primary node type.
 
@@ -864,8 +855,8 @@ Save any changes to the *template.json* and *parameters.json* files.  To deploy 
 New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ScaleUpNodeType"
 ```
 Or the following Azure CLI command:
-```azure-cli
-az group deployment create --resource-group sfclustertutorialgroup --template-file c:\temp\template.json --parameters c:\temp\parameters.json
+```azurecli
+az deployment group create --resource-group sfclustertutorialgroup --template-file c:\temp\template.json --parameters c:\temp\parameters.json
 ```
 
 ## Next steps
@@ -881,19 +872,7 @@ Next, advance to the following tutorial to learn how to upgrade the runtime of a
 > [!div class="nextstepaction"]
 > [Upgrade the runtime of a cluster](service-fabric-tutorial-upgrade-cluster.md)
 
-[durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
-[reliability]: service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster
-[template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json
-[parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.Parameters.json
-nd scale in)
-> * Add and remove node types (scale out and scale in)
-> * Increase node resources (scale up)
-
-Next, advance to the following tutorial to learn how to upgrade the runtime of a cluster.
-> [!div class="nextstepaction"]
-> [Upgrade the runtime of a cluster](service-fabric-tutorial-upgrade-cluster.md)
-
-[durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
-[reliability]: service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster
+[durability]: service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster
+[reliability]: service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster
 [template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json
 [parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.Parameters.json

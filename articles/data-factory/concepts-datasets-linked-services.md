@@ -1,60 +1,98 @@
 ---
-title: Datasets in Azure Data Factory | Microsoft Docs
-description: 'Learn about datasets in Data Factory. Datasets represent input/output data.'
-services: data-factory
-documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: craigg
-
+title: Datasets
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn about datasets in Azure Data Factory and Azure Synapse Analytics pipelines. Datasets represent input/output data.
+author: dcstwh
+ms.author: weetok
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.date: 04/25/2019
-ms.author: shlo
-
+ms.custom: synapse
+ms.date: 02/08/2023
 ---
 
-# Datasets in Azure Data Factory
+# Datasets in Azure Data Factory and Azure Synapse Analytics
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-create-datasets.md)
 > * [Current version](concepts-datasets-linked-services.md)
 
-This article describes what datasets are, how they are defined in JSON format, and how they are used in Azure Data Factory pipelines.
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-If you are new to Data Factory, see [Introduction to Azure Data Factory](introduction.md) for an overview.
+
+This article describes what datasets are, how they’re defined in JSON format, and how they’re used in Azure Data Factory and Synapse pipelines.
+
+If you’re new to Data Factory, see [Introduction to Azure Data Factory](introduction.md) for an overview.  For more information about Azure Synapse, see [What is Azure Synapse](../synapse-analytics/overview-what-is.md)
 
 ## Overview
-A data factory can have one or more pipelines. A **pipeline** is a logical grouping of **activities** that together perform a task. The activities in a pipeline define actions to perform on your data. Now, a **dataset** is a named view of data that simply points or references the data you want to use in your **activities** as inputs and outputs. Datasets identify data within different data stores, such as tables, files, folders, and documents. For example, an Azure Blob dataset specifies the blob container and folder in Blob storage from which the activity should read the data.
+An Azure Data Factory or Synapse workspace can have one or more pipelines. A **pipeline** is a logical grouping of **activities** that together perform a task. The activities in a pipeline define actions to perform on your data. Now, a **dataset** is a named view of data that simply points or references the data you want to use in your **activities** as inputs and outputs. Datasets identify data within different data stores, such as tables, files, folders, and documents. For example, an Azure Blob dataset specifies the blob container and folder in Blob Storage from which the activity should read the data.
 
-Before you create a dataset, you must create a [**linked service**](concepts-linked-services.md) to link your data store to the data factory. Linked services are much like connection strings, which define the connection information needed for Data Factory to connect to external resources. Think of it this way; the dataset represents the structure of the data within the linked data stores, and the linked service defines the connection to the data source. For example, an Azure Storage linked service links a storage account to the data factory. An Azure Blob dataset represents the blob container and the folder within that Azure storage account that contains the input blobs to be processed.
+Before you create a dataset, you must create a [**linked service**](concepts-linked-services.md) to link your data store to the service. Linked services are much like connection strings, which define the connection information needed for the service to connect to external resources. Think of it this way; the dataset represents the structure of the data within the linked data stores, and the linked service defines the connection to the data source. For example, an Azure Storage linked service links a storage account. An Azure Blob dataset represents the blob container and the folder within that Azure Storage account that contains the input blobs to be processed.
 
-Here is a sample scenario. To copy data from Blob storage to a SQL database, you create two linked services: Azure Storage and Azure SQL Database. Then, create two datasets: Azure Blob dataset (which refers to the Azure Storage linked service) and Azure SQL Table dataset (which refers to the Azure SQL Database linked service). The Azure Storage and Azure SQL Database linked services contain connection strings that Data Factory uses at runtime to connect to your Azure Storage and Azure SQL Database, respectively. The Azure Blob dataset specifies the blob container and blob folder that contains the input blobs in your Blob storage. The Azure SQL Table dataset specifies the SQL table in your SQL database to which the data is to be copied.
+Here’s a sample scenario. To copy data from Blob storage to a SQL Database, you create two linked services: Azure Blob Storage and Azure SQL Database. Then, create two datasets: Delimited Text dataset (which refers to the Azure Blob Storage linked service, assuming you have text files as source) and Azure SQL Table dataset (which refers to the Azure SQL Database linked service). The Azure Blob Storage and Azure SQL Database linked services contain connection strings that the service uses at runtime to connect to your Azure Storage and Azure SQL Database, respectively. The Delimited Text dataset specifies the blob container and blob folder that contains the input blobs in your Blob Storage, along with format-related settings. The Azure SQL Table dataset specifies the SQL table in your SQL Database to which the data is to be copied.
 
-The following diagram shows the relationships among pipeline, activity, dataset, and linked service in Data Factory:
+The following diagram shows the relationships among pipeline, activity, dataset, and linked services:
 
-![Relationship between pipeline, activity, dataset, linked services](media/concepts-datasets-linked-services/relationship-between-data-factory-entities.png)
+:::image type="content" source="media/concepts-datasets-linked-services/relationship-between-data-factory-entities.png" alt-text="Relationship between pipeline, activity, dataset, linked services":::
 
+## Create a dataset with UI
+
+# [Azure Data Factory](#tab/data-factory)
+
+To create a dataset with the Azure Data Factory Studio, select the Author tab (with the pencil icon), and then the plus sign icon, to choose **Dataset**.
+
+:::image type="content" source="media/concepts-datasets-linked-services/create-dataset.png" alt-text="Shows the Author tab of the Azure Data Factory Studio with the new dataset button selected.":::
+
+You’ll see the new dataset window to choose any of the connectors available in Azure Data Factory, to set up an existing or new linked service.
+
+:::image type="content" source="media/concepts-datasets-linked-services/choose-dataset-source.png" alt-text="Shows the new dataset window where you can choose the type of linked service to any of the supported data factory connectors.":::
+
+Next you’ll be prompted to choose the dataset format.
+
+:::image type="content" source="media/concepts-datasets-linked-services/choose-dataset-format.png" alt-text="Shows the dataset format window allowing you to choose a format for the new dataset.":::
+
+Finally, you can choose an existing linked service of the type you selected for the dataset, or create a new one if one isn’t already defined.
+
+:::image type="content" source="media/concepts-datasets-linked-services/choose-or-define-linked-service.png" alt-text="Shows the set properties window where you can choose an existing dataset of the type selected previously, or create a new one.":::
+
+Once you create the dataset, you can use it within any pipelines in the Azure Data Factory.
+
+# [Synapse Analytics](#tab/synapse-analytics)
+
+To create a dataset with the Synapse Studio, select the Data tab, and then the plus sign icon, to choose **Integration dataset**.
+
+:::image type="content" source="media/concepts-datasets-linked-services/create-dataset-synapse.png" alt-text="Shows the Author tab of Synapse Studio with the new integration dataset button selected.":::
+
+You’ll see the new integration dataset window to choose any of the connectors available in Azure Synapse, to set up an existing or new linked service.
+
+:::image type="content" source="media/concepts-datasets-linked-services/choose-dataset-source-synapse.png" alt-text="Shows the new integration dataset window where you can choose the type of linked service to any of the supported Azure Synapse connectors.":::
+
+Next you’ll be prompted to choose the dataset format.
+
+:::image type="content" source="media/concepts-datasets-linked-services/choose-dataset-format.png" alt-text="Shows the dataset format window allowing you to choose a format for the new dataset.":::
+
+Finally, you can choose an existing linked service of the type you selected for the dataset, or create a new one if one isn’t already defined.
+
+:::image type="content" source="media/concepts-datasets-linked-services/choose-or-define-linked-service.png" alt-text="Shows the set properties window where you can choose an existing dataset of the type selected previously, or create a new one.":::
+
+Once you create the dataset, you can use it within any pipelines within the Synapse workspace.
+
+---
 
 ## Dataset JSON
-A dataset in Data Factory is defined in the following JSON format:
+A dataset is defined in the following JSON format:
 
 ```json
 {
     "name": "<name of dataset>",
     "properties": {
-        "type": "<type of dataset: AzureBlob, AzureSql etc...>",
+        "type": "<type of dataset: DelimitedText, AzureSqlTable etc...>",
         "linkedServiceName": {
                 "referenceName": "<name of linked service>",
                 "type": "LinkedServiceReference",
         },
-        "structure": [
-            {
-                "name": "<Name of the column>",
-                "type": "<Name of the type>"
-            }
+        "schema":[
+
         ],
         "typeProperties": {
             "<type specific property>": "<value>",
@@ -67,155 +105,59 @@ The following table describes properties in the above JSON:
 
 Property | Description | Required |
 -------- | ----------- | -------- |
-name | Name of the dataset. See [Azure Data Factory - Naming rules](naming-rules.md). |  Yes |
-type | Type of the dataset. Specify one of the types supported by Data Factory (for example: AzureBlob, AzureSqlTable). <br/><br/>For details, see [Dataset types](#dataset-type). | Yes |
-structure | Schema of the dataset. For details, see [Dataset schema](#dataset-structure-or-schema). | No |
-typeProperties | The type properties are different for each type (for example: Azure Blob, Azure SQL table). For details on the supported types and their properties, see [Dataset type](#dataset-type). | Yes |
+name | Name of the dataset. See [Naming rules](naming-rules.md). |  Yes |
+type | Type of the dataset. Specify one of the types supported by Data Factory (for example: DelimitedText, AzureSqlTable). <br/><br/>For details, see [Dataset types](#dataset-type). | Yes |
+schema | Schema of the dataset, represents the physical data type and shape. | No |
+typeProperties | The type properties are different for each type. For details on the supported types and their properties, see [Dataset type](#dataset-type). | Yes |
 
-### Data flow compatible dataset
+When you import the schema of dataset, select the **Import Schema** button and choose to import from the source or from a local file. In most cases, you'll import the schema directly from the source. But if you already have a local schema file (a Parquet file or CSV with headers), you can direct the service to base the schema on that file.
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+In copy activity, datasets are used in source and sink. Schema defined in dataset is optional as reference. If you want to apply column/field mapping between source and sink, refer to [Schema and type mapping](copy-activity-schema-and-type-mapping.md).
 
-See [supported dataset types](#dataset-type) for a list of dataset types that are [Data Flow](concepts-data-flow-overview.md) compatible. Datasets that are compatible for Data Flow require fine-grained dataset definitions for transformations. Thus, the JSON definition is slightly different. Instead of a _structure_ property, datasets that are Data Flow compatible have a _schema_ property.
-
-In Data Flow, datasets are used in source and sink transformations. The datasets define the basic data schemas. If your data has no schema, you can use schema drift for your source and sink. The schema in the dataset represents the physical data type and shape.
-
-By defining the schema from the dataset, you'll get the related data types, data formats, file location, and connection information from the associated Linked service. Metadata from the datasets appears in your source transformation as the source *projection*. The projection in the source transformation represents the Data Flow data with defined names and types.
-
-When you import the schema of a Data Flow dataset, select the **Import Schema** button and choose to import from the source or from a local file. In most cases, you'll import the schema directly from the source. But if you already have a local schema file (a Parquet file or CSV with headers), you can direct Data Factory to base the schema on that file.
-
-
-```json
-{
-    "name": "<name of dataset>",
-    "properties": {
-        "type": "<type of dataset: AzureBlob, AzureSql etc...>",
-        "linkedServiceName": {
-                "referenceName": "<name of linked service>",
-                "type": "LinkedServiceReference",
-        },
-        "schema": [
-            {
-                "name": "<Name of the column>",
-                "type": "<Name of the type>"
-            }
-        ],
-        "typeProperties": {
-            "<type specific property>": "<value>",
-            "<type specific property 2>": "<value 2>",
-        }
-    }
-}
-```
-
-The following table describes properties in the above JSON:
-
-Property | Description | Required |
--------- | ----------- | -------- |
-name | Name of the dataset. See [Azure Data Factory - Naming rules](naming-rules.md). |  Yes |
-type | Type of the dataset. Specify one of the types supported by Data Factory (for example: AzureBlob, AzureSqlTable). <br/><br/>For details, see [Dataset types](#dataset-type). | Yes |
-schema | Schema of the dataset. For details, see [Data Flow compatible datasets](#dataset-type). | No |
-typeProperties | The type properties are different for each type (for example: Azure Blob, Azure SQL table). For details on the supported types and their properties, see [Dataset type](#dataset-type). | Yes |
-
-
-## Dataset example
-In the following example, the dataset represents a table named MyTable in a SQL database.
-
-```json
-{
-    "name": "DatasetSample",
-    "properties": {
-        "type": "AzureSqlTable",
-        "linkedServiceName": {
-                "referenceName": "MyAzureSqlLinkedService",
-                "type": "LinkedServiceReference",
-        },
-        "typeProperties":
-        {
-            "tableName": "MyTable"
-        },
-    }
-}
-
-```
-Note the following points:
-
-- type is set to AzureSqlTable.
-- tableName type property (specific to AzureSqlTable type) is set to MyTable.
-- linkedServiceName refers to a linked service of type AzureSqlDatabase, which is defined in the next JSON snippet.
+In Data Flow, datasets are used in source and sink transformations. The datasets define the basic data schemas. If your data has no schema, you can use schema drift for your source and sink. Metadata from the datasets appears in your source transformation as the source projection. The projection in the source transformation represents the Data Flow data with defined names and types.
 
 ## Dataset type
-There are many different types of datasets, depending on the data store you use. See the following table for a list of data stores supported by Data Factory. Click a data store to learn how to create a linked service and a dataset for that data store.
 
-[!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-dataflow.md)]
+The service supports many different types of datasets, depending on the data stores you use. You can find the list of supported data stores from [Connector overview](connector-overview.md) article. Select a data store to learn how to create a linked service and a dataset for it.
 
-In the example in the previous section, the type of the dataset is set to **AzureSqlTable**. Similarly, for an Azure Blob dataset, the type of the dataset is set to **AzureBlob**, as shown in the following JSON:
+For example, for a Delimited Text dataset, the dataset type is set to **DelimitedText** as shown in the following JSON sample:
 
 ```json
 {
-    "name": "AzureBlobInput",
+    "name": "DelimitedTextInput",
     "properties": {
-        "type": "AzureBlob",
         "linkedServiceName": {
-                "referenceName": "MyAzureStorageLinkedService",
-                "type": "LinkedServiceReference",
+            "referenceName": "AzureBlobStorage",
+            "type": "LinkedServiceReference"
         },
-
+        "annotations": [],
+        "type": "DelimitedText",
         "typeProperties": {
-            "fileName": "input.log",
-            "folderPath": "adfgetstarted/inputdata",
-            "format": {
-                "type": "TextFormat",
-                "columnDelimiter": ","
-            }
-        }
+            "location": {
+                "type": "AzureBlobStorageLocation",
+                "fileName": "input.log",
+                "folderPath": "inputdata",
+                "container": "adfgetstarted"
+            },
+            "columnDelimiter": ",",
+            "escapeChar": "\\",
+            "quoteChar": "\""
+        },
+        "schema": []
     }
 }
 ```
-
-## Dataset structure or schema
-The **structure** section or **schema** (Data Flow compatible) section datasets is optional. It defines the schema of the dataset by containing a collection of names and data types of columns. You use the structure section to provide type information that is used to convert types and map columns from the source to the destination.
-
-Each column in the structure contains the following properties:
-
-Property | Description | Required
--------- | ----------- | --------
-name | Name of the column. | Yes
-type | Data type of the column. Data Factory supports the following interim data types as allowed values: **Int16, Int32, Int64, Single, Double, Decimal, Byte[], Boolean, String, Guid, Datetime, Datetimeoffset, and Timespan** | No
-culture | .NET-based culture to be used when the type is a .NET type: `Datetime` or `Datetimeoffset`. The default is `en-us`. | No
-format | Format string to be used when the type is a .NET type: `Datetime` or `Datetimeoffset`. Refer to [Custom Date and Time Format Strings](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) on how to format datetime. | No
-
-### Example
-In the following example, suppose the source Blob data is in CSV format and contains three columns: userid, name, and lastlogindate. They are of type Int64, String, and Datetime with a custom datetime format using abbreviated French names for day of the week.
-
-Define the Blob dataset structure as follows along with type definitions for the columns:
-
-```json
-"structure":
-[
-    { "name": "userid", "type": "Int64"},
-    { "name": "name", "type": "String"},
-    { "name": "lastlogindate", "type": "Datetime", "culture": "fr-fr", "format": "ddd-MM-YYYY"}
-]
-```
-
-### Guidance
-
-The following guidelines help you understand when to include structure information, and what to include in the **structure** section. Learn more on how data factory maps source data to sink and when to specify structure information from [Schema and type mapping](copy-activity-schema-and-type-mapping.md).
-
-- **For strong schema data sources**, specify the structure section only if you want map source columns to sink columns, and their names are not the same. This kind of structured data source stores data schema and type information along with the data itself. Examples of structured data sources include SQL Server, Oracle, and Azure SQL Database.<br/><br/>As type information is already available for structured data sources, you should not include type information when you do include the structure section.
-- **For no/weak schema data sources e.g. text file in blob storage**, include structure when the dataset is an input for a copy activity, and data types of source dataset should be converted to native types for the sink. And include structure when you want to map source columns to sink columns..
 
 ## Create datasets
 You can create datasets by using one of these tools or SDKs: [.NET API](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [REST API](quickstart-create-data-factory-rest-api.md), Azure Resource Manager Template, and Azure portal
 
 ## Current version vs. version 1 datasets
 
-Here are some differences between Data Factory and Data Factory version 1 datasets:
+Here are some differences between datasets in Data Factory current version (and Azure Synapse), and the legacy Data Factory version 1:
 
-- The external property is not supported in the current version. It's replaced by a [trigger](concepts-pipeline-execution-triggers.md).
-- The policy and availability properties are not supported in the current version. The start time for a pipeline depends on [triggers](concepts-pipeline-execution-triggers.md).
-- Scoped datasets (datasets defined in a pipeline) are not supported in the current version.
+- The external property isn’t supported in the current version. It's replaced by a [trigger](concepts-pipeline-execution-triggers.md).
+- The policy and availability properties aren’t supported in the current version. The start time for a pipeline depends on [triggers](concepts-pipeline-execution-triggers.md).
+- Scoped datasets (datasets defined in a pipeline) aren’t supported in the current version.
 
 ## Next steps
 See the following tutorial for step-by-step instructions for creating pipelines and datasets by using one of these tools or SDKs.

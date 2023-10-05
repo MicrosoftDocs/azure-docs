@@ -1,21 +1,12 @@
 ---
-title: Move data from Salesforce by using Data Factory | Microsoft Docs
+title: Move data from Salesforce by using Data Factory 
 description: Learn about how to move data from Salesforce by using Azure Data Factory.
-services: data-factory
-documentationcenter: ''
-author: linda33wj
-manager: craigg
-
-
-ms.assetid: dbe3bfd6-fa6a-491a-9638-3a9a10d396d1
+author: jianleishen
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-
+ms.subservice: v1
 ms.topic: conceptual
-ms.date: 07/18/2018
-ms.author: jingwang
-
+ms.date: 04/12/2023
+ms.author: jianleishen
 robots: noindex
 ---
 # Move data from Salesforce by using Azure Data Factory
@@ -34,7 +25,7 @@ Azure Data Factory currently supports only moving data from Salesforce to [suppo
 This connector supports the following editions of Salesforce: Developer Edition, Professional Edition, Enterprise Edition, or Unlimited Edition. And it supports copying from Salesforce production, sandbox and custom domain.
 
 ## Prerequisites
-* API permission must be enabled. See [How do I enable API access in Salesforce by permission set?](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/)
+* API permission must be enabled. 
 * To copy data from Salesforce to on-premises data stores, you must have at least Data Management Gateway 2.0 installed in your on-premises environment.
 
 ## Salesforce request limits
@@ -43,14 +34,14 @@ Salesforce has limits for both total API requests and concurrent API requests. N
 - If the number of concurrent requests exceeds the limit, throttling occurs and you will see random failures.
 - If the total number of requests exceeds the limit, the Salesforce account will be blocked for 24 hours.
 
-You might also receive the “REQUEST_LIMIT_EXCEEDED“ error in both scenarios. See the "API Request Limits" section in the [Salesforce Developer Limits](https://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) article for details.
+You might also receive the "REQUEST_LIMIT_EXCEEDED" error in both scenarios. See the "API Request Limits" section in the [Salesforce Developer Limits](https://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) article for details.
 
 ## Getting started
 You can create a pipeline with a copy activity that moves data from Salesforce by using different tools/APIs.
 
 The easiest way to create a pipeline is to use the **Copy Wizard**. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
 
-You can also use the following tools to create a pipeline: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity.
+You can also use the following tools to create a pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity.
 
 Whether you use the tools or APIs, you perform the following steps to create a pipeline that moves data from a source data store to a sink data store:
 
@@ -85,7 +76,7 @@ The **typeProperties** section is different for each type of dataset and provide
 > [!IMPORTANT]
 > The "__c" part of the API Name is needed for any custom object.
 
-![Data Factory - Salesforce connection - API name](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
+:::image type="content" source="media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png" alt-text="Screenshot shows the Custom Object Definition Detail where you can see the A P I names of the custom objects.":::
 
 ## Copy activity properties
 For a full list of sections and properties that are available for defining activities, see the [Creating pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, and various policies are available for all types of activities.
@@ -101,7 +92,7 @@ In copy activity, when the source is of the type **RelationalSource** (which inc
 > [!IMPORTANT]
 > The "__c" part of the API Name is needed for any custom object.
 
-![Data Factory - Salesforce connection - API name](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
+:::image type="content" source="media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png" alt-text="Screenshot shows the Custom Fields & Relationships where you can see the A P I names of the custom objects.":::
 
 ## Query tips
 ### Retrieving data using where clause on DateTime column
@@ -122,7 +113,7 @@ To query the soft deleted records from Salesforce Recycle Bin, you can specify *
 * To query all the records including the existing and the deleted, specify "select * from MyTable__c **where IsDeleted = 0 or IsDeleted = 1**"
 
 ## JSON example: Copy data from Salesforce to Azure Blob
-The following example provides sample JSON definitions that you can use to create a pipeline by using the [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data from Salesforce to Azure Blob Storage. However, data can be copied to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.
+The following example provides sample JSON definitions that you can use to create a pipeline by using the [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data from Salesforce to Azure Blob Storage. However, data can be copied to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.
 
 Here are the Data Factory artifacts that you'll need to create to implement the scenario. The sections that follow the list provide details about these steps.
 
@@ -196,7 +187,7 @@ Setting **external** to **true** informs the Data Factory service that the datas
 > [!IMPORTANT]
 > The "__c" part of the API Name is needed for any custom object.
 
-![Data Factory - Salesforce connection - API name](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
+:::image type="content" source="media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png" alt-text="Screenshot shows the Custom Object Definition Detail where you can see Singular Label, Plural Label, Object Name, and A P I Name.":::
 
 **Azure blob output dataset**
 
@@ -277,7 +268,7 @@ See [RelationalSource type properties](#copy-activity-properties) for the list o
 > [!IMPORTANT]
 > The "__c" part of the API Name is needed for any custom object.
 
-![Data Factory - Salesforce connection - API name](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
+:::image type="content" source="media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png" alt-text="Screenshot shows the Custom Fields & Relationships with the A P I names called out.":::
 
 
 ### Type mapping for Salesforce
@@ -307,7 +298,7 @@ See [RelationalSource type properties](#copy-activity-properties) for the list o
 > [!NOTE]
 > To map columns from source dataset to columns from sink dataset, see [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md).
 
-[!INCLUDE [data-factory-structure-for-rectangualr-datasets](../../../includes/data-factory-structure-for-rectangualr-datasets.md)]
+[!INCLUDE [data-factory-structure-for-rectangular-datasets](includes/data-factory-structure-for-rectangular-datasets.md)]
 
 ## Performance and tuning
 See the [Copy Activity performance and tuning guide](data-factory-copy-activity-performance.md) to learn about key factors that impact performance of data movement (Copy Activity) in Azure Data Factory and various ways to optimize it.

@@ -1,25 +1,16 @@
 ---
-title: Azure portal keyboard shortcuts | Microsoft Docs
-description: Learn about the keyboard shortcuts that work in the Azure portal. 
-services: azure-portal
-documentationcenter: ''
-author: adamabmsft
-manager: lwelicki
-editor: ''
-
-ms.assetid: d9f58c69-9163-458d-a339-ab0855e342c6
-ms.service: azure-portal
-ms.devlang: NA
+title: Azure portal keyboard shortcuts
+description: The Azure portal supports global keyboard shortcuts to help you perform actions, navigate, and go to locations in the Azure portal. 
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 04/08/2019
-ms.author: kfollis
+ms.date: 03/23/2023
 ms.custom: accessibility
 ---
+
 # Keyboard shortcuts in the Azure portal
 
-This article lists the keyboard shortcuts that work everywhere in the Azure portal. Individual services may have their own keyboard shortcuts.
+This article lists the keyboard shortcuts that work throughout the Azure portal. Individual services may have their own additional keyboard shortcuts.
+
+The letters that appear below represent letter keys on your keyboard. For example, to use **G+N**, hold down the **G** key and then press **N**.
 
 ## Actions
 
@@ -48,7 +39,13 @@ This article lists the keyboard shortcuts that work everywhere in the Azure port
 |Go to **Resource groups**|G+R |
 |Open the left sidebar item at this position |G+number|
 
+## Examples of additional keyboard shortcuts for specific areas
+
+- [Azure Resource Graph Explorer](../governance/resource-graph/reference/keyboard-shortcuts.md)
+- [Kusto Explorer](/azure/data-explorer/kusto/tools/kusto-explorer-shortcuts)
+- [Azure Maps drawing module](../azure-maps/drawing-tools-interactions-keyboard-shortcuts.md)
+
 ## Next steps
 
-- [Turn on high contrast or change theme](azure-portal-change-theme-high-contrast.md)
-- [Supported browsers and devices](../azure-preview-portal-supported-browsers-devices.md)
+- [Turn on high contrast or change theme](set-preferences.md#choose-a-theme-or-enable-high-contrast) in the Azure portal.
+- Learn about [supported browsers and devices](azure-portal-supported-browsers-devices.md).

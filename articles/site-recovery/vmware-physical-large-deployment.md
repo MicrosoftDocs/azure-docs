@@ -1,13 +1,12 @@
 ---
-title: Set up disaster recovery to Azure for large numbers of VMware VMs or physical servers with Azure Site Recovery | Microsoft Docs
+title: Scale VMware/physical disaster recovery with Azure Site Recovery 
 description: Learn how to set up disaster recovery to Azure for large numbers of on-premises VMware VMs or physical servers with Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/14/2019
-ms.author: raynew
-
+ms.date: 08/31/2023
+ms.author: ankitadutta
+author: ankitaduttaMSFT
+ms.custom: engagement-fy23
 
 ---
 # Set up disaster recovery at scale for VMware VMs/physical servers
@@ -81,7 +80,7 @@ We want to make sure that available quotas in the target subscription are suffic
 
 **Task** | **Details** | **Action**
 --- | --- | ---
-**Check cores** | If cores in the available quota don't equal or exceed the total target count at the time of failover, failovers will fail. | For VMware VMs, check you have enough cores in the target subscription to meet the Deployment Planner core recommendation.<br/><br/> For physical servers, check that Azure cores meet your manual estimations.<br/><br/> To check quotas, in the Azure portal > **Subscription**, click **Usage + quotas**.<br/><br/> [Learn more](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) about increasing quotas.
+**Check cores** | If cores in the available quota don't equal or exceed the total target count at the time of failover, failovers will fail. | For VMware VMs, check you have enough cores in the target subscription to meet the Deployment Planner core recommendation.<br/><br/> For physical servers, check that Azure cores meet your manual estimations.<br/><br/> To check quotas, in the Azure portal > **Subscription**, click **Usage + quotas**.<br/><br/> [Learn more](../azure-portal/supportability/regional-quota-requests.md) about increasing quotas.
 **Check failover limits** | The number of failovers mustn't exceed Site Recovery failover limits. |  If failovers exceed the limits, you can add subscriptions, and fail over to multiple subscriptions, or increase quota for a subscription. 
 
 
@@ -125,7 +124,7 @@ Configuration server capacity is affected by the number of machines replicating,
 
 **CPU** | **Memory** | **Cache disk** | **Replicated machine limit**
  --- | --- | --- | ---
-8 vCPUs<br> 2 sockets * 4 cores @ 2.5 Ghz | 16 GB | 600 TB | Up to 550 machines<br> Assumes that each machine has three disks of 100 GB each.
+8 vCPUs<br> 2 sockets * 4 cores @ 2.5 Ghz | 16 GB | 600 GB | Up to 550 machines<br> Assumes that each machine has three disks of 100 GB each.
 
 - These limits are based on a configuration server set up using an OVF template.
 - The limits assume that you're not using the process server that's running by default on the configuration server.
@@ -151,7 +150,7 @@ Process server capacity is affected by data churn rates, and not by the number o
 
 **CPU** | **Memory** | **Cache disk** | **Churn rate**
  --- | --- | --- | --- 
-12 vCPUs<br> 2 sockets*6 cores @ 2.5 Ghz | 24 GB | 1 GB | Up to 2 TB a day
+12 vCPUs<br> 2 sockets*6 cores @ 2.5 Ghz | 24 GB | 1 TB | Up to 2 TB a day
 
 Set up the process server as follows:
 
@@ -174,7 +173,7 @@ After planning capacity and deploying the required components and infrastructure
     
 2. If disk churn for a machine is high, or exceeds limits in  Deployment thePlanner, you can move non-critical files you don't need to replicate (such as log dumps or temp files) off the machine. For VMware VMs, you can move these files to a separate disk, and then [exclude that disk](vmware-azure-exclude-disk.md) from replication.
 3. Before you enable replication, check that machines meet [replication requirements](vmware-physical-azure-support-matrix.md#replicated-machines).
-4. Configure a replication policy for [VMware VMs](vmware-azure-set-up-replication.md#create-a-policy) or [physical servers](physical-azure-disaster-recovery.md#create-a-replication-policy).
+4. Configure a replication policy for [VMware VMs](vmware-azure-set-up-replication.md#create-a-policy) or [physical servers](physical-azure-disaster-recovery.md#replication-policy).
 5. Enable replication for [VMware VMs](vmware-azure-enable-replication.md) or [physical servers](physical-azure-disaster-recovery.md#enable-replication). This kicks off the initial replication for the selected machines.
 
 ## Monitor your deployment
@@ -184,7 +183,7 @@ After you kick off replication for the first batch of VMs, start monitoring your
 1. Assign a disaster recovery administrator to monitor the health status of replicated machines.
 2. [Monitor events](site-recovery-monitor-and-troubleshoot.md) for replicated items and the infrastructure.
 3. [Monitor the health](vmware-physical-azure-monitor-process-server.md) of your scale-out process servers.
-4. Sign up to get [email notifications](https://docs.microsoft.com/azure/site-recovery/site-recovery-monitor-and-troubleshoot#subscribe-to-email-notifications) for events, for easier monitoring.
+4. Sign up to get [email notifications](./site-recovery-monitor-and-troubleshoot.md#subscribe-to-email-notifications) for events, for easier monitoring.
 5. Conduct regular [disaster recovery drills](site-recovery-test-failover-to-azure.md), to ensure that everything's working as expected.
 
 
@@ -201,16 +200,16 @@ You can prepare in advance for failover as follows:
     - Estimate end-to-end RTO for your apps.
     - Estimate end-to-end RPO for your workloads.
     - Identify IP address range conflicts.
-    - As you run drills, we recommend that you don't use production networks for drills, avoid using the same subnet names in production and test networks, and clean up test failovers after every drill.
+    - As you run drills, we recommend that you don't use production networks for drills and clean up test failovers after every drill.
 
 To run a large-scale failover, we recommend the following:
 
 1. Create recovery plans for workload failover.
-    - Each recovery plan can trigger failover of up to 50 machines.
+    - Each recovery plan can trigger failover of up to 100 machines.
     - [Learn more](recovery-plan-overview.md) about recovery plans.
 2. Add Azure Automation runbook scripts to recovery plans, to automate any manual tasks on Azure. Typical tasks include configuring load balancers, updating DNS etc. [Learn more](site-recovery-runbook-automation.md)
 2. Before failover, prepare Windows machines so that they comply with the Azure environment. [Failover limits](#plan-azure-subscriptions-and-quotas) are higher for machines that comply. [Learn more](site-recovery-failover-to-azure-troubleshoot.md#failover-failed-with-error-id-170010) about runbooks.
-4.	Trigger failover with the [Start-AzRecoveryServicesAsrPlannedFailoverJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/start-azrecoveryservicesasrplannedfailoverjob?view=azps-2.0.0&viewFallbackFrom=azps-1.1.0) PowerShell cmdlet, together with a recovery plan.
+4.	Trigger failover with the [Start-AzRecoveryServicesAsrPlannedFailoverJob](/powershell/module/az.recoveryservices/start-azrecoveryservicesasrplannedfailoverjob) PowerShell cmdlet, together with a recovery plan.
 
 
 

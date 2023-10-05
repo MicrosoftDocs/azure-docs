@@ -1,18 +1,16 @@
 ---
 title: Nested Traffic Manager Profiles in Azure
-titlesuffix: Azure Traffic Manager
+titleSuffix: Azure Traffic Manager
 description: This article explains the 'Nested Profiles' feature of Azure Traffic Manager
 services: traffic-manager
-documentationcenter: ''
-author: kumudd
-manager: twooley
+author: greg-lindsay
+manager: kumud
 ms.service: traffic-manager
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 10/22/2018
-ms.author: kumud
+ms.date: 11/10/2022
+ms.author: greglin
+ms.custom: template-concept
 ---
 
 # Nested Traffic Manager profiles
@@ -20,6 +18,22 @@ ms.author: kumud
 Traffic Manager includes a range of traffic-routing methods that allow you to control how Traffic Manager chooses which endpoint should receive traffic from each end user. For more information, see [Traffic Manager traffic-routing methods](traffic-manager-routing-methods.md).
 
 Each Traffic Manager profile specifies a single traffic-routing method. However, there are scenarios that require more sophisticated traffic routing than the routing provided by a single Traffic Manager profile. You can nest Traffic Manager profiles to combine the benefits of more than one traffic-routing method. Nested profiles allow you to override the default Traffic Manager behavior to support larger and more complex application deployments.
+
+To create a nested profile, you add a 'child' profile as an endpoint to a 'parent' profile. Some examples are provided in this article. 
+
+## MinChildEndpoints
+
+When you add a child profile as an endpoint in the parent profile, the **MinChildEndpoints** parameter is created and assigned a default value of **1**. This parameter determines the minimum number of endpoints that must be available in the child profile for it to be healthy. Below this threshold, the parent profile will consider the entire child profile as unavailable, and direct traffic to the other parent profile endpoints.
+
+The following parameters are available in the parent profile:
+
+- **MinChildEndpoints**: The minimum number of healthy child endpoints for the nested profile status to be healthy. 
+- **MinChildEndpointsIPv4**: The minimum number of healthy IPv4 child endpoints for the nested profile status to be healthy. 
+- **MinChildEndpointsIPv6**: The minimum number of healthy IPv6 child endpoints for the nested profile status to be healthy. 
+
+> [!IMPORTANT]
+> There must be at least one IPv4 and one IPv6 endpoint for any nested MultiValue profile. Always configure values for MinChildEndpointsIPv4 and MinChildEndpointsIPv6 based on your multivalue routing mechanism and do not simply use the default values.<br>
+> The value of **MinChildEndpoints** must be high enough to allow for all endpoint types to be available. An error message is displayed for values that are too low.
 
 The following examples illustrate how to use nested Traffic Manager profiles in various scenarios.
 
@@ -49,9 +63,9 @@ Returning to the previous example, suppose the production deployment in West Eur
 
 ![Nested Profile failover (default behavior)][3]
 
-You might be happy with this arrangement. Or you might be concerned that all traffic for West Europe is now going to the test deployment instead of a limited subset traffic. Regardless of the health of the test deployment, you want to fail over to the other regions when the production deployment in West Europe fails. To enable this failover, you can specify the 'MinChildEndpoints' parameter when configuring the child profile as an endpoint in the parent profile. The parameter determines the minimum number of available endpoints in the child profile. The default value is '1'. For this scenario, you set the MinChildEndpoints value to 2. Below this threshold, the parent profile considers the entire child profile to be unavailable and directs traffic to the other endpoints.
+You might be happy with this arrangement. Or you might be concerned that all traffic for West Europe is now going to the test deployment instead of a limited subset traffic. Regardless of the health of the test deployment, you want to fail over to the other regions when the production deployment in West Europe fails. 
 
-The following figure illustrates this configuration:
+In the scenario below, the **MinChildEndpoints** value is set to 2. Below this threshold, the parent profile considers the entire child profile to be unavailable and directs traffic to the other endpoints:
 
 ![Nested Profile failover with 'MinChildEndpoints' = 2][4]
 
@@ -90,11 +104,35 @@ The monitoring settings in a Traffic Manager profile apply to all endpoints with
 
 ![Traffic Manager endpoint monitoring with per-endpoint settings][10]
 
+## Example 6:  Endpoint monitoring with Multivalue Nested Profiles using IPv4 and IPv6 endpoints
+
+Suppose you have both IPv4 and IPv6 nested children endpoints, and you want to set thresholds for minimum children healthy for both. There are new parameters that will enable you to define the minimum number of these healthy endpoints that are expected for each type. The parameters **Minimum IPv4 endpoints** and **Minimum IPv6 endpoints** will determine the minimum number of healthy endpoints needed for each parameter, in order for the parent to be marked as healthy. 
+
+The default number for the total minimum child endpoints is always 1, and the default number for IPv4 and IPv6 endpoints is 0 to ensure backwards compatibility. 
+
+![Traffic Manager min-child behavior][11]
+
+In this example, the **East US** endpoint is unhealthy, because it doesn't satisfy the requirement to have at least 1 healthy IPv4 endpoint, which is set by the **ipv4-min-child** property. 
+
+## FAQs
+
+* [How do I configure nested profiles?](./traffic-manager-faqs.md#traffic-manager-nested-profiles)
+
+* [How many layers of nesting does Traffic Manger support?](./traffic-manager-faqs.md#how-many-layers-of-nesting-does-traffic-manger-support)
+
+* [Can I mix other endpoint types with nested child profiles, in the same Traffic Manager profile?](./traffic-manager-faqs.md#can-i-mix-other-endpoint-types-with-nested-child-profiles-in-the-same-traffic-manager-profile)
+
+* [How does the billing model apply for Nested profiles?](./traffic-manager-faqs.md#how-does-the-billing-model-apply-for-nested-profiles)
+
+* [Is there a performance impact for nested profiles?](./traffic-manager-faqs.md#is-there-a-performance-impact-for-nested-profiles)
+
+* [How does Traffic Manager compute the health of a nested endpoint in a parent profile?](./traffic-manager-faqs.md#how-does-traffic-manager-compute-the-health-of-a-nested-endpoint-in-a-parent-profile)
+
 ## Next steps
 
 Learn more about [Traffic Manager profiles](traffic-manager-overview.md)
 
-Learn how to [create a Traffic Manager profile](traffic-manager-create-profile.md)
+Learn how to [create a Traffic Manager profile](./quickstart-create-traffic-manager-profile.md)
 
 <!--Image references-->
 [1]: ./media/traffic-manager-nested-profiles/figure-1.png
@@ -107,3 +145,4 @@ Learn how to [create a Traffic Manager profile](traffic-manager-create-profile.m
 [8]: ./media/traffic-manager-nested-profiles/figure-8.png
 [9]: ./media/traffic-manager-nested-profiles/figure-9.png
 [10]: ./media/traffic-manager-nested-profiles/figure-10.png
+[11]: ./media/traffic-manager-nested-profiles/figure-11.png

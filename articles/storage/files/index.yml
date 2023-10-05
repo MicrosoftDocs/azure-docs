@@ -1,0 +1,94 @@
+### YamlMime:Landing
+
+title: Azure Files documentation # < 60 chars
+summary: Simple, secure, and serverless enterprise-grade cloud file shares. # < 160 chars
+
+metadata:
+  title: Azure Files documentation
+  description: Mount file shares in the cloud or on-premises on Windows, Linux, and macOS. Cache Azure file shares on Windows Servers with Azure File Sync for local access.
+  services: storage
+  ms.service: azure-file-storage
+  ms.topic: landing-page
+  ms.collection: collection
+  author: khdownie
+  ms.author: kendownie
+  ms.date: 08/18/2022
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: About Azure Files
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Azure Files planning guide
+            url: storage-files-planning.md
+          - text: What is Azure Files?
+            url: storage-files-introduction.md
+          - text: Identity-based authentication
+            url: storage-files-active-directory-overview.md
+          - text: Videos
+            url: ../common/videos-azure-files-and-file-sync.md
+
+  # Card (optional)
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create and use an Azure file share
+            url: storage-how-to-use-files-portal.md
+      - linkListType: tutorial
+        links:
+          - text: Create an SMB Azure file share - Windows
+            url: storage-files-quick-create-use-windows.md
+          - text: Create an NFS Azure file share - Linux
+            url: storage-files-quick-create-use-linux.md
+
+  # Card
+  - title: Troubleshoot
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Troubleshoot Azure Files
+            url: /troubleshoot/azure/azure-storage/files-troubleshoot?toc=/azure/storage/files/toc.json
+          - text: Troubleshoot Azure Files performance
+            url: /troubleshoot/azure/azure-storage/files-troubleshoot-performance?toc=/azure/storage/files/toc.json
+
+  # Card
+  - title: Migrate
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Migration overview
+            url: storage-files-migration-overview.md
+          - text: Migration guides
+            url: storage-files-migration-overview.md#migration-guides
+
+  # Card
+  - title: Self-paced training
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Introduction to Azure Files
+            url: /training/modules/introduction-to-azure-files/
+          - text: Configure Azure Files and Azure File Sync
+            url: /training/modules/configure-azure-files-file-sync/
+
+  # Card
+  - title: Architecture
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: Azure enterprise cloud file share
+            url: /azure/architecture/hybrid/azure-files-private
+          - text: Hybrid file services
+            url: /azure/architecture/hybrid/hybrid-file-services
+          - text: Use Azure file shares in a hybrid environment
+            url: /azure/architecture/hybrid/azure-file-share
+          - text: Hybrid file share with disaster recovery for remote and local branch workers
+            url: /azure/architecture/example-scenario/hybrid/hybrid-file-share-dr-remote-local-branch-workers
+          - text: Azure files accessed on-premises and secured by AD DS
+            url: /azure/architecture/example-scenario/hybrid/azure-files-on-premises-authentication

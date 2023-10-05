@@ -1,15 +1,13 @@
 ---
-title: Configure a site-to-site VPN over Microsoft peering - ExpressRoute - Azure | Microsoft Docs
-description: Configure IPsec/IKE connectivity to Azure over an ExpressRoute Microsoft peering circuit using a site-to-site VPN gateway.
+title: 'Azure ExpressRoute: Configure S2S VPN over Microsoft peering'
+description: Learn how to set up IPsec/IKE connectivity to Azure over an ExpressRoute Microsoft peering circuit using a site-to-site VPN gateway.
 services: expressroute
-author: cherylmc
-
+author: duongau
 ms.service: expressroute
-ms.topic: conceptual
-ms.date: 02/25/2019
-ms.author: cherylmc
-ms.custom: seodec18
-
+ms.topic: how-to
+ms.date: 01/03/2023
+ms.author: duau
+ms.custom: seodec18, devx-track-azurepowershell, FY23 content-maintenance
 ---
 
 # Configure a site-to-site VPN over ExpressRoute Microsoft peering
@@ -19,25 +17,22 @@ This article helps you configure secure encrypted connectivity between your on-p
 >[!NOTE]
 >When you set up site-to-site VPN over Microsoft peering, you are charged for the VPN gateway and VPN egress. For more information, see [VPN Gateway pricing](https://azure.microsoft.com/pricing/details/vpn-gateway).
 >
->
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 ## <a name="architecture"></a>Architecture
 
-
-  ![connectivity overview](./media/site-to-site-vpn-over-microsoft-peering/IPsecER_Overview.png)
+:::image type="content" source="./media/site-to-site-vpn-over-microsoft-peering/ipsec-expressroute-overview.png" alt-text="Diagram of two IPsec tunnels over an ExpressRoute Microsoft peering connection.":::
 
 
 For high availability and redundancy, you can configure multiple tunnels over the two MSEE-PE pairs of a ExpressRoute circuit and enable load balancing between the tunnels.
 
-  ![high availability options](./media/site-to-site-vpn-over-microsoft-peering/HighAvailability.png)
+:::image type="content" source="./media/site-to-site-vpn-over-microsoft-peering/high-availability.png" alt-text="Diagram of multiple IPsec tunnels to create high availability over an ExpressRoute Microsoft peering connection.":::
 
 VPN tunnels over Microsoft peering can be terminated either using VPN gateway, or using an appropriate Network Virtual Appliance (NVA) available through Azure Marketplace. You can exchange routes statically or dynamically over the encrypted tunnels without exposing the route exchange to the underlying Microsoft peering. In the examples in this article, BGP (different from the BGP session used to create the Microsoft peering) is used to dynamically exchange prefixes over the encrypted tunnels.
 
 >[!IMPORTANT]
 >For the on-premises side, typically Microsoft peering is terminated on the DMZ and private peering is terminated on the core network zone. The two zones would be segregated using firewalls. If you are configuring Microsoft peering exclusively for enabling secure tunneling over ExpressRoute, remember to filter through only the public IPs of interest that are getting advertised via Microsoft peering.
->
 >
 
 ## <a name="workflow"></a>Workflow
@@ -52,21 +47,21 @@ VPN tunnels over Microsoft peering can be terminated either using VPN gateway, o
 
 ## <a name="peering"></a>1. Configure Microsoft peering
 
-To configure a site-to-site VPN connection over ExpressRoute, you must leverage ExpressRoute Microsoft peering.
+To configure a site-to-site VPN connection over ExpressRoute, you must use ExpressRoute Microsoft peering.
 
 * To configure a new ExpressRoute circuit, start with the [ExpressRoute prerequisites](expressroute-prerequisites.md) article, and then [Create and modify an ExpressRoute circuit](expressroute-howto-circuit-arm.md).
 
-* If you already have an ExpressRoute circuit, but do not have Microsoft peering configured, configure Microsoft peering using the [Create and modify peering for an ExpressRoute circuit](expressroute-howto-routing-arm.md#msft) article.
+* If you already have an ExpressRoute circuit, but don't have Microsoft peering configured, configure Microsoft peering using the [Create and modify peering for an ExpressRoute circuit](expressroute-howto-routing-arm.md#msft) article.
 
-Once you have configured your circuit and Microsoft peering, you can easily view it using the **Overview** page in the Azure portal.
+Once you've configured your circuit and Microsoft peering, you can easily view it using the **Overview** page in the Azure portal.
 
-![circuit](./media/site-to-site-vpn-over-microsoft-peering/ExpressRouteCkt.png)
+:::image type="content" source="./media/site-to-site-vpn-over-microsoft-peering/circuit.png" alt-text="Screenshot of the overview page of an ExpressRoute circuit.":::
 
 ## <a name="routefilter"></a>2. Configure route filters
 
-A route filter lets you identify services you want to consume through your ExpressRoute circuit's Microsoft peering. It is essentially a whitelist of all the BGP community values. 
+A route filter lets you identify services you want to consume through your ExpressRoute circuit's Microsoft peering. It's essentially an allowlist of all the BGP community values. 
 
-![route filter](./media/site-to-site-vpn-over-microsoft-peering/route-filter.png)
+:::image type="content" source="./media/site-to-site-vpn-over-microsoft-peering/route-filter.png" alt-text="Screenshot of a route filter overview page.":::
 
 In this example, the deployment is only in the *Azure West US 2* region. A route filter rule is added to allow only the advertisement of Azure West US 2 regional prefixes, which has the BGP community value *12076:51026*. You specify the regional prefixes that you want to allow by selecting **Manage rule**.
 
@@ -103,7 +98,7 @@ To see the list of prefixes received from the neighbor, use the following exampl
 sh ip bgp vpnv4 vrf 10 neighbors X.243.229.34 received-routes
 ```
 
-To confirm that you are receiving the correct set of prefixes, you can cross-verify. The following Azure PowerShell command output lists the prefixes advertised via Microsoft peering for each of the services and for each of the Azure region:
+To confirm that you're receiving the correct set of prefixes, you can cross-verify. The following Azure PowerShell command output lists the prefixes advertised via Microsoft peering for each of the services and for each of the Azure region:
 
 ```azurepowershell-interactive
 Get-AzBgpServiceCommunity
@@ -113,25 +108,24 @@ Get-AzBgpServiceCommunity
 
 In this section, IPsec VPN tunnels are created between the Azure VPN gateway and the on-premises VPN device. The examples use Cisco Cloud Service Router (CSR1000) VPN devices.
 
-The following diagram shows the IPsec VPN tunnels established between on-premises VPN device 1, and the Azure VPN gateway instance pair. The two IPsec VPN tunnels established between the on-premises VPN device 2 and the Azure VPN gateway instance pair isn't illustrated in the diagram, and the configuration details are not listed. However, having additional VPN tunnels improves high availability.
+The following diagram shows the IPsec VPN tunnels established between on-premises VPN device 1, and the Azure VPN gateway instance pair. The two IPsec VPN tunnels established between the on-premises VPN device 2 and the Azure VPN gateway instance pair isn't illustrated in the diagram. The configuration details aren't listed. However, having more VPN tunnels improves high availability.
 
-  ![VPN tunnels](./media/site-to-site-vpn-over-microsoft-peering/EstablishTunnels.png)
+:::image type="content" source="./media/site-to-site-vpn-over-microsoft-peering/establish-tunnels.png" alt-text="Diagram of an established VPN tunnel over ExpressRoute.":::
 
 Over the IPsec tunnel pair, an eBGP session is established to exchange private network routes. The following diagram shows the eBGP session established over the IPsec tunnel pair:
 
-  ![eBGP sessions over tunnel pair](./media/site-to-site-vpn-over-microsoft-peering/TunnelBGP.png)
+:::image type="content" source="./media/site-to-site-vpn-over-microsoft-peering/tunnel-bgp.png" alt-text="Diagram of an established eBGP session over the IPsec tunnel.":::
 
 The following diagram shows the abstracted overview of the example network:
 
-  ![example network](./media/site-to-site-vpn-over-microsoft-peering/OverviewRef.png)
+:::image type="content" source="./media/site-to-site-vpn-over-microsoft-peering/overview-reference.png" alt-text="Diagram of a network environment once VPN gets established between on-premises and Azure.":::
 
 ### About the Azure Resource Manager template examples
 
-In the examples, the VPN gateway and the IPsec tunnel terminations are configured using an Azure Resource Manager template. If you are new to using Resource Manager templates, or to understand the Resource Manager template basics, see [Understand the structure and syntax of Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md). The template in this section creates a greenfield Azure environment (VNet). However, if you have an existing VNet, you can reference it in the template. If you are not familiar with VPN gateway IPsec/IKE site-to-site configurations, see [Create a site-to-site connection](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md).
+In the examples, the VPN gateway and the IPsec tunnel terminations are configured using an Azure Resource Manager template. If you're new to using Resource Manager templates, or to understand the Resource Manager template basics, see [Understand the structure and syntax of Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md). The template in this section creates a green field Azure environment (VNet). However, if you have an existing VNet, you can reference it in the template. If you aren't familiar with VPN gateway IPsec/IKE site-to-site configurations, see [Create a site-to-site connection](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md).
 
 >[!NOTE]
 >You do not need to use Azure Resource Manager templates in order to create this configuration. You can create this configuration using the Azure portal, or PowerShell.
->
 >
 
 ### <a name="variables3"></a>3.1 Declare the variables
@@ -174,7 +168,7 @@ In this example, the variable declarations correspond to the example network. Wh
 
 ### <a name="vnet"></a>3.2 Create virtual network (VNet)
 
-If you are associating an existing VNet with the VPN tunnels, you can skip this step.
+If you're associating an existing VNet with the VPN tunnels, you can skip this step.
 
 ```json
 {
@@ -265,7 +259,7 @@ This section of the template configures the VPN gateway with the required settin
 
 * Create the VPN gateway with a **"RouteBased"** VpnType. This setting is mandatory if you want to enable the BGP routing between the VPN gateway, and the VPN on-premises.
 * To establish VPN tunnels between the two instances of the VPN gateway and a given on-premises device in active-active mode, the **"activeActive"** parameter is set to **true** in the Resource Manager template. To understand more about highly available VPN gateways, see [Highly available VPN gateway connectivity](../vpn-gateway/vpn-gateway-highlyavailable.md).
-* To configure eBGP sessions between the VPN tunnels, you must specify two different ASNs on either side. It is preferable to specify private ASN numbers. For more information, see [Overview of BGP and Azure VPN gateways](../vpn-gateway/vpn-gateway-bgp-overview.md).
+* To configure eBGP sessions between the VPN tunnels, you must specify two different ASNs on either side. It's preferable to specify private ASN numbers. For more information, see [Overview of BGP and Azure VPN gateways](../vpn-gateway/vpn-gateway-bgp-overview.md).
 
 ```json
 {
@@ -357,10 +351,10 @@ The Azure VPN gateway is compatible with many VPN devices from different vendors
 
 When configuring your VPN device, you need the following items:
 
-* A shared key. This is the same shared key that you specify when creating your site-to-site VPN connection. The examples use a basic shared key. We recommend that you generate a more complex key to use.
-* The Public IP address of your VPN gateway. You can view the public IP address by using the Azure portal, PowerShell, or CLI. To find the Public IP address of your VPN gateway using the Azure portal, navigate to Virtual network gateways, then click the name of your gateway.
+* A shared key. This value is the same shared key that you specify when creating your site-to-site VPN connection. The examples use a basic shared key. We recommend that you generate a more complex key to use.
+* The Public IP address of your VPN gateway. You can view the public IP address by using the Azure portal, PowerShell, or CLI. To find the Public IP address of your VPN gateway using the Azure portal, navigate to Virtual network gateways, then select the name of your gateway.
 
-Typically eBGP peers are directly connected (often over a WAN connection). However, when you are configuring eBGP over IPsec VPN tunnels via ExpressRoute Microsoft peering, there are multiple routing domains between the eBGP peers. Use the **ebgp-multihop** command to establish the eBGP neighbor relationship between the two not-directly connected peers. The integer that follows ebgp-multihop command specifies the TTL value in the BGP packets. The command **maximum-paths eibgp 2** enables load balancing of traffic between the two BGP paths.
+Typically eBGP peers are directly connected (often over a WAN connection). However, when you're configuring eBGP over IPsec VPN tunnels via ExpressRoute Microsoft peering, there are multiple routing domains between the eBGP peers. Use the **ebgp-multihop** command to establish the eBGP neighbor relationship between the two not-directly connected peers. The integer that follows ebgp-multihop command specifies the TTL value in the BGP packets. The command **maximum-paths eibgp 2** enables load balancing of traffic between the two BGP paths.
 
 ### <a name="cisco1"></a>Cisco CSR1000 example
 
@@ -478,7 +472,7 @@ Configure your firewall and filtering according to your requirements.
 
 ## <a name="testipsec"></a>6. Test and validate the IPsec tunnel
 
-The status of IPsec tunnels can be verified on the Azure VPN gateway by Powershell commands:
+The status of IPsec tunnels can be verified on the Azure VPN gateway by PowerShell commands:
 
 ```azurepowershell-interactive
 Get-AzVirtualNetworkGatewayConnection -Name vpn2local1 -ResourceGroupName myRG | Select-Object  ConnectionStatus,EgressBytesTransferred,IngressBytesTransferred | fl
@@ -568,7 +562,7 @@ Peer: 52.175.253.112 port 4500 fvrf: (none) ivrf: (none)
         Outbound: #pkts enc'ed 477 drop 0 life (KB/Sec) 4607953/437
 ```
 
-The line protocol on the Virtual Tunnel Interface (VTI) does not change to "up" until IKE phase 2 has completed. The following command verifies the security association:
+The line protocol on the Virtual Tunnel Interface (VTI) doesn't change to "up" until IKE phase 2 has completed. The following command verifies the security association:
 
 ```
 csr1#show crypto ikev2 sa

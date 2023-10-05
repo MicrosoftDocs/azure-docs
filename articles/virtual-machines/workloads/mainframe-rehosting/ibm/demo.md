@@ -1,13 +1,15 @@
 ---
 title: Set up an Application Developers Controlled Distribution (ADCD) in IBM zD&T v1 | Microsoft Docs
 description: Run an IBM Z Development and Test Environment (zD&T) environment on Azure Virtual Machines (VMs).
-services: virtual-machines-linux
+services: virtual-machines
+ms.service: virtual-machines
+ms.subservice: mainframe-rehosting
 documentationcenter:
-author: njray
-manager: edprice
-editor: edprice
-tags:
-keywords:
+author: swread
+ms.author: sread
+editor: swread
+ms.topic: conceptual
+ms.date: 02/22/2019
 ---
 # Set up an Application Developers Controlled Distribution (ADCD) in IBM zD&T v1
 
@@ -16,7 +18,7 @@ You can run an IBM Z Development and Test Environment (zD&T) environment on Azur
 This article shows you how to set up an ADCD instance in a zD&T environment on Azure. ADCDs create complete Z Series operating system implementations for development and testing environments that run in zD&T.
 
 Like zD&T, ADCDs are available only to IBM customers and partners and are exclusively for development and testing purposes. They are not to be used for production environments. Numerous IBM installation packages are available for download through [Passport Advantage](https://www.ibm.com/support/knowledgecenter/en/SSTQBD_12.0.0/com.ibm.zsys.rdt.guide.adcd.doc/topics/installation_ps.html)
-or [IBM PartnerWorld](https://www-356.ibm.com/partnerworld/wps/servlet/ContentHandler/isv_com_sys_zos_adcd).
+or [IBM PartnerWorld](https://www.ibm.com/partnerworld/public).
 
 ## Prerequisites
 
@@ -34,7 +36,7 @@ or [IBM PartnerWorld](https://www-356.ibm.com/partnerworld/wps/servlet/ContentHa
 
 ## Download the installation packages from Passport Advantage
 
-Access to the ADCD media is required. The steps below assume you are an IBM customers and can use Passport Advantage. IBM partners can use [IBM PartnerWorld](https://www-356.ibm.com/partnerworld/wps/servlet/ContentHandler/isv_com_sys_zos_adcd).
+Access to the ADCD media is required. The steps below assume you are an IBM customers and can use Passport Advantage. IBM partners can use [IBM PartnerWorld](https://www.ibm.com/partnerworld/public).
 
 > [!NOTE]
 > This article assumes that a Windows PC is used to access Azure portal and to download the IBM media. If you are using a Mac or Ubuntu desktop, the commands and process for obtaining the IBM media may differ slightly.
@@ -47,7 +49,7 @@ Access to the ADCD media is required. The steps below assume you are an IBM cust
 
 4. Enter the part description or part number, and click **Finder**.
 
-5. Optionally, click the alphabetical order list to display and view theproduct by name.
+5. Optionally, click the alphabetical order list to display and view the product by name.
 
 6. Select **All Operating Systems** in the **Operating system field**, and **All Languages** in the **Languages field**. Then, click **Go**.
 
@@ -63,13 +65,13 @@ Now that you have the package(s), you must upload them to your VM on Azure.
 
 2. Select the **SSH** tab, and then copy the ssh command to the clipboard.
 
-3. Log on to your VM using your credentials and the [SSH client](/azure/virtual-machines/linux/use-remote-desktop) of choice. This demo uses the Linux extensions for Windows 10, which adds a bash shell to the Windows command prompt. PuTTY works just as well.
+3. Log on to your VM using your credentials and the [SSH client](../../../linux/use-remote-desktop.md) of choice. This demo uses the Linux extensions for Windows 10, which adds a bash shell to the Windows command prompt.
 
 4. When logged on, create a directory to upload the IBM packages. Keep in mind Linux is case sensitive. For example, this demo assumes the packages are uploaded to:
 
-        /home/MyUserID/ZDT/adcd/nov2017/volumes
+    `/home/MyUserID/ZDT/adcd/nov2017/volumes`
 
-5. Upload the files using an SSH client such as[WinSCP](https://winscp.net/eng/index.php). Since SCP is a part of SSH , it uses port 22, which is what SSH uses. If your local computer is not Windows, you can type the [scp command](http://man7.org/linux/man-pages/man1/scp.1.html) in your SSH session.
+5. Upload the files using an SSH client such as [WinSCP](https://winscp.net/eng/index.php). Since SCP is a part of SSH , it uses port 22, which is what SSH uses. If your local computer is not Windows, you can type the [scp command](http://man7.org/linux/man-pages/man1/scp.1.html) in your SSH session.
 
 6. Initiate the upload to the Azure VM directory you created, which becomes the image storage for zD&T.
 
@@ -80,8 +82,8 @@ Now that you have the package(s), you must upload them to your VM on Azure.
 
 8. When the uploads are complete, navigate to the volumes directory and decompress all of the **gz** volumes:
 
-    ```
-        gunzip \*.gz
+    ```console
+    gunzip \*.gz
     ```
     
 ![File explorer showing decompressed gz volumes](media/01-gunzip.png)
@@ -91,9 +93,9 @@ Now that you have the package(s), you must upload them to your VM on Azure.
 The next step is to configure zD&T to use the uploaded package(s). The image storage process within zD&T allows you to mount and use the images. It can use SSH or FTP.
 
 1. Start the **zDTServer**. To do this, you must be at the root level. Enter the following two commands in order:
-    ```
-        sudo su -
-        /opt/ibm/zDT/bin/startServer
+    ```console
+    sudo su -
+    /opt/ibm/zDT/bin/startServer
     ```
 2. Note the URL output by the command and use this URL to access the web server. It looks similar to:
      > https://(your VM name or IP address):9443/ZDTMC/index.html
@@ -179,9 +181,9 @@ Congratulations! You are now running an IBM mainframe environment on Azure.
 
 ## Learn more
 
-- [Mainframe migration: myths and facts](https://docs.microsoft.com/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
-- [IBM DB2 pureScale on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ibm-db2-purescale-azure)
-- [Troubleshooting](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/)
+- [Mainframe migration: myths and facts](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
+- [IBM DB2 pureScale on Azure](ibm-db2-purescale-azure.md)
+- [Troubleshooting](/troubleshoot/azure/virtual-machines/welcome-virtual-machines)
 - [Demystifying mainframe to Azure migration](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
 
 <!-- INTERNAL LINKS -->

@@ -1,17 +1,14 @@
 ---
-title: Configure subnet traffic routing method using Azure Traffic Manager
+title: Configure subnet traffic routing - Azure Traffic Manager
 description: This article explains how to configure Traffic Manager to route traffic from specific subnets.
 services: traffic-manager
-documentationcenter: ''
-author: KumudD
-manager: twooley
+author: greg-lindsay
 ms.service: traffic-manager
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
-ms.author: kumud
+ms.author: greglin
+ms.custom: template-how-to
 ---
 
 # Direct traffic to specific endpoints based on user subnet using Traffic Manager
@@ -31,7 +28,7 @@ The test VMs are used to illustrate how Traffic Manager routes user traffic to t
 
 ### Sign in to Azure
 
-Sign in to the Azure portal at https://portal.azure.com.
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ### Create websites
 
@@ -49,7 +46,7 @@ In this section, you create two VMs *myEndpointVMEastUS* and *myEndpointVMWEurop
     |---|---|
     |Name|myIISVMEastUS|
     |User name| Enter a user name of your choosing.|
-    |Password| Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Password| Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).|
     |Resource group| Select **New** and then type *myResourceGroupTM1*.|
     |Location| Select **East US**.|
     |||
@@ -135,7 +132,7 @@ In this section, you create a VM (*mVMEastUS* and *myVMWestEurope*) in each Azur
     |---|---|
     |Name|myVMEastUS|
     |User name| Enter a user name of your choosing.|
-    |Password| Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Password| Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).|
     |Resource group| Select **Existing** and then select *myResourceGroupTM1*.|
     |||
 
@@ -170,7 +167,7 @@ Create a Traffic Manager profile that allows you to return specific endpoints ba
 
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
-    | Name                   | This name needs to be unique within the trafficmanager.net zone and results in the DNS name, trafficmanager.net that is used to access your Traffic Manager profile.                                   |
+    | Name                   | This name needs to be unique within the `trafficmanager.net` zone and results in the DNS name, `trafficmanager.net` that is used to access your Traffic Manager profile.                                   |
     | Routing method          | Select the **Subnet** routing method.                                       |
     | Subscription            | Select your subscription.                          |
     | Resource group          | Select **Existing** and enter *myResourceGroupTM1*. |
@@ -193,9 +190,9 @@ Add the two VMs running the IIS servers - *myIISVMEastUS* & *myIISVMWEurope* to 
     | Name           | myTestWebSiteEndpoint                                        |
     | Target resource type           | Public IP Address                          |
     | Target resource          | **Choose a Public IP address** to show the listing of resources with Public IP addresses under the same subscription. In **Resource**, select the public IP address named *myIISVMEastUS-ip*. This is the public IP address of the IIS server VM in East US.|
-    |  Subnet routing settings    |   Add the IP address of *myVMEastUS* test VM. Any user query originating from this VM will be directed to the *myTestWebSiteEndpoint*.    |
+    |  Subnet routing settings    |   Add the IP address of the recursive DNS resolver used by *myVMEastUS* test VM. Any user query originating from this VM will be directed to the *myTestWebSiteEndpoint*.    |
 
-4. Repeat steps 2 and 3 to add another endpoint named *myProductionEndpoint* for the public IP address *myIISVMWEurope-ip* that is associated with the IIS server VM named *myIISVMWEurope*. For **Subnet routing settings**, add the IP address of the test VM - *myVMWestEurope*. Any user query from this test VM will be routed to the endpoint - *myProductionWebsiteEndpoint*.
+4. Repeat steps 2 and 3 to add another endpoint named *myProductionEndpoint* for the public IP address *myIISVMWEurope-ip* that is associated with the IIS server VM named *myIISVMWEurope*. For **Subnet routing settings**, add the IP address of the recursive DNS resolver used by test VM - *myVMWestEurope*. Any user query from this test VM via its DNS resolver will be routed to the endpoint - *myProductionWebsiteEndpoint*.
 5. When the addition of both endpoints is complete, they are displayed in **Traffic Manager profile** along with their monitoring status as **Online**.
 
     ![Add a Traffic Manager endpoint](./media/traffic-manager-subnet-routing-method/customize-endpoint-with-subnet-routing-eastus.png)

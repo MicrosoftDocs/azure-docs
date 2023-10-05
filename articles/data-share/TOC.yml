@@ -1,0 +1,102 @@
+- name: Azure Data Share documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What is Azure Data Share?
+    href: overview.md
+  - name: Supported data stores
+    href: supported-data-stores.md
+- name: Quickstarts
+  items:
+  - name: Share data - Azure portal
+    href: share-your-data-portal.md
+  - name: Share data - Bicep
+    displayName: ARM, Resource Manager, Template 
+    href: share-your-data-bicep.md
+  - name: Share data - ARM template
+    displayName: Resource Manager
+    href: share-your-data-arm.md
+- name: Tutorials
+  expanded: true
+  items:
+    - name: Share data
+      href: share-your-data.md
+      displayName: Azure CLI, az datashare account create, az datashare create
+    - name: Accept and receive data
+      href: subscribe-to-data-share.md
+      displayName: Azure CLI, az datashare consumer invitation, az datashare consumer share-subscription
+- name: Concepts
+  items:
+  - name: Security
+    items:
+    - name: Security overview
+      href: security.md
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/azure-data-share-security-baseline?toc=/azure/data-share/TOC.json
+  - name: Azure Data Share terminology
+    href: terminology.md
+  - name: Roles and requirements
+    href: concepts-roles-permissions.md
+  - name: Understand pricing
+    href: concepts-pricing.md
+- name: Samples
+  items:
+  - name: Azure PowerShell
+    href: samples-powershell.md
+- name: How-to guides
+  items:
+  - name: Share and receive data by source
+    items:
+    - name: Share from Azure Storage
+      href: how-to-share-from-storage.md
+    - name: Share from Azure SQL Database or Azure Synapse Analytics
+      href: how-to-share-from-sql.md
+    - name: Share from Azure Data Explorer
+      href: /azure/data-explorer/data-share
+      maintainContext: true
+  - name: Add datasets
+    href: how-to-add-datasets.md
+  - name: Configure dataset mappings
+    href: how-to-configure-mapping.md
+  - name: Add recipients
+    href: how-to-add-recipients.md
+  - name: Delete an invitation
+    href: how-to-delete-invitation.md
+  - name: Revoke a share subscription
+    href: how-to-revoke-share-subscription.md
+  - name: Monitor
+    href: how-to-monitor.md
+  - name: Disaster recovery
+    href: disaster-recovery.md
+  - name: Troubleshoot
+    href: data-share-troubleshoot.md
+  - name: Move Data Share account to new region
+    href: move-to-new-region.md
+
+- name: Reference
+  items:
+  - name: .NET
+    href: /dotnet/api/overview/azure/datashare
+  - name: Azure PowerShell
+    href: /powershell/module/az.datashare/
+  - name: REST API
+    href: /rest/api/datashare
+  - name: Azure CLI
+    href: /cli/azure/azure-cli-reference-for-data-share
+- name: Resources
+  items:
+  - name: Microsoft Q&A question page
+    href: /answers/topics/azure-data-share.html
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-data-share
+  - name: Blog
+    href: https://techcommunity.microsoft.com/t5/Azure-Data-Share/bg-p/AzureDataShareBlog
+  - name: Microsoft Tech Community
+    href: https://techcommunity.microsoft.com/
+  - name: Product feedback
+    href: https://feedback.azure.com/d365community/forum/4444c9d4-ed24-ec11-b6e6-000d3a4f0da0
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/data-share/
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?product=data-share

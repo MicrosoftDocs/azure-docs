@@ -1,19 +1,16 @@
 ---
-title: 'About zone-redundant virtual network gateways in Azure Availability Zones | Microsoft Docs'
-description: Learn about VPN Gateway and ExpressRoute gateways in Availability Zones.
-services: vpn-gateway
+title: 'About zone-redundant virtual network gateway in Azure availability zones'
+description: Learn about zone-redundant virtual network gateways in Azure availability zones.
+titleSuffix: Azure VPN Gateway
 author: cherylmc
-Customer intent: As someone with a basic network background, I want to understand zone-redundant gateways.
-
 ms.service: vpn-gateway
-ms.topic: conceptual
-ms.date: 09/21/2018
-ms.author: cherylmc
-
+ms.topic: how-to
+ms.date: 09/03/2020
+ms.author: cherylmc 
 ---
-# About zone-redundant virtual network gateways in Azure Availability Zones
+# About zone-redundant virtual network gateway in Azure availability zones
 
-You can deploy VPN and ExpressRoute gateways in [Azure Availability Zones](../availability-zones/az-overview.md). This brings resiliency, scalability, and higher availability to virtual network gateways. Deploying gateways in Azure Availability Zones physically and logically separates gateways within a region, while protecting your on-premises network connectivity to Azure from zone-level failures.
+This article helps you create a zone-redundant virtual network gateway in Azure availability zones. This brings resiliency, scalability, and higher availability to virtual network gateways. Deploying gateways in Azure availability zones physically and logically separates gateways within a region, while protecting your on-premises network connectivity to Azure from zone-level failures. For information, see  [About zone-redundant virtual network gateways](about-zone-redundant-vnet-gateways.md) and [What are Azure regions and availability zones?](../availability-zones/az-overview.md)
 
 ### <a name="zrgw"></a>Zone-redundant gateways
 
@@ -26,7 +23,7 @@ To automatically deploy your virtual network gateways across availability zones,
 
 ### <a name="zgw"></a>Zonal gateways
 
-To deploy gateways in a specific zone, you can use zonal gateways. When you deploy a zonal gateway, all instances of the gateway are deployed in the same Availability Zone.
+To deploy gateways in a specific zone, you can use zonal gateways. When you deploy a zonal gateway, all instances of the gateway are deployed in the same availability zone.
 
 <br>
 <br>
@@ -35,25 +32,13 @@ To deploy gateways in a specific zone, you can use zonal gateways. When you depl
 
 ## <a name="gwskus"></a>Gateway SKUs
 
-Zone-redundant and zonal gateways are available as new gateway SKUs. We have added new virtual network gateway SKUs in Azure AZ regions. These SKUs are similar to the corresponding existing SKUs for ExpressRoute and VPN Gateway, except that they are specific to zone-redundant and zonal gateways.
+Zone-redundant and zonal gateways are available as gateway SKUs. We have added new virtual network gateway SKUs in Azure AZ regions. These SKUs are similar to the corresponding existing SKUs for ExpressRoute and VPN Gateway, except that they're specific to zone-redundant and zonal gateways. You can identify these SKUs by the "AZ" in the SKU name.
 
-The new gateway SKUs are:
-
-### VPN Gateway
-
-* VpnGw1AZ
-* VpnGw2AZ
-* VpnGw3AZ
-
-### ExpressRoute
-
-* ErGw1AZ
-* ErGw2AZ
-* ErGw3AZ
+For information about gateway SKUs, see [VPN gateway SKUs](vpn-gateway-about-vpngateways.md#gwsku) and [ExpressRoute gateway SKUs](../expressroute/expressroute-about-virtual-network-gateways.md#gwsku).
 
 ## <a name="pipskus"></a>Public IP SKUs
 
-Zone-redundant gateways and zonal gateways both rely on the Azure public IP resource *Standard* SKU. The configuration of the Azure public IP resource determines whether the gateway that you deploy is zone-redundant, or zonal. If you create a public IP resource with a *Basic* SKU, the gateway will not have any zone redundancy, and the gateway resources will be regional.
+Zone-redundant gateways and zonal gateways both rely on the Azure public IP resource *Standard* SKU. The configuration of the Azure public IP resource determines whether the gateway that you deploy is zone-redundant, or zonal. If you create a public IP resource with a *Basic* SKU, the gateway won't have any zone redundancy, and the gateway resources will be regional.
 
 ### <a name="pipzrg"></a>Zone-redundant gateways
 
@@ -68,30 +53,30 @@ When you create a public IP address using the **Standard** public IP SKU and spe
 
 ### <a name="piprg"></a>Regional gateways
 
-When you create a public IP address using the **Basic** public IP SKU, the gateway is deployed as a regional gateway and does not have any zone-redundancy built into the gateway.
+When you create a public IP address using the **Basic** public IP SKU, the gateway is deployed as a regional gateway and doesn't have any zone-redundancy built into the gateway.
 
 ## <a name="faq"></a>FAQ
 
-### What will change when I deploy these new SKUs?
+### What will change when I deploy these SKUs?
 
-From your perspective, you can deploy your gateways with zone-redundancy. This means that all instances of the gateways will be deployed across Azure Availability Zones, and each Availability Zone is a different fault and update domain. This makes your gateways more reliable, available, and resilient to zone failures.
+From your perspective, you can deploy your gateways with zone-redundancy. This means that all instances of the gateways will be deployed across Azure availability zones, and each availability zone is a different fault and update domain. This makes your gateways more reliable, available, and resilient to zone failures.
 
 ### Can I use the Azure portal?
 
-Yes, you can use the Azure portal to deploy the new SKUs. However, you will see these new SKUs only in those Azure regions that have Azure Availability Zones.
+Yes, you can use the Azure portal to deploy these SKUs. However, you'll see these SKUs only in those Azure regions that have Azure availability zones.
 
-### What regions are available for me to use the new SKUs?
+### What regions are available for me to use these SKUs?
 
-The new SKUs are available in Azure regions that have Azure Availability Zones - Central US, France Central, North Europe, West Europe, and West US 2 regions. Going forward, we will make zone-redundant gateways available to you in other Azure Public Regions.
+These SKUs are available in Azure regions that have Azure availability zones. For more information, see [Azure regions with availability zones](../availability-zones/az-region.md#azure-regions-with-availability-zones).
 
 ### Can I change/migrate/upgrade my existing virtual network gateways to zone-redundant or zonal gateways?
 
 Migrating your existing virtual network gateways to zone-redundant or zonal gateways is currently not supported. You can, however, delete your existing gateway and re-create a zone-redundant or zonal gateway.
 
-### Can I deploy both VPN and Express Route gateways in same virtual network?
+### Can I deploy both VPN and ExpressRoute gateways in same virtual network?
 
-Co-existence of both VPN and Express Route gateways in the same virtual network is supported. However, you should reserve a /27 IP address range for the gateway subnet.
+Co-existence of both VPN and ExpressRoute gateways in the same virtual network is supported. However, you should reserve a /27 IP address range for the gateway subnet.
 
-## Next Steps
+## Next steps
 
 [Create a zone-redundant virtual network gateway](create-zone-redundant-vnet-gateway.md)

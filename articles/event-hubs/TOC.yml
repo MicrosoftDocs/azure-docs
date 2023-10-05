@@ -2,193 +2,434 @@
   href: ./index.yml
 - name: Overview
   items:
-  - name: What is Event Hubs?
-    href: event-hubs-about.md
-  - name: Event Hubs for Apache Kafka
-    href: event-hubs-for-kafka-ecosystem-overview.md
-  - name: Event Hubs Capture
-    href: event-hubs-capture-overview.md
-  - name: Event Hubs Dedicated
-    href: event-hubs-dedicated-overview.md
+    - name: What is Event Hubs?
+      href: event-hubs-about.md
+    - name: Apache Kafka on Azure Event Hubs
+      href: azure-event-hubs-kafka-overview.md
+    - name: Schema Registry
+      href: schema-registry-overview.md      
+    - name: Terminology
+      href: event-hubs-features.md
+    - name: Quotas
+      href: event-hubs-quotas.md
+    - name: Compare messaging services
+      href: ../service-bus-messaging/compare-messaging-services.md      
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create an event hub
-    items:
-    - name: Azure portal
-      href: event-hubs-create.md
-    - name: Azure CLI
-      href: event-hubs-quickstart-cli.md
-    - name: Azure PowerShell
-      href: event-hubs-quickstart-powershell.md
-    - name: Azure Resource Manager template
-      href: event-hubs-resource-manager-namespace-event-hub.md  
-  - name: Send and receive events
-    items:
-    - name: .NET Core
-      href: event-hubs-dotnet-standard-getstarted-send.md
-    - name: .NET Framework
-      href: event-hubs-dotnet-framework-getstarted-send.md
-    - name: Java
-      href: event-hubs-java-get-started-send.md
-    - name: Python
-      href: event-hubs-python-get-started-send.md
-    - name: Node.js
-      href: event-hubs-node-get-started-send.md
-    - name: Go 
-      href: event-hubs-go-get-started-send.md 
-    - name: C (send only)
-      href: event-hubs-c-getstarted-send.md
-    - name: Apache Storm (receive only)
-      href: event-hubs-storm-getstarted-receive.md
-  - name: Capture events
-    items:
-    - name: Use the Azure portal to enable Event Hubs Capture
-      href: event-hubs-capture-enable-through-portal.md
-    - name: Use a Resource Manager template to enable Event Hubs Capture
-      href: event-hubs-resource-manager-namespace-event-hub-enable-capture.md
-    - name: Capture Event Hubs data using Python
-      href: event-hubs-capture-python.md      
-  - name: Stream into Event Hubs for Apache Kafka
-    href: event-hubs-quickstart-kafka-enabled-event-hubs.md
-  - name: Create a dedicated cluster 
-    href: event-hubs-dedicated-cluster-create-portal.md
+    - name: Create an event hub or Kafka topic
+      items:
+        - name: Azure portal
+          href: event-hubs-create.md
+        - name: Azure CLI
+          href: event-hubs-quickstart-cli.md
+        - name: Azure PowerShell
+          href: event-hubs-quickstart-powershell.md
+        - name: Bicep
+          displayName: ARM, Resource Manager, Template
+          href: event-hubs-bicep-namespace-event-hub.md
+        - name: ARM template
+          displayName: Resource Manager
+          href: event-hubs-resource-manager-namespace-event-hub.md
+    - name: Send and receive events
+      items:
+        - name: Event Hubs SDKs (AMQP)
+          items: 
+          - name: .NET
+            href: event-hubs-dotnet-standard-getstarted-send.md
+          - name: Java
+            href: event-hubs-java-get-started-send.md
+          - name: Python
+            href: event-hubs-python-get-started-send.md
+          - name: JavaScript
+            href: event-hubs-node-get-started-send.md
+          - name: Spring
+            href: /azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub?toc=/azure/event-hubs/TOC.json
+          - name: Go
+            href: event-hubs-go-get-started-send.md
+          - name: C (send only)
+            href: event-hubs-c-getstarted-send.md
+          - name: Apache Storm (receive only)
+            href: event-hubs-storm-getstarted-receive.md
+        - name: Apache Kafka
+          items:
+          - name: Java
+            href: event-hubs-quickstart-kafka-enabled-event-hubs.md
+        - name: Send events using Data Generator
+          href: send-and-receive-events-using-data-generator.md
+          displayName: No Code, Sample data
+    - name: Capture events
+      items:
+        - name: Use the Azure portal to enable Event Hubs Capture
+          href: event-hubs-capture-enable-through-portal.md
+        - name: Use a Resource Manager template to enable Event Hubs Capture
+          href: event-hubs-resource-manager-namespace-event-hub-enable-capture.md
+        - name: Read captured data using Python 
+          href: event-hubs-capture-python.md
+    - name: Use Schema Registry
+      items:
+        - name: Create a schema - Azure portal
+          href: create-schema-registry.md
+        - name: Validate schemas for Kafka applications 
+          href: schema-registry-kafka-java-send-receive-quickstart.md
+        - name: Validate schemas for Event Hubs SDK based applications 
+          href: schema-registry-dotnet-send-receive-quickstart.md
+    - name: Create a dedicated cluster
+      href: event-hubs-dedicated-cluster-create-portal.md
 - name: Tutorials
   items:
-  - name: Visualize data anomalies on Event Hubs data streams
-    href: event-hubs-tutorial-visualize-anomalies.md
-  - name: Store captured data in a SQL Data Warehouse
-    href: store-captured-data-data-warehouse.md
-  - name: Stream data into Azure Databricks using Event Hubs
-    href: ../azure-databricks/databricks-stream-from-eventhubs.md
-    maintainContext: true        
-  - name: Enable Virtual Networks Integration and Firewalls on Event Hubs Namespace
-    href: event-hubs-tutorial-virtual-networks-firewalls.md
-  - name: Event Hubs for Apache Kafka 
-    items:
-      - name: Mirror a Kafka broker in an Apache Kafka-enabled event hub
-        href: event-hubs-kafka-mirror-maker-tutorial.md
-      - name: Connect Apache Spark to an Apache Kafka-enabled event hub
-        href: event-hubs-kafka-spark-tutorial.md
-      - name: Connect Apache Flink to an Apache Kafka-enabled event hub 
-        href: event-hubs-kafka-flink-tutorial.md
-      - name: Integrate Apache Kafka Connect with a Kafka-enabled event hub (Preview) 
-        href: event-hubs-kafka-connect-tutorial.md
-      - name: Connect Akka Streams to an Apache Kafka-enabled event hub
-        href: event-hubs-kafka-akka-streams-tutorial.md
+    - name: Analyze fraudulent call data with Stream Analytics
+      href: ../stream-analytics/stream-analytics-real-time-fraud-detection.md?toc=/azure/event-hubs/TOC.json
+    - name: Capture Event Hubs data in Parquet format
+      href: ../stream-analytics/event-hubs-parquet-capture-tutorial.md?toc=/azure/event-hubs/TOC.json
+      maintainContext: true
+    - name: Build real-time dashboards with Power BI
+      href: ../stream-analytics/no-code-power-bi-tutorial.md
+      maintainContext: true
+    - name: Process Apache Kafka for Event Hubs events using Stream analytics
+      href: event-hubs-kafka-stream-analytics.md
+    - name: Stream data into Azure Databricks using Event Hubs
+      href: /azure/databricks/scenarios/databricks-stream-from-eventhubs
+      maintainContext: true
 - name: Samples
-  href: event-hubs-samples.md
+  items:
+    - name: Code samples
+      href: event-hubs-samples.md
 - name: Concepts
   items:
-  - name: Event Hubs features
-    href: event-hubs-features.md
-  - name: Event Processor Host overview
-    href: event-hubs-event-processor-host.md
-  - name: Programming guide
-    href: event-hubs-programming-guide.md
-  - name: Security
-    items:
-    - name: Managed identity for Azure resources
-      href: event-hubs-managed-service-identity.md
-    - name: Role-Based Access Control (preview)
-      href: event-hubs-role-based-access-control.md
-    - name: Geo-disaster recovery and Geo-replication
-      href: event-hubs-geo-dr.md
-    - name: Authentication and security model overview
-      href: event-hubs-authentication-and-security-model-overview.md
-    - name: Security Attributes
-      href: event-hubs-security-attributes.md
-  - name: Availability and consistency
-    href: event-hubs-availability-and-consistency.md
-  - name: AMQP 1.0 protocol guide
-    href: ../service-bus-messaging/service-bus-amqp-protocol-guide.md
-    maintainContext: true
+    - name: Event Hubs Capture
+      items:
+      - name: Capture event data in Event Hubs
+        href: event-hubs-capture-overview.md
+      - name: Authentication modes for capture destination
+        href: event-hubs-capture-managed-identity.md
+      - name: Explore captured Avro files
+        href: explore-captured-avro-files.md
+    - name: Log compaction
+      href: log-compaction.md
+    - name: Application groups
+      href: resource-governance-overview.md     
+    - name: Tiers 
+      items: 
+      - name: Premium tier
+        href: event-hubs-premium-overview.md      
+      - name: Dedicated tier
+        href: event-hubs-dedicated-overview.md
+      - name: Compare tiers
+        href: compare-tiers.md
+    - name: Schema Registry 
+      items: 
+      - name: Schema Registry concepts
+        href: schema-registry-concepts.md   
+      - name: Client-side schema enforcement
+        href: schema-registry-client-side-enforcement.md
+    - name: Event processing using SDKs
+      items: 
+      - name: Event processor host (legacy SDK)
+        href: event-hubs-event-processor-host.md
+      - name: Event processor (latest SDK)
+        href: event-processor-balance-partition-load.md
+      - name: Event processing with no code editor
+        href: ../stream-analytics/no-code-stream-processing.md?toc=/azure/event-hubs/toc.json
+
+    - name: Federation 
+      items:
+        - name: Multi-site and multi-region federation
+          href: event-hubs-federation-overview.md
+        - name: Event replication tasks and applications
+          href: event-hubs-federation-replicator-functions.md
+        - name: Event replication task patterns
+          href: event-hubs-federation-patterns.md
+        - name: Configured replication tasks
+          href: event-hubs-federation-configuration.md
+        - name: Replicate events between Event Hubs
+          href: https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopy
+        - name: Send events to Azure Service Bus
+          href: https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopyToServiceBus
+        - name: Acquire events from Azure Service Bus
+          href: https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/ServiceBusCopyToEventHub
+    - name: Geo-disaster recovery
+      items:
+        - name: Geo-disaster recovery and Geo-replication
+          href: event-hubs-geo-dr.md
+    - name: Security
+      items:
+        - name: Authentication and authorization
+          items:
+          - name: Authenticate and authorize access to Event Hubs resources
+            href: authorize-access-event-hubs.md
+          - name: Use Shared Access Signature (SAS)
+            items: 
+            - name: Authenticate with a shared access signature
+              href: authenticate-shared-access-signature.md
+            - name: Authorize access with a shared access signature
+              href: authorize-access-shared-access-signature.md
+          - name: Use Azure Active Directory
+            items:
+            - name: Authenticate with a managed identity
+              href: authenticate-managed-identity.md
+            - name: Authenticate from an application
+              href: authenticate-application.md
+            - name: Authorize access with Azure Active Directory
+              href: authorize-access-azure-active-directory.md
+        - name: Network security
+          href: network-security.md
+        - name: Security controls by Azure Policy
+          displayName: regulatory, compliance, standards, domains
+          href: ./security-controls-policy.md
+        - name: Security baseline
+          href: /security/benchmark/azure/baselines/event-hubs-security-baseline?toc=/azure/event-hubs/TOC.json
+        - name: Enforce minimum required TLS version
+          href: transport-layer-security-enforce-minimum-version.md
+    - name: Availability and consistency
+      href: event-hubs-availability-and-consistency.md
+    - name: Scalability
+      href: event-hubs-scalability.md
+    - name: AMQP
+      items: 
+      - name: AMQP 1.0 protocol guide
+        href: ../service-bus-messaging/service-bus-amqp-protocol-guide.md        
+        maintainContext: true
+      - name: AMQP errors
+        href: event-hubs-amqp-troubleshoot.md
 - name: How-to guides
   items:
-  - name: Send, receive, and capture events using Python
-    href: event-hubs-python.md
-  - name: Set up diagnostic logs
-    href: event-hubs-diagnostic-logs.md
-  - name: Event Hubs for Apache Kafka 
-    items:
-      - name: Create Apache Kafka-enabled event hubs
-        href: event-hubs-create-kafka-enabled.md    
-      - name: Process Apache Kafka for Event Hubs events using Stream analytics
-        href: event-hubs-kafka-stream-analytics.md
-  - name: Manage
-    items:
-    - name: Monitor Event Hubs with Azure Monitoring
-      href: event-hubs-metrics-azure-monitor.md
-    - name: Event Hubs management libraries
-      href: event-hubs-management-libraries.md
-  - name: Get Event Hubs connection string
-    href: event-hubs-get-connection-string.md
-  - name: Java development
-    items:
-    - name: Create a Spring Cloud Stream Binder app
-      href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub
-    - name: Use the Spring Boot Starter for Apache Kafka 
-      href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub
-  - name: Troubleshoot
-    items:
-    - name: Exceptions
-      href: event-hubs-messaging-exceptions.md
-  - name: Use firewalls
-    href: event-hubs-ip-filtering.md
-  - name: Use virtual network service endpoints
-    href: event-hubs-service-endpoints.md
-  - name: Automatically scale throughput units
-    href: event-hubs-auto-inflate.md
-  - name: Stream Azure Diagnostics data using Event Hubs
-    href: event-hubs-streaming-azure-diags-data.md
-  - name: Exchange events between applications using different protocols
-    href: event-hubs-exchange-events-different-protocols.md    
-  - name: Create a Spring Cloud Stream Binder application
-    href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub?view=azure-java-stable
-    maintainContext: true
+    - name: Develop
+      items:
+        - name: Get Event Hubs connection string
+          href: event-hubs-get-connection-string.md
+        - name: Connect to an event hub (.NET)
+          href: connect-event-hub.md
+        - name: Configure processing units for a premium namespace
+          href: configure-processing-units-premium-namespace.md
+        - name: Add custom data to events
+          href: add-custom-data-event.md
+        - name: Dynamically add partitions
+          href: dynamically-add-partitions.md
+        - name: Migrate from Azure Service Manager (classic) APIs to Resource Manager APIs
+          href: ../service-bus-messaging/deprecate-service-bus-management.md?toc=/azure/event-hubs/toc.json
+        - name: Exchange events between applications using different protocols
+          href: event-hubs-exchange-events-different-protocols.md
+        - name: Programming language samples
+          items:
+            - name: .NET samples in GitHub
+              href: https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/README.md
+            - name: Java samples in GitHub (azure-messaging-eventhubs)
+              href: https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/README.md
+            - name: Python samples in GitHub (azure-eventhub)
+              href: https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/README.md
+            - name: JavaScript in GitHub (azure/event-hubs)
+              href: https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/README.md
+    - name: Use Kafka on Azure Event Hubs
+      items:
+        - name: Kafka developer guide for Event Hubs
+          href: apache-kafka-developer-guide.md
+        - name: Kafka migration guide for Event Hubs
+          href: apache-kafka-migration-guide.md
+        - name: Kafka troubleshooting guide for Event Hubs
+          href: apache-kafka-troubleshooting-guide.md
+        - name: Replicate data from a Kafka cluster to Event Hubs
+          items:
+          - name: Using Apache Kafka Mirror Maker 2
+            href: event-hubs-kafka-mirrormaker-2-tutorial.md
+          - name: Using Apache Kafka Mirror Maker 1
+            href: event-hubs-kafka-mirror-maker-tutorial.md
+        - name: Kafka Connect with Event Hubs
+          items:
+          - name: Integrate Apache Kafka Connect 
+            href: event-hubs-kafka-connect-tutorial.md
+          - name: Connect Apache Spark to an event hub
+            href: event-hubs-kafka-spark-tutorial.md
+          - name: Connect Apache Flink to an event hub
+            href: event-hubs-kafka-flink-tutorial.md
+          - name: Integrate Apache Kafka Connect with Debezium
+            href: event-hubs-kafka-connect-debezium.md
+          - name: Connect Akka Streams to an event hub
+            href: event-hubs-kafka-akka-streams-tutorial.md
+        - name: FAQ - Event Hubs for Kafka
+          href: apache-kafka-frequently-asked-questions.yml
+    - name: Use log compaction
+      href: use-log-compaction.md
+    - name: Use Schema Registry 
+      items:
+        - name: Client-side schema enforcement 
+          items:
+          - name: Using Avro schema 
+            items: 
+            - name: Avro schema with Event Hubs SDK(AMQP)
+              href: schema-registry-dotnet-send-receive-quickstart.md
+          - name: Using JSON Schema  
+            items: 
+            - name: JSON Schema with Apache Kafka applications
+              href: schema-registry-json-schema-kafka.md
+    - name: Process data
+      items:
+        - name: Build real-time dashboard with Power BI dataset
+          href: ../stream-analytics/no-code-build-power-bi-dashboard.md?toc=/azure/event-hubs/toc.json
+        - name: Capture Event Hubs data in Delta Lake format
+          href: ../stream-analytics/capture-event-hub-data-delta-lake.md?toc=/azure/event-hubs/toc.json
+        - name: Capture Event Hubs data in Parquet format
+          href: ../stream-analytics/capture-event-hub-data-parquet.md?toc=/azure/event-hubs/toc.json
+        - name: Materialize data to Azure Cosmos DB
+          href: ../stream-analytics/no-code-materialize-cosmos-db.md?toc=/azure/event-hubs/toc.json
+        - name: Filter and ingest Synapse SQL data
+          href: ../stream-analytics/filter-ingest-synapse-sql.md?toc=/azure/event-hubs/toc.json
+        - name: Filter and ingest to Data Lake Storage Gen2
+          href: ../stream-analytics/filter-ingest-data-lake-storage-gen2.md?toc=/azure/event-hubs/toc.json
+        - name: Enrich data and ingest to event hub
+          href: ../stream-analytics/no-code-enrich-event-hub-data.md?toc=/azure/event-hubs/toc.json
+        - name: Transform and ingest to SQL database
+          href: ../stream-analytics/no-code-transform-filter-ingest-sql.md?toc=/azure/event-hubs/toc.json
+        - name: Filter and ingest to Azure Data Explorer
+          href: ../stream-analytics/no-code-filter-ingest-data-explorer.md?toc=/azure/event-hubs/toc.json
+        - name: Process data using Azure Stream Analytics
+          href: process-data-azure-stream-analytics.md
+    - name: Integrate with Spring framework
+      items:
+        - name: Create a Spring Cloud Stream Binder app
+          href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub
+          maintainContext: true
+        - name: Use the Spring Boot Starter for Apache Kafka
+          href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub
+          maintainContext: true
+    - name: Manage
+      items:
+        - name: Manage Application Groups
+          href: resource-governance-with-app-groups.md
+        - name: Configure properties for an event hub
+          href: configure-event-hub-properties.md
+        - name: Automatically scale throughput units
+          href: event-hubs-auto-inflate.md
+        - name: Event Hubs management libraries
+          href: event-hubs-management-libraries.md
+    - name: Monitor
+      items:
+        - name: Monitor Azure Event Hubs
+          href: monitor-event-hubs.md
+        - name: Stream Azure Diagnostics data using Event Hubs
+          href: ../azure-monitor/agents/diagnostics-extension-stream-event-hubs.md       
+    - name: Secure
+      items:
+        - name: Allow access from specific IP addresses
+          href: event-hubs-ip-filtering.md
+        - name: Allow access from specific virtual networks
+          href: event-hubs-service-endpoints.md
+        - name: Allow access via private endpoints
+          href: private-link-service.md
+        - name: Encrypt data using customer-managed keys
+          href: configure-customer-managed-key.md
+        - name: Configure minimum required TLS version
+          href: transport-layer-security-configure-minimum-version.md
+        - name: Audit minimum required TLS version
+          href: transport-layer-security-audit-minimum-version.md
+        - name: Configure TLS version for client
+          href: transport-layer-security-configure-client-version.md
+        - name: Migrate to passwordless connections
+          href: passwordless-migration-event-hubs.md
+    - name: Troubleshoot
+      items:
+        - name: Troubleshoot connectivity issues
+          href: troubleshooting-guide.md
+        - name: Troubleshoot authentication and authorization issues
+          href: troubleshoot-authentication-authorization.md
+        - name: Troubleshoot checkpoint store issues
+          href: troubleshoot-checkpoint-store-issues.md
+        - name: Kafka troubleshooting guide for Event Hubs
+          href: apache-kafka-troubleshooting-guide.md
+        - name: EventHubsException 
+          href: exceptions-dotnet.md    
+        - name: .NET exceptions
+          href: event-hubs-messaging-exceptions.md
+        - name: Resource Manager exceptions
+          href: resource-manager-exceptions.md
+    - name: Move
+      items:
+      - name: Move a namespace to another region
+        href: move-across-regions.md
+      - name: Move a dedicated cluster to another region
+        href: move-cluster-across-regions.md
 - name: Reference
   items:
-  - name: Java
-    items:
-    - name: com.microsoft.azure.eventhubs
-      href: /java/api/com.microsoft.azure.eventhubs
-    - name: com.microsoft.azure.eventprocessorhost
-      href: /java/api/com.microsoft.azure.eventprocessorhost
-  - name: .NET
-    items:
-    - name: Microsoft.Azure.EventHubs
-      href: /dotnet/api/microsoft.azure.eventhubs
-    - name: Microsoft.Azure.EventHubs.Processor
-      href: /dotnet/api/microsoft.azure.eventhubs.processor
-    - name: Microsoft.ServiceBus.Messaging
-      href: /dotnet/api/microsoft.servicebus.messaging
-    - name: Microsoft.ServiceBus.Messaging.EventProcessorHost
-      href: /dotnet/api/microsoft.servicebus.messaging.eventprocessorhost
-    - name: Microsoft.Azure.Management.EventHub
-      href: /dotnet/api/microsoft.azure.management.eventhub
-  - name: Node.js
-    href: /javascript/api/overview/azure/event-hub?view=azure-node-latest
-  - name: REST
-    href: /rest/api/eventhub
-  - name: Resource Manager template
-    href: /azure/templates/microsoft.eventhub/allversions
-  - name: Quotas
-    href: event-hubs-quotas.md
+    - name: Monitor data Reference
+      href: monitor-event-hubs-reference.md
+    - name: SDKs
+      href: sdks.md
+    - name: .NET
+      items:
+        - name: Client library
+          items:
+            - name: Migrate from Microsoft.Azure.Event Hubs to Azure.Messaging.EventHubs
+              href: https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md
+            - name: Azure.Messaging.EventHubs (latest)
+              href: /dotnet/api/azure.messaging.eventhubs
+            - name: Microsoft.Azure.EventHubs (legacy)
+              href: /dotnet/api/microsoft.azure.eventhubs
+            - name: Microsoft.ServiceBus.Messaging (legacy)
+              href: /dotnet/api/microsoft.servicebus.messaging
+        - name: Management library
+          href: /dotnet/api/microsoft.azure.management.eventhub
+    - name: Java
+      items:
+        - name: Client library
+          items:
+            - name: Migrate from azure-eventhubs to azure-messaging-eventhubs
+              href: https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/migration-guide.md
+            - name: azure-messaging-eventhubs (latest)
+              href: /java/api/overview/azure/messaging-eventhubs-readme
+            - name: azure-eventhubs (legacy)
+              href: /java/api/overview/azure/eventhubs/client?view=azure-java-legacy&preserve-view=true
+        - name: Management library
+          href: /java/api/com.microsoft.azure.management.eventhub
+    - name: Spring
+      items:
+        - name: Spring integration
+          href: /azure/developer/java/spring-framework/spring-cloud-azure?tabs=maven#spring-integration-with-azure-event-hubs?toc=/azure/event-hubs/TOC.json
+        - name: Spring Cloud Stream
+          href: /azure/developer/java/spring-framework/spring-cloud-azure?tabs=maven#spring-cloud-stream-binder-for-azure-event-hubs?toc=/azure/event-hubs/TOC.json
+    - name: Python
+      items:
+        - name: Client library
+          href: /python/api/overview/azure/eventhub-readme
+        - name: Management library
+          href: /python/api/overview/azure/event-hub
+    - name: JavaScript
+      items:
+        - name: Client library
+          href: /javascript/api/overview/azure/event-hubs-readme
+        - name: Management library
+          href: /javascript/api/@azure/arm-eventhub/
+    - name: Go
+      items:
+        - name: Client library
+          href: https://pkg.go.dev/github.com/Azure/azure-event-hubs-go?tab=doc
+        - name: Management library
+          href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/eventhub/mgmt/2017-04-01/eventhub?tab=doc
+    - name: Azure CLI
+      href: /cli/azure/eventhubs
+    - name: REST
+      href: /rest/api/eventhub
+    - name: Resource Manager template
+      href: /azure/templates/microsoft.eventhub/allversions
+    - name: Apache Kafka configurations
+      href: apache-kafka-configurations.md
+    - name: Azure Policy built-ins
+      displayName: samples, policies, definitions
+      href: ./policy-reference.md
 - name: Resources
   items:
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?products=azure-event-hubs
-  - name: FAQ
-    href: event-hubs-faq.md
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=iot
-  - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/event-hubs/
-  - name: Pricing calculator
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Service updates
-    href: https://azure.microsoft.com/updates/?product=event-hubs
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-eventhub
-  - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=event-hubs
+    - name: Build your skills with Microsoft Learn training
+      href: /training/browse/?products=azure-event-hubs
+    - name: FAQ
+      href: event-hubs-faq.yml
+    - name: Azure Roadmap
+      href: https://azure.microsoft.com/roadmap/?category=iot
+    - name: Pricing
+      href: https://azure.microsoft.com/pricing/details/event-hubs/
+    - name: Pricing calculator
+      href: https://azure.microsoft.com/pricing/calculator/
+    - name: Service updates
+      href: https://azure.microsoft.com/updates/?product=event-hubs
+    - name: Stack Overflow
+      href: https://stackoverflow.com/questions/tagged/azure-eventhub
+    - name: Videos
+      href: https://azure.microsoft.com/documentation/videos/index/?services=event-hubs

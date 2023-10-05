@@ -1,33 +1,10 @@
 ---
- title: include file
- description: include file
- services: vpn-gateway
- author: cherylmc
- ms.service: vpn-gateway
- ms.topic: include
- ms.date: 02/01/2019
- ms.author: cherylmc
- ms.custom: include file
+author: cherylmc
+ms.author: cherylmc
+ms.date: 06/14/2023
+ms.service: vpn-gateway
+ms.topic: include
 ---
+**If you're using Azure Cloud Shell** you'll automatically be directed to sign into your account after you open Cloudshell. You don't need to run `Connect-AzAccount`. Once signed in, you can still change subscriptions if necessary by using `Get-AzSubscription` and `Select-AzSubscription`.
 
-Open your PowerShell console with elevated privileges.
-
-
-
-If you are running Azure PowerShell locally, connect to your Azure account. The *Connect-AzAccount* cmdlet prompts you for credentials. After authenticating, it downloads your account settings so that they are available to Azure PowerShell. If you are not running PowerShell locally and are instead using the Azure Cloud Shell 'Try it' in the browser, skip this first step. You will connect to your Azure account automatically.
-
-```azurepowershell
-Connect-AzAccount
-```
-
-If you have more than one subscription, get a list of your Azure subscriptions.
-
-```azurepowershell-interactive
-Get-AzSubscription
-```
-
-Specify the subscription that you want to use.
-
-```azurepowershell-interactive
-Select-AzSubscription -SubscriptionName "Name of subscription"
-```
+**If you're running PowerShell locally**, open the PowerShell console with elevated privileges and connect to your Azure account. The `Connect-AzAccount` cmdlet prompts you for credentials. After you authenticate, it downloads your account settings so that they're available to Azure PowerShell. You can change subscription by using `Get-AzSubscription` and `Select-AzSubscription -SubscriptionName "Name of subscription"`.

@@ -1,24 +1,20 @@
 ---
-title: Configure a custom domain name in Cloud Services | Microsoft Docs
+title: Configure a custom domain name in Cloud Services (classic) | Microsoft Docs
 description: Learn how to expose your Azure application or data to the internet on a custom domain by configuring DNS settings.  These examples use the Azure portal.
-services: cloud-services
-documentationcenter: .net
-author: jpconnock
-manager: timlt
-editor: ''
-
-ms.assetid: 5783a246-a151-4fb1-b488-441bfb29ee44
-ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
-ms.author: jeconnoc
-
+ms.service: cloud-services
+ms.date: 02/21/2023
+author: hirenshah1
+ms.author: hirshah
+ms.reviewer: mimckitt
+ms.custom: compute-evergreen
 ---
-# Configuring a custom domain name for an Azure cloud service
-When you create a Cloud Service, Azure assigns it to a subdomain of **cloudapp.net**. For example, if your Cloud Service is named "contoso", your users will be able to access your application on a URL like http://contoso.cloudapp.net. Azure also assigns a virtual IP address.
+
+# Configuring a custom domain name for an Azure cloud service (classic)
+
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
+
+When you create a Cloud Service, Azure assigns it to a subdomain of **cloudapp.net**. For example, if your Cloud Service is named "contoso", your users will be able to access your application on a URL like `http://contoso.cloudapp.net`. Azure also assigns a virtual IP address.
 
 However, you can also expose your application on your own domain name, such as **contoso.com**. This article explains how to reserve or configure a custom domain name for Cloud Service web roles.
 
@@ -32,7 +28,7 @@ Do you already understand what CNAME and A records are? [Jump past the explanati
 <p/>
 
 > [!TIP]
-> Get going faster--use the NEW Azure [guided walkthrough](https://support.microsoft.com/kb/2990804)!  It makes associating a custom domain name AND securing communication (SSL) with Azure Cloud Services or Azure Websites a snap.
+> Get going faster--use the NEW Azure [guided walkthrough](https://support.microsoft.com/kb/2990804)!  It makes associating a custom domain name AND securing communication (TLS) with Azure Cloud Services or Azure Websites a snap.
 > 
 > 
 
@@ -65,7 +61,7 @@ To create a CNAME record, you must add a new entry in the DNS table for your cus
        ![quick glance section showing the site URL][csurl]
 
        **OR**
-   * Install and configure [Azure Powershell](/powershell/azure/overview), and then use the following command:
+   * Install and configure [Azure PowerShell](/powershell/azure/), and then use the following command:
 
        ```powershell
        Get-AzureDeployment -ServiceName yourservicename | Select Url
@@ -100,7 +96,7 @@ To create an A record, you must first find the virtual IP address of your cloud 
        ![quick glance section showing the VIP][vip]
 
        **OR**
-   * Install and configure [Azure Powershell](/powershell/azure/overview), and then use the following command:
+   * Install and configure [Azure PowerShell](/powershell/azure/), and then use the following command:
 
        ```powershell
        get-azurevm -servicename yourservicename | get-azureendpoint -VM {$_.VM} | select Vip
@@ -123,7 +119,7 @@ For example, the following A record forwards all traffic from **contoso.com** to
 This example demonstrates creating an A record for the root domain. If you wish to create a wildcard entry to cover all subdomains, you would enter '*****' as the subdomain.
 
 > [!WARNING]
-> IP addresses in Azure are dynamic by default. You will probably want to use a [reserved IP address](../virtual-network/virtual-networks-reserved-public-ip.md) to ensure that your IP address does not change.
+> IP addresses in Azure are dynamic by default. You will probably want to use a [reserved IP address](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) to ensure that your IP address does not change.
 > 
 > 
 
@@ -132,7 +128,7 @@ This example demonstrates creating an A record for the root domain. If you wish 
 * [How to Map CDN Content to a Custom Domain](../cdn/cdn-map-content-to-custom-domain.md)
 * [General configuration of your cloud service](cloud-services-how-to-configure-portal.md).
 * Learn how to [deploy a cloud service](cloud-services-how-to-create-deploy-portal.md).
-* Configure [ssl certificates](cloud-services-configure-ssl-certificate-portal.md).
+* Configure [TLS/SSL certificates](cloud-services-configure-ssl-certificate-portal.md).
 
 [Expose Your Application on a Custom Domain]: #access-app
 [Add a CNAME Record for Your Custom Domain]: #add-cname

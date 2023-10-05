@@ -1,13 +1,13 @@
 ---
-author: ramonarguelles
+author: pamistel
 ms.service: azure-spatial-anchors
 ms.topic: include
-ms.date: 02/21/2019
-ms.author: rgarcia
+ms.date: 11/20/2020
+ms.author: pamistel
 ---
 ## Set up authentication
 
-To access the service, you need to provide an account key, access token, or Azure Active Directory auth token.
+To access the service, you need to provide an account key, access token, or Azure Active Directory auth token. You can also read more about this in the [Authentication concept page](../articles/spatial-anchors/concepts/authentication.md).
 
 ### Account Keys
 

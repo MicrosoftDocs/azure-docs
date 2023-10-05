@@ -3,11 +3,10 @@
  description: include file
  services: iot-hub
  ms.service: iot-hub
- author: dominicbetts
- ms.service: iot-hub
+ author: kgremban
  ms.topic: include
  ms.date: 02/17/2019
- ms.author: dobett
+ ms.author: kgremban
  ms.custom: include file
 ---
 
@@ -21,8 +20,8 @@ Typically, you configure devices to perform actions at a time that minimizes int
 
 ## Next steps
 
-In this tutorial, you used a direct method to trigger a remote reboot on a device. You used the reported properties to report the last reboot time from the device, and queried the device twin to discover the last reboot time of the device from the cloud.
+In this article, you used a direct method to trigger a remote reboot on a device. You used the reported properties to report the last reboot time from the device, and queried the device twin to discover the last reboot time of the device from the cloud.
 
-To continue getting started with IoT Hub and device management patterns such as remote over the air firmware update, see [How to do a firmware update](../articles/iot-hub/tutorial-firmware-update.md)
+ToTo continue getting started with IoT Hub and device management patterns such as end-to-end image-based update in [Device Update for Azure IoT Hub article using the Raspberry Pi 3 B+ Reference Image](../articles/iot-hub-device-update/device-update-raspberry-pi.md).
 
 To learn how to extend your IoT solution and schedule method calls on multiple devices, see [Schedule and broadcast jobs](../articles/iot-hub/iot-hub-node-node-schedule-jobs.md).

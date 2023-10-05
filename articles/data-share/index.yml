@@ -1,0 +1,82 @@
+### YamlMime:Landing
+
+title: Azure Data Share documentation # < 60 chars
+summary: Azure Data Share is a safe and secure service for sharing data with third-party organizations. # < 160 chars
+
+metadata:
+  title: Azure Data Share
+  description: Azure Data Share is a safe and secure service for sharing data with third-party organizations.
+  services: data-share
+  ms.service: data-share
+  ms.topic: landing-page
+  ms.collection: collection
+  author: sidontha
+  ms.author: sidontha
+  ms.date: 10/27/2022
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: About Azure Data Share
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Data Share?
+            url: overview.md
+          - text: Supported data stores
+            url: supported-data-stores.md           
+      - linkListType: concept
+        links:
+          - text: Azure Data Share terminology
+            url: terminology.md
+          - text: Roles and requirements for Azure Data Share 
+            url: concepts-roles-permissions.md
+          - text: Understand pricing 
+            url: concepts-pricing.md         
+
+  # Card (optional)
+  - title: Share and receive data
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Share your data using Azure Data Share 
+            url: share-your-data.md
+          - text: Accept and receive data using Azure Data Share 
+            url: subscribe-to-data-share.md
+      - linkListType: how-to-guide
+        links:
+          - text: Share from Azure Storage
+            url: how-to-share-from-storage.md
+          - text: Share from Azure SQL Database or Azure Synapse Analytics
+            url: how-to-share-from-sql.md
+          - text: Share from Azure Data Explorer
+            url: /azure/data-explorer/data-share
+
+  # Card (optional)
+  - title: Monitor and manage
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Add datasets
+            url: how-to-add-datasets.md
+          - text: Add recipients
+            url: how-to-add-recipients.md             
+          - text: Configure dataset mappings
+            url: how-to-configure-mapping.md
+          - text: Delete an invitation
+            url: how-to-delete-invitation.md
+          - text: Revoke a share subscription
+            url: how-to-revoke-share-subscription.md
+          - text: Monitor your share 
+            url: how-to-monitor.md          
+          - text: Security overview of Azure Data Share
+            url: security.md
+          - text: Disaster recovery
+            url: disaster-recovery.md           
+          - text: Troubleshoot common issues
+            url: data-share-troubleshoot.md
+          - text: Move Data Share account to new region
+            url: move-to-new-region.md

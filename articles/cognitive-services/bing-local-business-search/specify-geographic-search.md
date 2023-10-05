@@ -1,17 +1,20 @@
 ---
-title: Use geographic boundaries to filter results from the Bing Local Business Search API | Microsoft Docs
-titleSuffix: Azure Cognitive Services
+title: Use geographic boundaries to filter results from the Bing Local Business Search API
+titleSuffix: Azure AI services
 description: Use this article to learn how to filter search results from the Bing Local Business Search API.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: article
+ms.subservice: bing-local-business
+ms.topic: conceptual
 ms.date: 11/01/2018
-ms.author: rosh, v-gedod
+ms.author: rosh
 ---
 
 # Use geographic boundaries to filter results from the Bing Local Business Search API
+
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 The Bing Local Business Search API enables you to set boundaries on the specific geographic area you'd like to search by using the `localCircularView` or `localMapView` query parameters. Be sure to use only one parameter in your queries. 
 

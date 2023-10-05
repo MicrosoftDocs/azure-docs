@@ -1,24 +1,16 @@
 ---
 title: ReliableConcurrentQueue in Azure Service Fabric
-description: ReliableConcurrentQueue is a high-throughput queue which allows parallel enqueues and dequeues.
-services: service-fabric
-documentationcenter: .net
-author: aljo-microsoft
-manager: chackdan
-editor: raja,tyadam,masnider,vturecek
-
-ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
-ms.service: service-fabric
-ms.devlang: dotnet
+description: ReliableConcurrentQueue is a high-throughput queue that allows parallel enqueues and dequeues.
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
-ms.date: 5/1/2017
-ms.author: aljo
-
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Introduction to ReliableConcurrentQueue in Azure Service Fabric
-Reliable Concurrent Queue is an asynchronous, transactional, and replicated queue which features high concurrency for enqueue and dequeue operations. It is designed to deliver high throughput and low latency by relaxing the strict FIFO ordering provided by [Reliable Queue](https://msdn.microsoft.com/library/azure/dn971527.aspx) and instead provides a best-effort ordering.
+Reliable Concurrent Queue is an asynchronous, transactional, and replicated queue which features high concurrency for enqueue and dequeue operations. It is designed to deliver high throughput and low latency by relaxing the strict FIFO ordering provided by [Reliable Queue](/dotnet/api/microsoft.servicefabric.data.collections.ireliablequeue-1#microsoft_servicefabric_data_collections_ireliablequeue_1) and instead provides a best-effort ordering.
 
 ## APIs
 
@@ -28,11 +20,11 @@ Reliable Concurrent Queue is an asynchronous, transactional, and replicated queu
 | bool TryDequeue(out T result)  | Task< ConditionalValue < T > > TryDequeueAsync(ITransaction tx)  |
 | int Count()                    | long Count()                                                     |
 
-## Comparison with [Reliable Queue](https://msdn.microsoft.com/library/azure/dn971527.aspx)
+## Comparison with [Reliable Queue](/dotnet/api/microsoft.servicefabric.data.collections.ireliablequeue-1#microsoft_servicefabric_data_collections_ireliablequeue_1)
 
-Reliable Concurrent Queue is offered as an alternative to [Reliable Queue](https://msdn.microsoft.com/library/azure/dn971527.aspx). It should be used in cases where strict FIFO ordering is not required, as guaranteeing FIFO requires a tradeoff with concurrency.  [Reliable Queue](https://msdn.microsoft.com/library/azure/dn971527.aspx) uses locks to enforce FIFO ordering, with at most one transaction allowed to enqueue and at most one transaction allowed to dequeue at a time. In comparison, Reliable Concurrent Queue relaxes the ordering constraint and allows any number concurrent transactions to interleave their enqueue and dequeue operations. Best-effort ordering is provided, however the relative ordering of two values in a Reliable Concurrent Queue can never be guaranteed.
+Reliable Concurrent Queue is offered as an alternative to [Reliable Queue](/dotnet/api/microsoft.servicefabric.data.collections.ireliablequeue-1#microsoft_servicefabric_data_collections_ireliablequeue_1). It should be used in cases where strict FIFO ordering is not required, as guaranteeing FIFO requires a tradeoff with concurrency.  [Reliable Queue](/dotnet/api/microsoft.servicefabric.data.collections.ireliablequeue-1#microsoft_servicefabric_data_collections_ireliablequeue_1) uses locks to enforce FIFO ordering, with at most one transaction allowed to enqueue and at most one transaction allowed to dequeue at a time. In comparison, Reliable Concurrent Queue relaxes the ordering constraint and allows any number concurrent transactions to interleave their enqueue and dequeue operations. Best-effort ordering is provided, however the relative ordering of two values in a Reliable Concurrent Queue can never be guaranteed.
 
-Reliable Concurrent Queue provides higher throughput and lower latency than [Reliable Queue](https://msdn.microsoft.com/library/azure/dn971527.aspx) whenever there are multiple concurrent transactions performing enqueues and/or dequeues.
+Reliable Concurrent Queue provides higher throughput and lower latency than [Reliable Queue](/dotnet/api/microsoft.servicefabric.data.collections.ireliablequeue-1#microsoft_servicefabric_data_collections_ireliablequeue_1) whenever there are multiple concurrent transactions performing enqueues and/or dequeues.
 
 A sample use case for the ReliableConcurrentQueue is the [Message Queue](https://en.wikipedia.org/wiki/Message_queue) scenario. In this scenario, one or more message producers create and add items to the queue, and one or more message consumers pull messages from the queue and process them. Multiple producers and consumers can work independently, using concurrent transactions in order to process the queue.
 
@@ -41,12 +33,19 @@ A sample use case for the ReliableConcurrentQueue is the [Message Queue](https:/
 * The queue does not guarantee strict FIFO ordering.
 * The queue does not read its own writes. If an item is enqueued within a transaction, it will not be visible to a dequeuer within the same transaction.
 * Dequeues are not isolated from each other. If item *A* is dequeued in transaction *txnA*, even though *txnA* is not committed, item *A* would not be visible to a concurrent transaction *txnB*.  If *txnA* aborts, *A* will become visible to *txnB* immediately.
-* *TryPeekAsync* behavior can be implemented by using a *TryDequeueAsync* and then aborting the transaction. An example of this can be found in the Programming Patterns section.
+* *TryPeekAsync* behavior can be implemented by using a *TryDequeueAsync* and then aborting the transaction. An example of this behavior can be found in the Programming Patterns section.
 * Count is non-transactional. It can be used to get an idea of the number of elements in the queue, but represents a point-in-time and cannot be relied upon.
-* Expensive processing on the dequeued items should not be performed while the transaction is active, to avoid long-running transactions which may have a performance impact on the system.
+* Expensive processing on the dequeued items should not be performed while the transaction is active, to avoid long-running transactions that may have a performance impact on the system.
 
 ## Code Snippets
 Let us look at a few code snippets and their expected outputs. Exception handling is ignored in this section.
+
+### Instantiation
+Creating an instance of a Reliable Concurrent Queue is similar to any other Reliable Collection.
+
+```csharp
+IReliableConcurrentQueue<int> queue = await this.StateManager.GetOrAddAsync<IReliableConcurrentQueue<int>>("myQueue");
+```
 
 ### EnqueueAsync
 Here are a few code snippets for using EnqueueAsync followed by their expected outputs.
@@ -170,7 +169,7 @@ The same is true for all cases where the transaction was not successfully *Commi
 In this section, let us look at a few programming patterns that might be helpful in using ReliableConcurrentQueue.
 
 ### Batch Dequeues
-A recommended programming pattern is for the consumer task to batch its dequeues instead of performing one dequeue at a time. The user can choose to throttle delays between every batch or the batch size. The following code snippet shows this programming model.  Note that in this example, the processing is done after the transaction is committed, so if a fault were to occur while processing, the unprocessed items will be lost without having been processed.  Alternatively, the processing can be done within the transaction's scope, however this may have a negative impact on performance and requires handling of the items already processed.
+A recommended programming pattern is for the consumer task to batch its dequeues instead of performing one dequeue at a time. The user can choose to throttle delays between every batch or the batch size. The following code snippet shows this programming model. Be aware, in this example, the processing is done after the transaction is committed, so if a fault were to occur while processing, the unprocessed items will be lost without having been processed.  Alternatively, the processing can be done within the transaction's scope, however it may have a negative impact on performance and requires handling of the items already processed.
 
 ```
 int batchSize = 5;
@@ -264,9 +263,9 @@ while(!cancellationToken.IsCancellationRequested)
 ```
 
 ### Best-Effort Drain
-A drain of the queue cannot be guaranteed due to the concurrent nature of the data structure.  It is possible that, even if no user operations on the queue are in-flight, a particular call to TryDequeueAsync may not return an item which was previously enqueued and committed.  The enqueued item is guaranteed to *eventually* become visible to dequeue, however without an out-of-band communication mechanism, an independent consumer cannot know that the queue has reached a steady-state even if all producers have been stopped and no new enqueue operations are allowed. Thus, the drain operation is best-effort as implemented below.
+A drain of the queue cannot be guaranteed due to the concurrent nature of the data structure.  It is possible that, even if no user operations on the queue are in-flight, a particular call to TryDequeueAsync may not return an item that was previously enqueued and committed.  The enqueued item is guaranteed to *eventually* become visible to dequeue, however without an out-of-band communication mechanism, an independent consumer cannot know that the queue has reached a steady-state even if all producers have been stopped and no new enqueue operations are allowed. Thus, the drain operation is best-effort as implemented below.
 
-The user should stop all further producer and consumer tasks, and wait for any in-flight transactions to commit or abort, before attempting to drain the queue.  If the user knows the expected number of items in the queue, they can set up a notification which signals that all items have been dequeued.
+The user should stop all further producer and consumer tasks, and wait for any in-flight transactions to commit or abort, before attempting to drain the queue.  If the user knows the expected number of items in the queue, they can set up a notification that signals that all items have been dequeued.
 
 ```
 int numItemsDequeued;
@@ -333,11 +332,11 @@ using (var txn = this.StateManager.CreateTransaction())
 ```
 
 ## Must Read
-* [Reliable Services Quick Start](service-fabric-reliable-services-quick-start.md)
+* [Reliable Services quickstart](service-fabric-reliable-services-quick-start.md)
 * [Working with Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Reliable Services notifications](service-fabric-reliable-services-notifications.md)
 * [Reliable Services Backup and Restore (Disaster Recovery)](service-fabric-reliable-services-backup-restore.md)
 * [Reliable State Manager Configuration](service-fabric-reliable-services-configuration.md)
-* [Getting Started with Service Fabric Web API Services](service-fabric-reliable-services-communication-webapi.md)
-* [Advanced Usage of the Reliable Services Programming Model](service-fabric-reliable-services-advanced-usage.md)
-* [Developer Reference for Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+* [Getting Started with Service Fabric Web API Services](./service-fabric-reliable-services-communication-aspnetcore.md)
+* [Advanced Usage of the Reliable Services Programming Model](./service-fabric-reliable-services-lifecycle.md)
+* [Developer Reference for Reliable Collections](/dotnet/api/microsoft.servicefabric.data.collections#microsoft_servicefabric_data_collections)

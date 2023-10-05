@@ -1,125 +1,236 @@
 ---
-title: Understand the Linux agent check results in Azure Update Management
-description: Learn how to troubleshoot issues with the Update Management agent.
+title: Troubleshooting Linux update agent issues in Azure Automation
+description: This article tells how to troubleshoot and resolve issues with the Linux Windows update agent in Update Management.
 services: automation
-author: georgewallace
-ms.author: gwallace
-ms.date: 04/22/2019
-ms.topic: conceptual
-ms.service: automation
+ms.date: 11/01/2021
+ms.topic: troubleshooting
 ms.subservice: update-management
-manager: carmonm
+ms.custom: devx-track-linux
 ---
 
-# Understand the Linux agent check results in Update Management
+# Troubleshoot Linux update agent issues
 
-There may be many reasons your machine isn't showing **Ready** in Update Management. In Update Management, you can check the health of a Hybrid Worker agent to determine the underlying problem. This article discusses how to run the troubleshooter for Azure machines from the Azure portal and Non-Azure machines in the [offline scenario](#troubleshoot-offline).
+There can be many reasons why your machine isn't showing up as ready (healthy) in Update Management. You can check the health of a Linux Hybrid Runbook Worker agent to determine the underlying problem. The following are the three readiness states for a machine:
 
-The following list are the three readiness states a machine can be in:
-
-* **Ready** - The update agent is deployed and was last seen less than 1 hour ago.
-* **Disconnected** -  The update agent is deployed and was last seen over 1 hour ago.
-* **Not configured** -  The update agent isn't found or hasn't finished onboarding.
+* Ready: The Hybrid Runbook Worker is deployed and was last seen less than one hour ago.
+* Disconnected: The Hybrid Runbook Worker is deployed and was last seen over one hour ago.
+* Not configured: The Hybrid Runbook Worker isn't found or hasn't finished deployment.
 
 > [!NOTE]
-> There may be a slight delay between what the Azure portal shows and the current state of the machine.
+> There can be a slight delay between what the Azure portal shows and the current state of a machine.
+
+This article discusses how to run the troubleshooter for Azure machines from the Azure portal and non-Azure machines in the [offline scenario](#troubleshoot-offline).
+
+> [!NOTE]
+> The troubleshooter script currently doesn't route traffic through a proxy server if one is configured.
 
 ## Start the troubleshooter
 
-For Azure machines, clicking the **Troubleshoot** link under the **Update Agent Readiness** column in the portal launches the **Troubleshoot Update Agent** page. For Non-Azure machines, the link brings you to this article. See the offline instructions to troubleshoot a Non-Azure machine.
+For Azure machines, select the **troubleshoot** link under the **Update Agent Readiness** column in the portal to open the Troubleshoot Update Agent page. For non-Azure machines, the link brings you to this article. To troubleshoot a non-Azure machine, see the instructions in the **Troubleshoot offline** section.
 
-![vm list page](../media/update-agent-issues-linux/vm-list.png)
+:::image type="content" source="../media/update-agent-issues-linux/vm-list.png" alt-text="Screenshot of VM list page.":::
 
 > [!NOTE]
-> The checks require the VM to be running. If the VM is not running you are presented with a button to **Start the VM**.
+> The checks require the VM to be running. If the VM isn't running, **Start the VM** appears.
 
-On the **Troubleshoot Update Agent** page, click **Run Checks**, to start the troubleshooter. The troubleshooter uses [Run command](../../virtual-machines/linux/run-command.md) to run a script on the machine to verify the dependencies that the agent has. When the troubleshooter is complete, it returns the result of the checks.
+On the Troubleshoot Update Agent page, select **Run Checks** to start the troubleshooter. The troubleshooter uses [Run command](../../virtual-machines/linux/run-command.md) to run a script on the machine to verify the dependencies. When the troubleshooter is finished, it returns the result of the checks.
 
-![Troubleshoot page](../media/update-agent-issues-linux/troubleshoot-page.png)
+:::image type="content" source="../media/update-agent-issues-linux/troubleshoot-page.png" alt-text="Screenshot of Troubleshoot page.":::
 
-When complete, the results are returned in the window. The check sections provide information on what each check is looking for.
 
-![Update agent checks page](../media/update-agent-issues-linux/update-agent-checks.png)
+When the checks are finished, the results are returned in the window. The check sections provide information on what each check is looking for.
+
+:::image type="content" source="../media/update-agent-issues-linux/actionable-tasks-linux-inline.png" alt-text="Screenshot of Linux Troubleshooter." border="false" lightbox="../media/update-agent-issues-linux/actionable-tasks-linux-expanded.png":::
+
 
 ## Prerequisite checks
 
 ### Operating system
 
-The OS check, verifies if the Hybrid Runbook Worker is running one of the following Operating Systems:
+The operating system check verifies if the Hybrid Runbook Worker is running one of the [supported operating systems](../update-management/operating-system-requirements.md#supported-operating-systems).
 
-|Operating system  |Notes  |
-|---------|---------|
-|CentOS 6 (x86/x64) and 7 (x64)      | Linux agents must have access to an update repository. Classification-based patching requires 'yum' to return security data which CentOS doesn't have out of the box.         |
-|Red Hat Enterprise 6 (x86/x64) and 7 (x64)     | Linux agents must have access to an update repository.        |
-|SUSE Linux Enterprise Server 11 (x86/x64) and 12 (x64)     | Linux agents must have access to an update repository.        |
-|Ubuntu 14.04 LTS, 16.04 LTS, and 18.04 LTS (x86/x64)      |Linux agents must have access to an update repository.         |
+### Dmidecode check
+
+To verify if a VM is an Azure VM, check for Asset tag value using the below command:
+
+```bash
+sudo dmidecode
+```
+
+If the asset tag is different than 7783-7084-3265-9085-8269-3286-77, then reboot VM to initiate re-registration. 
+
 
 ## Monitoring agent service health checks
 
-### OMS agent
+### Monitoring Agent
 
-This check ensures that the OMS Agent for Linux is installed. For instructions on how to install it, see [Install the agent for Linux](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux
-).
+To fix this, install Azure Log Analytics Linux agent and ensure it communicates the required endpoints. For more information, see [Install Log Analytics agent on Linux computers](../../azure-monitor/agents/agent-linux.md).
 
-### OMS Agent status
+This task checks if the folder is present - 
 
-This check ensures that the OMS Agent for Linux is running. If the agent isn't running, you can run the following command to attempt to restart it. For more information on troubleshooting the agent, see [Linux Hybrid Runbook worker troubleshooting](hybrid-runbook-worker.md#linux)
+*/etc/opt/microsoft/omsagent/conf/omsadmin.conf*
+
+### Monitoring Agent status
+ 
+To fix this issue, you must start the OMS Agent service by using the following command: 
 
 ```bash
-sudo /opt/microsoft/omsagent/bin/service_control restart
+ sudo /opt/microsoft/omsagent/bin/service_control restart
 ```
 
-### Multihoming
+To validate you can perform process check using the below command: 
 
-This check determines if the agent is reporting to multiple workspaces. Multi-homing is not supported by Update Management.
+```bash
+process_name="omsagent" 
+ps aux | grep %s | grep -v grep" % (process_name)" 
+```
+
+For more information, see [Troubleshoot issues with the Log Analytics agent for Linux](../../azure-monitor/agents/agent-linux-troubleshoot.md)
+
+
+### Multihoming
+This check determines if the agent is reporting to multiple workspaces. Update Management doesn't support multihoming.
+
+To fix this issue, purge the OMS Agent completely and reinstall it with the [workspace linked with Update management](../../azure-monitor/agents/agent-linux-troubleshoot.md#purge-and-reinstall-the-linux-agent)
+
+
+Validate that there are no more multihoming by checking the directories under this path:
+
+ */var/opt/microsoft/omsagent*. 
+
+As they are the directories of workspaces, the number of directories equals the number of workspaces on-boarded to OMSAgent.
 
 ### Hybrid Runbook Worker
+To fix the issue, run the following command: 
 
-This check verifies if the OMS Agent for Linux has the Hybrid Runbook Worker package. This package is required for Update Management to work.
+```bash
+sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py'
+```
+
+This command forces the omsconfig agent to talk to Azure Monitor and retrieve the latest configuration. 
+
+Validate to check if the following two paths exists:
+
+```bash
+/opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/VERSION </br> /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/configuration.py
+```
 
 ### Hybrid Runbook Worker status
 
-This check makes sure the Hybrid Runbook Worker is running on the machine. The following processes should be present if the Hybrid Runbook Worker is running correctly. To learn more, see [troubleshooting the Log Analytics Agent for Linux](hybrid-runbook-worker.md#oms-agent-not-running).
-
+This check makes sure the Hybrid Runbook Worker is running on the machine. The processes in the example below should be present if the Hybrid Runbook Worker is running correctly.
 ```bash
+ps -ef | grep python
+```
+
+```output
 nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>
 nxautom+   8593      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/hybridworker.py /var/opt/microsoft/omsagent/state/automationworker/worker.conf managed rworkspace:<workspaceId> rversion:<Linux hybrid worker version>
 nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/hybridworker.py /var/opt/microsoft/omsagent/<workspaceId>/state/automationworker/diy/worker.conf managed rworkspace:<workspaceId> rversion:<Linux hybrid worker version>
 ```
 
+Update Management downloads Hybrid Runbook Worker packages from the operations endpoint. Therefore, if the Hybrid Runbook Worker is not running and the [operations endpoint](#operations-endpoint) check fails, the update can fail.
+
+To fix this issue, run the following command:
+
+```bash
+sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py'
+```
+
+This command forces the omsconfig agent to talk to Azure Monitor and retrieve the latest configuration. 
+
+If the issue still persists, run the [omsagent Log Collector tool](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/tools/LogCollector/OMS_Linux_Agent_Log_Collector.md)
+
+
+
 ## Connectivity checks
+
+### Proxy enabled check
+
+To fix the issue, either remove the proxy or make sure that the proxy address is able to access the [prerequisite URL](../automation-network-configuration.md#update-management-and-change-tracking-and-inventory).
+
+You can validate the task by running the below command:
+
+```bash
+HTTP_PROXY
+```
+
+### IMDS connectivity check
+
+To fix this issue, allow access to IP **169.254.169.254**. For more information, see [Access Azure Instance Metadata Service](../../virtual-machines/windows/instance-metadata-service.md#azure-instance-metadata-service-windows)
+
+After the network changes, you can either rerun the Troubleshooter or run the below commands to validate: 
+
+```bash
+ curl -H \"Metadata: true\" http://169.254.169.254/metadata/instance?api-version=2018-02-01
+```
 
 ### General internet connectivity
 
-This check makes sure that the machine has access to the internet.
+This check makes sure that the machine has access to the internet and can be ignored if you have blocked internet and allowed only specific URLs. 
+
+CURL on any http url.
 
 ### Registration endpoint
 
-This check determines if the agent can properly communicate with the agent service.
+This check determines if the Hybrid Runbook Worker can properly communicate with Azure Automation in the Log Analytics workspace.
 
-Proxy and firewall configurations must allow the Hybrid Runbook Worker agent to communicate with the registration endpoint. For a list of addresses and ports to open, see [Network planning for Hybrid Workers](../automation-hybrid-runbook-worker.md#network-planning)
+Proxy and firewall configurations must allow the Hybrid Runbook Worker agent to communicate with the registration endpoint. For a list of addresses and ports to open, see [Network planning](../automation-hybrid-runbook-worker.md#network-planning)
+
+Fix this issue by allowing the prerequisite URLs. For more information, see [Update Management and Change Tracking and Inventory](../automation-network-configuration.md#update-management-and-change-tracking-and-inventory)
+
+Post the network changes you can either re-run the troubleshooter or CURL on provided jrds endpoint.
 
 ### Operations endpoint
 
-This check determines if the agent can properly communicate with the Job Runtime Data Service.
+This check determines if the Log Analytics agent can properly communicate with the Job Runtime Data Service.
 
-Proxy and firewall configurations must allow the Hybrid Runbook Worker agent to communicate with the Job Runtime Data Service. For a list of addresses and ports to open, see [Network planning for Hybrid Workers](../automation-hybrid-runbook-worker.md#network-planning)
+Proxy and firewall configurations must allow the Hybrid Runbook Worker agent to communicate with the Job Runtime Data Service. For a list of addresses and ports to open, see [Network planning](../automation-hybrid-runbook-worker.md#network-planning).
 
 ### Log Analytics endpoint 1
 
 This check verifies that your machine has access to the endpoints needed by the Log Analytics agent.
 
+Fix this issue by allowing the [prerequisite URLs](../automation-network-configuration.md#update-management-and-change-tracking-and-inventory).
+
+Post making Network changes you can either rerun the Troubleshooter or
+Curl on provided ODS endpoint.
+
 ### Log Analytics endpoint 2
 
 This check verifies that your machine has access to the endpoints needed by the Log Analytics agent.
 
-### Log Analytics endpoint 3
+Fix this issue by allowing the [prerequisite URLs](../automation-network-configuration.md#update-management-and-change-tracking-and-inventory).
 
-This check verifies that your machine has access to the endpoints needed by the Log Analytics agent.
+Post making Network changes you can either rerun the Troubleshooter or
+Curl on provided OMS endpoint
+
+
+### Software repositories
+
+Fix this issue by allowing the prerequisite Repo URL. For RHEL, see [here](../../virtual-machines/workloads/redhat/redhat-rhui.md#troubleshoot-connection-problems-to-azure-rhui).
+
+Post making Network changes you can either rerun the Troubleshooter or
+
+Curl on software repositories configured in package manager. 
+
+Refreshing repos would help to confirm the communication. 
+
+```bash
+sudo apt-get check
+sudo yum check-update
+```
+> [!NOTE]
+> The check is available only in offline mode.
 
 ## <a name="troubleshoot-offline"></a>Troubleshoot offline
 
-You can use the troubleshooter offline on a Hybrid Runbook Worker by running the script locally. The python script, [update_mgmt_health_check.py](https://gallery.technet.microsoft.com/scriptcenter/Troubleshooting-utility-3bcbefe6) can be found in Script Center. An example of the output of this script is shown in the following example:
+You can use the troubleshooter offline on a Hybrid Runbook Worker by running the script locally. The Python script, [UM_Linux_Troubleshooter_Offline.py](https://github.com/Azure/updatemanagement/blob/main/UM_Linux_Troubleshooter_Offline.py), can be found in GitHub.
+
+ > [!NOTE]
+ > The current version of the troubleshooter script does not support Ubuntu 20.04.
+
+
+An example of the output of this script is shown in the following example:
 
 ```output
 Debug: Machine Information:   Static hostname: LinuxVM2
@@ -174,5 +285,4 @@ Passed: TCP test for {ods.systemcenteradvisor.com} (port 443) succeeded
 
 ## Next steps
 
-To troubleshoot additional issues with your Hybrid Runbook Workers, see [Troubleshoot - Hybrid Runbook Workers](hybrid-runbook-worker.md)
-
+[Troubleshoot Hybrid Runbook Worker issues](hybrid-runbook-worker.md).

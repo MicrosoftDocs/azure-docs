@@ -1,0 +1,80 @@
+- name: Secure Development Documentation
+  href: index.yml
+- name: Concepts
+  items:
+  - name: Best practices
+    items:
+    - name: Overview
+      href: secure-dev-overview.md
+    - name: Design secure apps
+      href: secure-design.md
+    - name: Develop secure apps
+      href: secure-develop.md
+    - name: Deploy secure apps
+      href: secure-deploy.md
+  expanded: true
+- name: Resources
+  items:
+  - name: Microsoft Threat Modeling tool
+    displayName: stride
+    href: threat-modeling-tool.md
+    items:
+    - name: Getting started
+      href: threat-modeling-tool-getting-started.md
+    - name: Feature overview
+      href: threat-modeling-tool-feature-overview.md
+    - name: Threats
+      href: threat-modeling-tool-threats.md
+    - name: Releases
+      href: threat-modeling-tool-releases.md
+      items:
+      - name: Threat Modeling Tool GA release 7.1.5091.2 - September 12 2018
+        href: threat-modeling-tool-releases-71509112.md
+      - name: Threat Modeling Tool update release 7.1.51023.1 - November 1 2018
+        href: threat-modeling-tool-releases-71510231.md
+      - name: Threat Modeling Tool update release 7.1.60126.1 - January 29 2019
+        href: threat-modeling-tool-releases-71601261.md
+      - name: Threat Modeling Tool update release 7.1.60408.1 - April 9 2019
+        href: threat-modeling-tool-releases-71604081.md
+      - name: Threat Modeling Tool update release 7.1.60702.1 - July 2 2019
+        href: threat-modeling-tool-releases-71607021.md
+      - name: Threat Modeling Tool update release 7.1.61015.1 - October 16 2019
+        href: threat-modeling-tool-releases-71610151.md
+      - name: Threat Modeling Tool update release 7.3.00206.1 - February 11 2020
+        href: threat-modeling-tool-releases-73002061.md
+      - name: Threat Modeling Tool update release 7.3.00316.1 - March 22 2020
+        href: threat-modeling-tool-releases-73003161.md
+      - name: Threat Modeling Tool update release 7.3.00714.2 - July 14 2020
+        href: threat-modeling-tool-releases-73007142.md
+      - name: Threat Modeling Tool update release 7.3.00729.1 - July 29 2020
+        href: threat-modeling-tool-releases-73007291.md
+      - name: Threat Modeling Tool update release 7.3.20927.9 - September 27 2022
+        href: threat-modeling-tool-releases-73209279.md
+      - name: Threat Modeling Tool update release 7.3.21108.2 - November 8 2022
+        href: threat-modeling-tool-releases-73211082.md
+      - name: Threat Modeling Tool update release 7.3.30630.5 - June 30 2023
+        href: threat-modeling-tool-releases-73306305.md
+    - name: Mitigations
+      href: threat-modeling-tool-mitigations.md
+      items:
+      - name: Auditing and logging
+        href: threat-modeling-tool-auditing-and-logging.md
+      - name: Authentication
+        href: threat-modeling-tool-authentication.md
+      - name: Authorization
+        href: threat-modeling-tool-authorization.md
+      - name: Communication security
+        href: threat-modeling-tool-communication-security.md
+      - name: Configuration management
+        href: threat-modeling-tool-configuration-management.md
+      - name: Cryptography
+        href: threat-modeling-tool-cryptography.md
+      - name: Exception management
+        href: threat-modeling-tool-exception-management.md
+      - name: Input validation
+        href: threat-modeling-tool-input-validation.md
+      - name: Sensitive data
+        href: threat-modeling-tool-sensitive-data.md
+      - name: Session management
+        href: threat-modeling-tool-session-management.md
+  expanded: true

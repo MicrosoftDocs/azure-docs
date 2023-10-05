@@ -1,0 +1,314 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-advanced-autoscale.md",
+            "redirect_url": "/azure/monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/disk-encryption-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/tutorial-autoscale-powershell.md",
+            "redirect_url": "/azure/azure-monitor/autoscale/autoscale-using-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/disk-encryption-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/policy-samples.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/policy-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-create-cli.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/quick-create-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-convert-template-to-md.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/overview",
+            "redirect_document_id": true
+          },
+        {
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-vertical-scale-reprovision.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-create-portal.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/quick-create-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-create-powershell.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/quick-create-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-create-template-linux.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/quick-create-template-linux",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/tutorial-install-apps-template.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/tutorial-install-apps-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-deploy-scaling-app-template.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/quick-create-template-linux",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-create-template-windows.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/quick-create-template-windows",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/cli-samples.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/scripts/cli-sample-create-simple-scale-set",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/powershell-samples.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/scripts/powershell-sample-create-simple-scale-set",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-security-attributes.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/security-baseline",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-security-controls.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/security-baseline",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-cli.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/tutorial-autoscale-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-powershell.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/tutorial-autoscale-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-managed-disks.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/tutorial-use-disks-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-use-low-priority.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/use-spot",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-cli-quick-create.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-create",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-cli-quick-create-cli-nodejs.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-create",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-linux-create-cli.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-create",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-linux-create-cli-nodejs.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-create",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-create.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-create",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-create.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-create-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-create-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-manage.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/linux/vertical-scaling-automation.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-vertical-scale-reprovision",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/vertical-scaling-automation.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-vertical-scale-reprovision",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/scripts/cli-sample-manage-scale-set.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/scripts/cli-sample-attach-disks",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/instance-generalized-image-version-cli.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/instance-generalized-image-version",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/instance-specialized-image-version-cli.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/instance-specialized-image-version",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/instance-specialized-image-version-powershell.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/instance-specialized-image-version",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/instance-generalized-image-version-powershell.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/instance-generalized-image-version",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/flexible-virtual-machine-scale-sets-cli.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/flexible-virtual-machine-scale-sets-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/flexible-virtual-machine-scale-sets-migration-resources.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/flexible-virtual-machine-scale-sets-migration-resources",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/flexible-virtual-machine-scale-sets-portal.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/flexible-virtual-machine-scale-sets-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/flexible-virtual-machine-scale-sets-powershell.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/flexible-virtual-machine-scale-sets-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/flexible-virtual-machine-scale-sets-rest-api.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/flexible-virtual-machine-scale-sets-rest-api",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/scripts/cli-sample-create-scale-set-from-custom-image.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/overview",
+            "redirect_document_id": false
+          },
+		{
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/scripts/cli-sample-single-availability-zone-scale-set.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/overview",
+            "redirect_document_id": false
+          },
+		{
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/scripts/powershell-sample-create-scale-set-from-custom-image.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/overview",
+            "redirect_document_id": false
+          },
+		{
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/scripts/cli-sample-attach-disks.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/overview",
+            "redirect_document_id": false
+          },
+		{
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/scripts/powershell-sample-enable-autoscale.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/overview",
+            "redirect_document_id": false
+          },
+		{
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/scripts/cli-sample-install-apps.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/overview",
+            "redirect_document_id": false
+          },
+		{
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/scripts/powershell-sample-create-simple-scale-set.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/overview",
+            "redirect_document_id": false
+          },
+		{
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/scripts/cli-sample-create-simple-scale-set.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/overview",
+            "redirect_document_id": false
+          },
+		{
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/scripts/cli-sample-zone-redundant-scale-set.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/overview",
+            "redirect_document_id": false
+          },
+		{
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/scripts/powershell-sample-install-apps.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/overview",
+            "redirect_document_id": false
+          },
+		{
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/scripts/powershell-sample-attach-disks.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/overview",
+            "redirect_document_id": false
+          },
+		{
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/scripts/powershell-sample-zone-redundant-scale-set.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/overview",
+            "redirect_document_id": false
+          },
+		{
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/scripts/powershell-single-av-zone-scale-set.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/overview",
+            "redirect_document_id": false
+          },
+		{
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/scripts/powershell-sample-create-complete-scale-set.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/overview",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/scripts/cli-sample-enable-autoscale.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/overview",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/tutorial-autoscale-template.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/overview",
+            "redirect_document_id": false
+          },
+        {
+            "source_path_from_root": "/articles/virtual-machines/flexible-virtual-machine-scale-sets.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/flexible-virtual-machine-scale-sets",
+            "redirect_document_id": false
+        }
+    ]
+}

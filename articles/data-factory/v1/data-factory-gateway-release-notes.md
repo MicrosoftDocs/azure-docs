@@ -1,19 +1,12 @@
 ---
-title: Release notes for Data Management Gateway | Microsoft Docs
+title: Release notes for Data Management Gateway 
 description: Data Management Gateway tory release notes
-services: data-factory
 author: nabhishek
-manager: craigg
-
-ms.assetid: 14762e82-76d9-41c4-ba9f-14a54da29c36
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-
+ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 04/12/2023
 ms.author: abnarain
-
 robots: noindex
 ---
 # Release notes for Data Management Gateway
@@ -37,19 +30,19 @@ We no more maintain the Release notes here. Get latest release notes [here](http
 ## Earlier versions
 ## 2.10.6347.7
 ### Enhancements-
-- You can add DNS entries to whitelist service bus rather than whitelisting all Azure IP addresses from your firewall (if needed). You can find respective DNS entry on Azure portal (Data Factory -> ‘Author and Deploy’ -> ‘Gateways’ -> "serviceUrls" (in JSON)
-- HDFS connector now supports self-signed public certificate by letting you skip SSL validation.
+- You can add DNS entries to allow service bus rather than allowing all Azure IP addresses from your firewall (if needed). You can find respective DNS entry on Azure portal (Data Factory -> 'Author and Deploy' -> 'Gateways' -> "serviceUrls" (in JSON)
+- HDFS connector now supports self-signed public certificate by letting you skip TLS validation.
 - Fixed: Issue with gateway offline during update (due to clock skew)
 
 
 ## 2.9.6313.2
 ### Enhancements-
--	You can add DNS entries to whitelist Service Bus rather than whitelisting all Azure IP addresses from your firewall (if needed). More details here.
--	You can now copy data to/from a single block blob up to 4.75 TB, which is the max supported size of block blob. (earlier limit was 195 GB).
--	Fixed: Out of memory issue while unzipping several small files during copy activity.
--	Fixed: Index out of range issue while copying from Document DB to an on-premises SQL Server with idempotency feature.
--	Fixed: SQL cleanup script doesn't work with on-premises SQL Server from Copy Wizard.
--	Fixed: Column name with space at the end does not work in copy activity.
+-    You can add DNS entries to allow Service Bus rather than allowing all Azure IP addresses from your firewall (if needed). More details here.
+-    You can now copy data to/from a single block blob up to 4.75 TB, which is the max supported size of block blob. (earlier limit was 195 GB).
+-    Fixed: Out of memory issue while unzipping several small files during copy activity.
+-    Fixed: Index out of range issue while copying from Document DB to SQL Server with idempotency feature.
+-    Fixed: SQL cleanup script doesn't work with SQL Server from Copy Wizard.
+-    Fixed: Column name with space at the end does not work in copy activity.
 
 ## 2.8.66283.3
 ### Enhancements-
@@ -62,7 +55,7 @@ We no more maintain the Release notes here. Get latest release notes [here](http
 - Fixed: Incorrect read of Decimal null value from Oracle as source.
 
 ## 2.6.6192.2
-### What’s new
+### What's new
 - Customers can provide feedback on gateway registering experience.
 - Support a new compression format: ZIP (Deflate)
 
@@ -79,7 +72,7 @@ We no more maintain the Release notes here. Get latest release notes [here](http
 
 ## 2.4.6151.1
 
-### What’s new
+### What's new
 
 - You can now store data source credentials locally. The credentials are encrypted. The data source credentials can be recovered and restored using the backup file that can be exported from the existing Gateway, all on-premises.
 
@@ -109,7 +102,7 @@ We no more maintain the Release notes here. Get latest release notes [here](http
 *  DB2 driver now supports z/OS and DB2 for i (AS/400) along with the platforms already supported (Linux, Unix, and Windows).
 *  Supports using Azure Cosmos DB as a source or destination for on-premises data stores
 *  Supports copying data from/to cold/hot blob storage along with the already supported general-purpose storage account.
-*  Allows you to connect to on-premises SQL Server via gateway with remote login privileges.  
+*  Allows you to connect to SQL Server via gateway with remote login privileges.  
 
 ## 2.0.6013.1
 
@@ -123,8 +116,8 @@ We no more maintain the Release notes here. Get latest release notes [here](http
 
     *  Reorganized and simplified controls.
 
-	*  You can copy data from a storage using the [code-free copy tool](data-factory-copy-data-wizard-tutorial.md). See [Staged Copy](data-factory-copy-activity-performance.md#staged-copy) for details about this feature in general.
-*  You can use Data Management Gateway to ingress data directly from an on-premises SQL Server database into Azure Machine Learning.
+    *  You can copy data from a storage using the [code-free copy tool](data-factory-copy-data-wizard-tutorial.md). See [Staged Copy](data-factory-copy-activity-performance.md#staged-copy) for details about this feature in general.
+*  You can use Data Management Gateway to ingress data directly from a SQL Server database into Azure Machine Learning.
 
 *  Performance improvements
 
@@ -158,7 +151,7 @@ We no more maintain the Release notes here. Get latest release notes [here](http
 
 *  Zero touch auto update capability
 *  New tray icon with gateway status indicators
-*  Ability to “Update now” from the client
+*  Ability to "Update now" from the client
 *  Ability to set update schedule time
 *  PowerShell script for toggling auto-update on/off
 *  Support for JSON format  
@@ -196,9 +189,9 @@ We no more maintain the Release notes here. Get latest release notes [here](http
 
 *  Support diagnostic tools on Configuration Manager
 *  Support table columns for tabular data sources for Azure Data Factory
-*  Support SQL DW for Azure Data Factory
+*  Support Azure Synapse Analytics for Azure Data Factory
 *  Support Reclusive in BlobSource and FileSource for Azure Data Factory
-*  Support CopyBehavior – MergeFiles, PreserveHierarchy, and FlattenHierarchy in BlobSink and FileSink with Binary Copy for Azure Data Factory
+*  Support CopyBehavior - MergeFiles, PreserveHierarchy, and FlattenHierarchy in BlobSink and FileSink with Binary Copy for Azure Data Factory
 *  Support Copy Activity reporting progress for Azure Data Factory
 *  Support Data Source Connectivity Validation for Azure Data Factory
 *  Bug fixes
@@ -240,7 +233,7 @@ We no more maintain the Release notes here. Get latest release notes [here](http
 
 *  Unified binary that supports both Microsoft Azure Data Factory and Office 365 Power BI services
 *  Refine the Configuration UI and registration process
-*  Azure Data Factory – Azure Ingress and Egress support for SQL Server data source
+*  Azure Data Factory - Azure Ingress and Egress support for SQL Server data source
 
 ### 1.2.5303.1
 

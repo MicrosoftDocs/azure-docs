@@ -1,27 +1,19 @@
 ---
-title: Troubleshoot performance degradation - Azure App Service | Microsoft Docs
-description: This article helps you troubleshoot slow app performance issues in Azure App Service.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: ''
+title: Troubleshoot performance degradation
+description: Find out how to troubleshoot slow app performance issues in Azure App Service, including monitoring app behavior, collecting data, and mitigating the issue.
 tags: top-support-issue
 keywords: web app performance, slow app, app slow
 
 ms.assetid: b8783c10-3a4a-4dd6-af8c-856baafbdde5
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
-ms.author: cephalin
 ms.custom: seodec18
+ms.author: msangapu
+author: msangapu-msft
 
 ---
 # Troubleshoot slow app performance issues in Azure App Service
-This article helps you troubleshoot slow app performance issues in [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714).
+This article helps you troubleshoot slow app performance issues in [Azure App Service](./overview.md).
 
 If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/) and click on **Get Support**.
 
@@ -45,11 +37,11 @@ Troubleshooting can be divided into three distinct tasks, in sequential order:
 
 [App Service](overview.md) gives you various options at each step.
 
-<a name="observe" />
+<a name="observe"></a>
 
 ### 1. Observe and monitor application behavior
 #### Track Service health
-Microsoft Azure publicizes each time there is a service interruption or performance degradation. You can track the health of the service on the [Azure portal](https://portal.azure.com/). For more information, see [Track service health](../monitoring-and-diagnostics/insights-service-health.md).
+Microsoft Azure publicizes each time there is a service interruption or performance degradation. You can track the health of the service on the [Azure portal](https://portal.azure.com/). For more information, see [Track service health](../service-health/service-notifications.md).
 
 #### Monitor your app
 This option enables you to find out if your application is having any issues. In your app’s blade, click the **Requests and errors** tile. The **Metric** blade shows you all the metrics you can add.
@@ -57,7 +49,7 @@ This option enables you to find out if your application is having any issues. In
 Some of the metrics that you might want to monitor for your app are
 
 * Average memory working set
-* Average response time
+* Response time
 * CPU time
 * Memory working set
 * Requests
@@ -67,7 +59,7 @@ Some of the metrics that you might want to monitor for your app are
 For more information, see:
 
 * [Monitor apps in Azure App Service](web-sites-monitor.md)
-* [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
+* [Receive alert notifications](../azure-monitor/alerts/alerts-overview.md)
 
 #### Monitor web endpoint status
 If you are running your app in the **Standard** pricing tier, App Service lets you monitor two endpoints from three geographic locations.
@@ -78,7 +70,7 @@ Uptime is monitored using HTTP response codes, and response time is measured in 
 
 To set it up, see [Monitor apps in Azure App Service](web-sites-monitor.md).
 
-Also, see [Keeping Azure Web Sites up plus Endpoint Monitoring - with Stefan Schackow](https://channel9.msdn.com/Shows/Azure-Friday/Keeping-Azure-Web-Sites-up-plus-Endpoint-Monitoring-with-Stefan-Schackow) for a video on endpoint monitoring.
+Also, see Keeping Azure Web Sites up plus Endpoint Monitoring - with Stefan Schackow for a video on endpoint monitoring.
 
 #### Application performance monitoring using Extensions
 You can also monitor your application performance by using a *site extension*.
@@ -88,9 +80,9 @@ Each App Service app provides an extensible management end point that allows you
 - Source code editors like [Azure DevOps](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx). 
 - Management tools for connected resources such as a MySQL database connected to an app.
 
-[Azure Application Insights](https://azure.microsoft.com/services/application-insights/) is a performance monitoring site extension that's also available. To use Application Insights, you rebuild your code with an SDK. You can also install an extension that provides access to additional data. The SDK lets you write code to monitor the usage and performance of your app in more detail. For more information, see [Monitor performance in web applications](../azure-monitor/app/web-monitor-performance.md).
+[Azure Application Insights](https://azure.microsoft.com/services/application-insights/) is a performance monitoring site extension that's also available. To use Application Insights, you rebuild your code with an SDK. You can also install an extension that provides access to additional data. The SDK lets you write code to monitor the usage and performance of your app in more detail. For more information, see [Monitor performance in web applications](../azure-monitor/app/app-insights-overview.md).
 
-<a name="collect" />
+<a name="collect"></a>
 
 ### 2. Collect data
 App Service provides diagnostic functionality for logging information from both the web server and the web application. The information is separated into web server diagnostics and application diagnostics.
@@ -139,20 +131,20 @@ Some of the things that Kudu provides are:
 * environment settings for your application
 * log stream
 * diagnostic dump
-* debug console in which you can run Powershell cmdlets and basic DOS commands.
+* debug console in which you can run PowerShell cmdlets and basic DOS commands.
 
 Another useful feature of Kudu is that, in case your application is throwing first-chance exceptions, you can use Kudu and the SysInternals tool Procdump to create memory dumps. These memory dumps are snapshots of the process and can often help you troubleshoot more complicated issues with your app.
 
 For more information on features available in Kudu, see
 [Azure DevOps tools you should know about](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/).
 
-<a name="mitigate" />
+<a name="mitigate"></a>
 
 ### 3. Mitigate the issue
 #### Scale the app
 In Azure App Service, for increased performance and throughput,  you can adjust the scale at which you are running your application. Scaling up an app involves two related actions: changing your App Service plan to a higher pricing tier, and configuring certain settings after you have switched to the higher pricing tier.
 
-For more information on scaling, see [Scale an app in Azure App Service](web-sites-scale.md).
+For more information on scaling, see [Scale an app in Azure App Service](manage-scale-up.md).
 
 Additionally, you can choose to run your application on more than one instance. Scaling out not only provides you with more processing capability, but also gives you some amount of fault tolerance. If the process goes down on one instance, the other instances continue to serve requests.
 
@@ -168,5 +160,9 @@ Restarting is often the simplest way to recover from one-time issues. On the [Az
 
  ![restart app to solve performance issues](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
 
-You can also manage your app using Azure Powershell. For more information, see
-[Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
+You can also manage your app using Azure PowerShell. For more information, see
+[Using Azure PowerShell with Azure Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md).
+
+## More resources
+
+[Tutorial: Run a load test to identify performance bottlenecks in a web app](../load-testing/tutorial-identify-bottlenecks-azure-portal.md)

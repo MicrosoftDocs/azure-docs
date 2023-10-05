@@ -1,29 +1,28 @@
 ---
 title:  X-EC-Debug HTTP headers for Azure CDN rules engine | Microsoft Docs
-description: The X-EC-Debug debug cache request header provides additional information about the cache policy that is applied to the requested asset. These headers are specific to Verizon.
+description: The X-EC-Debug debug cache request header provides additional information about the cache policy that is applied to the requested asset. These headers are specific to Edgio.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: duongau
 manager: danielgi
 editor: ''
 
 ms.assetid: 
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2018
-ms.author: magattus
+ms.author: duau
 
 ---
 # X-EC-Debug HTTP headers for Azure CDN rules engine
-The debug cache request header, `X-EC-Debug`, provides additional information about the cache policy that is applied to the requested asset. These headers are specific to **Azure CDN Premium from Verizon** products.
+The debug cache request header, `X-EC-Debug`, provides additional information about the cache policy that is applied to the requested asset. These headers are specific to **Azure CDN Premium from Edgio** products.
 
 ## Usage
 The response sent from the POP servers to a user includes the `X-EC-Debug` header only when the following conditions are met:
 
-- The [Debug Cache Response Headers feature](cdn-verizon-premium-rules-engine-reference-features.md#debug-cache-response-headers) has been enabled on the rules engine for the specified request.
+- The [Debug Cache Response Headers feature](https://docs.vdms.com/cdn/Content/HRE/F/Debug-Cache-Response-Headers.htm) has been enabled on the rules engine for the specified request.
 - The specified request defines the set of debug cache response headers that will be included in the response.
 
 ## Requesting debug cache information
@@ -165,5 +164,4 @@ The terms used in the above response header syntax are defined as follows:
 
 The following sample response header indicates the cache state of the requested content at the time that it was requested:
 
-```X-EC-Debug: x-ec-cache-state: max-age=604800 (7d); cache-ts=1341802519 (Mon, 09 Jul 2012 02:55:19 GMT); cache-age=0 (0s); remaining-ttl=604800 (7d); expires-delta=none```
-
+`X-EC-Debug: x-ec-cache-state: max-age=604800 (7d); cache-ts=1341802519 (Mon, 09 Jul 2012 02:55:19 GMT); cache-age=0 (0s); remaining-ttl=604800 (7d); expires-delta=none`

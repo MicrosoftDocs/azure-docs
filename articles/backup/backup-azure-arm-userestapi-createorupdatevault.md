@@ -1,19 +1,15 @@
 ---
-title: 'Azure Backup: Create Recovery Services vaults using REST API'
-description: manage backup and restore operations of Azure VM Backup using REST API
-services: backup
-author: pvrk
-manager: shivamg
-keywords: REST API; Azure VM backup; Azure VM restore;
-ms.service: backup
+title: Create Recovery Services vaults using REST API
+description: In this article, learn how to manage backup and restore operations of Azure VM Backup using REST API.
 ms.topic: conceptual
 ms.date: 08/21/2018
-ms.author: pullabhk
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
-# Create Azure Recovery Services Vault using REST API
+# Create Azure Recovery Services vault using REST API
 
-The steps to create an Azure Recovery Services Vault using REST API are outlined in [create vault REST API](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate) documentation. Let us use this document as a reference to create a vault called "testVault" in "West US".
+The steps to create an Azure Recovery Services vault using REST API are outlined in [create vault REST API](/rest/api/recoveryservices/vaults/createorupdate) documentation. Let's use this document as a reference to create a vault called "testVault" in "West US".
 
 To create or update an Azure Recovery Services vault, use the following *PUT* operation.
 
@@ -23,14 +19,14 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ## Create a request
 
-To create the *PUT* request, the `{subscription-id}` parameter is required. If you have multiple subscriptions, see [Working with multiple subscriptions](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). You define a `{resourceGroupName}` and `{vaultName}` for your resources, along with the `api-version` parameter. This article uses `api-version=2016-06-01`.
+To create the *PUT* request, the `{subscription-id}` parameter is required. If you have multiple subscriptions, see [Working with multiple subscriptions](/cli/azure/manage-azure-subscriptions-azure-cli). You define a `{resourceGroupName}` and `{vaultName}` for your resources, along with the `api-version` parameter. This article uses `api-version=2016-06-01`.
 
 The following headers are required:
 
 | Request header   | Description |
 |------------------|-----------------|
 | *Content-Type:*  | Required. Set to `application/json`. |
-| *Authorization:* | Required. Set to a valid `Bearer` [access token](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
+| *Authorization:* | Required. Set to a valid `Bearer` [access token](/rest/api/azure/#authorization-code-grant-interactive-clients). |
 
 For more information about how to create the request, see [Components of a REST API request/response](/rest/api/azure/#components-of-a-rest-api-requestresponse).
 
@@ -42,8 +38,8 @@ The following common definitions are used to build a request body:
 |---------|---------|---------|---------|
 |eTag     |         |   String      |  Optional eTag       |
 |location     |  true       |String         |   Resource location      |
-|properties     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Properties of the vault       |
-|sku     |         |  [Sku](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#sku)       |    Identifies the unique system identifier for each Azure resource     |
+|properties     |         | [VaultProperties](/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Properties of the vault       |
+|sku     |         |  [Sku](/rest/api/recoveryservices/vaults/createorupdate#sku)       |    Identifies the unique system identifier for each Azure resource     |
 |tags     |         | Object        |     Resource tags    |
 
 Note that vault name and resource group name are provided in the PUT URI. The request body defines the location.
@@ -68,8 +64,8 @@ There are two successful responses for the operation to create or update a Recov
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
-|200 OK     |   [Vault](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)      | OK        |
-|201 Created     | [Vault](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)        |   Created      |
+|200 OK     |   [Vault](/rest/api/recoveryservices/vaults/createorupdate#vault)      | OK        |
+|201 Created     | [Vault](/rest/api/recoveryservices/vaults/createorupdate#vault)        |   Created      |
 
 For more information about REST API responses, see [Process the response message](/rest/api/azure/#process-the-response-message).
 

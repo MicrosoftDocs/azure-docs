@@ -1,12 +1,8 @@
 ---
 title: Supported Resource Types through Azure Resource Health | Microsoft Docs
 description: Supported Resource Types through Azure Resource health
-author: stephbaron
-ms.author: stbaron
 ms.topic: conceptual
-ms.service: service-health
-ms.topic: conceptual 
-ms.date: 01/29/2019
+ms.date: 01/23/2023
 ---
 
 # Resource types and health checks in Azure resource health
@@ -15,180 +11,289 @@ Below is a complete list of all the checks executed through resource health by r
 ## Microsoft.AnalysisServices/servers
 |Executed Checks|
 |---|
-|<ul><li>Is the server up and running?</li><li>Has the server run out of memory?</li><li>Is the server starting up?</li><li>Is the server recovering?</li></ul>|
+| - Is the server up and running?<br> - Has the server run out of memory?<br> - Is the server starting up?<br> - Is the server recovering?|
 
 ## Microsoft.ApiManagement/service
 |Executed Checks|
 |---|
-|<ul><li>Is the Api Management service up and running?</li></ul>|
+| - Is the Api Management service up and running?|
 
-## Microsoft.CacheRedis/Redis
+## Microsoft.AppPlatform/Spring
 |Executed Checks|
 |---|
-|<ul><li>Are all the Cache nodes up and running?</li><li>Can the Cache be reached from within the datacenter?</li><li>Has the Cache reached the maximum number of connections?</li><li> Has the cache exhausted its available memory? </li><li>Is the Cache experiencing a high number of page faults?</li><li>Is the Cache under heavy load?</li></ul>|
+| - Is the Azure Spring Cloud instance available?|
+
+## Microsoft.Batch/batchAccounts
+|Executed Checks|
+|---|
+| - Is the Batch account up and running?<br> - Has the pool quota been exceeded for this batch account?|
+
+## Microsoft.Cache/Redis
+|Executed Checks|
+|---|
+| - Are all the Cache nodes up and running?<br> - Can the Cache be reached from within the datacenter?<br> - Has the Cache reached the maximum number of connections?<br> -  Has the cache exhausted its available memory? <br> - Is the Cache experiencing a high number of page faults?<br> - Is the Cache under heavy load?|
 
 ## Microsoft.CDN/profile
 |Executed Checks|
 |---|
-|<ul> <li>Is the supplemental portal accessible for CDN configuration operations?</li><li>Are there ongoing delivery issues with the CDN endpoints?</li><li>Can users change the configuration of their CDN resources?</li><li>Are configuration changes propagating at the expected rate?</li><li>Can users manage the CDN configuration using the Azure portal, PowerShell, or the API?</li> </ul>|
+| - Is the supplemental portal accessible for CDN configuration operations?<br> - Are there ongoing delivery issues with the CDN endpoints?<br> - Can users change the configuration of their CDN resources?<br> - Are configuration changes propagating at the expected rate?<br> - Can users manage the CDN configuration using the Azure portal, PowerShell, or the API?|
 
 ## Microsoft.classiccompute/virtualmachines
 |Executed Checks|
 |---|
-|<ul><li>Is the host server up and running?</li><li>Has the host OS booting completed?</li><li>Is the virtual machine container provisioned and powered up?</li><li>Is there network connectivity between the host and the storage account?</li><li>Has the booting of the guest OS completed?</li><li>Is there ongoing planned maintenance?</li></ul>|
+| - Is the server hosting this virtual machine up and running?<br> - Is the virtual machine container provisioned and powered up?<br> - Is there network connectivity between the host and the storage account?<br> - Is there ongoing planned maintenance?<br> - Are there heartbeats between Guest and host agent *(if Guest extension is installed)*?|
+
+## Microsoft.classiccompute/domainnames
+|Executed Checks|
+|---|
+| - Is production slot deployment healthy across all role instances?<br> - Is the role healthy across all its VM instances?<br> - What is the health status of each VM within a role of a cloud service?<br> - Was the VM status change due to platform or customer initiated operation?<br> - Has the booting of the guest OS completed?<br> - Is there ongoing planned maintenance?<br> - Is the host hardware degraded and predicted to fail soon?<br> - [Learn More](../cloud-services/resource-health-for-cloud-services.md) about Executed Checks|
 
 ## Microsoft.cognitiveservices/accounts
 |Executed Checks|
 |---|
-|<ul><li>Can the account be reached from within the datacenter?</li><li>Is the Cognitive Services Resource Provider available?</li><li>Is the Cognitive Service available in the appropriate region?</li><li>Can read operations be performed on the storage account holding the resource metadata?</li><li>Has the API call quota been reached?</li><li>Has the API call read-limit been reached?</li></ul>|
+| - Can the account be reached from within the datacenter?<br> - Is the Azure AI services resource provider available?<br> - Is the Cognitive Service available in the appropriate region?<br> - Can read operations be performed on the storage account holding the resource metadata?<br> - Has the API call quota been reached?<br> - Has the API call read-limit been reached?|
+
+## Microsoft.compute/hostgroups/hosts
+|Executed Checks|
+|---|
+| - Is the host up and running?<br> - Is the host hardware degraded?<br> - Is the host deallocated?<br> - Has the host hardware service healed to different hardware?|
 
 ## Microsoft.compute/virtualmachines
 |Executed Checks|
 |---|
-|<ul><li>Is the server hosting this virtual machine up and running?</li><li>Has the host OS booting completed?</li><li>Is the virtual machine container provisioned and powered up?</li><li>Is there network connectivity between the host and the storage account?</li><li>Has the booting of the guest OS completed?</li><li>Is there ongoing planned maintenance?</li></ul>|
+| - Is the server hosting this virtual machine up and running?<br> - Is the virtual machine container provisioned and powered up?<br> - Is there network connectivity between the host and the storage account?<br> - Is there ongoing planned maintenance?<br> - Are there heartbeats between Guest and host agent *(if Guest extension is installed)*?|
+
+## Microsoft.compute/virtualmachinescalesets
+|Executed Checks|
+|---|
+| - Is the server hosting this virtual machine up and running?<br> - Is the virtual machine container provisioned and powered up?<br> - Is there network connectivity between the host and the storage account?<br> - Is there ongoing planned maintenance?<br> - Are there heartbeats between Guest and host agent *(if Guest extension is installed)*?|
+
+
+## Microsoft.ContainerService/managedClusters
+|Executed Checks|
+|---|
+| - Is the cluster up and running?<br> - Are core services available on the cluster?<br> - Are all cluster nodes ready?<br> - Is the service principal current and valid?|
 
 ## Microsoft.datafactory/factories
 |Executed Checks|
 |---|
-|<ul><li>Have there been pipeline run failures?</li><li>Is the cluster hosting the Data Factory healthy?</li></ul>|
+| - Have there been pipeline run failures?<br> - Is the cluster hosting the Data Factory healthy?|
 
 ## Microsoft.datalakeanalytics/accounts
 |Executed Checks|
 |---|
-|<ul><li>Have users experienced problems submitting or listing their Data Lake Analytics jobs?</li><li>Are Data Lake Analytics jobs unable to complete due to system errors?</li></ul>|
+| - Have users experienced problems submitting or listing their Data Lake Analytics jobs?<br> - Are Data Lake Analytics jobs unable to complete due to system errors?|
 
 
 ## Microsoft.datalakestore/accounts
 |Executed Checks|
 |---|
-|<ul><li>Have users experienced problems uploading data to Data Lake Store?</li><li>Have users experienced problems downloading data from Data Lake Store?</li></ul>|
+| - Have users experienced problems uploading data to Data Lake Store?<br> - Have users experienced problems downloading data from Data Lake Store?|
 
 ## Microsoft.datamigration/services
 |Executed Checks|
 |---|
-|<ul><li>Has the database migration service failed to provision?</li><li>Has the database migration service stopped due to inactivity or user request?</li></ul>|
+| - Has the database migration service failed to provision?<br> - Has the database migration service stopped due to inactivity or user request?|
+
+## Microsoft.DataShare/accounts
+|Executed Checks|
+|---|
+| - Is the Data Share account up and running?<br> - Is the cluster hosting the Data Share available?|
 
 ## Microsoft.DBforMariaDB/servers
 |Executed Checks|
 |---|
-|<ul><li>Is the server unavailable due to maintenance?</li><li>Is the server unavailable due to reconfiguration?</li></ul>|
+| - Is the server unavailable due to maintenance?<br> - Is the server unavailable due to reconfiguration?|
 
 ## Microsoft.DBforMySQL/servers
 |Executed Checks|
 |---|
-|<ul><li>Is the server unavailable due to maintenance?</li><li>Is the server unavailable due to reconfiguration?</li></ul>|
+| - Is the server unavailable due to maintenance?<br> - Is the server unavailable due to reconfiguration?|
 
 ## Microsoft.DBforPostgreSQL/servers
 |Executed Checks|
 |---|
-|<ul><li>Is the server unavailable due to maintenance?</li><li>Is the server unavailable due to reconfiguration?</li></ul>|
+| - Is the server unavailable due to maintenance?<br> - Is the server unavailable due to reconfiguration?|
 
 ## Microsoft.devices/iothubs
 |Executed Checks|
 |---|
-|<ul><li>Is the IoT hub up and running?</li></ul>|
+| - Is the IoT hub up and running?|
+
+## Microsoft.DigitalTwins/DigitalTwinsInstances
+|Executed Checks|
+|---|
+| - Is the Azure Digital Twins instance up and running?|
 
 ## Microsoft.documentdb/databaseAccounts
 |Executed Checks|
 |---|
-|<ul><li>Have there been any database or collection requests not served due to an Azure Cosmos DB service unavailability?</li><li>Have there been any document requests not served due to an Azure Cosmos DB service unavailability?</li></ul>|
+| - Have there been any database or collection requests not served due to an Azure Cosmos DB service unavailability?<br> - Have there been any document requests not served due to an Azure Cosmos DB service unavailability?|
 
 ## Microsoft.eventhub/namespaces
 |Executed Checks|
 |---|
-|<ul><li>Is the Event Hubs namespace experiencing user generated errors?</li><li>Is the Event Hubs namespace currently being upgraded?</li></ul>|
+| - Is the Event Hubs namespace experiencing user generated errors?<br> - Is the Event Hubs namespace currently being upgraded?|
 
 ## Microsoft.hdinsight/clusters
 |Executed Checks|
 |---|
-|<ul><li>Are core services available on the HDInsight cluster?</li><li>Can the HDInsight cluster access the key for BYOK encryption at rest?</li></ul>|
+| - Are core services available on the HDInsight cluster?<br> - Can the HDInsight cluster access the key for BYOK encryption at rest?|
+
+## Microsoft.HybridCompute/machines
+|Executed Checks|
+|---|
+| - Is the agent on your server connected to Azure and sending heartbeats?|
+
+## Microsoft.IoTCentral/IoTApps
+|Executed Checks|
+|---|
+| - Is the IoT Central Application available?|
 
 ## Microsoft.KeyVault/vaults
 |Executed Checks|
 |---|
-|<ul><li>Are requests to key vault failing due to Azure KeyVault platform issues?</li><li>Are requests to key vault being throttled due to too many requests made by customer?</li></ul>|
+| - Are requests to key vault failing due to Azure KeyVault platform issues?<br> - Are requests to key vault being throttled due to too many requests made by customer?|
+
+## Microsoft.Kusto/clusters
+|Executed Checks|
+|---|
+| - Is the cluster experiencing low ingestion success rates?<br> - Is the cluster experiencing high ingestion latency?<br> - Is the cluster experiencing a high number of query failures?|
+
+## Microsoft.MachineLearning/webServices
+|Executed Checks|
+|---|
+| - Is the web service up and running?|
+
+## Microsoft.Media/mediaservices
+|Executed Checks|
+|---|
+| - Is the media service up and running?|
 
 ## Microsoft.network/applicationgateways
 |Executed Checks|
 |---|
-|<ul><li>Is performance of the Application Gateway degraded?</li><li>Is the Application Gateway available?</li></ul>|
+| - Is performance of the Application Gateway degraded?<br> - Is the Application Gateway available?|
+
+## Microsoft.network/azureFirewalls
+|Executed Checks|
+|---|
+| - Are there enough remaining available ports to perform Source NAT?<br> - Are there enough remaining available connections?|
+
+## Microsoft.network/bastionhosts
+|Executed Checks|
+|---|
+| - Is the Bastion Host up and running?|
 
 ## Microsoft.network/connections
 |Executed Checks|
 |---|
-|<ul><li>Is the VPN tunnel connected?</li><li>Are there configuration conflicts in the connection?</li><li>Are the pre-shared keys properly configured?</li><li>Is the VPN on-premises device reachable?</li><li>Are there mismatches in the IPSec/IKE security policy?</li><li>Is the S2S VPN connection properly provisioned or in a failed state?</li><li>Is the VNET-to-VNET connection properly provisioned or in a failed state?</li></ul>|
+| - Is the VPN tunnel connected?<br> - Are there configuration conflicts in the connection?<br> - Are the pre-shared keys properly configured?<br> - Is the VPN on-premises device reachable?<br> - Are there mismatches in the IPSec/IKE security policy?<br> - Is the S2S VPN connection properly provisioned or in a failed state?<br> - Is the VNET-to-VNET connection properly provisioned or in a failed state?|
 
-## Microsoft.network/expressreoutecircuits
+## Microsoft.network/expressroutecircuits
 |Executed Checks|
 |---|
-|<ul><li>Is the ExpressRoute circuit healthy?</li></ul>|
+| - Is the ExpressRoute circuit healthy?|
 
 ## Microsoft.network/frontdoors
 |Executed Checks|
 |---|
-|<ul><li>Are Front Door backends responding with errors to health probes?</li><li>Are configuration changes delayed?</li></ul>|
+| - Are Front Door backends responding with errors to health probes?<br> - Are configuration changes delayed?|
+
+## Microsoft.network/LoadBalancers
+|Executed Checks|
+|---|
+| - Are the load balancing endpoints available?|
+
+
+## Microsoft.network/natGateways
+|Executed Checks|
+|---|
+| - Are the NAT gateway endpoints available?|
+
+## Microsoft.network/trafficmanagerprofiles
+|Executed Checks|
+|---|
+| - Are there any issues impacting the Traffic Manager profile?|
 
 ## Microsoft.network/virtualNetworkGateways
 |Executed Checks|
 |---|
-|<ul><li>Is the VPN gateway reachable from the internet?</li><li>Is the VPN Gateway in standby mode?</li><li>Is the VPN service running on the gateway?</li></ul>|
+| - Is the VPN gateway reachable from the internet?<br> - Is the VPN Gateway in standby mode?<br> - Is the VPN service running on the gateway?|
 
 ## Microsoft.NotificationHubs/namespace
 |Executed Checks|
 |---|
-|<ul><li>Can runtime operations like registration, installation, or send be performed on the namespace?</li></ul>|
+| - Can runtime operations like registration, installation, or send be performed on the namespace?|
 
 ## Microsoft.operationalinsights/workspaces
 |Executed Checks|
 |---|
-|<ul><li>Are there indexing delays for the workspace?</li></ul>|
+| - Are there indexing delays for the workspace?|
 
 ## Microsoft.PowerBIDedicated/Capacities
 |Executed Checks|
 |---|
-|<ul><li>Is the capacity resource up and running?</li><li>Are all the workloads up and running?</li></ul>|
-
-## Microsoft.PowerBI/workspaceCollections
-|Executed Checks|
-|---|
-|<ul><li>Is the host OS up and running?</li><li>Is the workspaceCollection reachable from outside the datacenter?</li><li>Is the Power BI Resource Provider available?</li><li>Is the Power BI Service available in the appropriate region?</li></ul>|
+| - Is the capacity resource up and running?<br> - Are all the workloads up and running?
 
 ## Microsoft.search/searchServices
 |Executed Checks|
 |---|
-|<ul><li>Can diagnostics operations be performed on the cluster?</li></ul>|
+| - Can diagnostics operations be performed on the cluster?|
 
 ## Microsoft.ServiceBus/namespaces
 |Executed Checks|
 |---|
-|<ul><li>Are customers experiencing user generated Service Bus errors?</li><li>Are users experiencing an increase in transient errors due to a Service Bus namespace upgrade?</li></ul>|
+| - Are customers experiencing user generated Service Bus errors?<br> - Are users experiencing an increase in transient errors due to a Service Bus namespace upgrade?|
 
-## Microsoft.SQL/Server/database
+## Microsoft.ServiceFabric/clusters
 |Executed Checks|
 |---|
-|<ul><li> Have there been logins to the database?</li></ul>|
+| - Is the Service Fabric cluster up and running?<br> - Can the Service Fabric cluster be managed through Azure Resource Manager?|
+
+## Microsoft.SQL/managedInstances/databases
+|Executed Checks|
+|---|
+| - Is the database up and running?|
+
+## Microsoft.SQL/servers/databases
+|Executed Checks|
+|---|
+| - Have login attempts to the database failed because the database was unavailable?|
 
 ## Microsoft.Storage/storageAccounts
 |Executed Checks|
 |---|
-|<ul><li>Are requests to read data from the Storage account failing due to Azure Storage platform issues?</li><li>Are requests to write data to the Storage account failing due to Azure Storage platform issues?</li><li>Is the Storage cluster where the Storage account resides unavailable?</li></ul>|
+| - Are requests to read data from the Storage account failing due to Azure Storage platform issues?<br> - Are requests to write data to the Storage account failing due to Azure Storage platform issues?<br> - Is the Storage cluster where the Storage account resides unavailable?|
 
 ## Microsoft.StreamAnalytics/streamingjobs
 |Executed Checks|
 |---|
-|<ul><li>Are all the hosts where the job is executing up and running?</li><li>Was the job unable to start?</li><li>Are there ongoing runtime upgrades?</li><li>Is the job in an expected state (for example running or stopped by customer)?</li><li>Has the job encountered out of memory exceptions?</li><li>Are there ongoing scheduled compute updates?</li><li>Is the Execution Manager (control plan) available?</li></ul>|
+| - Are all the hosts where the job is executing up and running?<br> - Was the job unable to start?<br> - Are there ongoing runtime upgrades?<br> - Is the job in an expected state (for example running or stopped by customer)?<br> - Has the job encountered out of memory exceptions?<br> - Are there ongoing scheduled compute updates?<br> - Is the Execution Manager (control plan) available?|
 
 ## Microsoft.web/serverFarms
 |Executed Checks|
 |---|
-|<ul><li>Is the host server up and running?</li><li>Is Internet Information Services running?</li><li>Is the Load balancer running?</li><li>Can the App Service Plan be reached from within the datacenter?</li><li>Is the storage account hosting the sites content for the serverFarm  available??</li></ul>|
+| - Is the host server up and running?<br> - Is Internet Information Services running?<br> - Is the Load balancer running?<br> - Can the App Service Plan be reached from within the datacenter?<br> - Is the storage account hosting the sites content for the serverFarm  available?|
 
 ## Microsoft.web/sites
 |Executed Checks|
 |---|
-|<ul><li>Is the host server up and running?</li><li>Is Internet Information server running?</li><li>Is the Load balancer running?</li><li>Can the Web App be reached from within the datacenter?</li><li>Is the storage account hosting the site content available?</li></ul>|
+| - Is the host server up and running?<br> - Is Internet Information server running?<br> - Is the Load balancer running?<br> - Can the Web App be reached from within the datacenter?<br> - Is the storage account hosting the site content available?|
 
-# Next Steps
--  See [Introduction to Azure Service Health dashboard](service-health-overview.md) and [Introduction to Azure Resource Health](resource-health-overview.md) to understand more about them. 
--  [Frequently asked questions about Azure Resource Health](resource-health-faq.md)
-- Set up alerts so you are notified of health issues. For more information, see [Configure Alerts for service health events](../azure-monitor/platform/alerts-activity-log-service-notifications.md). 
+## Microsoft.RecoveryServices/vaults
+
+| Executed Checks |
+| --- |
+| - Are any Backup operations on Backup Items configured in this vault failing due to causes beyond user control?<br>- Are any Restore operations on Backup Items configured in this vault failing due to causes beyond user control?|
+
+## Microsoft.VoiceServices/communicationsgateway
+
+| Executed Checks |
+| --- |
+| - Are traffic-carrying instances running?<br>- Can the service handle calls?|
+
+## Next Steps
+-  See [Introduction to Azure Service Health dashboard](service-health-overview.md) and [Introduction to Azure Resource Health](resource-health-overview.md) to understand more about them.
+-  [Frequently asked questions about Azure Resource Health](resource-health-faq.yml)
+- Set up alerts so you are notified of health issues. For more information, see [Configure Alerts for service health events](./alerts-activity-log-service-notifications-portal.md).

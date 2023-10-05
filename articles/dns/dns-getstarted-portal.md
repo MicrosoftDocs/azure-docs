@@ -1,20 +1,24 @@
 ---
-title: Quickstart - Create an Azure DNS zone and record using the Azure portal
+title: 'Quickstart: Create a DNS zone and record - Azure portal'
+titleSuffix: Azure DNS
 description: Use this step-by-step quickstart guide to learn how to create an Azure DNS zone and record using the Azure portal.
 services: dns
-author: vhorne
-ms.service: dns
+author: greg-lindsay
+ms.author: greglin
+ms.date: 09/27/2022
 ms.topic: quickstart
-ms.date: 3/11/2019
-ms.author: victorh
+ms.service: dns
+ms.custom: mode-ui
 #Customer intent: As an administrator or developer, I want to learn how to configure Azure DNS using the Azure portal so I can use Azure DNS for my name resolution.
 ---
 
 # Quickstart: Create an Azure DNS zone and record using the Azure portal
 
-You can configure Azure DNS to resolve host names in your public domain. For example, if you purchased the *contoso.xyz* domain name from a domain name registrar, you can configure Azure DNS to host the *contoso.xyz* domain and resolve *www.contoso.xyz* to the IP address of your web server or web app.
+You can configure Azure DNS to resolve host names in your public domain. For example, if you purchased the *contoso.xyz* domain name from a domain name registrar, you can configure Azure DNS to host the *contoso.xyz* domain and resolve *`www.contoso.xyz`* to the IP address of your web server or web app.
 
-In this quickstart, you will create a test domain, and then create an address record to resolve *www* to the IP address *10.10.10.10*.
+In this quickstart, you'll create a test domain, and then create an address record to resolve *www* to the IP address *10.10.10.10*.
+
+:::image type="content" source="media/dns-getstarted-portal/environment-diagram.png" alt-text="Diagram of DNS deployment environment using the Azure portal." border="false":::
 
 >[!IMPORTANT]
 >All the names and IP addresses in this quickstart are examples that do not represent real-world scenarios.
@@ -26,6 +30,14 @@ You can also perform these steps using [Azure PowerShell](dns-getstarted-powersh
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 For all portal steps, sign in to the [Azure portal](https://portal.azure.com).
+
+## Prerequisites
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+## Sign in to the Azure portal
+
+Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 ## Create a DNS zone
 
@@ -92,7 +104,7 @@ Now that you have a test DNS zone with a test 'A' record, you can test the name 
 
    You should see something like the following screen:
 
-   ![nslookup](media/dns-getstarted-portal/nslookup.PNG)
+   ![Screenshot shows a command prompt window with an n s lookup command and values for Server, Address, Name, and Address.](media/dns-getstarted-portal/nslookup.PNG)
 
 The host name **www\.contoso.xyz** resolves to **10.10.10.10**, just as you configured it. This result verifies that name resolution is working correctly. 
 

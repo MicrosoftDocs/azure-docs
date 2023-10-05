@@ -1,44 +1,43 @@
 ---
-title: 'Azure cross-network connectivity | Microsoft Docs'
+title: 'Azure cross-network connectivity'
 description: This page describes an application scenario for cross network connectivity and solution based on Azure networking features.
-documentationcenter: na
-services: networking
-author: rambk
-manager: tracsman
-
+author: duongau
 ms.service: expressroute
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 04/03/2019
-ms.author: rambala
+ms.date: 06/30/2023
+ms.author: duau
 
 ---
 
 # Cross-network connectivity
 
-Fabrikam Inc. has a large physical presence and Azure deployment in East US. Fabrikam has back-end connectivity between its on-premises and Azure deployments via ExpressRoute. Similarly, Contoso Ltd. has a presence and Azure deployment in West US. Contoso has back-end connectivity between its on-premises and Azure deployments via ExpressRoute.  
+Fabrikam Inc. has a large physical presence and Azure deployment in East US. Fabrikam has a back-end connectivity between its on-premises and Azure deployments through ExpressRoute. Similarly, Contoso Ltd. has a presence and Azure deployment in West US. Contoso has a back-end connectivity between its on-premises and Azure deployments through ExpressRoute.  
 
 Fabrikam Inc. acquires Contoso Ltd. Following the merger, Fabrikam wants to interconnect the networks. The following figure illustrates the scenario:
 
- [![1]][1]
+![The Application scenario](./media/cross-network-connectivity/premergerscenario.png)
 
-The dashed arrows in the middle of the above figure indicate the desired network interconnections. Specifically, there are three types cross connections desired: 1) Fabrikam and Contoso VNets cross connect, 2) Cross regional on-premises and VNets cross connects (that is, connecting Fabrikam on-premises network to Contoso VNet and connecting Contoso on-premises network to Fabrikam VNet), and 3) Fabrikam and Contoso on-premises network cross connect. 
+The dashed arrows in the middle of the above figure indicate the desired network interconnections. Specifically, there are three types cross connections desired: 
+
+1. Fabrikam and Contoso virtual network cross connect
+1. Cross regional on-premises and virtual network cross connects. That is, connecting Fabrikam on-premises network to Contoso virtual network and connecting Contoso on-premises network to Fabrikam virtual network.
+1. Fabrikam and Contoso on-premises network cross connect
 
 The following table shows the route table of the private peering of the ExpressRoute of Contoso Ltd., before the merger.
 
-[![2]][2]
+![Contoso ExpressRoute route table before merger](./media/cross-network-connectivity/contosoexr-rt-premerger.png)
 
-The following table shows the effective routes of a VM in the Contoso subscription, before the merger. Per the table, the VM on the VNet is aware of the VNet address space and the Contoso on-premises network, apart from the default ones. 
+The following table shows the effective routes of a VM in the Contoso subscription, before the merger. Per the table, the VM on the VNet is aware of the VNet address space and the Contoso on-premises network, apart from the default ones.
 
-[![4]][4]
+![Contoso VM routes before merger](./media/cross-network-connectivity/contosovm-routes-premerger.png)
 
 The following table shows the route table of the private peering of the ExpressRoute of Fabrikam Inc., before the merger.
 
-[![3]][3]
+![Fabrikam ExpressRoute route table before merger](./media/cross-network-connectivity/fabrikamexr-rt-premerger.png)
 
 The following table shows the effective routes of a VM in the Fabrikam subscription, before the merger. Per the table, the VM on the VNet is aware of the VNet address space and the Fabrikam on-premises network, apart from the default ones.
 
-[![5]][5]
+![Fabrikam VM routes before merger](./media/cross-network-connectivity/fabrikamvm-routes-premerger.png)
 
 In this article, let's go through step by step and discuss how to achieve the desired cross connections using the following Azure network features:
 
@@ -54,17 +53,17 @@ Let's configure Global VNet peering between the VNets in Contoso and Fabrikam Az
 
 The following picture shows the network architecture after configuring Global VNet peering.
 
-[![6]][6]
+![The Architecture after VNet-peering](./media/cross-network-connectivity/vnet-peering.png)
 
 The following table shows the routes known to the Contoso subscription VM. Pay attention to the last entry of the table. This entry is the result of cross connecting the virtual networks.
 
-[![7]][7]
+![Contoso VM routes after VNet peering](./media/cross-network-connectivity/contosovm-routes-peering.png)
 
 The following table shows the routes known to the Fabrikam subscription VM. Pay attention to the last entry of the table. This entry is the result of cross connecting the virtual networks.
 
-[![8]][8]
+![Fabrikam VM routes after VNet peering](./media/cross-network-connectivity/fabrikamvm-routes-peering.png)
 
-VNet peering directly links two virtual networks (see there are no next hop for *VNetGlobalPeering* entry in the above two tables)
+VNet peering directly links two virtual networks (see there are no next hop for *VNetGlobalPeering* entry in the two tables)
 
 ## Cross connecting VNets to the on-premises networks
 
@@ -74,23 +73,23 @@ Let's connect Fabrikam ExpressRoute circuit to Contoso subscription VNet and sim
 
 The following picture shows the network architecture after configuring the ExpressRoute cross connectivity to the virtual networks.
 
-[![9]][9]
+![The Architecture after ExpressRoutes cross connection](./media/cross-network-connectivity/exr-x-connect.png)
 
 The following table shows the route table of the private peering of the ExpressRoute of Contoso Ltd., after cross connecting virtual networks to the on-premises networks via ExpressRoute. See that the route table has routes belonging to both the virtual networks.
 
-[![10]][10]
+![Contoso ExpressRoute route table after cross connecting ExR and VNets](./media/cross-network-connectivity/contosoexr-rt-xconnect.png)
 
 The following table shows the route table of the private peering of the ExpressRoute of Fabrikam Inc., after cross connecting virtual networks to the on-premises networks via ExpressRoute. See that the route table has routes belonging to both the virtual networks.
 
-[![11]][11]
+![Fabrikam ExpressRoute route table after cross connecting ExR and VNets](./media/cross-network-connectivity/fabrikamexr-rt-xconnect.png)
 
 The following table shows the routes known to the Contoso subscription VM. Pay attention to *Virtual network gateway* entries of the table. The VM sees routes for both the on-premises networks.
 
-[![12]][12]
+![Contoso VM routes after cross connecting ExR and VNets](./media/cross-network-connectivity/contosovm-routes-xconnect.png)
 
 The following table shows the routes known to the Fabrikam subscription VM. Pay attention to *Virtual network gateway* entries of the table. The VM sees routes for both the on-premises networks.
 
-[![13]][13]
+![Fabrikam VM routes after cross connecting ExR and VNets](./media/cross-network-connectivity/fabrikamvm-routes-xconnect.png)
 
 >[!NOTE]
 >In either the Fabrikam and/or Contoso subscriptions you can also have spoke VNets to the respective hub VNet (a hub and spoke design is not illustrated in the architecture diagrams in this article). The cross connections between the hub VNet gateways to ExpressRoute will also allow communication between East and West hubs and spokes.
@@ -102,15 +101,15 @@ ExpressRoute Global Reach provides connectivity between on-premises networks tha
 
 The following picture shows the network architecture after configuring Global Reach.
 
-[![14]][14]
+![The Architecture after configuring Global Reach](./media/cross-network-connectivity/globalreach.png)
 
 The following table shows the route table of the private peering of the ExpressRoute of Contoso Ltd., after configuring Global Reach. See that the route table has routes belonging to both the on-premises networks. 
 
-[![15]][15]
+![Contoso ExpressRoute route table after Global Reach](./media/cross-network-connectivity/contosoexr-rt-gr.png)
 
 The following table shows the route table of the private peering of the ExpressRoute of Fabrikam Inc., after configuring Global Reach. See that the route table has routes belonging to both the on-premises networks.
 
-[![16]][16]
+![Fabrikam ExpressRoute route table after Global Reach](./media/cross-network-connectivity/fabrikamexr-rt-gr.png)
 
 ## Next steps
 
@@ -118,31 +117,13 @@ See [virtual network FAQ][VNet-FAQ], for any further questions on VNet and VNet-
 
 Global Reach is rolled out on a country/region by country/region basis. To see if Global Reach is available in the countries/regions that you want, see [ExpressRoute Global Reach][Global Reach].
 
-<!--Image References-->
-[1]: ./media/cross-network-connectivity/premergerscenario.png "The Application scenario"
-[2]: ./media/cross-network-connectivity/contosoexr-rt-premerger.png "Contoso ExpressRoute route table before merger"
-[3]: ./media/cross-network-connectivity/fabrikamexr-rt-premerger.png "Fabrikam ExpressRoute route table before merger"
-[4]: ./media/cross-network-connectivity/contosovm-routes-premerger.png "Contoso VM routes before merger"
-[5]: ./media/cross-network-connectivity/fabrikamvm-routes-premerger.png "Fabrikam VM routes before merger"
-[6]: ./media/cross-network-connectivity/vnet-peering.png "The Architecture after VNet-peering"
-[7]: ./media/cross-network-connectivity/contosovm-routes-peering.png "Contoso VM routes after VNet peering"
-[8]: ./media/cross-network-connectivity/fabrikamvm-routes-peering.png "Fabrikam VM routes after VNet peering"
-[9]: ./media/cross-network-connectivity/exr-x-connect.png "The Architecture after ExpressRoutes cross connection"
-[10]: ./media/cross-network-connectivity/contosoexr-rt-xconnect.png "Contoso ExpressRoute route table after cross connecting ExR and VNets"
-[11]: ./media/cross-network-connectivity/fabrikamexr-rt-xconnect.png "Fabrikam ExpressRoute route table after cross connecting ExR and VNets"
-[12]: ./media/cross-network-connectivity/contosovm-routes-xconnect.png "Contoso VM routes after cross connecting ExR and VNets"
-[13]: ./media/cross-network-connectivity/fabrikamvm-routes-xconnect.png "Fabrikam VM routes after cross connecting ExR and VNets"
-[14]: ./media/cross-network-connectivity/globalreach.png "The Architecture after configuring Global Reach"
-[15]: ./media/cross-network-connectivity/contosoexr-rt-gr.png "Contoso ExpressRoute route table after Global Reach"
-[16]: ./media/cross-network-connectivity/fabrikamexr-rt-gr.png "Fabrikam ExpressRoute route table after Global Reach"
-
 <!--Link References-->
-[Virtual network peering]: https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview
-[connection]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager
-[Global Reach]: https://docs.microsoft.com/azure/expressroute/expressroute-global-reach
-[Configure VNet peering]: https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions
-[Configure Global Reach]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-set-global-reach
-[Subscription limits]: https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits
-[Connect-ER-VNet]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager
-[ER-FAQ]: https://docs.microsoft.com/azure/expressroute/expressroute-faqs
-[VNet-FAQ]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq
+[Virtual network peering]: ../virtual-network/virtual-network-peering-overview.md
+[connection]: ./expressroute-howto-linkvnet-portal-resource-manager.md
+[Global Reach]: ./expressroute-global-reach.md
+[Configure VNet peering]: ../virtual-network/create-peering-different-subscriptions.md
+[Configure Global Reach]: ./expressroute-howto-set-global-reach.md
+[Subscription limits]: ../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits
+[Connect-ER-VNet]: ./expressroute-howto-linkvnet-portal-resource-manager.md
+[ER-FAQ]: ./expressroute-faqs.md
+[VNet-FAQ]: ../virtual-network/virtual-networks-faq.md

@@ -1,0 +1,24 @@
+{
+    "$schema": "https://whatsnewapi.azurewebsites.net/schema",
+    "docSetProductName": "Microsoft identity platform",
+    "rootDirectory": "articles/active-directory/develop/",
+    "docLinkSettings": {
+        "linkFormat": "relative",
+        "relativeLinkPrefix": "/azure/active-directory/develop"
+    },
+    "inclusionCriteria": {
+        "omitPullRequestTitles" : false,
+        "minAdditionsToFile" : 20,
+        "maxFilesChanged": 50,
+        "labels": [
+            "label:active-directory/svc",
+            "label:develop/subsvc"
+        ]
+    },
+    "areas": [
+        {
+            "names": [ "."],
+            "heading": "Microsoft identity platform"
+        }
+    ]
+}

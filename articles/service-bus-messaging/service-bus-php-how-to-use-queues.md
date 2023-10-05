@@ -1,26 +1,19 @@
 ---
-title: How to use Service Bus queues with PHP | Microsoft Docs
-description: Learn how to use Service Bus queues in Azure. Code samples written in PHP.
+title: How to use Azure Service Bus queues with PHP
+description: In this article, you learn how to create PHP applications to send messages to and receive messages from a Service Bus queue. 
 services: service-bus-messaging
-documentationcenter: php
-author: axisc
-manager: timlt
-editor: spelluru
-
-ms.assetid: e29c829b-44c5-4350-8f2e-39e0c380a9f2
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: PHP
-ms.topic: article
-ms.date: 04/10/2019
-ms.author: aschhab
-
+ms.devlang: php
+ms.topic: how-to
+ms.date: 07/23/2021
 ---
-# How to use Service Bus queues with PHP
-[!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-In this tutorial, you learn how to create PHP applications to send messages to and receive messages from a Service Bus queue. 
+# How to use Service Bus queues with PHP
+[!INCLUDE [service-bus-selector-queues](./includes/service-bus-selector-queues.md)]
+
+In this article, you learn how to create PHP applications to send messages to and receive messages from a Service Bus queue. 
+
+> [!IMPORTANT]
+> As of February 2021, the Azure SDK for PHP has entered a retirement phase and is no longer officially supported by Microsoft. For more information, see [this Announcement](https://github.com/Azure/azure-sdk-for-php#important-annoucement) on GitHub. This article will be retired soon. 
 
 ## Prerequisites
 1. An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
@@ -30,11 +23,11 @@ In this tutorial, you learn how to create PHP applications to send messages to a
     3. Get the **connection string**. 
 
         > [!NOTE]
-        > You will create a **queue** in the Service Bus namespace by using PHP in this tutorial. 
-3. [Azure SDK for PHP](../php-download-sdk.md)
+        > You will create a **queue** in the Service Bus namespace by using PHP in this article. 
+3. [Azure SDK for PHP](https://github.com/Azure/azure-sdk-for-php)
 
 ## Create a PHP application
-The only requirement for creating a PHP application that accesses the Azure Blob service is the referencing of classes in the [Azure SDK for PHP](../php-download-sdk.md) from within your code. You can use any development tools to create your application, or Notepad.
+The only requirement for creating a PHP application that accesses the Azure Blob service is the referencing of classes in the [Azure SDK for PHP](https://github.com/Azure/azure-sdk-for-php) from within your code. You can use any development tools to create your application, or Notepad.
 
 > [!NOTE]
 > Your PHP installation must also have the [OpenSSL extension](https://php.net/openssl) installed and enabled.
@@ -116,7 +109,7 @@ try    {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here: 
-    // https://docs.microsoft.com/rest/api/storageservices/Common-REST-API-Error-Codes
+    // https://learn.microsoft.com/rest/api/storageservices/Common-REST-API-Error-Codes
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -153,7 +146,7 @@ try    {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here: 
-    // https://docs.microsoft.com/rest/api/storageservices/Common-REST-API-Error-Codes
+    // https://learn.microsoft.com/rest/api/storageservices/Common-REST-API-Error-Codes
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -162,7 +155,7 @@ catch(ServiceException $e){
 
 Messages sent to (and received from) Service Bus queues are instances of the [BrokeredMessage][BrokeredMessage] class. [BrokeredMessage][BrokeredMessage] objects have a set of standard methods and properties that are used to hold custom application-specific properties, and a body of arbitrary application data.
 
-Service Bus queues support a maximum message size of 256 KB in the [Standard tier](service-bus-premium-messaging.md) and 1 MB in the [Premium tier](service-bus-premium-messaging.md). The header, which includes the standard and custom application properties, can have
+Service Bus queues support a maximum message size of 256 KB in the [Standard tier](service-bus-premium-messaging.md) and 100 MB in the [Premium tier](service-bus-premium-messaging.md). The header, which includes the standard and custom application properties, can have
 a maximum size of 64 KB. There is no limit on the number of messages held in a queue but there is a cap on the total size of the messages held by a queue. This upper limit on queue size is 5 GB.
 
 ## Receive messages from a queue
@@ -206,7 +199,7 @@ try    {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // https://docs.microsoft.com/rest/api/storageservices/Common-REST-API-Error-Codes
+    // https://learn.microsoft.com/rest/api/storageservices/Common-REST-API-Error-Codes
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -232,5 +225,3 @@ For more information, also visit the [PHP Developer Center](https://azure.micros
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [require_once]: https://php.net/require_once
-
-

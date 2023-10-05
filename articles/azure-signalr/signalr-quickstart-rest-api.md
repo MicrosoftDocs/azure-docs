@@ -1,11 +1,12 @@
 ---
 title: Quickstart - Azure SignalR Service REST API
-description: A quickstart for using the Azure SignalR Service REST API.
-author: sffamily
+description: Learn how to use REST API with Azure SignalR Service following samples. Find details of REST API specification.
+author: vicancy
 ms.service: signalr
 ms.topic: quickstart
-ms.date: 03/01/2019
-ms.author: zhshang
+ms.date: 11/13/2019
+ms.author: lianwei
+ms.custom: mode-api
 ---
 # Quickstart: Broadcast real-time messages from console app
 
@@ -17,16 +18,22 @@ In this quickstart, you will learn how to send messages from a command-line app 
 
 This quickstart can be run on macOS, Windows, or Linux.
 
-* [.NET Core SDK](https://www.microsoft.com/net/download/core)
+* [.NET Core SDK](https://dotnet.microsoft.com/download)
 * A text editor or code editor of your choice.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qsapi).
+
 ## Sign in to Azure
 
-Sign in to the Azure portal at <https://portal.azure.com/> with your Azure account.
+Sign in to the [Azure portal](https://portal.azure.com) using your Azure account.
+
+Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qsapi).
 
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
+
+Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qsapi).
 
 ## Clone the sample application
 
@@ -39,6 +46,7 @@ While the service is deploying, let's switch to prepare the code. Clone the [sam
     ```bash
     git clone https://github.com/aspnet/AzureSignalR-samples.git
     ```
+Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qsapi).
 
 ## Build and run the sample
 
@@ -51,7 +59,7 @@ Also you can find how to generate an access token to authenticate with Azure Sig
 
 ### Build the executable file
 
-We use macOS osx.10.13-x64 as example. You can find [reference](https://docs.microsoft.com/dotnet/core/rid-catalog) on how to build on other platforms.
+We use macOS osx.10.13-x64 as example. You can find [reference](/dotnet/core/rid-catalog) on how to build on other platforms.
 
 ```bash
 cd AzureSignalR-samples/samples/Serverless/
@@ -75,6 +83,8 @@ cd bin/Release/netcoreapp2.1/osx.10.13-x64/
 Serverless server -c "<ConnectionString>" -h <HubName>
 ```
 
+Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qsapi).
+
 ## Run the sample without publishing
 
 You can also run the command below to start a server or client
@@ -91,6 +101,8 @@ dotnet run -- client <ClientName> -c "<ConnectionString>" -h <HubName>
 
 You can run `dotnet user-secrets set Azure:SignalR:ConnectionString "<ConnectionString>"` in the root directory of the sample. After that, you don't need the option `-c "<ConnectionString>"` anymore.
 
+Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qsapi).
+
 ## Usage
 
 After the server started, use the command to send message:
@@ -104,6 +116,8 @@ broadcast
 ```
 
 You can start multiple clients with different client names.
+
+Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qsapi).
 
 ## <a name="usage"> </a> Integration with third-party services
 
@@ -120,15 +134,22 @@ Version | API State | Door | Specific
 
 The list of available APIs for each specific version is available in the following list.
 
-API | `1.0-preview` | `1.0`
+API | 1.0-preview | 1.0
 --- | --- | ---
 [Broadcast to all](#broadcast) | **&#x2713;** | **&#x2713;**
 [Broadcast to a group](#broadcast-group) | **&#x2713;** | **&#x2713;**
 Broadcast to some groups | **&#x2713;** (Deprecated) | `N / A`
-[Send to specific users](#send-user) | **&#x2713;** | **&#x2713;**
+[Send to a user](#send-user) | **&#x2713;** | **&#x2713;**
 Send to some users | **&#x2713;** (Deprecated) | `N / A`
 [Adding a user to a group](#add-user-to-group) | `N / A` | **&#x2713;**
 [Removing a user from a group](#remove-user-from-group) | `N / A` | **&#x2713;**
+[Check user existence](#check-user-existence) | `N / A` | **&#x2713;**
+[Remove a user from all groups](#remove-user-from-all-groups) | `N / A` | **&#x2713;**
+[Send to a connection](#send-connection) | `N / A` | **&#x2713;**
+[Add a connection to a group](#add-connection-to-group) | `N / A` | **&#x2713;**
+[Remove a connection from a group](#remove-connection-from-group) | `N / A` | **&#x2713;**
+[Close a client connection](#close-connection) | `N / A` | **&#x2713;**
+[Service Health](#service-health) | `N / A` | **&#x2713;**
 
 <a name="broadcast"> </a>
 ### Broadcast to everyone
@@ -147,7 +168,7 @@ Version | API HTTP Method | Request URL | Request body
 `1.0` | `POST` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>` | Same as above
 
 <a name="send-user"> </a>
-### Sending to specific users
+### Sending to a user
 
 Version | API HTTP Method | Request URL | Request body
 --- | --- | --- | ---
@@ -159,16 +180,83 @@ Version | API HTTP Method | Request URL | Request body
 
 Version | API HTTP Method | Request URL
 --- | --- | ---
-`1.0` | `PUT` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/users/<userid>`
+`1.0` | `PUT` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/users/<user-id>`
 
 <a name="remove-user-from-group"> </a>
 ### Removing a user from a group
 
 Version | API HTTP Method | Request URL
 --- | --- | ---
-`1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/users/<userid>`
+`1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/users/<user-id>`
+
+<a name="check-user-existence"> </a>
+### Check user existence in a group
+
+API Version | API HTTP Method | Request URL
+---|---|---
+`1.0` | `GET` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/users/<user-id>/groups/<group-name>`
+`1.0` | `GET` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/users/<user-id>` 
+
+Response Status Code | Description
+---|---
+`200` | User exists
+`404` | User not exists
+
+<a name="remove-user-from-all-groups"> </a>
+### Remove a user from all groups
+
+API Version | API HTTP Method | Request URL
+---|---|---
+`1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/users/<user-id>/groups`
+
+<a name="send-connection"> </a>
+### Send message to a connection
+
+API Version | API HTTP Method | Request URL | Request Body
+---|---|---|---
+`1.0` | `POST` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/connections/<connection-id>` | `{ "target":"<method-name>", "arguments":[ ... ] }`
+
+<a name="add-connection-to-group"> </a>
+### Add a connection to a group
+
+API Version | API HTTP Method | Request URL
+---|---|---
+`1.0` | `PUT` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/connections/<connection-id>`
+`1.0` | `PUT` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/connections/<connection-id>/groups/<group-name>`
+
+<a name="remove-connection-from-group"> </a>
+### Remove a connection from a group
+
+API Version | API HTTP Method | Request URL
+---|---|---
+`1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/connections/<connection-id>`
+`1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/connections/<connection-id>/groups/<group-name>`
+
+<a name="close-connection"> </a>
+### Close a client connection
+
+API Version | API HTTP Method | Request URL
+---|---|---
+`1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/connections/<connection-id>`
+`1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/connections/<connection-id>?reason=<close-reason>`
+
+<a name="service-health"> </a>
+### Service Health
+
+API Version | API HTTP Method | Request URL
+---|---|---                             
+`1.0` | `GET` | `https://<instance-name>.service.signalr.net/api/v1/health`
+
+Response Status Code | Description
+---|---
+`200` | Service Good
+`5xx` | Service Error
+
+Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qsapi).
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
+
+Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qsapi).
 
 ## Next steps
 

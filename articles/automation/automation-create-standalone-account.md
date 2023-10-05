@@ -1,109 +1,154 @@
 ---
 title: Create a standalone Azure Automation account
-description: This article walks you through the steps of creating, testing, and using an example security principal authentication in Azure Automation.
+description: This article tells how to create a standalone Azure Automation account.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
-ms.date: 01/15/2019
+ms.date: 10/26/2021
 ms.topic: conceptual
-manager: carmonm
 ---
 # Create a standalone Azure Automation account
 
-This article shows you how to create an Azure Automation account in the Azure portal. You can use the portal Automation account to evaluate and learn about Automation without using additional management solutions or integration with Azure Monitor logs. You can add those management solutions or integrate with Azure Monitor logs for advanced monitoring of runbook jobs at any point in the future.
+This article shows you how to create an Azure Automation account using the Azure portal. You can use the Automation account to evaluate and learn about Automation without using additional management features or integrating with Azure Monitor Logs. You can add management features or integrate with Azure Monitor Logs for advanced monitoring of runbook jobs at any point in the future.
 
 With an Automation account, you can authenticate runbooks by managing resources in either Azure Resource Manager or the classic deployment model. One Automation Account can manage resources across all regions and subscriptions for a given tenant.
 
-When you create an Automation account in the Azure portal, these accounts are automatically created:
-
-* **Run As account**. This account does the following tasks:
-  * Creates a service principal in Azure Active Directory (Azure AD).
-  * Creates a certificate.
-  * Assigns the Contributor Role-Based Access Control (RBAC), which manages Azure Resource Manager resources by using runbooks.
-* **Classic Run As account**. This account uploads a management certificate. The certificate manages classic resources by using runbooks.
-
-With these accounts created for you, you can quickly start building and deploying runbooks to support your automation needs.
+With this account created for you, you can quickly start building and deploying runbooks to support your automation needs.
 
 ## Permissions required to create an Automation account
 
 To create or update an Automation account, and to complete the tasks described in this article, you must have the following privileges and permissions:
 
-* To create an Automation account, your Azure AD user account must be added to a role with permissions equivalent to the Owner role for **Microsoft. Automation** resources. For more information, see [Role-Based Access Control in Azure Automation](automation-role-based-access-control.md).
-* In the Azure portal, under **Azure Active Directory** > **MANAGE** > **App registrations**, if **App registrations** is set to **Yes**, non-admin users in your Azure AD tenant can [register Active Directory applications](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions). If **App registrations** is set to **No**, the user who performs this action must be a global administrator in Azure AD.
-
-If you aren't a member of the subscription’s Active Directory instance before you are added to the subscription's global administrator/coadministrator role, you are added to Active Directory as a guest. In this scenario, you see this message on the **Add Automation Account** page: “You do not have permissions to create."
-
-If a user is added to the global administrator/coadministrator role first, you can remove them from the subscription's Active Directory instance, and then readd them to the full User role in Active Directory.
-
-To verify user roles:
-
-1. In the Azure portal, go to the **Azure Active Directory** pane.
-1. Select **Users and groups**.
-1. Select **All users**.
-1. After you select a specific user, select **Profile**. The value of the **User type** attribute under the user's profile should not be **Guest**.
+To create an Automation account, your Azure AD user account must be added to a role with permissions equivalent to the Owner role for `Microsoft.Automation` resources. For more information, see [Role-Based Access Control in Azure Automation](automation-role-based-access-control.md).
 
 ## Create a new Automation account in the Azure portal
 
 To create an Azure Automation account in the Azure portal, complete the following steps:
 
-1. Sign in to the Azure portal with an account that's a member of the subscription Administrators role and a coadministrator of the subscription.
+1. Sign in to the Azure portal with an account that's a member of the subscription Administrators role and a Co-Administrator of the subscription.
 1. Select **+ Create a Resource**.
 1. Search for **Automation**. In the search results, select **Automation**.
 
-   ![Search for and select Automation & Control in the Azure Marketplace](media/automation-create-standalone-account/automation-marketplace-select-create-automationacct.png)
+   :::image type="content" source="./media/automation-create-standalone-account/automation-account-portal.png" alt-text="Locating Automation accounts in portal":::
 
-1. On the next screen select **Create**.
+Options for your new Automation account are organized into tabs in the **Create an Automation Account** page. The following sections describe each of the tabs and their options.
 
-   ![Add Automation account](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
+### Basics
 
-   > [!NOTE]
-   > If you see the following message in the **Add Automation Account** pane, your account is not a member of the subscription Administrators role and a coadministrator of the subscription.
-   >
-   > ![Add Automation account warning](media/automation-create-standalone-account/create-account-without-perms.png)
+On the **Basics** tab, provide the essential information for your Automation account. After you complete the **Basics** tab, you can choose to further customize your new Automation account by setting options on the other tabs, or you can select **Review + create** to accept the default options and proceed to validate and create the account.
 
-1. In the **Add Automation Account** pane, in the **Name** box, enter a name for your new Automation account. This name cannot be changed after it is chosen. *Automation Account names are unique per region and resource group. Names for Automation Accounts that were deleted may not be immediately available.*
-1. If you have more than one subscription, in the **Subscription** box, specify the subscription you want to use for the new account.
-1. For **Resource group**, enter or select a new or existing resource group.
-1. For **Location**, select an Azure datacenter location.
-1. For the **Create Azure Run As account** option, ensure that **Yes** is selected, and then select **Create**.
+> [!NOTE]
+> By default, a system-assigned managed identity is enabled for the Automation account.
 
-   > [!NOTE]
-   > If you choose not to create the Run As account by selecting **No** for **Create Azure Run As account**, a message appears in the **Add Automation Account** pane. Although the account is created in the Azure portal, the account doesn't have a corresponding authentication identity in your classic deployment model subscription or in the Azure Resource Manager subscription directory service. Therefore, the Automation account doesn't have access to resources in your subscription. This prevents any runbooks that reference this account from being able to authenticate and perform tasks against resources in those deployment models.
-   >
-   > ![Add Automation account warning](media/automation-create-standalone-account/create-account-decline-create-runas-msg.png)
-   >
-   > When the service principal is not created, the Contributor role is not assigned.
-   >
+The following table describes the fields on the **Basics** tab.
 
-1. To track the progress of the Automation account creation, in the menu, select **Notifications**.
+| **Field** | **Required**<br> **or**<br> **optional** |**Description** |
+|---|---|---|
+|Subscription|Required |From the drop-down list, select the Azure subscription for the account.|
+|Resource group|Required |From the drop-down list, select your existing resource group, or select **Create new**.|
+|Automation account name|Required |Enter a name unique for it's location and resource group. Names for Automation accounts that have been deleted might not be immediately available. You can't change the account name once it has been entered in the user interface. |
+|Region|Required |From the drop-down list, select a region for the account. For an updated list of locations that you can deploy an Automation account to, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=automation&regions=all).|
 
-### Resources included
+The following image shows a standard configuration for a new Automation account.
 
-When the Automation account is successfully created, several resources are automatically created for you. After creation, these runbooks can be safely deleted if you do not wish to keep them. The Run As Accounts, can be used to authenticate to your account in a runbook, and should be left unless you create another one or do not require them. The following table summarizes resources for the Run As account.
+:::image type="content" source="./media/automation-create-standalone-account/create-account-basics-v2.png" alt-text="Screenshot shows the required fields for creating the Automation account on Basics tab.":::
 
-| Resource | Description |
-| --- | --- |
-| AzureAutomationTutorial Runbook |An example graphical runbook that demonstrates how to authenticate by using the Run As account. The runbook gets all Resource Manager resources. |
-| AzureAutomationTutorialScript Runbook |An example PowerShell runbook that demonstrates how to authenticate by using the Run As account. The runbook gets all Resource Manager resources. |
-| AzureAutomationTutorialPython2 Runbook |An example Python runbook that demonstrates how to authenticate by using the Run As account. The runbook lists all resource groups present in the subscription. |
-| AzureRunAsCertificate |A certificate asset that's automatically created when the Automation account is created, or by using a PowerShell script for an existing account. The certificate authenticates with Azure so you can manage Azure Resource Manager resources from runbooks. This certificate has a one-year lifespan. |
-| AzureRunAsConnection |A connection asset that's automatically created when the Automation account is created, or by using a PowerShell script for an existing account. |
+### Advanced
 
-The following table summarizes resources for the Classic Run As account.
+On the **Advanced** tab, you can configure the managed identity option for your new Automation account. The user-assigned managed identity option can also be configured after the Automation account is created.
 
-| Resource | Description |
-| --- | --- |
-| AzureClassicAutomationTutorial Runbook |An example graphical runbook. The runbook gets all classic VMs in a subscription by using the Classic Run As Account (certificate). Then, it displays the VM names and status. |
-| AzureClassicAutomationTutorial Script Runbook |An example PowerShell runbook. The runbook gets all classic VMs in a subscription by using the Classic Run As Account (certificate). Then, it displays the VM names and status. |
-| AzureClassicRunAsCertificate |A certificate asset that's automatically created. The certificate authenticates with Azure so you can manage Azure classic resources from runbooks. This certificate has a one-year lifespan. |
-| AzureClassicRunAsConnection |A connection asset that's automatically created. The asset authenticates with Azure so you can manage Azure classic resources from runbooks. |
+For instructions on how to create a user-assigned managed identity, see [Create a user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
+
+The following table describes the fields on the **Advanced** tab.
+
+| **Field** | **Required**<br> **or**<br> **optional** |**Description** |
+|---|---|---|
+|System-assigned |Optional |An Azure Active Directory identity that is tied to the lifecycle of the Automation account. |
+|User-assigned |Optional |A managed identity represented as a standalone Azure resource that is managed separately from the resources that use it.|
+
+You can chose to enable managed identities later, and the Automation account is created without one. To enable a managed identity after the account is created, see [Enable managed identity](enable-managed-identity-for-automation.md). If you select both options, for the user-assigned identity, select the **Add user assigned identities** option. On the **Select user assigned managed identity** page, select a subscription and add one or more user-assigned identities created in that subscription to assign to the Automation account.
+
+The following image shows a standard configuration for a new Automation account.
+
+:::image type="content" source="./media/automation-create-standalone-account/create-account-advanced-v2.png" alt-text="Screenshot shows the required fields for creating the Automation account on Advanced tab.":::
+
+### Networking
+
+On the **Networking** tab, you can configure connectivity to Automation Account - either publicly via public IP addresses or privately using a [Azure Automation Private Link](./how-to/private-link-security.md). Azure Automation Private Link connects one or more private endpoints (and therefore the virtual networks they are contained in) to your Automation Account resource. 
+
+The following image shows a standard configuration for a new Automation account.
+
+:::image type="content" source="./media/automation-create-standalone-account/create-account-networking-v2.png" alt-text="Screenshot shows the required fields for creating the Automation account on Networking tab.":::
+
+### Tags
+
+On the **Tags** tab, you can specify Resource Manager tags to help organize your Azure resources. For more information, see [Tag resources, resource groups, and subscriptions for logical organization](../azure-resource-manager/management/tag-resources.md).
+
+### Review + create
+
+When you navigate to the **Review + create** tab, Azure runs validation on the Automation account settings that you have chosen. If validation passes, you can proceed to create the Automation account.
+
+If validation fails, then the portal indicates which settings need to be modified.
+
+Review your new Automation account.
+
+:::image type="content" source="./media/automation-create-standalone-account/automation-account-overview.png" alt-text="Automation account overview page":::
+
+When the Automation account is successfully created, several resources are automatically created for you. After creation, these runbooks can be safely deleted if you do not wish to keep them. The managed identities can be used to authenticate to your account in a runbook, and should be left unless you create another one or do not require them. The Automation access keys are also created during Automation account creation. The following table summarizes resources for the account.
+
+| **Resource**  |**Description** |
+|---|---|
+|AzureAutomationTutorialWithIdentityGraphical |An example graphical runbook that demonstrates how to authenticate by  using the Managed Identity. The runbook gets all Resource Manager resources. |
+|AzureAutomationTutorialWithIdentity|An example PowerShell runbook that demonstrates how to authenticate by  using the Managed Identity. The runbook gets all Resource Manager resources. |
+
+
+> [!NOTE]
+> The tutorial runbooks have not been updated to authenticate using a managed identity. Review the [Using system-assigned identity](enable-managed-identity-for-automation.md#assign-role-to-a-system-assigned-managed-identity) or [Using user-assigned identity](add-user-assigned-identity.md#assign-a-role-to-a-user-assigned-managed-identity) to learn how to grant the managed identity access to resources and configure your runbooks to authenticate using either type of managed identity.
+
+## Manage Automation account keys
+
+When you create an Automation account, Azure generates two 512-bit automation account access keys for that account. These keys are shared access keys that are used as registration keys for registering [DSC nodes](./automation-dsc-onboarding.md#use-dsc-metaconfiguration-to-register-hybrid-machines) as well as [Windows](./automation-windows-hrw-install.md#manual-deployment) and [Linux](./automation-linux-hrw-install.md#manually-run-powershell-commands) Hybrid runbook workers. These keys are only used while registering DSC nodes and Hybrid workers. Existing machines configured as DSC nodes or hybrid workers won’t be affected after rotation of these keys. 
+
+### View Automation account keys
+
+To view and copy your Automation account access keys, follow these steps:
+1. In the [Azure portal](https://portal.azure.com), go to your Automation account.
+1. Under **Account Settings**, select **Keys** to view your Automation account's primary and secondary access keys. 
+You can use any of the two keys to access your Automation account. However, we recommend that you use the first key and reserve the use of second key.
+
+   :::image type="content" source="./media/automation-create-standalone-account/automation-demo-keys-inline.png" alt-text="Automation Keys page" lightbox="./media/automation-create-standalone-account/automation-demo-keys-expanded.png" :::
+
+### Manually rotate access keys
+
+We recommend that you rotate your access keys periodically to keep the Automation account secure. As you have two access keys, you can rotate them using Azure portal or Azure PowerShell cmdlet.
+
+Choose a client
+
+# [Azure portal](#tab/azureportal)
+
+Follow these steps:
+1. Go to your Automation account in the [Azure portal](https://portal.azure.com).
+1. Under **Account Settings**, select **Keys**.
+1. Select **Regenerate primary** to regenerate the primary access key for your Automation account.
+1. Select the **Regenerate secondary** to regenerate the secondary access key.
+  :::image type="content" source="./media/automation-create-standalone-account/regenerate-keys.png" alt-text="Regenerate keys":::
+  
+# [Azure PowerShell](#tab/azurepowershell)
+
+Run the [New-AzAutomationKey](/powershell/module/az.automation/new-azautomationkey) command to regenerate the primary access key, as shown in the following example: 
+
+  ```azurepowershell
+  New-AzAutomationKey -KeyType Primary -ResourceGroup <ResourceGroup> -AutomationAccountName <AutomationAccount>
+  ```
+ ---
+
+### View registration URL
+The DSC node registers with the State Configuration service using the registration URL and authenticates using a registration access key along with the Automation Account access keys.
+
+:::image type="content" source="./media/automation-create-standalone-account/automation-demo-keys-url-inline.png" alt-text="Screenshot of Automation Keys and URL" lightbox="./media/automation-create-standalone-account/automation-demo-keys-url-expanded.png" :::
 
 ## Next steps
 
-* To learn more about graphical authoring, see [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md).
-* To get started with PowerShell runbooks, see [My first PowerShell runbook](automation-first-runbook-textual-powershell.md).
-* To get started with PowerShell workflow runbooks, see [My first PowerShell workflow runbook](automation-first-runbook-textual.md).
-* To get started with Python2 runbooks, see [My first Python2 runbook](automation-first-runbook-textual-python2.md).
-
+* To get started with PowerShell runbooks, see [Tutorial: Create a PowerShell runbook](./learn/powershell-runbook-managed-identity.md).
+* To get started with PowerShell Workflow runbooks, see [Tutorial: Create a PowerShell workflow runbook](learn/automation-tutorial-runbook-textual.md).
+* To get started with Python 3 runbooks, see [Tutorial: Create a Python 3 runbook](learn/automation-tutorial-runbook-textual-python-3.md).
+* For a PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation).

@@ -1,46 +1,56 @@
 ---
-title: Transform data by using Databricks in Azure Data Factory | Microsoft Docs
+title: Transformation with Azure Databricks
 description:  Learn how to use a solution template to transform data by using a Databricks notebook in Azure Data Factory.
-services: data-factory
-documentationcenter: ''
-author: nabhishek
-manager: craigg
-
-ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.topic: conceptual
-ms.date: 12/10/2018
 ms.author: abnarain
-ms.reviewer: douglasl
+author: nabhishek
+ms.service: data-factory
+ms.subservice: tutorials
+ms.topic: conceptual
+ms.custom: seo-lt-2019
+ms.date: 08/10/2023
 ---
-# Transform data by using Databricks in Azure Data Factory
 
-In this tutorial, you create an end-to-end pipeline containing **Lookup**, **Copy**, and **Databricks notebook** activities in Data Factory.
+# Transformation with Azure Databricks
 
--   **Lookup** or GetMetadata activity is used to ensure the source dataset is ready for downstream consumption, before triggering the copy and analytics job.
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
--   **Copy activity** copies the source file/ dataset to the sink storage. The sink storage is mounted as DBFS in the Databricks notebook so that the dataset can be directly consumed by Spark.
+In this tutorial, you create an end-to-end pipeline that contains the **Validation**, **Copy data**, and **Notebook** activities in Azure Data Factory.
 
--   **Databricks notebook activity** triggers the Databricks notebook that transforms the dataset, and adds it to a processed folder/ SQL DW.
+- **Validation** ensures that your source dataset is ready for downstream consumption before you trigger the copy and analytics job.
 
-To keep this template simple, the template doesn't create a scheduled trigger. You can add that if necessary.
+- **Copy data** duplicates the source dataset to the sink storage, which is mounted as DBFS in the Azure Databricks notebook. In this way, the dataset can be directly consumed by Spark.
 
-![1](media/solution-template-Databricks-notebook/Databricks-tutorial-image01.png)
+- **Notebook** triggers the Databricks notebook that transforms the dataset. It also adds the dataset to a processed folder or Azure Synapse Analytics.
+
+For simplicity, the template in this tutorial doesn't create a scheduled trigger. You can add one if necessary.
+
+:::image type="content" source="media/solution-template-Databricks-notebook/pipeline-example.png" alt-text="Diagram of the pipeline":::
 
 ## Prerequisites
 
-1.  Create a **blob storage account** and a container called `sinkdata` to be used as **sink**. Keep a note of the **storage account name**, **container name**, and **access key**, since they are referenced later in the template.
+- An Azure Blob storage account with a container called `sinkdata` for use as a sink.
 
-2.  Ensure you have an **Azure Databricks workspace** or create a new one.
+  Make note of the storage account name, container name, and access key. You'll need these values later in the template.
 
-1.  **Import the notebook for ETL**. Import the below Transform notebook to the Databricks workspace. (It does not have to be in the same location as below, but remember the path that you choose for later.) Import the notebook from the following URL by entering this URL in the URL field: `https://adflabstaging1.blob.core.windows.net/share/Transformations.html`. Select **Import**.
+- An Azure Databricks workspace.
 
-    ![2](media/solution-template-Databricks-notebook/Databricks-tutorial-image02.png)
+## Import a notebook for Transformation
 
-    ![3](media/solution-template-Databricks-notebook/Databricks-tutorial-image03.png)  
+To import a **Transformation** notebook to your Databricks workspace:
 
-1.  Now let’s update the **Transformation** notebook with your **storage connection information** (name and access key). Go to **command 5** in the imported notebook above, replace it with the below code snippet after replacing the highlighted values. Ensure this account is the same storage account created earlier and contains the `sinkdata` container.
+1. Sign in to your Azure Databricks workspace, and then select **Import**.
+       :::image type="content" source="media/solution-template-Databricks-notebook/import-notebook.png" alt-text="Menu command for importing a workspace":::
+   Your workspace path can be different from the one shown, but remember it for later.
+1. Select **Import from: URL**. In the text box, enter `https://adflabstaging1.blob.core.windows.net/share/Transformations.html`.
+
+   :::image type="content" source="media/solution-template-Databricks-notebook/import-from-url.png" alt-text="Selections for importing a notebook":::
+
+1. Now let's update the **Transformation** notebook with your storage connection information.
+
+   In the imported notebook, go to **command 5** as shown in the following code snippet.
+
+   - Replace `<storage name>`and `<access key>` with your own storage connection information.
+   - Use the storage account with the `sinkdata` container.
 
     ```python
     # Supply storageName and accessKey values  
@@ -64,87 +74,111 @@ To keep this template simple, the template doesn't create a scheduled trigger. Y
       print e \# Otherwise print the whole stack trace.  
     ```
 
-1.  Generate a **Databricks access token** for Data Factory to access Databricks. **Save the access token** for later use in creating a Databricks linked service, which looks something like 'dapi32db32cbb4w6eee18b7d87e45exxxxxx'
+1. Generate a **Databricks access token** for Data Factory to access Databricks.
+   1. In your Databricks workspace, select your user profile icon in the upper right.
+   1. Select **User Settings**.
+    :::image type="content" source="media/solution-template-Databricks-notebook/user-setting.png" alt-text="Menu command for user settings":::
+   1. Select **Generate New Token** under the **Access Tokens** tab.
+   1. Select **Generate**.
 
-    ![4](media/solution-template-Databricks-notebook/Databricks-tutorial-image04.png)
+    :::image type="content" source="media/solution-template-Databricks-notebook/generate-new-token.png" alt-text="&quot;Generate&quot; button":::
 
-    ![5](media/solution-template-Databricks-notebook/Databricks-tutorial-image05.png)
+   *Save the access token* for later use in creating a Databricks linked service. The access token looks something like `dapi32db32cbb4w6eee18b7d87e45exxxxxx`.
 
-## Create linked services and datasets
+## How to use this template
 
-1.  Create new **linked services** in Data Factory UI by going to *Connections Linked services + new*
+1. Go to the **Transformation with Azure Databricks** template and create new linked services for following connections.
 
-    1.  **Source** – for accessing source data. You can use the public blob storage containing the source files for this sample.
+   :::image type="content" source="media/solution-template-Databricks-notebook/connections-preview.png" alt-text="Connections setting":::
 
-        Select **Blob Storage**, use the below **SAS URI** to connect to source storage (read-only access).
+    - **Source Blob Connection** - to access the source data.
 
-        `https://storagewithdata.blob.core.windows.net/?sv=2017-11-09&ss=b&srt=sco&sp=rl&se=2019-12-31T21:40:53Z&st=2018-10-24T13:40:53Z&spr=https&sig=K8nRio7c4xMLnUV0wWVAmqr5H4P3JDwBaG9HCevI7kU%3D`
+       For this exercise, you can use the public blob storage that contains the source files. Reference the following screenshot for the configuration. Use the following **SAS URL** to connect to source storage (read-only access):
 
-        ![6](media/solution-template-Databricks-notebook/Databricks-tutorial-image06.png)
+       `https://storagewithdata.blob.core.windows.net/data?sv=2018-03-28&si=read%20and%20list&sr=c&sig=PuyyS6%2FKdB2JxcZN0kPlmHSBlD8uIKyzhBWmWzznkBw%3D`
 
-    1.  **Sink** – for copying data into.
+        :::image type="content" source="media/solution-template-Databricks-notebook/source-blob-connection.png" alt-text="Selections for authentication method and SAS URL":::
 
-        Select a storage created in the prerequisite 1, in the sink linked service.
+    - **Destination Blob Connection** - to store the copied data.
 
-        ![7](media/solution-template-Databricks-notebook/Databricks-tutorial-image07.png)
+       In the **New linked service** window, select your sink storage blob.
 
-    1.  **Databricks** – for connecting to Databricks cluster
+       :::image type="content" source="media/solution-template-Databricks-notebook/destination-blob-connection.png" alt-text="Sink storage blob as a new linked service":::
 
-        Create a Databricks linked service using access key generated in prerequisite 2.c. If you have an *interactive cluster*, you may select that. (This example uses the *New job cluster* option.)
+    - **Azure Databricks** - to connect to the Databricks cluster.
 
-        ![8](media/solution-template-Databricks-notebook/Databricks-tutorial-image08.png)
+        Create a Databricks-linked service by using the access key that you generated previously. You can opt to select an *interactive cluster* if you have one. This example uses the **New job cluster** option.
 
-2.  Create **datasets**
+        :::image type="content" source="media/solution-template-Databricks-notebook/databricks-connection.png" alt-text="Selections for connecting to the cluster":::
 
-    1.  Create **'sourceAvailability_Dataset'** to check if source data is available
+1. Select **Use this template**. You'll see a pipeline created.
 
-    ![9](media/solution-template-Databricks-notebook/Databricks-tutorial-image09.png)
+    :::image type="content" source="media/solution-template-Databricks-notebook/new-pipeline.png" alt-text="Create a pipeline":::
 
-    1.  **Source dataset –** for copying the source data (using binary copy)
+## Pipeline introduction and configuration
 
-    ![10](media/solution-template-Databricks-notebook/Databricks-tutorial-image10.png)
+In the new pipeline, most settings are configured automatically with default values. Review the configurations of your pipeline and make any necessary changes.
 
-    1.  **Sink dataset** – for copying into the sink/ destination location
+1. In the **Validation** activity **Availability flag**, verify that the source **Dataset** value is set to `SourceAvailabilityDataset` that you created earlier.
 
-        1.  Linked service - select 'sinkBlob_LS' created in 1.b
+   :::image type="content" source="media/solution-template-Databricks-notebook/validation-settings.png" alt-text="Source dataset value":::
 
-        2.  File path - 'sinkdata/staged_sink'
+1. In the **Copy data** activity **file-to-blob**, check the **Source** and **Sink** tabs. Change settings if necessary.
 
-        ![11](media/solution-template-Databricks-notebook/Databricks-tutorial-image11.png)
+   - **Source** tab
+   :::image type="content" source="media/solution-template-Databricks-notebook/copy-source-settings.png" alt-text="Source tab":::
 
-## Create activities
+   - **Sink** tab
+   :::image type="content" source="media/solution-template-Databricks-notebook/copy-sink-settings.png" alt-text="Sink tab":::
 
-1.  Create a Lookup activity '**Availability flag**' for doing a Source Availability check (Lookup or GetMetadata can be used). Select 'sourceAvailability_Dataset' created in 2.a.
+1. In the **Notebook** activity **Transformation**, review and update the paths and settings as needed.
 
-    ![12](media/solution-template-Databricks-notebook/Databricks-tutorial-image12.png)
+   **Databricks linked service** should be pre-populated with the value from a previous step, as shown:
+   :::image type="content" source="media/solution-template-Databricks-notebook/notebook-activity.png" alt-text="Populated value for the Databricks linked service":::
 
-1.  Create a Copy activity '**file-to-blob**' for copying dataset from source to sink. In this case, the data is binary file. Reference the below screenshots for source and sink configurations in the copy activity.
+   To check the **Notebook** settings:
+  
+    1. Select the **Settings** tab. For **Notebook path**, verify that the default path is correct. You might need to browse and choose the correct notebook path.
 
-    ![13](media/solution-template-Databricks-notebook/Databricks-tutorial-image13.png)
+       :::image type="content" source="media/solution-template-Databricks-notebook/notebook-settings.png" alt-text="Notebook path":::
 
-    ![14](media/solution-template-Databricks-notebook/Databricks-tutorial-image14.png)
+    1. Expand the **Base Parameters** selector and verify that the parameters match what is shown in the following screenshot. These parameters are passed to the Databricks notebook from Data Factory.
 
-1.  Define **pipeline parameters**
+       :::image type="content" source="media/solution-template-Databricks-notebook/base-parameters.png" alt-text="Base parameters":::
 
-    ![15](media/solution-template-Databricks-notebook/Databricks-tutorial-image15.png)
+1. Verify that the **Pipeline Parameters** match what is shown in the following screenshot:
+  :::image type="content" source="media/solution-template-Databricks-notebook/pipeline-parameters.png" alt-text="Pipeline parameters":::
 
-1.  Create a **Databricks activity**
+1. Connect to your datasets.
 
-    Select the linked service created in a previous step.
+    >[!NOTE]
+    >In below datasets, the file path has been automatically specified in the template. If any changes required, make sure that you specify the path for both **container** and **directory** in case any connection error.
 
-    ![16](media/solution-template-Databricks-notebook/Databricks-tutorial-image16.png)
+   - **SourceAvailabilityDataset** - to check that the source data is available.
 
-    Configure the **settings**. Create **Base Parameters** as shown in the screenshot and create parameters to be passed to the Databricks notebook from Data Factory. Browse and **select** the **correct notebook path** uploaded in **prerequisite 2**.
+     :::image type="content" source="media/solution-template-Databricks-notebook/source-availability-dataset.png" alt-text="Selections for linked service and file path for SourceAvailabilityDataset":::
 
-    ![17](media/solution-template-Databricks-notebook/Databricks-tutorial-image17.png)
+   - **SourceFilesDataset** - to access the source data.
 
-1.  **Run the pipeline**. You can find link to Databricks logs for more detailed Spark logs.
+       :::image type="content" source="media/solution-template-Databricks-notebook/source-file-dataset.png" alt-text="Selections for linked service and file path for SourceFilesDataset":::
 
-    ![18](media/solution-template-Databricks-notebook/Databricks-tutorial-image18.png)
+   - **DestinationFilesDataset** - to copy the data into the sink destination location. Use the following values:
 
-    You can also verify the data file using storage explorer. (For correlating with Data Factory pipeline runs, this example appends the pipeline run ID from data factory to the output folder. This way you can track back the files generated via each run.)
+     - **Linked service** - `sinkBlob_LS`, created in a previous step.
 
-![19](media/solution-template-Databricks-notebook/Databricks-tutorial-image19.png)
+     - **File path** - `sinkdata/staged_sink`.
+
+       :::image type="content" source="media/solution-template-Databricks-notebook/destination-dataset.png" alt-text="Selections for linked service and file path for DestinationFilesDataset":::
+
+1. Select **Debug** to run the pipeline. You can find the link to Databricks logs for more detailed Spark logs.
+
+    :::image type="content" source="media/solution-template-Databricks-notebook/pipeline-run-output.png" alt-text="Link to Databricks logs from output":::
+
+    You can also verify the data file by using Azure Storage Explorer.
+
+    > [!NOTE]
+    > For correlating with Data Factory pipeline runs, this example appends the pipeline run ID from the data factory to the output folder. This helps keep track of files generated by each run.
+    > :::image type="content" source="media/solution-template-Databricks-notebook/verify-data-files.png" alt-text="Appended pipeline run ID":::
 
 ## Next steps
 

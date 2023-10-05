@@ -1,41 +1,31 @@
 ---
-title: Use Azure Policy to restrict VM extension installation | Microsoft Docs
+title: Use Azure Policy to restrict VM extension installation (Linux)
 description: Use Azure Policy to restrict VM extension deployments.
-services: virtual-machines-linux 
-documentationcenter: ''
-author: roiyz-msft 
-manager: jeconnoc
-editor: ''
-
-ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
-ms.date: 03/23/2018
-ms.author: roiyz;cynthn
-
+ms.service: virtual-machines
+ms.subservice: extensions
+ms.custom: devx-track-azurecli, devx-track-linux
+ms.author: gabsta
+author: GabstaMSFT
+ms.collection: linux
+ms.date: 04/11/2023
 ---
 
 # Use Azure Policy to restrict extensions installation on Linux VMs
 
-If you want to prevent the use or installation of certain extensions on your Linux VMs, you can create an Azure policy using the CLI to restrict extensions for VMs within a resource group. 
+If you want to prevent the installation of certain extensions on your Linux VMs, you can create an Azure Policy definition using the Azure CLI to restrict extensions for VMs within a resource group. To learn the basics of Azure VM extensions for Linux, see [Virtual machine extensions and features for Linux](./features-linux.md).
 
-This tutorial uses the CLI within the Azure Cloud Shell, which is constantly updated to the latest version. If you want to run the Azure CLI locally, you need to install version 2.0.26 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli). 
+This tutorial uses the CLI within the Azure Cloud Shell, which is constantly updated to the latest version. If you want to run the Azure CLI locally, you need to install version 2.0.26 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). 
 
 ## Create a rules file
 
-In order to restrict what extensions can be installed, you need to have a [rule](../../governance/policy/concepts/definition-structure.md#policy-rule) to provide the logic to identify the extension.
+In order to restrict what extensions are available, you need to create a [rule](../../governance/policy/concepts/definition-structure.md#policy-rule) to identify the extension.
 
-This example shows you how to deny installing extensions published by 'Microsoft.OSTCExtensions' by creating a rules file in Azure Cloud Shell, but if you are working in CLI locally, you can also create a local file and replace the path (~/clouddrive) with the path to the local file on your machine.
+This example demonstrates how to deny the installation of disallowed VM extensions by defining a rules file in Azure Cloud Shell. However, if you're working in Azure CLI locally, you can create a local file and replace the path (~/clouddrive) with the path to the file on your local file system.
 
-In a [bash Cloud Shell](https://shell.azure.com/bash), type:
+1. In a [bash Cloud Shell](https://shell.azure.com/bash) create the file `~/clouddrive/azurepolicy.rules.json` using any text editor.
 
-```azurecli-interactive 
-vim ~/clouddrive/azurepolicy.rules.json
-```
-
-Copy and paste the following .json into the file.
+2. Copy and paste the following `.json` contents into the new file and save it.
 
 ```json
 {
@@ -43,14 +33,14 @@ Copy and paste the following .json into the file.
 		"allOf": [
 			{
 				"field": "type",
-				"equals": "Microsoft.OSTCExtensions/virtualMachines/extensions"
+				"equals": "Microsoft.Compute/virtualMachines/extensions"
 			},
 			{
-				"field": "Microsoft.OSTCExtensions/virtualMachines/extensions/publisher",
+				"field": "Microsoft.Compute/virtualMachines/extensions/publisher",
 				"equals": "Microsoft.OSTCExtensions"
 			},
 			{
-				"field": "Microsoft.OSTCExtensions/virtualMachines/extensions/type",
+				"field": "Microsoft.Compute/virtualMachines/extensions/type",
 				"in": "[parameters('notAllowedExtensions')]"
 			}
 		]
@@ -61,22 +51,15 @@ Copy and paste the following .json into the file.
 }
 ```
 
-When you are done, hit the **Esc** key and then type **:wq** to save and close the file.
-
-
 ## Create a parameters file
 
-You also need a [parameters](../../governance/policy/concepts/definition-structure.md#parameters) file that creates a structure for you to use for passing in a list of the extensions to block. 
+You also need a [parameters](../../governance/policy/concepts/definition-structure.md#parameters) file that creates a structure for you to use for passing in a list of the unauthorized extensions. 
 
-This example shows you how to create a parameters file for Linux VMs in Cloud Shell, but if you are working in CLI locally, you can also create a local file and replace the path (~/clouddrive) with the path to the local file on your machine.
+This example shows you how to create a parameter file for Linux VMs in Cloud Shell.
 
-In the [bash Cloud Shell](https://shell.azure.com/bash), type:
+1. In the bash Cloud Shell opened before, create the file ~/clouddrive/azurepolicy.parameters.json using any text editor.
 
-```azurecli-interactive
-vim ~/clouddrive/azurepolicy.parameters.json
-```
-
-Copy and paste the following .json into the file.
+2. Copy and paste the following `.json` contents into the new file and save it.
 
 ```json
 {
@@ -84,20 +67,17 @@ Copy and paste the following .json into the file.
 		"type": "Array",
 		"metadata": {
 			"description": "The list of extensions that will be denied. Example: CustomScriptForLinux, VMAccessForLinux etc.",
-			"strongType": "type",
 			"displayName": "Denied extension"
 		}
 	}
 }
 ```
 
-When you are done, hit the **Esc** key and then type **:wq** to save and close the file.
-
 ## Create the policy
 
-A policy definition is an object used to store the configuration that you would like to use. The policy definition uses the rules and parameters files to define the policy. Create the policy definition using [az policy definition create](/cli/azure/role/assignment?view=azure-cli-latest).
+A _policy definition_ is an object used to store the configuration that you would like to use. The policy definition uses the rules and parameters files to define the policy. Create the policy definition using [az policy definition create](/cli/azure/role/assignment).
 
-In this example, the rules and parameters are the files you created and stored as .json files in your cloud shell.
+In this example, the rules and parameters are the files you created and stored as .json files in Cloud Shell or in your local file system.
 
 ```azurecli-interactive
 az policy definition create \
@@ -109,13 +89,14 @@ az policy definition create \
    --mode All
 ```
 
-
 ## Assign the policy
 
-This example assigns the policy to a resource group using [az policy assignment create](/cli/azure/policy/assignment). Any VM created in the **myResourceGroup** resource group will not be able to install the Linux VM Access or the Custom Script extensions for Linux. The resource group must exist before you can assign the policy.
+This example assigns the policy to a resource group using [`az policy assignment create`](/cli/azure/policy/assignment). Any VM created in the **myResourceGroup** resource group will be unable to install the Linux VM Access or the Custom Script Extensions for Linux.
 
-Use [az account list](/cli/azure/account?view=azure-cli-latest) to get your subscription ID to use in place of the one in the example.
+> [!NOTE]
+> The resource group must exist before you can assign the policy.
 
+Use [`az account list`](/cli/azure/account) to find your subscription ID and replace the placeholder in the following example:
 
 ```azurecli-interactive
 az policy assignment create \
@@ -134,16 +115,18 @@ az policy assignment create \
 
 ## Test the policy
 
-Test the policy by creating a new VM and trying to add a new user.
-
+Test the policy by creating a new VM and adding a new user.
 
 ```azurecli-interactive
 az vm create \
     --resource-group myResourceGroup \
 	--name myVM \
-	--image UbuntuLTS \
+	--image myImage \
 	--generate-ssh-keys
 ```
+
+> [!NOTE]
+> Replace `myResourceGroup`, `myVM` and `myImage` values accordingly.
 
 Try to create a new user named **myNewUser** using the VM Access extension.
 
@@ -155,13 +138,12 @@ az vm user update \
   --password 'mynewuserpwd123!'
 ```
 
-
-
 ## Remove the assignment
 
 ```azurecli-interactive
 az policy assignment delete --name 'not-allowed-vmextension-linux' --resource-group myResourceGroup
 ```
+
 ## Remove the policy
 
 ```azurecli-interactive

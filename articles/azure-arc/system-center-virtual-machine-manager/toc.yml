@@ -1,0 +1,40 @@
+- name: Azure Arc-enabled System Center Virtual Machine Manager (preview)
+  href: index.yml
+- name: Overview
+  items:
+  - name: Azure Arc-enabled System Center Virtual Machine Manager (preview)
+    href: overview.md
+  - name: Switch to the new preview version
+    href: switch-to-the-new-preview-version.md
+- name: Quickstarts
+  items:
+  - name: Connect a System Center Virtual Machine Manager management server to Azure Arc (preview)
+    href: quickstart-connect-system-center-virtual-machine-manager-to-arc.md
+  - name: Create a virtual machine on SCVMM Management server
+    href: create-virtual-machine.md
+
+- name: How-to guides
+  items:
+  - name: Deploy
+    items:
+    - name: Enable SCVMM inventory resources in Azure
+      href: enable-scvmm-inventory-resources.md
+  - name: Use Azure Management services for SCVMM VMs
+    items:
+    - name: Install Arc agent at scale for SCVMM VMs
+      href: enable-guest-management-at-scale.md
+  - name: Administer
+    items:
+    - name: Perform recovery operations
+      href: disaster-recovery.md
+
+- name: Reference
+  items:
+  - name: Azure CLI
+    items:
+    - name: Azure Arc-enabled System Center VMM (preview)
+      href: /cli/azure/scvmm
+    - name: Azure Arc resource bridge
+      href:  /cli/azure/arcappliance
+
+

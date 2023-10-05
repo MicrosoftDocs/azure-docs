@@ -1,49 +1,51 @@
 ---
-title: NVIDIA GPU Driver Extension - Azure Windows VMs | Microsoft Docs
-description: Microsoft Azure extension for installing NVIDIA GPU Drivers on N-series compute VMs running Windows.
-services: virtual-machines-windows
-documentationcenter: ''
-author: vermagit
-manager: jeconnoc
-editor: ''
-
-ms.assetid: 
-ms.service: virtual-machines-windows
-ms.devlang: na
+title: NVIDIA GPU Driver Extension - Azure Windows VMs 
+description: Learn how to install the NVIDIA GPU Driver Extension on N-series virtual machines running Windows from the Azure portal or by using an ARM template.
+services: virtual-machines
+ms.service: virtual-machines
+ms.subservice: hpc
+ms.collection: windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
+ms.custom: devx-track-arm-template
 ms.workload: infrastructure-services
-ms.date: 01/09/2019
-ms.author: roiyz
-
+ms.date: 04/06/2023
+ms.author: mamccrea
+author: mamccrea
 ---
+
 # NVIDIA GPU Driver Extension for Windows
 
-## Overview
+The NVIDIA GPU Driver Extension for Windows installs NVIDIA GPU drivers on Windows N-series virtual machines (VMs). Depending on the VM family, the extension installs CUDA or GRID drivers. When you install NVIDIA drivers by using this extension, you accept and agree to the terms of the [NVIDIA End-User License Agreement](https://www.nvidia.com/en-us/data-center/products/nvidia-ai-enterprise/eula/). During the installation process, the VM might reboot to complete the driver setup.
 
-This extension installs NVIDIA GPU drivers on Windows N-series VMs. Depending on the VM family, the extension installs CUDA or GRID drivers. When you install NVIDIA drivers using this extension, you are accepting and agreeing to the terms of the [NVIDIA End-User License Agreement](https://go.microsoft.com/fwlink/?linkid=874330). During the installation process, the VM may reboot to complete the driver setup.
+The instructions for manual installation of the drivers, and the list of current supported versions are available for review. For more information, see [Install NVIDIA GPU drivers on N-series VMs running Windows](/azure/virtual-machines/windows/n-series-driver-setup).
 
-An extension is also available to install NVIDIA GPU drivers on [Linux N-series VMs](hpccompute-gpu-linux.md).
+The NVIDIA GPU Driver Extension can also be deployed on Linux N-series VMs. For more information, see [NVIDIA GPU Driver Extension for Linux](hpccompute-gpu-linux.md).
 
 ## Prerequisites
 
-### Operating system
+Confirm your virtual machine satisfies the prerequisites for using the NVIDIA GPU Driver Extension.
 
-This extension supports the following OSs:
+### Operating system support
+
+The NVIDIA GPU Driver Extension supports the following Windows versions:
 
 | Distribution | Version |
-|---|---|
-| Windows 10 (up to version 1803)| Core |
+| --- | --- |
+| Windows 11 | Core |
+| Windows 10 | Core |
+| Windows Server 2022 | Core |
+| Windows Server 2019 | Core |
 | Windows Server 2016 | Core |
-| Windows Server 2012R2 | Core |
+| Windows Server 2012 R2 | Core |
 
-### Internet connectivity
+### Internet connection required
 
-The Microsoft Azure Extension for NVIDIA GPU Drivers requires that the target VM is connected to the internet and have access.
+The NVIDIA GPU Driver Extension requires that the target VM is connected to the internet and has access.
 
-## Extension schema
+## Review the extension schema
 
-The following JSON shows the schema for the extension.
+The following JSON snippet shows the schema for the extension:
 
 ```json
 {
@@ -57,7 +59,7 @@ The following JSON shows the schema for the extension.
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverWindows",
-    "typeHandlerVersion": "1.2",
+    "typeHandlerVersion": "1.4",
     "autoUpgradeMinorVersion": true,
     "settings": {
     }
@@ -67,37 +69,71 @@ The following JSON shows the schema for the extension.
 
 ### Properties
 
-| Name | Value / Example | Data Type |
-| ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.HpcCompute | string |
-| type | NvidiaGpuDriverWindows | string |
-| typeHandlerVersion | 1.2 | int |
+The JSON schema includes values for the following parameters.
 
+| Name | Value/Example | Data type |
+| --- | --- | --- |
+| `apiVersion` | 2015-06-15 | date |
+| `publisher` | Microsoft.HpcCompute | string |
+| `type` | NvidiaGpuDriverWindows | string |
+| `typeHandlerVersion` | 1.4 | int |
 
-## Deployment
+## Deploy the extension
 
-### Azure Resource Manager Template 
+Azure VM extensions can be managed by using the Azure CLI, PowerShell, Azure Resource Manager (ARM) templates, and the Azure portal.
 
-Azure VM extensions can be deployed with Azure Resource Manager templates. Templates are ideal when deploying one or more virtual machines that require post deployment configuration.
+> [!Note]
+> Some of the following examples use `<placeholder>` parameter values in the commands. Before you run each command, make sure to replace any placeholder values with specific values for your configuration.
 
-The JSON configuration for a virtual machine extension can be nested inside the virtual machine resource, or placed at the root or top level of a Resource Manager JSON template. The placement of the JSON configuration affects the value of the resource name and type. For more information, see [Set name and type for child resources](../../azure-resource-manager/resource-manager-template-child-resource.md). 
+### Azure portal
 
-The following example assumes the extension is nested inside the virtual machine resource. When nesting the extension resource, the JSON is placed in the `"resources": []` object of the virtual machine.
+To install the NVIDIA GPU Driver Extension in the Azure portal, follow these steps:
+
+1. In the [Azure portal](https://portal.azure.com), go to the virtual machine on which you want to install the extension.
+
+1. Under **Settings**, select **Extensions + Applications**.
+
+   :::image type="content" source="./media/nvidia-ext-portal/extensions-menu.png" alt-text="Screenshot that shows how to select Extensions + Applications for a virtual machine in the Azure portal." border="false":::
+
+1. Under **Extensions**, select **+ Add**.
+
+   :::image type="content" source="./media/nvidia-ext-portal/add-extension.png" alt-text="Screenshot that shows how to add an extension for a virtual machine in the Azure portal." border="false":::
+
+1. Locate and select **NVIDIA GPU Driver Extension**, then select **Next**.
+
+   :::image type="content" source="./media/nvidia-ext-portal/select-nvidia-extension.png" alt-text="Screenshot that shows how to locate and select the NVIDIA GPU Driver Extension for a virtual machine in the Azure portal." border="false":::
+
+1. Select **Review + create**. Confirm the deployment action, and select **Create**.
+
+   Wait a few minutes for the extension to deploy.
+
+   :::image type="content" source="./media/nvidia-ext-portal/create-nvidia-extension.png" alt-text="Screenshot that shows how to create the NVIDIA GPU Driver Extension on the selected virtual machine in the Azure portal." border="false":::
+  
+1. Confirm the extension is listed as an installed extension for the virtual machine.
+
+   :::image type="content" source="./media/nvidia-ext-portal/verify-extension.png" alt-text="Screenshot that shows the NVIDIA GPU Driver Extension in the list of extensions for the virtual machine in the Azure portal." border="false":::
+
+### ARM template
+
+ARM templates are ideal when you deploy one or more virtual machines that require post-deployment configuration.
+
+The JSON configuration for a virtual machine extension can be nested inside the virtual machine resource or placed at the root or top level of a JSON ARM template. The placement of the JSON configuration affects the value of the resource `name` and `type`. For more information, see [Set name and type for child resources](/azure/azure-resource-manager/templates/child-resource-name-type).
+
+The following example assumes the extension is nested inside the virtual machine resource. When the extension resource is nested, the JSON is placed in the `"resources": []` object of the virtual machine.
 
 ```json
 {
-  "name": "myExtensionName",
+  "name": "<myExtensionName>",
   "type": "extensions",
-  "location": "[resourceGroup().location]",
+  "location": "[<resourceGroup().location>]",
   "apiVersion": "2015-06-15",
   "dependsOn": [
-    "[concat('Microsoft.Compute/virtualMachines/', myVM)]"
+    "[concat('Microsoft.Compute/virtualMachines/', <myVM>)]"
   ],
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverWindows",
-    "typeHandlerVersion": "1.2",
+    "typeHandlerVersion": "1.4",
     "autoUpgradeMinorVersion": true,
     "settings": {
     }
@@ -107,69 +143,82 @@ The following example assumes the extension is nested inside the virtual machine
 
 ### PowerShell
 
+Use the following PowerShell command to deploy the NVIDIA GPU Driver Extension to a virtual machine.
+
 ```powershell
 Set-AzVMExtension
-    -ResourceGroupName "myResourceGroup" `
-    -VMName "myVM" `
-    -Location "southcentralus" `
+    -ResourceGroupName "<myResourceGroup>" `
+    -VMName "<myVM>" `
+    -Location "<location>" `
     -Publisher "Microsoft.HpcCompute" `
     -ExtensionName "NvidiaGpuDriverWindows" `
     -ExtensionType "NvidiaGpuDriverWindows" `
-    -TypeHandlerVersion 1.2 `
+    -TypeHandlerVersion 1.4 `
     -SettingString '{ `
 	}'
 ```
 
 ### Azure CLI
 
+Run the following command in the Azure CLI to deploy the NVIDIA GPU Driver Extension to a virtual machine.
+
 ```azurecli
-az vm extension set `
-  --resource-group myResourceGroup `
-  --vm-name myVM `
-  --name NvidiaGpuDriverWindows `
-  --publisher Microsoft.HpcCompute `
-  --version 1.2 `
-  --settings '{ `
+az vm extension set \
+  --resource-group <myResourceGroup> \
+  --vm-name <myVM> \
+  --name NvidiaGpuDriverWindows \
+  --publisher Microsoft.HpcCompute \
+  --version 1.4 \
+  --settings '{ \
   }'
 ```
 
-## Troubleshoot and support
+## <a name="troubleshoot-and-support"></a> Troubleshoot issues
 
-### Troubleshoot
+Here are some suggestions for how to troubleshoot deployment issues.
 
-Data about the state of extension deployments can be retrieved from the Azure portal, and by using Azure PowerShell and Azure CLI. To see the deployment state of extensions for a given VM, run the following command.
+### Check extension status
+
+Check the status of your extension deployment in the Azure portal, or by using PowerShell or the Azure CLI.
+
+To see the deployment state of extensions for a given VM, run the following commands:
 
 ```powershell
-Get-AzVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
+Get-AzVMExtension -ResourceGroupName <myResourceGroup> -VMName <myVM> -Name <myExtensionName>
 ```
 
 ```azurecli
-az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
+az vm extension list --resource-group <myResourceGroup> --vm-name <myVM> -o table
 ```
+### Review output logs
 
-Extension execution output is logged to the following directory:
+View output logs for the NVIDIA GPU Driver Extension deployment under
+`C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverWindows\`.
 
-```cmd
-C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverMicrosoft\
-```
+### Respond to error codes
 
-### Error codes
+The following table lists common error codes for deployment and potential follow-up actions.
 
-| Error Code | Meaning | Possible Action |
+| Error | Description | Action |
 | :---: | --- | --- |
-| 0 | Operation successful |
-| 1 | Operation successful. Reboot required. |
-| 100 | Operation not supported or could not be completed. | Possible causes: PowerShell version not supported, VM size is not an N-series VM, Failure downloading data. Check the log files to determine cause of error. |
+| 0 | Operation successful. | No required action. |
+| 1 | Operation successful. | Reboot. |
+| 100 | Operation not supported or couldn't be completed. | Check log files to determine cause of error, such as: <br>- PowerShell version isn't supported. <br> - VM size isn't an N-series VM. <br> - Failure during data download. |
 | 240, 840 | Operation timeout. | Retry operation. |
-| -1 | Exception occurred. | Check the log files to determine cause of exception. |
-| -5x | Operation interrupted due to pending reboot. | Reboot VM. Installation will continue after reboot. Uninstall should be invoked manually. |
+| -1 | Exception occurred. | Check log files to determine cause of exception. |
+| -5x | Operation interrupted due to pending reboot. | Reboot the VM. Installation continues after reboot. <br> Uninstall should be invoked manually. |
 
+### Get support
 
-### Support
+Here are some other options to help you resolve deployment issues:
 
-If you need more help at any point in this article, you can contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/community/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select Get support. For information about using Azure Support, read the [Microsoft Azure support FAQ](https://azure.microsoft.com/support/faq/).
+- For assistance, contact the Azure experts on the [Q&A and Stack Overflow forums](https://azure.microsoft.com/support/community/). 
+
+- If you don't find an answer on the site, you can post a question for input from Microsoft or other members of the community.
+
+- You can also [Contact Microsoft Support](https://support.microsoft.com/contactus/). For information about using Azure support, read the [Azure support FAQ](https://azure.microsoft.com/support/legal/faq/).
 
 ## Next steps
-For more information about extensions, see [Virtual machine extensions and features for Windows](features-windows.md).
 
-For more information about N-series VMs, see [GPU optimized virtual machine sizes](../windows/sizes-gpu.md).
+- For more information about extensions, see [Virtual machine extensions and features for Windows](features-windows.md).
+- For more information about N-series VMs, see [GPU optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu).

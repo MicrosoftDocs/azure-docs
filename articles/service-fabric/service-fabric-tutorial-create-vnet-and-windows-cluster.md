@@ -1,25 +1,18 @@
 ---
-title: Create a Service Fabric cluster running Windows in Azure | Microsoft Docs
+title: Create a Service Fabric cluster running Windows in Azure 
 description: In this tutorial, you learn how to deploy a Windows Service Fabric cluster into an Azure virtual network and network security group by using PowerShell.
-services: service-fabric
-documentationcenter: .net
-author: aljo-microsoft
-manager: chackdan
-editor: ''
-
-ms.assetid:
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 03/13/2019
-ms.author: aljo
-ms.custom: mvc
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+ms.custom: devx-track-azurepowershell
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Tutorial: Deploy a Service Fabric cluster running Windows into an Azure virtual network
 
-This tutorial is part one of a series. You learn how to deploy an Azure Service Fabric cluster running Windows into an [Azure virtual network](../virtual-network/virtual-networks-overview.md) and [network security group](../virtual-network/virtual-networks-nsg.md) by using PowerShell and a template. When you're finished, you have a cluster running in the cloud to which you can deploy applications. To create a Linux cluster that uses the Azure CLI, see [Create a secure Linux cluster on Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
+This tutorial is part one of a series. You learn how to deploy an Azure Service Fabric cluster running Windows into an [Azure virtual network](../virtual-network/virtual-networks-overview.md) and [network security group](../virtual-network/virtual-network-vnet-plan-design-arm.md) by using PowerShell and a template. When you're finished, you have a cluster running in the cloud to which you can deploy applications. To create a Linux cluster that uses the Azure CLI, see [Create a secure Linux cluster on Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 This tutorial describes a production scenario. If you want to create a smaller cluster for testing purposes, see [Create a test cluster](./scripts/service-fabric-powershell-create-secure-cluster-cert.md).
 
@@ -54,7 +47,7 @@ Before you begin this tutorial:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Install the [Service Fabric SDK and PowerShell module](service-fabric-get-started.md).
-* Install [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+* Install [Azure PowerShell](/powershell/azure/install-azure-powershell).
 * Review the key concepts of [Azure clusters](service-fabric-azure-clusters-overview.md).
 * [Plan and prepare](service-fabric-cluster-azure-deployment-preparation.md) for a production cluster deployment.
 
@@ -79,8 +72,8 @@ In the **Microsoft.ServiceFabric/clusters** resource, a Windows cluster is confi
 * Certificate secured (configurable in the template parameters).
 * [Reverse proxy](service-fabric-reverseproxy.md) is enabled.
 * [DNS service](service-fabric-dnsservice.md) is enabled.
-* [Durability level](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) of Bronze (configurable in the template parameters).
-* [Reliability level](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) of Silver (configurable in the template parameters).
+* [Durability level](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) of Bronze (configurable in the template parameters).
+* [Reliability level](service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster) of Silver (configurable in the template parameters).
 * Client connection endpoint: 19000 (configurable in the template parameters).
 * HTTP gateway endpoint: 19080 (configurable in the template parameters).
 
@@ -117,7 +110,7 @@ The following inbound traffic rules are enabled in the **Microsoft.Network/netwo
 If other application ports are needed, you'll need to adjust the **Microsoft.Network/loadBalancers** resource and the **Microsoft.Network/networkSecurityGroups** resource to allow the traffic in.
 
 ### Windows Defender
-By default, the [Windows Defender antivirus program](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016) is installed and functional on Windows Server 2016. The user interface is installed by default on some SKUs, but isn't required. For each node type/VM scale set declared in the template, the [Azure VM Antimalware extension](/azure/virtual-machines/extensions/iaas-antimalware-windows) is used to exclude the Service Fabric directories and processes:
+By default, the [Windows Defender antivirus program](/microsoft-365/security/defender-endpoint/microsoft-defender-antivirus-windows) is installed and functional on Windows Server 2016. The user interface is installed by default on some SKUs, but isn't required. For each node type/VM scale set declared in the template, the [Azure VM Antimalware extension](../virtual-machines/extensions/iaas-antimalware-windows.md) is used to exclude the Service Fabric directories and processes:
 
 ```json
 {
@@ -151,8 +144,8 @@ The [azuredeploy.parameters.json][parameters] parameters file declares many valu
 
 **Parameter** | **Example value** | **Notes** 
 |---|---|---|
-|adminUserName|vmadmin| Admin username for the cluster VMs. [Username requirements for VM](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm). |
-|adminPassword|Password#1234| Admin password for the cluster VMs. [Password requirements for VM](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm).|
+|adminUserName|vmadmin| Admin username for the cluster VMs. [Username requirements for VM](../virtual-machines/windows/faq.yml#what-are-the-username-requirements-when-creating-a-vm-). |
+|adminPassword|Password#1234| Admin password for the cluster VMs. [Password requirements for VM](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).|
 |clusterName|mysfcluster123| Name of the cluster. Can contain letters and numbers only. Length can be between 3 and 23 characters.|
 |location|southcentralus| Location of the cluster. |
 |certificateThumbprint|| <p>Value should be empty if creating a self-signed certificate or providing a certificate file.</p><p>To use an existing certificate previously uploaded to a key vault, fill in the certificate SHA1 thumbprint value. For example, "6190390162C988701DB5676EB81083EA608DCCF3".</p> |
@@ -162,7 +155,7 @@ The [azuredeploy.parameters.json][parameters] parameters file declares many valu
 ## Set up Azure Active Directory client authentication
 For Service Fabric clusters deployed in a public network hosted on Azure, the recommendation for client-to-node mutual authentication is:
 * Use Azure Active Directory for client identity.
-* Use a certificate for server identity and SSL encryption of HTTP communication.
+* Use a certificate for server identity and TLS encryption of HTTP communication.
 
 Setting up Azure Active Directory (Azure AD) to authenticate clients for a Service Fabric cluster must be done before [creating the cluster](#createvaultandcert). Azure AD enables organizations (known as tenants) to manage user access to applications. 
 
@@ -173,7 +166,7 @@ A Service Fabric cluster offers several entry points to its management functiona
 
 In this article, we assume that you've already created a tenant. If you haven't, start by reading [How to get an Azure Active Directory tenant](../active-directory/develop/quickstart-create-new-tenant.md).
 
-To simplify steps involved in configuring Azure AD with a Service Fabric cluster, we've created a set of Windows PowerShell scripts. [Download the scripts](https://github.com/robotechredmond/Azure-PowerShell-Snippets/tree/master/MicrosoftAzureServiceFabric-AADHelpers/AADTool) to your computer.
+To simplify steps involved in configuring Azure AD with a Service Fabric cluster, we've created a set of Windows PowerShell scripts. [Download the scripts](https://github.com/Azure-Samples/service-fabric-aad-helpers) to your computer.
 
 ### Create Azure AD applications and assign users to roles
 Create two Azure AD applications to control access to the cluster: one web application and one native application. After you've created the applications to represent your cluster, assign your users to the [roles supported by Service Fabric](service-fabric-cluster-security-roles.md): read-only and admin.
@@ -187,7 +180,7 @@ $Configobj = .\SetupApplications.ps1 -TenantId '<MyTenantID>' -ClusterName 'mysf
 ```
 
 > [!NOTE]
-> For national clouds (for example Azure Government, Azure China, Azure Germany), specify the `-Location` parameter.
+> For national clouds (for example Azure Government, Microsoft Azure operated by 21Vianet, Azure Germany), specify the `-Location` parameter.
 
 You can find your *TenantId*, or directory ID, in the [Azure portal](https://portal.azure.com). Select **Azure Active Directory** > **Properties** and copy the **Directory ID** value.
 
@@ -709,7 +702,7 @@ Get-ServiceFabricClusterHealth
 
 ## Clean up resources
 
-The other articles in this tutorial series use the cluster you've created. If you're not immediately moving on to the next article, you might want to [delete the cluster](service-fabric-cluster-delete.md) to avoid incurring charges.
+The other articles in this tutorial series use the cluster you've created. If you're not immediately moving on to the next article, you might want to [delete the cluster](./service-fabric-tutorial-delete-cluster.md) to avoid incurring charges.
 
 ## Next steps
 

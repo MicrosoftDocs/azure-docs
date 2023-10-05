@@ -3,7 +3,7 @@ title: Troubleshoot Azure NetApp Files Resource Provider errors | Microsoft Docs
 description: Describes causes, solutions, and workarounds for common Azure NetApp Files Resource Provider errors.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 tags:
@@ -12,319 +12,683 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 03/25/2019
-ms.author: b-juche
+ms.topic: troubleshooting
+ms.date: 02/09/2022
+ms.author: anfdocs
 ---
-# Troubleshoot Azure NetApp Files Resource Provider errors
-This article describes common Azure NetApp Files Resource Provider errors, their causes, solutions, and workarounds. 
+# Troubleshoot Azure NetApp Files Resource Provider errors 
 
-<a name="error_01"></a>***Azure Key Vault not configured.***   
-Azure Key Vault stores the required credentials for accessing the underlying API. This error indicates that Azure Key Vault did not receive the complete credentials for accessing the underlying API.
+This article describes common Azure NetApp Files Resource Provider errors, their causes, solutions, and workarounds (if available).
 
-* Cause  
-Azure Key Vault did not receive the correct credentials, or the credentials are incomplete.  
+## Common Azure NetApp Files Resource Provider errors
 
-* Solution   
-The Azure NetApp Files service uses Azure Key Vault. Azure Key Vault authenticates by using a token from Azure Active Directory. Therefore, the owner of the application must register the application in the Azure Active Directory.
+***Creation of `netAppAccounts` has been restricted in this region.***
 
-* Workaround   
-None.  Azure Key Vault must be set up correctly for using Azure NetApp Files.  
+This situation occurs when the user attempts to create a NetApp account.
 
-<a name="error_02"></a>***Creation Token cannot be changed.***   
-This error occurs when you try to change the creation token after the volume has been created.
-Creation token must be set when the volume is created and cannot be changed later.
+* Cause:   
+Azure Resource Provider for Azure NetApp Files isn't registered successfully. 
+ 
+* Solution:   
+Complete all the steps described in [Register the NetApp Resource Provider](azure-netapp-files-register.md).
 
-* Cause   
-You are trying to change the creation token after the volume has been created, which is not a supported operation.
+***BareMetalTenantId cannot be changed.***  
 
-* Solution   
-After the Volume has been created, consider removing the parameter from the request to dismiss the error message.
+This error occurs when you try to update or patch a volume and the `BaremetalTenantId` property has a changed value.
 
-* Workaround   
-If you need to change the creation token, you can create a new volume with a new creation token, and then migrate the data to the new volume.
+* Cause:   
+You're trying to update a volume and the `BaremetalTenantId` property has a different value from the value stored in Azure.
+* Solution:   
+Don’t include `BaremetalTenantId` in the patch and update (put) request. Alternatively, make sure `BaremetalTenantId` is the same in the request.
 
+***ServiceLevel cannot be changed.***  
 
-<a name="error_03"></a>***Creation Token must be at least 16 characters long.***   
-This error occurs when the creation token does not meet the length requirement. The length of the creation token must be at least 16 characters.
+This error occurs when you try to update or patch a capacity pool with a different service level when the capacity pool already has volumes in it.
 
-* Cause   
-The creation token does not meet the length requirement.  When you create a volume by using the API, a creation token is required. If you are using the portal, the token can be generated automatically.
+* Cause:   
+You're trying to update a capacity pool service level when the pool contains volumes.
+* Solution:   
+Delete all volumes from the capacity pool, then change the service level.
+* Workaround:   
+Create another capacity pool, then create the volumes again in the new capacity pool.
 
-* Solution   
-Increase the length of the creation token. For example, you can add another word at the beginning or the end of the creation token.
+***PoolId cannot be changed***  
 
-* Workaround   
-The minimum required length of the creation token cannot be bypassed.  You can use a prefix or suffix to increase the creation token length.
+This error occurs when you try to update or patch a capacity pool with a changed `PoolId` property.
 
+* Cause:   
+You're trying to update a capacity pool `PoolId` property. The `PoolId` property is a read-only property and can't be changed.
+* Solution:   
+Don’t include `PoolId` in the patch and update (put) request.  Alternatively, make sure `PoolId` is the same in the request.
 
-<a name="error_04"></a>***Error deleting a volume that was not found at Azure NetApp Files.***   
-This error occurred because the internal registry of resources is out of sync.
+***CreationToken cannot be changed.***
 
-* Cause   
-The volume might stay displayed in the portal for some time after it has been deleted. If you delete the volume by using the API, it is possible that the volume was not specified correctly. The error can also be caused by outdated browser cache.
+This error occurs when you try to change the file path (`CreationToken`) after the volume has been created. File path (`CreationToken`) must be set when the volume is created, and it can't be changed later.
 
-* Solution   
-Clear browser cache if you are using the portal. There is also an internal cache that is refreshed every 10 minutes.  You can try to clear cache again.  If the problem persists after 10 minutes, you can create a support ticket.
+* Cause:   
+You're trying to change the file path (`CreationToken`) after the volume has been created, which isn't a supported operation. 
+* Solution:   
+If changing the file path isn't needed, then consider removing the parameter from the request to dismiss the error message.
+* Workaround:   
+If you need to change the file path (`CreationToken`), you can create a new volume with a new file path, and then migrate the data to the new volume.
 
-* Workaround   
-Use a different volume in the meantime and ignore the existing one.
+***CreationToken must be at least 16 characters long.***
 
+This error occurs when the file path (`CreationToken`) doesn't meet the length requirement. The length of the file path must be at least one character in length.
 
-<a name="error_05"></a>***Error inserting a new Volume found at Azure NetApp Files.***   
-This error occurs because the internal registry of resources is out of sync.
+* Cause:   
+The file path is empty.  When you create a volume by using the API, a creation token is required. If you're using the Azure portal, the file path is generated automatically.
+* Solution:   
+Enter at least one character as the file path (`CreationToken`).
 
-* Cause   
-The volume might remain displayed in the portal for some time after it has been deleted. If you delete the volume by using the API, it is possible that the volume was not specified correctly.
+***Domain name cannot be changed.***
 
-* Solution   
-If you are using the portal, the volume has already been created.  The volume should appear automatically. If the problem persists, you can create a support ticket.
+This error occurs when you try to change the domain name in Active Directory.
 
-* Workaround   
-You can create a volume with a different name and a different creation token.
+* Cause:   
+You're trying to update the domain name property.
+* Solution:    
+None. You can't change the domain name.
+* Workaround:   
+Delete all volumes by using the Active Directory configuration. Then delete the Active Directory configuration and re-create the volumes.
 
+***Duplicate value error for object ExportPolicy.Rules[RuleIndex].***
 
-<a name="error_06"></a>***The file path name can contain letters, numbers, and hyphens (""-"") only.***   
-This error occurs when the file path contains unsupported characters, for example, a period ("."), comma (","), underscore ("\_"), or dollar sign ("$").
+This error occurs when the export policy isn't defined with a unique index. When you define export policies, all export policy rules must have a unique index between 1 and 5.
 
-* Cause   
-The file path contains unsupported characters, for example, a period ("."), comma (","), underscore ("\_"), or dollar sign ("$").
+* Cause:   
+The defined export policy doesn't meet the requirement for export policy rules. You must have one export policy rule at the minimum and five export policy rules at the maximum.
+* Solution:   
+Make sure that the index isn't already used and that it is in the range from 1 to 5.
+* Workaround:   
+Use a different index for the rule that you're trying to set.
 
-* Solution   
-Remove characters that are not alphabetical letters, numbers, or hyphens ("-") from the file path you entered.
+***Error {action} {resourceTypeName}***
 
-* Workaround   
-You can replace an underscore with a hyphen or use capitalization instead of spaces to indicate the beginning of new words (for example, using "NewVolume" instead of "new volume").
+This error is displayed when other error handling has failed to handle the error while performing an action on a resource.   It includes text ‘Error’. The `{action}` can be any of (`getting`, `creating`, `updating`, or `deleting`).  The `{resourceTypeName}` is the `resourceTypeName` (for example, `netAppAccount`, `capacityPool`, `volume`, and so on).
 
-
-<a name="error_07"></a>***Volume ID cannot be changed.***   
-This error occurs when you try to change the volume ID.  Changing the volume ID is not a supported operation.
-
-* Cause   
-The ID of the file system is set when the volume is created. The volume ID cannot be changed subsequently.
-
-* Solution   
+* Cause:   
+This error is an unhandled exception where the cause isn't known.
+* Solution:   
+Contact Azure Support Center to report the detailed reason in logs.
+* Workaround:   
 None.
 
-* Workaround   
-None.  The volume ID is generated when the volume is created and cannot be changed subsequently.
+***The file path name can contain letters, numbers, and hyphens (""-"") only.***
 
+This error occurs when the file path contains unsupported characters, for example, a period ("."), comma (","), underscore ("_"), or dollar sign ("$").
 
-<a name="error_08"></a>***An invalid value '{0}' was received for {1}.***   
-This message indicates an error in the fields for RuleIndex, AllowedClients, UnixReadOnly, UnixReadWrite, Nfsv3, and Nfsv4.
+* Cause:   
+The file path contains unsupported characters, for example, a period ("."), comma (","), underscore ("_"), or dollar sign ("$").
+* Solution:   
+Remove characters that are not alphabetical letters, numbers, or hyphens ("-") from the file path you entered.
+* Workaround:   
+You can replace an underscore with a hyphen or use capitalization instead of spaces to indicate the beginning of new words.  For example, use "NewVolume" instead of "new volume".
 
-* Cause   
-The input validation request has failed for at least one of the following fields: RuleIndex, AllowedClients, UnixReadOnly, UnixReadWrite, Nfsv3, and Nfsv4.
+***FileSystemId cannot be changed.***
 
-* Solution   
-Make sure to set all required and non-conflicting parameters on the command line. For example, you cannot set both the UnixReadOnly and UnixReadWrite parameters at the same time.
+This error occurs when you try to change `FileSystemId`.  Changing `FileSystemdId` isn't a supported operation. 
 
-* Workaround   
-See the Solution section.  
+* Cause:   
+The ID of the file system is set when the volume is created. `FileSystemId` can't be changed subsequently.
+* Solution:   
+Don’t include `FileSystemId` in a patch and update (put) request.  Alternatively make sure that `FileSystemId` is the same in the request.
 
+***ActiveDirectory with id: '{string}' does not exist.***
 
-<a name="error_09"></a>***Missing value for '{0}'.***   
-This error indicates that a required attribute is missing from the request for at least one of the following parameters: RuleIndex, AllowedClients, UnixReadOnly, UnixReadWrite, Nfsv3, and Nfsv4.
+The `{string}` portion is the value you entered in the `ActiveDirectoryId` property for the Active Directory connection.
 
-* Cause   
-The input validation request has failed for at least one of the following fields: RuleIndex, AllowedClients, UnixReadOnly, UnixReadWrite, Nfsv3, and Nfsv4.
+* Cause:   
+When you created an account with the Active Directory configuration, you have entered a value for `ActiveDirectoryId` that is supposed to be empty.
+* Solution:   
+Don’t include `ActiveDirectoryId` in the create (put) request.
 
-* Solution   
-Make sure to set all required and non-conflicting parameters on the command line. For example, you cannot set both the UnixReadOnly and UnixReadWrite parameters at the same time
+***Invalid api-version.***
 
-* Workaround   
-See the Solution section.  
+The API version is either not submitted or contains an invalid value.
 
+* Cause:   
+The value in the query parameter `api-version` contains an invalid value.
+* Solution:   
+Use correct API version value.  The resource provider supports many API versions. The value is in the format of yyyy-mm-dd.
 
-<a name="error_10"></a> ***{0} already in use.***   
-This error indicates that the name for the resource has already been used.
+***An invalid value '{value}' was received for {1}.***
 
-* Cause   
-You are trying to create a volume with a name that is the same as an existing volume.
+This message indicates an error in the fields for `RuleIndex`, `AllowedClients`, `UnixReadOnly`, `UnixReadWrite`, `Nfsv3`, and `Nfsv4`.
 
-* Solution   
-Use a unique name when creating a volume.
+* Cause:   
+The input validation request has failed for at least one of the following fields: `RuleIndex`, `AllowedClients`, `UnixReadOnly`, `UnixReadWrite`, `Nfsv`3, and `Nfsv4`.
+* Solution:   
+Make sure to set all required and nonconflicting parameters on the command line. For example, you can't set both the `UnixReadOnly` and `UnixReadWrite` parameters at the same time.
+* Workaround:   
+See the solution above.
 
-* Workaround   
-If necessary, you can change the name of the existing volume so that the new volume can use the intended name.
+***IP range {0} to {1} for vlan {2} is already in use***
 
+This error occurs because the internal records of the used IP ranges have a conflict with the newly assigned IP address.
 
-<a name="error_11"></a> ***{0} too short.***   
-This error indicates that the volume name does not meet the minimum length requirement.
+* Cause:   
+The IP address assigned for the volume creation is already registered.
+The reason could be an earlier failed volume creation.
+* Solution:   
+Contact Azure Support Center.
 
-* Cause   
-The volume name is too short.
+***Missing value for '{property}'.***
 
-* Solution   
-Increase the length of the volume name.  
+This error indicates that a required property is missing from the request. The string {property} contains the name of the missing property.
 
-* Workaround   
-You can add a common prefix or suffix to the volume name.
+* Cause:   
+The input validation request has failed for at least one of the properties.
+* Solution:   
+Make sure to set all required and nonconflicting properties in the request, specially, the property from the error message.
 
+***MountTargets cannot be changed.***
 
-<a name="error_12"></a>***Azure NetApp Files API unreachable.***   
-The Azure API relies on the Azure NetApp Files API to manage volumes.  This error indicates an issue with the API connection.
+This error occurs when a user is trying to update or patch the volume MountTargets property.
 
-* Cause   
-The underlying API is not responding, resulting in an internal error. This error is likely to be temporary.
+* Cause:   
+You're trying to update the volume `MountTargets` property. Changing this property isn't supported.
+* Solution:   
+Don’t include `MountTargets` in a patch and update (put) request.  Alternatively, make sure that `MountTargets` is the same in the request.
 
-* Solution   
-The issue is likely to be temporary.  The request should succeed after some time.
+***Name already in use.***
 
-* Workaround   
-None. The underlying API is essential for managing volumes.  
+This error indicates that the name for the resource is already in use.
 
+* Cause:   
+You're trying to create a resource with a name that is used for an existing resource.
+* Solution:   
+Use a unique name when creating the resource.
 
-<a name="error_13"></a>***No credentials found for subscription '{0}'.***   
-This error indicates that the provided credentials are either invalid or have not been set correctly in the subscription.
+***File path already in use.***
 
-* Cause   
-Credentials that are invalid or incorrectly set prevent access to the service for managing volumes.
+This error indicates that the file path for the volume is already in use.
 
-* Solution   
-Make sure that the credentials are set and entered correctly on the command line.
+* Cause:   
+You're trying to create a volume with a file path that is the same as an existing volume.
+* Solution:   
+Use a unique file path when creating the volume.
 
-* Workaround   
-None.  Setting credentials correctly is essential for using Azure NetApp Files.  
+***Name too long.***
 
+This error indicates that the resource name doesn't meet the maximum length requirement.
 
-<a name="error_14"></a>***No operation result id found for '{0}'.***   
+* Cause:   
+The resource name is too long.
+* Solution:   
+Use a shorter name for the resource.
+
+***File path too long.***
+
+This error indicates that the file path for the volume doesn't meet the maximum length requirement.
+
+* Cause:   
+The volume file path is too long.
+* Solution:   
+Use a shorter file path.
+
+***Name too short.***
+
+This error indicates that the resource name doesn't meet the minimum length requirement.
+
+* Cause:   
+The resource name is too short.
+* Solution:   
+Use a longer name for the resource.
+
+***File path too short.***
+
+This error indicates that the volume file path doesn't meet the minimum length requirement.
+
+* Cause:   
+The volume file path is too short.
+* Solution:   
+Increase the length of the volume file path.
+
+***Azure NetApp Files API unreachable.***
+
+The Azure API relies on the Azure NetApp Files API to manage volumes. This error indicates an issue with the API connection.
+
+* Cause:   
+The underlying API isn't responding, resulting in an internal error. This error is likely to be temporary.
+* Solution:   
+The issue is likely to be temporary. The request should succeed after some time.
+* Workaround:   
+None. The underlying API is essential for managing volumes.
+
+***No operation result id found for '{0}'.***
+
 This error indicates that an internal error is preventing the operation from completing.
 
-* Cause   
+* Cause:   
 An internal error occurred and prevented the operation from completing.
-
-* Solution   
-This error is likely to be temporary.  Wait a few minutes and try again. If the problem persists, create a ticket to have technical support investigate the issue.
-
-* Workaround   
+* Solution:   
+This error is likely to be temporary. Wait a few minutes and try again. If the problem persists, create a ticket to have technical support investigate the issue.
+* Workaround:   
 Wait a few minutes and check if the problem persists.
 
+***Not allowed to mix protocol types CIFS and NFS***
 
-<a name="error_15"></a>***Operation '{0}' not supported.***   
-This error indicates that the command is not available for the active subscription or resource.
+This error occurs when you're trying to create a Volume and there are both the CIFS (SMB) and NFS protocol types in the volume properties.
 
-* Cause   
-The operation is not available for the subscription or resource.
+* Cause:   
+Both the CIFS (SMB) and NFS protocol types are used in the volume properties.
+* Solution:   
+Remove one of the protocol types.
+* Workaround:   
+Leave the protocol type property empty or null.
 
-* Solution   
-Make sure that the command is entered correctly and available for the resource and subscription that you are using.
+***Number of items: {value} for object: ExportPolicy.Rules[RuleIndex] is outside min-max range.***
 
-* Workaround   
-See the Solution section.  
+This error occurs when the export policy rules don't meet the minimum or maximum range requirement. If you define the export policy, it must have one export policy rule at the minimum and five export policy rules at the maximum.
 
+* Cause:   
+The export policy you defined doesn't meet the required range.
+* Solution:   
+Make sure that the index isn't already used and that is in the range from 1 to 5.
+* Workaround:   
+It isn't mandatory to use export policy on the volumes. You can omit the export policy entirely if you don't need to use export policy rules.
 
-<a name="error_16"></a>***Patch operation is not supported for this resource type.***   
+***Only one active directory allowed***
+
+This error occurs when you try to create an Active Directory configuration, and one already exists for the subscription in the region. The error can also occur when you try to create more than one Active Directory configuration.
+
+* Cause:   
+You're trying to create (not update) an active directory, but one already exists.
+* Solution:   
+If the Active Directory configuration isn't in use, then you can first delete the existing configuration and then retry the create operation.
+* Workaround:   
+None. Only one Active Directory is allowed.
+
+***Operation '{operation}' not supported.***
+
+This error indicates that the operation isn't available for the active subscription or resource.
+
+* Cause:   
+The operation isn't available for the subscription or resource.
+* Solution:   
+Make sure that the operation is entered correctly and that it is available for the resource and subscription that you're using.
+
+***OwnerId cannot be changed***
+
+This error occurs when you try to change the `OwnerId` property of the volume. Changing the `OwnerId` isn't a supported operation. 
+
+* Cause:   
+The `OwnerId` property is set when the volume is created. The property can't be changed subsequently.
+* Solution:   
+Don’t include `OwnerId` in a patch and update (put) request. Alternatively, make sure that `OwnerId` is the same in the request.
+
+***Parent pool not found***
+
+This error occurs when you try to create a volume and the capacity pool in which you're creating the volume isn't found.
+
+* Cause:   
+The capacity pool where the volume is being created isn't found.
+* Solution:   
+Most likely the pool was not fully created or was already deleted at the time of the volume creation.
+
+***Patch operation is not supported for this resource type.***
+
 This error occurs when you try to change the mount target or snapshot.
 
-* Cause   
-The mount target is defined when it is created, and it cannot be changed subsequently.
+* Cause:   
+The mount target is defined when it is created, and it can't be changed subsequently.
+The snapshots don’t contain any properties that can be changed.
+* Solution:   
+None. Those resources don't have any properties that can be changed.
 
-* Solution   
-None.  The mount target cannot be changed after the volume is created.
+***Pool size too small for total volume size.***
 
-* Workaround   
+This error occurs when you're updating the capacity pool size, and the size is smaller than the total `usedBytes` value of all volumes in that capacity pool.  This error can also occur when you're creating a new volume or resizing an existing volume, and the new volume size exceeds the free space in the capacity pool.
+
+* Cause:   
+You're trying to update the capacity pool to a smaller size than usedBytes in all volumes in the capacity pool.  Or, you're trying to create a volume that is larger than the free space in the capacity pool.  Alternatively, you're trying to resize a volume and the new size exceeds free space in the capacity pool.
+* Solution:   
+Set the capacity pool size to a larger value, or create a smaller volume for a volume.
+* Workaround:   
+Remove enough volumes so that the capacity pool size can be updated to this size.
+
+***The property: Location for Snapshot must be the same as Volume***
+
+This error occurs when you're creating a snapshot with location other than the volume that owns the snapshot.
+
+* Cause:   
+Invalid value in the Location property for the snapshot.
+* Solution:   
+Set valid string in the Location property.
+
+***The {resourceType} name must be the same as the resource identifier name.***
+
+This error occurs when you're creating a resource, and you fill in the name property with other value than the name property of `resourceId`.
+
+* Cause:   
+Invalid value in the name property when you create a resource.
+* Solution:   
+Leave the name property empty or allow it to use the same value as the name property (between the last backslash “/” and the question mark “?”) in `resourceId`.
+
+***Protocol type {value} not known***
+
+This error occurs when you're creating a volume with an unknown protocol type.  Valid values are “NFSv3”, “NFSv4”, and “CIFS”.
+
+* Cause:   
+You're trying to set an invalid value in the volume `protocolType` property.
+* Solution:   
+Set a valid string in `protocolType`.
+* Workaround:   
+Set `protocolType` as null.
+
+***Protocol types cannot be changed***
+
+This error occurs when you try to update or patch `ProtocolType` for a volume.  Changing ProtocolType isn't a supported operation.
+
+* Cause:   
+The `ProtocolType` property is set when the volume is created.  It can't be updated.
+* Solution:   
 None.
+* Workaround:   
+Create another volume with new protocol types.
 
+***Creating the resource of type {resourceType} would exceed the quota of {quota} resources of type {resourceType} per {parentResourceType}. The current resource count is {currentCount}, please delete some resources of this type before creating a new one.***
 
-<a name="error_17"></a>***Received a value for read-only property '{0}'.***   
-This error occurs when you define a value for a property that cannot be changed. For example, you cannot change the volume ID.
+This error occurs when you're trying to create a resource (`NetAppAccount`, `CapacityPool`, `Volume`, or `Snapshot`), but your quota has reached its limit.
 
-* Cause   
-You attempted to modify a parameter (such as the volume ID) that cannot be changed.
+* Cause:   
+You're trying to create a resource, but the quota limit is reached (example: `NetAppAccounts` per subscription or `CapacityPools` per `NetAppAccount`).
+* Solution:   
+Increase the quota limit.
+* Workaround:   
+Delete unused resources of the same type and create them again.
 
-* Solution   
-None. The parameter for the volume ID cannot be modified.
+***Received a value for read-only property '{propertyName}'.***
 
-* Workaround   
-The volume ID should not require modification.  Therefore, a workaround is not necessary.
+This error occurs when you define a value for a property that can't be changed. For example, you can't change the volume ID.
 
-<a name="error_18"></a>***The requested {0} was not found.***   
+* Cause:   
+You're trying to modify a parameter (for example, the volume ID) that can't be changed.
+* Solution:   
+Don't modify a value for the property.
+
+***The requested {resource} was not found.***
+
 This error occurs when you try to reference a nonexistent resource, for example, a volume or snapshot. The resource might have been deleted or have a misspelt resource name.
 
-* Cause   
-You are trying to reference a nonexistent resource (for example, a volume or snapshot) that has already been deleted or has an incorrectly spelled resource name.
-
-* Solution   
+* Cause:   
+You're trying to reference a nonexistent resource (for example, a volume or snapshot) that has already been deleted or has a misspelled resource name.
+* Solution:   
 Check the request for spelling errors to make sure that it is correctly referenced.
+* Workaround:   
+See the Solution section above.
 
-* Workaround   
-See the Solution section.
+***Service level ‘{volumeServiceLevel}’ is higher than parent ‘{poolServiceLevel}’***
 
-<a name="error_19"></a>***Unable to get credentials for subscription '{0}'.***   
-This error indicates that the provided credentials are either invalid or incorrectly set in the subscription.
+This error occurs when you're creating or updating a volume, and you have set the service level to a higher level than the capacity pool that contains it.
 
-* Cause   
-Credentials that are invalid or incorrectly set in the subscription prevent access to the service for managing volumes.
+* Cause:   
+You're trying to create or update a volume with a higher ranked service level than the parent capacity pool.
+* Solution:   
+Set the service level to the same or a lower rank than the parent capacity pool.
+* Workaround:   
+Create the volume in another capacity pool with a correct service level. Alternatively, delete all volumes from the capacity pool, and set service level for the capacity pool to a higher rank.
 
-* Solution   
-Make sure that the credentials are set and entered correctly on the command line.
+***SMB server name may not be longer than 10 characters.***
 
-* Workaround   
-None.  Correctly set credentials are essential for using Azure NetApp Files.
+This error occurs when you're creating or updating an Active Directory configuration for an account.
 
-<a name="error_20"></a>***Unknown Azure NetApp Files Error.***   
+* Cause:   
+The length of the SMB server name exceeds 10 characters.
+* Solution:   
+Use a shorter server name. The maximum length is 10 characters.
+* Workaround:   
+None.  See the solution above. 
+
+***SubnetId cannot be changed.***
+
+This error occurs when you try to change the `subnetId` after the volume has been created.  `SubnetId` must be set when the volume is created and can't be changed later.
+
+* Cause:   
+You're trying to change the `subnetId` after the volume has been created, which isn't a supported operation. 
+* Solution:   
+If changing the `subnetId` isn't needed, then consider removing the parameter from the request to dismiss the error message.
+* Workaround:   
+If you need to change the `subnetId`, you can create a new volume with a new `subnetId`, and then migrate the data to the new volume.
+
+***SubnetId is in invalid format.***
+
+This error occurs when you try to create a new volume but the `subnetId` isn't a `resourceId` for a subnet.
+
+* Cause:   
+This error occurs when you try to create a new volume, but the `subnetId` isn't a `resourceId` for a subnet. 
+* Solution:   
+Check the value for the `subnetId` to ensure that it contains a `resourceId` for the subnet used.
+* Workaround:   
+None. See the solution above. 
+
+***Subnet must have a ‘Microsoft.NetApp/volumes’ delegation.***
+
+This error occurs when you're creating a volume and the selected subnet isn't delegated to `Microsoft.NetApp/volumes`.
+
+* Cause:   
+You tried to create volume and you selected a subnet that isn't delegated to `Microsoft.NetApp/volumes`.
+* Solution:   
+Select another subnet that is delegated to `Microsoft.NetApp/volumes`.
+* Workaround:   
+Add a correct delegation to the subnet.
+
+***The specified resource type is unknown/not applicable.***
+
+This error occurs when a name check has been requested either on a nonapplicable resource type or for an unknown resource type.
+
+* Cause:   
+Name check has been requested for an unknown or unsupported resource type.
+* Solution:   
+Check that the resource you're doing the request for is supported or contains no spelling errors.
+* Workaround:   
+See the solution above.
+
+***Unknown Azure NetApp Files Error.***
+
 The Azure API relies on the Azure NetApp Files API to manage volumes. The error indicates an issue in the communication to the API.
 
-* Cause   
-The underlying API is sending an unknown error.  This error is likely to be temporary.
-
-* Solution   
+* Cause:   
+The underlying API is sending an unknown error. This error is likely to be temporary.
+* Solution:   
 The issue is likely to be temporary, and the request should succeed after some time. If the problem persists, create a support ticket to have the issue investigated.
+* Workaround:   
+None. The underlying API is essential for managing volumes.
 
-* Workaround   
-None.  The underlying API is essential for managing volumes.
+***Value received for an unknown property '{propertyName}'.***
 
-<a name="error_21"></a>***Value received for an unknown property '{0}'.***   
 This error occurs when nonexistent properties are provided for a resource such as the volume, snapshot, or mount target.
 
-* Cause   
-The request has a set of properties that can be used with each resource.  You cannot include any nonexistent properties in the request.
-
-* Solution   
-Make sure that all property names are spelled correctly and the properties are available for the subscription and resource.
-
-* Workaround   
+* Cause:   
+The request has a set of properties that can be used with each resource. You can't include any nonexistent properties in the request.
+* Solution:   
+Make sure that all property names are spelled correctly and that the properties are available for the subscription and resource.
+* Workaround:   
 Reduce the number of properties defined in the request to eliminate the property that is causing the error.
 
+***Update operation is not supported for this resource type.***
 
-<a name="error_22"></a>***Update operation is not supported for this resource type.***   
 Only volumes can be updated. This error occurs when you try to perform an unsupported update operation, for example, updating a snapshot.
 
-* Cause   
-The resource you are trying to update does not support the update operation.  Only volumes can have their properties modified.
-
-* Solution   
-None.  The resource that you are trying to update does not support the update operation. Therefore, it cannot be changed.
-
-* Workaround   
+* Cause:   
+The resource you're trying to update doesn't support the update operation. Only volumes can have their properties modified.
+* Solution:   
+None. The resource that you're trying to update doesn't support the update operation. Therefore, it can't be changed.
+* Workaround:   
 For a volume, create a new resource with the update in place and migrate the data.
 
+***Volume cannot be created in a pool that isn't in state succeeded.***
 
-<a name="error_23"></a>***Number of items: {0} for object: {1} is outside min-max range.***   
-This error occurs when the export policy rules do not meet the minimum or maximum range requirement.  If you define the export policy, it must have one export policy rule at the minimum and five export policy rules at the maximum.
+This error occurs when you try to create a volume in a pool that isn't in the succeeded state. Most likely, the create operation for the capacity pool failed for some reason.
 
-* Cause   
-The export policy you defined does not meet the required range.  
+* Cause:   
+The capacity pool containing the new volume is in a failed state.
+* Solution:   
+Check that the capacity pool is created successfully, and that it isn't in a failed state.
+* Workaround:   
+Create a new capacity pool and create the volume in the new pool.
 
-* Solution   
-Make sure that the index is not already used and that is in the range from 1 to 5.
+***Volume is being created and cannot be deleted at the moment.***
 
-* Workaround   
-It is not mandatory to use export policy on the volumes. Therefore, you can omit the export policy entirely if you do not need to have export policy rules.
+This error occurs when you try to delete a volume that is still being created.
 
+* Cause:   
+A volume is still being created when you try to delete the volume.
+* Solution:   
+Wait until the volume creation is finished, and then retry the deletion.
+* Workaround:   
+See the solution above.
 
-<a name="error_24"></a>***Duplicate value error for object {0}.***   
-This error occurs when the export policy is not defined with a unique index.  When you define export policies, all export policy rules must have a unique index between 1 and 5.
+***Volume is being deleted and cannot be deleted at the moment.***
 
-* Cause   
-The defined export policy does not meet the requirement for export policy rules. You must have one export policy rule at the minimum and five export policy rules at the maximum.  
+This error occurs when you try to delete a volume when it is already being deleted.
 
-* Solution   
-Make sure that the index is not already used and that it is in the range from 1 to 5.
+* Cause:   
+A volume is already being deleted when you try to delete the volume.
+* Solution:   
+Wait until the current delete operation is finished.
+* Workaround:   
+See the solution above.
 
-* Workaround   
-Use a different index for the rule that you are trying to set.
+***Volume is being updated and cannot be deleted at the moment.***
 
+This error occurs when you try to delete a volume that is being updated.
 
+* Cause:   
+A volume is being updated when you try to delete the volume.
+* Solution:   
+Wait until the update operation is finished, and then retry the deletion.
+* Workaround:   
+See the solution above.
+
+***Volume was not found or was not created successfully.***
+
+This error occurs when the volume creation has failed, and you're trying to change the volume or create a snapshot for the volume.
+
+* Cause:   
+The volume doesn't exist, or the creation failed.
+* Solution:   
+Check that you're changing the correct volume and that the creation of the volume was successful. Or, check that the volume you're creating a snapshot for does exist.
+* Workaround:   
+None.  See the solution above. 
+
+***Specified creation token already exists***
+
+This error occurs when you try to create a volume, and you specify a creation token (export path) for which a volume already exists.
+
+* Cause:   
+The creation token (export path) you specified during volume creation is already associated with another volume. 
+* Solution:   
+Choose a different creation token.  Alternatively, delete the other volume.
+
+***Specified creation token is reserved***
+
+This error occurs when you try to create a volume, and you specify “default” or “none” as the file path (creation token).
+
+* Cause:    
+You're trying to create a volume, and you specify “default” or “none” as the file path (creation token).
+* Solution:   
+Choose a different file path (creation token).
+ 
+***Active Directory credentials are in use***
+
+This error occurs when you try to delete the Active Directory configuration from an account where at least one SMB volume still exists.  The SMB volume was created by using the Active Directory configuration that you're trying to delete.
+
+* Cause:   
+You're trying to delete the Active Directory configuration from an account, but at least one SMB volume still exists that was initially created by using the Active Directory configuration. 
+* Solution:   
+First, delete all SMB volumes that were created by using the Active Directory configuration.  Then retry the configuration deletion.
+
+***Cannot modify Organizational Unit assignment if the credentials are in use***
+
+This error occurs when you try to change the Organizational Unit of an Active Directory configuration, but at least one SMB volume still exists.  The SMB volume was created by using that Active Directory configuration you're trying to delete.
+
+* Cause:   
+You're trying to change the Organizational Unit of an Active Directory configuration.  But at least one SMB volume still exists that was initially created by using the Active Directory configuration.
+* Solution:   
+ First, delete all SMB volumes that were created by using the Active Directory configuration.  Then retry the configuration deletion. 
+
+***Active Directory update already in progress***
+
+This error occurs when you try to edit an Active Directory configuration for which an edit operation is already in progress.
+
+* Cause:   
+You're trying to edit an Active Directory configuration, but another edit operation is already in progress.
+* Solution:   
+Wait until the currently running edit operation has finished.
+
+***Delete all volumes using the selected credentials first***
+
+This error occurs when you try to delete an Active Directory configuration, but at least one SMB volume still exists.  The SMB volume was created by using the Active Directory configuration that you're trying to delete.
+
+* Cause:   
+You're trying to delete an Active Directory configuration, but at least one SMB volume still exists that was initially created by using the Active Directory configuration.
+* Solution:   
+First, delete all SMB volumes that were created by using the Active Directory configuration.  Then retry the configuration deletion. 
+
+***No Active Directory credentials found in region***
+
+This error occurs when you try to create an SMB volume, but no Active Directory configuration has been added to the account for the region.
+
+* Cause:   
+You're trying to create an SMB volume, but no Active Directory configuration has been added to the account. 
+* Solution:   
+Add an Active Directory configuration to the account before you create an SMB volume.
+
+***Could not query DNS server. Verify that the network configuration is correct and that DNS servers are available.***
+
+This error occurs when you try to create an SMB volume, but a DNS server (specified in your Active Directory configuration) is unreachable. 
+
+* Cause:   
+You're trying to create an SMB volume, but a DNS server (specified in your Active Directory configuration) is unreachable.
+* Solution:   
+Review your Active Directory configuration and make sure that the DNS server IP addresses are correct and reachable.
+If there’s no issues with the DNS server IP addresses, then verify that no firewalls are blocking the access.
+
+***Too many concurrent jobs***
+
+This error occurs when you try to create a snapshot when three other snapshot creation operations are already in progress for the subscription.
+
+* Cause:   
+You're trying to create a snapshot when three other snapshot creation operations are already in progress for the subscription. 
+* Solution:   
+Snapshot creation jobs take a few seconds at most to finish.  Wait a few seconds and retry the snapshot creation operation.
+
+***Cannot spawn additional jobs. Please wait for the ongoing jobs to finish and try again***
+
+This error can occur when you try to create or delete a volume under specific circumstances.
+
+* Cause:   
+You're trying to create or delete a volume under specific circumstances.
+* Solution:   
+Wait a minute or so and retry the operation.
+
+***Volume is already transitioning between states***
+
+This error can occur when you try to delete a volume that is currently in a transitioning state (that is, currently in the creating, updating, or deleting state).
+
+* Cause:   
+You're trying to delete a volume that is currently in a transitioning state.
+* Solution:   
+Wait until the currently running (state transitioning) operation has finished, and then retry the operation.
+
+***Failed to split new volume from source volume snapshot***
+
+ This error can occur when you try to create a volume from a snapshot.  
+
+* Cause:   
+You try to create a volume from a snapshot and volume ends in an error state.
+* Solution:   
+Delete the volume, then retry the volume creation operation from the snapshot.
+
+***Deletion of resource group fails during the NIC clearing process*** 
+
+* Cause:   
+ The resource group you try to delete might have volumes associated with it.
+* Solution:   
+ Before deleting the resource group, delete all volume associated with it. 
+ 
+## Next steps
+
+* [Develop for Azure NetApp Files with REST API](azure-netapp-files-develop-with-rest-api.md)

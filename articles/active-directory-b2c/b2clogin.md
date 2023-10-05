@@ -1,88 +1,148 @@
 ---
-title: Set redirect URLs to b2clogin.com - Azure Active Directory B2C | Microsoft Docs
-description: Learn about using b2clogin.com in your redirect URLs for Azure Active Directory B2C. 
+title: Migrate applications and APIs to b2clogin.com
+titleSuffix: Azure AD B2C
+description: Learn about using b2clogin.com in your redirect URLs for Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 01/28/2019
-ms.author: marsma
+ms.topic: how-to
+ms.date: 05/21/2022
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
 # Set redirect URLs to b2clogin.com for Azure Active Directory B2C
 
-When you set up an identity provider for sign-up and sign-in in your Azure Active Directory (Azure AD) B2C application, you need to specify a redirect URL. In the past, login.microsoftonline.com was used, now you should be using b2clogin.com.
+When you set up an identity provider for sign-up and sign-in in your Azure Active Directory B2C (Azure AD B2C) applications, you need to specify the endpoints of the Azure AD B2C identity provider. You should no longer reference *login.microsoftonline.com* in your applications and APIs for authenticating users with Azure AD B2C. Instead, use *b2clogin.com* or a [custom domain](./custom-domain.md) for all applications.
 
-Using b2clogin.com gives you additional benefits, such as:
+## What endpoints does this apply to
 
-- Space consumed in the cookie header by Microsoft services is reduced.
-- Your URLs no longer include a reference to Microsoft. For example, `https://your-tenant-name.b2clogin.com/tenant-id/oauth2/authresp`.
+The transition to b2clogin.com only applies to authentication endpoints that use Azure AD B2C policies (user flows or custom policies) to authenticate users. These endpoints have a `<policy-name>` parameter, which specifies the policy Azure AD B2C should use. [Learn more about Azure AD B2C policies](technical-overview.md#identity-experiences-user-flows-or-custom-policies). 
 
->[!NOTE]
-> You can use both the tenant name and the tenant GUID as follows:
-> * `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com` (which still refers to `onmicrosoft.com`)
-> * `https://your-tenant-name.b2clogin.com/your-tenant-guid` (in which case there is no reference to Microsoft at all)
->
-> However, you cannot use a _custom domain_ for your Azure Active Directory B2C tenant, e.g. `https://your-tenant-name.b2clogin.com/your-custom-domain-name` would _not_ work.
+Old endpoints may look like:
+- <code>https://<b>login.microsoft.com</b>/\<tenant-name\>.onmicrosoft.com/<b>\<policy-name\></b>/oauth2/v2.0/authorize</code>
+- <code>https://<b>login.microsoft.com</b>/\<tenant-name\>.onmicrosoft.com/oauth2/v2.0/authorize<b>?p=\<policy-name\></b></code>
 
-Consider these settings that might need to change when using b2clogin.com:
+A corresponding updated endpoint would look like:
+- <code>https://<b>\<tenant-name\>.b2clogin.com</b>/\<tenant-name\>.onmicrosoft.com/<b>\<policy-name\></b>/oauth2/v2.0/authorize</code>
+- <code>https://<b>\<tenant-name\>.b2clogin.com</b>/\<tenant-name\>.onmicrosoft.com/oauth2/v2.0/authorize?<b>p=\<policy-name\></b></code>
 
-- Set the redirect URLs in your identity provider applications to use b2clogin.com. 
-- Set your Azure AD B2C application to use b2clogin.com for user flow references and token endpoints. 
-- If you are using MSAL, you need to set the **ValidateAuthority** property to `false`.
-- Make sure that you change any **Allowed Origins** that you have defined in the CORS settings for [user-interface customization](active-directory-b2c-ui-customization-custom-dynamic.md).  
+With Azure AD B2C [custom domain](./custom-domain.md) the corresponding updated endpoint would look like:
 
-## Change redirect URLs
+- <code>https://<b>login.contoso.com</b>/\<tenant-name\>.onmicrosoft.com/<b>\<policy-name\></b>/oauth2/v2.0/authorize</code>
+- <code>https://<b>login.contoso.com</b>/\<tenant-name\>.onmicrosoft.com/oauth2/v2.0/authorize?<b>p=\<policy-name\></b></code>
 
-To use b2clogin.com, in the settings for your identity provider application, look for and change the list of trusted URLs to redirect back to Azure AD B2C.  Currently, you probably have it set up to redirect back to some login.microsoftonline.com site. 
+## Endpoints that are not affected
 
-You'll need to change the redirect URL so that `your-tenant-name.b2clogin.com` is authorized. Make sure to replace `your-tenant-name` with the name of your Azure AD B2C tenant and remove `/te` if it exists in the URL. There are slight variations to this URL for each identity provider so check the corresponding page to get the exact URL.
+Some customers use the shared capabilities of Microsoft Entra enterprise tenants. For example, acquiring an access token to call the [MS Graph API](microsoft-graph-operations.md#code-discussion) of the Azure AD B2C tenant.
 
-You can find set-up information for identity providers in the following articles:
+All endpoints, which don't contain a policy parameter aren't affected by the change. They're accessed only with the Microsoft Entra ID's login.microsoftonline.com endpoints, and can't be used with the *b2clogin.com*, or custom domains. The following example shows a valid token endpoint of the Microsoft identity platform:
 
-- [Microsoft account](active-directory-b2c-setup-msa-app.md)
-- [Facebook](active-directory-b2c-setup-fb-app.md)
-- [Google](active-directory-b2c-setup-goog-app.md)
-- [Amazon](active-directory-b2c-setup-amzn-app.md)
-- [LinkedIn](active-directory-b2c-setup-li-app.md)
-- [Twitter](active-directory-b2c-setup-twitter-app.md)
-- [GitHub](active-directory-b2c-setup-github-app.md)
-- [Weibo](active-directory-b2c-setup-weibo-app.md)
-- [QQ](active-directory-b2c-setup-qq-app.md)
-- [WeChat](active-directory-b2c-setup-wechat-app.md)
-- [Azure AD](active-directory-b2c-setup-oidc-azure-active-directory.md)
-- [Custom OIDC](active-directory-b2c-setup-oidc-idp.md)
-
-## Update your application
-
-Your Azure AD B2C application probably refers to `login.microsoftonline.com` in several places, such as your user flow references and token endpoints.  Make sure that your authorization endpoint, token endpoint, and issuer have been updated to use `your-tenant-name.b2clogin.com`.  
-
-## Set the ValidateAuthority property
-
-If you're using MSAL, set the **ValidateAuthority** property to `false`. When **ValidateAuthority** is set to `false`, redirects are allowed to b2clogin.com. 
-
-The following example shows how you might set the property:
-
-In [MSAL for .Net](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet):
-
-```CSharp
- ConfidentialClientApplication client = new ConfidentialClientApplication(...); // can also be PublicClientApplication
- client.ValidateAuthority = false;
+```http
+https://login.microsoftonline.com/<tenant-name>.onmicrosoft.com/oauth2/v2.0/token
 ```
 
-And in [MSAL for Javascript](https://github.com/AzureAD/microsoft-authentication-library-for-js):
+## Overview of required changes
 
-```Javascript
+There are several modifications you might need to make to migrate your applications from *login.microsoftonline.com* using Azure AD B2C endpoints:
+
+* Change the redirect URL in your identity provider's applications to reference *b2clogin.com*, or custom domain. For more information, follow the [change identity provider redirect URLs](#change-identity-provider-redirect-urls) guidance.
+* Update your Azure AD B2C applications to use *b2clogin.com*, or custom domain in their user flow and token endpoint references. The change may include updating your use of an authentication library like Microsoft Authentication Library (MSAL).
+* Update any **Allowed Origins** that you've defined in the CORS settings for [user interface customization](customize-ui-with-html.md).
+
+
+## Change identity provider redirect URLs
+
+On each identity provider's website in which you've created an application, change all trusted URLs to redirect to `your-tenant-name.b2clogin.com`, or a custom domain instead of *login.microsoftonline.com*.
+
+There are two formats you can use for your b2clogin.com redirect URLs. The first provides the benefit of not having "Microsoft" appear anywhere in the URL by using the Tenant ID (a GUID) in place of your tenant domain name. Note, the `authresp` endpoint may not contain a policy name.
+
+```
+https://{your-tenant-name}.b2clogin.com/{your-tenant-id}/oauth2/authresp
+```
+
+The second option uses your tenant domain name in the form of `your-tenant-name.onmicrosoft.com`. For example:
+
+```
+https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp
+```
+
+For both formats:
+
+* Replace `{your-tenant-name}` with the name of your Azure AD B2C tenant.
+* Remove `/te` if it exists in the URL.
+
+## Update your applications and APIs
+
+The code in your Azure AD B2C-enabled applications and APIs may refer to `login.microsoftonline.com` in several places. For example, your code might have references to user flows and token endpoints. Update the following to instead reference `your-tenant-name.b2clogin.com`:
+
+* Authorization endpoint
+* Token endpoint
+* Token issuer
+
+For example, the authority endpoint for Contoso's sign-up/sign-in policy would now be:
+
+```
+https://contosob2c.b2clogin.com/00000000-0000-0000-0000-000000000000/B2C_1_signupsignin1
+```
+
+For information about migrating OWIN-based web applications to b2clogin.com, see [Migrate an OWIN-based web API to b2clogin.com](multiple-token-endpoints.md).
+
+For migrating Azure API Management APIs protected by Azure AD B2C, see the [Migrate to b2clogin.com](secure-api-management.md#migrate-to-b2clogincom) section of [Secure an Azure API Management API with Azure AD B2C](secure-api-management.md).
+
+## Microsoft Authentication Library (MSAL)
+
+### MSAL.NET ValidateAuthority property
+
+If you're using [MSAL.NET][msal-dotnet] v2 or earlier, set the **ValidateAuthority** property to `false` on client instantiation to allow redirects to *b2clogin.com*. Setting this value to `false` isn't required for MSAL.NET v3 and above.
+
+```csharp
+ConfidentialClientApplication client = new ConfidentialClientApplication(...); // Can also be PublicClientApplication
+client.ValidateAuthority = false; // MSAL.NET v2 and earlier **ONLY**
+```
+
+### MSAL for JavaScript validateAuthority property
+
+If you're using [MSAL for JavaScript][msal-js] v1.2.2 or earlier, set the **validateAuthority** property to `false`.
+
+```JavaScript
+// MSAL.js v1.2.2 and earlier
 this.clientApplication = new UserAgentApplication(
   env.auth.clientId,
   env.auth.loginAuthority,
   this.authCallback.bind(this),
   {
-    validateAuthority: false
+    validateAuthority: false // Required in MSAL.js v1.2.2 and earlier **ONLY**
   }
 );
 ```
+
+If you set `validateAuthority: true` in MSAL.js 1.3.0+ (the default), you must also specify a valid token issuer with `knownAuthorities`:
+
+```JavaScript
+// MSAL.js v1.3.0+
+this.clientApplication = new UserAgentApplication(
+  env.auth.clientId,
+  env.auth.loginAuthority,
+  this.authCallback.bind(this),
+  {
+    validateAuthority: true, // Supported in MSAL.js v1.3.0+
+    knownAuthorities: ['tenant-name.b2clogin.com'] // Required if validateAuthority: true
+  }
+);
+```
+
+## Next steps
+
+For information about migrating OWIN-based web applications to b2clogin.com, see [Migrate an OWIN-based web API to b2clogin.com](multiple-token-endpoints.md).
+
+For migrating Azure API Management APIs protected by Azure AD B2C, see the [Migrate to b2clogin.com](secure-api-management.md#migrate-to-b2clogincom) section of [Secure an Azure API Management API with Azure AD B2C](secure-api-management.md).
+
+<!-- LINKS - External -->
+[msal-dotnet]: https://github.com/AzureAD/microsoft-authentication-library-for-dotnet
+[msal-dotnet-b2c]: https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AAD-B2C-specifics
+[msal-js]: https://github.com/AzureAD/microsoft-authentication-library-for-js
+[msal-js-b2c]: ../active-directory/develop/msal-b2c-overview.md

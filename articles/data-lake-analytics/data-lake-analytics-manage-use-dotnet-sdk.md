@@ -1,19 +1,17 @@
 ---
 title: Manage Azure Data Lake Analytics using Azure .NET SDK
 description: This article describes how to use the Azure .NET SDK to write apps that manage Data Lake Analytics jobs, data sources, & users.
-services: data-lake-analytics
-author: saveenr
-ms.author: saveenr
-
-ms.reviewer: jasonwhowell
-ms.assetid: 811d172d-9873-4ce9-a6d5-c1a26b374c79
+ms.reviewer: whhender
 ms.service: data-lake-analytics
-ms.topic: conceptual
-ms.date: 06/18/2017
+ms.topic: how-to
+ms.date: 01/20/2023
+ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 # Manage Azure Data Lake Analytics a .NET app
 
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
+
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
 
 This article describes how to manage Azure Data Lake Analytics accounts, data sources, users, and jobs using an app written using the Azure .NET SDK. 
 
@@ -49,12 +47,14 @@ Install-Package -Id Microsoft.Azure.Graph.RBAC -Version 3.4.0-preview
 string subid = "<Subscription ID>"; // Subscription ID (a GUID)
 string tenantid = "<Tenant ID>"; // AAD tenant ID or domain. For example, "contoso.onmicrosoft.com"
 string rg == "<value>"; // Resource  group name
-string clientid = "1950a258-227b-4e31-a9cf-717495945fc2"; // Sample client ID (this will work, but you should pick your own)
+string clientid = "abcdef01-2345-6789-0abc-def012345678"; // Sample client ID
 ```
 
 ## Authentication
 
 You have multiple options for logging on to Azure Data Lake Analytics. The following snippet shows an example of authentication with interactive user authentication with a pop-up.
+
+For ClientID you can either use the ID of a user, or the Application (Client) ID of a [service principal](/azure/active-directory/develop/howto-create-service-principal-portal#register-an-application-with-azure-ad-and-create-a-service-principal).
 
 ``` csharp
 using System;
@@ -74,7 +74,7 @@ using Microsoft.Azure.Graph.RBAC;
 public static Program
 {
    public static string TENANT = "microsoft.onmicrosoft.com";
-   public static string CLIENTID = "1950a258-227b-4e31-a9cf-717495945fc2";
+   public static string CLIENTID = "abcdef01-2345-6789-0abc-def012345678";
    public static System.Uri ARM_TOKEN_AUDIENCE = new System.Uri( @"https://management.core.windows.net/");
    public static System.Uri ADL_TOKEN_AUDIENCE = new System.Uri( @"https://datalake.azure.net/" );
    public static System.Uri GRAPH_TOKEN_AUDIENCE = new System.Uri( @"https://graph.windows.net/" );

@@ -1,15 +1,16 @@
 ---
-title: Define a validation technical profile in a custom policy in Azure Active Directory B2C | Microsoft Docs
-description: Define an Azure Active Directory technical profile in a custom policy in Azure Active Directory B2C.
+title: Define a validation technical profile in a custom policy
+titleSuffix: Azure AD B2C
+description: Validate claims by using a validation technical profile in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
-ms.author: marsma
+ms.date: 03/16/2020
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -17,9 +18,9 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-A validation technical profile is an ordinary technical profile from any protocol, such as [Azure Active Directory](active-directory-technical-profile.md) or a [REST API](restful-technical-profile.md). The validation technical profile returns output claims or returns an HTTP 409 error message (Conflict response status code), with the following data:
+A validation technical profile is an ordinary technical profile from any protocol, such as [Microsoft Entra ID](active-directory-technical-profile.md) or a [REST API](restful-technical-profile.md). The validation technical profile returns output claims, or returns 4xx HTTP status code, with the following data. For more information, see [returning error message](restful-technical-profile.md#returning-validation-error-message)
 
-```JSON
+```json
 {
     "version": "1.0.0",
     "status": 409,
@@ -27,13 +28,16 @@ A validation technical profile is an ordinary technical profile from any protoco
 }
 ```
 
-Claims that are returned from a validation technical profile are added back to the claims bag. You can use those claims in the next validation technical profiles.
+The scope of the output claims of a validation technical profile is limited to the [self-asserted technical profile](self-asserted-technical-profile.md) that invokes the validation technical profile, and its validation technical profiles. If you want to use the output claims in the next orchestration step, add the output claims to the self-asserted technical profile that invokes the validation technical profile.
 
 Validation technical profiles are executed in the sequence that they appear in the **ValidationTechnicalProfiles** element. You can configure in a validation technical profile whether the execution of any subsequent validation technical profiles should continue if the validation technical profile raises an error or is successful.
 
-A validation technical profile can be conditionally executed based on preconditions defined in the **ValidationTechnicalProfile** element. For example, you can check whether a specific claims exists, or if a claim is equal or not to the specified value.
+A validation technical profile can be conditionally executed based on preconditions defined in the **ValidationTechnicalProfile** element. For example, you can check whether a specific claim exists, or if a claim is equal or not to the specified value.
 
 A self-asserted technical profile may define a validation technical profile to be used for validating some or all of its output claims. All of the input claims of the referenced technical profile must appear in the output claims of the referencing validation technical profile.
+
+> [!NOTE]
+> Only self-asserted technical profiles can use validation technical profiles. If you need to validate the output claims from non-self-asserted technical profiles, consider using an additional orchestration step in your user journey to accommodate the technical profile in charge of the validation.
 
 ## ValidationTechnicalProfiles
 
@@ -79,10 +83,10 @@ Following example uses these validation technical profiles:
 2. The next validation technical profile, doesn't execute if the userType claim does not exist, or if the value of the userType is `Partner`. The validation technical profile tries to read the user profile from the internal customer database and continue if an error occurs, such as REST API service not available, or any internal error.
 3. The last validation technical profile, doesn't execute if the userType claim has not existed, or if the value of the userType is `Customer`. The validation technical profile tries to read the user profile from the internal partner database and continues if an error occurs, such as REST API service not available, or any internal error.
 
-```XML
+```xml
 <ValidationTechnicalProfiles>
   <ValidationTechnicalProfile ReferenceId="login-NonInteractive" ContinueOnError="false" />
-  <ValidationTechnicalProfile ReferenceId="REST-ReadProfileFromCustomertsDatabase" ContinueOnError="true" >
+  <ValidationTechnicalProfile ReferenceId="REST-ReadProfileFromCustomersDatabase" ContinueOnError="true" >
     <Preconditions>
       <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
         <Value>userType</Value>

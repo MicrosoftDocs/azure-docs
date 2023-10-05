@@ -1,19 +1,16 @@
-﻿---
-title: Create an Internet-facing load balancer with IPv6 - PowerShell
-titlesuffix: Azure Load Balancer
-description: Learn how to create an Internet facing load balancer with IPv6 using PowerShell for Resource Manager
+---
+title: Create an Internet-facing load balancer with IPv6 - Azure PowerShell
+titleSuffix: Azure Load Balancer
+description: Learn how to create an Internet facing load balancer with IPv6 using PowerShell for Resource Manager.
 services: load-balancer
-documentationcenter: na
-author: KumudD
+author: mbender-ms
 keywords: ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile, iot
 ms.service: load-balancer
-ms.custom: seodec18
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
-ms.author: kumud
+ms.date: 05/30/2023
+ms.author: mbender
+ms.custom: template-how-to, seodec18, devx-track-azurepowershell
 ---
 
 # Get started creating an Internet facing load balancer with IPv6 using PowerShell for Resource Manager
@@ -23,6 +20,9 @@ ms.author: kumud
 > * [Azure CLI](load-balancer-ipv6-internet-cli.md)
 > * [Template](load-balancer-ipv6-internet-template.md)
 
+>[!NOTE] 
+>This article describes an introductory IPv6 feature to allow Basic Load Balancers to provide both IPv4 and IPv6 connectivity. Comprehensive IPv6 connectivity is now available with [IPv6 for Azure VNETs](../virtual-network/ip-services/ipv6-overview.md) which integrates IPv6 connectivity with your Virtual Networks and includes key features such as IPv6 Network Security Group rules, IPv6 User-defined routing, IPv6 Basic and Standard load balancing, and more.  IPv6 for Azure VNETs is the recommended standard for IPv6 applications in Azure. 
+See [IPv6 for Azure VNET PowerShell Deployment](./virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) 
 
 An Azure load balancer is a Layer-4 (TCP, UDP) load balancer. The load balancer provides high availability by distributing incoming traffic among healthy service instances in cloud services or virtual machines in a load balancer set. Azure Load Balancer can also present those services on multiple ports, multiple IP addresses, or both.
 
@@ -34,7 +34,7 @@ The following diagram illustrates the load balancing solution being deployed in 
 
 ![Load balancer scenario](./media/load-balancer-ipv6-internet-ps/lb-ipv6-scenario.png)
 
-In this scenario you will create the following Azure resources:
+In this scenario you'll create the following Azure resources:
 
 * an Internet-facing Load Balancer with an IPv4 and an IPv6 Public IP address
 * two load balancing rules to map the public VIPs to the private endpoints
@@ -48,13 +48,13 @@ The following steps show how to create an Internet facing load balancer using Az
 
 To deploy a load balancer, you create and configure the following objects:
 
-* Front-end IP configuration - contains public IP addresses for incoming network traffic.
-* Back-end address pool - contains network interfaces (NICs) for the virtual machines to receive network traffic from the load balancer.
+* Frontend IP configuration - contains public IP addresses for incoming network traffic.
+* Backend address pool - contains network interfaces (NICs) for the virtual machines to receive network traffic from the load balancer.
 * Load balancing rules - contains rules mapping a public port on the load balancer to port in the back-end address pool.
 * Inbound NAT rules - contains rules mapping a public port on the load balancer to a port for a specific virtual machine in the back-end address pool.
 * Probes - contains health probes used to check availability of virtual machines instances in the back-end address pool.
 
-For more information, see [Azure Resource Manager support for Load Balancer](load-balancer-arm.md).
+For more information, see [Azure Load Balancer components](./components.md).
 
 ## Set up PowerShell to use Resource Manager
 
@@ -153,7 +153,7 @@ This example creates the following items:
     $RDPprobe = New-AzLoadBalancerProbeConfig -Name 'RDPprobe' -Protocol Tcp -Port 3389 -IntervalInSeconds 15 -ProbeCount 2
     ```
 
-    For this example, we are going to use the TCP probes.
+    For this example, we're going to use the TCP probes.
 
 3. Create a load balancer rule.
 
@@ -192,7 +192,7 @@ This example creates the following items:
 
 ## Create virtual machines and assign the newly created NICs
 
-For more information about creating a VM, see [Create and preconfigure a Windows Virtual Machine with Resource Manager and Azure PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json)
+For more information about creating a VM, see [Create and preconfigure a Windows Virtual Machine with Resource Manager and Azure PowerShell](../virtual-machines/windows/quick-create-powershell.md?toc=%2fazure%2fload-balancer%2ftoc.json)
 
 1. Create an Availability Set and Storage account
 
@@ -224,11 +224,3 @@ For more information about creating a VM, see [Create and preconfigure a Windows
     $vm2 = Set-AzVMOSDisk -VM $vm2 -Name 'myNrpIPv6VM1osdisk' -VhdUri $osDisk2Uri -CreateOption FromImage
     New-AzVM -ResourceGroupName NRP-RG -Location 'West US' -VM $vm2
     ```
-
-## Next steps
-
-[Get started configuring an internal load balancer](load-balancer-get-started-ilb-arm-ps.md)
-
-[Configure a load balancer distribution mode](load-balancer-distribution-mode.md)
-
-[Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)

@@ -1,13 +1,14 @@
 ---
-title: Tutorial - Route traffic to weighted endpoints - Azure Traffic Manager
+title: 'Tutorial: Route traffic to weighted endpoints - Azure Traffic Manager'
 description: This tutorial article describes how to route traffic to weighted endpoints by using Traffic Manager.
 services: traffic-manager
-author: asudbring
-Customer intent: As an IT Admin, I want to distribute traffic based on the weight assigned to a website endpoint so that I can control the user traffic to a given website.
+author: greg-lindsay
 ms.service: traffic-manager
 ms.topic: tutorial
-ms.date: 10/15/2018
-ms.author: allensu
+ms.date: 10/19/2020
+ms.author: greglin
+ms.custom: template-tutorial
+# Customer intent: As an IT Admin, I want to distribute traffic based on the weight assigned to a website endpoint so that I can control the user traffic to a given website.
 ---
 
 # Tutorial: Control traffic routing with weighted endpoints by using Traffic Manager
@@ -55,7 +56,7 @@ In this section, you create two VMs (*myIISVMEastUS* and *myIISVMWestEurope*) in
    - **Instance Details** > **Virtual machine name**: Type *myIISVMEastUS*.
    - **Instance Details** > **Region**:  Select **East US**.
    - **Administrator Account** > **Username**:  Enter a user name of your choosing.
-   - **Administrator Account** > **Password**:  Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).
+   - **Administrator Account** > **Password**:  Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).
    - **Inbound Port Rules** > **Public inbound ports**: Select **Allow selected ports**.
    - **Inbound Port Rules** > **Select inbound ports**: Select **RDP** and **HTTP** in the pull down box.
 
@@ -115,7 +116,7 @@ In this section, you create a VM (*myVMEastUS* and *myVMWestEurope*) in each Azu
    - **Instance Details** > **Virtual machine name**: Type *myVMEastUS*.
    - **Instance Details** > **Region**:  Select **East US**.
    - **Administrator Account** > **Username**:  Enter a user name of your choosing.
-   - **Administrator Account** > **Password**:  Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).
+   - **Administrator Account** > **Password**:  Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).
    - **Inbound Port Rules** > **Public inbound ports**: Select **Allow selected ports**.
    - **Inbound Port Rules** > **Select inbound ports**: Select **RDP** in the pull down box.
 
@@ -196,11 +197,13 @@ In this section, you can see Traffic Manager in action.
 
 7. Repeat steps 1-6 on the VM myVMWestEurope to see the weighted website response.
 
-## Delete the Traffic Manager profile
+## Clean up resources
 
 When you no longer need the resource groups that you created in this tutorial, you can delete them. To do so, select the resource group (**ResourceGroupTM1** or **ResourceGroupTM2**), and then select **Delete**.
 
 ## Next steps
 
+To learn more about routing methods, see:
+
 > [!div class="nextstepaction"]
-> [Route traffic to specific endpoints based on the user's geographic location](traffic-manager-configure-geographic-routing-method.md)
+> [Traffic routing method](traffic-manager-routing-methods.md)

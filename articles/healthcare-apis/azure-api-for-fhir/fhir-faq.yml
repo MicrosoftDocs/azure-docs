@@ -1,0 +1,226 @@
+### YamlMime:FAQ
+metadata:
+  title: FAQs about FHIR services in Azure API for FHIR
+  description: Get answers to frequently asked questions about the Azure API for FHIR, such as the storage location of data behind FHIR APIs and version support.
+  author: expekesheth
+  ms.service: healthcare-apis
+  ms.subservice: fhir
+  ms.custom: ignite-2022
+  ms.topic: faq
+  ms.date: 03/21/2022
+  ms.author: kesheth
+title: Frequently asked questions about Azure API for FHIR
+summary: |
+
+sections:
+  - name: "Azure API for FHIR: The Basics"
+    questions:
+      - question: |
+          What is FHIR?
+        answer: |
+          The Fast Healthcare Interoperability Resources (FHIR - Pronounced "fire") is an interoperability standard intended to enable the exchange of healthcare data between different health systems. This standard was developed by the HL7 organization and is being adopted by healthcare organizations around the world. The most current version of FHIR available is R4 (Release 4). The Azure API for FHIR supports R4 and the previous version STU3 (Standard for Trial Use 3). For more information on FHIR, visit [HL7.org](http://hl7.org/fhir/summary.html).
+          
+      - question: |
+          Is the data behind the FHIR APIs stored in Azure?
+        answer: |
+          Yes, the data is stored in managed databases in Azure. The Azure API for FHIR doesn't provide direct access to the underlying data store.
+
+      - question: |
+          How can I get access to the underlying data?
+        answer: |
+          In the managed service, you can't access the underlying data. This is to ensure that the Azure API for FHIR offers the privacy and compliance certifications needed for healthcare data. If you need access to the underlying data, you can use the [open-source FHIR server](https://github.com/microsoft/fhir-server).
+
+      - question: |
+          What identity provider do you support?
+        answer: |
+          We support Microsoft Azure Active Directory as the identity provider.
+
+      - question: |
+          Can I use Azure AD B2C with the Azure API for FHIR?
+        answer: |
+          No, we don't support B2C in the Azure API for FHIR. If you need more granular access controls, we recommend looking at the [open-source FHIR proxy](https://github.com/microsoft/fhir-proxy). 
+
+      - question: |
+          What is the backup and recovery policy for the Azure API for FHIR?
+        answer: |
+          Data for the managed service is backed up automatically every 4 hours and two backups are maintained. So the retention duration is 8 hours. Data recovery is done by the support team and the recovery point objective (RPO) is less than 240 minutes.
+
+          Customers can make a request to restore the data, or change the default data backup policy, through a support ticket.
+          
+      - question: |
+          What FHIR version do you support?
+        answer: |
+          We support versions 4.0.0 and 3.0.1. For more information, see the [FHIR supported features](fhir-features-supported.md). You can also read about what has changed between FHIR versions (STU3 to R4) in the [version history for HL7 FHIR](https://hl7.org/fhir/R4/history.html).
+          
+          Azure IoT Connector for FHIR (preview) currently supports only FHIR version R4 and is visible on R4 instances of Azure API for FHIR.
+
+      - question: |
+          What's the difference between Azure Health Data Services and Azure API for FHIR?
+        answer: |
+          Azure API for FHIR is a generally available managed FHIR service. Azure Health Data Services allows you to deploy a FHIR service and a DICOM service in the same workspace. The Azure Health Data Services overview provides more details.         
+          
+      - question: |
+          What's the difference between the Microsoft FHIR Server for Azure and Azure API for FHIR?
+        answer: |
+          Azure API for FHIR is a hosted and managed version of the open-source Microsoft FHIR Server for Azure. In the managed service, Microsoft provides all maintenance and updates. 
+          
+          When you run the FHIR Server for Azure, you have direct access to the underlying services, but we're responsible for maintaining and updating the server and all required compliance work if you're storing PHI data.
+          
+      - question: |
+          In which regions is Azure API for FHIR available?
+        answer: |
+          We have general availability for both public and government in [multiple geo-regions](https://azure.microsoft.com/global-infrastructure/services/?products=azure-api-for-fhir&regions=non-regional,us-east,us-east-2,us-central,us-north-central,us-south-central,us-west-central,us-west,us-west-2,canada-east,canada-central,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia). For information about government cloud services at Microsoft, see [Azure services by FedRAMP](../../azure-government/compliance/azure-services-in-fedramp-auditscope.md).
+          
+      - question: |
+          Where can I see what is releasing in Azure API for FHIR?
+        answer: |
+          The [release notes](./release-notes.md) page provides an overview of everything that has shipped to the managed service in the previous month. 
+          
+          For more information about what's releasing in Azure API for FHIR, see [releases](https://github.com/microsoft/fhir-server/releases) of the open-source FHIR Server. We have worked to tag items with Azure-API-for-FHIR if they'll release to the managed service and are usually available two weeks after they are on the release page in open-source. We have also included instructions on [how to test the build](https://github.com/microsoft/fhir-server/blob/master/docs/Testing-Releases.md) if you'd like to test in your own environment. 
+          
+          To see what release package is currently in the managed service, you can view the capability statement for the Azure API for FHIR under the `software.version` property. You'll see which package is deployed. 
+          
+      - question: |
+          Where can I find what version of FHIR (that is R4/STU3) is running on my database?
+        answer: |
+          You can find the exact FHIR version exposed in the capability statement under the `fhirVersion` property.
+
+      - question: |
+          Can I switch my Azure API for FHIR from STU3 to R4?
+        answer: |
+          No. We don't have a way to change the version of an existing database. You'll need to create a new Azure API for FHIR and reload the data. You can leverage the [JSON to FHIR converter](https://github.com/microsoft/FHIR-Converter) as a place to start with converting STU3 data into R4.
+      
+      - question: |
+          Can I customize the URL for my Azure API for FHIR?
+        answer: |
+          No. You can't change the URL for the Azure API for FHIR.
+
+  - name: FHIR Implementations and Specifications
+    questions:
+      - question: |
+          What is SMART on FHIR?
+        answer: |
+          SMART (Substitutable Medical Applications and Reusable Technology) on FHIR is a set of open specifications to integrate partner applications with FHIR Servers and other Health IT systems, such as Electronic Health Records and Health Information Exchanges. By creating a SMART on FHIR application, you can ensure that your application can be accessed and leveraged by a plethora of different systems. For more information about SMART, visit the [SMART Health IT](https://smarthealthit.org/) website.
+       
+      - question: |
+          Does Azure API for FHIR support SMART on FHIR?
+        answer: |
+          Yes, SMART on FHIR capability is supported using [AHDS samples](https://aka.ms/azure-health-data-services-smart-on-fhir-sample). This is referred to as SMART on FHIR(Enhanced). SMART on FHIR(Enhanced) can be considered to meet requirements with [SMART on FHIR Implementation Guide (v 1.0.0)](https://hl7.org/fhir/smart-app-launch/1.0.0/) and [§170.315(g)(10) Standardized API for patient and population services criterion](https://www.healthit.gov/test-method/standardized-api-patient-and-population-services#ccg). For more information, visit [SMART on FHIR(Enhanced) Documentation](smart-on-fhir.md).
+      - question: |
+          Can I create a custom FHIR resource?
+        answer: |
+          We don't allow custom FHIR resources. If you need a custom FHIR resource, you can build a custom resource on top of the [Basic resource](https://www.hl7.org/fhir/basic.html) with extensions. 
+          
+      - question: |
+          Are extensions supported on Azure API for FHIR?
+        answer: |
+          We allow you to load any valid FHIR JSON data into the server. If you want to store the structure definition that defines the extension, you can save this as a structure definition resource. To search on extensions, you'll need to [define your own search parameters](../fhir/how-to-do-custom-search.md). 
+
+      - question: |
+          What is the limit on the size of a resource I can upload?
+        answer: |
+          Your resource must be just under 2 MB. This is a limitation from the underlying datastore, and we can't increase this value.
+
+      - question: |
+          How do I see Azure API for FHIR in XML?
+        answer: |
+          In the managed service, we only support JSON. The open-source FHIR server supports JSON and XML. To view the XML version in open-source, use `_format= application/fhir+xml`. 
+
+      - question: |
+          What is the limit on _count?
+        answer: |
+          The current limit on _count is 1000. If you set _count to more than 1000, you'll receive a warning in the bundle that only 1000 records will be shown.
+
+      - question: |
+          Are there any limitations on the Group Export functionality?
+        answer: |
+          For Group Export, we only export the included references from the group and not all the characteristics of the [group resource](https://www.hl7.org/fhir/group.html).
+          
+      - question: |
+          Can I post a bundle to Azure API for FHIR?
+        answer: |
+          We currently support posting [batch bundles](https://www.hl7.org/fhir/valueset-bundle-type.html), but we don't support posting transaction bundles in Azure API for FHIR. You can use the FHIR service in Azure Health Data Services if you need transaction bundle support. 
+          
+      - question: |
+          How can I get all resources for a single patient in Azure API for FHIR?
+        answer: |
+          You can use the [Patient-$everything operation](patient-everything.md), or you can use a [compartment search](https://www.hl7.org/fhir/compartmentdefinition.html) in Azure API for FHIR. This allows you to get all the resources related to a specific patient. Note that the patient compartment includes all the resources related to the patient but not the patient itself, so you'll need to also search to get the patient if you need the patient resource in your results.
+          
+      - question: |
+          What is the default sort when searching for resources in Azure API for FHIR?
+        answer: |
+          We support sorting by the date last updated: _sort=_lastUpdated. We also support _sort on FirstName, LastName, BirthDate, and ClinicalDate elements. For more information about other supported search parameters, see [Overview of FHIR Search](overview-of-search.md).
+
+      - question: |
+          Does the Azure API for FHIR support $everything? 
+        answer: |
+          Yes, we do have support for patient-$everything. For more information, see the [Patient-$Everything how-to guide](patient-everything.md).
+
+      - question: |
+          Does Azure API for FHIR support any terminology operations? 
+        answer: |
+          No, Azure API for FHIR doesn't support terminology operations today. 
+          
+      - question: |
+          How does $export work?
+        answer: |
+          $export is part of the [FHIR specification](https://hl7.org/fhir/uv/bulkdata/export/index.html). If the FHIR service is configured with a managed identity and a storage account, and if the managed identity has access to that storage account, you can call $export on the FHIR API and all the FHIR resources will be exported to the storage account. For more information, see the article [$export](../data-transformation/export-data.md).
+          
+      - question: |
+          Is there an out of the box solution for de-identifying EHR data?
+        answer: |
+          We have an open-source tool to de-identify FHIR data. The same technology is also integrated to Azure API for FHIR in the form of [de-identified](../fhir/de-identified-export.md) export.  
+
+      - question: |
+          Is de-identified export available at Patient and Group level as well?
+        answer: |
+          Anonymized export is currently supported only on a full system export (/$export) and not for Patient export (/Patient/$export). We're working on making it available at the Patient level as well.
+      
+      - question: |
+          What are the differences between delete types in Azure API for FHIR?
+        answer: |
+          There are two basic Delete types supported within Azure API for FHIR. These are [Delete and Conditional Delete](fhir-rest-api-capabilities.md#delete-and-conditional-delete).
+          * With Delete, you can choose to do a soft delete (most common type) and still be able to recover historic versions of your record.
+          * With Conditional Delete, you can pass a search criteria to delete a resource one item at a time or several at a time.
+          * With either Delete or Conditional Delete, if you passed the `hardDelete` parameter, all the records and history are deleted and unrecoverable.
+      
+      - question: |
+          How do I recover deleted records in Azure API for FHIR?
+        answer: |
+          You can recover deleted files if you don't use the `hardDelete` parameter. The record(s) in Azure API for FHIR should still exist. The record(s) can be found by doing a history search on the resource and by looking for the last version with data.
+  
+  - name: Using Azure API for FHIR
+    questions:
+      - question: |
+          How do I enable log analytics for Azure API for FHIR?
+        answer: |
+         For details on enabling audit logs and sample queries, see [Enable Diagnostic Logging in Azure API for FHIR](enable-diagnostic-logging.md). If you want to include additional information in the logs, see [using custom HTTP headers](use-custom-headers.md).
+          
+      - question: |
+          I'm getting 429s when loading and updating data. How can I resolve this?
+        answer: |
+         To resolve this you can increase your [throughput](../../healthcare-apis/azure-api-for-fhir/configure-database.md#update-throughput) or switch over to [autoscaling](autoscale-azure-api-fhir.md) to ensure that you have enough compute to process the requests. If you're still having issues, please open a support ticket.
+
+      - question: |
+          How do I lower my RUs, and I'm unable to and the RUs are higher than I set them?
+        answer: |
+         The minimum RU value needs to be at least 40 RU per GB. As you load data, the RUs on the database will increase if you are below this minimum value. 
+
+      - question: |
+          Where can I see some examples of using the Azure API for FHIR within a workflow?
+        answer: |
+          We have a collection of reference architectures available on the [Health Architecture GitHub page](https://github.com/microsoft/health-architectures). 
+          
+  - name: Azure API for FHIR features and services
+    questions:
+    
+      - question: |
+          Can I perform health checks on FHIR service?
+        answer: |
+          To perform health check on FHIR service, enter `{{fhirurl}}/health/check` in the GET request. You should be able to see Status of FHIR service. HTTP Status code response with 200 and OverallStatus as "Healthy" in response, means your health check is successful.
+          In case of errors, you will receive error response with HTTP status code 404 (Not Found) or status code 500 (Internal Server Error), and detailed information in response body in some scenarios.
+    
+      - question: |
+          Is there a way to encrypt my data using my personal key and not a default key?
+        answer: |
+          Yes, Azure API for FHIR allows configuring customer-managed keys, leveraging support from Azure Cosmos DB. For more information about encrypting your data with a personal key, see [Configure customer-managed keys at REST](customer-managed-key.md).

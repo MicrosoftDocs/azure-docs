@@ -1,14 +1,12 @@
 ---
-title: Create an environment from a blueprint sample
-description: Use a blueprint sample to create a blueprint definition that sets up two resource groups and configures a role assignment for each.
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 03/05/2019
+title: "Tutorial: Blueprint sample to new environment"
+description: In this tutorial, you use a blueprint sample to create a blueprint definition that sets up two resource groups and configures a role assignment for each.
+ms.date: 09/07/2023
 ms.topic: tutorial
-ms.service: blueprints
-manager: carmonm
 ---
 # Tutorial: Create an environment from a blueprint sample
+
+[!INCLUDE [Blueprints deprecation note](../../../../includes/blueprints-deprecation-note.md)]
 
 Sample blueprints provide examples of what can be done using Azure Blueprints. Each is a sample with
 a specific intent or purpose, but doesn't create a complete environment by themselves. Each is
@@ -16,7 +14,7 @@ intended as a starting place to explore using Azure Blueprints with various comb
 artifacts, designs, and parameters.
 
 The following tutorial uses the **Resource Groups with RBAC** blueprint sample to showcase different
-aspects of the Blueprints service. The following steps are covered:
+aspects of the Azure Blueprints service. The following steps are covered:
 
 > [!div class="checklist"]
 > - Create a new blueprint definition from the sample
@@ -40,8 +38,7 @@ on the sample.
 1. From the **Getting started** page on the left, select the **Create** button under _Create a
    blueprint_.
 
-1. Find the **Resource Groups with RBAC** blueprint sample under _Other Samples_ and select **Use
-   this sample**.
+1. Find the **Resource Groups with RBAC** blueprint sample under _Other Samples_ and select it.
 
 1. Enter the _Basics_ of the blueprint sample:
 
@@ -116,7 +113,7 @@ to make each deployment of the copy of the blueprint sample unique.
        assignment will be created for each using the parameters entered.
      - **Assignment name**: The name is pre-populated for you based on the name of the blueprint
        definition.
-     - **Location**: Select a region for the managed identity to be created in. Azure Blueprint uses
+     - **Location**: Select a region for the managed identity to be created in. Azure Blueprints uses
        this managed identity to deploy all artifacts in the assigned blueprint. To learn more, see
        [managed identities for Azure resources](../../../active-directory/managed-identities-azure-resources/overview.md).
        For this tutorial, select _East US 2_.
@@ -168,9 +165,9 @@ resources directly.
    _Assignment-two-rgs-with-role-assignments_ blueprint assignment and then select it.
 
    From this page, we can see the assignment succeeded and the list of created resources along with
-   their blueprint lock state. If the assignment is updated, the **Assignment operation** drop-down
-   shows details about the deployment of each definition version. Each listed resource that was
-   created can be clicked and opens that resources property page.
+   their blueprint lock state. If the assignment is updated, the **Assignment operation** dropdown
+   list shows details about the deployment of each definition version. Each listed resource that was
+   created can be selected and opens that resources property page.
 
 1. Select the **ProductionRG** resource group.
 
@@ -195,10 +192,11 @@ resources directly.
 
 1. Select the **Deny assignments** tab.
 
-   The blueprint assignment created a [deny assignment](../../../role-based-access-control/deny-assignments.md)
-   on the deployed resource group to enforce the _Read Only_ blueprint lock mode. The deny
-   assignment prevents someone with appropriate rights on the _Role assignments_ tab from taking
-   specific actions. The deny assignment affects _All principals_.
+   The blueprint assignment created a
+   [deny assignment](../../../role-based-access-control/deny-assignments.md) on the deployed
+   resource group to enforce the _Read Only_ blueprint lock mode. The deny assignment prevents
+   someone with appropriate rights on the _Role assignments_ tab from taking specific actions. The
+   deny assignment affects _All principals_.
 
 1. Select the deny assignment, then select the **Denied Permissions** page on the left.
 
@@ -213,7 +211,8 @@ resources directly.
    states that while your account has permission to delete the resource group, access is denied by
    the blueprint assignment. Remember that we selected the _Read Only_ blueprint lock mode during
    blueprint assignment. The blueprint lock prevents an account with permission, even _Owner_, from
-   deleting the resource. For more information, see [blueprints resource locking](../concepts/resource-locking.md).
+   deleting the resource. For more information, see
+   [blueprints resource locking](../concepts/resource-locking.md).
 
 These steps show that our resources were created as defined and the blueprint locks prevented
 unwanted deletion, even from an account with permission.
@@ -238,7 +237,7 @@ Removing the assignment doesn't remove the deployed artifacts.
 
 1. Select the **Access control (IAM)** page on the left and then the **Role assignments** tab.
 
-The security for each resource groups still has the deployed role assignments, but the blueprint
+The security for each resource group still has the deployed role assignments, but the blueprint
 assignment no longer has _Owner_ access.
 
 Once the **Removing blueprint assignment succeeded** portal notification appears, move to the next
@@ -254,9 +253,8 @@ When finished with this tutorial, delete the following resources:
 
 ## Next steps
 
-- Learn about the [blueprint life-cycle](../concepts/lifecycle.md)
-- Understand how to use [static and dynamic parameters](../concepts/parameters.md)
-- Find out how to make use of [blueprint resource locking](../concepts/resource-locking.md)
-- Learn to customize the [blueprint sequencing order](../concepts/sequencing-order.md)
-- Learn how to [update existing assignments](../how-to/update-existing-assignments.md)
-- Resolve issues during the assignment of a blueprint with [general troubleshooting](../troubleshoot/general.md)
+In this tutorial, you've learned how to create a new blueprint from a sample definition. To learn
+more about Azure Blueprints, continue to the blueprint lifecycle article.
+
+> [!div class="nextstepaction"]
+> [Learn about the blueprint lifecycle](../concepts/lifecycle.md)

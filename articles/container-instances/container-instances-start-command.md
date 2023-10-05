@@ -1,13 +1,13 @@
 ---
-title: Use a starting command line in Azure Container Instances
-description: Override the entrypoint configured in a container image when you deploy an Azure container instance
-services: container-instances
-author: dlepow
-
+title: Override entrypoint in container instance
+description: Set a command line to override the entrypoint in a container image when you deploy an Azure container instance
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
 ms.service: container-instances
-ms.topic: article
-ms.date: 04/15/2019
-ms.author: danlep
+ms.custom: devx-track-azurecli, devx-track-linux
+services: container-instances
+ms.date: 06/17/2022
 ---
 
 # Set the command line in a container instance to override the default command line operation
@@ -18,7 +18,7 @@ Like setting [environment variables](container-instances-environment-variables.m
 
 ## Command line guidelines
 
-* By default, the command line specifies a *single process that starts without a shell* in the container. For example, the command line might run a Python script or executable file. 
+* By default, the command line specifies a *single process that starts without a shell* in the container. For example, the command line might run a Python script or executable file. The process can specify additional parameters or arguments.
 
 * To execute multiple commands, begin your command line by setting a shell environment that is supported in the container operating system. Examples:
 
@@ -54,8 +54,8 @@ The command line syntax varies depending on the Azure API or tool used to create
 
 |    |  Azure CLI   | Portal | Template | 
 | ---- | ---- | --- | --- |
-| Single command | `--command-line "python myscript.py arg1 arg2"` | **Command override**: `python, myscript.py, arg1, arg2` | `"command": ["python", "myscript.py", "arg1", "arg2"]` |
-| Multiple commands | `--command-line "/bin/bash -c 'mkdir test; touch test/myfile; tail -f /dev/null'"` |**Command override**: `/bin/bash, -c, mkdir test; touch test/myfile; tail -f /dev/null` | `"command": ["/bin/bash", "-c", "mkdir test; touch test/myfile; tail -f /dev/null"]` |
+| **Single command** | `--command-line "python myscript.py arg1 arg2"` | **Command override**: `python, myscript.py, arg1, arg2` | `"command": ["python", "myscript.py", "arg1", "arg2"]` |
+| **Multiple commands** | `--command-line "/bin/bash -c 'mkdir test; touch test/myfile; tail -f /dev/null'"` |**Command override**: `/bin/bash, -c, mkdir test; touch test/myfile; tail -f /dev/null` | `"command": ["/bin/bash", "-c", "mkdir test; touch test/myfile; tail -f /dev/null"]` |
 
 ## Azure CLI example
 
@@ -78,9 +78,7 @@ Once the container's state shows as *Terminated* (use [az container show][az-con
 az container logs --resource-group myResourceGroup --name mycontainer1
 ```
 
-Output:
-
-```console
+```output
 [('HAMLET', 386), ('HORATIO', 127), ('CLAUDIUS', 120)]
 ```
 
@@ -104,9 +102,7 @@ Again, once the container is *Terminated*, view the output by showing the contai
 az container logs --resource-group myResourceGroup --name mycontainer2
 ```
 
-Output:
-
-```console
+```output
 [('ROMEO', 177), ('JULIET', 134), ('CAPULET', 119)]
 ```
 
@@ -118,8 +114,7 @@ Task-based scenarios, such as batch processing a large dataset with several cont
 [aci-wordcount]: https://hub.docker.com/_/microsoft-azuredocs-aci-wordcount
 
 <!-- LINKS Internal -->
-[az-container-create]: /cli/azure/container#az-container-create
-[az-container-logs]: /cli/azure/container#az-container-logs
-[az-container-show]: /cli/azure/container#az-container-show
+[az-container-create]: /cli/azure/container#az_container_create
+[az-container-logs]: /cli/azure/container#az_container_logs
+[az-container-show]: /cli/azure/container#az_container_show
 [new-azurermcontainergroup]: /powershell/module/azurerm.containerinstance/new-azurermcontainergroup
-[portal]: https://portal.azure.com

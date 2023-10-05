@@ -1,11 +1,11 @@
 ---
 title: Integrate Azure Firewall with Azure Standard Load Balancer
-description: Learn how to integrate Azure Firewall with Azure Standard Load Balancer
+description: You can integrate an Azure Firewall into a virtual network with an Azure Standard Load Balancer (either public or internal).
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: article
-ms.date: 4/1/2019
+ms.topic: how-to
+ms.date: 10/27/2022
 ms.author: victorh
 ---
 
@@ -23,7 +23,7 @@ With a public load balancer, the load balancer is deployed with a public fronten
 
 ### Asymmetric routing
 
-Asymmetric routing is where a packet takes one path to the destination and takes another path when returning to the source. This issue occurs when a subnet has a default route going to the firewall's private IP address and you're using a public load balancer. In this case, the incoming load balancer traffic is received via its public IP address, but the return path goes through the firewall's private IP address. Since the firewall is stateful, it drops the returning packet because the firewall is not aware of such an established session.
+Asymmetric routing is where a packet takes one path to the destination and takes another path when returning to the source. This issue occurs when a subnet has a default route going to the firewall's private IP address and you're using a public load balancer. In this case, the incoming load balancer traffic is received via its public IP address, but the return path goes through the firewall's private IP address. Since the firewall is stateful, it drops the returning packet because the firewall isn't aware of such an established session.
 
 ### Fix the routing issue
 
@@ -32,11 +32,20 @@ When you deploy an Azure Firewall into a subnet, one step is to create a default
 When you introduce the firewall into your load balancer scenario, you want your Internet traffic to come in through your firewall's public IP address. From there, the firewall applies its firewall rules and NATs the packets to your load balancer's public IP address. This is where the problem occurs. Packets arrive on the firewall's public IP address, but return to the firewall via the private IP address (using the default route).
 To avoid this problem, create an additional host route for the firewall's public IP address. Packets going to the firewall's public IP address are routed via the Internet. This avoids taking the default route to the firewall's private IP address.
 
-![Asymmetric routing](media/integrate-lb/Firewall-LB-asymmetric.png)
+:::image type="content" source="media/integrate-lb/Firewall-LB-asymmetric.png" alt-text="Diagram of asymmetric routing." lightbox="media/integrate-lb/Firewall-LB-asymmetric.png":::
+### Route table example
 
-For example, the following routes are for a firewall at public IP address 13.86.122.41, and private IP address 10.3.1.4.
+For example, the following routes are for a firewall at public IP address 20.185.97.136, and private IP address 10.0.1.4.
 
-![Route table](media/integrate-lb/route-table.png)
+:::image type="content" source="media/integrate-lb/route-table.png" alt-text="Screenshot of route table." lightbox="media/integrate-lb/route-table.png":::
+### NAT rule example
+
+In the following example, a NAT rule translates RDP traffic to the firewall at 20.185.97.136 over to the load balancer at 20.42.98.220:
+
+:::image type="content" source="media/integrate-lb/nat-rule-02.png" alt-text="Screenshot of NAT rule." lightbox="media/integrate-lb/nat-rule-02.png":::
+### Health probes
+
+Remember, you need to have a web service running on the hosts in the load balancer pool if you use TCP health probes to port 80, or HTTP/HTTPS probes.
 
 ## Internal load balancer
 
@@ -46,13 +55,18 @@ There's no asymmetric routing issue with this scenario. The incoming packets arr
 
 So, you can deploy this scenario similar to the public load balancer scenario, but without the need for the firewall public IP address host route.
 
+The virtual machines in the backend pool can have outbound Internet connectivity through the Azure Firewall. Configure a user defined route on the virtual machine's subnet with the firewall as the next hop.
+
+
 ## Additional security
 
 To further enhance the security of your load-balanced scenario, you can use network security groups (NSGs).
 
 For example, you can create an NSG on the backend subnet where the load-balanced virtual machines are located. Allow incoming traffic originating from the firewall IP address/port.
 
-For more information about NSGs, see [Security groups](../virtual-network/security-overview.md).
+:::image type="content" source="media/integrate-lb/nsg-01.png" alt-text="Screenshot of network security group." lightbox="media/integrate-lb/nsg-01.png":::
+
+For more information about NSGs, see [Security groups](../virtual-network/network-security-groups-overview.md).
 
 ## Next steps
 

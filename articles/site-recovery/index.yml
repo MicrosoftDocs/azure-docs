@@ -1,78 +1,129 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Site Recovery Documentation
+### YamlMime:Landing
+
+title: Azure Site Recovery documentation
+summary: Use Azure Site Recovery for disaster recovery of on-premises workloads, and Azure VMs.
+
+
 metadata:
-  title: Azure Site Recovery Documentation - Tutorials, API Reference | Microsoft Docs
-  meta.description: Learn how to set up cloud disaster recovery and business continuity for physical servers and virtual machines by deploying and managing replication.
-  services: site-recovery
-  author: czeumault
-  manager: carolz
+  title: Azure Site Recovery documentation
+  description: Set up disaster recovery to Azure for on-premises workloads, and Azure VMs.
   ms.service: site-recovery
-  ms.tgt_pltfrm: na
   ms.topic: landing-page
-  ms.date: 11/27/2018
-  ms.author: carolz
-abstract:
-  description: Azure Site Recovery orchestrates and manages disaster recovery for Azure VMs, and on-premises VMs and physical servers. Learn how to replicate, fail over, and fail back with our quickstarts and tutorials.
-sections:
-- title: 5-Minute Quickstarts
-  items: 
-  - type: paragraph
-    text: 'Quickly set up disaster recovery for an Azure VM'
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: /azure/site-recovery/media/index/portal.svg
-      text: Azure portal
-      href: /azure/site-recovery/azure-to-azure-quickstart
-- title: Step-by-step Tutorials
-  items:
-  - type: paragraph
-    text: 'Learn how to set up disaster recovery for VMs and physical servers.'
-  - type: text
-    html: <h3>Azure to Azure</h3>
-  - type: list    
-    style: ordered
-    items:
-    - html: <a href="azure-to-azure-tutorial-enable-replication">Set up disaster recovery</a>
-    - html: <a href="azure-to-azure-tutorial-dr-drill">Run a disaster recovery drill</a>
-    - html: <a href="azure-to-azure-tutorial-failover-failback">Run failover and failback</a>
-  - type: text
-    html: <h3>VMware</h3> 
-  - type: list    
-    style: ordered
-    items:
-    - html: <a href="tutorial-prepare-azure">Prepare Azure</a>
-    - html: <a href="tutorial-prepare-on-premises-vmware">Prepare on-premises VMware</a>
-    - html: <a href="tutorial-vmware-to-azure">Set-up disaster recovery</a>
-    - html: <a href="tutorial-dr-drill-azure">Run a disaster recovery drill</a>
-    - html: <a href="vmware-azure-tutorial-failover-failback">Run a failover and failback</a>
-  - type: text
-    html: <h3>Hyper-V</h3> 
-  - type: list    
-    style: ordered
-    items:
-    - html: <a href="tutorial-prepare-azure">Prepare Azure</a>
-    - html: <a href="tutorial-prepare-on-premises-hyper-v">Prepare on-premises Hyper-V</a>
-    - html: <a href="tutorial-hyper-v-to-azure">Set-up disaster recovery for Hyper-V VMs</a>
-    - html: <a href="tutorial-hyper-v-vmm-to-azure">Set-up disaster recovery for Hyper-V VMs managed by System Center VMM</a>
-    - html: <a href="tutorial-dr-drill-azure">Run a disaster recovery drill</a>
-    - html: <a href="tutorial-hyper-v-to-azure-failover-failback">Run a failover and failback</a>
-  - type: text
-    html: <h3>Migrate to Azure</h3>  
-  - type: list        
-    style: ordered
-    items:
-    - html: <a href="tutorial-prepare-azure">Prepare Azure</a>
-    - html: <a href="tutorial-migrate-on-premises-to-azure">Migrate on-premises machines</a> or <a href="tutorial-migrate-aws-to-azure">AWS Instances to Azure</a>
-- title: Reference
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Command-Line
-      html: <p><a href="/powershell/module/az.recoveryservices/">Azure PowerShell</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/site-recovery/">REST API Reference</a></p>
+  ms.collection: collection
+  author: ankitaduttaMSFT
+  ms.author: ankitadutta
+  ms.date: 09/21/2022
+
+landingContent:
+  - title: About Site Recovery
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Site Recovery?
+            url: ./site-recovery-overview.md
+          - text: What's new in Site Recovery
+            url: ./site-recovery-whats-new.md
+
+  - title: Disaster recovery for Azure VMs
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Try out disaster recovery for an Azure VM
+            url: ./azure-to-azure-quickstart.md
+
+      - linkListType: concept
+        links:
+          - text: Azure VM Disaster Recovery - High Churn support 
+            url: concepts-azure-to-azure-high-churn-support.md
+
+      - linkListType: tutorial
+        links:
+          - text: Disaster recovery for Azure VMs
+            url: ./azure-to-azure-tutorial-enable-replication.md
+          - text: Move Azure VMs to another region (Resource Mover)
+            url: ../resource-mover/tutorial-move-region-virtual-machines.md
+      - linkListType: learn
+        links:
+          - text: Azure VM disaster recovery architecture
+            url: ./azure-to-azure-architecture.md
+          - text: Azure to Azure support matrix
+            url: ./azure-to-azure-support-matrix.md
+          - text: Common questions
+            url: ./azure-to-azure-common-questions.md
+          - text: About moving Azure VMs
+            url: ./azure-to-azure-move-overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Zone to zone disaster recovery
+            url: ./azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md
+          - text: Networking for Azure VM disaster recovery
+            url: ./azure-to-azure-about-networking.md
+          - text: Disaster recovery after migration to Azure
+            url: ./azure-to-azure-replicate-after-migration.md
+
+  - title: Disaster recovery for on-premises machines
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Disaster recovery for VMware VMs
+            url: ./tutorial-prepare-azure.md
+          - text: Try out disaster recovery for a VMware VM (Modernized)
+            url: ./vmware-azure-set-up-replication-tutorial-modernized.md
+          - text: Disaster recovery for Hyper-V VMs
+            url: ./tutorial-prepare-azure-for-hyperv.md
+          - text: Disaster recovery for physical servers
+            url: ./physical-azure-disaster-recovery.md
+      - linkListType: deploy
+        links:
+          - text: VMware support matrix
+            url: ./vmware-physical-azure-support-matrix.md
+          - text: Hyper-V support matrix
+            url: ./hyper-v-azure-support-matrix.md
+      - linkListType: learn
+        links:
+          - text: VMware disaster recovery architecture
+            url: ./vmware-azure-architecture.md
+          - text: VMware disaster recovery overview
+            url: ./vmware-azure-about-disaster-recovery.md
+          - text: Common questions for VMware disaster recovery
+            url: ./vmware-azure-common-questions.md
+          - text: Hyper-V disaster recovery architecture
+            url: ./hyper-v-azure-architecture.md
+      - linkListType: how-to-guide
+        links:
+          - text: VMware disaster recovery at scale
+            url: ./vmware-physical-large-deployment.md
+          - text: Plan VMware capacity
+            url: ./site-recovery-plan-capacity-vmware.md
+          - text: Plan Hyper-V capacity
+            url: ./hyper-v-deployment-planner-overview.md
+            
+  - title: Manage
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Manage Site Recovery updates
+            url: service-updates-how-to.md
+          - text: Monitor Site Recovery
+            url: site-recovery-monitor-and-troubleshoot.md
+          - text: Monitor Site Recovery with Azure Monitor logs
+            url: monitor-log-analytics.md
+
+  - title: Disaster recovery for Azure Public Multi-Access Edge Compute (MEC) (preview)
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Disaster recovery for Azure Public MEC (preview) VMs 
+            url: tutorial-replicate-vms-edge-zone-to-azure-region.md      
+               
+  - title: Get involved
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Request a service feature
+            url: https://feedback.azure.com/d365community/forum/3ccca344-2d25-ec11-b6e6-000d3a4f0f84
+          - text: Ask a Microsoft Q&A question
+            url: /answers/topics/azure-site-recovery.html
+          - text: Azure Tech Community
+            url: https://techcommunity.microsoft.com/t5/Azure/ct-p/Azure
+  

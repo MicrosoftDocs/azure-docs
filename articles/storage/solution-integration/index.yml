@@ -1,0 +1,86 @@
+### YamlMime:Landing
+
+title: Azure Storage solutions from Microsoft partners # < 60 chars
+summary: Learn about the many available Microsoft partner solutions that use Azure Storage to enable advanced scenarios.  # < 160 chars
+metadata:
+  title: Azure Storage solutions from Microsoft partners
+  description: Learn about the many available Microsoft partner solutions that use Azure Storage to enable advanced scenarios.
+  services: storage
+  ms.service: azure-storage
+  ms.subservice: storage-partner-integration
+  ms.topic: landing-page
+  ms.collection: collection
+  author: beber-msft
+  ms.author: beber
+  ms.date: 06/09/2022
+  ms.custom: kr2b-contr-experiment
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: Analytics and big data partner solutions
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Overview of analytics partner solutions
+            url: .\validated-partners\analytics\partner-overview.md
+  # Card
+  - title: Archive, backup, and BCDR partner solutions
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Overview of archive and BCDR partner solutions
+            url: .\validated-partners\backup-archive-disaster-recovery\partner-overview.md
+      - linkListType: get-started
+        links:
+          - text: Commvault getting started guide
+            url: .\validated-partners\backup-archive-disaster-recovery\commvault\commvault-solution-guide.md
+          - text: Veeam getting started guide
+            url: .\validated-partners\backup-archive-disaster-recovery\veeam\veeam-solution-guide.md
+          - text: DobiProtect getting started guide
+            url: .\validated-partners\backup-archive-disaster-recovery\datadobi\datadobi-solution-guide.md
+          - text: Tiger Bridge archiving with CDP and DR
+            url: .\validated-partners\backup-archive-disaster-recovery\tiger-bridge-cdp-guide.md
+   # Card
+  - title: Partner container solutions
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Overview of partner container solutions
+            url: .\validated-partners\container-solutions\partner-overview.md
+   # Card
+  - title: Data management and migration partner solutions
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Overview of data management and migration partner solutions
+            url: .\validated-partners\data-management\partner-overview.md
+          - text: Migration tools comparison
+            url: ./validated-partners/data-management/migration-tools-comparison.md
+          - text: Azure File Migration Program Solutions
+            url: ./validated-partners/data-management/azure-file-migration-program-solutions.md
+      - linkListType: get-started
+        links:
+          - text: DobiMigrate getting started guide
+            url: ./validated-partners/data-management/dobimigrate-quick-start-guide.md
+          - text: Komprise getting started guide
+            url: ./validated-partners/data-management/komprise-quick-start-guide.md
+          - text: StorageX getting started guide
+            url: ./validated-partners/data-management/storagex-quick-start-guide.md
+          - text: Cirrus Data getting started guide
+            url: ./validated-partners/data-management/cirrus-data-migration-guide.md
+                     # Card
+  - title: Primary and secondary storage partner solutions
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Overview of primary and secondary storage partner solutions
+            url: .\validated-partners\primary-secondary-storage\partner-overview.md
+          - text: ISV file services
+            url: .\validated-partners\primary-secondary-storage\isv-file-services.md
+          - text: Tiger Bridge getting started guide
+            url: ./validated-partners/primary-secondary-storage/tiger-bridge-deployment-guide.md
+      

@@ -1,151 +1,247 @@
 ---
-title: 'Azure Active Directory Domain Services: Join a Windows Server VM to a managed domain | Microsoft Docs'
-description: Join a Windows Server virtual machine to Azure AD DS
-services: active-directory-ds
-documentationcenter: ''
-author: MikeStephens-MS
-manager: daveba
-editor: curtand
+title: Join a Windows Server VM to a Microsoft Entra Domain Services managed domain | Microsoft Docs
+description: In this tutorial, learn how to join a Windows Server virtual machine to a Microsoft Entra Domain Services managed domain.
+author: justinha
+manager: amycolannino
 
-ms.assetid: 29316313-c76c-4fb9-8954-5fa5ec82609e
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 05/10/2019
-ms.author: mstephen
+ms.topic: tutorial
+ms.date: 09/15/2023
+ms.author: justinha
 
+#Customer intent: As an server administrator, I want to learn how to join a Windows Server VM to a Microsoft Entra Domain Services managed domain to provide centralized identity and policy.
 ---
-# Join a Windows Server virtual machine to a managed domain
-This article shows how to deploy a Windows Server virtual machine by using the Azure portal. It then shows how to join the virtual machine to an Azure Active Directory Domain Services (Azure AD DS) managed domain.
+# Tutorial: Join a Windows Server virtual machine to a Microsoft Entra Domain Services managed domain
 
-[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
+Microsoft Entra Domain Services provides managed domain services such as domain join, group policy, LDAP, Kerberos/NTLM authentication that is fully compatible with Windows Server Active Directory. With a Domain Services managed domain, you can provide domain join features and management to virtual machines (VMs) in Azure. This tutorial shows you how to create a Windows Server VM then join it to a managed domain.
 
-## Step 1: Create a Windows Server virtual machine
-To create a Windows virtual machine that's joined to the virtual network in which you've enabled Azure AD DS, do the following steps:
+In this tutorial, you learn how to:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. At the top of the left pane, select **New**.
-3. Select **Compute**, and then select **Windows Server 2016 Datacenter**.
+> [!div class="checklist"]
+> * Create a Windows Server VM
+> * Connect the Windows Server VM to an Azure virtual network
+> * Join the VM to the managed domain
 
-    ![The Windows Server 2016 Datacenter link](./media/active-directory-domain-services-admin-guide/create-windows-vm-select-image.png)
+If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-4. In the **Basics** pane of the wizard, configure the basic settings for the virtual machine.
+## Prerequisites
 
-    ![The Basics pane](./media/active-directory-domain-services-admin-guide/create-windows-vm-basics.png)
+To complete this tutorial, you need the following resources:
 
-    > [!TIP]
-    > The username and password you enter here are for a local administrator account that's used to log on to the virtual machine. Pick a strong password to protect the virtual machine against password brute-force attacks. Do not enter a domain user account's credentials here.
-    >
+* An active Azure subscription.
+    * If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* A Microsoft Entra tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
+    * If needed, [create a Microsoft Entra tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
+* A Microsoft Entra Domain Services managed domain enabled and configured in your Microsoft Entra tenant.
+    * If needed, [create and configure a Microsoft Entra Domain Services managed domain][create-azure-ad-ds-instance].
+* A user account that's a part of the managed domain.
+    * Make sure that Microsoft Entra Connect password hash synchronization or self-service password reset has been performed so the account is able to sign in to managed domain.
+* An Azure Bastion host deployed in your Domain Services virtual network.
+    * If needed, [create an Azure Bastion host][azure-bastion].
 
-5. Select a **Size** for the virtual machine. To view more sizes, select **View all** or change the **Supported disk type** filter.
+If you already have a VM that you want to domain-join, skip to the section to [join the VM to the managed domain](#join-the-vm-to-the-managed-domain).
 
-    ![The "Choose a size" pane](./media/active-directory-domain-services-admin-guide/create-windows-vm-size.png)
+## Sign in to the Microsoft Entra admin center
 
-6. In the **Settings** pane, select the virtual network in which your Azure AD DS-managed domain is deployed. Pick a different subnet than the one that your managed domain is deployed into. For the other settings, keep the defaults, and then select **OK**.
+In this tutorial, you create a Windows Server VM to join to your managed domain using the Microsoft Entra admin center. To get started, first sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 
-    ![Virtual network settings for the virtual machine](./media/active-directory-domain-services-admin-guide/create-windows-vm-select-vnet.png)
+## Create a Windows Server virtual machine
 
-    > [!TIP]
-    > **Pick the right virtual network and subnet.**
-    >
-    > Select either the virtual network in which your managed domain is deployed or a virtual network that is connected to it by using virtual network peering. If you select an unconnected virtual network, you cannot join the virtual machine to the managed domain.
-    >
-    > We recommend deploying your managed domain into a dedicated subnet. Therefore, do not pick the subnet in which you've enabled your managed domain.
+To see how to join a computer to a managed domain, let's create a Windows Server VM. This VM is connected to an Azure virtual network that provides connectivity to the managed domain. The process to join a managed domain is the same as joining a regular on-premises Active Directory Domain Services domain.
 
-7. For the other settings, keep the defaults, and then select **OK**.
-8. On the **Purchase** page, review the settings, and then select **OK** to deploy the virtual machine.
-9. The VM deployment is pinned to the Azure portal dashboard.
+If you already have a VM that you want to domain-join, skip to the section to [join the VM to the managed domain](#join-the-vm-to-the-managed-domain).
 
-    ![Done](./media/active-directory-domain-services-admin-guide/create-windows-vm-done.png)
-10. After the deployment is completed, you can view information about the VM on the **Overview** page.
+1. From the Microsoft Entra admin center menu or from the **Home** page, select **Create a resource**.
 
+1. From **Get started**, choose **Windows Server 2016 Datacenter**.
 
-## Step 2: Connect to the Windows Server virtual machine by using the local administrator account
-Next, connect to the newly created Windows Server virtual machine to join it to the domain. Use the local administrator credentials that you specified when you created the virtual machine.
+    ![Choose to create a Windows Server 2016 Datacenter VM](./media/join-windows-vm/select-vm-image.png)
 
-To connect to the virtual machine, perform the following steps:
+1. In the **Basics** window, configure the core settings for the virtual machine. Leave the defaults for *Availability options*, *Image*, and *Size*.
 
-1. In the **Overview** pane, select **Connect**.  
-    A Remote Desktop Protocol (.rdp) file is created and downloaded.
+    | Parameter            | Suggested value   |
+    |----------------------|-------------------|
+    | Resource group       | Select or create a resource group, such as *myResourceGroup* |
+    | Virtual machine name | Enter a name for the VM, such as *myVM* |
+    | Region               | Choose the region to create your VM in, such as *East US* |
+    | Username             | Enter a username for the local administrator account to create on the VM, such as *azureuser* |
+    | Password             | Enter, and then confirm, a secure password for the local administrator to create on the VM. Don't specify a domain user account's credentials. [Windows LAPS](/windows-server/identity/laps/laps-overview) isn't supported. |
 
-    ![Connect to Windows virtual machine](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
+1. By default, VMs created in Azure are accessible from the Internet using RDP. When RDP is enabled, automated sign-in attacks are likely to occur, which may disable accounts with common names such as *admin* or *administrator* due to multiple failed successive sign-in attempts.
 
-2. To connect to your VM, open the downloaded RDP file. If prompted, select **Connect**.
-3. Enter your **local administrator credentials**, which you specified when you created the virtual machine (for example, *localhost\mahesh*).
-4. If you see a certificate warning during the sign-in process, select **Yes** or **Continue** to connect.
+    RDP should only be enabled when required, and limited to a set of authorized IP ranges. This configuration helps improve the security of the VM and reduces the area for potential attack. Or, create and use an Azure Bastion host that allows access only through the Microsoft Entra admin center over TLS. In the next step of this tutorial, you use an Azure Bastion host to securely connect to the VM.
 
-At this point, you should be logged on to the newly created Windows virtual machine with your local administrator credentials. The next step is to join the virtual machine to the domain.
+    Under **Public inbound ports**, select *None*.
 
+1. When done, select **Next: Disks**.
+1. From the drop-down menu for **OS disk type**, choose *Standard SSD*, then select **Next: Networking**.
+1. Your VM must connect to an Azure virtual network subnet that can communicate with the subnet your managed domain is deployed into. We recommend that a managed domain is deployed into its own dedicated subnet. Don't deploy your VM in the same subnet as your managed domain.
 
-## Step 3: Join the Windows Server virtual machine to the Azure AD DS-managed domain
-To join the Windows Server virtual machine to the Azure AD DS-managed domain, complete the following steps:
+    There are two main ways to deploy your VM and connect to an appropriate virtual network subnet:
+    
+    * Create a, or select an existing, subnet in the same the virtual network as your managed domain is deployed.
+    * Select a subnet in an Azure virtual network that is connected to it using [Azure virtual network peering][vnet-peering].
+    
+    If you select a virtual network subnet that isn't connected to the subnet for your managed domain, you can't join the VM to the managed domain. For this tutorial, let's create a new subnet in the Azure virtual network.
 
-1. Connect to the Windows Server VM, as shown in "Step 2." On the **Start** screen, open **Server Manager**.
-2. In the left pane of the **Server Manager** window, select **Local Server**.
+    In the **Networking** pane, select the virtual network in which your managed domain is deployed, such as *aaads-vnet*
+1. In this example, the existing *aaads-subnet* is shown that the managed domain is connected to. Don't connect your VM to this subnet. To create a subnet for the VM, select **Manage subnet configuration**.
 
-    ![The Server Manager window on the virtual machine](./media/active-directory-domain-services-admin-guide/join-domain-server-manager.png)
+    ![Choose to manage the subnet configuration](./media/join-windows-vm/manage-subnet.png)
 
-3. Under **Properties**, select **Workgroup**.
-4. In the **System Properties** window, select **Change** to join the domain.
+1. In the left-hand menu of the virtual network window, select **Address space**. The virtual network is created with a single address space of *10.0.2.0/24*, which is used by the default subnet. Other subnets, such as for *workloads* or Azure Bastion may also already exist.
 
-    ![The System Properties window](./media/active-directory-domain-services-admin-guide/join-domain-system-properties.png)
+    Add an additional IP address range to the virtual network. The size of this address range and the actual IP address range to use depends on other network resources already deployed. The IP address range shouldn't overlap with any existing address ranges in your Azure or on-premises environment. Make sure that you size the IP address range large enough for the number of VMs you expect to deploy into the subnet.
 
-5. In the **Domain** box, specify the name of your Azure AD DS-managed domain, and then select **OK**.
+    In the following example, an additional IP address range of *10.0.5.0/24* is added. When ready, select **Save**.
 
-    ![Specify the domain to be joined](./media/active-directory-domain-services-admin-guide/join-domain-system-properties-specify-domain.png)
+    ![Add an additional virtual network IP address range](./media/join-windows-vm/add-vnet-address-range.png)
 
-6. You're asked to enter your credentials to join the domain. Use the credentials for a *user that belongs to the Azure AD DC administrators group*. Only members of this group have privileges to join machines to the managed domain.
+1. Next, in the left-hand menu of the virtual network window, select **Subnets**, then choose **+ Subnet** to add a subnet.
 
-    ![The Windows Security window for specifying credentials](./media/active-directory-domain-services-admin-guide/join-domain-system-properties-specify-credentials.png)
+1. Select **+ Subnet**, then enter a name for the subnet, such as *management*. Provide an **Address range (CIDR block)**, such as *10.0.5.0/24*. Make sure that this IP address range doesn't overlap with any other existing Azure or on-premises address ranges. Leave the other options as their default values, then select **OK**.
 
-7. You can specify credentials in either of the following ways:
+    ![Create a subnet configuration](./media/join-windows-vm/create-subnet.png)
 
-   * **UPN format**: (Recommended) Specify the user principal name (UPN) suffix for the user account, as configured in Azure AD. In this example, the UPN suffix of the user *bob* is *bob\@domainservicespreview.onmicrosoft.com*.
+1. It takes a few seconds to create the subnet. Once it's created, select the *X* to close the subnet window.
+1. Back in the **Networking** pane to create a VM, choose the subnet you created from the drop-down menu, such as *management*. Again, make sure you choose the correct subnet and don't deploy your VM in the same subnet as your managed domain.
+1. For **Public IP**, select *None* from the drop-down menu. As you use Azure Bastion in this tutorial to connect to the management, you don't need a public IP address assigned to the VM.
+1. Leave the other options as their default values, then select **Management**.
+1. Set **Boot diagnostics** to *Off*. Leave the other options as their default values, then select **Review + create**.
+1. Review the VM settings, then select **Create**.
 
-   * **SAMAccountName format**: You can specify the account name in the SAMAccountName format. In this example, the user *bob* would need to enter *CONTOSO100\bob*.
+It takes a few minutes to create the VM. The Microsoft Entra admin center shows the status of the deployment. Once the VM is ready, select **Go to resource**.
 
-     > [!TIP]
-     > **We recommend using the UPN format to specify credentials.**
-     >
-     > If a user's UPN prefix is overly long (for example, *joehasareallylongname*), the SAMAccountName might be auto-generated. If multiple users have the same UPN prefix (for example, *bob*) in your Azure AD tenant, their SAMAccountName format might be auto-generated by the service. In these cases, the UPN format can be used reliably to log on to the domain.
-     >
+![Go to the VM resource once it's successfully created](./media/join-windows-vm/vm-created.png)
 
-8. After you've successfully joined a domain, the following message welcomes you to the domain.
+## Connect to the Windows Server VM
 
-    ![Welcome to the domain](./media/active-directory-domain-services-admin-guide/join-domain-done.png)
+To securely connect to your VMs, use an Azure Bastion host. With Azure Bastion, a managed host is deployed into your virtual network and provides web-based RDP or SSH connections to VMs. No public IP addresses are required for the VMs, and you don't need to open network security group rules for external remote traffic. You connect to VMs using the Microsoft Entra admin center from your web browser. If needed, [create an Azure Bastion host][azure-bastion].
 
-9. To complete joining the domain, restart the virtual machine.
+To use a Bastion host to connect to your VM, complete the following steps:
 
-## Troubleshoot joining a domain
+1. In the **Overview** pane for your VM, select **Connect**, then **Bastion**.
+
+    ![Connect to Windows virtual machine using Bastion](./media/join-windows-vm/connect-to-vm.png)
+
+1. Enter the credentials for your VM that you specified in the previous section, then select **Connect**.
+
+   ![Connect through the Bastion host](./media/join-windows-vm/connect-to-bastion.png)
+
+If needed, allow your web browser to open pop-ups for the Bastion connection to be displayed. It takes a few seconds to make the connection to your VM.
+
+## Join the VM to the managed domain
+
+With the VM created and a web-based RDP connection established using Azure Bastion, now let's join the Windows Server virtual machine to the managed domain. This process is the same as a computer connecting to a regular on-premises Active Directory Domain Services domain.
+
+1. If **Server Manager** doesn't open by default when you sign in to the VM, select the **Start** menu, then choose **Server Manager**.
+1. In the left pane of the **Server Manager** window, select **Local Server**. Under **Properties** on the right pane, choose **Workgroup**.
+
+    ![Open Server Manager on the VM and edit the workgroup property](./media/join-windows-vm/server-manager.png)
+
+1. In the **System Properties** window, select **Change** to join the managed domain.
+
+    ![Choose to change the workgroup or domain properties](./media/join-windows-vm/change-domain.png)
+
+1. In the **Domain** box, specify the name of your managed domain, such as *aaddscontoso.com*, then select **OK**.
+
+    ![Specify the managed domain to join](./media/join-windows-vm/join-domain.png)
+
+1. Enter domain credentials to join the domain. Provide credentials for a user that's a part of the managed domain. The account must be part of the managed domain or Microsoft Entra tenant - accounts from external directories associated with your Microsoft Entra tenant can't correctly authenticate during the domain-join process.
+
+    Account credentials can be specified in one of the following ways:
+
+    * **UPN format** (recommended) - Enter the user principal name (UPN) suffix for the user account, as configured in Microsoft Entra ID. For example, the UPN suffix of the user *contosoadmin* would be `contosoadmin@aaddscontoso.onmicrosoft.com`. There are a couple of common use-cases where the UPN format can be used reliably to sign in to the domain rather than the *SAMAccountName* format:
+        * If a user's UPN prefix is long, such as *deehasareallylongname*, the *SAMAccountName* may be autogenerated.
+        * If multiple users have the same UPN prefix in your Microsoft Entra tenant, such as *dee*, their *SAMAccountName* format might be autogenerated.
+    * **SAMAccountName format** - Enter the account name in the *SAMAccountName* format. For example, the *SAMAccountName* of user *contosoadmin* would be `AADDSCONTOSO\contosoadmin`.
+
+1. It takes a few seconds to join to the managed domain. When complete, the following message welcomes you to the domain:
+
+    ![Welcome to the domain](./media/join-windows-vm/join-domain-successful.png)
+
+    Select **OK** to continue.
+
+1. To complete the process to join to the managed domain, restart the VM.
+
+> [!TIP]
+> You can domain-join a VM using PowerShell with the [Add-Computer][add-computer] cmdlet. The following example joins the *AADDSCONTOSO* domain and then restarts the VM. When prompted, enter the credentials for a user that's a part of the managed domain:
+>
+> `Add-Computer -DomainName AADDSCONTOSO -Restart`
+>
+> To domain-join a VM without connecting to it and manually configuring the connection, you can use the [Set-AzVmAdDomainExtension][set-azvmaddomainextension] Azure PowerShell cmdlet.
+
+Once the Windows Server VM has restarted, any policies applied in the managed domain are pushed to the VM. You can also now sign in to the Windows Server VM using appropriate domain credentials.
+
+## Clean up resources
+
+In the next tutorial, you use this Windows Server VM to install the management tools that let you administer the managed domain. If you don't want to continue in this tutorial series, review the following clean up steps to [delete the VM](#delete-the-vm). Otherwise, [continue to the next tutorial](#next-steps).
+
+### Unjoin the VM from the managed domain
+
+To remove the VM from the managed domain, follow through the steps again to [join the VM to a domain](#join-the-vm-to-the-managed-domain). Instead of joining the managed domain, choose to join a workgroup, such as the default *WORKGROUP*. After the VM has rebooted, the computer object is removed from the managed domain.
+
+If you [delete the VM](#delete-the-vm) without unjoining from the domain, an orphaned computer object is left in Domain Services.
+
+### Delete the VM
+
+If you're not going use this Windows Server VM, delete the VM using the following steps:
+
+1. From the left-hand menu, select **Resource groups**
+1. Choose your resource group, such as *myResourceGroup*.
+1. Choose your VM, such as *myVM*, then select **Delete**. Select **Yes** to confirm the resource deletion. It takes a few minutes to delete the VM.
+1. When the VM is deleted, select the OS disk, network interface card, and any other resources with the *myVM-* prefix and delete them.
+
+## Troubleshoot domain-join issues
+
+The Windows Server VM should successfully join to the managed domain, the same way as a regular on-premises computer would join an Active Directory Domain Services domain. If the Windows Server VM can't join the managed domain, that indicates there's a connectivity or credentials-related issue. Review the following troubleshooting sections to successfully join the managed domain.
+
 ### Connectivity issues
-If the virtual machine is unable to find the domain, try the following troubleshooting steps:
 
-* Verify the virtual machine is connected to the same virtual network Azure AD DS is enabled in. Otherwise, the virtual machine is unable to connect to or join the domain.
+If you don't receive a prompt that asks for credentials to join the domain, there's a connectivity problem. The VM can't reach the managed domain on the virtual network.
 
-* Verify the virtual machine is on a virtual network that is in turn connected to the virtual network Azure AD DS is enabled in.
+After trying each of these troubleshooting steps, try to join the Windows Server VM to the managed domain again.
 
-* Try to ping the DNS domain name of the managed domain (for example, *ping contoso100.com*). If you're unable to do so, try to ping the IP addresses for the domain that's displayed on the page where you enabled Azure AD DS (for example, *ping 10.0.0.4*). If you can ping the IP address but not the domain, DNS may be incorrectly configured. Check to see whether the IP addresses of the domain are configured as DNS servers for the virtual network.
-
-* Try flushing the DNS resolver cache on the virtual machine (*ipconfig /flushdns*).
-
-If a window is displayed that asks for credentials to join the domain, you do not have connectivity issues.
+* Verify the VM is connected to the same virtual network that Domain Services is enabled in, or has a peered network connection.
+* Try to ping the DNS domain name of the managed domain, such as `ping aaddscontoso.com`.
+    * If the ping request fails, try to ping the IP addresses for the managed domain, such as `ping 10.0.0.4`. The IP address for your environment is displayed on the *Properties* page when you select the managed domain from your list of Azure resources.
+    * If you can ping the IP address but not the domain, DNS may be incorrectly configured. Confirm that the IP addresses of the managed domain are configured as DNS servers for the virtual network.
+* Try to flush the DNS resolver cache on the virtual machine using the `ipconfig /flushdns` command.
 
 ### Credentials-related issues
-If you're having trouble with credentials and are unable to join the domain, try the following troubleshooting steps:
 
-* Try using the UPN format to specify credentials. If there are many users with the same UPN prefix in your tenant or if your UPN prefix is overly long, the SAMAccountName for your account may be auto-generated. In these cases, the SAMAccountName format for your account may be different from what you expect or use in your on-premises domain.
+If you receive a prompt that asks for credentials to join the domain, but then an error after you enter those credentials, the VM is able to connect to the managed domain. The credentials you provided don't then let the VM join the managed domain.
 
-* Try to use the credentials of a user account that belongs to the *AAD DC Administrators* group.
+After trying each of these troubleshooting steps, try to join the Windows Server VM to the managed domain again.
 
-* Check that you have [enabled password synchronization](active-directory-ds-getting-started-password-sync.md) to your managed domain.
+* Make sure that the user account you specify belongs to the managed domain.
+* Confirm that the account is part of the managed domain or Microsoft Entra tenant. Accounts from external directories associated with your Microsoft Entra tenant can't correctly authenticate during the domain-join process.
+* Try using the UPN format to specify credentials, such as `contosoadmin@aaddscontoso.onmicrosoft.com`. If there are many users with the same UPN prefix in your tenant or if your UPN prefix is overly long, the *SAMAccountName* for your account may be autogenerated. In these cases, the *SAMAccountName* format for your account may be different from what you expect or use in your on-premises domain.
+* Check that you have [enabled password synchronization][password-sync] to your managed domain. Without this configuration step, the required password hashes won't be present in the managed domain to correctly authenticate your sign-in attempt.
+* Wait for password synchronization to be completed. When a user account's password is changed, an automatic background synchronization from Microsoft Entra ID updates the password in Domain Services. It takes some time for the password to be available for domain-join use.
 
-* Check that you've used the UPN of the user as configured in Azure AD (for example, *bob\@domainservicespreview.onmicrosoft.com*) to sign in.
+## Next steps
 
-* Wait long enough for password synchronization to be completed, as specified in the getting started guide.
+In this tutorial, you learned how to:
 
-## Related content
-* [Azure AD DS getting started guide](create-instance.md)
-* [Manage an Azure AD Domain Services domain](manage-domain.md)
+> [!div class="checklist"]
+> * Create a Windows Server VM
+> * Connect to the Windows Server VM to an Azure virtual network
+> * Join the VM to the managed domain
+
+To administer your managed domain, configure a management VM using the Active Directory Administrative Center (ADAC).
+
+> [!div class="nextstepaction"]
+> [Install administration tools on a management VM](tutorial-create-management-vm.md)
+
+<!-- INTERNAL LINKS -->
+[create-azure-ad-tenant]: /azure/active-directory/fundamentals/sign-up-organization
+[associate-azure-ad-tenant]: /azure/active-directory/fundamentals/how-subscriptions-associated-directory
+[create-azure-ad-ds-instance]: tutorial-create-instance.md
+[vnet-peering]: /azure/virtual-network/virtual-network-peering-overview
+[password-sync]: ./tutorial-create-instance.md
+[add-computer]: /powershell/module/microsoft.powershell.management/add-computer
+[azure-bastion]: /azure/bastion/tutorial-create-host-portal
+[set-azvmaddomainextension]: /powershell/module/az.compute/set-azvmaddomainextension

@@ -1,26 +1,41 @@
 ---
-title: Tutorial to ship Azure Data Box back| Microsoft Docs
-description: Learn how to ship your Azure Data Box to Microsoft
+title: Tutorial to return Azure Data Box
+description: In this tutorial, learn how to return Azure Data Box, including shipping the device, verifying data upload to Azure, and erasing data from Data Box.
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 03/19/2019
-ms.author: alkohli
-#Customer intent: As an IT admin, I need to be able to return Data Box to upload on-premises data from my server onto Azure.
+ms.custom: references_regions
+ms.date: 01/23/2023
+ms.author: shaas
+zone_pivot_groups: data-box-shipping
+
+# Customer intent: As an IT admin, I need to be able to return a Data Box to upload on-premises data from my server onto Azure.
 ---
 
-# Tutorial: Return Azure Data Box and verify data upload to Azure
+::: zone target="docs"
+
+# Tutorial: Return Azure Data Box and verify data has been uploaded to Azure
+
+::: zone-end
+
+::: zone target="chromeless"
+
+## Return Data Box and verify data upload to Azure
+
+::: zone-end
+
+::: zone target="docs"
 
 This tutorial describes how to return Azure Data Box and verify the data uploaded to Azure.
 
 In this tutorial, you will learn about topics such as:
 
 > [!div class="checklist"]
+>
 > * Prerequisites
-> * Prepare to ship
 > * Ship Data Box to Microsoft
 > * Verify data upload to Azure
 > * Erasure of data from Data Box
@@ -29,73 +44,147 @@ In this tutorial, you will learn about topics such as:
 
 Before you begin, make sure:
 
-- You've have completed the [Tutorial: Copy data to Azure Data Box and verify](data-box-deploy-copy-data.md). 
-- Copy jobs are complete. Prepare to ship can't run if copy jobs are in progress.
+* You've completed the [Tutorial: Prepare to ship Azure Data Box](data-box-deploy-prepare-to-ship.md).
+* The data copy to the device completed and the **Prepare to ship** run was successful.
 
-## Prepare to ship
+::: zone-end
 
-[!INCLUDE [data-box-prepare-to-ship](../../includes/data-box-prepare-to-ship.md)]
+## Ship Data Box back 
 
-## Ship Data Box back
+Based on the region where you're shipping the device, the procedure is different. In many countries/regions, you can use Microsoft managed shipping or [self-managed shipping](#self-managed-shipping).
 
-1. Ensure that the device is powered off and cables are removed. Spool and securely place the power cord that was provided with device in the back of the device.
-2. Ensure that the shipping label is displayed on the E-ink display and schedule a pickup with your carrier. If the label is damaged or lost or not displayed on the E-ink display, contact Microsoft Support. If the Support suggests, then you can go to **Overview > Download shipping label** in the Azure portal. Download the shipping label and affix on the device. 
-3. Schedule a pickup with UPS if returning the device. To schedule a pickup:
+::: zone pivot="americas" 
 
-    - Call the local UPS (country/region-specific toll free number).
-    - In your call, quote the reverse shipment tracking number as shown in the E-ink display or your printed label.
-    - If the tracking number is not quoted, UPS will require you to pay an additional charge during pickup.
+If using Microsoft managed shipping, follow these steps. 
 
-    Instead of scheduling the pickup, you can also drop off the Data Box at the nearest drop-off location.
-4. Once the Data Box is picked up and scanned by your carrier, the order status in the portal updates to **Picked up**. A tracking ID is also displayed.
+## Shipping in Americas 
 
-## Verify data upload to Azure
+### US & Canada
 
-When Microsoft receives and scans the device, order status is updated to **Received**. The device then undergoes physical verification for damage or signs of tampering.
+[!INCLUDE [data-box-shipping-in-us-canada](../../includes/data-box-shipping-in-us-canada.md)]
 
-After the verification is complete, the Data Box is connected to the network in the Azure datacenter. The data copy starts automatically. Depending upon the data size, the copy operation may take a few hours to days to complete. You can monitor the copy job progress in the portal.
+::: zone-end
 
-Once the copy is complete, order status updates to **Completed**.
+::: zone pivot="europe" 
 
-Verify that your data is uploaded to Azure before you delete it from the source. Your data can be in:
+If using Microsoft managed shipping, follow these steps. 
 
-- Your Azure Storage account(s). When you copy the data to Data Box, depending on the type, the data is uploaded to one of the following paths in your Azure Storage account.
+## Shipping in Europe 
 
-  - For block blobs and page blobs: `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
-  - For Azure Files: `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
+### [EU](#tab/in-europe)
 
-    Alternatively, you could go to your Azure storage account in Azure portal and navigate from there.
+[!INCLUDE [data-box-shipping-in-eu](../../includes/data-box-shipping-in-eu.md)]
 
-- Your managed disk resource group(s). When creating managed disks, the VHDs are uploaded as page blobs and then converted to managed disks. The managed disks are attached to the resource groups specified at the time of order creation. 
+**If you're shipping back to Azure datacenters in Germany or Switzerland,** you can also [use self-managed shipping](#self-managed-shipping).
 
-    - If your copy to managed disks in Azure was successful, you can go to the **Order details** in the Azure portal and make a note of the resource groups specified for managed disks.
+### [UK](#tab/in-uk)
 
-        ![Identify managed disk resource groups](media/data-box-deploy-copy-data-from-vhds/order-details-managed-disk-resource-groups.png)
+[!INCLUDE [data-box-shipping-in-uk](../../includes/data-box-shipping-in-uk.md)]
 
-        Go to the noted resource group and locate your managed disks.
+### [Norway](#tab/in-norway)
+[!INCLUDE [data-box-shipping-in-norway](../../includes/data-box-shipping-in-norway.md)]
 
-        ![Managed disk attached to resource groups](media/data-box-deploy-copy-data-from-vhds/managed-disks-resource-group.png)
+::: zone-end
 
-    - If you copied a VHDX, or a dynamic/differencing VHD, then the VHDX/VHD is uploaded to the staging storage account as a page blob but the conversion of VHD to managed disk fails. Go to your staging **Storage account > Blobs** and then select the appropriate container - Standard SSD, Standard HDD, or Premium SSD. The VHDs are uploaded as page blobs in your staging storage account.
+::: zone pivot="asia" 
 
-## Erasure of data from Data Box
+If using Microsoft managed shipping, follow these steps. 
+
+## Shipping in Asia
+
+### [Japan](#tab/in-japan)
+
+[!INCLUDE [data-box-shipping-in-japan](../../includes/data-box-shipping-in-japan.md)]
+
+### [Singapore](#tab/in-singapore)
+
+[!INCLUDE [data-box-shipping-in-singapore](../../includes/data-box-shipping-in-singapore.md)]
+
+### [Hong Kong Special Administrative Region](#tab/in-hk)
+
+[!INCLUDE [data-box-shipping-in-hk](../../includes/data-box-shipping-in-hk.md)]
+
+### [Korea](#tab/in-korea)
+
+[!INCLUDE [data-box-shipping-in-korea](../../includes/data-box-shipping-in-korea.md)]
+
+### [UAE](#tab/in-uae)
+
+[!INCLUDE [data-box-shipping-in-uae](../../includes/data-box-shipping-in-uae.md)]
+
+### [India](#tab/in-india)
+
+[!INCLUDE [data-box-shipping-in-india](../../includes/data-box-shipping-in-india.md)]
+
+
+::: zone-end
+
+::: zone pivot="australia"
+
+If using Microsoft managed shipping, follow these steps.
+
+## Shipping in Australia
+
+### Australia
+
+[!INCLUDE [data-box-shipping-in-australia](../../includes/data-box-shipping-in-australia.md)]
+
+::: zone-end
+
+::: zone pivot="africa" 
+
+If using Microsoft managed shipping, follow these steps. 
+
+## Shipping in Africa
+
+### S Africa
+
+[!INCLUDE [data-box-shipping-in-sa](../../includes/data-box-shipping-in-sa.md)]
+
+::: zone-end
+
+## Self-managed shipping
+
+Self-managed shipping is available as an option when you [Order Azure Data Box](data-box-disk-deploy-ordered.md). For detailed steps, see [Use self-managed shipping](data-box-portal-customer-managed-shipping.md).
+
+[!INCLUDE [data-box-shipping-regions](../../includes/data-box-shipping-regions.md)]
+
+[!INCLUDE [data-box-shipping-self-managed](../../includes/data-box-shipping-self-managed.md)]
+
+::: zone pivot="americas"
+
+### Shipping in Brazil
+
+To schedule a device return in Brazil, send an email to [adbops@microsoft.com](mailto:adbops@microsoft.com) with the following information:
+
+```
+Subject: Request Azure Data Box Disk drop-off for order: <ordername>
+
+- Order name
+- Contact name of the person who will drop off the Data Box Disk (A government-issued photo ID will be required to validate the contact’s identity upon arrival.) 
+- Inbound Nota Fiscal (A copy of the inbound Nota Fiscal will be required at drop-off.)   
+```
+
+::: zone-end
+
+::: zone target="chromeless"
+
+## Verify data has been uploaded to Azure 
+
+[!INCLUDE [data-box-verify-upload](../../includes/data-box-verify-upload.md)]
+
+## Data erasure from Data Box
  
 Once the upload to Azure is complete, the Data Box erases the data on its disks as per the [NIST SP 800-88 Revision 1 guidelines](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
 
-## Next steps
+::: zone-end
 
-In this tutorial, you learned about Azure Data Box topics such as:
 
-> [!div class="checklist"]
-> * Prerequisites
-> * Prepare to ship
-> * Ship Data Box to Microsoft
-> * Verify data upload to Azure
-> * Erasure of data from Data Box
+::: zone target="docs"
 
-Advance to the following article to learn how to manage Data Box via the local web UI.
+## Verify data has uploaded to Azure
 
-> [!div class="nextstepaction"]
-> [Use local web UI to administer Azure Data Box](./data-box-local-web-ui-admin.md)
+[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
 
+::: zone-end
 

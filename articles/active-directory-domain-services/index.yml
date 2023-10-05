@@ -1,102 +1,101 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure AD Domain Services documentation
+### YamlMime:Landing
+
+title: Microsoft Entra Domain Services documentation
+summary: Learn how to use Microsoft Entra Domain Services to provide Kerberos or NTLM authentication to applications or join Azure VMs to a managed domain.
+
 metadata:
-  title: Azure AD Domain Services documentation
-  description: Learn how to use Active Directory Domain Services to join Azure virtual machines to a domain without using domain controllers. Tutorials and other documentation show you how to manage virtual machines using group policies.
-  keywords: Azure AD, Azure, domain join, group policy, LDAP, Kerberos, domain controller, DC, lift and shift
-  author: MikeStephens-MS
-  ms.author: mstephen
-  manager: daveba
-  ms.date: 05/22/2019
-  ms.topic: landing-page
-  ms.devlang: na
+  title: Microsoft Entra Domain Services documentation
+  description: Learn how to use Microsoft Entra Domain Services to provide Kerberos or NTLM authentication to applications or join Azure VMs to a managed domain.
+  services: service
   ms.service: active-directory
   ms.subservice: domain-services
-sections:
-- items:
-  - type: markdown
-    text: Learn how to use Active Directory Domain Services to join Azure virtual machines to a domain without using domain controllers. Tutorials and other documentation show you how to manage virtual machines using group policies.
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 2
-    items:
-    - href: overview.md
-      html: <p>Read about what Azure AD Domain Services can do for you.</p>
-      image:
-        src: https://docs.microsoft.com/media/common/i_investigate.svg
-      title: What is Azure AD Domain Services?
-    - href: create-instance.md
-      html: <p>Create your own managed domain with this simple walkthrough.</p>
-      image:
-        src: https://docs.microsoft.com/media/common/i_deploy.svg
-      title: Get started
-    - href: contact-us.md
-      html: <p>Receive help when you need it.</p>
-      image:
-        src: https://docs.microsoft.com/media/common/i_support.svg
-      title: Get support
-    - href: https://azure.microsoft.com/updates/?product=active-directory-ds
-      html: <p>See new features in Azure AD Domain Services.</p>
-      image:
-        src: https://docs.microsoft.com/media/common/i_whats-new.svg
-      title: What's new
+  ms.topic: landing-page
+  ms.collection: collection
+  author: justinha
+  ms.author: justinha
+  manager: amycolannino
+  ms.date: 09/23/2023
 
-- title: Videos
-  items:
-  - type: markdown
-    text: ">[!VIDEO https://www.youtube.com/embed/T1Nd9APNceQ]"
-
-- title: Planning articles 
-  items:
-  - type: list
-    style: unordered
-    items: 
-    - html: <a href="comparison.md">Decide if the service is right for you?</a>
-    - html: <a href="active-directory-ds-features.md">Features of Azure AD Domain Services</a>
-    - html: <a href="scenarios.md">How can you use the service?</a>
-    - html: <a href="synchronization.md">Understand how synchronization works in Azure AD Domain Services</a>
-    - html: <a href="https://azure.microsoft.com/pricing/details/active-directory-ds/">Pricing of Azure AD Domain Services</a>
-
-- title: Applications and Azure AD Domain Services 
-  items:
-  - type: list
-    style: unordered
-    items: 
-    - html: <a href="deploy-azure-app-proxy.md">Deploy Azure AD App Proxy</a>
-    - html: <a href="deploy-sp-profile-sync.md">Profile synchronization for SharePoint Server</a>
-    - html: <a href="deploy-kcd.md">Configure Kerberos Constrained Delegation</a>
-
-- title: How-to articles
-  items:
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="check-health.md">Check a managed domain’s health </a>
-    - html: <a href="csp.md">Azure CSP Subscriptions and Azure AD Domain Services</a>
-    - html: <a href="manage-dns.md">Manage DNS</a>
-    - html: <a href="network-considerations.md">Select a Virtual network</a>
-    - html: <a href="configure-ldaps.md">Configure Secure LDAP</a>
-    - html: <a href="create-ou.md">Create an OU</a>
-    - html: <a href="manage-group-policy.md">Manage Group Policy</a>
-    
-- title: Troubleshooting articles
-  items:
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="troubleshoot.md">Troubleshooting guide</a>
-    - html: <a href="troubleshoot-alerts.md">Troubleshooting alerts on your managed domain</a>
-    - html: <a href="faqs.md">Frequently Asked Questions</a>
-    - html: <a href="https://azure.microsoft.com/support/options/">Get support</a>
-
-- title: Other resources
-  items:
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="https://feedback.azure.com/forums/169401-azure-active-directory/">Give feedback on Azure AD Domain Services at UserVoice</a>
-    - html: <a href="https://azure.microsoft.com/roadmap/?category=security-identity">Azure Roadmap</a>
-    - html: <a href="https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-contact-us">Contact Us</a>
+landingContent:
+  - title: About Microsoft Entra Domain Services
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Microsoft Entra Domain Services?
+            url: overview.md
+          - text: Compare identity solutions
+            url: compare-identity-solutions.md
+      - linkListType: concept
+        links:
+          - text: How does synchronization work?
+            url: synchronization.md
+          - text: FAQs
+            url: faqs.yml
+  - title: Get started
+    linkLists:
+      - linkListType: deploy
+        links:
+          - text: Create a managed domain
+            url: tutorial-create-instance.md
+      - linkListType: tutorial
+        links:
+          - text: Domain-join a Windows Server VM
+            url: join-windows-vm.md
+          - text: Install management tools
+            url: tutorial-create-management-vm.md
+  - title: Configure
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Configure secure LDAP
+            url: tutorial-configure-ldaps.md
+      - linkListType: how-to-guide
+        links:
+          - text: Enable password hash synchronization
+            url: tutorial-configure-password-hash-sync.md
+          - text: Create an organizational unit (OU)
+            url: create-ou.md
+          - text: Configure Kerberos Constrained Delegation
+            url: deploy-kcd.md
+          - text: Secure managed domain
+            url: secure-your-domain.md
+  - title: Manage
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Administer group policy
+            url: manage-group-policy.md
+          - text: Manage DNS
+            url: manage-dns.md
+          - text: Check health status
+            url: check-health.md
+          - text: Configure email notifications
+            url: notifications.md
+          - text: Enable security audits
+            url: security-audit-events.md
+  - title: Domain-join VMs
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Windows Server
+            url: join-windows-vm.md
+      - linkListType: how-to-guide
+        links:
+          - text: Ubuntu Server
+            url: join-ubuntu-linux-vm.md
+          - text: Red Hat Enterprise Linux
+            url: join-rhel-linux-vm.md
+          - text: SUSE Linux Enterprise
+            url: join-suse-linux-vm.md
+  - title: Troubleshoot
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Common issues
+            url: troubleshoot.md
+          - text: Common alert messages
+            url: troubleshoot-alerts.md
+          - text: Network security group issues
+            url: alert-nsg.md
+          - text: Secure LDAP issues
+            url: alert-ldaps.md

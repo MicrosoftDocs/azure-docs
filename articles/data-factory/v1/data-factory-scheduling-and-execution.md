@@ -1,23 +1,15 @@
 ---
-title: Scheduling and Execution with Data Factory | Microsoft Docs
+title: Scheduling and Execution with Data Factory 
 description: Learn scheduling and execution aspects of Azure Data Factory application model.
-services: data-factory
-documentationcenter: ''
-author: sharonlo101
-manager: craigg
-
-
-ms.assetid: 088a83df-4d1b-4ac1-afb3-0787a9bd1ca5
+author: dcstwh
+ms.author: weetok
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-
+ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/10/2018
-ms.author: shlo
-
-robots: noindex
+ms.date: 04/12/2023
 ---
+
 # Data Factory scheduling and execution
 > [!NOTE]
 > This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [pipeline execution and triggers](../concepts-pipeline-execution-triggers.md) article.
@@ -52,7 +44,7 @@ It is not the pipeline that is executed. It is the activities in the pipeline th
 
 As shown in the following diagram, specifying a schedule for an activity creates a series of tumbling windows with in the pipeline start and end times. Tumbling windows are a series of fixed-size non-overlapping, contiguous time intervals. These logical tumbling windows for an activity are called **activity windows**.
 
-![Activity scheduler example](media/data-factory-scheduling-and-execution/scheduler-example.png)
+:::image type="content" source="media/data-factory-scheduling-and-execution/scheduler-example.png" alt-text="Activity scheduler example":::
 
 The **scheduler** property for an activity is optional. If you do specify this property, it must match the cadence you specify in the definition of output dataset for the activity. Currently, output dataset is what drives the schedule. Therefore, you must create an output dataset even if the activity does not produce any output. 
 
@@ -166,7 +158,7 @@ In this example, the activity runs hourly between the start and end times of the
 
 Each unit of data consumed or produced by an activity run is called a **data slice**. The following diagram shows an example of an activity with one input dataset and one output dataset: 
 
-![Availability scheduler](./media/data-factory-scheduling-and-execution/availability-scheduler.png)
+:::image type="content" source="./media/data-factory-scheduling-and-execution/availability-scheduler.png" alt-text="Availability scheduler":::
 
 The diagram shows the hourly data slices for the input and output dataset. The diagram shows three input slices that are ready for processing. The 10-11 AM activity is in progress, producing the 10-11 AM output slice. 
 
@@ -186,7 +178,7 @@ The following table describes properties you can use in the **availability** sec
 | --- | --- | --- | --- |
 | frequency |Specifies the time unit for dataset slice production.<br/><br/><b>Supported frequency</b>: Minute, Hour, Day, Week, Month |Yes |NA |
 | interval |Specifies a multiplier for frequency<br/><br/>”Frequency x interval” determines how often the slice is produced.<br/><br/>If you need the dataset to be sliced on an hourly basis, you set <b>Frequency</b> to <b>Hour</b>, and <b>interval</b> to <b>1</b>.<br/><br/><b>Note</b>: If you specify Frequency as Minute, we recommend that you set the interval to no less than 15 |Yes |NA |
-| style |Specifies whether the slice should be produced at the start/end of the interval.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>If Frequency is set to Month and style is set to EndOfInterval, the slice is produced on the last day of month. If the style is set to StartOfInterval, the slice is produced on the first day of month.<br/><br/>If Frequency is set to Day and style is set to EndOfInterval, the slice is produced in the last hour of the day.<br/><br/>If Frequency is set to Hour and style is set to EndOfInterval, the slice is produced at the end of the hour. For example, for a slice for 1 PM – 2 PM period, the slice is produced at 2 PM. |No |EndOfInterval |
+| style |Specifies whether the slice should be produced at the start/end of the interval.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>If Frequency is set to Month and style is set to EndOfInterval, the slice is produced on the last day of month. If the style is set to StartOfInterval, the slice is produced on the first day of month.<br/><br/>If Frequency is set to Day and style is set to EndOfInterval, the slice is produced in the last hour of the day.<br/><br/>If Frequency is set to Hour and style is set to EndOfInterval, the slice is produced at the end of the hour. For example, for a slice for 1 PM - 2 PM period, the slice is produced at 2 PM. |No |EndOfInterval |
 | anchorDateTime |Defines the absolute position in time used by scheduler to compute dataset slice boundaries. <br/><br/><b>Note</b>: If the AnchorDateTime has date parts that are more granular than the frequency then the more granular parts are ignored. <br/><br/>For example, if the <b>interval</b> is <b>hourly</b> (frequency: hour and interval: 1) and the <b>AnchorDateTime</b> contains <b>minutes and seconds</b>, then the <b>minutes and seconds</b> parts of the AnchorDateTime are ignored. |No |01/01/0001 |
 | offset |Timespan by which the start and end of all dataset slices are shifted. <br/><br/><b>Note</b>: If both anchorDateTime and offset are specified, the result is the combined shift. |No |NA |
 
@@ -233,7 +225,7 @@ The **policy** section in dataset definition defines the criteria or the conditi
 | Policy Name | Description | Applied To | Required | Default |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB | Validates that the data in an **Azure blob** meets the minimum size requirements (in megabytes). |Azure Blob |No |NA |
-| minimumRows | Validates that the data in an **Azure SQL database** or an **Azure table** contains the minimum number of rows. |<ul><li>Azure SQL Database</li><li>Azure Table</li></ul> |No |NA |
+| minimumRows | Validates that the data in **Azure SQL Database** or **Azure table** contains the minimum number of rows. |<ul><li>Azure SQL Database</li><li>Azure Table</li></ul> |No |NA |
 
 #### Examples
 **minimumSizeMB:**
@@ -288,7 +280,7 @@ When an error occurs while processing a data slice, you can find out why the pro
 
 Consider the following example, which shows two activities. Activity1 and Activity 2. Activity1 consumes a slice of Dataset1 and produces a slice of Dataset2, which is consumed as an input by Activity2 to produce a slice of the Final Dataset.
 
-![Failed slice](./media/data-factory-scheduling-and-execution/failed-slice.png)
+:::image type="content" source="./media/data-factory-scheduling-and-execution/failed-slice.png" alt-text="Failed slice":::
 
 The diagram shows that out of three recent slices, there was a failure producing the 9-10 AM slice for Dataset2. Data Factory automatically tracks dependency for the time series dataset. As a result, it does not start the activity run for the 9-10 AM downstream slice.
 
@@ -296,7 +288,7 @@ Data Factory monitoring and management tools allow you to drill into the diagnos
 
 After you rerun the 9-10 AM slice for **Dataset2**, Data Factory starts the run for the 9-10 AM dependent slice on the final dataset.
 
-![Rerun failed slice](./media/data-factory-scheduling-and-execution/rerun-failed-slice.png)
+:::image type="content" source="./media/data-factory-scheduling-and-execution/rerun-failed-slice.png" alt-text="Rerun failed slice":::
 
 ## Multiple activities in a pipeline
 You can have more than one activity in a pipeline. If you have multiple activities in a pipeline and the output of an activity is not an input of another activity, the activities may run in parallel if input data slices for the activities are ready.
@@ -312,11 +304,11 @@ In this scenario, activities A1 and A2 are in the same pipeline. The activity A1
 
 The Diagram view with both activities in the same pipeline would look like the following diagram:
 
-![Chaining activities in the same pipeline](./media/data-factory-scheduling-and-execution/chaining-one-pipeline.png)
+:::image type="content" source="./media/data-factory-scheduling-and-execution/chaining-one-pipeline.png" alt-text="Chaining activities in the same pipeline":::
 
 As mentioned earlier, the activities could be in different pipelines. In such a scenario, the diagram view would look like the following diagram:
 
-![Chaining activities in two pipelines](./media/data-factory-scheduling-and-execution/chaining-two-pipelines.png)
+:::image type="content" source="./media/data-factory-scheduling-and-execution/chaining-two-pipelines.png" alt-text="Chaining activities in two pipelines":::
 
 See the copy sequentially section in the appendix for an example.
 
@@ -439,7 +431,7 @@ The hive script receives the appropriate *DateTime* information as parameters th
 
 The following diagram shows the scenario from a data-dependency point of view.
 
-![Data dependency](./media/data-factory-scheduling-and-execution/data-dependency.png)
+:::image type="content" source="./media/data-factory-scheduling-and-execution/data-dependency.png" alt-text="Data dependency":::
 
 The output slice for every day depends on 24 hourly slices from an input dataset. Data Factory computes these dependencies automatically by figuring out the input data slices that fall in the same time period as the output slice to be produced. If any of the 24 input slices is not available, Data Factory waits for the input slice to be ready before starting the daily activity run.
 

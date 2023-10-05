@@ -1,71 +1,133 @@
 ---
-title: Manage device enrollments with Azure portal | Microsoft Docs
-description: How to manage device enrollments for your Device Provisioning Service in the Azure Portal
-author: wesmc7777
-ms.author: wesmc
-ms.date: 04/05/2018
-ms.topic: conceptual
+title: Manage device enrollments in the Azure portal
+titleSuffix: Azure IoT Hub Device Provisioning Service
+description: How to manage group and individual device enrollments for your Device Provisioning Service (DPS) in the Azure portal.
+author: kgremban
+ms.author: kgremban
+ms.date: 03/09/2023
+ms.topic: how-to
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
+manager: lizross
 ---
 
-# How to manage device enrollments with Azure Portal
+# How to manage device enrollments with Azure portal
 
-A *device enrollment* creates a record of a single device or a group of devices that may at some point register with the Azure IoT Hub Device Provisioning Service. The enrollment record contains the initial desired configuration for the device(s) as part of that enrollment, including the desired IoT hub. This article shows you how to manage device enrollments for your provisioning service.
+A *device enrollment* creates a record of a single device or a group of devices that may at some point register with the Azure IoT Hub Device Provisioning Service (DPS). The enrollment record contains the initial configuration for the device(s) as part of that enrollment. Included in the configuration is either the IoT hub to which a device will be assigned, or an allocation policy that configures the IoT hub from a set of IoT hubs. This article shows you how to manage device enrollments for your provisioning service.
 
+The Device Provisioning Service supports two types of enrollments:
 
-## Create a device enrollment
+* [Enrollment groups](concepts-service.md#enrollment-group): Used to enroll multiple related devices.
+* [Individual enrollments](concepts-service.md#individual-enrollment): Used to enroll a single device.
 
-There are two ways you can enroll your devices with the provisioning service:
+> [!IMPORTANT]
+> If you have trouble accessing enrollments from the Azure portal, it may be because you have public network access disabled or IP filtering rules configured that block access for the Azure portal. To learn more, see [Disable public network access limitations](public-network-access.md#disable-public-network-access-limitations) and [IP filter rules limitations](iot-dps-ip-filtering.md#ip-filter-rules-limitations).
 
-* An **Enrollment group** is an entry for a group of devices that share a common attestation mechanism of X.509 certificates, signed by the same signing certificate, which can be the [root certificate](https://docs.microsoft.com/azure/iot-dps/concepts-security#root-certificate) or the [intermediate certificate](https://docs.microsoft.com/azure/iot-dps/concepts-security#intermediate-certificate), used to produce device certificate on physical device. We recommend using an enrollment group for a large number of devices which share a desired initial configuration, or for devices all going to the same tenant. Note that you can only enroll devices that use the X.509 attestation mechanism as *enrollment groups*. 
+## Prerequisites
 
-    You can create an enrollment group in the portal for a group of devices using the following steps:
+* Create an instance of Device Provisioning Service in your subscription and link it to an IoT hub. For more information, see [Quickstart: Set up the IoT Hub Device Provisioning Service](./quick-setup-auto-provision.md).
 
-  1. Log in to the Azure portal and click **All resources** from the left-hand menu.  
-  1. Click the Device Provisioning service you want to enroll your device to from the list of resources.  
-  1. In your provisioning service:  
-     a. Click **Manage enrollments**, then select the **Enrollment Groups** tab.  
-     b. Click the **Add** button at the top.  
-     c. When the "Add Enrollment Group" panel appears, enter the information for the enrollment list entry.  **Group name** is required. Also select "CA or Intermediate" for **Certificate type**, and upload the root **Primary certificate** for the group of devices.  
-     d. Click **Save**. On successful creation of your enrollment group, you should see the group name appear under the **Enrollment Groups** tab.  
+## Create an enrollment group
 
-     [![Enrollment group in the portal](./media/how-to-manage-enrollments/group-enrollment.png)](./media/how-to-manage-enrollments/group-enrollment.png#lightbox)
-    
+An enrollment group is an entry for a group of devices that share a common attestation mechanism. We recommend that you use an enrollment group for a large number of devices that share an initial configuration, or for devices that go to the same tenant. Enrollment groups support devices that use either [symmetric key](concepts-symmetric-key-attestation.md) or [X.509 certificates](concepts-x509-attestation.md) attestation.
 
-* An **Individual enrollment** is an entry for a single device that may register. Individual enrollments may use either x509 certificates or SAS tokens (from a physical or virtual TPM) as attestation mechanisms. We recommend using individual enrollments for devices which require unique initial configurations, or for devices which can only use SAS tokens via TPM or virtual TPM as the attestation mechanism. Individual enrollments may have the desired IoT hub device ID specified.
+# [Symmetric key](#tab/key)
 
-    You can create an individual enrollment in the portal using the following steps:
+For a walkthrough that demonstrates how to create and use enrollment groups with symmetric keys, see the [Provision devices using symmetric key enrollment groups](how-to-legacy-device-symm-key.md) tutorial.
 
-    1. Log in to the Azure portal and click **All resources** from the left-hand menu.
-    1. Click the Device Provisioning service you want to enroll your device to from the list of resources.
-    1. In your provisioning service:  
-       a. Click **Manage enrollments**, then select the **Individual Enrollments** tab.  
-       b. Click the **Add** button at the top.   
-       c. When the "Add Enrollment" panel appears, enter the information for the enrollment list entry. First select the attestation **Mechanism** for the device (X.509 or TPM). X.509 attestation requires you to upload the leaf **Primary certificate** for the device. TPM requires you to enter the **Attestation Key** and **Registration ID** for the device.  
-       d. Click **Save**. On successful creation of your enrollment group, you should see your device appear under the **Individual Enrollments** tab.  
+To create a symmetric key enrollment group:
 
-       [![Individual enrollment in the portal](./media/how-to-manage-enrollments/individual-enrollment.png)](./media/how-to-manage-enrollments/individual-enrollment.png#lightbox)
+<!-- INCLUDE -->
+[!INCLUDE [iot-dps-enrollment-group-key.md](../../includes/iot-dps-enrollment-group-key.md)]
+
+# [X.509 certificate](#tab/x509)
+
+For a walkthrough that demonstrates how to create and use enrollment groups with X.509 certificates, see the [Provision multiple X.509 devices using enrollment groups](how-to-legacy-device-symm-key.md) tutorial.
+
+To create an X.509 certificate enrollment group:
+
+<!-- INCLUDE -->
+[!INCLUDE [iot-dps-enrollment-group-x509.md](../../includes/iot-dps-enrollment-group-x509.md)]
+
+# [TPM](#tab/tpm)
+
+Enrollment groups do not support TPM attestation.
+
+---
+
+## Create an individual enrollment
+
+An individual enrollment is an entry for a single device that may be assigned to an IoT hub. Devices using [symmetric key](concepts-symmetric-key-attestation.md), [X.509 certificates](concepts-x509-attestation.md), and [TPM attestation](concepts-tpm-attestation.md) are supported.
+
+# [Symmetric key](#tab/key)
+
+For a walkthrough of how to create and use individual enrollments with symmetric keys, see [Quickstart: Provision a symmetric key device](quick-create-simulated-device-symm-key.md#create-a-device-enrollment).
+
+To create a symmetric key individual enrollment:
+
+<!-- INCLUDE -->
+[!INCLUDE [iot-dps-individual-enrollment-key.md](../../includes/iot-dps-individual-enrollment-key.md)]
+
+# [X.509 certificate](#tab/x509)
+
+For a walkthrough of how to create and use individual enrollments with X.509 certificates, see [Quickstart:Provision an X.509 certificate device](quick-create-simulated-device-x509.md#create-a-device-enrollment).
+
+To create a X.509 certificate individual enrollment:
+
+<!-- INCLUDE -->
+[!INCLUDE [iot-dps-individual-enrollment-x509.md](../../includes/iot-dps-individual-enrollment-x509.md)]
+
+# [TPM](#tab/tpm)
+
+For a walkthrough of how to create and use individual enrollments using TPM attestation, see [Quickstart: Provision a simulated TPM device](quick-create-simulated-device-tpm.md#create-a-device-enrollment-entry) samples. If you don't have the endorsement key and registration ID for your device, use the quickstart to try these steps on a simulated device.
+
+To create a TPM individual enrollment:
+
+<!-- INCLUDE -->
+[!INCLUDE [iot-dps-individual-enrollment-tpm.md](../../includes/iot-dps-individual-enrollment-tpm.md)]
+
+---
 
 ## Update an enrollment entry
-You can update an existing enrollment entry in the portal using the following steps:
 
-1. Open your Device Provisioning service in the Azure portal and click **Manage Enrollments**. 
-1. Navigate to the enrollment entry you want to modify. Click the entry, which opens a summary information about your device enrollment. 
-1. On this page, you can modify items other than the security type and credentials, such as the IoT hub the device should be linked to, as well as the device ID. You may also modify the initial device twin state. 
-1. Once completed, click **Save** to update your device enrollment. 
+To update an existing enrollment entry:
 
-    ![Update enrollment in the portal](./media/how-to-manage-enrollments/update-enrollment.png)
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Device Provisioning Service instance.
+
+1. Select **Manage enrollments** from the **Settings** section of the navigation menu.
+
+1. Select either the **Enrollment groups** or **Individual enrollments** tab, depending on whether you want to update an enrollment group or an individual enrollment.
+
+1. Select the name of the enrollment entry that you wish to modify.
+
+1. On the enrollment entry details page, you can update all items, except the security type and credentials.
+
+1. Once completed, select **Save**.
 
 ## Remove a device enrollment
-In cases where your device(s) do not need to be provisioned to any IoT hub, you can remove the related enrollment entry in the portal using the following steps:
 
-1. Open your Device Provisioning service in the Azure portal and click **Manage Enrollments**. 
-1. Navigate to and select the enrollment entry you want to remove. 
-1. Click the **Delete** button at the top and then select **Yes** when prompted to confirm. 
-1. Once the action is completed, you will see your entry removed from the list of device enrollments. 
- 
-    ![Remove enrollment in the portal](./media/how-to-manage-enrollments/remove-enrollment.png)
+To remove an enrollment entry:
 
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Device Provisioning Service instance.
 
+1. Select **Manage enrollments** from the **Settings** section of the navigation menu.
+
+1. Select either the **Enrollment groups** or **Individual enrollments** tab, depending on whether you want to remove an enrollment group or an individual enrollment.
+
+1. Select the enrollment entry you want to remove.
+
+1. At the top of the page, select **Delete**.
+
+1. When prompted to confirm, select **Yes**.
+
+1. Once the action is completed, you'll see that your entry has been removed from the list of device enrollments.
+
+> [!NOTE]
+> Deleting an enrollment group doesn't delete the registration records for devices in the group. DPS uses the registration records to determine whether the maximum number of registrations has been reached for the DPS instance. Orphaned registration records still count against this quota. For the current maximum number of registrations supported for a DPS instance, see [Quotas and limits](about-iot-dps.md#quotas-and-limits).
+>
+>You may want to delete the registration records for the enrollment group before deleting the enrollment group itself. You can see and manage the registration records for an enrollment group manually on the **Registration Records** tab for the group in Azure portal. You can retrieve and manage the registration records programmatically using the [Device Registration State REST APIs](/rest/api/iot-dps/service/device-registration-state) or equivalent APIs in the [DPS service SDKs](libraries-sdks.md), or using the [az iot dps enrollment-group registration Azure CLI commands](/cli/azure/iot/dps/enrollment-group/registration).
+
+## Next steps
+
+* Learn more about [How to link and manage IoT hubs](./how-to-manage-linked-iot-hubs.md).
+* Understand [How to use allocation policies to provision devices across multiple IoT hubs](./how-to-use-allocation-policies.md).

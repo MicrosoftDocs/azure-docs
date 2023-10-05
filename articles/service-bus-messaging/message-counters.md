@@ -1,50 +1,110 @@
 ---
-title: Azure Service Bus message count | Microsoft Docs
-description: Retrieve the count of Azure Service Bus messages.
-services: service-bus-messaging
-documentationcenter: ''
-author: axisc
-manager: timlt
-editor: spelluru
-
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+title: Azure Service Bus - message count
+description: Retrieve the count of messages held in queues and subscriptions by using Azure Resource Manager and the Azure Service Bus NamespaceManager APIs.
 ms.topic: article
-ms.date: 01/23/2019
-ms.author: aschhab
-
+ms.date: 12/20/2022 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
+ms.devlang: azurecli
 ---
 
-# Message counters
+# Get message counters
+This article shows you different ways of getting message counts for a queue or subscription. Knowing the active message count is useful in determining whether a queue builds up a backlog that requires more resources to process than what has currently been deployed. 
 
-You can retrieve the count of messages held in queues and subscriptions by using Azure Resource Manager and the Service Bus [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) APIs in the .NET Framework SDK.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-With PowerShell, you can obtain the count as follows:
-
-```powershell
-(Get-AzServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue).CountDetails
-```
-
-## Message count details
-
-Knowing the active message count is useful in determining whether a queue builds up a backlog that requires more resources to process than what has currently been deployed. The following counter details are available in the [MessageCountDetails](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails) class:
-
--   [ActiveMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.activemessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_ActiveMessageCount): Messages in the queue or subscription that are in the active state and ready for delivery.
--   [DeadLetterMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.deadlettermessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_DeadLetterMessageCount): Messages in the dead-letter queue.
--   [ScheduledMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.scheduledmessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_ScheduledMessageCount): Messages in the scheduled state.
--   [TransferDeadLetterMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.transferdeadlettermessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_TransferDeadLetterMessageCount): Messages that failed transfer into another queue or topic and have been moved into the transfer dead-letter queue.
--   [TransferMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.transfermessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_TransferMessageCount): Messages pending transfer into another queue or topic.
+| Counter | Description |
+| ----- | ---------- | 
+| ActiveMessageCount | Number of messages in the queue or subscription that are in the active state and ready for delivery. |
+| ScheduledMessageCount	| Number of messages in the scheduled state. |
+| DeadLetterMessageCount | Number of messages in the dead-letter queue. |
+| TransferMessageCount | Number of messages pending transfer into another queue or topic. |
+| TransferDeadLetterMessageCount | Number of messages that failed to transfer into another queue or topic and have been moved into the transfer dead-letter queue. |
 
 If an application wants to scale resources based on the length of the queue, it should do so with a measured pace. The acquisition of the message counters is an expensive operation inside the message broker, and executing it frequently directly and adversely impacts the entity performance.
 
+> [!NOTE]
+> The messages that are sent to a Service Bus topic are forwarded to subscriptions for that topic. So, the active message count on the topic itself is 0, as those messages have been successfully forwarded to the subscription. Get the message count at the subscription and verify that it's greater than 0. Even though you see messages at the subscription, they are actually stored in a storage owned by the topic. If you look at the subscriptions, then they would have non-zero message count (which add up to 323 MB of space for this entire entity).
+
+
+## Using Azure portal
+Navigate to your namespace, and select the queue. You see message counters on the **Overview** page for the queue.
+
+:::image type="content" source="./media/message-counters/queue-overview.png" alt-text="Screenshot showing the Overview page of a queue with the Message Counts section highlighted.":::
+
+Navigate to your namespace, select the topic, and then select the subscription for the topic. You see message counters on the **Overview** page for the queue.
+
+:::image type="content" source="./media/message-counters/subscription-overview.png" alt-text="Screenshot showing the Overview page of a topic's subscription with the Message Counts section highlighted. ":::
+
+## Using Azure CLI
+Use the [`az servicebus queue show`](/cli/azure/servicebus/queue#az-servicebus-queue-show) command to get the message count details for a queue as shown in the following example. 
+
+```azurecli-interactive
+az servicebus queue show --resource-group myresourcegroup \
+    --namespace-name mynamespace \
+    --name myqueue \
+    --query countDetails
+```
+
+Here's a sample output:
+
+```bash
+ActiveMessageCount    DeadLetterMessageCount    ScheduledMessageCount    TransferMessageCount    TransferDeadLetterMessageCount
+--------------------  ------------------------  -----------------------  ----------------------  --------------------------------
+0                     0                         0                        0                       0
+```
+
+Use the [`az servicebus topic subscription show`](/cli/azure/servicebus/topic/subscription#az-servicebus-topic-subscription-show) command to get the message count details for a subscription as shown in the following example. 
+
+```azurecli-interactive
+az servicebus topic subscription show --resource-group myresourcegroup \
+    --namespace-name mynamespace \
+    --topic-name mytopic \
+    --name mysub \
+    --query countDetails
+```
+
+## Using Azure PowerShell
+With PowerShell, you can obtain the message count details for a queue as follows:
+
+```azurepowershell-interactive
+$queueObj=Get-AzServiceBusQueue -ResourceGroup myresourcegroup `
+                    -NamespaceName mynamespace `
+                    -QueueName myqueue 
+
+$queueObj.CountDetails
+```
+
+Here's the sample output:
+
+```bash
+ActiveMessageCount             : 7
+DeadLetterMessageCount         : 1
+ScheduledMessageCount          : 3
+TransferMessageCount           : 0
+TransferDeadLetterMessageCount : 0
+```
+
+you can obtain the message count details for a subscription as follows:
+
+```azurepowershell-interactive
+$topicObj= Get-AzServiceBusSubscription -ResourceGroup myresourcegroup `
+                -NamespaceName mynamespace `
+                -TopicName mytopic `
+                -SubscriptionName mysub
+
+$topicObj.CountDetails
+```
+
+The returned `MessageCountDetails` object has the following properties: `ActiveMessageCount`, `DeadLetterMessageCount`, `ScheduledMessageCount`, `TransferDeadLetterMessageCount`, `TransferMessageCount`. 
+
 ## Next steps
 
-To learn more about Service Bus messaging, see the following topics:
+Try the samples in the language of your choice to explore Azure Service Bus features. 
 
-* [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
-* [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
-* [How to use Service Bus topics and subscriptions](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+- [Azure Service Bus client library samples for .NET (latest)](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/) 
+- [Azure Service Bus client library samples for Java (latest)](/samples/azure/azure-sdk-for-java/servicebus-samples/)
+- [Azure Service Bus client library samples for Python](/samples/azure/azure-sdk-for-python/servicebus-samples/)
+- [Azure Service Bus client library samples for JavaScript](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
+- [Azure Service Bus client library samples for TypeScript](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
+
+Find samples for the older .NET and Java client libraries below:
+- [Azure Service Bus client library samples for .NET (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/)
+- [Azure Service Bus client library samples for Java (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus)

@@ -1,16 +1,16 @@
 ---
-title: Move Azure IaaS VMs to another Azure region by using the Azure Site Recovery service | Microsoft Docs
+title: Move Azure VMs to another region with Azure Site Recovery 
 description: Use Azure Site Recovery to move Azure IaaS VMs from one Azure region to another.
 services: site-recovery
-author: rajani-janaki-ram
+author: ankitaduttaMSFT
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 01/28/2019
-ms.author: rajanaki
+ms.author: ankitadutta
 ms.custom: MVC
 ---
 
-# Move Azure VMs to another region
+# Move Azure VMs to another Azure region
 
 You might want to move Azure infrastructure as a service (IaaS) virtual machines from one region to another to improve reliability, availability, management, or governance. This tutorial shows you how to move VMs to another region by using Azure Site Recovery. You'll learn how to:
 
@@ -30,7 +30,7 @@ You might want to move Azure infrastructure as a service (IaaS) virtual machines
 ## Prerequisites
 
 - Make sure that you have Azure VMs in the source Azure region that you want to move *from*.
-- Verify that your choice of [source region-target region combination is supported](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support), and carefully choose the target region.
+- Verify that your choice of [source region-target region combination is supported](./azure-to-azure-support-matrix.md#region-support), and carefully choose the target region.
 - Make sure that you understand the [scenario architecture and components](azure-to-azure-architecture.md).
 - Review the [support limitations and requirements](azure-to-azure-support-matrix.md).
 - Verify account permissions. If you just created your free Azure account, *you* are the administrator of your subscription. If you aren't the administrator, work with the administrator to get the permissions that you need:
@@ -48,7 +48,7 @@ You might want to move Azure infrastructure as a service (IaaS) virtual machines
     - For Windows VMs, install the latest Windows updates so that all the trusted root certificates are on the machine. In a disconnected environment, follow the standard Windows Update and certificate-update processes for your organization.
     - For Linux VMs, follow guidance from your Linux distributor to get the latest trusted root certificates and certificate revocation list.
 2. Make sure that you're not using an authentication proxy to control network connectivity for VMs that you plan to move.
-3. If a VM that you want to move doesn't have access to the internet and is using a firewall proxy to control outbound access, check the [requirements](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms).
+3. If a VM that you want to move doesn't have access to the internet and is using a firewall proxy to control outbound access, check the [requirements](azure-to-azure-tutorial-enable-replication.md#set-up-vm-connectivity).
 4. Document the source networking layout and all resources that you're currently using, including (but not limited to) load balancers, network security groups, and public IP addresses for verification.
 
 ## Prepare the target region
@@ -61,13 +61,13 @@ You might want to move Azure infrastructure as a service (IaaS) virtual machines
 
    Azure Site Recovery automatically discovers and creates a virtual network and storage account when you enable replication for the source VM. You can also pre-create these resources and assign them to the VM as part of the enable-replication step. But you must manually create any other resources in the target region. Refer to the following documents to create the most commonly used network resources based on the your source VM configuration:
 
-   - [Network security groups](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
-   - [Load balancers](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
-   - [Public IP](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+   - [Network security groups](../virtual-network/manage-network-security-group.md)
+   - [Load balancers](../load-balancer/index.yml)
+   - [Public IP](../virtual-network/ip-services/virtual-network-public-ip-address.md)
     
-   For any other networking components, see the [Azure networking documentation](https://docs.microsoft.com/azure/#pivot=products&panel=network). 
+   For any other networking components, see the [Azure networking documentation](../index.yml?pivot=products&panel=network). 
 
-4. To test the configuration before you perform the move, manually [create a non-production network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal) in the target region. Testing the setup creates minimal interference with the production environment, and we recommend it.
+4. To test the configuration before you perform the move, manually [create a non-production network](../virtual-network/quick-create-portal.md) in the target region. Testing the setup creates minimal interference with the production environment, and we recommend it.
     
 ## Copy data to the target region
 The following steps use Azure Site Recovery to copy data to the target region.
@@ -95,7 +95,6 @@ Site Recovery retrieves a list of the VMs that are associated with the subscript
 4. Choose to use the default target resources or those that you pre-created.
 5. Select **Enable replication** to start the job.
 
-   ![Enable replication](media/tutorial-migrate-azure-to-azure/settings.png)
 
  
 
@@ -147,4 +146,3 @@ In this tutorial, you learned how to move Azure VMs to a different Azure region.
 
 > [!div class="nextstepaction"]
 > [Set up disaster recovery after migration](azure-to-azure-quickstart.md)
-

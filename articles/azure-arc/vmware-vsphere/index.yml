@@ -1,0 +1,51 @@
+### YamlMime:Landing
+title: Azure Arc-enabled VMware vSphere
+summary: Learn how to manage VMware vCenter resources with Azure Arc
+
+metadata:
+  title: Azure Arc–enabled VMware vSphere
+  description: Learn about how to manage on-premises machines in Azure
+  author: suzizuber
+  ms.service: azure-arc
+  ms.topic: landing-page
+  ms.date: 03/02/2021
+  ms.author: v-szuber
+
+landingContent:
+  - title: About Azure Arc-enabled VMware vSphere
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Arc-enabled VMware vSphere?
+            url: overview.md
+
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+        - text: Connect vCenter to Arc
+          url: quick-start-connect-vcenter-to-arc-using-script.md
+
+
+  - title: Configure and manage VMware virtual machines
+    linkLists:
+      - linkListType: how-to-guide
+        links:  
+        - text: Enable VMware vCenter resources in Azure
+          url: browse-and-enable-vcenter-resources-in-azure.md
+        - text: Install Arc agent at scale for your VMware VMs
+          url: enable-guest-management-at-scale.md
+        - text: Manage access to VMware resources through Azure RBAC
+          url: setup-and-manage-self-service-access.md
+        - text: Create a virtual machine on VMware vCenter
+          url: quick-start-create-a-vm.md   
+        - text: Manage VMware virtual machines in Azure
+          url: perform-vm-ops-through-azure.md
+ 
+  - title: Proof of concept
+    linkLists:
+     - linkListType: sample
+       links:
+          - text: Jumpstart for Azure Arc-enabled VMware vSphere
+            url: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/ 
+

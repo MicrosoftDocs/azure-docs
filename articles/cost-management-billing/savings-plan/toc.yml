@@ -1,0 +1,61 @@
+- name: Azure savings plan documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What are Azure savings plans for compute?
+    href: savings-plan-compute-overview.md
+- name: Concepts
+  items:
+  - name: Savings plan recommendations
+    href: purchase-recommendations.md
+  - name: How a savings plan discount is applied
+    href: discount-application.md
+  - name: Savings plan scopes
+    href: scope-savings-plan.md
+  - name: Decide between savings plans and reservations
+    href: decide-between-savings-plan-reservation.md
+  - name: Windows and SQL costs not included
+    href: software-costs-not-included.md
+  - name: Cancellation policy
+    href: cancel-savings-plan.md
+- name: How-to guides
+  items:
+  - name: Choose a commitment amount
+    href: choose-commitment-amount.md
+  - name: Buy an Azure savings plan
+    href: buy-savings-plan.md
+  - name: Trade a reservation for a savings plan
+    href: reservation-trade-in.md
+  - name: Renew a savings plan
+    href: renew-savings-plan.md
+  - name: Download price sheet
+    href: download-savings-plan-price-sheet.md
+  - name: Permissions, view, and manage
+    items:
+    - name: Permissions to view and manage
+      href: permission-view-manage.md
+    - name: Who can buy a savings plan
+      href: buy-savings-plan.md#who-can-buy-a-savings-plan
+    - name: Manage saving plan
+      href: manage-savings-plan.md
+  - name: Utilization and cost reports
+    items:
+    - name: View savings plan utilization
+      href: view-utilization.md
+    - name: View savings plan cost and usage
+      href: utilization-cost-reports.md
+    - name: View savings plan transactions
+      href: view-transactions.md
+    - name: View amortized costs
+      href: ../reservations/view-amortized-costs.md?toc=/azure/cost-management-billing/savings-plan/toc.json
+    - name: Charge back savings plan costs
+      href: charge-back-costs.md
+    - name: Calculate EA cost savings
+      href: calculate-ea-savings-plan-savings.md
+  - name: Troubleshoot
+    items:
+    - name: Troubleshoot utilization
+      href: troubleshoot-savings-plan-utilization.md
+    - name: Not available due to conflict error
+      href: ../manage/troubleshoot-not-available-conflict.md

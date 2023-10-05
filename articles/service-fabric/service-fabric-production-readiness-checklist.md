@@ -1,20 +1,12 @@
 ---
-title: Azure Service Fabric Production Readiness Checklist| Microsoft Docs
+title: Azure Service Fabric Production Readiness Checklist
 description: Get your Service Fabric application and cluster production ready by following best practices.
-services: service-fabric
-documentationcenter: .net
-author: aljo-microsoft 
-manager: chakdan
-editor: ''
-
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 6/05/2019
-ms.author: aljo
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 
 # Production readiness checklist
@@ -24,13 +16,13 @@ Is your application and cluster ready to take production traffic? Running and te
 
 ## Prerequisites for production
 1. Azure Service Fabric best practices: [Application Design](./service-fabric-best-practices-applications.md), [Security](./service-fabric-best-practices-security.md), [Networking](./service-fabric-best-practices-networking.md), [Capacity planning and scaling](./service-fabric-best-practices-capacity-scaling.md), [Infrastructure as Code](./service-fabric-best-practices-infrastructure-as-code.md), and [Monitoring and Diagnostics](./service-fabric-best-practices-monitoring.md). 
-1. Implement the Reliable Actors security configuration if using the Actors programming model
+1. [Configure FabricTransport settings](./service-fabric-reliable-actors-fabrictransportsettings.md) if you're using the Reliable Actors programming model and require secure inter-service communication.
 1. For clusters with more than 20 cores or 10 nodes, create a dedicated primary node type for system services. Add [placement constraints](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) to reserve the primary node type for system services.
 1. Use a D2v2 or higher SKU for the primary node type. It is recommended to pick a SKU with at least 50 GB hard disk capacity.
 1. Production clusters must be [secure](service-fabric-cluster-security.md). For an example of setting up a secure cluster, see this [cluster template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/7-VM-Windows-3-NodeTypes-Secure-NSG). Use common names for certificates and avoid using self signed certs.
 1. Add [resource constraints on containers and services](service-fabric-resource-governance.md), so that they don't consume more than 75% of node resources. 
-1. Understand and set the [durability level](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster). Silver or higher durability level is recommended for node types running stateful workloads. The primary node type should have a durability level set to Silver or higher.
-1. Understand and pick the [reliability level](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) of the node type. Silver or higher reliability is recommended.
+1. Understand and set the [durability level](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster). Silver or higher durability level is recommended for node types running stateful workloads, and required for production.
+1. Understand and pick the [reliability level](service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster) of the node type. Silver or higher reliability is recommended, and required for production.
 1. Load and scale test your workloads to identify [capacity requirements](service-fabric-cluster-capacity.md) for your cluster. 
 1. Your services and applications are monitored and application logs are being generated and stored, with alerting. For example, see [Add logging to your Service Fabric application](service-fabric-how-to-diagnostics-log.md) and [Monitor containers with Azure Monitor logs](service-fabric-diagnostics-oms-containers.md).
 1. The cluster is monitored with alerting (for example, with [Azure Monitor logs](service-fabric-diagnostics-event-analysis-oms.md)). 
@@ -41,8 +33,8 @@ Is your application and cluster ready to take production traffic? Running and te
 1. Turn off automatic upgrades in production clusters, and turn it on for development and staging clusters (rollback as needed). 
 1. Establish a Recovery Point Objective (RPO) for your service, and set up a [disaster recovery process](service-fabric-disaster-recovery.md) and test it out.
 1. Plan for [scaling](service-fabric-cluster-scaling.md) your cluster manually or programmatically.
-1. Plan for [patching](service-fabric-patch-orchestration-application.md) your cluster nodes. 
-1. Establish a CI/CD pipeline so that your latest changes are being continually tested. For example, using [Azure DevOps](service-fabric-tutorial-deploy-app-with-cicd-vsts.md) or [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)
+1. Plan for [patching](how-to-patch-cluster-nodes-windows.md) your cluster nodes. 
+1. Establish a CI/CD pipeline so that your latest changes are being continually tested. For example, using [Azure DevOps](service-fabric-tutorial-deploy-app-with-cicd-vsts.md) or [Jenkins](/azure/developer/jenkins/deploy-to-service-fabric-cluster)
 1. Test your development & staging clusters under load with the [Fault Analysis Service](service-fabric-testability-overview.md) and induce controlled [chaos](service-fabric-controlled-chaos.md). 
 1. Plan for [scaling](service-fabric-concepts-scalability.md) your applications. 
 

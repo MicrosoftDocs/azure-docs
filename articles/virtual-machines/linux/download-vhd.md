@@ -1,87 +1,127 @@
 ---
-title: Download a Linux VHD from Azure | Microsoft Docs
+title: Download a Linux VHD from Azure 
 description: Download a Linux VHD using the Azure CLI and the Azure portal.
-services: virtual-machines-windows
-documentationcenter: ''
-author: cynthn
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 
-ms.service: virtual-machines-windows
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.devlang: na
-ms.topic: article
-ms.date: 06/01/2018
-ms.author: cynthn
+author: roygara
+ms.author: rogarana
+ms.service: azure-disk-storage
+ms.custom: devx-track-azurecli
+ms.collection: linux
+ms.topic: how-to
+ms.date: 01/03/2023
 ---
 
 # Download a Linux VHD from Azure
 
-In this article, you learn how to download a Linux virtual hard disk (VHD) file from Azure using the Azure CLI and Azure portal. 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
-If you haven't already done so, install [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2).
+In this article, you learn how to download a Linux virtual hard disk (VHD) file from Azure using the Azure portal. 
 
 ## Stop the VM
 
-A VHD can’t be downloaded from Azure if it's attached to a running VM. You need to stop the VM to download a VHD. If you want to use a VHD as an [image](tutorial-custom-images.md) to create other VMs with new disks, you need to deprovision and generalize the operating system contained in the file and stop the VM. To use the VHD as a disk for a new instance of an existing VM or data disk, you only need to stop and deallocate the VM.
+A VHD can’t be downloaded from Azure if it's attached to a running VM. If you want to keep the VM running, you can [create a snapshot and then download the snapshot](#alternative-snapshot-the-vm-disk).
 
-To use the VHD as an image to create other VMs, complete these steps:
-
-1. Use SSH, the account name, and the public IP address of the VM to connect to it and deprovision it. You can find the public IP address with [az network public-ip show](https://docs.microsoft.com/cli/azure/network/public-ip#az-network-public-ip-show). The +user parameter also removes the last provisioned user account. If you are baking account credentials in to the VM, leave out this +user parameter. The following example removes the last provisioned user account:
-
-    ```bash
-    ssh azureuser@<publicIpAddress>
-    sudo waagent -deprovision+user -force
-    exit 
-    ```
-
-2. Sign in to your Azure account with [az login](https://docs.microsoft.com/cli/azure/reference-index).
-3. Stop and deallocate the VM.
-
-    ```azurecli
-    az vm deallocate --resource-group myResourceGroup --name myVM
-    ```
-
-4. Generalize the VM. 
-
-    ```azurecli
-    az vm generalize --resource-group myResourceGroup --name myVM
-    ``` 
-
-To use the VHD as a disk for a new instance of an existing VM or data disk, complete these steps:
+To stop the VM:
 
 1.	Sign in to the [Azure portal](https://portal.azure.com/).
-2.	On the Hub menu, click **Virtual Machines**.
+2.	On the left menu, select **Virtual Machines**.
 3.	Select the VM from the list.
-4.	On the blade for the VM, click **Stop**.
+4.	On the page for the VM, select **Stop**.
 
-    ![Stop VM](./media/download-vhd/export-stop.png)
+    :::image type="content" source="./media/download-vhd/export-stop.PNG" alt-text="Shows the menu button to stop the VM.":::
+
+### Alternative: Snapshot the VM disk
+
+Take a snapshot of the disk to download.
+
+1. Select the VM in the [portal](https://portal.azure.com).
+2. Select **Disks** in the left menu and then select the disk you want to snapshot. The details of the disk will be displayed.  
+3. Select **Create Snapshot** from the menu at the top of the page. The **Create snapshot** page will open.
+4. In **Name**, type a name for the snapshot. 
+5. For **Snapshot type**, select **Full** or **Incremental**.
+6. When you are done, select **Review + create**.
+
+Your snapshot will be created shortly, and can then be used to download or create another VM.
+
+> [!NOTE]
+> If you don't stop the VM first, the snapshot will not be clean. The snapshot will be in the same state as if the VM had been power cycled or crashed at the point in time when the snapshot was made. While usually safe, it could cause problems if the running applications running at the time were not crash resistant.
+>  
+> This method is only recommended for VMs with a single OS disk. VMs with one or more data disks should be stopped before download or before creating a snapshot for the OS disk and each data disk.
+
+## Secure downloads and uploads with Azure AD
+
+[!INCLUDE [disks-azure-ad-upload-download-portal](../../../includes/disks-azure-ad-upload-download-portal.md)]
 
 ## Generate SAS URL
 
-To download the VHD file, you need to generate a [shared access signature (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) URL. When the URL is generated, an expiration time is assigned to the URL.
+To download the VHD file, you need to generate a [shared access signature (SAS)](../../storage/common/storage-sas-overview.md?toc=/azure/virtual-machines/windows/toc.json) URL. When the URL is generated, an expiration time is assigned to the URL.
 
-1.	On the menu of the blade for the VM, click **Disks**.
-2.	Select the operating system disk for the VM, and then click **Export**.
-3.	Click **Generate URL**.
+# [Portal](#tab/azure-portal)
 
-    ![Generate URL](./media/download-vhd/export-generate.png)
+1. On the menu of the page for the VM, select **Disks**.
+2. Select the operating system disk for the VM, and then select **Disk Export**.
+1. If required, update the value of **URL expires in (seconds)** to give you enough time to complete the download. The default is 3600 seconds (one hour).
+3. Select **Generate URL**.
 
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+$diskSas = Grant-AzDiskAccess -ResourceGroupName "yourRGName" -DiskName "yourDiskName" -DurationInSecond 86400 -Access 'Read'
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az disk grant-access --duration-in-seconds 86400 --access-level Read --name yourDiskName --resource-group yourRGName
+```
+
+---
+      
 ## Download VHD
 
-1.	Under the URL that was generated, click Download the VHD file.
+> [!NOTE]
+> If you're using Azure AD to secure managed disk downloads, the user downloading the VHD must have the appropriate [RBAC permissions](#assign-rbac-role).
 
-    ![Download VHD](./media/download-vhd/export-download.png)
+# [Portal](#tab/azure-portal)
 
-2.	You may need to click **Save** in the browser to start the download. The default name for the VHD file is *abcd*.
+1.	Under the URL that was generated, select **Download the VHD file**.
 
-    ![Click Save in the browser](./media/download-vhd/export-save.png)
+    :::image type="content" source="./media/download-vhd/export-download.PNG" alt-text="Shows the button to download the VHD.":::
+
+2.	You may need to select **Save** in the browser to start the download. The default name for the VHD file is *abcd*.
+
+# [PowerShell](#tab/azure-powershell)
+
+Use the following script to download your VHD:
+
+```azurepowershell
+Connect-AzAccount
+#Set localFolder to your desired download location
+$localFolder = "yourPathHere"
+$blob = Get-AzStorageBlobContent -Uri $diskSas.AccessSAS -Destination $localFolder -Force 
+```
+
+When the download finishes, revoke access to your disk using `Revoke-AzDiskAccess -ResourceGroupName "yourRGName" -DiskName "yourDiskName"`.
+
+# [Azure CLI](#tab/azure-cli)
+
+Replace `yourPathhere` and `sas-URI` with your values, then use the following script to download your VHD:
+
+> [!NOTE]
+> If you're using Azure AD to secure your managed disk uploads and downloads, add `--auth-mode login` to `az storage blob download`.
+
+```azurecli
+
+#set localFolder to your desired download location
+localFolder=yourPathHere
+#If you're using Azure AD to secure your managed disk uploads and downloads, add --auth-mode login to the following command.
+az storage blob download -f $localFolder --blob-url "sas-URI"
+```
+
+When the download finishes, revoke access to your disk using `az disk revoke-access --name diskName --resource-group yourRGName`.
+
+---
 
 ## Next steps
 
-- Learn how to [upload and create a Linux VM from custom disk with the Azure CLI](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
-- [Manage Azure disks the Azure CLI](tutorial-manage-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
+- Learn how to [upload and create a Linux VM from custom disk with the Azure CLI](upload-vhd.md). 
+- [Manage Azure disks the Azure CLI](tutorial-manage-disks.md).

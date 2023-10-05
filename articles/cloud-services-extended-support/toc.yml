@@ -1,0 +1,141 @@
+- name: Azure Cloud Services (extended support) documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: About Cloud Services (extended support)
+    href: overview.md
+  - name: Prerequisites for deployment
+    href: deploy-prerequisite.md
+  - name: Config files and packaging
+    href: cloud-services-model-and-package.md
+  - name: Frequently asked questions
+    href: faq.yml
+- name: Tutorials
+  items: 
+  - name: Deploy a cloud service - Portal
+    href: deploy-portal.md
+  - name: Deploy a cloud service - PowerShell
+    href: deploy-powershell.md
+  - name: Deploy a cloud service - Template
+    href: deploy-template.md
+  - name: Deploy a cloud service - SDK
+    href: deploy-sdk.md
+  - name: Deploy a cloud service - Visual Studio
+    href: /visualstudio/azure/cloud-services-extended-support?context=%2fazure%2fcloud-services-extended-support%2fcontext%2fcontext
+  expanded: true
+- name: Concepts
+  items: 
+  - name: Extensions
+    href: extensions.md
+  - name: Available VM sizes
+    href: available-sizes.md
+  - name: Power and Provisioning States
+    href: states.md
+  - name: Guest OS patches
+    href: ../cloud-services/cloud-services-guestos-msrc-releases.md?context=/azure/cloud-services-extended-support/context/context
+  - name: Guest OS retirement
+    href: ../cloud-services/cloud-services-guestos-retirement-policy.md?context=/azure/cloud-services-extended-support/context/context
+  - name: Guest OS release news
+    href: ../cloud-services/cloud-services-guestos-update-matrix.md?context=/azure/cloud-services-extended-support/context/context
+  - name: XML schema
+    items:
+    - name: Csdef XML schema
+      href: schema-csdef-file.md
+    - name: LoadBalancerProbe schema
+      href: schema-csdef-loadbalancerprobe.md
+    - name: WebRole schema
+      href: schema-csdef-webrole.md
+    - name: WorkerRole schema
+      href: schema-csdef-workerrole.md
+    - name: NetworkTrafficRules schema
+      href: schema-csdef-networktrafficrules.md
+    - name: Cscfg XML schema
+      href: schema-cscfg-file.md
+    - name: Role schema
+      href: schema-cscfg-role.md
+    - name: NetworkConfiguration schema
+      href: schema-cscfg-networkconfiguration.md
+- name: Migration
+  items:
+  - name: Migrate to Azure Cloud Services (extended support)
+    items:
+    - name: Migration overview
+      href: in-place-migration-overview.md
+    - name: Migration technical details
+      href: in-place-migration-technical-details.md
+    - name: Migrate using the Azure portal
+      href: in-place-migration-portal.md
+    - name: Migrate using PowerShell
+      href: in-place-migration-powershell.md
+    - name: Post migration changes
+      href: post-migration-changes.md
+    - name: Common errors and known issues
+      href: in-place-migration-common-errors.md
+  - name: Feature Support for CSES
+    href: feature-support-analysis.md
+- name: How To
+  items:
+  - name: Apply extensions
+    items:
+    - name: Apply Remote Desktop extension
+      href: enable-rdp.md
+    - name: Apply WAD extension
+      href: enable-wad.md
+    - name: Apply the Key Vault extension
+      href: enable-key-vault-virtual-machine.md
+  - name: Enable alerts
+    href: enable-alerts.md
+  - name: Configure scaling
+    href: configure-scaling.md
+  - name: Certificates
+    href: certificates-and-key-vault.md
+  - name: Generate ARM template using the portal
+    href: generate-template-portal.md
+  - name: Swap cloud service deployments
+    href: swap-cloud-service.md
+  - name: Override SKU details
+    href: override-sku.md
+- name: Samples
+  items: 
+  - name: Sample templates
+    href: https://github.com/Azure-Samples/cloud-services-extended-support
+  - name: Create a new cloud service
+    href: sample-create-cloud-service.md
+  - name: Get cloud service details
+    href: sample-get-cloud-service.md
+  - name: Reset a cloud service
+    href: sample-reset-cloud-service.md
+- name: Reference
+  items:
+  - name: Sample deployment files
+    href: https://github.com/Azure-Samples/cloud-services-extended-support
+  - name: Az.CloudService module
+    href: https://www.powershellgallery.com/packages/Az.CloudService/0.5.0
+  - name: PowerShell cmdlets
+    href: /powershell/module/az.cloudservice/#cloudservice
+  - name: ARM template reference
+    href: /azure/templates/microsoft.compute/cloudservices
+  - name: REST
+    href: /rest/api/compute/cloud-services
+  - name: .NET
+    href: /dotnet/api/overview/azure/virtualmachines#management-apis
+  - name: SDK
+    href: https://www.nuget.org/packages/Microsoft.Azure.Management.Compute/43.0.0-preview
+  - name: CLI
+    href: /cli/azure/cloud-service
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=compute
+  - name: Learning path
+    href: /training/paths/az-900-describe-cloud-concepts/
+  - name: Microsoft Q&A
+    href: /answers/topics/azure-cloud-services.html
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/cloud-services/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=
+- name: Support and troubleshooting
+  href: support-help.md

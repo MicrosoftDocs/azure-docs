@@ -1,0 +1,67 @@
+### YamlMime:FAQ
+metadata:
+  title: Common questions -  Virtual Machines (VM)
+  description: Frequently asked questions about virtual machines in Microsoft Defender for Cloud, a product that helps you prevent, detect, and respond to threats
+  services: defender-for-cloud
+  ms.author: dacurwin
+  author: dcurwin
+  manager: raynew
+  ms.topic: faq
+  ms.custom: ignite-2022
+  ms.date: 06/20/2023
+title: Common questions about virtual machines
+summary: |
+
+sections:
+  - name: Ignored
+    questions:
+      - question: |
+          What types of virtual machines are supported?
+        answer: |
+          Monitoring and recommendations are available for virtual machines (VMs) created using both the [classic and Resource Manager deployment models](../azure-resource-manager/management/deployment-models.md).
+          
+          See [Supported platforms in Microsoft Defender for Cloud](security-center-os-coverage.md) for a list of supported platforms.
+          
+          
+      - question: |
+          Why doesn't Microsoft Defender for Cloud recognize the antimalware solution running on my Azure VM?
+        answer: |
+          Microsoft Defender for Cloud has visibility into antimalware installed through Azure extensions. For example, Defender for Cloud is not able to detect antimalware that was pre-installed on an image you provided or if you installed antimalware on your virtual machines using your own processes (such as configuration management systems).
+          
+          
+      - question: |
+          Why do I get the message "Missing Scan Data" for my VM?
+        answer: |
+          This message appears when there is no scan data for a VM. It can take some time (less than an hour) for scan data to populate after Data Collection is enabled in Microsoft Defender for Cloud. After the initial population of scan data, you may receive this message because there is no scan data at all or there is no recent scan data. Scans do not populate for a VM in a stopped state. This message could also appear if scan data has not populated recently (in accordance with the retention policy for the Windows agent, which has a default value of 30 days).
+          
+          
+      - question: |
+          How often does Defender for Cloud scan for operating system vulnerabilities, system updates, and endpoint protection issues?
+        answer: |
+          Below are the latency times for Defender for Cloud scans of vulnerabilities, updates, and issues:
+          
+          - Operating system security configurations – data is updated within 48 hours
+          - System updates – data is updated within 24 hours
+          - Endpoint Protection issues – data is updated within 8 hours
+          
+          Defender for Cloud typically scans for new data every hour, and refreshes the recommendations accordingly. 
+          
+          Defender for Cloud uses monitoring components to collect and store data. To learn more about [monitoring components](./monitoring-components.md).
+                    
+      - question: |
+          Why do I get the message "VM Agent is Missing?"
+        answer: |
+          The VM Agent must be installed on VMs to enable Data Collection. The VM Agent is installed by default for VMs that are deployed from the Azure Marketplace. For information on how to install the VM Agent on other VMs, see the blog post [VM Agent and Extensions](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/).
+
+
+      - question: |
+          How are VM snapshots secured?
+        answer: |
+          Agentless scanning protects disk snapshots according to Microsoft’s highest security standards. To ensure VM snapshots are private and secure during the analysis process, some of the measures taken are:
+
+          - Data is encrypted at rest and in-transit.
+          - Snapshots are immediately deleted when the analysis process is complete.
+          - Snapshots remain within their original AWS or Azure region. EC2 snapshots aren't copied to Azure.
+          - Isolation of environments per customer account/subscription.
+          - Only metadata containing scan results is sent outside the isolated scanning environment.
+          - All operations are audited.

@@ -1,189 +1,162 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Printix | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Printix.
+title: 'Tutorial: Microsoft Entra SSO integration with Printix'
+description: Learn how to configure single sign-on between Microsoft Entra ID and Printix.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-
-ms.assetid: 4aea7320-b2d5-49e0-9b63-aeaff0f6fe66
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 06/29/2017
+ms.topic: tutorial
+ms.date: 11/21/2022
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
-# Tutorial: Azure Active Directory integration with Printix
+# Tutorial: Microsoft Entra SSO integration with Printix
 
-In this tutorial, you learn how to integrate Printix with Azure Active Directory (Azure AD).
+In this tutorial, you'll learn how to integrate Printix with Microsoft Entra ID. When you integrate Printix with Microsoft Entra ID, you can:
 
-Integrating Printix with Azure AD provides you with the following benefits:
-
-- You can control in Azure AD who has access to Printix
-- You can enable your users to automatically get signed-on to Printix (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure portal
-
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+* Control in Microsoft Entra ID who has access to Printix.
+* Enable your users to be automatically signed-in to Printix with their Microsoft Entra accounts.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
-To configure Azure AD integration with Printix, you need the following items:
+To get started, you need the following items:
 
-- An Azure AD subscription
-- A Printix single sign-on enabled subscription
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* Printix single sign-on (SSO) enabled subscription.
+* Along with Cloud Application Administrator, Application Administrator can also add or manage applications in Microsoft Entra ID.
+For more information, see [Azure built-in roles](../roles/permissions-reference.md).
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
 
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
-
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding Printix from the gallery
-1. Configuring and testing Azure AD single sign-on
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment.
 
-## Adding Printix from the gallery
-To configure the integration of Printix into Azure AD, you need to add Printix from the gallery to your list of managed SaaS apps.
+* Rootly supports **SP** initiated SSO.
+* Rootly supports **Just In Time** user provisioning.
 
-**To add Printix from the gallery, perform the following steps:**
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+## Add Printix from the gallery
 
-	![Active Directory][1]
+To configure the integration of Printix into Microsoft Entra ID, you need to add Printix from the gallery to your list of managed SaaS apps.
 
-1. Navigate to **Enterprise applications**. Then go to **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type **Printix** in the search box.
+1. Select **Printix** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-	![Applications][2]
-	
-1. To add new application, click **New application** button on the top of dialog.
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-	![Applications][3]
+<a name='-configuring-and-testing-azure-ad-sso-for-printix'></a>
 
-1. In the search box, type **Printix**.
+##  Configuring and testing Microsoft Entra SSO for Printix
 
-	![Creating an Azure AD test user](./media/printix-tutorial/tutorial_printix_search.png)
+In this section, you configure and test Microsoft Entra single sign-on with Printix based on a test user called "Britta Simon".
 
-1. In the results panel, select **Printix**, and then click **Add** button to add the application.
+For single sign-on to work, Microsoft Entra ID needs to know what the counterpart user in Printix is to a user in Microsoft Entra ID. In other words, a link relationship between a Microsoft Entra user and the related user in Printix needs to be established.
 
-	![Creating an Azure AD test user](./media/printix-tutorial/tutorial_printix_addfromgallery.png)
+In Printix, assign the value of the **user name** in Microsoft Entra ID as the value of the **Username** to establish the link relationship.
 
-##  Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with Printix based on a test user called "Britta Simon".
+To configure and test Microsoft Entra single sign-on with Printix, you need to perform the following steps:
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Printix is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Printix needs to be established.
+1. **[Configuring Microsoft Entra SSO](#configuring-azure-ad-sso)** - to enable your users to use this feature.
+	1. **[Creating a Microsoft Entra test user](#creating-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with Britta Simon.
+	1. **[Assigning the Microsoft Entra test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Microsoft Entra single sign-on.
 
-In Printix, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
+1. **[Creating a Printix test user](#creating-a-printix-test-user)** - to have a counterpart of Britta Simon in Printix that is linked to the Microsoft Entra representation of user.
 
-To configure and test Azure AD single sign-on with Printix, you need to complete the following building blocks:
+1. **[Testing SSO](#testing-sso)** - to verify whether the configuration works.
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-1. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Creating a Printix test user](#creating-a-printix-test-user)** - to have a counterpart of Britta Simon in Printix that is linked to the Azure AD representation of user.
-1. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-1. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+<a name='configuring-azure-ad-sso'></a>
 
-### Configuring Azure AD single sign-on
+## Configuring Microsoft Entra SSO
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Printix application.
+Follow these steps to enable Microsoft Entra SSO.
 
-**To configure Azure AD single sign-on with Printix, perform the following steps:**
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Printix** > **Single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-1. In the Azure portal, on the **Printix** application integration page, click **Single sign-on**.
+    ![Screenshot shows to edit Basic S A M L Configuration.](common/edit-urls.png "Basic Configuration")
 
-	![Configure Single Sign-On][4]
-
-1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
-	![Configure Single Sign-On](./media/printix-tutorial/tutorial_printix_samlbase.png)
-
-1. On the **Printix Domain and URLs** section, perform the following steps:
-
-	![Configure Single Sign-On](./media/printix-tutorial/tutorial_printix_url.png)
+1. On the **Printix Domain and URLs** section, perform the following step:
 
     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.printix.net`
 
 	> [!NOTE] 
 	> The value is not real. Update the value with the actual Sign-On URL. Contact [Printix Client support team](mailto:support@printix.net) to get the value. 
  
-1. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+1. On the **Set-up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
-	![Configure Single Sign-On](./media/printix-tutorial/tutorial_printix_certificate.png) 
+    ![Screenshot shows the Certificate download link.](common/metadataxml.png "Certificate") 
 
 1. Click **Save** button.
 
-	![Configure Single Sign-On](./media/printix-tutorial/tutorial_general_400.png)
-
-1. Sign-on to your Printix tenant as an administrator.
+1. Sign on to your Printix tenant as an administrator.
 
 1. In the menu on the top, click the icon at the upper right corner and select "**Authentication**".
    
-    ![Configure Single Sign-On](./media/printix-tutorial/tutorial_printix_06.png)
+    ![Screenshot shows Authentication selected from the menu.](./media/printix-tutorial/menu.png "Authentication")
 
 1. On the **Setup** tab, select **Enable Azure/Office 365 authentication**
    
-    ![Configure Single Sign-On](./media/printix-tutorial/tutorial_printix_07.png)
+    ![Screenshot shows the Printix.net page where you can select Enable Azure/Office 365 authentication.](./media/printix-tutorial/authentication.png "Profile")
 
 1. On the **Azure** tab, input federation metadata URL to the textbox of "**Federation metadata document**". 
 
-    Attach the metadata xml file which you downloaded from Azure AD to [Printix support team](mailto:support@printix.net). Then they upload the xml file and provide a federation metadata URL.
+    Attach the metadata xml file, which you downloaded from Microsoft Entra ID to [Printix support team](mailto:support@printix.net). Then they upload the xml file and provide a federation metadata URL.
    
-    ![Configure Single Sign-On](./media/printix-tutorial/tutorial_printix_08.png)
+    ![Screenshot shows the Printix.net page where you can specify a Federation metadata document.](./media/printix-tutorial/metadata.png "Federation")
    
 1. Click the "**Test**" button and click "**OK**" button if the test was successful.
    
-     Azure active directory page will show after clicking the **test** button. "The test was successful" here means after entering the credentials of your Azure test account it will pop up a message "Settings tested OK".Then click the **OK** button.
+    Microsoft Entra ID page will show after clicking the **test** button. "The test was successful" here means after entering the credentials of your Azure test account it will pop up a message "Settings tested OK".Then click the **OK** button.
    
-    ![Configure Single Sign-On](./media/printix-tutorial/tutorial_printix_09.png)
+    ![Screenshot shows the results of the test.](./media/printix-tutorial/test.png "Results")
 
 1. Click the **Save** button on "**Authentication**" page.
 
-
 > [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Microsoft Entra ID embedded documentation](https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
-### Creating an Azure AD test user
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+<a name='creating-an-azure-ad-test-user'></a>
 
-![Create Azure AD User][100]
+### Creating a Microsoft Entra test user
 
-**To create a test user in Azure AD, perform the following steps:**
+In this section, you'll create a test user called B.Simon.
 
-1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Select **Review + create**.
+1. Select **Create**.
 
-	![Creating an Azure AD test user](./media/printix-tutorial/create_aaduser_01.png) 
+<a name='assigning-the-azure-ad-test-user'></a>
 
-1. To display the list of users, go to **Users and groups** and click **All users**.
+### Assigning the Microsoft Entra test user
+
+In this section, you'll enable B.Simon to use single sign-on by granting access to Printix.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Printix**.
+1. In the app's overview page, select **Users and groups**.
+1. Select **Add user/group**, then select **Users and groups** in the **Add Assignment** dialog.
+   1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+   1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+   1. In the **Add Assignment** dialog, click the **Assign** button.
 	
-	![Creating an Azure AD test user](./media/printix-tutorial/create_aaduser_02.png) 
-
-1. To open the **User** dialog, click **Add** on the top of the dialog.
- 
-	![Creating an Azure AD test user](./media/printix-tutorial/create_aaduser_03.png) 
-
-1. On the **User** dialog page, perform the following steps:
- 
-	![Creating an Azure AD test user](./media/printix-tutorial/create_aaduser_04.png) 
-
-    a. In the **Name** textbox, type **BrittaSimon**.
-
-    b. In the **User name** textbox, type the **email address** of BrittaSimon.
-
-	c. Select **Show Password** and write down the value of the **Password**.
-
-    d. Click **Create**.
- 
-### Creating a Printix test user
+## Creating a Printix test user
 
 The objective of this section is to create a user called Britta Simon in Printix. Printix supports just-in-time provisioning, which is by default enabled.
 
@@ -193,60 +166,16 @@ There is no action item for you in this section. A new user is created during an
 > If you need to create a user manually, you need to contact the [Printix support team](mailto:support@printix.net).
 > 
 
-### Assigning the Azure AD test user
+## Testing SSO
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Printix.
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
-![Assign User][200] 
+* Click on **Test this application**, this will redirect to Printix Sign-on URL where you can initiate the login flow. 
 
-**To assign Britta Simon to Printix, perform the following steps:**
+* Go to Printix Sign-on URL directly and initiate the login flow from there.
 
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
+* You can use Microsoft My Apps. When you click the Printix tile in the My Apps, this will redirect to Printix Sign-on URL. For more information, see [Microsoft Entra My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
-	![Assign User][201] 
+## Next steps
 
-1. In the applications list, select **Printix**.
-
-	![Configure Single Sign-On](./media/printix-tutorial/tutorial_printix_app.png) 
-
-1. In the menu on the left, click **Users and groups**.
-
-	![Assign User][202] 
-
-1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
-
-	![Assign User][203]
-
-1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
-
-1. Click **Select** button on **Users and groups** dialog.
-
-1. Click **Assign** button on **Add Assignment** dialog.
-	
-### Testing single sign-on
-
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
-
-When you click the Printix tile in the Access Panel, you should get automatically signed-on to your Printix application.
-
-## Additional resources
-
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-
-
-<!--Image references-->
-
-[1]: ./media/printix-tutorial/tutorial_general_01.png
-[2]: ./media/printix-tutorial/tutorial_general_02.png
-[3]: ./media/printix-tutorial/tutorial_general_03.png
-[4]: ./media/printix-tutorial/tutorial_general_04.png
-
-[100]: ./media/printix-tutorial/tutorial_general_100.png
-
-[200]: ./media/printix-tutorial/tutorial_general_200.png
-[201]: ./media/printix-tutorial/tutorial_general_201.png
-[202]: ./media/printix-tutorial/tutorial_general_202.png
-[203]: ./media/printix-tutorial/tutorial_general_203.png
-
+Once you configure Printix you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

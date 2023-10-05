@@ -1,0 +1,79 @@
+### YamlMime:Landing
+
+title: Azure management groups documentation
+summary: Azure management groups help you organize your resources and subscriptions.
+
+metadata:
+  title: Azure management groups documentation
+  description: Azure management groups help you organize your resources and subscriptions.
+  ms.service: governance
+  ms.topic: landing-page
+  ms.collection: collection
+  author: tfitzmac
+  ms.author: tomfitz
+  ms.date: 09/30/2020
+
+landingContent:
+  - title: About Azure Governance
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Overview of management services in Azure
+            url: ../azure-management.md
+
+  - title: About Azure management groups
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Azure management groups
+            url: ./overview.md
+
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a management group (Portal)
+            url: ./create-management-group-portal.md
+          - text: Create a management group (Azure CLI)
+            url: ./create-management-group-azure-cli.md
+          - text: Create a management group (Azure PowerShell)
+            url: ./create-management-group-powershell.md
+          - text: Create a management group (.NET)
+            url: ./create-management-group-dotnet.md
+          - text: Create a management group (Go)
+            url: ./create-management-group-go.md
+          - text: Create a management group (JavaScript)
+            url: ./create-management-group-javascript.md
+          - text: Create a management group (Python)
+            url: ./create-management-group-python.md
+          - text: Create a management group (REST)
+            url: ./create-management-group-rest-api.md
+          - text: Deploy resources to management group (ARM templates)
+            url: ../../azure-resource-manager/templates/deploy-to-management-group.md
+      - linkListType: how-to-guide
+        links:
+          - text: Manage your resource hierarchy
+            url: ./manage.md
+          - text: Protect your resource hierarchy
+            url: ./how-to/protect-resource-hierarchy.md
+
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure CLI
+            url: /cli/azure/account/management-group
+          - text: Azure PowerShell
+            url: /powershell/module/az.resources/#resources
+          - text: Azure SDK for .NET
+            url: /dotnet/api/overview/azure/management-groups
+          - text: Azure SDK for Go
+            url: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/preview/resources/mgmt/2018-03-01-preview/managementgroups
+          - text: Azure SDK for JavaScript
+            url: /javascript/api/@azure/arm-managementgroups/managementgroups
+          - text: Azure SDK for Python
+            url: /python/api/azure-mgmt-managementgroups/azure.mgmt.managementgroups
+          - text: REST
+            url: /rest/api/managementgroups
+          - text: Resource Manager templates
+            url: /azure/templates/microsoft.management/managementgroups

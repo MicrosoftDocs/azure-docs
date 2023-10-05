@@ -1,0 +1,100 @@
+### YamlMime:Landing
+
+title: Web Application Firewall documentation
+summary: Web Application Firewall (WAF) provides centralized protection of your web applications from common exploits and vulnerabilities. You can deploy WAF on Azure Application Gateway or WAF on Azure Front Door Service. 
+
+metadata:
+  title: Web Application Firewall documentation
+  description: Learn about Web Application Firewall that can be deployed with Application Gateway and Front Door
+  services: web-application-firewall
+  ms.service: web-application-firewall
+  ms.topic: landing-page
+  author: vhorne
+  ms.author: victorh
+  ms.date: 08/29/2022
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Web Application Firewall
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Web Application Firewall?
+            url: overview.md
+          - text: Web Application Firewall on Application Gateway
+            url: ./ag/ag-overview.md
+          - text: Web Application Firewall on Front Door
+            url: ./afds/afds-overview.md
+          - text: Web Application Firewall on Azure CDN
+            url: ./cdn/cdn-overview.md
+      - linkListType: concept
+        links:
+          - text: Frequently asked questions - Application Gateway
+            url: ./ag/application-gateway-waf-faq.yml
+          - text: Frequently asked questions - Front Door
+            url: ./afds/waf-faq.yml
+          - text: What's new
+            url: https://azure.microsoft.com/updates/?category=networking&query=Web%20Application%20Firewall
+      - linkListType: learn
+        links:
+          - text: Introduction to Azure Web Application Firewall
+            url: /training/modules/introduction-azure-web-application-firewall/
+      - linkListType: deploy
+        links:
+          - text: Secure your web application with Azure Web Application Firewall
+            url: https://mslearn.cloudguides.com/guides/Secure%20your%20web%20applications%20with%20Azure%20Web%20Application%20Firewall
+
+
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Web Application Firewall on Application Gateway
+            url: ./ag/application-gateway-web-application-firewall-portal.md
+          - text: Web Application Firewall on Front Door
+            url: ./afds/waf-front-door-create-portal.md
+
+  # Card
+  - title: Manage WAF rules on Application Gateway
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Customize Web Application Firewall rules on Azure Application Gateway
+            url: ./ag/application-gateway-customize-waf-rules-portal.md
+      - linkListType: overview
+        links:
+          - text: Web application firewall CRS rule groups and rules
+            url: ./ag/application-gateway-crs-rulegroups-rules.md
+
+# Card
+  - title: Configure WAF on Front Door
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Configure bot protection
+            url: ./afds/waf-front-door-policy-configure-bot-protection.md
+          - text: Configure a custom response
+            url: ./afds/waf-front-door-configure-custom-response-code.md
+
+# Card
+  - title: Learn about Azure Web Application Firewall architecture
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: Securely managed web applications
+            url: /azure/architecture/example-scenario/apps/fully-managed-secure-apps
+          - text: Network-hardened web app
+            url: /azure/architecture/example-scenario/security/hardened-web-app
+
+# Card
+  - title: Learn about Azure network security
+    linkLists:
+      - linkListType: overview
+        links:
+         - text: Azure network security
+           url: ../networking/security/index.yml

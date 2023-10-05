@@ -1,150 +1,317 @@
 ---
-title: Assign Azure AD roles in PIM - Azure Active Directory | Microsoft Docs
-description: Learn how to assign Azure AD roles in Azure AD Privileged Identity Management (PIM).
+title: Assign Microsoft Entra roles in PIM
+description: Learn how to assign Microsoft Entra roles in Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: rolyon
-manager: mtillman
+author: barclayn
+manager: amycolannino
 editor: ''
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 04/09/2019
-ms.author: rolyon
+ms.date: 09/13/2023
+ms.author: barclayn
+ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
+ms.custom: subject-rbac-steps
 ---
 
-# Assign Azure AD roles in PIM
+# Assign Microsoft Entra roles in Privileged Identity Management
 
-With Azure Active Directory (Azure AD), a Global administrator can make **permanent** Azure AD admin role assignments. These role assignments can be created using the [Azure portal](../users-groups-roles/directory-assign-admin-roles.md) or using [PowerShell commands](/powershell/module/azuread#directory_roles).
+With Microsoft Entra ID, a Global administrator can make **permanent** Microsoft Entra admin role assignments. These role assignments can be created using the [Microsoft Entra admin center](../roles/permissions-reference.md) or using [PowerShell commands](/powershell/module/azuread#directory_roles).
 
-The Azure AD Privileged Identity Management (PIM) service also allows Privileged Role Administrators to make permanent admin role assignments. Additionally, Privileged Role Administrators can make users **eligible** for Azure AD admin roles. An eligible administrator can activate the role when they need it, and then their permissions expire once they're done.
+The Microsoft Entra Privileged Identity Management (PIM) service also allows Privileged role administrators to make permanent admin role assignments. Additionally, Privileged role administrators can make users **eligible** for Microsoft Entra admin roles. An eligible administrator can activate the role when they need it, and then their permissions expire once they're done.
 
-## Make a user eligible for a role
+Privileged Identity Management support both built-in and custom Microsoft Entra roles. For more information on Microsoft Entra custom roles, see [Role-based access control in Microsoft Entra ID](../roles/custom-overview.md).
 
-Follow these steps to make a user eligible for an Azure AD admin role.
+>[!Note]
+>When a role is assigned, the assignment:
+>- Can't be assigned for a duration of less than five minutes
+>- Can't be removed within five minutes of it being assigned
 
-1. Sign in to [Azure portal](https://portal.azure.com/) with a user that is a member of the [Privileged Role Administrator](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) role.
+## Assign a role
 
-    For information about how to grant another administrator access to manage PIM, see [Grant access to other administrators to manage PIM](pim-how-to-give-access-to-pim.md).
+Follow these steps to make a user eligible for a Microsoft Entra admin role.
 
-1. Open **Azure AD Privileged Identity Management**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-    If you haven't started PIM in the Azure portal yet, go to [Start using PIM](pim-getting-started.md).
+1. Browse to **Identity governance** > **Privileged Identity Management** > **Microsoft Entra roles**.
 
-1. Click **Azure AD roles**.
+1. Select **Roles** to see the list of roles for Microsoft Entra permissions.
 
-1. Click **Roles** or **Members**.
+    ![Screenshot of the "Roles" page with the "Add assignments" action selected.](./media/pim-how-to-add-role-to-user/roles-list.png)
 
-    ![Azure AD roles](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
+1. Select **Add assignments** to open the **Add assignments** page.
 
-1. Click **Add member** to open Add managed members.
+1. Select **Select a role** to open the **Select a role** page.
 
-1. Click **Select a role**, click a role you want to manage, and then click **Select**.
+    ![New assignment pane](./media/pim-how-to-add-role-to-user/select-role.png)
 
-    ![Select a role](./media/pim-how-to-add-role-to-user/pim-select-a-role.png)
+1. Select a role you want to assign, select a member to whom you want to assign to the role, and then select **Next**.
 
-1. Click **Select members**, select the users you want to assign to the role, and then click **Select**.
+1. In the **Assignment type** list on the **Membership settings** pane, select **Eligible** or **Active**.
 
-    ![Select a role](./media/pim-how-to-add-role-to-user/pim-select-members.png)
+    - **Eligible** assignments require the member of the role to perform an action to use the role. Actions might include performing a multi-factor authentication (MFA) check, providing a business justification, or requesting approval from designated approvers.
 
-1. In Add managed members, click **OK** to add the user to the role.
+    - **Active** assignments don't require the member to perform any action to use the role. Members assigned as active have the privileges assigned to the role at all times.
 
-1. In the list of roles, click the role you just assigned to see the list of members.
+1. To specify a specific assignment duration, add a start and end date and time boxes. When finished, select **Assign** to create the new role assignment.
 
-     When the role is assigned, the user you selected will appear in the members list as **Eligible** for the role.
+    - **Permanent** assignments have no expiration date. Use this option for permanent workers who frequently need the role permissions.
 
-    ![User eligible for a role](./media/pim-how-to-add-role-to-user/pim-directory-role-eligible.png)
+    - **Time-bound** assignments will expire at the end of a specified period. Use this option with temporary or contract workers, for example, whose project end date and time are known.
 
-1. Now that the user is eligible for the role, let them know that they can activate it according to the instructions in [Activate my Azure AD roles in PIM](pim-how-to-activate-role.md).
+    ![Memberships settings - date and time](./media/pim-how-to-add-role-to-user/start-and-end-dates.png)
 
-    Eligible administrators are asked to register for Azure Multi-Factor Authentication (MFA) during activation. If a user cannot register for MFA, or is using a Microsoft account (usually @outlook.com), you need to make them permanent in all their roles.
+1. After the role is assigned, an assignment status notification is displayed.
 
-## Make a role assignment permanent
+    ![New assignment - Notification](./media/pim-how-to-add-role-to-user/assignment-notification.png)
 
-By default, new users are only Eligible for an Azure AD admin role. Follow these steps if you want to make a role assignment permanent.
+## Assign a role with restricted scope
 
-1. Open **Azure AD Privileged Identity Management**.
+For certain roles, the scope of the granted permissions can be restricted to a single admin unit, service principal, or application. This procedure is an example if assigning a role that has the scope of an administrative unit. For a list of roles that support scope via administrative unit, see [Assign scoped roles to an administrative unit](../roles/admin-units-assign-roles.md). This feature is currently being rolled out to Microsoft Entra organizations.
 
-1. Click **Azure AD roles**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Click **Members**.
+1. Browse to **Identity** > **Roles & admins** > **Roles & admins**.
 
-    ![List of members](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
+1. Select the **User Administrator**.
 
-1. Click an **Eligible** role that you want to make permanent.
+    ![The Add assignment command is available when you open a role in the portal](./media/pim-how-to-add-role-to-user/add-assignment.png)
 
-1. Click **More** and then click **Make perm**.
+1. ​Select **Add assignments**.
 
-    ![Make role assignment permanent](./media/pim-how-to-add-role-to-user/pim-make-perm.png)
+    ![When a role supports scope, you can select a scope](./media/pim-how-to-add-role-to-user/add-scope.png)
 
-    The role is now listed as **permanent**.
+1. On the **Add assignments** page, you can:
 
-    ![List of members with permanent change](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members-permanent.png)
+   - Select a user or group to be assigned to the role
+   - Select the role scope (in this case, administrative units)
+   - Select an administrative unit for the scope
 
-## Remove a user from a role
+For more information about creating administrative units, see [Add and remove administrative units](../roles/admin-units-manage.md).
 
-You can remove users from role assignments, but make sure there is always at least one user who is a permanent Global Administrator. If you're not sure which users still need their role assignments, you can [start an access review for the role](pim-how-to-start-security-review.md).
+## Assign a role using Microsoft Graph API
 
-Follow these steps to remove a specific user from an Azure AD admin role.
+For more information about Microsoft Graph APIs for PIM, see [Overview of role management through the privileged identity management (PIM) API](/graph/api/resources/privilegedidentitymanagementv3-overview).
 
-1. Open **Azure AD Privileged Identity Management**.
+For permissions required to use the PIM API, see [Understand the Privileged Identity Management APIs](pim-apis.md). 
 
-1. Click **Azure AD roles**.
+### Eligible with no end date
 
-1. Click **Members**.
+The following is a sample HTTP request to create an eligible assignment with no end date. For details on the API commands including request samples in languages such as C# and JavaScript, see [Create roleEligibilityScheduleRequests](/graph/api/rbacapplication-post-roleeligibilityschedulerequests).
 
-    ![List of members](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
+#### HTTP request
 
-1. Click a role assignment you want to remove.
+````HTTP
+POST https://graph.microsoft.com/v1.0/roleManagement/directory/roleEligibilityScheduleRequests
+Content-Type: application/json
 
-1. Click **More** and then click **Remove**.
-
-    ![Remove a role](./media/pim-how-to-add-role-to-user/pim-remove-role.png)
-
-1. In the message that asks you to confirm, click **Yes**.
-
-    ![Remove a role](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
-
-    The role assignment is removed.
-
-## Authorization error when assigning roles
-
-If you recently enabled PIM for a subscription and you get an authorization error when you try to make a user eligible for an Azure AD admin role, it might be because the MS-PIM service principle does not yet have the appropriate permissions. The MS-PIM service principle must have the [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) role to assign roles to others. Instead of waiting until MS-PIM is assigned the User Access Administrator role, you can assign it manually.
-
-Follow these steps to assign the User Access Administrator role to the MS-PIM service principal for a subscription.
-
-1. Sign into the Azure portal as a Global Administrator.
-
-1. Choose **All services** and then **Subscriptions**.
-
-1. Choose your subscription.
-
-1. Choose **Access control (IAM)**.
-
-1. Choose **Role assignments** to see the current list of role assignments at the subscription scope.
-
-   ![Access control (IAM) blade for a subscription](./media/pim-how-to-add-role-to-user/ms-pim-access-control.png)
-
-1. Check whether the **MS-PIM** service principal is assigned the **User Access Administrator** role.
-
-1. If not, choose **Add role assignment** to open the **Add role assignment** pane.
-
-1. In the **Role** drop-down list, select the **User Access Administrator** role.
-
-1. In the **Select** list, find and select the **MS-PIM** service principal.
-
-   ![Add permissions for MS-PIM](./media/pim-how-to-add-role-to-user/ms-pim-add-permissions.png)
-
-1. Choose **Save** to assign the role.
-
-   After a few moments, the MS-PIM service principal is assigned the User Access Administrator role at the subscription scope.
-
-   ![User Access Administrator role for MS-PIM](./media/pim-how-to-add-role-to-user/ms-pim-user-access-administrator.png)
-
+{
+    "action": "adminAssign",
+    "justification": "Permanently assign the Global Reader to the auditor",
+    "roleDefinitionId": "f2ef992c-3afb-46b9-b7cf-a126ee74c451",
+    "directoryScopeId": "/",
+    "principalId": "071cc716-8147-4397-a5ba-b2105951cc0b",
+    "scheduleInfo": {
+        "startDateTime": "2022-04-10T00:00:00Z",
+        "expiration": {
+            "type": "noExpiration"
+        }
+    }
+}
+````
+
+#### HTTP response
+
+The following is an example of the response. The response object shown here might be shortened for readability.
+
+````HTTP
+HTTP/1.1 201 Created
+Content-Type: application/json
+
+{
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#roleManagement/directory/roleEligibilityScheduleRequests/$entity",
+    "id": "42159c11-45a9-4631-97e4-b64abdd42c25",
+    "status": "Provisioned",
+    "createdDateTime": "2022-05-13T13:40:33.2364309Z",
+    "completedDateTime": "2022-05-13T13:40:34.6270851Z",
+    "approvalId": null,
+    "customData": null,
+    "action": "adminAssign",
+    "principalId": "071cc716-8147-4397-a5ba-b2105951cc0b",
+    "roleDefinitionId": "f2ef992c-3afb-46b9-b7cf-a126ee74c451",
+    "directoryScopeId": "/",
+    "appScopeId": null,
+    "isValidationOnly": false,
+    "targetScheduleId": "42159c11-45a9-4631-97e4-b64abdd42c25",
+    "justification": "Permanently assign the Global Reader to the auditor",
+    "createdBy": {
+        "application": null,
+        "device": null,
+        "user": {
+            "displayName": null,
+            "id": "3fbd929d-8c56-4462-851e-0eb9a7b3a2a5"
+        }
+    },
+    "scheduleInfo": {
+        "startDateTime": "2022-05-13T13:40:34.6270851Z",
+        "recurrence": null,
+        "expiration": {
+            "type": "noExpiration",
+            "endDateTime": null,
+            "duration": null
+        }
+    },
+    "ticketInfo": {
+        "ticketNumber": null,
+        "ticketSystem": null
+    }
+}
+````
+
+### Active and time-bound
+
+The following is a sample HTTP request to create an active assignment that's time-bound. For details on the API commands including request samples in languages such as C# and JavaScript, see [Create roleAssignmentScheduleRequests](/graph/api/rbacapplication-post-roleassignmentschedulerequests).
+
+#### HTTP request
+
+````HTTP
+POST https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignmentScheduleRequests 
+
+{
+    "action": "adminAssign",
+    "justification": "Assign the Exchange Recipient Administrator to the mail admin",
+    "roleDefinitionId": "31392ffb-586c-42d1-9346-e59415a2cc4e",
+    "directoryScopeId": "/",
+    "principalId": "071cc716-8147-4397-a5ba-b2105951cc0b",
+    "scheduleInfo": {
+        "startDateTime": "2022-04-10T00:00:00Z",
+        "expiration": {
+            "type": "afterDuration",
+            "duration": "PT3H"
+        }
+    }
+}
+````
+
+#### HTTP response
+
+The following is an example of the response. The response object shown here might be shortened for readability.
+
+````HTTP
+{
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#roleManagement/directory/roleAssignmentScheduleRequests/$entity",
+    "id": "ac643e37-e75c-4b42-960a-b0fc3fbdf4b3",
+    "status": "Provisioned",
+    "createdDateTime": "2022-05-13T14:01:48.0145711Z",
+    "completedDateTime": "2022-05-13T14:01:49.8589701Z",
+    "approvalId": null,
+    "customData": null,
+    "action": "adminAssign",
+    "principalId": "071cc716-8147-4397-a5ba-b2105951cc0b",
+    "roleDefinitionId": "31392ffb-586c-42d1-9346-e59415a2cc4e",
+    "directoryScopeId": "/",
+    "appScopeId": null,
+    "isValidationOnly": false,
+    "targetScheduleId": "ac643e37-e75c-4b42-960a-b0fc3fbdf4b3",
+    "justification": "Assign the Exchange Recipient Administrator to the mail admin",
+    "createdBy": {
+        "application": null,
+        "device": null,
+        "user": {
+            "displayName": null,
+            "id": "3fbd929d-8c56-4462-851e-0eb9a7b3a2a5"
+        }
+    },
+    "scheduleInfo": {
+        "startDateTime": "2022-05-13T14:01:49.8589701Z",
+        "recurrence": null,
+        "expiration": {
+            "type": "afterDuration",
+            "endDateTime": null,
+            "duration": "PT3H"
+        }
+    },
+    "ticketInfo": {
+        "ticketNumber": null,
+        "ticketSystem": null
+    }
+}
+````
+
+## Update or remove an existing role assignment
+
+Follow these steps to update or remove an existing role assignment. **Microsoft Entra ID P2 or Microsoft Entra ID Governance licensed customers only**: Don't assign a group as Active to a role through both Microsoft Entra ID and Privileged Identity Management (PIM). For a detailed explanation, see [Known issues](../roles/groups-concept.md#known-issues).
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
+
+1. Browse to **Identity governance** > **Privileged Identity Management** > **Microsoft Entra roles**. 
+
+1. Select **Roles** to see the list of roles for Microsoft Entra ID.
+
+1. Select the role that you want to update or remove.
+
+1. Find the role assignment on the **Eligible roles** or **Active roles** tabs.
+
+    ![Update or remove role assignment](./media/pim-how-to-add-role-to-user/remove-update-assignments.png)
+
+1. Select **Update** or **Remove** to update or remove the role assignment.
+
+## Remove eligible assignment via Microsoft Graph API
+
+The following is a sample HTTP request to revoke an eligible assignment to a role from a principal. For details on the API commands including request samples in languages such as C# and JavaScript, see [Create roleEligibilityScheduleRequests](/graph/api/rbacapplication-post-roleeligibilityschedulerequests).
+
+### Request
+
+````HTTP
+POST https://graph.microsoft.com/v1.0/roleManagement/directory/roleEligibilityScheduleRequests 
+
+{ 
+    "action": "AdminRemove", 
+    "justification": "abcde", 
+    "directoryScopeId": "/", 
+    "principalId": "d96ea738-3b95-4ae7-9e19-78a083066d5b", 
+    "roleDefinitionId": "88d8e3e3-8f55-4a1e-953a-9b9898b8876b" 
+} 
+````
+
+### Response
+
+````HTTP
+{ 
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#roleManagement/directory/roleEligibilityScheduleRequests/$entity", 
+    "id": "fc7bb2ca-b505-4ca7-ad2a-576d152633de", 
+    "status": "Revoked", 
+    "createdDateTime": "2021-07-15T20:23:23.85453Z", 
+    "completedDateTime": null, 
+    "approvalId": null, 
+    "customData": null, 
+    "action": "AdminRemove", 
+    "principalId": "d96ea738-3b95-4ae7-9e19-78a083066d5b", 
+    "roleDefinitionId": "88d8e3e3-8f55-4a1e-953a-9b9898b8876b", 
+    "directoryScopeId": "/", 
+    "appScopeId": null, 
+    "isValidationOnly": false, 
+    "targetScheduleId": null, 
+    "justification": "test", 
+    "scheduleInfo": null, 
+    "createdBy": { 
+        "application": null, 
+        "device": null, 
+        "user": { 
+            "displayName": null, 
+            "id": "5d851eeb-b593-4d43-a78d-c8bd2f5144d2" 
+        } 
+    }, 
+    "ticketInfo": { 
+        "ticketNumber": null, 
+        "ticketSystem": null 
+    } 
+} 
+````
 
 ## Next steps
 
-- [Configure Azure AD admin role settings in PIM](pim-how-to-change-default-settings.md)
-- [Assign Azure resource roles in PIM](pim-resource-roles-assign-roles.md)
+- [Configure Microsoft Entra admin role settings in Privileged Identity Management](pim-how-to-change-default-settings.md)

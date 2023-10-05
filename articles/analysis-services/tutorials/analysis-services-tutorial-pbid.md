@@ -1,11 +1,10 @@
 ---
-title: Tutorial - Connect to Azure Analysis Services with Power BI Desktop | Microsoft Docs
+title: Tutorial - Connect Azure Analysis Services with Power BI Desktop | Microsoft Docs
 author: minewiskan
-manager: kfile
-description: Learn how to connect to Azure Analysis Services with Power BI Desktop.
-ms.service: azure-analysis-services
+description: In this tutorial, learn how to get an Analysis Services server name from the Azure portal and then connect to the server by using Power BI Desktop.
+ms.service: analysis-services
 ms.topic: tutorial
-ms.date: 04/25/2019
+ms.date: 02/02/2022
 ms.author: owend
 ms.reviewer: owend
 #Customer intent: As a BI developer, I want to connect to a sample tabular model on a server and create a basic report by using the Power BI Desktop client application.
@@ -26,12 +25,12 @@ In this tutorial, you use Power BI Desktop to connect to the adventureworks samp
 - [Install the newest Power BI Desktop](https://powerbi.microsoft.com/desktop).
 
 ## Sign in to the Azure portal
-In this tutorial, you sing in to the portal to get the server name only. Typically, users would get the server name from the server administrator.
+In this tutorial, you sign in to the portal to get the server name only. Typically, users would get the server name from the server administrator.
 
 Sign in to the [portal](https://portal.azure.com/).
 
 ## Get server name
-In order to connect to your server from Power BI Desktop, you first need the server name. You can get the server name from the portal.
+In order to connect to your server from Power BI Desktop, you first need the server name.
 
 In **Azure portal** > server > **Overview** > **Server name**, copy the server name.
    
@@ -66,4 +65,4 @@ In **Azure portal** > server > **Overview** > **Server name**, copy the server n
 If no longer needed, do not save your report or delete the file if you did save.
 
 ## Next steps
-In this tutorial, you learned how to use Power BI Desktop to connect to a data model on a server and create a basic report. If you're not familiar with how to create a data model, see the [Adventure Works Internet Sales tabular data modeling tutorial](https://docs.microsoft.com/sql/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial) in the SQL Server Analysis Services docs.
+In this tutorial, you learned how to use Power BI Desktop to connect to a data model on a server and create a basic report. If you're not familiar with how to create a data model, see the [Adventure Works Internet Sales tabular data modeling tutorial](/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial) in the SQL Server Analysis Services docs.

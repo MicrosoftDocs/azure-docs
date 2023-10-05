@@ -1,28 +1,14 @@
 ---
-title: SQLRuleAction syntax reference in Azure | Microsoft Docs
-description: Details about SQLRuleAction grammar.
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-manager: timlt
-editor: spelluru
-
-ms.assetid: 
-ms.service: service-bus-messaging
-ms.devlang: na
+title: Azure Service Bus Subscription Rule SQL Action syntax  | Microsoft Docs
+description: This article provides a reference for SQL rule action syntax. The actions are written in SQL-language-based syntax that is performed against a message.
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/05/2018
-ms.author: aschhab
-
+ms.date: 09/28/2021
 ---
 
-# SQLRuleAction syntax
+# Subscription Rule SQL Action Syntax
 
-A *SqlRuleAction* is an instance of the [SqlRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) class, and represents set of actions written in SQL-language based syntax that is performed against a [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).   
+A *SQL action* is used to manipulate message metadata after a message has been selected by a filter of a subscription rule. It's a text expression that leans on a subset of the SQL-92 standard. Action expressions are used with the `sqlExpression` element of the 'action' property of a Service Bus `Rule` in an [Azure Resource Manager template](service-bus-resource-manager-namespace-topic-with-rule.md), or the Azure CLI `az servicebus topic subscription rule create` command's [`--action-sql-expression`](/cli/azure/servicebus/topic/subscription/rule#az-servicebus-topic-subscription-rule-create) argument, and several SDK functions that allow managing subscription rules.
   
-This article lists details about the SQL rule action grammar.  
   
 ```  
 <statements> ::=
@@ -62,11 +48,14 @@ This article lists details about the SQL rule action grammar.
   
 ## Arguments  
   
--   `<scope>` is an optional string indicating the scope of the `<property_name>`. Valid values are `sys` or `user`. The `sys` value indicates system scope where `<property_name>` is a public property name of the [BrokeredMessage Class](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` indicates user scope where `<property_name>` is a key of the [BrokeredMessage Class](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) dictionary. `user` scope is the default scope if `<scope>` is not specified.  
+-   `<scope>` is an optional string indicating the scope of the `<property_name>`. Valid values are `sys` or `user`. 
+    - The `sys` value indicates system scope where `<property_name>` is any of the properties on the Service Bus message as described in [Messages, payloads, and serialization](service-bus-messages-payloads.md).
+    - The `user` value indicates user scope where `<property_name>` is a key of the custom properties that you can set on the message when sending to Service  Bus.
+    - The `user` scope is the default scope if `<scope>` isn't specified.  
   
 ### Remarks  
 
-An attempt to access a non-existent system property is an error, while an attempt to access a non-existent user property is not an error. Instead, a non-existent user property is internally evaluated as an unknown value. An unknown value is treated specially during operator evaluation.  
+An attempt to access a non-existent system property is an error, while an attempt to access a non-existent user property isn't an error. Instead, a non-existent user property is internally evaluated as an unknown value. An unknown value is treated specially during operator evaluation.  
   
 ## property_name  
   
@@ -93,7 +82,7 @@ An attempt to access a non-existent system property is an error, while an attemp
   
  `[:IsDigit:]` means any Unicode character that is categorized as a decimal digit. `System.Char.IsDigit(c)` returns `true` if `c` is a Unicode digit.  
   
- A `<regular_identifier>` cannot be a reserved keyword.  
+ A `<regular_identifier>` can't be a reserved keyword.  
   
  `<delimited_identifier>` is any string that is enclosed with left/right square brackets ([]). A right square bracket is represented as two right square brackets. The following are examples of `<delimited_identifier>`:  
   
@@ -103,7 +92,7 @@ An attempt to access a non-existent system property is an error, while an attemp
   
 ```  
   
- `<quoted_identifier>` is any string that is enclosed with double quotation marks. A double quotation mark in identifier is represented as two double quotation marks. It is not recommended to use quoted identifiers because it can easily be confused with a string constant. Use a delimited identifier if possible. The following is an example of `<quoted_identifier>`:  
+ `<quoted_identifier>` is any string that is enclosed with double quotation marks. A double quotation mark in identifier is represented as two double quotation marks. It isn't recommended to use quoted identifiers because it can easily be confused with a string constant. Use a delimited identifier if possible. The following is an example of `<quoted_identifier>`:  
   
 ```  
 "Contoso & Northwind"  
@@ -146,7 +135,7 @@ An attempt to access a non-existent system property is an error, while an attemp
   
 ### Arguments  
   
--   `<integer_constant>` is a string of numbers that are not enclosed in quotation marks and do not contain decimal points. The values are stored as `System.Int64` internally, and follow the same range.  
+-   `<integer_constant>` is a string of numbers that aren't enclosed in quotation marks and don't contain decimal points. The values are stored as `System.Int64` internally, and follow the same range.  
   
      The following are examples of long constants:  
   
@@ -155,9 +144,9 @@ An attempt to access a non-existent system property is an error, while an attemp
     2  
     ```  
   
--   `<decimal_constant>` is a string of numbers that are not enclosed in quotation marks, and contain a decimal point. The values are stored as `System.Double` internally, and follow the same range/precision.  
+-   `<decimal_constant>` is a string of numbers that aren't enclosed in quotation marks, and contain a decimal point. The values are stored as `System.Double` internally, and follow the same range/precision.  
   
-     In a future version, this number might be stored in a different data type to support exact number semantics, so you should not rely on the fact the underlying data type is `System.Double` for `<decimal_constant>`.  
+     In a future version, this number might be stored in a different data type to support exact number semantics, so you shouldn't rely on the fact the underlying data type is `System.Double` for `<decimal_constant>`.  
   
      The following are examples of decimal constants:  
   
@@ -204,9 +193,12 @@ String constants are enclosed in single quotation marks and include any valid Un
   
 ### Remarks  
 
-The `newid()` function returns a **System.Guid** generated by the `System.Guid.NewGuid()` method.  
+The `newid()` function returns a `System.Guid` generated by the `System.Guid.NewGuid()` method.  
   
 The `property(name)` function returns the value of the property referenced by `name`. The `name` value can be any valid expression that returns a string value.  
+
+## Examples
+For examples, see [Service Bus filter examples](service-bus-filter-examples.md).
   
 ## Considerations
 
@@ -214,10 +206,14 @@ The `property(name)` function returns the value of the property referenced by `n
 - REMOVE is used to remove a property.
 - SET performs implicit conversion if possible when the expression type and the existing property type are different.
 - Action fails if non-existent system properties were referenced.
-- Action does not fail if non-existent user properties were referenced.
+- Action doesn't fail if non-existent user properties were referenced.
 - A non-existent user property is evaluated as "Unknown" internally, following the same semantics as [SQLFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) when evaluating operators.
 
 ## Next steps
 
-- [SQLRuleAction class](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
-- [SQLFilter class](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
+- [SQLRuleAction class (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
+- [SQLRuleAction class (.NET Standard)](/dotnet/api/microsoft.azure.servicebus.sqlruleaction)
+- [SqlRuleAction class (Java)](/java/api/com.microsoft.azure.servicebus.rules.sqlruleaction)
+- [SqlRuleAction (JavaScript)](/javascript/api/@azure/service-bus/sqlruleaction)
+- [`az servicebus topic subscription rule`](/cli/azure/servicebus/topic/subscription/rule)
+- [New-AzServiceBusRule](/powershell/module/az.servicebus/new-azservicebusrule)

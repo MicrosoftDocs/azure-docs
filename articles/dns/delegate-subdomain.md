@@ -1,19 +1,19 @@
 ---
-title: Delegate an Azure DNS subdomain
-description: Learn how to delegate an Azure DNS subdomain.
+title: Delegate a subdomain - Azure DNS
+description: With this learning path, get started delegating an Azure DNS subdomain.
 services: dns
-author: vhorne
+author: greg-lindsay
 ms.service: dns
-ms.topic: article
-ms.date: 2/7/2019
-ms.author: victorh
+ms.topic: how-to
+ms.date: 09/27/2022
+ms.author: greglin
 ---
 
 # Delegate an Azure DNS subdomain
 
-You can use the Azure portal to delegate a DNS subdomain. For example, if you own the contoso.com domain, you can delegate a subdomain called *engineering* to another, separate zone that you can administer separately from the contoso.com zone.
+You can use the Azure portal to delegate a DNS subdomain. For example, if you own the contoso.com domain, you may delegate a subdomain called *engineering* to another separate zone that you can administer separately from the contoso.com zone.
 
-If you prefer, you can delegate a subdomain using [Azure PowerShell](delegate-subdomain-ps.md).
+If you prefer, you can also delegate a subdomain using [Azure PowerShell](delegate-subdomain-ps.md).
 
 ## Prerequisites
 
@@ -26,19 +26,21 @@ To delegate an Azure DNS subdomain, you must first delegate your public domain t
 
 First, create the zone for the **engineering** subdomain.
 
-1. From the Azure portal, select **Create a resource**.
-2. In the search box, type **DNS**, and select **DNS zone**.
-3. Select **Create**.
-4. In the **Create DNS zone** pane, type **engineering.contoso.com** in the **Name** text box.
-5. Select the resource group for your zone. You might want to use the same resource group as the parent zone to keep similar resources together.
-6. Click **Create**.
-7. After the deployment succeeds, go to the new zone.
+1. From the Azure portal, select **+ Create a resource**.
+
+1. Search for **DNS zone** and then select **Create**.
+
+1. On the **Create DNS zone** page, select the resource group for your zone. You may want to use the same resource group as the parent zone to keep similar resources together.
+
+1.  Enter `engineering.contoso.com` for the **Name** and then select **Create**.
+
+1. After the deployment succeeds, go to the new zone.
 
 ## Note the name servers
 
 Next, note the four name servers for the engineering subdomain.
 
-On the **engineering** zone pane, note the four name servers for the zone. You will use these name servers later.
+On the **engineering** zone overview page, note the four name servers for the zone. You'll need these name servers at a later time.
 
 ## Create a test record
 
@@ -49,19 +51,26 @@ Create an **A** record to use for testing. For example, create a **www** A recor
 Next, create a name server (NS) record  for the **engineering** zone.
 
 1. Navigate to the zone for the parent domain.
-2. Select **+ Record set**.
-3. On the **Add record set** pane, type **engineering** in the **Name** text box.
-4. For **Type**, select **NS**.
-5. Under **Name server**, enter the four name servers that you recorded previously from the **engineering** zone.
-6. Click **OK**.
+
+1. Select **+ Record set** at the top of the overview page.
+
+1. On the **Add record set** page, type **engineering** in the **Name** text box.
+
+1. For **Type**, select **NS**.
+
+1. Under **Name server**, enter the four name servers that you noted previously from the **engineering** zone.
+
+1. Select **OK** to save the record.
 
 ## Test the delegation
 
 Use nslookup to test the delegation.
 
 1. Open a PowerShell window.
-2. At command prompt, type `nslookup www.engineering.contoso.com.`
-3. You should receive a non-authoritative answer showing the address **10.10.10.10**.
+
+1. At command prompt, type `nslookup www.engineering.contoso.com.`
+
+1. You should receive a non-authoritative answer showing the address **10.10.10.10**.
 
 ## Next steps
 

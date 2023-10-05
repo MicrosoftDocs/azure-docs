@@ -1,368 +1,183 @@
 ---
-title: Develop for Azure Files with C++ | Microsoft Docs
-description: Learn how to develop C++ applications and services that use Azure Files to store file data.
-services: storage
-author: roygara
-ms.service: storage
-ms.topic: article
-ms.date: 09/19/2017
-ms.author: rogarana
-ms.subservice: files
+title: "Quickstart: Azure Storage Files Share library v12 - C++"
+description: In this quickstart, you learn how to use the Azure Storage Files Share client library version 12 for C++ to create a files share and a file. Next, you learn how to set and retrieve metadata, then download the file to your local computer.
+author: kyle-patterson
+ms.author: kylepa
+ms.date: 06/22/2021
+ms.service: azure-file-storage
+ms.topic: quickstart
+ms.devlang: cpp
+ms.custom: mode-api
 ---
+
 # Develop for Azure Files with C++
 
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-files](../../../includes/storage-try-azure-tools-files.md)]
 
+## Applies to
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+
 ## About this tutorial
 
-In this tutorial, you'll learn how to perform basic operations on Azure Files. Through samples written in C++, you'll learn how to create shares and directories, upload, list, and delete files. If you are new to Azure Files, going through the concepts in the sections that follow will be helpful in understanding the samples.
+In this tutorial, you'll learn how to do basic operations on Azure Files using C++. If you're new to Azure Files, going through the concepts in the sections that follow will be helpful in understanding the samples. Some of the samples covered are:
 
 * Create and delete Azure file shares
 * Create and delete directories
-* Enumerate files and directories in an Azure file share
 * Upload, download, and delete a file
-* Set the quota (maximum size) for an Azure file share
-* Create a shared access signature (SAS key) for a file that uses a shared access policy defined on the share.
+* Set and list the metadata for a file
 
 > [!Note]  
-> Because Azure Files may be accessed over SMB, it is possible to write simple applications that access the Azure file share using the standard C++ I/O classes and functions. This article will describe how to write applications that use the Azure Storage C++ SDK, which uses the [File REST API](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api) to talk to Azure Files.
+> Because Azure Files may be accessed over SMB, it is possible to write simple applications that access the Azure file share using the standard C++ I/O classes and functions. This article will describe how to write applications that use the Azure Storage C++ SDK, which uses the [File REST API](/rest/api/storageservices/file-service-rest-api) to talk to Azure Files.
 
-## Create a C++ application
 
-To build the samples, you will need to install the Azure Storage Client Library 2.4.0 for C++. You should also have created an Azure storage account.
+## Prerequisites
 
-To install the Azure Storage Client 2.4.0 for C++, you can use one of the following methods:
+- [Azure subscription](https://azure.microsoft.com/free/)
+- [Azure storage account](../common/storage-account-create.md)
+- [C++ compiler](https://azure.github.io/azure-sdk/cpp_implementation.html#supported-platforms)
+- [CMake](https://cmake.org/)
+- [Vcpkg - C and C++ package manager](https://github.com/microsoft/vcpkg/blob/master/README.md)
 
-* **Linux:** Follow the instructions given in the [Azure Storage Client Library for C++ README](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) page.
-* **Windows:** In Visual Studio, click **Tools &gt; NuGet Package Manager &gt; Package Manager Console**. Type the following command into the [NuGet Package Manager console](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) and press **ENTER**.
-  
+## Setting up
 
-```powershell
-Install-Package wastorage
+This section walks you through preparing a project to work with the Azure Blob Storage client library v12 for C++.
+
+### Install the packages
+
+The `vcpkg install` command will install the Azure Storage Blobs SDK for C++ and necessary dependencies:
+
+```console
+vcpkg.exe install azure-storage-files-shares-cpp:x64-windows
 ```
 
-## Set up your application to use Azure Files
+For more information, visit GitHub to acquire and build the [Azure SDK for C++](https://github.com/Azure/azure-sdk-for-cpp/).
 
-Add the following include statements to the top of the C++ source file where you want to manipulate Azure Files:
+### Create the project
 
-```cpp
-#include <was/storage_account.h>
-#include <was/file.h>
-```
+In Visual Studio, create a new C++ console application for Windows called *FilesShareQuickstartV12*.
 
-## Set up an Azure storage connection string
+:::image type="content" source="./media/quickstart-files-c-plus-plus/visual-studio-create-project.png" alt-text="Visual Studio dialog for configuring a new C++ Windows console app":::
 
-To use File storage, you need to connect to your Azure storage account. The first step would be to configure a connection string, which we'll use to connect to your storage account. Let's define a static variable to do that.
+[!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 
-```cpp
-// Define the connection-string with your values.
-const utility::string_t
-storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key"));
-```
+## Code examples
 
-## Connecting to an Azure storage account
+These example code snippets show you how to do the following tasks with the Azure Files Share client library for C++:
 
-You can use the **cloud_storage_account** class to represent your Storage Account information. To retrieve your storage account information from the storage connection string, you can use the **parse** method.
+- [Add include files](#add-include-files)
+- [Get the connection string](#get-the-connection-string)
+- [Create a files share](#create-a-files-share)
+- [Upload files to a files share](#upload-files-to-a-files-share)
+- [Set the metadata of a file](#set-the-metadata-of-a-file)
+- [List the metadata of a file](#list-the-metadata-of-a-file)
+- [Download files](#download-files)
+- [Delete a file](#delete-a-file)
+- [Delete a files share](#delete-a-files-share)
 
-```cpp
-// Retrieve storage account from connection string.
-azure::storage::cloud_storage_account storage_account =
-  azure::storage::cloud_storage_account::parse(storage_connection_string);
-```
+### Add include files
 
-## Create an Azure file share
+From the project directory:
 
-All files and directories in an Azure file share reside in a container called a **Share**. Your storage account can have as many shares as your account capacity allows. To obtain access to a share and its contents, you need to use an Azure Files client.
+1. Open the *FilesShareQuickstartV12.sln* solution file in Visual Studio.
+1. Inside Visual Studio, open the *FilesShareQuickstartV12.cpp* source file.
+1. Remove any code inside `main` that was autogenerated.
+1. Add `#include` statements.
 
-```cpp
-// Create the Azure Files client.
-azure::storage::cloud_file_client file_client =
-  storage_account.create_cloud_file_client();
-```
+:::code language="cpp" source="~/azure-storage-snippets/files/quickstarts/C++/V12/FilesShareQuickStartV12/FilesShareQuickStartV12/FilesShareQuickStartV12.cpp" ID="Snippet_Includes":::
 
-Using the Azure Files client, you can then obtain a reference to a share.
+### Get the connection string
 
-```cpp
-// Get a reference to the file share
-azure::storage::cloud_file_share share =
-  file_client.get_share_reference(_XPLATSTR("my-sample-share"));
-```
+The code below retrieves the connection string for your storage account from the environment variable created in [Configure your storage connection string](#configure-your-storage-connection-string).
 
-To create the share, use the **create_if_not_exists** method of the **cloud_file_share** object.
+Add this code inside `main()`:
 
-```cpp
-if (share.create_if_not_exists()) {
-    std::wcout << U("New share created") << std::endl;
-}
-```
+:::code language="cpp" source="~/azure-storage-snippets/files/quickstarts/C++/V12/FilesShareQuickStartV12/FilesShareQuickStartV12/FilesShareQuickStartV12.cpp" ID="Snippet_ConnectionString":::
 
-At this point, **share** holds a reference to a share named **my-sample-share**.
+### Create a Files Share
 
-## Delete an Azure file share
+Create an instance of the [ShareClient](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-files-shares/12.0.0/class_azure_1_1_storage_1_1_files_1_1_shares_1_1_share_client.html) class by calling the [CreateFromConnectionString](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-files-shares/12.0.0/class_azure_1_1_storage_1_1_files_1_1_shares_1_1_share_client.html#a7462bcad8a9144f84b0acc70735240e2) function. Then call [CreateIfNotExists](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-files-shares/12.0.0/class_azure_1_1_storage_1_1_files_1_1_shares_1_1_share_client.html#a6432b4cc677ac03257c7bf234129ec5b) to create the actual files share in your storage account.
 
-Deleting a share is done by calling the **delete_if_exists** method on a cloud_file_share object. Here's sample code that does that.
+Add this code to the end of `main()`:
 
-```cpp
-// Get a reference to the share.
-azure::storage::cloud_file_share share =
-  file_client.get_share_reference(_XPLATSTR("my-sample-share"));
+:::code language="cpp" source="~/azure-storage-snippets/files/quickstarts/C++/V12/FilesShareQuickStartV12/FilesShareQuickStartV12/FilesShareQuickStartV12.cpp" ID="Snippet_CreateFilesShare":::
 
-// delete the share if exists
-share.delete_share_if_exists();
-```
+### Upload files to a Files Share
 
-## Create a directory
+The following code snippet:
 
-You can organize storage by putting files inside subdirectories instead of having all of them in the root directory. Azure Files allows you to create as many directories as your account will allow. The code below will create a directory named **my-sample-directory** under the root directory as well as a subdirectory named **my-sample-subdirectory**.
+1. Declares a string containing "Hello Azure!".
+1. Gets a reference to a [ShareFileClient](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-files-shares/12.0.0/class_azure_1_1_storage_1_1_files_1_1_shares_1_1_share_file_client.html) object by getting the root [ShareDirectoryClient](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-files-shares/12.0.0/class_azure_1_1_storage_1_1_files_1_1_shares_1_1_share_directory_client.html) and then calling [GetFileClient](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-files-shares/12.0.0/class_azure_1_1_storage_1_1_files_1_1_shares_1_1_share_directory_client.html#a93545b8d82ee94f9de183c4d277059d8) on the files share from the [Create a Files Share](#create-a-files-share) section.
+1. Uploads the string to the file by calling the [​Upload​From](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-files-shares/12.0.0/class_azure_1_1_storage_1_1_files_1_1_shares_1_1_share_file_client.html#aa80c1f0da6e6784aa0a67cff03d128ba) function. This function creates the file if it doesn't already exist, or updates it if it does.
 
-```cpp
-// Retrieve a reference to a directory
-azure::storage::cloud_file_directory directory = share.get_directory_reference(_XPLATSTR("my-sample-directory"));
+Add this code to the end of `main()`:
 
-// Return value is true if the share did not exist and was successfully created.
-directory.create_if_not_exists();
+:::code language="cpp" source="~/azure-storage-snippets/files/quickstarts/C++/V12/FilesShareQuickStartV12/FilesShareQuickStartV12/FilesShareQuickStartV12.cpp" ID="Snippet_UploadFile":::
 
-// Create a subdirectory.
-azure::storage::cloud_file_directory subdirectory =
-  directory.get_subdirectory_reference(_XPLATSTR("my-sample-subdirectory"));
-subdirectory.create_if_not_exists();
-```
+### Set the metadata of a File
 
-## Delete a directory
+Set the metadata properties for a file by calling the [ShareFileClient.SetMetadata](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-files-shares/12.0.0/class_azure_1_1_storage_1_1_files_1_1_shares_1_1_share_file_client.html#a2f5a40b71040003e41ba8495101f67bb) function.
 
-Deleting a directory is a simple task, although it should be noted that you cannot delete a directory that still contains files or other directories.
+Add this code to the end of `main()`:
 
-```cpp
-// Get a reference to the share.
-azure::storage::cloud_file_share share =
-  file_client.get_share_reference(_XPLATSTR("my-sample-share"));
+:::code language="cpp" source="~/azure-storage-snippets/files/quickstarts/C++/V12/FilesShareQuickStartV12/FilesShareQuickStartV12/FilesShareQuickStartV12.cpp" ID="Snippet_SetFileMetadata":::
 
-// Get a reference to the directory.
-azure::storage::cloud_file_directory directory =
-  share.get_directory_reference(_XPLATSTR("my-sample-directory"));
+### List the metadata of a File
 
-// Get a reference to the subdirectory you want to delete.
-azure::storage::cloud_file_directory sub_directory =
-  directory.get_subdirectory_reference(_XPLATSTR("my-sample-subdirectory"));
+Get the metadata properties for a file by calling the [ShareFileClient.GetProperties](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-files-shares/12.0.0/class_azure_1_1_storage_1_1_files_1_1_shares_1_1_share_file_client.html#a220017815847877cfe8f244b482fb45c) function. The metadata is under the `Metadata` field of the returned `Value`. The metadata will be a key-value pair, similar to the example in [Set the metadata of a File](#set-the-metadata-of-a-file).
 
-// Delete the subdirectory and the sample directory.
-sub_directory.delete_directory_if_exists();
+:::code language="cpp" source="~/azure-storage-snippets/files/quickstarts/C++/V12/FilesShareQuickStartV12/FilesShareQuickStartV12/FilesShareQuickStartV12.cpp" ID="Snippet_GetFileMetadata":::
 
-directory.delete_directory_if_exists();
-```
+### Download files
 
-## Enumerate files and directories in an Azure file share
+Having retrieved the properties of the file in [List the metadata of a File](#list-the-metadata-of-a-file) a new `std::vector<uint8_t>` object by using the properties of the uploaded file. Download the previously created file into the new `std::vector<uint8_t>` object by calling the [​DownloadTo](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-files-shares/12.0.0/class_azure_1_1_storage_1_1_files_1_1_shares_1_1_share_file_client.html#a256e7b317fbf762c4f8f5023a2cd8cb9) function in the [ShareFileClient](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-files-shares/12.0.0/class_azure_1_1_storage_1_1_files_1_1_shares_1_1_share_file_client.html) base class. Finally, display the downloaded file data.
 
-Obtaining a list of files and directories within a share is easily done by calling **list_files_and_directories** on a **cloud_file_directory** reference. To access the rich set of properties and methods for a returned **list_file_and_directory_item**, you must call the **list_file_and_directory_item.as_file** method to get a **cloud_file** object, or the **list_file_and_directory_item.as_directory** method to get a **cloud_file_directory** object.
+Add this code to the end of `main()`:
 
-The following code demonstrates how to retrieve and output the URI of each item in the root directory of the share.
+:::code language="cpp" source="~/azure-storage-snippets/files/quickstarts/C++/V12/FilesShareQuickStartV12/FilesShareQuickStartV12/FilesShareQuickStartV12.cpp" ID="Snippet_DownloadFile":::
 
-```cpp
-//Get a reference to the root directory for the share.
-azure::storage::cloud_file_directory root_dir =
-  share.get_root_directory_reference();
+### Delete a file
 
-// Output URI of each item.
-azure::storage::list_file_and_directory_result_iterator end_of_results;
+The following code deletes the blob from the Azure Storage Files Share by calling the [ShareFileClient.Delete](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-files-shares/12.0.0/class_azure_1_1_storage_1_1_files_1_1_shares_1_1_share_file_client.html#a86036b445dce67a96f7bf6c45f163f59) function.
 
-for (auto it = directory.list_files_and_directories(); it != end_of_results; ++it)
-{
-    if(it->is_directory())
-    {
-        ucout << "Directory: " << it->as_directory().uri().primary_uri().to_string() << std::endl;
-    }
-    else if (it->is_file())
-    {
-        ucout << "File: " << it->as_file().uri().primary_uri().to_string() << std::endl;
-    }
-}
-```
+:::code language="cpp" source="~/azure-storage-snippets/files/quickstarts/C++/V12/FilesShareQuickStartV12/FilesShareQuickStartV12/FilesShareQuickStartV12.cpp" ID="Snippet_DeleteFile":::
 
-## Upload a file
+### Delete a files share
 
-At the very least, an Azure file share contains a root directory where files can reside. In this section, you'll learn how to upload a file from local storage onto the root directory of a share.
+The following code cleans up the resources the app created by deleting the entire Files Share by using [ShareClient.​Delete](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-files-shares/12.0.0/class_azure_1_1_storage_1_1_files_1_1_shares_1_1_share_client.html#a9915630503f1675b5f49eb9c01ca2601).
 
-The first step in uploading a file is to obtain a reference to the directory where it should reside. You do this by calling the **get_root_directory_reference** method of the share object.
+Add this code to the end of `main()`:
 
-```cpp
-//Get a reference to the root directory for the share.
-azure::storage::cloud_file_directory root_dir = share.get_root_directory_reference();
-```
+:::code language="cpp" source="~/azure-storage-snippets/files/quickstarts/C++/V12/FilesShareQuickStartV12/FilesShareQuickStartV12/FilesShareQuickStartV12.cpp" ID="Snippet_DeleteFilesShare":::
 
-Now that you have a reference to the root directory of the share, you can upload a file onto it. This example uploads from a file, from text, and from a stream.
+## Run the code
 
-```cpp
-// Upload a file from a stream.
-concurrency::streams::istream input_stream =
-  concurrency::streams::file_stream<uint8_t>::open_istream(_XPLATSTR("DataFile.txt")).get();
-
-azure::storage::cloud_file file1 =
-  root_dir.get_file_reference(_XPLATSTR("my-sample-file-1"));
-file1.upload_from_stream(input_stream);
-
-// Upload some files from text.
-azure::storage::cloud_file file2 =
-  root_dir.get_file_reference(_XPLATSTR("my-sample-file-2"));
-file2.upload_text(_XPLATSTR("more text"));
-
-// Upload a file from a file.
-azure::storage::cloud_file file4 =
-  root_dir.get_file_reference(_XPLATSTR("my-sample-file-3"));
-file4.upload_from_file(_XPLATSTR("DataFile.txt"));
-```
-
-## Download a file
-
-To download files, first retrieve a file reference and then call the **download_to_stream** method to transfer the file contents to a stream object, which you can then persist to a local file. Alternatively, you can use the **download_to_file** method to download the contents of a file to a local file. You can use the **download_text** method to download the contents of a file as a text string.
-
-The following example uses the **download_to_stream** and **download_text** methods to demonstrate downloading the files, which were created in previous sections.
-
-```cpp
-// Download as text
-azure::storage::cloud_file text_file =
-  root_dir.get_file_reference(_XPLATSTR("my-sample-file-2"));
-utility::string_t text = text_file.download_text();
-ucout << "File Text: " << text << std::endl;
-
-// Download as a stream.
-azure::storage::cloud_file stream_file =
-  root_dir.get_file_reference(_XPLATSTR("my-sample-file-3"));
-
-concurrency::streams::container_buffer<std::vector<uint8_t>> buffer;
-concurrency::streams::ostream output_stream(buffer);
-stream_file.download_to_stream(output_stream);
-std::ofstream outfile("DownloadFile.txt", std::ofstream::binary);
-std::vector<unsigned char>& data = buffer.collection();
-outfile.write((char *)&data[0], buffer.size());
-outfile.close();
-```
-
-## Delete a file
-
-Another common Azure Files operation is file deletion. The following code deletes a file named my-sample-file-3 stored under the root directory.
-
-```cpp
-// Get a reference to the root directory for the share.
-azure::storage::cloud_file_share share =
-  file_client.get_share_reference(_XPLATSTR("my-sample-share"));
-
-azure::storage::cloud_file_directory root_dir =
-  share.get_root_directory_reference();
-
-azure::storage::cloud_file file =
-  root_dir.get_file_reference(_XPLATSTR("my-sample-file-3"));
-
-file.delete_file_if_exists();
-```
-
-## Set the quota (maximum size) for an Azure file share
-
-You can set the quota (or maximum size) for a file share, in gigabytes. You can also check to see how much data is currently stored on the share.
-
-By setting the quota for a share, you can limit the total size of the files stored on the share. If the total size of files on the share exceeds the quota set on the share, then clients will be unable to increase the size of existing files or create new files, unless those files are empty.
-
-The example below shows how to check the current usage for a share and how to set the quota for the share.
-
-```cpp
-// Parse the connection string for the storage account.
-azure::storage::cloud_storage_account storage_account =
-  azure::storage::cloud_storage_account::parse(storage_connection_string);
-
-// Create the file client.
-azure::storage::cloud_file_client file_client =
-  storage_account.create_cloud_file_client();
-
-// Get a reference to the share.
-azure::storage::cloud_file_share share =
-  file_client.get_share_reference(_XPLATSTR("my-sample-share"));
-if (share.exists())
-{
-    std::cout << "Current share usage: " << share.download_share_usage() << "/" << share.properties().quota();
-
-    //This line sets the quota to 2560GB
-    share.resize(2560);
-
-    std::cout << "Quota increased: " << share.download_share_usage() << "/" << share.properties().quota();
-
-}
-```
-
-## Generate a shared access signature for a file or file share
-
-You can generate a shared access signature (SAS) for a file share or for an individual file. You can also create a shared access policy on a file share to manage shared access signatures. Creating a shared access policy is recommended, as it provides a means of revoking the SAS if it should be compromised.
-
-The following example creates a shared access policy on a share, and then uses that policy to provide the constraints for a SAS on a file in the share.
-
-```cpp
-// Parse the connection string for the storage account.
-azure::storage::cloud_storage_account storage_account =
-  azure::storage::cloud_storage_account::parse(storage_connection_string);
-
-// Create the file client and get a reference to the share
-azure::storage::cloud_file_client file_client =
-  storage_account.create_cloud_file_client();
-
-azure::storage::cloud_file_share share =
-  file_client.get_share_reference(_XPLATSTR("my-sample-share"));
-
-if (share.exists())
-{
-    // Create and assign a policy
-    utility::string_t policy_name = _XPLATSTR("sampleSharePolicy");
-
-    azure::storage::file_shared_access_policy sharedPolicy =
-      azure::storage::file_shared_access_policy();
-
-    //set permissions to expire in 90 minutes
-    sharedPolicy.set_expiry(utility::datetime::utc_now() +
-       utility::datetime::from_minutes(90));
-
-    //give read and write permissions
-    sharedPolicy.set_permissions(azure::storage::file_shared_access_policy::permissions::write | azure::storage::file_shared_access_policy::permissions::read);
-
-    //set permissions for the share
-    azure::storage::file_share_permissions permissions;
-
-    //retrieve the current list of shared access policies
-    azure::storage::shared_access_policies<azure::storage::file_shared_access_policy> policies;
-
-    //add the new shared policy
-    policies.insert(std::make_pair(policy_name, sharedPolicy));
-
-    //save the updated policy list
-    permissions.set_policies(policies);
-    share.upload_permissions(permissions);
-
-    //Retrieve the root directory and file references
-    azure::storage::cloud_file_directory root_dir =
-        share.get_root_directory_reference();
-    azure::storage::cloud_file file =
-      root_dir.get_file_reference(_XPLATSTR("my-sample-file-1"));
-
-    // Generate a SAS for a file in the share
-    //  and associate this access policy with it.
-    utility::string_t sas_token = file.get_shared_access_signature(sharedPolicy);
-
-    // Create a new CloudFile object from the SAS, and write some text to the file.
-    azure::storage::cloud_file file_with_sas(azure::storage::storage_credentials(sas_token).transform_uri(file.uri().primary_uri()));
-    utility::string_t text = _XPLATSTR("My sample content");
-    file_with_sas.upload_text(text);
-
-    //Download and print URL with SAS.
-    utility::string_t downloaded_text = file_with_sas.download_text();
-    ucout << downloaded_text << std::endl;
-    ucout << azure::storage::storage_credentials(sas_token).transform_uri(file.uri().primary_uri()).to_string() << std::endl;
-
-}
+This app creates a container and uploads a text file to Azure Blob Storage. The example then lists the blobs in the container, downloads the file, and displays the file contents. Finally, the app deletes the blob and the container.
+
+The output of the app is similar to the following example:
+
+```output
+Azure Files Shares storage v12 - C++ quickstart sample
+Creating files share: sample-share
+Uploading file: sample-file
+Listing file metadata...
+key1:value1
+key2:value2
+Downloaded file contents: Hello Azure!
+Deleting file: sample-file
+Deleting files share: sample-share
 ```
 
 ## Next steps
 
-To learn more about Azure Storage, explore these resources:
+In this quickstart, you learned how to upload, download, and list files using C++. You also learned how to create and delete an Azure Storage Files Share.
 
-* [Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp)
-* [Azure Storage File Service Samples in C++](https://github.com/Azure-Samples/storage-file-cpp-getting-started)
-* [Azure Storage Explorer](https://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
-* [Azure Storage Documentation](https://azure.microsoft.com/documentation/services/storage/)
+To see a C++ Blob Storage sample, continue to:
+
+> [!div class="nextstepaction"]
+> [Azure Storage Files Share SDK v12 for C++ samples](https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/storage/azure-storage-files-shares/samples)

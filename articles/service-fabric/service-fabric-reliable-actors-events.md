@@ -1,22 +1,14 @@
 ---
-title: Events in actor-based Azure Service Fabric actors| Microsoft Docs
-description: Introduction to events for Service Fabric Reliable Actors.
-services: service-fabric
-documentationcenter: .net
-author: vturecek
-manager: chackdan
-editor: ''
-
-ms.assetid: aa01b0f7-8f88-403a-bfe1-5aba00312c24
+title: Events in actor-based Azure Service Fabric actors
+description: Learn about events for Service Fabric Reliable Actors, an effective way to communicate between actor and client.
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
 ms.service: service-fabric
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 10/06/2017
-ms.author: amanbha
-
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Actor events
 Actor events provide a way to send best-effort notifications from the actor to the clients. Actor events are designed for actor-to-client communication and shouldn't be used for actor-to-actor communication.
 
@@ -107,7 +99,7 @@ event.gameScoreUpdated(Id.getUUIDId(), score);
 ## Next steps
 * [Actor reentrancy](service-fabric-reliable-actors-reentrancy.md)
 * [Actor diagnostics and performance monitoring](service-fabric-reliable-actors-diagnostics.md)
-* [Actor API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* [Actor API reference documentation](/previous-versions/azure/dn971626(v=azure.100))
 * [C# Sample code](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [C# .NET Core Sample code](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started)
 * [Java Sample code](https://github.com/Azure-Samples/service-fabric-java-getting-started)

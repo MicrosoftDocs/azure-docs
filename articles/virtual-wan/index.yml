@@ -1,41 +1,135 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure Virtual WAN
+### YamlMime:Landing
+
+title: Virtual WAN documentation
+summary: Learn how to configure, create, and manage an Azure Virtual WAN. Azure Virtual WAN is a networking service that brings many networking, security, and routing functionalities together to provide a single operational interface.
+
 metadata:
-  document_id:
-  title: Virtual WAN Documentation - Tutorials, API references | Microsoft Docs
-  meta.description: Learn how to configure, create, and manage an Azure Virtual WAN. Build secure global scale branch connectivity.
-  services: virtual-wan
-  author: cherylmc
-  manager: jeconnoc
+  title: Virtual WAN documentation 
+  description: Learn about Virtual WAN
   ms.service: virtual-wan
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 10/01/2018
+  author: cherylmc
   ms.author: cherylmc
-abstract:
-  description:  Learn how to configure, create, and manage an Azure Virtual WAN. Build secure global scale branch connectivity.
-sections:
-- title: Step-by-Step Tutorials
-  items:
-  - type: paragraph
-    text: Learn how to configure, create, and manage connections using Azure Virtual WAN.
-  - type: list
-    style: unordered
-    className: spaced Bullet
-    items:
-    - html: <a href="/azure/virtual-wan/virtual-wan-site-to-site-portal">Site-to-Site connections</a>
-    - html: <a href="/azure/virtual-wan/virtual-wan-point-to-site-portal">Point-to-Site connections</a>
-    - html: <a href="/azure/virtual-wan/virtual-wan-expressroute-portal">ExpressRoute connections</a>
-- title: Reference
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Command-Line
-      html: <p><a href="/powershell/module/az.network#networking">PowerShell</a></p><p><a href="/cli/azure/ext/virtual-wan">Azure CLI</a></p>
-    - title: REST
-      html: <p><a href="https://go.microsoft.com/fwlink/p/?linkid=2005000">REST API Reference</a></p>
-      
+  ms.date: 05/01/2023
+  ms.custom: e2e-hybrid
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Virtual WAN
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Virtual WAN?
+            url: virtual-wan-about.md
+          - text: What's new?
+            url: whats-new.md
+      - linkListType: concept
+        links:
+          - text: Migrate to Virtual WAN
+            url: migrate-from-hub-spoke-topology.md
+          - text: Working with locations and partners
+            url: virtual-wan-locations-partners.md
+          - text: FAQ
+            url: virtual-wan-faq.md
+      - linkListType: learn
+        links:
+          - text: Introduction to Azure Virtual WAN
+            url: /training/modules/introduction-azure-virtual-wan/
+      - linkListType: video
+        links:
+          - text: Remote user connectivity with Azure Virtual WAN
+            url: https://www.youtube.com/watch?v=nP5XntjA7OQ
+          - text: Architect hybrid networking with Azure Virtual WAN and SD-WAN 
+            url: https://www.youtube.com/watch?v=2g-_empU0GU&list=PLLasX02E8BPA5V-waZPcelhg9l3IkeUQo&index=6
+
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Create a site-to-site connection
+            url: virtual-wan-site-to-site-portal.md
+          - text: Create an ExpressRoute association
+            url: virtual-wan-expressroute-portal.md
+          - text: Create a User VPN (point-to-site) connection
+            url: virtual-wan-point-to-site-portal.md
+      - linkListType: concept
+        links:
+          - text: Default policies for IPsec connectivity
+            url: virtual-wan-ipsec.md
+          - text: Automation guidelines for Virtual WAN partners
+            url: virtual-wan-configure-automation-providers.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create an NVA in a hub
+            url: how-to-nva-hub.md
+          - text: Configure IPsec over ExpressRoute for Virtual WAN
+            url: vpn-over-expressroute.md
+          - text: Connect a VPN Gateway to Virtual WAN
+            url: connect-virtual-network-gateway-vwan.md
+  # Card
+  - title: Learn about Virtual WAN architecture
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Migrate to Virtual WAN
+            url: migrate-from-hub-spoke-topology.md
+          - text: Disaster recovery design
+            url: disaster-recovery-design.md
+      - linkListType: architecture
+        links:
+          - text: Global transit network architecture
+            url: virtual-wan-global-transit-network-architecture.md
+          - text: SD-WAN connectivity architecture
+            url: sd-wan-connectivity-architecture.md
+          - text: Private Link and DNS architecture for Virtual WAN
+            url: /azure/architecture/guide/networking/private-link-virtual-wan-dns-guide?toc=%2fazure%2fvirtual-wan%2ftoc.json
+          - text: Virtual WAN architecture optimized for department-specific requirements
+            url: /azure/architecture/example-scenario/infrastructure/performance-security-optimized-vwan?toc=%2fazure%2fvirtual-wan%2ftoc.json
+  # Card
+  - title: Routing
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: About virtual hub routing
+            url: about-virtual-hub-routing.md
+          - text: About Route-maps
+            url: route-maps-about.md
+          - text: Scenario - Route traffic through an NVA
+            url: scenario-route-through-nva.md
+          - text: Scenario - Any spoke to any spoke
+            url: scenario-any-to-any.md
+          - text: Scenario - Isolate a VNet
+            url: scenario-isolate-vnets.md
+          - text: Scenario - Route to a shared services VNet
+            url: scenario-shared-services-vnet.md
+          - text: Scenario - Custom routing via Azure Firewall
+            url: scenario-route-between-vnets-firewall.md
+      - linkListType: how-to-guide
+        links:
+          - text: Configure virtual hub routing
+            url: how-to-virtual-hub-routing.md
+  # Card
+  - title: Monitoring
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Monitoring Virtual WAN with Azure Monitor
+            url: monitor-virtual-wan.md
+          - text: Monitor using Azure Monitor Insights
+            url: azure-monitor-insights.md
+ # Card
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure CLI
+            url: /cli/azure/
+          - text: Azure PowerShell
+            url: /powershell/module/az.network#networking
+          - text: REST
+            url: /rest/api/virtualwan

@@ -1,151 +1,158 @@
 ---
-title: Quickstart to learn how to use Azure Cache for Redis with Node.js | Microsoft Docs
-description: In this quickstart you will learn how to use Azure Cache for Redis with Node.js and node_redis.
-services: cache
-documentationcenter: ''
-author: yegu-ms
-manager: jhubbard
-editor: v-lincan
-
-ms.assetid: 06fddc95-8029-4a8d-83f5-ebd5016891d9
+title: 'Quickstart: Use Azure Cache for Redis in Node.js'
+description: In this quickstart, learn how to use Azure Cache for Redis with Node.js and node_redis.
+author: flang-msft
 ms.service: cache
-ms.devlang: nodejs
+ms.devlang: javascript
 ms.topic: quickstart
-ms.tgt_pltfrm: cache
-ms.workload: tbd
-ms.date: 05/21/2018
-ms.author: yegu
-ms.custom: mvc
+ms.date: 02/16/2023
+ms.author: franlanglois
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js, mode-api, engagement-fy23
 #Customer intent: As a Node.js developer, new to Azure Cache for Redis, I want to create a new Node.js app that uses Azure Cache for Redis.
 ---
-# Quickstart: How to use Azure Cache for Redis with Node.js
+# Quickstart: Use Azure Cache for Redis in Node.js
 
-
-
-Azure Cache for Redis gives you access to a secure, dedicated Azure Cache for Redis, managed by Microsoft. Your cache is accessible from any application within Microsoft Azure.
-
-This topic shows you how to get started with Azure Cache for Redis using Node.js. 
-
-You can use any code editor to complete the steps in this quickstart. However, [Visual Studio Code](https://code.visualstudio.com/) is an excellent option available on the Windows, macOS, and Linux platforms.
-
-![Cache app completed](./media/cache-nodejs-get-started/cache-app-complete.png)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
+In this quickstart, you incorporate Azure Cache for Redis into a Node.js app to have access to a secure, dedicated cache that is accessible from any application within Azure.
 
 ## Prerequisites
-Install [node_redis](https://github.com/mranney/node_redis):
 
-    npm install redis
+- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- [node_redis](https://github.com/mranney/node_redis), which you can install with the command `npm install redis`.
 
-This tutorial uses [node_redis](https://github.com/mranney/node_redis). For examples of using other Node.js clients, see the individual documentation for the Node.js clients listed at [Node.js Redis clients](https://redis.io/clients#nodejs).
-
+For examples of using other Node.js clients, see the individual documentation for the Node.js clients listed at [Node.js Redis clients](https://redis.io/clients#nodejs).
 
 ## Create a cache
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
-[!INCLUDE [redis-cache-access-keys](../../includes/redis-cache-access-keys.md)]
+[!INCLUDE [redis-cache-create](includes/redis-cache-create.md)]
 
+[!INCLUDE [redis-cache-access-keys](includes/redis-cache-access-keys.md)]
 
-Add environment variables for your **HOST NAME** and **Primary** access key. You will use these variables from your code instead of including the sensitive information directly in your code.
+Add environment variables for your **HOST NAME** and **Primary** access key. Use these variables from your code instead of including the sensitive information directly in your code.
 
+```powershell
+set AZURE_CACHE_FOR_REDIS_HOST_NAME=contosoCache
+set AZURE_CACHE_FOR_REDIS_ACCESS_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
-set REDISCACHEHOSTNAME=contosoCache.redis.cache.windows.net
-set REDISCACHEKEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-```
-
 
 ## Connect to the cache
 
-The latest builds of [node_redis](https://github.com/mranney/node_redis) provide support for connecting to Azure Cache for Redis using SSL. The following example shows how to connect to Azure Cache for Redis using the SSL endpoint of 6380. 
-
-```js
-var redis = require("redis");
-
-// Add your cache name and access key.
-var client = redis.createClient(6380, process.env.REDISCACHEHOSTNAME,
-    {auth_pass: process.env.REDISCACHEKEY, tls: {servername: process.env.REDISCACHEHOSTNAME}});
-```
-
-Don't create a new connections for each operation in your code. Instead, reuse connections as much as possible. 
+The latest builds of [node_redis](https://github.com/mranney/node_redis) provide support several connection options. Don't create a new connection for each operation in your code. Instead, reuse connections as much as possible.
 
 ## Create a new Node.js app
 
-Create a new script file named *redistest.js*.
+1. Create a new script file named *redistest.js*. 
+1. Use the command to install a redis package.
 
-Add the following example JavaScript to the file. This code shows you how to connect to an Azure Cache for Redis instance using the cache host name and key environment variables. The code also stores and retrieves a string value in the cache. The `PING` and `CLIENT LIST` commands are also executed. For more examples of using Redis with the [node_redis](https://github.com/mranney/node_redis) client, see [https://redis.js.org/](https://redis.js.org/).
+    ```bash
+    `npm install redis`
+    ```
 
-```js
-var redis = require("redis");
-var bluebird = require("bluebird");
+1. Add the following example JavaScript to the file. 
 
-bluebird.promisifyAll(redis.RedisClient.prototype);
-bluebird.promisifyAll(redis.Multi.prototype);
 
-async function testCache() {
+    ```javascript
+    const redis = require("redis");
+    
+    // Environment variables for cache
+    const cacheHostName = process.env.AZURE_CACHE_FOR_REDIS_HOST_NAME;
+    const cachePassword = process.env.AZURE_CACHE_FOR_REDIS_ACCESS_KEY;
+    
+    if(!cacheHostName) throw Error("AZURE_CACHE_FOR_REDIS_HOST_NAME is empty")
+    if(!cachePassword) throw Error("AZURE_CACHE_FOR_REDIS_ACCESS_KEY is empty")
+    
+    async function testCache() {
+    
+        // Connection configuration
+        const cacheConnection = redis.createClient({
+            // rediss for TLS
+            url: `rediss://${cacheHostName}:6380`,
+            password: cachePassword
+        });
+    
+        // Connect to Redis
+        await cacheConnection.connect();
+    
+        // PING command
+        console.log("\nCache command: PING");
+        console.log("Cache response : " + await cacheConnection.ping());
+    
+        // GET
+        console.log("\nCache command: GET Message");
+        console.log("Cache response : " + await cacheConnection.get("Message"));
+    
+        // SET
+        console.log("\nCache command: SET Message");
+        console.log("Cache response : " + await cacheConnection.set("Message",
+            "Hello! The cache is working from Node.js!"));
+    
+        // GET again
+        console.log("\nCache command: GET Message");
+        console.log("Cache response : " + await cacheConnection.get("Message"));
+    
+        // Client list, useful to see if connection list is growing...
+        console.log("\nCache command: CLIENT LIST");
+        console.log("Cache response : " + await cacheConnection.sendCommand(["CLIENT", "LIST"]));
+    
+        // Disconnect
+        cacheConnection.disconnect()
+    
+        return "Done"
+    }
+    
+    testCache().then((result) => console.log(result)).catch(ex => console.log(ex));
+    ```
+    
+    This code shows you how to connect to an Azure Cache for Redis instance using the cache host name and key environment variables. The code also stores and retrieves a string value in the cache. The `PING` and `CLIENT LIST` commands are also executed. For more examples of using Redis with the [node_redis](https://github.com/mranney/node_redis) client, see [https://redis.js.org/](https://redis.js.org/).
 
-    // Connect to the Azure Cache for Redis over the SSL port using the key.
-    var cacheConnection = redis.createClient(6380, process.env.REDISCACHEHOSTNAME, 
-        {auth_pass: process.env.REDISCACHEKEY, tls: {servername: process.env.REDISCACHEHOSTNAME}});
-        
-    // Perform cache operations using the cache connection object...
 
-    // Simple PING command
-    console.log("\nCache command: PING");
-    console.log("Cache response : " + await cacheConnection.pingAsync());
+1. Run the script with Node.js.
 
-    // Simple get and put of integral data types into the cache
-    console.log("\nCache command: GET Message");
-    console.log("Cache response : " + await cacheConnection.getAsync("Message"));    
+    ```bash
+    node redistest.js
+    ```
 
-    console.log("\nCache command: SET Message");
-    console.log("Cache response : " + await cacheConnection.setAsync("Message",
-        "Hello! The cache is working from Node.js!"));    
+1. Example the output. 
 
-    // Demonstrate "SET Message" executed as expected...
-    console.log("\nCache command: GET Message");
-    console.log("Cache response : " + await cacheConnection.getAsync("Message"));    
-
-    // Get the client list, useful to see if connection list is growing...
-    console.log("\nCache command: CLIENT LIST");
-    console.log("Cache response : " + await cacheConnection.clientAsync("LIST"));    
-}
-
-testCache();
-```
-
-Run the script with Node.js.
-
-```
-node redistest.js
-```
-
-In the example below, you can see the `Message` key previously had a cached value, which was set using the Redis Console in the Azure portal. The app updated that cached value. The app also executed the `PING` and `CLIENT LIST` commands.
-
-![Cache app completed](./media/cache-nodejs-get-started/cache-app-complete.png)
-
+    ```console
+    Cache command: PING
+    Cache response : PONG
+    
+    Cache command: GET Message
+    Cache response : Hello! The cache is working from Node.js!
+    
+    Cache command: SET Message
+    Cache response : OK
+    
+    Cache command: GET Message
+    Cache response : Hello! The cache is working from Node.js!
+    
+    Cache command: CLIENT LIST
+    Cache response : id=10017364 addr=76.22.73.183:59380 fd=221 name= age=1 idle=0 flags=N db=0 sub=0 psub=0 multi=-1 qbuf=26 qbuf-free=32742 argv-mem=10 obl=0 oll=0 omem=0 tot-mem=61466 ow=0 owmem=0 events=r cmd=client user=default numops=6
+    
+    Done
+    ```
 
 ## Clean up resources
 
-If you will be continuing to the next tutorial, you can keep the resources created in this quickstart and reuse them.
-
-Otherwise, if you are finished with the quickstart sample application, you can delete the Azure resources created in this quickstart to avoid charges. 
+If you continue to the next tutorial, can keep the resources created in this quickstart and reuse them. Otherwise, if you're finished with the quickstart sample application, you can delete the Azure resources created in this quickstart to avoid charges.
 
 > [!IMPORTANT]
-> Deleting a resource group is irreversible and that the resource group and all the resources in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the resources for hosting this sample inside an existing resource group that contains resources you want to keep, you can delete each resource individually from their respective blades instead of deleting the resource group.
+> Deleting a resource group is irreversible and that the resource group and all the resources in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the resources for hosting this sample inside an existing resource group that contains resources you want to keep, you can delete each resource individually instead of deleting the resource group.
 >
 
-Sign in to the [Azure portal](https://portal.azure.com) and click **Resource groups**.
+1. Sign in to the [Azure portal](https://portal.azure.com) and select **Resource groups**.
 
-In the **Filter by name...** textbox, type the name of your resource group. The instructions for this article used a resource group named *TestResources*. On your resource group in the result list, click **...** then **Delete resource group**.
+1. In the **Filter by name** text box, enter the name of your resource group. The instructions for this article used a resource group named *TestResources*. On your resource group in the result list, select **...** then **Delete resource group**.
 
-![Delete](./media/cache-nodejs-get-started/cache-delete-resource-group.png)
+    ![Delete Azure Resource group](./media/cache-nodejs-get-started/redis-cache-delete-resource-group.png)
 
-You will be asked to confirm the deletion of the resource group. Type the name of your resource group to confirm, and click **Delete**.
+1. Confirm the deletion of the resource group. Enter the name of your resource group to confirm, and select **Delete**.
 
-After a few moments, the resource group and all of its contained resources are deleted.
+1. After a few moments, the resource group and all of its contained resources are deleted.
 
+## Get the sample code
 
+Get the [Node.js quickstart](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/nodejs) on GitHub.
 
 ## Next steps
 
@@ -153,6 +160,3 @@ In this quickstart, you learned how to use Azure Cache for Redis from a Node.js 
 
 > [!div class="nextstepaction"]
 > [Create an ASP.NET web app that uses an Azure Cache for Redis.](./cache-web-app-howto.md)
-
-
-

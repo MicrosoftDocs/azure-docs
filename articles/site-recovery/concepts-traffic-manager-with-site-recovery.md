@@ -2,12 +2,12 @@
 title: Azure Traffic Manager with Azure Site Recovery | Microsoft Docs
 description: Describes how to use Azure Traffic Manager with Azure Site Recovery for disaster recovery and migration
 services: site-recovery
-author: mayurigupta13
+author: ankitaduttaMSFT
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.author: mayg
+ms.author: ankitadutta
 
 ---
 # Azure Traffic Manager with Azure Site Recovery
@@ -25,7 +25,7 @@ For the first scenario, consider **Company A** that has all its application infr
 **Company A** is running applications with public endpoints and wants the ability to seamlessly redirect traffic to Azure in a disaster event. The [Priority](../traffic-manager/traffic-manager-configure-priority-routing-method.md) traffic-routing method in Azure Traffic Manager allows Company A to easily implement this failover pattern.
 
 The setup is as follows:
-- **Company A** creates a [Traffic Manager profile](../traffic-manager/traffic-manager-create-profile.md).
+- **Company A** creates a [Traffic Manager profile](../traffic-manager/quickstart-create-traffic-manager-profile.md).
 - Utilizing the **Priority** routing method, **Company A** creates two endpoints – **Primary** for on-premises and **Failover** for Azure. **Primary** is assigned Priority 1 and **Failover** is assigned Priority 2.
 - Since the **Primary** endpoint is hosted outside Azure, the endpoint is created as an [External](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints) endpoint.
 - With Azure Site Recovery, the Azure site does not have any virtual machines or applications running prior to failover. So, the **Failover** endpoint is also created as an **External** endpoint.
@@ -60,7 +60,7 @@ For this example, consider **Company C** that has all its application infrastruc
 **Company C** is running applications with public endpoints and wants the ability to seamlessly redirect traffic to a different Azure region in a disaster event. The [Priority](../traffic-manager/traffic-manager-configure-priority-routing-method.md) traffic-routing method allows **Company C** to easily implement this failover pattern.
 
 The setup is as follows:
-- **Company C** creates a [Traffic Manager profile](../traffic-manager/traffic-manager-create-profile.md).
+- **Company C** creates a [Traffic Manager profile](../traffic-manager/quickstart-create-traffic-manager-profile.md).
 - Utilizing the **Priority** routing method, **Company C** creates two endpoints – **Primary** for the source region (Azure East Asia) and **Failover** for the recovery region (Azure Southeast Asia). **Primary** is assigned Priority 1 and **Failover** is assigned Priority 2.
 - Since the **Primary** endpoint is hosted in Azure, the endpoint can be as an [Azure](../traffic-manager/traffic-manager-endpoint-types.md#azure-endpoints) endpoint.
 - With Azure Site Recovery, the recovery Azure site does not have any virtual machines or applications running prior to failover. So, the **Failover** endpoint can be created as an [External](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints) endpoint.

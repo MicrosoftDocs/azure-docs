@@ -1,36 +1,26 @@
 ---
 title: Use Apache Hive with PowerShell in HDInsight - Azure 
-description: Use PowerShell to run Hive queries in Apache Hadoop on HDInsight.
-author: hrasheed-msft
-ms.reviewer: jasonh
-
+description: Use PowerShell to run Apache Hive queries in Apache Hadoop in Azure HDInsight
 ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 04/23/2018
-ms.author: hrasheed
-
+ms.topic: how-to
+ms.custom: hdinsightactive, devx-track-azurepowershell
+ms.date: 09/14/2023
 ---
-# Run Apache Hive queries using PowerShell
-[!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-This document provides an example of using Azure PowerShell in the Azure Resource Group mode to run Hive queries in an Apache Hadoop on HDInsight cluster.
+# Run Apache Hive queries using PowerShell
+
+[!INCLUDE [hive-selector](../includes/hdinsight-selector-use-hive.md)]
+
+This document provides an example of using Azure PowerShell to run Apache Hive queries in an Apache Hadoop on HDInsight cluster.
 
 > [!NOTE]  
 > This document does not provide a detailed description of what the HiveQL statements that are used in the examples do. For information on the HiveQL that is used in this example, see [Use Apache Hive with Apache Hadoop on HDInsight](hdinsight-use-hive.md).
 
 ## Prerequisites
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+* An Apache Hadoop cluster on HDInsight. See [Get Started with HDInsight on Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
-* A Linux-based Apache Hadoop on HDInsight cluster version 3.4 or greater.
-
-  > [!IMPORTANT]  
-  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
-* A client with Azure PowerShell.
-
-[!INCLUDE [upgrade-powershell](../../../includes/hdinsight-use-latest-powershell.md)]
+* The PowerShell [Az Module](/powershell/azure/) installed.
 
 ## Run a Hive query
 
@@ -54,16 +44,20 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
 
 2. Open a new **Azure PowerShell** command prompt. Change directories to the location of the `hivejob.ps1` file, then use the following command to run the script:
 
-        .\hivejob.ps1
+    ```azurepowershell
+    .\hivejob.ps1
+    ```
 
-    When the script runs, you are prompted to enter the cluster name and the HTTPS/Cluster Admin account credentials. You may also be prompted to log in to your Azure subscription.
+    When the script runs, you're prompted to enter the cluster name and the HTTPS/Cluster Admin account credentials. You may also be prompted to sign in to your Azure subscription.
 
 3. When the job completes, it returns information similar to the following text:
 
-        Display the standard output...
-        2012-02-03      18:35:34        SampleClass0    [ERROR] incorrect       id
-        2012-02-03      18:55:54        SampleClass1    [ERROR] incorrect       id
-        2012-02-03      19:25:27        SampleClass4    [ERROR] incorrect       id
+    ```output
+    Display the standard output...
+    2012-02-03      18:35:34        SampleClass0    [ERROR] incorrect       id
+    2012-02-03      18:55:54        SampleClass1    [ERROR] incorrect       id
+    2012-02-03      19:25:27        SampleClass4    [ERROR] incorrect       id
+    ```
 
 4. As mentioned earlier, `Invoke-Hive` can be used to run a query and wait for the response. Use the following script to see how Invoke-Hive works:
 
@@ -71,16 +65,18 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
 
     The output looks like the following text:
 
-        2012-02-03    18:35:34    SampleClass0    [ERROR]    incorrect    id
-        2012-02-03    18:55:54    SampleClass1    [ERROR]    incorrect    id
-        2012-02-03    19:25:27    SampleClass4    [ERROR]    incorrect    id
+    ```output
+    2012-02-03    18:35:34    SampleClass0    [ERROR]    incorrect    id
+    2012-02-03    18:55:54    SampleClass1    [ERROR]    incorrect    id
+    2012-02-03    19:25:27    SampleClass4    [ERROR]    incorrect    id
+    ```
 
    > [!NOTE]  
-   > For longer HiveQL queries, you can use the Azure PowerShell **Here-Strings** cmdlet or HiveQL script files. The following snippet shows how to use the `Invoke-Hive` cmdlet to run a HiveQL script file. The HiveQL script file must be uploaded to wasb://.
+   > For longer HiveQL queries, you can use the Azure PowerShell **Here-Strings** cmdlet or HiveQL script files. The following snippet shows how to use the `Invoke-Hive` cmdlet to run a HiveQL script file. The HiveQL script file must be uploaded to wasbs://.
    >
-   > `Invoke-AzHDInsightHiveJob -File "wasb://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
+   > `Invoke-AzHDInsightHiveJob -File "wasbs://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
    >
-   > For more information about **Here-Strings**, see <a href="https://technet.microsoft.com/library/ee692792.aspx" target="_blank">Using Windows PowerShell Here-Strings</a>.
+   > For more information about **Here-Strings**, see [HERE-STRINGS](/powershell/module/microsoft.powershell.core/about/about_quoting_rules#here-strings).
 
 ## Troubleshooting
 
@@ -109,5 +105,4 @@ For general information about Hive in HDInsight:
 
 For information about other ways you can work with Hadoop on HDInsight:
 
-* [Use Apache Pig with Apache Hadoop on HDInsight](hdinsight-use-pig.md)
 * [Use MapReduce with Apache Hadoop on HDInsight](hdinsight-use-mapreduce.md)

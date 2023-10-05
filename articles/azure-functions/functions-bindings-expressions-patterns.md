@@ -1,16 +1,11 @@
 ---
 title: Azure Functions bindings expressions and patterns
 description: Learn to create different Azure Functions binding expressions based on common patterns.
-services: functions
-documentationcenter: na
-author: craigshoemaker
-manager: jeconnoc
 
-ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
+ms.devlang: csharp
+ms.custom: devx-track-csharp, ignite-2022
 ms.date: 02/18/2019
-ms.author: cshoe
 ---
 
 # Azure Functions binding expression patterns
@@ -38,9 +33,10 @@ App setting binding expressions are identified differently from other binding ex
 
 When a function is running locally, app setting values come from the *local.settings.json* file.
 
-Note that the `connection` property of triggers and bindings is a special case and automatically resolves values as app settings, without percent signs. 
+> [!NOTE]
+> The `connection` property of triggers and bindings is a special case and automatically resolves values as app settings, without percent signs. 
 
-The following example is an Azure Queue Storage trigger that uses an app setting `%input-queue-name%` to define the queue to trigger on.
+The following example is an Azure Queue Storage trigger that uses an app setting `%input_queue_name%` to define the queue to trigger on.
 
 ```json
 {
@@ -49,7 +45,7 @@ The following example is an Azure Queue Storage trigger that uses an app setting
       "name": "order",
       "type": "queueTrigger",
       "direction": "in",
-      "queueName": "%input-queue-name%",
+      "queueName": "%input_queue_name%",
       "connection": "MY_STORAGE_ACCT_APP_SETTING"
     }
   ]
@@ -61,7 +57,7 @@ You can use the same approach in class libraries:
 ```csharp
 [FunctionName("QueueTrigger")]
 public static void Run(
-    [QueueTrigger("%input-queue-name%")]string myQueueItem, 
+    [QueueTrigger("%input_queue_name%")]string myQueueItem, 
     ILogger log)
 {
     log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
@@ -132,7 +128,19 @@ public static void Run(
 
 ```
 
-You can also create expressions for parts of the file name such as the extension. For more information on how to use expressions and patterns in the Blob path string, see the [Storage blob binding reference](functions-bindings-storage-blob.md).
+You can also create expressions for parts of the file name. In the following example, function is triggered only on file names that match a pattern: `anyname-anyfile.csv`
+
+```json
+{
+    "name": "myBlob",
+    "type": "blobTrigger",
+    "direction": "in",
+    "path": "testContainerName/{date}-{filetype}.csv",
+    "connection": "OrderStorageConnection"
+}
+```
+
+For more information on how to use expressions and patterns in the Blob path string, see the [Storage blob binding reference](functions-bindings-storage-blob.md).
 
 ## Trigger metadata
 
@@ -151,6 +159,7 @@ For example, an Azure Queue storage trigger supports the following properties:
 These metadata values are accessible in *function.json* file properties. For example, suppose you use a queue trigger and the queue message contains the name of a blob you want to read. In the *function.json* file, you can use `queueTrigger` metadata property in the blob `path` property, as shown in the following example:
 
 ```json
+{
   "bindings": [
     {
       "name": "myQueueItem",
@@ -166,13 +175,14 @@ These metadata values are accessible in *function.json* file properties. For exa
       "connection": "MyStorageConnection"
     }
   ]
+}
 ```
 
-Details of metadata properties for each trigger are described in the corresponding reference article. For an example, see [queue trigger metadata](functions-bindings-storage-queue.md#trigger---message-metadata). Documentation is also available in the **Integrate** tab of the portal, in the **Documentation** section below the binding configuration area.  
+Details of metadata properties for each trigger are described in the corresponding reference article. For an example, see [queue trigger metadata](functions-bindings-storage-queue-trigger.md#message-metadata). Documentation is also available in the **Integrate** tab of the portal, in the **Documentation** section below the binding configuration area.  
 
 ## JSON payloads
 
-When a trigger payload is JSON, you can refer to its properties in configuration for other bindings in the same function and in function code.
+ In some scenarios, you can refer to the trigger payload's properties in configuration for other bindings in the same function and in function code. This requires that the trigger payload is JSON and is smaller than a threshold specific to each trigger. Typically, the payload size needs to be less than 100MB, but you should check the reference content for each trigger. Using trigger payload properties may impact the performance of your application, and it forces the trigger parameter type to be simple types like strings or a custom object type representing JSON data. It cannot be used with streams, clients, or other SDK types.
 
 The following example shows the *function.json* file for a webhook function that receives a blob name in JSON: `{"BlobName":"HelloWorld.txt"}`. A Blob input binding reads the blob, and the HTTP output binding returns the blob contents in the HTTP response. Notice that the Blob input binding gets the blob name by referring directly to the `BlobName` property (`"path": "strings/{BlobName}"`)
 
@@ -229,7 +239,7 @@ public static HttpResponseMessage Run(HttpRequestMessage req, BlobInfo info, str
 In JavaScript, JSON deserialization is automatically performed.
 
 ```javascript
-module.exports = function (context, info) {
+module.exports = async function (context, info) {
     if ('BlobName' in info) {
         context.res = {
             body: { 'data': context.bindings.blobContents }
@@ -240,13 +250,14 @@ module.exports = function (context, info) {
             status: 404
         };
     }
-    context.done();
 }
 ```
 
 ### Dot notation
 
-If some of the properties in your JSON payload are objects with properties, you can refer to those directly by using dot notation. For example, suppose your JSON looks like this:
+If some of the properties in your JSON payload are objects with properties, you can refer to those directly by using dot (`.`) notation. This notation doesn't work for [Azure Cosmos DB](./functions-bindings-cosmosdb-v2.md) or [Table storage](./functions-bindings-storage-table-output.md) bindings.
+
+For example, suppose your JSON looks like this:
 
 ```json
 {
@@ -286,7 +297,7 @@ The `{rand-guid}` binding expression creates a GUID. The following blob path in 
   "type": "blob",
   "name": "blobOutput",
   "direction": "out",
-  "path": "my-output-container/{rand-guid}"
+  "path": "my-output-container/{rand-guid}.txt"
 }
 ```
 
@@ -299,7 +310,7 @@ The binding expression `DateTime` resolves to `DateTime.UtcNow`. The following b
   "type": "blob",
   "name": "blobOutput",
   "direction": "out",
-  "path": "my-output-container/{DateTime}"
+  "path": "my-output-container/{DateTime}.txt"
 }
 ```
 ## Binding at runtime

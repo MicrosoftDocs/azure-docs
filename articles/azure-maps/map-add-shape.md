@@ -1,130 +1,164 @@
 ---
-title: Add a shape with Azure Maps | Microsoft Docs
-description: How to add a shape to a Javascript map
-author: jingjing-z
-ms.author: jinzh
-ms.date: 10/30/2018
-ms.topic: conceptual
+title: Add a polygon layer to a map
+titleSuffix:  Microsoft Azure Maps
+description: Learn how to add polygons or circles to maps. See how to use the Azure Maps Web SDK to customize geometric shapes and make them easy to update and maintain.
+author: sinnypan
+ms.author: sipa
+ms.date: 06/07/2023
+ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
-manager: 
-ms.custom: codepen
 ---
 
-# Add a shape to a map
+# Add a polygon layer to the map
 
-This article shows you how to render geometries on the map using line and polygon layers. The Azure Maps Web SDK also supports the creation of Circle geometries as defined in the [extended GeoJSON schema](extend-geojson.md#circle). All feature geometries can also be easily updated if wrapped with the [Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) class.
+This article shows you how to render the areas of `Polygon` and `MultiPolygon` feature geometries on the map using a polygon layer. The Azure Maps Web SDK also supports the creation of Circle geometries as defined in the [extended GeoJSON schema]. These circles are transformed into polygons when rendered on the map. All feature geometries can easily be updated when wrapped with the [atlas.Shape] class.
 
-<a id="addALine"></a>
+## Use a polygon layer
 
-## Add lines to the map
+When a polygon layer is connected to a data source and loaded on the map, it renders the area with `Polygon` and `MultiPolygon` features. To create a polygon, add it to a data source, and render it with a polygon layer using the [PolygonLayer] class.
 
-`LineString` and `MultiLineString` features are used to represent paths and outlines on the map.
+The following sample code demonstrates creating a polygon layer that covers New York City's Central Park with a red polygon.
 
-### Add a line
+```javascript
+ 
+function InitMap()
+{
+  var map = new atlas.Map('myMap', {
+    center: [-73.97, 40.78],
+    zoom: 11,
+    view: "Auto",
+    
+    //Add authentication details for connecting to Azure Maps.
+    authOptions: {
+      authType: 'subscriptionKey',
+      subscriptionKey: '{Your-Azure-Maps-Subscription-key}'
+    }
+  });
 
-<iframe height='500' scrolling='no' title='Add a line to a map' src='//codepen.io/azuremaps/embed/qomaKv/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/qomaKv/'>Add a line to a map</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+  //Wait until the map resources are ready.
+  map.events.add('ready', function () {
 
-The first block of code in the code above constructs a Map object. You can see [create a map](./map-create.md) for instructions.
+    /*Create a data source and add it to the map*/
+    var dataSource = new atlas.source.DataSource();
+    map.sources.add(dataSource);
 
-In the second block of code, a data source object is created using the [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) class. A [LineString](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.linestring?view=azure-iot-typescript-latest) object is created and added to the data source.
+    /*Create a rectangle*/
+    dataSource.add(new atlas.Shape(new atlas.data.Feature(
+    new atlas.data.Polygon([[
+      [-73.98235, 40.76799],
+      [-73.95785, 40.80044],
+      [-73.94928, 40.7968],
+      [-73.97317, 40.76437],
+      [-73.98235, 40.76799]
+    ]])
+    )));
 
-A [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) renders line objects wrapped in the [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest). The last block of code creates and adds a line layer to the map. See properties of a line layer at [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest). The data source and the line layer are created and added to the map within the [event handler](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) to ensure that the line is displayed after the map loads fully.
+    /*Create and add a polygon layer to render the polygon to the map*/
+    map.layers.add(new atlas.layer.PolygonLayer(dataSource, null,{
+    fillColor: "red",
+    fillOpacity: 0.7
+    }), 'labels')
+  });
+}
 
-### Add symbols along a line
+```
 
-This sample shows how to add arrow icons along a line on the map. When using a symbol layer, set the "placement" option to "line", this will render the symbols along the line and rotate the icons (0 degrees = right).
+:::image type="content" source="./media/map-add-shape/polygon-layer.png" alt-text="A screenshot of map of New York City demonstrating the polygon layer that is covering Central Park with fill Color set to red and fill Opacity set to 0.7.":::
 
-<br/>
+  <!--------------------------------------------------------------------------
+> [!VIDEO //codepen.io/azuremaps/embed/yKbOvZ/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
+------------------------------------------------------------------------->
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Show arrow along line" src="//codepen.io/azuremaps/embed/drBJwX/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/drBJwX/'>Show arrow along line</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+## Use a polygon and line layer together
 
-### <a name="line-stroke-gradient"></a> Add a stroke gradient to a line
+A line layer is used to render the outline of polygons. The following code sample renders a polygon like the previous example, but now adds a line layer. This line layer is a second layer connected to the data source.  
 
-In addition to being able to apply a single stroke color to a line you can also fill a line with a gradient of colors to show transition from one line segment to the next. For example, line gradients can be used to represent changes over time and distance, or different temperatures across a connected line of objects. In order to apply this feature to a line, the data source must have the `lineMetrics` option set to true, and then a color gradient expression can be passed to the `strokeColor` option of the line. The stroke gradient expression has to reference the `['line-progress']` data expression that exposes the calculated line metrics to the expression.
+```javascript
+function InitMap()
+{
+  var map = new atlas.Map('myMap', {
+    center: [-73.97, 40.78],
+    zoom: 11,
+    view: "Auto",
+    
+    //Add authentication details for connecting to Azure Maps.
+    authOptions: {
+      // Get an Azure Maps key at https://azuremaps.com/.
+      authType: 'subscriptionKey',
+      subscriptionKey: '{subscription key}'
+    }
+  });
 
-<br/>
+  //Wait until the map resources are ready.
+  map.events.add('ready', function () {
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Line with Stroke Gradient" src="//codepen.io/azuremaps/embed/wZwWJZ/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/wZwWJZ/'>Line with Stroke Gradient</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+    /*Create a data source and add it to the map*/
+    var dataSource = new atlas.source.DataSource();
+    map.sources.add(dataSource);
 
-### Customize a line layer
+    /*Create a rectangle*/
+    dataSource.add(new atlas.data.Polygon([[
+    [-73.98235, 40.76799],
+    [-73.95785, 40.80045],
+    [-73.94928, 40.7968],
+    [-73.97317, 40.76437],
+    [-73.98235, 40.76799]
+    ]])
+          );
 
-The Line layer several styling options. Here is a tool to try them out.
+    //Create a polygon layer to render the filled in area of the polygon.
+    var polygonLayer = new atlas.layer.PolygonLayer(dataSource, 'myPolygonLayer', {
+    fillColor: 'rgba(0, 200, 200, 0.5)'
+    });
 
-<br/>
+    //Create a line layer for greater control of rendering the outline of the polygon.
+    var lineLayer = new atlas.layer.LineLayer(dataSource, 'myLineLayer', {
+    strokeColor: 'red',
+    strokeWidth: 2
+    });
 
-<iframe height='700' scrolling='no' title='Line Layer Options' src='//codepen.io/azuremaps/embed/GwLrgb/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/GwLrgb/'>Line Layer Options</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+    /*Create and add a polygon layer to render the polygon to the map*/
+    map.layers.add([polygonLayer, lineLayer])
+  });
+}
+```
 
-<a id="addAPolygon"></a>
+:::image type="content" source="./media/map-add-shape/polygon-line-layer.png" alt-text="A screenshot of a map of New York City demonstrating a mostly transparent polygon layer covering all of Central Park, bordered with a red line.":::
 
-## Add a polygon to the map
+<!------------------------------------------------------------
+> [!VIDEO //codepen.io/azuremaps/embed/aRyEPy/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
+------------------------------------------------------------>
 
-`Polygon` and `MultiPolygon` features are often used to represent an area on a map. 
+## Fill a polygon with a pattern
 
-### Use a polygon layer 
+In addition to filling a polygon with a color, you may use an image pattern to fill the polygon. Load an image pattern into the maps image sprite resources and then reference this image with the `fillPattern` property of the polygon layer.
 
-A polygon layer renders the area of a polygon. 
+For a fully functional sample that shows how to use an image template as a fill pattern in a polygon layer, see [Fill polygon with built-in icon template] in the [Azure Maps Samples]. For the source code for this sample, see [Fill polygon with built-in icon template source code].
 
-<iframe height='500' scrolling='no' title='Add a polygon to a map ' src='//codepen.io/azuremaps/embed/yKbOvZ/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/yKbOvZ/'>Add a polygon to a map </a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+:::image type="content" source="./media/map-add-shape/fill-polygon-with-built-in-icon-template.png" alt-text="A screenshot of a map of the world with red dots forming a triangle in the center of the map.":::
 
-In the code above, the first block of code constructs a Map object. You can see [create a map](./map-create.md) for instructions.
-
-In the second block of code, a data source object is created using the [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) class. A [Polygon](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.polygon?view=azure-iot-typescript-latest) is created from an array of coordinates and added to the data source. 
-
-A [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) renders data wrapped in the [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) on the map. The last block of code creates and adds a polygon layer to the map. See properties of a polygon layer at [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest). The data source and the polygon layer are created and added to the map within the [event handler](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) to ensure that the polygon is displayed after the map loads fully.
-
-### Use a polygon and line layer together
-
-A line layer can be used to render the outline of a polygon. 
-
-<iframe height='500' scrolling='no' title='Polygon and line layer to add polygon' src='//codepen.io/azuremaps/embed/aRyEPy/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/aRyEPy/'>Polygon and line layer to add polygon</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
-
-In the code above, the first block of code constructs a Map object. You can see [create a map](./map-create.md) for instructions.
-
-In the second block of code, a data source object is created using the [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) class. A [Polygon](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.polygon?view=azure-iot-typescript-latest) is created from an array of coordinates and added to the data source. 
-
-A [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) renders data wrapped in the [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) on the map. See properties of a polygon layer at [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest). A [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) is an array of lines. See properties of a line layer at [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest). The third block of code creates polygon and line layers.
-
-The last block of code adds the polygon and line layers to the map. The data source and the layers are created and added to the map within the [event handler](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) to ensure that the polygon is displayed after the map loads fully.
+<!------------------------------------------------------------
+> [!VIDEO //codepen.io/azuremaps/embed/JzQpYX/?height=500&theme-id=0&default-tab=js,result]
+------------------------------------------------------------>
 
 > [!TIP]
-> Line layers by default will render the coordinates of polygons as well as lines in a data source. To limit the layer such that it only renders LineString features set the `filter` property of the layer to `['==', ['geometry-type'], 'LineString']` or `['any', ['==', ['geometry-type'], 'LineString'], ['==', ['geometry-type'], 'MultiLineString']]` if you want to include MultiLineString features as well.
+> The Azure Maps web SDK provides several customizable image templates you can use as fill patterns. For more information, see the [How to use image templates] document.
 
-### Fill a polygon with a pattern
+## Customize a polygon layer
 
-In addition to filling a polygon with a color an image pattern can also be used. Load an image pattern into the maps image sprite resources and then reference this image with the `fillPattern` property of the polygon layer.
+The Polygon layer only has a few styling options. See the [Polygon Layer Options] sample map in the [Azure Maps Samples] to try them out. For the source code for this sample, see [Polygon Layer Options source code].
 
-<br/>
+:::image type="content" source="./media/map-add-shape/polygon-layer-options.png" alt-text="A screenshot of the Polygon Layer Options tool.":::
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Polygon fill pattern" src="//codepen.io/azuremaps/embed/JzQpYX/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/JzQpYX/'>Polygon fill pattern</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
-
-### Customize a polygon layer
-
-The Polygon layer only has a few styling options. Here is a tool to try them out.
-
-<br/>
-
-<iframe height='700' scrolling='no' title='LXvxpg' src='//codepen.io/azuremaps/embed/LXvxpg/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/LXvxpg/'>LXvxpg</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+<!------------------------------------------------------------
+> [!VIDEO //codepen.io/azuremaps/embed/LXvxpg/?height=700&theme-id=0&default-tab=result]
+------------------------------------------------------------>
 
 <a id="addACircle"></a>
 
 ## Add a circle to the map
 
-Azure Maps uses an extended version of the GeoJSON schema that provides a definition for circles as noted [here](extend-geojson.md#circle). A circle can be rendered on the map by creating a `Point` feature that has a `subType` property with a value of `"Circle"` and a `radius` property that has a number that represents the radius in meters. For example:
+Azure Maps uses an extended version of the GeoJSON schema that provides a [definition for circles]. A circle is rendered on the map by creating a `Point` feature. This `Point` has a `subType` property with a value of `"Circle"` and a `radius` property with a number that represents the radius in meters.
 
 ```javascript
 {
@@ -140,40 +174,125 @@ Azure Maps uses an extended version of the GeoJSON schema that provides a defini
 }  
 ```
 
-The Azure Maps Web SDK converts these `Pooint` features into `Polygon` features under the covers and can be rendered on the map using polygon and line layers as shown here.
+The Azure Maps Web SDK converts these `Point` features into `Polygon` features. Then, these features are rendered on the map using polygon and line layers as shown in the following code sample.
 
-<iframe height='500' scrolling='no' title='Add a circle to a map' src='//codepen.io/azuremaps/embed/PRmzJX/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/PRmzJX/'>Add a circle to a map</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+```javascript
+function InitMap()
+{
+  var map = new atlas.Map('myMap', {
+    center: [-73.985708, 40.75773],
+    zoom: 12,
+    view: "Auto",
+    
+    //Add authentication details for connecting to Azure Maps.
+    authOptions: {
+      // Get an Azure Maps key at https://azuremaps.com/.
+      authType: 'subscriptionKey',
+      subscriptionKey: '{Your-Azure-Maps-Subscription-key}'
+    }      
+  });
 
-The first block of code in the code above constructs a Map object. You can see [create a map](./map-create.md) for instructions.
+  //Wait until the map resources are ready.
+  map.events.add('ready', function () {
 
-In the second block of code, a data source object is created using the [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) class. A circle is a [Feature](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) of [Point](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) and has a `subType` property set to `"Circle"` and a `radius` property value in meters. When a Point feature with a `subType` of `"Circle"` is added to a data source, it converted into a circular polygon within the map.
+    /*Create a data source and add it to the map*/
+    var dataSource = new atlas.source.DataSource();
+    map.sources.add(dataSource);
 
-A [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) renders data wrapped in the [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) on the map. The last block of code creates and adds a polygon layer to the map. See properties of a polygon layer at [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest). The data source and the polygon layer are created and added to the map within the [event handler](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) to ensure that the circle is displayed after the map loads fully.
+    //Create a circle
+    dataSource.add(new atlas.data.Feature(new atlas.data.Point([-73.985708, 40.75773]), 
+    {
+      subType: "Circle",
+      radius: 1000
+    }));
 
+    // Create a polygon layer to render the filled in area
+    // of the circle polygon, and add it to the map.
+    map.layers.add(new atlas.layer.PolygonLayer   (dataSource, null, {
+      fillColor: 'rgba(0, 200, 200, 0.8)'
+    }));
+  });
+}
+```
+
+:::image type="content" source="./media/map-add-shape/add-circle-to-map.png" alt-text="A screenshot of a map showing a partially transparent green circle in New York City. This demonstrates adding a circle to a map.":::
+
+  <!---------------------------------------------------------
+> [!VIDEO //codepen.io/azuremaps/embed/PRmzJX/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
+---------------------------------------------------------->
 ## Make a geometry easy to update
 
-A `Shape` class wraps a [Geometry](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.geometry?view=azure-iot-typescript-latest) or [Feature](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) and makes it easy to update and maintain them.
-`new Shape(data: Feature<data.Geometry, any>)` constructs a shape object and initializes it with the specified feature.
+A `Shape` class wraps a [Geometry] or [Feature] and makes it easy to update and maintain these features. To instantiate a shape variable, pass a geometry or a set of properties to the shape constructor.
 
-<br/>
+```javascript
+//Creating a shape by passing in a geometry and a object containing properties.
+var shape1 = new atlas.Shape(new atlas.data.Point[0,0], { myProperty: 1 });
 
-<iframe height='500' scrolling='no' title='Update shape properties' src='//codepen.io/azuremaps/embed/ZqMeQY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/ZqMeQY/'>Update shape properties</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+//Creating a shape using a feature.
+var shape2 = new atlas.Shape(new atlas.data.Feature(new atlas.data.Point[0,0], { myProperty: 1 });
+```
 
-The first block of code above constructs a Map object. You can see [create a map](./map-create.md) for instructions.
+The [Make a geometry easy to update] sample shows how to wrap a circle GeoJSON object with a shape class. As the value of the radius changes in the shape, the circle renders automatically on the map. For the source code for this sample, see [Make a geometry easy to update source code].
 
-A point is a [Feature](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) of [Point](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) the class. The second block of code initializes the radius value for the HTML slider element and then constructs and wraps a point object in a [Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) class object.
+:::image type="content" source="./media/map-add-shape/easy-to-update-geometry.png" alt-text="A screenshot of a map showing a red circle in New York City with a slider bar titled Circle Radius and as you slide the bar to the right or left, the value of the radius changes and the circle size adjusts automatically on the map.":::
 
-The third code block creates a function that takes the value from the HTML range slider element and changes the radius value using the shape class [addProperty](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) method.
-
-In the fourth block of code, a data source object is created using the [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) class. The point is then added to data source.
-
-A [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) renders data wrapped in the [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) on the map. The third block of code creates a polygon layer. See properties of a polygon layer at [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest). The data source, the click event handler, and the polygon layer are created and added to the map within the [event handler](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) to ensure that the point is displayed after the map loads fully.
+  <!---------------------------------------------------------
+> [!VIDEO //codepen.io/azuremaps/embed/ZqMeQY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
+---------------------------------------------------------->
 
 ## Next steps
+
+Learn more about the classes and methods used in this article:
+
+> [!div class="nextstepaction"]
+> [Polygon]
+
+> [!div class="nextstepaction"]
+> [PolygonLayer]
+
+> [!div class="nextstepaction"]
+> [PolygonLayerOptions]
 
 For more code examples to add to your maps, see the following articles:
 
 > [!div class="nextstepaction"]
-> [Use data-driven style expressions](data-driven-style-expressions-web-sdk.md)
+> [Create a data source]
+
+> [!div class="nextstepaction"]
+> [Add a popup]
+
+> [!div class="nextstepaction"]
+> [Use data-driven style expressions]
+
+> [!div class="nextstepaction"]
+> [How to use image templates]
+
+> [!div class="nextstepaction"]
+> [Add a line layer]
+
+More resources:
+
+> [!div class="nextstepaction"]
+> [Azure Maps GeoJSON specification extension]
+
+[Add a line layer]: map-add-line-layer.md
+[Add a popup]: map-add-popup.md
+[atlas.Shape]: /javascript/api/azure-maps-control/atlas.shape
+[Azure Maps GeoJSON specification extension]: extend-geojson.md#circle
+[Azure Maps Samples]: https://samples.azuremaps.com
+[Create a data source]: create-data-source-web-sdk.md
+[definition for circles]: extend-geojson.md#circle
+[extended GeoJSON schema]: extend-geojson.md#circle
+[Feature]: /javascript/api/azure-maps-control/atlas.data.feature
+[Fill polygon with built-in icon template source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Polygons/Fill%20polygon%20with%20built-in%20icon%20template/Fill%20polygon%20with%20built-in%20icon%20template.html
+[Fill polygon with built-in icon template]: https://samples.azuremaps.com/?sample=fill-polygon-with-built-in-icon-template
+[Geometry]: /javascript/api/azure-maps-control/atlas.data.geometry
+[How to use image templates]: how-to-use-image-templates-web-sdk.md
+[Make a geometry easy to update source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Polygons/Make%20a%20geometry%20easy%20to%20update/Make%20a%20geometry%20easy%20to%20update.html
+[Make a geometry easy to update]: https://samples.azuremaps.com/?sample=make-a-geometry-easy-to-update
+[Polygon Layer Options source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Polygons/Polygon%20Layer%20Options/Polygon%20Layer%20Options.html
+[Polygon Layer Options]: https://samples.azuremaps.com/polygons/polygon-layer-options
+[Polygon]: /javascript/api/azure-maps-control/atlas.data.polygon
+[PolygonLayer]: /javascript/api/azure-maps-control/atlas.layer.polygonlayer
+[PolygonLayerOptions]: /javascript/api/azure-maps-control/atlas.polygonlayeroptions
+[Use data-driven style expressions]: data-driven-style-expressions-web-sdk.md

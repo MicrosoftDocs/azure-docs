@@ -1,49 +1,51 @@
 ---
-title: 'Disable Azure Active Directory Domain Services | Microsoft Docs'
-description: Disable Azure Active Directory Domain Services using the Azure portal
+title: Delete Microsoft Entra Domain Services | Microsoft Docs
+description: Learn how to disable, or delete, a Microsoft Entra Domain Services managed domain 
 services: active-directory-ds
-documentationcenter: ''
-author: MikeStephens-MS
-manager: daveba
-editor: curtand
+author: justinha
+manager: amycolannino
 
 ms.assetid: 89e407e1-e1e0-49d1-8b89-de11484eee46
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 05/14/2019
-ms.author: mstephen
+ms.topic: how-to
+ms.date: 09/15/2023
+ms.author: justinha
 
 ---
-# Disable Azure Active Directory Domain Services using the Azure portal
-This article shows you how to use the Azure portal to disable Azure Active Directory (AD) Domain Services for your Azure AD directory.
+# Delete a Microsoft Entra Domain Services managed domain
+
+If you no longer need a Microsoft Entra Domain Services managed domain, you can delete it. There's no way to turn off or temporarily disable a Domain Services managed domain. Deleting the managed domain doesn't delete or have any other impact on the Microsoft Entra tenant.
+
+This article shows you how to use the Microsoft Entra admin center to delete a managed domain.
 
 > [!WARNING]
-> **Deletion is permanent and cannot be reversed.**
-> Proceed with caution! When you delete the managed domain:
->   * Domain controllers for the managed domain are de-provisioned and removed from the virtual network.
->   * Data on the managed domain is deleted permanently. This includes custom OUs, GPOs, custom DNS records, service principals, GMSAs etc. that you have created on the managed domain.
+> **Deletion is permanent and can't be reversed.**
+> 
+> When you delete a managed domain, the following steps occur:
+>   * Domain controllers for the managed domain are deprovisioned and removed from the virtual network.
+>   * Data on the managed domain is deleted permanently. This data includes custom OUs, GPOs, custom DNS records, service principals, GMSAs, etc. that you created.
 >   * Machines joined to the managed domain lose their trust relationship with the domain and need to be unjoined from the domain.
->   * You cannot sign in to these machines using corporate AD credentials. Use the local administrator credentials for the machine, instead.
-> Deleting the managed domain does not delete your Azure AD directory or otherwise adversely impact the directory.
+>       * You can't sign in to these machines using corporate AD credentials. Instead, you must use the local administrator credentials for the machine.
 
-Perform the following steps to delete your Azure AD Domain Services managed domain:
-1. Navigate to the [Azure AD Domain Services extension](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) in the Azure portal.
-2. Click the name of your managed domain.
+## Delete the managed domain
 
-    ![Select domain to delete](./media/getting-started/domain-services-delete-select-domain.png)
+To delete a managed domain, complete the following steps:
 
-3. On the **Overview** page, click the **Delete** button.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](/azure/active-directory/roles/permissions-reference#global-administrator).
+1. Search for and select **Microsoft Entra Domain Services**.
+1. Select the name of your managed domain, such as *aaddscontoso.com*.
+1. On the **Overview** page, select **Delete**. To confirm the deletion, type the domain name of the managed domain again, then select **Delete**.
 
-    ![Delete domain](./media/getting-started/domain-services-delete-domain.png)
+It can take 15-20 minutes or more to delete the managed domain.
 
-4. To confirm the deletion, type the DNS domain name of the managed domain. Click the **Delete** button when you are done.
+## Next steps
 
-    ![Delete domain confirmation](./media/getting-started/domain-services-delete-domain-confirm.png)
+Consider [sharing feedback][feedback] for the features that you would like to see in Domain Services.
 
-The managed domain is deleted in about 15-20 minutes.
+If you want to get started with Domain Services again, see [Create and configure a Microsoft Entra Domain Services managed domain][create-instance].
 
-Consider [sharing feedback](contact-us.md) to help us understand what features would help you chose Azure AD Domain Services in the future. This feedback helps us evolve the service to better suit your deployment needs and use-cases.
+<!-- INTERNAL LINKS -->
+[feedback]: https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789?c=5d63b5b7-ae25-ec11-b6e6-000d3a4f0789
+[create-instance]: tutorial-create-instance.md

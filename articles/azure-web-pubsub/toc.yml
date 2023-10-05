@@ -1,0 +1,261 @@
+- name: Web PubSub documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+    - name: About Web PubSub
+      href: overview.md
+    - name: About hubs, groups, and connections
+      href: key-concepts.md
+    - name: Pricing
+      href: https://azure.microsoft.com/pricing/details/web-pubsub/
+    - name: Region availability
+      href: https://azure.microsoft.com/global-infrastructure/services/?products=web-pubsub
+- name: Quickstarts
+  expanded: true
+  items:
+    - name: Create a resource
+      href: howto-develop-create-instance.md
+    - name: PubSub among clients
+      href: quickstarts-pubsub-among-clients.md
+    - name: Push message from server
+      href: quickstarts-push-messages-from-server.md
+    - name: Event notifications from clients
+      href: quickstarts-event-notifications-from-clients.md
+- name: Tutorials
+  expanded: false
+  items:
+    - name: Build a real-time chat app with client authentication
+      href: quickstart-serverless.md
+    - name: Publish and subscribe messages
+      href: tutorial-pub-sub-messages.md
+    - name: Build a chat app
+      href: tutorial-build-chat.md
+    - name: Client streaming with a service-supported subprotocol
+      href: tutorial-subprotocol.md
+    - name: Authentication and permissions
+      href: tutorial-permission.md
+- name: How-to guides
+  expanded: false
+  items:
+    - name: Develop
+      items:
+        - name: Create WebSocket clients
+          href: howto-websocket-connect.md
+        - name: Create reliable Websocket clients
+          href: howto-develop-reliable-clients.md
+        - name: Generate client access URL
+          href: howto-generate-client-access-url.md
+        - name: Configure event handler
+          href: howto-develop-eventhandler.md
+        - name: Send client events to Event Hubs
+          href: howto-develop-event-listener.md
+        - name: Use server SDK with Azure Identity
+          items:
+            - name: Use server SDK with Azure Identity and .NET
+              href: howto-create-serviceclient-with-net-and-azure-identity.md
+            - name: Use server SDK with Azure Identity and Java
+              href: howto-create-serviceclient-with-java-and-azure-identity.md
+            - name: Use server SDK with Azure Identity and JavaScript
+              href: howto-create-serviceclient-with-javascript-and-azure-identity.md
+            - name: Use server SDK with Azure Identity and Python
+              href: howto-create-serviceclient-with-python-and-azure-identity.md
+    - name: Monitor
+      items:
+        - name: Audit compliance using Azure Policy
+          href: howto-monitor-azure-policy.md
+        - name: Monitor Azure Web PubSub
+          href: howto-azure-monitor.md
+        - name: Monitor Azure Web PubSub data reference
+          href: howto-monitor-data-reference.md
+    - name: Secure
+      items:
+        - name: Protect the access key
+          href: howto-secure-rotate-access-key.md
+        - name: Use Azure Service Tags
+          href: howto-service-tags.md
+        - name: Use Azure private endpoints
+          href: howto-secure-private-endpoints.md
+        - name: Manage network access control
+          href: howto-secure-network-access-control.md
+        - name: Secure outbound traffic through shared private endpoints
+          href: howto-secure-shared-private-endpoints.md
+        - name: Access Key Vault through shared private endpoints
+          href: howto-secure-shared-private-endpoints-key-vault.md
+        - name: Use a managed identity
+          href: howto-use-managed-identity.md
+        - name: Configure Microsoft Entra authorizations
+          items:
+            - name: Authorize from Azure applications
+              href: howto-authorize-from-application.md
+            - name: Authorize from managed identities
+              href: howto-authorize-from-managed-identity.md
+            - name: Disable local authentication
+              href: howto-disable-local-auth.md
+        - name: Configure client certificate authentication
+          href: howto-client-certificate.md
+        - name: Custom domain
+          href: howto-custom-domain.md
+    - name: Scale and geo-replicate
+      items:
+        - name: Autoscale
+          href: howto-scale-autoscale.md
+        - name: Geo-replication
+          href: howto-enable-geo-replication.md
+    - name: Integrate
+      items: 
+        - name: App Service
+          href: howto-integrate-app-service.md
+        - name: Azure Functions
+          href: tutorial-serverless-notification.md
+        - name: Static Web Apps
+          href: tutorial-serverless-static-web-app.md
+        - name: Azure IoT Hub
+          href: tutorial-serverless-iot.md
+    - name: Monitor and manage
+      items:
+        - name: Audit compliance using Azure Policy
+          href: howto-monitor-azure-policy.md
+        - name: Move resource across regions
+          href: howto-move-across-regions.md
+    - name: Troubleshoot
+      items:
+        - name: Debug event handlers locally
+          href: howto-local-debug-event-handler.md
+        - name: Collect network trace
+          href: howto-troubleshoot-network-trace.md
+        - name: Capture resource logs
+          href: howto-troubleshoot-resource-logs.md
+        - name: Common issues
+          href: howto-troubleshoot-common-issues.md
+    - name: Move across regions
+      href: howto-move-across-regions.md
+- name: Socket.IO (preview)
+  expanded: false
+  items: 
+    - name: Overview
+      href: socketio-overview.md
+    - name: Quickstart for Socket.IO users
+      href: socketio-quickstart.md
+    - name: Tutorials
+      expanded: true
+      items:
+        - name: Build real time code streaming app
+          href: socketio-build-realtime-code-streaming-app.md
+    - name: How-to guides
+      items:
+        - name: Easily migrate a self-hosted Socket.IO app 
+          href: socketio-migrate-from-self-hosted.md
+        - name: Integrate with Azure App Service
+          href: socket-io-howto-integrate-web-app.md
+        - name: Troubleshoot
+          items: 
+            - name: Common issues
+              href: socketio-troubleshoot-common-issues.md
+            - name: Collect logs
+              href: socketio-troubleshoot-logging.md
+    - name: Concepts
+      items:
+        - name: How does Web PubSub support Socket.IO library
+          href: socketio-service-internal.md
+        - name: Supported Socket.IO server APIs
+          href: socketio-supported-server-apis.md
+- name: Samples
+  expanded: false
+  items: 
+    - name: Authenticate and connect
+      href: samples-authenticate-and-connect.md
+    - name: App scenarios
+      href: samples-app-scenarios.md
+    - name: Platform and frameworks
+      href: samples-platforms-and-frameworks.md
+- name: Concepts
+  expanded: false
+  items:
+    - name: Service internals
+      href: concept-service-internals.md
+    - name: Client protocol overview
+      href: concept-client-protocols.md
+    - name: High availability
+      items:
+        - name: Resiliency and disaster recovery
+          href: concept-disaster-recovery.md
+        - name: Availability zones
+          href: concept-availability-zones.md
+    - name: Performance considerations
+      href: concept-performance.md
+    - name: Billing model
+      href: concept-billing-model.md
+    - name: Microsoft Entra ID Authorization
+      href: concept-azure-ad-authorization.md
+    - name: Metrics
+      href: concept-metrics.md
+    - name: Security
+      items:
+      - name: Security baseline
+        href: /security/benchmark/azure/baselines/azure-web-pubsub-security-baseline?toc=/azure/azure-web-pubsub/toc.json
+- name: Reference
+  items:
+    - name: Client-side API
+      items: 
+        - name: Client SDK - JavaScript
+          href: reference-client-sdk-javascript.md
+        - name: Client SDK - C#
+          href: reference-client-sdk-csharp.md
+        - name: Client SDK - Python
+          href: reference-client-sdk-python.md
+        - name: Client SDK - Java
+          href: reference-client-sdk-java.md
+        # - name: WebSocket API
+        #   href: reference-client-api-websocket.md
+    - name: Server-side API
+      items:
+        - name: REST API
+          href: reference-rest-api-data-plane.md
+        - name: Server SDK - C#
+          href: reference-server-sdk-csharp.md
+        - name: Server SDK - Java
+          href: reference-server-sdk-java.md
+        - name: Server SDK - JavaScript
+          href: reference-server-sdk-js.md
+        - name: Server SDK - Python
+          href: reference-server-sdk-python.md
+        - name: OData filter syntax reference
+          href: reference-odata-filter.md
+    - name: API for resource management 
+      href: /rest/api/webpubsub/
+    - name: Azure CLI webpubsub extension
+      href: /cli/azure/webpubsub
+    - name: WebSocket subprotocols
+      expanded: false
+      items:
+        - name: JSON WebSocket subprotocol
+          href: reference-json-webpubsub-subprotocol.md
+        - name: Protobuf WebSocket subprotocol
+          href: reference-protobuf-webpubsub-subprotocol.md
+        - name: Reliable JSON WebSocket subprotocol
+          href: reference-json-reliable-webpubsub-subprotocol.md
+        - name: Reliable Protobuf WebSocket subprotocol
+          href: reference-protobuf-reliable-webpubsub-subprotocol.md
+    - name: CloudEvents HTTP extension for event handler
+      href: reference-cloud-events.md
+    - name: CloudEvents AMQP extension for Event Hubs listener
+      href: reference-cloud-events-amqp.md
+    - name: Functions trigger and bindings
+      href: reference-functions-bindings.md
+    - name: Azure policy definitions
+      href: policy-definitions.md
+    - name: Web PubSub client specification
+      href: reference-client-specification.md
+- name: Resources
+  items:
+    - name: Samples
+      href: https://aka.ms/awps/samples
+    - name: Solutions
+      href: /azure/architecture/
+    - name: FAQs
+      href: resource-faq.md
+    - name: Microsoft Q&A
+      href: /answers/topics/azure-web-pubsub.html
+    - name: StackOverflow
+      href: https://stackoverflow.com/questions/tagged/azure-web-pubsub

@@ -1,19 +1,18 @@
 ---
-title: Create Spark Streaming jobs with exactly-once event processing - Azure HDInsight
-description: How to set up Spark Streaming to process an event once and only once.
+title: Spark Streaming & exactly-once event processing - Azure HDInsight
+description: How to set up Apache Spark Streaming to process an event once and only once.
 ms.service: hdinsight
-author: hrasheed-msft
-ms.author: hrasheed
 ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 11/06/2018
+ms.topic: how-to
+ms.date: 05/25/2023
 ---
+
 # Create Apache Spark Streaming jobs with exactly-once event processing
 
-Stream processing applications take different approaches to how they handle re-processing messages after some failure in the system:
+Stream processing applications take different approaches to how they handle reprocessing messages after some failure in the system:
 
 * At least once: Each message is guaranteed to be processed, but it may get processed more than once.
-* At most once: Each message may or may not be processed. If a message is processed, it is only processed once.
+* At most once: Each message may or may not be processed. If a message is processed, it's only processed once.
 * Exactly once: Each message is guaranteed to be processed once and only once.
 
 This article shows you how to configure Spark Streaming to achieve exactly-once processing.
@@ -44,13 +43,13 @@ In Spark Streaming, sources like Event Hubs and Kafka have *reliable receivers*,
 
 Spark Streaming supports the use of a Write-Ahead Log, where each received event is first written to Spark's checkpoint directory in fault-tolerant storage and then stored in a Resilient Distributed Dataset (RDD). In Azure, the fault-tolerant storage is HDFS backed by either Azure Storage or Azure Data Lake Storage. In your Spark Streaming application, the Write-Ahead Log is enabled for all receivers by setting the `spark.streaming.receiver.writeAheadLog.enable` configuration setting to `true`. The Write-Ahead Log provides fault tolerance for failures of both the driver and the executors.
 
-For workers running tasks against the event data, each RDD is by definition both replicated and distributed across multiple workers. If a task fails because the worker running it crashed, the task will be restarted on another worker that has a replica of the event data, so the event is not lost.
+For workers running tasks against the event data, each RDD is by definition both replicated and distributed across multiple workers. If a task fails because the worker running it crashed, the task will be restarted on another worker that has a replica of the event data, so the event isn't lost.
 
 ### Use checkpoints for drivers
 
 The job drivers need to be restartable. If the driver running your Spark Streaming application crashes, it takes down with it all running receivers, tasks, and any RDDs storing event data. In this case, you need to be able to save the progress of the job so you can resume it later. This is accomplished by checkpointing the Directed Acyclic Graph (DAG) of the DStream periodically to fault-tolerant storage. The DAG metadata includes the configuration used to create the streaming application, the operations that define the application, and any batches that are queued but not yet completed. This metadata enables a failed driver to be restarted from the checkpoint information. When the driver restarts, it will launch new receivers that themselves recover the event data back into RDDs from the Write-Ahead Log.
 
-Checkpoints are enabled in Spark Streaming in two steps. 
+Checkpoints are enabled in Spark Streaming in two steps.
 
 1. In the StreamingContext object, configure the storage path for the checkpoints:
 
@@ -72,13 +71,13 @@ Checkpoints are enabled in Spark Streaming in two steps.
 
 ### Use idempotent sinks
 
-The destination sink to which your job writes results must be able to handle the situation where it is given the same result more than once. The sink must be able to detect such duplicate results and ignore them. An *idempotent* sink can be called multiple times with the same data with no change of state.
+The destination sink to which your job writes results must be able to handle the situation where it's given the same result more than once. The sink must be able to detect such duplicate results and ignore them. An *idempotent* sink can be called multiple times with the same data with no change of state.
 
-You can create idempotent sinks by implementing logic that first checks for the existence of the incoming result in the datastore. If the result already exists, the write should appear to succeed from the perspective of your Spark job, but in reality your data store ignored the duplicate data. If the result does not exist, then the sink should insert this new result into its storage. 
+You can create idempotent sinks by implementing logic that first checks for the existence of the incoming result in the datastore. If the result already exists, the write should appear to succeed from the perspective of your Spark job, but in reality your data store ignored the duplicate data. If the result doesn't exist, then the sink should insert this new result into its storage.
 
 For example, you could use a stored procedure with Azure SQL Database that inserts events into a table. This stored procedure first looks up the event by key fields, and only when no matching event found is the record inserted into the table.
 
-Another example is to use a partitioned file system, like Azure Storage blobs or Azure Data Lake Storage. In this case your sink logic does not need to check for the existence of a file. If the file representing the event exists, it is simply overwritten with the same data. Otherwise, a new file is created at the computed path.
+Another example is to use a partitioned file system, like Azure Storage blobs or Azure Data Lake Storage. In this case, your sink logic doesn't need to check for the existence of a file. If the file representing the event exists, it's simply overwritten with the same data. Otherwise, a new file is created at the computed path.
 
 ## Next steps
 

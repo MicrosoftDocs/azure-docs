@@ -1,0 +1,98 @@
+### YamlMime:Landing
+
+title: FHIR service documentation
+summary: FHIR service is a managed, standards-based, compliant API for clinical health data that enables solutions for actionable analytics and machine learning. 
+
+metadata:
+  title: Azure Health Data Services FHIR service
+  description: FHIR service is a managed, standards-based, compliant API for clinical health data that enables solutions for actionable analytics and machine learning. 
+  services: healthcare-apis
+  ms.service: healthcare-apis
+  ms.subservice: fhir
+  ms.topic: landing-page 
+  ms.collection: collection
+  author: msjasteppe
+  ms.author: jasteppe
+  ms.date: 09/01/2023
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+
+  - title: Get started
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is FHIR service?
+            url: overview.md
+      - linkListType: quickstart
+        links:
+          - text: Deploy FHIR service using portal
+            url: fhir-portal-quickstart.md
+          - text: Deploy FHIR service using ARM template
+            url: fhir-service-resource-manager-template.md
+  - title: Access the FHIR service
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Azure AD for FHIR service
+            url: azure-active-directory-identity-configuration.md
+          - text: Access token validation
+            url: fhir-service-access-token-validation.md
+      - linkListType: tutorial
+        links:
+          - text: Access using Postman
+            url: ./../fhir/use-postman.md
+  - title: FHIR search capabilities
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Overview of FHIR search
+            url: overview-of-search.md
+      - linkListType: how-to-guide
+        links:
+          - text: Defining custom search parameters
+            url: how-to-do-custom-search.md
+          - text: How to run a reindex job
+            url: how-to-run-a-reindex.md
+          - text: Search examples
+            url: search-samples.md
+  - title: Interoperability and patient access
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: CMS interoperability and patient access rule
+            url: centers-for-medicare-tutorial-introduction.md
+      - linkListType: how-to-guide
+        links:
+          - text: CARIN Implementation Guide for Blue Button
+            url: carin-implementation-guide-blue-button-tutorial.md
+          - text: Da Vinci Drug Formulary
+            url: davinci-drug-formulary-tutorial.md
+  - title: FHIR Operations
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: $member-match operation
+            url: tutorial-member-match.md
+          - text: Patient/$everything
+            url: patient-everything.md
+          - text: Profile validation
+            url: validation-against-profiles.md
+          - text: $purge-history operation
+            url: purge-history.md     
+  - title: Export and Convert Data
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Configure settings for export 
+            url: configure-export-data.md
+          - text: Configure settings for bulk-import
+            url: configure-import-data.md
+          - text: Convert data
+            url: overview-of-convert-data.md
+          - text: Copy data to Synapse
+            url: copy-to-synapse.md
+          - text: Export data
+            url: export-data.md
+        

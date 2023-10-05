@@ -8,11 +8,10 @@ manager: erikre
 editor: ''
 
 ms.assetid: 1e85b809-e1a9-4473-b835-69d1b4ed3393
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
 
@@ -56,7 +55,7 @@ This document explains real-time alerts in Microsoft Azure CDN. This functionali
     ![Media Type with HTTP Large Object selected](./media/cdn-real-time-alerts/cdn-http-large.png)
    
    > [!IMPORTANT]
-   > You must select **HTTP Large Object** as the **Media Type**.  The other choices are not used by **Azure CDN from Verizon**.  Failure to select **HTTP Large Object** causes your alert to never be triggered.
+   > You must select **HTTP Large Object** as the **Media Type**.  The other choices are not used by **Azure CDN from Edgio**.  Failure to select **HTTP Large Object** causes your alert to never be triggered.
    > 
    > 
 8. Create an **Expression** to monitor by selecting a **Metric**, **Operator**, and **Trigger value**.
@@ -107,4 +106,3 @@ This document explains real-time alerts in Microsoft Azure CDN. This functionali
 * Analyze [Real-time stats in Azure CDN](cdn-real-time-stats.md)
 * Dig deeper with [advanced HTTP reports](cdn-advanced-http-reports.md)
 * Analyze [usage patterns](cdn-analyze-usage-patterns.md)
-

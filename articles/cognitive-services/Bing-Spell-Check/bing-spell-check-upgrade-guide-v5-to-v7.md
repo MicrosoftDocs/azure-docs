@@ -1,19 +1,21 @@
 ---
 title: Upgrade Bing Spell Check API v5 to v7
-titlesuffix: Azure Cognitive Services
-description: Identifies the parts of your application that you need to update to use version 7.
+titleSuffix: Azure AI services
+description: Identifies the parts of your Bing Spell Check application that you need to update to use version 7.
 services: cognitive-services
-author: swhite-msft
+
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: conceptual
 ms.date: 02/20/2019
-ms.author: scottwhi
+
 ---
 
 # Spell Check API upgrade guide
+
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 This upgrade guide identifies the changes between version 5 and version 7 of the Bing Spell Check API. Use this guide to help you identify the parts of your application that you need to update to use version 7.
 
@@ -68,4 +70,4 @@ Blocked|InvalidRequest.Blocked
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Use and display requirements](./UseAndDisplayRequirements.md)
+> [Use and display requirements](../bing-web-search/use-display-requirements.md)

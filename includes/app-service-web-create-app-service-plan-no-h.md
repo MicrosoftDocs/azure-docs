@@ -7,10 +7,10 @@ ms.service: app-service
 ms.topic: "include"
 ms.date: 02/02/2018
 ms.author: cephalin
-ms.custom: "include file"
+ms.custom: "include file, devx-track-azurecli"
 ---
 
-In the Cloud Shell, create an App Service plan with the [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest) command.
+In the Cloud Shell, create an App Service plan with the [`az appservice plan create`](/cli/azure/appservice/plan) command.
 
 <!-- [!INCLUDE [app-service-plan](app-service-plan.md)] -->
 
@@ -22,7 +22,7 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 When the App Service plan has been created, the Azure CLI shows information similar to the following example:
 
-```json
+<pre>
 { 
   "adminSiteName": null,
   "appServicePlanName": "myAppServicePlan",
@@ -33,9 +33,9 @@ When the App Service plan has been created, the Azure CLI shows information simi
   "location": "West Europe",
   "maximumNumberOfWorkers": 1,
   "name": "myAppServicePlan",
-  < JSON data removed for brevity. >
+  &lt; JSON data removed for brevity. &gt;
   "targetWorkerSizeId": 0,
   "type": "Microsoft.Web/serverfarms",
   "workerTierName": null
 } 
-```
+</pre>

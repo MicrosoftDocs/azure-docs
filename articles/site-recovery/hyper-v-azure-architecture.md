@@ -1,12 +1,11 @@
 ---
-title: Hyper-V to Azure disaster recovery architecture in Azure Site Recovery | Microsoft Docs
+title: Hyper-V disaster recovery architecture in Azure Site Recovery
 description: This article provides an overview of components and architecture used when deploying disaster recovery for on-premises Hyper-V VMs (without VMM) to Azure with the Azure Site Recovery service.
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
-ms.author: raynew
+ms.date: 11/14/2019
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 
 
@@ -32,8 +31,7 @@ The following table and graphic provide a high-level view of the components used
 
 **Hyper-V to Azure architecture (without VMM)**
 
-![Architecture](./media/hyper-v-azure-architecture/arch-onprem-azure-hypervsite.png)
-
+![Diagram showing on-premises Hyper-V site to Azure architecture without VMM.](./media/hyper-v-azure-architecture/arch-onprem-azure-hypervsite.png)
 
 
 ## Architectural components - Hyper-V with VMM
@@ -50,13 +48,30 @@ The following table and graphic provide a high-level view of the components used
 
 **Hyper-V to Azure architecture (with VMM)**
 
-![Components](./media/hyper-v-azure-architecture/arch-onprem-onprem-azure-vmm.png)
+![Diagram showing on-premises Hyper-V site to Azure architecture with VMM.](./media/hyper-v-azure-architecture/arch-onprem-onprem-azure-vmm.png)
 
+## Set up outbound network connectivity
+
+For Site Recovery to work as expected, you need to modify outbound network connectivity to allow your environment to replicate.
+
+> [!NOTE]
+> Site Recovery doesn't support using an authentication proxy to control network connectivity.
+
+### Outbound connectivity for URLs
+
+If you're using a URL-based firewall proxy to control outbound connectivity, allow access to these URLs:
+
+| **Name**                  | **Commercial**                               | **Government**                                 | **Description** |
+| ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
+| Storage                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net` | Allows data to be written from the VM to the cache storage account in the source region. |
+| Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Provides authorization and authentication to Site Recovery service URLs. |
+| Replication               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Allows the VM to communicate with the Site Recovery service. |
+| Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Allows the VM to write Site Recovery monitoring and diagnostics data. |
 
 
 ## Replication process
 
-![Hyper-V to Azure replication](./media/hyper-v-azure-architecture/arch-hyperv-azure-workflow.png)
+![Diagram showing the Hyper-V to Azure replication process](./media/hyper-v-azure-architecture/arch-hyperv-azure-workflow.png)
 
 **Replication and recovery process**
 
@@ -64,16 +79,16 @@ The following table and graphic provide a high-level view of the components used
 ### Enable protection
 
 1. After you enable protection for a Hyper-V VM, in the Azure portal or on-premises, the **Enable protection** starts.
-2. The job checks that the machine complies with prerequisites, before invoking the [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx), to set up replication with the settings you've configured.
-3. The job starts initial replication by invoking the [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) method, to initialize a full VM replication, and send the VM's virtual disks to Azure.
+2. The job checks that the machine complies with prerequisites, before invoking the [CreateReplicationRelationship](/windows/win32/hyperv_v2/createreplicationrelationship-msvm-replicationservice), to set up replication with the settings you've configured.
+3. The job starts initial replication by invoking the [StartReplication](/windows/win32/hyperv_v2/startreplication-msvm-replicationservice) method, to initialize a full VM replication, and send the VM's virtual disks to Azure.
 4. You can monitor the job in the **Jobs** tab.
-        ![Jobs list](media/hyper-v-azure-architecture/image1.png)
-        ![Enable protection drill down](media/hyper-v-azure-architecture/image2.png)
+        ![Screenshot of the jobs list in the Jobs tab.](media/hyper-v-azure-architecture/image1.png)
+        ![Screenshot of the Enable protection screen with more details.](media/hyper-v-azure-architecture/image2.png)
 
 
 ### Initial data replication
 
-1. When initial replication is triggered, a [Hyper-V VM snapshot](https://technet.microsoft.com/library/dd560637.aspx) snapshot is taken.
+1. When initial replication is triggered, a [Hyper-V VM snapshot](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd560637(v=ws.10)) snapshot is taken.
 2. Virtual hard disks on the VM are replicated one by one, until they're all copied to Azure. This might take a while, depending on the VM size, and network bandwidth. [Learn how](https://support.microsoft.com/kb/3056159) to increase network bandwidth.
 3. If disk changes occur while initial replication is in progress, the Hyper-V Replica Replication Tracker tracks the changes as Hyper-V replication logs (.hrl). These log files are located in the same folder as the disks. Each disk has an associated .hrl file that's sent to secondary storage. The snapshot and log files consume disk resources while initial replication is in progress.
 4. When the initial replication finishes, the VM snapshot is deleted.
@@ -105,7 +120,7 @@ The following table and graphic provide a high-level view of the components used
 2. After resynchronization finishes, normal delta replication should resume.
 3. If you don't want to wait for default resynchronization outside hours, you can resynchronize a VM manually. For example, if an outage occurs. To do this, in the Azure portal, select the VM > **Resynchronize**.
 
-    ![Manual resynchronization](./media/hyper-v-azure-architecture/image4-site.png)
+    ![Screenshot showing the Resynchronize option.](./media/hyper-v-azure-architecture/image4-site.png)
 
 
 ### Retry process
@@ -142,6 +157,6 @@ After your on-premises infrastructure is up and running again, you can fail back
 ## Next steps
 
 
-Follow [this tutorial](tutorial-prepare-azure.md) to get started with Hyper-V to Azure replication.
+Follow [this tutorial](tutorial-prepare-azure-for-hyperv.md) to get started with Hyper-V to Azure replication.
 
 

@@ -1,20 +1,47 @@
 ---
-title: include file
-description: include file
-services: functions
 author: ggailey777
-manager: jeconnoc
 ms.service: azure-functions
 ms.topic: include
-ms.date: 01/09/2019
+ms.date: 02/22/2022
 ms.author: glenga
-ms.custom: include file
 ---
 
 This is reference information for Azure Functions developers. If you're new to Azure Functions, start with the following resources:
 
-* Create your first function: [C#](../articles/azure-functions/functions-create-first-azure-function.md), [JavaScript](../articles/azure-functions/functions-create-first-azure-function.md), [Java](../articles/azure-functions/functions-create-first-java-maven.md), or [Python](../articles/azure-functions/functions-create-first-function-python.md).
-* [Azure Functions developer reference.](../articles/azure-functions/functions-reference.md)
-* Language-specific reference: [C#](../articles/azure-functions/functions-dotnet-class-library.md), [C# script](../articles/azure-functions/functions-reference-csharp.md), [F#](../articles/azure-functions/functions-reference-fsharp.md), [Java](../articles/azure-functions/functions-reference-java.md), [JavaScript](../articles/azure-functions/functions-reference-node.md), or [Python](../articles/azure-functions/functions-reference-python.md).
-* [Azure Functions triggers and bindings concepts.](../articles/azure-functions/functions-triggers-bindings.md)
-* [Code and test Azure Functions locally.](../articles/azure-functions/functions-develop-local.md)
+* [Azure Functions developer reference](../articles/azure-functions/functions-reference.md)
+::: zone pivot="programming-language-csharp"
+* [Create your first function](../articles/azure-functions/create-first-function-vs-code-csharp.md)
+
+* C# developer references:
+    * [In-process class library](../articles/azure-functions/functions-dotnet-class-library.md)
+    * [Isolated worker process class library](../articles/azure-functions/dotnet-isolated-process-guide.md)
+    * [C# script](../articles/azure-functions/functions-reference-csharp.md)
+::: zone-end  
+::: zone pivot="programming-language-javascript"  
+* [Create your first function](../articles/azure-functions/create-first-function-vs-code-node.md)
+
+* [JavaScript developer reference](../articles/azure-functions/functions-reference-node.md?tabs=javascript)
+::: zone-end
+::: zone pivot="programming-language-typescript"  
+* [Create your first function](../articles/azure-functions/create-first-function-vs-code-typescript.md)
+
+* [TypeScript developer reference](../articles/azure-functions/functions-reference-node.md?tabs=typescript)
+::: zone-end
+::: zone pivot="programming-language-java"
+* [Create your first function](../articles/azure-functions/create-first-function-cli-java.md)
+
+* [Java developer reference](../articles/azure-functions/functions-reference-java.md)
+::: zone-end  
+::: zone pivot="programming-language-python"  
+* [Create your first function](../articles/azure-functions/create-first-function-vs-code-python.md)
+
+* [Python developer reference](../articles/azure-functions/functions-reference-python.md)
+::: zone-end  
+::: zone pivot="programming-language-powershell"
+* [Create your first function](../articles/azure-functions/create-first-function-vs-code-powershell.md)
+
+* [PowerShell developer reference](../articles/azure-functions/functions-reference-powershell.md)
+::: zone-end 
+* [Azure Functions triggers and bindings concepts](../articles/azure-functions/functions-triggers-bindings.md)
+
+* [Code and test Azure Functions locally](../articles/azure-functions/functions-develop-local.md)

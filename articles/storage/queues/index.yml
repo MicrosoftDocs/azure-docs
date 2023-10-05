@@ -1,0 +1,77 @@
+### YamlMime:Landing
+
+title: Azure Queue storage documentation
+summary: Azure Queue storage is a service for storing large numbers of messages. Access messages from anywhere in the world via HTTP or HTTPS.
+
+metadata:
+  title: Azure Queue storage documentation
+  description: Azure Queue storage is a service for storing large numbers of messages. Access messages from anywhere in the world via HTTP or HTTPS.
+  services: storage
+  ms.service: azure-queue-storage
+  ms.topic: landing-page
+  ms.collection: collection
+  author: normesta
+  ms.author: normesta
+  ms.date: 08/27/2019
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Start card title with a verb
+  # Card
+  - title: About Azure queues
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What are Azure queues?
+            url: storage-queues-introduction.md
+
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a queue and add a message with the Azure portal
+            url: storage-quickstart-queues-portal.md
+
+  # Card
+  - title: Develop with queues
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Azure Queue storage for .NET
+            url: storage-quickstart-queues-dotnet.md
+          - text: Azure Queue storage for Java
+            url: storage-quickstart-queues-java.md
+          - text: Azure Queue storage for Python
+            url: storage-quickstart-queues-python.md
+          - text: Azure Queue storage for JavaScript
+            url: storage-quickstart-queues-nodejs.md
+      - linkListType: how-to-guide
+        links:
+          - text: Get started with Azure Queue storage using .NET
+            url: /azure/storage/queues/storage-quickstart-queues-dotnet?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli
+          - text: How to use Queue storage from Java
+            url: /azure/storage/queues/storage-quickstart-queues-java?tabs=powershell%2Cpasswordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli
+          - text: How to use Queue storage from Node.js
+            url: /azure/storage/queues/storage-quickstart-queues-nodejs?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli
+          - text: How to use Queue Storage from C++
+            url: storage-c-plus-plus-how-to-use-queues.md
+          - text: How to use Queue storage from Python
+            url: /azure/storage/queues/storage-quickstart-queues-python?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli
+
+  # Card
+  - title: Manage queues
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Perform Azure Queue storage operations with Azure PowerShell
+            url: storage-powershell-how-to-use-queues.md
+
+  # Card
+  - title: Tutorial
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Work with Azure storage queues (.NET)
+            url: storage-tutorial-queues.md

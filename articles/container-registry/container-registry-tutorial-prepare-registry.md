@@ -1,19 +1,16 @@
 ---
-title: Tutorial - Create a geo-replicated Docker registry in Azure
+title: Tutorial - Create geo-replicated registry
 description: Create an Azure container registry, configure geo-replication, prepare a Docker image, and deploy it to the registry. Part one of a three-part series.
-services: container-registry
-author: dlepow
-
-ms.service: container-registry
 ms.topic: tutorial
-ms.date: 04/30/2017
-ms.author: danlep
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ms.custom: "seodec18, mvc"
 ---
 
 # Tutorial: Prepare a geo-replicated Azure container registry
 
-An Azure container registry is a private Docker registry deployed in Azure that you can keep network-close to your deployments. In this set of three tutorial articles, you learn how to use geo-replication to deploy an ASP.NET Core web application running in a Linux container to two [Web Apps for Containers](../app-service/containers/index.yml) instances. You'll see how Azure automatically deploys the image to each Web App instance from the closest geo-replicated repository.
+An Azure container registry is a private Docker registry deployed in Azure that you can keep network-close to your deployments. In this set of three tutorial articles, you learn how to use geo-replication to deploy an ASP.NET Core web application running in a Linux container to two [Web Apps for Containers](../app-service/index.yml) instances. You'll see how Azure automatically deploys the image to each Web App instance from the closest geo-replicated repository.
 
 In this tutorial, part one in a three-part series:
 
@@ -37,55 +34,68 @@ Azure Cloud Shell does not include the Docker components required to complete ev
 
 ## Create a container registry
 
+For this tutorial, you need an Azure container registry in the Premium service tier. To create a new Azure container registry, follow the steps in this section.
+
+> [!TIP]
+> If you previously created a registry and need to upgrade, see [Changing tiers](container-registry-skus.md#changing-tiers). 
+
 Sign in to the [Azure portal](https://portal.azure.com).
 
 Select **Create a resource** > **Containers** > **Azure Container Registry**.
 
-![Creating a container registry in the Azure portal][tut-portal-01]
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-01.png" alt-text="Creating a container registry in the Azure portal":::
 
-Configure your new registry with the following settings:
+Configure your new registry with the following settings. In the **Basics** tab:
 
 * **Registry name**: Create a registry name that's globally unique within Azure, and contains 5-50 alphanumeric characters
 * **Resource Group**: **Create new** > `myResourceGroup`
 * **Location**: `West US`
-* **Admin user**: `Enable` (required for Web App for Containers to pull images)
 * **SKU**: `Premium` (required for geo-replication)
 
-Select **Create** to deploy the ACR instance.
+Select **Review + create** and then **Create** to create the registry instance.
 
-![Creating a container registry in the Azure portal][tut-portal-02]
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-02.png" alt-text="Configuring a container registry in the Azure portal":::
 
 Throughout the rest of this tutorial, we use `<acrName>` as a placeholder for the container **Registry name** that you chose.
 
 > [!TIP]
 > Because Azure container registries are typically long-lived resources that are used across multiple container hosts, we recommend that you create your registry in its own resource group. As you configure geo-replicated registries and webhooks, these additional resources are placed in the same resource group.
->
 
 ## Configure geo-replication
 
 Now that you have a Premium registry, you can configure geo-replication. Your web app, which you configure in the next tutorial to run in two regions, can then pull its container images from the nearest registry.
 
-Navigate to your new container registry in the Azure portal and select **Replications** under **SERVICES**:
+Navigate to your new container registry in the Azure portal and select **Replications** under **Services**:
 
-![Replications in the Azure portal container registry UI][tut-portal-03]
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-03.png" alt-text="Replications in the Azure portal container registry UI":::
 
 A map is displayed showing green hexagons representing Azure regions available for geo-replication:
 
- ![Region map in the Azure portal][tut-map-01]
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-map-01.png" alt-text="Region map in the Azure portal":::
 
 Replicate your registry to the East US region by selecting its green hexagon, then select **Create** under **Create replication**:
 
- ![Create replication UI in the Azure portal][tut-portal-04]
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-04.png" alt-text="Create replication UI in the Azure portal":::
 
 When the replication is complete, the portal reflects *Ready* for both regions. Use the **Refresh** button to refresh the status of the replication; it can take a minute or so for the replicas to be created and synchronized.
 
-![Replication status UI in the Azure portal][tut-portal-05]
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-05.png" alt-text="Replication status UI in the Azure portal":::
+
+
+## Enable admin account
+
+In subsequent tutorials, you deploy a container image from the registry directly to Web App for Containers. To enable this capability, you must also enable the registry's [admin account](container-registry-authentication.md#admin-account).
+
+Navigate to your new container registry in the Azure portal and select **Access keys** under **Settings**. Under **Admin user**, select **Enable**.
+
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-06.png" alt-text="Enable admin account in the Azure portal":::
+
 
 ## Container registry login
 
-Now that you've configured geo-replication, build a container image and push it to your registry. You must first log in to your ACR instance before pushing images to it.
+Now that you've configured geo-replication, build a container image and push it to your registry. You must first log in to your registry before pushing images to it.
 
-Use the [az acr login](https://docs.microsoft.com/cli/azure/acr#az-acr-login) command to authenticate and cache the credentials for your registry. Replace `<acrName>` with the name of the registry you created earlier.
+Use the [az acr login](/cli/azure/acr#az-acr-login) command to authenticate and cache the credentials for your registry. Replace `<acrName>` with the name of the registry you created earlier.
 
 ```azurecli
 az acr login --name <acrName>
@@ -97,7 +107,7 @@ The command returns `Login Succeeded` when complete.
 
 The sample in this tutorial includes a small web application built with [ASP.NET Core][aspnet-core]. The app serves an HTML page that displays the region from which the image was deployed by Azure Container Registry.
 
-![Tutorial app shown in browser][tut-app-01]
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-app-01.png" alt-text="Tutorial app shown in browser":::
 
 Use git to download the sample into a local directory, and `cd` into the directory:
 
@@ -110,19 +120,19 @@ If you don't have `git` installed, you can [download the ZIP archive][acr-hellow
 
 ## Update Dockerfile
 
-The Dockerfile included in the sample shows how the container is built. It starts from an official [aspnetcore][dockerhub-aspnetcore] image, copies the application files into the container, installs dependencies, compiles the output using the official [aspnetcore-build][dockerhub-aspnetcore-build] image, and finally, builds an optimized aspnetcore image.
+The Dockerfile included in the sample shows how the container is built. It starts from an official ASP.NET Core runtime image, copies the application files into the container, installs dependencies, compiles the output using the official .NET Core SDK image, and finally, builds an optimized aspnetcore image.
 
 The [Dockerfile][dockerfile] is located at `./AcrHelloworld/Dockerfile` in the cloned source.
 
 ```Dockerfile
-FROM microsoft/aspnetcore:2.0 AS base
+FROM mcr.microsoft.com/dotnet/core/aspnet:2.2 AS base
 # Update <acrName> with the name of your registry
 # Example: uniqueregistryname.azurecr.io
 ENV DOCKER_REGISTRY <acrName>.azurecr.io
 WORKDIR /app
 EXPOSE 80
 
-FROM microsoft/aspnetcore-build:2.0 AS build
+FROM mcr.microsoft.com/dotnet/core/sdk:2.2 AS build
 WORKDIR /src
 COPY *.sln ./
 COPY AcrHelloworld/AcrHelloworld.csproj AcrHelloworld/
@@ -174,8 +184,8 @@ Several lines of output are displayed as the Docker image is built (shown here t
 
 ```bash
 Sending build context to Docker daemon  523.8kB
-Step 1/18 : FROM microsoft/aspnetcore:2.0 AS base
-2.0: Pulling from microsoft/aspnetcore
+Step 1/18 : FROM mcr.microsoft.com/dotnet/core/aspnet:2.2 AS base
+2.2: Pulling from mcr.microsoft.com/dotnet/core/aspnet
 3e17c6eae66c: Pulling fs layer
 
 [...]
@@ -229,18 +239,7 @@ Advance to the next tutorial to deploy your container to multiple Web Apps for C
 > [!div class="nextstepaction"]
 > [Deploy web app from Azure Container Registry](container-registry-tutorial-deploy-app.md)
 
-<!-- IMAGES -->
-[tut-portal-01]: ./media/container-registry-tutorial-prepare-registry/tut-portal-01.png
-[tut-portal-02]: ./media/container-registry-tutorial-prepare-registry/tut-portal-02.png
-[tut-portal-03]: ./media/container-registry-tutorial-prepare-registry/tut-portal-03.png
-[tut-portal-04]: ./media/container-registry-tutorial-prepare-registry/tut-portal-04.png
-[tut-portal-05]: ./media/container-registry-tutorial-prepare-registry/tut-portal-05.png
-[tut-app-01]: ./media/container-registry-tutorial-prepare-registry/tut-app-01.png
-[tut-map-01]: ./media/container-registry-tutorial-prepare-registry/tut-map-01.png
-
 <!-- LINKS - External -->
 [acr-helloworld-zip]: https://github.com/Azure-Samples/acr-helloworld/archive/master.zip
 [aspnet-core]: https://dot.net
-[dockerhub-aspnetcore]: https://hub.docker.com/r/microsoft/aspnetcore/
-[dockerhub-aspnetcore-build]: https://store.docker.com/community/images/microsoft/aspnetcore-build
 [dockerfile]: https://github.com/Azure-Samples/acr-helloworld/blob/master/AcrHelloworld/Dockerfile

@@ -1,55 +1,32 @@
 ---
-title: Monitor Batch with Azure Application Insights | Microsoft Docs
+title: Monitor Batch with Azure Application Insights
 description: Learn how to instrument an Azure Batch .NET application using the Azure Application Insights library.
-services: batch
-author: laurenhughes
-manager: jeconnoc
-
-ms.assetid: 
-ms.service: batch
-ms.devlang: .NET
-ms.topic: article
-ms.workload: na
-ms.date: 04/05/2018
-ms.author: lahugh
+ms.topic: how-to
+ms.devlang: csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
+ms.date: 04/13/2021
 ---
 
 # Monitor and debug an Azure Batch .NET application with Application Insights
 
-[Application Insights](../azure-monitor/app/app-insights-overview.md) provides an elegant and powerful way for developers to monitor and debug 
-applications deployed to Azure services. Use Application Insights to 
-monitor performance counters and exceptions as well as instrument your code 
-with custom metrics and tracing. Integrating Application Insights with your 
-Azure Batch application allows you to gain deep insights into behaviors 
-and investigate issues in near-real time.
+[Application Insights](../azure-monitor/app/app-insights-overview.md) provides an elegant and powerful way for developers to monitor and debug applications deployed to Azure services. Use Application Insights to monitor performance counters and exceptions as well as instrument your code with custom metrics and tracing. Integrating Application Insights with your Azure Batch application allows you to gain deep insights into behaviors and investigate issues in near-real time.
 
-This article shows how to add and configure the Application Insights library 
-into your Azure Batch .NET solution and instrument your application code. It also shows ways to monitor your application via the Azure portal and build 
-custom dashboards. For Application Insights support in other languages, look at the 
-[languages, platforms, and integrations documentation](../azure-monitor/app/platforms.md).
+This article shows how to add and configure the Application Insights library into your Azure Batch .NET solution and instrument your application code. It also shows ways to monitor your application via the Azure portal and build custom dashboards. For Application Insights support in other languages, see the [languages, platforms, and integrations documentation](../azure-monitor/app/app-insights-overview.md#supported-languages).
 
-A sample C# solution with code to accompany this article is available on [GitHub](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights). This example adds Application Insights instrumentation code to the [TopNWords](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords) example. If you're not familiar with that example, try building and running TopNWords first. Doing this will help you understand a basic Batch workflow of processing a set of input blobs in parallel on multiple compute nodes. 
+A sample C# solution with code to accompany this article is available on [GitHub](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights). This example adds Application Insights instrumentation code to the [TopNWords](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords) example. If you're not familiar with that example, try building and running TopNWords first. Doing this will help you understand a basic Batch workflow of processing a set of input blobs in parallel on multiple compute nodes.
 
 > [!TIP]
-> As an alternative, configure your Batch solution to display Application Insights data such as VM performance counters in Batch Explorer. [Batch Explorer](https://github.com/Azure/BatchExplorer) is a free, rich-featured, standalone client tool to help create, debug, and monitor Azure Batch applications. Download an [installation package](https://azure.github.io/BatchExplorer/) for Mac, Linux, or Windows. See the [batch-insights repo](https://github.com/Azure/batch-insights) for quick steps to enable Application Insights data in Batch Explorer. 
->
+> As an alternative, configure your Batch solution to display Application Insights data such as VM performance counters in Batch Explorer. [Batch Explorer](https://github.com/Azure/BatchExplorer) is a free, rich-featured, standalone client tool to help create, debug, and monitor Azure Batch applications. Download an [installation package](https://azure.github.io/BatchExplorer/) for Mac, Linux, or Windows. See the [batch-insights repo](https://github.com/Azure/batch-insights) for quick steps to enable Application Insights data in Batch Explorer.
 
 ## Prerequisites
-* [Visual Studio 2017 or later](https://www.visualstudio.com/vs)
 
-* [Batch account and linked storage account](batch-account-create-portal.md)
-
-* [Application Insights resource](../azure-monitor/app/create-new-resource.md )
-  
-   * Use the Azure portal to create an Application Insights *resource*. Select the *General* **Application type**.
-
-   * Copy the [instrumentation 
-key](../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key) from the portal. It is required later in this article.
+- [Visual Studio 2017 or later](https://www.visualstudio.com/vs)
+- [Batch account and linked storage account](batch-account-create-portal.md)
+- [Application Insights resource](/previous-versions/azure/azure-monitor/app/create-new-resource). Use the Azure portal to create an Application Insights *resource*. Select the *General* **Application type**.
+- Copy the [instrumentation key](/previous-versions/azure/azure-monitor/app/create-new-resource#copy-the-instrumentation-key) from the Azure portal. You'll need this value later.
   
   > [!NOTE]
-  > You may be [charged](https://azure.microsoft.com/pricing/details/application-insights/) for the data stored in Application Insights. 
-  > This includes the diagnostic and monitoring data discussed in this article.
-  > 
+  > You may be [charged](https://azure.microsoft.com/pricing/details/application-insights/) for data stored in Application Insights. This includes the diagnostic and monitoring data discussed in this article.
 
 ## Add Application Insights to your project
 
@@ -58,6 +35,7 @@ The **Microsoft.ApplicationInsights.WindowsServer** NuGet package and its depend
 ```powershell
 Install-Package Microsoft.ApplicationInsights.WindowsServer
 ```
+
 Reference Application Insights from your .NET application by using the **Microsoft.ApplicationInsights** namespace.
 
 ## Instrument your code
@@ -67,19 +45,18 @@ To instrument your code, your solution needs to create an Application Insights [
 ```xml
 <InstrumentationKey>YOUR-IKEY-GOES-HERE</InstrumentationKey>
 ```
+
 Also add the instrumentation key in the file TopNWords.cs.
 
 The example in TopNWords.cs uses the following [instrumentation calls](../azure-monitor/app/api-custom-events-metrics.md) from the Application Insights API:
-* `TrackMetric()` - Tracks how long, on average, a compute node takes to download the required text file.
-* `TrackTrace()` - Adds debugging calls to your code.
-* `TrackEvent()` - Tracks interesting events to capture.
 
-This example purposely leaves out exception 
-handling. Instead, Application Insights automatically reports unhandled 
-exceptions, which significantly improves the debugging experience. 
+- `TrackMetric()` - Tracks how long, on average, a compute node takes to download the required text file.
+- `TrackTrace()` - Adds debugging calls to your code.
+- `TrackEvent()` - Tracks interesting events to capture.
 
-The 
-following snippet illustrates how to use these methods.
+This example purposely leaves out exception handling. Instead, Application Insights automatically reports unhandled exceptions, which significantly improves the debugging experience.
+
+The following snippet illustrates how to use these methods.
 
 ```csharp
 public void CountWords(string blobName, int numTopN, string storageAccountName, string storageAccountKey)
@@ -134,10 +111,8 @@ public void CountWords(string blobName, int numTopN, string storageAccountName, 
 ```
 
 ### Azure Batch telemetry initializer helper
-When reporting telemetry for a given server and instance, Application Insights 
-uses the Azure VM Role and VM name for the default values. In the context of Azure Batch, the example shows how to use the pool name and compute 
-node name instead. Use a [telemetry initializer](../azure-monitor/app/api-filtering-sampling.md#add-properties) to override the default 
-values. 
+
+When reporting telemetry for a given server and instance, Application Insights uses the Azure VM Role and VM name for the default values. In the context of Azure Batch, the example shows how to use the pool name and compute node name instead. Use a [telemetry initializer](../azure-monitor/app/api-filtering-sampling.md#add-properties) to override the default values.
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -192,13 +167,11 @@ To enable the telemetry initializer, the ApplicationInsights.config file in the 
 <TelemetryInitializers>
     <Add Type="Microsoft.Azure.Batch.Samples.TelemetryInitializer.AzureBatchNodeTelemetryInitializer, Microsoft.Azure.Batch.Samples.TelemetryInitializer"/>
 </TelemetryInitializers>
-``` 
+```
 
 ## Update the job and tasks to include Application Insights binaries
 
-In order for Application Insights to run correctly on your compute nodes, make sure the binaries are correctly placed. Add the required 
-binaries to your task's resource files collection so that they get downloaded 
-at the time your task executes. The following snippets are similar to code in Job.cs.
+In order for Application Insights to run correctly on your compute nodes, make sure the binaries are correctly placed. Add the required binaries to your task's resource files collection so that they get downloaded at the time your task executes. The following snippets are similar to code in Job.cs.
 
 First, create a static list of Application Insights files to upload.
 
@@ -221,6 +194,7 @@ private static readonly List<string> AIFilesToUpload = new List<string>()
 ```
 
 Next, create the staging files that are used by the task.
+
 ```csharp
 ...
 // create file staging objects that represent the executable and its dependent assembly to run as the task.
@@ -240,6 +214,7 @@ foreach (string aiFile in AIFilesToUpload)
 The `FileToStage` method is a helper function in the code sample that allows you to easily upload a file from local disk to an Azure Storage blob. Each file is later downloaded to a compute node and referenced by a task.
 
 Finally, add the tasks to the job and include the necessary Application Insights binaries.
+
 ```csharp
 ...
 // initialize a collection to hold the tasks that will be submitted in their entirety
@@ -275,65 +250,51 @@ for (int i = 1; i <= topNWordsConfiguration.NumberOfTasks; i++)
 
 ## View data in the Azure portal
 
-Now that you've configured the job and tasks to use Application Insights, run 
-the example job in your pool. Navigate to the Azure portal and open the Application 
-Insights resource that you provisioned. After the pool is provisioned, you should start to see 
-data flowing and getting logged. The rest of this article touches on only a few Application Insights
-features, but feel free to explore the full feature set.
+Now that you've configured the job and tasks to use Application Insights, run the example job in your pool. Navigate to the Azure portal and open the Application Insights resource that you provisioned. After the pool is provisioned, you should start to see data flowing and getting logged. The rest of this article touches on only a few Application Insights features, but feel free to explore the full feature set.
 
 ### View live stream data
 
-To view trace logs in your Applications Insights resource, click **Live Stream**. The following screenshot shows how to view live data coming from the 
-compute nodes in the pool, for example the CPU usage per compute node.
+To view trace logs in your Applications Insights resource, click **Live Stream**. The following screenshot shows how to view live data coming from the compute nodes in the pool, for example the CPU usage per compute node.
 
-![Live stream compute node data](./media/monitor-application-insights/applicationinsightslivestream.png)
+![Screenshot of live stream compute node data.](./media/monitor-application-insights/applicationinsightslivestream.png)
 
 ### View trace logs
 
-To view trace logs in your Applications Insights resource, click **Search**. This view shows a list of diagnostic data 
-captured by Application Insights including traces, events, and exceptions. 
+To view trace logs in your Applications Insights resource, click **Search**. This view shows a list of diagnostic data captured by Application Insights including traces, events, and exceptions. 
 
 The following screenshot shows how a single trace for a task is logged and later queried for debugging purposes.
 
-![Trace logs image](./media/monitor-application-insights/tracelogsfortask.png)
+![Screenshot showing logs for a single trace.](./media/monitor-application-insights/tracelogsfortask.png)
 
 ### View unhandled exceptions
 
-The following screenshots shows how Application Insights logs exceptions thrown from your application. In this case, within seconds of the application throwing the exception, you can drill into a specific exception and diagnose the issue.
+Application Insights logs exceptions thrown from your application. In this case, within seconds of the application throwing the exception, you can drill into a specific exception and diagnose the issue.
 
-![Unhandled exceptions](./media/monitor-application-insights/exception.png)
+![Screenshot showing unhandled exceptions.](./media/monitor-application-insights/exception.png)
 
 ### Measure blob download time
 
 Custom metrics are also a valuable tool in the portal. For example, you can display the average time it took each compute node to download the required text file it was processing.
 
 To create a sample chart:
+
 1. In your Application Insights resource, click **Metrics Explorer** > **Add chart**.
-2. Click **Edit** on the chart that was added.
-2. Update the chart details as follows:
-   * Set **Chart type** to **Grid**.
-   * Set **Aggregation** to **Average**.
-   * Set **Group by** to **NodeId**.
-   * In **Metrics**, select **Custom** > **Blob download in seconds**.
-   * Adjust display **Color palette** to your choice. 
+1. Click **Edit** on the chart that was added.
+1. Update the chart details as follows:
+   - Set **Chart type** to **Grid**.
+   - Set **Aggregation** to **Average**.
+   - Set **Group by** to **NodeId**.
+   - In **Metrics**, select **Custom** > **Blob download in seconds**.
+   - Adjust display **Color palette** to your choice.
 
-![Blob download time per node](./media/monitor-application-insights/blobdownloadtime.png)
-
+![Screenshot of a chart showing blob download time per node.](./media/monitor-application-insights/blobdownloadtime.png)
 
 ## Monitor compute nodes continuously
 
-You may have noticed that all metrics, including performance counters, are only 
-logged when the tasks are running. This behavior is useful because it limits the amount of
-data that Application Insights logs. However, there are cases 
-when you would always like to monitor the compute nodes. For example, they might be 
-running background work which is not scheduled via the Batch service. In this case, set up a monitoring process to run for the life of the 
-compute node. 
+You may have noticed that all metrics, including performance counters, are only logged when the tasks are running. This behavior is useful because it limits the amount of
+data that Application Insights logs. However, there are cases when you would always like to monitor the compute nodes. For example, they might be running background work which is not scheduled via the Batch service. In this case, set up a monitoring process to run for the life of the compute node. 
 
-One way to achieve this behavior is to spawn a process that loads 
-the Application Insights library and runs in the background. In the example, the start task loads the 
-binaries on the machine and keeps a process running indefinitely. Configure the 
-Application Insights configuration file for this process to emit additional data you're interested in, such 
-as performance counters.
+One way to achieve this behavior is to spawn a process that loads the Application Insights library and runs in the background. In the example, the start task loads the binaries on the machine and keeps a process running indefinitely. Configure the Application Insights configuration file for this process to emit additional data you're interested in, such as performance counters.
 
 ```csharp
 ...
@@ -346,7 +307,13 @@ CloudPool pool = client.PoolOperations.CreatePool(
     topNWordsConfiguration.PoolId,
     targetDedicated: topNWordsConfiguration.PoolNodeCount,
     virtualMachineSize: "standard_d1_v2",
-    cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));
+    VirtualMachineConfiguration: new VirtualMachineConfiguration(
+    imageReference: new ImageReference(
+                        publisher: "MicrosoftWindowsServer",
+                        offer: "WindowsServer",
+                        sku: "2019-datacenter-core",
+                        version: "latest"),
+    nodeAgentSkuId: "batch.node.windows amd64");
 ...
 
 // Create a start task which will run a dummy exe in background that simply emits performance
@@ -363,20 +330,12 @@ pool.StartTask = new StartTask()
 
 > [!TIP]
 > To increase the manageability of your solution, you can bundle the assembly in an [application package](./batch-application-packages.md). Then, to deploy the application package automatically to your pools, add an application package reference to the pool configuration.
->
 
-## Throttle and sample data 
+## Throttle and sample data
 
-Due to the large-scale nature of Azure Batch applications 
-running in production, you might want to limit the amount of data collected by 
-Application Insights to manage costs. 
-See [Sampling in Application Insights](../azure-monitor/app/sampling.md) for some mechanisms to achieve this.
-
+Due to the large-scale nature of Azure Batch applications running in production, you might want to limit the amount of data collected by Application Insights to manage costs. See [Sampling in Application Insights](../azure-monitor/app/sampling.md) for some mechanisms to achieve this.
 
 ## Next steps
-* Learn more about [Application Insights](../azure-monitor/app/app-insights-overview.md).
 
-* For Application Insights support in other languages, look at the 
-[languages, platforms, and integrations documentation](../azure-monitor/app/platforms.md).
-
-
+- Learn more about [Application Insights](../azure-monitor/app/app-insights-overview.md).
+- For Application Insights support in other languages, see the [languages, platforms, and integrations documentation](../azure-monitor/app/app-insights-overview.md#supported-languages).

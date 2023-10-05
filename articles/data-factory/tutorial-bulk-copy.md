@@ -1,29 +1,27 @@
-﻿---
-title: 'Copy data in bulk using Azure Data Factory | Microsoft Docs'
-description: 'Learn how to use Azure Data Factory and Copy Activity to copy data from a source data store to a destination data store in bulk.'
-services: data-factory
-documentationcenter: ''
-author: linda33wj
-manager: craigg
-ms.reviewer: douglasl
-
-ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-
-ms.topic: tutorial
-ms.date: 01/22/2018
-ms.author: jingwang
 ---
-# Copy multiple tables in bulk by using Azure Data Factory
-This tutorial demonstrates **copying a number of tables from Azure SQL Database to Azure SQL Data Warehouse**. You can apply the same pattern in other copy scenarios as well. For example, copying tables from SQL Server/Oracle to Azure SQL Database/Data Warehouse/Azure Blob, copying different paths from Blob to Azure SQL Database tables.
+title: Copy data in bulk with PowerShell
+description: Use Azure Data Factory with Copy Activity to copy data from a source data store to a destination data store in bulk.
+author: jianleishen
+ms.author: jianleishen
+ms.service: data-factory
+ms.subservice: tutorials
+ms.topic: tutorial
+ms.custom: seo-lt-2019, devx-track-azurepowershell
+ms.date: 08/10/2023
+---
+
+# Copy multiple tables in bulk by using Azure Data Factory using PowerShell
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+This tutorial demonstrates **copying a number of tables from Azure SQL Database to Azure Synapse Analytics**. You can apply the same pattern in other copy scenarios as well. For example, copying tables from SQL Server/Oracle to Azure SQL Database/Data Warehouse/Azure Blob, copying different paths from Blob to Azure SQL Database tables.
 
 At a high level, this tutorial involves following steps:
 
 > [!div class="checklist"]
 > * Create a data factory.
-> * Create Azure SQL Database, Azure SQL Data Warehouse, and Azure Storage linked services.
-> * Create Azure SQL Database and Azure SQL Data Warehouse datasets.
+> * Create Azure SQL Database, Azure Synapse Analytics, and Azure Storage linked services.
+> * Create Azure SQL Database and Azure Synapse Analytics datasets.
 > * Create a  pipeline to look up the tables to be copied and another pipeline to perform the actual copy operation. 
 > * Start a pipeline run.
 > * Monitor the pipeline and activity runs.
@@ -31,12 +29,12 @@ At a high level, this tutorial involves following steps:
 This tutorial uses Azure PowerShell. To learn about using other tools/SDKs to create a data factory, see [Quickstarts](quickstart-create-data-factory-dot-net.md). 
 
 ## End-to-end workflow
-In this scenario, we have a number of tables in Azure SQL Database that we want to copy to SQL Data Warehouse. Here is the logical sequence of steps in the workflow that happens in pipelines:
+In this scenario, we have a number of tables in Azure SQL Database that we want to copy to Azure Synapse Analytics. Here is the logical sequence of steps in the workflow that happens in pipelines:
 
-![Workflow](media/tutorial-bulk-copy/tutorial-copy-multiple-tables.png)
+:::image type="content" source="media/tutorial-bulk-copy/tutorial-copy-multiple-tables.png" alt-text="Workflow":::
 
 * The first pipeline looks up the list of tables that needs to be copied over to the sink data stores.  Alternatively you can maintain a metadata table that lists all the tables to be copied to the sink data store. Then, the pipeline triggers another pipeline, which iterates over each table in the database and performs the data copy operation.
-* The second pipeline performs the actual copy. It takes the list of tables as a parameter. For each table in the list, copy the specific table in Azure SQL Database to the corresponding table in SQL Data Warehouse using [staged copy via Blob storage and PolyBase](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) for best performance. In this example, the first pipeline passes the list of tables as a value for the parameter. 
+* The second pipeline performs the actual copy. It takes the list of tables as a parameter. For each table in the list, copy the specific table in Azure SQL Database to the corresponding table in Azure Synapse Analytics using [staged copy via Blob storage and PolyBase](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-synapse-analytics) for best performance. In this example, the first pipeline passes the list of tables as a value for the parameter. 
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
@@ -44,26 +42,26 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
+* **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 * **Azure Storage account**. The Azure Storage account is used as staging blob storage in the bulk copy operation. 
 * **Azure SQL Database**. This database contains the source data. 
-* **Azure SQL Data Warehouse**. This data warehouse holds the data copied over from the SQL Database. 
+* **Azure Synapse Analytics**. This data warehouse holds the data copied over from the SQL Database. 
 
-### Prepare SQL Database and SQL Data Warehouse
+### Prepare SQL Database and Azure Synapse Analytics
 
 **Prepare the source Azure SQL Database**:
 
-Create an Azure SQL Database with Adventure Works LT sample data following [Create an Azure SQL database](../sql-database/sql-database-get-started-portal.md) article. This tutorial copies all the tables from this sample database to a SQL data warehouse.
+Create a database with the Adventure Works LT sample data in SQL Database by following [Create a database in Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart) article. This tutorial copies all the tables from this sample database to Azure Synapse Analytics.
 
-**Prepare the sink Azure SQL Data Warehouse**:
+**Prepare the sink Azure Synapse Analytics**:
 
-1. If you don't have an Azure SQL Data Warehouse, see the [Create a SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md) article for steps to create one.
+1. If you don't have an Azure Synapse Analytics workspace, see the [Get started with Azure Synapse Analytics](..\synapse-analytics\get-started.md) article for steps to create one.
 
-2. Create corresponding table schemas in SQL Data Warehouse. You can use [Migration Utility](https://www.microsoft.com/download/details.aspx?id=49100) to **migrate schema** from Azure SQL Database to Azure SQL Data Warehouse. You use Azure Data Factory to migrate/copy data in a later step.
+2. Create corresponding table schemas in Azure Synapse Analytics. You use Azure Data Factory to migrate/copy data in a later step.
 
 ## Azure services to access SQL server
 
-For both SQL Database and SQL Data Warehouse, allow Azure services to access SQL server. Ensure that **Allow access to Azure services** setting is turned **ON** for your Azure SQL server. This setting allows the Data Factory service to read data from your Azure SQL Database and write data to your Azure SQL Data Warehouse. To verify and turn on this setting, do the following steps:
+For both SQL Database and Azure Synapse Analytics, allow Azure services to access SQL server. Ensure that **Allow access to Azure services** setting is turned **ON** for your server. This setting allows the Data Factory service to read data from your Azure SQL Database and write data to Azure Synapse Analytics. To verify and turn on this setting, do the following steps:
 
 1. Click **All services** on the left and click **SQL servers**.
 2. Select your server, and click **Firewall** under **SETTINGS**.
@@ -91,9 +89,9 @@ For both SQL Database and SQL Data Warehouse, allow Azure services to access SQL
 2. Run the **Set-AzDataFactoryV2** cmdlet to create a data factory. Replace place-holders with your own values before executing the command. 
 
     ```powershell
-	$resourceGroupName = "<your resource group to create the factory>"
-	$dataFactoryName = "<specify the name of data factory to create. It must be globally unique.>"
-	Set-AzDataFactoryV2 -ResourceGroupName $resourceGroupName -Location "East US" -Name $dataFactoryName
+    $resourceGroupName = "<your resource group to create the factory>"
+    $dataFactoryName = "<specify the name of data factory to create. It must be globally unique.>"
+    Set-AzDataFactoryV2 -ResourceGroupName $resourceGroupName -Location "East US" -Name $dataFactoryName
     ```
 
     Note the following points:
@@ -124,10 +122,7 @@ In this tutorial, you create three linked services for source, sink, and staging
         "properties": {
             "type": "AzureSqlDatabase",
             "typeProperties": {
-                "connectionString": {
-                    "type": "SecureString",
-                    "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
-                }
+                "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
             }
         }
     }
@@ -143,14 +138,14 @@ In this tutorial, you create three linked services for source, sink, and staging
 
     Here is the sample output:
 
-    ```json
+    ```console
     LinkedServiceName : AzureSqlDatabaseLinkedService
     ResourceGroupName : <resourceGroupName>
     DataFactoryName   : <dataFactoryName>
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureSqlDatabaseLinkedService
     ```
 
-### Create the sink Azure SQL Data Warehouse linked service
+### Create the sink Azure Synapse Analytics linked service
 
 1. Create a JSON file named **AzureSqlDWLinkedService.json** in the **C:\ADFv2TutorialBulkCopy** folder, with the following content:
 
@@ -163,10 +158,7 @@ In this tutorial, you create three linked services for source, sink, and staging
         "properties": {
             "type": "AzureSqlDW",
             "typeProperties": {
-                "connectionString": {
-                    "type": "SecureString",
-                    "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
-            }
+                "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
             }
         }
     }
@@ -180,7 +172,7 @@ In this tutorial, you create three linked services for source, sink, and staging
 
     Here is the sample output:
 
-    ```json
+    ```console
     LinkedServiceName : AzureSqlDWLinkedService
     ResourceGroupName : <resourceGroupName>
     DataFactoryName   : <dataFactoryName>
@@ -202,10 +194,7 @@ In this tutorial, you use Azure Blob storage as an interim staging area to enabl
         "properties": {
             "type": "AzureStorage",
             "typeProperties": {
-                "connectionString": {
-                    "type": "SecureString",
-                    "value": "DefaultEndpointsProtocol=https;AccountName=<accountName>;AccountKey=<accountKey>"
-                }
+                "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountName>;AccountKey=<accountKey>"
             }
         }
     }
@@ -219,7 +208,7 @@ In this tutorial, you use Azure Blob storage as an interim staging area to enabl
 
     Here is the sample output:
 
-    ```json
+    ```console
     LinkedServiceName : AzureStorageLinkedService
     ResourceGroupName : <resourceGroupName>
     DataFactoryName   : <dataFactoryName>
@@ -258,7 +247,7 @@ In this tutorial, you create source and sink datasets, which specify the locatio
 
     Here is the sample output:
 
-    ```json
+    ```console
     DatasetName       : AzureSqlDatabaseDataset
     ResourceGroupName : <resourceGroupname>
     DataFactoryName   : <dataFactoryName>
@@ -266,7 +255,7 @@ In this tutorial, you create source and sink datasets, which specify the locatio
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureSqlTableDataset
     ```
 
-### Create a dataset for sink SQL Data Warehouse
+### Create a dataset for sink Azure Synapse Analytics
 
 1. Create a JSON file named **AzureSqlDWDataset.json** in the **C:\ADFv2TutorialBulkCopy** folder, with the following content: The "tableName" is set as a parameter, later the copy activity that references this dataset passes the actual value into the dataset.
 
@@ -302,7 +291,7 @@ In this tutorial, you create source and sink datasets, which specify the locatio
 
     Here is the sample output:
 
-    ```json
+    ```console
     DatasetName       : AzureSqlDWDataset
     ResourceGroupName : <resourceGroupname>
     DataFactoryName   : <dataFactoryName>
@@ -316,7 +305,7 @@ In this tutorial, you create two pipelines:
 
 ### Create the pipeline "IterateAndCopySQLTables"
 
-This pipeline takes a list of tables as a parameter. For each table in the list, it copies data from the table in Azure SQL Database to Azure SQL Data Warehouse using staged copy and PolyBase.
+This pipeline takes a list of tables as a parameter. For each table in the list, it copies data from the table in Azure SQL Database to Azure Synapse Analytics using staged copy and PolyBase.
 
 1. Create a JSON file named **IterateAndCopySQLTables.json** in the **C:\ADFv2TutorialBulkCopy** folder, with the following content:
 
@@ -337,7 +326,7 @@ This pipeline takes a list of tables as a parameter. For each table in the list,
                         "activities": [
                             {
                                 "name": "CopyData",
-                                "description": "Copy data from SQL database to SQL DW",
+                                "description": "Copy data from Azure SQL Database to Azure Synapse Analytics",
                                 "type": "Copy",
                                 "inputs": [
                                     {
@@ -394,7 +383,7 @@ This pipeline takes a list of tables as a parameter. For each table in the list,
 
     Here is the sample output:
 
-    ```json
+    ```console
     PipelineName      : IterateAndCopySQLTables
     ResourceGroupName : <resourceGroupName>
     DataFactoryName   : <dataFactoryName>
@@ -470,7 +459,7 @@ This pipeline performs two steps:
 
     Here is the sample output:
 
-    ```json
+    ```console
     PipelineName      : GetTableListAndTriggerCopyData
     ResourceGroupName : <resourceGroupName>
     DataFactoryName   : <dataFactoryName>
@@ -489,31 +478,31 @@ This pipeline performs two steps:
 2. 	Run the following script to continuously check the run status of pipeline **GetTableListAndTriggerCopyData**, and print out the final pipeline run and activity run result.
 
     ```powershell
-	while ($True) {
+    while ($True) {
         $run = Get-AzDataFactoryV2PipelineRun -ResourceGroupName $resourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $runId
 
         if ($run) {
             if ($run.Status -ne 'InProgress') {
-                Write-Host "Pipeline run finished. The status is: " $run.Status -foregroundcolor "Yellow"
-                Write-Host "Pipeline run details:" -foregroundcolor "Yellow"
+                Write-Host "Pipeline run finished. The status is: " $run.Status -ForegroundColor "Yellow"
+                Write-Host "Pipeline run details:" -ForegroundColor "Yellow"
                 $run
                 break
             }
-            Write-Host  "Pipeline is running...status: InProgress" -foregroundcolor "Yellow"
+            Write-Host  "Pipeline is running...status: InProgress" -ForegroundColor "Yellow"
         }
 
         Start-Sleep -Seconds 15
     }
 
 	$result = Get-AzDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
-    Write-Host "Activity run details:" -foregroundcolor "Yellow"
+    Write-Host "Activity run details:" -ForegroundColor "Yellow"
     $result
     ```
 
     Here is the output of the sample run:
 
-    ```json
-	Pipeline run details:
+    ```output
+    Pipeline run details:
     ResourceGroupName : <resourceGroupName>
     DataFactoryName   : <dataFactoryName>
     RunId             : 0000000000-00000-0000-0000-000000000000
@@ -559,7 +548,7 @@ This pipeline performs two steps:
 3. You can get the run ID of pipeline "**IterateAndCopySQLTables**", and check the detailed activity run result as the following.
 
     ```powershell
-    Write-Host "Pipeline 'IterateAndCopySQLTables' run result:" -foregroundcolor "Yellow"
+    Write-Host "Pipeline 'IterateAndCopySQLTables' run result:" -ForegroundColor "Yellow"
     ($result | Where-Object {$_.ActivityName -eq "TriggerCopy"}).Output.ToString()
     ```
 
@@ -576,19 +565,21 @@ This pipeline performs two steps:
     $result2
     ```
 
-3. Connect to your sink Azure SQL Data Warehouse and confirm that data has been copied from Azure SQL Database properly.
+3. Connect to your sink Azure Synapse Analytics and confirm that data has been copied from Azure SQL Database properly.
 
 ## Next steps
+
 You performed the following steps in this tutorial: 
 
 > [!div class="checklist"]
 > * Create a data factory.
-> * Create Azure SQL Database, Azure SQL Data Warehouse, and Azure Storage linked services.
-> * Create Azure SQL Database and Azure SQL Data Warehouse datasets.
+> * Create Azure SQL Database, Azure Synapse Analytics, and Azure Storage linked services.
+> * Create Azure SQL Database and Azure Synapse Analytics datasets.
 > * Create a  pipeline to look up the tables to be copied and another pipeline to perform the actual copy operation. 
 > * Start a pipeline run.
 > * Monitor the pipeline and activity runs.
 
 Advance to the following tutorial to learn about copy data incrementally from a source to a destination:
+
 > [!div class="nextstepaction"]
->[Copy data incrementally](tutorial-incremental-copy-powershell.md)
+> [Copy data incrementally](tutorial-incremental-copy-powershell.md)

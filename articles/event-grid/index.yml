@@ -1,85 +1,124 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure Event Grid Documentation
+### YamlMime:Landing
+
+title: Azure Event Grid documentation # < 60 chars
+summary: Learn how to use Azure Event Grid to react to relevant events across both Azure and non-Azure services in near-real time fashion.  # < 160 chars
+
 metadata:
-  title: Azure Event Grid Documentation - Tutorials, API Reference
-  description: Use Azure Event Grid to react to relevant events across both Azure and non-Azure services in near-real time fashion.
+  title: Azure Event Grid documentation
+  description: Learn how to use Azure Event Grid to react to relevant events across both Azure and non-Azure services in near-real time fashion.
   services: event-grid
-  author: czeumault
-  manager: carolz
   ms.service: event-grid
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice:
+  ms.custom: build-2023
   ms.topic: landing-page
-  ms.date: 08/10/2017
-  ms.author: carolz
-abstract:
-  description: Azure Event Grid is a fully-managed intelligent event routing service that allows for uniform event consumption using a publish-subscribe model. Use Azure Event Grid to react to relevant events across both Azure and non-Azure services in near-real time fashion. Learn how to use Azure Event Grid with our quickstarts, tutorials, and samples.
-sections:
-- title: 5-Minute Quickstarts
-  items:
-  - type: paragraph
-    text: 'Learn how to create and subscribe to custom events.'
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: /azure/event-grid/media/index/cli.svg
-      text: Azure CLI
-      href: /azure/event-grid/custom-event-quickstart
-    - image: 
-        src: /azure/event-grid/media/index/logo_powershell.svg
-      text: Azure PowerShell
-      href: /azure/event-grid/custom-event-quickstart-powershell
-    - image: 
-        src: /azure/event-grid/media/index/portal.svg
-      text: Azure Portal
-      href: /azure/event-grid/custom-event-quickstart-portal
-  - type: paragraph
-    text: 'Learn how to route Blob storage events.'
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: /azure/event-grid/media/index/cli.svg
-      text: Azure CLI
-      href: /azure/storage/blobs/storage-blob-event-quickstart?toc=%2fazure%2fevent-grid%2ftoc.json
-    - image: 
-        src: /azure/event-grid/media/index/logo_powershell.svg
-      text: Azure PowerShell
-      href: /azure/storage/blobs/storage-blob-event-quickstart-powershell?toc=%2fazure%2fevent-grid%2ftoc.json
-- title: Step-by-Step Tutorials
-  items:
-  - type: paragraph
-    text: Learn how to develop applications that react to events.
-  - type: list
-    style: ordered
-    items:
-    - html: <a href="/azure/event-grid/monitor-virtual-machine-changes-event-grid-logic-app">Monitor changes to VMs with logic apps</a>
-    - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event">Resize uploaded images</a>
-    - html: <a href="/azure/event-grid/ensure-tags-exists-on-new-virtual-machines">Integrating Azure Automation with Event Grid</a>
-- title: Build your skills with Microsoft Learn
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
-    items:
-    - title:  Choose a messaging model in Azure to loosely connect your services
-      href: /learn/modules/choose-a-messaging-model-in-azure-to-connect-your-services/
-      image: 
-        src: /learn/achievements/choose-a-messaging-model-in-azure-to-connect-your-services.svg
-        href: /learn/modules/choose-a-messaging-model-in-azure-to-connect-your-services/
-  - type: paragraph
-    text: <a href="/learn/browse/?products=azure-event-grid">More interactive learning...</a>
-- title: Reference
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Command-Line
-      html: <p><a href="/cli/azure/eventgrid">Azure CLI</a></p><p><a href="/powershell/module/az.eventgrid">PowerShell</a></p>
-    - title: REST APIs
-      html: <p><a href="/rest/api/eventgrid">REST</a></p>  
-    - title: Schemas
-      html: <p><a href="/azure/event-grid/subscription-creation-schema ">Subscription Schema</a></p><p><a href="/azure/event-grid/event-schema">Event Schema</a></p>
+  ms.collection: collection
+  author: spelluru
+  ms.author: spelluru
+  ms.date: 05/23/2023
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Event Grid
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Event Grid?
+            url: overview.md
+      - linkListType: whats-new
+        links:
+          - text: Pull delivery
+            url: pull-delivery-overview.md
+          - text: MQTT Messaging
+            url: mqtt-overview.md
+ # Card
+  - title: MQTT messaging (Preview)
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: MQTT support overview
+            url: mqtt-overview.md
+      - linkListType: quickstart
+        links:
+          - text: Publish and subscribe to MQTT messages
+            url: publish-events-using-namespace-topics.md
+      - linkListType: tutorial
+        links:
+          - text: Route MQTT messages to Azure Event Hubs
+            url: mqtt-routing-to-event-hubs-portal.md
+      - linkListType: sample
+        links:
+          - text: Code samples
+            url: /samples/browse/?term=MQTT+Application
+      - linkListType: concept
+        links:
+          - text: Terminology
+            url: mqtt-event-grid-namespace-terminology.md
+          - text: Client authentication
+            url: mqtt-client-authentication.md
+          - text: Access control for MQTT clients
+            url: mqtt-access-control.md
+          - text: Routing MQTT messages
+            url: mqtt-routing.md
+
+ # Card
+  - title: Push delivery
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Push delivery
+            url: push-delivery-overview.md
+          - text: Concepts
+            url: concepts.md
+          - text: Custom (topics) events 
+            url: custom-topics.md
+          - text: system (topics) events
+            url: system-topics.md
+          - text: Partner (topics) events for customers
+            url: partner-events-overview.md
+          - text: Partner (topics) events for publishers
+            url: partner-events-overview-for-partners.md
+      - linkListType: quickstart
+        links:
+          - text: Route Blob storage events to a web endpoint
+            url: blob-event-quickstart-portal.md
+          - text: Route custom events to a web endpoint
+            url: custom-event-quickstart-portal.md
+          - text: Azure Functions as an event handler
+            url: custom-event-to-function.md
+          - text: Event Hubs as an event handler
+            url: custom-event-to-eventhub.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create a custom topic or domain
+            url: create-custom-topic.md
+          - text: Create, view, and manage system topics
+            url: create-view-manage-system-topics.md
+          - text: Subscribe to partner events
+            url: subscribe-to-partner-events.md
+          - text: Onboard as a partner
+            url: onboard-partner.md
+
+ # Card
+  - title: Pull delivery (Preview)
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Pull delivery
+            url: pull-delivery-overview.md
+          - text: Concepts
+            url: concepts-pull-delivery.md
+      - linkListType: quickstart
+        links:
+          - text: Publish and subscribe to events using namespace topics
+            url: publish-events-using-namespace-topics.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create, view, and manage namespaces
+            url: create-view-manage-namespaces.md
+          - text: Create, view, and manage namespace topics
+            url: create-view-manage-namespace-topics.md
+          - text: Create, view, and manage event subscriptions
+            url: create-view-manage-event-subscriptions.md

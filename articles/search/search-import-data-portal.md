@@ -1,128 +1,150 @@
 ---
-title: Import data into a search index using Azure portal - Azure Search
-description: Learn how to use the Import Data wizard in the Azure portal to crawl Azure data from Cosmos DB, Blob storage, table storage, SQL Database, and SQL Server on Azure VMs.
+title: Import data into a search index using Azure portal
+titleSuffix: Azure Cognitive Search
+description: Learn about the Import Data wizard in the Azure portal used to create and load an index, and optionally invoke AI enrichment using built-in skills for natural language processing, translation, OCR, and image analysis.
 author: HeidiSteen
-manager: cgronlun
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/02/2019
+manager: nitinme
 ms.author: heidist
-ms.custom: seodec2018
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 07/25/2023
 ---
-# Import data wizard for Azure Search
+# Import data wizard in Azure Cognitive Search
 
-The Azure portal provides an **Import data** wizard on the Azure Search dashboard for loading data into an index. Behind the scenes, the wizard configures and invokes a *data source*, *index*, and *indexer* - automating several steps of the indexing process: 
+The **Import data wizard** in the Azure portal creates multiple objects used for indexing and AI enrichment on a search service. If you're new to Azure Cognitive Search, it's one of the most powerful features at your disposal. With minimal effort, you can create an indexing or enrichment pipeline that exercises most of the functionality of Azure Cognitive Search.
 
-* Connects to an external data source in the same Azure subscription.
-* Optionally, integrates optical character recognition or natural language processing for extracting text from unstructured data.
-* Generates an index based on data sampling and metadata of the external data source.
-* Crawls the data source for searchable content, serializing and loading JSON documents into the index.
+If you're using the wizard for proof-of-concept testing, this article explains the internal workings of the wizard so that you can use it more effectively.
 
-The wizard can't connect to a predefined index or run an existing indexer, but within the wizard, you can configure a new index or indexer to support the structure and behaviors you need.
+This article isn't a step by step. For help with using the wizard with built-in sample data, see the [Quickstart: Create a search index](search-get-started-portal.md) or [Quickstart: Create a text translation and entity skillset](cognitive-search-quickstart-blob.md).
 
-New to Azure Search? Step through the [Quickstart: Import, index, and query using portal tools](search-get-started-portal.md) to test-drive importing and indexing using **Import data** and the built-in real estate sample data set.
+## Starting the wizard
 
-## Start importing data
+In the [Azure portal](https://portal.azure.com), open the search service page from the dashboard or [find your service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in the service list. In the service Overview page at the top, select **Import data**.
 
-This section explains how to start the wizard and provides a high-level overview of each step.
+   :::image type="content" source="media/search-import-data-portal/import-data-cmd.png" alt-text="Screenshot of the Import data command" border="true":::
 
-1. In the [Azure portal](https://portal.azure.com), open the search service page from the dashboard or [find your service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in the service list.
+The wizard opens fully expanded in the browser window so that you have more room to work. 
 
-2. In the service overview page at the top, click **Import data**.
+You can also launch **Import data** from other Azure services, including Azure Cosmos DB, Azure SQL Database, SQL Managed Instance, and Azure Blob Storage. Look for **Add Azure Cognitive Search** in the left-navigation pane on the service overview page.
 
-   ![Import data command in portal](./media/search-import-data-portal/import-data-cmd2.png "Start the Import data wizard")
+## Objects created by the wizard
 
-   > [!NOTE]
-   > You can launch **Import data** from other Azure services, including Azure Cosmos DB, Azure SQL Database, and Azure Blob storage. Look for **Add Azure Search** in the left-navigation pane on the service overview page.
+The wizard will output the objects in the following table. After the objects are created, you can review their JSON definitions in the portal or call them from code.
 
-3. The wizard opens to **Connect to your data**, where you can choose an external data source to use for this import. There are several things to know about this step, so be sure to read the [Data source inputs](#data-source-inputs) section for more details.
+| Object | Description | 
+|--------|-------------|
+| [Indexer](/rest/api/searchservice/create-indexer)  | A configuration object specifying a data source, target index, an optional skillset, optional schedule, and optional configuration settings for error handing and base-64 encoding. |
+| [Data Source](/rest/api/searchservice/create-data-source)  | Persists connection information to a [supported data source](search-indexer-overview.md#supported-data-sources) on Azure. A data source object is used exclusively with indexers. | 
+| [Index](/rest/api/searchservice/create-index) | Physical data structure used for full text search and other queries. | 
+| [Skillset](/rest/api/searchservice/create-skillset) | Optional. A complete set of instructions for manipulating, transforming, and shaping content, including analyzing and extracting information from image files. Unless the volume of work fall under the limit of 20 transactions per indexer per day, the skillset must include a reference to an Azure AI multi-service resource that provides enrichment. | 
+| [Knowledge store](knowledge-store-concept-intro.md) | Optional. Stores output from an [AI enrichment pipeline](cognitive-search-concept-intro.md) in tables and blobs in Azure Storage for independent analysis or downstream processing. |
 
-   ![Import data wizard in portal](./media/search-import-data-portal/import-data-wizard-startup.png "Import data wizard for Azure Search")
+## Benefits and limitations
 
-4. Next is **Add cognitive search**, in case you want to include optical character recognition (OCR) of text in image files, or text analysis over unstructured data. AI algorithms from Cognitive Services are pulled in for this task. There are two parts to this step:
-  
-   First, [attach a Cognitive Services resource](cognitive-search-attach-cognitive-services.md) to an Azure Search skillset.
-  
-   Second, choose which AI enrichments to include in the skillset. For a walkthrough demonstration, see this [Quickstart](cognitive-search-quickstart-blob.md).
+Before writing any code, you can use the wizard for prototyping and proof-of-concept testing. The wizard connects to external data sources, samples the data to create an initial index, and then imports the data as JSON documents into an index on Azure Cognitive Search. 
 
-   If you just want to import data, skip this step and go directly to index definition.
+If you're evaluating skillsets, the wizard will handle all of the output field mappings and add helper functions to create usable objects. Text split is added if you specify a parsing mode. Text merge is added if you chose image analysis so that the wizard can reunite text descriptions with image content. Shaper skills added to support valid projections if you chose the knowledge store option. All of the above tasks come with a learning curve. If you're new to enrichment, the ability to have these steps handled for you allows you to measure the value of a skill without having to invest much time and effort.
 
-5. Next is **Customize target index**, where you can accept or modify the index schema presented in the wizard. The wizard infers the fields and datatypes by sampling data and reading metadata from the external data source.
+Sampling is the process by which an index schema is inferred, and it has some limitations. When the data source is created, the wizard picks a random sample of documents to decide what columns are part of the data source. Not all files are read, as this could potentially take hours for very large data sources. Given a selection of documents, source metadata, such as field name or type, is used to create a fields collection in an index schema. Depending on the complexity of source data, you might need to edit the initial schema for accuracy, or extend it for completeness. You can make your changes inline on the index definition page.
 
-   For each field, [check the index attributes](#index-definition) to enable specific behaviors. If you don't select any attributes, your index won't be usable. 
+Overall, the advantages of using the wizard are clear: as long as requirements are met, you can prototype a queryable index within minutes. Some of the complexities of indexing, such as serializing data as JSON documents, are handled by the wizard.
 
-6. Next is **Create an indexer**, which is a product of this wizard. An indexer is a crawler that extracts searchable data and metadata from an external Azure data source. By selecting the data source and attaching skillsets (optional) and an index, you've been configuring an indexer as you move through each step of the wizard.
+The wizard isn't without limitations. Constraints are summarized as follows:
 
-   Give the indexer a name, and click **Submit** to begin the import process. 
++ The wizard doesn't support iteration or reuse. Each pass through the wizard creates a new index, skillset, and indexer configuration. Only data sources can be persisted and reused within the wizard. To edit or refine other objects, either delete the objects and start over, or use the REST APIs or .NET SDK to modify the structures.
 
-You can monitor indexing in the portal by clicking the indexer in the **Indexers** list. As documents are loaded, the document count will grow for the index you have defined. Sometimes it takes a few minutes for the portal page to pick up the most recent updates.
++ Source content must reside in a [supported data source](search-indexer-overview.md#supported-data-sources).
 
-The index is ready to query as soon as the first document is loaded. You can use [Search explorer](search-explorer.md) for this task.
++ Sampling is over a subset of source data. For large data sources, it's possible for the wizard to miss fields. You might need to extend the schema, or correct the inferred data types, if sampling is insufficient.
+
++ AI enrichment, as exposed in the portal, is limited to a subset of built-in skills. 
+
++ A [knowledge store](knowledge-store-concept-intro.md), which can be created by the wizard, is limited to a few default projections and uses a default naming convention. If you want to customize names or projections, you'll need to create the knowledge store through REST API or the SDKs.
+
++ Public access to all networks must be enabled on the supported data source while the wizard is used, since the portal won't be able to access the data source during setup if public access is disabled. This means that if your data source has a firewall enabled or you have set a shared private link, you must disable them, run the Import Data wizard and then enable it after wizard setup is completed. If this isn't an option, you can create Azure Cognitive Search data source, indexer, skillset and index through REST API or the SDKs.
+
+## Workflow
+
+The wizard is organized into four main steps:
+
+1. Connect to a supported Azure data source.
+
+1. Create an index schema, inferred by sampling source data.
+
+1. Optionally, add AI enrichments to extract or generate content and structure. Inputs for creating a knowledge store are collected in this step.
+
+1. Run the wizard to create objects, load data, set a schedule and other configuration options.
+
+The workflow is a pipeline, so it's one way. You can't use the wizard to edit any of the objects that were created, but you can use other portal tools, such as the index or indexer designer or the JSON editors, for allowed updates.
 
 <a name="data-source-inputs"></a>
 
-## Data source inputs
+### Data source configuration in the wizard
 
-The **Import data** wizard creates a persistent data source object specifying connection information to an external data source. The data source object is used exclusively with [indexers](search-indexer-overview.md) and can be created for the following data sources: 
+The **Import data** wizard connects to an external [supported data source](search-indexer-overview.md#supported-data-sources) using the internal logic provided by Azure Cognitive Search indexers, which are equipped to sample the source, read metadata, crack documents to read content and structure, and serialize contents as JSON for subsequent import to Azure Cognitive Search.
 
-* [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Azure Cosmos DB](search-howto-index-cosmosdb.md)
-* [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
-* [Azure Table Storage](search-howto-indexing-azure-tables.md) (not supported for [cognitive search](cognitive-search-concept-intro.md) pipelines)
+You can paste in a connection to a supported data source in a different subscription or region, but the **Choose an existing connection** picker is scoped to the active subscription.
+
+:::image type="content" source="media/search-import-data-portal/choose-connection-same-subscription.png" alt-text="Screenshot of the Connect to your data tab." border="true":::
+
+Not all preview data sources are guaranteed to be available in the wizard. Because each data source has the potential for introducing other changes downstream, a preview data source will only be added to the data sources list if it fully supports all of the experiences in the wizard, such as skillset definition and index schema inference.
 
 You can only import from a single table, database view, or equivalent data structure, however the structure can include hierarchical or nested substructures. For more information, see [How to model complex types](search-howto-complex-data-types.md).
 
-You should create this data structure before running the wizard, and it must contain content. Do not run the **Import data** wizard on an empty data source.
+### Skillset configuration in the wizard
 
-|  Selection | Description |
-| ---------- | ----------- |
-| **Existing data source** |If you already have indexers defined in your search service, you can select an existing data source definition for another import. In Azure Search, data source objects are only used by indexers. You can create a data source object programmatically or through the **Import data** wizard.|
-| **Samples**| Azure Search hosts a free global Azure SQL database that you can use to learn about importing and query requests in Azure Search. See [Quickstart: Import, index, and query using portal tools](search-get-started-portal.md) for a walkthrough. |
-| **Azure SQL Database** |Service name, credentials for a database user with read permission, and a database name can be specified either on the page or via an ADO.NET connection string. Choose the connection string option to view or customize properties. <br/><br/>The table or view that provides the rowset must be specified on the page. This option appears after the connection succeeds, giving a drop-down list so that you can make a selection. |
-| **SQL Server on Azure VM** |Specify a fully qualified service name, user ID and password, and database as a connection string. To use this data source, you must have previously installed a certificate in the local store that encrypts the connection. For instructions, see [SQL VM connection to Azure Search](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md). <br/><br/>The table or view that provides the rowset must be specified on the page. This option appears after the connection succeeds, giving a drop-down list so that you can make a selection. |
-| **Cosmos DB** |Requirements include the account, database, and collection. All documents in the collection will be included in the index. You can define a query to flatten or filter the rowset, or leave the query blank. A query is not required in this wizard.|
-| **Azure Blob Storage** |Requirements include the storage account and a container. Optionally, if blob names follow a virtual naming convention for grouping purposes, you can specify the virtual directory portion of the name as a folder under container. See [Indexing Blob Storage](search-howto-indexing-azure-blob-storage.md) for more information. |
-| **Azure Table Storage** |Requirements include the storage account and a table name. Optionally, you can specify a query to retrieve a subset of the tables. See [Indexing Table Storage](search-howto-indexing-azure-tables.md) for more information. |
+Skillset configuration occurs after the data source definition because the type of data source will inform the availability of certain built-in skills. In particular, if you're indexing files from Blob Storage, your choice of parsing mode of those files will determine whether sentiment analysis is available.
 
+The wizard will add the skills you choose, but it will also add other skills that are necessary for achieving a successful outcome. For example, if you specify a knowledge store, the wizard adds a Shaper skill to support projections (or physical data structures).
+
+Skillsets are optional and there's a button at the bottom of the page to skip ahead if you don't want AI enrichment.
 
 <a name="index-definition"></a>
 
-## Index attributes
+### Index schema configuration in the wizard
 
-The **Import data** wizard generates an index, which will be populated with documents obtained from the input data source. 
+The wizard samples your data source to detect the fields and field type. Depending on the data source, it might also offer fields for indexing metadata.
 
-For a functional index, make sure you have the following elements defined.
+Because sampling is an imprecise exercise, review the index for the following considerations:
 
-1. One field must be marked as a **Key**, which is used to uniquely identify each document. The **Key** must be *Edm.string*. 
+1. Is the field list accurate? If your data source contains fields that weren't picked up in sampling, you can manually add any new fields that sampling missed, and remove any that don't add value to a search experience or that won't be used in a [filter expression](search-query-odata-filter.md) or [scoring profile](index-add-scoring-profiles.md).
 
-   If field values include spaces or dashes, you must set the **Base-64 Encode Key** option in the **Create an Indexer** step, under **Advanced options**, to suppress the validation check for these characters.
+1. Is the data type appropriate for the incoming data? Azure Cognitive Search supports the [entity data model (EDM) data types](/rest/api/searchservice/supported-data-types). For Azure SQL data, there's [mapping chart](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#TypeMapping) that lays out equivalent values. For more background, see [Field mappings and transformations](search-indexer-field-mappings.md).
 
-1. Set index attributes for each field. If you select no attributes, your index is essentially empty, except for the required key field. At a minimum, choose one or more of these attributes for each field.
-   
-   + **Retrievable** returns the field in search results. Every field that provides content to search results must have this attribute. Setting this field does not appreciably effect index size.
-   + **Filterable** allows the field to be referenced in filter expressions. Every field used in a **$filter**  expression must have this attribute. Filter expressions are for exact matches. Because text strings remain intact, additional storage is required to accommodate the verbatim content.
+1. Do you have one field that can serve as the *key*? This field must be Edm.string and it must uniquely identify a document. For relational data, it might be mapped to a primary key. For blobs, it might be the `metadata-storage-path`. If field values include spaces or dashes, you must set the **Base-64 Encode Key** option in the **Create an Indexer** step, under **Advanced options**, to suppress the validation check for these characters.
+
+1. Set attributes to determine how that field is used in an index. 
+
+   Take your time with this step because attributes determine the physical expression of fields in the index. If you want to change attributes later, even programmatically, you'll almost always need to drop and rebuild the index. Core attributes like **Searchable** and **Retrievable** have a [negligible impact on storage](search-what-is-an-index.md#index-size). Enabling filters and using suggesters increase storage requirements. 
+
    + **Searchable** enables full-text search. Every field used in free form queries or in query expressions must have this attribute. Inverted indexes are created for each field that you mark as **Searchable**.
 
-1. Optionally, set these attribute as needed:
+   + **Retrievable** returns the field in search results. Every field that provides content to search results must have this attribute. Setting this field doesn't appreciably affect index size.
 
-   + **Sortable** allows the field to be used in a sort. Every field used in an **$Orderby** expression must have this attribute.
+   + **Filterable** allows the field to be referenced in filter expressions. Every field used in a **$filter**  expression must have this attribute. Filter expressions are for exact matches. Because text strings remain intact, more storage is required to accommodate the verbatim content.
+
    + **Facetable** enables the field for faceted navigation. Only fields also marked as **Filterable** can be marked as **Facetable**.
 
-1. Set an **Analyzer** if you want language-enhanced indexing and querying. The default is *Standard Lucene* but you could choose *Microsoft English* if you wanted to use Microsoft's analyzer for advanced lexical processing, such as resolving irregular noun and verb forms.
+   + **Sortable** allows the field to be used in a sort. Every field used in an **$Orderby** expression must have this attribute.
 
-   + Select **Searchable** to enable the **Analyzer** list.
-   + Choose an analyzer provided in the list. 
-   
-   Only language analyzers can be specified at this time. Using a custom analyzer or a non-language analyzer like Keyword, Pattern, and so forth, will require code. For more information about analyzers, see [Create an index for documents in multiple languages](search-language-support.md).
+1. Do you need [lexical analysis](search-lucene-query-architecture.md#stage-2-lexical-analysis)? For Edm.string fields that are **Searchable**, you can set an **Analyzer** if you want language-enhanced indexing and querying. 
 
-1. Select the **Suggester** the checkbox to enable type-ahead query suggestions on selected fields.
+   The default is *Standard Lucene* but you could choose *Microsoft English* if you wanted to use Microsoft's analyzer for advanced lexical processing, such as resolving irregular noun and verb forms. Only language analyzers can be specified in the portal. Using a custom analyzer or a non-language analyzer like Keyword, Pattern, and so forth, must be done programmatically. For more information about analyzers, see [Add language analyzers](search-language-support.md).
 
+1. Do you need typeahead functionality in the form of autocomplete or suggested results? Select the **Suggester** the checkbox to enable [typeahead query suggestions and autocomplete](index-add-suggesters.md) on selected fields. Suggesters add to the number of tokenized terms in your index, and thus consume more storage.
+
+### Indexer configuration in the wizard
+
+The last page of the wizard collects user inputs for indexer configuration. You can [specify a schedule](search-howto-schedule-indexers.md) and set other options that will vary by the data source type.
+
+Internally, the wizard also sets up the following definitions, which aren't visible in the indexer until after it's created:
+
++ [field mappings](search-indexer-field-mappings.md) between the data source and index
++ [output field mappings](cognitive-search-output-field-mapping.md) between skill output and an index
 
 ## Next steps
-Review these links to learn more about indexers:
 
-* [Indexing Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Indexing Azure Cosmos DB](search-howto-index-cosmosdb.md)
-* [Indexing Blob Storage](search-howto-indexing-azure-blob-storage.md)
-* [Indexing Table Storage](search-howto-indexing-azure-tables.md)
+The best way to understand the benefits and limitations of the wizard is to step through it. The following quickstart explains each step.
+
+> [!div class="nextstepaction"]
+> [Quickstart: Create a search index using the Azure portal](search-get-started-portal.md)

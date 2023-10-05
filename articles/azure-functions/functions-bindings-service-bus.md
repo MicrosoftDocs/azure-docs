@@ -1,639 +1,277 @@
 ---
 title: Azure Service Bus bindings for Azure Functions
-description: Understand how to use Azure Service Bus triggers and bindings in Azure Functions.
-services: functions
-documentationcenter: na
-author: craigshoemaker
-manager: jeconnoc
-keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
-
+description: Learn to send Azure Service Bus triggers and bindings in Azure Functions.
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
-ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
-ms.date: 04/01/2017
-ms.author: cshoe
-
+ms.date: 12/12/2022
+ms.custom: fasttrack-edit, devx-track-extended-java, devx-track-js, devx-track-python
+zone_pivot_groups: programming-languages-set-functions
 ---
+
 # Azure Service Bus bindings for Azure Functions
 
-This article explains how to work with Azure Service Bus bindings in Azure Functions. Azure Functions supports trigger and output bindings for Service Bus queues and topics.
+Azure Functions integrates with [Azure Service Bus](https://azure.microsoft.com/services/service-bus) via [triggers and bindings](./functions-triggers-bindings.md). Integrating with Service Bus allows you to build functions that react to and send queue or topic messages.
 
-[!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+| Action | Type |
+|---------|---------|
+| Run a function when a Service Bus queue or topic message is created | [Trigger](./functions-bindings-service-bus-trigger.md) |
+| Send Azure Service Bus messages |[Output binding](./functions-bindings-service-bus-output.md) |
 
-## Packages - Functions 1.x
+::: zone pivot="programming-language-csharp"
 
-The Service Bus bindings are provided in the [Microsoft.Azure.WebJobs.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet package, version 2.x. 
+## Install extension
 
-[!INCLUDE [functions-package](../../includes/functions-package.md)]
+The extension NuGet package you install depends on the C# mode you're using in your function app: 
 
-## Packages - Functions 2.x
+# [Isolated worker model](#tab/isolated-process)
 
-The Service Bus bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus) NuGet package, version 3.x. Source code for the package is in the [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/) GitHub repository.
+Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
 
-[!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
+Add the extension to your project installing this [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.servicebus).
 
-## Trigger
-
-Use the Service Bus trigger to respond to messages from a Service Bus queue or topic. 
+# [In-process model](#tab/in-process)
 
-## Trigger - example
+_This section describes using a [class library](./functions-dotnet-class-library.md). For [C# scripting], you would need to instead [install the extension bundle][Update your extensions], version 2.x or later._ 
 
-See the language-specific example:
+Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
 
-* [C#](#trigger---c-example)
-* [C# script (.csx)](#trigger---c-script-example)
-* [F#](#trigger---f-example)
-* [Java](#trigger---java-example)
-* [JavaScript](#trigger---javascript-example)
+Add the extension to your project installing this [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus).
 
-### Trigger - C# example
+---
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that reads [message metadata](#trigger---message-metadata) and
-logs a Service Bus queue message:
+The functionality of the extension varies depending on the extension version:
 
-```cs
-[FunctionName("ServiceBusQueueTriggerCSharp")]                    
-public static void Run(
-    [ServiceBusTrigger("myqueue", AccessRights.Manage, Connection = "ServiceBusConnection")] 
-    string myQueueItem,
-    Int32 deliveryCount,
-    DateTime enqueuedTimeUtc,
-    string messageId,
-    ILogger log)
-{
-    log.LogInformation($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
-    log.LogInformation($"EnqueuedTimeUtc={enqueuedTimeUtc}");
-    log.LogInformation($"DeliveryCount={deliveryCount}");
-    log.LogInformation($"MessageId={messageId}");
-}
-```
-
-This example is for Azure Functions version 1.x. To make this code work for 2.x:
-
-- [omit the access rights parameter](#trigger---configuration)
-- change the type of the log parameter from `TraceWriter` to `ILogger`
-- change `log.Info` to `log.LogInformation`
-
-### Trigger - C# script example
-
-The following example shows a Service Bus trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function reads [message metadata](#trigger---message-metadata) and logs a Service Bus queue message.
-
-Here's the binding data in the *function.json* file:
-
-```json
-{
-"bindings": [
-    {
-    "queueName": "testqueue",
-    "connection": "MyServiceBusConnection",
-    "name": "myQueueItem",
-    "type": "serviceBusTrigger",
-    "direction": "in"
-    }
-],
-"disabled": false
-}
-```
-
-Here's the C# script code:
-
-```cs
-using System;
-
-public static void Run(string myQueueItem,
-    Int32 deliveryCount,
-    DateTime enqueuedTimeUtc,
-    string messageId,
-    TraceWriter log)
-{
-    log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
-
-    log.Info($"EnqueuedTimeUtc={enqueuedTimeUtc}");
-    log.Info($"DeliveryCount={deliveryCount}");
-    log.Info($"MessageId={messageId}");
-}
-```
-
-### Trigger - F# example
-
-The following example shows a Service Bus trigger binding in a *function.json* file and an [F# function](functions-reference-fsharp.md) that uses the binding. The function logs a Service Bus queue message. 
-
-Here's the binding data in the *function.json* file:
-
-```json
-{
-"bindings": [
-    {
-    "queueName": "testqueue",
-    "connection": "MyServiceBusConnection",
-    "name": "myQueueItem",
-    "type": "serviceBusTrigger",
-    "direction": "in"
-    }
-],
-"disabled": false
-}
-```
-
-Here's the F# script code:
-
-```fsharp
-let Run(myQueueItem: string, log: ILogger) =
-    log.LogInformation(sprintf "F# ServiceBus queue trigger function processed message: %s" myQueueItem)
-```
-
-### Trigger - Java example
-
-The following Java function uses the `@ServiceBusQueueTrigger` annotation from the [Java functions runtime library](/java/api/overview/azure/functions/runtime) to describe the configuration for a Service Bus queue trigger. The  function grabs the message placed on the queue and adds it to the logs.
-
-```java
-@FunctionName("sbprocessor")
- public void serviceBusProcess(
-    @ServiceBusQueueTrigger(name = "msg",
-                             queueName = "myqueuename",
-                             connection = "myconnvarname") String message,
-   final ExecutionContext context
- ) {
-     context.getLogger().info(message);
- }
-```
-
-Java functions can also be triggered when a message is added to a Service Bus topic. The following example uses the `@ServiceBusTopicTrigger` annotation to describe the trigger configuration.
-
-```java
-@FunctionName("sbtopicprocessor")
-    public void run(
-        @ServiceBusTopicTrigger(
-            name = "message",
-            topicName = "mytopicname",
-            subscriptionName = "mysubscription",
-            connection = "ServiceBusConnection"
-        ) String message,
-        final ExecutionContext context
-    ) {
-        context.getLogger().info(message);
-    }
-```
-
-### Trigger - JavaScript example
-
-The following example shows a Service Bus trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function reads [message metadata](#trigger---message-metadata) and logs a Service Bus queue message. 
-
-Here's the binding data in the *function.json* file:
-
-```json
-{
-"bindings": [
-    {
-    "queueName": "testqueue",
-    "connection": "MyServiceBusConnection",
-    "name": "myQueueItem",
-    "type": "serviceBusTrigger",
-    "direction": "in"
-    }
-],
-"disabled": false
-}
-```
-
-Here's the JavaScript script code:
-
-```javascript
-module.exports = function(context, myQueueItem) {
-    context.log('Node.js ServiceBus queue trigger function processed message', myQueueItem);
-    context.log('EnqueuedTimeUtc =', context.bindingData.enqueuedTimeUtc);
-    context.log('DeliveryCount =', context.bindingData.deliveryCount);
-    context.log('MessageId =', context.bindingData.messageId);
-    context.done();
-};
-```
-
-## Trigger - attributes
-
-In [C# class libraries](functions-dotnet-class-library.md), use the following attributes to configure a Service Bus trigger:
-
-* [ServiceBusTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/ServiceBusTriggerAttribute.cs)
-
-  The attribute's constructor takes the name of the queue or the topic and subscription. In Azure Functions version 1.x, you can also specify the connection's access rights. If you don't specify access rights, the default is `Manage`. For more information, see the [Trigger - configuration](#trigger---configuration) section.
-
-  Here's an example that shows the attribute used with a string parameter:
-
-  ```csharp
-  [FunctionName("ServiceBusQueueTriggerCSharp")]                    
-  public static void Run(
-      [ServiceBusTrigger("myqueue")] string myQueueItem, ILogger log)
-  {
-      ...
-  }
-  ```
-
-  You can set the `Connection` property to specify the Service Bus account to use, as shown in the following example:
-
-  ```csharp
-  [FunctionName("ServiceBusQueueTriggerCSharp")]                    
-  public static void Run(
-      [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] 
-      string myQueueItem, ILogger log)
-  {
-      ...
-  }
-  ```
-
-  For a complete example, see [Trigger - C# example](#trigger---c-example).
-
-* [ServiceBusAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/ServiceBusAccountAttribute.cs)
-
-  Provides another way to specify the Service Bus account to use. The constructor takes the name of an app setting that contains a Service Bus connection string. The attribute can be applied at the parameter, method, or class level. The following example shows class level and method level:
-
-  ```csharp
-  [ServiceBusAccount("ClassLevelServiceBusAppSetting")]
-  public static class AzureFunctions
-  {
-      [ServiceBusAccount("MethodLevelServiceBusAppSetting")]
-      [FunctionName("ServiceBusQueueTriggerCSharp")]
-      public static void Run(
-          [ServiceBusTrigger("myqueue", AccessRights.Manage)] 
-          string myQueueItem, ILogger log)
-  {
-      ...
-  }
-  ```
-
-The Service Bus account to use is determined in the following order:
-
-* The `ServiceBusTrigger` attribute's `Connection` property.
-* The `ServiceBusAccount` attribute applied to the same parameter as the `ServiceBusTrigger` attribute.
-* The `ServiceBusAccount` attribute applied to the function.
-* The `ServiceBusAccount` attribute applied to the class.
-* The "AzureWebJobsServiceBus" app setting.
-
-## Trigger - configuration
-
-The following table explains the binding configuration properties that you set in the *function.json* file and the `ServiceBusTrigger` attribute.
-
-|function.json property | Attribute property |Description|
-|---------|---------|----------------------|
-|**type** | n/a | Must be set to "serviceBusTrigger". This property is set automatically when you create the trigger in the Azure portal.|
-|**direction** | n/a | Must be set to "in". This property is set automatically when you create the trigger in the Azure portal. |
-|**name** | n/a | The name of the variable that represents the queue or topic message in function code. Set to "$return" to reference the function return value. |
-|**queueName**|**QueueName**|Name of the queue to monitor.  Set only if monitoring a queue, not for a topic.
-|**topicName**|**TopicName**|Name of the topic to monitor. Set only if monitoring a topic, not for a queue.|
-|**subscriptionName**|**SubscriptionName**|Name of the subscription to monitor. Set only if monitoring a topic, not for a queue.|
-|**connection**|**Connection**|The name of an app setting that contains the Service Bus connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name. For example, if you set `connection` to "MyServiceBus", the Functions runtime looks for an app setting that is named "AzureWebJobsMyServiceBus." If you leave `connection` empty, the Functions runtime uses the default Service Bus connection string in the app setting that is named "AzureWebJobsServiceBus".<br><br>To obtain a connection string, follow the steps shown at [Get the management credentials](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). The connection string must be for a Service Bus namespace, not limited to a specific queue or topic. |
-|**accessRights**|**Access**|Access rights for the connection string. Available values are `manage` and `listen`. The default is `manage`, which indicates that the `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, set `accessRights` to "listen". Otherwise, the Functions runtime might fail trying to do operations that require manage rights. In Azure Functions version 2.x, this property is not available because the latest version of the Storage SDK doesn't support manage operations.|
-
-[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
-
-## Trigger - usage
-
-In C# and C# script, you can use the following parameter types for the queue or topic message:
-
-* `string` - If the message is text.
-* `byte[]` - Useful for binary data.
-* A custom type - If the message contains JSON, Azure Functions tries to deserialize the JSON data.
-* `BrokeredMessage` - Gives you the deserialized message with the [BrokeredMessage.GetBody<T>()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1)
-  method.
-
-These parameters are for Azure Functions version 1.x; for 2.x, use [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) instead of `BrokeredMessage`.
-
-In JavaScript, access the queue or topic message by using `context.bindings.<name from function.json>`. The Service Bus message is passed into the function as either a string or JSON object.
-
-## Trigger - poison messages
-
-Poison message handling can't be controlled or configured in Azure Functions. Service Bus handles poison messages itself.
-
-## Trigger - PeekLock behavior
-
-The Functions runtime receives a message in [PeekLock mode](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode). It calls `Complete` on the message if the function finishes successfully, or calls `Abandon` if the function fails. If the function runs longer than the `PeekLock` timeout, the lock is automatically renewed as long as the function is running. 
-
-The `maxAutoRenewDuration` is configurable in *host.json*, which maps to [OnMessageOptions.MaxAutoRenewDuration](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.messagehandleroptions.maxautorenewduration?view=azure-dotnet). The maximum allowed for this setting is 5 minutes according to the Service Bus documentation, whereas you can increase the Functions time limit from the default of 5 minutes to 10 minutes. For Service Bus functions you wouldn’t want to do that then, because you’d exceed the Service Bus renewal limit.
-
-## Trigger - message metadata
-
-The Service Bus trigger provides several [metadata properties](./functions-bindings-expressions-patterns.md#trigger-metadata). These properties can be used as part of binding expressions in other bindings or as parameters in your code. These are properties of the [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) class.
-
-|Property|Type|Description|
-|--------|----|-----------|
-|`DeliveryCount`|`Int32`|The number of deliveries.|
-|`DeadLetterSource`|`string`|The dead letter source.|
-|`ExpiresAtUtc`|`DateTime`|The expiration time in UTC.|
-|`EnqueuedTimeUtc`|`DateTime`|The enqueued time in UTC.|
-|`MessageId`|`string`|A user-defined value that Service Bus can use to identify duplicate messages, if enabled.|
-|`ContentType`|`string`|A content type identifier utilized by the sender and receiver for application specific logic.|
-|`ReplyTo`|`string`|The reply to queue address.|
-|`SequenceNumber`|`Int64`|The unique number assigned to a message by the Service Bus.|
-|`To`|`string`|The send to address.|
-|`Label`|`string`|The application specific label.|
-|`CorrelationId`|`string`|The correlation ID.|
-
-> [!NOTE]
-> Currently, Service bus trigger that works with session enabled queues and subscriptions is in preview. Please track [this item](https://github.com/Azure/azure-webjobs-sdk/issues/529#issuecomment-491113458) for any further updates regarding this. 
-
-See [code examples](#trigger---example) that use these properties earlier in this article.
-
-## Trigger - host.json properties
-
-The [host.json](functions-host-json.md#servicebus) file contains settings that control Service Bus trigger behavior.
-
-```json
-{
-    "serviceBus": {
-      "maxConcurrentCalls": 16,
-      "prefetchCount": 100,
-      "maxAutoRenewDuration": "00:05:00"
-    }
-}
-```
-
-|Property  |Default | Description |
-|---------|---------|---------|
-|maxConcurrentCalls|16|The maximum number of concurrent calls to the callback that the message pump should initiate. By default, the Functions runtime processes multiple messages concurrently. To direct the runtime to process only a single queue or topic message at a time, set `maxConcurrentCalls` to 1. |
-|prefetchCount|n/a|The default PrefetchCount that will be used by the underlying MessageReceiver.|
-|maxAutoRenewDuration|00:05:00|The maximum duration within which the message lock will be renewed automatically.|
-
-## Output
-
-Use Azure Service Bus output binding to send queue or topic messages.
-
-## Output - example
-
-See the language-specific example:
-
-* [C#](#output---c-example)
-* [C# script (.csx)](#output---c-script-example)
-* [F#](#output---f-example)
-* [Java](#output---java-example)
-* [JavaScript](#output---javascript-example)
-
-### Output - C# example
-
-The following example shows a [C# function](functions-dotnet-class-library.md) that sends a Service Bus queue message:
-
-```cs
-[FunctionName("ServiceBusOutput")]
-[return: ServiceBus("myqueue", Connection = "ServiceBusConnection")]
-public static string ServiceBusOutput([HttpTrigger] dynamic input, ILogger log)
-{
-    log.LogInformation($"C# function processed: {input.Text}");
-    return input.Text;
-}
-```
-
-### Output - C# script example
-
-The following example shows a Service Bus output binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function uses a timer trigger to send a queue message every 15 seconds.
-
-Here's the binding data in the *function.json* file:
-
-```json
-{
-    "bindings": [
-        {
-            "schedule": "0/15 * * * * *",
-            "name": "myTimer",
-            "runsOnStartup": true,
-            "type": "timerTrigger",
-            "direction": "in"
-        },
-        {
-            "name": "outputSbQueue",
-            "type": "serviceBus",
-            "queueName": "testqueue",
-            "connection": "MyServiceBusConnection",
-            "direction": "out"
-        }
-    ],
-    "disabled": false
-}
-```
-
-Here's C# script code that creates a single message:
-
-```cs
-public static void Run(TimerInfo myTimer, ILogger log, out string outputSbQueue)
-{
-    string message = $"Service Bus queue message created at: {DateTime.Now}";
-    log.LogInformation(message); 
-    outputSbQueue = message;
-}
-```
-
-Here's C# script code that creates multiple messages:
-
-```cs
-public static void Run(TimerInfo myTimer, ILogger log, ICollector<string> outputSbQueue)
-{
-    string message = $"Service Bus queue messages created at: {DateTime.Now}";
-    log.LogInformation(message); 
-    outputSbQueue.Add("1 " + message);
-    outputSbQueue.Add("2 " + message);
-}
-```
-
-### Output - F# example
-
-The following example shows a Service Bus output binding in a *function.json* file and an [F# script function](functions-reference-fsharp.md) that uses the binding. The function uses a timer trigger to send a queue message every 15 seconds.
-
-Here's the binding data in the *function.json* file:
-
-```json
-{
-    "bindings": [
-        {
-            "schedule": "0/15 * * * * *",
-            "name": "myTimer",
-            "runsOnStartup": true,
-            "type": "timerTrigger",
-            "direction": "in"
-        },
-        {
-            "name": "outputSbQueue",
-            "type": "serviceBus",
-            "queueName": "testqueue",
-            "connection": "MyServiceBusConnection",
-            "direction": "out"
-        }
-    ],
-    "disabled": false
-}
-```
-
-Here's F# script code that creates a single message:
-
-```fsharp
-let Run(myTimer: TimerInfo, log: ILogger, outputSbQueue: byref<string>) =
-    let message = sprintf "Service Bus queue message created at: %s" (DateTime.Now.ToString())
-    log.LogInformation(message)
-    outputSbQueue = message
-```
-
-### Output - Java example
-
-The following example shows a Java function that sends a message to a Service Bus queue `myqueue` when triggered by a HTTP request.
-
-```java
-@FunctionName("httpToServiceBusQueue")
-@ServiceBusQueueOutput(name = "message", queueName = "myqueue", connection = "AzureServiceBusConnection")
-public String pushToQueue(
-  @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
-  final String message,
-  @HttpOutput(name = "response") final OutputBinding<T> result ) {
-      result.setValue(message + " has been sent.");
-      return message;
- }
-```
-
- In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@QueueOutput` annotation on function parameters whose value would be written to a Service Bus queue.  The parameter type should be `OutputBinding<T>`, where T is any native Java type of a POJO.
-
-Java functions can also write to a Service Bus topic. The following example uses the `@ServiceBusTopicOutput` annotation to describe the configuration for the output binding. 
-
-```java
-@FunctionName("sbtopicsend")
-    public HttpResponseMessage run(
-            @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
-            @ServiceBusTopicOutput(name = "message", topicName = "mytopicname", subscriptionName = "mysubscription", connection = "ServiceBusConnection") OutputBinding<String> message,
-            final ExecutionContext context) {
-        
-        String name = request.getBody().orElse("Azure Functions");
-
-        message.setValue(name);
-        return request.createResponseBuilder(HttpStatus.OK).body("Hello, " + name).build();
-        
-    }
-```
-
-### Output - JavaScript example
-
-The following example shows a Service Bus output binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function uses a timer trigger to send a queue message every 15 seconds.
-
-Here's the binding data in the *function.json* file:
-
-```json
-{
-    "bindings": [
-        {
-            "schedule": "0/15 * * * * *",
-            "name": "myTimer",
-            "runsOnStartup": true,
-            "type": "timerTrigger",
-            "direction": "in"
-        },
-        {
-            "name": "outputSbQueue",
-            "type": "serviceBus",
-            "queueName": "testqueue",
-            "connection": "MyServiceBusConnection",
-            "direction": "out"
-        }
-    ],
-    "disabled": false
-}
-```
-
-Here's JavaScript script code that creates a single message:
-
-```javascript
-module.exports = function (context, myTimer) {
-    var message = 'Service Bus queue message created at ' + timeStamp;
-    context.log(message);   
-    context.bindings.outputSbQueue = message;
-    context.done();
-};
-```
-
-Here's JavaScript script code that creates multiple messages:
-
-```javascript
-module.exports = function (context, myTimer) {
-    var message = 'Service Bus queue message created at ' + timeStamp;
-    context.log(message);   
-    context.bindings.outputSbQueue = [];
-    context.bindings.outputSbQueue.push("1 " + message);
-    context.bindings.outputSbQueue.push("2 " + message);
-    context.done();
-};
-```
-
-## Output - attributes
-
-In [C# class libraries](functions-dotnet-class-library.md), use the [ServiceBusAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/ServiceBusAttribute.cs).
-
-The attribute's constructor takes the name of the queue or the topic and subscription. You can also specify the connection's access rights. How to choose the access rights setting is explained in the [Output - configuration](#output---configuration) section. Here's an example that shows the attribute applied to the return value of the function:
-
-```csharp
-[FunctionName("ServiceBusOutput")]
-[return: ServiceBus("myqueue")]
-public static string Run([HttpTrigger] dynamic input, ILogger log)
-{
-    ...
-}
-```
-
-You can set the `Connection` property to specify the Service Bus account to use, as shown in the following example:
-
-```csharp
-[FunctionName("ServiceBusOutput")]
-[return: ServiceBus("myqueue", Connection = "ServiceBusConnection")]
-public static string Run([HttpTrigger] dynamic input, ILogger log)
-{
-    ...
-}
-```
-
-For a complete example, see [Output - C# example](#output---c-example).
-
-You can use the `ServiceBusAccount` attribute to specify the Service Bus account to use at class, method, or parameter level.  For more information, see [Trigger - attributes](#trigger---attributes).
-
-## Output - configuration
-
-The following table explains the binding configuration properties that you set in the *function.json* file and the `ServiceBus` attribute.
-
-|function.json property | Attribute property |Description|
-|---------|---------|----------------------|
-|**type** | n/a | Must be set to "serviceBus". This property is set automatically when you create the trigger in the Azure portal.|
-|**direction** | n/a | Must be set to "out". This property is set automatically when you create the trigger in the Azure portal. |
-|**name** | n/a | The name of the variable that represents the queue or topic in function code. Set to "$return" to reference the function return value. |
-|**queueName**|**QueueName**|Name of the queue.  Set only if sending queue messages, not for a topic.
-|**topicName**|**TopicName**|Name of the topic to monitor. Set only if sending topic messages, not for a queue.|
-|**connection**|**Connection**|The name of an app setting that contains the Service Bus connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name. For example, if you set `connection` to "MyServiceBus", the Functions runtime looks for an app setting that is named "AzureWebJobsMyServiceBus." If you leave `connection` empty, the Functions runtime uses the default Service Bus connection string in the app setting that is named "AzureWebJobsServiceBus".<br><br>To obtain a connection string, follow the steps shown at [Get the management credentials](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). The connection string must be for a Service Bus namespace, not limited to a specific queue or topic.|
-|**accessRights**|**Access**|Access rights for the connection string. Available values are `manage` and `listen`. The default is `manage`, which indicates that the `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, set `accessRights` to "listen". Otherwise, the Functions runtime might fail trying to do operations that require manage rights. In Azure Functions version 2.x, this property is not available because the latest version of the Storage SDK doesn't support manage operations.|
-
-[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
-
-## Output - usage
-
-In Azure Functions 1.x, the runtime creates the queue if it doesn't exist and you have set `accessRights` to `manage`. In Functions version 2.x, the queue or topic must already exist; if you specify a queue or topic that doesn't exist, the function will fail. 
-
-In C# and C# script, you can use the following parameter types for the output binding:
-
-* `out T paramName` - `T` can be any JSON-serializable type. If the parameter value is null when the function exits, Functions creates the message with a null object.
-* `out string` - If the parameter value is null when the function exits, Functions does not create a message.
-* `out byte[]` - If the parameter value is null when the function exits, Functions does not create a message.
-* `out BrokeredMessage` - If the parameter value is null when the function exits, Functions does not create a message.
-* `ICollector<T>` or `IAsyncCollector<T>` - For creating multiple messages. A message is created when you call the `Add` method.
-
-In async functions, use the return value or `IAsyncCollector` instead of an `out` parameter.
-
-These parameters are for Azure Functions version 1.x; for 2.x, use [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) instead of `BrokeredMessage`.
-
-In JavaScript, access the queue or topic by using `context.bindings.<name from function.json>`. You can assign a string, a byte array, or a Javascript object (deserialized into JSON) to `context.binding.<name>`.
-
-## Exceptions and return codes
-
-| Binding | Reference |
-|---|---|
-| Service Bus | [Service Bus Error Codes](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-exceptions) |
-| Service Bus | [Service Bus Limits](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas) |
+# [Extension 5.x+](#tab/extensionv5/in-process)
+
+[!INCLUDE [functions-bindings-supports-identity-connections-note](../../includes/functions-bindings-supports-identity-connections-note.md)]
+
+This version allows you to bind to types from [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus).
+
+This extension version is available by installing the [NuGet package], version 5.x or later.
+
+# [Functions 2.x+](#tab/functionsv2/in-process)
+
+Working with the trigger and bindings requires that you reference the appropriate NuGet package. Install NuGet package, versions < 5.x. 
+
+# [Functions 1.x](#tab/functionsv1/in-process)
+
+[!INCLUDE [functions-runtime-1x-retirement-note](../../includes/functions-runtime-1x-retirement-note.md)]
+
+Functions 1.x apps automatically have a reference the [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet package, version 2.x.
+
+# [Extension 5.x+](#tab/extensionv5/isolated-process)
+
+[!INCLUDE [functions-bindings-supports-identity-connections-note](../../includes/functions-bindings-supports-identity-connections-note.md)]
+
+This version allows you to bind to types from [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus).
+
+Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.ServiceBus), version 5.x.
+
+# [Functions 2.x+](#tab/functionsv2/isolated-process)
+
+Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.ServiceBus), version 4.x.
+
+# [Functions 1.x](#tab/functionsv1/isolated-process)
+
+Functions version 1.x doesn't support the isolated worker process.
+
+---
+
+::: zone-end 
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"  
+
+## Install bundle
+
+The Service Bus binding is part of an [extension bundle], which is specified in your host.json project file. You may need to modify this bundle to change the version of the binding, or if bundles aren't already installed. To learn more, see [extension bundle].
+
+# [Bundle v3.x](#tab/extensionv3)
+
+[!INCLUDE [functions-bindings-supports-identity-connections-note](../../includes/functions-bindings-supports-identity-connections-note.md)]
+
+You can add this version of the extension from the extension bundle v3 by adding or replacing the following code in your `host.json` file:
+
+[!INCLUDE [functions-extension-bundles-json-v3](../../includes/functions-extension-bundles-json-v3.md)]
+
+To learn more, see [Update your extensions].
+
+# [Bundle v2.x](#tab/extensionv2)
+
+You can install this version of the extension in your function app by registering the [extension bundle], version 2.x.
+
+# [Functions 1.x](#tab/functions1)
+
+Functions 1.x apps automatically have a reference to the extension.
+
+---
+
+::: zone-end
+
+::: zone pivot="programming-language-csharp"
+
+## Binding types
+
+The binding types supported for .NET depend on both the extension version and C# execution mode, which can be one of the following: 
+   
+# [Isolated worker model](#tab/isolated-process)
+
+An isolated worker process class library compiled C# function runs in a process isolated from the runtime.  
+
+# [In-process class library](#tab/in-process)
+
+An in-process class library is a compiled C# function runs in the same process as the Functions runtime.
+ 
+---
+
+Choose a version to see binding type details for the mode and version.
+
+# [Extension 5.x+](#tab/extensionv5/in-process)
+
+The Service Bus extension supports parameter types according to the table below.
+
+| Binding scenario | Parameter types |
+|-|-|
+| Service Bus trigger (single message)| [ServiceBusReceivedMessage]<br/>`string`<br/>`byte[]`<br/>JSON serializable types<sup>1</sup> |
+| Service Bus trigger (message batch) | `ServiceBusReceivedMessage[]`<br/>`string[]` |
+| Service Bus trigger advanced scenarios<sup>2</sup> | [ServiceBusClient]<br/>[ServiceBusMessageActions]<br/>[ServiceBusSessionMessageActions]<br/>[ServiceBusReceiveActions]<br/> |
+| Service Bus output (single message) | [ServiceBusMessage]<br/>`string`<br/>`byte[]`<br/>JSON serializable types<sup>1</sup> |
+| Service Bus output (multiple messages) | `ICollector<T>` or `IAsyncCollector<T>` where `T` is one of the single message types<br/>[ServiceBusSender] |
+
+<sup>1</sup> Messages containing JSON data can be deserialized into known plain-old CLR object (POCO) types.
+
+<sup>2</sup> Advanced scenarios include message settlement, sessions, and transactions. These types are available as separate parameters in addition to the normal trigger parameter.
+
+# [Functions 2.x+](#tab/functionsv2/in-process)
+
+Earlier versions of the extension exposed types from the now deprecated [Microsoft.Azure.ServiceBus] namespace. Newer types from [Azure.Messaging.ServiceBus] are exclusive to **Extension 5.x+**.
+
+This version of the extension supports parameter types according to the table below.
+
+The Service Bus extension supports parameter types according to the table below.
+
+| Binding scenario | Parameter types |
+|-|-|
+| Service Bus trigger (single message)| [Microsoft.Azure.ServiceBus.Message]<br/>`string`<br/>`byte[]`<br/>JSON serializable types<sup>1</sup> |
+| Service Bus trigger (message batch) | `ServiceBusReceivedMessage[]`<br/>`string[]` |
+| Service Bus trigger advanced scenarios<sup>2</sup> | [IMessageReceiver]<br/>[MessageReceiver]<br/>[IMessageSession]<br/> |
+| Service Bus output (single message) | [Message]<br/>`string`<br/>`byte[]`<br/>JSON serializable types<sup>1</sup> |
+| Service Bus output (multiple messages) | `ICollector<T>` or `IAsyncCollector<T>` where `T` is one of the single message types<br/>[MessageSender]|
+
+<sup>1</sup> Messages containing JSON data can be deserialized into known plain-old CLR object (POCO) types.
+
+<sup>2</sup> Advanced scenarios include message settlement, sessions, and transactions. These types are available as separate parameters in addition to the normal trigger parameter.
+
+# [Functions 1.x](#tab/functionsv1/in-process)
+
+Functions 1.x exposed types from the deprecated [Microsoft.ServiceBus.Messaging] namespace. Newer types from [Azure.Messaging.ServiceBus] are exclusive to **Extension 5.x+**. To use these, you will need to [upgrade your application to Functions 4.x].
+
+# [Extension 5.x+](#tab/extensionv5/isolated-process)
+
+The isolated worker process supports parameter types according to the tables below. Support for binding to types from [Azure.Messaging.ServiceBus] is in preview. Current support does not yet include message settlement scenarios for triggers.
+
+**Service Bus trigger**
+
+[!INCLUDE [functions-bindings-service-bus-trigger-dotnet-isolated-types](../../includes/functions-bindings-service-bus-trigger-dotnet-isolated-types.md)]
+
+**Service Bus output binding**
+
+[!INCLUDE [functions-bindings-service-bus-output-dotnet-isolated-types](../../includes/functions-bindings-service-bus-output-dotnet-isolated-types.md)]
+
+# [Functions 2.x+](#tab/functionsv2/isolated-process)
+
+Earlier versions of extensions in the isolated worker process only support binding to `string`, `byte[]`, and JSON serializable types. Additional options are available to **Extension 5.x+**.
+
+# [Functions 1.x](#tab/functionsv1/isolated-process)
+
+Functions version 1.x doesn't support isolated worker process. To use the isolated worker model, [upgrade your application to Functions 4.x].
+
+---
+
+[Azure.Messaging.ServiceBus]: /dotnet/api/azure.messaging.servicebus
+[ServiceBusReceivedMessage]: /dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage
+[ServiceBusMessage]: /dotnet/api/azure.messaging.servicebus.servicebusmessage
+[ServiceBusClient]: /dotnet/api/azure.messaging.servicebus.servicebusclient
+[ServiceBusSender]: /dotnet/api/azure.messaging.servicebus.servicebussender
+
+[ServiceBusMessageActions]: /dotnet/api/microsoft.azure.webjobs.servicebus.servicebusmessageactions
+[ServiceBusSessionMessageActions]: /dotnet/api/microsoft.azure.webjobs.servicebus.servicebussessionmessageactions
+[ServiceBusReceiveActions]: /dotnet/api/microsoft.azure.webjobs.servicebus.servicebusreceiveactions
+
+[Microsoft.Azure.ServiceBus]: /dotnet/api/microsoft.azure.servicebus
+[Message]: /dotnet/api/microsoft.azure.servicebus.message
+[IMessageReceiver]: /dotnet/api/microsoft.azure.servicebus.core.imessagereceiver
+[MessageReceiver]: /dotnet/api/microsoft.azure.servicebus.core.messagereceiver
+[IMessageSession]: /dotnet/api/microsoft.azure.servicebus.imessagesession
+[MessageSender]: /dotnet/api/microsoft.azure.servicebus.core.messagesender
+
+[Microsoft.ServiceBus.Messaging]: /dotnet/api/microsoft.servicebus.messaging
+
+[upgrade your application to Functions 4.x]: ./migrate-version-1-version-4.md
+
+:::zone-end
 
 <a name="host-json"></a>  
 
 ## host.json settings
 
-This section describes the global configuration settings available for this binding in version 2.x. The example host.json file below contains only the version 2.x settings for this binding. For more information about global configuration settings in version 2.x, see [host.json reference for Azure Functions version 2.x](functions-host-json.md).
+This section describes the configuration settings available for this binding, which depends on the runtime and extension version.
 
-> [!NOTE]
-> For a reference of host.json in Functions 1.x, see [host.json reference for Azure Functions 1.x](functions-host-json-v1.md).
+# [Extension 5.x+](#tab/extensionv5)
+
+```json
+{
+    "version": "2.0",
+    "extensions": {
+        "serviceBus": {
+            "clientRetryOptions":{
+                "mode": "exponential",
+                "tryTimeout": "00:01:00",
+                "delay": "00:00:00.80",
+                "maxDelay": "00:01:00",
+                "maxRetries": 3
+            },
+            "prefetchCount": 0,
+            "transportType": "amqpWebSockets",
+            "webProxy": "https://proxyserver:8080",
+            "autoCompleteMessages": true,
+            "maxAutoLockRenewalDuration": "00:05:00",
+            "maxConcurrentCalls": 16,
+            "maxConcurrentSessions": 8,
+            "maxMessageBatchSize": 1000,
+            "minMessageBatchSize": 1,
+            "maxBatchWaitTime": "00:00:30",
+            "sessionIdleTimeout": "00:01:00",
+            "enableCrossEntityTransactions": false
+        }
+    }
+}
+```
+
+The `clientRetryOptions` settings only apply to interactions with the Service Bus service. They don't affect retries of function executions. For more information, see [Retries](functions-bindings-error-pages.md#retries).
+
+
+|Property  |Default | Description |
+|---------|---------|---------|
+|**mode**|`Exponential`|The approach to use for calculating retry delays. The default exponential mode retries attempts with a delay based on a back-off strategy where each attempt increases the wait duration before retrying. The `Fixed` mode retries attempts at fixed intervals with each delay having a consistent duration.|
+|**tryTimeout**|`00:01:00`|The maximum duration to wait for an operation per attempt.|
+|**delay**|`00:00:00.80`|The delay or back-off factor to apply between retry attempts.|
+|**maxDelay**|`00:01:00`|The maximum delay to allow between retry attempts|
+|**maxRetries**|`3`|The maximum number of retry attempts before considering the associated operation to have failed.|
+|**prefetchCount**|`0`|Gets or sets the number of messages that the message receiver can simultaneously request.|
+| **transportType**| amqpTcp | The protocol and transport that is used for communicating with Service Bus. Available options: `amqpTcp`, `amqpWebSockets`|
+| **webProxy**| n/a | The proxy to use for communicating with Service Bus over web sockets. A proxy cannot be used with the `amqpTcp` transport. |
+|**autoCompleteMessages**|`true`|Determines whether or not to automatically complete messages after successful execution of the function and should be used in place of the `autoComplete` configuration setting.|
+|**maxAutoLockRenewalDuration**|`00:05:00`|The maximum duration within which the message lock will be renewed automatically. This setting only applies for functions that receive a single message at a time.|
+|**maxConcurrentCalls**|`16`|The maximum number of concurrent calls to the callback that should be initiated per scaled instance. By default, the Functions runtime processes multiple messages concurrently. This setting is used only when the `isSessionsEnabled` property or attribute on [the trigger](functions-bindings-service-bus-trigger.md) is set to `false`. This setting only applies for functions that receive a single message at a time.|
+|**maxConcurrentSessions**|`8`|The maximum number of sessions that can be handled concurrently per scaled instance. This setting is used only when the `isSessionsEnabled` property or attribute on [the trigger](functions-bindings-service-bus-trigger.md) is set to `true`. This setting only applies for functions that receive a single message at a time.|
+|**maxMessageBatchSize**|`1000`|The maximum number of messages that will be passed to each function call. This setting only applies for functions that receive a batch of messages.|
+|**minMessageBatchSize**<sup>1</sup>|`1`|The minimum number of messages desired in a batch. The minimum applies only when the function is receiving multiple messages and must be less than `maxMessageBatchSize`. <br/> The minimum size isn't strictly guaranteed. A partial batch is dispatched when a full batch can't be prepared before the `maxBatchWaitTime` has elapsed.|
+|**maxBatchWaitTime**<sup>1</sup>|`00:00:30`|The maximum interval that the trigger should wait to fill a batch before invoking the function. The wait time is only considered when `minMessageBatchSize` is larger than 1 and is ignored otherwise. If less than `minMessageBatchSize` messages were available before the wait time elapses, the function is invoked with a partial batch. The longest allowed wait time is 50% of the entity message lock duration, meaning the maximum allowed is 2 minutes and 30 seconds. Otherwise, you may get lock exceptions. <br/><br/>**NOTE:** This interval is not a strict guarantee for the exact timing on which the function is invoked. There is a small magin of error due to timer precision.|
+|**sessionIdleTimeout**|n/a|The maximum amount of time to wait for a message to be received for the currently active session. After this time has elapsed, the session will be closed and the function will attempt to process another session. 
+|**enableCrossEntityTransactions**|`false`|Whether or not to enable transactions that span multiple entities on a Service Bus namespace.|
+
+<sup>1</sup> Using `minMessageBatchSize` and `maxBatchWaitTime` requires [v5.10.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus/5.10.0) of the `Microsoft.Azure.WebJobs.Extensions.ServiceBus` package, or a later version.
+
+# [Functions 2.x+](#tab/functionsv2)
 
 ```json
 {
@@ -642,24 +280,50 @@ This section describes the global configuration settings available for this bind
         "serviceBus": {
             "prefetchCount": 100,
             "messageHandlerOptions": {
-                "autoComplete": false,
+                "autoComplete": true,
                 "maxConcurrentCalls": 32,
-                "maxAutoRenewDuration": "00:55:00"
+                "maxAutoRenewDuration": "00:05:00"
+            },
+            "sessionHandlerOptions": {
+                "autoComplete": false,
+                "messageWaitTimeout": "00:00:30",
+                "maxAutoRenewDuration": "00:55:00",
+                "maxConcurrentSessions": 16
+            },
+            "batchOptions": {
+                "maxMessageCount": 1000,
+                "operationTimeout": "00:01:00",
+                "autoComplete": true
             }
         }
     }
 }
 ```
+When you set the `isSessionsEnabled` property or attribute on [the trigger](functions-bindings-service-bus-trigger.md) to `true`, the `sessionHandlerOptions` is honored.  When you set the `isSessionsEnabled` property or attribute on [the trigger](functions-bindings-service-bus-trigger.md) to `false`, the `messageHandlerOptions` is honored.
 
 |Property  |Default | Description |
 |---------|---------|---------|
-|maxAutoRenewDuration|00:05:00|The maximum duration within which the message lock will be renewed automatically.|
-|autoComplete|true|Whether the trigger should immediately mark as complete (autocomplete) or wait for processing to call complete.|
-|maxConcurrentCalls|16|The maximum number of concurrent calls to the callback that the message pump should initiate. By default, the Functions runtime processes multiple messages concurrently. To direct the runtime to process only a single queue or topic message at a time, set `maxConcurrentCalls` to 1. |
-|prefetchCount|n/a|The default PrefetchCount that will be used by the underlying MessageReceiver.|
+|**prefetchCount**|`0`|Gets or sets the number of messages that the message receiver can simultaneously request.|
+|**maxAutoRenewDuration**|`00:05:00`|The maximum duration within which the message lock will be renewed automatically.|
+|**autoComplete**|`true`|Whether the trigger should automatically call complete after processing, or if the function code manually calls complete.<br><br>Setting to `false` is only supported in C#.<br><br>When set to `true`, the trigger completes the message, session, or batch automatically when the function execution completes successfully, and abandons the message otherwise.<br><br>When set to `false`, you are responsible for calling [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) methods to complete, abandon, or deadletter the message, session, or batch. When an exception is thrown (and none of the `MessageReceiver` methods are called), then the lock remains. Once the lock expires, the message is re-queued with the `DeliveryCount` incremented and the lock is automatically renewed.<br><br>In non-C# functions, exceptions in the function results in the runtime calls `abandonAsync` in the background. If no exception occurs, then `completeAsync` is called in the background. |
+|**maxConcurrentCalls**|`16`|The maximum number of concurrent calls to the callback that the message pump should initiate per scaled instance. By default, the Functions runtime processes multiple messages concurrently.|
+|**maxConcurrentSessions**|`2000`|The maximum number of sessions that can be handled concurrently per scaled instance.|
+|**maxMessageCount**|`1000`| The maximum number of messages sent to the function when triggered. |
+|**operationTimeout**|`00:01:00`| A time span value expressed in `hh:mm:ss`. |
 
+# [Functions 1.x](#tab/functionsv1)
+
+For a reference of host.json in Functions 1.x, see [host.json reference for Azure Functions 1.x](functions-host-json-v1.md).
+
+---
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Learn more about Azure functions triggers and bindings](functions-triggers-bindings.md)
+- [Run a function when a Service Bus queue or topic message is created (Trigger)](./functions-bindings-service-bus-trigger.md)
+- [Send Azure Service Bus messages from Azure Functions (Output binding)](./functions-bindings-service-bus-output.md)
+
+[extension bundle]: ./functions-bindings-register.md#extension-bundles
+[NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus/
+[Update your extensions]: ./functions-bindings-register.md
+
+[C# scripting]: ./functions-reference-csharp.md

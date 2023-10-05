@@ -1,26 +1,21 @@
 ---
-title: Deploy an existing executable to Azure Service Fabric | Microsoft Docs
+title: Package an existing executable to Azure Service Fabric 
 description: Learn about packaging an existing application as a guest executable, so it can be deployed to a Service Fabric cluster.
-services: service-fabric
-documentationcenter: .net
-author: aljo-microsoft
-manager: chackdan
-editor: ''
-
-ms.assetid: d799c1c6-75eb-4b8a-9f94-bf4f3dadf4c3
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 03/15/2018
-ms.author: aljo
-
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Deploy an existing executable to Service Fabric
 You can run any type of code, such as Node.js, Java, or C++ in Azure Service Fabric as a service. Service Fabric refers to these types of services as guest executables.
 
 Guest executables are treated by Service Fabric like stateless services. As a result, they are placed on nodes in a cluster, based on availability and other metrics. This article describes how to package and deploy a guest executable to a Service Fabric cluster, by using Visual Studio or a command-line utility.
+
+> [!NOTE]
+> A Service Fabric cluster is single tenant by design and hosted applications are considered **trusted**. If you are considering hosting **untrusted applications**, please see [Hosting untrusted applications in a Service Fabric cluster](service-fabric-best-practices-security.md#hosting-untrusted-applications-in-a-service-fabric-cluster).
 
 ## Benefits of running a guest executable in Service Fabric
 There are several advantages to running a guest executable in a Service Fabric cluster:
@@ -74,8 +69,7 @@ The ApplicationPackageRoot contains the ApplicationManifest.xml file that define
 ## Next steps
 See the following articles for related information and tasks.
 * [Deploy a guest executable](service-fabric-deploy-existing-app.md)
-* [Deploy multiple guest executables](service-fabric-deploy-multiple-apps.md)
+* [Deploy multiple guest executables](./service-fabric-deploy-existing-app.md)
 * [Create your first guest executable application using Visual Studio](quickstart-guest-app.md)
 * [Sample for packaging and deploying a guest executable](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started), including a link to the prerelease of the packaging tool
 * [Sample of two guest executables (C# and nodejs) communicating via the Naming service using REST](https://github.com/Azure-Samples/service-fabric-containers)
-

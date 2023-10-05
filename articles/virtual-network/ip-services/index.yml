@@ -1,0 +1,98 @@
+### YamlMime:Landing
+
+title: Virtual Network IP Services documentation
+summary: Learn how to use Azure Virtual Network IP Services. Quickstarts, tutorials, samples, and more, show you how to use IP Services in Azure.
+metadata:
+  title: Azure Virtual Network IP Services Documentation - Tutorials, quickstarts, API references
+  description: Learn how to use Azure Virtual Network IP Services. Quickstarts, tutorials, samples, and more, show you how to deploy a NAT gateway.
+  services: virtual-network
+  ms.service: virtual-network
+  ms.subservice: ip-services
+  ms.topic: landing-page
+  ms.collection: collection
+  author: mbender-ms
+  ms.author: mbender
+  ms.date: 08/24/2023
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: About Virtual Network IP Services
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Virtual Network IP Services?
+            url: ip-services-overview.md
+      - linkListType: concept
+        links:
+          - text: Public IP addresses in Azure
+            url: public-ip-addresses.md
+          - text: Azure Public IP address prefix
+            url: public-ip-address-prefix.md
+          - text: Private IP addresses in Azure
+            url: private-ip-addresses.md
+
+  # Card (optional)
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a public IP address
+            url: create-public-ip-portal.md
+          - text: Create a public IP address prefix
+            url: create-public-ip-prefix-portal.md
+      - linkListType: tutorial
+        links:
+          - text: Configure routing preference for a VM
+            url: tutorial-routing-preference-virtual-machine-portal.md
+          - text: Configure both routing preference options for a virtual machine
+            url: routing-preference-mixed-network-adapter-portal.md
+          - text: Configure routing preference for an Azure Kubernetes service 
+            url: routing-preference-azure-kubernetes-service-cli.md
+        
+  # Card (optional)
+  - title: Manage features and options
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Create, change, or delete an Azure public IP address
+            url: virtual-network-public-ip-address.md
+          - text: Create, change, or delete an Azure public IP address prefix
+            url: manage-public-ip-address-prefix.md
+          - text: What is IPv6 for Azure Virtual Network?
+            url: ipv6-overview.md    
+      - linkListType: how-to-guide
+        links:
+          - text: Configure routing preference for a public IP address
+            url: routing-preference-portal.md
+          - text: Upgrade a public IP address
+            url: public-ip-upgrade-portal.md
+          - text: Migrate a classic reserved IP address to a public IP address
+            url: public-ip-upgrade-classic.md
+
+  - title: Virtual machines
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Default outbound access in Azure
+            url: default-outbound-access.md
+          - text: What is routing preference?
+            url: routing-preference-overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create a virtual machine with a static public IP address
+            url: virtual-network-deploy-static-pip-arm-portal.md
+          - text: Configure a private IP address for a virtual machine
+            url: virtual-networks-static-private-ip-arm-pportal.md
+          - text: Assign multiple IP addresses to virtual machines
+            url: virtual-network-multiple-ip-addresses-portal.md
+ 
+  - title: Learn about IP services architecture
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Add IP address spaces to peered virtual networks
+            url: /azure/architecture/networking/prefixes/add-ip-space-peered-vnet

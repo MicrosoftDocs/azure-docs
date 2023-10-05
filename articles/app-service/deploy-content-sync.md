@@ -1,68 +1,95 @@
 ---
-title: Sync content from a cloud folder - Azure App Service
-description: Learn how to deploy your app to Azure App Service via content sync from a cloud folder.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: cfowler
-
+title: Sync content from a cloud folder
+description: Learn how to deploy your app to Azure App Service via content sync from a cloud folder, including OneDrive or Dropbox.
 ms.assetid: 88d3a670-303a-4fa2-9de9-715cc904acec
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 12/03/2018
-ms.author: cephalin;dariagrigoriu
+ms.date: 02/25/2021
+ms.reviewer: dariac
 ms.custom: seodec18
+author: cephalin
+ms.author: cephalin
 
 ---
 # Sync content from a cloud folder to Azure App Service
-This article shows you how to sync your content to [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) from Dropbox and OneDrive. 
+This article shows you how to sync your content to [Azure App Service](./overview.md) from Dropbox and OneDrive. 
 
-The on-demand content sync deployment is powered by the App Service [Kudu deployment engine](https://github.com/projectkudu/kudu/wiki). You can, work with your app code and content in a designated cloud folder, and then sync to App Service with the click of a button. Content sync uses the Kudu build server. 
+With the content sync approach, your work with your app code and content in a designated cloud folder to make sure it's in a ready-to-deploy state, and then sync to App Service with the click of a button. 
+
+Because of underlying differences in the APIs, **OneDrive for Business** is not supported at this time.
+
+> [!NOTE]
+> The **Development Center (Classic)** page in the Azure portal, which is the old deployment experience, will be deprecated in March, 2021. This change will not affect any existing deployment settings in your app, and you can continue to manage app deployment in the **Deployment Center** page.
 
 ## Enable content sync deployment
 
-To enable content sync, navigate to your App Service app page in the [Azure portal](https://portal.azure.com).
+1. In the [Azure portal](https://portal.azure.com), navigate to the management page for your App Service app.
 
-In the left menu, click **Deployment Center** > **OneDrive** or **Dropbox** > **Authorize**. Follow the authorization prompts. 
+1. From the left menu, click **Deployment Center** > **Settings**. 
 
-![](media/app-service-deploy-content-sync/choose-source.png)
+1. In **Source**, select **OneDrive** or **Dropbox**.
 
-You only need to authorize with OneDrive or Dropbox once. If you're already authorized, just click **Continue**. You can change the authorized OneDrive or Dropbox account by clicking **Change account**.
+1. Click **Authorize** and follow the authorization prompts. 
 
-![](media/app-service-deploy-content-sync/continue.png)
+    ![Shows how to authorize OneDrive or Dropbox in the Deployment Center in the Azure portal.](media/app-service-deploy-content-sync/choose-source.png)
 
-In the **Configure** page, select the folder you want to synchronize. This folder is created under the following designated content path in OneDrive or Dropbox. 
+    You only need to authorize with OneDrive or Dropbox once for your Azure account. To authorize a different OneDrive or Dropbox account for an app, click **Change account**.
+
+1. In **Folder**, select the folder to synchronize. This folder is created under the following designated content path in OneDrive or Dropbox. 
    
-* **OneDrive**: `Apps\Azure Web Apps`
-* **Dropbox**: `Apps\Azure`
-
-When finished, click **Continue**.
-
-In the **Summary** page, verify your options and click **Finish**.
+    * **OneDrive**: `Apps\Azure Web Apps`
+    * **Dropbox**: `Apps\Azure`
+    
+1. Click **Save**.
 
 ## Synchronize content
 
-When you want to synchronize content in your cloud folder with App Service, go back to the **Deployment Center** page and click **Sync**.
+# [Azure portal](#tab/portal)
 
-![](media/app-service-deploy-content-sync/synchronize.png)
+1. In the [Azure portal](https://portal.azure.com), navigate to the management page for your App Service app.
+
+1. From the left menu, click **Deployment Center** > **Redeploy/Sync**. 
+
+    ![Shows how to sync your cloud folder with App Service.](media/app-service-deploy-content-sync/synchronize.png)
    
-   > [!NOTE]
-   > Because of underlying differences in the APIs, **OneDrive for Business** is not supported at this time. 
-   > 
-   > 
+1. Click **OK** to confirm the sync.
+
+# [Azure CLI](#tab/cli)
+
+Start a sync by running the following command and replacing \<group-name> and \<app-name>:
+
+```azurecli-interactive
+az webapp deployment source sync --resource-group <group-name> --name <app-name>
+```
+
+# [Azure PowerShell](#tab/powershell)
+
+Start a sync by running the following command and replacing \<group-name> and \<app-name>:
+
+```azurepowershell-interactive
+Invoke-AzureRmResourceAction -ResourceGroupName <group-name> -ResourceType Microsoft.Web/sites -ResourceName <app-name> -Action sync -ApiVersion 2019-08-01 -Force –Verbose
+```
+
+-----
 
 ## Disable content sync deployment
 
-To disable content sync, navigate to your App Service app page in the [Azure portal](https://portal.azure.com).
+1. In the [Azure portal](https://portal.azure.com), navigate to the management page for your App Service app.
 
-In the left menu, click **Deployment Center** > **Disconnect**.
+1. From the left menu, click **Deployment Center** > **Settings** > **Disconnect**. 
 
-![](media/app-service-deploy-content-sync/disable.png)
+    ![Shows how to disconnect your cloud folder sync with your App Service app in the Azure portal.](media/app-service-deploy-content-sync/disable.png)
 
 [!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
+
+## OneDrive and Dropbox integration retirements
+
+On September 30th, 2023 the integrations for Microsoft OneDrive and Dropbox for Azure App Service and Azure Functions will be retired. If you are using OneDrive or Dropbox, you should [disable content sync deployments](#disable-content-sync-deployment) from OneDrive and Dropbox. Then, you can set up deployments from any of the following alternatives
+
+- [GitHub Actions](deploy-github-actions.md)
+- [Azure DevOps Pipelines](/azure/devops/pipelines/targets/webapp)
+- [Azure CLI](./deploy-zip.md?tabs=cli)
+- [VS Code](./deploy-zip.md?tabs=cli)
+- [Local Git Repository](./deploy-local-git.md?tabs=cli)
 
 ## Next steps
 

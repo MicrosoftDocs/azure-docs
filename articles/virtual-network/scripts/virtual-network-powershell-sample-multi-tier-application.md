@@ -1,29 +1,20 @@
-﻿---
-title: Azure PowerShell script sample - Create a network for multi-tier applications | Microsoft Docs
-description: Azure PowerShell script sample - Create a virtual network for multi-tier applications.
-services: virtual-network
-documentationcenter: virtual-network
-author: KumudD
-manager: twooley
-editor: ''
-tags:
-
-ms.assetid:
+---
+title: Create a VNet for multi-tier applications - Azure PowerShell script sample
+description: Create a virtual network for multi-tier applications - Azure PowerShell script sample.
+author: asudbring
 ms.service: virtual-network
-ms.devlang: powershell
 ms.topic: sample
-ms.tgt_pltfrm:
 ms.workload: infrastructure
-ms.date: 12/13/2018
-ms.author: kumud
-
+ms.date: 03/28/2023
+ms.author: allensu 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create a network for multi-tier applications script sample
 
-This script sample creates a virtual network with front-end and back-end subnets. Traffic to the front-end subnet is limited to HTTP and SSH, while traffic to the back-end subnet is limited to MySQL, port 3306. After running the script, you will have two virtual machines, one in each subnet that you can deploy web server and MySQL software to.
+This script sample creates a virtual network with front-end and back-end subnets. Traffic to the front-end subnet is limited to HTTP and SSH, while traffic to the back-end subnet is limited to MySQL, port 3306. After running the script, you'll have two virtual machines, one in each subnet that you can deploy web server and MySQL software to.
 
-You can execute the script from the Azure [Cloud Shell](https://shell.azure.com/powershell), or from a local PowerShell installation. If you use PowerShell locally, this script requires the Azure PowerShell module version 1.0.0 or later. To find the installed version, run `Get-Module -ListAvailable Az`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+You can execute the script from the Azure [Cloud Shell](https://shell.azure.com/powershell), or from a local PowerShell installation. If you use PowerShell locally, this script requires the Azure PowerShell module version 1.0.0 or later. To find the installed version, run `Get-Module -ListAvailable Az`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -31,10 +22,9 @@ You can execute the script from the Azure [Cloud Shell](https://shell.azure.com/
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-<!-- gitHub issue https://github.com/MicrosoftDocs/azure-docs/issues/17748 -->
-A subnet ID is assigned after you have created a virtual network; specifically, using the New-AzVirtualNetwork cmdlet with the -Subnet option. If you configure the subnet using the New-AzVirtualNetworkSubnetConfig cmdlet before the call to New-AzVirtualNetwork, you won't see the subnet ID until after you call New-AzVirtualNetwork.
+A subnet ID is assigned after you've created a virtual network; specifically, using the New-AzVirtualNetwork cmdlet with the -Subnet option. If you configure the subnet using the New-AzVirtualNetworkSubnetConfig cmdlet before the call to New-AzVirtualNetwork, you won't see the subnet ID until after you call New-AzVirtualNetwork.
 
-[!code-azurepowershell-interactive[main](../../../powershell_scripts/virtual-network/virtual-network-multi-tier-application/virtual-network-multi-tier-application.ps1  "Virtual network for multi-tier application")]
+[!code-azurepowershell-interactive [main](../../../powershell_scripts/virtual-network/virtual-network-multi-tier-application/virtual-network-multi-tier-application.ps1 "Virtual network for multi-tier application")]
 
 ## Clean up deployment
 
@@ -62,6 +52,6 @@ This script uses the following commands to create a resource group, virtual netw
 
 ## Next steps
 
-For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/overview).
+For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/).
 
-Additional virtual network PowerShell script samples can be found in [Virtual network PowerShell samples](../powershell-samples.md).
+More virtual network PowerShell script samples can be found in [Virtual network PowerShell samples](../powershell-samples.md).

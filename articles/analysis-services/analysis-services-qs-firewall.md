@@ -1,13 +1,13 @@
 ---
-title: Quickstart - Configure a firewall for an Analysis Services server in Azure | Microsoft Docs
-description: Learn how to configure a firewall for an Analysis Services server instance in Azure.
+title: Quickstart - Configure Azure Analysis Services server firewall | Microsoft Docs
+description: This quickstart helps you configure a firewall for an Azure Analysis Services server by using the Azure portal.
 author: minewiskan
-manager: kfile
-ms.service: azure-analysis-services
-ms.topic: quickstart
-ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
+ms.date: 08/12/2020
+ms.topic: quickstart
+ms.service: analysis-services
+ms.custom: mode-ui
 #Customer intent: As a BI developer, I want to secure my server by configuring a server firewall and create open IP address ranges for client computers in my organization.
 ---
 # Quickstart: Configure server firewall - Portal
@@ -19,6 +19,9 @@ This quickstart helps you configure a firewall for your Azure Analysis Services 
 - An Analysis Services server in your subscription. To learn more, see [Quickstart: Create a server - Portal](analysis-services-create-server.md) or [Quickstart: Create a server - PowerShell](analysis-services-create-powershell.md)
 - One or more IP address ranges for client computers (if needed).
 
+> [!NOTE]
+> Data import (refresh) and paginated report connections from Power BI Premium in Microsoft Cloud Germany are currently not supported when a firewall is enabled, even when the Allow access from Power BI setting is set to On.
+
 ## Sign in to the Azure portal 
 
 [Sign in to the portal](https://portal.azure.com)
@@ -26,9 +29,9 @@ This quickstart helps you configure a firewall for your Azure Analysis Services 
 ## Configure a firewall
 
 1. Click on your server to open the Overview page. 
-2. In **SETTINGS** > **Firewall** > **Enable firewall**, click **On**.
-3. To allow DirectQuery access from Power BI service, in **Allow access from Power BI**, click **On**.  
-4. (Optional) Specify one or more IP address ranges. Enter a name, starting, and ending IP address for each range. 
+2. In **SETTINGS** > **Firewall** > **Enable firewall**, select **On**.
+3. To enable connections from Power BI and Power BI Premium, in **Allow access from Power BI**, select **On**.  
+4. (Optional) Specify one or more IP address ranges. Enter a name, starting, and ending IP address for each range. Firewall rule name should be limited to 128 characters and can only contain uppercase characters, lowercase characters, numbers, underscore, and hyphen. Blank spaces and other special characters are not allowed.
 5. Click **Save**.
 
      ![Firewall settings](./media/analysis-services-qs-firewall/aas-qs-firewall.png)

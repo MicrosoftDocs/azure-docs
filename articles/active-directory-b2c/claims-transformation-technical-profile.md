@@ -1,15 +1,16 @@
 ---
-title: Define a Claims transformation technical profile in a custom policy in Azure Active Directory B2C | Microsoft Docs
-description: Define a Claims transformation technical profile in a custom policy in Azure Active Directory B2C.
+title: Define a claims transformation technical profile
+titleSuffix: Azure AD B2C
+description: Define a claims transformation technical profile in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
-ms.author: marsma
+ms.date: 01/17/2022
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -25,7 +26,7 @@ The **Name** attribute of the **Protocol** element needs to be set to `Proprieta
 
 The following example shows a claims transformation technical profile:
 
-```XML
+```xml
 <TechnicalProfile Id="Facebook-OAUTH-UnLink">
     <DisplayName>Unlink Facebook</DisplayName>
     <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.ClaimsTransformationProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -34,7 +35,7 @@ The following example shows a claims transformation technical profile:
 
 ## Output claims
 
-The **OutputClaims** element is mandatory. You should provide at least one output claim returned by the technical profile. The following example shows how to set default values in the output claims:
+The **OutputClaims** element is mandatory. Provide at least one output claim returned by the technical profile. The following example shows how to set default values in the output claims:
 
 ```xml
 <OutputClaims>
@@ -47,7 +48,7 @@ The **OutputClaims** element is mandatory. You should provide at least one outpu
 
 The **OutputClaimsTransformations** element may contain a collection of **OutputClaimsTransformation** elements that are used to modify claims or generate new ones. The following technical profile calls the **RemoveAlternativeSecurityIdByIdentityProvider** claims transformation. This claims transformation removes a social identify from the collection of **AlternativeSecurityIds**. The output claims of this technical profile are **identityProvider2**, which is set to `facebook.com`, and **AlternativeSecurityIds**, which contains the list of social identities associated with this user after facebook.com identity is removed.
 
-```XML
+```xml
 <ClaimsTransformations>
   <ClaimsTransformation Id="RemoveAlternativeSecurityIdByIdentityProvider"
 TransformationMethod="RemoveAlternativeSecurityIdByIdentityProvider">
@@ -77,9 +78,9 @@ TransformationClaimType="collection" />
 </TechnicalProfile>
 ```
 
-The claims transformation technical profile enables you to execute a claims transformation from any user journey's orchestration step. In the following example, the orchestration step calls one of the unlink technical profiles, such as **UnLink-Facebook-OAUTH**. This technical profile calls the claims transformation technical profile **RemoveAlternativeSecurityIdByIdentityProvider**, which generates a new **AlternativeSecurityIds2** claim that contains the list of user social identities, while removing the Facebook identity from the collections.
+The claims transformation technical profile enables you to execute a claims transformation from any user journey's orchestration step. In the following example, the orchestration step calls one of the unlink technical profiles, such as **UnLink-Facebook-OAUTH**. This technical profile calls the output claims transformation **RemoveAlternativeSecurityIdByIdentityProvider**, which generates a new **AlternativeSecurityIds2** claim. The output claim contains the list of user's social identities, while removing the Facebook identity from the collections.
 
-```XML
+```xml
 <UserJourney Id="AccountUnLink">
   <OrchestrationSteps>
     ...
@@ -95,11 +96,18 @@ The claims transformation technical profile enables you to execute a claims tran
 </UserJourney>
 ```
 
+## Metadata
+
+| Attribute | Required | Description |
+| --------- | -------- | ----------- |
+| IncludeClaimResolvingInClaimsHandling | No | For input and output claims, specifies whether [claims resolution](claim-resolver-overview.md) is included in the technical profile. Possible values: `true`, or `false` (default). If you want to use a claims resolver in the technical profile, set this metadata to `true`. |
+| ContentDefinitionReferenceId | No | The identifier of the [content definition](contentdefinitions.md) associated with this technical profile. The content definition metadata is required for [FormatLocalizedString](string-transformations.md#formatlocalizedstring), [GetLocalizedStringsTransformation](string-transformations.md#getlocalizedstringstransformation), and [GetMappedValueFromLocalizedCollection](string-transformations.md#getmappedvaluefromlocalizedcollection) claims transformations.|
+
 ## Use a validation technical profile
 
 A claims transformation technical profile can be used to validate information. In the following example, the [self asserted technical profile](self-asserted-technical-profile.md) named **LocalAccountSignUpWithLogonEmail** asks the user to enter the email twice, then calls the [validation technical profile](validation-technical-profile.md) named **Validate-Email** to validate the emails. The **Validate-Email** technical profile calls the claims transformation **AssertEmailAreEqual** to compare the two claims **email** and **emailRepeat**, and throw an exception if they are not equal according to the specified comparison.
 
-```XML
+```xml
 <ClaimsTransformations>
   <ClaimsTransformation Id="AssertEmailAreEqual" TransformationMethod="AssertStringClaimsAreEqual">
     <InputClaims>
@@ -115,7 +123,7 @@ A claims transformation technical profile can be used to validate information. I
 
 The claims transformation technical profile calls the **AssertEmailAreEqual** claims transformation, which asserts that emails provided by the user are same.
 
-```XML
+```xml
 <TechnicalProfile Id="Validate-Email">
   <DisplayName>Unlink Facebook</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.ClaimsTransformationProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -134,7 +142,7 @@ The claims transformation technical profile calls the **AssertEmailAreEqual** cl
 
 A self-asserted technical profile can call the validation technical profile and show the error message as specified in the **UserMessageIfClaimsTransformationStringsAreNotEqual** metadata.
 
-```XML
+```xml
 <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
   <DisplayName>User ID signup</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />

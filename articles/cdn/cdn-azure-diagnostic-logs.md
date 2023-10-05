@@ -1,140 +1,106 @@
 ---
-title: Azure diagnostic logs | Microsoft Docs
-description: Customer can enable log analysis for Azure CDN.
+title: Diagnostic logs
+titleSuffix: Azure Content Delivery Network
+description: Learn how to use Azure diagnostic logs to save core analytics, which allows you to export usage metrics from your Azure Content Delivery Network endpoint.
 services: cdn
-documentationcenter: ''
-author: mdgattuso
-manager: danielgi
-editor: ''
-
-ms.assetid: 
-ms.service: cdn
+author: duongau
+manager: KumudD
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 06/06/2018
-ms.author: magattus
+ms.topic: troubleshooting
+ms.date: 02/27/2023
+ms.author: duau 
+ms.custom: devx-track-azurepowershell
 ---
 
-
-# Azure diagnostic logs
+# Diagnostic logs - Azure Content Delivery Network
 
 With Azure diagnostic logs, you can view core analytics and save them into one or more destinations including:
 
- - Azure Storage account
- - Azure Event Hubs
- - [Log Analytics workspace](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
- 
+* Azure Storage account
+* Log Analytics workspace
+* Azure Event Hubs
+
 This feature is available on CDN endpoints for all pricing tiers. 
 
-Azure diagnostics logs allow you to export basic usage metrics from your CDN endpoint to a variety of sources so that you can consume them in a customized way. For example, you can do the following types of data export:
+Diagnostics logs allow you to export basic usage metrics from your CDN endpoint to different kinds sources so that you can consume them in a customized way. You can do the following types of data export:
 
-- Export data to blob storage, export to CSV, and generate graphs in Excel.
-- Export data to Event Hubs and correlate with data from other Azure services.
-- Export data to Azure Monitor logs and view data in your own Log Analytics workspace
+* Export data to blob storage, export to CSV, and generate graphs in Excel.
+* Export data to Event Hubs and correlate with data from other Azure services.
+* Export data to Azure Monitor logs and view data in your own Log Analytics workspace
 
-The following diagram shows a typical CDN core analytics view of data.
-
-![portal - Diagnostics logs](./media/cdn-diagnostics-log/01_OMS-workspace.png)
-
-*Figure 1 - CDN core analytics view*
-
-For more information about diagnostic logs, see [Diagnostic Logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
-
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+An Azure CDN profile is required for the following steps. Refer to [create an Azure CDN profile and endpoint](cdn-create-new-endpoint.md) before you continue.
 
 ## Enable logging with the Azure portal
 
-Follow these steps enable logging with CDN core analytics:
+Follow these steps enable logging for your Azure CDN endpoint:
 
-Sign in to the [Azure portal](https://portal.azure.com). If you don't already have enabled CDN for your workflow, [Create an Azure CDN profile and endpoint](cdn-create-new-endpoint.md) before you continue.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the Azure portal, navigate to **CDN profile**.
+2. In the Azure portal, navigate to **All resources** > **your-cdn-profile**.
 
-2. In the Azure portal, search for a CDN profile or select one from your dashboard. Then, select the CDN endpoint for which you want to enable diagnostics logs.
+2. Select the CDN endpoint for which you want to enable diagnostics logs:
 
-	![portal - Diagnostics logs](./media/cdn-diagnostics-log/02_Browse-to-Diagnostics-logs.png)
+    :::image type="content" source="./media/cdn-diagnostics-log/02_browse-to-diagnostics-logs.png" alt-text="Select CDN endpoint." border="true":::
 
-3. Select **Diagnostics logs** in the MONITORING section.
+3. Select **Diagnostics logs** in the **Monitoring** section:
 
-   The **Diagnostics logs** page appears.
-
-	![portal - Diagnostics logs](./media/cdn-diagnostics-log/03_Diagnostics-logs-options.png)
+    :::image type="content" source="./media/cdn-diagnostics-log/03_diagnostics-logs-options.png" alt-text="Screenshot of the diagnostics logs button under monitoring menu." border="true":::
 
 ### Enable logging with Azure Storage
 
 To use a storage account to store the logs, follow these steps:
+
+ >[!NOTE] 
+ >A storage account is required to complete these steps. Refer to: **[Create an Azure Storage account](../storage/common/storage-account-create.md?tabs=azure-portal&toc=%2fazure%2fstorage%2fblobs%2ftoc.json)** for more information.
 	
-1. For **Name**, enter a name for your diagnostic log settings.
+1. For **Diagnostic setting name**, enter a name for your diagnostic log settings.
  
 2. Select **Archive to a storage account**, then select **CoreAnalytics**. 
 
-2. For **Retention (days)**, choose the number of retention days. A retention of zero days stores the logs indefinitely. 
+3. For **Retention (days)**, choose the number of retention days. A retention of zero days stores the logs indefinitely. 
 
-    ![portal - Diagnostics logs](./media/cdn-diagnostics-log/04_Diagnostics-logs-storage.png) 
+4. Select the subscription and storage account for the logs.
 
-3. Select **Storage account**.
+    :::image type="content" source="./media/cdn-diagnostics-log/04_diagnostics-logs-storage.png" alt-text="Diagnostics logs - Storage." border="true":::
 
-    The **Select a storage account** page appears.
+3. Select **Save**.
 
-4. Select a storage account from the drop-down list, then select **OK**.
+### Send to Log Analytics
 
-    ![portal - Diagnostics logs](./media/cdn-diagnostics-log/cdn-select-storage-account.png)
+To use Log Analytics for the logs, follow these steps:
 
-5. After you have finished making your diagnostic log settings, select **Save**.
+>[!NOTE] 
+>A log analytics workspace is required to complete these steps. Refer to: **[Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md)** for more information.
+	
+1. For **Diagnostic setting name**, enter a name for your diagnostic log settings.
 
-### Logging with Azure Monitor
+2. Select **Send to Log Analytics**, then select **CoreAnalytics**. 
 
-To use Azure Monitor to store the logs, follow these steps:
+3. Select the subscription and Log Analytics workspace for the logs.
 
-1. From the **Diagnostics logs** page, select **Send to Log Analytics**. 
+   :::image type="content" source="./media/cdn-diagnostics-log/05-la-workspace.png" alt-text="Diagnostics logs - Log Analytics." border="true":::
 
-    ![portal - Diagnostics logs](./media/cdn-diagnostics-log/05_Ready-to-Configure.png)    
+4. Select **Save**.
 
-2. Select **Configure** to configure Azure Monitor logging. 
+### Stream to an event hub
 
-   The **Log Analytics workspaces** page appears.
+To use an event hub for the logs, follow these steps:
 
-    >[!NOTE] 
-    >OMS workspaces are now referred to as Log Analytics workspaces.
+>[!NOTE] 
+>An event hub is required to complete these steps. Refer to: **[Quickstart: Create an event hub using Azure portal](../event-hubs/event-hubs-create.md)** for more information.
+	
+1. For **Diagnostic setting name**, enter a name for your diagnostic log settings.
 
-    ![portal - Diagnostics logs](./media/cdn-diagnostics-log/06_Choose-workspace.png)
+2. Select **Stream to an event hub**, then select **CoreAnalytics**. 
 
-3. Select **Create New Workspace**.
+3. Select the subscription and event hub namespace for the logs.
 
-    The **Log Analytics workspace** page appears.
+   :::image type="content" source="./media/cdn-diagnostics-log/06-eventhub-namespace.png" alt-text="Diagnostics logs - Event hub." border="true":::
 
-    >[!NOTE] 
-    >OMS workspaces are now referred to as Log Analytics workspaces.
+4. Select **Save**.
 
-    ![portal - Diagnostics logs](./media/cdn-diagnostics-log/07_Create-new.png)
-
-4. For **Log Analytics workspace**, enter a Log Analytics workspace name. The Log Analytics workspace name must be unique and contain only letters, numbers, and hyphens; spaces and underscores are not allowed. 
-
-5. For **Subscription**, select an existing subscription from the drop-down list. 
-
-6. For **Resource group**, create a new resource group or select an existing one.
-
-7. For **Location**, select a location from the list.
-
-8. Select **Pin to dashboard** if you want to save the log configuration to your dashboard. 
-
-9. Select **OK** to complete the configuration.
-
-10. After your workspace is created, you're returned to the **Diagnostic logs** page. Confirm the name of your new Log Analytics workspace.
-
-    ![portal - Diagnostics logs](./media/cdn-diagnostics-log/09_Return-to-logging.png)
-
-11. Select **CoreAnalytics**, then select **Save**.
-
-12. To view the new Log Analytics workspace, select **Core analytics** from your CDN endpoint page.
-
-    ![portal - Diagnostics logs](./media/cdn-diagnostics-log/cdn-core-analytics-page.png) 
-
-    Your Log Analytics workspace is now ready to log data. In order to consume that data, you must use a [Azure Monitor logs solution](#consuming-diagnostics-logs-from-a-log-analytics-workspace), covered later in this article.
-
-For more information about log data delays, see [Log data delays](#log-data-delays).
 
 ## Enable logging with PowerShell
 
@@ -142,32 +108,78 @@ The following example shows how to enable diagnostic logs via the Azure PowerShe
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-### Enabling diagnostic logs in a storage account
+### Enable diagnostic logs in a storage account
 
-1. Log in and select a subscription:
+1. Sign in to Azure PowerShell:
 
+    ```azurepowershell-interactive
     Connect-AzAccount 
-
-    Select-AzureSubscription -SubscriptionId 
-
-2. To enable Diagnostic Logs in a Storage account, enter this command:
-
-    ```powershell
-    Set-AzDiagnosticSetting -ResourceId "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/endpoints/{endpointName}" -StorageAccountId "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ClassicStorage/storageAccounts/{storageAccountName}" -Enabled $true -Categories CoreAnalytics
     ```
 
-3. To enable diagnostics logs in a Log Analytics workspace, enter this command:
+2. To enable Diagnostic Logs in a storage account, enter these commands. Replace the variables with your values:
 
-    ```powershell
-    Set-AzDiagnosticSetting -ResourceId "/subscriptions/`{subscriptionId}<subscriptionId>
-    .<subscriptionName>" -WorkspaceId "/subscriptions/<workspaceId>.<workspaceName>" -Enabled $true -Categories CoreAnalytics 
+    ```azurepowershell-interactive
+    $rsg = <your-resource-group-name>
+    $cdnprofile = <your-cdn-profile-name>
+    $cdnendpoint = <your-cdn-endpoint-name>
+    $storageacct = <your-storage-account-name>
+    $diagname = <your-diagnostic-setting-name>
+
+    $cdn = Get-AzCdnEndpoint -ResourceGroupName $rsg -ProfileName $cdnprofile -EndpointName $cdnendpoint
+
+    $storage = Get-AzStorageAccount -ResourceGroupName $rsg -Name $storageacct
+
+    Set-AzDiagnosticSetting -Name $diagname -ResourceId $cdn.id -StorageAccountId $storage.id -Enabled $true -Categories CoreAnalytics
+    ```
+
+### Enable diagnostics logs for Log Analytics workspace
+
+1. Sign in to Azure PowerShell:
+
+    ```azurepowershell-interactive
+    Connect-AzAccount 
+    ```
+2. To enable Diagnostic Logs for a Log Analytics workspace, enter these commands. Replace the variables with your values:
+
+    ```azurepowershell-interactive
+    $rsg = <your-resource-group-name>
+    $cdnprofile = <your-cdn-profile-name>
+    $cdnendpoint = <your-cdn-endpoint-name>
+    $workspacename = <your-log-analytics-workspace-name>
+    $diagname = <your-diagnostic-setting-name>
+
+    $cdn = Get-AzCdnEndpoint -ResourceGroupName $rsg -ProfileName $cdnprofile -EndpointName $cdnendpoint
+
+    $workspace = Get-AzOperationalInsightsWorkspace -ResourceGroupName $rsg -Name $workspacename
+
+    Set-AzDiagnosticSetting -Name $diagname -ResourceId $cdn.id -WorkspaceId $workspace.ResourceId -Enabled $true -Categories CoreAnalytics
+    ```
+### Enable diagnostics logs for event hub namespace
+
+1. Sign in to Azure PowerShell:
+
+    ```azurepowershell-interactive
+    Connect-AzAccount 
+    ```
+2. To enable Diagnostic Logs for a Log Analytics workspace, enter these commands. Replace the variables with your values:
+
+    ```azurepowershell-interactive
+    $rsg = <your-resource-group-name>
+    $cdnprofile = <your-cdn-profile-name>
+    $cdnendpoint = <your-cdn-endpoint-name>
+    $eventhubname = <your-event-hub-namespace-name>
+    $diagname = <your-diagnostic-setting-name>
+
+    $cdn = Get-AzCdnEndpoint -ResourceGroupName $rsg -ProfileName $cdnprofile -EndpointName $cdnendpoint
+
+    Set-AzDiagnosticSetting -Name $diagname -ResourceId $cdn.id -EventHubName $eventhubname -Enabled $true -Categories CoreAnalytics
     ```
 
 ## Consuming diagnostics logs from Azure Storage
-This section describes the schema of CDN core analytics, how it is organized inside of an Azure storage account, and provides sample code to download the logs in a CSV file.
+This section describes the schema of CDN core analytics, organization in an Azure storage account, and provides sample code to download the logs in a CSV file.
 
 ### Using Microsoft Azure Storage Explorer
-Before you can access the core analytics data from an Azure storage account, you first need a tool to access the contents in a storage account. While there are several tools available in the market, the one that we recommend is the Microsoft Azure Storage Explorer. To download the tool, see [Azure Storage Explorer](https://storageexplorer.com/). After downloading and installing the software, configure it to use the same Azure storage account that was configured as a destination to the CDN Diagnostics Logs.
+To download the tool, see [Azure Storage Explorer](https://storageexplorer.com/). After downloading and installing the software, configure it to use the same Azure storage account that was configured as a destination to the CDN Diagnostics Logs.
 
 1.	Open **Microsoft Azure Storage Explorer**
 2.	Locate the storage account
@@ -177,12 +189,11 @@ Before you can access the core analytics data from an Azure storage account, you
 6.	Each blob *PT1H.json* file represents the analytics logs for one hour for a specific CDN endpoint or its custom domain.
 7.	The schema of the contents of this JSON file is described in the section schema of the core analytics logs.
 
-
 #### Blob path format
 
-Core analytics logs are generated every hour and the data is collected and stored inside a single Azure blob as a JSON payload. Because the Storage explorer tool interprets '/' as a directory separator and shows the hierarchy, the path to the Azure blob appears as if there is a hierarchical structure and represents the blob name. The name of the blob follows the following naming convention:	
+Core analytics logs are generated every hour and the data is collected and stored inside a single Azure blob as a JSON payload. Storage explorer tool interprets '/' as a directory separator and shows the hierarchy. The path to the Azure blob appears as if there's a hierarchical structure and represents the blob name. The name of the blob follows the following naming convention:
 
-```resourceId=/SUBSCRIPTIONS/{Subscription Id}/RESOURCEGROUPS/{Resource Group Name}/PROVIDERS/MICROSOFT.CDN/PROFILES/{Profile Name}/ENDPOINTS/{Endpoint Name}/ y={Year}/m={Month}/d={Day}/h={Hour}/m={Minutes}/PT1H.json```
+`resourceId=/SUBSCRIPTIONS/{Subscription Id}/RESOURCEGROUPS/{Resource Group Name}/PROVIDERS/MICROSOFT.CDN/PROFILES/{Profile Name}/ENDPOINTS/{Endpoint Name}/ y=/m=/d=/h=/m=/PT1H.json`
 
 **Description of fields:**
 
@@ -199,7 +210,7 @@ Core analytics logs are generated every hour and the data is collected and store
 
 ### Exporting the core analytics data to a CSV file
 
-To make it easy to access core analytics, sample code for a tool is provided. This tool allows downloading the JSON files into a flat comma-separated file format, which can be used to create charts or other aggregations.
+To access core analytics, sample code for a tool is provided. This tool allows downloading the JSON files into a flat comma-separated file format, which can be used to create charts or other aggregations.
 
 Here's how you can use the tool:
 
@@ -209,106 +220,11 @@ Here's how you can use the tool:
 4.	Run the tool.
 5.	The resulting CSV file shows the analytics data in a simple flat hierarchy.
 
-## Consuming diagnostics logs from a Log Analytics workspace
-Azure Monitor is an Azure service that monitors your cloud and on-premises environments to maintain their availability and performance. It collects data generated by resources in your cloud and on-premises environments and from other monitoring tools to provide analysis across multiple sources. 
-
-To use Azure Monitor, you must [enable logging](#enable-logging-with-azure-storage) to the Azure Log Analytics workspace, which is discussed earlier in this article.
-
-### Using the Log Analytics workspace
-
- The following diagram shows the architecture of the inputs and outputs of the repository:
-
-![Log Analytics workspace](./media/cdn-diagnostics-log/12_Repo-overview.png)
-
-*Figure 3 - Log Analytics Repository*
-
-You can display the data in a variety of ways by using Management Solutions. You can obtain Management Solutions from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/monitoring-management?page=1&subcategories=management-solutions).
-
-You can install monitoring solutions from Azure marketplace by selecting the **Get it now** link at the bottom of each solution.
-
-### Add an Azure Monitor CDN monitoring solution
-
-Follow these steps to add an Azure Monitor monitoring solution:
-
-1.   Sign in to the Azure portal using your Azure subscription and go to your dashboard.
-    ![Azure dashboard](./media/cdn-diagnostics-log/13_Azure-dashboard.png)
-
-2. In the **New** page, under **Marketplace**, select **Monitoring + management**.
-
-    ![Marketplace](./media/cdn-diagnostics-log/14_Marketplace.png)
-
-3. In the **Monitoring + management** page, select **See all**.
-
-    ![See all](./media/cdn-diagnostics-log/15_See-all.png)
-
-4. Search for CDN in the search box.
-
-    ![See all](./media/cdn-diagnostics-log/16_Search-for.png)
-
-5. Select **Azure CDN Core Analytics**. 
-
-    ![See all](./media/cdn-diagnostics-log/17_Core-analytics.png)
-
-6. After you select **Create**, you are asked to create a new Log Analytics workspace or use an existing one. 
-
-    ![See all](./media/cdn-diagnostics-log/18_Adding-solution.png)
-
-7. Select the workspace you created before. You then need to add an automation account.
-
-    ![See all](./media/cdn-diagnostics-log/19_Add-automation.png)
-
-8. The following screen shows the automation account form you must fill out. 
-
-    ![See all](./media/cdn-diagnostics-log/20_Automation.png)
-
-9. Once you have created the automation account, you are ready to add your solution. Select the **Create** button.
-
-    ![See all](./media/cdn-diagnostics-log/21_Ready.png)
-
-10. Your solution has now been added to your workspace. Return to your Azure portal dashboard.
-
-    ![See all](./media/cdn-diagnostics-log/22_Dashboard.png)
-
-    Select the Log Analytics workspace you created to go to your workspace. 
-
-11. Select the **OMS Portal** tile to see your new solution.
-
-    ![See all](./media/cdn-diagnostics-log/23_workspace.png)
-
-12. Your portal should now look like the following screen:
-
-    ![See all](./media/cdn-diagnostics-log/24_OMS-solution.png)
-
-    Select one of the tiles to see several views into your data.
-
-    ![See all](./media/cdn-diagnostics-log/25_Interior-view.png)
-
-    You can scroll left or right to see further tiles representing individual views into the data. 
-
-    Select one of the tiles to see more details about your data.
-
-     ![See all](./media/cdn-diagnostics-log/26_Further-detail.png)
-
-### Offers and pricing tiers
-
-You can see offers and pricing tiers for management solutions [here](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions).
-
-### Customizing views
-
-You can customize the view into your data by using the **View Designer**. To begin designing, go to your Log Analytics workspace and select the **View Designer** tile.
-
-![View Designer](./media/cdn-diagnostics-log/27_Designer.png)
-
-Drag-and-drop the types of charts and fill in the data details you want to analyze.
-
-![View Designer](./media/cdn-diagnostics-log/28_Designer.png)
-
-	
 ## Log data delays
 
-The following table shows log data delays for **Azure CDN Standard from Microsoft**, **Azure CDN Standard from Akamai**, and **Azure CDN Standard/Premium from Verizon**.
+The following table shows log data delays for **Azure CDN Standard from Microsoft**, **Azure CDN Standard from Akamai**, and **Azure CDN Standard/Premium from Edgio**.
 
-Microsoft log data delays | Verizon log data delays | Akamai log data delays
+Microsoft log data delays | Edgio log data delays | Akamai log data delays
 --- | --- | ---
 Delayed by 1 hour. | Delayed by 1 hour and can take up to 2 hours to start appearing after endpoint propagation completion. | Delayed by 24 hours; if it was created more than 24 hours ago, it takes up to 2 hours to start appearing. If it was recently created, it can take up to 25 hours for the logs to start appearing.
 
@@ -317,10 +233,16 @@ Delayed by 1 hour. | Delayed by 1 hour and can take up to 2 hours to start appea
 Microsoft currently offers core analytics logs only, which contain metrics showing HTTP response statistics and egress statistics as seen from the CDN POPs/edges.
 
 ### Core analytics metrics details
-The following table shows a list of metrics available in the core analytics logs for **Azure CDN Standard from Microsoft**, **Azure CDN Standard from Akamai**, and **Azure CDN Standard/Premium from Verizon**. Not all metrics are available from all providers, although such differences are minimal. The table also displays whether a given metric is available from a provider. The metrics are available for only those CDN endpoints that have traffic on them.
+The following table shows a list of metrics available in the core analytics logs for:
+
+* **Azure CDN Standard from Microsoft**
+* **Azure CDN Standard from Akamai**
+* **Azure CDN Standard/Premium from Edgio**
+
+Not all metrics are available from all providers, although such differences are minimal. The table also displays whether a given metric is available from a provider. The metrics are available for only those CDN endpoints that have traffic on them.
 
 
-|Metric                     | Description | Microsoft | Verizon | Akamai |
+|Metric                     | Description | Microsoft | Edgio | Akamai |
 |---------------------------|-------------|-----------|---------|--------|
 | RequestCountTotal         | Total number of request hits during this period. | Yes | Yes |Yes |
 | RequestCountHttpStatus2xx | Count of all requests that resulted in a 2xx HTTP code (for example, 200, 202). | Yes | Yes |Yes |
@@ -334,10 +256,10 @@ The following table shows a list of metrics available in the core analytics logs
 | RequestCountHttpStatus304 | Count of all requests that resulted in a 304 HTTP code response. | Yes | No  |Yes |
 | RequestCountHttpStatus404 | Count of all requests that resulted in a 404 HTTP code response. | Yes | No  |Yes |
 | RequestCountCacheHit | Count of all requests that resulted in a Cache hit. The asset was served directly from the POP to the client. | Yes | Yes | No  |
-| RequestCountCacheMiss | Count of all requests that resulted in a Cache miss. A Cache miss means the asset was not found on the POP closest to the client, and therefore was retrieved from the Origin. | Yes | Yes | No |
-| RequestCountCacheNoCache | Count of all requests to an asset that are prevented from being cached due to a user configuration on the edge. | Yes | Yes | No |
-| RequestCountCacheUncacheable | Count of all requests to assets that are prevented from being cached by the asset's Cache-Control and Expires headers, which indicate that it should not be cached on a POP or by the HTTP client. | Yes | Yes | No |
-| RequestCountCacheOthers | Count of all requests with cache status not covered by above. | No | Yes | No  |
+| RequestCountCacheMiss | Count of all requests that resulted in a Cache miss. A Cache miss means the asset wasn't found on the POP closest to the client, and was retrieved from the origin. | Yes | Yes | No |
+| RequestCountCacheNoCache | Count of all requests to an asset that are prevented from being cached because of a user configuration on the edge. | Yes | Yes | No |
+| RequestCountCacheUncacheable | Count of all requests to assets that are prevented from getting cached by the asset's Cache-Control and Expires headers. This count indicates that it shouldn't be cached on a POP or by the HTTP client. | Yes | Yes | No |
+| RequestCountCacheOthers | Count of all requests with cache status not covered by metrics listed previously. | No | Yes | No  |
 | EgressTotal | Outbound data transfer in GB | Yes |Yes |Yes |
 | EgressHttpStatus2xx | Outbound data transfer* for responses with 2xx HTTP status codes in GB. | Yes | Yes | No  |
 | EgressHttpStatus3xx | Outbound data transfer for responses with 3xx HTTP status codes in GB. | Yes | Yes | No  |
@@ -345,9 +267,9 @@ The following table shows a list of metrics available in the core analytics logs
 | EgressHttpStatus5xx | Outbound data transfer for responses with 5xx HTTP status codes in GB. | Yes | Yes | No |
 | EgressHttpStatusOthers | Outbound data transfer for responses with other HTTP status codes in GB. | Yes | Yes | No  |
 | EgressCacheHit | Outbound data transfer for responses that were delivered directly from the CDN cache on the CDN POPs/Edges. | Yes | Yes | No |
-| EgressCacheMiss. | Outbound data transfer for responses that were not found on the nearest POP server, and retrieved from the origin server. | Yes | Yes | No |
-| EgressCacheNoCache | Outbound data transfer for assets that are prevented from being cached due to a user configuration on the edge. | Yes | Yes | No |
-| EgressCacheUncacheable | Outbound data transfer for assets that are prevented from being cached by the asset's Cache-Control and/or Expires headers. Indicates that it should not be cached on a POP or by the HTTP client. | Yes | Yes | No |
+| EgressCacheMiss. | Outbound data transfer for responses that weren't found on the nearest POP server, and retrieved from the origin server. | Yes | Yes | No |
+| EgressCacheNoCache | Outbound data transfer for assets that are prevented from being cached because of a user configuration on the edge. | Yes | Yes | No |
+| EgressCacheUncacheable | Outbound data transfer for assets that are prevented from getting cached by the asset's Cache-Control and, or Expires headers. Indicates that it shouldn't be cached on a POP or by the HTTP client. | Yes | Yes | No |
 | EgressCacheOthers | Outbound data transfers for other cache scenarios. | No | Yes | No |
 
 *Outbound data transfer refers to traffic delivered from CDN POP servers to the client.
@@ -400,7 +322,7 @@ All logs are stored in JSON format and each entry has string fields according to
 }
 ```
 
-Where *time* represents the start time of the hour boundary for which the statistics is reported. When a metric is not supported by a CDN provider, instead of a double or integer value, there is a null value. This null value indicates the absence of a metric, and is different from a value of 0. There is one set of these metrics per domain configured on the endpoint.
+Where *time* represents the start time of the hour boundary for which the statistics is reported. A metric unsupported by a CDN provider, instead of a double or integer value, results in a null value. This null value indicates the absence of a metric, and is different from a value of 0. One set of these metrics per domain is configured on the endpoint.
 
 Example properties:
 
@@ -438,16 +360,9 @@ Example properties:
 
 ```
 
-## Additional resources
+## More resources
 
-* [Azure Diagnostic logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
-* [Core analytics via Azure CDN supplemental portal](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
-* [Azure Monitor logs](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
-* [Azure Log Analytics REST API](https://docs.microsoft.com/rest/api/loganalytics)
-
-
-
-
-
-
-
+* [Azure Diagnostic logs](../azure-monitor/essentials/platform-logs-overview.md)
+* [Core analytics via Azure CDN supplemental portal](./cdn-analyze-usage-patterns.md)
+* [Azure Monitor logs](../azure-monitor/logs/log-query-overview.md)
+* [Azure Log Analytics REST API](/rest/api/loganalytics)

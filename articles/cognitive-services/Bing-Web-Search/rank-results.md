@@ -1,23 +1,25 @@
 ---
 title: How to use rankings to display search results - Bing Web Search API
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to use ranking to display search results from the Bing Web Search API.
 services: cognitive-services
-author: swhite-msft
+
 manager: nitinme
 ms.assetid: BBF87972-B6C3-4910-BB52-DE90893F6C71
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 03/17/2019
-ms.author: scottwhi
+
 ---
 
 # How to use ranking to display Bing Web Search API results  
 
-Each search response includes a [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse) answer, that specifies how you must display the search results. The ranking response groups results by mainline content and sidebar content for a traditional search results page. If you do not display the results in a traditional mainline and sidebar format, you must provide the mainline content higher visibility than the sidebar content.  
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
-Within each group (mainline or sidebar), the [Items](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankinggroup-items) array identifies the order that the content must appear in. Each item provides the following two ways to identify the result within an answer.  
+Each search response includes a [RankingResponse](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse) answer, that specifies how you must display the search results. The ranking response groups results by mainline content and sidebar content for a traditional search results page. If you do not display the results in a traditional mainline and sidebar format, you must provide the mainline content higher visibility than the sidebar content.  
+
+Within each group (mainline or sidebar), the [Items](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankinggroup-items) array identifies the order that the content must appear in. Each item provides the following two ways to identify the result within an answer.  
 
 -   `answerType` and `resultIndex` — The `answerType` field identifies the answer (for example, Webpage or News) and `resultIndex` identifies a result within the answer (for example, a news article). The index is zero based.  
 
@@ -25,11 +27,11 @@ Within each group (mainline or sidebar), the [Items](https://docs.microsoft.com/
 
 Using the ID is simpler to use because you only need to match the ranking ID with the ID of an answer or one of its results. If an answer object includes an `id` field, display all the answer's results together. For example, if the `News` object includes the `id` field, display all the news articles together. If the `News` object does not include the `id` field, then each news article contains an `id` field and the ranking response mixes the news articles with the results from other answers.  
 
-Using the `answerType` and `resultIndex` is a little more complicated. You use `answerType` to identify the answer that contains the results to display. Then, you use `resultIndex` to index through the answer's results to get the result to display. (The `answerType` value is the name of the field in the [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse) object.) If you're supposed to display all the answer's results together, the ranking response item doesn't include the `resultIndex` field.  
+Using the `answerType` and `resultIndex` is a little more complicated. You use `answerType` to identify the answer that contains the results to display. Then, you use `resultIndex` to index through the answer's results to get the result to display. (The `answerType` value is the name of the field in the [SearchResponse](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse) object.) If you're supposed to display all the answer's results together, the ranking response item doesn't include the `resultIndex` field.  
 
 ## Ranking response example
 
-The following shows an example [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse). Because the Web answer does not include an `id` field, you'd display all webpages individually based on the ranking (each webpage includes an `id` field). And because the images, videos, and related searches answers do include the `id` field, you'd display the results of each of those answers together based on the ranking.
+The following shows an example [RankingResponse](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse). Because the Web answer does not include an `id` field, you'd display all webpages individually based on the ranking (each webpage includes an `id` field). And because the images, videos, and related searches answers do include the `id` field, you'd display the results of each of those answers together based on the ranking.
 
 ```json
 {  

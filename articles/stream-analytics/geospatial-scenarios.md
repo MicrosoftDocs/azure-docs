@@ -1,11 +1,10 @@
 ---
-title: Geofencing and geospatial aggregation scenarios with Azure Stream Analytics
+title: Geofencing and geospatial aggregation with Azure Stream Analytics
 description: This article describes how to use Azure Stream Analytics for geofencing and geospatial aggregation.
-services: stream-analytics
-author: mamccrea
-ms.author: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+author: enkrumah
+ms.author: ebnkruma
+ms.topic: how-to
 ms.date: 04/02/2019
 ---
 
@@ -66,7 +65,7 @@ Device "C" is located inside building ID 2, which is not allowed according to th
 
 ### Site with multiple allowed devices
 
-If a site allows multiple devices, an array of device IDs can be defined in `AllowedDeviceID` and a User-Defined Function can be used on the `WHERE` clause to verify if the stream device ID matches any device ID in that list. For more information, view the [Javascript UDF](stream-analytics-javascript-user-defined-functions.md) tutorial for cloud jobs and the [C# UDF](stream-analytics-edge-csharp-udf.md) tutorial for edge jobs.
+If a site allows multiple devices, an array of device IDs can be defined in `AllowedDeviceID` and a User-Defined Function can be used on the `WHERE` clause to verify if the stream device ID matches any device ID in that list. For more information, view the [JavaScript UDF](stream-analytics-javascript-user-defined-functions.md) tutorial for cloud jobs and the [C# UDF](stream-analytics-edge-csharp-udf.md) tutorial for edge jobs.
 
 ## Geospatial aggregation
 
@@ -108,7 +107,7 @@ SELECT count(*) as NumberOfRequests, RegionsRefDataInput.RegionName
 FROM UserRequestStreamDataInput
 JOIN RegionsRefDataInput 
 ON st_within(UserRequestStreamDataInput.FromLocation, RegionsRefDataInput.Geofence) = 1
-GROUP BY RegionsRefDataInput.RegionName, hoppingwindow(minute, 1, 15)
+GROUP BY RegionsRefDataInput.RegionName, hoppingwindow(minute, 15, 1)
 ```
 
 This query outputs a count of requests every minute for the last 15 minutes by each region within the city. This information can be displayed easily by Power BI dashboard, or can be broadcasted to all drivers as SMS text messages through integration with services like Azure functions.
@@ -121,4 +120,4 @@ The image below illustrates the output of the query to Power BI dashboard.
 ## Next steps
 
 * [Introduction to Stream Analytics geospatial functions](stream-analytics-geospatial-functions.md)
-* [GeoSpatial Functions (Azure Stream Analytics)](https://docs.microsoft.com/stream-analytics-query/geospatial-functions)
+* [GeoSpatial Functions (Azure Stream Analytics)](/stream-analytics-query/geospatial-functions)

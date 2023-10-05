@@ -1,92 +1,104 @@
 ---
-title: Azure AD password protection - Azure Active Directory
-description: Ban weak passwords in on-premises Active Directory by using Azure AD password protection
+title: Microsoft Entra Password Protection
+description: Ban weak passwords in on-premises Active Directory Domain Services environments by using Microsoft Entra Password Protection
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/18/2018
+ms.date: 01/29/2023
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
-manager: daveba
+ms.author: justinha
+author: justinha
+manager: amycolannino
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ---
 
-# Enforce Azure AD password protection for Windows Server Active Directory
+# Enforce on-premises Microsoft Entra Password Protection for Active Directory Domain Services
 
-Azure AD password protection is a feature that enhances password policies in an organization. On-premises deployment of password protection uses both the global and custom banned-password lists that are stored in Azure AD. It does the same checks on-premises as Azure AD for cloud-based changes.
+Microsoft Entra Password Protection detects and blocks known weak passwords and their variants, and can also block additional weak terms that are specific to your organization. On-premises deployment of Microsoft Entra Password Protection uses the same global and custom banned password lists that are stored in Microsoft Entra ID, and does the same checks for on-premises password changes as Microsoft Entra ID does for cloud-based changes. These checks are performed during password changes and password reset events against on-premises Active Directory Domain Services (AD DS) domain controllers.
 
 ## Design principles
 
-Azure AD password protection is designed with these principles in mind:
+Microsoft Entra Password Protection is designed with the following principles in mind:
 
-* Domain controllers never have to communicate directly with the internet.
-* No new network ports are opened on domain controllers.
-* No Active Directory schema changes are required. The software uses the existing Active Directory **container** and **serviceConnectionPoint** schema objects.
-* No minimum Active Directory domain or forest functional level (DFL/FFL) is required.
-* The software doesn't create or require accounts in the Active Directory domains that it protects.
+* Domain controllers (DCs) never have to communicate directly with the internet.
+* No new network ports are opened on DCs.
+* No AD DS schema changes are required. The software uses the existing AD DS *container* and *serviceConnectionPoint* schema objects.
+* Any supported AD DS domain or forest functional level can be used.
+* The software doesn't create or require accounts in the AD DS domains that it protects.
 * User clear-text passwords never leave the domain controller, either during password validation operations or at any other time.
-* The software is not dependent on other Azure AD features; for example Azure AD password hash sync is not related and is not required in order for Azure AD password protection to function.
-* Incremental deployment is supported, however the password policy is only enforced where the Domain Controller Agent (DC Agent) is installed. See next topic for more details.
+* The software isn't dependent on other Microsoft Entra features. For example, Microsoft Entra password hash sync (PHS) isn't related or required for Microsoft Entra Password Protection.
+* Incremental deployment is supported, however the password policy is only enforced where the Domain Controller Agent (DC Agent) is installed.
 
 ## Incremental deployment
 
-Azure AD password protection supports incremental deployment across domain controllers in an Active Directory domain but it's important to understand what this really means and what the tradeoffs are.
+Microsoft Entra Password Protection supports incremental deployment across DCs in an AD DS domain. It's important to understand what this really means and what the tradeoffs are.
 
-The Azure AD password protection DC agent software can only validate passwords when it is installed on a domain controller, and only for password changes that are sent to that domain controller. It is not possible to control which domain controllers are chosen by Windows client machines for processing user password changes. In order to guarantee consistent behavior and universal password protection security enforcement, the DC agent software MUST be installed on all domain controllers in a domain.
+The Microsoft Entra Password Protection DC agent software can only validate passwords when it's installed on a DC, and only for password changes that are sent to that DC. It's not possible to control which DCs are chosen by Windows client machines for processing user password changes. To guarantee consistent behavior and universal Microsoft Entra Password Protection security enforcement, the DC agent software must be installed on all DCs in a domain.
 
-Many organizations will want to do careful testing of Azure AD password protection on a subset of their domain controllers prior to doing a full deployment. Azure AD password protection does support partial deployment, ie the DC agent software on a given DC will actively validate passwords even when other DCs in the domain do not have the DC agent software installed. Partial deployments of this type are NOT secure and are NOT recommended other than for testing purposes.
+Many organizations want to carefully test Microsoft Entra Password Protection on a subset of their DCs prior to a full deployment. To support this scenario, Microsoft Entra Password Protection supports partial deployment. The DC agent software on a given DC actively validates passwords even when other DCs in the domain don't have the DC agent software installed. Partial deployments of this type aren't secure and aren't recommended other than for testing purposes.
 
 ## Architectural diagram
 
-It's important to understand the underlying design and function concepts before you deploy Azure AD password protection in an on-premises Active Directory environment. The following diagram shows how the components of password protection work together:
+It's important to understand the underlying design and function concepts before you deploy Microsoft Entra Password Protection in an on-premises AD DS environment. The following diagram shows how the components of Microsoft Entra Password Protection work together:
 
-![How Azure AD password protection components work together](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
+![How Microsoft Entra Password Protection components work together](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
 
-* The Azure AD Password Protection Proxy service runs on any domain-joined machine in the current Active Directory forest. Its primary purpose is to forward password policy download requests from domain controllers to Azure AD. It then returns the responses from Azure AD to the domain controller.
-* The password filter DLL of the DC Agent receives user password-validation requests from the operating system. It forwards them to the DC Agent service that's running locally on the domain controller.
-* The DC Agent service of password protection receives password-validation requests from the password filter DLL of the DC Agent. It processes them by using the current (locally available) password policy and returns the result: *pass* or *fail*.
+* The Microsoft Entra Password Protection Proxy service runs on any domain-joined machine in the current AD DS forest. The service's primary purpose is to forward password policy download requests from DCs to Microsoft Entra ID and then return the responses from Microsoft Entra ID to the DC.
+* The password filter DLL of the DC Agent receives user password-validation requests from the operating system. The filter forwards them to the DC Agent service that's running locally on the DC.
+* The DC Agent service of Microsoft Entra Password Protection receives password-validation requests from the password filter DLL of the DC Agent. The DC Agent service processes them by using the current (locally available) password policy and returns the result of *pass* or *fail*.
 
-## How password protection works
+<a name='how-azure-ad-password-protection-works'></a>
 
-Each Azure AD Password Protection Proxy service instance advertises itself to the domain controllers in the forest by creating a **serviceConnectionPoint** object in Active Directory.
+## How Microsoft Entra Password Protection works
 
-Each DC Agent service for password protection also creates a **serviceConnectionPoint** object in Active Directory. This object is used primarily for reporting and diagnostics.
+The on-premises Microsoft Entra Password Protection components work as follows:
 
-The DC Agent service is responsible for initiating the download of a new password policy from Azure AD. The first step is to locate an Azure AD Password Protection Proxy service by querying the forest for proxy **serviceConnectionPoint** objects. When an available proxy service is found, the DC Agent sends a password policy download request to the proxy service. The proxy service in turn sends the request to Azure AD. The proxy service then returns the response to the DC Agent service.
+1. Each Microsoft Entra Password Protection Proxy service instance advertises itself to the DCs in the forest by creating a *serviceConnectionPoint* object in Active Directory.
 
-After the DC Agent service receives a new password policy from Azure AD, the service stores the policy in a dedicated folder at the root of its domain *sysvol* folder share. The DC Agent service also monitors this folder in case newer policies replicate in from other DC Agent services in the domain.
+    Each DC Agent service for Microsoft Entra Password Protection also creates a *serviceConnectionPoint* object in Active Directory. This object is used primarily for reporting and diagnostics.
 
-The DC Agent service always requests a new policy at service startup. After the DC Agent service is started, it checks the age of the current locally available policy hourly. If the policy is older than one hour, the DC Agent requests a new policy from Azure AD via the proxy service, as described previously. If the current policy isn't older than one hour, the DC Agent continues to use that policy.
+1. The DC Agent service is responsible for initiating the download of a new password policy from Microsoft Entra ID. The first step is to locate a Microsoft Entra Password Protection Proxy service by querying the forest for proxy *serviceConnectionPoint* objects.
 
-Whenever an Azure AD password protection password policy is downloaded, that policy is specific to a tenant. In other words, password policies are always a combination of the Microsoft global banned-password list and the per-tenant custom banned-password list.
+1. When an available proxy service is found, the DC Agent sends a password policy download request to the proxy service. The proxy service in turn sends the request to Microsoft Entra ID, then returns the response to the DC Agent service.
 
-The DC Agent communicates with the proxy service via RPC over TCP. The proxy service listens for these calls on a dynamic or static RPC port, depending on the configuration.
+1. After the DC Agent service receives a new password policy from Microsoft Entra ID, the service stores the policy in a dedicated folder at the root of its domain *sysvol* folder share. The DC Agent service also monitors this folder in case newer policies replicate in from other DC Agent services in the domain.
 
-The DC Agent never listens on a network-available port.
+1. The DC Agent service always requests a new policy at service startup. After the DC Agent service is started, it checks the age of the current locally available policy hourly. If the policy is older than one hour, the DC Agent requests a new policy from Microsoft Entra ID via the proxy service, as described previously. If the current policy isn't older than one hour, the DC Agent continues to use that policy.
 
-The proxy service never calls the DC Agent service.
+1. When password change events are received by a DC, the cached policy is used to determine if the new password is accepted or rejected.
 
-The proxy service is stateless. It never caches policies or any other state downloaded from Azure.
+### Key considerations and features
 
-The DC Agent service always uses the most recent locally available password policy to evaluate a user's password. If no password policy is available on the local DC, the password is automatically accepted. When that happens, an event message is logged to warn the administrator.
+* Whenever a Microsoft Entra Password Protection password policy is downloaded, that policy is specific to a tenant. In other words, password policies are always a combination of the Microsoft global banned-password list and the per-tenant custom banned-password list.
+* The DC Agent communicates with the proxy service via RPC over TCP. The proxy service listens for these calls on a dynamic or static RPC port, depending on the configuration.
+* The DC Agent never listens on a network-available port.
+* The proxy service never calls the DC Agent service.
+* The proxy service is stateless. It never caches policies or any other state downloaded from Azure.
+* The DC Agent service always uses the most recent locally available password policy to evaluate a user's password. If no password policy is available on the local DC, the password is automatically accepted. When that happens, an event message is logged to warn the administrator.
+* Microsoft Entra Password Protection isn't a real-time policy application engine. There can be a delay between when a password policy configuration change is made in Microsoft Entra ID and when that change reaches and is enforced on all DCs.
+* Microsoft Entra Password Protection acts as a supplement to the existing AD DS password policies, not a replacement. This includes any other 3rd-party password filter dlls that may be installed. AD DS always requires that all password validation components agree before accepting a password.
 
-Azure AD password protection isn't a real-time policy application engine. There can be a delay between when a password policy configuration change is made in Azure AD and when that change reaches and is enforced on all domain controllers.
+<a name='forest--tenant-binding-for-azure-ad-password-protection'></a>
 
-Azure AD password protection acts as a supplement to the existing Active Directory password policies, not a replacement. This includes any other 3rd-party password filter dlls that may be installed. Active Directory always requires that all password validation components agree before accepting a password.
+## Forest / tenant binding for Microsoft Entra Password Protection
 
-## Forest/tenant binding for password protection
+Deployment of Microsoft Entra Password Protection in an AD DS forest requires registration of that forest with Microsoft Entra ID. Each proxy service that's deployed must also be registered with Microsoft Entra ID. These forest and proxy registrations are associated with a specific Microsoft Entra tenant, which is identified implicitly by the credentials that are used during registration.
 
-Deployment of Azure AD password protection in an Active Directory forest requires registration of that forest with Azure AD. Each proxy service that is deployed must also be registered with Azure AD. These forest and proxy registrations are associated with a specific Azure AD tenant, which is identified implicitly by the credentials that are used during registration.
+The AD DS forest and all deployed proxy services within a forest must be registered with the same tenant. It's not supported to have an AD DS forest or any proxy services in that forest being registered to different Microsoft Entra tenants. Symptoms of such a mis-configured deployment include the inability to download password policies.
 
-The Active Directory forest and all deployed proxy services within a forest must be registered with the same tenant. It is not supported to have an Active Directory forest or any proxy services in that forest being registered to different Azure AD tenants. Symptoms of such a mis-configured deployment include the inability to download password policies.
+> [!NOTE]
+> Customers that have multiple Microsoft Entra tenants must therefore choose one distinguished tenant to register each forest for Microsoft Entra Password Protection purposes.
 
 ## Download
 
-The two required agent installers for Azure AD password protection are available from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=57071).
+The two required agent installers for Microsoft Entra Password Protection are available from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=57071).
 
 ## Next steps
-[Deploy Azure AD password protection](howto-password-ban-bad-on-premises-deploy.md)
+
+To get started with using on-premises Microsoft Entra Password Protection, complete the following how-to:
+
+> [!div class="nextstepaction"]
+> [Deploy on-premises Microsoft Entra Password Protection](howto-password-ban-bad-on-premises-deploy.md)

@@ -1,28 +1,19 @@
 ---
-title: Backup and restore Azure Service Fabric actors | Microsoft Docs
-description: Learn how to implement backup and restore in your Azure Service Fabric actors.
-services: service-fabric
-documentationcenter: .net
-author: vturecek
-manager: chackdan
-editor: amanbha
-
-ms.assetid: 45839a7f-0536-46f1-ae2b-8ba3556407fb
+title: Back up and restore Azure Service Fabric actors 
+description: Learn how to implement back up and restore in your Azure Service Fabric actors.
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
 ms.service: service-fabric
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 10/29/2018
-ms.author: vturecek
-
+services: service-fabric
+ms.date: 07/11/2022
 ---
 
 
-# Implement Reliable Actors backup and restore
+# Implement Reliable Actors back up and restore
 
 > [!NOTE]
-> Microsoft recommends to use [Periodic backup and restore](service-fabric-backuprestoreservice-quickstart-azurecluster.md) for configuring data backup of Reliable Stateful services and Reliable Actors. 
+> Microsoft recommends to use [Periodic back up and restore](service-fabric-backuprestoreservice-quickstart-azurecluster.md) for configuring data backup of Reliable Stateful services and Reliable Actors. 
 > 
 
 In the following example, a custom actor service exposes a method to back up actor data by taking advantage of the remoting listener already present in `ActorService`:
@@ -119,7 +110,7 @@ myActorServiceProxy.backupActorsAsync();
 For more information on Reliable Actors, read the following articles:
 * [Actor state management](service-fabric-reliable-actors-state-management.md)
 * [Actor lifecycle and garbage collection](service-fabric-reliable-actors-lifecycle.md)
-* [Actors API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* [Actors API reference documentation](/previous-versions/azure/dn971626(v=azure.100))
 * [.NET sample code](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Java sample code](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 

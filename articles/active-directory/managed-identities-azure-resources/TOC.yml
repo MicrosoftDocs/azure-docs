@@ -7,7 +7,7 @@
 - name: Quickstarts
   items:
   - name: Use a VM managed identity to access Azure Resource Manager
-    items: 
+    items:
     - name: Windows VM
       href: tutorial-windows-vm-access-arm.md
     - name: Linux VM
@@ -20,18 +20,10 @@
       href: tutorial-windows-vm-access-datalake.md
     - name: Access Azure Storage
       href: tutorial-vm-windows-access-storage.md
-    - name: Access Azure Storage using an access key
-      href: tutorial-windows-vm-access-storage.md
-    - name: Access Azure Storage using SAS
-      href: tutorial-windows-vm-access-storage-sas.md
     - name: Access Azure SQL
       href: tutorial-windows-vm-access-sql.md
     - name: Access Azure Key Vault
       href: tutorial-windows-vm-access-nonaad.md
-    - name: Access Azure Cosmos DB
-      href: tutorial-windows-vm-access-cosmos-db.md
-    - name: Access Azure AD Graph API
-      href: tutorial-windows-vm-access-azure-ad-graph.md
     - name: Access Azure Resource Manager with a user-assigned managed identity
       href: tutorial-windows-vm-ua-arm.md
   - name: Linux VM/VMSS
@@ -46,22 +38,30 @@
       href: tutorial-linux-vm-access-storage-sas.md
     - name: Access Azure Key Vault
       href: tutorial-linux-vm-access-nonaad.md
-    - name: Access Azure Cosmos DB
-      href: tutorial-linux-vm-access-cosmos-db.md
     - name: Access Azure Container Registry
-      href: /azure/container-registry/container-registry-authentication-managed-identity?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
-    - name: Access Azure AD Graph API
-      href: tutorial-linux-vm-access-azure-ad-graph.md
+      href: ../../container-registry/container-registry-authentication-managed-identity.md?context=%2fazure%2factive-directory%2fmanaged-identities-azure-resources%2fcontext%2fmsi-context
     - name: Access Azure Resource Manager with a user-assigned managed identity
       href: msi-tutorial-linux-vm-access-arm.md
+  - name: Access Azure Cosmos DB
+    href: tutorial-vm-managed-identities-cosmos.md
   - name: Azure Service Bus
-    href: /azure/service-bus-messaging/service-bus-managed-service-identity?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
+    href: ../../service-bus-messaging/service-bus-managed-service-identity.md?context=%2fazure%2factive-directory%2fmanaged-identities-azure-resources%2fcontext%2fmsi-context
   - name: Azure App Service and Functions
-    href: /azure/app-service/overview-managed-identity?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
+    href: ../../app-service/overview-managed-identity.md?context=%2fazure%2factive-directory%2fmanaged-identities-azure-resources%2fcontext%2fmsi-context
   - name: Azure Event Hubs
-    href: /azure/event-hubs/event-hubs-managed-service-identity?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
+    href: ../../event-hubs/authenticate-managed-identity.md?context=%2fazure%2factive-directory%2fmanaged-identities-azure-resources%2fcontext%2fmsi-context
   - name: Azure Container Instances
-    href: /azure/container-instances/container-instances-managed-identity?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
+    href: ../../container-instances/container-instances-managed-identity.md?context=%2fazure%2factive-directory%2fmanaged-identities-azure-resources%2fcontext%2fmsi-context
+  - name: View managed identity activity
+    href: how-to-view-managed-identity-activity.md
+- name: Concepts
+  items:
+    - name: Developer introduction and guidelines
+      href: overview-for-developers.md  
+    - name: Managed identities and Azure VMs
+      href: how-managed-identities-work-vm.md
+    - name: Best practice recommendations
+      href: managed-identity-best-practice-recommendations.md
 - name: How-to guides
   items:
   - name: Configure managed identities on VMs
@@ -78,7 +78,9 @@
       href: qs-configure-rest-vm.md
     - name: Azure SDKs
       href: qs-configure-sdk-windows-vm.md
-    
+    - name: Using Azure Policy
+      href: how-to-assign-managed-identity-via-azure-policy.md
+
   - name: Configure managed identities on virtual machine scale sets
     items:
     - name: Portal
@@ -91,18 +93,17 @@
       href: qs-configure-template-windows-vmss.md
     - name: REST
       href: qs-configure-rest-vmss.md
-      
+    - name: Using Azure Policy
+      href: how-to-assign-managed-identity-via-azure-policy.md
+
   - name: Use managed identities on VMs
     items:
     - name: Acquire an access token
       href: how-to-use-vm-token.md
-    - name: Sign to Powershell and CLI using Managed Identity
+    - name: Sign to PowerShell and CLI using Managed Identity
       href: how-to-use-vm-sign-in.md
     - name: Use with Azure SDKs
       href: how-to-use-vm-sdk.md
-    - name: Stop using VM extension and start using Azure IMDS
-      href: howto-migrate-vm-extension.md
-      
   - name: Assign a managed identity access to another Azure resource
     items:
     - name: Portal
@@ -110,20 +111,12 @@
     - name: CLI
       href: howto-assign-access-cli.md
     - name: PowerShell
-      href: howto-assign-access-powershell.md
-      
+      href: howto-assign-access-powershell.md   
+
   - name: Manage user-assigned managed identities
-    items:
-    - name: Portal
-      href: how-to-manage-ua-identity-portal.md
-    - name: CLI
-      href: how-to-manage-ua-identity-cli.md
-    - name: PowerShell
-      href: how-to-manage-ua-identity-powershell.md
-    - name: Azure Resource Manager Template
-      href: how-to-manage-ua-identity-arm.md
-    - name: REST
-      href: how-to-manage-ua-identity-rest.md
+    href: how-manage-user-assigned-managed-identities.md
+  - name: View associated resources for a managed identity
+    href: how-to-view-associated-resources-for-an-identity.md
   - name: View managed identity service principals
     items:
     - name: Portal
@@ -132,34 +125,40 @@
       href: how-to-view-managed-identity-service-principal-cli.md
     - name: PowerShell
       href: how-to-view-managed-identity-service-principal-powershell.md
-             
+  - name: Assign a managed identity to an app role
+    items:
+    - name: PowerShell
+      href: how-to-assign-app-role-managed-identity-powershell.md
+    - name: CLI
+      href: how-to-assign-app-role-managed-identity-cli.md
+  - name: View managed identity activity
+    href: how-to-view-managed-identity-activity.md
+  - name: Move a managed identity to a new region
+    href: how-to-managed-identity-regional-move.md
+
 - name: Reference
   items:
-  - name: CLI
-    href: /cli/azure/identity
-  - name: PowerShell
-    href: /powershell/module/az.managedserviceidentity#managed_service_identity 
   - name: .NET
-    href: /dotnet/api/microsoft.azure.management.resourcemanager.fluent.authentication#azure-dotnet
+    href: /dotnet/api/overview/azure/identity-readme
   - name: Java
-    href: https://github.com/Azure/azure-libraries-for-java#ready-to-run-code-samples-for-virtual-machines
+    href: /java/api/overview/azure/identity-readme
+  - name: JavaScript
+    href: /javascript/api/overview/azure/identity-readme
   - name: Python
-    href: /python/api/azure.mgmt.msi
-  - name: Ruby
-    href: https://rubygems.org/gems/azure_mgmt_msi
-  - name: Node.js
-    href: /javascript/api/ms-rest-azure
-  - name: Go 
-    href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/msi/mgmt/2015-08-31-preview/msi
-    
+    href: /python/api/overview/azure/identity-readme
+  - name: Go
+    href: https://go.dev/doc/
 - name: Resources
   items:
-  - name: FAQs and known issues
+  - name: Frequently asked questions
+    href: managed-identities-faq.md
+  - name: Known issues
     href: known-issues.md
   - name: Azure services that support managed identities for Azure resources
-    href: services-support-managed-identities.md
+    href: managed-identities-status.md
+  - name: Azure services that support Microsoft Entra authentication
+    href: services-id-authentication-support.md
   - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-msi
-  - name: AAD Developers forum
-    href: https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences
-    
+    href: https://stackoverflow.com/questions/tagged/azure-managed-identity
+  - name: Microsoft Entra Developers forum
+    href: https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789?c=3abf25c9-ad25-ec11-b6e6-000d3a4f0789#

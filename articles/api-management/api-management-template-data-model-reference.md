@@ -3,7 +3,7 @@ title: Azure API Management template data model reference | Microsoft Docs
 description: Learn about the entity and type representations for common items used in the data models for the developer portal templates in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: erikre
 editor: ''
 
@@ -11,19 +11,18 @@ ms.assetid: b0ad7e15-9519-4517-bb73-32e593ed6380
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
-ms.author: apimpm
+ms.date: 11/04/2019
+ms.author: danlep
 ---
 # Azure API Management template data model reference
 This topic describes the entity and type representations for common items used in the data models for the developer portal templates in Azure API Management.  
   
- For more information about working with templates, see [How to customize the API Management developer portal using templates](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+ For more information about working with templates, see [How to customize the API Management developer portal using templates](./api-management-developer-portal-templates.md).  
+
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
-
-The developer portal is not available in the Consumption tier.
 
 ## Reference
 
@@ -63,7 +62,7 @@ The developer portal is not available in the Consumption tier.
 |`serviceUrl`|string|Absolute URL of the backend service implementing this API.|  
 |`path`|string|Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.|  
 |`protocols`|array of number|Describes on which protocols the operations in this API can be invoked. Allowed values are `1 - http` and `2 - https`, or both.|  
-|`authenticationSettings`|[Authorization server authentication settings](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-contract-reference#AuthenticationSettings)|Collection of authentication settings included in this API.|  
+|`authenticationSettings`|[Authorization server authentication settings](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-contract-reference#AuthenticationSettings)|Collection of authentication settings included in this API.|  
 |`subscriptionKeyParameterNames`|object|Optional property that can be used to specify custom names for query and/or header parameters containing the subscription key. When this property is present, it must contain at least one of the two following properties.<br /><br /> `{   "subscriptionKeyParameterNames":   {     "query": “customQueryParameterName",     "header": “customHeaderParameterName"   } }`|  
   
 ##  <a name="APISummary"></a> API summary  
@@ -125,7 +124,7 @@ The developer portal is not available in the Consumption tier.
   
 |Property|Type|Description|  
 |--------------|----------|-----------------|  
-|`Id`|number|The id of the comment.|  
+|`Id`|number|The ID of the comment.|  
 |`CommentText`|string|The body of the comment. May include HTML.|  
 |`DeveloperCompany`|string|The company name of the developer.|  
 |`PostedOn`|DateTime|The date and time the comment was posted.|  
@@ -136,7 +135,7 @@ The developer portal is not available in the Consumption tier.
 |Property|Type|Description|  
 |--------------|----------|-----------------|  
 |`Id`|string|The unique identifier for the issue.|  
-|`ApiID`|string|The id for the API for which this issue was reported.|  
+|`ApiID`|string|The ID for the API for which this issue was reported.|  
 |`Title`|string|Title of the issue.|  
 |`Description`|string|Description of the issue.|  
 |`SubscriptionDeveloperName`|string|First name of the developer that reported the issue.|  
@@ -206,8 +205,8 @@ The developer portal is not available in the Consumption tier.
   
 |Property|Type|Description|  
 |--------------|----------|-----------------|  
-|`ApiId`|string|The id of the current API.|  
-|`CurrentOperationId`|string|The id of the current operation.|  
+|`ApiId`|string|The ID of the current API.|  
+|`CurrentOperationId`|string|The ID of the current operation.|  
 |`Action`|string|The menu type.|  
 |`MenuItems`|Collection of [Operation menu item](#MenuItem) entities.|The operations for the current API.|  
   
@@ -216,7 +215,7 @@ The developer portal is not available in the Consumption tier.
   
 |Property|Type|Description|  
 |--------------|----------|-----------------|  
-|`Id`|string|The id of the operation.|  
+|`Id`|string|The ID of the operation.|  
 |`Title`|string|The description of the operation.|  
 |`HttpMethod`|string|The Http method of the operation.|  
   

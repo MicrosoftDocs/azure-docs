@@ -1,0 +1,989 @@
+- name: NoSQL documentation
+  href: index.yml
+- name: Quickstarts
+  items:
+    - name: Develop app - .NET
+      href: quickstart-dotnet.md
+    - name: Develop app - Node.js
+      href: quickstart-nodejs.md
+    - name: Develop app - Java
+      href: quickstart-java.md
+    - name: Develop app - Spring Data
+      href: quickstart-java-spring-data.md
+    - name: Develop app - Python
+      href: quickstart-python.md
+    - name: Develop app - Spark v3
+      href: quickstart-spark.md
+    - name: Develop app - Go
+      href: quickstart-go.md
+    - name: Create resources - Azure portal
+      href: quickstart-portal.md
+    - name: Create resources - Bicep template
+      displayName: ARM, Resource Manager, Template, Bicep
+      href: quickstart-template-bicep.md
+    - name: Create resources - JSON template
+      displayName: ARM, Resource Manager, Template, JSON
+      href: quickstart-template-json.md
+    - name: Create resources - Terraform template
+      displayName: ARM, Resource Manager, Template, Terraform
+      href: quickstart-terraform.md
+- name: Tutorials
+  items:
+    - name: Build web applications
+      items:
+        - name: .NET
+          href: tutorial-dotnet-web-app.md
+        - name: Java
+          href: tutorial-java-web-app.md
+        - name: Node.js
+          href: tutorial-nodejs-web-app.md
+    - name: Build console applications
+      items:
+        - name: .NET
+          href: tutorial-dotnet-console-app.md
+        - name: Java
+          href: quickstart-java.md?tabs=sync
+        - name: Async Java
+          href: quickstart-java.md?tabs=async
+        - name: Node.js
+          href: quickstart-nodejs.md
+    - name: Query data
+      href: tutorial-query.md
+    - name: Spring Boot app on Azure Kubernetes Service
+      href: tutorial-springboot-azure-kubernetes-service.md
+    - name: Jupyter notebooks
+      items:
+        - name: Create notebook
+          href: tutorial-create-notebook.md
+        - name: Import notebooks from GitHub
+          href: tutorial-import-notebooks.md
+    - name: Deploy app on AKS cluster using Bicep
+      href: tutorial-deploy-app-bicep-aks.md
+    - name: KQL transformations for workspace data
+      href: ../tutorial-log-transformation.md
+- name: Samples
+  items:
+    - name: .NET
+      href: samples-dotnet.md
+    - name: Java
+      href: samples-java.md
+    - name: Spring Data
+      href: samples-java-spring-data.md
+    - name: Node.js
+      href: samples-nodejs.md
+    - name: Python
+      href: samples-python.md
+    - name: Go
+      href: samples-go.md
+    - name: PowerShell
+      href: powershell-samples.md
+    - name: Azure CLI
+      items:
+        - name: Overview
+          href: cli-samples.md
+        - name: Create account, database and container
+          href: ../scripts/cli/nosql/create.md
+        - name: Create serverless
+          href: ../scripts/cli/nosql/serverless.md
+        - name: Create with autoscale
+          href: ../scripts/cli/nosql/autoscale.md
+        - name: Perform throughput operations
+          href: ../scripts/cli/nosql/throughput.md
+        - name: Lock resources from deletion
+          href: ../scripts/cli/nosql/lock.md
+        - name: Add or fail over regions
+          href: ../scripts/cli/common/regions.md
+        - name: Perform account key operations
+          href: ../scripts/cli/common/keys.md
+        - name: Secure with IP firewall
+          href: ../scripts/cli/common/ipfirewall.md
+        - name: Secure new account with service endpoints
+          href: ../scripts/cli/common/service-endpoints.md
+        - name: Secure existing account with service endpoints
+          href: ../scripts/cli/common/service-endpoints-ignore-missing-vnet.md
+        - name: Find existing free-tier accounts
+          href: ../scripts/cli/common/free-tier.md
+    - name: Azure PowerShell
+      items:
+        - name: Overview
+          href: powershell-samples.md
+        - name: Create account, database and container
+          href: ../scripts/powershell/nosql/create.md
+        - name: Create with autoscale
+          href: ../scripts/powershell/nosql/autoscale.md
+        - name: Perform throughput operations
+          href: ../scripts/powershell/nosql/throughput.md
+        - name: Lock resources from deletion
+          href: ../scripts/powershell/nosql/lock.md
+        - name: List and get databases and containers
+          href: ../scripts/powershell/nosql/list-get.md
+        - name: Create a container with indexing turned off
+          href: ../scripts/powershell/nosql/create-index-none.md
+        - name: Create a container with a large partition key
+          href: ../scripts/powershell/nosql/create-large-partition-key.md
+        - name: Account keys or connection strings
+          href: ../scripts/powershell/common/keys-connection-strings.md
+        - name: Change failover priority or trigger failover
+          href: ../scripts/powershell/common/failover-priority-update.md
+        - name: Create an account with IP Firewall
+          href: ../scripts/powershell/common/firewall-create.md
+        - name: Update account
+          href: ../scripts/powershell/common/account-update.md
+        - name: Update an account's regions
+          href: ../scripts/powershell/common/update-region.md
+    - name: Templates
+      items:
+        - name: JSON syntax templates
+          href: samples-resource-manager-templates.md
+          displayName: ARM
+        - name: Bicep syntax templates
+          href: bicep-samples.md
+        - name: Terraform syntax templates
+          href: samples-terraform.md
+    - name: Azure Resource Graph queries
+      href: ../resource-graph-samples.md
+- name: Concepts
+  items:
+    - name: Azure Cosmos DB resource model
+      displayName: collection, document
+      href: ../resource-model.md
+    - name: Modeling and partitioning
+      items:
+        - name: Model document data
+          displayName: document
+          href: modeling-data.md
+        - name: Modeling and partitioning - a real-world example
+          displayName: model, partition, example
+          href: model-partition-example.md
+        - name: Synthetic partition key
+          href: synthetic-partition-keys.md
+    - name: Partitioning and horizontal scaling
+      items:
+        - name: Partitioning overview
+          href: ../partitioning-overview.md
+        - name: Hierarchical partition keys
+          items:
+            - name: Hierarchical partition keys overview
+              href: ../hierarchical-partition-keys.md
+            - name: Hierarchical partition keys FAQ
+              href: ../hierarchical-partition-keys-faq.yml
+    - name: Throughput (Request units)
+      items:
+        - name: Request units
+          displayName: RUs, RU
+          href: ../request-units.md
+        - name: Free tier
+          displayName: free tier
+          href: ../free-tier.md
+        - name: Limit total account throughput
+          displayName: cost, RUs, RU
+          href: ../limit-total-account-throughput.md
+        - name: Convert vCores to request units
+          href: ../convert-vcore-to-request-unit.md
+        - name: Provisioned throughput
+          displayName: request units, RUs, RU, limits, database throughput, shared throughput, container throughput
+          href: ../set-throughput.md
+        - name: Autoscale throughput
+          items:
+            - name: Autoscale introduction
+              href: ../provision-throughput-autoscale.md
+            - name: Autoscale FAQ
+              href: ../autoscale-faq.yml
+        - name: Serverless
+          items:
+            - name: Serverless overview
+              href: ../serverless.md
+            - name: Serverless Performance
+              href: ../serverless-performance.md
+        - name: Choose between autoscale and standard (manual) throughput
+          href: ../how-to-choose-offer.md
+        - name: Choose between provisioned throughput and serverless
+          href: ../throughput-serverless.md
+        - name: Best practices for scaling provisioned throughput
+          href: ../scaling-provisioned-throughput-best-practices.md
+        - name: Burst capacity
+          items:
+            - name: Burst capacity overview
+              href: ../burst-capacity.md
+            - name: Burst capacity FAQ
+              href: ../burst-capacity-faq.yml
+        - name: Merge (preview)
+          href: ../merge.md
+        - name: Distribute throughput across partitions (preview) - container
+          displayName: request units, RUs, RU, collection levels
+          items:
+            - name: Distribute throughput across partitions overview
+              href: distribute-throughput-across-partitions.md
+            - name: Distribute throughput across partitions FAQ
+              href: distribute-throughput-across-partitions-faq.yml
+    - name: Containers and items
+      items:
+        - name: Getting started with SQL query
+          displayName: sql query, query basics
+          href: query/getting-started.md
+        - name: Indexing overview
+          displayName: range, spatial
+          href: ../index-overview.md
+        - name: Time to live
+          displayName: delete, delete data, ttl
+          href: time-to-live.md
+        - name: Unique key constraints
+          href: ../unique-keys.md
+        - name: Transactions and optimistic concurrency control
+          href: database-transactions-optimistic-concurrency.md
+        - name: Attachments
+          href: ../attachments.md
+    - name: Change feed
+      items:
+        - name: Change feed overview
+          href: ../change-feed.md
+        - name: Change feed design patterns
+          href: change-feed-design-patterns.md
+        - name: Change feed modes
+          href: change-feed-modes.md
+        - name: Reading change feed
+          href: read-change-feed.md
+        - name: Change feed processor
+          href: change-feed-processor.md
+        - name: Trigger Azure Functions
+          displayName: change feed
+          href: change-feed-functions.md
+        - name: Change feed (pull model)
+          href: change-feed-pull-model.md
+    - name: Integrated cache
+      items:
+        - name: Dedicated gateway overview
+          href: ../dedicated-gateway.md
+        - name: Integrated cache overview
+          href: ../integrated-cache.md
+        - name: Integrated cache FAQ
+          href: ../integrated-cache-faq.md
+    - name: Analytics with Azure Synapse Link
+      items:
+        - name: Azure Synapse Link for Azure Cosmos DB
+          href: ../synapse-link.md
+        - name: Azure Synapse Link supported features
+          href: ../../synapse-analytics/synapse-link/concept-synapse-link-cosmos-db-support.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Azure Synapse Link use cases
+          href: ../synapse-link-use-cases.md
+        - name: Custom partitioning - Overview
+          href: ../custom-partitioning-analytical-store.md
+        - name: Azure Synapse Link FAQ
+          href: ../synapse-link-frequently-asked-questions.yml
+        - name: Analytical store - overview
+          href: ../analytical-store-introduction.md
+        - name: Change data capture (CDC)
+          href: ../analytical-store-change-data-capture.md
+        - name: Time travel (preview)
+          href: ../synapse-link-time-travel.md
+    - name: Back up and restore
+      items:
+        - name: Back up and restore introduction
+          href: ../online-backup-and-restore.md
+        - name: Continuous backup
+          items:
+            - name: Continuous backup - Introduction
+              href: ../continuous-backup-restore-introduction.md
+            - name: Restore
+              items:
+                - name: Restore into a new account
+                  items:
+                    - name: Continuous backup - Resource model
+                      href: ../continuous-backup-restore-resource-model.md
+                    - name: Continuous backup - FAQ
+                      href: ../continuous-backup-restore-frequently-asked-questions.yml
+                    - name: Latest restorable timestamp
+                      href: ../latest-restore-timestamp-continuous-backup.md
+                    - name: Auditing restore action with continuous backup
+                      href: ../audit-restore-continuous.md
+                - name: Restore in the same account (preview)
+                  items:
+                    - name: Introduction
+                      href: ../restore-in-account-continuous-backup-introduction.md
+                    - name: Resource model
+                      href: ../restore-in-account-continuous-backup-resource-model.md
+                    - name: FAQ
+                      href: ../restore-in-account-continuous-backup-frequently-asked-questions.yml
+        - name: Periodic backup
+          items:
+            - name: Introduction
+              href: ../periodic-backup-restore-introduction.md
+            - name: Storage redundancy
+              href: ../periodic-backup-storage-redundancy.md
+            - name: Request data restore
+              href: ../periodic-backup-request-data-restore.md
+    - name: Global distribution
+      items:
+        - name: Global distribution overview
+          displayName: replication, replicate, geo distribution
+          href: ../distribute-data-globally.md
+        - name: Consistency levels
+          displayName: session, consistency prefix, strong, eventual, bounded staleness
+          href: ../consistency-levels.md
+        - name: High availability
+          href: ../high-availability.md
+        - name: Conflict types and resolution policies
+          displayName: last write wins, custom, multi-region writes, multi-master
+          href: ../conflict-resolution-policies.md
+        - name: Global distribution - under the hood
+          href: ../global-dist-under-the-hood.md
+    - name: Security
+      items:
+        - name: Security overview
+          href: ../database-security.md
+        - name: Secure access to data
+          displayName: primary key, resource token, users, roles
+          href: ../secure-access-to-data.md
+        - name: Data encryption
+          href: ../database-encryption-at-rest.md
+        - name: Service tags
+          href: ../../virtual-network/service-tags-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Azure role-based access control
+          displayName: rbac
+          href: ../role-based-access-control.md
+        - name: Azure Policy support
+          href: ../policy.md
+        - name: Security controls by Azure Policy
+          displayName: regulatory, compliance, standards, domains
+          href: ../security-controls-policy.md
+        - name: Security baseline
+          href: /security/benchmark/azure/baselines/cosmos-db-security-baseline?bc=/azure/cosmos-db/breadcrumb/toc.json&toc=/azure/cosmos-db/toc.json
+        - name: Threat protection with Microsoft Defender for Cloud
+          href: defender-for-cosmos-db.md
+    - name: Enterprise readiness
+      items:
+        - name: Service quotas
+          href: ../concepts-limits.md
+        - name: Request quota increase
+          href: create-support-request-quota-increase.md
+        - name: Automatic recommendations
+          href: ../automated-recommendations.md
+        - name: Compliance
+          href: ../compliance.md
+        - name: Data residency
+          href: ../data-residency.md
+    - name: Optimize your Azure Cosmos DB costs
+      href: ../optimize-costs.yml
+    - name: Jupyter notebooks
+      items:
+        - name: Overview
+          href: ../notebooks-overview.md
+        - name: FAQ
+          href: ../notebooks-faq.yml
+    - name: Emulator
+      href: ../emulator.md
+- name: How to
+  items:
+    - name: Access preview features
+      href: ../access-previews.md
+    - name: Develop applications
+      items:
+        - name: Create account
+          href: how-to-create-account.md
+        - name: .NET
+          items:
+            - name: Get started
+              href: how-to-dotnet-get-started.md
+            - name: Work with databases
+              items:
+                - name: Create a database
+                  href: how-to-dotnet-create-database.md
+            - name: Work with containers
+              items:
+                - name: Create a container
+                  href: how-to-dotnet-create-container.md
+            - name: Work with items
+              items:
+                - name: Create an item
+                  href: how-to-dotnet-create-item.md
+                - name: Read an item
+                  href: how-to-dotnet-read-item.md
+                - name: Query items
+                  href: how-to-dotnet-query-items.md
+        - name: JavaScript
+          items:
+            - name: Get started
+              href: how-to-javascript-get-started.md
+            - name: Work with databases
+              items:
+                - name: Create a database
+                  href: how-to-javascript-create-database.md
+            - name: Work with containers
+              items:
+                - name: Create a container
+                  href: how-to-javascript-create-container.md
+            - name: Work with items
+              items:
+                - name: Create an item
+                  href: how-to-javascript-create-item.md
+                - name: Query items
+                  href: how-to-javascript-query-items.md
+        - name: Python
+          items:
+            - name: Get started
+              href: how-to-python-get-started.md
+            - name: Work with databases
+              items:
+                - name: Create a database
+                  href: how-to-python-create-database.md
+            - name: Work with containers
+              items:
+                - name: Create a container
+                  href: how-to-python-create-container.md
+        - name: Designing resilient applications
+          href: conceptual-resilient-sdk-applications.md
+        - name: Connectivity modes
+          href: sdk-connection-modes.md
+    - name: Operations on containers and items
+      items:
+        - name: Create a container
+          href: how-to-create-container.md
+        - name: Create a container with large partition key
+          href: ../large-partition-keys.md
+        - name: Query a container
+          href: how-to-query-container.md
+        - name: Migrate to partitioned containers
+          href: migrate-containers-partitioned-to-nonpartitioned.md
+        - name: Configure time to live
+          displayName: delete, delete data, ttl
+          href: how-to-time-to-live.md
+        - name: Define unique keys
+          href: ../how-to-define-unique-keys.md
+        - name: Perform transactional batch operations
+          href: transactional-batch.md
+        - name: Delete items by partition key (preview)
+          href: how-to-delete-by-partition-key.md
+        - name: Find request unit charge
+          displayName: request units, RUs, RU, charge, consumption
+          href: find-request-unit-charge.md
+        - name: Move data between containers
+          href: ../intra-account-container-copy.md
+        - name: Partial document update
+          items:
+            - name: Partial document update overview
+              href: ../partial-document-update.md
+            - name: Get started with Partial Document Update
+              href: ../partial-document-update-getting-started.md
+            - name: Partial document update FAQ
+              href: ../partial-document-update-faq.yml
+    - name: Change feed
+      items:
+        - name: Azure Cosmos DB Trigger advanced configuration
+          href: how-to-configure-cosmos-db-trigger.md
+        - name: Multiple Azure Cosmos DB Triggers
+          href: how-to-create-multiple-cosmos-db-triggers.md
+        - name: Troubleshoot Azure Cosmos DB Triggers
+          href: troubleshoot-changefeed-functions.md
+        - name: Using the change feed estimator
+          href: how-to-use-change-feed-estimator.md
+        - name: Migrate from change feed processor library
+          href: how-to-migrate-from-change-feed-library.md
+        - name: Async Java sample with change feed
+          href: how-to-java-change-feed.md
+    - name: NoSQL query
+      href: query/toc.yml
+    - name: Materialized views (preview)
+      href: materialized-views.md
+    - name: Index and query geospatial data
+      displayName: geospatial, geojson, spatial, index, query, geography, geometry
+      href: how-to-geospatial-index-query.md
+    - name: Throughput (Request units)
+      items:
+        - name: Provisioned throughput
+          items:
+            - name: Provision standard (manual) throughput - container
+              displayName: request units, RUs, RU, collection level
+              href: how-to-provision-container-throughput.md
+            - name: Provision standard (manual) throughput - database
+              displayName: request units, RUs, RU, shared throughput, database level
+              href: how-to-provision-database-throughput.md
+            - name: Provision autoscale throughput - database or container
+              displayName: request units, RUs, RU, shared throughput, database level, collection level, autoscale
+              href: how-to-provision-autoscale-throughput.md
+            - name: Distribute throughput across partitions (preview) - container
+              displayName: request units, RUs, RU, collection levels
+              items:
+                - name: Distribute throughput across partitions overview
+                  href: distribute-throughput-across-partitions.md
+                - name: Distribute throughput across partitions FAQ
+                  href: distribute-throughput-across-partitions-faq.yml
+            - name: Estimate RU/s with capacity planner
+              displayName: request units, RUs, RU, capacity
+              href: estimate-ru-with-capacity-planner.md
+            - name: Scale using Azure Functions timer
+              displayName: request units, RUs, RU, timer
+              href: scale-on-schedule.md
+        - name: Find request unit charge
+          displayName: request units, RUs, RU, charge, consumption
+          href: find-request-unit-charge.md
+    - name: Develop with the emulator
+      href: ../how-to-develop-emulator.md?pivots=api-nosql
+    - name: Tools, SDKs, and providers
+      items:
+        - name: Kafka Connect
+          items:
+            - name: Kafka Connect overview
+              href: kafka-connector.md
+            - name: Kafka Connect - Source
+              href: kafka-connector-source.md
+            - name: Kafka Connect - Sink
+              href: kafka-connector-sink.md
+        - name: Spark Connector
+          items:
+            - name: Spark 3.x OLTP Connector
+              href: sdk-java-spark-v3.md
+            - name: Throughput control
+              href: throughput-control-spark.md
+        - name: ASP.NET session state and cache provider
+          href: session-state-and-caching-provider.md
+        - name: Bulk executor library
+          items:
+            - name: About bulk executor library
+              href: ../bulk-executor-overview.md
+            - name: Bulk executor - .NET library
+              href: bulk-executor-dotnet.md
+            - name: Migrate from bulk executor to .NET SDK
+              href: how-to-migrate-from-bulk-executor-library.md
+            - name: Bulk executor - Java library
+              href: bulk-executor-java.md
+            - name: Migrate from bulk executor to Java SDK
+              href: how-to-migrate-from-bulk-executor-library-java.md
+        - name: Migrate to newer SDKs
+          items:
+            - name: Migrate to Java V4 SDK
+              href: migrate-java-v4-sdk.md
+            - name: Migrate to .NET V3 SDK
+              href: migrate-dotnet-v3.md
+            - name: Migrate to .NET V2 SDK
+              href: migrate-dotnet-v2.md
+        - name: Set up CI/CD with Azure Pipelines
+          href: ../tutorial-setup-ci-cd.md
+        - name: Use Azure Cosmos DB Explorer
+          href: ../data-explorer.md
+        - name: SDK observability
+          href: sdk-observability.md
+    - name: Performance
+      items:
+        - name: Query
+          items:
+            - name: Get query execution metrics
+              href: query-metrics-performance.md
+            - name: Tune query performance
+              href: query-metrics.md
+            - name: Optimize query performance when using SDK
+              href: performance-tips-query-sdk.md
+        - name: Indexing
+          items:
+            - name: Indexing policies
+              displayName: consistent, none, indexing, policy
+              href: ../index-policy.md
+            - name: Manage indexing policies
+              href: how-to-manage-indexing-policy.md
+            - name: Index metrics
+              href: index-metrics.md
+        - name: .NET
+          items:
+            - name: Best practices for .NET SDK
+              href: best-practice-dotnet.md
+            - name: Performance tips for .NET SDK v3
+              href: performance-tips-dotnet-sdk-v3.md
+            - name: Performance tips for .NET SDK v2
+              href: performance-tips.md
+            - name: Tune connection configurations for Azure Cosmos DB .NET SDK v3
+              href: tune-connection-configurations-net-sdk-v3.md
+        - name: Java
+          items:
+            - name: Best practices for Java SDK
+              href: best-practice-java.md
+            - name: Performance tips for Java SDK v4
+              href: performance-tips-java-sdk-v4.md
+            - name: Connection Configurations for Java SDK v4
+              href: tune-connection-configurations-java-sdk-v4.md
+            - name: Async Java SDK v2
+              href: performance-tips-async-java.md
+            - name: Sync Java SDK v2
+              href: performance-tips-java.md        
+        - name: JavaScript
+          items:
+            - name: Best practices for JavaScript SDK
+              href: best-practices-javascript.md
+        - name: Configure the integrated cache
+          href: ../how-to-configure-integrated-cache.md
+        - name: Benchmarking framework
+          href: benchmarking-framework.md
+        - name: Cost-effective reads and writes
+          href: ../key-value-store-cost.md
+    - name: Troubleshooting
+      items:
+        - name: Common errors
+          items:
+            - name: Troubleshoot query performance
+              href: troubleshoot-query-performance.md
+            - name: Troubleshoot service request timeout
+              href: troubleshoot-request-timeout.md
+            - name: Troubleshoot request rate too large
+              href: troubleshoot-request-rate-too-large.md
+            - name: Troubleshoot not found
+              href: troubleshoot-not-found.md
+            - name: Troubleshoot unauthorized
+              href: troubleshoot-unauthorized.md
+            - name: Troubleshoot forbidden
+              href: troubleshoot-forbidden.md
+            - name: Troubleshoot bad request
+              href: troubleshoot-bad-request.md
+            - name: Availability issues in multiregional environments
+              href: troubleshoot-sdk-availability.md
+        - name: .NET
+          items:
+            - name: General Troubleshooting .NET SDK
+              href: troubleshoot-dotnet-sdk.md
+            - name: Troubleshoot request header too large
+              href: troubleshoot-dotnet-sdk-request-header-too-large.md
+            - name: Troubleshoot request timeout
+              href: troubleshoot-dotnet-sdk-request-timeout.md
+            - name: Troubleshoot slow requests
+              href: troubleshoot-dotnet-sdk-slow-request.md
+            - name: Troubleshoot service unavailable
+              href: troubleshoot-service-unavailable.md
+        - name: Java
+          items:
+            - name: Troubleshoot Java SDK v4
+              href: troubleshoot-java-sdk-v4.md
+            - name: Troubleshoot request timeout
+              href: troubleshoot-java-sdk-request-timeout.md
+            - name: Troubleshoot service unavailable
+              href: troubleshoot-java-sdk-service-unavailable.md
+            - name: Troubleshoot- Async Java SDK v2
+              href: troubleshoot-java-async-sdk.md
+    - name: Analytics and BI with Azure Synapse Link
+      items:
+        - name: Configure Azure Synapse Link
+          href: ../configure-synapse-link.md
+        - name: Connect to Azure Synapse Link
+          href: ../../synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Azure Synapse Link and integrated Power BI
+          href: ../integrated-power-bi-synapse-link.md
+        - name: Analytical store and private endpoints
+          href: ../analytical-store-private-endpoints.md
+        - name: Query with Azure Synapse Spark 3
+          href: ../../synapse-analytics/synapse-link/how-to-query-analytical-store-spark-3.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Query with Azure Synapse Spark 2
+          href: ../../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Query with serverless SQL pool
+          href: ../../synapse-analytics/sql/query-cosmos-db-analytical-store.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Power BI
+          items:
+            - name: Use Power BI
+              href: powerbi-visualize.md
+            - name: Use Power BI with Azure Synapse Link
+              href: ../synapse-link-power-bi.md
+        - name: Configure custom partitioning
+          href: ../configure-custom-partitioning.md
+        - name: Get started with change data capture
+          href: ../get-started-change-data-capture.md
+    - name: Manage Azure Cosmos DB resources
+      items:
+        - name: Manage an Azure Cosmos DB account
+          href: ../how-to-manage-database-account.md
+        - name: Using PowerShell
+          href: manage-with-powershell.md
+        - name: Using Azure CLI
+          href: manage-with-cli.md
+        - name: Using Bicep
+          href: manage-with-bicep.md
+          displayName: ARM
+        - name: Using Resource Manager templates
+          href: manage-with-templates.md
+          displayName: ARM
+        - name: Using Terraform
+          href: manage-with-terraform.md
+          displayName: Terraform
+        - name: Move between regions
+          href: ../how-to-move-regions.md
+        - name: Prevent changes or deletion
+          href: ../resource-locks.md
+    - name: Global distribution
+      items:
+        - name: Distribute data globally tutorial
+          href: tutorial-global-distribution.md
+        - name: Configure multi-region writes
+          href: how-to-multi-master.md
+        - name: Manage consistency levels
+          displayName: session, consistency prefix, strong, eventual, bounded staleness
+          href: how-to-manage-consistency.md
+        - name: Configure conflict resolution policies
+          href: how-to-manage-conflicts.md
+        - name: Convert session token format
+          href: how-to-convert-session-token.md
+    - name: Back up and restore
+      items:
+        - name: Continuous backup
+          items:
+            - name: Permissions and roles - Continuous backup
+              href: ../continuous-backup-restore-permissions.md
+            - name: Create account - Continuous backup
+              href: ../provision-account-continuous-backup.md
+            - name: Migrate to continuous backup
+              href: ../migrate-continuous-backup.md
+            - name: Restore
+              items:
+                - name: Restore to a different account
+                  href: ../restore-account-continuous-backup.md
+                - name: Restore in the same account (preview)
+                  href: ../how-to-restore-in-account-continuous-backup.md
+                - name: Get the latest restorable timestamp
+                  href: ../get-latest-restore-timestamp.md
+        - name: Periodic backup
+          items:
+            - name: Update storage redundancy
+              href: ../periodic-backup-update-storage-redundancy.md
+            - name: Modify interval retention
+              href: ../periodic-backup-modify-interval-retention.md
+    - name: Security
+      items:
+        - name: Networking
+          items:
+            - name: Configure IP firewall
+              href: ../how-to-configure-firewall.md
+            - name: Configure access from virtual networks
+              displayName: service endpoints
+              href: ../how-to-configure-vnet-service-endpoint.md
+            - name: Configure access from private endpoints
+              href: ../how-to-configure-private-endpoints.md
+            - name: Connect privately to an Azure Cosmos DB account
+              href: ../../private-link/tutorial-private-endpoint-cosmosdb-portal.md?bc=%2fazure%2fcosmos-db%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcosmos-db%2ftoc.json
+        - name: Encryption
+          items:
+            - name: Use Always Encrypted
+              href: ../how-to-always-encrypted.md
+            - name: Self-serve minimum TLS version enforcement
+              href: ../self-serve-minimum-tls-enforcement.md
+            - name: Configure customer-managed keys with Azure Key Vault
+              href: ../how-to-setup-customer-managed-keys.md
+            - name: Configure customer-managed keys on existing accounts with Azure Key Vault
+              href: ../how-to-setup-customer-managed-keys-existing-accounts.md
+            - name: CMK troubleshooting guide
+              href: ../cmk-troubleshooting-guide.md
+            - name: Configure customer-managed keys with Azure managed HSM key vault
+              href: ../how-to-setup-customer-managed-keys-mhsm.md
+            - name: Configure cross-tenant customer-managed keys
+              href: ../how-to-setup-cross-tenant-customer-managed-keys.md
+            - name: Cross-tenant CMK troubleshooting guide
+              href: ../troubleshoot-cmk.md
+            - name: Access Azure Key Vault with managed identity
+              href: ../access-key-vault-managed-identity.md
+        - name: Use managed identities with Azure services
+          href: ../how-to-setup-managed-identity.md
+        - name: Use managed identities to access data
+          href: ../managed-identity-based-authentication.md
+        - name: Migrate to passwordless authentication
+          href: migrate-passwordless.md
+          displayName: msi, managed service identity, aad, azure active directory, identity
+        - name: Role-based access control
+          items:
+            - name: Configure role-based access control to data
+              href: ../how-to-setup-rbac.md
+            - name: Restrict user access to data operations only
+              href: ../how-to-restrict-user-data.md
+        - name: Configure Cross Origin Resource Sharing (CORS)
+          href: how-to-configure-cross-origin-resource-sharing.md
+        - name: Use Azure Key Vault to store keys
+          href: ../store-credentials-key-vault.md
+    - name: Monitor
+      items:
+        - name: Monitor Azure Cosmos DB
+          href: ../monitor.md
+        - name: Use Azure monitor metrics
+          items:
+            - name: Azure Monitor for Azure Cosmos DB
+              href: ../insights-overview.md
+            - name: Scenarios to monitor
+              href: ../use-metrics.md
+            - name: Monitor server-side latency
+              href: ../monitor-server-side-latency.md
+            - name: Monitor request unit usage
+              href: ../monitor-request-unit-usage.md
+            - name: Monitor key updates
+              href: ../monitor-account-key-updates.md
+            - name: Monitor normalized request unit usage
+              href: ../monitor-normalized-request-units.md
+        - name: Use Azure monitor logs
+          items:
+            - name: Monitor with diagnostic logs
+              href: ../monitor-resource-logs.md
+            - name: Troubleshoot issues using basic queries
+              href: ../monitor-logs-basic-queries.md
+            - name: Audit control plane logs
+              href: ../audit-control-plane-logs.md
+            - name: Troubleshoot issues with advanced diagnostics queries
+              href: diagnostic-queries.md
+            - name: Add a transformation for workspace data
+              href: ../tutorial-log-transformation.md
+        - name: Configure alerts
+          items:
+            - name: Create alert on metrics
+              href: ../create-alerts.md
+            - name: Create alert on logical partition key size
+              href: ../how-to-alert-on-logical-partition-key-storage-size.md
+        - name: Monitoring data reference
+          href: ../monitor-reference.md
+        - name: Third-party monitoring solutions
+          href: ../monitoring-solutions.md
+    - name: Server-side programming
+      items:
+        - name: Stored procedures, triggers, and UDFs
+          href: stored-procedures-triggers-udfs.md
+        - name: JavaScript query API
+          href: javascript-query-api.md
+        - name: Write stored procedures, triggers, and UDFs
+          href: how-to-write-stored-procedures-triggers-udfs.md
+        - name: Write stored procedures and triggers with JavaScript query API
+          href: how-to-write-javascript-query-api.md
+        - name: Use stored procedures, triggers, and UDFs
+          href: how-to-use-stored-procedures-triggers-udfs.md
+    - name: Visualize data
+      items:
+        - name: Use Power BI
+          href: powerbi-visualize.md
+        - name: Use Power BI with Azure Synapse Link
+          href: ../synapse-link-power-bi.md
+        - name: Use Qlik Sense
+          href: ../visualize-qlik-sense.md
+    - name: Migrate data
+      items:
+        - name: Options to migrate data into Azure Cosmos DB
+          href: ../migration-choices.md
+        - name: Desktop data migration tool
+          href: ../how-to-migrate-desktop-tool.md
+        - name: Using .NET bulk support
+          href: tutorial-dotnet-bulk-import.md
+        - name: Migrate hundreds of terabytes of data into Azure Cosmos DB
+          href: ../migrate.md
+        - name: Migrate to API for NoSQL using Striim
+          href: migrate-data-striim.md
+        - name: Migrate one-to-few relational data
+          href: migrate-relational-data.md
+        - name: Migrate - Couchbase to API for NoSQL
+          href: couchbase-cosmos-migration.md
+        - name: Migrate - DynamoDB to API for NoSQL
+          href: dynamo-to-cosmos.md
+        - name: Migrate - HBase to API for NoSQL
+          href: migrate-hbase-to-cosmos-db.md
+    - name: Integrate with other Azure services
+      items:
+        - name: RAG with Azure OpenAI
+          href: ../vector-search.md#retrieval-augmented-generation
+        - name: Change feed Ecommerce solution
+          href: changefeed-ecommerce-solution.md
+        - name: Azure App Service
+          href: create-website.md
+        - name: Azure Cognitive Search indexer
+          href: ../../search/search-howto-index-cosmosdb.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Azure Functions
+          items:
+            - name: Serverless computing
+              href: serverless-computing-database.md
+            - name: Azure Function bindings
+              href: ../../azure-functions/functions-bindings-cosmosdb.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Azure Data Factory
+          href: ../../data-factory/connector-azure-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Azure Stream Analytics
+          href: ../../stream-analytics/stream-analytics-documentdb-output.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Azure Data Explorer
+          href: https://github.com/Azure/azure-kusto-labs/tree/master/cosmosdb-adx-integration
+        - name: Azure Event Hubs and Azure Storage
+          href: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md
+        - name: Use Spring Boot Starter
+          href: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Spring Data developer guide
+          href: /azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: ODBC driver
+          href: odbc-driver.md
+        - name: Vercel
+          href: ../vercel-integration.md
+- name: Reference
+  items:
+    - name: .NET SDKs
+      items:
+        - name: .NET SDK v3
+          href: sdk-dotnet-v3.md
+        - name: .NET SDK v2 (legacy)
+          href: sdk-dotnet-v2.md
+        - name: .NET Core SDK v2 (legacy)
+          href: sdk-dotnet-core-v2.md
+        - name: .NET change feed library v2 (legacy)
+          href: sdk-dotnet-change-feed-v2.md
+        - name: .NET bulk executor library v2 (legacy)
+          href: sdk-dotnet-bulk-executor-v2.md
+    - name: Java SDKs and Connectors
+      items:
+        - name: Java SDK v4
+          href: sdk-java-v4.md
+        - name: Async Java SDK v2 (legacy)
+          href: sdk-java-async-v2.md
+        - name: Sync Java SDK v2 (legacy)
+          href: sdk-java-v2.md
+        - name: Spring Data Connector v2 (legacy)
+          href: sdk-java-spring-data-v2.md
+        - name: Spring Data Connector v3
+          href: sdk-java-spring-data-v3.md
+        - name: Spring Data Connector v5
+          href: sdk-java-spring-data-v5.md
+        - name: Spark 3.x OLTP Connector
+          href: sdk-java-spark-v3.md
+        - name: Spark 2.x LTS OLTP Connector
+          href: sdk-java-spark-v2.md
+        - name: Java bulk executor library v2 (legacy)
+          href: sdk-java-bulk-executor-v2.md
+    - name: Azure CLI
+      href: /cli/azure/azure-cli-reference-for-cosmos-db
+    - name: Node.js
+      href: sdk-nodejs.md
+    - name: Python
+      href: sdk-python.md
+    - name: Go
+      href: sdk-go.md
+    - name: REST (Data plane)
+      href: /rest/api/cosmos-db/
+    - name: REST (Management plane)
+      href: /rest/api/cosmos-db-resource-provider/2021-04-01-preview/sql-resources
+    - name: PowerShell
+      href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
+    - name: Azure Resource Manager template
+      href: /azure/templates/microsoft.documentdb/allversions
+      displayName: ARM
+    - name: Azure Policy built-ins
+      displayName: samples, policies, definitions
+      href: ../policy-reference.md
+    - name: Emulator
+      items:
+        - name: Release notes
+          href: ../emulator-release-notes.md
+        - name: Windows command-line arguments
+          href: ../emulator-windows-arguments.md
+- name: Resources
+  items:
+    - name: Build your skills with Microsoft Learn training
+      href: /training/browse/?products=azure-cosmos-db
+    - name: FAQ
+      href: ../faq.yml?toc=/azure/cosmos-db/sql/toc.json
+    - name: Whitepapers
+      href: ../whitepapers.md?toc=/azure/cosmos-db/sql/toc.json
+    - name: Partners
+      href: ../partners-migration.md?toc=/azure/cosmos-db/sql/toc.json
+    - name: Microsoft Q&A question page
+      href: /answers/topics/azure-cosmos-db.html
+    - name: Videos
+      href: https://azure.microsoft.com/resources/videos/index/?services=cosmos-db
+    - name: Azure Roadmap
+      href: https://azure.microsoft.com/updates/?query=Cosmos%20DB
+    - name: Try Azure Cosmos DB for free
+      href: https://azure.microsoft.com/try/cosmosdb/
+    - name: Pricing
+      href: https://azure.microsoft.com/pricing/details/cosmos-db/
+    - name: Use cases
+      items:
+        - name: Common use cases
+          href: ../use-cases.md?toc=/azure/cosmos-db/sql/toc.json
+        - name: Social media apps
+          href: ../social-media-apps.md?toc=/azure/cosmos-db/sql/toc.json

@@ -1,67 +1,60 @@
 ---
-title: Configure Microsoft Account authentication - Azure App Service
-description: Learn how to configure Microsoft Account authentication for your App Services application.
-author: mattchenderson
-services: app-service
-documentationcenter: ''
-manager: syntaxc4
-editor: ''
-
+title: Configure Microsoft authentication
+description: Learn how to configure Microsoft Account authentication as an identity provider for your App Service or Azure Functions app.
 ms.assetid: ffbc6064-edf6-474d-971c-695598fd08bf
-ms.service: app-service
-ms.workload: mobile
-ms.tgt_pltfrm: na
-ms.devlang: multiple
 ms.topic: article
-ms.date: 04/19/2018
-ms.author: mahender
-ms.custom: seodec18
+ms.date: 03/29/2021
+ms.custom: seodec18, fasttrack-edit, AppServiceIdentity
+author: cephalin
+ms.author: cephalin
 
 ---
-# How to configure your App Service application to use Microsoft Account login
+
+# Configure your App Service or Azure Functions app to use Microsoft Account login
+
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-This topic shows you how to configure Azure App Service to use Microsoft Account as an authentication provider. 
+This topic shows you how to configure Azure App Service or Azure Functions to use AAD to support personal Microsoft account logins.
+
+> [!IMPORTANT]
+> While the Microsoft Account provider is still supported, it is recommended that apps instead use the [Microsoft Identity Platform provider (Azure AD)](./configure-authentication-provider-aad.md). The Microsoft Identity Platform offers support for both organizational accounts and personal Microsoft accounts.
 
 ## <a name="register-microsoft-account"> </a>Register your app with Microsoft Account
-1. Log on to the [Azure portal], and navigate to your application. Copy your **URL**, which later you use to configure your app with Microsoft Account.
-2. Navigate to the [My Applications] page in the Microsoft Account Developer Center, and log on with your Microsoft account, if required.
-3. Click **Add an app**, then type an application name, and click **Create**.
-4. Make a note of the **Application ID**, as you will need it later. 
-5. Under "Platforms," click **Add Platform** and select "Web".
-6. Under "Redirect URIs" supply the endpoint for your application, then click **Save**. 
-   
-   > [!NOTE]
-   > Your redirect URI is the URL of your application appended with the path, */.auth/login/microsoftaccount/callback*. For example, `https://contoso.azurewebsites.net/.auth/login/microsoftaccount/callback`.   
-   > Make sure that you are using the HTTPS scheme.
-   
-7. Under "Application Secrets," click **Generate New Password**. Make note of the value that appears. Once you leave the page, it will not be displayed again.
+
+1. Go to [**App registrations**](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) in the Azure portal. If needed, sign in with your Microsoft account.
+1. Select **New registration**, then enter an application name.
+1. Under **Supported account types**, select **Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)**
+1. In **Redirect URIs**, select **Web**, and then enter `https://<app-domain-name>/.auth/login/aad/callback`. Replace *\<app-domain-name>* with the domain name of your app.  For example, `https://contoso.azurewebsites.net/.auth/login/aad/callback`. Be sure to use the HTTPS scheme in the URL.
+
+1. Select **Register**.
+1. Copy the **Application (Client) ID**. You'll need it later.
+1. From the left pane, select **Certificates & secrets** > **New client secret**. Enter a description, select the validity duration, and select **Add**.
+1. Copy the value that appears on the **Certificates & secrets** page. After you leave the page, it won't be displayed again.
 
     > [!IMPORTANT]
-    > The password is an important security credential. Do not share the password with anyone or distribute it within a client application.
-    
-8. Click **Save**
+    > The client secret value (password) is an important security credential. Do not share the password with anyone or distribute it within a client application.
 
 ## <a name="secrets"> </a>Add Microsoft Account information to your App Service application
-1. Back in the [Azure portal], navigate to your application, click **Settings** > **Authentication / Authorization**.
-2. If the Authentication / Authorization feature is not enabled, switch it **On**.
-3. Click **Microsoft Account**. Paste in the Application ID and Password values which you obtained previously, and optionally enable any scopes your application requires. Then click **OK**.
-   
-    ![][1]
-   
-    By default, App Service provides authentication but does not restrict authorized access to your site content and APIs. You must authorize users in your app code.
-4. (Optional) To restrict access to your site to only users authenticated by Microsoft account, set **Action to take when request is not authenticated** to **Microsoft Account**. This requires that all requests be authenticated, and all unauthenticated requests are redirected to Microsoft account for authentication.
-5. Click **Save**.
+
+1. Go to your application in the [Azure portal].
+1. Select **Settings** > **Authentication / Authorization**, and make sure that **App Service Authentication** is **On**.
+1. Under **Authentication Providers**, select **Azure Active Directory**. Select **Advanced** under **Management mode**. Paste in the Application (client) ID and client secret that you obtained earlier. Use **`https://login.microsoftonline.com/9188040d-6c67-4c5b-b112-36a304b66dad/v2.0`** for the **Issuer Url** field.
+1. Select **OK**.
+
+   App Service provides authentication, but doesn't restrict authorized access to your site content and APIs. You must authorize users in your app code.
+
+1. (Optional) To restrict access to Microsoft account users, set **Action to take when request is not authenticated** to **Log in with Azure Active Directory**. When you set this functionality, your app requires all requests to be authenticated. It also redirects all unauthenticated requests to use AAD for authentication. Note that because you have configured your **Issuer Url** to use the Microsoft Account tenant, only personal accounts will successfully authenticate.
+
+   > [!CAUTION]
+   > Restricting access in this way applies to all calls to your app, which might not be desirable for apps that have a publicly available home page, as in many single-page applications. For such applications, **Allow anonymous requests (no action)** might be preferred so that the app manually starts authentication itself. For more information, see [Authentication flow](overview-authentication-authorization.md#authentication-flow).
+
+1. Select **Save**.
 
 You are now ready to use Microsoft Account for authentication in your app.
 
-## <a name="related-content"> </a>Related content
+## <a name="related-content"> </a>Next steps
+
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
-
-<!-- Images. -->
-
-[0]: ./media/app-service-mobile-how-to-configure-microsoft-authentication/app-service-microsoftaccount-redirect.png
-[1]: ./media/app-service-mobile-how-to-configure-microsoft-authentication/mobile-app-microsoftaccount-settings.png
 
 <!-- URLs. -->
 

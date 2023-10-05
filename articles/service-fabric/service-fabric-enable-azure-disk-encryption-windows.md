@@ -1,20 +1,15 @@
 ---
-title: Enable Disk encryption for Azure Service Fabric Windows clusters | Microsoft Docs
+title: Enable disk encryption for Windows clusters 
 description: This article describes how to enable disk encryption for Azure Service Fabric cluster nodes by using Azure Key Vault in Azure Resource Manager.
-services: service-fabric
-documentationcenter: .net
-author: aljo-microsoft
-manager: navya
-ms.assetid: 15d0ab67-fc66-4108-8038-3584eeebabaa
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
 ms.service: service-fabric
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 03/22/2019
-ms.author: aljo
-
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Enable disk encryption for Azure Service Fabric cluster nodes in Windows 
 > [!div class="op_single_selector"]
 > * [Disk Encryption for Windows](service-fabric-enable-azure-disk-encryption-windows.md)
@@ -205,7 +200,7 @@ Disable-AzVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $VmssNam
 
 ```
 
-```CLI
+```azurecli
 
 az vmss encryption disable -g <resourceGroupName> -n <VMSS name>
 

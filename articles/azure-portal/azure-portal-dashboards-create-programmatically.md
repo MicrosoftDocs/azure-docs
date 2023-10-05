@@ -1,97 +1,68 @@
 ---
-title: Programmatically create Azure Dashboards | Microsoft Docs
-description: This article explains how to programmatically create Azure Dashboards.
-services: azure-portal
-documentationcenter: ''
-author: adamabmsft
-manager: dougeby
-editor: tysonn
-
-ms.service: azure-portal
-ms.devlang: NA
-ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 09/01/2017
-ms.author: kfollis
-
+title: Programmatically create Azure Dashboards
+description: Use a dashboard in the Azure portal as a template to programmatically create Azure Dashboards. Includes JSON reference.
+ms.topic: how-to
+ms.custom:
+ms.date: 09/05/2023
 ---
-# Programmatically create Azure Dashboards
 
-This document walks through the process of programmatically creating and publishing Azure dashboards. The dashboard shown below is referenced throughout the document.
+# Programmatically create Azure dashboards
 
-![sample dashboard](./media/azure-portal-dashboards-create-programmatically/sample-dashboard.png)
+This article walks you through the process of programmatically creating and publishing Azure dashboards. The sample dashboard shown below is referenced throughout the document, but you can use this process with any dashboard.
+
+:::image type="content" source="media/azure-portal-dashboards-create-programmatically/sample-dashboard.png" alt-text="Screenshot of a sample dashboard in the Azure portal.":::
 
 ## Overview
 
-Shared dashboards in Azure are [resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) just like virtual machines and storage accounts.  Therefore, they can be managed programmatically via the [Azure Resource Manager REST APIs](/rest/api/), the [Azure CLI](https://docs.microsoft.com/cli/azure), [Azure PowerShell commands](https://docs.microsoft.com/powershell/azure/get-started-azureps), and many [Azure portal](https://portal.azure.com) features build on top of these APIs to make resource management easier.  
+Shared dashboards in the [Azure portal](https://portal.azure.com) are [resources](../azure-resource-manager/management/overview.md), just like virtual machines and storage accounts. You can manage resources programmatically by using the [REST APIs](/rest/api/?view=Azure&preserve-view=true), the [Azure CLI](/cli/azure), and [Azure PowerShell commands](/powershell/azure/get-started-azureps).
 
-Each of these APIs and tools offers ways to create, list, retrieve, modify, and delete resources.  Since dashboards are resources, you can pick your favorite API / tool to use.
+Many features build on these APIs to make resource management easier. Each of these APIs and tools offers ways to create, list, retrieve, modify, and delete resources. Since dashboards are resources, you can pick your favorite API or tool to use.
 
-Regardless of which tool you use, you need to construct a JSON representation of your dashboard object before you can call any resource creation API. This object contains information about the parts (a.k.a. tiles) on the dashboard. It includes sizes, positions, resources they are bound to, and any user customizations.
+Whichever tools you use, to create a dashboard programmatically, you construct a JSON representation of your dashboard object. This object contains information about the tiles on the dashboard. It includes sizes, positions, resources they're bound to, and any user customizations.
 
-The most practical way to build up this JSON document is to use [the portal](https://portal.azure.com/) to interactively add and position your tiles. You then export the JSON. Finally, you create a template from the result for later use in scripts, programs, and deployment tools.
+The most practical way to generate this JSON document is to use the Azure portal to create an initial dashboard with the tiles you want. Then export the JSON and create a template from the result that you can modify further and use in scripts, programs, and deployment tools.
 
-## Create a dashboard
+## Fetch the JSON representation of a dashboard
 
-To create a new dashboard, use the New dashboard command on the portal’s main screen.
+We'll start by downloading the JSON representation of an existing dashboard. Open the dashboard that you want to start with. Select **Export** and then select **Download**.
 
-![new dashboard command](./media/azure-portal-dashboards-create-programmatically/new-dashboard-command.png)
+:::image type="content" source="media/azure-portal-dashboards-create-programmatically/download-command.png" alt-text="Screenshot of the command to export the JSON representation of a template in the Azure portal.":::
 
-You can then use the tile gallery to find and add tiles. Tiles are added by dragging and dropping them. Some tiles support resizing via a drag handle, while others support fixes sizes that can be seen in their context menu.
-
-### Drag handle
-![drag handle](./media/azure-portal-dashboards-create-programmatically/drag-handle.png)
-
-### Fixed sizes via context menu
-![sizes context menu](./media/azure-portal-dashboards-create-programmatically/sizes-context-menu.png)
-
-## Share the dashboard
-
-After you have configured the dashboard to your liking the next steps are to publish the dashboard (using the Share command) and then use the resource explorer to fetch the JSON.
-
-![share command](./media/azure-portal-dashboards-create-programmatically/share-command.png)
-
-Clicking the Share command shows a dialog that asks you to choose which subscription and resource group to publish to. Keep in mind that [you must have write access](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) to the subscription and resource group that you choose.
-
-![sharing and access](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
-
-## Fetch the JSON representation of the dashboard
-
-Publishing only takes a few seconds.  When it’s done, the next step is to go to the [Resource Explorer](https://portal.azure.com/#blade/HubsExtension/ArmExplorerBlade) to fetch the JSON.
-
-![browse resource explorer](./media/azure-portal-dashboards-create-programmatically/browse-resource-explorer.png)
-
-From the resource explorer, navigate to the subscription and resource group that you chose. Next, click on the newly published dashboard resource to reveal the JSON.
-
-![resource explorer json](./media/azure-portal-dashboards-create-programmatically/resource-explorer-json.png)
+You can also retrieve information about the dashboard resource programmatically by using [REST APIs](/rest/api/resources/Resources/Get) or other methods.
 
 ## Create a template from the JSON
 
-The next step is to create a template from this JSON so that it can be reused programmatically with the appropriate resource management APIs, command-line tools, or within the portal.
+The next step is to create a template from the downloaded JSON. You'll be able to use the template programmatically with the appropriate resource management APIs, command-line tools, or within the portal.
 
-It is not necessary to fully understand the dashboard JSON structure to create a template. In most cases, you want to preserve the structure and configuration of each tile, and then parameterize the set of Azure resources they’re pointing to. Look at your exported JSON dashboard and find all occurrences of Azure resource Ids. Our example dashboard has multiple tiles that all point at a single Azure virtual machine. That’s because our dashboard only looks at this single resource. If you search the sample json (included at the end of the document) for “/subscriptions”, you find several occurrences of this Id.
+In most cases, you want to preserve the structure and configuration of each tile. Then parameterize the set of Azure resources that the tiles point to. You don't have to fully understand the [dashboard JSON structure](azure-portal-dashboards-structure.md) to create a template.
+
+In your exported JSON dashboard, find all occurrences of Azure resource IDs. Our example dashboard has multiple tiles that all point at a single Azure virtual machine. That's because our dashboard only looks at this single resource. If you search the sample JSON included at the end of the document for "/subscriptions", you'll find several occurrences of this ID.
 
 `/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1`
 
-To publish this dashboard for any virtual machine in the future you need to parameterize every occurrence of this string within the JSON. 
+To publish this dashboard for any virtual machine in the future, parameterize every occurrence of this string within the JSON.
 
-There are two flavors of APIs that create resources in Azure. [Imperative APIs](https://docs.microsoft.com/rest/api/resources/resources) that create one resource at a time, and a [template-based deployment](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy) system that can orchestrate the creation of multiple, dependent resources with a single API call. The latter natively supports parameterization and templating so we use it for our example.
+## Create a dashboard template
 
-## Programmatically create a dashboard from your template using a template deployment
+Azure offers the ability to orchestrate the deployment of multiple resources. You create a deployment template that expresses the set of resources to deploy and the relationships between them. For more information, see [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md).
 
-Azure offers the ability to orchestrate the deployment of multiple resources. You create a deployment template that expresses the set of resources to deploy as well as the relationships between them.  The JSON format of each resource is the same as if you were creating them one by one. The difference is that the [template language](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) adds a few concepts like variables, parameters, basic functions, and more. This extended syntax is only supported in the context of a template deployment and does not work if used with the imperative APIs discussed earlier.
+The JSON format of each deployed template resource is the same as if you were creating them individually by uploading an exported dashboard, except that the template language adds a few concepts like variables, parameters, basic functions, and more. This extended syntax is only supported in the context of a template deployment. For more information, see [Understand the structure and syntax of ARM templates](../azure-resource-manager/templates/syntax.md).
 
-If you’re going this route, then parameterization should be done using the template’s parameter syntax.  You replace all instances of the resource id we found earlier as shown here.
+Parameterization should be done using the template's parameter syntax.  You replace all instances of the resource ID we found earlier as shown here.
 
-### Example JSON property with hard-coded resource Id
-`id: "/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1"`
+Example JSON property with hard-coded resource ID:
 
-### Example JSON property converted to a parameterized version based on template parameters
+```json
+id: "/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1"
+```
 
-`id: "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]"`
+Example JSON property converted to a parameterized version based on template parameters
 
-You also need to declare some required template metadata and the parameters at the top of the json template like this:
+```json
+id: "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]"
+```
+
+Declare required template metadata and the parameters at the top of the JSON template like this:
 
 ```json
 
@@ -114,536 +85,547 @@ You also need to declare some required template metadata and the parameters at t
     ... rest of template omitted ...
 ```
 
-__You can see the full, working template at the end of this document.__
+Once you've configured your template, deploy it using any of the following methods:
 
-Once you have crafted your template you can deploy it using the [REST APIs](https://docs.microsoft.com/rest/api/resources/deployments), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), The [Azure CLI](https://docs.microsoft.com/cli/azure/group/deployment#az-group-deployment-create), or the [portal’s template deployment page](https://portal.azure.com/#create/Microsoft.Template).
+- [REST APIs](/rest/api/resources/deployments)
+- [PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
+- [Azure CLI](/cli/azure/deployment/group#az-deployment-group-create)
+- [The Azure portal template deployment page](https://portal.azure.com/#create/Microsoft.Template)
 
-Here are two versions of our example dashboard JSON. The first is the version that we exported from the portal that was already bound to a resource. The second is the template version that can be programmatically bound to any VM and deployed using Azure Resource Manager.
+Next you'll see two versions of our example dashboard JSON. The first is the version that we exported from the portal that was already bound to a resource. The second is the template version that can be programmatically bound to any virtual machine and deployed using Azure Resource Manager.
 
-## JSON representation of our example dashboard (before templating)
+## Example JSON representation exported from dashboard
 
-This is what you can expect to see if you follow the earlier instructions to fetch the JSON representation of a dashboard that is already deployed. Note the hard-coded resource identifiers that show that this dashboard is pointing at a specific Azure virtual machine.
-
-```json
-
-{
-    "properties": {
-        "lenses": {
-            "0": {
-                "order": 0,
-                "parts": {
-                    "0": {
-                        "position": {
-                            "x": 0,
-                            "y": 0,
-                            "rowSpan": 2,
-                            "colSpan": 3
-                        },
-                        "metadata": {
-                            "inputs": [],
-                            "type": "Extension[azure]/HubsExtension/PartType/MarkdownPart",
-                            "settings": {
-                                "content": {
-                                    "settings": {
-                                        "content": "## Azure Virtual Machines Overview\r\nNew team members should watch this video to get familiar with Azure Virtual Machines.",
-                                        "title": "",
-                                        "subtitle": ""
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "1": {
-                        "position": {
-                            "x": 3,
-                            "y": 0,
-                            "rowSpan": 4,
-                            "colSpan": 8
-                        },
-                        "metadata": {
-                            "inputs": [],
-                            "type": "Extension[azure]/HubsExtension/PartType/MarkdownPart",
-                            "settings": {
-                                "content": {
-                                    "settings": {
-                                        "content": "This is the team dashboard for the test VM we use on our team. Here are some useful links:\r\n\r\n1. [Getting started](https://www.contoso.com/tsgs)\r\n1. [Troubleshooting guide](https://www.contoso.com/tsgs)\r\n1. [Architecture docs](https://www.contoso.com/tsgs)",
-                                        "title": "Test VM Dashboard",
-                                        "subtitle": "Contoso"
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "2": {
-                        "position": {
-                            "x": 0,
-                            "y": 2,
-                            "rowSpan": 2,
-                            "colSpan": 3
-                        },
-                        "metadata": {
-                            "inputs": [],
-                            "type": "Extension[azure]/HubsExtension/PartType/VideoPart",
-                            "settings": {
-                                "content": {
-                                    "settings": {
-                                        "title": "",
-                                        "subtitle": "",
-                                        "src": "https://www.youtube.com/watch?v=YcylDIiKaSU&list=PLLasX02E8BPCsnETz0XAMfpLR1LIBqpgs&index=4",
-                                        "autoplay": false
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "3": {
-                        "position": {
-                            "x": 0,
-                            "y": 4,
-                            "rowSpan": 3,
-                            "colSpan": 11
-                        },
-                        "metadata": {
-                            "inputs": [
-                                {
-                                    "name": "queryInputs",
-                                    "value": {
-                                        "timespan": {
-                                            "duration": "PT1H",
-                                            "start": null,
-                                            "end": null
-                                        },
-                                        "id": "/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1",
-                                        "chartType": 0,
-                                        "metrics": [
-                                            {
-                                                "name": "Percentage CPU",
-                                                "resourceId": "/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1"
-                                            }
-                                        ]
-                                    }
-                                }
-                            ],
-                            "type": "Extension/Microsoft_Azure_Monitoring/PartType/MetricsChartPart",
-                            "settings": {}
-                        }
-                    },
-                    "4": {
-                        "position": {
-                            "x": 0,
-                            "y": 7,
-                            "rowSpan": 2,
-                            "colSpan": 3
-                        },
-                        "metadata": {
-                            "inputs": [
-                                {
-                                    "name": "queryInputs",
-                                    "value": {
-                                        "timespan": {
-                                            "duration": "PT1H",
-                                            "start": null,
-                                            "end": null
-                                        },
-                                        "id": "/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1",
-                                        "chartType": 0,
-                                        "metrics": [
-                                            {
-                                                "name": "Disk Read Operations/Sec",
-                                                "resourceId": "/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1"
-                                            },
-                                            {
-                                                "name": "Disk Write Operations/Sec",
-                                                "resourceId": "/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1"
-                                            }
-                                        ]
-                                    }
-                                }
-                            ],
-                            "type": "Extension/Microsoft_Azure_Monitoring/PartType/MetricsChartPart",
-                            "settings": {}
-                        }
-                    },
-                    "5": {
-                        "position": {
-                            "x": 3,
-                            "y": 7,
-                            "rowSpan": 2,
-                            "colSpan": 3
-                        },
-                        "metadata": {
-                            "inputs": [
-                                {
-                                    "name": "queryInputs",
-                                    "value": {
-                                        "timespan": {
-                                            "duration": "PT1H",
-                                            "start": null,
-                                            "end": null
-                                        },
-                                        "id": "/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1",
-                                        "chartType": 0,
-                                        "metrics": [
-                                            {
-                                                "name": "Disk Read Bytes",
-                                                "resourceId": "/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1"
-                                            },
-                                            {
-                                                "name": "Disk Write Bytes",
-                                                "resourceId": "/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1"
-                                            }
-                                        ]
-                                    }
-                                }
-                            ],
-                            "type": "Extension/Microsoft_Azure_Monitoring/PartType/MetricsChartPart",
-                            "settings": {}
-                        }
-                    },
-                    "6": {
-                        "position": {
-                            "x": 6,
-                            "y": 7,
-                            "rowSpan": 2,
-                            "colSpan": 3
-                        },
-                        "metadata": {
-                            "inputs": [
-                                {
-                                    "name": "queryInputs",
-                                    "value": {
-                                        "timespan": {
-                                            "duration": "PT1H",
-                                            "start": null,
-                                            "end": null
-                                        },
-                                        "id": "/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1",
-                                        "chartType": 0,
-                                        "metrics": [
-                                            {
-                                                "name": "Network In",
-                                                "resourceId": "/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1"
-                                            },
-                                            {
-                                                "name": "Network Out",
-                                                "resourceId": "/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1"
-                                            }
-                                        ]
-                                    }
-                                }
-                            ],
-                            "type": "Extension/Microsoft_Azure_Monitoring/PartType/MetricsChartPart",
-                            "settings": {}
-                        }
-                    },
-                    "7": {
-                        "position": {
-                            "x": 9,
-                            "y": 7,
-                            "rowSpan": 2,
-                            "colSpan": 2
-                        },
-                        "metadata": {
-                            "inputs": [
-                                {
-                                    "name": "id",
-                                    "value": "/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1"
-                                }
-                            ],
-                            "type": "Extension/Microsoft_Azure_Compute/PartType/VirtualMachinePart",
-                            "asset": {
-                                "idInputName": "id",
-                                "type": "VirtualMachine"
-                            },
-                            "defaultMenuItemId": "overview"
-                        }
-                    }
-                }
-            }
-        },
-        "metadata": { }
-    },
-    "id": "/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/dashboards/providers/Microsoft.Portal/dashboards/aa9786ae-e159-483f-b05f-1f7f767741a9",
-    "name": "aa9786ae-e159-483f-b05f-1f7f767741a9",
-    "type": "Microsoft.Portal/dashboards",
-    "location": "eastasia",
-    "tags": {
-        "hidden-title": "Created via API"
-    }
-}
-
-```
-
-### Template representation of our example dashboard
-
-The template version of the dashboard has defined three parameters called __virtualMachineName__, __virtualMachineResourceGroup__, and __dashboardName__.  The parameters let you point this dashboard at a different Azure virtual machine every time you deploy. The parameterized ids are highlighted to show that this dashboard can be programmatically configured and deployed to point to any Azure virtual machine. The easiest way to test this feature is to copy the following template and paste it into the [Azure portal’s template deployment page](https://portal.azure.com/#create/Microsoft.Template). 
-
-This example deploys a dashboard by itself, but the template language lets you deploy multiple resources, and bundle one or more dashboards along side them. 
+This example is similar to what you'll see when you export a dashboard similar to the example at the beginning of this article. The hard-coded resource identifiers show that this dashboard is pointing at a specific Azure virtual machine.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "virtualMachineName": {
-            "type": "string"
-        },
-        "virtualMachineResourceGroup": {
-            "type": "string"
-        },
-        "dashboardName": {
-            "type": "string"
-        }
-    },
-    "variables": {},
-    "resources": [
-        {
-            "properties": {
-                "lenses": {
-                    "0": {
-                        "order": 0,
-                        "parts": {
-                            "0": {
-                                "position": {
-                                    "x": 0,
-                                    "y": 0,
-                                    "rowSpan": 2,
-                                    "colSpan": 3
-                                },
-                                "metadata": {
-                                    "inputs": [],
-                                    "type": "Extension[azure]/HubsExtension/PartType/MarkdownPart",
-                                    "settings": {
-                                        "content": {
-                                            "settings": {
-                                                "content": "## Azure Virtual Machines Overview\r\nNew team members should watch this video to get familiar with Azure Virtual Machines.",
-                                                "title": "",
-                                                "subtitle": ""
-                                            }
-                                        }
-                                    }
-                                }
-                            },
-                            "1": {
-                                "position": {
-                                    "x": 3,
-                                    "y": 0,
-                                    "rowSpan": 4,
-                                    "colSpan": 8
-                                },
-                                "metadata": {
-                                    "inputs": [],
-                                    "type": "Extension[azure]/HubsExtension/PartType/MarkdownPart",
-                                    "settings": {
-                                        "content": {
-                                            "settings": {
-                                                "content": "This is the team dashboard for the test VM we use on our team. Here are some useful links:\r\n\r\n1. [Getting started](https://www.contoso.com/tsgs)\r\n1. [Troubleshooting guide](https://www.contoso.com/tsgs)\r\n1. [Architecture docs](https://www.contoso.com/tsgs)",
-                                                "title": "Test VM Dashboard",
-                                                "subtitle": "Contoso"
-                                            }
-                                        }
-                                    }
-                                }
-                            },
-                            "2": {
-                                "position": {
-                                    "x": 0,
-                                    "y": 2,
-                                    "rowSpan": 2,
-                                    "colSpan": 3
-                                },
-                                "metadata": {
-                                    "inputs": [],
-                                    "type": "Extension[azure]/HubsExtension/PartType/VideoPart",
-                                    "settings": {
-                                        "content": {
-                                            "settings": {
-                                                "title": "",
-                                                "subtitle": "",
-                                                "src": "https://www.youtube.com/watch?v=YcylDIiKaSU&list=PLLasX02E8BPCsnETz0XAMfpLR1LIBqpgs&index=4",
-                                                "autoplay": false
-                                            }
-                                        }
-                                    }
-                                }
-                            },
-                            "3": {
-                                "position": {
-                                    "x": 0,
-                                    "y": 4,
-                                    "rowSpan": 3,
-                                    "colSpan": 11
-                                },
-                                "metadata": {
-                                    "inputs": [
-                                        {
-                                            "name": "queryInputs",
-                                            "value": {
-                                                "timespan": {
-                                                    "duration": "PT1H",
-                                                    "start": null,
-                                                    "end": null
-                                                },
-                                                "id": "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]",
-                                                "chartType": 0,
-                                                "metrics": [
-                                                    {
-                                                        "name": "Percentage CPU",
-                                                        "resourceId": "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]"
-                                                    }
-                                                ]
-                                            }
-                                        }
-                                    ],
-                                    "type": "Extension/Microsoft_Azure_Monitoring/PartType/MetricsChartPart",
-                                    "settings": {}
-                                }
-                            },
-                            "4": {
-                                "position": {
-                                    "x": 0,
-                                    "y": 7,
-                                    "rowSpan": 2,
-                                    "colSpan": 3
-                                },
-                                "metadata": {
-                                    "inputs": [
-                                        {
-                                            "name": "queryInputs",
-                                            "value": {
-                                                "timespan": {
-                                                    "duration": "PT1H",
-                                                    "start": null,
-                                                    "end": null
-                                                },
-                                                "id": "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]",
-                                                "chartType": 0,
-                                                "metrics": [
-                                                    {
-                                                        "name": "Disk Read Operations/Sec",
-                                                        "resourceId": "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]"
-                                                    },
-                                                    {
-                                                        "name": "Disk Write Operations/Sec",
-                                                        "resourceId": "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]"
-                                                    }
-                                                ]
-                                            }
-                                        }
-                                    ],
-                                    "type": "Extension/Microsoft_Azure_Monitoring/PartType/MetricsChartPart",
-                                    "settings": {}
-                                }
-                            },
-                            "5": {
-                                "position": {
-                                    "x": 3,
-                                    "y": 7,
-                                    "rowSpan": 2,
-                                    "colSpan": 3
-                                },
-                                "metadata": {
-                                    "inputs": [
-                                        {
-                                            "name": "queryInputs",
-                                            "value": {
-                                                "timespan": {
-                                                    "duration": "PT1H",
-                                                    "start": null,
-                                                    "end": null
-                                                },
-                                                "id": "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]",
-                                                "chartType": 0,
-                                                "metrics": [
-                                                    {
-                                                        "name": "Disk Read Bytes",
-                                                        "resourceId": "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]"
-                                                    },
-                                                    {
-                                                        "name": "Disk Write Bytes",
-                                                        "resourceId": "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]"
-                                                    }
-                                                ]
-                                            }
-                                        }
-                                    ],
-                                    "type": "Extension/Microsoft_Azure_Monitoring/PartType/MetricsChartPart",
-                                    "settings": {}
-                                }
-                            },
-                            "6": {
-                                "position": {
-                                    "x": 6,
-                                    "y": 7,
-                                    "rowSpan": 2,
-                                    "colSpan": 3
-                                },
-                                "metadata": {
-                                    "inputs": [
-                                        {
-                                            "name": "queryInputs",
-                                            "value": {
-                                                "timespan": {
-                                                    "duration": "PT1H",
-                                                    "start": null,
-                                                    "end": null
-                                                },
-                                                "id": "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]",
-                                                "chartType": 0,
-                                                "metrics": [
-                                                    {
-                                                        "name": "Network In",
-                                                        "resourceId": "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]"
-                                                    },
-                                                    {
-                                                        "name": "Network Out",
-                                                        "resourceId": "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]"
-                                                    }
-                                                ]
-                                            }
-                                        }
-                                    ],
-                                    "type": "Extension/Microsoft_Azure_Monitoring/PartType/MetricsChartPart",
-                                    "settings": {}
-                                }
-                            },
-                            "7": {
-                                "position": {
-                                    "x": 9,
-                                    "y": 7,
-                                    "rowSpan": 2,
-                                    "colSpan": 2
-                                },
-                                "metadata": {
-                                    "inputs": [
-                                        {
-                                            "name": "id",
-                                            "value": "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]"
-                                        }
-                                    ],
-                                    "type": "Extension/Microsoft_Azure_Compute/PartType/VirtualMachinePart",
-                                    "asset": {
-                                        "idInputName": "id",
-                                        "type": "VirtualMachine"
-                                    },
-                                    "defaultMenuItemId": "overview"
-                                }
-                            }
-                        }
-                    }
-                }
+  "properties": {
+    "lenses": {
+      "0": {
+        "order": 0,
+        "parts": {
+          "0": {
+            "position": {
+              "x": 0,
+              "y": 0,
+              "colSpan": 3,
+              "rowSpan": 2
             },
-            "metadata": { },
-            "apiVersion": "2015-08-01-preview",
-            "type": "Microsoft.Portal/dashboards",
-            "name": "[parameters('dashboardName')]",
-            "location": "westus",
-            "tags": {
-                "hidden-title": "[parameters('dashboardName')]"
+            "metadata": {
+              "inputs": [],
+              "type": "Extension/HubsExtension/PartType/MarkdownPart",
+              "settings": {
+                "content": {
+                  "settings": {
+                    "content": "## Azure Virtual Machines Overview\r\nNew team members should watch this video to get familiar with Azure Virtual Machines.",
+                    "markdownUri": null
+                  }
+                }
+              }
             }
+          },
+          "1": {
+            "position": {
+              "x": 3,
+              "y": 0,
+              "colSpan": 8,
+              "rowSpan": 4
+            },
+            "metadata": {
+              "inputs": [],
+              "type": "Extension/HubsExtension/PartType/MarkdownPart",
+              "settings": {
+                "content": {
+                  "settings": {
+                    "content": "This is the team dashboard for the test VM we use on our team. Here are some useful links:\r\n\r\n1. [Create a Linux virtual machine](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal)\r\n1. [Create a Windows virtual machine](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)\r\n1. [Create a virtual machine scale set](https://docs.microsoft.com/azure/virtual-machine-scale-sets/quick-create-portal)",
+                    "title": "Test VM Dashboard",
+                    "subtitle": "Contoso",
+                    "markdownUri": null
+                  }
+                }
+              }
+            }
+          },
+          "2": {
+            "position": {
+              "x": 0,
+              "y": 2,
+              "colSpan": 3,
+              "rowSpan": 2
+            },
+            "metadata": {
+              "inputs": [],
+              "type": "Extension/HubsExtension/PartType/VideoPart",
+              "settings": {
+                "content": {
+                  "settings": {
+                    "src": "https://www.youtube.com/watch?v=rOiSRkxtTeU",
+                    "autoplay": false
+                  }
+                }
+              }
+            }
+          },
+          "3": {
+            "position": {
+              "x": 0,
+              "y": 4,
+              "colSpan": 11,
+              "rowSpan": 3
+            },
+            "metadata": {
+              "inputs": [
+                {
+                  "name": "queryInputs",
+                  "value": {
+                    "timespan": {
+                      "duration": "PT1H"
+                    },
+                    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SimpleWinVMResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM1",
+                    "chartType": 0,
+                    "metrics": [
+                      {
+                        "name": "Percentage CPU",
+                        "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SimpleWinVMResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM1"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "type": "Extension/Microsoft_Azure_Monitoring/PartType/MetricsChartPart",
+              "settings": {}
+            }
+          },
+          "4": {
+            "position": {
+              "x": 0,
+              "y": 7,
+              "colSpan": 3,
+              "rowSpan": 2
+            },
+            "metadata": {
+              "inputs": [
+                {
+                  "name": "queryInputs",
+                  "value": {
+                    "timespan": {
+                      "duration": "PT1H"
+                    },
+                    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SimpleWinVMResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM1",
+                    "chartType": 0,
+                    "metrics": [
+                      {
+                        "name": "Disk Read Operations/Sec",
+                        "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SimpleWinVMResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM1"
+                      },
+                      {
+                        "name": "Disk Write Operations/Sec",
+                        "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SimpleWinVMResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM1"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "type": "Extension/Microsoft_Azure_Monitoring/PartType/MetricsChartPart",
+              "settings": {}
+            }
+          },
+          "5": {
+            "position": {
+              "x": 3,
+              "y": 7,
+              "colSpan": 3,
+              "rowSpan": 2
+            },
+            "metadata": {
+              "inputs": [
+                {
+                  "name": "queryInputs",
+                  "value": {
+                    "timespan": {
+                      "duration": "PT1H"
+                    },
+                    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SimpleWinVMResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM1",
+                    "chartType": 0,
+                    "metrics": [
+                      {
+                        "name": "Disk Read Bytes",
+                        "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SimpleWinVMResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM1"
+                      },
+                      {
+                        "name": "Disk Write Bytes",
+                        "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SimpleWinVMResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM1"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "type": "Extension/Microsoft_Azure_Monitoring/PartType/MetricsChartPart",
+              "settings": {}
+            }
+          },
+          "6": {
+            "position": {
+              "x": 6,
+              "y": 7,
+              "colSpan": 3,
+              "rowSpan": 2
+            },
+            "metadata": {
+              "inputs": [
+                {
+                  "name": "queryInputs",
+                  "value": {
+                    "timespan": {
+                      "duration": "PT1H"
+                    },
+                    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SimpleWinVMResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM1",
+                    "chartType": 0,
+                    "metrics": [
+                      {
+                        "name": "Network In Total",
+                        "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SimpleWinVMResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM1"
+                      },
+                      {
+                        "name": "Network Out Total",
+                        "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SimpleWinVMResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM1"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "type": "Extension/Microsoft_Azure_Monitoring/PartType/MetricsChartPart",
+              "settings": {}
+            }
+          },
+          "7": {
+            "position": {
+              "x": 9,
+              "y": 7,
+              "colSpan": 2,
+              "rowSpan": 2
+            },
+            "metadata": {
+              "inputs": [
+                {
+                  "name": "id",
+                  "value": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SimpleWinVMResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM1"
+                }
+              ],
+              "type": "Extension/HubsExtension/PartType/ResourcePart",
+              "asset": {
+                "idInputName": "id",
+                "type": "VirtualMachine"
+              }
+            }
+          }
         }
-    ]
+      }
+    },
+    "metadata": {
+      "model": {
+        "timeRange": {
+          "value": {
+            "relative": {
+              "duration": 24,
+              "timeUnit": 1
+            }
+          },
+          "type": "MsPortalFx.Composition.Configuration.ValueTypes.TimeRange"
+        }
+      }
+    }
+  },
+  "name": "Simple VM Dashboard",
+  "type": "Microsoft.Portal/dashboards",
+  "location": "INSERT LOCATION",
+  "tags": {
+    "hidden-title": "Simple VM Dashboard"
+  },
+  "apiVersion": "2015-08-01-preview"
 }
-
-
 ```
+
+## Example dashboard template representation
+
+The templatized version of the example dashboard has defined three parameters called `virtualMachineName`, `virtualMachineResourceGroup`, and `dashboardName`.  The parameters let you point this dashboard at a different Azure virtual machine every time you deploy. This dashboard can be programmatically configured and deployed to point to any Azure virtual machine. To test this feature, copy the following template and paste it into the [Azure portal template deployment page](https://portal.azure.com/#create/Microsoft.Template).
+
+This example deploys a dashboard by itself, but the template language lets you deploy multiple resources, and bundle one or more dashboards alongside them.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "virtualMachineName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the existing virtual machine to show in the dashboard"
+      }
+    },
+    "virtualMachineResourceGroup": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the resource group that contains the virtual machine"
+      }
+    },
+    "dashboardName": {
+      "type": "string",
+      "defaultValue": "[guid(parameters('virtualMachineName'), parameters('virtualMachineResourceGroup'))]",
+      "metadata": {
+        "Description": "Resource name that Azure portal uses for the dashboard"
+      }
+    },
+    "dashboardDisplayName": {
+      "type": "string",
+      "defaultValue": "Simple VM Dashboard",
+      "metadata": {
+        "description": "Name of the dashboard to display in Azure portal"
+      }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Portal/dashboards",
+      "apiVersion": "2020-09-01-preview",
+      "name": "[parameters('dashboardName')]",
+      "location": "[parameters('location')]",
+      "tags": {
+        "hidden-title": "[parameters('dashboardDisplayName')]"
+      },
+      "properties": {
+        "lenses": [
+          {
+            "order": 0,
+            "parts": [
+              {
+                "position": {
+                  "x": 0,
+                  "y": 0,
+                  "rowSpan": 2,
+                  "colSpan": 3
+                },
+                "metadata": {
+                  "inputs": [],
+                  "type": "Extension/HubsExtension/PartType/MarkdownPart",
+                  "settings": {
+                    "content": {
+                      "settings": {
+                        "content": "## Azure Virtual Machines Overview\r\nNew team members should watch this video to get familiar with Azure Virtual Machines."
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "position": {
+                  "x": 3,
+                  "y": 0,
+                  "rowSpan": 4,
+                  "colSpan": 8
+                },
+                "metadata": {
+                  "inputs": [],
+                  "type": "Extension/HubsExtension/PartType/MarkdownPart",
+                  "settings": {
+                    "content": {
+                      "settings": {
+                        "content": "This is the team dashboard for the test VM we use on our team. Here are some useful links:\r\n\r\n1. [Create a Linux virtual machine](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal)\r\n1. [Create a Windows virtual machine](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)\r\n1. [Create a virtual machine scale set](https://docs.microsoft.com/azure/virtual-machine-scale-sets/quick-create-portal)",
+                        "title": "Test VM Dashboard",
+                        "subtitle": "Contoso"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "position": {
+                  "x": 0,
+                  "y": 2,
+                  "rowSpan": 2,
+                  "colSpan": 3
+                },
+                "metadata": {
+                  "inputs": [],
+                  "type": "Extension/HubsExtension/PartType/VideoPart",
+                  "settings": {
+                    "content": {
+                      "settings": {
+                        "src": "https://www.youtube.com/watch?v=rOiSRkxtTeU",
+                        "autoplay": false
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "position": {
+                  "x": 0,
+                  "y": 4,
+                  "rowSpan": 3,
+                  "colSpan": 11
+                },
+                "metadata": {
+                  "inputs": [
+                    {
+                      "name": "queryInputs",
+                      "value": {
+                        "timespan": {
+                          "duration": "PT1H"
+                        },
+                        "id": "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]",
+                        "chartType": 0,
+                        "metrics": [
+                          {
+                            "name": "Percentage CPU",
+                            "resourceId": "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "type": "Extension/Microsoft_Azure_Monitoring/PartType/MetricsChartPart"
+                }
+              },
+              {
+                "position": {
+                  "x": 0,
+                  "y": 7,
+                  "rowSpan": 2,
+                  "colSpan": 3
+                },
+                "metadata": {
+                  "inputs": [
+                    {
+                      "name": "queryInputs",
+                      "value": {
+                        "timespan": {
+                          "duration": "PT1H"
+                        },
+                        "id": "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]",
+                        "chartType": 0,
+                        "metrics": [
+                          {
+                            "name": "Disk Read Operations/Sec",
+                            "resourceId": "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]"
+                          },
+                          {
+                            "name": "Disk Write Operations/Sec",
+                            "resourceId": "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "type": "Extension/Microsoft_Azure_Monitoring/PartType/MetricsChartPart"
+                }
+              },
+              {
+                "position": {
+                  "x": 3,
+                  "y": 7,
+                  "rowSpan": 2,
+                  "colSpan": 3
+                },
+                "metadata": {
+                  "inputs": [
+                    {
+                      "name": "queryInputs",
+                      "value": {
+                        "timespan": {
+                          "duration": "PT1H"
+                        },
+                        "id": "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]",
+                        "chartType": 0,
+                        "metrics": [
+                          {
+                            "name": "Disk Read Bytes",
+                            "resourceId": "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]"
+                          },
+                          {
+                            "name": "Disk Write Bytes",
+                            "resourceId": "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "type": "Extension/Microsoft_Azure_Monitoring/PartType/MetricsChartPart"
+                }
+              },
+              {
+                "position": {
+                  "x": 6,
+                  "y": 7,
+                  "rowSpan": 2,
+                  "colSpan": 3
+                },
+                "metadata": {
+                  "inputs": [
+                    {
+                      "name": "queryInputs",
+                      "value": {
+                        "timespan": {
+                          "duration": "PT1H"
+                        },
+                        "id": "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]",
+                        "chartType": 0,
+                        "metrics": [
+                          {
+                            "name": "Network In Total",
+                            "resourceId": "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]"
+                          },
+                          {
+                            "name": "Network Out Total",
+                            "resourceId": "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "type": "Extension/Microsoft_Azure_Monitoring/PartType/MetricsChartPart"
+                }
+              },
+              {
+                "position": {
+                  "x": 9,
+                  "y": 7,
+                  "rowSpan": 2,
+                  "colSpan": 2
+                },
+                "metadata": {
+                  "inputs": [
+                    {
+                      "name": "id",
+                      "value": "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]"
+                    }
+                  ],
+                  "type": "Extension/Microsoft_Azure_Compute/PartType/VirtualMachinePart",
+                  "asset": {
+                    "idInputName": "id",
+                    "type": "VirtualMachine"
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
+```
+
+Now that you've seen an example of using a parameterized template to deploy a dashboard, you can try deploying the template by using the [Azure Resource Manager REST APIs](/rest/api/), the [Azure CLI](quickstart-portal-dashboard-azure-cli.md), or [Azure PowerShell](quickstart-portal-dashboard-powershell.md).
+
+## Next steps
+
+- Learn more about the [structure of Azure dashboards](azure-portal-dashboards-structure.md).
+- Learn how to [use markdown tiles on Azure dashboards to show custom content](azure-portal-markdown-tile.md).
+- Learn how to [manage access for shared dashboards](azure-portal-dashboard-share-access.md).
+- Learn how to [manage Azure portal settings and preferences](set-preferences.md).

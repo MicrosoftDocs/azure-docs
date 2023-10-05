@@ -1,0 +1,154 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/stream-analytics/no-code-filter-ingest-adx.md",
+            "redirect_url": "/azure/stream-analytics/no-code-filter-ingest-data-explorer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/stream-analytics/stream-analytics-manage-job.md",
+            "redirect_url": "/azure/stream-analytics/stream-analytics-real-time-fraud-detection",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/stream-analytics/stream-analytics-tools-visual-studio-cicd-vsts.md",
+            "redirect_url": "/azure/stream-analytics/set-up-cicd-pipeline",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/stream-analytics/stream-analytics-comparison-storm.md",
+            "redirect_url": "/azure/stream-analytics/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/stream-analytics/setup-cicd-vs-code.md",
+            "redirect_url": "/azure/stream-analytics/cicd-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/stream-analytics/policy-samples.md",
+            "redirect_url": "/azure/stream-analytics/policy-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/stream-analytics/quick-create-vs-code.md",
+            "redirect_url": "/azure/stream-analytics/quick-create-visual-studio-code",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/stream-analytics/stream-analytics-malformed-events.md",
+            "redirect_url": "/azure/stream-analytics/stream-analytics-common-troubleshooting-issues",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/stream-analytics/stream-analytics-data-lake-output.md",
+            "redirect_url": "/azure/stream-analytics/stream-analytics-define-outputs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/stream-analytics/stream-analytics-dotnet-management-sdk-v1.md",
+            "redirect_url": "/azure/stream-analytics/stream-analytics-dotnet-management-sdk",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/stream-analytics/stream-analytics-run-a-job.md",
+            "redirect_url": "/azure/stream-analytics/stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/stream-analytics/stream-analytics-write-queries.md",
+            "redirect_url": "/azure/stream-analytics/stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices#create-an-azure-stream-analytics-query",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/stream-analytics/stream-analytics-functions-redis.md",
+            "redirect_url": "/azure/stream-analytics/stream-analytics-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/stream-analytics/stream-analytics-operation-logs.md",
+            "redirect_url": "/azure/stream-analytics/stream-analytics-job-diagnostic-logs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/stream-analytics/stream-analytics-troubleshoot-visualization.md",
+            "redirect_url": "/azure/stream-analytics/stream-analytics-job-diagram-with-metrics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/stream-analytics/stream-analytics-create-a-job.md",
+            "redirect_url": "/azure/stream-analytics/stream-analytics-quick-create-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/stream-analytics/stream-analytics-release-notes.md",
+            "redirect_url": "/azure/stream-analytics/stream-analytics-quick-create-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/stream-analytics/stream-analytics-add-outputs.md",
+            "redirect_url": "/azure/stream-analytics/stream-analytics-quick-create-portal#configure-output-to-the-job",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/stream-analytics/stream-analytics-tools-for-visual-studio.md",
+            "redirect_url": "/azure/stream-analytics/stream-analytics-quick-create-vs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/stream-analytics/stream-analytics-get-started.md",
+            "redirect_url": "/azure/stream-analytics/stream-analytics-real-time-fraud-detection",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/stream-analytics/stream-analytics-sample-data-input.md",
+            "redirect_url": "/azure/stream-analytics/stream-analytics-test-query",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/stream-analytics/stream-analytics-out-of-order-and-late-events.md",
+            "redirect_url": "/azure/stream-analytics/stream-analytics-time-handling",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/stream-analytics/stream-analytics-resource-health.md",
+            "redirect_url": "/azure/stream-analytics/stream-analytics-troubleshooting-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/stream-analytics/stream-analytics-common-troubleshooting-issues.md",
+            "redirect_url": "/azure/stream-analytics/stream-analytics-troubleshoot-input",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/stream-analytics/stream-analytics-event-hub-consumer-groups.md",
+            "redirect_url": "/azure/stream-analytics/stream-analytics-troubleshoot-query",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/stream-analytics/stream-analytics-select-into.md",
+            "redirect_url": "/azure/stream-analytics/stream-analytics-troubleshoot-query",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/stream-analytics/stream-analytics-troubleshooting-guide.md",
+            "redirect_url": "/azure/stream-analytics/stream-analytics-troubleshoot-query",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/stream-analytics/vs-code-how-to.md",
+            "redirect_url": "/azure/stream-analytics/vscode-explore-jobs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/stream-analytics/stream-analytics-power-bi-dashboard.md",
+            "redirect_url": "/azure/stream-analytics/stream-analytics-real-time-fraud-detection",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/stream-analytics/stream-analytics-job-diagram-with-metrics-new.md",
+            "redirect_url": "/azure/stream-analytics/stream-analytics-job-logical-diagram-with-metrics",
+            "redirect_document_id": false
+        }
+    ]
+}

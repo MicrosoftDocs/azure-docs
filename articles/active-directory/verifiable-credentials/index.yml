@@ -1,0 +1,63 @@
+### YamlMime:Landing
+
+title: Microsoft Entra Verified ID documentation
+summary: Verifiable credentials help you build solutions that empower customers to manage their own data.
+
+metadata: 
+  author: barclayn
+  description: "Learn how to incorporate verifiable credentials into your solutions empowering customers to control information about themselves"
+  manager: amycolannino
+  ms.author: barclayn
+  ms.collection: na
+  ms.date: 07/28/2022
+  ms.service: active-directory
+  ms.subservice: verifiable-credentials
+  ms.topic: landing-page
+  services: active-directory
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | reference | tutorial | video | whats-new
+
+landingContent: 
+  # Card
+  - title: Key Concepts
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Introduction to Microsoft Entra Verified ID
+            url: decentralized-identifier-overview.md
+      - linkListType: overview
+        links:
+          - text: Guiding Principles for Decentralized Identities
+            url: https://www.microsoft.com/security/blog/2021/10/06/microsofts-5-guiding-principles-for-decentralized-identities/ 
+      - linkListType: video
+        links:
+          - text: Govern access to your resources
+            url: https://www.youtube.com/watch?v=r20hCF9NbTo
+
+  # Card
+  - title: Learn about the Microsoft Entra Verified ID Service
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Get started with verifiable credentials
+            url: verifiable-credentials-configure-tenant.md
+      - linkListType: tutorial
+        links:
+          - text: Issue verifiable credentials
+            url: verifiable-credentials-configure-issuer.md
+
+  # Card
+  - title: Build Verifiable Credentials Solutions
+    linkLists:
+        - linkListType: concept
+          links:
+            - text: Plan your architecture
+              url: introduction-to-verifiable-credentials-architecture.md
+        - linkListType: how-to-guide
+          links:
+            - text: The Request Service API for issuers
+              url: issuance-request-api.md
+        - linkListType: how-to-guide
+          links:
+            - text: Request Service API for Verifiers
+              url: presentation-request-api.md

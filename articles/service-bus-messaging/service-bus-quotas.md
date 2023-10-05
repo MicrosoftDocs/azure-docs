@@ -1,22 +1,10 @@
 ---
-title: Microsoft Azure Service Bus quotas and limits | Microsoft Docs
-description: Find limits and quotas for Azure Service Bus.
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-manager: timlt
-editor: spelluru
-
-ms.assetid: 2b1e266f-be81-48f1-9874-50fcb40ecca2
-ms.service: service-bus-messaging
-ms.devlang: na
+title: Microsoft Azure Service Bus quotas and limits
+description: This article lists basic quotas and throttling thresholds in Azure Service Bus messaging. For example - maximum number of namespaces per subscription. 
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/01/2018
-ms.author: aschhab
-
+ms.date: 11/03/2022
 ---
+
 # Service Bus quotas
 This section lists basic quotas and throttling thresholds in Azure Service Bus messaging.
 

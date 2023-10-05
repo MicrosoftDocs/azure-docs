@@ -1,22 +1,22 @@
 ---
-title: Developer guide for Azure IoT Hub | Microsoft Docs
-description: The Azure IoT Hub developer guide includes discussions of endpoints, security, the identity registry, device management, direct methods, device twins, file uploads, jobs, the IoT Hub query language, and messaging.
-author: wesmc7777
-manager: philmea
-ms.author: wesmc
+title: Concepts overview for Azure IoT Hub
+description: The Azure IoT Hub conceptual documentation includes discussions of endpoints, security, the identity registry, device management, direct methods, device twins, file uploads, jobs, the IoT Hub query language, messaging and many other features.
+author: kgremban
+
+ms.author: kgremban
 ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
-ms.date: 01/29/2018
+ms.topic: concept-article
+ms.date: 11/03/2022
+ms.custom: mqtt
 ---
 
-# Azure IoT Hub developer guide
+# Azure IoT Hub concepts overview
 
 Azure IoT Hub is a fully managed service that helps enable reliable and secure bi-directional communications between millions of devices and a solution back end.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-Azure IoT Hub provides you with:
+Azure IoT Hub provides many features, including:
 
 * Secure communications by using per-device security credentials and access control.
 
@@ -26,7 +26,7 @@ Azure IoT Hub provides you with:
 
 * Easy device connectivity with device libraries for the most popular languages and platforms.
 
-This IoT Hub developer guide includes the following articles:
+The following articles can help you get started exploring IoT Hub features in more depth:
 
 * [Device-to-cloud communication guidance](iot-hub-devguide-d2c-guidance.md) helps you choose between device-to-cloud messages, device twin's reported properties, and file upload.
 
@@ -38,15 +38,13 @@ This IoT Hub developer guide includes the following articles:
 
   * [Read device-to-cloud messages from the built-in endpoint](iot-hub-devguide-messages-read-builtin.md).
 
-  * [Use custom endpoints and routing rules for device-to-cloud messages](iot-hub-devguide-messages-read-custom.md).
-
   * [Send cloud-to-device messages from IoT Hub](iot-hub-devguide-messages-c2d.md).
 
   * [Create and read IoT Hub messages](iot-hub-devguide-messages-construct.md).
 
 * [Upload files from a device](iot-hub-devguide-file-upload.md) describes how you can upload files from a device. The article also includes information about topics such as the notifications the upload process can send.
 
-* [Manage device identities in IoT Hub](iot-hub-devguide-identity-registry.md)describes what information each IoT hub's identity registry stores. The article also describes how you can access and modify it.
+* [Manage device identities in IoT Hub](iot-hub-devguide-identity-registry.md) describes what information each IoT hub's identity registry stores. The article also describes how you can access and modify it.
 
 * [Control access to IoT Hub](iot-hub-devguide-security.md) describes the security model used to grant access to IoT Hub functionality for both devices and cloud components. The article includes information about using tokens and X.509 certificates, and details of the permissions you can grant.
 
@@ -56,18 +54,19 @@ This IoT Hub developer guide includes the following articles:
 
 * [Schedule jobs on multiple devices](iot-hub-devguide-jobs.md) describes how you can schedule jobs on multiple devices. The article describes how to submit jobs that perform tasks as executing a direct method, updating a device using a device twin. It also describes how to query the status of a job.
 
-* [Reference - choose a communication protocol](iot-hub-devguide-protocols.md) describes the communication protocols that IoT Hub supports for device communication and lists the ports that should be open.
+* [Choose a device communication protocol](iot-hub-devguide-protocols.md) describes the communication protocols that IoT Hub supports for device communication and lists the ports that should be open.
 
-* [Reference - IoT Hub endpoints](iot-hub-devguide-endpoints.md) describes the various endpoints that each IoT hub exposes for runtime and management operations. The article also describes how you can create additional endpoints in your IoT hub, and how to use a field gateway to enable connectivity to your IoT Hub endpoints in non-standard scenarios.
+* [IoT Hub endpoints](iot-hub-devguide-endpoints.md) describes the various endpoints that each IoT hub exposes for runtime and management operations. The article also describes how you can create additional endpoints in your IoT hub, and how to use a field gateway to enable connectivity to your IoT Hub endpoints in non-standard scenarios.
 
-* [Reference - IoT Hub query language for device twins, jobs, and message routing](iot-hub-devguide-query-language.md) describes that IoT Hub query language that enables you to retrieve information from your hub about your device twins and jobs.
+* [IoT Hub query language for device twins, jobs, and message routing](iot-hub-devguide-query-language.md) describes that IoT Hub query language that enables you to retrieve information from your hub about your device twins and jobs.
 
-* [Reference - quotas and throttling](iot-hub-devguide-quotas-throttling.md) summarizes the quotas set in the IoT Hub service and the throttling that occurs when you exceed a quota.
+* [IoT Hub quotas and throttling](iot-hub-devguide-quotas-throttling.md) summarizes the quotas set in the IoT Hub service and the throttling that occurs when you exceed a quota.
 
-* [Reference - pricing](iot-hub-devguide-pricing.md) provides general information on different SKUs and pricing for IoT Hub and details on how the various IoT Hub functionalities are metered as messages by IoT Hub.
+* [IoT Hub pricing](iot-hub-devguide-pricing.md) provides general information on different SKUs and pricing for IoT Hub and details on how the various IoT Hub functionalities are metered as messages by IoT Hub.
 
-* [Reference - Device and service SDKs](iot-hub-devguide-sdks.md) lists the Azure IoT SDKs for developing device and service apps that interact with your IoT hub. The article includes links to online API documentation.
+* [Azure IoT Hub SDKs](iot-hub-devguide-sdks.md) lists the Azure IoT SDKs for developing device and service apps that interact with your IoT hub. The article includes links to online API documentation.
 
-* [Reference - IoT Hub MQTT support](iot-hub-mqtt-support.md) provides detailed information about how IoT Hub supports the MQTT protocol. The article describes the support for the MQTT protocol built-in to the Azure IoT SDKs and provides information about using the MQTT protocol directly.
+* [IoT Hub MQTT support](../iot/iot-mqtt-connect-to-iot-hub.md) provides detailed information about how IoT Hub supports the MQTT protocol. The article describes the support for the MQTT protocol built in to the Azure IoT SDKs and provides information about using the MQTT protocol directly.
 
-* [Glossary](iot-hub-devguide-glossary.md) a list of common IoT Hub-related terms.
+  > [!NOTE]
+  > IoT Hub has limited feature support for MQTT. If your solution needs MQTT v3.1.1 or v5 support, we recommend [MQTT support in Azure Event Grid](../event-grid/mqtt-overview.md), currently in public preview. For more information, see [Compare MQTT support in IoT Hub and Event Grid](../iot/iot-mqtt-connect-to-iot-hub.md#compare-mqtt-support-in-iot-hub-and-event-grid).

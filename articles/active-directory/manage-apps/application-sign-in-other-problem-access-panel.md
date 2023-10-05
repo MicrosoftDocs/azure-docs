@@ -1,528 +1,202 @@
 ---
-title: Problems signing in to an application from the access panel | Microsoft Docs
-description: How to troubleshoot issues accessing an application from the Microsoft Azure AD Access Panel at myapps.microsoft.com
+title: Troubleshoot problems signing in to an application from My Apps portal
+description: Troubleshoot problems signing in to an application from Microsoft Entra My Apps
 services: active-directory
-documentationcenter: ''
-author: msmimart
+author: omondiatieno
 manager: CelesteDG
-
-ms.assetid: 
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 07/11/2017
-ms.author: mimart
-ms.reviewer: japere
-ms.collection: M365-identity-device-management
+ms.topic: troubleshooting
+ms.date: 09/05/2023
+ms.author: jomondi
+ms.reviewer: lenalepa
+ms.custom: contperf-fy21q2, enterprise-apps
 ---
 
-# Problems signing in to an application from the access panel
+# Troubleshoot application sign-in
 
-The Access Panel is a web-based portal which enables a user with a work or school account in Azure Active Directory (Azure AD) to view and start cloud-based applications that the Azure AD administrator has granted them access to. 
+My Apps is a web-based portal that enables a user with a work or school account in Microsoft Entra ID to view and start cloud-based applications that the Microsoft Entra administrator has granted them access to. My Apps is accessed using a web browser at [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
-These applications are configured on behalf of the user in the Azure AD portal. The application must be configured properly and assigned to the user or a group the user is a member of to see the application in the Access Panel.
+To learn more about using Microsoft Entra ID as an identity provider for an app, see the [What is Application Management in Microsoft Entra ID](what-is-application-management.md). To get up to speed quickly, check out the [Quickstart Series on Application Management](view-applications-portal.md).
+
+These applications are configured on behalf of the user in the Microsoft Entra admin center. The application must be configured properly and assigned to the user or a group the user is a member of to see the application in My Apps.
 
 The type of apps a user may be seeing fall in the following categories:
 
--   Office 365 Applications
+- Microsoft 365 Applications
+- Microsoft and third-party applications configured with federation-based SSO
+- Password-based SSO applications
+- Applications with existing SSO solutions
 
--   Microsoft and third-party applications configured with federation-based SSO
+Here are some things to check if an app is appearing or not appearing:
 
--   Password-based SSO applications
-
--   Applications with existing SSO solutions
+- Make sure the app is added to Microsoft Entra ID and make sure the user is assigned. To learn more, see the [Quickstart Series on Application Management](add-application-portal.md).
+- If an app was recently added, have the user sign out and back in again.
+- If the app requires a license, such as Office, then make sure the user is assigned the appropriate license.
+- The time it takes for licensing changes can vary depending on the size and complexity of the group.
 
 ## General issues to check first
 
--   Make sure your using a **browser** that meets the minimum requirements for the Access Panel.
+- Make sure the web browser meets the requirements, see [My Apps supported browsers](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
+- Make sure the user’s browser has added the URL of the application to its **trusted sites**.
+- Make sure to check the application is **configured** correctly.
+- Make sure the user’s account is **enabled** for sign-ins.
+- Make sure the user’s account is **not locked out.**
+- Make sure the user’s **password is not expired or forgotten.**
+- Make sure **Multi-Factor Authentication** isn't blocking user access.
+- Make sure a **Conditional Access policy** or **Identity Protection** policy isn't blocking user access.
+- Make sure that a user’s **authentication contact info** is up to date to allow Multi-Factor Authentication or Conditional Access policies to be enforced.
+- Make sure to also try clearing your browser’s cookies and trying to sign in again.
 
--   Make sure the user’s browser has added the URL of the application to its **trusted sites**.
+## Problems with the user’s account
 
--   Make sure to check the application is **configured** correctly.
+Access to My Apps can be blocked due to a problem with the user’s account. Following are some ways you can troubleshoot and solve problems with users and their account settings:
 
--   Make sure the user’s account is **enabled** for sign-ins.
+- [Check if a user account exists in Microsoft Entra ID](#check-if-a-user-account-exists-in-azure-active-directory)
+- [Check a user’s account status](#check-a-users-account-status)
+- [Reset a user’s password](#reset-a-users-password)
+- [Enable self-service password reset](#enable-self-service-password-reset)
+- [Check a user’s multi-factor authentication status](#check-a-users-multi-factor-authentication-status)
+- [Check a user’s authentication contact info](#check-a-users-authentication-contact-info)
+- [Check a user’s group memberships](#check-a-users-group-memberships)
+- [Check if a user has more than 999 app role assignments](#check-if-a-user-has-more-than-999-app-role-assignments)
+- [Check a user’s assigned licenses](#check-a-users-assigned-licenses)
+- [Assign a user a license](#assign-a-user-a-license)
 
--   Make sure the user’s account is **not locked out.**
+[!INCLUDE [portal updates](../includes/portal-update.md)]
 
--   Make sure the user’s **password is not expired or forgotten.**
+<a name='check-if-a-user-account-exists-in-azure-active-directory'></a>
 
--   Make sure **Multi-Factor Authentication** is not blocking user access.
+### Check if a user account exists in Microsoft Entra ID
 
--   Make sure a **Conditional Access policy** or **Identity Protection** policy is not blocking user access.
+To check if a user’s account is present, follow these steps:
 
--   Make sure that a user’s **authentication contact info** is up to date to allow Multi-Factor Authentication or Conditional Access policies to be enforced.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [user administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Search for the user you're interested in and select the row to view the details of the user.
+1. Check the properties of the user object to be sure that they look as you expect and no data is missing.
 
--   Make sure to also try clearing your browser’s cookies and trying to sign in again.
+### Check a user’s account status
 
-## Meeting browser requirements for the Access Panel
+To check a user’s account status, follow these steps:
 
-The Access Panel requires a browser that supports JavaScript and has CSS enabled. To use password-based single sign-on (SSO) in the Access Panel, the Access Panel extension must be installed in the user’s browser. This extension is downloaded automatically when a user selects an application that is configured for password-based SSO.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [user administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Search for the user you're interested in and select the row with the user's details.
+1. Select **Profile**.
+1. Under **Settings** ensure that **Block sign in** is set to **No**.
 
-For password-based SSO, the end user’s browsers can be:
+### Reset a user’s password
 
--   Internet Explorer 8, 9, 10, 11 -- on Windows 7 or later
+To reset a user’s password, follow these steps:
 
--   Microsoft Edge on Windows 10 Anniversary Edition or later
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [user administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Search for the user you're interested in and select the row with the user's details.
+1. Select the **Reset password** button at the top of the user pane.
+1. Select the **Reset password** button on the **Reset password** pane that appears.
+1. Copy the **temporary password** or **enter a new password** for the user.
+1. Communicate this new password to the user, they be required to change this password during their next sign-in to Microsoft Entra ID.
 
--   Chrome -- on Windows 7 or later, and on MacOS X or later
+### Enable self-service password reset
 
--   Firefox 26.0 or later -- on Windows XP SP2 or later, and on Mac OS X 10.6 or later
+To enable self-service password reset, follow these deployment steps:
 
-## How to install the Access Panel Browser extension
+- [Enable users to reset their Microsoft Entra passwords](../authentication/tutorial-enable-sspr.md)
+- [Enable users to reset or change their Active Directory on-premises passwords](../authentication/tutorial-enable-sspr.md)
 
-To install the Access Panel Browser extension, follow the steps below:
+### Check a user’s multi-factor authentication status
 
-1.  Open the [Access Panel](https://myapps.microsoft.com) in one of the supported browsers and sign in as a **user** in your Azure AD.
+To check a user’s multi-factor authentication status, follow these steps:
 
-2.  Click a **password-SSO application** in the Access Panel.
-
-3.  In the prompt asking to install the software, select **Install Now**.
-
-4.  Based on your browser you are directed to the download link. **Add** the extension to your browser.
-
-5.  If your browser asks, select to either **Enable** or **Allow** the extension.
-
-6.  Once installed, **restart** your browser session.
-
-7.  Sign in into the Access Panel and see if you can **launch** your password-SSO applications
-
-You may also download the extension for Chrome and Microsoft Edge from the direct links below:
-
--   [Chrome Access Panel Extension](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
-
--   [Microsoft Edge Access Panel Extension](https://www.microsoft.com/store/apps/9pc9sckkzk84)
-
-## How to configure federated single sign-on for an Azure AD gallery application
-
-All application in the Azure AD gallery enabled with Enterprise Single Sign-On capability has a step-by-step tutorial available. You can access the [List of tutorials on how to integrate SaaS apps with Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/) for a detail step-by-step guidance.
-
-To configure an application from the Azure AD gallery you need to:
-
--   Add an application from the Azure AD gallery
-
--   [Configure the application’s metadata values in Azure AD (Sign on URL, Identifier, Reply URL)](#configure-single-sign-on-for-an-application-from-the-azure-ad-gallery)
-
--   [Select User Identifier and add user attributes to be sent to the application](#select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application)
-
--   [Retrieve Azure AD metadata and certificate](#download-the-azure-ad-metadata-or-certificate)
-
--   [Configure Azure AD metadata values in the application (Sign on URL, Issuer, Logout URL and certificate)](#configure-single-sign-on-for-an-application-from-the-azure-ad-gallery)
-
--   Assign users to the application
-
-### Add an application from the Azure AD gallery
-
-To add an application from the Azure AD Gallery, follow the steps below:
-
-1.  Open the [Azure portal](https://portal.azure.com) and sign in as a **Global Administrator** or **Co-admin**
-
-2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
-
-3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
-
-4.  click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
-
-5.  click the **Add** button at the top-right corner on the **Enterprise Applications** pane.
-
-6.  In the **Enter a name** textbox from the **Add from the gallery** section, type the name of the application.
-
-7.  Select the application you want to configure for single sign-on.
-
-8.  Before adding the application, you can change its name from the **Name** textbox.
-
-9.  Click **Add** button, to add the application.
-
-After a short period, you can see the application’s configuration pane.
-
-### Configure single sign-on for an application from the Azure AD gallery
-
-To configure single sign-on for an application, follow the steps below:
-
-1. <span id="_Hlk477187909" class="anchor"><span id="_Hlk477001983" class="anchor"></span></span>Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
-
-2. Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
-
-3. Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
-
-4. click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
-
-5. click **All Applications** to view a list of all your applications.
-
-   * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
-
-6. Select the application you want to configure single sign-on.
-
-7. Once the application loads, click the **Single sign-on** from the application’s left-hand navigation menu.
-
-8. Select **SAML-based Sign-on** from the **Mode** dropdown.
-
-9. Enter the required values in **Domain and URLs.** You should get these values from the application vendor.
-
-   1. To configure the application as SP-initiated SSO, the Sign-on URL is a required value. For some applications, the Identifier is also a required value.
-
-   2. To configure the application as IdP-initiated SSO, the Reply URL is a required value. For some applications, the Identifier is also a required value.
-
-10. **Optional:** click **Show advanced URL settings** if you want to see the non-required values.
-
-11. In the **User attributes**, select the unique identifier for your users in the **User Identifier** dropdown.
-
-12. **Optional:** click **View and edit all other user attributes** to edit the attributes to be sent to the application in the SAML token when users sign in.
-
-    To add an attribute:
-
-    1. click **Add attribute**. Enter the **Name** and the select the **Value** from the dropdown.
-
-    2. Click **Save.** You see the new attribute in the table.
-
-13. click **Configure &lt;application name&gt;** to access documentation on how to configure single sign-on in the application. Also, you have the metadata URLs and certificate required to setup SSO with the application.
-
-14. Click **Save** to save the configuration.
-
-15. Assign users to the application.
-
-### Select User Identifier and add user attributes to be sent to the application
-
-To select the User Identifier or add user attributes, follow the steps below:
-
-1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
-
-2. Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
-
-3. Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
-
-4. click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
-
-5. click **All Applications** to view a list of all your applications.
-
-   * If you do not see the application you want to show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
-
-6. Select the application you have configured single sign-on.
-
-7. Once the application loads, click the **Single sign-on** from the application’s left-hand navigation menu.
-
-8. Under the **User attributes** section, select the unique identifier for your users in the **User Identifier** dropdown. The selected option needs to match the expected value in the application to authenticate the user.
-
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [user administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select the **Per-user MFA** button at the top of the pane.
+1. Once the **Multi-Factor Authentication** administration portal loads, ensure you are on the **Users** tab.
+1. Find the user in the list of users by searching, filtering, or sorting.
+1. Select the user from the list of users and **Enable**, **Disable**, or **Enforce** multi-factor authentication as desired.
    >[!NOTE]
-   >Azure AD select the format for the NameID attribute (User Identifier) based on the value selected or the format requested by the application in the SAML AuthRequest. For more information visit the article [Single Sign-On SAML protocol](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) under the section NameIDPolicy.
-   >
-   >
+   >If a user is in an **Enforced** state, you may set them to **Disabled** temporarily to let them back into their account. Once they are back in, you can then change their state to **Enabled** again to require them to re-register their contact information during their next sign-in. Alternatively, you can follow the steps in the [Check a user’s authentication contact info](#check-a-users-authentication-contact-info) to verify or set this data for them.
 
-9. To add user attributes, click **View and edit all other user attributes** to edit the attributes to be sent to the application in the SAML token when users sign in.
+### Check a user’s authentication contact info
 
-   To add an attribute:
+To check a user’s authentication contact info used for Multi-factor authentication, Conditional Access, Identity Protection, and Password Reset, follow these steps:
 
-   1. click **Add attribute**. Enter the **Name** and the select the **Value** from the dropdown.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [user administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Search for the user you're interested in and select the row with the user's details.
+1. Select **Authentication method** under **Manage**.
+1. **Review** the data registered for the user and update as needed.
 
-   2. Click **Save.** You see the new attribute in the table.
+### Check a user’s group memberships
 
-### Download the Azure AD metadata or certificate
+To check a user’s group memberships, follow these steps:
 
-To download the application metadata or certificate from Azure AD, follow the steps below:
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [user administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Search for the user you're interested in and select the row with the user's details.
+1. Select **Groups** to see which groups the user is a member of.
 
-1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
+### Check if a user has more than 999 app role assignments
 
-2. Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
+If a user has more than 999 app role assignments, then they may not see all of their apps on My Apps.
 
-3. Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
+This is because My Apps currently reads up to 999 app role assignments to determine the apps to which users are assigned. If a user is assigned to more than 999 apps, it isn't possible to control which of those apps show in the My Apps portal.
 
-4. click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
+To check if a user has more than 999 app role assignments, follow these steps:
 
-5. click **All Applications** to view a list of all your applications.
+1. Install the [**Microsoft.Graph**](https://github.com/microsoftgraph/msgraph-sdk-powershell) PowerShell module.
+1. Run `Connect-MgGraph -Scopes "User.ReadBasic.All Application.Read.All"`and sign in as at least a [User Administrator](../roles/permissions-reference.md#user-administrator)..
+1. Run `(Get-MgUserAppRoleAssignment -UserId "<user-id>" -PageSize 999).Count` to determine the number of app role assignments the user currently has granted.
+1. If the result is 999, the user likely has more than 999 app roles assignments.
 
-   * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
+### Check a user’s assigned licenses
 
-6. Select the application you have configured single sign-on.
+To check a user’s assigned licenses, follow these steps:
 
-7. Once the application loads, click the **Single sign-on** from the application’s left-hand navigation menu.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [user administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Search for the user you're interested in and select the row with the user's details.
+1. Select **Licenses** to see which licenses the user currently has assigned.
 
-8. Go to **SAML Signing Certificate** section, then click **Download** column value. Depending on what the application requires configuring single sign-on, you see either the option to download the Metadata XML or the Certificate.
+### Assign a user a license
 
-   Azure AD doesn’t provide a URL to get the metadata. The metadata can only be retrieved as an XML file.
+To assign a license to a user, follow these steps:
 
-## How to configure federated single sign-on for a non-gallery application
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [user administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Search for the user you're interested in and select the row with the user's details.
+1. Select **Licenses** to see which licenses the user currently has assigned.
+1. Select the **Assignments** button.
+1. Select one or more licenses from the list of available products.
+1. Optional: Select **Review license options** to granularly assign products.
+1. Select **Save**.
 
-To configure a non-gallery application, you need to have Azure AD premium and the application supports SAML 2.0. For more information about Azure AD versions, visit [Azure AD pricing](https://azure.microsoft.com/pricing/details/active-directory/).
+## Troubleshooting deep links
 
--   Configure the application’s metadata values in Azure AD (Sign on URL, Identifier, Reply URL)
+Deep links or User access URLs are links your users may use to access their password-SSO applications directly from their browsers URL bars. By navigating to this link, users are automatically signed into the application without having to go to My Apps first. The link is the same one that users use to access these applications from the Microsoft 365 application launcher.
 
--   [Select User Identifier and add user attributes to be sent to the application](#select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application)
+### Checking the deep link
 
--   [Retrieve Azure AD metadata and certificate](#download-the-azure-ad-metadata-or-certificate)
+To check if you have the correct deep link, follow these steps:
 
--   Configure Azure AD metadata values in the application (Sign on URL, Issuer, Logout URL and certificate)
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
+1. Enter the name of the existing application in the search box, and then select the application from the search results.
+1. Find the label **User Access URL**. Your deep link should match this URL.
 
-### Configure the application’s metadata values in Azure AD (Sign on URL, Identifier, Reply URL)
+## Contact support
 
-To configure single sign-on for an application that is not in the Azure AD gallery, follow the steps below:
+Open a support ticket with the following information if available:
 
-1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
-
-2. Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
-
-3. Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
-
-4. click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
-
-5. click the **Add** button at the top-right corner on the **Enterprise Applications** pane.
-
-6. click **Non-gallery application** in the **Add your own app** section.
-
-7. Enter the name of the application in the **Name** textbox.
-
-8. Click **Add** button, to add the application.
-
-9. Once the application loads, click the **Single sign-on** from the application’s left-hand navigation menu.
-
-10. Select **SAML-based Sign-on** in the **Mode** dropdown
-
-11. Enter the required values in **Domain and URLs.** You should get these values from the application vendor.
-
-    1. To configure the application as IdP-initiated SSO, enter the Reply URL and the Identifier.
-
-    2. **Optional:** To configure the application as SP-initiated SSO, the Sign-on URL is a required value.
-
-12. In the **User attributes**, select the unique identifier for your users in the **User Identifier** dropdown.
-
-13. **Optional:** click **View and edit all other user attributes** to edit the attributes to be sent to the application in the SAML token when users sign in.
-
-    To add an attribute:
-
-    1. click **Add attribute**. Enter the **Name** and the select the **Value** from the dropdown.
-
-    2. Click **Save.** You see the new attribute in the table.
-
-14. click **Configure &lt;application name&gt;** to access documentation on how to configure single sign-on in the application. Also, you have Azure AD URLs and certificate required for the application.
-
-### Select User Identifier and add user attributes to be sent to the application
-
-To select the User Identifier or add user attributes, follow the steps below:
-
-1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
-
-2. Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
-
-3. Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
-
-4. click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
-
-5. click **All Applications** to view a list of all your applications.
-
-   * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
-
-6. Select the application you have configured single sign-on.
-
-7. Once the application loads, click the **Single sign-on** from the application’s left-hand navigation menu.
-
-8. Under the **User attributes** section, select the unique identifier for your users in the **User Identifier** dropdown. The selected option needs to match the expected value in the application to authenticate the user.
-
-   >[!NOTE]
-   >Azure AD select the format for the NameID attribute (User Identifier) based on the value selected or the format requested by the application in the SAML AuthRequest. For more information visit the article [Single Sign-On SAML protocol](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) under the section NameIDPolicy.
-   >
-   >
-
-9. To add user attributes, click **View and edit all other user attributes** to edit the attributes to be sent to the application in the SAML token when users sign in.
-
-   To add an attribute:
-
-   1.click **Add attribute**. Enter the **Name** and the select the **Value** from the dropdown.
-
-   2 Click **Save.** You see the new attribute in the table.
-
-### Download the Azure AD metadata or certificate
-
-To download the application metadata or certificate from Azure AD, follow the steps below:
-
-1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
-
-2. Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
-
-3. Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
-
-4. click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
-
-5. click **All Applications** to view a list of all your applications.
-
-   * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
-
-6. Select the application you have configured single sign-on.
-
-7. Once the application loads, click the **Single sign-on** from the application’s left-hand navigation menu.
-
-8. Go to **SAML Signing Certificate** section, then click **Download** column value. Depending on what the application requires configuring single sign-on, you see either the option to download the Metadata XML or the Certificate.
-
-   Azure AD doesn’t provide a URL to get the metadata. The metadata can only be retrieved as an XML file.
-
-## How to configure password single sign-on for an Azure AD gallery application
-
-To configure an application from the Azure AD gallery you need to:
-
--   Add an application from the Azure AD gallery
-
--   Configure the application for password single sign-on
-
-### Add an application from the Azure AD gallery
-
-To add an application from the Azure AD Gallery, follow the steps below:
-
-1.  Open the [Azure portal](https://portal.azure.com) and sign in as a **Global Administrator** or **Co-admin**
-
-2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
-
-3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
-
-4.  click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
-
-5.  click the **Add** button at the top-right corner on the **Enterprise Applications** pane.
-
-6.  In the **Enter a name** textbox from the **Add from the gallery** section, type the name of the application
-
-7.  Select the application you want to configure for single sign-on
-
-8.  Before adding the application, you can change its name from the **Name** textbox.
-
-9.  Click **Add** button, to add the application.
-
-After a short period, you can see the application’s configuration pane.
-
-### Configure the application for password single sign-on
-
-To configure single sign-on for an application, follow the steps below:
-
-1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
-
-2. Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
-
-3. Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
-
-4. click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
-
-5. click **All Applications** to view a list of all your applications.
-
-   * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
-
-6. Select the application you want to configure single sign-on
-
-7. Once the application loads, click the **Single sign-on** from the application’s left-hand navigation menu.
-
-8. Select the mode **Password-based Sign-on.**
-
-9. Assign users to the application.
-
-10. Additionally, you can also provide credentials on behalf of the user by selecting the rows of the users and clicking on **Update Credentials** and entering the username and password on behalf of the users. Otherwise, users be prompted to enter the credentials themselves upon launch.
-
-## How to configure password single sign-on for a non-gallery application
-
-To configure an application from the Azure AD gallery you need to:
-
--   [Add a non-gallery application](#add-a-non-gallery-application)
-
--   [Configure the application for password single sign-on](#configure-the-application-for-password-single-sign-on)
-
-### Add a non-gallery application
-
-To add an application from the Azure AD Gallery, follow the steps below:
-
-1.  Open the [Azure portal](https://portal.azure.com) and sign in as a **Global Administrator** or **Co-admin**
-
-2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
-
-3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
-
-4.  click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
-
-5.  click the **Add** button at the top-right corner on the **Enterprise Applications** pane.
-
-6.  click **Non-gallery application.**
-
-7.  Enter the name of your application in the **Name** textbox. Select **Add.**
-
-After a short period, you be able to see the application’s configuration pane.
-
-### Configure the application for password single sign-on
-
-To configure single sign-on for an application, follow the steps below:
-
-1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
-
-2. Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
-
-3. Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
-
-4. click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
-
-5. click **All Applications** to view a list of all your applications.
-
-   * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
-
-6. Select the application you want to configure single sign-on.
-
-7. Once the application loads, click the **Single sign-on** from the application’s left-hand navigation menu.
-
-8. Select the mode **Password-based Sign-on.**
-
-9. Enter the **Sign-on URL**. This is the URL where users enter their username and password to sign in. Ensure the sign-in fields are visible at the URL.
-
-10. Assign users to the application.
-
-11. Additionally, you can also provide credentials on behalf of the user by selecting the rows of the users and clicking on **Update Credentials** and entering the username and password on behalf of the users. Otherwise, users be prompted to enter the credentials themselves upon launch.
-
-## How to assign a user to an application directly
-
-To assign one or more users to an application directly, follow the steps below:
-
-1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
-
-2. Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
-
-3. Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
-
-4. click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
-
-5. click **All Applications** to view a list of all your applications.
-
-   * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
-
-6. Select the application you want to assign a user to from the list.
-
-7. Once the application loads, click **Users and Groups** from the application’s left-hand navigation menu.
-
-8. Click the **Add** button on top of the **Users and Groups** list to open the **Add Assignment** pane.
-
-9. click the **Users and groups** selector from the **Add Assignment** pane.
-
-10. Type in the **full name** or **email address** of the user you are interested in assigning into the **Search by name or email address** search box.
-
-11. Hover over the **user** in the list to reveal a **checkbox**. Click the checkbox next to the user’s profile photo or logo to add your user to the **Selected** list.
-
-12. **Optional:** If you would like to **add more than one user**, type in another **full name** or **email address** into the **Search by name or email address** search box, and click the checkbox to add this user to the **Selected** list.
-
-13. When you are finished selecting users, click the **Select** button to add them to the list of users and groups to be assigned to the application.
-
-14. **Optional:** click the **Select Role** selector in the **Add Assignment** pane to select a role to assign to the users you have selected.
-
-15. Click the **Assign** button to assign the application to the selected users.
-
-After a short period, the users you have selected be able to launch these applications in the Access Panel.
-
-## If these troubleshooting steps do not the resolve the issue
-
-open a support ticket with the following information if available:
-
--   Correlation error ID
-
--   UPN (user email address)
-
--   TenantID
-
--   Browser type
-
--   Time zone and time/timeframe during error occurs
-
--   Fiddler traces
+- Correlation error ID
+- UPN (user email address)
+- TenantID
+- Browser type
+- Time zone and time/timeframe during error occurs
+- Fiddler traces
 
 ## Next steps
-[Provide single sign-on to your apps with Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md)
 
+- [Quickstart Series on Application Management](view-applications-portal.md)

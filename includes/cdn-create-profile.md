@@ -3,9 +3,9 @@ title: include file
 description: include file
 services: cdn
 author: SyntaxC4
-ms.service: cdn
+ms.service: azure-cdn
 ms.topic: include
-ms.date: 05/24/2018
+ms.date: 04/06/2022
 ms.author: cfowler
 ms.custom: include file
 ---
@@ -14,32 +14,31 @@ ms.custom: include file
 
 A CDN profile is a container for CDN endpoints and specifies a pricing tier.
 
-1. In the Azure portal, in the upper left, select **Create a resource**. 
+1. In the Azure portal, select **Create a resource** (on the upper left). The **Create a resource** portal appears.
+   
+1. Search for and select **Front Door and CDN profiles**, then select **Create**:
     
-    The **New** pane appears.
-   
-2. Select **Web + Mobile**, then select **CDN**.
-   
-    ![Select CDN resource](./media/cdn-create-profile/cdn-new-resource.png)
+    :::image type="content" source="./media/cdn-create-profile/cdn-new-resource.png" alt-text="Create CDN resource.":::
 
-    The **CDN profile** pane appears.
+    The **Compare offerings** pane appears.
 
-3. For the CDN profile settings, use the values specified in the following table:
+1. Select **Explore other offerings** then select **Azure CDN Standard from Microsoft (classic)**. Select **Continue**.
+
+    :::image type="content" source="./media/cdn-create-profile/compare-offerings.png" alt-text="Select CDN Resource. Select Explore Other Options and Azure CDN Standard from Microsoft(Classic.).":::
+
+1. In the **Basics** tab, enter the following values:
    
     | Setting  | Value |
     | -------- | ----- |
-    | **Name** | Enter *my-cdn-profile-123* for your profile name. This name must be globally unique; if it is already in use, you may enter a different name. |
     | **Subscription** | Select an Azure subscription from the drop-down list. |
-    | **Resource group** | Select **Create new** and enter *my-resource-group-123* for your resource group name. This name must be globally unique. If it is already in use, you may enter a different name or you can select **Use existing** and select **my-resource-group-123** from the drop-down list. | 
-    | **Resource group location** | Select **Central US** from the drop-down list. |
-    | **Pricing tier** | Select **Standard Verizon** from the drop-down list. |
+    | **Resource group** | Select **Create new** and enter *CDNQuickstart-rg* for your resource group name, or select **Use existing** and choose *CDNQuickstart-rg* if you have the group already. | 
+    | **Resource group region** | If a new resource group is created, select a location near you from the drop-down list.|
+    | **Name** | Enter your profile name, for example, *cdn-profile-123*. |
+    | **Region** | Leave as default. |
+    | **Pricing tier** | Select an Azure CDN option from the drop-down list. (Deployment time for the Microsoft tier takes about 10 minutes and the Verizon tiers take about 30 minutes.) |
     | **Create a new CDN endpoint now** | Leave unselected. |  
    
-    ![New CDN profile](./media/cdn-create-profile/cdn-new-profile.png)
+    :::image type="content" source="./media/cdn-create-profile/cdn-new-profile.png" alt-text="Input variables in Basics tab.":::
 
-4. Select **Pin to dashboard** to save the profile to your dashboard after it is created.
-    
-5. Select **Create** to create the profile. 
-
-    For **Azure CDN Standard from Microsoft** profiles only, profile completion usually completes in two hours. 
+1. Select **Review + Create** then **Create** to create the profile.
 

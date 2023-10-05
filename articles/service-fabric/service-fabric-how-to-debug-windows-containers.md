@@ -1,28 +1,24 @@
 ---
-title: Debug Windows containers with Service Fabric and VS | Microsoft Docs
+title: Debug Windows containers with Service Fabric and VS 
 description: Learn how to debug Windows containers in Azure Service Fabric using Visual Studio 2019.
-services: service-fabric
-documentationcenter: .net
-author: aljo-microsoft
-manager: msfussell
-editor: ''
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
 ms.service: service-fabric
-ms.devlang: dotNet
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 02/14/2019
-ms.author: aljo, mikhegn
+ms.custom: devx-track-dotnet
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # How to: Debug Windows containers in Azure Service Fabric using Visual Studio 2019
 
 With Visual Studio 2019, you can debug .NET applications in containers as Service Fabric services. This article shows you how to configure your environment and then debug a .NET application in a container running in a local Service Fabric cluster.
 
 ## Prerequisites
 
-* On Windows 10, follow this quickstart to [Configure Windows 10 to run Windows containers](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10)
-* On Windows Server 2016, follow this quickstart to [Configure Windows 2016 to run Windows containers](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server)
-* Set up your local Service Fabric environment by following [Prepare your development environment on Windows](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started)
+* On Windows 10, follow this quickstart to [Configure Windows 10 to run Windows containers](/virtualization/windowscontainers/quick-start/quick-start-windows-10)
+* On Windows Server 2016, follow this quickstart to [Configure Windows 2016 to run Windows containers](/virtualization/windowscontainers/quick-start/quick-start-windows-server)
+* Set up your local Service Fabric environment by following [Prepare your development environment on Windows](./service-fabric-get-started.md)
 
 ## Configure your developer environment to debug containers
 
@@ -41,7 +37,7 @@ With Visual Studio 2019, you can debug .NET applications in containers as Servic
       > You can use the `-CreateOneNodeCluster` to setup a one-node cluster. The default will create a local five-node cluster.
       >
 
-      To learn more about the DNS Service in Service Fabric, see [DNS Service in Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice). To learn more about using Service Fabric reverse proxy from services running in a container, see [Reverse proxy special handling for services running in containers](service-fabric-reverseproxy.md#special-handling-for-services-running-in-containers).
+      To learn more about the DNS Service in Service Fabric, see [DNS Service in Azure Service Fabric](./service-fabric-dnsservice.md). To learn more about using Service Fabric reverse proxy from services running in a container, see [Reverse proxy special handling for services running in containers](service-fabric-reverseproxy.md#special-handling-for-services-running-in-containers).
 
 ### Known limitations when debugging containers in Service Fabric
 
@@ -75,4 +71,4 @@ Below is a list of known limitations with debugging containers in Service Fabric
     Visual Studio supports console and ASP.NET project types for .NET and .NET Core.
 
 ## Next steps
-To learn more about the capabilities of Service Fabric and containers, see Service Fabric containers overview](service-fabric-containers-overview.md).
+To learn more about the capabilities of Service Fabric and containers, see [Service Fabric containers overview](service-fabric-containers-overview.md).

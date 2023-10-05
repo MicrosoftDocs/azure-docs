@@ -1,73 +1,74 @@
 - name: App Service Environment
+  href: index.yml
 - name: Overview
   items:
-  - name: About App Service Environments
-    href: intro.md
+  - name: About App Service Environment
+    href: overview.md
+  - name: Version comparison
+    href: version-comparison.md
+  - name: Upgrade to App Service Environment v3
+    href: upgrade-to-asev3.md
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create external ASE
-    href: create-external-ase.md
-  - name: Create internal ASE
-    href: create-ilb-ase.md
+  - name: Create App Service Environment in portal
+    href: creation.md
 - name: Tutorials
   items:
-  - name: Integrate with a WAF
-    href: app-service-app-service-environment-web-application-firewall.md
-  - name: Configure TLS
-    href: app-service-app-service-environment-custom-settings.md
-- name: Samples
-  items:
-  - name: Azure CLI
-    href: ../samples-cli.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
-  - name: Azure PowerShell
-    href: ../samples-powershell.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
-- name: Concepts
-  items:
-  - name: Network architecture
-    href: network-info.md
-  - name: Geo-distributed scale
-    href: app-service-app-service-environment-geo-distributed-scale.md
-  - name: ASEv1
-    href: app-service-app-service-environment-intro.md
-  - name: Diagnostics
-    href: ../overview-diagnostics.md
-  - name: Certificates
-    href: certificates.md
-- name: How-To guides
-  items:
-  - name: Use an ASE
-    href: using-an-ase.md
   - name: Integrate with Application Gateway
     href: integrate-with-application-gateway.md
-  - name: Create ASE from a template
-    href: create-from-template.md
-  - name: Forced tunnel configuration
-    href: forced-tunnel-support.md
-  - name: Firewall integration
-    href: firewall-integration.md
+  - name: Geo-distributed scale
+    href: app-service-app-service-environment-geo-distributed-scale.md
+- name: Concepts
+  items:
+  - name: Networking architecture
+    href: networking.md
+  - name: Resiliency
+    items:
+    - name: Migrate to availability zone support
+      href: ../../availability-zones/migrate-app-service-environment.md
+  - name: Certificates
+    href: overview-certificates.md
+  - name: Diagnostics
+    href: ../overview-diagnostics.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+  - name: Migration feature
+    href: migrate.md
+- name: How-To guides
+  items:
+  - name: Using App Service Environment
+    href: using.md
+  - name: Create App Service Environment from template
+    href: how-to-create-from-template.md
+  - name: App Service Environment custom settings
+    href: app-service-app-service-environment-custom-settings.md
+  - name: App Service Environment v3 network settings
+    href: configure-network-settings.md
+  - name: Custom domain suffix
+    href: how-to-custom-domain-suffix.md
+  - name: Upgrade preference for planned maintenance
+    href: how-to-upgrade-preference.md
+  - name: Migrate to App Service Environment v3
+    href: migration-alternatives.md
+  - name: Use the migration feature
+    href: how-to-migrate.md
 - name: Reference
   items:
   - name: Management addresses
     href: management-addresses.md
   - name: ASEv1 documentation
     items:
-    - name: Create ASEv1
-      href: app-service-web-how-to-create-an-app-service-environment.md
+    - name: About App Service Environment v1
+      href: app-service-app-service-environment-intro.md
+    - name: Create ASEv1 from template
+      href: app-service-app-service-environment-create-ilb-ase-resourcemanager.md
     - name: Configure ASEv1
       href: app-service-web-configure-an-app-service-environment.md
-    - name: Create internal ASEv1
-      href: app-service-environment-with-internal-load-balancer.md
-    - name: Create internal ASEv1 from template
-      href: app-service-app-service-environment-create-ilb-ase-resourcemanager.md
-    - name: Configure AutoScale in ASEv1
+    - name: Configure Auto Scale in ASEv1
       href: app-service-environment-auto-scale.md
     - name: Scale out app in ASEv1
       href: app-service-web-scale-a-web-app-in-an-app-service-environment.md
     - name: Network architecture
       href: app-service-app-service-environment-network-architecture-overview.md
-    - name: Create web app in ASEv1
-      href: app-service-web-how-to-create-a-web-app-in-an-ase.md
     - name: Connect to back end
       href: app-service-app-service-environment-securely-connecting-to-backend-resources.md
     - name: Configure ExpressRoute
@@ -76,6 +77,28 @@
       href: app-service-app-service-environment-control-inbound-traffic.md
     - name: Use layered security
       href: app-service-app-service-environment-layered-security.md
+  - name: ASEv2 documentation
+    items:
+    - name: About App Service Environment v2
+      href: intro.md
+    - name: Create ASE v2 from template
+      href: create-from-template.md
+    - name: Create external ASE v2
+      href: create-external-ase.md
+    - name: Create internal ASE v2
+      href: create-ilb-ase.md
+    - name: Use an ASE v2
+      href: using-an-ase.md
+    - name: Network architecture
+      href: network-info.md
+    - name: Zone redundancy
+      href: zone-redundancy.md
+    - name: Certificates
+      href: certificates.md
+    - name: Forced tunnel configuration
+      href: forced-tunnel-support.md
+    - name: Firewall integration
+      href: firewall-integration.md
 - name: Resources
   items:
   - name: Azure Roadmap
@@ -83,7 +106,7 @@
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/app-service/
   - name: Quota Information
-    href: ../../azure-subscription-service-limits.md#app-service-limits
+    href: ../../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits
   - name: Service Updates
     href: https://azure.microsoft.com/updates/?product=app-service
   - name: Best practices
@@ -94,16 +117,10 @@
     items:
     - name: Azure videos
       href: https://azure.microsoft.com/resources/videos/index/?services=app-service
-    - name: Master Modern PaaS for the Enterprise with Azure App Service
-      href: https://channel9.msdn.com/Events/Ignite/2016/BRK3205/player
-    - name: Deploying Highly Scalable and Secure Apps
-      href: https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON325/player
-    - name: Running Enterprise Web and Mobile Apps on Azure App Service
-      href: https://channel9.msdn.com/Events/Ignite/2015/BRK3715/player
   - name: Cookbooks
     items:
     - name: Deployment Scripts
-      href: https://azure.microsoft.com/documentation/scripts/
+      href: ../../automation/automation-runbook-gallery.md
   - name: Troubleshooting
     items:
     - name: Troubleshoot with Visual Studio
@@ -117,10 +134,10 @@
     - name: FAQ
       items:
       - name: Availability, performance, and application FAQ
-        href: ../faq-availability-performance-application-issues.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+        href: ../faq-availability-performance-application-issues.yml?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
       - name: Deployment FAQ
-        href: ../faq-deployment.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
-      - name: Open source technologies FAQ
-        href: ../faq-open-source-technologies.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+        href: ../faq-deployment.yml?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+      - name: Open-source technologies FAQ
+        href: ../faq-open-source-technologies.yml?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
       - name: Configuration and management FAQ
-        href: ../faq-configuration-and-management.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+        href: ../faq-configuration-and-management.yml?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json

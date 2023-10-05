@@ -1,259 +1,220 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with SAP Business Object Cloud | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and SAP Business Object Cloud.
+title: 'Tutorial: Microsoft Entra integration with SAP Analytics Cloud'
+description: Learn how to configure single sign-on between Microsoft Entra ID and SAP Analytics Cloud.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-
-ms.assetid: 6c5e44f0-4e52-463f-b879-834d80a55cdf
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 11/21/2022
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
-# Tutorial: Azure Active Directory integration with SAP Business Object Cloud
 
-In this tutorial, you learn how to integrate SAP Business Object Cloud with Azure Active Directory (Azure AD).
-Integrating SAP Business Object Cloud with Azure AD provides you with the following benefits:
+# Tutorial: Integrate SAP Analytics Cloud with Microsoft Entra ID
 
-* You can control in Azure AD who has access to SAP Business Object Cloud.
-* You can enable your users to be automatically signed-in to SAP Business Object Cloud (Single Sign-On) with their Azure AD accounts.
-* You can manage your accounts in one central location - the Azure portal.
+In this tutorial, you'll learn how to integrate SAP Analytics Cloud with Microsoft Entra ID. When you integrate SAP Analytics Cloud with Microsoft Entra ID, you can:
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+* Control in Microsoft Entra ID who has access to SAP Analytics Cloud.
+* Enable your users to be automatically signed-in to SAP Analytics Cloud with their Microsoft Entra accounts.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
-To configure Azure AD integration with SAP Business Object Cloud, you need the following items:
+To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
-* SAP Business Object Cloud single sign-on enabled subscription
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* SAP Analytics Cloud single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment.
 
-* SAP Business Object Cloud supports **SP** initiated SSO
+* SAP Analytics Cloud supports **SP** initiated SSO.
 
-## Adding SAP Business Object Cloud from the gallery
+* SAP Analytics Cloud supports [Automated user provisioning](sap-analytics-cloud-provisioning-tutorial.md). 
 
-To configure the integration of SAP Business Object Cloud into Azure AD, you need to add SAP Business Object Cloud from the gallery to your list of managed SaaS apps.
+## Add SAP Analytics Cloud from the gallery
 
-**To add SAP Business Object Cloud from the gallery, perform the following steps:**
+To configure the integration of SAP Analytics Cloud into Microsoft Entra ID, you need to add SAP Analytics Cloud from the gallery to your list of managed SaaS apps.
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type **SAP Analytics Cloud** in the search box.
+1. Select **SAP Analytics Cloud** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-	![The Azure Active Directory button](common/select-azuread.png)
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
+<a name='configure-and-test-azure-ad-sso-for-sap-analytics-cloud'></a>
 
-	![The Enterprise applications blade](common/enterprise-applications.png)
+## Configure and test Microsoft Entra SSO for SAP Analytics Cloud
 
-3. To add new application, click **New application** button on the top of dialog.
+Configure and test Microsoft Entra SSO with SAP Analytics Cloud using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in SAP Analytics Cloud.
 
-	![The New application button](common/add-new-app.png)
+To configure and test Microsoft Entra SSO with SAP Analytics Cloud, perform the following steps:
 
-4. In the search box, type **SAP Business Object Cloud**, select **SAP Business Object Cloud** from result panel then click **Add** button to add the application.
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
+1. **[Configure SAP Analytics Cloud SSO](#configure-sap-analytics-cloud-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create SAP Analytics Cloud test user](#create-sap-analytics-cloud-test-user)** - to have a counterpart of B.Simon in SAP Analytics Cloud that is linked to the Microsoft Entra representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-	 ![SAP Business Object Cloud in the results list](common/search-new-app.png)
+<a name='configure-azure-ad-sso'></a>
 
-## Configure and test Azure AD single sign-on
+## Configure Microsoft Entra SSO
 
-In this section, you configure and test Azure AD single sign-on with SAP Business Object Cloud based on a test user called **Britta Simon**.
-For single sign-on to work, a link relationship between an Azure AD user and the related user in SAP Business Object Cloud needs to be established.
+Follow these steps to enable Microsoft Entra SSO.
 
-To configure and test Azure AD single sign-on with SAP Business Object Cloud, you need to complete the following building blocks:
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **SAP Analytics Cloud** application integration page, find the **Manage** section and select **Single sign-on**.
+1. On the **Select a Single sign-on method** page, select **SAML**.
+1. On the **Set up Single Sign-On with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Configure SAP Business Object Cloud Single Sign-On](#configure-sap-business-object-cloud-single-sign-on)** - to configure the Single Sign-On settings on application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create SAP Business Object Cloud test user](#create-sap-business-object-cloud-test-user)** - to have a counterpart of Britta Simon in SAP Business Object Cloud that is linked to the Azure AD representation of user.
-6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-### Configure Azure AD single sign-on
+1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-In this section, you enable Azure AD single sign-on in the Azure portal.
+    a. In the **Identifier (Entity ID)** text box, type a value using one of the following patterns:
 
-To configure Azure AD single sign-on with SAP Business Object Cloud, perform the following steps:
+    | **Identifier URL** |
+    |----|
+    | `<sub-domain>.sapbusinessobjects.cloud` |
+    | `<sub-domain>.sapanalytics.cloud` |
 
-1. In the [Azure portal](https://portal.azure.com/), on the **SAP Business Object Cloud** application integration page, select **Single sign-on**.
-
-    ![Configure single sign-on link](common/select-sso.png)
-
-2. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
-
-    ![Single sign-on select mode](common/select-saml-option.png)
-
-3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
-
-	![Edit Basic SAML Configuration](common/edit-urls.png)
-
-4. On the **Basic SAML Configuration** section, perform the following steps:
-
-    ![SAP Business Object Cloud Domain and URLs single sign-on information](common/sp-identifier.png)
-
-	a. In the **Sign on URL** text box, type a URL using the following pattern:
-
-    | |
-	|-|-|
-	| `https://<sub-domain>.sapanalytics.cloud/` |
-	| `https://<sub-domain>.sapbusinessobjects.cloud/` |
-
-    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-	
-    | |
-	|-|-|
-	| `<sub-domain>.sapbusinessobjects.cloud` |
-	| `<sub-domain>.sapanalytics.cloud` |
+    b. In the **Sign on URL** text box, type a URL using one of the following patterns:
+    
+    | **Sign on URL** |
+    |------|
+    | `https://<sub-domain>.sapanalytics.cloud/` |
+    | `https://<sub-domain>.sapbusinessobjects.cloud/` |
 
 	> [!NOTE] 
-	> The values in these URLs are for demonstration only. Update the values with the actual sign-on URL and identifier URL. To get the sign-on URL, contact the [SAP Business Object Cloud Client support team](https://help.sap.com/viewer/product/SAP_BusinessObjects_Cloud/release/). You can get the identifier URL by downloading the SAP Business Object Cloud metadata from the admin console. This is explained later in the tutorial.
+	> The values in these URLs are for demonstration only. Update the values with the actual Identifier and Sign on URL. To get the sign-on URL, contact the [SAP Analytics Cloud Client support team](https://help.sap.com/viewer/product/SAP_BusinessObjects_Cloud/release/). You can get the identifier URL by downloading the SAP Analytics Cloud metadata from the admin console. This is explained later in the tutorial.
 
-4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
+4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
 	![The Certificate download link](common/metadataxml.png)
 
-### Configure SAP Business Object Cloud Single Sign-On
+6. On the **Set up SAP Analytics Cloud** section, copy the appropriate URL(s) based on your requirement.
 
-1. In a different web browser window, sign in to your SAP Business Object Cloud company site as an administrator.
+	![Copy configuration URLs](common/copy-configuration-urls.png)
+
+<a name='create-an-azure-ad-test-user'></a>
+
+### Create a Microsoft Entra test user
+
+In this section, you'll create a test user called B.Simon.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Select **Review + create**.
+1. Select **Create**.
+
+<a name='assign-the-azure-ad-test-user'></a>
+
+### Assign the Microsoft Entra test user
+
+In this section, you'll enable B.Simon to use single sign-on by granting access to SAP Analytics Cloud.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **SAP Analytics Cloud**.
+1. In the app's overview page, select **Users and groups**.
+1. Select **Add user/group**, then select **Users and groups** in the **Add Assignment** dialog.
+   1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+   1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+   1. In the **Add Assignment** dialog, click the **Assign** button.
+
+## Configure SAP Analytics Cloud SSO
+
+1. In a different web browser window, sign in to your SAP Analytics Cloud company site as an administrator.
 
 2. Select **Menu** > **System** > **Administration**.
     
-	![Select Menu, then System, and then Administration](./media/sapboc-tutorial/config1.png)
+	![Select Menu, then System, and then Administration](./media/sapboc-tutorial/configure-1.png)
 
 3. On the **Security** tab, select the **Edit** (pen) icon.
     
-	![On the Security tab, select the Edit icon](./media/sapboc-tutorial/config2.png)  
+	![On the Security tab, select the Edit icon](./media/sapboc-tutorial/configure-2.png)  
 
 4. For **Authentication Method**, select **SAML Single Sign-On (SSO)**.
 
-	![Select SAML Single Sign-On for the authentication method](./media/sapboc-tutorial/config3.png)  
+	![Select SAML Single Sign-On for the authentication method](./media/sapboc-tutorial/configure-3.png)  
 
 5. To download the service provider metadata (Step 1), select **Download**. In the metadata file, find and copy the **entityID** value. In the Azure portal, on the **Basic SAML Configuration** dialog, paste the value in the **Identifier** box.
 
-	![Copy and paste the entityID value](./media/sapboc-tutorial/config4.png)  
+	![Copy and paste the entityID value](./media/sapboc-tutorial/configure-4.png)  
 
-6. To upload the service provider metadata (Step 2) in the file that you downloaded from the Azure portal, under **Upload Identity Provider metadata**, select **Upload**.  
+6. To upload the service provider metadata (Step 2) in the file that you downloaded, under **Upload Identity Provider metadata**, select **Upload**.  
 
-	![Under Upload Identity Provider metadata, select Upload](./media/sapboc-tutorial/config5.png)
+	![Under Upload Identity Provider metadata, select Upload](./media/sapboc-tutorial/configure-5.png)
 
-7. In the **User Attribute** list, select the user attribute (Step 3) that you want to use for your implementation. This user attribute maps to the identity provider. To enter a custom attribute on the user's page, use the **Custom SAML Mapping** option. Or, you can select either **Email** or **USER ID** as the user attribute. In our example, we selected **Email** because we mapped the user identifier claim with the **userprincipalname** attribute in the **User Attributes & Claims** section in the Azure portal. This provides a unique user email, which is sent to the SAP Business Object Cloud application in every successful SAML response.
+7. In the **User Attribute** list, select the user attribute (Step 3) that you want to use for your implementation. This user attribute maps to the identity provider. To enter a custom attribute on the user's page, use the **Custom SAML Mapping** option. Or, you can select either **Email** or **USER ID** as the user attribute. In our example, we selected **Email** because we mapped the user identifier claim with the **userprincipalname** attribute in the **User Attributes & Claims** section. This provides a unique user email, which is sent to the SAP Analytics Cloud application in every successful SAML response.
 
-	![Select User Attribute](./media/sapboc-tutorial/config6.png)
+	![Select User Attribute](./media/sapboc-tutorial/configure-6.png)
 
 8. To verify the account with the identity provider (Step 4), in the **Login Credential (Email)** box, enter the user's email address. Then, select **Verify Account**. The system adds sign-in credentials to the user account.
 
-    ![Enter email, and select Verify Account](./media/sapboc-tutorial/config7.png)
+    ![Enter email, and select Verify Account](./media/sapboc-tutorial/configure-7.png)
 
 9. Select the **Save** icon.
 
 	![Save icon](./media/sapboc-tutorial/save.png)
 
-### Create an Azure AD test user 
+### Create SAP Analytics Cloud test user
 
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
-
-1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
-
-    ![The "Users and groups" and "All users" links](common/users.png)
-
-2. Select **New user** at the top of the screen.
-
-    ![New user Button](common/new-user.png)
-
-3. In the User properties, perform the following steps.
-
-    ![The User dialog box](common/user-properties.png)
-
-    a. In the **Name** field enter **BrittaSimon**.
-  
-    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
-    For example, BrittaSimon@contoso.com
-
-    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
-
-    d. Click **Create**.
-
-### Assign the Azure AD test user
-
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to SAP Business Object Cloud.
-
-1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **SAP Business Object Cloud**.
-
-	![Enterprise applications blade](common/enterprise-applications.png)
-
-2. In the applications list, select **SAP Business Object Cloud**.
-
-	![The SAP Business Object Cloud link in the Applications list](common/all-applications.png)
-
-3. In the menu on the left, select **Users and groups**.
-
-    ![The "Users and groups" link](common/users-groups-blade.png)
-
-4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
-
-    ![The Add Assignment pane](common/add-assign-user.png)
-
-5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
-
-6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
-
-7. In the **Add Assignment** dialog click the **Assign** button.
-
-### Create SAP Business Object Cloud test user
-
-Azure AD users must be provisioned in SAP Business Object Cloud before they can sign in to SAP Business Object Cloud. In SAP Business Object Cloud, provisioning is a manual task.
+Microsoft Entra users must be provisioned in SAP Analytics Cloud before they can sign in to SAP Analytics Cloud. In SAP Analytics Cloud, provisioning is a manual task.
 
 To provision a user account:
 
-1. Sign in to your SAP Business Object Cloud company site as an administrator.
+1. Sign in to your SAP Analytics Cloud company site as an administrator.
 
 2. Select **Menu** > **Security** > **Users**.
 
-    ![Add Employee](./media/sapboc-tutorial/user1.png)
+    ![Add Employee](./media/sapboc-tutorial/user-1.png)
 
 3. On the **Users** page, to add new user details, select **+**. 
 
-	![Add Users page](./media/sapboc-tutorial/user4.png)
+    ![Add Users page](./media/sapboc-tutorial/user-4.png)
 
-	Then, complete the following steps:
+    Then, complete the following steps:
 
-	a. In the **USER ID** box, enter the user ID of the user, like **Britta**.
+    1. In the **USER ID** box, enter the user ID of the user, like **B**.
 
-	b. In the **FIRST NAME** box, enter the first name of the user, like **Britta**.
+    1. In the **FIRST NAME** box, enter the first name of the user, like **B**.
 
-	c. In the **LAST NAME** box, enter the last name of the user, like **Simon**.
+    1. In the **LAST NAME** box, enter the last name of the user, like **Simon**.
 
-	d. In the **DISPLAY NAME** box, enter the full name of the user, like **Britta Simon**.
+    1. In the **DISPLAY NAME** box, enter the full name of the user, like **B.Simon**.
 
-	e. In the **E-MAIL** box, enter the email address of the user, like **brittasimon\@contoso.com**.
+    1. In the **E-MAIL** box, enter the email address of the user, like `b.simon@contoso.com`.
 
-	f. On the **Select Roles** page, select the appropriate role for the user, and then select **OK**.
+    1. On the **Select Roles** page, select the appropriate role for the user, and then select **OK**.
 
-	  ![Select role](./media/sapboc-tutorial/user3.png)
+        ![Select role](./media/sapboc-tutorial/user-3.png)
 
-	g. Select the **Save** icon.	
+    1. Select the **Save** icon.
 
-### Test single sign-on 
+> [!NOTE]
+> SAP Analytics Cloud also supports automatic user provisioning, you can find more details [here](./sap-analytics-cloud-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+## Test SSO 
 
-When you click the SAP Business Object Cloud tile in the Access Panel, you should be automatically signed in to the SAP Business Object Cloud for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
-## Additional Resources
+* Click on **Test this application**, this will redirect to SAP Analytics Cloud Sign-on URL where you can initiate the login flow. 
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+* Go to SAP Analytics Cloud Sign-on URL directly and initiate the login flow from there.
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+* You can use Microsoft My Apps. When you click the SAP Analytics Cloud tile in the My Apps, this will redirect to SAP Analytics Cloud Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+## Next steps
 
+Once you configure SAP Analytics Cloud you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

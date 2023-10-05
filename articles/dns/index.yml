@@ -1,96 +1,104 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure DNS Documentation
+### YamlMime:Landing
+
+title: Azure DNS documentation
+summary: Learn how to use Azure DNS. Quickstarts, tutorials, samples, and more, show you how to set up and manage DNS zones and records for domain names.
+
 metadata:
-  title: Azure DNS Documentation
-  meta.description: Learn how to manage your DNS records using Azure Domain Name System. Documentation shows how to set up and manage DNS zones and records for domain names.
+  title: Azure DNS documentation
+  description: Learn how to use Azure DNS. Quickstarts, tutorials, samples, and more, show you how to set up and manage DNS zones and records for domain names.
   services: dns
-  author: KumudD
-  manager: jeconnoc
-  layout: LandingPage
-  ms.assetid: na
   ms.service: dns
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 6/13/2018
-  ms.author: kumud
-abstract:
-  description:  Learn how to use Azure DNS. Quickstarts, tutorials, samples, and more, show you how to set up and manage DNS zones and records for domain names.
-sections:
-- title: 5-Minute Quickstarts
-  items:
-  - type: paragraph
-    text: Learn how create DNS zones and records for domain names.
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: https://docs.microsoft.com/media/common/i_portal.svg
-      text: Azure portal
-      href: /azure/dns/dns-getstarted-portal
-    - image: 
-        src: https://docs.microsoft.com/media/logos/logo_powershell.svg
-      text: Azure PowerShell
-      href: /azure/dns/dns-getstarted-powershell
-    - image: 
-        src: https://docs.microsoft.com/media/common/cli.svg
-      text: Azure CLI
-      href: /azure/dns/dns-getstarted-cli
-- title: Step-by-Step Tutorials
-  items:
-  - type: paragraph
-    text: Learn how to host your domain in Azure DNS, create custom DNS records for a web app using Azure DNS, and create a private DNS zone and records.
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="/azure/dns/dns-delegate-domain-azure-dns">Host your domain in Azure DNS</a>
-    - html: <a href="/azure/dns/dns-web-sites-custom-domain">Create custom DNS records for a web app</a>
-    - html: <a href="/azure/dns/private-dns-getstarted-powershell">Create private DNS zone and record</a>
-    - html: <a href="/azure/dns/tutorial-alias-pip">Configure an alias record to refer to an Azure Public IP address</a>
-    - html: <a href="/azure/dns/tutorial-alias-tm">Configure an alias record to support apex domain names with Traffic Manager</a>
-    - html: <a href="/azure/dns/tutorial-alias-rr">Configure an alias record for zone records</a>
+  author: greg-lindsay
+  ms.author: greglin
+  ms.date: 09/27/2022
 
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
-- title: Free Pluralsight Video Training
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
-    items:
-    - title: Azure Administrator
-      href: https://go.microsoft.com/fwlink/?linkid=2012827
-      image: 
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://go.microsoft.com/fwlink/?linkid=2012827
-    - title: Azure Solution Architect
-      href: https://go.microsoft.com/fwlink/?linkid=2012824
-      image: 
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://go.microsoft.com/fwlink/?linkid=2012824
-    - title: Azure Administration for AWS Administrators
-      href: https://app.pluralsight.com/library/courses/azure-administration-aws-administrators/table-of-contents
-      image: 
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://app.pluralsight.com/library/courses/azure-administration-aws-administrators/table-of-contents
-- title: Samples
-  items:
-  - type: paragraph
-    text: Script samples for common tasks.
-  - type: list
-    style: unordered
-    className: spaced noBullet
-    items:
-    - html: <a href="/azure/dns/cli-samples">Azure CLI</a>
-- title: Reference
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Command-Line
-      html: <p><a href="/powershell/module/az.dns">PowerShell</a></p><p><a href="/cli/azure/network/traffic-manager">Azure CLI</a></p>
-    - title: Languages
-      html: <p><a href="/dotnet/api/microsoft.azure.management.dns.models">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.dns">Java</a></p><p><a href="https://azure.github.io/azure-sdk-for-node/azure-arm-dns/latest/">Node.js</a></p><p><a href="https://www.rubydoc.info/gems/azure_mgmt_dns/0.8.0">Ruby</a></p><p><a href="https://docs.microsoft.com/python/api/azure.mgmt.dns">Python</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/dns/">REST API Reference</a></p>
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: Learn about Azure DNS
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure DNS?
+            url: dns-overview.md
+      - linkListType: learn
+        links:
+          - text: Introduction to Azure DNS
+            url: /training/modules/intro-to-azure-dns
+          - text: Host your domain on Azure DNS?
+            url: /training/modules/host-domain-azure-dns/    
+  # Card
+  - title: Create Azure DNS zones and records
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create an Azure DNS zone and record using the Azure portal
+            url: dns-getstarted-portal.md     
+      - linkListType: tutorial
+        links:
+          - text: Host your domain in Azure DNS
+            url: dns-delegate-domain-azure-dns.md
+          - text: Create a child DNS zone
+            url: tutorial-public-dns-zones-child.md
+          - text: Create DNS records in a custom domain for a web app
+            url: dns-web-sites-custom-domain.md
+
+  # Card
+  - title: Deploy a private DNS zone
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Private DNS?
+            url: private-dns-overview.md
+      - linkListType: concept
+        links:
+          - text: Azure DNS Private Zones scenarios
+            url: private-dns-scenarios.md
+          - text: Azure Private DNS FAQ
+            url: dns-faq-private.yml
+      - linkListType: quickstart
+        links:
+          - text: Create an Azure DNS private zone using the Azure portal
+            url: ./private-dns-getstarted-portal.md
+
+  # Card
+  - title: Deploy a DNS resolver
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure DNS Private Resolver?
+            url: dns-private-resolver-overview.md
+      - linkListType: concept
+        links:
+          - text: Azure DNS Private Resolver endpoints and rulesets
+            url: private-resolver-endpoints-rulesets.md
+      - linkListType: quickstart
+        links:
+          - text: Create an Azure DNS Private Resolver using the Azure portal
+            url: ./dns-private-resolver-get-started-portal.md
+          - text: Create an Azure DNS Private Resolver using Windows PowerShell
+            url: ./dns-private-resolver-get-started-powershell.md
+      - linkListType: tutorial
+        links:
+          - text: Set up DNS failover using private resolvers
+            url: tutorial-dns-private-resolver-failover.md
+
+# Card
+  - title: Use alias records
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Azure DNS alias records overview
+            url: dns-alias.md
+      - linkListType: tutorial
+        links:
+          - text: Create an alias record to refer to a zone resource record
+            url: tutorial-alias-rr.md
+          - text: Create an alias record to refer to an Azure public IP address
+            url: tutorial-alias-pip.md
+          - text: Create an alias record to support apex domain names with Traffic Manager
+            url: tutorial-alias-tm.md

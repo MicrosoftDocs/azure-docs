@@ -1,14 +1,14 @@
 ---
-title: Use Azure Data Box Heavy to migrate file share content to SharePoint Online| Microsoft Docs
-description: Use this tutorial to learn how to migrate file share content to Share Point Online using your Azure Data Box Heavy
+title: Use Azure Data Box Heavy to move file share content to SharePoint Online
+description: Use this tutorial to learn how to migrate file share content to SharePoint Online using your Azure Data Box Heavy
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: heavy
-ms.topic: tutorial
-ms.date: 06/05/2019
-ms.author: alkohli
+ms.topic: how-to
+ms.date: 07/18/2019
+ms.author: shaas
 ---
 
 # Use the Azure Data Box Heavy to migrate your file share content to SharePoint Online
@@ -17,9 +17,9 @@ Use your Azure Data Box Heavy and the SharePoint Migration Tool (SPMT) to easily
 
 The Microsoft Azure Data Box is a service that lets you order a device from the Microsoft Azure portal. You can then copy terabytes of data from your servers to the device. After shipping it back to Microsoft, your data is copied into Azure. Depending on the size of data you intend to transfer, you can choose from:
 
-- [Data Box Disk](https://docs.microsoft.com/azure/databox/data-box-disk-overview) with 35-TB usable capacity per order for small-to-medium datasets.
-- [Data Box](https://docs.microsoft.com/azure/databox/data-box-overview) with 80-TB usable capacity per device for medium-to-large datasets.
-- [Data Box Heavy](https://docs.microsoft.com/azure/databox/data-box-heavy-overview) with 770-TB usable capacity per device for large datasets. Data Box Heavy is currently in preview.
+- [Data Box Disk](./data-box-disk-overview.md) with 35-TB usable capacity per order for small-to-medium datasets.
+- [Data Box](./data-box-overview.md) with 80-TB usable capacity per device for medium-to-large datasets.
+- [Data Box Heavy](./data-box-heavy-overview.md) with 770-TB usable capacity per device for large datasets.
 
 This article specifically talks about how to use the Data Box Heavy to migrate your file share content to SharePoint Online.
 
@@ -33,11 +33,11 @@ This article specifically talks about how to use the Data Box Heavy to migrate y
 
 ### For SharePoint Online
 
-- Review the [Minimum requirements for the SharePoint Migration Tool (SPMT)](https://docs.microsoft.com/sharepointmigration/how-to-use-the-sharepoint-migration-tool).
+- Review the [Minimum requirements for the SharePoint Migration Tool (SPMT)](/sharepointmigration/how-to-use-the-sharepoint-migration-tool).
 
 ## Workflow overview
 
-This workflow requires you to perform steps on Azure Data Box Heavy as well as on Share Point online.
+This workflow requires you to perform steps on Azure Data Box Heavy as well as on SharePoint Online.
 The following steps relate to your Azure Data Box Heavy.
 
 1. Order Azure Data Box Heavy.
@@ -46,7 +46,7 @@ The following steps relate to your Azure Data Box Heavy.
 4. After the copy is complete, ship the device back as per the instructions.
 5. Wait for the data to completely upload to Azure.
 
-The following steps relate to Share Point online.
+The following steps relate to SharePoint Online.
 
 6. Create a VM in the Azure portal and mount the Azure file share on it.
 7. Install the SPMT tool on the Azure VM.
@@ -62,8 +62,8 @@ Take the following steps to copy data to your Data Box Heavy.
 2. After you receive your Data Box Heavy, [Set up the Data Box Heavy](data-box-heavy-deploy-set-up.md). You'll cable and configure both the nodes on your device.
 3. [Copy data to Azure Data Box Heavy](data-box-heavy-deploy-copy-data.md). While copying, make sure to:
 
-    - Use only the *AzureFile* folder in the Data Box Heavy to copy the data. This is because you want the data to end up in an Azure file share, not in block blobs or page blobs.
-    - Copy files to a folder within *AzureFile* folder. A subfolder within *AzureFile* folder creates a file share. Files copied directly to *AzureFile* folder fail and are uploaded as block blobs. This is the file share that you will mount on your VM in the next step.
+    - Use only the *StorageAccountName_AzFile* folder in the Data Box Heavy to copy the data. This is because you want the data to end up in an Azure file share, not in block blobs or page blobs.
+    - Copy files to a folder within *StorageAccountName_AzFile* folder. A subfolder within *StorageAccountName_AzFile* folder creates a file share. Files copied directly to *StorageAccountName_AzFile* folder fail and are uploaded as block blobs. This is the file share that you will mount on your VM in the next step.
     - Copy data to both nodes of your Data Box Heavy.
 3. Run [Prepare to ship](data-box-heavy-deploy-picked-up.md#prepare-to-ship) on your device. A successful prepare to ship ensures a successful upload of files to Azure.
 4. [Return the device](data-box-heavy-deploy-picked-up.md#ship-data-box-heavy-back).
@@ -71,16 +71,16 @@ Take the following steps to copy data to your Data Box Heavy.
 
 ## Use SPMT to migrate data
 
-After you receive confirmation from the Azure data team that your data copy has completed, you can now proceed to migrate your data to SharePoint Online.
+After you receive confirmation from the Azure data team that your data copy has completed, proceed to migrate your data to SharePoint Online.
 
 For best performance and connectivity, we recommend that you create an Azure Virtual Machine (VM).
 
 1. Sign into the Azure portal, and then [Create a virtual machine](../virtual-machines/windows/quick-create-portal.md).
 2. [Mount the Azure file share onto the VM](../storage/files/storage-how-to-use-files-windows.md#mount-the-azure-file-share-with-file-explorer).
-3. [Download the SharePoint Migration tool](http://spmtreleasescus.blob.core.windows.net/install/default.htm) and install it on your Azure VM.
-4. Start the SharePoint Migration Tool. Click **Sign in** and enter your Office 365 username and password.
+3. [Download the SharePoint Migration tool](https://spmtreleasescus.blob.core.windows.net/install/default.htm) and install it on your Azure VM.
+4. Start the SharePoint Migration Tool. Click **Sign in** and enter the username and password for your work or school account.
 5. When prompted **Where is your data?**, select **File share**. Enter the path to your Azure file share where your data is located.
-6. Follow the remaining prompts as normal, including your target location. For more information, go to [How to use the SharePoint Migration Tool](https://docs.microsoft.com/sharepointmigration/how-to-use-the-sharepoint-migration-tool).
+6. Follow the remaining prompts as normal, including your target location. For more information, go to [How to use the SharePoint Migration Tool](/sharepointmigration/how-to-use-the-sharepoint-migration-tool).
 
 > [!IMPORTANT]
 > - The speed at which data is ingested into SharePoint Online is affected by several factors, regardless if you have your data already in Azure. Understanding these factors will help you plan and maximize the efficiency of your migration.  For more information, go to [SharePoint Online and OneDrive migration Speed](/sharepointmigration/sharepoint-online-and-onedrive-migration-speed).

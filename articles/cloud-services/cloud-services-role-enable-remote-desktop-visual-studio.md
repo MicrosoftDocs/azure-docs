@@ -1,20 +1,18 @@
 ---
-title: Enable Remote Desktop Connection for a Role in Azure Cloud Services
+title: Using Visual Studio, enable Remote Desktop for a Role (Azure Cloud Services classic)
 description: How to configure your Azure cloud service application to allow remote desktop connections
-services: cloud-services
-author: ghogen
-manager: douge
-ms.assetid: f5727ebe-9f57-4d7d-aff1-58761e8de8c1
-ms.prod: visual-studio-dev15
-ms.technology: vs-azure
-ms.custom: vs-azure
-ms.topic: conceptual
-ms.workload: azure-vs
-ms.date: 03/06/2018
-ms.author: ghogen
-
+ms.topic: article
+ms.service: cloud-services
+ms.date: 02/21/2023
+author: hirenshah1
+ms.author: hirshah
+ms.reviewer: mimckitt
+ms.custom: compute-evergreen
 ---
-# Enable Remote Desktop Connection for a Role in Azure Cloud Services using Visual Studio
+
+# Enable Remote Desktop Connection for a Role in Azure Cloud Services (classic) using Visual Studio
+
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 > [!div class="op_single_selector"]
 > * [Azure portal](cloud-services-role-enable-remote-desktop-new-portal.md)
@@ -60,7 +58,7 @@ If you're working as part of a team, you should instead enable remote desktop on
 
 This recommendation is due to a change in how Visual Studio 2017 version 15.5 and later communicates with the cloud service VM. When enabling Remote Desktop through the publish wizard, earlier versions of Visual Studio communicate with the VM through what's called the "RDP plugin." Visual Studio 2017 version 15.5 and later communicates instead using the "RDP extension" that is more secure and more flexible. This change also aligns with the fact that the Azure portal and PowerShell methods to enable Remote Desktop also use the RDP extension.
 
-When Visual Studio communicates with the RDP extension, it transmit a plain text password over SSL. However, the project's configuration files store only an encrypted password, which can be decrypted into plain text only with the local certificate that was originally used to encrypt it.
+When Visual Studio communicates with the RDP extension, it transmit a plain text password over TLS. However, the project's configuration files store only an encrypted password, which can be decrypted into plain text only with the local certificate that was originally used to encrypt it.
 
 If you deploy the cloud service project from the same development computer each time, then that local certificate is available. In this case, you can still use the **Enable Remote Desktop for all roles** option in the publish wizard.
 
@@ -90,7 +88,7 @@ To use the RDP extension from Azure DevOps Services, include the following detai
 
 1. After your build steps, add the **Azure Cloud Service Deployment** step and set its properties.
 
-1. After the deployment step, add an **Azure Powershell** step, set its **Display name** property to "Azure Deployment: Enable RDP Extension" (or another suitable name), and select your appropriate Azure subscription.
+1. After the deployment step, add an **Azure PowerShell** step, set its **Display name** property to "Azure Deployment: Enable RDP Extension" (or another suitable name), and select your appropriate Azure subscription.
 
 1. Set **Script Type** to "Inline" and paste the code below into the **Inline Script** field. (You can also create a `.ps1` file in your project with this script, set **Script Type** to "Script File Path", and set **Script Path** to point to the file.)
 

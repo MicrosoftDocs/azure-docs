@@ -1,391 +1,444 @@
 ---
-title: Configure Azure Multi-Factor Authentication - Azure Active Directory
-description: This article describes how to configure Azure Multi-Factor Authentication settings in the Azure portal
+title: Configure Microsoft Entra multifactor authentication
+description: Learn how to configure settings for Microsoft Entra multifactor authentication
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
-ms.date: 06/03/2019
+ms.topic: how-to
+ms.date: 09/15/2023
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.reviewer: michmcla
+ms.author: justinha
+author: justinha
+manager: amycolannino
+ms.reviewer: jupetter
 
 ms.collection: M365-identity-device-management
+ms.custom: contperf-fy20q4
 ---
-# Configure Azure Multi-Factor Authentication settings
+# Configure Microsoft Entra multifactor authentication settings
 
-This article helps you to manage Multi-Factor Authentication settings in the Azure portal. It covers various topics that help you to get the most out of Azure Multi-Factor Authentication. Not all of the features are available in every version of Azure Multi-Factor Authentication.
-
-You can access settings related to Azure Multi-Factor Authentication from the Azure portal by browsing to **Azure Active Directory** > **MFA**.
-
-![Azure portal - Azure AD Multi-Factor Authentication settings](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-portal.png)
-
-## Settings
-
-Some of these settings apply to MFA Server, Azure MFA, or both.
+To customize the end-user experience for Microsoft Entra multifactor authentication, you can configure options for settings like account lockout thresholds or fraud alerts and notifications. 
+ 
+The following Microsoft Entra multifactor authentication settings are available:
 
 | Feature | Description |
 | ------- | ----------- |
-| Account lockout | Temporarily lock accounts in the multi-factor authentication service if there are too many denied authentication attempts in a row. This feature only applies to users who enter a PIN to authenticate. (MFA Server) |
-| [Block/unblock users](#block-and-unblock-users) | Used to block specific users from being able to receive Multi-Factor Authentication requests. Any authentication attempts for blocked users are automatically denied. Users remain blocked for 90 days from the time that they are blocked. |
-| [Fraud alert](#fraud-alert) | Configure settings related to users ability to report fraudulent verification requests |
-| Notifications | Enable notifications of events from MFA Server. |
-| [OATH tokens](concept-authentication-methods.md#oath-hardware-tokens-public-preview) | Used in cloud-based Azure MFA environments to manage OATH tokens for users. |
+| [Account lockout (MFA Server only)](#account-lockout-mfa-server-only) | Temporarily lock accounts from using Microsoft Entra multifactor authentication if there are too many denied authentication attempts in a row. This feature applies only to users who use MFA Server to enter a PIN to authenticate. |
+| [Block/unblock users](#block-and-unblock-users) | Block specific users from being able to receive Microsoft Entra multifactor authentication requests. Any authentication attempts for blocked users are automatically denied. Users remain blocked for 90 days from the time that they're blocked or until they're manually unblocked. |
+| [Report suspicious activity](#report-suspicious-activity) | Configure settings that allow users to report fraudulent verification requests. |
+| [Notifications](#notifications) | Enable notifications of events from MFA Server. |
+| [OATH tokens](concept-authentication-oath-tokens.md) | Used in cloud-based Microsoft Entra multifactor authentication environments to manage OATH tokens for users. |
 | [Phone call settings](#phone-call-settings) | Configure settings related to phone calls and greetings for cloud and on-premises environments. |
-| Providers | This will show any existing authentication providers that you may have associated with your account. New authentication providers may not be created as of September 1, 2018 |
+| Providers | This will show any existing authentication providers that you've associated with your account. Adding new providers is disabled as of September 1, 2018. |
 
-## Manage MFA Server
+![Microsoft Entra multifactor authentication settings](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-portal.png)
 
-Settings in this section are for MFA Server only.
+## Account lockout (MFA Server only)
 
-| Feature | Description |
-| ------- | ----------- |
-| Server settings | Download MFA Server and generate activation credentials to initialize your environment |
-| [One-time bypass](#one-time-bypass) | Allow a user to authenticate without performing two-step verification for a limited time. |
-| [Caching rules](#caching-rules) |  Caching is primarily used when on-premises systems, such as VPN, send multiple verification requests while the first request is still in progress. This feature allows the subsequent requests to succeed automatically, after the user succeeds the first verification in progress. |
-| Server status | See the status of your on-premises MFA servers including version, status, IP, and last communication time and date. |
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-## Activity report
+>[!NOTE]
+>Account lockout only affects users who sign in by using MFA Server on-premises. 
 
-The reporting available here is specific to MFA Server (on-premises). For Azure MFA (cloud) reports see the sign-ins report in Azure AD.
+To prevent repeated MFA attempts as part of an attack, the account lockout settings let you specify how many failed attempts to allow before the account becomes locked out for a period of time. The account lockout settings are applied only when a PIN code is entered for the MFA prompt by using MFA Server on-premises.
+
+The following settings are available:
+
+* Number of MFA denials that trigger account lockout
+* Minutes until account lockout counter is reset
+* Minutes until account is automatically unblocked
+
+To configure account lockout settings, complete these steps:
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
+1. Browse to **Protection** > **Multifactor authentication** > **Account lockout**.
+1. Enter the values for your environment, and then select **Save**.
+
+    ![Screenshot that shows the account lockout settings.](./media/howto-mfa-mfasettings/account-lockout-settings.png)
 
 ## Block and unblock users
 
-Use the _block and unblock users_ feature to prevent users from receiving authentication requests. Any authentication attempts for blocked users are automatically denied. Users remain blocked for 90 days from the time that they are blocked.
+If a user's device is lost or stolen, you can block Microsoft Entra multifactor authentication attempts for the associated account. Any Microsoft Entra multifactor authentication attempts for blocked users are automatically denied. Users remain blocked for 90 days from the time that they're blocked. For a video that explains how to do this, see [how to block and unblock users in your tenant](https://www.youtube.com/watch?v=WdeE1On4S1o).
 
 ### Block a user
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
-2. Browse to **Azure Active Directory** > **MFA** > **Block/unblock users**.
-3. Select **Add** to block a user.
-4. Select the **Replication Group**. Enter the username for the blocked user as **username\@domain.com**. Enter a comment in the **Reason** field.
-5. Select **Add** to finish blocking the user.
+To block a user, complete the following steps. 
+
+[Watch a short video that describes this process.](https://www.youtube.com/watch?v=WdeE1On4S1o&feature=youtu.be)
+
+1. Browse to **Protection** > **Multifactor authentication** > **Block/unblock users**.
+1. Select **Add** to block a user.
+1. Enter the user name for the blocked user in the format `username@domain.com`, and then provide a comment in the **Reason** box.
+1. Select **OK** to block the user.
 
 ### Unblock a user
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
-2. Browse to **Azure Active Directory** > **MFA** > **Block/unblock users**.
-3. Select **Unblock** in the **Action** column next to the user to unblock.
-4. Enter a comment in the **Reason for unblocking** field.
-5. Select **Unblock** to finish unblocking the user.
+To unblock a user, complete the following steps:
 
-## Fraud alert
+1. Go to **Protection** > **Multifactor authentication** > **Block/unblock users**.
+1. In the **Action** column next to the user, select **Unblock**.
+1. Enter a comment in the **Reason for unblocking** box.
+1. Select **OK** to unblock the user.
 
-Configure the _fraud alert_ feature so that your users can report fraudulent attempts to access their resources. Users can report fraud attempts by using the mobile app or through their phone.
+## Report suspicious activity
 
-### Turn on fraud alerts
+**Report suspicious activity**, the updated **MFA Fraud Alert** feature, is now available. When an unknown and suspicious MFA prompt is received, users can report the fraud attempt by using Microsoft Authenticator or through their phone. These alerts are integrated with [Identity Protection](../identity-protection/overview-identity-protection.md) for more comprehensive coverage and capability. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
-2. Browse to **Azure Active Directory** > **MFA** > **Fraud alert**.
-3. Set the **Allow users to submit fraud alerts** setting to **On**.
-4. Select **Save**.
+Users who report an MFA prompt as suspicious are set to **High User Risk**. Administrators can use risk-based policies to limit access for these users, or enable self-service password reset (SSPR) for users to remediate problems on their own. If you previously used the **Fraud Alert** automatic blocking feature and don't have a Microsoft Entra ID P2 license for risk-based policies, you can use risk detection events to identify and disable impacted users and automatically prevent their sign-in. For more information about using risk-based policies, see [Risk-based access policies](../identity-protection/concept-identity-protection-policies.md).  
 
-### Configuration options
+To enable **Report suspicious activity** from the Authentication methods **Settings**:   
 
-* **Block user when fraud is reported**: If a user reports fraud, their account is blocked for 90 days or until an administrator unblocks their account. An administrator can review sign-ins by using the sign-in report, and take appropriate action to prevent future fraud. An administrator can then [unblock](#unblock-a-user) the user's account.
-* **Code to report fraud during initial greeting**: When users receive a phone call to perform two-step verification, they normally press **#** to confirm their sign-in. To report fraud, the user enters a code before pressing **#**. This code is **0** by default, but you can customize it.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
+1. Browse to **Protection** > **Authentication Methods** > **Settings**. 
+1. Set **Report suspicious activity** to **Enabled**. The feature remains disabled if you choose **Microsoft managed**. For more information about Microsoft managed values, see [Protecting authentication methods in Microsoft Entra ID](concept-authentication-default-enablement.md).
+1. Select **All users** or a specific group. 
+1. Select a **Reporting code**.
+1. Click **Save**. 
 
-   >[!NOTE]
-   >The default voice greetings from Microsoft instruct users to press **0#** to submit a fraud alert. If you want to use a code other than **0**, record and upload your own custom voice greetings with appropriate instructions for your users.
-   >
+>[!NOTE]
+>If you enable **Report suspicious activity** and specify a custom voice reporting value while the tenant still has **Fraud Alert** enabled in parallel with a custom voice reporting number configured, the **Report suspicious activity** value will be used instead of **Fraud Alert**.
 
-### View fraud reports
+### View suspicious activity events 
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select **Azure Active Directory** > **Sign-ins**. The fraud report is now part of the standard Azure AD Sign-ins report.
+When a user reports a MFA prompt as suspicious, the event shows up in the Sign-ins report (as a sign-in that was rejected by the user), in the Audit logs, and in the Risk detections report.   
+
+- To view the risk detections report, select **Protection** > **Identity Protection** > **Risk detection**.  The risk event is part of the standard **Risk Detections** report, and will appear as Detection Type **User Reported Suspicious Activity**, Risk level **High**, Source **End user reported**. 
+
+- To view fraud reports in the Sign-ins report, select **Identity** > **Monitoring & health** > **Sign-in logs** > **Authentication Details**. The fraud report is part of the standard **Microsoft Entra sign-ins** report and appears in the Result Detail as MFA denied, Fraud Code Entered. 
+
+- To view fraud reports in the Audit logs, select **Identity** > **Monitoring & health** > **Audit logs**. The fraud report appears under Activity type Fraud reported - user is blocked for MFA or Fraud reported - no action taken based on the tenant-level settings for fraud report.  
+
+### Manage suspicious activity events 
+
+Once a user has reported a prompt as suspicious, the risk should be investigated and remediated with [Identity Protection](../identity-protection/howto-identity-protection-remediate-unblock.md). 
+
+### Report suspicious activity and fraud alert 
+
+**Report suspicious activity** and the legacy **Fraud Alert** implementation can operate in parallel. You can keep your tenant-wide **Fraud Alert** functionality in place while you start to use **Report suspicious activity** with a targeted test group. 
+
+If **Fraud Alert** is enabled with Automatic Blocking, and **Report suspicious activity** is enabled, the user will be added to the blocklist and set as high-risk and in-scope for any other policies configured. These users will need to be removed from the blocklist and have their risk remediated to enable them to sign in with MFA. 
+
+## Notifications
+
+You can configure Microsoft Entra ID to send email notifications when users report fraud alerts. These notifications are typically sent to identity administrators, because the user's account credentials are likely compromised. The following example shows what a fraud alert notification email looks like:
+
+![Screenshot that shows a fraud alert notification email.](./media/howto-mfa-mfasettings/multi-factor-authentication-fraud-alert-email.png)
+
+To configure fraud alert notifications:
+
+1. Go to **Protection** > **Multifactor authentication** > **Notifications**.
+1. Enter the email address to send the notification to.
+1. To remove an existing email address, select **...** next to the email address, and then select **Delete**.
+1. Select **Save**.
+
+## OATH tokens
+
+Microsoft Entra ID supports the use of OATH TOTP SHA-1 tokens that refresh codes every 30 or 60 seconds. You can purchase these tokens from the vendor of your choice.
+
+OATH TOTP hardware tokens typically come with a secret key, or seed, pre-programmed in the token. You need to input these keys into Microsoft Entra ID as described in the following steps. Secret keys are limited to 128 characters, which might not be compatible with all tokens. The secret key can contain only the characters *a-z* or *A-Z* and digits *1-7*. It must be encoded in Base32.
+
+Programmable OATH TOTP hardware tokens that can be reseeded can also be set up with Microsoft Entra ID in the software token setup flow.
+
+OATH hardware tokens are supported as part of a public preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://aka.ms/EntraPreviewsTermsOfUse).
+
+![Screenshot that shows the OATH tokens section.](media/concept-authentication-methods/mfa-server-oath-tokens-azure-ad.png)
+
+After you acquire tokens, you need to upload them in a comma-separated values (CSV) file format. Include the UPN, serial number, secret key, time interval, manufacturer, and model, as shown in this example:
+
+```csv
+upn,serial number,secret key,time interval,manufacturer,model
+Helga@contoso.com,1234567,1234567abcdef1234567abcdef,60,Contoso,HardwareKey
+```
+
+> [!NOTE]
+> Be sure to include the header row in your CSV file.
+
+An Authentication Policy Administrator can sign in to the [Microsoft Entra admin center](https://entra.microsoft.com), go to **Protection** > **Multifactor authentication** > **OATH tokens**, and upload the CSV file.
+
+Depending on the size of the CSV file, it might take a few minutes to process. Select **Refresh** to get the status. If there are any errors in the file, you can download a CSV file that lists them. The field names in the downloaded CSV file are different from those in the uploaded version.
+
+After any errors are addressed, the administrator can activate each key by selecting **Activate** for the token and entering the OTP displayed in the token.
+
+Users can have a combination of up to five OATH hardware tokens or authenticator applications, such as the Microsoft Authenticator app, configured for use at any time. 
+
+>[!IMPORTANT]
+>Make sure to only assign each token to a single user.
+>In the future, support for the assignment of a single token to multiple users will stop to prevent a security risk.
 
 ## Phone call settings
 
-### Caller ID
+If users receive phone calls for MFA prompts, you can configure their experience, such as caller ID or the voice greeting they hear.
 
-**MFA caller ID number** - This is the number your users will see on their phone. Only US-based numbers are allowed.
+In the United States, if you haven't configured MFA caller ID, voice calls from Microsoft come from the following numbers. Users with spam filters should exclude these numbers.
 
->[!NOTE]
->When Multi-Factor Authentication calls are placed through the public telephone network, sometimes they are routed through a carrier that doesn't support caller ID. Because of this, caller ID is not guaranteed, even though the Multi-Factor Authentication system always sends it.
+Default number: *+1 (855) 330-8653*
+
+The following table lists more numbers for different countries.
+
+| Country/Region       | Number(s)       |
+|:---------------------|:----------------|
+| Austria              | +43 6703062076  |
+| Bangladesh           | +880 9604606026 |
+| Croatia              | +385 15507766   |
+| Ecuador              | +593 964256042  |
+| Estonia              | +372 6712726    |
+| France               | +33 744081468   |
+| Ghana                | +233 308250245  |
+| Greece               | +30 2119902739  |
+| Guatemala            | +502 23055056   |
+| Hong Kong SAR        | +852 25716964   |
+| India                | +91 3371568300, +91 1205089400, +91 4471566601, +91 2271897557, +91 1203524400, +91 3335105700, +91 2235544120, +91 4435279600|
+| Jordan               | +962 797639442  |
+| Kenya                | +254 709605276  |
+| Netherlands          | +31 202490048   |
+| Nigeria              | +234 7080627886 |
+| Pakistan             | +92 4232618686  |
+| Poland               | +48 699740036   |
+| Saudi Arabia         | +966 115122726  |
+| South Africa         | +27 872405062   |
+| Spain                | +34 913305144   |
+| Sri Lanka            | +94 117750440   |
+| Sweden               | +46 701924176   |
+| Taiwan               | +886 277515260  |
+| Türkiye              | +90 8505404893  |
+| Ukraine              | +380 443332393  |
+| United Arab Emirates | +971 44015046   |
+| Vietnam              | +84 2039990161  |
+
+> [!NOTE]
+> When Microsoft Entra multifactor authentication calls are placed through the public telephone network, sometimes the calls are routed through a carrier that doesn't support caller ID. Because of this, caller ID isn't guaranteed, even though Microsoft Entra multifactor authentication always sends it. This applies both to phone calls and text messages provided by Microsoft Entra multifactor authentication. If you need to validate that a text message is from Microsoft Entra multifactor authentication, see [What short codes are used for sending messages?](multi-factor-authentication-faq.yml#what-short-codes-are-used-for-sending-text-messages-to-my-users-).
+
+To configure your own caller ID number, complete the following steps:
+
+1. Go to **Protection** > **Multifactor authentication** > **Phone call settings**.
+1. Set the **MFA caller ID number** to the number you want users to see on their phones. Only US-based numbers are allowed.
+1. Select **Save**.
+
+> [!NOTE]
+> When Microsoft Entra multifactor authentication calls are placed through the public telephone network, sometimes the calls are routed through a carrier that doesn't support caller ID. Because of this, caller ID isn't guaranteed, even though Microsoft Entra multifactor authentication always sends it. This applies both to phone calls and text messages provided by Microsoft Entra multifactor authentication. If you need to validate that a text message is from Microsoft Entra multifactor authentication, see [What short codes are used for sending messages?](multi-factor-authentication-faq.yml#what-short-codes-are-used-for-sending-text-messages-to-my-users-).
 
 ### Custom voice messages
 
-You can use your own recordings or greetings for two-step verification with the _custom voice messages_ feature. These messages can be used in addition to or to replace the Microsoft recordings.
+You can use your own recordings or greetings for Microsoft Entra multifactor authentication. These messages can be used in addition to the default Microsoft recordings or to replace them.
 
 Before you begin, be aware of the following restrictions:
 
 * The supported file formats are .wav and .mp3.
-* The file size limit is 5 MB.
-* Authentication messages should be shorter than 20 seconds. Messages that are longer than 20 seconds can cause the verification to fail. The user might not respond before the message finishes and the verification times out.
+* The file size limit is 1 MB.
+* Authentication messages should be shorter than 20 seconds. Messages that are longer than 20 seconds can cause the verification to fail. If the user doesn't respond before the message finishes, the verification times out.
 
 ### Custom message language behavior
 
-When a custom voice message is played to the user, the language of the message depends on these factors:
+When a custom voice message is played to the user, the language of the message depends on the following factors:
 
-* The language of the current user.
+* The language of the user.
   * The language detected by the user's browser.
-  * Other authentication scenarios may behave differently.
+  * Other authentication scenarios might behave differently.
 * The language of any available custom messages.
-  * This language is chosen by the administrator, when a custom message is added.
+  * This language is chosen by the administrator when a custom message is added.
 
-For example, if there is only one custom message, with a language of German:
+For example, if there's only one custom message, and it's in German:
 
 * A user who authenticates in the German language will hear the custom German message.
 * A user who authenticates in English will hear the standard English message.
 
+### Custom voice message defaults
+
+You can use the following sample scripts to create your own custom messages. These phrases are the defaults if you don't configure your own custom messages.
+
+| Message name | Script |
+| --- | --- |
+| Authentication successful | Your sign-in was successfully verified. Goodbye. |
+| Extension prompt | Thank you for using Microsoft's sign-in verification system. Please press the pound key to continue. |
+| Fraud confirmation | A fraud alert has been submitted. To unblock your account, please contact your company's IT help desk. |
+| Fraud greeting (standard) | Thank you for using Microsoft's sign-in verification system. Please press the pound key to finish your verification. If you did not initiate this verification, someone may be trying to access your account. Please press zero pound to submit a fraud alert. This will notify your company's IT team and block further verification attempts. |
+| Fraud reported  |  A fraud alert has been submitted. To unblock your account, please contact your company's IT help desk. |
+| Activation | Thank you for using the Microsoft sign-in verification system. Please press the pound key to finish your verification. |
+| Authentication denied retry | Verification denied. |
+| Retry (standard) | Thank you for using the Microsoft sign-in verification system. Please press the pound key to finish your verification. |
+| Greeting (standard) | Thank you for using the Microsoft sign-in verification system. Please press the pound key to finish your verification. |
+| Greeting (PIN) | Thank you for using Microsoft's sign-in verification system. Please enter your PIN followed by the pound key to finish your verification. |
+| Fraud greeting (PIN) | Thank you for using Microsoft's sign-in verification system.  Please enter your PIN followed by the pound key to finish your verification. If you did not initiate this verification, someone may be trying to access your account. Please press zero pound to submit a fraud alert. This will notify your company's IT team and block further verification attempts. |
+| Retry (PIN) | Thank you for using Microsoft's sign-in verification system. Please enter your PIN followed by the pound key to finish your verification. |
+| Extension prompt after digits | If already at this extension, press the pound key to continue. |
+| Authentication denied | I'm sorry, we cannot sign you in at this time. Please try again later. |
+| Activation greeting (standard) | Thank you for using the Microsoft sign-in verification system. Please press the pound key to finish your verification. |
+| Activation retry (standard) | Thank you for using the Microsoft sign-in verification system. Please press the pound key to finish your verification. |
+| Activation greeting (PIN) | Thank you for using Microsoft's sign-in verification system. Please enter your PIN followed by the pound key to finish your verification. |
+| Extension prompt before digits | Thank you for using Microsoft's sign-in verification system. Please transfer this call to extension \<extension>. |
+
 ### Set up a custom message
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
-1. Browse to **Azure Active Directory** > **MFA** > **Phone call settings**.
+To use your own custom messages, complete the following steps:
+
+1. Go to **Protection** > **Multifactor authentication** > **Phone call settings**.
 1. Select **Add greeting**.
-1. Choose the type of greeting.
-1. Choose the language.
-1. Select an .mp3 or .wav sound file to upload.
-1. Select **Add**.
-
-## One-time bypass
-
-The _one-time bypass_ feature allows a user to authenticate a single time without performing two-step verification. The bypass is temporary and expires after a specified number of seconds. In situations where the mobile app or phone is not receiving a notification or phone call, you can allow a one-time bypass so the user can access the desired resource.
-
-### Create a one-time bypass
-
-1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
-2. Browse to **Azure Active Directory** > **MFA** > **One-time bypass**.
-3. Select **Add**.
-4. If necessary, select the replication group for the bypass.
-5. Enter the username as **username\@domain.com**. Enter the number of seconds that the bypass should last. Enter the reason for the bypass.
-6. Select **Add**. The time limit goes into effect immediately. The user needs to sign in before the one-time bypass expires.
-
-### View the one-time bypass report
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Browse to **Azure Active Directory** > **MFA** > **One-time bypass**.
-
-## Caching rules
-
-You can set a time period to allow authentication attempts after a user is authenticated by using the _caching_ feature. Subsequent authentication attempts for the user within the specified time period succeed automatically. Caching is primarily used when on-premises systems, such as VPN, send multiple verification requests while the first request is still in progress. This feature allows the subsequent requests to succeed automatically, after the user succeeds the first verification in progress.
-
->[!NOTE]
->The caching feature is not intended to be used for sign-ins to Azure Active Directory (Azure AD).
-
-### Set up caching
-
-1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
-2. Browse to **Azure Active Directory** > **MFA** > **Caching rules**.
-3. Select **Add**.
-4. Select the **cache type** from the drop-down list. Enter the maximum number of **cache seconds**.
-5. If necessary, select an authentication type and specify an application.
-6. Select **Add**.
+1. Choose the **Type** of greeting, such as **Greeting (standard)** or  **Authentication successful**.
+1. Select the **Language**. See the previous section on [custom message language behavior](#custom-message-language-behavior).
+1. Browse for and select an .mp3 or .wav sound file to upload.
+1. Select **Add** and then **Save**.
 
 ## MFA service settings
 
-Settings for app passwords, trusted IPs, verification options, and remember multi-factor authentication for Azure Multi-Factor Authentication can be found in service settings. Service settings can be accessed from the Azure portal by browsing to **Azure Active Directory** > **MFA** > **Getting started** > **Configure** > **Additional cloud-based MFA settings**.
+Settings for app passwords, trusted IPs, verification options, and remembering multifactor authentication on trusted devices are available in the service settings. This is a legacy portal.
 
-![Azure Multi-Factor Authentication service settings](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-service-settings.png)
+You can access service settings from the [Microsoft Entra admin center](https://entra.microsoft.com) by going to **Protection** > **Multifactor authentication** > **Getting started** > **Configure** > **Additional cloud-based MFA settings**. A window or tab opens with additional service settings options.
 
-## App passwords
+### Trusted IPs
 
-Some applications, like Office 2010 or earlier and Apple Mail before iOS 11, don't support two-step verification. The apps aren't configured to accept a second verification. To use these applications, take advantage of the _app passwords_ feature. You can use an app password in place of your traditional password to allow an app to bypass two-step verification and continue working.
-
-Modern authentication is supported for the Microsoft Office 2013 clients and later. Office 2013 clients including Outlook, support modern authentication protocols and can be enabled to work with two-step verification. After the client is enabled, app passwords aren't required for the client.
-
->[!NOTE]
->App passwords do not work with conditional access based multi-factor authentication policies and modern authentication.
-
-### Considerations about app passwords
-
-When using app passwords, consider the following important points:
-
-* App passwords are only entered once per application. Users don't have to keep track of the passwords or enter them every time.
-* The actual password is automatically generated and is not supplied by the user. The automatically generated password is harder for an attacker to guess and is more secure.
-* There is a limit of 40 passwords per user.
-* Applications that cache passwords and use them in on-premises scenarios can start to fail because the app password isn't known outside the work or school account. An example of this scenario is Exchange emails that are on-premises, but the archived mail is in the cloud. In this scenario, the same password doesn't work.
-* After Multi-Factor Authentication is enabled on a user's account, app passwords can be used with most non-browser clients like Outlook and Microsoft Skype for Business. Administrative actions can't be performed by using app passwords through non-browser applications, such as Windows PowerShell. The actions can't be performed even when the user has an administrative account. To run PowerShell scripts, create a service account with a strong password and don't enable the account for two-step verification.
-
->[!WARNING]
->App passwords don't work in hybrid environments where clients communicate with both on-premises and cloud auto-discover endpoints. Domain passwords are required to authenticate on-premises. App passwords are required to authenticate with the cloud.
-
-### Guidance for app password names
-
-App password names should reflect the device on which they're used. If you have a laptop that has non-browser applications like Outlook, Word, and Excel, create one app password named **Laptop** for these apps. Create another app password named **Desktop** for the same applications that run on your desktop computer.
-
->[!NOTE]
->We recommend that you create one app password per device, rather than one app password per application.
-
-### Federated or single sign-on app passwords
-
-Azure AD supports federation, or single sign-on (SSO), with on-premises Windows Server Active Directory Domain Services (AD DS). If your organization is federated with Azure AD and you're using Azure Multi-Factor Authentication, consider the following points about app passwords.
-
->[!NOTE]
->The following points apply only to federated (SSO) customers.
-
-* App passwords are verified by Azure AD, and therefore, bypass federation. Federation is actively used only when setting up app passwords.
-* The Identity Provider (IdP) is not contacted for federated (SSO) users, unlike the passive flow. The app passwords are stored in the work or school account. If a user leaves the company, the user's information flows to the work or school account by using **DirSync** in real time. The disable/deletion of the account can take up to three hours to synchronize, which can delay the disable/deletion of the app password in Azure AD.
-* On-premises client Access Control settings aren't honored by the app passwords feature.
-* No on-premises authentication logging/auditing capability is available for use with the app passwords feature.
-* Some advanced architectures require a combination of credentials for two-step verification with clients. These credentials can include a work or school account username and passwords, and app passwords. The requirements depend on how the authentication is performed. For clients that authenticate against an on-premises infrastructure, a work or school account username and password a required. For clients that authenticate against Azure AD, an app password is required.
-
-  For example, suppose you have the following architecture:
-
-  * Your on-premises instance of Active Directory is federated with Azure AD.
-  * You're using Exchange online.
-  * You're using Skype for Business on-premises.
-  * You're using Azure Multi-Factor Authentication.
-
-  In this scenario, you use the following credentials:
-
-  * To sign in to Skype for Business, use your work or school account username and password.
-  * To access the address book from an Outlook client that connects to Exchange online, use an app password.
-
-### Allow users to create app passwords
-
-By default, users can't create app passwords. The app passwords feature must be enabled. To give users the ability to create app passwords, use the following procedure:
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the left, select **Azure Active Directory** > **Users and groups** > **All users**.
-3. Select **Multi-Factor Authentication**.
-4. Under Multi-Factor Authentication, select **service settings**.
-5. On the **Service Settings** page, select the **Allow users to create app passwords to sign in to non-browser apps** option.
-
-### Create app passwords
-
-Users can create app passwords during their initial registration. The user has the option to create app passwords at the end of the registration process.
-
-Users can also create app passwords after registration. For more information and detailed steps for your users, see [What are app passwords in Azure Multi-Factor Authentication?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
-
-## Trusted IPs
-
-The _Trusted IPs_ feature of Azure Multi-Factor Authentication is used by administrators of a managed or federated tenant. The feature bypasses two-step verification for users who sign in from the company intranet. The feature is available with the full version of Azure Multi-Factor Authentication, and not the free version for administrators. For details on how to get the full version of Azure Multi-Factor Authentication, see [Azure Multi-Factor Authentication](multi-factor-authentication.md).
+The trusted IPs feature of Microsoft Entra multifactor authentication bypasses multifactor authentication prompts for users who sign in from a defined IP address range. You can set trusted IP ranges for your on-premises environments. When users are in one of these locations, there's no Microsoft Entra multifactor authentication prompt. The trusted IPs feature requires Microsoft Entra ID P1 edition. 
 
 > [!NOTE]
-> MFA trusted IPs and conditional access named locations only work with IPV4 addresses.
+> The trusted IPs can include private IP ranges only when you use MFA Server. For cloud-based Microsoft Entra multifactor authentication, you can use only public IP address ranges.
+>
+> IPv6 ranges are supported only in the [Named locations (preview)](../conditional-access/location-condition.md) interface.
 
-If your organization deploys the NPS extension to provide MFA to on-premises applications note the source IP address will always appear to be the NPS server the authentication attempt flows through.
+If your organization uses the NPS extension to provide MFA to on-premises applications, the source IP address will always appear to be the NPS server that the authentication attempt flows through.
 
-| Azure AD tenant type | Trusted IPs feature options |
+| Microsoft Entra tenant type | Trusted IP feature options |
 |:--- |:--- |
-| Managed |**Specific range of IP addresses**: Administrators specify a range of IP addresses that can bypass two-step verification for users who sign in from the company intranet.|
-| Federated |**All Federated Users**: All federated users who sign in from inside of the organization can bypass two-step verification. The users bypass verification by using a claim that is issued by Active Directory Federation Services (AD FS).<br/>**Specific range of IP addresses**: Administrators specify a range of IP addresses that can bypass two-step verification for users who sign in from the company intranet. |
+| Managed |**Specific range of IP addresses**: Administrators specify a range of IP addresses that can bypass multifactor authentications for users who sign in from the company intranet. A maximum of 50 trusted IP ranges can be configured.|
+| Federated |**All Federated Users**: All federated users who sign in from inside the organization can bypass multifactor authentications. Users bypass verifications by using a claim that's issued by Active Directory Federation Services (AD FS).<br/>**Specific range of IP addresses**: Administrators specify a range of IP addresses that can bypass multifactor authentication for users who sign in from the company intranet. |
 
-The Trusted IPs bypass works only from inside of the company intranet. If you select the **All Federated Users** option and a user signs in from outside the company intranet, the user has to authenticate by using two-step verification. The process is the same even if the user presents an AD FS claim. 
+Trusted IP bypass works only from inside the company intranet. If you select the **All Federated Users** option and a user signs in from outside the company intranet, the user has to authenticate by using multifactor authentication. The process is the same even if the user presents an AD FS claim.
 
-### End-user experience inside of corpnet
+>[!NOTE]
+>If both per-user MFA and Conditional Access policies are configured in the tenant, you will need to add trusted IPs to the Conditional Access policy and update the MFA service settings.
 
-When the Trusted IPs feature is disabled, two-step verification is required for browser flows. App passwords are required for older rich client applications.
+#### User experience inside the corporate network
 
-When the Trusted IPs feature is enabled, two-step verification is *not* required for browser flows. App passwords are *not* required for older rich client applications, provided that the user hasn't created an app password. After an app password is in use, the password remains required. 
+When the trusted IPs feature is disabled, multifactor authentication is required for browser flows. App passwords are required for older rich-client applications.
 
-### End-user experience outside corpnet
+When trusted IPs are used, multifactor authentication isn't required for browser flows. App passwords aren't required for older rich-client applications if the user hasn't created an app password. After an app password is in use, the password is required.
 
-Regardless of whether the Trusted IPs feature is enabled, two-step verification is required for browser flows. App passwords are required for older rich client applications.
+#### User experience outside the corporate network
 
-### Enable named locations by using conditional access
+Regardless of whether trusted IPs are defined, multifactor authentication is required for browser flows. App passwords are required for older rich-client applications.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the left, select **Azure Active Directory** > **Conditional access** > **Named locations**.
-3. Select **New location**.
-4. Enter a name for the location.
-5. Select **Mark as trusted location**.
-6. Enter the IP Range in CIDR notation like **192.168.1.1/24**.
-7. Select **Create**.
+#### Enable named locations by using Conditional Access
 
-### Enable the Trusted IPs feature by using conditional access
+You can use Conditional Access rules to define named locations by using the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the left, select **Azure Active Directory** > **Conditional access** > **Named locations**.
-3. Select **Configure MFA trusted IPs**.
-4. On the **Service Settings** page, under **Trusted IPs**, choose from any of the following two options:
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Protection** > **Conditional Access** > **Named locations**.
+1. Select **New location**.
+1. Enter a name for the location.
+1. Select **Mark as trusted location**.
+1. Enter the IP range for your environment in CIDR notation. For example, *40.77.182.32/27*.
+1. Select **Create**.
 
-   * **For requests from federated users originating from my intranet**: To choose this option, select the check box. All federated users who sign in from the corporate network bypass two-step verification by using a claim that is issued by AD FS. Ensure that AD FS has a rule to add the intranet claim to the appropriate traffic. If the rule does not exist, create the following rule in AD FS:
+#### Enable the trusted IPs feature by using Conditional Access
 
-      `c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);`
+To enable trusted IPs by using Conditional Access policies, complete the following steps:
 
-   * **For requests from a specific range of public IPs**: To choose this option, enter the IP addresses in the text box by using CIDR notation.
-      * For IP addresses that are in the range xxx.xxx.xxx.1 through xxx.xxx.xxx.254, use notation like **xxx.xxx.xxx.0/24**.
-      * For a single IP address, use notation like **xxx.xxx.xxx.xxx/32**.
-      * Enter up to 50 IP address ranges. Users who sign in from these IP addresses bypass two-step verification.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Protection** >  **Conditional Access** > **Named locations**.
+1. Select **Configure MFA trusted IPs**.
+1. On the **Service Settings** page, under **Trusted IPs**, choose one of these options:
 
-5. Select **Save**.
+   * **For requests from federated users originating from my intranet**: To choose this option, select the checkbox. All federated users who sign in from the corporate network bypass multifactor authentications by using a claim that's issued by AD FS. Ensure that AD FS has a rule to add the intranet claim to the appropriate traffic. If the rule doesn't exist, create the following rule in AD FS:
 
-### Enable the Trusted IPs feature by using service settings
+      `c:[Type== "https://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);`
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the left, select **Azure Active Directory** > **Users**.
-3. Select **Multi-Factor Authentication**.
-4. Under Multi-Factor Authentication, select **service settings**.
-5. On the **Service Settings** page, under **Trusted IPs**, choose one (or both) of the following two options:
+   * **For requests from a specific range of public IPs**: To choose this option, enter the IP addresses in the text box, in CIDR notation.
+      * For IP addresses that are in the range *xxx.xxx.xxx*.1 through *xxx.xxx.xxx*.254, use notation like ***xxx.xxx.xxx*.0/24**.
+      * For a single IP address, use notation like ***xxx.xxx.xxx.xxx*/32**.
+      * Enter up to 50 IP address ranges. Users who sign in from these IP addresses bypass multifactor authentications.
 
-   * **For requests from federated users on my intranet**: To choose this option, select the check box. All federated users who sign in from the corporate network bypass two-step verification by using a claim that is issued by AD FS. Ensure that AD FS has a rule to add the intranet claim to the appropriate traffic. If the rule does not exist, create the following rule in AD FS:
+1. Select **Save**.
 
-      `c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);`
+#### Enable the trusted IPs feature by using service settings
 
-   * **For requests from a specified range of IP address subnets**: To choose this option, enter the IP addresses in the text box by using CIDR notation.
-      * For IP addresses that are in the range xxx.xxx.xxx.1 through xxx.xxx.xxx.254, use notation like **xxx.xxx.xxx.0/24**.
-      * For a single IP address, use notation like **xxx.xxx.xxx.xxx/32**.
-      * Enter up to 50 IP address ranges. Users who sign in from these IP addresses bypass two-step verification.
+If you don't want to use Conditional Access policies to enable trusted IPs, you can configure the service settings for Microsoft Entra multifactor authentication by using the following steps:
 
-6. Select **Save**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
+1. Browse to **Protection** > **Multifactor authentication** > **Service settings**.
+1. On the **Service settings** page, under **Trusted IPs**, choose one or both of the following options:
 
-## Verification methods
+   * **For requests from federated users on my intranet**: To choose this option, select the checkbox. All federated users who sign in from the corporate network bypass multifactor authentication by using a claim that's issued by AD FS. Ensure that AD FS has a rule to add the intranet claim to the appropriate traffic. If the rule doesn't exist, create the following rule in AD FS:
 
-You can choose the verification methods that are available for your users. The following table provides a brief overview of the methods.
+      `c:[Type== "https://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);` 
 
-When your users enroll their accounts for Azure Multi-Factor Authentication, they choose their preferred verification method from the options that you have enabled. Guidance for the user enrollment process is provided in [Set up my account for two-step verification](../user-help/multi-factor-authentication-end-user-first-time.md).
+   * **For requests from a specified range of IP address subnets**: To choose this option, enter the IP addresses in the text box, in CIDR notation.
+      * For IP addresses that are in the range *xxx.xxx.xxx*.1 through *xxx.xxx.xxx*.254, use notation like ***xxx.xxx.xxx*.0/24**.
+      * For a single IP address, use notation like ***xxx.xxx.xxx.xxx*/32**.
+      * Enter up to 50 IP address ranges. Users who sign in from these IP addresses bypass multifactor authentications.
+
+1. Select **Save**.
+
+### Verification methods
+
+You can choose the verification methods that are available for your users in the service settings portal. When your users enroll their accounts for Microsoft Entra multifactor authentication, they choose their preferred verification method from the options that you've enabled. Guidance for the user enrollment process is provided in [Set up my account for multifactor authentication](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc).
+
+The following verification methods are available:
 
 | Method | Description |
 |:--- |:--- |
-| Call to phone |Places an automated voice call. The user answers the call and presses # in the phone keypad to authenticate. The phone number is not synchronized to on-premises Active Directory. |
-| Text message to phone |Sends a text message that contains a verification code. The user is prompted to enter the verification code into the sign-in interface. This process is called one-way SMS. Two-way SMS means that the user must text back a particular code. Two-way SMS is deprecated and not supported after November 14, 2018. Users who are configured for two-way SMS are automatically switched to _call to phone_ verification at that time.|
-| Notification through mobile app |Sends a push notification to your phone or registered device. The user views the notification and selects **Verify** to complete verification. The Microsoft Authenticator app is available for [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071), [Android](https://go.microsoft.com/fwlink/?Linkid=825072), and [iOS](https://go.microsoft.com/fwlink/?Linkid=825073). |
-| Verification code from mobile app or hardware token |The Microsoft Authenticator app generates a new OATH verification code every 30 seconds. The user enters the verification code into the sign-in interface. The Microsoft Authenticator app is available for [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071), [Android](https://go.microsoft.com/fwlink/?Linkid=825072), and [iOS](https://go.microsoft.com/fwlink/?Linkid=825073). |
+| Call to phone |Places an automated voice call. The user answers the call and presses # on the phone to authenticate. The phone number isn't synchronized to on-premises Active Directory. |
+| Text message to phone |Sends a text message that contains a verification code. The user is prompted to enter the verification code into the sign-in interface. This process is called one-way SMS. Two-way SMS means that the user must text back a particular code. Two-way SMS is deprecated and not supported after November 14, 2018. Administrators should enable another method for users who previously used two-way SMS.|
+| Notification through mobile app |Sends a push notification to the user's phone or registered device. The user views the notification and selects **Verify** to complete verification. The Microsoft Authenticator app is available for [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6), [Android](https://go.microsoft.com/fwlink/?Linkid=825072), and [iOS](https://go.microsoft.com/fwlink/?Linkid=825073). |
+| Verification code from mobile app or hardware token |The Microsoft Authenticator app generates a new OATH verification code every 30 seconds. The user enters the verification code into the sign-in interface. The Microsoft Authenticator app is available for [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6), [Android](https://go.microsoft.com/fwlink/?Linkid=825072), and [iOS](https://go.microsoft.com/fwlink/?Linkid=825073). |
 
-### Enable and disable verification methods
+For more information, see [What authentication and verification methods are available in Microsoft Entra ID?](concept-authentication-methods.md).
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the left, select **Azure Active Directory** > **Users and groups** > **All users**.
-3. Select **Multi-Factor Authentication**.
-4. Under Multi-Factor Authentication, select **service settings**.
-5. On the **Service Settings** page, under **verification options**, select/unselect the methods to provide to your users.
-6. Click **Save**.
+#### Enable and disable verification methods
 
-Additional details about the use of authentication methods can be found in the article [What are authentication methods](concept-authentication-methods.md).
+To enable or disable verification methods, complete the following steps:
 
-## Remember Multi-Factor Authentication
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
+1. Browse to **Identity** > **Users**.
+1. Select **Per-user MFA**.
+1. Under **Multifactor authentication** at the top of the page, select **Service settings**.
+1. On the **Service settings** page, under **Verification options**, select or clear the appropriate checkboxes.
+1. Select **Save**.
 
-The _remember Multi-Factor Authentication_ feature for devices and browsers that are trusted by the user is a free feature for all Multi-Factor Authentication users. Users can bypass subsequent verifications for a specified number of days, after they've successfully signed-in to a device by using Multi-Factor Authentication. The feature enhances usability by minimizing the number of times a user has to perform two-step verification on the same device.
+<a name='remember-multi-factor-authentication'></a>
 
->[!IMPORTANT]
->If an account or device is compromised, remembering Multi-Factor Authentication for trusted devices can affect security. If a corporate account becomes compromised or a trusted device is lost or stolen, you should [restore Multi-Factor Authentication on all devices](howto-mfa-userdevicesettings.md#restore-mfa-on-all-remembered-devices-for-a-user).
+### Remember multifactor authentication
+
+ The **remember multifactor authentication** feature lets users bypass subsequent verifications for a specified number of days, after they've successfully signed in to a device by using MFA. To enhance usability and minimize the number of times a user has to perform MFA on a given device, select a duration of 90 days or more.
+
+> [!IMPORTANT]
+> If an account or device is compromised, remembering MFA for trusted devices can affect security. If a corporate account becomes compromised or a trusted device is lost or stolen, you should [Revoke MFA Sessions](howto-mfa-userdevicesettings.md).
 >
->The restore action revokes the trusted status from all devices, and the user is required to perform two-step verification again. You can also instruct your users to restore Multi-Factor Authentication on their own devices with the instructions in [Manage your settings for two-step verification](../user-help/multi-factor-authentication-end-user-manage-settings.md#require-two-step-verification-again-on-a-device-youve-marked-as-trusted).
+> The revoke action revokes the trusted status from all devices, and the user is required to perform multifactor authentication again. You can also instruct your users to restore the original MFA status on their own devices as noted in [Manage your settings for multifactor authentication](https://support.microsoft.com/account-billing/change-your-two-step-verification-method-and-settings-c801d5ad-e0fc-4711-94d5-33ad5d4630f7#turn-on-two-factor-verification-prompts-on-a-trusted-device).
+
+#### How the feature works
+
+The **remember multifactor authentication** feature sets a persistent cookie on the browser when a user selects the **Don't ask again for *X* days** option at sign-in. The user isn't prompted again for MFA from that browser until the cookie expires. If the user opens a different browser on the same device or clears the cookies, they're prompted again to verify.
+
+The **Don't ask again for *X* days** option isn't shown on non-browser applications, regardless of whether the app supports modern authentication. These apps use _refresh tokens_ that provide new access tokens every hour. When a refresh token is validated, Microsoft Entra ID checks that the last multifactor authentication occurred within the specified number of days.
+
+The feature reduces the number of authentications on web apps, which normally prompt every time. The feature can increase the number of authentications for modern authentication clients that normally prompt every 180 days, if a lower duration is configured. It might also increase the number of authentications when combined with Conditional Access policies.
+
+> [!IMPORTANT]
+> The **remember multifactor authentication** feature isn't compatible with the **keep me signed in** feature of AD FS, when users perform multifactor authentication for AD FS through MFA Server or a third-party multifactor authentication solution.
 >
-
-### How the feature works
-
-The remember Multi-Factor Authentication feature sets a persistent cookie on the browser when a user selects the **Don't ask again for X days** option at sign-in. The user isn't prompted again for Multi-Factor Authentication from that same browser until the cookie expires. If the user opens a different browser on the same device or clears their cookies, they're prompted again to verify.
-
-The **Don't ask again for X days** option isn't shown on non-browser applications, regardless of whether the app supports modern authentication. These apps use _refresh tokens_ that provide new access tokens every hour. When a refresh token is validated, Azure AD checks that the last two-step verification occurred within the specified number of days.
-
-The feature reduces the number of authentications on web apps, which normally prompt every time. The feature increases the number of authentications for modern authentication clients that normally prompt every 90 days. May also increase the number of authentications when combined with conditional access policies.
-
->[!IMPORTANT]
->The **remember Multi-Factor Authentication** feature is not compatible with the **keep me signed in** feature of AD FS, when users perform two-step verification for AD FS through Azure Multi-Factor Authentication Server or a third-party multi-factor authentication solution.
+> If your users select **keep me signed in** on AD FS and also mark their device as trusted for MFA, the user isn't automatically verified after the **remember multifactor authentication** number of days expires. Microsoft Entra ID requests a fresh multifactor authentication, but AD FS returns a token with the original MFA claim and date, rather than performing multifactor authentication again. *This reaction sets off a verification loop between Microsoft Entra ID and AD FS.*
 >
->If your users select **keep me signed in** on AD FS and also mark their device as trusted for Multi-Factor Authentication, the user isn't automatically verified after the **remember multi-factor authentication** number of days expires. Azure AD requests a fresh two-step verification, but AD FS returns a token with the original Multi-Factor Authentication claim and date, rather than performing two-step verification again. **This reaction sets off a verification loop between Azure AD and AD FS.**
+> The **remember multifactor authentication** feature isn't compatible with B2B users and won't be visible for B2B users when they sign in to the invited tenants.
 >
+> The **remember multifactor authentication** feature isn't compatible with the Sign-in frequency Conditional Access control. For more information, see [Configure authentication session management with Conditional Access](../conditional-access/howto-conditional-access-session-lifetime.md#configuring-authentication-session-controls).
 
-### Enable remember Multi-Factor Authentication
+<a name='enable-remember-multi-factor-authentication'></a>
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the left, select **Azure Active Directory** > **Users and groups** > **All users**.
-3. Select **Multi-Factor Authentication**.
-4. Under Multi-Factor Authentication, select **service settings**.
-5. On the **Service Settings** page, **manage remember multi-factor authentication**, select the **Allow users to remember multi-factor authentication on devices they trust** option.
-6. Set the number of days to allow trusted devices to bypass two-step verification. The default is 14 days.
-7. Select **Save**.
+#### Enable remember multifactor authentication
 
-### Mark a device as trusted
+To enable and configure the option to allow users to remember their MFA status and bypass prompts, complete the following steps:
 
-After you enable the remember Multi-Factor Authentication feature, users can mark a device as trusted when they sign in by selecting **Don't ask again**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
+1. Browse to **Identity** > **Users**.
+1. Select **Per-user MFA**.
+1. Under **Multifactor authentication** at the top of the page, select **service settings**.
+1. On the **service settings** page, under **remember multifactor authentication**, select **Allow users to remember multifactor authentication on devices they trust**.
+1. Set the number of days to allow trusted devices to bypass multifactor authentications. For the optimal user experience, extend the duration to 90 or more days.
+1. Select **Save**.
+
+#### Mark a device as trusted
+
+After you enable the **remember multifactor authentication** feature, users can mark a device as trusted when they sign in by selecting **Don't ask again**.
 
 ## Next steps
 
-[Modify Azure AD sign-in page branding](../fundamentals/customize-branding.md)
+To learn more, see [What authentication and verification methods are available in Microsoft Entra ID?](concept-authentication-methods.md)

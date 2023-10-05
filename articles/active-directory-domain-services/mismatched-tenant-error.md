@@ -1,63 +1,65 @@
 ---
-title: 'Resolve mismatched directory errors for existing Azure AD Domain Services managed domains | Microsoft Docs'
-description: Understand and resolve mismatched directory errors for existing Azure AD Domain Services managed domains
+title: Fix mismatched directory errors in Microsoft Entra Domain Services | Microsoft Docs
+description: Learn what a mismatched directory error means and how to resolve it in Microsoft Entra Domain Services
 services: active-directory-ds
-documentationcenter: ''
-author: MikeStephens-MS
-manager: daveba
-editor: curtand
+author: justinha
+manager: amycolannino
 
 ms.assetid: 40eb75b7-827e-4d30-af6c-ca3c2af915c7
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 05/22/2019
-ms.author: mstephen
+ms.topic: troubleshooting
+ms.date: 09/23/2023
+ms.author: justinha
 
 ---
-# Resolve mismatched directory errors for existing Azure AD Domain Services managed domains
-You have an existing Azure AD Domain Services managed domain. When you navigate to the Azure portal and view the managed domain, you see the following error message:
+# Resolve mismatched directory errors for existing Microsoft Entra Domain Services managed domains
 
-![Mismatched directory error](./media/getting-started/mismatched-tenant-error.png)
+If a Microsoft Entra Domain Services managed domain shows a mismatched tenant error, you can't administer the managed domain until resolved. This error occurs if the underlying Azure virtual network is moved to a different Microsoft Entra directory.
 
-You cannot administer this managed domain until the error is resolved.
+This article explains why the error occurs and how to resolve it.
 
+## What causes this error?
 
-## What's causing this error?
-This error is caused when your managed domain and the virtual network it is enabled in belong to two different Azure AD tenants. For example, you have a managed domain called 'contoso.com' and it was enabled for Contoso's Azure AD tenant. However, the Azure virtual network in which the managed domain was enabled belongs to Fabrikam - a different Azure AD tenant.
+A mismatched directory error happens when a Domain Services managed domain and virtual network belong to two different Microsoft Entra tenants. For example, you may have a managed domain called *aaddscontoso.com* that runs in Contoso's Microsoft Entra tenant. However, the Azure virtual network for managed domain is part of the Fabrikam Microsoft Entra tenant.
 
-The new Azure portal (and specifically the Azure AD Domain Services extension) is built on Azure Resource Manager. In the modern Azure Resource Manager environment, certain restrictions are enforced to deliver greater security and for roles-based access control (RBAC) to resources. Enabling Azure AD Domain Services for an Azure AD tenant is a sensitive operation since it causes credential hashes to be synchronized to the managed domain. This operation requires you to be a tenant admin for the directory. Additionally, you must have administrative privileges over the virtual network in which you enable the managed domain. For the RBAC checks to work consistently, the managed domain and the virtual network should belong to the same Azure AD tenant.
+Azure role-based access control (Azure RBAC) is used to limit access to resources. When you enable Domain Services in a Microsoft Entra tenant, credential hashes are synchronized to the managed domain. This operation requires you to be a tenant admin for the Microsoft Entra directory, and access to the credentials must be controlled.
 
-In short, you cannot enable a managed domain for an Azure AD tenant 'contoso.com' in a virtual network belonging to an Azure subscription owned by another Azure AD tenant 'fabrikam.com'. 
+To deploy resources to an Azure virtual network and control traffic, you must have administrative privileges on the virtual network in which you deploy the managed domain.
 
-**Valid configuration**: In this deployment scenario, the Contoso managed domain is enabled for the Contoso Azure AD tenant. The managed domain is exposed in a virtual network belonging to an Azure subscription owned by the Contoso Azure AD tenant. Therefore, both the managed domain as well as the virtual network belong to the same Azure AD tenant. This configuration is valid and fully supported.
+For Azure RBAC to work consistently and secure access to all the resources Domain Services uses, the managed domain and the virtual network must belong to the same Microsoft Entra tenant.
 
-![Valid tenant configuration](./media/getting-started/valid-tenant-config.png)
+The following rules apply for deployments:
 
-**Mismatched tenant configuration**: In this deployment scenario, the Contoso managed domain is enabled for the Contoso Azure AD tenant. However, the managed domain is exposed in a virtual network that belongs to an Azure subscription owned by the Fabrikam Azure AD tenant. Therefore, the managed domain and the virtual network belong to two different Azure AD tenants. This configuration is the mismatched tenant configuration and is not supported. The virtual network must be moved to the same Azure AD tenant (that is, Contoso) as the managed domain. See the [Resolution](#resolution) section for details.
+- A Microsoft Entra directory may have multiple Azure subscriptions.
+- An Azure subscription may have multiple resources such as virtual networks.
+- A single managed domain is enabled for a Microsoft Entra directory.
+- A managed domain can be enabled on a virtual network belonging to any of the Azure subscriptions within the same Microsoft Entra tenant.
+
+### Valid configuration
+
+In the following example deployment scenario, the Contoso managed domain is enabled in the Contoso Microsoft Entra tenant. The managed domain is deployed in a virtual network that belongs to an Azure subscription owned by the Contoso Microsoft Entra tenant.
+
+Both the managed domain and the virtual network belong to the same Microsoft Entra tenant. This example configuration is valid and fully supported.
+
+![Valid Domain Services tenant configuration with the managed domain and virtual network part of the same Microsoft Entra tenant](./media/getting-started/valid-tenant-config.png)
+
+### Mismatched tenant configuration
+
+In this example deployment scenario, the Contoso managed domain is enabled in the Contoso Microsoft Entra tenant. However, the managed domain is deployed in a virtual network that belongs to an Azure subscription owned by the Fabrikam Microsoft Entra tenant.
+
+The managed domain and the virtual network belong to two different Microsoft Entra tenants. This example configuration is a mismatched tenant and isn't supported. The virtual network must be moved to the same Microsoft Entra tenant as the managed domain.
 
 ![Mismatched tenant configuration](./media/getting-started/mismatched-tenant-config.png)
 
-Therefore, when the managed domain and the virtual network it is enabled in belong to two different Azure AD tenants you see this error.
+## Resolve mismatched tenant error
 
-The following rules apply in the Resource Manager environment:
-- An Azure AD directory may have multiple Azure subscriptions.
-- An Azure subscription may have multiple resources such as virtual networks.
-- A single Azure AD Domain Services managed domain is enabled for an Azure AD directory.
-- An Azure AD Domain Services managed domain can be enabled on a virtual network belonging to any of the Azure subscriptions within the same Azure AD tenant.
+The following two options resolve the mismatched directory error:
 
+* First, [delete the managed domain](delete-aadds.md) from your existing Microsoft Entra directory. Then, [create a replacement managed domain](tutorial-create-instance.md) in the same Microsoft Entra directory as the virtual network you wish to use. When ready, join all machines previously joined to the deleted domain to the recreated managed domain.
+* [Move the Azure subscription](/azure/cost-management-billing/manage/billing-subscription-transfer) containing the virtual network to the same Microsoft Entra directory as the managed domain.
 
-## Resolution
-You have two options to resolve the mismatched directory error. You may:
+## Next steps
 
-- Click the **Delete** button to delete the existing managed domain. Re-create using the [Azure portal](https://portal.azure.com), so that the managed domain and virtual network it is available in belong to the Azure AD directory. Join all machines previously joined to the deleted domain to the newly created managed domain.
-
-- Move the Azure subscription containing the virtual network to the Azure AD directory, to which your managed domain belongs. Follow the steps in the [transfer ownership of an Azure subscription to another account](../billing/billing-subscription-transfer.md) article.
-
-
-## Related content
-* [Azure AD Domain Services - Getting Started guide](create-instance.md)
-* [Troubleshooting guide - Azure AD Domain Services](troubleshoot.md)
+For more information on troubleshooting issues with Domain Services, see the [troubleshooting guide](troubleshoot.md).

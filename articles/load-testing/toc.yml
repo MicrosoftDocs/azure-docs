@@ -1,0 +1,143 @@
+items:
+- name: Azure Load Testing docs
+  href: index.yml
+- name: Overview
+  expanded: true
+  items: 
+    - name: What is Azure Load Testing?
+      displayName: ALT, load, MALT
+      href: overview-what-is-azure-load-testing.md
+- name: Quickstarts
+  expanded: true
+  items: 
+    - name: Create & run a load test
+      href: quickstart-create-and-run-load-test.md
+    - name: Automate load tests with CI/CD
+      displayName: Azure Pipelines, CI/CD, continuous integration, Azure DevOps, GitHub Actions, automation, automated testing, regression testing
+      href: quickstart-add-load-test-cicd.md
+- name: Tutorials
+  items: 
+    - name: Identify performance bottlenecks
+      href: tutorial-identify-bottlenecks-azure-portal.md
+    - name: Automate regression tests with CI/CD
+      displayName: Azure Pipelines, CI/CD, continuous integration, Azure DevOps, GitHub Actions, automation, automated testing, regression testing
+      href: tutorial-identify-performance-regression-with-cicd.md
+- name: Concepts
+  items: 
+    - name: Key concepts
+      href: concept-load-testing-concepts.md
+    - name: Scenarios
+      items:
+        - name: Scenarios for VNET deployment
+          href: concept-azure-load-testing-vnet-injection.md
+        - name: Load test Azure App Service apps
+          href: concept-load-test-app-service.md
+
+- name: How-to guides
+  items:
+    - name: Configure tests
+      items:
+        - name: Configure for high scale loads
+          href: how-to-high-scale-load.md
+        - name: Define test fail criteria
+          href: how-to-define-test-criteria.md
+        - name: Parameterize load tests
+          href: how-to-parameterize-load-tests.md
+        - name: Use JMeter user properties
+          href: how-to-configure-user-properties.md
+        - name: Customize tests with JMeter plugins
+          href: how-to-use-jmeter-plugins.md
+        - name: Configure CI/CD for load testing
+          displayName: Azure Pipelines, CI/CD, continuous integration, Azure DevOps, GitHub Actions, automation, automated testing, regression testing
+          href: how-to-configure-load-test-cicd.md
+    - name: Run tests
+      items:
+        - name: Create a load test with a JMeter script
+          href: how-to-create-and-run-load-test-with-JMeter-script.md 
+        - name: Read data from a CSV file
+          href: how-to-read-csv-data.md
+        - name: Test applications with authentication
+          href: how-to-test-secured-endpoints.md
+        - name: Test a private endpoint
+          href: how-to-test-private-endpoint.md
+    - name: Analyze test results
+      items:
+        - name: Compare test runs
+          displayName: comparison, regression, baseline, compare metrics, compare results
+          href: how-to-compare-multiple-test-runs.md
+        - name: Configure server-side monitoring
+          href: how-to-monitor-server-side-metrics.md
+        - name: Troubleshoot failing load tests
+          href: how-to-troubleshoot-failing-test.md
+        - name: Export test results
+          href: how-to-export-test-results.md
+    - name: Security
+      items:
+        - name: Manage users and roles
+          href: how-to-assign-roles.md
+        - name: Use a managed identity
+          href: how-to-use-a-managed-identity.md
+        - name: Configure customer-managed keys
+          href: how-to-configure-customer-managed-keys.md
+    - name: Manage resources
+      items:
+        - name: Create & manage tests (Azure portal)
+          href: how-to-create-manage-test.md
+        - name: Create & manage test runs (Azure portal)
+          href: how-to-create-manage-test-runs.md
+        - name: Move between regions
+          href: how-to-move-between-regions.md
+        - name: Move across resource groups or subscriptions
+          href: how-to-move-between-resource-groups-subscriptions.md
+        - name: Monitor Azure Load Testing
+          href: monitor-load-testing.md
+
+- name: Samples
+  items:
+    - name: Contoso Traders cloud testing demo
+      href: https://github.com/microsoft/contosotraders-cloudtesting/
+    - name: Examples repository
+      href: /samples/?expanded=azure&products=azure-load-testing
+
+- name: Reference
+  items:
+    - name: Azure CLI
+      href: /cli/azure/load
+    - name: Azure PowerShell
+      href: /powershell/module/az.loadtesting/
+    - name: .NET
+      href: /dotnet/api/overview/azure/load-testing
+    - name: Java
+      href: /java/api/overview/azure/load-testing
+    - name: Node.js
+      href: /javascript/api/overview/azure/load-testing
+    - name: Python
+      href: /python/api/overview/azure/load-testing
+    - name: REST API
+      href: /rest/api/loadtesting/
+    - name: Resource Manager template
+      displayName: ARM
+      href: /azure/templates/microsoft.loadtestservice/allversions
+    - name: Monitor data reference
+      href: monitor-load-testing-reference.md
+    - name: Test configuration YAML
+      href: reference-test-config-yaml.md
+
+- name: Resources
+  items: 
+    - name: Azure Load Testing Blog
+      href: https://techcommunity.microsoft.com/t5/apps-on-azure-blog/bg-p/AppsonAzureBlog/label-name/Azure%20Load%20Testing
+    - name: Azure updates
+      href: https://azure.microsoft.com/updates/?query=azure%20load%20testing
+    - name: Pricing
+      href: https://azure.microsoft.com/pricing/details/load-testing/
+    - name: Regional availability
+      href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=load-testing
+    - name: Supported Apache JMeter features
+      href: resource-jmeter-support.md
+    - name: Supported Azure resource types
+      href: resource-supported-azure-resource-types.md
+    - name: Service limits
+      href: resource-limits-quotas-capacity.md
+    - name: JMeter property overrides
+      href: resource-jmeter-property-overrides.md

@@ -1,157 +1,273 @@
-- name: Load Balancer Documentation
+- name: Load Balancer documentation
   href: index.yml
 - name: Overview
   items:
-  - name: What is Load Balancer?
+  - name: What is Azure Load Balancer?
     href: load-balancer-overview.md
-- name: Quickstart
+- name: Quickstarts
   items:
-  - name: Create Basic Load Balancer - Portal
-    href: quickstart-create-basic-load-balancer-portal.md
-  - name: Create Basic Load Balancer - Azure CLI
-    href: quickstart-create-basic-load-balancer-cli.md
-  - name: Create Basic Load Balancer - Azure PowerShell
-    href: quickstart-create-basic-load-balancer-powershell.md
-  - name: Create Standard Load Balancer - Portal
-    href: quickstart-load-balancer-standard-public-portal.md
-  - name: Create Standard Load Balancer - Azure CLI
-    href: quickstart-load-balancer-standard-public-cli.md
-  - name: Create Standard Load Balancer - Azure PowerShell
-    href: quickstart-create-standard-load-balancer-powershell.md
-  - name: Create Standard Load Balancer - Azure Resource Manager template
-    displayName: ARM
-    href: quickstart-load-balancer-standard-public-template.md
+  - name: Create a public load balancer
+    items:
+    - name: Portal
+      href: quickstart-load-balancer-standard-public-portal.md
+    - name: PowerShell
+      href: quickstart-load-balancer-standard-public-powershell.md
+    - name: CLI
+      href: quickstart-load-balancer-standard-public-cli.md
+    - name: Bicep
+      displayName: Resource Manager,ARM,template
+      href: quickstart-load-balancer-standard-public-bicep.md
+    - name: ARM template
+      displayName: Resource Manager
+      href: quickstart-load-balancer-standard-public-template.md
+    expanded: true
+  - name: Create an internal load balancer
+    items:
+    - name: Portal
+      href: quickstart-load-balancer-standard-internal-portal.md
+    - name: PowerShell
+      href: quickstart-load-balancer-standard-internal-powershell.md
+    - name: CLI
+      href: quickstart-load-balancer-standard-internal-cli.md
+    - name: Bicep
+      displayName: ARM, Resource Manager, Template
+      href: quickstart-load-balancer-standard-internal-bicep.md
+    - name: ARM template
+      displayName: Resource Manager
+      href: quickstart-load-balancer-standard-internal-template.md
+    expanded: true
 - name: Tutorials
   items:
-  - name: Load balance internet traffic to VMs
-    href: tutorial-load-balancer-standard-manage-portal.md
-  - name: Load balance internal traffic to VMs
-    href: tutorial-load-balancer-basic-internal-portal.md
-  - name: Load balance VMs across availability zones
-    href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
-  - name: Load balance VM within a specific availability zone
-    href: tutorial-load-balancer-standard-public-zonal-portal.md
-  - name: Configure port forwarding in Load Balancer
-    href: tutorial-load-balancer-port-forwarding-portal.md
-- name: Samples
-  items:
-  - name: Azure CLI
-    href: cli-samples.md
-  - name: Azure PowerShell
-    href: powershell-samples.md
+  - name: Inbound NAT rule
+    items:
+    - name: Create a single VM inbound NAT rule
+      href: tutorial-load-balancer-port-forwarding-portal.md
+    - name: Create a multiple VMs inbound NAT rule
+      href: tutorial-nat-rule-multi-instance-portal.md
+    - name: Migrate Inbound NAT Pools to NAT Rules
+      href: load-balancer-nat-pool-migration.md
+  - name: Scaling and availability
+    items:
+    - name: Load balance a VM within a specific availability zone
+      href: tutorial-load-balancer-standard-public-zonal-portal.md
+    - name: Load balance VMs with multiple availability sets
+      href: tutorial-multi-availability-sets-portal.md
+  - name: Cross-region load balancer
+    items:
+    - name: Create cross-region load balancer - Portal
+      href: tutorial-cross-region-portal.md
+    - name: Create cross-region load balancer - PowerShell
+      href: tutorial-cross-region-powershell.md
+    - name: Create cross-region load balancer - Azure CLI
+      href: tutorial-cross-region-cli.md
+    - name: Deploy cross-region load balancer - ARM template
+      href: tutorial-deploy-cross-region-load-balancer-template.md
+  - name: Gateway load balancer
+    items:
+    - name: Create gateway load balancer - Portal
+      href: tutorial-gateway-portal.md
+    - name: Create gateway load balancer - PowerShell
+      href: tutorial-gateway-powershell.md
+    - name: Create gateway load balancer - Azure CLI
+      href: tutorial-gateway-cli.md
+    - name: Deploy a dual-stack gateway load balancer
+      href: gateway-deploy-dual-stack-load-balancer.md
+  - name: NAT gateway
+    items:
+    - name: Integrate NAT gateway public load balancer
+      href: ../virtual-network/nat-gateway/tutorial-nat-gateway-load-balancer-public-portal.md?toc=/azure/load-balancer/toc.json
+    - name: Integrate NAT gateway internal load balancer
+      href: ../virtual-network/nat-gateway/tutorial-nat-gateway-load-balancer-internal-portal.md?toc=/azure/load-balancer/toc.json
+  - name: IP-based backend
+    items:
+    - name: Create a public load balancer with an IP-based backend - Portal
+      href: tutorial-load-balancer-ip-backend-portal.md
+  - name: Deploy public load balancer with DDoS protection
+    href: tutorial-protect-load-balancer.md
 - name: Concepts
   items:
-  - name: What is Standard Load Balancer?
-    href: load-balancer-standard-overview.md
+  - name: What's new?
+    href: whats-new.md
+  - name: Portal settings
+    href: manage.md
+  - name: Components
+    href: components.md
+  - name: Load balancing algorithm
+    href: concepts.md
+  - name: Distribution modes
+    href: distribution-mode-concepts.md
   - name: Health probes
     href: load-balancer-custom-probe-overview.md
-  - name: High Availability ports
-    href: load-balancer-ha-ports-overview.md
-  - name: IPv6 support
-    href: load-balancer-ipv6-overview.md
-  - name: Multiple frontends
-    href: load-balancer-multivip-overview.md
-  - name: Outbound connections
-    href: load-balancer-outbound-connections.md
-  - name: Outbound Rules
-    href: load-balancer-outbound-rules-overview.md
-  - name: TCP reset on idle timeout
-    href: load-balancer-tcp-reset.md
-  - name: Standard Load Balancer and Availability Zones
+  - name: Availability zones
     href: load-balancer-standard-availability-zones.md
-  - name: Standard Load Balancer metrics and diagnostics
-    href: load-balancer-standard-diagnostics.md
-- name: How to
+  - name: Cross-region load balancer
+    href: cross-region-overview.md
+  - name: Gateway load balancer
+    items:
+    - name: Overview
+      href: gateway-overview.md
+    - name: Partners
+      href: gateway-partners.md
+  - name: SKUs
+    href: skus.md
+  - name: Standard Load Balancer and Virtual Machine Scale Sets
+    href: load-balancer-standard-virtual-machine-scale-sets.md
+  - name: Retrieve information using the Azure Instance Metadata Service
+    href: instance-metadata-service-load-balancer.md
+  - name: Health monitoring
+    items:
+    - name: Monitor load balancer
+      href: monitor-load-balancer.md
+    - name: Monitoring data reference
+      href: monitor-load-balancer-reference.md
+    - name: Azure Monitor Insights for Load Balancer
+      href: load-balancer-insights.md
+    - name: Standard Load Balancer metrics and diagnostics
+      href: load-balancer-standard-diagnostics.md
+  - name: Inbound connectivity
+    items:
+    - name: Inbound NAT rules
+      href: inbound-nat-rules.md
+    - name: High Availability ports
+      href: load-balancer-ha-ports-overview.md
+    - name: Multiple frontends
+      href: load-balancer-multivip-overview.md
+    - name: TCP reset on idle timeout
+      href: load-balancer-tcp-reset.md
+  - name: Outbound connectivity
+    items:
+    - name: SNAT for outbound connections to internet
+      href: load-balancer-outbound-connections.md
+    - name: Configuring outbound rules
+      href: outbound-rules.md
+  - name: Security
+    items:
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/azure-load-balancer-security-baseline?toc=/azure/load-balancer/TOC.json
+- name: How-to
   items:
-  - name: Create a zone redundant public Standard Load Balancer
-    href: load-balancer-get-started-internet-az-portal.md
+  - name: Backend Pool management
+    href: backend-pool-management.md
+  - name: Retrieve metadata using the Azure IMDS
+    href: howto-load-balancer-imds.md
+  - name: Health probes
     items:
-    - name: Create a zone redundant public Standard Load Balancer (PowerShell)
-      href: load-balancer-get-started-internet-az-powershell.md
-    - name: Create a zone redundant public Standard Load Balancer (CLI)
-      href: load-balancer-get-started-internet-az-cli.md
-  - name: Create a zonal public Standard Load Balancer
-    href: load-balancer-get-started-internet-availability-zones-zonal-portal.md
+    - name: Manage health probes
+      href: manage-probes-how-to.md
+    - name: Create a custom HTTP/HTTPS health probe
+      href: create-custom-http-health-probe-howto.md
+  - name: Load Balancer metrics
     items:
-    - name: Create a zonal public Standard Load Balancer (PowerShell)
-      href: load-balancer-get-started-internet-availability-zones-zonal-powershell.md
-    - name: Create a zonal redundant public Standard Load Balancer (CLI)
-      href: load-balancer-get-started-internet-availability-zones-zonal-cli.md
-  - name: Load balance VMs across availability zones (CLI)
-    href: load-balancer-standard-public-zone-redundant-cli.md
-  - name: Load balance VMs within a zone (CLI)
-    href: load-balancer-standard-public-zonal-cli.md
-  - name: Configure outbound rules
-    href: configure-load-balancer-outbound-cli.md
-  - name: Create an Azure Load Balancer using REST API
-    href: create-load-balancer-rest-api.md
-  - name: Create Basic Load Balancer (Template)
-    href: load-balancer-get-started-internet-arm-template.md
-  - name: Create public Load Balancer with IPv6
-    href: load-balancer-ipv6-internet-ps.md
+    - name: Get Load Balancer metrics with Azure Monitor CLI
+      href: load-balancer-monitor-metrics-cli.md
+    - name: Get Load Balancer metrics with REST
+      href: load-balancer-query-metrics-rest-api.md
+  - name: Inbound connectivity
     items:
-    - name: Create public Load Balancer with IPv6 (CLI)
-      href: load-balancer-ipv6-internet-cli.md
-    - name: Create public Load Balancer with IPv6 (Template)
-      href: load-balancer-ipv6-internet-template.md
-  - name: Configure internal Load Balancer
+    - name: Floating IP configuration
+      href: load-balancer-floating-ip.md
+    - name: Manage load balancer rules
+      href: manage-rules-how-to.md
+    - name: Manage inbound NAT rules
+      href: manage-inbound-nat-rules.md
+    - name: Configure TCP reset and idle timeout
+      href: load-balancer-tcp-idle-timeout.md
+    - name: Configure distribution mode for Load Balancer
+      href: load-balancer-distribution-mode.md
+  - name: Outbound connectivity
     items:
-    - name: Configure internal Load Balancer (PowerShell)
-      href: load-balancer-get-started-ilb-arm-ps.md
-    - name: Configure internal Load Balancer (CLI)
-      href: load-balancer-get-started-ilb-arm-cli.md
-    - name: Configure internal Load Balancer (Template)
-      href: load-balancer-get-started-ilb-arm-template.md
-  - name: Configure TCP idle timeout for Load Balancer
-    href: load-balancer-tcp-idle-timeout.md
-  - name: Configure distribution mode for Load Balancer
-    href: load-balancer-distribution-mode.md
-  - name: Combining load balancing services
-    href: ../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fload-balancer%2ftoc.json
+    - name: Migrate outbound access
+      href: ../virtual-network/nat-gateway/tutorial-migrate-outbound-nat.md?toc=/azure/load-balancer/toc.json
+    - name: Outbound only load balancer configuration
+      href: egress-only.md
+  - name: Virtual machine scale sets
+    items:
+    - name: Configure inbound NAT rules for Virtual Machine Scale Sets
+      href: configure-inbound-NAT-rules-vm-scale-set.md
+    - name: Add multiple Virtual Machine Scale Set instances behind one Azure Load Balancer
+      href: load-balancer-multiple-virtual-machine-scale-set.md
+    - name: Use with an existing Azure Load Balancer - Portal
+      href: configure-vm-scale-set-portal.md
+    - name: Use with an existing Azure Load Balancer - PowerShell
+      href: configure-vm-scale-set-powershell.md
+    - name: Use with an existing Azure Load Balancer - CLI
+      href: configure-vm-scale-set-cli.md
+  - name: Upgrade from a basic to standard load balancer
+    items:
+    - name: Upgrade options and guidance
+      href: load-balancer-basic-upgrade-guidance.md
+    - name: Upgrade a basic public load balancer
+      href: upgrade-basic-standard.md
+    - name: Upgrade an internal load balancer - Outbound connections not required
+      href: upgrade-basicinternal-standard.md
+    - name: Upgrade an internal load balancer - Outbound connections required
+      href: upgrade-internalbasic-to-publicstandard.md
+    - name: Upgrade from Basic to Standard for Virtual Machine Scale Sets
+      href: upgrade-basic-standard-virtual-machine-scale-sets.md
   - name: Using multiple IP configurations
-    href: load-balancer-multiple-ip.md
     items:
-    - name: Using multiple IP configurations (CLI)
+    - name: Azure portal
+      href: load-balancer-multiple-ip.md
+    - name: Azure CLI
       href: load-balancer-multiple-ip-cli.md
-    - name: Using multiple IP configurations (PowerShell)
+    - name: Azure PowerShell
       href: load-balancer-multiple-ip-powershell.md
-  - name: Azure Monitor logs for Azure Load Balancer
-    href: load-balancer-monitor-log.md
-  - name: Get Load Balancer metrics with REST
-    href: load-balancer-query-metrics-rest-api.md
-  - name: Configure High Availability Ports for Internal Load Balancer
-    href: load-balancer-configure-ha-ports.md
+  - name: Move across regions
+    items:
+    - name: Public load balancer - Portal
+      href: move-across-regions-external-load-balancer-portal.md
+    - name: Public load balancer - PowerShell
+      href: move-across-regions-external-load-balancer-powershell.md
+    - name: Internal load balancer - Portal
+      href: move-across-regions-internal-load-balancer-portal.md
+    - name: Internal load balancer - PowerShell
+      href: move-across-regions-internal-load-balancer-powershell.md
+  - name: IPv6
+    items:
+    - name: Configure DHCPv6 for Linux VMs
+      href: load-balancer-ipv6-for-linux.md
+    - name: Public Load Balancer
+      items:
+      - name: Standard Public Load Balancer with IPv6 - PowerShell
+        href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
+      - name: Standard Public Load Balancer with IPv6 - Azure CLI
+        href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md
+      - name: Standard Public Load Balancer with IPv6 - ARM template
+        href: ipv6-configure-standard-load-balancer-template-json.md
+    - name: Internal Load Balancer
+      items:
+      - name: Standard Internal Load Balancer with IPv6 - PowerShell
+        href: ipv6-dual-stack-standard-internal-load-balancer-powershell.md
+    - name: Add IPv6 to existing deployments
+      items:
+      - name: Add IPv6 to an IPv4 application- PowerShell
+        href: ipv6-add-to-existing-vnet-powershell.md
+      - name: Add IPv6 to an IPv4 application - Azure CLI
+        href: ipv6-add-to-existing-vnet-cli.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot Azure Load Balancer
       href: load-balancer-troubleshoot.md
-  - name: Classic deployment model articles
-    items:
-    - name: Outbound connections (classic)
-      href: load-balancer-outbound-connections-classic.md
-    - name: Configure multiple VIPs for cloud service
-      href: load-balancer-multivip.md
-      items:
-      - name: Configure internal Load Balancer for Cloud Services
-        href: load-balancer-get-started-ilb-classic-cloud.md
-        items:
-        - name: Configure internal Load Balancer for Cloud Services (PowerShell)
-          href: load-balancer-get-started-ilb-classic-ps.md
-        - name: Configure internal Load Balancer for Cloud Services (CLI)
-          href: load-balancer-get-started-ilb-classic-cli.md
-      - name: Configure public Load Balancer (Classic PowerShell)
-        href: load-balancer-get-started-internet-classic-ps.md
-        items:
-        - name: Configure public Load Balancer (Classic Cloud)
-          href: load-balancer-get-started-internet-classic-cloud.md
-        - name: Configure public Load Balancer (Classic CLI)
-          href: load-balancer-get-started-internet-classic-cli.md
+    - name: Testing inbound frontend IP address reachability
+      href: load-balancer-test-frontend-reachability.md
+    - name: Health Probe status
+      href: load-balancer-troubleshoot-health-probe-status.md
+    - name: Backend pool (VM) traffic
+      href: load-balancer-troubleshoot-backend-traffic.md
+    - name: Troubleshoot SNAT exhaustion and connection timeouts
+      href: troubleshoot-outbound-connection.md
+    - name: Resource health and inbound availability issues
+      href: troubleshoot-rhc.md
+    - name: Common error codes for Azure Instance Metadata Service (IMDS)
+      href: troubleshoot-load-balancer-imds.md
+    - name: Common deployment errors
+      href: load-balancer-common-deployment-errors.md
 - name: Reference
   items:
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=load-balancer
   - name: Azure PowerShell
-    href: /powershell/module/az.network
+    href: /powershell/module/az.network#load-balancer
   - name: Azure CLI
     href: /cli/azure/network/lb
   - name: .NET
@@ -159,38 +275,29 @@
   - name: Java
     href: /java/api/com.microsoft.azure.management.network
   - name: Node.js
-    href: http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html
+    href: /javascript/api/overview/azure/arm-network-readme
   - name: Ruby
-    href: http://www.rubydoc.info/gems/azure_mgmt_network/Azure/ARM/Network/LoadBalancers
+    href: https://www.rubydoc.info/gems/azure_mgmt_network/Azure/Network/Mgmt/V2020_03_01/LoadBalancers
   - name: Python
-    href: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.LoadBalancersOperations
+    href: /python/api/azure-mgmt-network/azure.mgmt.network.operations.loadbalancersoperations
   - name: REST
-    href: https://msdn.microsoft.com/library/azure/mt163651.aspx
-- name: Related
-  items:
-  - name: Application Gateway
-    href: /azure/application-gateway/
-  - name: Express Route
-    href: /azure/expressroute/
-  - name: Virtual Network
-    href: /azure/virtual-network/
-  - name: VPN Gateway
-    href: /azure/vpn-gateway/
-  - name: Virtual Machine
-    href: /azure/virtual-machines/
-  - name: Traffic Manager
-    href: /azure/traffic-manager/
-  - name: DNS
-    href: /azure/dns/
+    href: /rest/api/load-balancer/loadbalancers
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.network/loadbalancers
+    displayName: ARM
 - name: Resources
   items:
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?products=azure-virtual-machines
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/?products=azure-load-balancer
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=networking
+  - name: Azure Load Balancer feedback
+    href: https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c=e8894060-8326-ec11-b6e6-000d3a4f0789
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/load-balancer/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
-  - name: Service updates
+  - name: Product updates
     href: https://azure.microsoft.com/updates/?product=load-balancer
+  - name: FAQ
+    href: load-balancer-faqs.yml

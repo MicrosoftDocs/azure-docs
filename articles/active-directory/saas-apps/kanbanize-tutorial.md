@@ -1,271 +1,205 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Kanbanize | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Kanbanize.
+title: 'Tutorial: Microsoft Entra SSO integration with Kanbanize'
+description: Learn how to configure single sign-on between Microsoft Entra ID and Kanbanize.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
-
-ms.assetid: b436d2f6-bfa5-43fd-a8f9-d2144dc25669
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 07/12/2018
+ms.topic: tutorial
+ms.date: 11/21/2022
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
-# Tutorial: Azure Active Directory integration with Kanbanize
 
-In this tutorial, you learn how to integrate Kanbanize with Azure Active Directory (Azure AD).
+# Tutorial: Microsoft Entra SSO integration with Kanbanize
 
-Integrating Kanbanize with Azure AD provides you with the following benefits:
+In this tutorial, you'll learn how to integrate Kanbanize with Microsoft Entra ID. When you integrate Kanbanize with Microsoft Entra ID, you can:
 
-- You can control in Azure AD who has access to Kanbanize.
-- You can enable your users to automatically get signed-on to Kanbanize (Single Sign-On) with their Azure AD accounts.
-- You can manage your accounts in one central location - the Azure portal.
-
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+* Control in Microsoft Entra ID who has access to Kanbanize.
+* Enable your users to be automatically signed-in to Kanbanize with their Microsoft Entra accounts.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
-To configure Azure AD integration with Kanbanize, you need the following items:
+To get started, you need the following items:
 
-- An Azure AD subscription
-- A Kanbanize single sign-on enabled subscription
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* Kanbanize single sign-on (SSO) enabled subscription.
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding Kanbanize from the gallery
-2. Configuring and testing Azure AD single sign-on
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment.
 
-## Adding Kanbanize from the gallery
-To configure the integration of Kanbanize into Azure AD, you need to add Kanbanize from the gallery to your list of managed SaaS apps.
+* Kanbanize supports **SP and IDP** initiated SSO.
+* Kanbanize supports **Just In Time** user provisioning.
 
-**To add Kanbanize from the gallery, perform the following steps:**
+## Add Kanbanize from the gallery
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+To configure the integration of Kanbanize into Microsoft Entra ID, you need to add Kanbanize from the gallery to your list of managed SaaS apps.
 
-	![The Azure Active Directory button][1]
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type **Kanbanize** in the search box.
+1. Select **Kanbanize** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-2. Navigate to **Enterprise applications**. Then go to **All applications**.
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-	![The Enterprise applications blade][2]
-	
-3. To add new application, click **New application** button on the top of dialog.
+<a name='configure-and-test-azure-ad-sso-for-kanbanize'></a>
 
-	![The New application button][3]
+## Configure and test Microsoft Entra SSO for Kanbanize
 
-4. In the search box, type **Kanbanize**, select **Kanbanize** from result panel then click **Add** button to add the application.
+Configure and test Microsoft Entra SSO with Kanbanize using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in Kanbanize.
 
-	![Kanbanize in the results list](./media/kanbanize-tutorial/tutorial_kanbanize_addfromgallery.png)
+To configure and test Microsoft Entra SSO with Kanbanize, perform the following steps:
 
-## Configure and test Azure AD single sign-on
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
+1. **[Configure Kanbanize SSO](#configure-kanbanize-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create Kanbanize test user](#create-kanbanize-test-user)** - to have a counterpart of B.Simon in Kanbanize that is linked to the Microsoft Entra representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-In this section, you configure and test Azure AD single sign-on with Kanbanize based on a test user called "Britta Simon".
+<a name='configure-azure-ad-sso'></a>
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Kanbanize is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Kanbanize needs to be established.
+## Configure Microsoft Entra SSO
 
-To configure and test Azure AD single sign-on with Kanbanize, you need to complete the following building blocks:
+Follow these steps to enable Microsoft Entra SSO.
 
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create a Kanbanize test user](#create-a-kanbanize-test-user)** - to have a counterpart of Britta Simon in Kanbanize that is linked to the Azure AD representation of user.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Kanbanize** > **Single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-### Configure Azure AD single sign-on
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Kanbanize application.
+1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-**To configure Azure AD single sign-on with Kanbanize, perform the following steps:**
+     a. In the **Identifier** text box, type a URL using the following pattern:
+    `https://<subdomain>.kanbanize.com/`
 
-1. In the Azure portal, on the **Kanbanize** application integration page, click **Single sign-on**.
+    b. In the **Reply URL** text box, type a URL using the following pattern:
+    `https://<subdomain>.kanbanize.com/saml/acs`
 
-	![Configure single sign-on link][4]
+	c. Click **Set additional URLs**.
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
-	![Single sign-on dialog box](./media/kanbanize-tutorial/tutorial_kanbanize_samlbase.png)
+    d. In the **Relay State** textbox, type the value: `/ctrl_login/saml_login`
 
-3. On the **Kanbanize Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
+1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-	![Kanbanize Domain and URLs single sign-on information](./media/kanbanize-tutorial/tutorial_kanbanize_url.png)
+    In the **Sign-on URL** text box, type a URL using the following pattern:
+    `https://<subdomain>.kanbanize.com`
 
-    a. In the **Identifier** textbox, type a URL using the following pattern: `https://<subdomain>.kanbanize.com/`
+	> [!NOTE]
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Kanbanize Client support team](mailto:support@ms.kanbanize.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<subdomain>.kanbanize.com/saml/acs`
+1. Kanbanize application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as nameidentifier is mapped with **user.userprincipalname**. Kanbanize application expects nameidentifier to be mapped with **user.mail**, so you need to edit the attribute mapping by clicking on Edit icon and change the attribute mapping.
 
-	c. Check **Show advanced URL settings**.
+	![image](common/edit-attribute.png)
 
-	d.  In the **Relay State** textbox, type a URL: `/ctrl_login/saml_login`
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
-	e. If you wish to configure the application in **SP** initiated mode, in **Sign-on URL** textbox type a URL using the following pattern: `https://<subdomain>.kanbanize.com`
-	 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [Kanbanize Client support team](mailto:support@ms.kanbanize.com) to get these values. 
+	![The Certificate download link](common/certificatebase64.png)
 
-5. Kanbanize application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. The default value of **User Identifier** is **user.userprincipalname** but Kanbanize expects this to be mapped with the user's email address. For that you can use **user.mail** attribute from the list or use the appropriate attribute value based on your organization configuration
-	
-	![Configure Single Sign-On](./media/kanbanize-tutorial/tutorial_Kanbanize_attribute.png)
+1. On the **Set up Kanbanize** section, copy the appropriate URL(s) based on your requirement.
 
-6. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
+	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-	![The Certificate download link](./media/kanbanize-tutorial/tutorial_kanbanize_certificate.png) 
+<a name='create-an-azure-ad-test-user'></a>
 
-7. Click **Save** button.
+### Create a Microsoft Entra test user
 
-	![Configure Single Sign-On Save button](./media/kanbanize-tutorial/tutorial_general_400.png)
-	
-8. On the **Kanbanize Configuration** section, click **Configure Kanbanize** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+In this section, you'll create a test user called B.Simon.
 
-	![Kanbanize Configuration](./media/kanbanize-tutorial/tutorial_kanbanize_configure.png)
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Select **Review + create**.
+1. Select **Create**.
 
-9. In a different web browser window, login to Kanbanize as a Security Administrator. 
+<a name='assign-the-azure-ad-test-user'></a>
 
-10. Go to top  right of the page, click on **Settings** logo.
+### Assign the Microsoft Entra test user
 
-	![Kanbanize settings](./media/kanbanize-tutorial/tutorial_kanbanize_set.png)
+In this section, you'll enable B.Simon to use single sign-on by granting access to Kanbanize.
 
-11. On the Administration panel page from the left side of menu click **Integrations** and then enable **Single Sign-On**. 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Kanbanize**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
+1. In the **Add Assignment** dialog, click the **Assign** button.
 
-	![Kanbanize integrations](./media/kanbanize-tutorial/tutorial_kanbanize_admin.png)
+## Configure Kanbanize SSO
 
-12. Under Integrations section, click on **CONFIGURE** to open **Single Sign-On Integration** page.
 
-	![Kanbanize config](./media/kanbanize-tutorial/tutorial_kanbanize_config.png)
 
-13. On the **Single Sign-On Integration** page under **Configurations**, perform the following steps:
 
-	![Kanbanize integrations](./media/kanbanize-tutorial/tutorial_kanbanize_save.png)
+1. In a different web browser window, sign in to your Kanbanize company site as an administrator
 
-	a. In the **Idp Entity Id** textbox, paste the value of **SAML Entity ID**, which you have copied from the Azure portal.
+4. Go to top  right of the page, click on **Settings** logo.
 
-	b. In the **Idp Login Endpoint** textbox, paste the value of **SAML Single Sign-On Service URL**, which you have copied from the Azure portal.
+	![Kanbanize settings](./media/kanbanize-tutorial/tutorial-kanbanize-set.png)
 
-	c. In the **Idp Logout Endpoint** textbox, paste the value of **Sign-Out URL**, which you have copied from the Azure portal.
+5. On the Administration panel page from the left side of menu click **Integrations** and then enable **Single Sign-On**.
+
+	![Screenshot shows the Administration panel with Integration selected.](./media/kanbanize-tutorial/tutorial-kanbanize-admin.png)
+
+6. Under Integrations section, click on **CONFIGURE** to open **Single Sign-On Integration** page.
+
+	![Screenshot shows the Kanbanize Integration.](./media/kanbanize-tutorial/configuration.png)
+
+7. On the **Single Sign-On Integration** page under **Configurations**, perform the following steps:
+
+	![Screenshot shows the Single Sign-On Integration page where you enter the values in this step.](./media/kanbanize-tutorial/values.png)
+
+	a. In the **Idp Entity ID** textbox, paste the value of **Microsoft Entra Identifier**, which you copied previously.
+
+	b. In the **Idp Login Endpoint** textbox, paste the value of **Login URL**, which you copied previously.
+
+	c. In the **Idp Logout Endpoint** textbox, paste the value of **Logout URL**, which you copied previously.
 
 	d. In **Attribute name for Email** textbox, enter this value `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
 
 	e. In **Attribute name for First Name** textbox, enter this value `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
 
-	f. In **Attribute name for Last Name** textbox, enter this value `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` 
+	f. In **Attribute name for Last Name** textbox, enter this value `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`
+
 	> [!Note]
 	> You can get these values by combining namespace and name values of the respective attribute from the User attributes section in Azure portal.
 
-	g. In Notepad, open the base-64 encoded certificate that you downloaded from the Azure portal, copy its content (without the start and end markers), and then paste it into the **Idp X.509 Certificate** box.
+	g. In Notepad, open the base-64 encoded certificate that you downloaded, copy its content (without the start and end markers), and then paste it into the **Idp X.509 Certificate** box.
 
 	h. Check **Enable login with both SSO and Kanbanize**.
-	
+
 	i. Click **Save Settings**.
 
-### Create an Azure AD test user
+### Create Kanbanize test user
 
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+In this section, a user called B.Simon is created in Kanbanize. Kanbanize supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Kanbanize, a new one is created after authentication. If you need to create a user manually, contact [Kanbanize Client support team](mailto:support@ms.kanbanize.com).
 
-   ![Create an Azure AD test user][100]
+## Test SSO 
 
-**To create a test user in Azure AD, perform the following steps:**
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
-1. In the Azure portal, in the left pane, click the **Azure Active Directory** button.
+#### SP initiated:
 
-    ![The Azure Active Directory button](./media/kanbanize-tutorial/create_aaduser_01.png)
+* Click on **Test this application**, this will redirect to Kanbanize Sign on URL where you can initiate the login flow.  
 
-2. To display the list of users, go to **Users and groups**, and then click **All users**.
+* Go to Kanbanize Sign-on URL directly and initiate the login flow from there.
 
-    ![The "Users and groups" and "All users" links](./media/kanbanize-tutorial/create_aaduser_02.png)
+#### IDP initiated:
 
-3. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
+* Click on **Test this application**, and you should be automatically signed in to the Kanbanize for which you set up the SSO. 
 
-    ![The Add button](./media/kanbanize-tutorial/create_aaduser_03.png)
+You can also use Microsoft My Apps to test the application in any mode. When you click the Kanbanize tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Kanbanize for which you set up the SSO. For more information, see [Microsoft Entra My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
-4. In the **User** dialog box, perform the following steps:
+## Next steps
 
-    ![The User dialog box](./media/kanbanize-tutorial/create_aaduser_04.png)
-
-    a. In the **Name** box, type **BrittaSimon**.
-
-    b. In the **User name** box, type the email address of user Britta Simon.
-
-    c. Select the **Show Password** check box, and then write down the value that's displayed in the **Password** box.
-
-    d. Click **Create**.
- 
-### Create a Kanbanize test user
-
-The objective of this section is to create a user called Britta Simon in Kanbanize. Kanbanize supports just-in-time provisioning, which is by default enabled. There is no action item for you in this section. A new user is created during an attempt to access Kanbanize if it doesn't exist yet.
-
->[!Note]
->If you need to create a user manually, contact [Kanbanize Client support team](mailto:support@ms.kanbanize.com).
-
-### Assign the Azure AD test user
-
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Kanbanize.
-
-![Assign the user role][200] 
-
-**To assign Britta Simon to Kanbanize, perform the following steps:**
-
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
-
-	![Assign User][201] 
-
-2. In the applications list, select **Kanbanize**.
-
-	![The Kanbanize link in the Applications list](./media/kanbanize-tutorial/tutorial_kanbanize_app.png)  
-
-3. In the menu on the left, click **Users and groups**.
-
-	![The "Users and groups" link][202]
-
-4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
-
-	![The Add Assignment pane][203]
-
-5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
-
-6. Click **Select** button on **Users and groups** dialog.
-
-7. Click **Assign** button on **Add Assignment** dialog.
-	
-### Test single sign-on
-
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
-
-When you click the Kanbanize tile in the Access Panel, you should get automatically signed-on to your Kanbanize application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md). 
-
-## Additional resources
-
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-
-
-<!--Image references-->
-
-[1]: ./media/kanbanize-tutorial/tutorial_general_01.png
-[2]: ./media/kanbanize-tutorial/tutorial_general_02.png
-[3]: ./media/kanbanize-tutorial/tutorial_general_03.png
-[4]: ./media/kanbanize-tutorial/tutorial_general_04.png
-
-[100]: ./media/kanbanize-tutorial/tutorial_general_100.png
-
-[200]: ./media/kanbanize-tutorial/tutorial_general_200.png
-[201]: ./media/kanbanize-tutorial/tutorial_general_201.png
-[202]: ./media/kanbanize-tutorial/tutorial_general_202.png
-[203]: ./media/kanbanize-tutorial/tutorial_general_203.png
-
+Once you configure Kanbanize you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

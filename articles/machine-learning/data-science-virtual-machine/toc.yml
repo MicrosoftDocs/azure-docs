@@ -2,75 +2,78 @@
   href: index.yml
   items:
 - name: Overview
+  expanded: true
   items:
-  - name: What is the Data Science VM?
+  - name: What is the Data Science Virtual Machine (DSVM)?
     href: overview.md
-  - name: What is the Deep Learning VM?
-    href: deep-learning-dsvm-overview.md
-  - name: What is the Geo AI Data Science VM?
-    href: geo-ai-dsvm-overview.md
+  - name: Tools in the Data Science Virtual Machine
+    href: tools-included.md
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create a Windows Data Science VM
+  - name: Create a Windows Data Science Virtual Machine
     href: provision-vm.md
-  - name: Create an Ubuntu Data Science VM
+  - name: Create an Ubuntu Data Science Virtual Machine
     href: dsvm-ubuntu-intro.md
-  - name: Create a CentOS Data Science VM
-    href: linux-dsvm-intro.md
-  - name: Create a Deep Learning VM
-    href: provision-deep-learning-dsvm.md
-  - name: Create a Geo AI Data Science VM
-    href: provision-geo-ai-dsvm.md 
+  - name: Create a DSVM with Bicep
+    displayName: ARM, Resource Manager, Template
+    href: dsvm-tutorial-bicep.md
+  - name: Create a DSVM with an ARM template
+    displayName: Resource Manager
+    href: dsvm-tutorial-resource-manager.md
 - name: Concepts
   items:
-  - name: Discover the DSVM
-    href: dsvm-tools-overview.md
   - name: Deep Learning and AI frameworks
-    href: dsvm-deep-learning-ai-frameworks.md
-  - name: ML and data science tools
-    href: dsvm-ml-data-science-tools.md
-  - name: Languages
-    href: dsvm-languages.md
+    href: dsvm-tools-deep-learning-frameworks.md
+  - name: Programming languages
+    href: dsvm-tools-languages.md
   - name: Development tools 
     href: dsvm-tools-development.md
+  - name: ML and data science tools
+    href: dsvm-tools-data-science.md
+  - name: Data platforms
+    href: dsvm-tools-data-platforms.md    
   - name: Data ingestion tools
     href: dsvm-tools-ingestion.md
-  - name: Data exploration and visualization tools
-    href: dsvm-tools-explore-and-visualize.md
-  - name: Data platforms
-    href: dsvm-data-platforms.md
-  - name: Samples and walkthroughs
-    href: dsvm-samples-and-walkthroughs.md
+  - name: Productivity tools
+    href: dsvm-tools-productivity.md
+  - name: Enterprise security and guidance
+    href: dsvm-enterprise-overview.md  
+- name: Samples    
+  href: dsvm-samples-and-walkthroughs.md
 - name: How-to guides
   items:
-  - name: Use a Windows Data Science VM
+  - name: Use a Windows Data Science Virtual Machine
     href: vm-do-ten-things.md
-  - name: Use a Linux Data Science VM
+  - name: Use a Linux Data Science Virtual Machine
     href: linux-dsvm-walkthrough.md
-  - name: Use a Deep Learning VM
-    href: use-deep-learning-dsvm.md
-  - name: Use a Geo AI Data Science VM
-    href: use-geo-ai-dsvm.md
+  - name: Integrate with Azure Machine Learning
+    items:
+        - name: Track Experiments
+          href: how-to-track-experiments.md
   - name: Enterprise guidance
     items:
-    - name: Overview
-      href: dsvm-enterprise-overview.md
-    - name: Scaling
-      href: dsvm-pools.md
-    - name: Active Directory integration
-      href: dsvm-common-identity.md
-    - name: Secure resource access credentials
-      href: dsvm-secure-access-keys.md        
+      - name: Create an autoscaled Data Science Virtual Machine pool 
+        href: dsvm-pools.md
+      - name: Integrate with Active Directory
+        href: dsvm-common-identity.md
+      - name: Secure resource access credentials
+        href: dsvm-secure-access-keys.md            
+  - name: Upgrade your Data Science Virtual Machine to Ubuntu 18.04 
+    href: ubuntu-upgrade.md
 - name: Resources
   items:
-  - name: R developer guide 
-    href: /azure/architecture/data-guide/technology-choices/r-developers-guide
-    maintainContext: true
-  - name: Blog
-    href: https://blogs.technet.microsoft.com/machinelearning/tag/dsvm/
-  - name: MSDN forum
-    href: https://social.microsoft.com/Forums/en-US/home?forum=dsvm
+  - name: Microsoft Q&A question page
+    href: /answers/topics/azure-data-science-vm.html
   - name: Stack Overflow
     href: https://stackoverflow.com/search?q=dsvm
-
+  - name: R developer guide 
+    href: /azure/architecture/data-guide/technology-choices/r-developers-guide?context=%2fazure/machine-learning/data-science-virtual-machine/context/ml-context
+- name: Reference
+  items:
+  - name: Ubuntu Data Science Virtual Machine
+    href: reference-ubuntu-vm.md
+  - name: Release notes
+    href: release-notes.md
+  - name: Known issues
+    href: reference-known-issues.md

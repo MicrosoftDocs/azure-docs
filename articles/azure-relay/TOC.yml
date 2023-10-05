@@ -1,0 +1,115 @@
+- name: Azure Relay Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Relay?
+    href: relay-what-is-it.md
+- name: Tutorials
+  items:
+  - name: Hybrid Connections
+    items:
+    - name: Send and receive messages - .NET WebSockets
+      href: relay-hybrid-connections-dotnet-get-started.md
+    - name: Send and receive messages - .NET HTTP
+      href: relay-hybrid-connections-http-requests-dotnet-get-started.md
+    - name: Send and receive messages - Node WebSockets
+      href: relay-hybrid-connections-node-get-started.md
+    - name: Send and receive messages - Node HTTP
+      href: relay-hybrid-connections-http-requests-node-get-started.md    
+  - name: Windows Communication Foundation (WCF)
+    items:
+    - name: Expose an on-premises WCF service to a web application in the cloud
+      href: service-bus-dotnet-hybrid-app-using-service-bus-relay.md
+    - name: Expose an on-premises WCF service to a WCF client outside your network
+      href: service-bus-relay-tutorial.md
+    - name: Expose an on-premises WCF REST service to a client outside your network
+      href: service-bus-relay-rest-tutorial.md
+- name: Samples
+  items:
+  - name: Hybrid Connections
+    href: https://github.com/Azure/azure-relay/tree/master/samples/hybrid-connections
+  - name: WCF Relay
+    href: https://github.com/Azure/azure-relay/tree/master/samples/wcf-relay
+- name: Concepts
+  items:
+  - name: Security
+    items:
+    - name: Authentication and authorization
+      items:
+      - name: Overview (authentication and authorization)
+        href: relay-authentication-and-authorization.md      
+      - name: Use Azure Active Directory 
+        items:
+        - name: Authenticate with managed identities
+          href: authenticate-managed-identity.md 
+        - name: Authenticate from an application
+          href: authenticate-application.md
+    - name: Network security
+      href: network-security.md      
+  - name: Hybrid Connections protocol
+    href: relay-hybrid-connections-protocol.md
+- name: How To
+  items:
+  - name: Move across regions
+    href: move-across-regions.md
+  - name: Migrate from Azure Service Manager (classic) APIs to Resource Manager APIs
+    href: ../service-bus-messaging/deprecate-service-bus-management.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json    
+  - name: Plan and design
+    items:
+    - name: Migrate from ACS to SAS
+      href: relay-migrate-acs-sas.md
+  - name: Develop
+    items:
+    - name: Create a namespace
+      href: relay-create-namespace-portal.md
+    - name: Available APIs
+      href: relay-api-overview.md
+      items:
+      - name: .NET
+        href: relay-hybrid-connections-dotnet-api-overview.md
+      - name: Node
+        href: relay-hybrid-connections-node-ws-api-overview.md
+  - name: Secure
+    items: 
+    - name: Configure IP firewall
+      href: ip-firewall-virtual-networks.md
+    - name: Configure private endpoints
+      href: private-link-service.md        
+  - name: Manage and monitor
+    items:
+    - name: Monitor Azure Relay with Azure Monitoring
+      href: relay-metrics-azure-monitor.md
+    - name: Set up diagnostic logs
+      href: diagnostic-logs.md
+- name: Reference
+  items:
+  - name: REST
+    href: /rest/api/relay/
+  - name: .NET
+    items:
+    - name: Microsoft.Azure.Relay
+      href: /dotnet/api/microsoft.azure.relay
+    - name: Microsoft.ServiceBus
+      href: /dotnet/api/Microsoft.ServiceBus
+  - name: Azure CLI
+    href: /cli/azure/relay
+  - name: Exceptions
+    href: relay-exceptions.md
+  - name: Port settings
+    href: relay-port-settings.md
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=enterprise-integration
+  - name: FAQ
+    href: relay-faq.yml
+  - name: Blog
+    href: /archive/blogs/servicebus/
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/service-bus/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Samples
+    href: https://github.com/azure/azure-relay/tree/master/samples
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-servicebusrelay

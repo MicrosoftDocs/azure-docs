@@ -1,0 +1,110 @@
+- name: Azure Chaos Studio documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Azure Chaos Studio?
+    href: chaos-studio-overview.md
+  - name: What is chaos engineering?
+    href: /azure/architecture/framework/resiliency/chaos-engineering?toc=/azure/chaos-studio/toc.json&bc=/azure/chaos-studio/breadcrumb/toc.json
+- name: Quickstart
+  items:
+  - name: Create and run a chaos experiment using Azure Chaos Studio 
+    href: chaos-studio-quickstart-azure-portal.md
+- name: Tutorials
+  items:
+  - name: Run and manage experiment
+    href: chaos-studio-run-experiment.md
+  - name: Schedule an experiment
+    href: tutorial-schedule.md
+- name: Samples
+  items:
+  - name: Azure REST API 
+    href: chaos-studio-samples-rest-api.md
+  - name: ARM templates
+    items:
+    - name: Targets and capabilities
+      href: sample-template-targets.md
+    - name: Experiments
+      href: sample-template-experiment.md
+  - name: Bicep 
+    href: chaos-studio-bicep.md
+  - name: Azure policy definitions
+    href: sample-policy-targets.md
+- name: Concepts
+  items:
+  - name: Chaos experiments
+    href: chaos-studio-chaos-experiments.md
+  - name: Faults and actions
+    href: chaos-studio-faults-actions.md
+  - name: Targets and capabilities
+    href: chaos-studio-targets-capabilities.md
+  - name: Target selection
+    href: chaos-studio-target-selection.md
+  - name: Permissions and security
+    href: chaos-studio-permissions-security.md
+  - name: Private networking
+    href: chaos-studio-private-networking.md
+  - name: Regional availability
+    href: chaos-studio-region-availability.md
+- name: How-to guides
+  items:
+  - name: Create and run experiment - Service-direct faults
+    items:
+    - name: Portal
+      href: chaos-studio-tutorial-service-direct-portal.md
+    - name: CLI
+      href: chaos-studio-tutorial-service-direct-cli.md
+  - name: Create and run experiment - Agent-based faults
+    items:
+    - name: Portal
+      href: chaos-studio-tutorial-agent-based-portal.md
+    - name: CLI
+      href: chaos-studio-tutorial-agent-based-cli.md
+  - name: Create and run experiment - Chaos Mesh faults on AKS
+    items:
+    - name: Portal
+      href: chaos-studio-tutorial-aks-portal.md
+    - name: CLI
+      href: chaos-studio-tutorial-aks-cli.md
+  - name: Create and run experiment - Dynamic targeting
+    items:
+    - name: Portal
+      href: chaos-studio-tutorial-dynamic-target-portal.md
+    - name: CLI 
+      href: chaos-studio-tutorial-dynamic-target-cli.md
+  - name: Troubleshoot common issues
+    href: troubleshooting.md
+  - name: Set up your Chaos Experiment to emit telemetry to Azure Monitor
+    href: chaos-studio-set-up-azure-monitor.md
+  - name: Set up your Agent-Based Chaos Experiment to emit telemetry to App Insights
+    href: chaos-studio-set-up-app-insights.md
+- name: Reference
+  items:
+  - name: Fault library
+    href: chaos-studio-fault-library.md
+  - name: Fault providers
+    href: chaos-studio-fault-providers.md
+  - name: Preview limitations and known issues
+    href: chaos-studio-limitations.md
+  - name: Service limits
+    href: chaos-studio-service-limits.md
+  - name: REST API documentation
+    href: /rest/api/chaosstudio/
+  - name: Python SDK
+    href: /python/api/azure-mgmt-chaos/
+  - name: .NET SDK
+    href: /dotnet/api/overview/azure/resourcemanager.chaos-readme?view=azure-dotnet-preview&preserve-view=true
+  - name: JavaScript SDK
+    href: https://www.npmjs.com/package/@azure/arm-chaos/
+- name: Resources
+  items:
+  - name: Azure roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?product=
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions

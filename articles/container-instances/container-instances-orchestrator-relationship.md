@@ -1,13 +1,12 @@
 ---
-title: Azure Container Instances and container orchestration
+title: Container instances and container orchestration
 description: Understand how Azure container instances interact with container orchestrators.
-services: container-instances
-author: dlepow
-
+ms.author: tomcassidy
+author: tomvcassidy
 ms.service: container-instances
-ms.topic: article
-ms.date: 04/15/2019
-ms.author: danlep
+services: container-instances
+ms.topic: conceptual
+ms.date: 06/17/2022
 ms.custom: mvc
 ---
 
@@ -54,7 +53,7 @@ Rather than scaling out the number of virtual machines in your cluster, then dep
 
 To rapidly scale application workloads in an [Azure Kubernetes Service](../aks/intro-kubernetes.md) (AKS) cluster, you can use *virtual nodes* created dynamically in Azure Container Instances. Virtual nodes enable network communication between pods that run in ACI and the AKS cluster. 
 
-Virtual nodes currently support Linux container instances. Get started with virtual nodes using the [Azure CLI](https://go.microsoft.com/fwlink/?linkid=2047538) or [Azure portal](https://go.microsoft.com/fwlink/?linkid=2047545).
+Virtual nodes currently support Linux container instances. Get started with virtual nodes using the [Azure CLI](../aks/virtual-nodes-cli.md) or [Azure portal](../aks/virtual-nodes-portal.md).
 
 Virtual nodes use the open source [Virtual Kubelet][aci-connector-k8s] to mimic the Kubernetes [kubelet][kubelet-doc] by registering as a node with unlimited capacity. The Virtual Kubelet dispatches the creation of [pods][pod-doc] as container groups in Azure Container Instances.
 
@@ -67,6 +66,6 @@ Create your first container with Azure Container Instances using the [quickstart
 <!-- IMAGES -->
 
 <!-- LINKS -->
-[aci-connector-k8s]: https://github.com/virtual-kubelet/virtual-kubelet/tree/master/providers/azure
-[kubelet-doc]: https://kubernetes.io/docs/admin/kubelet/
+[aci-connector-k8s]: https://github.com/virtual-kubelet/azure-aci
+[kubelet-doc]: https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/
 [pod-doc]: https://kubernetes.io/docs/concepts/workloads/pods/pod/

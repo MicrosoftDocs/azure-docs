@@ -1,0 +1,76 @@
+### YamlMime:Landing 
+
+title: Azure Analysis Services documentation 
+summary: Learn how to set up data modeling with Analysis Services in the cloud. Documentation shows you how to create an enterprise BI solution by using tabular data models. 
+
+metadata: 
+  title: Azure Analysis Services documentation | Microsoft Docs
+  description: Azure Analysis Services is a fully managed platform as a service (PaaS) that provides enterprise-grade data models in the cloud. 
+  ms.service: analysis-services
+  ms.topic: landing-page
+  ms.collection: 
+  author: minewiskan
+  ms.author: owend
+  manager: mtillman
+  ms.date: 10/30/2019
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Azure Analysis Services
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Analysis Services?
+            url: analysis-services-overview.md
+
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a server - Portal
+            url: analysis-services-create-server.md
+          - text: Create a server - PowerShell
+            url: analysis-services-create-powershell.md
+          - text: Configure server firewall - Portal
+            url: analysis-services-qs-firewall.md
+
+  # Card
+  - title: Understand
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Authentication and user permissions
+            url: analysis-services-manage-users.md
+          - text: Automation with service principals
+            url: analysis-services-service-principal.md
+          - text: Connecting to on-premises data sources
+            url: analysis-services-gateway.md
+
+  # Card
+  - title: Manage and connect
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Configure server administrator and user roles 
+            url: tutorials/analysis-services-tutorial-roles.md
+          - text: Add a sample model from the portal
+            url: analysis-services-create-sample-model.md
+          - text: Connect with Power BI Desktop
+            url: tutorials/analysis-services-tutorial-pbid.md
+
+  # Card
+  - title: Scripting and APIs
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: PowerShell
+            url: ./analysis-services-powershell.md
+          - text: REST API
+            url: /rest/api/analysisservices/
+          - text: Tabular Model Scripting Language (TMSL)
+            url: /analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference

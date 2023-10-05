@@ -1,22 +1,14 @@
 ---
-title: Reliable Services notifications | Microsoft Docs
-description: Conceptual documentation for Service Fabric Reliable Services notifications
-services: service-fabric
-documentationcenter: .net
-author: mcoskun
-manager: chackdan
-editor: masnider,vturecek
-
-ms.assetid: cdc918dd-5e81-49c8-a03d-7ddcd12a9a76
+title: Reliable Services notifications 
+description: Conceptual documentation for Service Fabric Reliable Services notifications for Reliable State Manager and Reliable Dictionary
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
 ms.service: service-fabric
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 6/29/2017
-ms.author: mcoskun
-
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Reliable Services notifications
 Notifications allow clients to track the changes that are being made to an object that they're interested in. 
 Two types of objects support notifications: *Reliable State Manager* and *Reliable Dictionary*.
@@ -26,8 +18,8 @@ Common reasons for using notifications are:
 * Building materialized views, such as secondary indexes or aggregated filtered views of the replica's state. An example is a sorted index of all keys in Reliable Dictionary.
 * Sending monitoring data, such as the number of users added in the last hour.
 
-Notifications are fired as part of applying operations. 
-Because of that, notifications should be handled as fast as possible, and synchronous events shouldn't include any expensive operations.
+Notifications are fired as a part of applying operations. On a primary replica, operations are applied after quorum acknowledgment as a part of `transaction.CommitAsync()` or `this.StateManager.GetOrAddAsync()`. On secondary replicas, operations are applied at replication queue data processing. Because of that, notifications should be handled as fast as possible, and synchronous events shouldn't include any expensive operations. Otherwise, it could negatively impact transaction processing time as well as replica build-ups.
+
 
 ## Reliable State Manager notifications
 Reliable State Manager provides notifications for the following events:
@@ -174,7 +166,7 @@ Use the action property in **NotifyDictionaryChangedEventArgs** to cast **Notify
 
 * **NotifyDictionaryChangedAction.Rebuild**: **NotifyDictionaryRebuildEventArgs**
 * **NotifyDictionaryChangedAction.Clear**: **NotifyDictionaryClearEventArgs**
-* **NotifyDictionaryChangedAction.Add** and **NotifyDictionaryChangedAction.Remove**: **NotifyDictionaryItemAddedEventArgs**
+* **NotifyDictionaryChangedAction.Add**: **NotifyDictionaryItemAddedEventArgs**
 * **NotifyDictionaryChangedAction.Update**: **NotifyDictionaryItemUpdatedEventArgs**
 * **NotifyDictionaryChangedAction.Remove**: **NotifyDictionaryItemRemovedEventArgs**
 
@@ -220,11 +212,10 @@ Here are some things to keep in mind:
 * Because notifications are fired as part of the applying operations, clients see only notifications for locally committed operations. And because operations are guaranteed only to be locally committed (in other words, logged), they might or might not be undone in the future.
 * On the redo path, a single notification is fired for each applied operation. This means that if transaction T1 includes Create(X), Delete(X), and Create(X), you'll get one notification for the creation of X, one for the deletion, and one for the creation again, in that order.
 * For transactions that contain multiple operations, operations are applied in the order in which they were received on the primary replica from the user.
-* As part of processing false progress, some operations might be undone. Notifications are raised for such undo operations, rolling the state of the replica back to a stable point. One important difference of undo notifications is that events that have duplicate keys are aggregated. For example, if transaction T1 is being undone, you'll see a single notification to Delete(X).
+* As part of processing false progress, some operations might be undone on secondary replicas. Notifications are raised for such undo operations, rolling the state of the replica back to a stable point. One important difference of undo notifications is that events that have duplicate keys are aggregated. For example, if transaction T1 is being undone, you'll see a single notification to Delete(X).
 
 ## Next steps
 * [Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Reliable Services quick start](service-fabric-reliable-services-quick-start.md)
 * [Reliable Services backup and restore (disaster recovery)](service-fabric-reliable-services-backup-restore.md)
-* [Developer reference for Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
-
+* [Developer reference for Reliable Collections](/dotnet/api/microsoft.servicefabric.data.collections#microsoft_servicefabric_data_collections)

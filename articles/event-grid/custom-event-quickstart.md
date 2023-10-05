@@ -1,69 +1,72 @@
 ---
-title: Send custom events to web endpoint - Event Grid, Azure CLI | Microsoft Docs
-description: Use Azure Event Grid and Azure CLI to publish a custom topic, and subscribe to events for that topic. The events are handled by a web application. 
-services: event-grid 
-keywords: 
-author: spelluru
-ms.author: spelluru
-ms.date: 12/07/2018
+title: 'Quickstart: Send custom events with Event Grid and Azure CLI'
+description: 'Quickstart Use Azure Event Grid and Azure CLI to publish a custom topic, and subscribe to events for that topic. The events are handled by a web application.'
+ms.date: 10/28/2022
 ms.topic: quickstart
-ms.service: event-grid
-ms.custom: seodec18
+ms.custom: devx-track-azurecli, mode-api
 ---
 # Quickstart: Route custom events to web endpoint with Azure CLI and Event Grid
 
-Azure Event Grid is an eventing service for the cloud. In this article, you use the Azure CLI to create a custom topic, subscribe to the custom topic, and trigger the event to view the result. Typically, you send events to an endpoint that processes the event data and takes actions. However, to simplify this article, you send the events to a web app that collects and displays the messages.
+Azure Event Grid is an eventing service for the cloud. In this article, you use the Azure CLI to create a custom topic, subscribe to the custom topic, and trigger the event to view the result.
+
+Typically, you send events to an endpoint that processes the event data and takes actions. However, to simplify this article, you send the events to a web app that collects and displays the messages.
 
 When you're finished, you see that the event data has been sent to the web app.
 
-![View results](./media/custom-event-quickstart/view-result.png)
+:::image type="content" source="./media/custom-event-quickstart/viewer-record-inserted-event.png" alt-text="Screenshot showing the Event Grid Viewer sample with a sample event.":::
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
-If you choose to install and use the CLI locally, this article requires that you are running the latest version of Azure CLI (2.0.24 or later). To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
-
-If you aren't using Cloud Shell, you must first sign in using `az login`.
+- This article requires version 2.0.70 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a resource group
 
 Event Grid topics are Azure resources, and must be placed in an Azure resource group. The resource group is a logical collection into which Azure resources are deployed and managed.
 
-Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. 
-
-The following example creates a resource group named *gridResourceGroup* in the *westus2* location.
+Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. The following example creates a resource group named *gridResourceGroup* in the *westus2* location. If you click **Try it**, you'll see the Azure Cloud Shell window in the right pane. Then, click **Copy** to copy the command and paste it in the Azure Cloud Shell window, and press ENTER to run the command. Change the name of the resource group and the location if you like. 
 
 ```azurecli-interactive
 az group create --name gridResourceGroup --location westus2
 ```
 
-[!INCLUDE [event-grid-register-provider-cli.md](../../includes/event-grid-register-provider-cli.md)]
+[!INCLUDE [register-provider-cli.md](./includes/register-provider-cli.md)]
 
 ## Create a custom topic
 
-An event grid topic provides a user-defined endpoint that you post your events to. The following example creates the custom topic in your resource group. Replace `<your-topic-name>` with a unique name for your topic. The custom topic name must be unique because it's part of the DNS entry. Additionally, it must be between 3-50 characters and contain only values a-z, A-Z, 0-9, and "-"
+An Event Grid topic provides a user-defined endpoint that you post your events to. The following example creates the custom topic in your resource group using Bash in Azure Cloud Shell. Replace `<your-topic-name>` with a unique name for your topic. The custom topic name must be unique because it's part of the DNS entry. Additionally, it must be between 3-50 characters and contain only values a-z, A-Z, 0-9, and "-"
 
-```azurecli-interactive
-topicname=<your-topic-name>
+1. Copy the following command, specify a name for the topic, and press ENTER to run the command. 
 
-az eventgrid topic create --name $topicname -l westus2 -g gridResourceGroup
-```
+    ```azurecli-interactive
+    topicname=<your-topic-name>
+    ```
+2. Use the [`az eventgrid topic create`](/cli/azure/eventgrid/topic#az-eventgrid-topic-create) command to create a custom topic. 
+
+    ```azurecli-interactive
+    az eventgrid topic create --name $topicname -l westus2 -g gridResourceGroup
+    ```
 
 ## Create a message endpoint
 
 Before subscribing to the custom topic, let's create the endpoint for the event message. Typically, the endpoint takes actions based on the event data. To simplify this quickstart, you deploy a [pre-built web app](https://github.com/Azure-Samples/azure-event-grid-viewer) that displays the event messages. The deployed solution includes an App Service plan, an App Service web app, and source code from GitHub.
 
-Replace `<your-site-name>` with a unique name for your web app. The web app name must be unique because it's part of the DNS entry.
 
-```azurecli-interactive
-sitename=<your-site-name>
 
-az group deployment create \
-  --resource-group gridResourceGroup \
-  --template-uri "https://raw.githubusercontent.com/Azure-Samples/azure-event-grid-viewer/master/azuredeploy.json" \
-  --parameters siteName=$sitename hostingPlanName=viewerhost
-```
+1. Copy the following command, specify a name for the web app (Event Grid Viewer sample), and press ENTER to run the command. Replace `<your-site-name>` with a unique name for your web app. The web app name must be unique because it's part of the DNS entry.
+
+    ```azurecli-interactive
+    sitename=<your-site-name>
+    ```
+2. Run the [`az deployment group create`](/cli/azure/deployment/group#az-deployment-group-create) to deploy the web app using an Azure Resource Manager template. 
+
+    ```azurecli-interactive
+    az deployment group create \
+      --resource-group gridResourceGroup \
+      --template-uri "https://raw.githubusercontent.com/Azure-Samples/azure-event-grid-viewer/master/azuredeploy.json" \
+      --parameters siteName=$sitename hostingPlanName=viewerhost
+    ```
 
 The deployment may take a few minutes to complete. After the deployment has succeeded, view your web app to make sure it's running. In a web browser, navigate to: 
 `https://<your-site-name>.azurewebsites.net`
@@ -72,7 +75,7 @@ You should see the site with no messages currently displayed.
 
 ## Subscribe to a custom topic
 
-You subscribe to an event grid topic to tell Event Grid which events you want to track and where to send those events. The following example subscribes to the custom topic you created, and passes the URL from your web app as the endpoint for event notification.
+You subscribe to an Event Grid topic to tell Event Grid which events you want to track and where to send those events. The following example subscribes to the custom topic you created, and passes the URL from your web app as the endpoint for event notification.
 
 The endpoint for your web app must include the suffix `/api/updates/`.
 
@@ -80,15 +83,16 @@ The endpoint for your web app must include the suffix `/api/updates/`.
 endpoint=https://$sitename.azurewebsites.net/api/updates
 
 az eventgrid event-subscription create \
-  -g gridResourceGroup \
-  --topic-name $topicname \
+  --source-resource-id "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventGrid/topics/$topicname" \
   --name demoViewerSub \
   --endpoint $endpoint
+  
 ```
 
 View your web app again, and notice that a subscription validation event has been sent to it. Select the eye icon to expand the event data. Event Grid sends the validation event so the endpoint can verify that it wants to receive event data. The web app includes code to validate the subscription.
 
-![View subscription event](./media/custom-event-quickstart/view-subscription-event.png)
+![View the subscription event in Azure Event Grid Viewer](./media/custom-event-quickstart/viewer-subscription-validation-event.png)
+
 
 ## Send an event to your custom topic
 
@@ -144,5 +148,13 @@ Now that you know how to create topics and event subscriptions, learn more about
 
 - [About Event Grid](overview.md)
 - [Route Blob storage events to a custom web endpoint](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
-- [Monitor virtual machine changes with Azure Event Grid and Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md)
-- [Stream big data into a data warehouse](event-grid-event-hubs-integration.md)
+- [Monitor virtual machine changes with Azure Event Grid and Logic Apps](monitor-virtual-machine-changes-logic-app.md)
+- [Stream big data into a data warehouse](event-hubs-integration.md)
+
+See the following samples to learn about publishing events to and consuming events from Event Grid using different programming languages. 
+
+- [Azure Event Grid samples for .NET](/samples/azure/azure-sdk-for-net/azure-event-grid-sdk-samples/)
+- [Azure Event Grid samples for Java](/samples/azure/azure-sdk-for-java/eventgrid-samples/)
+- [Azure Event Grid samples for Python](/samples/azure/azure-sdk-for-python/eventgrid-samples/)
+- [Azure Event Grid samples for JavaScript](/samples/azure/azure-sdk-for-js/eventgrid-javascript/)
+- [Azure Event Grid samples for TypeScript](/samples/azure/azure-sdk-for-js/eventgrid-typescript/)

@@ -1,0 +1,20 @@
+- name: Azure
+  tocHref: /azure
+  topicHref: /azure/index
+  items:
+  - name: Azure Virtual Desktop
+    tocHref: /azure/virtual-desktop
+    topicHref: /azure/virtual-desktop/index
+    items: 
+     - name: RemoteApp streaming
+       tocHref: /azure/virtual-desktop/remote-app-streaming
+       topicHRef: /azure/virtual-desktop/remote-app-streaming   
+     - name: Reference
+       tocHref: /WindowsServerDocs/remote/remote-desktop-services/clients/rdp-files
+       topicHref: /azure/virtual-desktop/index
+     - name: Reference
+       tocHref: /WindowsServerDocs/remote/remote-desktop-services/virtual-machine-recs
+       topicHref: /azure/virtual-desktop/index
+     - name: Troubleshoot
+       tocHref: /troubleshoot/windows-server/remote/fair-share-enabled-by-default-in-rds
+       topicHref: /azure/virtual-desktop/index

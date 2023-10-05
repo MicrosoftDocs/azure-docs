@@ -1,9 +1,9 @@
 ---
-author: daveba
+author: joflore
 ms.service: active-directory
 ms.topic: include
-ms.date: 04/30/2019
-ms.author: daveba
+ms.date: 09/15/2022
+ms.author: joflore
 ---
 
-Using this feature requires an Azure AD Premium P1 license. To find the right license for your requirements, see [Comparing generally available features of the Free, Basic, and Premium editions](https://azure.microsoft.com/pricing/details/active-directory/).
+Using this feature requires Azure AD Premium P1 licenses. To find the right license for your requirements, see [Compare generally available features of Azure AD](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).

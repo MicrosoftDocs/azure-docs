@@ -1,0 +1,1394 @@
+{
+  "redirections": [
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-device-sdk-platform-support.md",
+      "redirect_url": "/azure/iot-develop/about-iot-sdks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md",
+      "redirect_url": "/azure/iot-develop/quickstart-devkit-mxchip-az3166-iot-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-arduino-iot-devkit-az3166-door-monitor.md",
+      "redirect_url": "/azure/iot-develop/quickstart-devkit-mxchip-az3166-iot-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-arduino-iot-devkit-az3166-translator.md",
+      "redirect_url": "/azure/iot-develop/quickstart-devkit-mxchip-az3166-iot-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-devguide-messages-read-custom.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-devguide-messages-d2c",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld.md",
+      "redirect_url": "/azure/iot-develop/quickstart-devkit-mxchip-az3166-iot-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md",
+      "redirect_url": "/azure/iot-develop/quickstart-devkit-mxchip-az3166-iot-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring.md",
+      "redirect_url": "/azure/iot-develop/quickstart-devkit-mxchip-az3166-iot-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-state.md",
+      "redirect_url": "/azure/iot-develop/quickstart-devkit-mxchip-az3166-iot-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/quickstart-send-telemetry-android.md",
+      "redirect_url": "/azure/iot-develop/quickstart-send-telemetry-iot-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/quickstart-send-telemetry-ios.md",
+      "redirect_url": "/azure/iot-develop/quickstart-send-telemetry-iot-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/quickstart-send-telemetry-c.md",
+      "redirect_url": "/azure/iot-develop/quickstart-send-telemetry-iot-hub?pivots=programming-language-ansi-c",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/quickstart-send-telemetry-dotnet.md",
+      "redirect_url": "/azure/iot-develop/quickstart-send-telemetry-iot-hub?pivots=programming-language-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/quickstart-send-telemetry-java.md",
+      "redirect_url": "/azure/iot-develop/quickstart-send-telemetry-iot-hub?pivots=programming-language-java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/quickstart-send-telemetry-node.md",
+      "redirect_url": "/azure/iot-develop/quickstart-send-telemetry-iot-hub?pivots=programming-language-nodejs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/quickstart-send-telemetry-python.md",
+      "redirect_url": "/azure/iot-develop/quickstart-send-telemetry-iot-hub?pivots=programming-language-python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-csharp-csharp-c2d.md",
+      "redirect_url": "/azure/iot-hub/c2d-messaging-dotnet",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-python-python-c2d.md",
+      "redirect_url": "/azure/iot-hub/c2d-messaging-python",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-node-node-c2d.md",
+      "redirect_url": "/azure/iot-hub/c2d-messaging-node",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-java-java-c2d.md",
+      "redirect_url": "/azure/iot-hub/c2d-messaging-java",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-ios-swift-c2d.md",
+      "redirect_url": "/azure/iot-hub/c2d-messaging-ios",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-java-java-file-upload.md",
+      "redirect_url": "/azure/iot-hub/file-upload-java",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-python-python-file-upload.md",
+      "redirect_url": "/azure/iot-hub/file-upload-python",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-node-node-file-upload.md",
+      "redirect_url": "/azure/iot-hub/file-upload-node",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-csharp-csharp-file-upload.md",
+      "redirect_url": "/azure/iot-hub/file-upload-dotnet",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-java-java-schedule-jobs.md",
+      "redirect_url": "/azure/iot-hub/schedule-jobs-java",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-python-python-schedule-jobs.md",
+      "redirect_url": "/azure/iot-hub/schedule-jobs-python",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-node-node-schedule-jobs.md",
+      "redirect_url": "/azure/iot-hub/schedule-jobs-node",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-csharp-csharp-schedule-jobs.md",
+      "redirect_url": "/azure/iot-hub/schedule-jobs-dotnet",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-devguide-glossary.md",
+      "redirect_url": "/azure/iot/iot-glossary/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-what-is-azure-iot.md",
+      "redirect_url": "/azure/iot/iot-introduction",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-security-architecture.md",
+      "redirect_url": "/azure/iot/iot-security-architecture",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-security-best-practices.md",
+      "redirect_url": "/azure/iot/iot-overview-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-security-deployment.md",
+      "redirect_url": "/azure/iot/iot-overview-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-security-ground-up.md",
+      "redirect_url": "/azure/iot/iot-security-architecture",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-arduino-huzzah-esp8266-get-started.md",
+      "redirect_url": "/azure/iot-hub/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-how-to.md",
+      "redirect_url": "/azure/iot-hub/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-what-is-iot-hub.md",
+      "redirect_url": "/azure/iot-hub/about-iot-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/about-iot-hub.md",
+      "redirect_url": "/azure/iot-hub/iot-concepts-and-iot-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-concepts.md",
+      "redirect_url": "/azure/iot-hub/iot-concepts-and-iot-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/quickstart-send-telemetry-xamarinforms.md",
+      "redirect_url": "/azure/iot-hub/about-iot-hub",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-configure-your-device.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-deploy-blink-app.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-mac.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-ubuntu.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-win32.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-mac.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-ubuntu.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-win32.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-prepare-azure-iot-hub.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-deploy-resource-manager-template.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-read-table-storage.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-run-azure-blink.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-change-led-behavior.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-send-cloud-to-device-messages.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-auto-device-config.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-automatic-device-management",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-auto-device-config-cli.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-automatic-device-management-cli",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-create-using-cli-nodejs.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-create-using-cli",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-device-management-iothub-explorer.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-device-management-iot-extension-azure-cli-2-0",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-device-sdk-c-serializer.md",
+      "redirect_url": "/azure/iot-develop/tutorial-connect-device?pivots=programming-language-ansi-c",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-device-sdk-c-intro.md",
+      "redirect_url": "/azure/iot-develop/tutorial-connect-device?pivots=programming-language-ansi-c",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-device-sdk-c-iothubclient.md",
+      "redirect_url": "/azure/iot-develop/tutorial-connect-device?pivots=programming-language-ansi-c",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/quickstart-device-streams-echo-csharp.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-device-streams-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/quickstart-device-streams-echo-nodejs.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-device-streams-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/quickstart-device-streams-echo-c.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-device-streams-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/quickstart-device-streams-proxy-csharp.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-device-streams-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/quickstart-device-streams-proxy-nodejs.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-device-streams-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/quickstart-device-streams-proxy-c.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-device-streams-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-gateway-kit-c-get-started.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-gateway-kit-c-lesson2-get-the-tools-mac.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-gateway-kit-c-lesson2-get-the-tools-ubuntu.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-gateway-kit-c-lesson2-get-the-tools-win32.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-gateway-kit-c-lesson2-register-device.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-gateway-kit-c-lesson3-configure-ble-app.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-gateway-kit-c-lesson3-read-messages-from-hub.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-gateway-kit-c-lesson4-deploy-resource-manager-template.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-gateway-kit-c-lesson4-read-table-storage.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-gateway-kit-c-lesson5-create-gateway-module.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-gateway-kit-c-sim-get-started.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-gateway-kit-c-sim-lesson1-set-up-nuc.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-mac.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-ubuntu.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-win32.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-gateway-kit-c-sim-lesson2-register-device.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-gateway-kit-c-sim-lesson3-configure-simulated-device-app.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-gateway-kit-c-sim-lesson3-read-messages-from-hub.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-gateway-kit-c-sim-lesson4-deploy-resource-manager-template.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-gateway-kit-c-sim-lesson4-read-table-storage.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-gateway-kit-c-sim-troubleshooting.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-gateway-kit-c-troubleshooting",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-get-started-physical",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-get-started.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-get-started-physical",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-intel-edison-kit-c-get-started.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-get-started-physical",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-intel-edison-kit-node-get-started.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-get-started-physical",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-python-get-started.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-get-started-physical",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-sparkfun-esp8266-thing-dev-get-started.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-get-started-physical",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-intel-edison-kit-c-lesson1-configure-your-device.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-intel-edison-kit-c-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-intel-edison-kit-c-lesson1-deploy-blink-app.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-intel-edison-kit-c-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-intel-edison-kit-c-lesson1-get-the-tools-mac.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-intel-edison-kit-c-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-intel-edison-kit-c-lesson1-get-the-tools-ubuntu.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-intel-edison-kit-c-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-intel-edison-kit-c-lesson1-get-the-tools-win32.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-intel-edison-kit-c-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-intel-edison-kit-c-lesson2-get-azure-tools-mac.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-intel-edison-kit-c-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-intel-edison-kit-c-lesson2-get-azure-tools-ubuntu.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-intel-edison-kit-c-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-intel-edison-kit-c-lesson2-get-azure-tools-win32.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-intel-edison-kit-c-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-intel-edison-kit-c-lesson2-prepare-azure-iot-hub.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-intel-edison-kit-c-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-intel-edison-kit-c-lesson3-deploy-resource-manager-template.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-intel-edison-kit-c-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-intel-edison-kit-c-lesson3-read-table-storage.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-intel-edison-kit-c-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-intel-edison-kit-c-lesson3-run-azure-blink.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-intel-edison-kit-c-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-intel-edison-kit-c-lesson4-change-led-behavior.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-intel-edison-kit-c-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-intel-edison-kit-c-lesson4-send-cloud-to-device-messages.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-intel-edison-kit-c-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-intel-edison-kit-c-troubleshooting.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-intel-edison-kit-c-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-intel-edison-kit-node-lesson1-configure-your-device.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-intel-edison-kit-node-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-intel-edison-kit-node-lesson1-deploy-blink-app.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-intel-edison-kit-node-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-intel-edison-kit-node-lesson1-get-the-tools-mac.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-intel-edison-kit-node-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-intel-edison-kit-node-lesson1-get-the-tools-ubuntu.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-intel-edison-kit-node-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-intel-edison-kit-node-lesson1-get-the-tools-win32.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-intel-edison-kit-node-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-intel-edison-kit-node-lesson2-get-azure-tools-mac.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-intel-edison-kit-node-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-intel-edison-kit-node-lesson2-get-azure-tools-ubuntu.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-intel-edison-kit-node-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-intel-edison-kit-node-lesson2-get-azure-tools-win32.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-intel-edison-kit-node-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-intel-edison-kit-node-lesson2-prepare-azure-iot-hub.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-intel-edison-kit-node-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-intel-edison-kit-node-lesson3-deploy-resource-manager-template.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-intel-edison-kit-node-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-intel-edison-kit-node-lesson3-read-table-storage.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-intel-edison-kit-node-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-intel-edison-kit-node-lesson3-run-azure-blink.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-intel-edison-kit-node-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-intel-edison-kit-node-lesson4-change-led-behavior.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-intel-edison-kit-node-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-intel-edison-kit-node-lesson4-send-cloud-to-device-messages.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-intel-edison-kit-node-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-intel-edison-kit-node-troubleshooting.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-intel-edison-kit-node-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/twin-get-started-cli.md",
+      "redirect_url": "/azure/iot-hub/device-twins-cli",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-csharp-csharp-twin-getstarted.md",
+      "redirect_url": "/azure/iot-hub/device-twins-dotnet",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-java-java-twin-getstarted.md",
+      "redirect_url": "/azure/iot-hub/device-twins-java",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-node-node-twin-getstarted.md",
+      "redirect_url": "/azure/iot-hub/device-twins-node",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-python-twin-getstarted.md",
+      "redirect_url": "/azure/iot-hub/device-twins-python",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-node-node-module-twin-getstarted.md",
+      "redirect_url": "/azure/iot-hub/module-twins-node",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-c-c-module-twin-getstarted.md",
+      "redirect_url": "/azure/iot-hub/module-twins-c",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-csharp-csharp-module-twin-getstarted.md",
+      "redirect_url": "/azure/iot-hub/module-twins-dotnet",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-python-python-module-twin-getstarted.md",
+      "redirect_url": "/azure/iot-hub/module-twins-python",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-portal-csharp-module-twin-getstarted.md",
+      "redirect_url": "/azure/iot-hub/module-twins-portal-dotnet",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/module-twin-getstarted-cli.md",
+      "redirect_url": "/azure/iot-hub/module-twins-cli",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-gateway-sdk-physical-device.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-iot-edge-physical-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-linux-gateway-sdk-get-started.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-linux-iot-edge-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-linux-gateway-sdk-simulated-device.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-linux-iot-edge-simulated-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-csharp-node-device-management-get-started.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-node-node-device-management-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-csharp-node-schedule-jobs.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-node-node-schedule-jobs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-csharp-node-twin-getstarted.md",
+      "redirect_url": "/azure/iot-hub/device-twins-node",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-c-lesson1-configure-your-device.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-c-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-c-lesson1-deploy-blink-app.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-c-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-mac.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-c-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-ubuntu.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-c-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-win32.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-c-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-mac.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-c-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-ubuntu.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-c-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-win32.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-c-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-c-lesson2-prepare-azure-iot-hub.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-c-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-c-lesson3-deploy-resource-manager-template.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-c-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-c-lesson3-read-table-storage.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-c-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-c-lesson3-run-azure-blink.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-c-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-c-lesson4-change-led-behavior.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-c-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-c-lesson4-send-cloud-to-device-messages.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-c-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-c-troubleshooting.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-c-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-node-get-started.experimental.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-node-lesson1-configure-your-device.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-node-lesson1-deploy-blink-app.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-mac.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-ubuntu.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-mac.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-ubuntu.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-win32.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-node-lesson2-prepare-azure-iot-hub.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-node-lesson3-read-table-storage.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-node-lesson3-run-azure-blink.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-node-lesson4-change-led-behavior.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-node-lesson4-send-cloud-to-device-messages.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-node-troubleshooting.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started.experimental.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-security-x509-create-certificates.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-security-x509-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/tls-1.2-everywhere.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-tls-deprecating-1-0-and-1-1",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-tls.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-tls-support",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-explorer-cloud-device-messaging.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-vscode-iot-toolkit-cloud-device-messaging",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-windows-gateway-sdk-get-started.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-windows-iot-edge-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-windows-gateway-sdk-simulated-device.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-windows-iot-edge-simulated-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-metrics.md",
+      "redirect_url": "/azure/iot-hub/monitor-iot-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-monitor-resource-health.md",
+      "redirect_url": "/azure/iot-hub/monitor-iot-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/policy-samples.md",
+      "redirect_url": "/azure/iot-hub/policy-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-how-to-clone.md",
+      "redirect_url": "/azure/iot-hub/migrate-hub-arm",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-csharp-csharp-direct-methods.md",
+      "redirect_url": "/azure/iot-hub/quickstart-control-device-dotnet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-java-java-direct-methods.md",
+      "redirect_url": "/azure/iot-hub/quickstart-control-device-java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-csharp-node-direct-methods.md",
+      "redirect_url": "/azure/iot-hub/quickstart-control-device-node",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-node-node-direct-methods.md",
+      "redirect_url": "/azure/iot-hub/quickstart-control-device-node",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-python-python-direct-methods.md",
+      "redirect_url": "/azure/iot-hub/quickstart-control-device-python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/quickstart-control-device-dotnet.md",
+      "redirect_url": "/azure/iot-hub/quickstart-control-device?pivots=programming-language-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/quickstart-control-device-java.md",
+      "redirect_url": "/azure/iot-hub/quickstart-control-device?pivots=programming-language-java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/quickstart-control-device-node.md",
+      "redirect_url": "/azure/iot-hub/quickstart-control-device?pivots=programming-language-nodejs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/quickstart-control-device-python.md",
+      "redirect_url": "/azure/iot-hub/quickstart-control-device?pivots=programming-language-python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-csharp-csharp-getstarted.md",
+      "redirect_url": "/azure/iot-hub/quickstart-send-telemetry-dotnet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-java-java-getstarted.md",
+      "redirect_url": "/azure/iot-hub/quickstart-send-telemetry-java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-get-started-simulated.md",
+      "redirect_url": "/azure/iot-hub/quickstart-send-telemetry-node",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-node-node-getstarted.md",
+      "redirect_url": "/azure/iot-hub/quickstart-send-telemetry-node",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-python-getstarted.md",
+      "redirect_url": "/azure/iot-hub/quickstart-send-telemetry-python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-csharp-csharp-twin-how-to-configure.md",
+      "redirect_url": "/azure/iot-hub/tutorial-device-twins",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-csharp-node-twin-how-to-configure.md",
+      "redirect_url": "/azure/iot-hub/tutorial-device-twins",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-java-java-twin-how-to-configure.md",
+      "redirect_url": "/azure/iot-hub/tutorial-device-twins",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-node-node-twin-how-to-configure.md",
+      "redirect_url": "/azure/iot-hub/tutorial-device-twins",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-python-python-twin-how-to-configure.md",
+      "redirect_url": "/azure/iot-hub/tutorial-device-twins",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-csharp-csharp-firmware-update.md",
+      "redirect_url": "/azure/iot-hub/tutorial-firmware-update",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-java-java-firmware-update.md",
+      "redirect_url": "/azure/iot-hub/tutorial-firmware-update",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-node-node-firmware-update.md",
+      "redirect_url": "/azure/iot-hub/tutorial-firmware-update",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-python-python-firmware-update.md",
+      "redirect_url": "/azure/iot-hub/tutorial-firmware-update",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-csharp-csharp-process-d2c.md",
+      "redirect_url": "/azure/iot-hub/tutorial-routing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-java-java-process-d2c.md",
+      "redirect_url": "/azure/iot-hub/tutorial-routing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-node-node-process-d2c.md",
+      "redirect_url": "/azure/iot-hub/tutorial-routing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-python-python-process-d2c.md",
+      "redirect_url": "/azure/iot-hub/tutorial-routing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-csharp-csharp-device-management-get-started.md",
+      "redirect_url": "/azure/iot-hub/device-management-dotnet",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-python-python-device-management-get-started.md",
+      "redirect_url": "/azure/iot-hub/device-management-python",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-node-node-device-management-get-started.md",
+      "redirect_url": "/azure/iot-hub/device-management-node",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-java-java-device-management-getstarted.md",
+      "redirect_url": "/azure/iot-hub/device-management-java",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-store-data-in-azure-table-storage.md",
+      "redirect_url": "/azure/iot-hub/tutorial-routing#routing-to-a-storage-account",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-security-x509-get-started.md",
+      "redirect_url": "/azure/iot-hub/tutorial-x509-scripts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-troubleshoot-error-500xxx-internal-errors.md",
+      "redirect_url": "/azure/iot-hub/troubleshoot-error-codes#500xxx-internal-errors",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-troubleshoot-error-400027-connectionforcefullyclosedonnewconnection.md",
+      "redirect_url": "/azure/iot-hub/troubleshoot-error-codes#40027-connectionforcefullyclosedonnewconnection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-troubleshoot-error-401003-iothubunauthorized.md",
+      "redirect_url": "/azure/iot-hub/troubleshoot-error-codes#401003-iothubunauthorized",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-troubleshoot-error-403004-devicemaximumqueuedepthexceeded.md",
+      "redirect_url": "/azure/iot-hub/troubleshoot-error-codes#403004-devicemaximumqueuedepthexceeded",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-troubleshoot-error-403002-iothubquotaexceeded.md",
+      "redirect_url": "/azure/iot-hub/troubleshoot-error-codes#403002-iothubquotaexceeded",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-troubleshoot-error-403006-devicemaximumactivefileuploadlimitexceeded.md",
+      "redirect_url": "/azure/iot-hub/troubleshoot-error-codes#403006-devicemaximumactivefileuploadlimitexceeded",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-troubleshoot-error-404001-devicenotfound.md",
+      "redirect_url": "/azure/iot-hub/troubleshoot-error-codes#404001-devicenotfound",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-troubleshoot-error-404103-devicenotonline.md",
+      "redirect_url": "/azure/iot-hub/troubleshoot-error-codes#404103-devicenotonline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-troubleshoot-error-404104-deviceconnectionclosedremotely.md",
+      "redirect_url": "/azure/iot-hub/troubleshoot-error-codes#404104-deviceconnectionclosedremotely",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-troubleshoot-error-409001-devicealreadyexists.md",
+      "redirect_url": "/azure/iot-hub/troubleshoot-error-codes#409001-devicealreadyexists",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-troubleshoot-error-409002-linkcreationconflict.md",
+      "redirect_url": "/azure/iot-hub/troubleshoot-error-codes#409002-linkcreationconflict",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-troubleshoot-error-412002-devicemessagelocklost.md",
+      "redirect_url": "/azure/iot-hub/troubleshoot-error-codes#412002-devicemessagelocklost",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-troubleshoot-error-429001-throttlingexception.md",
+      "redirect_url": "/azure/iot-hub/troubleshoot-error-codes#429001-throttlingexception",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-troubleshoot-error-503003-partitionnotfound.md",
+      "redirect_url": "/azure/iot-hub/troubleshoot-error-codes#503003-partitionnotfound",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-troubleshoot-error-504101-gatewaytimeout.md",
+      "redirect_url": "/azure/iot-hub/troubleshoot-error-codes#504101-gatewaytimeout",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md",
+      "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/doc/commercial_gateway_kit/iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc.md",
+      "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/doc/commercial_gateway_kit/iot-hub-gateway-kit-c-lesson1-set-up-nuc.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-gateway-kit-c-troubleshooting.md",
+      "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/doc/commercial_gateway_kit/iot-hub-gateway-kit-c-troubleshooting.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md",
+      "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/doc/commercial_gateway_kit/iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-iot-edge-overview.md",
+      "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/doc/iot-hub-iot-edge-overview.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-iot-edge-create-module-dotnet-core.md",
+      "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/doc/module_development/iot-hub-iot-edge-create-module-dotnet-core.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-iot-edge-create-module-java.md",
+      "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/doc/module_development/iot-hub-iot-edge-create-module-java.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-iot-edge-create-module-js.md",
+      "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/doc/module_development/iot-hub-iot-edge-create-module-js.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-iot-edge-physical-device.md",
+      "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/samples/ble_gateway/iot-hub-iot-edge-physical-device.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-linux-iot-edge-get-started.md",
+      "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/samples/hello_world/iot-hub-linux-iot-edge-get-started.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-windows-iot-edge-get-started.md",
+      "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/samples/hello_world/iot-hub-windows-iot-edge-get-started.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-linux-iot-edge-simulated-device.md",
+      "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/samples/simulated_device_cloud_upload/iot-hub-linux-iot-edge-simulated-device.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-windows-iot-edge-simulated-device.md",
+      "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/samples/simulated_device_cloud_upload/iot-hub-windows-iot-edge-simulated-device.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/tutorial-firmware-update.md",
+      "redirect_url": "/azure/iot-hub-device-update/device-update-raspberry-pi",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-device-management-visual-studio.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-device-management-iot-toolkit",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-operations-monitoring.md",
+      "redirect_url": "/azure/iot-hub/monitor-iot-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-migrate-to-diagnostics-settings.md",
+      "redirect_url": "/azure/iot-hub/monitor-iot-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-protocol-gateway.md",
+      "redirect_url": "/azure/iot-edge/iot-edge-as-gateway",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-visual-studio-cloud-device-messaging.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-vscode-iot-toolkit-cloud-device-messaging",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-weather-forecast-machine-learning.md",
+      "redirect_url": "/azure/iot-hub/iot-concepts-and-iot-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/tutorial-x509-certificates.md",
+      "redirect_url": "/azure/iot-hub/tutorial-x509-test-certs",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/tutorial-x509-introduction.md",
+      "redirect_url": "/azure/iot-hub/tutorial-x509-test-certs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/tutorial-x509-openssl.md",
+      "redirect_url": "/azure/iot-hub/tutorial-x509-test-certs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/tutorial-x509-prove-possession.md",
+      "redirect_url": "/azure/iot-hub/tutorial-x509-test-certs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/tutorial-x509-self-sign.md",
+      "redirect_url": "/azure/iot-hub/tutorial-x509-test-certs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/tutorial-x509-scripts.md",
+      "redirect_url": "/azure/iot-hub/tutorial-x509-test-certs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/tutorial-x509-test-certificate.md",
+      "redirect_url": "/azure/iot-hub/tutorial-x509-test-certs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-reliability-features-in-sdks.md",
+      "redirect_url": "/azure/iot-develop/how-to-use-reliability-features-in-sdks",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-device-embedded-c-sdk.md",
+      "redirect_url": "/azure/iot-develop/concepts-using-c-sdk-and-embedded-c-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-devguide-develop-for-constrained-devices.md",
+      "redirect_url": "/azure/iot-develop/concepts-using-c-sdk-and-embedded-c-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-how-to-develop-for-mobile-devices.md",
+      "redirect_url": "/azure/iot-develop/about-iot-sdks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-how-to-android-things.md",
+      "redirect_url": "/azure/iot-develop/about-iot-sdks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/quickstart-control-device-android.md",
+      "redirect_url": "/azure/iot-develop/about-iot-sdks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-mqtt-5-reference.md",
+      "redirect_url": "/azure/iot/iot-mqtt-5-preview-reference",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-mqtt-5.md",
+      "redirect_url": "/azure/iot/iot-mqtt-5-preview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-mqtt-support.md",
+      "redirect_url": "/azure/iot/iot-mqtt-connect-to-iot-hub",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-x509-certificate-concepts.md",
+      "redirect_url": "/azure/iot-hub/authenticate-authorize-x509",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-x509ca-overview.md",
+      "redirect_url": "/azure/iot-hub/authenticate-authorize-x509",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-x509ca-concept.md",
+      "redirect_url": "/azure/iot-hub/authenticate-authorize-x509",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-dev-guide-azure-ad-rbac.md",
+      "redirect_url": "/azure/iot-hub/authenticate-authorize-azure-ad",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-dev-guide-sas.md",
+      "redirect_url": "/azure/iot-hub/authenticate-authorize-sas",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-devguide-security.md",
+      "redirect_url": "/azure/iot-hub/authenticate-authorize-azure-ad",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-vscode-iot-toolkit-cloud-device-messaging.md",
+      "redirect_url": "/azure/iot-hub/reference-iot-hub-extension",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-device-management-iot-toolkit.md",
+      "redirect_url": "/azure/iot-hub/reference-iot-hub-extension",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-device-management-iot-extension-azure-cli-2-0.md",
+      "redirect_url": "/azure/iot-hub/reference-iot-hub-extension",
+      "redirect_document_id": false
+    }
+  ]
+}

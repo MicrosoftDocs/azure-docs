@@ -1,210 +1,164 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with ArcGIS Enterprise | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and ArcGIS Enterprise.
+title: 'Tutorial: Microsoft Entra SSO integration with ArcGIS Enterprise'
+description: Learn how to configure single sign-on between Microsoft Entra ID and ArcGIS Enterprise.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-
-ms.assetid: 24809e9d-a4aa-4504-95a9-e4fcf484f431
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/28/2018
+ms.date: 11/21/2022
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
-# Tutorial: Azure Active Directory integration with ArcGIS Enterprise
+# Tutorial: Microsoft Entra SSO integration with ArcGIS Enterprise
 
-In this tutorial, you learn how to integrate ArcGIS Enterprise with Azure Active Directory (Azure AD).
-Integrating ArcGIS Enterprise with Azure AD provides you with the following benefits:
+In this tutorial, you'll learn how to integrate ArcGIS Enterprise with Microsoft Entra ID. When you integrate ArcGIS Enterprise with Microsoft Entra ID, you can:
 
-* You can control in Azure AD who has access to ArcGIS Enterprise.
-* You can enable your users to be automatically signed-in to ArcGIS Enterprise (Single Sign-On) with their Azure AD accounts.
-* You can manage your accounts in one central location - the Azure portal.
-
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+* Control in Microsoft Entra ID who has access to ArcGIS Enterprise.
+* Enable your users to be automatically signed-in to ArcGIS Enterprise with their Microsoft Entra accounts.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
-To configure Azure AD integration with ArcGIS Enterprise, you need the following items:
+To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
-* ArcGIS Enterprise single sign-on enabled subscription
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* ArcGIS Enterprise single sign-on (SSO) enabled subscription.
+
+> [!NOTE]
+> This integration is also available to use from Microsoft Entra US Government Cloud environment. You can find this application in the Microsoft Entra US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+In this tutorial, you configure and test Microsoft Entra single sign-on in a test environment.
 
+* ArcGIS Enterprise supports **SP and IDP** initiated SSO.
+* ArcGIS Enterprise supports **Just In Time** user provisioning.
 
+## Add ArcGIS Enterprise from the gallery
 
-* ArcGIS Enterprise supports **SP and IDP** initiated SSO
-* ArcGIS Enterprise supports **Just In Time** user provisioning
+To configure the integration of ArcGIS Enterprise into Microsoft Entra ID, you need to add ArcGIS Enterprise from the gallery to your list of managed SaaS apps.
 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type **ArcGIS Enterprise** in the search box.
+1. Select **ArcGIS Enterprise** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Adding ArcGIS Enterprise from the gallery
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-To configure the integration of ArcGIS Enterprise into Azure AD, you need to add ArcGIS Enterprise from the gallery to your list of managed SaaS apps.
+<a name='configure-and-test-azure-ad-sso-for-arcgis-enterprise'></a>
 
-**To add ArcGIS Enterprise from the gallery, perform the following steps:**
+## Configure and test Microsoft Entra SSO for ArcGIS Enterprise
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
+Configure and test Microsoft Entra SSO with ArcGIS Enterprise using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in ArcGIS Enterprise.
 
-	![The Azure Active Directory button](common/select-azuread.png)
+To configure and test Microsoft Entra SSO with ArcGIS Enterprise, perform the following steps:
 
-2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
+1. **[Configure ArcGIS Enterprise SSO](#configure-arcgis-enterprise-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create ArcGIS Enterprise test user](#create-arcgis-enterprise-test-user)** - to have a counterpart of B.Simon in ArcGIS Enterprise that is linked to the Microsoft Entra representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-	![The Enterprise applications blade](common/enterprise-applications.png)
+<a name='configure-azure-ad-sso'></a>
 
-3. To add new application, click **New application** button on the top of dialog.
+## Configure Microsoft Entra SSO
 
-	![The New application button](common/add-new-app.png)
+Follow these steps to enable Microsoft Entra SSO.
 
-4. In the search box, type **ArcGIS Enterprise**, select **ArcGIS Enterprise** from result panel then click **Add** button to add the application.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **ArcGIS Enterprise** > **Single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-	 ![ArcGIS Enterprise in the results list](common/search-new-app.png)
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-## Configure and test Azure AD single sign-on
+1. On the **Basic SAML Configuration** section, perform the following steps, if you wish to configure the application in **IDP** Initiated mode:
 
-In this section, you configure and test Azure AD single sign-on with [Application name] based on a test user called **Britta Simon**.
-For single sign-on to work, a link relationship between an Azure AD user and the related user in [Application name] needs to be established.
-
-To configure and test Azure AD single sign-on with [Application name], you need to complete the following building blocks:
-
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Configure ArcGIS Enterprise Single Sign-On](#configure-arcgis-enterprise-single-sign-on)** - to configure the Single Sign-On settings on application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create ArcGIS Enterprise test user](#create-arcgis-enterprise-test-user)** - to have a counterpart of Britta Simon in ArcGIS Enterprise that is linked to the Azure AD representation of user.
-6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
-
-### Configure Azure AD single sign-on
-
-In this section, you enable Azure AD single sign-on in the Azure portal.
-
-To configure Azure AD single sign-on with [Application name], perform the following steps:
-
-1. In the [Azure portal](https://portal.azure.com/), on the **ArcGIS Enterprise** application integration page, select **Single sign-on**.
-
-    ![Configure single sign-on link](common/select-sso.png)
-
-2. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
-
-    ![Single sign-on select mode](common/select-saml-option.png)
-
-3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
-
-	![Edit Basic SAML Configuration](common/edit-urls.png)
-
-4. On the **Basic SAML Configuration** section, perform the following steps, if you wish to configure the application in **IDP** Initiated mode:
-
-    ![ArcGIS Enterprise Domain and URLs single sign-on information](common/idp-intiated.png)
-
-    a. In the **Identifier** text box, type a URL using the following pattern:
+    a. In the **Identifier** text box, type a value using the following pattern:
     `<EXTERNAL_DNS_NAME>.portal`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<EXTERNAL_DNS_NAME>/portal/sharing/rest/oauth2/saml/signin2`
+    `https://<EXTERNAL_DNS_NAME>/portal/sharing/rest/oauth2/saml/signin`
 
     c. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    ![ArcGIS Enterprise Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
-
-	In the **Sign-on URL** text box, type a URL using the following pattern:
+    In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<EXTERNAL_DNS_NAME>/portal/sharing/rest/oauth2/saml/signin`
 
     > [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [ArcGIS Enterprise Client support team](mailto:support@esri.com) to get these values. You will get the Identifier value from **Set Identity Provider section**, which is explained later in this tutorial.
+    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [ArcGIS Enterprise Client support team](mailto:support@esri.com) to get these values. You will get the Identifier value from **Set Identity Provider section**, which is explained later in this tutorial.
 
-5. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
+1. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
-	![The Certificate download link](common/copy-metadataurl.png)
+    ![The Certificate download link](common/copy-metadataurl.png)
 
-### Configure ArcGIS Enterprise Single Sign-On
+<a name='create-an-azure-ad-test-user'></a>
 
-1. In a different web browser window, log in to your ArcGIS Enterprise company site as an administrator.
+### Create a Microsoft Entra test user 
 
-2. Select **Organization >EDIT SETTINGS**.
+In this section, you'll create a test user called B.Simon.
 
-	![ArcGIS Enterprise Configuration](./media/arcgisenterprise-tutorial/configure1.png)
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Select **Review + create**.
+1. Select **Create**.
 
-3. Select **Security** tab.
+<a name='assign-the-azure-ad-test-user'></a>
 
-	![ArcGIS Enterprise Configuration](./media/arcgisenterprise-tutorial/configure2.png)
+### Assign the Microsoft Entra test user
 
-4. Scroll down to the **Enterprise Logins via SAML** section and select **SET ENTERPRISE LOGIN**.
+In this section, you'll enable B.Simon to use single sign-on by granting access to ArcGIS Enterprise.
 
-	![ArcGIS Enterprise Configuration](./media/arcgisenterprise-tutorial/configure3.png)
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **ArcGIS Enterprise**.
+1. In the app's overview page, select **Users and groups**.
+1. Select **Add user/group**, then select **Users and groups** in the **Add Assignment** dialog.
+   1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+   1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+   1. In the **Add Assignment** dialog, click the **Assign** button.
 
-5. On the **Set Identity Provider** section, perform the following steps:
+## Configure ArcGIS Enterprise SSO
 
-	![ArcGIS Enterprise Configuration](./media/arcgisenterprise-tutorial/configure4.png)
 
-	a. Please provide a name like **Azure Active Directory Test** in the **Name** textbox.
 
-	b. In the **URL** textbox, paste the **App Federation Metadata Url** value which you have copied from the Azure portal.
 
-	c. Click **Show advanced settings** and copy the **Entity ID** value and paste it into the **Identifier** textbox in the **ArcGIS Enterprise Domain and URLs** section in Azure portal.
-	
-	![ArcGIS Enterprise Configuration](./media/arcgisenterprise-tutorial/configure5.png)
+1. In a different web browser window, sign in to your ArcGIS Enterprise company site as an administrator
 
-	d. Click **UPDATE IDENTITY PROVIDER**.
 
-### Create an Azure AD test user 
+1. Select **Organization >EDIT SETTINGS**.
 
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+    ![Screenshot shows the ArcGIS Enterprise Organization tab with Edit settings called out.](./media/arcgisenterprise-tutorial/configure-1.png)
 
-1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. Select **Security** tab.
 
-    ![The "Users and groups" and "All users" links](common/users.png)
+    ![Screenshot shows the Security tab selected.](./media/arcgisenterprise-tutorial/configure-2.png)
 
-2. Select **New user** at the top of the screen.
+1. Scroll down to the **Enterprise Logins via SAML** section and select **SET ENTERPRISE LOGIN**.
 
-    ![New user Button](common/new-user.png)
+    ![Screenshot shows Enterprise Logins via SAML where you can select Set Enterprise Login.](./media/arcgisenterprise-tutorial/configure-3.png)
 
-3. In the User properties, perform the following steps.
+1. On the **Set Identity Provider** section, perform the following steps:
 
-    ![The User dialog box](common/user-properties.png)
+    ![Screenshot shows Set Identity Provider where you perform the steps described here.](./media/arcgisenterprise-tutorial/configure-4.png)
 
-    a. In the **Name** field enter **BrittaSimon**.
-  
-    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
-    For example, BrittaSimon@contoso.com
+    a. Please provide a name like **Microsoft Entra ID Test** in the **Name** textbox.
 
-    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
+    b. In the **URL** textbox, paste the **App Federation Metadata Url** value which you copied previously.
 
-    d. Click **Create**.
+    c. Click **Show advanced settings** and copy the **Entity ID** value and paste it into the **Identifier** textbox in the **ArcGIS Enterprise Domain and URLs** section in Azure portal.
 
-### Assign the Azure AD test user
+    ![Screenshot shows where to get the Entity I D and update identify provider.](./media/arcgisenterprise-tutorial/configure-5.png)
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to ArcGIS Enterprise.
-
-1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **ArcGIS Enterprise**.
-
-	![Enterprise applications blade](common/enterprise-applications.png)
-
-2. In the applications list, type and select **ArcGIS Enterprise**.
-
-	![The ArcGIS Enterprise link in the Applications list](common/all-applications.png)
-
-3. In the menu on the left, select **Users and groups**.
-
-    ![The "Users and groups" link](common/users-groups-blade.png)
-
-4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
-
-    ![The Add Assignment pane](common/add-assign-user.png)
-
-5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
-
-6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
-
-7. In the **Add Assignment** dialog click the **Assign** button.
+    d. Click **UPDATE IDENTITY PROVIDER**.
 
 ### Create ArcGIS Enterprise test user
 
@@ -213,17 +167,22 @@ In this section, a user called Britta Simon is created in ArcGIS Enterprise. Arc
 > [!Note]
 > If you need to create a user manually, contact [ArcGIS Enterprise support team](mailto:support@esri.com).
 
-### Test single sign-on 
+## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
-When you click the ArcGIS Enterprise tile in the Access Panel, you should be automatically signed in to the ArcGIS Enterprise for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+#### SP initiated:
 
-## Additional Resources
+* Click on **Test this application**, this will redirect to ArcGIS Enterprise Sign on URL where you can initiate the login flow.  
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+* Go to ArcGIS Enterprise Sign-on URL directly and initiate the login flow from there.
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+#### IDP initiated:
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+* Click on **Test this application**, and you should be automatically signed in to the ArcGIS Enterprise for which you set up the SSO. 
 
+You can also use Microsoft My Apps to test the application in any mode. When you click the ArcGIS Enterprise tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the ArcGIS Enterprise for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
+
+## Next steps
+
+Once you configure ArcGIS Enterprise you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

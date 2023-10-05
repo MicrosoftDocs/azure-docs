@@ -1,19 +1,20 @@
 ---
-title: Tutorial to copy data to Azure Data Box device via data copy service | Microsoft Docs
+title: "Tutorial: Use data copy service to copy to your device"
+titleSuffix: Azure Data Box
 description: In this tutorial, you learn how to copy data to your Azure Data Box device via the data copy service
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/24/2019
-ms.author: alkohli
+ms.date: 04/04/2021
+ms.author: shaas
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
 ---
 # Tutorial: Use the data copy service to copy data into Azure Data Box (preview)
 
-This tutorial describes how to ingest data by using the data copy service without an intermediate host. The data copy service runs locally on Microsoft Azure Data Box, connects to your network-attached storage (NAS) device via SMB, and copies data to Data Box.
+This tutorial describes how to ingest data by using the data copy service without an intermediate host. The data copy service runs locally on Microsoft Azure Data Box, connects to your network-attached storage (NAS) device via SMB, and copies data to Data Box. 
 
 Use the data copy service:
 
@@ -23,6 +24,7 @@ Use the data copy service:
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+>
 > * Copy data to Data Box
 
 ## Prerequisites
@@ -38,9 +40,14 @@ Before you begin, make sure that:
 
 After you're connected to the NAS device, the next step is to copy your data. Before you begin the data copy, review the following considerations:
 
-- While copying data, make sure that the data size conforms to the size limits described in the article [Azure storage and Data Box limits](data-box-limits.md).
-- If data uploaded by Data Box is concurrently uploaded by other applications outside Data Box, upload-job failures and data corruption might result.
-- If the data is being modified as the data copy service is reading it, you might see failures or corruption of data.
+* While copying data, make sure that the data size conforms to the size limits described in the article [Azure storage and Data Box limits](data-box-limits.md).
+
+* If data uploaded by Data Box is concurrently uploaded by other applications outside Data Box, upload-job failures and data corruption might result.
+
+* If the data is being modified as the data copy service is reading it, you might see failures or corruption of data.
+
+> [!IMPORTANT]
+> Make sure that you maintain a copy of the source data until you can confirm that the Data Box has transferred your data into Azure Storage.
 
 To copy data by using the data copy service, you need to create a job:
 
@@ -55,13 +62,13 @@ To copy data by using the data copy service, you need to create a job:
     |-------------------------------|---------|
     |**Job name**                       |A unique name fewer than 230 characters for the job. These characters aren't allowed in the job name: \<, \>, \|, \?, \*, \\, \:, \/, and \\\.         |
     |**Source location**                |Provide the SMB path to the data source in the format: `\\<ServerIPAddress>\<ShareName>` or `\\<ServerName>\<ShareName>`.        |
-    |**Username**                       |Username in `\\<DomainName><UserName>` format to access the data source.        |
+    |**Username**                       |Username in `\\<DomainName><UserName>` format to access the data source. If a local administrator is connecting, they will need explicit security permissions. Right-click the folder, select **Properties** and then select **Security**. This should add the local administrator in the **Security** tab.       |
     |**Password**                       |Password to access the data source.           |
     |**Destination storage account**    |Select the target storage account to upload data to from the list.         |
-    |**Destination type**       |Select the target storage type from the list: **Block Blob**, **Page Blob**, or **Azure Files**.        |
+    |**Destination type**       |Select the target storage type from the list: **Block Blob**, **Page Blob**, **Azure Files**, or **Block Blob (Archive)**.        |
     |**Destination container/share**    |Enter the name of the container or share that you want to upload data to in your destination storage account. The name can be a share name or a container name. For example, use `myshare` or `mycontainer`. You can also enter the name in the format `sharename\directory_name` or `containername\virtual_directory_name`.        |
-    |**Copy files matching pattern**    | You can enter the file-name matching pattern in the following two ways:<ul><li>**Use wildcard expressions:** Only `*` and `?` are supported in wildcard expressions. For example, the expression `*.vhd` matches all the files that have the `.vhd` extension. Similarly, `*.dl?` matches all the files with either the extension `.dl` or that start with `.dl`, such as `.dll`. Likewise, `*foo` matches all the files whose names end with `foo`.<br>You can directly enter the wildcard expression in the field. By default, the value you enter in the field is treated as a wildcard expression.</li><li>**Use regular expressions:** POSIX-based regular expressions are supported. For example, the regular expression `.*\.vhd` will match all the files that have the `.vhd` extension. For regular expressions, provide the `<pattern>` directly as `regex(<pattern>)`. For more information about regular expressions, go to [Regular expression language - a quick reference](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference).</li><ul>|
-    |**File optimization**              |When this feature is enabled, files smaller than 1 MB are packed during ingestion. This packing speeds up the data copy for small files. It also saves a significant amount of time when the number of files far exceeds the number of directories.        |
+    |**Copy files matching pattern**    | You can enter the file-name matching pattern in the following two ways:<ul><li>**Use wildcard expressions:** Only `*` and `?` are supported in wildcard expressions. For example, the expression `*.vhd` matches all the files that have the `.vhd` extension. Similarly, `*.dl?` matches all the files with either the extension `.dl` or that start with `.dl`, such as `.dll`. Likewise, `*foo` matches all the files whose names end with `foo`.<br>You can directly enter the wildcard expression in the field. By default, the value you enter in the field is treated as a wildcard expression.</li><li>**Use regular expressions:** POSIX-based regular expressions are supported. For example, the regular expression `.*\.vhd` will match all the files that have the `.vhd` extension. For regular expressions, provide the `<pattern>` directly as `regex(<pattern>)`. For more information about regular expressions, go to [Regular expression language - a quick reference](/dotnet/standard/base-types/regular-expression-language-quick-reference).</li><ul>|
+    |**File optimization**              |When this feature is enabled, files smaller than 1 MB are packed during ingestion. This packing speeds up the data copy for small files. It also saves a significant amount of time when the number of files far exceeds the number of directories.</br>If you use file optimization:<ul><li>After you run prepare to ship, you can [download a BOM file](data-box-logs.md#inspect-bom-during-prepare-to-ship), which lists the original file names, to help you ensure that all the right files are copied.</li><li>Don't delete the packed files, whose file names begin with "ADB_PACK_". If you delete a packed file, the original file isn't uploaded during future data copies.</li><li>Don't copy the same files that you copy with the Copy Service via other protocols such as SMB, NFS, or REST API. Using different protocols can result in conflicts and failure during data uploads. </li><li>File optimization is not supported for Azure Files. To see what timestamps, file attributes, and ACLs are copied for a non-optimized data copy job, view the [transferred metadata](data-box-file-acls-preservation.md). </li></ul>    |
  
 4. Select **Start**. The inputs are validated, and if the validation succeeds, then the job starts. It might take a few minutes for the job to start.
 
@@ -140,4 +147,3 @@ Advance to the next tutorial to learn how to ship your Data Box device back to M
 
 > [!div class="nextstepaction"]
 > [Ship your Azure Data Box device to Microsoft](./data-box-deploy-picked-up.md)
-

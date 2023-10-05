@@ -1,23 +1,14 @@
 ---
-title: Deploy a Service Fabric app with continuous integration and Azure Pipelines in Azure | Microsoft Docs
+title: Deploy an app with CI and Azure Pipelines
 description: In this tutorial, you learn how to set up continuous integration and deployment for a Service Fabric application using Azure Pipelines.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 12/02/2018
-ms.author: atsenthi
-ms.custom: mvc
-
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Tutorial: Deploy an application with CI/CD to a Service Fabric cluster
 
 This tutorial is part four of a series and describes how to set up continuous integration and deployment for an Azure Service Fabric application using Azure Pipelines.  An existing Service Fabric application is needed, the application created in [Build a .NET application](service-fabric-tutorial-create-dotnet-app.md) is used as an example.
@@ -46,7 +37,7 @@ Before you begin this tutorial:
 * [Install Visual Studio 2019](https://www.visualstudio.com/) and install the **Azure development** and **ASP.NET and web development** workloads.
 * [Install the Service Fabric SDK](service-fabric-get-started.md)
 * Create a Windows Service Fabric cluster on Azure, for example by [following this tutorial](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
-* Create an [Azure DevOps organization](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student). This allows you to create a project in Azure DevOps and use Azure Pipelines.
+* Create an [Azure DevOps organization](/azure/devops/organizations/accounts/create-organization-msa-or-work-student). This allows you to create a project in Azure DevOps and use Azure Pipelines.
 
 ## Download the Voting sample application
 
@@ -72,11 +63,11 @@ Create a new local Git repo for your project by selecting **Add to Source Contro
 
 In the **Push** view in **Team Explorer**, select the **Publish Git Repo** button under **Push to Azure DevOps**.
 
-![Push Git repo][push-git-repo]
+![Screenshot of the Team Explorer - Synchronization window in Visual Studio. The Publish to Git Repo button is highlighted under Push to Azure DevOps.][push-git-repo]
 
 Verify your email and select your account in the **Azure DevOps Domain** drop-down. Enter your repository name and select **Publish repository**.
 
-![Push Git repo][publish-code]
+![Screenshot of the Push to Azure DevOps settings with the Email, Account, Repository name, and Publish Repository button highlighted.][publish-code]
 
 Publishing the repo creates a new project in your account with the same name as the local repo. To create the repo in an existing project, click **Advanced** next to **Repository** name and select a project. You can view your code on the web by selecting **See it on the web**.
 
@@ -140,13 +131,13 @@ Enable a continuous deployment trigger so that a release is automatically create
 
 Select **+ Release** -> **Create a Release** -> **Create** to manually create a release. You can monitor the release progress in the **Releases** tab.
 
-Verify that the deployment succeeded and the application is running in the cluster.  Open a web browser and navigate to [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Note the application version, in this example it is "1.0.0.20170616.3".
+Verify that the deployment succeeded and the application is running in the cluster.  Open a web browser and navigate to `http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`.  Note the application version, in this example it is "1.0.0.20170616.3".
 
 ## Commit and push changes, trigger a release
 
 To verify that the continuous integration pipeline is functioning by checking in some code changes to Azure DevOps.
 
-As you write your code, your changes are automatically tracked by Visual Studio. Commit changes to your local Git repository by selecting the pending changes icon (![Pending][pending]) from the status bar in the bottom right.
+As you write your code, your changes are automatically tracked by Visual Studio. Commit changes to your local Git repository by selecting the pending changes icon (![Pending changes icon shows a pencil and a number.][pending]) from the status bar in the bottom right.
 
 On the **Changes** view in Team Explorer, add a message describing your update and commit your changes.
 
@@ -160,9 +151,9 @@ Pushing the changes to Azure Pipelines automatically triggers a build.  When the
 
 To check your build progress, switch to the **Builds** tab in **Team Explorer** in Visual Studio.  Once you verify that the build executes successfully, define a release pipeline that deploys your application to a cluster.
 
-Verify that the deployment succeeded and the application is running in the cluster.  Open a web browser and navigate to [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Note the application version, in this example it is "1.0.0.20170815.3".
+Verify that the deployment succeeded and the application is running in the cluster.  Open a web browser and navigate to `http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`.  Note the application version, in this example it is "1.0.0.20170815.3".
 
-![Service Fabric Explorer][sfx1]
+![Screenshot of the Voting app in Service Fabric Explorer running in a browser window. The app version "1.0.0.20170815.3" is highlighted.][sfx1]
 
 ## Update the application
 
@@ -170,11 +161,11 @@ Make code changes in the application.  Save and commit the changes, following th
 
 Once the upgrade of the application begins, you can watch the upgrade progress in Service Fabric Explorer:
 
-![Service Fabric Explorer][sfx2]
+![Screenshot of the Voting app in Service Fabric Explorer. The Status message "Upgrading", and an "Upgrade in Progress" message are highlighted.][sfx2]
 
 The application upgrade may take several minutes. When the upgrade is complete, the application will be running the next version.  In this example "1.0.0.20170815.4".
 
-![Service Fabric Explorer][sfx3]
+![Screenshot of the Voting app in Service Fabric Explorer running in a browser window. The updated app version "1.0.0.20170815.4" is highlighted.][sfx3]
 
 ## Next steps
 

@@ -1,46 +1,127 @@
 ---
 title: Test an Azure Stream Analytics job with sample data
 description: This article describes how to use the Azure portal to test an Azure Stream Analytics job, sample input, and upload sample data.
-services: stream-analytics
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: jasonh
+author: ajetasin
+ms.author: ajetasi
 ms.service: stream-analytics
-ms.topic: conceptual
-ms.date: 12/07/2018
+ms.topic: how-to
+ms.date: 01/03/2022
 ms.custom: seodec18
 ---
 
-# Test a Stream Analytics query with sample data
+# Test an Azure Stream Analytics job in the portal
 
-By using Azure Stream Analytics, you can upload sample data and test queries in the Azure portal without starting or stopping a job.
+In Azure Stream Analytics, you can test your query without starting or stopping your job. You can test queries on incoming data from your streaming sources or upload sample data from a local file on Azure portal. You can also test queries locally from your local sample data or live data in [Visual Studio](stream-analytics-live-data-local-testing.md) and [Visual Studio Code](visual-studio-code-local-run-live-input.md).
 
-## Upload sample data and test the query
+## Automatically sample incoming data from input
 
-1. Sign in to the Azure portal. 
+Azure Stream Analytics automatically fetches events from your streaming inputs. You can run queries on the default sample or set a specific time frame for the sample.
 
-2. Locate your existing Stream Analytics job and select it.
+1. Sign in to the Azure portal.
+
+2. Locate and select your existing Stream Analytics job.
 
 3. On the Stream Analytics job page, under the **Job Topology** heading, select **Query** to open the Query editor window. 
 
-4. To test your query with sample input data, right-click on any of your inputs.  Then select **Upload sample data from file**. The data must be serialized in JSON, CSV or AVRO. Sample input must be encoded in UTF-8 and not compressed. Only comma (,) delimiter is supported for testing CSV input on portal.
+4. To see a sample list of incoming events, select the input with file icon and the sample events will automatically appear in the **Input preview**.
 
-    ![stream analytics query editor test query](media/stream-analytics-test-query/stream-analytics-test-query-editor-upload.png)
+   a. The serialization type for your data is automatically detected if its JSON or CSV. You can manually change it as well to JSON, CSV, AVRO by changing the option in the dropdown menu.
+    
+   b. Use the selector to view your data in **Table** or **Raw** format.
+    
+   c. If your data shown isn't current, select **Refresh** to see the latest events.
 
-5. After the upload is complete, select **Test** to test this query against the sample data you have provided.
+   The following table is an example of data in the **Table format**:
 
-    ![stream analytics query editor test sample data](media/stream-analytics-test-query/stream-analytics-test-query-editor-test.png)
+   ![Azure Stream Analytics sample input in table format](./media/stream-analytics-test-query/asa-sample-table.png)
 
-6. If you need the test output for later use, the output of your query is displayed in the browser with a link to the download results. 
+   The following table is an example of data in the **Raw format**:
 
-7. Iteratively modify your query and test it again to see how the output changes.
+   ![Azure Stream Analytics sample input in raw format](./media/stream-analytics-test-query/asa-sample-raw.png)
 
-   ![Stream Analytics query editor sample output](media/stream-analytics-test-query/stream-analytics-test-query-editor-samples-output.png)
+5. To test your query with incoming data, select **Test query**. Results appear in the **Test results** tab. You can also select **Download results** to download the results.
 
-   When you use multiple outputs in a query, the results are shown on separate tabs, and you can easily toggle between them.
+   ![Azure Stream Analytics sample test query results](./media/stream-analytics-test-query/asa-test-query.png)
 
-8. After you verify the results shown in the browser, **Save** your query. Then **Start** the job, and let it process the incoming events.
+6. To test your query against a specific time range of incoming events, select **Select time range**.
+   
+   ![Azure Stream Analytics time range for incoming sample events](./media/stream-analytics-test-query/asa-select-time-range.png)
+
+7. Set the time range of the events you want to use to test your query and select **Sample**. Within that time frame, you can retrieve up to 1000 events or 1 MB, whichever comes first.
+
+   ![Azure Stream Analytics set time range for incoming sample events](./media/stream-analytics-test-query/asa-set-time-range.png)
+
+8. Once the events are sampled for selected time range, they appear in the **Input preview** tab.
+
+   ![Azure Stream Analytics view test results](./media/stream-analytics-test-query/asa-view-test-results.png)
+
+9. Select **Reset** to see the sample list of incoming events. If you select **Reset**, your time range selection will be lost. Select **Test query** to test your query and review the results in the **Test results** tab.
+
+10.	When you make changes to your query, select **Save query** to test the new query logic. This allows you to iteratively modify your query and test it again to see how the output changes.
+
+11.	After you verify the results shown in the browser, you're ready to **Start** the job.
+
+## Upload sample data from a local file
+
+Instead of using live data, you can use sample data from a local file to test your Azure Stream Analytics query.
+
+1. Sign in to the Azure portal.
+   
+2. Locate your existing Stream Analytics job and select it.
+
+3. On the Stream Analytics job page, under the **Job Topology** heading, select **Query** to open the Query editor window.
+
+4. To test your query with a local file, select **Upload sample input** on the **Input preview** tab. 
+
+   ![Screenshot shows the Upload sample input option.](./media/stream-analytics-test-query/asa-upload-sample-file.png)
+
+5. Upload your local file to test the query. You can only upload files with the JSON, CSV, or AVRO formats. Select **OK**.
+
+   ![Screenshot shows the Upload sample data dialog box where you can select a file.](./media/stream-analytics-test-query/asa-upload-sample-json-file.png)
+
+6. As soon as you upload the file, you can also see the file contents in the form as a table or in it's raw format. If you select **Reset**, the sample data will return to the incoming input data explained in the previous section. You can upload any other file to test the query at any time.
+
+7. Select **Test query** to test your query against the uploaded sample file.
+
+8. Test results are shown based on your query. You can change your query and select **Save query** to test the new query logic. This allows you to iteratively modify your query and test it again to see how the output changes.
+
+9. When you use multiple outputs in the query, the results are shown based on selected output. 
+
+   ![Azure Stream Analytics selected output](./media/stream-analytics-test-query/asa-sample-test-selected-output.png)
+
+10. After you verify the results shown in the browser, you can **Start** the job.
+
+## Limitations
+
+1.	Time policy is not supported in portal testing:
+
+    * Out-of-order: all incoming events will be ordered.
+    * Late arrival: There will not be late arrival event since Stream Analytics can only use existing data for testing.
+   
+2.	C# UDF is not supported.
+
+3.	All testing will be run with a job that has one Streaming Unit.
+
+4.	The timeout size is one minute. So any query with a window size greater than one minute cannot get any data.
+
+5.	Machine learning is not supported.
+
+6. The sample data API is throttled after five requests in a 15-minute window. After the end of the 15-minute window, you can do more sample data requests. This limitation is applied at the subscription level.
+
+## Troubleshooting
+If you get this error "The request size is too big. Please reduce the input data size and try again.", follow the steps below:
+
+  * Reduce input size – Test your query with smaller size sample file or with a smaller time range.
+  * Reduce query size – To test a selection of query, select a portion of query then click **Test selected query**.
+
 
 ## Next steps
-> [!div class="nextstepaction"]
-> [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Build an IoT solution by using Stream Analytics](./stream-analytics-build-an-iot-solution-using-stream-analytics.md): this tutorial will guide you to build an end-to-end solution with a data generator that will simulate traffic at a toll booth.
+
+* [Azure Stream Analytics Query Language Reference](/stream-analytics-query/stream-analytics-query-language-reference)
+
+* [Query examples for common Stream Analytics usage patterns](stream-analytics-stream-analytics-query-patterns.md)
+
+* [Understand inputs for Azure Stream Analytics](stream-analytics-add-inputs.md)
+
+* [Understand outputs from Azure Stream Analytics](stream-analytics-define-outputs.md)

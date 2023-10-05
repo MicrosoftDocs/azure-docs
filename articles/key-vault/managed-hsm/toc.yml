@@ -1,0 +1,119 @@
+items:
+- name: Managed HSM Documentation
+  href: index.yml
+- name: Overview 
+  items:
+  - name: About Managed HSM
+    href: overview.md
+
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: CLI
+    href: quick-create-cli.md
+  - name: PowerShell
+    href: quick-create-powershell.md
+  - name: ARM template
+    displayName: Resource Manager
+    href: quick-create-template.md
+
+- name: Tutorials 
+  items:
+  - name: Manage with the Azure CLI
+    href: key-management.md
+  - name: Managed HSM role management
+    href: role-management.md
+  - name: Disaster recovery
+    href: disaster-recovery-guide.md
+
+  - name: Recovery management with soft-delete and purge protection
+    href: recovery.md
+
+- name: How-to guides
+  items:
+  - name: Configure automated key rotation
+    href: key-rotation.md
+  - name: Import HSM-protected keys to Managed HSM
+    href: hsm-protected-keys-byok.md
+  - name: Backup and restore
+    href: backup-restore.md
+  - name: Secure access to your Managed HSM
+    href: secure-your-managed-hsm.md
+  - name: Use private endpoints
+    href: private-link.md
+  - name: Set up logging for managed HSM
+    href: logging.md
+  - name: Enable Multi-Region Replication on Managed HSM
+    href: multi-region-replication.md 
+  - name: Integrate Managed HSM with Azure Policy
+    href: azure-policy.md
+  - name: Authorize Azure Resource Manager
+    href: authorize-azure-resource-manager.md
+
+- name: Concepts 
+  items:
+  - name: Control your data in the cloud
+    href: mhsm-control-data.md
+  - name: Key sovereignty, availability, performance, and scalability
+    href: managed-hsm-technical-details.md
+  - name: Security domain overview
+    href: security-domain.md
+  - name: Best practices for securing Managed HSM
+    href: best-practices.md
+  - name: Access control
+    href: access-control.md
+  - name: Local RBAC built-in roles
+    href: built-in-roles.md
+  - name: Managed HSM soft-delete 
+    href: soft-delete-overview.md
+  - name: Security baseline
+    href: /security/benchmark/azure/baselines/key-vault-managed-hsm-security-baseline?toc=/azure/key-vault/managed-hsm/&bc=/azure/key-vault/managed-hsm/breadcrumb/toc.json
+
+- name: Reference
+  items:
+  - name: Secure key release policy grammar 
+    href: policy-grammar.md
+  - name: TLS offload library
+    href: tls-offload-library.md
+  - name: Key management in Azure
+    href: ../../security/fundamentals/key-management.md
+  - name: Azure PowerShell
+    href: /powershell/azure#key_vault
+  - name: Azure CLI
+    href: /cli/azure/keyvault
+  - name: .NET
+    href: /dotnet/api/overview/azure/key-vault
+  - name: Java
+    href: /java/api/overview/azure/keyvault
+  - name: Node.js
+    href: /javascript/api/overview/azure/key-vault-index
+  - name: Python
+    href: /python/api/overview/azure/keyvault-keys-readme
+  - name: REST
+    href: /rest/api/keyvault
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.keyvault/allversions
+    displayName: ARM
+
+- name: Resources
+  items:
+  - name: Third party solutions
+    href: third-party-solutions.md
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/?products=azure-key-vault
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/key-vault/
+  - name: Region availability
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=key-vault&regions=all
+  - name: Service Level Agreement (SLA)
+    href: https://azure.microsoft.com/support/legal/sla/key-vault-managed-hsm/v1_0/
+  - name: Service limits
+    href: ../general/service-limits.md
+  - name: Service status
+    href: https://azure.microsoft.com/status/
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?product=key-vault
+  - name: Blog
+    href: /archive/blogs/kv/
+  - name: Product Feedback
+    href: https://feedback.azure.com/d365community/forum/10b76677-75b7-ec11-983f-000d3a9e3e90

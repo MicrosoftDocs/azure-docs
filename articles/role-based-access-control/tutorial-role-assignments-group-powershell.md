@@ -1,27 +1,22 @@
 ---
-title: Tutorial - Grant a group access to Azure resources using RBAC and Azure PowerShell | Microsoft Docs
-description: Learn how to grant a group access to Azure resources using role-based access control (RBAC) and Azure PowerShell.
+title: "Tutorial: Grant a group access to Azure resources using Azure PowerShell - Azure RBAC"
+description: Learn how to grant a group access to Azure resources using Azure PowerShell and Azure role-based access control (Azure RBAC) in this tutorial.
 services: active-directory
-documentationCenter: ''
 author: rolyon
-manager: mtillman
-editor: ''
+manager: amycolannino
 
 ms.service: role-based-access-control
-ms.devlang: ''
+ms.custom: devx-track-azurepowershell, has-azure-ad-ps-ref
 ms.topic: tutorial
-ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-
 #Customer intent: As a dev or devops, I want step-by-step instructions for how to grant permissions for groups to resources so that they can perform their job.
-
 ---
 
-# Tutorial: Grant a group access to Azure resources using RBAC and Azure PowerShell
+# Tutorial: Grant a group access to Azure resources using Azure PowerShell
 
-[Role-based access control (RBAC)](overview.md) is the way that you manage access to Azure resources. In this tutorial, you grant a group access to view everything in a subscription and manage everything in a resource group using Azure PowerShell.
+[Azure role-based access control (Azure RBAC)](overview.md) is the way that you manage access to Azure resources. In this tutorial, you grant a group access to view everything in a subscription and manage everything in a resource group using Azure PowerShell.
 
 In this tutorial, you learn how to:
 
@@ -39,11 +34,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 To complete this tutorial, you will need:
 
 - Permissions to create groups in Azure Active Directory (or have an existing group)
-- [Azure Cloud Shell](/azure/cloud-shell/quickstart-powershell)
+- [Azure Cloud Shell](../cloud-shell/quickstart-powershell.md)
 
 ## Role assignments
 
-In RBAC, to grant access, you create a role assignment. A role assignment consists of three elements: security principal, role definition, and scope. Here are the two role assignments you will perform in this tutorial:
+In Azure RBAC, to grant access, you create a role assignment. A role assignment consists of three elements: security principal, role definition, and scope. Here are the two role assignments you will perform in this tutorial:
 
 | Security principal | Role definition | Scope |
 | --- | --- | --- |
@@ -69,7 +64,7 @@ To assign a role, you need a user, group, or service principal. If you don't alr
    11111111-1111-1111-1111-111111111111 RBAC Tutorial Group
    ```
 
-If you don't have permissions to create groups, you can try the [Tutorial: Grant a user access to Azure resources using RBAC and Azure PowerShell](tutorial-role-assignments-user-powershell.md) instead.
+If you don't have permissions to create groups, you can try the [Tutorial: Grant a user access to Azure resources using Azure PowerShell](tutorial-role-assignments-user-powershell.md) instead.
 
 ## Create a resource group
 
@@ -293,4 +288,4 @@ To clean up the resources created by this tutorial, delete the resource group an
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Manage access to Azure resources using RBAC and Azure PowerShell](role-assignments-powershell.md)
+> [Assign Azure roles using Azure PowerShell](role-assignments-powershell.md)

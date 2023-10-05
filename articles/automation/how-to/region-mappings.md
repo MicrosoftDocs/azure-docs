@@ -1,86 +1,92 @@
 ---
-title: Azure Automation and Log Analytics workspace mappings
-description: This article describes the mappings allowed between an Automation Account and a Log Analytics Workspace to support solution
+title: Supported regions for linked Log Analytics workspace
+description: This article describes the supported region mappings between an Automation account and a Log Analytics workspace as it relates to certain features of Azure Automation.
+ms.date: 03/16/2023
 services: automation
-ms.service: automation
-ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
-ms.date: 05/20/2019
 ms.topic: conceptual
-manager: carmonm 
+ms.custom: references_regions
 ---
-# Workspace mappings
 
-When enabling solutions like Update Management, Change Tracking and Inventory, or the Start/Stop VMs during off-hours solution, only certain regions are supported for linking a Log Analytics workspace and an Automation Account. This mapping only applies to the Automation Account and the Log Analytics workspace. The resources reporting to your Automation Account or Log Analytics workspace can reside in other regions.
+# Supported regions for linked Log Analytics workspace
 
-## Supported mappings
+> [!NOTE]
+> Start/Stop VM during off-hours version 1 is unavailable in the marketplace now as it will retire by 30 September 2023. We recommend you start using [version 2](../../azure-functions/start-stop-vms/overview.md), which is now generally available. The new version offers all existing capabilities and provides new features, such as multi-subscription support from a single Start/Stop instance. If you have the version 1 solution already deployed, you can still use the feature, and we will provide support until 30 September 2023. The details of the announcement will be shared soon. 
+
+In Azure Automation, you can enable the Update Management, Change Tracking and Inventory, and Start/Stop VMs during off-hours features for your servers and virtual machines. These features have a dependency on a Log Analytics workspace, and therefore require linking the workspace with an Automation account. However, only certain regions are supported to link them together. In general, the mapping is *not* applicable if you plan to link an Automation account to a workspace that won't have these features enabled.
+
+The mappings discussed here applying only to linking the Log Analytics Workspace to an Automation account. They don't apply to the virtual machines (VMs) that are connected to the workspace that's linked to the Automation Account. VMs aren't limited to the regions supported by a given Log Analytics workspace. They can be in any region. Keep in mind that having the VMs in a different region may affect state, local, and country/regional regulatory requirements, or your company's compliance requirements. Having VMs in a different region could also introduce data bandwidth charges.
+
+Before connecting VMs to a workspace in a different region, you should review the requirements and potential costs to confirm and understand the legal and cost implications.
+
+This article provides the supported mappings in order to successfully enable and use these features in your Automation account.
+
+For more information, see [Log Analytics workspace and Automation account](/previous-versions/azure/azure-monitor/insights/solutions#log-analytics-workspace-and-automation-account).
+
+## Supported mappings for Log Analytics and Azure Automation
+
+> [!NOTE]
+> As shown in following table, only one mapping can exist between Log Analytics and Azure Automation.
 
 The following table shows the supported mappings:
 
-|**Log Analytics Workspace Region**|**Azure Automation Region**|
+|**Log Analytics workspace region**|**Azure Automation region**|
 |---|---|
-|**US**||
-|EastUS<sup>1</sup>|EastUS2|
-|WestUS2|WestUS2|
-|WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
+|**Asia Pacific**||
+|EastAsia|EastAsia|
+|SoutheastAsia|SoutheastAsia|
+|**Australia**||
+|AustraliaEast|AustraliaEast|
+|AustraliaSoutheast|AustraliaSoutheast|
+|**Brazil**||
+|BrazilSouth|BrazilSouth|
 |**Canada**||
 |CanadaCentral|CanadaCentral|
-|**Asia Pacific**||
-|AustraliaSoutheast|AustraliaSoutheast|
-|SoutheastAsia|SoutheastAsia|
-|CentralIndia|CentralIndia|
-|JapanEast|JapanEast|
+|**China**||
+|ChinaEast2<sup>3</sup>|ChinaEast2|
 |**Europe**||
-|UKSouth|UKSouth|
+|NorthEurope|NorthEurope|
 |WestEurope|WestEurope|
+|**France**||
+|FranceCentral|FranceCentral|
+|**India**||
+|CentralIndia|CentralIndia|
+|**Japan**||
+|JapanEast|JapanEast|
+|**Korea**||
+|KoreaCentral|KoreaCentral|
+|**Norway**||
+|NorwayEast|NorwayEast|
+|**Qatar**||
+|QatarCentral|QatarCentral|
+|**Switzerland**||
+|SwitzerlandNorth|SwitzerlandNorth|
+|**United Arab Emirates**||
+|UAENorth|UAENorth|
+|**United Kingdom**
+|UK South|UK South|
 |**US Gov**||
+|USGovArizona<sup>3</sup>|USGovArizona|
 |USGovVirginia|USGovVirginia|
+|**US**||
+|EastUS<sup>1</sup>|EastUS2|
+|EastUS2<sup>2</sup>|EastUS|
+|CentralUS|CentralUS|
+|NorthCentralUS|NorthCentralUS|
+|SouthCentralUS|SouthCentralUS|
+|WestUS|WestUS|
+|WestUS2|WestUS2|
+|WestUS3|WestUS3|
+|WestCentralUS|WestCentralUS|
 
-<sup>1</sup> EastUS mapping for Log Analytics workspaces to Automation Accounts is not an exact region to region mapping but is the correct mapping.
+<sup>1</sup> EastUS mapping for Log Analytics workspaces to Automation accounts isn't an exact region-to-region mapping, but is the correct mapping.
 
-<sup>2</sup> Due to capacity restraints the region isn't available when creating new resources. This includes Automation Accounts and Log Analytics workspaces. However, preexisting linked resources in the region should continue to work.
+<sup>2</sup> EastUS2 mapping for Log Analytics workspaces to Automation accounts isn't an exact region-to-region mapping, but is the correct mapping.
 
-## Unlink workspace
+<sup>3</sup> In this region, only Update Management is supported, and other features like Change Tracking and Inventory aren't available at this time.
 
-If you decide you no longer wish to integrate your Automation account with a Log Analytics workspace, you can unlink your account directly from the Azure portal. Before you proceed, you first need to remove the Update Management, Change Tracking and Inventory, or the Start/Stop VMs during off-hours solutions if you are using them. If you do not remove them, this process will be prevented from proceeding. Review the article for the particular solution you have imported to understand the steps required to remove it.
-
-After you remove these solutions, you can perform the following steps to unlink your Automation account.
-
-> [!NOTE]
-> Some solutions including earlier versions of the Azure SQL monitoring solution may have created automation assets and may also need to be removed prior to unlinking the workspace.
-
-1. From the Azure portal, open your Automation account, and on the Automation account page  select **Linked workspace** under the section **Related Resources** on the left.
-
-2. On the Unlink workspace page, click **Unlink workspace**. You'll receive a prompt verifying you wish to continue.
-
-3. While Azure Automation attempts to unlink the account your Log Analytics workspace, you can track the progress under **Notifications** from the menu.
-
-If you used the Update Management solution, optionally you may want to remove the following items that are no longer needed after you remove the solution.
-
-* Update schedules - Each will have names that match the update deployments you created)
-
-* Hybrid worker groups created for the solution -  Each will be named similarly to  machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8).
-
-If you used the Start/Stop VMs during off-hours solution, optionally you may want to remove the following items that are no longer needed after you remove the solution.
-
-* Start and stop VM runbook schedules
-* Start and stop VM runbooks
-* Variables
-
-Alternatively, you can also unlink your workspace from your Automation Account from your Log Analytics workspace. On your workspace, select **Automation Account** under **Related Resources**. On the Automation Account page, select **Unlink account**.
 
 ## Next steps
 
-Learn how to onboard the following solutions:
-
-Update Management and Change Tracking and Inventory:
-
-* From a [virtual machine](../automation-onboard-solutions-from-vm.md)
-* From your [Automation account](../automation-onboard-solutions-from-automation-account.md)
-* When [browsing multiple machines](../automation-onboard-solutions-from-browse.md)
-* From a [runbook](../automation-onboard-solutions.md)
-
-Start/Stop VMs during off-hours
-
-* [Deploy Start/Stop VMs during off-hours](../automation-solution-vm-management.md)
+* Learn about Update Management in [Update Management overview](../update-management/overview.md).
+* Learn about Change Tracking and Inventory in [Change Tracking and Inventory overview](../change-tracking/overview.md).
+* Learn about Start/Stop VMs during off-hours in [Start/Stop VMs during off-hours overview](../automation-solution-vm-management.md).

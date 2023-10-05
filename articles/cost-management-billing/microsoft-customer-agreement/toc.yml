@@ -1,0 +1,66 @@
+- name: Microsoft Customer Agreement documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: Microsoft Customer Agreement overview
+    href: ../understand/mca-overview.md
+- name: Concepts
+  items:
+  - name: Onboard to the Microsoft Customer Agreement
+    href: onboard-microsoft-customer-agreement.md
+  - name: Checklist after signing your agreement
+    href: microsoft-customer-agreement-get-started.md
+  - name: Manage tenants in your agreement
+    href: manage-tenants.md
+  - name: Understand your usage and billing cycle
+    href: ../understand/mca-understand-your-invoice.md
+  - name: Usage and charges file terms
+    href: ../understand/mca-understand-your-usage.md
+- name: Tutorials
+  items:
+  - name: Review your bill
+    href: ../understand/review-customer-agreement-bill.md
+  - name: Create and manage budgets
+    href: ../costs/tutorial-acm-create-budgets.md
+- name: How-to guides
+  expanded: true
+  items:
+  - name: Set up billing
+    href: ../manage/mca-setup-account.md
+  - name: Get started with your billing account
+    href: ../understand/mca-overview.md
+  - name: Organize your invoice
+    href: ../manage/mca-section-invoice.md
+  - name: View your billing accounts
+    href: ../manage/view-all-accounts.md
+  - name: Billing roles
+    href: ../manage/understand-mca-roles.md
+  - name: Manage access to billing
+    href: ../manage/manage-billing-access.md
+  - name: Set up administrator to manage subscription users
+    href: ../manage/add-change-subscription-administrator.md
+  - name: Create new subscriptions
+    href: ../manage/create-subscription.md
+  - name: Pay for subscriptions by invoice
+    href: ../manage/pay-by-invoice.md
+  - name: Pay your bill
+    href: ../understand/pay-bill.md
+  - name: Transfer billing ownership
+    href: ../manage/mca-request-billing-ownership.md
+  - name: Migrate EA to Microsoft Customer Agreement APIs
+    href: ../costs/migrate-cost-management-api.md
+  - name: View and download usage and charges
+    href: ../understand/download-azure-daily-usage.md
+  - name: View and download your Azure pricing
+    href: ../manage/ea-pricing.md
+  - name: EA tasks in a Microsoft Customer Agreement
+    href: ../manage/mca-enterprise-operations.md
+  - name: Troubleshoot
+    items:
+    - name: Subscription access
+      href: troubleshoot-subscription-access.md
+  - name: Resources
+    items:
+    - name: FAQ
+      href: microsoft-customer-agreement-faq.yml

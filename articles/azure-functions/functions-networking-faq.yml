@@ -1,0 +1,78 @@
+### YamlMime:FAQ
+metadata:
+  title: Frequently asked questions about networking in Azure Functions
+  description: Answers to some of the most common questions and scenarios for networking with Azure Functions.
+  ms.topic: faq
+  ms.service: azure-functions
+  ms.date: 4/11/2019
+  ms.reviewer: glenga
+title: Frequently asked questions about networking in Azure Functions
+summary: |
+  This article lists frequently asked questions about networking in Azure Functions. For a more comprehensive overview, see [Functions networking options](functions-networking-options.md).
+  
+
+sections:
+  - name: Ignored
+    questions:
+      - question: |
+          How do I set a static IP in Functions?
+        answer: |
+          Deploying a function in an App Service Environment is the primary way to have static inbound and outbound IP addresses for your functions. For details on using an App Service Environment, start with the article [Create and use an internal load balancer with an App Service Environment](../app-service/environment/create-ilb-ase.md).
+          
+          You can also use a virtual network NAT gateway to route outbound traffic through a public IP address that you control. To learn more, see [Tutorial: Control Azure Functions outbound IP with an Azure virtual network NAT gateway](functions-how-to-use-nat-gateway.md). 
+          
+      - question: |
+          How do I restrict internet access to my function?
+        answer: |
+          You can restrict internet access in a couple of ways:
+          
+          * [Private endpoints](./functions-networking-options.md#private-endpoints): Restrict inbound traffic to your function app by private link over your virtual network, effectively blocking inbound traffic from the public internet.
+          * [IP restrictions](../app-service/app-service-ip-restrictions.md): Restrict inbound traffic to your function app by IP range.
+              * Under IP restrictions, you are also able to configure [Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md), which restrict your Function to only accept inbound traffic from a particular virtual network.
+          * Removal of all HTTP triggers. For some applications, it's enough to simply avoid HTTP triggers and use any other event source to trigger your function.
+          
+          Keep in mind that the Azure portal editor requires direct access to your running function. Any code changes through the Azure portal will require the device you're using to browse the portal to have its IP added to the approved list. But you can still use anything under the platform features tab with network restrictions in place.
+          
+      - question: |
+          How do I restrict my function app to a virtual network?
+        answer: |
+          You are able to restrict **inbound** traffic for a function app to a virtual network using [Service Endpoints](./functions-networking-options.md#use-service-endpoints). This configuration still allows the function app to make outbound calls to the internet.
+          
+          To completely restrict a function such that all traffic flows through a virtual network, you can use a [private endpoints](./functions-networking-options.md#private-endpoints) with outbound virtual network integration or an App Service Environment. To learn more, see [Integrate Azure Functions with an Azure virtual network by using private endpoints](functions-create-vnet.md).
+          
+      - question: |
+          How can I access resources in a virtual network from a function app?
+        answer: |
+          You can access resources in a virtual network from a running function by using virtual network integration. For more information, see [Virtual network integration](functions-networking-options.md#virtual-network-integration).
+          
+      - question: |
+          How do I access resources protected by service endpoints?
+        answer: |
+          By using virtual network integration you can access service-endpoint-secured resources from a running function. For more information, see [virtual network integration](functions-networking-options.md#virtual-network-integration).
+          
+      - question: |
+          How can I trigger a function from a resource in a virtual network?
+        answer: |
+          You are able to allow HTTP triggers to be called from a virtual network using [Service Endpoints](./functions-networking-options.md#use-service-endpoints) or [Private Endpoint connections](./functions-networking-options.md#private-endpoints). 
+          
+          You can also trigger a function from all other resources in a virtual network by deploying your function app to a Premium plan, App Service plan, or App Service Environment. See [non-HTTP virtual network triggers](./functions-networking-options.md#virtual-network-triggers-non-http)
+          for more information
+          
+      - question: |
+          How can I deploy my function app in a virtual network?
+        answer: |
+          Deploying to an App Service Environment is the only way to create a function app that's wholly inside a virtual network. For details on using an internal load balancer with an App Service Environment, start with the article [Create and use an internal load balancer with an App Service Environment](../app-service/environment/create-ilb-ase.md).
+          
+          For scenarios where you need only one-way access to virtual network resources, or less comprehensive network isolation, see the [Functions networking overview](functions-networking-options.md).
+
+additionalContent: |
+
+  ## Next steps
+  
+  To learn more about networking and functions: 
+          
+  * [Follow the tutorial about getting started with virtual network integration](./functions-create-vnet.md)
+  * [Learn more about the networking options in Azure Functions](./functions-networking-options.md)
+  * [Learn more about virtual network integration with App Service and Functions](../app-service/overview-vnet-integration.md)
+  * [Learn more about virtual networks in Azure](../virtual-network/virtual-networks-overview.md)
+  * [Enable more networking features and control with App Service Environments](../app-service/environment/intro.md)

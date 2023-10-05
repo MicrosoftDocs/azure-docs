@@ -1,19 +1,15 @@
 ---
- title: include file
- description: include file
- services: logic-apps
- author: ecfan
- ms.service: logic-apps
- ms.topic: include
- ms.date: 05/14/2018
- ms.author: estfan
- ms.custom: include file
+ms.service: logic-apps
+ms.topic: include
+author: ecfan
+ms.author: estfan
+ms.date: 08/02/2022
 ---
 
-Before your logic app can access any service, you must create 
-a *connection* between your logic app and that service. 
-If you didn't previously create this connection, 
-you're prompted for connection information when you 
-add a trigger or action for that service to your logic app. 
-The Logic Apps Designer provides an easy way for you to 
-create this connection directly from your logic app.
+When you add a trigger or action that connects to a service or system, and you don't have an existing or active connection, Azure Logic Apps prompts you to provide the connection information, which varies based on the connection type, for example:
+
+* Your account credentials
+* A name to use for the connection
+* The name for the server or system
+* The authentication type to use
+* A connection string

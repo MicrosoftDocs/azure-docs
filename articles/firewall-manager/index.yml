@@ -1,0 +1,68 @@
+### YamlMime:Landing
+
+title: Azure Firewall Manager documentation
+summary: Learn how to deploy Azure Firewall Manager, a globally distributed security management service.
+
+metadata:
+  title: Azure Firewall Manager documentation
+  description: Learn how to deploy Azure Firewall Manager, a globally distributed security management service.
+  services: firewall
+  ms.service: firewall-manager
+  ms.topic: landing-page
+  author: vhorne
+  ms.author: victorh
+  ms.date: 11/14/2022
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: Learn about Azure Firewall Manager
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Firewall Manager?
+            url: overview.md
+          - text: Deployment overview
+            url: deployment-overview.md
+      - linkListType: learn
+        links:
+          - text: Introduction to Azure Firewall Manager
+            url: /training/modules/intro-to-azure-firewall-manager/
+  # Card
+  - title: Learn about secured virtual hubs
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: What is a secured virtual hub?
+            url: secured-virtual-hub.md
+  # Card
+  - title: Security partner providers
+    linkLists:
+    - linkListType: concept
+      links:
+        - text: What are security partner providers?
+          url: trusted-security-partners.md
+        - text: Secure virtual hubs using Check Point Cloudguard Connect
+          url: check-point-overview.md
+    - linkListType: how-to-guide
+      links:
+       - text: Deploy a security partner provider
+         url: deploy-trusted-security-partner.md
+  # Card
+  - title: Secure your Azure cloud network
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Secure your cloud network using the Azure portal
+            url: secure-cloud-network.md
+
+# Card
+  - title: Learn about Azure network security
+    linkLists:
+      - linkListType: overview
+        links:
+         - text: Azure network security
+           url: ../networking/security/index.yml

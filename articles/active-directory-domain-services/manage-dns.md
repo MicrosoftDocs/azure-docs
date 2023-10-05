@@ -1,104 +1,122 @@
 ---
-title: 'Manage DNS for Azure AD Domain Services | Microsoft Docs'
-description: Manage DNS for Azure AD Domain Services
-services: active-directory-ds
-documentationcenter: ''
-author: MikeStephens-MS
-manager: daveba
-editor: curtand
+title: Manage DNS for Microsoft Entra Domain Services | Microsoft Docs
+description: Learn how to install the DNS Server Tools to manage DNS and create conditional forwarders for a Microsoft Entra Domain Services managed domain.
+author: justinha
+manager: amycolannino
 
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 05/10/2019
-ms.author: mstephen
+ms.topic: how-to
+ms.date: 09/15/2023
+ms.author: justinha
 
 ---
-# Administer DNS on an Azure AD Domain Services managed domain
-Azure Active Directory Domain Services includes a DNS (Domain Name Resolution) server that provides DNS resolution for the managed domain. Occasionally, you may need to configure DNS on the managed domain. You may need to create DNS records for machines that are not joined to the domain, configure virtual IP addresses for load-balancers or setup external DNS forwarders. For this reason, users who belong to the 'AAD DC Administrators' group are granted DNS administration privileges on the managed domain.
+# Administer DNS and create conditional forwarders in a Microsoft Entra Domain Services managed domain
 
-[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
+Microsoft Entra Domain Services includes a Domain Name System (DNS) server that provides name resolution for the managed domain. This DNS server includes built-in DNS records and updates for the key components that allow the service to run.
+
+As you run your own applications and services, you may need to create DNS records for machines that aren't joined to the domain, configure virtual IP addresses for load balancers, or set up external DNS forwarders. Users who belong to the *AAD DC Administrators* group are granted DNS administration privileges on the Domain Services managed domain and can create and edit custom DNS records.
+
+In a hybrid environment, DNS zones and records configured in other DNS namespaces, such as an on-premises AD DS environment, aren't synchronized to the managed domain. To resolve named resources in other DNS namespaces, create and use conditional forwarders that point to existing DNS servers in your environment.
+
+This article shows you how to install the DNS Server tools then use the DNS console to manage records and create conditional forwarders in Domain Services.
+
+>[!NOTE]
+>Creating or changing root hints or server-level DNS forwarders is not supported and will cause issues for the Domain Services managed domain. 
 
 ## Before you begin
-To complete the tasks listed in this article, you need:
 
-1. A valid **Azure subscription**.
-2. An **Azure AD directory** - either synchronized with an on-premises directory or a cloud-only directory.
-3. **Azure AD Domain Services** must be enabled for the Azure AD directory. If you haven't done so, follow all the tasks outlined in the [Getting Started guide](create-instance.md).
-4. A **domain-joined virtual machine** from which you administer the Azure AD Domain Services managed domain. If you don't have such a virtual machine, follow all the tasks outlined in the article titled [Join a Windows virtual machine to a managed domain](active-directory-ds-admin-guide-join-windows-vm.md).
-5. You need the credentials of a **user account belonging to the 'AAD DC Administrators' group** in your directory, to administer DNS for your managed domain.
+To complete this article, you need the following resources and privileges:
 
-<br>
+* An active Azure subscription.
+    * If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* A Microsoft Entra tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
+    * If needed, [create a Microsoft Entra tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
+* A Microsoft Entra Domain Services managed domain enabled and configured in your Microsoft Entra tenant.
+    * If needed, complete the tutorial to [create and configure a Microsoft Entra Domain Services managed domain][create-azure-ad-ds-instance].
+* Connectivity from your Domain Services virtual network to where your other DNS namespaces are hosted.
+    * This connectivity can be provided with an [Azure ExpressRoute][expressroute] or [Azure VPN Gateway][vpn-gateway] connection.
+* A Windows Server management VM that is joined to the managed domain.
+    * If needed, complete the tutorial to [create a Windows Server VM and join it to a managed domain][create-join-windows-vm].
+* A user account that's a member of the *Microsoft Entra DC administrators* group in your Microsoft Entra tenant.
 
-## Task 1 - Create a domain-joined virtual machine to remotely administer DNS for the managed domain
-Azure AD Domain Services managed domains can be managed remotely using familiar Active Directory administrative tools such as the Active Directory Administrative Center (ADAC) or AD PowerShell. Similarly, DNS for the managed domain can be administered remotely using the DNS Server administration tools.
+## Install DNS Server tools
 
-Administrators in your Azure AD directory do not have privileges to connect to domain controllers on the managed domain via Remote Desktop. Members of the 'AAD DC Administrators' group can administer DNS for managed domains remotely using DNS Server tools from a Windows Server/client computer that is joined to the managed domain. DNS Server tools are part of the Remote Server Administration Tools (RSAT) optional feature.
+To create and modify DNS records in a managed domain, you need to install the DNS Server tools. These tools can be installed as a feature in Windows Server. For more information on how to install the administrative tools on a Windows client, see install [Remote Server Administration Tools (RSAT)][install-rsat].
 
-The first task is to create a Windows Server virtual machine that is joined to the managed domain. For instructions, refer to the article titled [join a Windows Server virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-windows-vm.md).
+1. Sign in to your management VM. For steps on how to connect using the Microsoft Entra admin center, see [Connect to a Windows Server VM][connect-windows-server-vm].
+1. If **Server Manager** doesn't open by default when you sign in to the VM, select the **Start** menu, then choose **Server Manager**.
+1. In the *Dashboard* pane of the **Server Manager** window, select **Add Roles and Features**.
+1. On the **Before You Begin** page of the *Add Roles and Features Wizard*, select **Next**.
+1. For the *Installation Type*, leave the **Role-based or feature-based installation** option checked and select **Next**.
+1. On the **Server Selection** page, choose the current VM from the server pool, such as *myvm.aaddscontoso.com*, then select **Next**.
+1. On the **Server Roles** page, click **Next**.
+1. On the **Features** page, expand the **Remote Server Administration Tools** node, then expand the **Role Administration Tools** node. Select **DNS Server Tools** feature from the list of role administration tools.
 
-## Task 2 - Install DNS Server tools on the virtual machine
-Complete the following steps to install the DNS Administration tools on the domain joined virtual machine. For more information on [installing and using Remote Server Administration Tools](https://technet.microsoft.com/library/hh831501.aspx), see Technet.
+    ![Choose to install the DNS Server Tools from the list of available role administration tools](./media/manage-dns/install-dns-tools.png)
 
-1. Navigate to the Azure portal. Click **All resources** on the left-hand panel. Locate and click the virtual machine you created in Task 1.
-2. Click the **Connect** button on the Overview tab. A Remote Desktop Protocol (.rdp) file is created and downloaded.
+1. On the **Confirmation** page, select **Install**. It may take a minute or two to install the DNS Server Tools.
+1. When feature installation is complete, select **Close** to exit the **Add Roles and Features** wizard.
 
-    ![Connect to Windows virtual machine](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
-3. To connect to your VM, open the downloaded RDP file. If prompted, click **Connect**. Use the credentials of a user belonging to the 'AAD DC Administrators' group. For example,  'bob@domainservicespreview.onmicrosoft.com'. You may receive a certificate warning during the sign-in process. Click Yes or Continue to connect.
+## Open the DNS management console to administer DNS
 
-4. From the Start screen, open **Server Manager**. Click **Add Roles and Features** in the central pane of the Server Manager window.
-
-    ![Launch Server Manager on virtual machine](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager.png)
-5. On the **Before You Begin** page of the **Add Roles and Features Wizard**, click **Next**.
-
-    ![Before You Begin page](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-begin.png)
-6. On the **Installation Type** page, leave the **Role-based or feature-based installation** option checked and click **Next**.
-
-    ![Installation Type page](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-type.png)
-7. On the **Server Selection** page, select the current virtual machine from the server pool, and click **Next**.
-
-    ![Server Selection page](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-server.png)
-8. On the **Server Roles** page, click **Next**.
-9. On the **Features** page, click to expand the **Remote Server Administration Tools** node and then click to expand the **Role Administration Tools** node. Select **DNS Server Tools** feature from the list of role administration tools.
-
-    ![Features page](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-dns-tools.png)
-10. On the **Confirmation** page, click **Install** to install the DNS Server tools feature on the virtual machine. When feature installation completes successfully, click **Close** to exit the **Add Roles and Features** wizard.
-
-    ![Confirmation page](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-dns-confirmation.png)
-
-## Task 3 - Launch the DNS management console to administer DNS
-Now, you can use Windows Server DNS tools to administer DNS on the managed domain.
+With the DNS Server tools installed, you can administer DNS records on the managed domain.
 
 > [!NOTE]
-> You need to be a member of the 'AAD DC Administrators' group, to administer DNS on the managed domain.
->
->
+> To administer DNS in a managed domain, you must be signed in to a user account that's a member of the *AAD DC Administrators* group.
 
-1. From the Start screen, click **Administrative Tools**. You should see the **DNS** console installed on the virtual machine.
+1. From the Start screen, select **Administrative Tools**. A list of available management tools is shown, including **DNS** installed in the previous section. Select **DNS** to launch the DNS Management console.
+1. In the **Connect to DNS Server** dialog, select **The following computer**, then enter the DNS domain name of the managed domain, such as *aaddscontoso.com*:
 
-    ![Administrative tools - DNS Console](./media/active-directory-domain-services-admin-guide/install-rsat-dns-tools-installed.png)
-2. Click **DNS** to launch the DNS Management console.
-3. In the **Connect to DNS Server** dialog, click **The following computer**, and enter the DNS domain name of the managed domain (for example, 'contoso100.com').
+    ![Connect to the managed domain in the DNS console](./media/manage-dns/connect-dns-server.png)
 
-    ![DNS Console - connect to domain](./media/active-directory-domain-services-admin-guide/dns-console-connect-to-domain.png)
-4. The DNS Console connects to the managed domain.
+1. The DNS Console connects to the specified managed domain. Expand the **Forward Lookup Zones** or **Reverse Lookup Zones** to create your required DNS entries or edit existing records as needed.
 
-    ![DNS Console - administer domain](./media/active-directory-domain-services-admin-guide/dns-console-managed-domain.png)
-5. You can now use the DNS console to add DNS entries for computers within the virtual network in which you've enabled AAD Domain Services.
+    ![DNS Console - administer domain](./media/manage-dns/dns-manager.png)
 
 > [!WARNING]
-> Be careful when administering DNS for the managed domain using DNS administration tools. Ensure that you **do not delete or modify the built-in DNS records that are used by Domain Services in the domain**. Built-in DNS records include domain DNS records, name server records, and other records used for DC location. If you modify these records, domain services are disrupted on the virtual network.
->
->
+> When you manage records using the DNS Server tools, make sure that you don't delete or modify the built-in DNS records that are used by Domain Services. Built-in DNS records include domain DNS records, name server records, and other records used for DC location. If you modify these records, domain services are disrupted on the virtual network.
 
-For more information about managing DNS, see the [DNS tools article on Technet](https://technet.microsoft.com/library/cc753579.aspx).
+## Create conditional forwarders
 
-## Related Content
-* [Azure AD Domain Services - Getting Started guide](create-instance.md)
-* [Join a Windows Server virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-windows-vm.md)
-* [Manage an Azure AD Domain Services domain](manage-domain.md)
-* [DNS administration tools](https://technet.microsoft.com/library/cc753579.aspx)
+A Domain Services DNS zone should only contain the zone and records for the managed domain itself. Don't create additional zones in the managed domain to resolve named resources in other DNS namespaces. Instead, use conditional forwarders in the managed domain to tell the DNS server where to go in order to resolve addresses for those resources.
+
+A conditional forwarder is a configuration option in a DNS server that lets you define a DNS domain, such as *contoso.com*, to forward queries to. Instead of the local DNS server trying to resolve queries for records in that domain, DNS queries are forwarded to the configured DNS for that domain. This configuration makes sure that the correct DNS records are returned, as you don't create a local a DNS zone with duplicate records in the managed domain to reflect those resources.
+
+To create a conditional forwarder in your managed domain, complete the following steps:
+
+1. Select your DNS zone, such as *aaddscontoso.com*.
+1. Select **Conditional Forwarders**, then right-select and choose **New Conditional Forwarder...**
+1. Enter your other **DNS Domain**, such as *contoso.com*, then enter the IP addresses of the DNS servers for that namespace, as shown in the following example:
+
+    ![Add and configure a conditional forwarder for the DNS server](./media/manage-dns/create-conditional-forwarder.png)
+
+1. Check the box for **Store this conditional forwarder in Active Directory, and replicate it as follows**, then select the option for *All DNS servers in this domain*, as shown in the following example:
+
+    ![DNS Console - select All DNS servers in this domain](./media/manage-dns/store-in-domain.png)
+
+    > [!IMPORTANT]
+    > If the conditional forwarder is stored in the *forest* instead of the *domain*, the conditional forwarder fails.
+
+1. To create the conditional forwarder, select **OK**.
+
+Name resolution of the resources in other namespaces from VMs connected to the managed domain should now resolve correctly. Queries for the DNS domain configured in the conditional forwarder are passed to the relevant DNS servers.
+
+## Next steps
+
+For more information about managing DNS, see the [DNS tools article on Technet](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753579(v=ws.11)).
+
+<!-- INTERNAL LINKS -->
+[create-azure-ad-tenant]: /azure/active-directory/fundamentals/sign-up-organization
+[associate-azure-ad-tenant]: /azure/active-directory/fundamentals/how-subscriptions-associated-directory
+[create-azure-ad-ds-instance]: tutorial-create-instance.md
+[expressroute]: /azure/expressroute/expressroute-introduction
+[vpn-gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways
+[create-join-windows-vm]: join-windows-vm.md
+[tutorial-create-management-vm]: tutorial-create-management-vm.md
+[connect-windows-server-vm]: join-windows-vm.md#connect-to-the-windows-server-vm
+
+<!-- EXTERNAL LINKS -->
+[install-rsat]: /windows-server/remote/remote-server-administration-tools#BKMK_Thresh

@@ -1,64 +1,62 @@
 ---
-title: 'Azure Active Directory Domain Services: Troubleshooting Secure LDAP configuration | Microsoft Docs'
-description: Troubleshooting Secure LDAP for Azure AD Domain Services
+title: Resolve secure LDAP alerts in Microsoft Entra Domain Services | Microsoft Docs
+description: Learn how to troubleshoot and resolve common alerts with secure LDAP for Microsoft Entra Domain Services.
 services: active-directory-ds
-documentationcenter: ''
-author: MikeStephens-MS
-manager:
-editor:
+author: justinha
+manager: amycolannino
 
 ms.assetid: 81208c0b-8d41-4f65-be15-42119b1b5957
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 05/22/2019
-ms.author: mstephen
+ms.topic: troubleshooting
+ms.date: 09/15/2023
+ms.author: justinha
 
 ---
-# Azure AD Domain Services - Troubleshooting Secure LDAP configuration
+# Known issues: Secure LDAP alerts in Microsoft Entra Domain Services
 
-This article provides resolutions for common issues when [configuring secure LDAP](configure-ldaps.md) for Azure AD Domain Services.
+Applications and services that use lightweight directory access protocol (LDAP) to communicate with Microsoft Entra Domain Services can be [configured to use secure LDAP](tutorial-configure-ldaps.md). An appropriate certificate and required network ports must be open for secure LDAP to work correctly.
 
-## AADDS101: Secure LDAP Network Security Group configuration
+This article helps you understand and resolve common alerts with secure LDAP access in Domain Services.
 
-**Alert message:**
+## AADDS101: Secure LDAP network configuration
+
+### Alert message
 
 *Secure LDAP over the internet is enabled for the managed domain. However, access to port 636 is not locked down using a network security group. This may expose user accounts on the managed domain to password brute-force attacks.*
 
-### Secure LDAP port
+### Resolution
 
-When secure LDAP is enabled, we recommend creating additional rules to allow inbound LDAPS access only from certain IP addresses. These rules protect your domain from brute force attacks that could pose a security threat. Port 636 allows access to your managed domain. Here is how to update your NSG to allow access for Secure LDAP:
+When you enable secure LDAP, it's recommended to create extra rules that restrict inbound LDAPS access to specific IP addresses. These rules protect the managed domain from brute force attacks. To update the network security group to restrict TCP port 636 access for secure LDAP, complete the following steps:
 
-1. Navigate to the [Network Security Groups tab](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups) in the Azure portal
-2. Choose the NSG associated with your domain from the table.
-3. Click on **Inbound security rules**
-4. Create the port 636 rule
-   1. Click **Add** on the top navigation bar.
-   2. Choose **IP Addresses** for the source.
-   3. Specify the Source port ranges for this rule.
-   4. Input "636" for Destination port ranges.
-   5. Protocol is **TCP**.
-   6. Give the rule an appropriate name, description, and priority. This rule's priority should be higher than your "Deny all" rule's priority, if you have one.
-   7. Click **OK**.
-5. Verify that your rule has been created.
-6. Check your domain's health in two hours to ensure that you have completed the steps correctly.
+1. In the [Microsoft Entra admin center](https://entra.microsoft.com), search for and select **Network security groups**.
+1. Choose the network security group associated with your managed domain, such as *AADDS-contoso.com-NSG*, then select **Inbound security rules**
+1. Select **+ Add** to create a rule for TCP port 636. If needed, select **Advanced** in the window to create a rule.
+1. For the **Source**, choose *IP Addresses* from the drop-down menu. Enter the source IP addresses that you want to grant access for secure LDAP traffic.
+1. Choose *Any* as the **Destination**, then enter *636* for **Destination port ranges**.
+1. Set the **Protocol** as *TCP* and the **Action** to *Allow*.
+1. Specify the priority for the rule, then enter a name such as *RestrictLDAPS*.
+1. When ready, select **Add** to create the rule.
+
+The managed domain's health automatically updates itself within two hours and removes the alert.
 
 > [!TIP]
-> Port 636 is not the only rule needed for Azure AD Domain Services to run smoothly. To learn more, visit the [Networking guidelines](network-considerations.md) or [Troubleshoot NSG configuration](alert-nsg.md) articles.
->
+> TCP port 636 isn't the only rule needed for Domain Services to run smoothly. To learn more, see the [Domain Services Network security groups and required ports](network-considerations.md#network-security-groups-and-required-ports).
 
 ## AADDS502: Secure LDAP certificate expiring
 
-**Alert message:**
+### Alert message
 
 *The secure LDAP certificate for the managed domain will expire on [date]].*
 
-**Resolution:**
+### Resolution
 
-Create a new secure LDAP certificate by following the steps outlined in the [Configure secure LDAP](configure-ldaps.md) article.
+Create a replacement secure LDAP certificate by following the steps to [create a certificate for secure LDAP](tutorial-configure-ldaps.md#create-a-certificate-for-secure-ldap). Apply the replacement certificate to Domain Services, and distribute the certificate to any clients that connect using secure LDAP.
 
-## Contact us
-Contact the Azure Active Directory Domain Services product team to [share feedback or for support](contact-us.md).
+## Next steps
+
+If you still have issues, [open an Azure support request][azure-support] for more troubleshooting help.
+
+<!-- INTERNAL LINKS -->
+[azure-support]: /azure/active-directory/fundamentals/how-to-get-support

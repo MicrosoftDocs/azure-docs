@@ -1,22 +1,23 @@
 ---
 title: "Tutorial: Bing Entity Search single-page web app"
-titlesuffix: Azure Cognitive Services
-description: Shows how to use the Bing Entity Search API in a single-page Web application.
-services: cognitive-services
+titleSuffix: Azure AI services
+description: This tutorial shows how to use the Bing Entity Search API in a single-page Web application.
 author: aahill
-manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: tutorial
-ms.date: 02/01/2019
+ms.date: 03/05/2020
 ms.author: aahi
+ms.devlang: javascript
+ms.custom:
 ---
 # Tutorial: Single-page web app
 
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
+
 The Bing Entity Search API lets you search the Web for information about *entities* and *places.* You may request either kind of result, or both, in a given query. The definitions of places and entities are provided below.
 
-|||
+| Result | Description |
 |-|-|
 |Entities|Well-known people, places, and things that you find by name|
 |Places|Restaurants, hotels, and other local businesses that you find by name *or* by type (Italian restaurants)|
@@ -46,10 +47,19 @@ The tutorial app illustrates how to:
 
 The tutorial page is entirely self-contained; it does not use any external frameworks, style sheets, or even image files. It uses only widely supported JavaScript language features and works with current versions of all major Web browsers.
 
-In this tutorial, we discuss only selected portions of the source code. The full source code is available [on a separate page](tutorial-bing-entities-search-single-page-app-source.md). Copy and paste this code into a text editor and save it as `bing.html`.
+In this tutorial, we discuss only selected portions of the source code. The full source code is available [on a separate page](). Copy and paste this code into a text editor and save it as `bing.html`.
 
 > [!NOTE]
-> This tutorial is substantially similar to the [single-page Bing Web Search app tutorial](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md), but deals only with entity search results.
+> This tutorial is substantially similar to the [single-page Bing Web Search app tutorial](../bing-web-search/tutorial-bing-web-search-single-page-app.md), but deals only with entity search results.
+
+## Prerequisites
+
+To follow along with the tutorial, you need subscription keys for the Bing Search API, and Bing Maps API. 
+
+* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
+* Once you have your Azure subscription:
+  * <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Create a Bing Search resource"  target="_blank">Create a Bing Search resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+  * <a href="https://www.microsoft.com/maps/create-a-bing-maps-key.aspx"  title="Create a Computer Vision resource"  target="_blank">Create a Bing Maps resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
 
 ## App components
 
@@ -77,11 +87,11 @@ The HTML also contains the divisions (HTML `<div>` tags) where the search result
 ## Managing subscription keys
 
 > [!NOTE]
-> This app requires subscription keys for both the Bing Search API and the Bing Maps API. You can use a [trial Bing Search key](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) and a [basic Bing Maps key](https://www.microsoft.com/maps/create-a-bing-maps-key).
+> This app requires subscription keys for both the Bing Search API and the Bing Maps API.
 
 To avoid having to include the Bing Search and Bing Maps API subscription keys in the code, we use the browser's persistent storage to store them. If either key has not been stored, we prompt for it and store it for later use. If the key is later rejected by the API, we invalidate the stored key so the user is asked for it upon their next search.
 
-We define `storeValue` and `retrieveValue` functions that use either the `localStorage` object (if the browser supports it) or a cookie. Our `getSubscriptionKey()` function uses these functions to store and retrieve the user's key.
+We define `storeValue` and `retrieveValue` functions that use either the `localStorage` object (if the browser supports it) or a cookie. Our `getSubscriptionKey()` function uses these functions to store and retrieve the user's key. You can use the global endpoint below, or the [custom subdomain](../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
 ```javascript
 // cookie names for data we store
@@ -127,7 +137,7 @@ The HTML `<body>` tag includes an `onload` attribute that calls `getSearchSubscr
 
 The HTML form includes the following controls:
 
-| | |
+| Control | Description |
 |-|-|
 |`where`|A drop-down menu for selecting the market (location and language) used for the search.|
 |`query`|The text field in which to enter the search terms.|
@@ -385,7 +395,7 @@ Errors are handled by calling `renderErrorMessage()` with any details known abou
 
 ## Displaying search results
 
-The Bing Entity Search API [requires you to display results in a specified order](use-display-requirements.md). Since the API may return two different kinds of responses, it is not enough to iterate through the top-level `Entities` or `Places` collection in the JSON response and display those results. (If you want only one type of result, use the `responseFilter` query parameter.)
+The Bing Entity Search API [requires you to display results in a specified order](../bing-web-search/use-display-requirements.md). Since the API may return two different kinds of responses, it is not enough to iterate through the top level `Entities` or `Places` collection in the JSON response and display those results. (If you want only one type of result, use the `responseFilter` query parameter.)
 
 Instead, we use the `rankingResponse` collection in the search results to order the results for display. This object refers to items in the `Entitiess` and/or `Places` collections.
 
@@ -397,7 +407,7 @@ Finally. `sidebar` refers to auxiliary search results. They may be displayed in 
 
 Each item in a `rankingResponse` collection refers to the actual search result items in two different, but equivalent, ways.
 
-| | |
+| Item | Description |
 |-|-|
 |`id`|The `id` looks like a URL, but should not be used for links. The `id` type of a ranking result matches the `id` of either a search result item in an answer collection, *or* an entire answer collection (such as `Entities`).
 |`answerType`<br>`resultIndex`|The `answerType` refers to the top-level answer collection that contains the result (for example, `Entities`). The `resultIndex` refers to the result's index within that collection. If `resultIndex` is omitted, the ranking result refers to the entire collection.
@@ -438,7 +448,7 @@ searchItemRenderers = {
 
 A renderer function may accept the following parameters:
 
-| | |
+| Parameter | Description |
 |-|-|
 |`item`|The JavaScript object containing the item's properties, such as its URL and its description.|
 |`index`|The index of the result item within its collection.|
@@ -511,7 +521,7 @@ Our entity renderer function:
 
 Responses from the Bing search APIs may include a `X-MSEdge-ClientID` header that should be sent back to the API with successive requests. If multiple Bing Search APIs are being used, the same client ID should be used with all of them, if possible.
 
-Providing the `X-MSEdge-ClientID` header allows the Bing APIs to associate all of a user's searches, which has two important benefits.
+Providing the `X-MSEdge-ClientID` header allows the Bing APIs to associate all of a user's searches, which have two important benefits.
 
 First, it allows the Bing search engine to apply past context to searches to find results that better satisfy the user. If a user has previously searched for terms related to sailing, for example, a later search for "docks" might preferentially return information about places to dock a sailboat.
 
@@ -522,26 +532,29 @@ Browser security policies (CORS) may prevent the `X-MSEdge-ClientID` header from
 > [!NOTE]
 > In a production Web application, you should perform the request server-side anyway. Otherwise, your Bing Search API key must be included in the Web page, where it is available to anyone who views source. You are billed for all usage under your API subscription key, even requests made by unauthorized parties, so it is important not to expose your key.
 
-For development purposes, you can make the Bing Web Search API request through a CORS proxy. The response from such a proxy has an `Access-Control-Expose-Headers` header that whitelists response headers and makes them available to JavaScript.
+For development purposes, you can make the Bing Web Search API request through a CORS proxy. The response from such a proxy has an `Access-Control-Expose-Headers` header that allow lists response headers and makes them available to JavaScript.
 
 It's easy to install a CORS proxy to allow our tutorial app to access the client ID header. First, if you don't already have it, [install Node.js](https://nodejs.org/en/download/). Then issue the following command in a command window:
 
-    npm install -g cors-proxy-server
+```console
+npm install -g cors-proxy-server
+```
 
-Next, change the Bing Web Search endpoint in the HTML file to:
-
-    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
+Next, change the Bing Web Search endpoint in the HTML file to:\
+`http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search`
 
 Finally, start the CORS proxy with the following command:
 
-    cors-proxy-server
+```console
+cors-proxy-server
+```
 
 Leave the command window open while you use the tutorial app; closing the window stops the proxy. In the expandable HTTP Headers section below the search results, you can now see the `X-MSEdge-ClientID` header (among others) and verify that it is the same for each request.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Bing Entity Search API reference](//docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+> [Bing Entity Search API reference](/rest/api/cognitiveservices/bing-entities-api-v7-reference)
 
 > [!div class="nextstepaction"]
-> [Bing Maps API documentation](//msdn.microsoft.com/library/dd877180.aspx)
+> [Bing Maps API documentation](/bingmaps/)

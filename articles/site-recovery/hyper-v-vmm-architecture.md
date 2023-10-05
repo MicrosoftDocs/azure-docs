@@ -1,18 +1,17 @@
 ---
-title: Architecture for Hyper-V disaster recovery to a secondary on-premises site with Azure Site Recovery | Microsoft Docs
+title: Architecture-Hyper-V disaster recovery to a secondary site with Azure Site Recovery 
 description: This article provides an overview of the architecture for disaster recovery of on-premises Hyper-V VMs to a secondary System Center VMM site with Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 05/30/2019
-ms.author: raynew
+ms.topic: conceptual
+ms.date: 11/12/2019
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 
 # Architecture - Hyper-V replication to a secondary site
 
 This article describes the components and processes involved when replicating on-premises Hyper-V virtual machines (VMs) in System Center Virtual Machine Manager (VMM) clouds, to a secondary VMM site using the [Azure Site Recovery](site-recovery-overview.md) service in the Azure portal.
-
+a
 
 ## Architectural components
 
@@ -27,11 +26,11 @@ The following table and graphic provide a high-level view of the components used
 
 **On-premises to on-premises architecture**
 
-![On-premises to on-premises](./media/hyper-v-vmm-architecture/arch-onprem-onprem.png)
+![Diagram showing on-premises to on-premises protection.](./media/hyper-v-vmm-architecture/arch-onprem-onprem.png)
 
 ## Replication process
 
-1. When initial replication is triggered, a [Hyper-V VM snapshot](https://technet.microsoft.com/library/dd560637.aspx) snapshot is taken.
+1. When initial replication is triggered, a [Hyper-V VM snapshot](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd560637(v=ws.10)) snapshot is taken.
 2. Virtual hard disks on the VM are replicated one by one, to the secondary location.
 3. If disk changes occur while initial replication is in progress, the Hyper-V Replica Replication Tracker tracks the changes as Hyper-V replication logs (.hrl). These log files are located in the same folder as the disks. Each disk has an associated .hrl file that's sent to the secondary location. The snapshot and log files consume disk resources while initial replication is in progress.
 4. When the initial replication finishes, the VM snapshot is deleted, and delta replication begins.

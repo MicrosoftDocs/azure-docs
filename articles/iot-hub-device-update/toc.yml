@@ -1,0 +1,181 @@
+items:
+- name: Device Update for IoT Hub documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What is Device Update for IoT Hub?
+    href: understand-device-update.md
+  - name: Device Update for IoT Hub public preview documentation
+    href: /previous-versions/azure/iot-hub-device-update/understand-device-update
+  - name: Release notes and version history
+    href: device-update-changelog.md
+- name: Tutorials
+  items:
+  - name: Try Device Update with a simulator
+    href: device-update-simulator.md
+  - name: Update a device image
+    href: device-update-raspberry-pi.md
+  - name: Update device packages
+    href: device-update-ubuntu-agent.md
+  - name: Update device components or connected sensors
+    href: device-update-howto-proxy-updates.md
+  - name: Device Update for Azure Real Time Operating System
+    href: device-update-azure-real-time-operating-system.md
+- name: Concepts
+  items:
+  - name: Account management
+    items:
+    - name: Device Update account and instance
+      href: device-update-resources.md
+    - name: User roles and access
+      href: device-update-control-access.md
+    - name: Device Update limits
+      href: device-update-limits.md
+    - name: Monitor Device Update for IoT Hub
+      href: monitor-device-update-iot-hub.md
+  - name: Devices 
+    items:
+    - name: Device Update agent
+      href: device-update-agent-overview.md
+    - name: How Device Update uses Plug and Play
+      href: device-update-plug-and-play.md
+    - name: Compliance
+      href: device-update-compliance.md
+    - name: Groups
+      href: device-update-groups.md
+    - name: Configuration file
+      href: device-update-configuration-file.md
+    - name: Networking requirements
+      href: device-update-networking.md
+    - name: Components enumerator
+      href: components-enumerator.md   
+  - name: Updates and deployments
+    items:
+    - name: Import updates
+      href: import-concepts.md
+    - name: Import manifest
+      href: import-schema.md
+    - name: Update manifest
+      href: update-manifest.md
+    - name: Apt manifest
+      href: device-update-apt-manifest.md
+    - name: Deployments
+      href: device-update-deployments.md
+    - name: Proxy updates
+      href: device-update-proxy-updates.md
+    - name: Multi-step updates
+      href: device-update-multi-step-updates.md
+    - name: Region mapping for BCDR
+      href: device-update-region-mapping.md  
+  - name: Updates for disconnected devices
+    href: connected-cache-disconnected-device-update.md
+    displayName: Microsoft Connected Cache, MCC, gateway
+  - name: Diagnostic features
+    href: device-update-diagnostics.md
+  - name: Security
+    href: device-update-security.md
+  - name: Network security
+    href: network-security.md
+  - name: Data encryption for Device Update for IoT Hub
+    href: device-update-data-encryption.md
+  - name: Data privacy
+    href: device-update-data-privacy.md
+  - name: Device Update Supported Platforms
+    href: support.md
+- name: How-to guides
+  items:
+  - name: Create a Device Update account
+    href: create-device-update-account.md
+    displayName: Azure CLI, az iot, az iot du
+  - name: Configure access control roles for Device Update resources
+    href: configure-access-control-device-update.md
+    displayName: Azure CLI, az iot, az iot du    
+  - name: Provisioning device update agent
+    href: device-update-agent-provisioning.md
+  - name: Create an update
+    href: create-update.md
+  - name: Import an update
+    href: import-update.md
+  - name: Manage device groups
+    href: create-update-group.md
+  - name: Deploy an update
+    href: deploy-update.md
+  - name: Find missing devices with Agent Check
+    href: device-update-agent-check.md
+  - name: Create a log collection operation
+    href: device-update-log-collection.md
+    displayName: Azure CLI, az iot, az iot du
+  - name: Use delta updates
+    href: delta-updates.md
+  - name: Use related files
+    href: related-files.md
+  - name: Configure private endpoints
+    href: configure-private-endpoints.md
+    displayName: Azure CLI, az iot, az iot du
+  - name: Use Microsoft Connected Cache
+    items:
+    - name: Single gateway
+      href: connected-cache-single-level.md
+      displayName: Microsoft Connected Cache, MCC
+    - name: Nested gateways
+      href: connected-cache-nested-level.md
+      displayName: Industrial IoT, IIoT, Microsoft Connected Cache, MCC
+  - name: Migrate devices to public preview refresh
+    href: migration-public-preview-refresh-to-ga.md
+  - name: Troubleshoot
+    items:
+    - name: Troubleshoot device updates
+      href: troubleshoot-device-update.md
+    - name: Troubleshoot proxy updates
+      href: device-update-proxy-update-troubleshooting.md
+    - name: Error messages
+      href: device-update-error-codes.md
+- name: Reference
+  items:
+  - name: REST API
+    href: /rest/api/deviceupdate/
+  - name: Control plane SDK
+    items:
+      - name: .NET
+        href: /dotnet/api/overview/azure/resourcemanager.iothub-readme
+      - name: Python
+        href: /python/api/azure-mgmt-deviceupdate/
+  - name: Data plane SDK
+    items:
+      - name: .NET
+        href: /dotnet/api/azure.iot.deviceupdate?view=azure-dotnet-preview&preserve-view=true
+      - name: JavaScript
+        href: /javascript/api/@azure/iot-device-update/?view=azure-node-preview&preserve-view=true
+      - name: Java
+        href: /java/api/com.azure.iot.deviceupdate?view=azure-java-preview&preserve-view=true
+      - name: Python
+        href: /python/api/azure-mgmt-deviceupdate/azure.mgmt.deviceupdate?view=azure-python-preview&preserve-view=true
+- name: Resources
+  items:
+    - name: Support and help options
+      href: ../iot/iot-support-help.md?toc=/azure/iot-hub-device-update/toc.json&bc=/azure/iot-hub-device-update/breadcrumb/toc.json
+    - name: Azure IoT services
+      items:
+        - name: IoT Hub
+          href: ../iot-hub/index.yml
+        - name: IoT Hub Device Provisioning Service
+          href: ../iot-dps/index.yml
+        - name: IoT Central
+          href: ../iot-central/index.yml
+        - name: IoT Edge
+          href: ../iot-edge/index.yml
+        - name: Azure Maps
+          href: ../azure-maps/index.yml
+        - name: Time Series Insights
+          href: ../time-series-insights/index.yml
+    - name: Terraform modules
+      items:
+      - name: Device Update account resource
+        displayName: Terraform
+        href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/iothub_device_update_account
+      - name: Device Update instance resource
+        displayName: Terraform
+        href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/iothub_device_update_instance
+    - name: Delivery Optimization
+      href: https://github.com/microsoft/do-client

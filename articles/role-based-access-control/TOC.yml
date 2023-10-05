@@ -1,25 +1,30 @@
-- name: RBAC for Azure resources documentation
+- name: Azure RBAC documentation
   href: index.yml
   items:
 - name: Overview
   items:
-  - name: What is RBAC?
+  - name: What is Azure RBAC?
     href: overview.md
+  - name: What is Azure ABAC?
+    href: conditions-overview.md
   - name: Understand the different roles
     href: rbac-and-directory-admin-roles.md
 - name: Quickstarts
   items:
-  - name: View access for a user
+  - name: Check access for a user
     href: check-access.md
+  - name: Bicep
+    displayName: ARM, Resource Manager, Template
+    href: quickstart-role-assignments-bicep.md
+  - name: ARM template
+    displayName: Resource Manager
+    href: quickstart-role-assignments-template.md
 - name: Tutorials
   items:
   - name: Grant a user access - Portal
     href: quickstart-assign-role-user-portal.md
   - name: Grant a user access - PowerShell
     href: tutorial-role-assignments-user-powershell.md
-  - name: Grant a user access - Resource Manager Template
-    displayName: ARM, resource manager template
-    href: tutorial-role-assignments-user-template.md
   - name: Grant a group access - PowerShell
     href: tutorial-role-assignments-group-powershell.md
   - name: Create a custom role - PowerShell
@@ -28,76 +33,167 @@
     href: tutorial-custom-role-cli.md
 - name: Concepts
   items:
-  - name: Understand role definitions
+  - name: Role definitions
     href: role-definitions.md
-  - name: PIM for Azure resources
-    href: pim-azure-resource.md
-  - name: Conditional access for Azure management
-    href: conditional-access-azure-management.md
+  - name: Role assignments
+    href: role-assignments.md
+  - name: Scope
+    href: scope-overview.md
+  - name: Best practices
+    href: best-practices.md
+  - name: Delegate
+    items:
+    - name: Delegate role assignments overview
+      href: delegate-role-assignments-overview.md
+    - name: Authorization actions and attributes
+      href: conditions-authorization-actions-attributes.md
+    - name: Example conditions
+      href: delegate-role-assignments-examples.md
+  - name: ABAC conditions
+    items:
+    - name: Condition format
+      href: conditions-format.md
+    - name: Example conditions for Blob Storage
+      href: ../storage/blobs/storage-auth-abac-examples.md?toc=/azure/role-based-access-control/toc.json
+    - name: Conditions prerequisites
+      href: conditions-prerequisites.md
+    - name: Conditions FAQ
+      href: conditions-faq.md
+    - name: Custom security attributes example
+      href: conditions-custom-security-attributes-example.md
+  - name: Security
+    items:
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ./security-controls-policy.md
 - name: How-to guides
   items:
-  - name: Manage access
+  - name: List role definitions
+    href: role-definitions-list.md
+  - name: List role assignments
     items:
     - name: Portal
-      href: role-assignments-portal.md
+      href: role-assignments-list-portal.md
+    - name: PowerShell
+      href: role-assignments-list-powershell.md
+    - name: CLI
+      href: role-assignments-list-cli.md
+    - name: REST API
+      href: role-assignments-list-rest.md
+  - name: Assign roles
+    items:
+    - name: Steps to assign a role
+      href: role-assignments-steps.md
+    - name: Portal
+      items:
+      - name: Assign roles
+        href: role-assignments-portal.md
+      - name: Managed identity
+        href: role-assignments-portal-managed-identity.md
+      - name: External guest users
+        href: role-assignments-external-users.md
     - name: PowerShell
       href: role-assignments-powershell.md
-    - name: Azure CLI
+    - name: CLI
       href: role-assignments-cli.md
     - name: REST API
       href: role-assignments-rest.md
-    - name: Template
+    - name: ARM template
+      displayName: Resource Manager
       href: role-assignments-template.md
-  - name: Deny access
+  - name: Delegate
     items:
-    - name: Deny assignments
+    - name: Subscription administrator
+      href: role-assignments-portal-subscription-admin.md
+    - name: Delegate role assignments with conditions
+      href: delegate-role-assignments-portal.md
+  - name: Add or edit ABAC conditions
+    items:
+    - name: Portal
+      href: conditions-role-assignments-portal.md
+    - name: PowerShell
+      href: conditions-role-assignments-powershell.md
+    - name: CLI
+      href: conditions-role-assignments-cli.md
+    - name: REST API
+      href: conditions-role-assignments-rest.md
+    - name: ARM template
+      href: conditions-role-assignments-template.md
+    - name: Conditions and custom security attributes
+      href: conditions-custom-security-attributes.md
+  - name: Remove role assignments
+    href: role-assignments-remove.md
+  - name: List deny assignments
+    items:
+    - name: Overview
       href: deny-assignments.md
     - name: Portal
       href: deny-assignments-portal.md
+    - name: PowerShell
+      href: deny-assignments-powershell.md
     - name: REST API
       href: deny-assignments-rest.md
-  - name: Custom roles
+  - name: Create custom roles
     items:
     - name: Overview
       href: custom-roles.md
+    - name: Portal
+      href: custom-roles-portal.md
     - name: PowerShell
       href: custom-roles-powershell.md
-    - name: Azure CLI
+    - name: CLI
       href: custom-roles-cli.md
     - name: REST API
       href: custom-roles-rest.md
+    - name: Bicep
+      displayName: ARM, Resource Manager, Template
+      href: custom-roles-bicep.md
+    - name: ARM template
+      displayName: Resource Manager
+      href: custom-roles-template.md
   - name: View activity logs
     href: change-history-report.md
-  - name: Elevate access to manage all subscriptions
+  - name: Alert on privileged role assignments
+    href: role-assignments-alert.md
+  - name: Elevate access
     href: elevate-access-global-admin.md
-  - name: Manage access for external users
-    href: role-assignments-external-users.md
   - name: Classic administrators
     href: classic-administrators.md
+  - name: Transfer subscription to different directory
+    href: transfer-subscription.md
   - name: Troubleshoot
-    href: troubleshooting.md
+    items:
+    - name: Troubleshoot Azure RBAC
+      href: troubleshooting.md
+    - name: Troubleshoot Azure RBAC limits
+      href: troubleshoot-limits.md
+    - name: Troubleshoot ABAC conditions
+      href: conditions-troubleshoot.md
 - name: Reference
   items:
   - name: Built-in roles
     href: built-in-roles.md
   - name: Resource provider operations
     href: resource-provider-operations.md
-  - name: RBAC limits
-    href: ../azure-subscription-service-limits.md#role-based-access-control-limits
+  - name: Azure RBAC limits
+    href: ../azure-resource-manager/management/azure-subscription-service-limits.md#azure-rbac-limits
   - name: Azure PowerShell
     href: /powershell/module/az.resources
-  - name: Azure CLI
-    href: /cli/azure/role?view=azure-cli-latest
+  - name: CLI
+    href: /cli/azure/role
   - name: REST API
     href: /rest/api/authorization/
-  - name: Resource Manager templates
-    displayName: ARM
+  - name: ARM templates
+    displayName: Resource Manager
     items:
     - name: Role Assignments
       href: /azure/templates/microsoft.authorization/roleassignments
     - name: Role Definitions
       href: /azure/templates/microsoft.authorization/roledefinitions
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?products=azure-active-directory
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/?products=azure-active-directory

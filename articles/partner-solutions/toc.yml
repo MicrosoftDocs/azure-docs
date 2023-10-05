@@ -1,0 +1,28 @@
+items:
+- name: Azure Native ISV Services documentation
+  items:
+  - name: Overview of Azure Native ISV Services
+    href: overview.md
+  - name: Partner services
+    href: partners.md
+- name: Partner services documentation
+  expanded: true
+  items:
+  - name: Datadog - An Azure Native ISV Service
+    href: ./datadog/index.yml
+  - name: Elastic
+    href: ./elastic/index.yml
+  - name: Logz.io
+    href: ./logzio/index.yml
+  - name: Azure Native Dynatrace Service
+    href: ./dynatrace/index.yml
+  - name: Azure Native New Relic Service
+    href: ./new-relic/index.yml
+  - name: Apache Kafka on Confluent Cloud
+    href: ./apache-kafka-confluent-cloud/index.yml
+  - name: Azure Native Qumulo Scalable File Service 
+    href: ./qumulo/index.yml
+  - name: NGINXaaS - Azure Native ISV Service
+    href: ./nginx/index.yml
+  - name: Cloud NGFW by Palo Alto Networks - Azure Native ISV Service
+    href: ./palo-alto/index.yml

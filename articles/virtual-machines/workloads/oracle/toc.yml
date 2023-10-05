@@ -1,32 +1,65 @@
-- name: Overview
+items:
+- name: Oracle on Azure VMs
+  href: index.yml
+- name: Overview 
   items:
-  - name: Oracle solutions overview
+  - name: Oracle applications and solutions on Azure
     href: oracle-overview.md
-  - name: Solutions on Azure VMs
-    href: oracle-vm-solutions.md
-  - name: Solutions with OCI - Preview
-    href: oracle-oci-overview.md
-- name: Quickstarts
+- name: Get started
   items:
-  - name: Create an Oracle DB
+  - name: Create an Oracle DB in an Azure VM 
     href: oracle-database-quick-create.md
-- name: Tutorials
+  - name: WebLogic Server on Azure VMs
+    href: oracle-weblogic.md
+  - name: WebLogic Server on Azure Kubernetes Service
+    href: weblogic-aks.md
+- name: Configuration
   items:
-  - name: Configure Oracle ASM
+  - name: Set up Oracle ASM on an Azure Linux VM
     href: configure-oracle-asm.md
-  - name: Configure Oracle Data Guard
+  - name: Implement Oracle Data Guard on an Azure Linux VM
     href: configure-oracle-dataguard.md
-  - name: Configure Oracle GoldenGate
-    href: configure-oracle-golden-gate.md
-- name: Concepts
+  - name: Implement Oracle Golden Gate on an Azure Linux VM
+    href: configure-oracle-golden-gate.md  
+- name: Migration
   items:
-  - name: Architect an Oracle DB
-    href: oracle-design.md
-  - name: Backup strategy for Oracle DB
-    href: oracle-backup-recovery.md
-  - name: Oracle disaster recovery options
+  - name: Migrate Oracle workload to Azure VMs
+    href: oracle-migration.md
+  - name: Storage options for oracle on Azure VMs
+    href: oracle-storage.md
+- name: Backup and disaster recovery
+  items:  
+  - name: Oracle Database in Azure Linux VM backup strategies
+    href: oracle-database-backup-strategies.md
+  - name: Oracle Database on an Azure Linux VM using Azure files
+    href: oracle-database-backup-azure-storage.md
+  - name: Oracle Database on an Azure Linux VM using Azure backup
+    href: oracle-database-backup-azure-backup.md
+  - name: Stream database backups using Oracle RMAN
+    href: oracle-rman-streaming-backup.md
+  - name: Disaster Recovery 12c of Oracle on Azure
     href: oracle-disaster-recovery.md
-- name: Resources
+- name: Solution architecture
   items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
+  - name: Architectures for Oracle applications with database on Azure Virtual Machines
+    href: deploy-application-oracle-database-azure.md
+  - name: Architectures for Oracle applications with Azure Virtual Machines and database on OCI
+    href: oracle-oci-applications.md
+  - name: Architectures for Oracle database on Azure Virtual Machines
+    href: oracle-reference-architecture.md
+  - name: Architectures for Oracle Database Enterprise Edition on Azure
+    href: oracle-design.md
+- name: Reference
+  items:
+  - name: Oracle on Azure Virtual Machines landing zone accelerator
+    href: /azure/cloud-adoption-framework/scenarios/oracle-iaas/introduction-oracle-landing-zone
+  - name: Cloud Adoption Framework for Azure
+    href: https://azure.microsoft.com/solutions/cloud-enablement/cloud-adoption-framework/
+  - name: Azure Architecture Center
+    href: /azure/architecture/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Azure DevOps Roadmap
+    href: /azure/devops/release-notes/features-timeline
+- name: FAQs
+  href: oracle-azure-vms-faq.md

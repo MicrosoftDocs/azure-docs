@@ -1,0 +1,238 @@
+### YamlMime:FAQ
+metadata:
+  title: Frequently asked questions about Azure AI Video Indexer - Azure
+  description: This article gives answers to frequently asked questions about Azure AI Video Indexer.
+  services: azure-video-indexer
+  author: IngridAtMicrosoft
+  manager: femila
+  ms.topic: faq
+  ms.date: 08/07/2023
+  ms.author: inhenkel
+title: Azure AI Video Indexer frequently asked questions
+summary: This article answers frequently asked questions about Azure AI Video Indexer.
+
+
+sections:
+  - name: General questions
+    questions:
+      - question: What is Azure AI Video Indexer?
+        answer: |
+          Azure AI Video Indexer is a cloud application, part of Azure AI services, built on Azure Media Services and Azure AI services (such as the Face, Translator, Azure AI Vision, and Speech). It enables you to extract the insights from your videos using Azure AI Video Indexer video and audio models. For more information, see [Overview](video-indexer-overview.md).
+          
+      - question: What can I do with Azure AI Video Indexer?
+        answer: |
+          Some of the operations that Azure AI Video Indexer can perform on media files include:
+
+          * Identifying and extracting speech and identify speakers.
+          * Identifying and extracting on-screen text in a video.
+          * Detecting objects in a video file.
+          * Identify brands (for example: Microsoft) from audio tracks and on-screen text in a video.
+          * Detecting and recognizing faces from a database of celebrities and a user-defined database of faces.
+          * Extracting topics discussed but not necessarily mentioned in audio and video content.
+          * Creating closed captions or subtitles from the audio track.
+
+          For more information and more Azure AI Video Indexer features, see [Overview](video-indexer-overview.md).
+
+      - question: How do I get started with Azure AI Video Indexer?
+        answer: |
+          Azure AI Video Indexer includes a trial offering that provides you with 2,400 free indexing minutes when using the [Azure AI Video Indexer](https://www.videoindexer.ai/) website or the Azure AI Video Indexer API (see [developer portal](https://api-portal.videoindexer.ai/)).
+
+          To index videos and audio flies at scale, you can connect Azure AI Video Indexer to a paid Microsoft Azure subscription. You can find more information on pricing on the [pricing](https://azure.microsoft.com/pricing/details/video-indexer/) page.
+
+          You can find more information on getting started in [Get started](video-indexer-get-started.md).
+
+      - question: Do I need coding skills to use Azure AI Video Indexer?
+        answer: |
+          You can use the Azure AI Video Indexer web-based interface to evaluate, configure, and manage your account with **no coding required**.  When you are ready to develop more complex applications, you can use the [Azure AI Video Indexer API](https://api-portal.videoindexer.ai/) to integrate Azure AI Video Indexer into your own applications, web sites, or [custom workflows using serverless technologies like Azure Logic Apps](https://azure.microsoft.com/blog/logic-apps-flow-connectors-will-make-automating-video-indexer-simpler-than-ever/) or Azure Functions.
+
+      - question: What are the Limited Access features of Azure AI Video Indexer and how to register? 
+        answer: |
+          Face Identify and Celebrity Recognition features of Azure AI Video Indexer are Limited Access features that require registration. 
+          
+          Find the registration form and more information about Limited Access in [this article](limited-access-features.md).
+          
+          Also, see the following: the [announcement blog post](https://aka.ms/AAh91ff) and  [investment and safeguard for facial recognition blog post](https://aka.ms/AAh9oye).
+
+      - question: Do I need machine learning skills to use Azure AI Video Indexer?
+        answer: No, Azure AI Video Indexer provides the integration of multiple machine learning models into one pipeline. Indexing a video or audio file via Azure AI Video Indexer retrieves a full set of insights extracted on one shared timeline without any machine learning skills or knowledge on algorithms needed on the customer's part.
+
+      - question: What media formats does Azure AI Video Indexer support?
+        answer: |
+          Azure AI Video Indexer supports most common media formats. Refer to the [Azure Media Encoder standard formats](/azure/media-services/latest/encode-media-encoder-standard-formats-reference) list for more details.
+
+      - question: How do I upload a media file into Azure AI Video Indexer and what are the limitations?
+        answer: |
+          In the Azure AI Video Indexer web-based portal, you can upload a media file using the file upload dialog or by pointing to a URL that directly hosts the source file (see [example](https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/Ignite-short.mp4)). Any URL that hosts the media content using an iFrame or embed code will not work (see [example](https://www.videoindexer.ai/accounts/7e1282e8-083c-46ab-8c20-84cae3dc289d/videos/5cfa29e152/?t=4.11)).
+
+          For more information, please see this [how-to guide](./upload-index-videos.md).
+ 
+      - question: How many files can I stitch and render in a project?
+        answer: |
+          In Azure AI Video Indexer you can create a project and add multiple files to stitch and render as a new file. The number of source files is set to 10 in the [website](https://www.videoindexer.ai/) and 100 in the API. This is a limit set by the Azure Media Services Media Encoder Standard API where we have a dependency on.
+
+      - question: How long does it take Azure AI Video Indexer to extract insights from media?
+        answer: |
+          The amount of time it takes to index a video or audio file, both using the Azure AI Video Indexer API and the Azure AI Video Indexer web-based interface, depends on multiple parameters such as the file length and quality, the number of insights found in the file, the number of [reserved units](/azure/media-services/previous/media-services-scale-media-processing-overview) available, and whether the [streaming endpoint](/azure/media-services/previous/media-services-streaming-endpoints-overview) is enabled or not. We recommend that you run a few test files with your own content and take an average to get a better idea.
+
+      - question: Can I create customized workflows to automate processes with Azure AI Video Indexer?
+        answer: |
+          Yes, you can integrate Azure AI Video Indexer into serverless technologies like Logic Apps, Flow, and [Azure Functions](https://azure.microsoft.com/services/functions/). You can find more details on the [Logic App](https://azure.microsoft.com/services/logic-apps/) and [Flow](https://flow.microsoft.com/en-us/) connectors for Azure AI Video Indexer [here](https://azure.microsoft.com/blog/logic-apps-flow-connectors-will-make-automating-video-indexer-simpler-than-ever/). You can see some  automation projects done by partners in the [Azure AI Video Indexer Samples](https://github.com/Azure-Samples/media-services-video-indexer) repo.
+
+      - question: In which Azure regions is Azure AI Video Indexer available?
+        answer: |
+          You can see which Azure regions Azure AI Video Indexer is available on the [regions](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services&regions=all) page.
+
+      - question: Can I customize Azure AI Video Indexer models for my specific use case?
+        answer: |
+          Yes. In Azure AI Video Indexer you can customize some of the available models to better fit your needs.
+
+          For example, our Person model supports out-of-the-box 1,000,000 faces of celebrity recognition, but you can also train it to recognize other faces which are not in that database.
+
+          For details, see articles about customizing [Person](customize-person-model-overview.md), [Brands](customize-brands-model-overview.md), and [Language](customize-language-model-overview.md) models.
+
+      - question:  Can I edit the videos in my library?
+        answer: |
+          Yes. Press the **edit video** button from the library display or the **open in editor** button from the player display to get to the **Projects** tab. You can create a new project and add more videos from your library to edit them together, once you are done you can render your video and download.
+
+          If you want to get insights on your new video, index it with Azure AI Video Indexer and it will appear in your library with its insights.
+
+      - question: Can I index multiple audio streams or channels?
+        answer: If there are multiple audio streams, Azure AI Video Indexer takes the first one it encounters and will process only this stream. In any audio stream Azure AI Video Indexer processes, it takes the different channels (if present) and processes them together as mono. For streams/channels manipulation you can use ffmpeg commands on the file before indexing it.
+
+      - question: Can a storage account connected to the Media Services account be behind a firewall?
+        answer: |
+          Your paid Azure AI Video Indexer account uses the specified Media Services account that is connected to a storage account. Currently, the use of a connected storage account that is behind a firewall and not publicly accessible is not supported.
+
+      - question: What is the SLA for Azure AI Video Indexer?
+        answer: |
+          Azure Media Service’s SLA covers Azure AI Video Indexer and can be found on the [SLA](https://azure.microsoft.com/support/legal/sla/media-services/v1_2/) page. The SLA only applies to Azure AI Video Indexer paid accounts and does not apply to the trial.
+
+      - question: Can’t find my new ARM account in the account list on the Azure AI Video Indexer website.
+        answer: |
+          For detailed description on how to switch to the correct domain, see [Switch between tenants](switch-tenants-portal.md).
+  - name: Privacy Questions
+    questions:
+      - question: How is network traffic encrypted by Azure AI Video Indexer?
+        answer: Communication between a client application and an Azure AI Video Indexer account is encrypted using Transport Layer Security (TLS). TLS is a standard cryptographic protocol that ensures privacy and data integrity between clients and services over the Internet. For more information about TLS, see [Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security). Video Indexer enforces a minimum of TLS v1.2. Customers can't control the cipher suits, we will pick the first match between the client and server going from strong to weaker.
+      
+      - question: Are video and audio files indexed by Azure AI Video Indexer stored?
+        answer: Yes, unless you delete the file from Azure AI Video Indexer, either using the Azure AI Video Indexer website or API, your video and audio files are stored. For the trial, the video and audio files that you index are stored in the Azure region East US. Otherwise, your video and audio files are stored in the storage account of your Azure subscription.
+
+      - question: Where does Azure AI Video Indexer store customer data?
+        answer: By default, your data is replicated to the paired region into which you deployed the Azure AI Video Indexer instance. For region with data residency requirements, your data is always kept within the same region. For more related information, check out other **Privacy Questions** in this section.
+      
+      - question: Can I delete my files that are stored in the Azure AI Video Indexer website?
+        answer: Yes, you can always delete your video and audio files as well as any metadata and insights extracted from them by Azure AI Video Indexer. Once you delete a file from Azure AI Video Indexer, the file and its metadata and insights are permanently removed from Azure AI Video Indexer. However, if you have implemented your own backup solution in Azure storage, the file remains in your Azure storage.
+
+      - question: Can I control user access to my Azure AI Video Indexer account?
+        answer: Yes, only account admins can invite and uninvite people to their accounts, as well as assign who has editing privileges and who has read-only access.
+
+      - question: Who has access to my video and audio files that have been indexed and/or stored by Azure AI Video Indexer and the metadata and insights that were extracted?
+        answer: Your video or audio content that have public as its privacy setting can be accessed by anyone who has the link to your video or audio content and its insights. Your video or audio content that have private as its privacy setting can only be accessed by users that were invited to the account of the video or audio content. The privacy setting of your content also applies to the metadata and insights that Azure AI Video Indexer extracts. You assign the privacy setting when you upload your video or audio file. You can also change the privacy setting after indexing.
+
+      - question: What access does Microsoft have to my video or audio files that have been indexed and/or stored by Azure AI Video Indexer and the metadata and insights that were extracted?
+        answer: |
+          Per the [Azure Online Services Terms](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) (OST), you completely own your content, and Microsoft will only access your content and the metadata and insights that Azure AI Video Indexer extracts from your content according to the OST and the Microsoft Privacy Statement.
+
+      - question: Are the custom models that I build in my Azure AI Video Indexer account available to other accounts?
+        answer: |
+           No, the custom models that you create in your account are not available to any other account. Azure AI Video Indexer currently allows you to build custom [brands](customize-brands-model-overview.md), [language](customize-language-model-overview.md), and [person](customize-person-model-overview.md) models in your account. These models are only available in the account in which you created the models.
+
+      - question: Is the content indexed by Video Indexer kept within the Azure region where I am using Video Indexer?
+        answer: |
+          Yes, the content and its insights are kept within the Azure region (except for Singapore and Brazil South regions) unless you have a manual configuration in your Azure subscription that uses multiple Azure regions.
+
+          Customer data in a region is replicated for BCDR reasons to the [paired region](../availability-zones/cross-region-replication-azure.md#azure-paired-regions).
+
+      - question: What is the privacy policy for Azure AI Video Indexer?
+        answer: |
+          Azure AI Video Indexer is covered by the [Microsoft Privacy Statement](https://privacy.microsoft.com/privacystatement). The privacy statement explains the personal data Microsoft processes, how Microsoft processes it, and for what purposes Microsoft processes it. To learn more about privacy, visit the [Microsoft Trust Center](https://www.microsoft.com/trust-center).
+
+      - question: What certifications does Azure AI Video Indexer have?
+        answer: |
+          Azure AI Video Indexer currently has the SOC certification. To review Azure AI Video Indexer's certification, please refer to the [Microsoft Trust Center](https://www.microsoft.com/trustcenter/compliance/complianceofferings?product=Azure).
+
+      - question: What is the difference between private and public videos?
+        answer: |
+          When videos are uploaded to Azure AI Video Indexer, you can choose from two privacy settings: private and public. Public videos are accessible for anyone, including anonymous and unidentified users. Private ones are restricted solely to the account members.
+
+      - question: I tried to upload a video as public and it was flagged for inappropriate or offensive content, what does that mean?
+        answer: |
+          When uploading a video to Azure AI Video Indexer, an automatic content analysis is done by algorithms and models in order to make sure no inappropriate content will be presented publicly. If a video is found to be suspicious as containing explicit content, it will not be possible to set it as public. However, the account members can still access it as a private video (view it, download the insights and extracted artifacts, and perform other operations available to account members).
+
+          [!INCLUDE [artifacts](./includes/artifacts.md)]
+
+          In order to set the video for public access, you can either:
+
+          * Build your own interface layer (such as app or website) and use it to interact with the Azure AI Video Indexer service. This way the video remains private in our [website](https://www.videoindexer.ai/) and your users can interact with it through your interface. For example, you can still get the insights or allow viewing of the video in your own interface.
+          * Request a human review of the content, which would result in removing of the restriction assuming the content is not explicit.
+
+              This option can be explored if the Azure AI Video Indexer website is used directly by your users as the interface layer, and for public (unauthenticated) viewing.
+
+  - name: API Questions
+    questions:
+      - question: What APIs does Azure AI Video Indexer offer?
+        answer: |
+          Azure AI Video Indexer's APIs allows for indexing, extracting metadata, asset management, translation, embedding, customization of models and more. To find more detailed information on using the Azure AI Video Indexer API, refer to the [Azure AI Video Indexer developer portal](https://api-portal.videoindexer.ai/).
+
+      - question: What client SDKs does Azure AI Video Indexer offer?
+        answer: There are currently no client SDKs offered. The Azure AI Video Indexer team is working on the SDKs and plans to deliver them soon.
+
+      - question: How do I get started with Azure AI Video Indexer's API?
+        answer: |
+          Follow [Tutorial: get started with the Azure AI Video Indexer API](video-indexer-use-apis.md).
+
+      - question: What is the difference between the Azure AI Video Indexer API and the Azure Media Service v3 API?
+        answer: |
+          Currently there are some overlaps in features offered by the Azure AI Video Indexer API and the Azure Media Service v3 API. You can find more information on how to compare both services [here](compare-video-indexer-with-media-services-presets.md).
+
+      - question: What is an API access token and why do I need it?
+        answer: |
+          The Azure AI Video Indexer API contains an Authorization API and an Operations API. The Authorizations API contains calls that give you access token. Each call to the Operations API should be associated with an access token, matching the authorization scope of the call.
+
+          Access tokens are needed to use the Azure AI Video Indexer APIs for security purposes. This ensures that any calls are coming from you or those who have access permissions to your account. 
+
+      - question: What is the difference between Account access token, User access token, and Video access token?
+        answer: |
+          * Account level – account level access tokens let you perform operations on the account level or the video level. For example, upload a video, list all videos, get video insights.
+          * User level - user level access tokens let you perform operations on the user level. For example, get associated accounts.
+          * Video level – video level access tokens let you perform operations on a specific video. For example, get video insights, download captions, get widgets, etc.
+
+      - question: How often do I need to get a new access token? When do access tokens expire?
+        answer: |
+          Access tokens expire every hour, so you need to generate a new access token every hour.
+
+      - question: What are the login options to Azure AI Video Indexer Developer portal?
+        answer: |
+          See a release note regarding [login information](release-notes.md#october-2020).
+
+          Once you register your email account using an identity provider, you cannot use this email account with another identity provider.
+          
+      - question: Where are the JSON assets (like insights, transcript, etc.), associated with indexed videos, stored?
+        answer: |
+           They are stored by the Azure AI Video Indexer service and can be fetched with the [Get Video Index](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Index) and [Get Video Artifact Download Url](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Artifact-Download-Url) APIs.
+ 
+      - question: Once a video has been indexed, are there any additional charges for calling the API? 
+        answer: |
+           There are no additional charges from Azure AI Video Indexer for calling the API.
+        
+  - name: Billing questions
+    questions:
+      - question: How much does Azure AI Video Indexer cost?
+        answer: |
+          Azure AI Video Indexer uses a simple pay-as-you-go pricing model based on the duration of the content input that you index. Additional charges may apply for encoding, streaming, storage, network usage, and media reserved units. For more information, see the [pricing](./index.yml) page.
+
+      - question: When am I billed for using Azure AI Video Indexer?
+        answer: When sending a video to be indexed, the user will define the indexing to be video analysis, audio analysis or both. This will determine which SKUs will be charged. If there is a critical level error during processing, an error code will be returned as a response. In such a case, no billing occurs. A critical error can be caused by a bug in our code or a critical failure in an internal dependency the service has. Errors such as wrong identification or insight extraction are not considered as critical and a response is returned. In any case where a valid (non-error code) response is returned, billing occurs.
+
+      - question: Does Azure AI Video Indexer offer a trial account?
+        answer: Yes, Azure AI Video Indexer offers a trial account that that provides you with 2,400 free indexing minutes when using the [Azure AI Video Indexer](https://www.videoindexer.ai/) website or the Azure AI Video Indexer API (see [developer portal](https://api-portal.videoindexer.ai/)).
+
+  - name: How to opt out results for specific AI models 
+    questions:
+      - question: How to opt out a specific result from a public AI model?
+        answer: |
+          Send a detailed explanation of your request to "Video Indexer Customer Support" <visupport@microsoft.com>. Including: AI model you are referring to, the result you'd like to opt out, the reason we should opt out the results and an explanation of why you are asking this.
+
+      - question: How long does it take?
+        answer: Processing the request might take few weeks.

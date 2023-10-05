@@ -1,14 +1,13 @@
 ---
 title: How to manage assignments with PowerShell
 description: Learn how to manage blueprint assignments with the official Azure Blueprints PowerShell module, Az.Blueprint.
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 03/14/2019
-ms.topic: conceptual
-ms.service: blueprints
-manager: carmonm
+ms.date: 09/07/2023
+ms.topic: how-to
+ms.custom: devx-track-azurepowershell
 ---
 # How to manage assignments with PowerShell
+
+[!INCLUDE [Blueprints deprecation note](../../../../includes/blueprints-deprecation-note.md)]
 
 A blueprint assignment can be managed using the **Az.Blueprint** Azure PowerShell module. The module
 supports fetching, creating, updating, and removing assignments. The module can also fetch details
@@ -18,23 +17,25 @@ on existing blueprint definitions. This article covers how to install the module
 
 To enable Azure PowerShell to manage blueprint assignments, the module must be added. This module
 can be used with locally installed PowerShell, with [Azure Cloud Shell](https://shell.azure.com), or
-with the [Azure PowerShell Docker image](https://hub.docker.com/r/azuresdk/azure-powershell/).
+with the [Azure PowerShell Docker image](/powershell/azure/azureps-in-docker).
 
 ### Base requirements
 
 The Azure Blueprints module requires the following software:
 
-- Azure PowerShell 1.5.0 or higher. If it isn't yet installed, follow [these instructions](/powershell/azure/install-az-ps).
-- PowerShellGet 2.0.1 or higher. If it isn't installed or updated, follow [these instructions](/powershell/gallery/installing-psget).
+- Azure PowerShell 1.5.0 or higher. If it isn't yet installed, follow
+  [these instructions](/powershell/azure/install-azure-powershell).
+- PowerShellGet 2.0.1 or higher. If it isn't installed or updated, follow
+  [these instructions](/powershell/gallery/powershellget/install-powershellget).
 
 ### Install the module
 
-The Blueprints module for PowerShell is **Az.Blueprint**.
+The Azure Blueprints module for PowerShell is **Az.Blueprint**.
 
 1. From an **administrative** PowerShell prompt, run the following command:
 
    ```azurepowershell-interactive
-   # Install the Blueprints module from PowerShell Gallery
+   # Install the Azure Blueprints module from PowerShell Gallery
    Install-Module -Name Az.Blueprint
    ```
 
@@ -42,7 +43,7 @@ The Blueprints module for PowerShell is **Az.Blueprint**.
    > If **Az.Accounts** is already installed, it may be necessary to use `-AllowClobber` to force
    > the installation.
 
-1. Validate that the module has been imported and is the correct version (0.1.0):
+1. Validate that the module has been imported and is the correct version (0.2.6):
 
    ```azurepowershell-interactive
    # Get a list of commands for the imported Az.Blueprint module
@@ -107,7 +108,7 @@ allowedlocations_listOfAllowedLocations                Microsoft.Azure.Commands.
 
 If the blueprint assignment already exists, you can get a reference to it with the
 `Get-AzBlueprintAssignment` cmdlet. The cmdlet takes **SubscriptionId** and **Name** as optional
-parameters. If **SubscriptionId** is not specified, the current subscription context is used.
+parameters. If **SubscriptionId** isn't specified, the current subscription context is used.
 
 The following example uses `Get-AzBlueprintAssignment` to get a single blueprint assignment named
 'Assignment-lock-resource-groups' from a specific subscription represented as `{subId}`:
@@ -181,10 +182,16 @@ If the blueprint assignment doesn't exist yet, you can create it with the
 - **ResourceGroupParameter** (optional)
   - A [hash table](/powershell/module/microsoft.powershell.core/about/about_hash_tables) of resource
     group artifacts
-  - Each resource group artifact placeholder will have a key/value pairs for dynamically setting
-    **Name** and/or **Location** on that resource group artifact
+  - Each resource group artifact placeholder has key/value pairs for dynamically setting **Name**
+    and **Location** on that resource group artifact
   - If a resource group parameter isn't provided and has no **defaultValue**, the resource group
     parameter isn't optional
+- **AssignmentFile** (optional)
+  - The path to a JSON file representation of a blueprint assignment
+  - This parameter is part of a PowerShell parameter set that only includes **Name**, **Blueprint**,
+    and **SubscriptionId**, plus the common parameters.
+
+### Example 1: Provide parameters
 
 The following example creates a new assignment of version '1.1' of the 'my-blueprint' blueprint
 definition fetched with `Get-AzBlueprint`, sets the managed identity and assignment object location
@@ -206,7 +213,7 @@ $bpRGParameters = @{ResourceGroup=@{name='storage_rg';location='westus2'}}
 
 # Create the new blueprint assignment
 $bpAssignment = New-AzBlueprintAssignment -Name 'my-blueprint-assignment' -Blueprint $bpDefinition `
-    -SubscriptionId '{subId}' -Location 'westus2' -Lock AllResourcesReadyOnly `
+    -SubscriptionId '{subId}' -Location 'westus2' -Lock AllResourcesReadOnly `
     -Parameter $bpParameters -ResourceGroupParameter $bpRGParameters
 ```
 
@@ -218,21 +225,75 @@ Id                : /subscriptions/{subId}/providers/Microsoft.Blueprint/bluepri
                     gnments/my-blueprint-assignment
 Scope             : /subscriptions/{subId}
 LastModified      : 2019-03-13
-LockMode          : AllResourcesReadyOnly
+LockMode          : AllResourcesReadOnly
 ProvisioningState : Creating
 Parameters        : {storageAccount_storageAccountType}
 ResourceGroups    : ResourceGroup
 ```
+
+### Example 2: Use a JSON assignment definition file
+
+The following example creates nearly the same assignment as
+[Example 1](#example-1-provide-parameters). Instead of passing parameters to the cmdlet, the example
+shows use of a JSON assignment definition file and the **AssignmentFile** parameter. Additionally,
+the **excludedPrincipals** property is configured as part of **locks**. There isn't a PowerShell
+parameter for **excludedPrincipals** and the property can only be configured by setting it through
+the JSON assignment definition file.
+
+```json
+{
+  "identity": {
+    "type": "SystemAssigned"
+  },
+  "location": "westus2",
+  "properties": {
+    "description": "Assignment of the 101-blueprint-definition-subscription",
+    "blueprintId": "/subscriptions/{subId}/providers/Microsoft.Blueprint/blueprints/101-blueprints-definition-subscription",
+    "locks": {
+      "mode": "AllResourcesReadOnly",
+      "excludedPrincipals": [
+          "7be2f100-3af5-4c15-bcb7-27ee43784a1f",
+          "38833b56-194d-420b-90ce-cff578296714"
+      ]
+    },
+    "parameters": {
+      "storageAccount_storageAccountType": {
+        "value": "Standard_GRS"
+      }
+    },
+    "resourceGroups": {
+      "ResourceGroup": {
+        "name": "storage_rg",
+        "location": "westus2"
+      }
+    }
+  }
+}
+```
+
+```azurepowershell-interactive
+# Login first with Connect-AzAccount if not using Cloud Shell
+
+# Create the new blueprint assignment
+$bpAssignment = New-AzBlueprintAssignment -Name 'my-blueprint-assignment' -SubscriptionId '{subId}' `
+    -AssignmentFile '.\assignment.json'
+```
+
+For an example of the JSON assignment definition file for a user-assigned managed identity, see the
+request body in
+[Example: Assignment with user-assigned managed identity](/rest/api/blueprints/assignments/createorupdate#examples)
+for REST API.
 
 ## Update blueprint assignments
 
 Sometimes it's necessary to update a blueprint assignment that has already been created. The
 `Set-AzBlueprintAssignment` cmdlet handles this action. The cmdlet takes most of the same parameters
 that the `New-AzBlueprintAssignment` cmdlet does, allowing anything that was set on the assignment
-to be updated. The exceptions to this are the _Name_, _Blueprint_, and _SubscriptionId_. Only the
-values provided are updated.
+to be updated. The exceptions are the _Name_, _Blueprint_, and _SubscriptionId_. Only the values
+provided are updated.
 
-To understand what happens when updating a blueprint assignment, see [rules for updating assignments](./update-existing-assignments.md#rules-for-updating-assignments).
+To understand what happens when updating a blueprint assignment, see
+[rules for updating assignments](./update-existing-assignments.md#rules-for-updating-assignments).
 
 - **Name** [required]
   - Specifies the name of the blueprint assignment to update
@@ -275,8 +336,8 @@ To understand what happens when updating a blueprint assignment, see [rules for 
 - **ResourceGroupParameter** (optional)
   - A [hash table](/powershell/module/microsoft.powershell.core/about/about_hash_tables) of resource
     group artifacts
-  - Each resource group artifact placeholder will have a key/value pairs for dynamically setting
-    **Name** and/or **Location** on that resource group artifact
+  - Each resource group artifact placeholder has key/value pairs for dynamically setting **Name**
+    and **Location** on that resource group artifact
   - If a resource group parameter isn't provided and has no **defaultValue**, the resource group
     parameter isn't optional
 
@@ -327,7 +388,7 @@ $blueprintAssignment = Get-AzBlueprintAssignment -Name 'Assignment-lock-resource
 Remove-AzBlueprintAssignment -InputObject $blueprintAssignment -SubscriptionId '{subId}'
 ```
 
-## End-to-end code example
+## Code example
 
 Bringing all the steps together, the following example gets the blueprint definition, then creates,
 updates, and removes a blueprint assignment in the specific subscription represented as `{subId}`:
@@ -350,7 +411,7 @@ $bpRGParameters = @{ResourceGroup=@{name='storage_rg';location='westus2'}}
 
 # Create the new blueprint assignment
 $bpAssignment = New-AzBlueprintAssignment -Name 'my-blueprint-assignment' -Blueprint $bpDefinition `
-    -SubscriptionId '{subId}' -Location 'westus2' -Lock AllResourcesReadyOnly `
+    -SubscriptionId '{subId}' -Location 'westus2' -Lock AllResourcesReadOnly `
     -Parameter $bpParameters -ResourceGroupParameter $bpRGParameters
 #endregion CreateAssignment
 
@@ -372,8 +433,9 @@ Remove-AzBlueprintAssignment -InputObject $bpAssignment -SubscriptionId '{subId}
 
 ## Next steps
 
-- Learn about the [blueprint life-cycle](../concepts/lifecycle.md).
+- Learn about the [blueprint lifecycle](../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../concepts/parameters.md).
 - Learn to customize the [blueprint sequencing order](../concepts/sequencing-order.md).
 - Find out how to make use of [blueprint resource locking](../concepts/resource-locking.md).
-- Resolve issues during the assignment of a blueprint with [general troubleshooting](../troubleshoot/general.md).
+- Resolve issues during the assignment of a blueprint with
+  [general troubleshooting](../troubleshoot/general.md).

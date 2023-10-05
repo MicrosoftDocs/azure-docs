@@ -1,102 +1,145 @@
 ---
-title: 'Join a Windows Server VM to Azure Active Directory Domain Services | Microsoft Docs'
-description: Join a Windows Server virtual machine to a managed domain using Azure Resource Manager templates.
+title: Use a template to join a Windows VM to Microsoft Entra Domain Services | Microsoft Docs
+description: Learn how to use Azure Resource Manager templates to join a new or existing Windows Server VM to a Microsoft Entra Domain Services managed domain.
 services: active-directory-ds
-documentationcenter: ''
-author: MikeStephens-MS
-manager: daveba
-editor: curtand
+author: justinha
+manager: amycolannino
 
 ms.assetid: 4eabfd8e-5509-4acd-86b5-1318147fddb5
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 05/20/2019
-ms.author: mstephen
+ms.custom: devx-track-arm-template
+ms.topic: how-to
+ms.date: 09/23/2023
+ms.author: justinha
 ---
 
-# Join a Windows Server virtual machine to a managed domain using a Resource Manager template
-This article shows you how to join a Windows Server virtual machine to an Azure AD Domain Services managed domain using Resource Manager templates.
+# Join a Windows Server virtual machine to a Microsoft Entra Domain Services managed domain using a Resource Manager template
 
-[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
+To automate the deployment and configuration of Azure virtual machines (VMs), you can use a Resource Manager template. These templates let you create consistent deployments each time. Extensions can also be included in templates to automatically configure a VM as part of the deployment. One useful extension joins VMs to a domain, which can be used with Microsoft Entra Domain Services managed domains.
 
-## Before you begin
-To perform the tasks listed in this article, you need:
-1. A valid **Azure subscription**.
-2. An **Azure AD directory** - either synchronized with an on-premises directory or a cloud-only directory.
-3. **Azure AD Domain Services** must be enabled for the Azure AD directory. If you haven't done so, follow all the tasks outlined in the [Getting Started guide](create-instance.md).
-4. Ensure that you have configured the IP addresses of the managed domain as the DNS servers for the virtual network. For more information, see [how to update DNS settings for the Azure virtual network](active-directory-ds-getting-started-dns.md)
-5. Complete the steps required to [synchronize passwords to your Azure AD Domain Services managed domain](active-directory-ds-getting-started-password-sync.md).
+This article shows you how to create and join a Windows Server VM to a Domain Services managed domain using Resource Manager templates. You also learn how to join an existing Windows Server VM to a Domain Services domain.
 
+## Prerequisites
 
-## Install and configure required tools
-You can use either of the following options to perform the steps outlined in this document:
-* **Azure PowerShell**: [Install and configure](https://azure.microsoft.com/documentation/articles/powershell-install-configure/)
-* **Azure CLI**: [Install and configure](https://azure.microsoft.com/documentation/articles/xplat-cli-install/)
+To complete this tutorial, you need the following resources and privileges:
 
+* An active Azure subscription.
+    * If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* A Microsoft Entra tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
+    * If needed, [create a Microsoft Entra tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
+* A Microsoft Entra Domain Services managed domain enabled and configured in your Microsoft Entra tenant.
+    * If needed, the first tutorial [creates and configures a Microsoft Entra Domain Services managed domain][create-azure-ad-ds-instance].
+* A user account that's a part of the *AAD DC Administrators* group.
 
-## Option 1: Provision a new Windows Server VM and join it to a managed domain
-**Quick start template name**: [201-vm-domain-join](https://azure.microsoft.com/resources/templates/201-vm-domain-join/)
+## Azure Resource Manager template overview
 
-To deploy a Windows Server virtual machine and join it to a managed domain, perform the following steps:
-1. Navigate to the [quick start template](https://azure.microsoft.com/resources/templates/201-vm-domain-join/).
-2. Click **Deploy to Azure**.
-3. In the **Custom deployment** page, provide the required information to provision the virtual machine.
-4. Select the **Azure subscription** in which to provision the virtual machine. Pick the same Azure subscription in which you have enabled Azure AD Domain Services.
-5. Choose an existing **Resource group** or create a new one.
-6. Pick a **Location** in which to deploy the new virtual machine.
-7. In **Existing VNET Name**, specify the virtual network in which you have deployed your Azure AD Domain Services managed domain.
-8. In **Existing Subnet Name**, specify the subnet within the virtual network where you would like to deploy this virtual machine. Do not select the gateway subnet in the virtual network. Also, do not select the dedicated subnet in which your managed domain is deployed.
-9. In **DNS Label Prefix**, specify the hostname for the virtual machine being provisioned. For example, 'contoso-win'.
-10. Select the appropriate **VM Size** for the virtual machine.
-11. In **Domain To Join**, specify the DNS domain name of your managed domain.
-12. In **Domain Username**, specify the user account name on your managed domain that should be used to join the VM to the managed domain.
-13. In **Domain Password**, specify the password of the domain user account referred to by the 'domainUsername' parameter.
-14. Optional: You can specify an **OU Path** to a custom OU, in which to add the virtual machine. If you do not specify a value for this parameter, the virtual machine is added to the default **AAD DC Computers** OU on the managed domain.
-15. In the **VM Admin Username** field, specify a local administrator account name for the virtual machine.
-16. In the **VM Admin Password** field, specify a local administrator password for the virtual machine. Provide a strong local administrator password for the virtual machine to protect against password brute-force attacks.
-17. Click **I agree to the terms and conditions stated above**.
-18. Click **Purchase** to provision the virtual machine.
+Resource Manager templates let you define Azure infrastructure in code. The required resources, network connections, or configuration of VMs can all be defined in a template. These templates create consistent, reproducible deployments each time, and can be versioned as you make changes. For more information, see [Azure Resource Manager templates overview][template-overview].
+
+Each resource is defined in a template using JavaScript Object Notation (JSON). The following JSON example uses the *Microsoft.Compute/virtualMachines/extensions* resource type to install the Active Directory domain join extension. Parameters are used that you specify at deployment time. When the extension is deployed, the VM is joined to the specified managed domain.
+
+```json
+ {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Compute/virtualMachines/extensions",
+      "name": "[concat(parameters('dnsLabelPrefix'),'/joindomain')]",
+      "location": "[parameters('location')]",
+      "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/', parameters('dnsLabelPrefix'))]"
+      ],
+      "properties": {
+        "publisher": "Microsoft.Compute",
+        "type": "JsonADDomainExtension",
+        "typeHandlerVersion": "1.3",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+          "Name": "[parameters('domainToJoin')]",
+          "OUPath": "[parameters('ouPath')]",
+          "User": "[concat(parameters('domainToJoin'), '\\', parameters('domainUsername'))]",
+          "Restart": "true",
+          "Options": "[parameters('domainJoinOptions')]"
+        },
+        "protectedSettings": {
+          "Password": "[parameters('domainPassword')]"
+        }
+      }
+    }
+```
+
+This VM extension can be deployed even if you don't create a VM in the same template. The examples in this article show both of the following approaches:
+
+* [Create a Windows Server VM and join to a managed domain](#create-a-windows-server-vm-and-join-to-a-managed-domain)
+* [Join an existing Windows Server VM to a managed domain](#join-an-existing-windows-server-vm-to-a-managed-domain)
+
+## Create a Windows Server VM and join to a managed domain
+
+If you need a Windows Server VM, you can create and configure one using a Resource Manager template. When the VM is deployed, an extension is then installed to join the VM to a managed domain. If you already have a VM you wish to join to a managed domain, skip to [Join an existing Windows Server VM to a managed domain](#join-an-existing-windows-server-vm-to-a-managed-domain).
+
+To create a Windows Server VM then join it to a managed domain, complete the following steps:
+
+1. Browse to the [quickstart template](https://azure.microsoft.com/resources/templates/vm-domain-join/). Select the option to **Deploy to Azure**.
+1. On the **Custom deployment** page, enter the following information to create and join a Windows Server VM to the managed domain:
+
+    | Setting                   | Value |
+    |---------------------------|-------|
+    | Subscription              | Pick the same Azure subscription in which you have enabled Microsoft Entra Domain Services. |
+    | Resource group            | Choose the resource group for your VM. |
+    | Location                  | Select the location of for your VM. |
+    | Existing VNET Name        | The name of the existing virtual network to connect the VM to, such as *myVnet*. |
+    | Existing Subnet Name      | The name of the existing virtual network subnet, such as *Workloads*. |
+    | DNS Label Prefix          | Enter a DNS name to use for the VM, such as *myvm*. |
+    | VM size                   | Specify a VM size, such as *Standard_DS2_v2*. |
+    | Domain To Join            | The managed domain DNS name, such as *aaddscontoso.com*. |
+    | Domain Username           | The user account in the managed domain that should be used to join the VM to the managed domain, such as `contosoadmin@aaddscontoso.com`. This account must be a part of the managed domain. |
+    | Domain Password           | The password for the user account specified in the previous setting. |
+    | Optional OU Path          | The custom OU in which to add the VM. If you don't specify a value for this parameter, the VM is added to the default *Microsoft Entra DC Computers* OU. |
+    | VM Admin Username         | Specify a local administrator account to create on the VM. |
+    | VM Admin Password         | Specify a local administrator password for the VM. Create a strong local administrator password to protect against password brute-force attacks. |
+
+1. Review the terms and conditions, then check the box for **I agree to the terms and conditions stated above**. When ready, select **Purchase** to create and join the VM to the managed domain.
 
 > [!WARNING]
 > **Handle passwords with caution.**
-> The template parameter file contains passwords for domain accounts as well as local administrator passwords for the virtual machine. Ensure you do not leave this file lying around on file shares or other shared locations. We recommend you dispose of this file once you are done deploying your virtual machines.
->
+> The template parameter file requests the password for a user account that's a part of the managed domain. Don't manually enter values into this file and leave it accessible on file shares or other shared locations.
 
-After the deployment completes successfully, your newly provisioned Windows virtual machine is joined to the managed domain.
+It takes a few minutes for the deployment to complete successfully. When finished, the Windows VM is created and joined to the managed domain. The VM can be managed or signed into using domain accounts.
 
+## Join an existing Windows Server VM to a managed domain
 
-## Option 2: Join an existing Windows Server VM to a managed domain
-**Quick start template**: [201-vm-domain-join-existing](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)
+If you have an existing VM, or group of VMs, that you wish to join to a managed domain, you can use a Resource Manager template to just deploy the VM extension.
 
-To join an existing Windows Server virtual machine to a managed domain, perform the following steps:
-1. Navigate to the [quick start template](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/).
-2. Click **Deploy to Azure**.
-3. In the **Custom deployment** page, provide the required information to provision the virtual machine.
-4. Select the **Azure subscription** in which to provision the virtual machine. Pick the same Azure subscription in which you have enabled Azure AD Domain Services.
-5. Choose an existing **Resource group** or create a new one.
-6. Pick a **Location** in which to deploy the new virtual machine.
-7. In the **VM List** field, specify the names of the existing virtual machines to be joined to the managed domain. Use a comma to separate individual VM names. For example, **contoso-web, contoso-api**.
-8. In **Domain Join User Name**, specify the user account name on your managed domain that should be used to join the VM to the managed domain.
-9. In **Domain Join User Password**, specify the password of the domain user account referred to by the 'domainUsername' parameter.
-10. In **Domain FQDN**, specify the DNS domain name of your managed domain.
-11. Optional: You can specify an **OU Path** to a custom OU, in which to add the virtual machine. If you do not specify a value for this parameter, the virtual machine is added to the default **AAD DC Computers** OU on the managed domain.
-12. Click **I agree to the terms and conditions stated above**.
-13. Click **Purchase** to provision the virtual machine.
+To join an existing Windows Server VM to a managed domain, complete the following steps:
+
+1. Browse to the [quickstart template](https://azure.microsoft.com/resources/templates/vm-domain-join-existing/). Select the option to **Deploy to Azure**.
+1. On the **Custom deployment** page, enter the following information to join the VM to the managed domain:
+
+    | Setting                   | Value |
+    |---------------------------|-------|
+    | Subscription              | Pick the same Azure subscription in which you have enabled Microsoft Entra Domain Services. |
+    | Resource group            | Choose the resource group with your existing VM. |
+    | Location                  | Select the location of your existing VM. |
+    | VM list                   | Enter the comma-separated list of the existing VM(s) to join to the managed domain, such as *myVM1,myVM2*. |
+    | Domain Join User Name     | The user account in the managed domain that should be used to join the VM to the managed domain, such as `contosoadmin@aaddscontoso.com`. This account must be a part of the managed domain. |
+    | Domain Join User Password | The password for the user account specified in the previous setting. |
+    | Optional OU Path          | The custom OU in which to add the VM. If you don't specify a value for this parameter, the VM is added to the default *Microsoft Entra DC Computers* OU. |
+
+1. Review the terms and conditions, then check the box for **I agree to the terms and conditions stated above**. When ready, select **Purchase** to join the VM to the managed domain.
 
 > [!WARNING]
 > **Handle passwords with caution.**
-> The template parameter file contains passwords for domain accounts as well as local administrator passwords for the virtual machine. Ensure you do not leave this file lying around on file shares or other shared locations. We recommend you dispose of this file once you are done deploying your virtual machines.
->
+> The template parameter file requests the password for a user account that's a part of the managed domain. Don't manually enter values into this file and leave it accessible on file shares or other shared locations.
 
-After the deployment completes successfully, the specified Windows virtual machines are joined to the managed domain.
+It takes a few moments for the deployment to complete successfully. When finished, the specified Windows VMs are joined to the managed domain and can be managed or signed into using domain accounts.
 
+## Next steps
 
-## Related Content
-* [Overview of Azure PowerShell](/powershell/azure/overview)
-* [Azure quick-start template - Domain join a new VM](https://azure.microsoft.com/resources/templates/201-vm-domain-join/)
-* [Azure quick-start template - Domain join existing VMs](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)
-* [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
+In this article, you used the Azure portal to configure and deploy resources using templates. You can also deploy resources with Resource Manager templates using [Azure PowerShell][deploy-powershell] or the [Azure CLI][deploy-cli].
+
+<!-- INTERNAL LINKS -->
+[create-azure-ad-tenant]: /azure/active-directory/fundamentals/sign-up-organization
+[associate-azure-ad-tenant]: /azure/active-directory/fundamentals/how-subscriptions-associated-directory
+[create-azure-ad-ds-instance]: tutorial-create-instance.md
+[template-overview]: /azure/azure-resource-manager/templates/overview
+[deploy-powershell]: /azure/azure-resource-manager/templates/deploy-powershell
+[deploy-cli]: /azure/azure-resource-manager/templates/deploy-cli

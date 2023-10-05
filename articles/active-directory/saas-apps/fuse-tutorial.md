@@ -1,195 +1,105 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Fuse | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Fuse.
+title: Microsoft Entra integration with Fuse
+description: Learn how to configure single sign-on between Microsoft Entra ID and Fuse.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 5ef34f58-863a-4b37-875c-e8efa3e18bb3
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: tutorial
-ms.date: 02/18/2019
+ms.topic: how-to
+ms.date: 3/10/2023
 ms.author: jeedes
-
 ---
-# Tutorial: Azure Active Directory integration with Fuse
+# Microsoft Entra integration with Fuse
 
-In this tutorial, you learn how to integrate Fuse with Azure Active Directory (Azure AD).
-Integrating Fuse with Azure AD provides you with the following benefits:
+In this article, you'll learn how to integrate Fuse with Microsoft Entra ID. Fuse is a learning platform that enables learners within an organization to access the necessary knowledge and expertise they need to improve their skills at work. When you integrate Fuse with Microsoft Entra ID, you can:
 
-* You can control in Azure AD who has access to Fuse.
-* You can enable your users to be automatically signed-in to Fuse (Single Sign-On) with their Azure AD accounts.
-* You can manage your accounts in one central location - the Azure portal.
+- Control in Microsoft Entra ID who has access to Fuse.
+- Enable your users to be automatically signed-in to Fuse with their Microsoft Entra accounts.
+- Manage your accounts in one central location.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+You'll configure and test Microsoft Entra single sign-on for Fuse in a test environment. Fuse supports **SP** initiated single sign-on. 
+
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
+
 
 ## Prerequisites
 
-To configure Azure AD integration with Fuse, you need the following items:
+To integrate Microsoft Entra ID with Fuse, you need:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
-* Fuse single sign-on enabled subscription
+- A Microsoft Entra user account. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
+- A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+- Fuse single sign-on (SSO) enabled subscription.
 
-## Scenario description
+## Add application and assign a test user
 
-In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+Before you begin the process of configuring single sign-on, you need to add the Fuse application from the Microsoft Entra gallery. You need a test user account to assign to the application and test the single sign-on configuration.
 
-* Fuse supports **SP** initiated SSO
+<a name='add-fuse-from-the-azure-ad-gallery'></a>
 
-## Adding Fuse from the gallery
+### Add Fuse from the Microsoft Entra gallery
 
-To configure the integration of Fuse into Azure AD, you need to add Fuse from the gallery to your list of managed SaaS apps.
+Add Fuse from the Microsoft Entra application gallery to configure single sign-on with Fuse. For more information on how to add application from the gallery, see the [Quickstart: Add application from the gallery](../manage-apps/add-application-portal.md).
 
-**To add Fuse from the gallery, perform the following steps:**
+<a name='create-and-assign-azure-ad-test-user'></a>
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
+### Create and assign Microsoft Entra test user
 
-	![The Azure Active Directory button](common/select-azuread.png)
+Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a test user account called B.Simon.
 
-2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
+Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, and assign roles. The wizard also provides a link to the single sign-on configuration pane. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides). 
 
-	![The Enterprise applications blade](common/enterprise-applications.png)
+<a name='configure-azure-ad-single-sign-on'></a>
 
-3. To add new application, click **New application** button on the top of dialog.
+## Configure Microsoft Entra single sign-on
 
-	![The New application button](common/add-new-app.png)
+Complete the following steps to enable Microsoft Entra single sign-on.
 
-4. In the search box, type **Fuse**, select **Fuse** from result panel then click **Add** button to add the application.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Fuse** > **Single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, select the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-	 ![Fuse in the results list](common/search-new-app.png)
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-## Configure and test Azure AD single sign-on
-
-In this section, you configure and test Azure AD single sign-on with Fuse based on a test user called **Britta Simon**.
-For single sign-on to work, a link relationship between an Azure AD user and the related user in Fuse needs to be established.
-
-To configure and test Azure AD single sign-on with Fuse, you need to complete the following building blocks:
-
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Configure Fuse Single Sign-On](#configure-fuse-single-sign-on)** - to configure the Single Sign-On settings on application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create Fuse test user](#create-fuse-test-user)** - to have a counterpart of Britta Simon in Fuse that is linked to the Azure AD representation of user.
-6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
-
-### Configure Azure AD single sign-on
-
-In this section, you enable Azure AD single sign-on in the Azure portal.
-
-To configure Azure AD single sign-on with Fuse, perform the following steps:
-
-1. In the [Azure portal](https://portal.azure.com/), on the **Fuse** application integration page, select **Single sign-on**.
-
-    ![Configure single sign-on link](common/select-sso.png)
-
-2. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
-
-    ![Single sign-on select mode](common/select-saml-option.png)
-
-3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
-
-	![Edit Basic SAML Configuration](common/edit-urls.png)
-
-4. On the **Basic SAML Configuration** section, perform the following steps:
-
-    ![Fuse Domain and URLs single sign-on information](common/sp-signonurl.png)
-
-    In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://<tenant name>.fusionuniversal.com/`
+1. On the **Basic SAML Configuration** section, in the **Sign-on URL** text box, the appropriate URL using the following pattern:
+    `https://{tenantname}.fuseuniversal.com/`
 
 	> [!NOTE]
-	> The value is not real. Update the value with the actual Sign-On URL. Contact [Fuse Client support team](mailto:support@fusion-universal.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The value is not real. Update the value with the actual Sign-On URL. Contact [Fuse Client support team](mailto:support@fusion-universal.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
-5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
+1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
 	![The Certificate download link](common/certificatebase64.png)
 
-6. On the **Set up Fuse** section, copy the appropriate URL(s) as per your requirement.
+1. On the **Set up Fuse** section, copy the appropriate URL(s) as per your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+## Configure Fuse single sign-on
 
-	a. Login URL
-
-	b. Azure Ad Identifier
-
-	c. Logout URL
-
-### Configure Fuse Single Sign-On
-
-To configure single sign-on on **Fuse** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Fuse support team](mailto:support@fusion-universal.com). They set this setting to have the SAML SSO connection set properly on both sides.
-
-### Create an Azure AD test user 
-
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
-
-1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
-
-    ![The "Users and groups" and "All users" links](common/users.png)
-
-2. Select **New user** at the top of the screen.
-
-    ![New user Button](common/new-user.png)
-
-3. In the User properties, perform the following steps.
-
-    ![The User dialog box](common/user-properties.png)
-
-    a. In the **Name** field enter **BrittaSimon**.
-  
-    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
-    For example, BrittaSimon@contoso.com
-
-    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
-
-    d. Click **Create**.
-
-### Assign the Azure AD test user
-
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Fuse.
-
-1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Fuse**.
-
-	![Enterprise applications blade](common/enterprise-applications.png)
-
-2. In the applications list, select **Fuse**.
-
-	![The Fuse link in the Applications list](common/all-applications.png)
-
-3. In the menu on the left, select **Users and groups**.
-
-    ![The "Users and groups" link](common/users-groups-blade.png)
-
-4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
-
-    ![The Add Assignment pane](common/add-assign-user.png)
-
-5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
-
-6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
-
-7. In the **Add Assignment** dialog click the **Assign** button.
+To configure single sign-on on **Fuse** side, send the downloaded **Certificate (Base64)** and the copied URLs from Azure portal to [Fuse support team](mailto:support@fusion-universal.com). The support team will use the copied URLs to configure the single sign-on on the application.
 
 ### Create Fuse test user
 
-In this section, you create a user called Britta Simon in Fuse. Work with [Fuse support team](mailto:support@fusion-universal.com) to add the users in the Fuse platform. Users must be created and activated before you use single sign-on.
+To be able to test and use single sign-on, you have to create and activate users in the fuse application.
 
-### Test single sign-on 
+In this section, you create a user called Britta Simon in Fuse that corresponds with the Microsoft Entra user you already created in the previous section. Work with [Fuse support team](mailto:support@fusion-universal.com) to add the user in the Fuse platform.
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+## Test single sign-on
 
-When you click the Fuse tile in the Access Panel, you should be automatically signed in to the Fuse for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+In this section, you test your Microsoft Entra single sign-on configuration with the following options. 
 
-## Additional Resources
+- In the **Test single sign-on with Fuse** section on the **SAML-based Sign-on** pane, select **Test this application** in Azure portal. You'll be redirected to Fuse Sign-on URL where you can initiate the sign-in flow.
+- Go to Fuse Sign-on URL directly and initiate the sign-in flow from application's side.
+- You can use Microsoft My Apps. When you select the Fuse tile in the My Apps, you'll be redirected to Fuse Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+## Additional resources
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is single sign-on with Microsoft Entra ID?](../manage-apps/what-is-single-sign-on.md)
+- [Plan a single sign-on deployment](../manage-apps/plan-sso-deployment.md)
+## Next steps
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+Once you configure Fuse you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

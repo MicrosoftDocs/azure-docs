@@ -1,36 +1,108 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure IoT Central Documentation
+### YamlMime:Landing
+title: Azure IoT Central documentation
+summary: Azure IoT Central is an IoT application platform (aPaaS) that simplifies the creation of IoT solutions. Azure IoT Central provides a ready-to-use UX and API surface built to connect, manage, and operate fleets of devices at scale. Learn how to use IoT Central with our quickstarts, tutorials, and REST API documentation. 
 metadata:
-  title: Azure IoT Central Documentation - Tutorials, API Reference | Microsoft Docs
-  description: Azure IoT Central is a fully managed SaaS (software-as-a-service) solution that makes it easy to connect, monitor and manage your IoT assets at scale. Azure IoT Central simplifies the initial setup of your IoT solution and reduces the management burden, operational costs, and overhead of a typical IoT project. Learn how to create, customize, manage, and use an Azure IoT Central application with our quickstarts and tutorials.
-  author: dominicbetts
-  ms.topic: landing-page
-  ms.date: 11/08/2017
-  ms.author: dobett
-  ms.service: iot-central
+  title: Azure IoT Central documentation
+  description: Azure IoT Central application simplifies the creation of IoT solutions. Learn how to create, customize, administer, and use an Azure IoT Central application.
   services: iot-central
-  manager: timlt
-abstract:
-  description: Azure IoT Central is a fully managed SaaS (software-as-a-service) solution that makes it easy to connect, monitor and manage your IoT assets at scale. Azure IoT Central simplifies the initial setup of your IoT solution and reduces the management burden, operational costs, and overhead of a typical IoT project. Learn how to create, customize, manage, and use an Azure IoT Central application with our quickstarts and tutorials.
-sections:
-- title: Feature Alert
-  items:
-  - type: paragraph
-    text: Azure IoT Central has transitioned to using Azure IoT Hub Device Provisioning service (DPS) for all device connections. You will be required to use DPS SDK to register and connect devices to your Azure IoT Central application. <a href="https://docs.microsoft.com/azure/iot-central/concepts-connectivity">Learn more about Device connectivity in Azure IoT Central.</a> All applications using the continuous data export feature and/or the Power BI solutions template will be required to change the destination storage container and create a new solution template.
-- title: 5-Minute Quickstarts
-  items:
-  - type: paragraph
-    text: Learn how to <a href="quick-deploy-iot-central">create a new Azure IoT Central application</a>.
-- title: Step-by-Step Tutorials
-  items:
-  - type: paragraph
-    text: Learn how to customize and use your Azure IoT Central application.
-  - type: list
-    style: ordered
-    items:
-    - html: <a href="tutorial-define-device-type">Define a new device type</a>
-    - html: <a href="tutorial-configure-rules">Configure rules</a>
-    - html: <a href="tutorial-customize-operator">Customize the operator's view</a>
-    - html: <a href="tutorial-monitor-devices">Monitor your devices</a>
-    - html: <a href="tutorial-add-device">Add a real device</a>
+  ms.service: iot-central
+  ms.topic: landing-page 
+  author: dominicbetts 
+  ms.author: dobett 
+  ms.date: 05/18/2022
+  ms.custom: contperf-fy21q3
+
+landingContent:
+  - title: Get started
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure IoT Central?
+            url: core/overview-iot-central.md
+          - text: Tour of the UI
+            url: core/overview-iot-central-tour.md
+          - text: Tour of the API
+            url: core/overview-iot-central-api-tour.md
+      - linkListType: architecture
+        links:
+          - text: Azure IoT Central architecture
+            url: core/concepts-architecture.md
+          - text: Industrial IoT patterns
+            url: core/concepts-iiot-architecture.md
+      - linkListType: quickstart
+        links:
+          - text: Connect your first device
+            url: core/quick-deploy-iot-central.md
+
+  - title: Common questions
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: What does it mean for IoT Central to have high availability, disaster recovery, and elastic scale?
+            url: core/concepts-scalability-availability.md
+          - text: How do I move between aPaaS and PaaS solution approaches?
+            url: core/concepts-faq-apaas-paas.md
+          - text: How do I extend IoT Central if it's missing something I need?
+            url: core/concepts-faq-extend.md
+          - text: What are IoT Central's scale limits?
+            url: core/concepts-quotas-limits.md 
+          - text: Where can I find demo IoT Central applications?
+            url: retail/tutorial-in-store-analytics-create-app.md
+
+  - title: Connect your devices
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Device connectivity guide
+            url: core/overview-iot-central-developer.md
+      - linkListType: concept
+        links:
+          - text: Device implementation
+            url: core/concepts-device-implementation.md
+      - linkListType: learn
+        links:
+          - text: Create and connect a device
+            url: core/tutorial-connect-device.md
+          - text: Connect an IoT Edge device
+            url: /training/modules/connect-iot-edge-device-to-iot-central/
+  - title: Manage your devices and analyze your data
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Device management guide
+            url: core/overview-iot-central-operator.md
+      - linkListType: learn
+        links:
+          - text: Dashboard examples
+            url: retail/tutorial-in-store-analytics-create-app.md
+          - text: Create a custom dashboard to monitor devices
+            url: core/howto-manage-dashboards.md
+
+  - title: Extend your application
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Data integration guide
+            url: core/overview-iot-central-solution-builder.md
+      - linkListType: learn
+        links:
+          - text: Export data from IoT Central
+            url: core/overview-iot-central-solution-builder.md#data-export          
+          - text: Manage an application with the REST API
+            url: core/tutorial-use-rest-api.md
+
+  - title: Secure and administer your application
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Application administration guide
+            url: core/overview-iot-central-admin.md
+      - linkListType: learn
+        links:
+          - text: Add users and roles
+            url: core/howto-manage-users-roles.md 
+          - text: Use organizations to manage user access
+            url: core/howto-create-organizations.md
+
+            
+            

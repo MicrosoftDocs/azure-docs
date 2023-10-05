@@ -1,24 +1,19 @@
 ---
 title: Media streaming optimization with Azure CDN
-description: Optimize streaming media files for smooth delivery
+description: Learn about options to optimize streaming media in Azure Content Delivery Network, such as partial cache sharing and cache fill wait time.
 services: cdn
-documentationcenter: ''
-author: mdgattuso
-manager: danielgi
-editor: ''
-
-ms.assetid:
-ms.service: cdn
+author: duongau
+manager: kumudd
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/01/2018
-ms.author: magattus
+ms.topic: how-to
+ms.date: 02/27/2023
+ms.author: duau
 ---
-# Media streaming optimization with Azure CDN 
+# Media streaming optimization with Azure CDN
  
-Use of high-definition video is increasing on the internet, which creates difficulties for efficient delivery of large files. Customers expect smooth playback of video on demand or live video assets on a variety of networks and clients all over the world. A fast and efficient delivery mechanism for media streaming files is critical to ensure a smooth and enjoyable consumer experience.  
+Use of high-definition video is increasing on the internet, which creates difficulties for efficient delivery of large files. Customers expect smooth playback of video on demand or live video assets on various networks and clients all over the world. A fast and efficient delivery mechanism for media streaming files is critical to ensure a smooth and enjoyable consumer experience.  
 
 Live streaming media is especially difficult to deliver because of the large sizes and number of concurrent viewers. Long delays cause users to leave. Because live streams can't be cached ahead of time and large latencies aren't acceptable to viewers, video fragments must be delivered in a timely manner. 
 
@@ -34,12 +29,15 @@ Media streaming optimization for **Azure CDN Standard from Microsoft** is effect
 The general media delivery or video-on-demand media delivery optimization types use Azure Content Delivery Network (CDN) with back-end optimizations to deliver media assets faster. They also use configurations for media assets based on best practices learned over time.
 
 ### Partial cache sharing
+
 Partial cache sharing allows the CDN to serve partially cached content to new requests. For example, if the first request to the CDN results in a cache miss, the request is sent to the origin. Although this incomplete content is loaded into the CDN cache, other requests to the CDN can start getting this data. 
 
 
-## Media streaming optimizations for Azure CDN from Verizon
+<a name='media-streaming-optimizations-for-azure-cdn-from-verizon'></a>
 
-**Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon** endpoints deliver streaming media assets directly by using the general web delivery optimization type. A few features on the CDN directly assist in delivering media assets by default.
+## Media streaming optimizations for Azure CDN from Edgio
+
+**Azure CDN Standard from Edgio** and **Azure CDN Premium from Edgio** endpoints deliver streaming media assets directly by using the general web delivery optimization type. A few features on the CDN directly help delivering media assets by default.
 
 ### Partial cache sharing
 
@@ -51,7 +49,10 @@ Partial cache sharing allows the CDN to serve partially cached content to new re
 
  
 ## Media streaming optimizations for Azure CDN from Akamai
- 
+
+> [!IMPORTANT]
+> Azure CDN from Akamai is scheduled to be retired on October 31, 2023. For more information, see [**Migrate CDN provider**](cdn-change-provider.md) for guidance on migrating to another Azure CDN provider.
+
 **Azure CDN Standard from Akamai** offers a feature that delivers streaming media assets efficiently to users across the globe at scale. The feature reduces latencies because it reduces the load on the origin servers. This feature is available with the standard Akamai pricing tier. 
 
 Media streaming optimization for **Azure CDN Standard from Akamai** is effective for live or video-on-demand streaming media that uses individual media fragments for delivery. This process is different from a single large asset transferred via progressive download or by using byte-range requests. For information on that style of media delivery, see [Large file optimization](cdn-large-file-optimization.md).
@@ -60,7 +61,7 @@ The general media delivery or video-on-demand media delivery optimization types 
 
 ### Configure an Akamai CDN endpoint to optimize media streaming
  
-You can configure your content delivery network (CDN) endpoint to optimize delivery for large files via the Azure portal. You can also use the REST APIs or any of the client SDKs to do this. The following steps show the process via the Azure portal for an **Azure CDN Standard from Akamai** profile:
+You can configure your content delivery network (CDN) endpoint to optimize delivery for large files via the Azure portal. You can also use the REST APIs or any of the client SDKs to optimize the delivery of large files. The following steps show the process via the Azure portal for an **Azure CDN Standard from Akamai** profile:
 
 1. To add a new endpoint, on an Akamai **CDN profile** page, select **Endpoint**.
   
@@ -74,21 +75,20 @@ After you create the endpoint, it applies the optimization for all files that ma
 
 ### Caching
 
-If **Azure CDN Standard from Akamai** detects that the asset is a streaming manifest or fragment, it uses different caching expiration times from general web delivery. (See the full list in the following table.) As always, cache-control or Expires headers sent from the origin are honored. If the asset is not a media asset, it caches by using the expiration times for general web delivery.
+If **Azure CDN Standard from Akamai** detects that the asset is a streaming manifest or fragment, it uses different caching expiration times from general web delivery. (See the full list in the following table.) As always, cache-control or Expires headers sent from the origin are honored. If the asset isn't a media asset, it caches by using the expiration times for general web delivery.
 
 The short negative caching time is useful for origin offload when many users request a fragment that doesn’t exist yet. An example is a live stream where the packets aren't available from the origin that second. The longer caching interval also helps offload requests from the origin because video content isn't typically modified.
- 
 
-|   | General web delivery | General media streaming | Video-on-demand media streaming  
---- | --- | --- | ---
-Caching: Positive <br> HTTP 200, 203, 300, <br> 301, 302, and 410 | 7 days |365 days | 365 days   
-Caching: Negative <br> HTTP 204, 305, 404, <br> and 405 | None | 1 second | 1 second
+| Caching  | General web delivery | General media streaming | Video-on-demand media streaming  
+|--- | --- | --- | ---
+| Caching: Positive <br> HTTP 200, 203, 300, <br> 301, 302, and 410 | Seven days |365 days | 365 days   
+| Caching: Negative <br> HTTP 204, 305, 404, <br> and 405 | None | 1 second | 1 second
  
 ### Deal with origin failure  
 
 General media delivery and video-on-demand media delivery also have origin timeouts and a retry log based on best practices for typical request patterns. For example, because general media delivery is for live and video-on-demand media delivery, it uses a shorter connection timeout due to the time-sensitive nature of live streaming.
 
-When a connection times out, the CDN retries a number of times before it sends a "504 - Gateway Timeout" error to the client. 
+When a connection times out, the CDN retries many times before it sends a "504 - Gateway Timeout" error to the client. 
 
 When a file matches the file type and size conditions list, the CDN uses the behavior for media streaming. Otherwise, it uses general web delivery.
    

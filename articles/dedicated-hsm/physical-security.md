@@ -2,16 +2,15 @@
 title: HSM physical security - Azure Dedicated HSM | Microsoft Docs
 description: Information about Azure Dedicated HSM devices' physical security in data centers
 services: dedicated-hsm
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 ms.custom: "mvc, seodec18"
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.author: barclayn
+ms.date: 03/25/2021
+ms.author: keithp
 
 ---
 # Azure Dedicated HSM physical security
@@ -20,7 +19,7 @@ Azure Dedicated HSM helps you meet advanced security requirements for key storag
 
 ## Security through procurement
 
-Microsoft follows a secure procurement process. We manage the chain of custody and ensure that the specific device ordered and shipped is the device arriving at our data centers. The devices are in tamper-event plastic backs. They are stored in a secure storage area until commissioned in the data gallery of the data center.  The racks containing the HSM devices are considered high business impact(HBI). The devices are locked and under video surveillance at all times front and back.
+Microsoft follows a secure procurement process. We manage the chain of custody and ensure that the specific device ordered and shipped is the device arriving at our data centers. The devices are in serialized tamper-event plastic bags and containers. They are stored in a secure storage area until commissioned in the data gallery of the data center.  The racks containing the HSM devices are considered high business impact(HBI). The devices are locked and under video surveillance at all times front and back.
 
 ## Security through deployment
 
@@ -44,7 +43,7 @@ If a Microsoft engineer must access the rack used by HSM devices (for example, n
 
 ## Logical level security considerations
 
-HSMs are provisioned to a virtual network created by the customer. This is a customer’s private IUP Address space.  This configuration provides a valuable logical network level isolation and ensures access only by the customer. This implies that all logical level security controls are the responsibility of the customer.
+HSMs are provisioned to a virtual network created by the customer within the customer’s private IP Address space.  This configuration provides a valuable logical network level isolation and ensures access only by the customer. This implies that all logical level security controls are the responsibility of the customer.
 
 ## Next steps
 

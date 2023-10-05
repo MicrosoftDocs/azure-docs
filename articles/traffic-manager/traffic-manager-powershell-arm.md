@@ -1,16 +1,14 @@
 ---
 title: Using PowerShell to manage Traffic Manager in Azure
-description: Using PowerShell for Traffic Manager with Azure Resource Manager
+description: With this learning path, get started using Azure PowerShell for Traffic Manager.
 services: traffic-manager
-documentationcenter: na
-author: kumudd
+author: greg-lindsay
 ms.service: traffic-manager
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
-ms.author: kumud
+ms.author: greglin 
+ms.custom: template-how-to, devx-track-azurepowershell
 ---
 
 # Using PowerShell to manage Traffic Manager
@@ -25,7 +23,7 @@ Azure Traffic Manager is configured using a collection of settings called a Traf
 
 Each Traffic Manager profile is represented by a resource of type 'TrafficManagerProfiles'. At the REST API level, the URI for each profile is as follows:
 
-    https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/trafficManagerProfiles/{profile-name}?api-version={api-version}
+`https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/trafficManagerProfiles/{profile-name}?api-version={api-version}`
 
 ## Setting up Azure PowerShell
 
@@ -33,7 +31,7 @@ Each Traffic Manager profile is represented by a resource of type 'TrafficManage
 
 These instructions use Microsoft Azure PowerShell. The following article explains how to install and configure Azure PowerShell.
 
-* [How to install and configure Azure PowerShell](/powershell/azure/overview)
+* [How to install and configure Azure PowerShell](/powershell/azure/)
 
 The examples in this article assume that you have an existing resource group. You can create a resource group using the following command:
 

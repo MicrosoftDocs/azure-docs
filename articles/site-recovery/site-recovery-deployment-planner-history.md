@@ -2,16 +2,47 @@
 title: Azure Site Recovery Deployment Planner Version History
 description: Known different Site Recovery Deployment Planner Versions fixes and known limitations along with their release dates.
 services: site-recovery
-author: Daya-Patil
+author: ankitaduttaMSFT
 manager: carmonm
 ms.topic: article
 ms.service: site-recovery
-ms.date: 04/24/2019
-ms.author: dapatil
+ms.custom: devx-track-linux
+ms.date: 6/4/2020
+ms.author: ankitadutta
 ---
 # Azure Site Recovery Deployment Planner Version History
 
 This article provides history of all versions of Azure Site Recovery Deployment Planner along with the fixes, known limitations in each and their release dates.
+
+## Version 2.52
+
+**Release Date: June 4, 2020**
+
+**Fixes:**
+
+- Added support for vCenter 7.0
+- Added support for following operating systems:
+
+    - SUSE Linux Enterprise 15 (with all minor versions)
+    - Red Hat Enterprise Linux 8 (with all minor versions)
+
+
+## Version 2.51
+
+**Release Date: August 22, 2019**
+
+**Fixes:**
+
+- Fixed the cost recommendation issue with Deployment Planner version 2.5
+
+## Version 2.5
+
+**Release Date: July 29, 2019**
+
+**Fixes:**
+
+- For VMware virtual machines, recommendation is updated to be based on replication to Managed Disks.
+- Added support for Windows 10 (x64), Windows 8.1 (x64), Windows 8 (x64), Windows 7 (x64) SP1 or later
 
 ## Version 2.4
 
@@ -22,10 +53,11 @@ This article provides history of all versions of Azure Site Recovery Deployment 
 - Improved operating system compatibility, specifically when handling localization-based errors.
 - Added VMs with up to 20 Mbps of data change rate (churn) to the compatibility checklist.
 - Improved error messages
-  - Added support for vCenter 6.7.
-  - Added support for Windows Server 2019 and Red Hat Enterprise Linux (RHEL) workstation.
+- Added support for vCenter 6.7.
+- Added support for Windows Server 2019 and Red Hat Enterprise Linux (`RHEL`) workstation.
 
-
+> [!Note]
+>- It is not recommended to run the deployment planner on the ESXi version 6.7.0 Update 2 Build 13006603, as it does not work as expected. 
 
 ## Version 2.3
 
@@ -133,7 +165,7 @@ Read more about [Large disk support in Azure Site Recovery](https://azure.micros
 
 **Known limitations:**
 
-- Supports only for VMware to Azure disaster recovery scenarios. For Hyper-V to Azure disaster recovery scenarios, use the [Hyper-V capacity planner tool](./site-recovery-capacity-planning-for-hyper-v-replication.md).
+- Supports only for VMware to Azure disaster recovery scenarios. For Hyper-V to Azure disaster recovery scenarios, use the [Hyper-V capacity planner tool](./hyper-v-deployment-planner-overview.md).
 - Doesn't support the GetThroughput operation for the US Government and China Microsoft Azure regions.
 - The tool cann't profile VMs if the vCenter server has two or more VMs with the same name or IP address across various ESXi hosts.
 In this version, the tool skips profiling for duplicate VM names or IP addresses in the VMListFile. The workaround is to profile the VMs by using an ESXi host instead of the vCenter server. Ensure to run one instance for each ESXi host.

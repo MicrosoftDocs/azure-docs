@@ -1,20 +1,12 @@
 ---
 title: Optimize Azure CDN for the type of content delivery
-description: Optimize Azure CDN for the type of content delivery
+description: Learn how Azure Content Delivery Network can optimize delivery based on type of content. Optimization best practices improve performance and origin offload.
 services: cdn
-documentationcenter: ''
-author: mdgattuso
-manager: danielgi
-editor: ''
-
-ms.assetid:
-ms.service: cdn
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/25/2019
-ms.author: magattus
+author: duongau
+ms.service: azure-cdn
+ms.topic: how-to
+ms.date: 02/27/2023
+ms.author: duau
 ---
 # Optimize Azure CDN for the type of content delivery
 
@@ -34,9 +26,9 @@ This article provides an overview of various optimization features and when you 
 * [General web delivery](#general-web-delivery). This optimization is also used for media streaming and large file download.
 
 > [!NOTE]
-> Dynamic site acceleration from Microsoft is offered via [Azure Front Door Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview).
+> Dynamic site acceleration from Microsoft is offered via [Azure Front Door Service](../frontdoor/front-door-overview.md).
 
-**Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon** profiles support the following optimizations:
+**Azure CDN Standard from Edgio** and **Azure CDN Premium from Edgio** profiles support the following optimizations:
 
 * [General web delivery](#general-web-delivery). This optimization is also used for media streaming and large file download.
 
@@ -44,6 +36,9 @@ This article provides an overview of various optimization features and when you 
 
 
 **Azure CDN Standard from Akamai** profiles support the following optimizations:
+
+> [!IMPORTANT]
+> Azure CDN from Akamai is scheduled to be retired on October 31, 2023. For more information, see [**Migrate CDN provider**](cdn-change-provider.md) for guidance on migrating to another Azure CDN provider.
 
 * [General web delivery](#general-web-delivery) 
 
@@ -59,7 +54,11 @@ Microsoft recommends that you test performance variations between different prov
 
 ## Select and configure optimization types
 
-When you create a CDN endpoint, select an optimization type that best matches the scenario and type of content that you want the endpoint to deliver. **General web delivery** is the default selection. For existing **Azure CDN Standard from Akamai** endpoints only, you can update the optimization option at any time. This change doesn't interrupt delivery from Azure CDN. 
+When you create a CDN endpoint, select an optimization type that best matches the scenario and type of content that you want the endpoint to deliver. 
+
+**General web delivery** is the default selection. You can only update **Azure CDN Standard from Akamai** endpoints optimization at any time. 
+
+For **Azure CDN Standard from Microsoft**, **Azure CDN Standard from Edgio** and **Azure CDN Premium from Edgio**, you can't.
 
 1. In an **Azure CDN Standard from Akamai** profile, select an endpoint.
 
@@ -90,7 +89,7 @@ Media streaming is time-sensitive, because packets that arrive late on the clien
 
 This scenario is common for Azure media service customers. When you use Azure media services, you get a single streaming endpoint that can be used for both live and on-demand streaming. With this scenario, customers don't need to switch to another endpoint when they change from live to on-demand streaming. General media streaming optimization supports this type of scenario.
 
-For **Azure CDN Standard from Microsoft**, **Azure CDN Standard from Verizon**, and **Azure CDN Premium from Verizon**, use the general web delivery optimization type to deliver general streaming media content.
+For **Azure CDN Standard from Microsoft**, **Azure CDN Standard from Edgio**, and **Azure CDN Premium from Edgio**, use the general web delivery optimization type to deliver general streaming media content.
 
 For more information about media streaming optimization, see [Media streaming optimization](cdn-media-streaming-optimization.md).
 
@@ -98,7 +97,7 @@ For more information about media streaming optimization, see [Media streaming op
 
 Video-on-demand media streaming optimization improves video-on-demand streaming content. If you use an endpoint for video-on-demand streaming, use this option.
 
-For **Azure CDN Standard from Microsoft**, **Azure CDN Standard from Verizon**, and **Azure CDN Premium from Verizon** profiles, use the general web delivery optimization type to deliver video-on-demand streaming media content.
+For **Azure CDN Standard from Microsoft**, **Azure CDN Standard from Edgio**, and **Azure CDN Premium from Edgio** profiles, use the general web delivery optimization type to deliver video-on-demand streaming media content.
 
 For more information about media streaming optimization, see [Media streaming optimization](cdn-media-streaming-optimization.md).
 
@@ -110,22 +109,19 @@ For more information about media streaming optimization, see [Media streaming op
 
 For **Azure CDN Standard from Akamai** profiles, large file downloads are optimized for content larger than 10 MB. If your average file size is smaller than 10 MB, use general web delivery. If your average files sizes are consistently larger than 10 MB, it might be more efficient to create a separate endpoint for large files. For example, firmware or software updates typically are large files. To deliver files larger than 1.8 GB, the large file download optimization is required.
 
-For **Azure CDN Standard from Microsoft**, **Azure CDN Standard from Verizon**, and **Azure CDN Premium from Verizon** profiles, use the general web delivery optimization type to deliver large file download content. There is no limitation on file download size.
+For **Azure CDN Standard from Microsoft**, **Azure CDN Standard from Edgio**, and **Azure CDN Premium from Edgio** profiles, use the general web delivery optimization type to deliver large file download content. There's no limitation on file download size.
 
 For more information about large file optimization, see [Large file optimization](cdn-large-file-optimization.md).
 
 ### Dynamic site acceleration
 
- Dynamic site acceleration (DSA) is available for **Azure CDN Standard from Akamai**, **Azure CDN Standard from Verizon**, and **Azure CDN Premium from Verizon** profiles. This optimization involves an additional fee to use; for more information, see [Content Delivery Network pricing](https://azure.microsoft.com/pricing/details/cdn/).
+ Dynamic site acceleration (DSA) is available for **Azure CDN Standard from Akamai**, **Azure CDN Standard from Edgio**, and **Azure CDN Premium from Edgio** profiles. This optimization involves an extra fee to use; for more information, see [Content Delivery Network pricing](https://azure.microsoft.com/pricing/details/cdn/).
 
 > [!NOTE]
-> Dynamic site acceleration from Microsoft is offered via [Azure Front Door Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview) which is a global [anycast](https://en.wikipedia.org/wiki/Anycast) service leveraging Microsoft's private global network to deliver your app workloads.
+> Dynamic site acceleration from Microsoft is offered via [Azure Front Door Service](../frontdoor/front-door-overview.md) which is a global [anycast](https://en.wikipedia.org/wiki/Anycast) service leveraging Microsoft's private global network to deliver your app workloads.
 
 DSA includes various techniques that benefit the latency and performance of dynamic content. Techniques include route and network optimization, TCP optimization, and more. 
 
 You can use this optimization to accelerate a web app that includes numerous responses that aren't cacheable. Examples are search results, checkout transactions, or real-time data. You can continue to use core Azure CDN caching capabilities for static data. 
 
 For more information about dynamic site acceleration, see [Dynamic site acceleration](cdn-dynamic-site-acceleration.md).
-
-
-

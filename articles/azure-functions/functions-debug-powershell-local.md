@@ -1,23 +1,17 @@
 ---
 title: Debug PowerShell Azure Functions locally
-description: Understand how to develop functions by using PowerShell.
-services: functions
-documentationcenter: na
+description: Learn how to debug PowerShell functions when running locally.
 author: tylerleonhardt
-manager: jeconnoc
-ms.service: azure-functions
-ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
-ms.author: tyleonha, glenga
+ms.author: tyleonha
+ms.reviewer: glenga
 # Customer intent: As a PowerShell developer, I want to learn how to debug my functions on my local computer so that I can publish higher quality code to Azure.
 ---
 
 # Debug PowerShell Azure Functions locally
 
 Azure Functions lets you develop your functions as PowerShell scripts.
-
-[!INCLUDE [functions-powershell-preview-note](../../includes/functions-powershell-preview-note.md)]
 
 You can debug your PowerShell functions locally as you would any PowerShell scripts using the following standard development tools:
 
@@ -40,7 +34,7 @@ PSFunctionApp
  | - profile.ps1
 ```
 
-This function app is similar to the one you get when you complete the [PowerShell quickstart](functions-create-first-function-powershell.md).
+This function app is similar to the one you get when you complete the [PowerShell quickstart](./create-first-function-vs-code-powershell.md).
 
 The function code in `run.ps1` looks like the following script:
 
@@ -68,6 +62,9 @@ Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
 
 To debug any PowerShell function, the function needs to stop for the debugger to be attached. The `Wait-Debugger` cmdlet stops execution and waits for the debugger.
 
+>[!NOTE]
+>When using PowerShell 7, you don't need to add the `Wait-Debugger` call in your code.
+
 All you need to do is add a call to the `Wait-Debugger` cmdlet just above the `if` statement, as follows:
 
 ```powershell
@@ -94,10 +91,10 @@ With `Wait-Debugger` in place, you can now debug the functions using either Visu
 To debug your PowerShell functions in Visual Studio Code, you must have the following installed:
 
 * [PowerShell extension for Visual Studio Code](/powershell/scripting/components/vscode/using-vscode)
-* [Azure Functions extension for Visual Studio Code](functions-create-first-function-vs-code.md)
-* [PowerShell Core 6.2 or higher](/powershell/scripting/install/installing-powershell#powershell-core)
+* [Azure Functions extension for Visual Studio Code](./create-first-function-cli-powershell.md)
+* [PowerShell Core 6.2 or higher](/powershell/scripting/install/installing-powershell-core-on-windows)
 
-After installing these dependencies, load an existing PowerShell Functions project, or [create your first PowerShell Functions project](functions-create-first-function-powershell.md).
+After installing these dependencies, load an existing PowerShell Functions project, or [create your first PowerShell Functions project](./create-first-function-vs-code-powershell.md).
 
 >[!NOTE]
 > Should your project not have the needed configuration files, you are prompted to add them.
@@ -129,6 +126,9 @@ The start debugging operation does the following tasks:
 * Runs `func extensions install` in the terminal to install any Azure Functions extensions required by your function app.
 * Runs `func host start` in the terminal to start the function app in the Functions host.
 * Attach the PowerShell debugger to the PowerShell runspace within the Functions runtime.
+
+>[!NOTE]
+> You need to ensure PSWorkerInProcConcurrencyUpperBound is set to 1 to ensure correct debugging experience in Visual Studio Code. This is the default.
 
 With your function app running, you need a separate PowerShell console to call the HTTP triggered function.
 
@@ -241,6 +241,16 @@ The PowerShell extension uses `Debug-Runspace`, which in turn relies on PowerShe
 The Azure Functions runtime runs a few commands before actually invoking your `run.ps1` script, so it's possible that the debugger ends up breaking within the `Microsoft.Azure.Functions.PowerShellWorker.psm1` or `Microsoft.Azure.Functions.PowerShellWorker.psd1`.
 
 Should this break happen,  run the `continue` or `c` command to skip over this breakpoint. You then stop at the expected breakpoint.
+
+## Troubleshooting
+
+If you have difficulties during debugging, you should check for the following:
+
+| Check | Action |
+|------|------|
+| Run `func --version` from the terminal. If you get an error that `func` can't be found, Core Tools (func.exe) may be missing from the local `path` variable.| [Reinstall Core Tools](functions-run-local.md#v2).|  
+| In Visual Studio Code, the default terminal needs to have access to func.exe. Make sure you aren't using a default terminal that doesn't have Core Tools installed, such as Windows Subsystem for Linux (WSL).  | Set the default shell in Visual Studio Code to either PowerShell 7 (recommended) or Windows PowerShell 5.1.|
+  
 
 ## Next steps
 

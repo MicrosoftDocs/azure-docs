@@ -2,12 +2,12 @@
 title: Review the Azure Site Recovery Deployment Planner cost estimation report for disaster recovery of Hyper-V VMs to Azure| Microsoft Docs
 description: This article describes how to review the cost estimation report generated the Azure Site Recovery Deployment Planner for Hyper-V disaster recovery to Azure.
 services: site-recovery
-author: mayurigupta13
+author: ankitaduttaMSFT
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/9/2019
-ms.author: mayg
+ms.author: ankitadutta
 
 ---
 # Cost estimation report by Azure Site Recovery Deployment Planner 
@@ -162,16 +162,16 @@ eastus, eastus2, westus, centralus, northcentralus, southcentralus, northeurope,
 ## Supported currencies
 Site Recovery Deployment Planner can generate the cost report with any of the following currencies.
 
-|Currency|Name||Currency|Name||Currency|Name|
-|---|---|---|---|---|---|---|---|
-|ARS|Argentine peso ($)||AUD|Australian dollar ($)||BRL|Brazilian real (R$)|
-|CAD|Canadian dollar ($)||CHF|Swiss franc (chf)||DKK|Danish krone (kr)|
-|EUR|Euro (€)||GBP|British pound (£)||HKD|Hong Kong dollar (HK$)|
-|IDR|Indonesia rupiah (Rp)||INR|Indian rupee (₹)||JPY|Japanese yen (¥)|
-|KRW|Korean won (₩)||MXN|Mexican peso (MX$)||MYR|Malaysian ringgit (RM$)|
-|NOK|Norwegian krone (kr)||NZD|New Zealand dollar ($)||RUB|Russian ruble (руб)|
-|SAR|Saudi riyal (SR)||SEK|Swedish krona (kr)||TWD|Taiwanese dollar (NT$)|
-|TRY|Turkish lira (TL)||USD| US dollar ($)||ZAR|South African rand (R)|
+|Currency|Name|Currency|Name|Currency|Name|
+|---|---|---|---|---|---|
+|ARS|Argentine peso ($)|AUD|Australian dollar ($)|BRL|Brazilian real (R$)|
+|CAD|Canadian dollar ($)|CHF|Swiss franc (chf)|DKK|Danish krone (kr)|
+|EUR|Euro (&euro;)|GBP|British pound (£)|HKD|Hong Kong dollar (HK$)|
+|IDR|Indonesia rupiah (Rp)|INR|Indian rupee (₹)|JPY|Japanese yen (¥)|
+|KRW|Korean won (₩)|MXN|Mexican peso (MX$)|MYR|Malaysian ringgit (RM$)|
+|NOK|Norwegian krone (kr)|NZD|New Zealand dollar ($)|RUB|Russian ruble (руб)|
+|SAR|Saudi riyal (SR)|SEK|Swedish krona (kr)|TWD|Taiwanese dollar (NT$)|
+|TRY|Turkish lira (TL)|USD| US dollar ($)|ZAR|South African rand (R)|
 
 ## Next steps
 Learn more about how to protect [Hyper-V VMs to Azure by using Site Recovery](hyper-v-azure-tutorial.md).

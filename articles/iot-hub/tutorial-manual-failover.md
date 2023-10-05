@@ -1,134 +1,107 @@
 ---
-title: Manual failover of an Azure IoT hub | Microsoft Docs
-description: Show how to perform a manual failover for an Azure IoT hub
-author: robinsh
-manager: timlt
+title: Tutorial - Manually failover an Azure IoT hub
+description: Learn how to perform a manual failover of your IoT hub to a different region and then return it to the original region.
+author: kgremban
+manager: lizross
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 07/11/2018
-ms.author: robinsh
-ms.custom: mvc
+ms.date: 11/17/2022
+ms.author: kgremban
+ms.custom: [mvc, mqtt]
 #Customer intent: As an IT Pro, I want to be able to perform a manual failover of my IoT hub to a different region, and then return it to the original region.
 ---
 
-# Tutorial: Perform manual failover for an IoT hub (public preview)
+# Tutorial: Perform manual failover for an IoT hub
 
-Manual failover is a feature of the IoT Hub service that allows customers to [failover](https://en.wikipedia.org/wiki/Failover) their hub's operations from a primary region to the corresponding Azure geo-paired region. Manual failover can be done in the event of a regional disaster or an extended service outage. You can also perform a planned failover to test your disaster recovery capabilities, although we recommend using a test IoT hub rather than one running in production. The manual failover feature is offered to customers at no additional cost.
+Manual failover is a feature of the IoT Hub service that allows customers to [failover](https://en.wikipedia.org/wiki/Failover) their hub's operations from a primary region to the corresponding [Azure geo-paired region](../reliability/cross-region-replication-azure.md). Manual failover can be done in the event of a regional disaster or an extended service outage. You can also perform a planned failover to test your disaster recovery capabilities, although we recommend using a test IoT hub rather than one running in production. The manual failover feature is offered to customers at no additional cost for IoT hubs created after May 18, 2017.
 
 In this tutorial, you perform the following tasks:
 
 > [!div class="checklist"]
-> * Using the Azure portal, create an IoT hub. 
-> * Perform a failover. 
+>
+> * Using the Azure portal, create an IoT hub.
+> * Perform a failover.
 > * See the hub running in the secondary location.
 > * Perform a failback to return the IoT hub's operations to the primary location. 
 > * Confirm the hub is running correctly in the right location.
+
+For more information about manual failover and Microsoft-initiated failover with IoT Hub, see [Cross region disaster recovery](iot-hub-ha-dr.md#cross-region-dr).
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Create an IoT hub
 
-1. Log into the [Azure portal](https://portal.azure.com). 
-
-2. Click **+ Create a resource** and select **Internet of Things**, then **IoT Hub**.
-
-   ![Screenshot showing creating an IoT hub](./media/tutorial-manual-failover/create-hub-01.png)
-
-3. Select the **Basics** tab. Fill in the following fields.
-
-    **Subscription**: select the Azure subscription you want to use.
-
-    **Resource Group**: click **Create new** and specify **ManlFailRG** for the resource group name.
-
-    **Region**: select a region close to you that is part of the preview. This tutorial uses `westus2`. A failover can only be performed between Azure geo-paired regions. The region geo-paired with westus2 is WestCentralUS.
-    
-   **IoT Hub Name**: specify a name for your Iot hub. The hub name must be globally unique. 
-
-   ![Screenshot showing Basics pane for creating an IoT hub](./media/tutorial-manual-failover/create-hub-02-basics.png)
-
-   Click **Review + create**. (It uses the defaults for size and scale.) 
-
-4. Review the information, then click **Create** to create the IoT hub. 
-
-   ![Screenshot showing final step for creating an IoT hub](./media/tutorial-manual-failover/create-hub-03-create.png)
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## Perform a manual failover
 
-Note that there is a limit of two failovers and two failbacks per day for an IoT hub.
+> [!NOTE]
+> There is a limit of two failovers and two failbacks per day for an IoT hub.
 
-1. Click **Resource groups** and then select the resource group **ManlFailRG**. Click on your hub in the list of resources. 
+1. Navigate to your IoT hub in the Azure portal.
 
-2. Under **Resiliency** on the IoT Hub pane, click **Manual failover (preview)**. Note that if your hub is not set up in a valid region, the manual failover option will be disabled.
+1. Under **Hub settings** on the navigation menu, select **Failover**.
 
-   ![Screenshot showing IoT Hub properties pane](./media/tutorial-manual-failover/trigger-failover-01.png)
+   :::image type="content" source="./media/tutorial-manual-failover/trigger-failover-01.png" alt-text="Screenshot showing IoT Hub properties pane.":::
 
-3. On the Manual failover pane, you see the **IoT Hub Primary Location** and the **IoT Hub Secondary Location**. The primary location is initially set to the location you specified when you created the IoT hub, and always indicates the location in which the hub is currently active. The secondary location is the standard [Azure geo-paired region](../best-practices-availability-paired-regions.md) that is paired to the primary location. You cannot change the location values. For this tutorial, the primary location is `westus2` and the secondary location is `WestCentralUS`.
+1. On the **Failover** pane, you see the **Current location** and the **Failover location** listed for your IoT hub. The current location always indicates the location in which the hub is currently active. The failover location is the standard [Azure geo-paired region](../availability-zones/cross-region-replication-azure.md) that is paired to the current location. You cannot change the location values.
 
-   ![Screenshot showing Manual Failover pane](./media/tutorial-manual-failover/trigger-failover-02.png)
+1. At the top of the **Failover** pane, select **Start failover**.
 
-3. At the top of the Manual failover pane, click **Initiate failover**. You see the **Confirm manual failover** pane. Fill in the name of your IoT hub to confirm it's the one you want to failover. Then, to initiate the failover, click **OK**.
+   :::image type="content" source="./media/tutorial-manual-failover/trigger-failover-02.png" alt-text="Screenshot showing Manual Failover pane.":::
+
+1. In the confirmation pane, fill in the name of your IoT hub to confirm it's the one you want to failover. Then, to initiate the failover, select **Failover**.
+
+   :::image type="content" source="./media/tutorial-manual-failover/trigger-failover-03-confirm.png" alt-text="Screenshot showing Manual Failover confirmation pane.":::
 
    The amount of time it takes to perform the manual failover is proportional to the number of devices that are registered for your hub. For example, if you have 100,000 devices, it might take 15 minutes, but if you have five million devices, it might take an hour or longer.
 
-4. In the **Confirm manual failover** pane, fill in the name of your IoT hub to confirm it's the one you want to failover. Then, to initiate the failover, click OK. 
+   While the manual failover process is running, a banner appears to tell you a manual failover is in progress.
 
-   ![Screenshot showing Manual Failover pane](./media/tutorial-manual-failover/trigger-failover-03-confirm.png)
+   If you select **Overview** to view the IoT hub details, you see a banner telling you that the hub is in the middle of a manual failover.
 
-   While the manual failover process is running, there is a banner on the Manual Failover pane that tells you a manual failover is in progress. 
+   After it's finished, the current and failover regions on the Manual Failover page are flipped and the hub is active again. In this example, the current location is now `WestCentralUS` and the failover location is now `West US 2`.
 
-   ![Screenshot showing Manual Failover in progress](./media/tutorial-manual-failover/trigger-failover-04-in-progress.png)
+   :::image type="content" source="./media/tutorial-manual-failover/trigger-failover-06-finished.png" alt-text="Screenshot showing failover is complete.":::
 
-   If you close the IoT Hub pane and open it again by clicking it on the Resource Group pane, you see a banner that tells you the hub is not active. 
+   The overview page also shows a banner indicating that the failover is complete and the IoT Hub is running in the paired region.
 
-   ![Screenshot showing IoT Hub inactive](./media/tutorial-manual-failover/trigger-failover-05-hub-inactive.png)
+## Perform a failback
 
-   After it's finished, the primary and secondary regions on the Manual Failover page are flipped and the hub is active again. In this example, the primary location is now `WestCentralUS` and the secondary location is now `westus2`. 
+After you have performed a manual failover, you can switch the hub's operations back to the original primary region. This action is called a *failback*. If you have just performed a failover, you have to wait about an hour before you can request a failback. If you try to perform the failback in a shorter amount of time, an error message is displayed.
 
-   ![Screenshot showing failover is complete](./media/tutorial-manual-failover/trigger-failover-06-finished.png)
+A failback is performed just like a manual failover. These are the steps:
 
-## Perform a failback 
+1. To perform a failback, return to the **Failover** pane for your IoT hub.
 
-After you have performed a manual failover, you can switch the hub's operations back to the original primary region -- this is called a failback. If you have just performed a failover, you have to wait about an hour before you can request a failback. If you try to perform the failback in a shorter amount of time, an error message is displayed.
+2. Select **Start failover** at the top of the **Failover** pane.
 
-A failback is performed just like a manual failover. These are the steps: 
+3. In the confirmation pane, fill in the name of your IoT hub to confirm it's the one you want to failback. To then initiate the failback, select **Failover**.
 
-1. To perform a failback, return to the Iot Hub pane for your Iot hub.
+   :::image type="content" source="./media/tutorial-manual-failover/trigger-failover-03-confirm.png" alt-text="Screenshot showing Manual Failover confirmation pane.":::
 
-2. Under **Resiliency** on the IoT Hub pane, click **Manual failover (preview)**. 
+   After the failback is complete, your IoT hub again shows the original region as the current location and the paired region as the failover location, as you saw originally.
 
-3. At the top of the Manual failover pane, click **Initiate failover**. You see the **Confirm manual failover** pane. 
+## Clean up resources
 
-4. In the **Confirm manual failover** pane, fill in the name of your IoT hub to confirm it's the one you want to failback. To then initiate the failback, click OK. 
+To remove the resources you've created for this tutorial, delete the resource group. This action deletes all resources contained within the group. In this case, it removes the IoT hub and the resource group itself.
 
-   ![Screenshot of manual failback request](./media/tutorial-manual-failover/trigger-failback-01-regions.png)
+1. Click **Resource Groups**.
 
-   The banners are displayed as explained in the perform a failover section. After the failback is complete, it again shows `westus2` as the primary location and `WestCentralUS` as the secondary location, as set originally.
+2. Locate and select the resource group that contains your IoT hub.
 
-## Clean up resources 
+3. If you want to delete the entire group and all the resources in it, select **Delete resource group**. When prompted, enter the name of the resource group and select **Delete** to confirm the action.
 
-To remove the resources you've created for this tutorial, delete the resource group. This action deletes all resources contained within the group. In this case, it removes the IoT hub and the resource group itself. 
-
-1. Click **Resource Groups**. 
-
-2. Locate and select the resource group **ManlFailRG**. Click on it to open it. 
-
-3. Click **Delete resource group**. When prompted, enter the name of the resource group and click **Delete** to confirm. 
+   If you only want to delete specific resources from the group, check the boxes next to each resource you want to delete then select **Delete**. When prompted, type **yes** and select **Delete** to confirm the action.
 
 ## Next steps
 
-In this tutorial, you learned how to configure and perform a manual failover, and how to request a failback by performing the following tasks:
+In this tutorial, you learned how to configure and perform a manual failover, and how to initiate a failback.
 
-> [!div class="checklist"]
-> * Using the Azure portal, create an IoT hub. 
-> * Perform a failover. 
-> * See the hub running in the secondary location.
-> * Perform a failback to return the IoT hub's operations to the primary location. 
-> * Confirm the hub is running correctly in the right location.
-
-Advance to the next tutorial to learn how to manage the state of an IoT device. 
+Advance to the next tutorial to learn how to configure your device from a back-end service.
 
 > [!div class="nextstepaction"]
-> [Manage the state of an IoT device](tutorial-device-twins.md)
+> [Configure your devices](tutorial-device-twins.md)

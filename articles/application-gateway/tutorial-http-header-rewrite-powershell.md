@@ -1,36 +1,35 @@
 ---
-title: Rewrite HTTP headers in Azure Application Gateway
+title: Create an Azure Application Gateway & rewrite HTTP headers
 description: This article provides information on how to create an Azure Application Gateway and rewrite HTTP headers using Azure PowerShell
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
-ms.topic: article
-ms.date: 4/30/2019
-ms.author: absha
+ms.topic: how-to
+ms.date: 11/19/2019
+ms.author: greglin 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create an application gateway and rewrite HTTP headers
 
 You can use Azure PowerShell to
-configure [rules to rewrite HTTP request and response headers](rewrite-http-headers.md) when you create the new [autoscaling and zone-redundant application gateway SKU](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
+configure [rules to rewrite HTTP request and response headers](./rewrite-http-headers-url.md) when you create the new [autoscaling and zone-redundant application gateway SKU](./application-gateway-autoscaling-zone-redundant.md)
 
 In this article, you learn how to:
 
-> [!div class="checklist"]
->
-> * Create an autoscale virtual network
-> * Create a reserved public IP
-> * Set up your application gateway infrastructure
-> * Specify your http header rewrite rule configuration
-> * Specify autoscale
-> * Create the application gateway
-> * Test the application gateway
+* Create an autoscale virtual network
+* Create a reserved public IP
+* Set up your application gateway infrastructure
+* Specify your http header rewrite rule configuration
+* Specify autoscale
+* Create the application gateway
+* Test the application gateway
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
-This article requires that you run Azure PowerShell locally. You must have Az module version 1.0.0 or later installed. Run `Import-Module Az` and then`Get-Module Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps). After you verify the PowerShell version, run `Login-AzAccount` to create a connection with Azure.
+This article requires that you run Azure PowerShell locally. You must have Az module version 1.0.0 or later installed. Run `Import-Module Az` and then`Get-Module Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). After you verify the PowerShell version, run `Login-AzAccount` to create a connection with Azure.
 
 ## Sign in to Azure
 
@@ -85,7 +84,7 @@ $gwSubnet = Get-AzVirtualNetworkSubnetConfig -Name "AppGwSubnet" -VirtualNetwork
 
 ## Configure the infrastructure
 
-Configure the IP config, front-end IP config, back-end pool, HTTP settings, certificate, port, and listener in an identical format to the existing Standard application gateway. The new SKU follows the same object model as the Standard SKU.
+Configure the IP config, frontend IP config, backend pool, HTTP settings, certificate, port, and listener in an identical format to the existing Standard application gateway. The new SKU follows the same object model as the Standard SKU.
 
 ```azurepowershell
 $ipconfig = New-AzApplicationGatewayIPConfiguration -Name "IPConfig" -Subnet $gwSubnet
@@ -132,7 +131,7 @@ $rule01 = New-AzApplicationGatewayRequestRoutingRule -Name "Rule1" -RuleType bas
 
 Now you can specify the autoscale configuration for the application gateway. Two autoscaling configuration types are supported:
 
-* **Fixed capacity mode**. In this mode, the application gateway does not autoscale and operates at a fixed Scale Unit capacity.
+* **Fixed capacity mode**. In this mode, the application gateway doesn't autoscale and operates at a fixed Scale Unit capacity.
 
    ```azurepowershell
    $sku = New-AzApplicationGatewaySku -Name Standard_v2 -Tier Standard_v2 -Capacity 2

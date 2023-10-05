@@ -1,21 +1,12 @@
 ---
-title: Azure Service Fabric - Performance monitoring with the Windows Azure Diagnostics extension | Microsoft Docs
+title: Performance monitoring with Windows Azure Diagnostics
 description: Use Windows Azure Diagnostics to collect performance counters for your Azure Service Fabric clusters.
-services: service-fabric
-documentationcenter: .net
-author: srrengar
-manager: chackdan
-editor: ''
-
-ms.assetid:
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
 ms.service: service-fabric
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 11/21/2018
-ms.author: srrengar
-
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Performance monitoring with the Windows Azure Diagnostics extension
@@ -108,7 +99,7 @@ Here is an example of a configuration with the counter for the *Total Processor 
 
  You can also use variables in your ARM template to collect an array of performance counters, which can come in handy when you collect performance counters per process. In the below example, we are collecting processor time and garbage collector time per process and then 2 performance counters on the nodes themselves all using variables. 
 
- ```json
+```json
 "variables": {
   "copy": [
       {
@@ -189,9 +180,6 @@ Here is an example of a configuration with the counter for the *Total Processor 
 ....
 ```
 
- >[!NOTE]
- >Though you can use `*` to specify groups of performance counters that are named similarly, sending any counters via a sink (to Application Insights) requires that they are individually declared. 
-
 1. Once you have added the appropriate performance counters that need to be collected, you need to upgrade your cluster resource so that these changes are reflected in your running cluster. Save your modified `template.json` and open up PowerShell. You can upgrade your cluster using `New-AzResourceGroupDeployment`. The call requires the name of the resource group, the updated template file, and the parameters file, and prompts Resource Manager to make appropriate changes to the resources that you updated. Once you are signed into your account and are in the right subscription, use the following command to run the upgrade:
 
     ```sh
@@ -202,5 +190,5 @@ Here is an example of a configuration with the counter for the *Total Processor 
 
 ## Next steps
 * Collect more performance counters for your cluster. See [Performance metrics](service-fabric-diagnostics-event-generation-perf.md) for a list of counters you should collect.
-* [Use monitoring and diagnostics with a Windows VM and Azure Resource Manager templates](../virtual-machines/windows/extensions-diagnostics-template.md) to make further modifications to your `WadCfg`, including configuring additional storage accounts to send diagnostics data to.
+* [Use monitoring and diagnostics with a Windows VM and Azure Resource Manager templates](../virtual-machines/extensions/diagnostics-template.md) to make further modifications to your `WadCfg`, including configuring additional storage accounts to send diagnostics data to.
 * Visit the [WadCfg builder](https://azure.github.io/azure-diagnostics-tools/config-builder/) to build a template from scratch and make sure your syntax is correct.(https://azure.github.io/azure-diagnostics-tools/config-builder/) to build a template from scratch and make sure your syntax is correct.

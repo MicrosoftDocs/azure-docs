@@ -1,62 +1,93 @@
 ---
-title: Run a disaster recovery drill for Azure VMs to a secondary Azure region with the Azure Site Recovery service
-description: Learn how to run a disaster recovery drill for Azure VMs to a secondary Azure region for Azure IaaS VMs using the Azure Site Recovery service.
+title:  Tutorial to run an Azure VM disaster recovery drill with Azure Site Recovery
+description: In this tutorial, run an Azure VM disaster recovery drill to another region using Site Recovery.
 services: site-recovery
-author: rayne-wiselman
-manager: carmonm
-ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/30/2019
-ms.author: raynew
+ms.date: 11/05/2020
 ms.custom: mvc
+ms.author: ankitadutta
+#Customer intent: As an Azure admin, I want to run a drill to check that VM disaster recovery is working.
 ---
 
-# Run a disaster recovery drill for Azure VMs to a secondary Azure region
+# Tutorial: Run a disaster recovery drill for Azure VMs
 
-The [Azure Site Recovery](site-recovery-overview.md) service contributes to your business continuity and disaster recovery (BCDR) strategy by keeping your business apps up and running available during planned and unplanned outages. Site Recovery manages and orchestrates disaster recovery of on-premises machines and Azure virtual machines (VMs), including replication, failover, and recovery.
-
-This tutorial shows you how to run a disaster recovery drill for an Azure VM, from one Azure region to another, with a test failover. A drill validates your replication strategy without data loss or downtime, and doesn't affect your production environment. In this tutorial, you learn how to:
+Learn how to run a disaster recovery drill to another Azure region, for Azure VMs replicating with [Azure Site Recovery](site-recovery-overview.md). In this article, you:
 
 > [!div class="checklist"]
-> * Check the prerequisites
-> * Run a test failover for a single VM
+> * Verify prerequisites
+> * Check VM settings before the drill
+> * Run a test failover
+> * Clean up after the drill
+
 
 > [!NOTE]
-> This tutorial is intended to guide the user through the steps to perform a DR drill with minimal steps; in case you want to learn more about the various aspects associated with performing a DR drill, including networking considerations, automation or troubleshooting, refer to the documents under 'How To' for Azure VMs.
+> This tutorial provides minimal steps for running a disaster recovery drill. If you want to run a drill with full infrastructure testing,  learn about Azure VM [networking](azure-to-azure-about-networking.md), [automation](azure-to-azure-powershell.md), and [troubleshooting](azure-to-azure-troubleshoot-errors.md).
 
 ## Prerequisites
 
-- Before you run a test failover, we recommend that you verify the VM properties to make sure everything's as expected.  Access the VM properties in **Replicated items**. The **Essentials** blade shows information about machines settings and status.
-- **We recommend you use a separate Azure VM network for the test failover**, and not the default network that was set up when you enabled replication.
+Before you start this tutorial, you must enable disaster recovery for one or more Azure VMs. To do this, [complete the first tutorial](azure-to-azure-tutorial-enable-replication.md) in this series.
+
+## Verify VM settings
+
+1. In the vault > **Replicated items**, select the VM.
+
+    ![Option to open Disaster Recovery page in VM properties](./media/azure-to-azure-tutorial-dr-drill/vm-settings.png)
+
+2. On the **Overview** page, check that the VM is protected and healthy.
+3. When you run a test failover, you select an Azure virtual network in the target region. The Azure VM created after failover is placed in this network. 
+
+    - In this tutorial, we select an existing network when we run the test failover.
+    - We recommend you choose a non-production network for the drill, so that IP addresses and networking components remain available in production networks.
+   - You can also preconfigure network settings to be used for test failover. Granular settings you can assign for each NIC include subnet, private IP address, public IP address, load balancer, and network security group. We're not using this method here, but you can [review this article](azure-to-azure-customize-networking.md#customize-failover-and-test-failover-networking-configurations) to learn more.
 
 
 ## Run a test failover
 
-1. In **Settings** > **Replicated Items**, click the VM **+Test Failover** icon.
 
-2. In **Test Failover**, Select a recovery point to use for the failover:
+1. On the **Overview** page, select **Test Failover**.
 
-   - **Latest processed**: Fails the VM over to the latest recovery point that was processed by the
-     Site Recovery service. The time stamp is shown. With this option, no time is spent processing
-     data, so it provides a low RTO (Recovery Time Objective)
-   - **Latest app-consistent**: This option fails over all VMs to the latest app-consistent
-     recovery point. The time stamp is shown.
-   - **Custom**: Select any recovery point.
+    
+    ![Test failover button for the replicated item](./media/azure-to-azure-tutorial-dr-drill/test-failover-button.png)
 
-3. Select the target Azure virtual network to which Azure VMs in the secondary region will be
-   connected, after the failover occurs.
+2. In **Test Failover**, choose a recovery point. The Azure VM in the target region is created using data from this recovery point.
+  
+   - **Latest processed**: Uses the latest recovery point processed by Site Recovery. The time stamp is shown. No time is spent processing data, so it provides a low recovery time objective (RTO).
+   -  **Latest**: Processes all the data sent to Site Recovery, to create a recovery point for each VM before failing over to it. Provides the lowest recovery point objective (RPO), because all data is replicated to Site Recovery when the failover is triggered.
+   - **Latest app-consistent**: This option fails over VMs to the latest app-consistent recovery point. The time stamp is shown.
+   - **Custom**: Fail over to particular recovery point. Custom is only available when you fail over a single VM, and don't use a recovery plan.
 
-4. To start the failover, click **OK**. To track progress, click the VM to open its properties. Or,
-   you can click the **Test Failover** job in the vault name > **Settings** > **Jobs** > **Site
-   Recovery jobs**.
-5. After the failover finishes, the replica Azure VM appears in the Azure portal > **Virtual
-   Machines**. Make sure that the VM is running, sized appropriately, and connected to the
-   appropriate network.
-6. To delete the VMs that were created during the test failover, click **Cleanup test failover** on
-   the replicated item or the recovery plan. In **Notes**, record and save any observations
-   associated with the test failover.
+3. In **Azure virtual network**, select the target network in which to place Azure VMs created after failover. Select a non-production network if possible, and not the network that was created when you enabled replication.
+
+    ![Test failover settings page](./media/azure-to-azure-tutorial-dr-drill/test-failover-settings.png)    
+
+4. To start the failover, select **OK**.
+5. Monitor the test failover in notifications.
+
+    ![Progress notification](./media/azure-to-azure-tutorial-dr-drill/notification-start-test-failover.png)
+    ![Success notification](./media/azure-to-azure-tutorial-dr-drill/notification-finish-test-failover.png)     
+
+
+5. After the failover finishes, the Azure VM created in the target region appears in the Azure portal **Virtual Machines**. Make sure that the VM is running, sized appropriately, and connected to the network you selected.
+
+## Clean up resources
+
+1. In the **Essentials** page, select **Cleanup test failover**.
+
+    ![Button to start the cleanup process](./media/azure-to-azure-tutorial-dr-drill/select-cleanup.png)
+
+2. In **Test failover cleanup** > **Notes**, record and save any observations associated with the test failover. 
+3. Select **Testing is complete** to delete VMs created during the test failover.
+
+    ![Page with cleanup options](./media/azure-to-azure-tutorial-dr-drill/cleanup-failover.png)
+
+4. Monitor cleanup progress in notifications.
+
+    ![Cleanup progress notification](./media/azure-to-azure-tutorial-dr-drill/notification-start-cleanup.png)
+    ![Cleanup success notification](./media/azure-to-azure-tutorial-dr-drill/notification-finish-cleanup.png)
 
 ## Next steps
+
+In this tutorial, you ran a disaster recovery drill to check that failover works as expected. Now you can try out a full failover.
 
 > [!div class="nextstepaction"]
 > [Run a production failover](azure-to-azure-tutorial-failover-failback.md)

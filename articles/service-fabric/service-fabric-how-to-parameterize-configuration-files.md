@@ -1,22 +1,14 @@
 ---
-title: Parameterize config files in Azure Service Fabric | Microsoft Docs
-description: Learn how to parameterize configuration files in Service Fabric.
-documentationcenter: .net
-author: mikkelhegn
-manager: msfussell
-editor: ''
-
+title: Parameterize config files in Azure Service Fabric 
+description: Learn how to parameterize configuration files in Service Fabric, a useful technique when managing multiple environments.
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
 ms.service: service-fabric
-
-ms.devlang: dotNet
-ms.topic: conceptual
-ms.tgt_pltfrm: NA
-
-ms.workload: NA
-ms.date: 10/09/2018
-ms.author: mikhegn
-
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # How to parameterize configuration files in Service Fabric
 
 This article shows you how to parameterize a configuration file in Service Fabric.  If you're not already familiar with the core concepts of managing applications for multiple environments, read [Manage applications for multiple environments](service-fabric-manage-multiple-environment-app-configuration.md).
@@ -43,7 +35,7 @@ In this example, you override a configuration value using parameters in your app
       <Parameter Name="MyService_CacheSize" DefaultValue="80" />
     </Parameters>
    ```
-1. In the `ServiceManifestImport` section of the ApplicationManifest.xml file, add a `ConfigOverride` element, referencing the configuration package, the section, and the parameter.
+1. In the `ServiceManifestImport` section of the ApplicationManifest.xml file, add a `ConfigOverrides` and `ConfigOverride` element, referencing the configuration package, the section, and the parameter.
 
    ```xml
     <ConfigOverrides>
@@ -61,6 +53,36 @@ In this example, you override a configuration value using parameters in your app
 > In the case where you add a ConfigOverride, Service Fabric always chooses the application parameters or the default value specified in the application manifest.
 >
 >
+
+## Access parameterized configurations in code
+
+You can access the configuration in your settings.xml file programmatically. Take for example, the following configuration XML file:
+
+   ```xml
+<Settings
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://schemas.microsoft.com/2011/01/fabric">
+	<!-- Add your custom configuration sections and parameters here -->
+	<Section Name="MyConfigSection">
+		<Parameter Name="MyParameter" Value="Value1" />
+	</Section>
+</Settings>     
+   ```
+  
+Use the following code to access the parameters:
+
+  ```C#
+CodePackageActivationContext context = FabricRuntime.GetActivationContext();
+var configSettings = context.GetConfigurationPackageObject("Config").Settings;
+var data = configSettings.Sections["MyConfigSection"];
+foreach (var parameter in data.Parameters)
+{
+    ServiceEventSource.Current.ServiceMessage(this.Context, "Working-{0} - {1}", parameter.Name, parameter.Value);
+}
+  ```
+
+Here `Parameter.Name` will be MyParameter and `Parameter.Value` will be Value1
 
 ## Next steps
 For information about other app management capabilities that are available in Visual Studio, see [Manage your Service Fabric applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md).

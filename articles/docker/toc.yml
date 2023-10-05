@@ -1,26 +1,22 @@
-- name: Docker Documentation
-  href: index.md
+- name: Docker documentation
+  href: index.yml
 - name: Quickstart
-  expanded: true
   items:
-  - name: Docker Marketplace template
-    href: https://azuremarketplace.microsoft.com/en-us/marketplace/apps/CanonicalandMSOpenTech.DockerOnUbuntuServer1404LTS
+  - name: Deploy an Ubuntu VM with Docker
+    href: https://azure.microsoft.com/resources/templates/docker-simple-on-ubuntu/
+  expanded: true
 - name: Tutorials
   items:
   - name: Python Web App with Docker and PostgreSQL
-    href: ../app-service/containers/tutorial-python-postgresql-app.md?toc=%2fazure%2fpostgresql%2ftoc.json
-  - name: CI/CD with Docker Swarm and Azure DevOps
-    href: /azure/container-service/container-service-docker-swarm-mode-setup-ci-cd-acs-engine
+    href: ../app-service/tutorial-python-postgresql-app.md?toc=%2fazure%2fpostgresql%2ftoc.json
   - name: CI/CD with Docker, Jenkins, and Linux
-    href: /azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd
+    href: /azure/developer/jenkins/pipeline-with-github-and-docker
 - name: How-to guides
   items:
   - name: Docker VM extension
-    href: /azure/virtual-machines/linux/dockerextension
-  - name: Docker Machine
-    href: /azure/virtual-machines/linux/docker-machine
+    href: https://github.com/Azure/azure-docker-extension/blob/master/README.md
   - name: Docker container registry
-    href: /azure/container-registry/container-registry-get-started-portal
+    href: ../container-registry/container-registry-get-started-portal.md
 - name: Resources
   items:
   - name: Azure Roadmap
@@ -28,6 +24,6 @@
   - name: Docker Azure driver
     href: https://docs.docker.com/machine/drivers/azure/
   - name: Docker Azure Site
-    href: https://www.docker.com/docker-azure
+    href: https://docs.docker.com/cloud/aci-integration/
   - name: Docker Site
     href: https://docker.com

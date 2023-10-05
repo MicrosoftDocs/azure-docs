@@ -39,25 +39,25 @@
       - name: Create & manage Linux VMs
         href: ../../virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
       - name: Jenkins CI/CD Pipeline
-        href: ../../virtual-machines/linux/tutorial-jenkins-github-docker-cicd.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
-      - name: Load balance VMs
-        href: ../../virtual-machines/linux/tutorial-load-balancer.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+        href: /azure/developer/jenkins/pipeline-with-github-and-docker?toc=%2fazure%2fguides%2foperations%2ftoc.json
       - name: Authoring Azure Resource Manager templates
-        href: ../../resource-group-authoring-templates.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+        href: ../../azure-resource-manager/templates/syntax.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+      - name: Create a load balancer
+        href: ../../load-balancer/quickstart-load-balancer-standard-public-powershell.md
       - name: Backup VMs at Scale
         href: ../../backup/tutorial-backup-vm-at-scale.md
   - name: How To Guides
     items:
     - name: How to download your Azure billing invoice and daily usage data
-      href: ../../billing/billing-download-azure-invoice-daily-usage-date.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+      href: ../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
   - name: Resources
     items:
     - name: Azure Product Catalog
-      href: https://docs.microsoft.com/azure/#pivot=products
+      href: ../../index.yml
     - name: Azure Roadmap
       href: https://azure.microsoft.com/roadmap/
     - name: Pricing calculator
       href: https://azure.microsoft.com/pricing/calculator/
     - name: Microsoft Azure portal overview
-      href: https://azure.microsoft.com/documentation/articles/azure-portal-overview/
+      href: ../../azure-portal/azure-portal-overview.md
   - name: References

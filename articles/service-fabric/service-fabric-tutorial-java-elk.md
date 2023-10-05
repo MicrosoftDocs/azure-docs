@@ -1,23 +1,15 @@
 ---
-title: Monitor your apps in Service Fabric using ELK in Azure | Microsoft Docs
+title: Monitor your apps in Service Fabric using ELK in Azure 
 description: In this tutorial, learn how to set up ELK and monitor your Service Fabric applications.
-services: service-fabric
-documentationcenter: java
-author: suhuruli
-manager: msfussell
-editor: ''
-
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 02/26/2018
-ms.author: suhuruli
-ms.custom: mvc
-
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+ms.custom: devx-track-extended-java
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Tutorial: Monitor your Service Fabric applications using ELK
 
 This tutorial is part four of a series. It shows how to use ELK (Elasticsearch, Logstash, and Kibana) to monitor Service Fabric applications running in Azure.
@@ -57,7 +49,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 
 You can use a preconfigured ELK environment for this tutorial and if you already have one, skip to the **Setup Logstash** section. However, if you do not have one, the following steps creates one in Azure.
 
-1. Create an ELK Certified by [Bitnami](https://ms.portal.azure.com/#create/bitnami.elk4-6) in Azure. For the purposes of the tutorial, there are not any particular specifications to follow for the creation of this server.
+1. Create an ELK Certified by [Bitnami](https://portal.azure.com/#create/bitnami.elk4-6) in Azure. For the purposes of the tutorial, there are not any particular specifications to follow for the creation of this server.
 
 2. Go to your resource in Azure portal and enter the **Boot Diagnostics** tab under the **Support + Troubleshooting** section. Next, click on the **Serial Log** tab.
 
@@ -147,7 +139,7 @@ You can use a preconfigured ELK environment for this tutorial and if you already
 
 8. Access your Kibana dashboard at **http:\//SERVER-IP** and enter the username and password for Kibana. If you used the ELK image in Azure, the default username is 'user' and the password is the one obtained from the **Boot Diagnostics**.
 
-    ![Kibana](./media/service-fabric-tutorial-java-elk/kibana.png)
+    ![Screenshot shows a Kibana dashboard to visualize platform and application logs.](./media/service-fabric-tutorial-java-elk/kibana.png)
 
 ## Next steps
 

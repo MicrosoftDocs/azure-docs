@@ -1,27 +1,35 @@
 ---
-title: Azure Data Factory Mapping Data Flow New Branch Transformation
-description: Azure Data Factory Mapping Data Flow New Branch Transformation
+title: Multiple branches in mapping data flow
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Replicating data streams in mapping data flow with multiple branches
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.custom: synapse
+ms.date: 07/17/2023
 ---
 
-# Azure Data Factory Mapping Data Flow New Branch Transformation
+# Creating a new branch in mapping data flow
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-![Branch options](media/data-flow/menu.png "menu")
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
-Branching will take the current data stream in your data flow and replicate it to another stream. Use New Branch to perform multiple sets of operations and transformations against the same data stream.
+Add a new branch to do multiple sets of operations and transformations against the same data stream. Adding a new branch is useful when you want to use the same source to for multiple sinks or for self-joining data together.
 
-Example: Your data flow has a Source Transform with a selected set of columns and data type conversions. You then place a Derived Column immediately following that Source. In the Derived Column, you've create a new field that combines first name and last name to make a new "full name" field.
+A new branch can be added from the transformation list similar to other transformations. **New Branch** will only be available as an action when there's an existing transformation following the transformation you're attempting to branch.
 
-You can treat that new stream with a set of transformations and a sink on one row and use New Branch to create a copy of that stream where you can transform that same data with a different set of transformations. By transforming that copied data in a separate branch, you can subsequently sink that data to a separate location.
+:::image type="content" source="media/data-flow/new-branch2.png" alt-text="Screenshot shows the New branch option in the Multiple inputs / outputs menu.":::
+
+In the below example, the data flow is reading taxi trip data. Output aggregated by both day and vendor is required. Instead of creating two separate data flows that read from the same source, a new branch can be added. This way both aggregations can be executed as part of the same data flow. 
+
+:::image type="content" source="media/data-flow/new-branch.png" alt-text="Screenshot shows the data flow with two branches from the source.":::
 
 > [!NOTE]
-> "New Branch" will only show as an action on the + Transformation menu when there is a subsequent transformation following the current location where you are attempting to branch. i.e. You will not see a "New Branch" option at the end here until you add another transformation after the Select
+> When clicking the plus (+) to add transformations to your graph, you will only see the New Branch option when there are subsequent transformation blocks. This is because New Branch creates a reference to the existing stream and requires further upstream processing to operate on. If you do not see the New Branch option, add a Derived Column or other transformation first, then return to the previous block and you will see New Branch as an option.
 
-![Branch](media/data-flow/branch2.png "Branch 2")
+## Next steps
+
+After branching, you may want to use the [data flow transformations](data-flow-transformation-overview.md)

@@ -2,12 +2,12 @@
 title: include file
 description: include file
 services: container-instances
-author: dlepow
+author: tomvcassidy
 
 ms.service: container-instances
 ms.topic: include
-ms.date: 03/20/2018
-ms.author: danlep
+ms.date: 06/14/2022
+ms.author: tomcassidy
 ms.custom: include file
 ---
 
@@ -17,7 +17,7 @@ You must satisfy the following requirements to complete this tutorial:
 
 **Docker**: This tutorial assumes a basic understanding of core Docker concepts like containers, container images, and basic `docker` commands. For a primer on Docker and container basics, see the [Docker overview][docker-get-started].
 
-**Docker Engine**: To complete this tutorial, you need Docker Engine installed locally. Docker provides packages that configure the Docker environment on [macOS][docker-mac], [Windows][docker-windows], and [Linux][docker-linux].
+**Docker**: To complete this tutorial, you need Docker installed locally. Docker provides packages that configure the Docker environment on [macOS][docker-mac], [Windows][docker-windows], and [Linux][docker-linux].
 
 > [!IMPORTANT]
 > Because the Azure Cloud shell does not include the Docker daemon, you *must* install both the Azure CLI and Docker Engine on your *local computer* to complete this tutorial. You cannot use the Azure Cloud Shell for this tutorial.

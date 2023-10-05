@@ -1,26 +1,18 @@
 ---
-title: Create an actor-based service on Azure Service Fabric | Microsoft Docs
+title: Create an actor-based service on Azure Service Fabric 
 description: Learn how to create, debug, and deploy your first actor-based service in C# using Service Fabric Reliable Actors.
-services: service-fabric
-documentationcenter: .net
-author: vturecek
-manager: chackdan
-editor: ''
-
-ms.assetid: d4aebe72-1551-4062-b1eb-54d83297f139
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
 ms.service: service-fabric
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 03/16/2018
-ms.author: vturecek
-
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Getting started with Reliable Actors
 > [!div class="op_single_selector"]
 > * [C# on Windows](service-fabric-reliable-actors-get-started.md)
-> * [Java on Linux](service-fabric-reliable-actors-get-started-java.md)
+> * [Java on Linux](./service-fabric-create-your-first-linux-application-with-java.md)
 
 This article walks through creating and debugging a simple Reliable Actor application in Visual Studio. For more information on Reliable Actors, see [Introduction to Service Fabric Reliable Actors](service-fabric-reliable-actors-introduction.md).
 
@@ -30,7 +22,7 @@ Before you start, ensure that you have the Service Fabric development environmen
 
 ## Create a new project in Visual Studio
 
-Launch Visual Studio 2015 or later as an administrator, and then create a new **Service Fabric Application** project:
+Launch Visual Studio 2019 or later as an administrator, and then create a new **Service Fabric Application** project:
 
 ![Service Fabric tools for Visual Studio - new project][1]
 
@@ -112,7 +104,7 @@ Create a simple console application to call the actor service.
 
     The NuGet package and all its dependencies are installed in the ActorClient project.
 
-5. The client project also requires a reference to the interfaces project.  In the ActorClient project, right-click **Dependencies** and then click **Add reference...**.  Select **Projects > Solution** (if not already selected), and then tick the checkbox next to **HelloWorld.Interfaces**.  Click **OK**.
+5. The client project also requires a reference to the interfaces project.  In the ActorClient project, right-click **Dependencies** and then click **Add Project Reference...**.  Select **Projects > Solution** (if not already selected), and then tick the checkbox next to **HelloWorld.Interfaces**.  Click **OK**.
     
     ![Add reference dialog][7]
 

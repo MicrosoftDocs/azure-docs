@@ -1,24 +1,19 @@
 ---
-title: Troubleshoot cloud service deployment problems | Microsoft Docs
+title: Troubleshoot cloud service (classic) deployment problems | Microsoft Docs
 description: There are a few common problems you may run into when deploying a cloud service to Azure. This article provides solutions to some of them.
-services: cloud-services
-documentationcenter: ''
-author: simonxjx
-manager: felixwu
-editor: ''
-tags: top-support-issue
-
-ms.assetid: a18ae415-0d1c-4bc4-ab6c-c1ddea02c870
-ms.service: cloud-services
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: tbd
-ms.date: 06/15/2018
-ms.author: v-six
-
+ms.service: cloud-services
+ms.date: 02/21/2023
+author: hirenshah1
+ms.author: hirshah
+ms.reviewer: mimckitt
+ms.custom: compute-evergreen
 ---
-# Troubleshoot cloud service deployment problems
+
+# Troubleshoot Azure Cloud Services (Classic) deployment problems
+
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
+
 When you deploy a cloud service application package to Azure, you can obtain information about the deployment from the **Properties** pane in the Azure portal. You can use the details in this pane to help you troubleshoot problems with the cloud service, and you can provide this information to Azure Support when opening a new support request.
 
 You can find the **Properties** pane as follows:
@@ -46,7 +41,7 @@ Service healing occurs automatically when Azure detects problem nodes and theref
 2. In the **Properties** pane of the Azure portal, review the information and determine whether service healing occurred during the time that you observed the roles recycling.
 
 Roles will also recycle roughly once per month during host-OS and guest-OS updates.  
-For more information, see the blog post [Role Instance Restarts Due to OS Upgrades](https://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx)
+For more information, see the blog post [Role Instance Restarts Due to OS Upgrades](/archive/blogs/kwill/role-instance-restarts-due-to-os-upgrades)
 
 ## Problem: I cannot do a VIP swap and receive an error
 A VIP swap is not allowed if a deployment update is in progress. Deployment updates can occur automatically when:
@@ -64,14 +59,14 @@ To find out if an automatic update is preventing you from doing a VIP swap:
 ## Problem: A role instance is looping between Started, Initializing, Busy, and Stopped
 This condition could indicate a problem with your application code, package, or configuration file. In that case, you should be able to see the status changing every few minutes and the Azure portal may say something like **Recycling**, **Busy**, or **Initializing**. This indicates that there is something wrong with the application that is keeping the role instance from running.
 
-For more information on how to troubleshoot for this problem, see the blog post [Azure PaaS Compute Diagnostics Data](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx) and [Common issues that cause roles to recycle](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md).
+For more information on how to troubleshoot for this problem, see the blog post [Azure PaaS Compute Diagnostics Data](/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data) and [Common issues that cause roles to recycle](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md).
 
 ## Problem: My application stopped working
 1. In the Azure portal, click the role instance.
 2. In the **Properties** pane of the Azure portal, consider the following conditions to resolve your problem:
    * If the role instance has recently stopped (you can check the value of **Abort count**), the deployment could be updating. Wait to see if the role instance resumes functioning on its own.
    * If the role instance is **Busy**, check your application code to see if the [StatusCheck](/previous-versions/azure/reference/ee758135(v=azure.100)) event is handled. You might need to add or fix some code that handles this event.
-   * Go through the diagnostic data and troubleshooting scenarios in the blog post [Azure PaaS Compute Diagnostics Data](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+   * Go through the diagnostic data and troubleshooting scenarios in the blog post [Azure PaaS Compute Diagnostics Data](/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data).
 
 > [!WARNING]
 > If you recycle your cloud service, you reset the properties for the deployment, effectively erasing the information for the original problem.
@@ -79,6 +74,6 @@ For more information on how to troubleshoot for this problem, see the blog post 
 >
 
 ## Next steps
-View more [troubleshooting articles](https://docs.microsoft.com/azure/cloud-services/cloud-services-allocation-failures) for cloud services.
+View more [troubleshooting articles](./cloud-services-allocation-failures.md) for cloud services.
 
-To learn how to troubleshoot cloud service role issues by using Azure PaaS computer diagnostics data, see [Kevin Williamson's blog series](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+To learn how to troubleshoot cloud service role issues by using Azure PaaS computer diagnostics data, see [Kevin Williamson's blog series](/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data).

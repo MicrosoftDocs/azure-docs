@@ -1,21 +1,12 @@
 ---
-title: Monitor Linux cluster events in Azure Service Fabric | Microsoft Docs
-description: Learn how to monitor Linux cluster events from Syslog
-services: service-fabric
-documentationcenter: .net
-author: srrengar
-manager: chackdan
-editor: ''
-
-ms.assetid:
+title: Monitor Linux cluster events in Azure Service Fabric 
+description: Learn how to monitor a Service Fabric Linux cluster events by writing Service Fabric platform events to Syslog.
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
 ms.service: service-fabric
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 10/23/2018
-ms.author: srrengar
-
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Service Fabric Linux cluster events in Syslog
@@ -93,7 +84,7 @@ Here are the changes to call out
 ```
 
 ## Azure Monitor logs integration
-You can read these Syslog events in a monitoring tool such as Azure Monitor logs. You can create a Log Analytics workspace by using the Azure Marketplace using these [instructions].(../azure-monitor/learn/quick-create-workspace.md)
+You can read these Syslog events in a monitoring tool such as Azure Monitor logs. You can create a Log Analytics workspace by using the Azure Marketplace using these [instructions].(../azure-monitor/logs/quick-create-workspace.md)
 You also need to add the Log Analytics agent to your cluster to collect and send this data to the workspace. This is the same agent used to collect performance counters. 
 
 1. Navigate to the `Advanced Settings` blade
@@ -120,6 +111,6 @@ The example above is of a NodeDown event. You can view the full list of events [
 
 ## Next steps
 * [Deploy the Log Analytics agent](service-fabric-diagnostics-oms-agent.md) onto your nodes to gather performance counters and collect docker stats and logs for your containers
-* Get familiarized with the [log search and querying](../log-analytics/log-analytics-log-searches.md) features offered as part of Azure Monitor logs
-* [Use View Designer to create custom views in Azure Monitor logs](../log-analytics/log-analytics-view-designer.md)
-* Reference for how to [Azure Monitor logs integration with Syslog](../log-analytics/log-analytics-data-sources-syslog.md).
+* Get familiarized with the [log search and querying](../azure-monitor/logs/log-query-overview.md) features offered as part of Azure Monitor logs
+* [Use View Designer to create custom views in Azure Monitor logs](/previous-versions/azure/azure-monitor/visualize/view-designer)
+* Reference for how to [Azure Monitor logs integration with Syslog](../azure-monitor/agents/data-sources-syslog.md).

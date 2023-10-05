@@ -1,32 +1,65 @@
 ---
-title: Azure Data Factory Mapping Data Flow Sort Transformation
-description: Azure Data Factory Mapping Data Sort Transformation
+title: Sort transformation in mapping data flow
+description: Learn about the Mapping Data Sort Transformation in Azure Data Factory and Synapse Analytics pipelines.
+titleSuffix: Azure Data Factory & Azure Synapse
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
+ms.reviewer: daperlov
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.custom: synapse
+ms.date: 07/17/2023
 ---
 
-# Azure Data Factory Data Flow Sort Transformations
+# Sort transformation in mapping data flow
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-![Sort settings](media/data-flow/sort.png "Sort")
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
-The Sort transformation allows you to sort the incoming rows on the current data stream. The outgoing rows from the Sort Transformation will subsequently follow the ordering rules that you set. You can choose individual columns and sort them ASC or DEC, using the arrow indicator next to each field. If you need to modify the column before applying the sort, click on "Computed Columns" to launch the expression editor. This will provide with an opportunity to build an expression for the sort operation instead of simply applying a column for the sort.
+The sort transformation allows you to sort the incoming rows on the current data stream. You can choose individual columns and sort them in ascending or descending order.
 
-## Case insensitive
-You can turn on "Case insensitive" if you wish to ignore case when sorting string or text fields.
+> [!NOTE]
+> Mapping data flows are executed on spark clusters which distribute data across multiple nodes and partitions. If you choose to repartition your data in a subsequent transformation, you may lose your sorting due to reshuffling of data. The best way to maintain sort order in your data flow is to set single partition in the Optimize tab on the transformation and keep the Sort transformation as close to the Sink as possible.
 
-"Sort Only Within Partitions" leverages Spark data partitioning. By sorting incoming data only within each partition, Data Flows can sort partitioned data instead of sorting entire data stream.
+## Configuration
 
-Each of the sort conditions in the Sort Transformation can be rearranged. So if you need to move a column higher in the sort precedence, grab that row with your mouse and move it higher or lower in the sorting list.
+:::image type="content" source="media/data-flow/sort.png" alt-text="Sort settings":::
 
-Partitioning effects on Sort
+**Case insensitive:** Whether or not you wish to ignore case when sorting string or text fields
 
-ADF Data Flow is executed on big data Spark clusters with data distributed across multiple nodes and partitions. It is important to keep this in mind when architecting your data flow if you are depending on the Sort transform to keep data in that same order. If you choose to repartition your data in a subsequent transformation, you may lose your sorting due to that reshuffling of data.
+**Sort Only Within Partitions:** As data flows are run on spark, each data stream is divided into partitions. This setting sorts data only within the incoming partitions rather than sorting the entire data stream. 
+
+**Sort conditions:** Choose which columns you are sorting by and in which order the sort happens. The order determines sorting priority. Choose whether or not nulls will appear at the beginning or end of the data stream.
+
+### Computed columns
+
+To modify or extract a column value before applying the sort, hover over the column and select "computed column". This will open the expression builder to create an expression for the sort operation instead of using a column value.
+
+## Data flow script
+
+### Syntax
+
+```
+<incomingStream>
+    sort(
+        desc(<sortColumn1>, { true | false }),
+        asc(<sortColumn2>, { true | false }),
+        ...
+    ) ~> <sortTransformationName<>
+```
+
+### Example
+
+:::image type="content" source="media/data-flow/sort.png" alt-text="Sort settings":::
+
+The data flow script for the above sort configuration is in the code snippet below.
+
+```
+BasketballStats sort(desc(PTS, true),
+    asc(Age, true)) ~> Sort1
+```
 
 ## Next steps
 

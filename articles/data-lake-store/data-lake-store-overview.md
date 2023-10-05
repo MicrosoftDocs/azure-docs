@@ -2,13 +2,11 @@
 title: What is Azure Data Lake Storage Gen1? | Microsoft Docs
 description: Overview of Data Lake Storage Gen1 (previously known as Azure Data Lake Store), and the value it provides over other data stores
 
-services: data-lake-store
-author: twooley
-
+author: normesta
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 04/17/2019
-ms.author: twooley
+ms.author: normesta
 
 ---
 
@@ -50,7 +48,7 @@ Data Lake Storage Gen1 also provides enterprise-grade security for the stored da
 
 Data Lake Storage Gen1 can store any data in its native format, without requiring any prior transformations. Data Lake Storage Gen1 does not require a schema to be defined before the data is loaded, leaving it up to the individual analytic framework to interpret the data and define a schema at the time of the analysis. The ability to store files of arbitrary sizes and formats makes it possible for Data Lake Storage Gen1 to handle structured, semi-structured, and unstructured data.
 
-Data Lake Storage Gen1 containers for data are essentially folders and files. You operate on the stored data using SDKs, the Azure portal, and Azure Powershell. If you put your data into the store using these interfaces and using the appropriate containers, you can store any type of data. Data Lake Storage Gen1 does not perform any special handling of data based on the type of data it stores.
+Data Lake Storage Gen1 containers for data are essentially folders and files. You operate on the stored data using SDKs, the Azure portal, and Azure PowerShell. If you put your data into the store using these interfaces and using the appropriate containers, you can store any type of data. Data Lake Storage Gen1 does not perform any special handling of data based on the type of data it stores.
 
 ## <a name="DataLakeStoreSecurity"></a>Securing data
 
@@ -58,7 +56,7 @@ Data Lake Storage Gen1 uses Azure Active Directory (Azure AD) for authentication
 
 | Feature | Description |
 | --- | --- |
-| Authentication |Data Lake Storage Gen1 integrates with Azure AD for identity and access management for all the data stored in Data Lake Storage Gen1. Because of the integration, Data Lake Storage Gen1 benefits from all Azure AD feature such as multi-factor authentication, conditional access, role-based access control, application usage monitoring, security monitoring and alerting, and so on. Data Lake Storage Gen1 supports the OAuth 2.0 protocol for authentication within the REST interface. See [Data Lake Storage Gen1 authentication](data-lakes-store-authentication-using-azure-active-directory.md).|
+| Authentication |Data Lake Storage Gen1 integrates with Azure AD for identity and access management for all the data stored in Data Lake Storage Gen1. Because of the integration, Data Lake Storage Gen1 benefits from all Azure AD feature such as multi-factor authentication, Conditional Access, Azure role-based access control, application usage monitoring, security monitoring and alerting, and so on. Data Lake Storage Gen1 supports the OAuth 2.0 protocol for authentication within the REST interface. See [Data Lake Storage Gen1 authentication](data-lakes-store-authentication-using-azure-active-directory.md).|
 | Access control |Data Lake Storage Gen1 provides access control by supporting POSIX-style permissions exposed by the WebHDFS protocol. You can enable ACLs on the root folder, on subfolders, and on individual files. For more information about how ACLs work in the context of Data Lake Storage Gen1, see [Access control in Data Lake Storage Gen1](data-lake-store-access-control.md). |
 | Encryption |Data Lake Storage Gen1 also provides encryption for data that's stored in the account. You specify the encryption settings while creating a Data Lake Storage Gen1 account. You can choose to have your data encrypted or opt for no encryption. For more information, see [Encryption in Data Lake Storage Gen1](data-lake-store-encryption.md). For instructions on how to provide encryption-related configuration, see [Get started with Data Lake Storage Gen1 using the Azure portal](data-lake-store-get-started-portal.md). |
 

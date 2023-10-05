@@ -1,46 +1,50 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure Advisor Documentation
+### YamlMime:Landing
+
+title: Azure Advisor documentation
+summary: Azure Advisor scans your Azure configuration and recommends changes to optimize deployments, increase security, and save you money. 
+
 metadata:
-  title: Azure Advisor Documentation | Microsoft Docs
-  description:	
-  services: advisor
-  author: rboucher
-  layout: LandingPage
-  ms.service: advisor
-  ms.tgt_pltfrm: na
-  ms.topic: landing-page
-  ms.date: 02/01/2019
-  ms.author: robb
-abstract:
+  title: Azure Advisor documentation
   description: Azure Advisor is a personalized cloud consultant that helps you follow best practices to optimize your Azure deployments. It analyzes your resource configuration and usage telemetry. It then recommends solutions to help improve the performance, security, and high availability of your resources while looking for opportunities to reduce your overall Azure spend.
-sections:
-- title: 
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
-    items:
-    - title: Learn about Azure Advisor
-      href: /azure/advisor/advisor-overview
-      image: 
-        src: media/index/advisor.svg
-        href: /azure/advisor/advisor-overview
-    - title:  Get started with Azure Advisor
-      href: /azure/advisor/advisor-get-started
-      image: 
-        src: media/index/get-started.svg
-        href: /azure/advisor/advisor-get-started
-- title: Reference
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: REST
-      html: <p><a href="https://docs.microsoft.com/rest/api/advisor/">REST API Reference</a></p>
-    - title: Command-Line
-      html: <p><a href="https://docs.microsoft.com/cli/azure/advisor?view=azure-cli-latest">Common Language Interface (CLI)</a></p>
-    - title: PowerShell
-      html: <p><a href="https://docs.microsoft.com/powershell/module/az.advisor/?view=azps-1.2.0">Azure PowerShell</a></p>
+  ms.topic: landing-page
+  ms.service: advisor
+  author: rboucher
+  ms.author: robb
+  ms.date: 10/16/2019
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card 
+  - title: About Azure Advisor
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Learn about Azure Advisor
+            url: advisor-overview.md
+      - linkListType: video
+        links:
+          - text: Azure Advisor videos
+            url: https://azure.microsoft.com/resources/videos/index/?services=advisor
+  # Card 
+  - title: Get started   
+    linkLists:     
+      - linkListType: get-started
+        links:
+          - text: Get started with Azure Advisor
+            url: advisor-get-started.md
+
+  # Card 
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Common Language Interface (CLI)
+            url: /cli/azure/advisor
+          - text: PowerShell
+            url: /powershell/module/az.advisor/
+          - text: REST API
+            url: /rest/api/advisor/
 

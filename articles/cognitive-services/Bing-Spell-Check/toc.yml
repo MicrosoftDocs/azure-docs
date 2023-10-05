@@ -1,15 +1,15 @@
 - name: Bing Spell Check API Documentation
-  href: index.yml
+  href: ../bing-web-search/index.yml
 - name: Overview
   items:
   - name: What is the Bing Spell Check API?
     href: overview.md
   - name: Compare the Bing Search APIs
-    href: ../Bing-Web-Search/bing-api-comparison.md
+    href: ../bing-web-search/bing-api-comparison.md
     maintainContext: true
 - name: Quickstarts
   items:
-  - name: REST API 
+  - name: REST API
     expanded: true
     items:
     - name: Using C#
@@ -49,29 +49,30 @@
 - name: Reference
   items:
   - name: Bing Spell Check API v7
-    href: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference
+    href: /rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference
   - name: Bing Spell Check API v5 (Old version)
-    href: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v5-reference
+    href: /rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v5-reference
   - name: SDKs
     items:
     - name: .NET
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingspellcheck?view=azure-dotnet
+      href: /dotnet/api/overview/azure/cognitiveservices/bing-spell-check-readme
     - name: Node.js
-      href: https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/spellcheck?view=azure-node-latest
+      href: /javascript/api/@azure/cognitiveservices-spellcheck/
     - name: Python
-      href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/spellcheck?view=azure-python
+      href: /python/api/overview/azure/spell-check
     - name: Go
       href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/spellcheck
     - name: Java
-      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/spellcheck?view=azure-java-stable  
+      href: /java/api/overview/azure/cognitiveservices/client/bingspellcheck
   - name: Use and display requirements
-    href: ../Bing-Web-Search/use-display-requirements.md
+    href: ../bing-web-search/use-display-requirements.md
     maintainContext: true
 - name: Resources
   items:
   - name: Analytics for Bing Spell Check API
-    href: bing-spell-check-stats.md
-  - name: Language and region support
+    maintainContext: true
+    href: ../bing-web-search/bing-web-stats.md
+  - name: Language support
     href: language-support.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/spellcheck-api/
@@ -80,10 +81,8 @@
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/bing-api
   - name: Subscription key
-    href: https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api
+    href: https://azure.microsoft.com/free/cognitive-services
   - name: Try it!
     href: https://azure.microsoft.com/services/cognitive-services/spell-check/
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/598195-bing-spell-check
   - name: Compliance
-    href: https://azure.microsoft.com/en-us/support/legal/cognitive-services-compliance-and-privacy/
+    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/

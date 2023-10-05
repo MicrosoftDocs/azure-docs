@@ -1,0 +1,118 @@
+items:
+- name: Azure Managed Grafana
+  href: index.yml
+- name: Overview
+  items:
+    - name: About Azure Managed Grafana
+      href: overview.md
+    - name: What's new
+      href: concept-whats-new.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create an instance - Portal
+    href: quickstart-managed-grafana-portal.md
+  - name: Create an instance - Azure CLI
+    href: quickstart-managed-grafana-cli.md
+- name: Tutorial
+  expanded: true
+  items:
+  - name: Call Grafana APIs programmatically
+    href: how-to-api-calls.md
+- name: Concepts
+  expanded: true
+  items:
+  - name: Service reliability
+    href: high-availability.md
+  - name: Encryption
+    href: encryption.md
+- name: How-to guides
+  expanded: true
+  items:
+  - name: Access and sharing
+    expanded: false
+    items:
+    - name: Configure authentication and permissions
+      href: how-to-authentication-permissions.md
+    - name: Sync teams with Azure AD groups
+      href: how-to-sync-teams-with-azure-ad-groups.md
+    - name: Share a workspace
+      href: how-to-share-grafana-workspace.md
+  - name: Data sources
+    expanded: false
+    items:
+    - name: Configure data sources
+      href: how-to-data-source-plugins-managed-identity.md
+    - name: Modify access permissions to Azure Monitor
+      href: how-to-permissions.md
+    - name: Enable Grafana Enterprise
+      href: how-to-grafana-enterprise.md
+  - name: Dashboards
+    expanded: false
+    items:
+    - name: Create a dashboard
+      href: how-to-create-dashboard.md
+    - name: Share a dashboard
+      href: how-to-share-dashboard.md
+  - name: Alerts and notifications
+    expanded: false
+    items:
+    - name: Use Azure Monitor alerts with Grafana
+      href: how-to-use-azure-monitor-alerts.md
+    - name: Configure SMTP settings
+      href: how-to-smtp-settings.md
+    - name: Use reporting and image rendering
+      href: how-to-use-reporting-and-image-rendering.md
+  - name: Networking
+    expanded: false
+    items:
+    - name: Set up private access
+      href: how-to-set-up-private-access.md
+    - name: Connect to a data source privately
+      href: how-to-connect-to-data-source-privately.md
+    - name: Use deterministic outbound IPs
+      href: how-to-deterministic-ip.md
+  - name: Availability
+    expanded: false
+    items:
+    - name: Enable zone redundancy
+      href: how-to-enable-zone-redundancy.md
+  - name: Administration and automation
+    expanded: false
+    items:
+    - name: Use service accounts
+      href: how-to-service-accounts.md
+    - name: Create and manage API keys (Deprecated)
+      href: how-to-create-api-keys.md
+    - name: Monitor Azure Managed Grafana
+      href: how-to-monitor-managed-grafana-workspace.md
+  - name: Transition to grafana.azure.com domain
+    href: how-to-transition-domain.md
+  - name: Troubleshoot common issues
+    href: troubleshoot-managed-grafana.md
+  - name: Known limitations
+    href: known-limitations.md
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/grafana
+  - name: ARM, Bicep and Terraform templates
+    href: /azure/templates/microsoft.dashboard/2021-09-01-preview/grafana
+  - name: Azure PowerShell
+    href: https://www.powershellgallery.com/packages/Az.Dashboard
+  - name: Control plane APIs
+    href: /rest/api/managed-grafana
+  - name: Data plane APIs
+    href: https://aka.ms/managed-grafana/docs/http-api
+  - name: Grafana UI
+    href: grafana-app-ui.md
+- name: Resources
+  items:
+  - name: FAQ
+    href: faq.md
+  - name: Q&A
+    href: https://aka.ms/managed-grafana/q-n-a
+  - name: Feature request
+    href: https://aka.ms/managed-grafana/feature-request
+  - name: Support
+    href: find-help-open-support-ticket.md

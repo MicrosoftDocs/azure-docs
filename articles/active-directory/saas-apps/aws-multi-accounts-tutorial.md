@@ -1,367 +1,372 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Amazon Web Services (AWS) to connect multiple accounts | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure AD and multiple accounts of Amazon Web Services (AWS).
+title: "Tutorial: Microsoft Entra integration with Amazon Web Services to connect multiple accounts"
+description: Learn how to configure single sign-on between Microsoft Entra ID and Amazon Web Services (legacy tutorial).
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
-
-ms.assetid: 7561c20b-2325-4d97-887f-693aa383c7be
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/07/2019
+ms.topic: tutorial
+ms.date: 11/21/2022
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
-# Tutorial: Azure Active Directory integration with multiple Amazon Web Services (AWS) accounts
 
-In this tutorial, you learn how to integrate Azure Active Directory (Azure AD) with multiple accounts of Amazon Web Services (AWS).
+# Tutorial: Microsoft Entra integration with Amazon Web Services
 
-Integrating Amazon Web Services (AWS) with Azure AD provides you with the following benefits:
+In this tutorial, you learn how to integrate Microsoft Entra ID with Amazon Web Services (AWS) (legacy tutorial).
 
-- You can control in Azure AD who has access to Amazon Web Services (AWS).
-- You can enable your users to automatically get signed-on to Amazon Web Services (AWS) (Single Sign-On) with their Azure AD accounts.
-- You can manage your accounts in one central location - the Azure portal.
+This integration provides the following benefits:
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+- You can control in Microsoft Entra ID who has access to AWS.
+- You can enable your users to automatically sign in to AWS by using single sign-on (SSO) with their Microsoft Entra accounts.
+- You can manage your accounts in one central location, the Azure portal.
 
-![Amazon Web Services (AWS) in the results list](./media/aws-multi-accounts-tutorial/amazonwebservice.png)
+![Diagram of Microsoft Entra integration with AWS.](./media/aws-multi-accounts-tutorial/amazonwebservice.png)
 
->[!NOTE]
->Please note connecting one AWS app to all your AWS accounts is not our recommended approach. Instead we recommend you to use [this](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) approach to configure multiple instances of AWS account to Multiple instances of AWS apps in Azure AD.
+> [!NOTE]
+> We recommend that you _not_ connect one AWS app to all your AWS accounts. Instead, we recommend that you use [Microsoft Entra SSO integration with AWS](./amazon-web-service-tutorial.md) to configure multiple instances of your AWS account to multiple instances of AWS apps in Microsoft Entra ID.
 
-**Please note that we do not recommend to use this approach for following reasons:**
+We recommend that you _not_ connect one AWS app to all your AWS accounts, for the following reasons:
 
-* You have to use the Graph Explorer approach to patch all the roles to the app. We don’t recommend using the manifest file approach.
+- Use this approach only if you have a small number of AWS accounts and roles, because this model isn't scalable as the number of AWS accounts and the roles within them increase. The approach doesn't use AWS role-import functionality with Microsoft Entra user provisioning, so you have to manually add, update, or delete the roles.
 
-* We have seen customers reporting that after adding ~1200 app roles for a single AWS app, any operation on the app started throwing the errors related to size. There is a hard limit of size on the application object.
+- You have to use the Microsoft Graph Explorer approach to patch all the roles to the app. We don’t recommend using the manifest file approach.
 
-* You have to manually update the role as the roles get added in any of the accounts, which is a Replace approach and not Append unfortunately. Also if your accounts are growing then this becomes n x n relationship with accounts and roles.
+- Customers report that after they've added ~1,200 app roles for a single AWS app, any further operation on the app starts throwing the errors related to size. There is a hard size limit to the application object.
 
-* All the AWS accounts will be using the same Federation Metadata XML file and at the time of certificate rollover you have to drive this massive exercise to update the Certificate on all the AWS accounts at the same time
+- You have to manually update the roles as they get added in any of the accounts. This is unfortunately a _replace_ approach, not an _append_ approach. Also, if your account numbers are growing, this becomes an _n_ &times; _n_ relationship with accounts and roles.
+
+- All the AWS accounts use the same federation metadata XML file. At the time of certificate rollover, updating the certificate on all the AWS accounts at the same time can be a massive exercise.
 
 ## Prerequisites
 
-To configure Azure AD integration with Amazon Web Services (AWS), you need the following items:
+To configure Microsoft Entra integration with AWS, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
-* Amazon Web Services (AWS) single sign-on enabled subscription
+- A Microsoft Entra subscription. If you don't have a Microsoft Entra subscription, you can get a [one-month trial](https://azure.microsoft.com/pricing/free-trial/).
+- An AWS SSO-enabled subscription.
 
 > [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
+> We do not recommend that you test the steps in this tutorial in a production environment unless it is necessary.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment.
 
-* Amazon Web Services (AWS) supports **SP and IDP** initiated SSO
+AWS supports SP-initiated and IDP-initiated SSO.
 
-## Adding Amazon Web Services (AWS) from the gallery
+## Add AWS from the gallery
 
-To configure the integration of Amazon Web Services (AWS) into Azure AD, you need to add Amazon Web Services (AWS) from the gallery to your list of managed SaaS apps.
+To configure the integration of AWS into Microsoft Entra ID, you add AWS from the gallery to your list of managed software as a service (SaaS) apps.
 
-**To add Amazon Web Services (AWS) from the gallery, perform the following steps:**
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type **Amazon Web Services** in the search box.
+1. In the results list, select **Amazon Web Services**, and then add the app. In a few seconds, the app is added to your tenant.
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
+1. Go to the **Properties** pane, and then copy the value that's displayed in the **Object ID** box.
 
-	![The Azure Active Directory button](common/select-azuread.png)
+   ![Screenshot of the Object ID box on the Properties pane.](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-properties.png)
 
-2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
+<a name='configure-and-test-azure-ad-sso'></a>
 
-	![The Enterprise applications blade](common/enterprise-applications.png)
+## Configure and test Microsoft Entra SSO
 
-3. To add new application, click **New application** button on the top of dialog.
+In this section, you configure and test Microsoft Entra single sign-on with AWS based on a test user called "Britta Simon."
 
-	![The New application button](common/add-new-app.png)
+For single sign-on to work, Microsoft Entra ID needs to know what the counterpart user in AWS is to the Microsoft Entra user. In other words, a link relationship between the Microsoft Entra user and the same user in AWS needs to be established.
 
-4. In the search box, type **Amazon Web Services (AWS)**, select **Amazon Web Services (AWS)** from result panel then click **Add** button to add the application.
+In AWS, assign the value of the **user name** in Microsoft Entra ID as the value of the AWS **Username** to establish the link relationship.
 
-	 ![Amazon Web Services (AWS) in the results list](common/search-new-app.png)
+To configure and test Microsoft Entra single sign-on with AWS, do the following:
 
-5. Once the application is added, go to **Properties** page and copy the **Object ID**.
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** to enable your users to use this feature.
+1. **[Configure AWS SSO](#configure-aws-sso)** to configure SSO settings on the application side.
+1. **[Test SSO](#test-sso)** to verify that the configuration works.
 
-	![Amazon Web Services (AWS) in the results list](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_properties.png)
+<a name='configure-azure-ad-sso'></a>
 
-## Configure and test Azure AD single sign-on
+### Configure Microsoft Entra SSO
 
-In this section, you configure and test Azure AD single sign-on with Amazon Web Services (AWS) based on a test user called "Britta Simon".
+In this section, you enable Microsoft Entra SSO in the Azure portal and configure SSO in your AWS application by doing the following:
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Amazon Web Services (AWS) is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Amazon Web Services (AWS) needs to be established.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** >
+ **Amazon Web Services (AWS)**.
+1. select **Single sign-on**.
 
-In Amazon Web Services (AWS), assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
+   ![Screenshot of the "Single sign-on" command.](common/select-sso.png)
 
-To configure and test Azure AD single sign-on with Amazon Web Services (AWS), you need to complete the following building blocks:
+1. On the **Select a single sign-on method** pane, select **SAML/WS-Fed** mode to enable single sign-on.
 
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Configure Amazon Web Services (AWS) Single Sign-On](#configure-amazon-web-services-aws-single-sign-on)** - to configure the Single Sign-On settings on application side.
-3. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+   ![Screenshot of the "Select a single sign-on method" pane.](common/select-saml-option.png)
 
-### Configure Azure AD single sign-on
+1. On the **Set up Single Sign-On with SAML** pane, select the **Edit** button (pencil icon).
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Amazon Web Services (AWS) application.
+   ![Screenshot of the Edit button on the "Set up Single Sign-On with SAML" pane.](common/edit-urls.png)
 
-**To configure Azure AD single sign-on with Amazon Web Services (AWS), perform the following steps:**
+1. The **Basic SAML Configuration** pane opens. Skip this section, because the app is preintegrated with Azure. Select **Save**.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Amazon Web Services (AWS)** application integration page, select **Single sign-on**.
+   The AWS application expects the SAML assertions in a specific format. You can manage the values of these attributes from the **User Attributes & Claims** section on the **Application integration** page.
 
-    ![Configure single sign-on link](common/select-sso.png)
+1. On the **Set up Single Sign-On with SAML** page, select the **Edit** button.
 
-2. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
+   ![Screenshot of the Edit button on the "User Attributes" pane.](common/edit-attribute.png)
 
-    ![Single sign-on select mode](common/select-saml-option.png)
+1. In the **User Claims** section of the **User Attributes** pane, configure the SAML token attribute by using the values in the following table:
 
-3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
+   | Name            | Source attribute                                                            | Namespace                                |
+   | --------------- | --------------------------------------------------------------------------- | ---------------------------------------- |
+   | RoleSessionName | user.userprincipalname                                                      | `https://aws.amazon.com/SAML/Attributes` |
+   | Role            | user.assignedroles                                                          | `https://aws.amazon.com/SAML/Attributes` |
+   | SessionDuration | "provide a value from 900 seconds (15 minutes) to 43200 seconds (12 hours)" | `https://aws.amazon.com/SAML/Attributes` |
 
-	![Edit Basic SAML Configuration](common/edit-urls.png)
+   a. Select **Add new claim** and then, on the **Manage user claims** pane, do the following:
 
-4. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
+   ![Screenshot of "Add new claim" and "Save" buttons on the "User claims" pane.](common/new-save-attribute.png)
 
-    ![image](common/preintegrated.png)
+   ![Screenshot of the "Manage user claims" pane.](common/new-attribute-details.png)
 
-5. Amazon Web Services (AWS) application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes & Claims** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes & Claims** dialog.
+   b. In the **Name** box, enter the attribute name.
 
-	![image](common/edit-attribute.png)
+   c. In the **Namespace** box, enter the namespace value.
 
-6. In the **User Claims** section on the **User Attributes** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
+   d. For the **Source**, select **Attribute**.
 
-	| Name  | Source Attribute  | Namespace |
-	| --------------- | --------------- | --------------- |
-	| RoleSessionName | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
-	| Role 			  | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
-	| SessionDuration 			  | "provide a value between 900 seconds (15 minutes) to 43200 seconds (12 hours)" |  https://aws.amazon.com/SAML/Attributes |
+   e. In the **Source attribute** drop-down list, select the attribute.
 
-	a. Click **Add new claim** to open the **Manage user claims** dialog.
+   f. Select **Ok**, and then select **Save**.
 
-	![image](common/new-save-attribute.png)
+   > [!NOTE]
+   > For more information about roles in Microsoft Entra ID, see [Add app roles to your application and receive them in the token](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui).
 
-	![image](common/new-attribute-details.png)
+1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select **Download** to download the federation metadata XML file, and then save it to your computer.
 
-	b. In the **Name** textbox, type the attribute name shown for that row.
+   ![Screenshot of the "Federation Metadata XML" download link on the "SAML Signing Certificate" pane.](common/metadataxml.png)
 
-	c. In the **Namespace** textbox, type the Namespace value shown for that row.
+### Configure AWS SSO
 
-	d. Select Source as **Attribute**.
+1. In a new browser window, sign in to your AWS company site as administrator.
 
-	e. From the **Source attribute** list, type the attribute value shown for that row.
+1. Select the **AWS Home** icon.
 
-	f. Click **Ok**
+   ![Screenshot of the "AWS Home" icon.][11]
 
-	g. Click **Save**.
+1. On the **AWS services** pane, under **Security, Identity & Compliance**, select **IAM (Identity & Access Management)**.
 
-7. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** and save it on your computer.
+   ![Screenshot of the "Identity and Access Management" link on the "AWS Services" pane.][12]
 
-	![The Certificate download link](common/metadataxml.png)
+1. On the left pane, select **Identity Providers**, and then select **Create Provider**.
 
-### Configure Amazon Web Services (AWS) Single Sign-On
+   ![Screenshot of the "Create Provider" button.][13]
 
-1. In a different browser window, sign-on to your Amazon Web Services (AWS) company site as administrator.
+1. On the **Configure Provider** pane, do the following:
 
-2. Click **AWS Home**.
+   ![Screenshot of the "Configure Provider" pane.][14]
 
-    ![Configure Single Sign-On home][11]
+   a. In the **Provider Type** drop-down list, select **SAML**.
 
-3. Click **Identity and Access Management**.
+   b. In the **Provider Name** box, enter a provider name (for example. _WAAD_).
 
-    ![Configure Single Sign-On Identity][12]
+   c. Next to the **Metadata Document** box, select **Choose File** to upload your downloaded federation metadata XML file to the Azure portal.
 
-4. Click **Identity Providers**, and then click **Create Provider**.
+   d. Select **Next Step**.
 
-    ![Configure Single Sign-On Provider][13]
+1. On the **Verify Provider Information** pane, select **Create**.
 
-5. On the **Configure Provider** dialog page, perform the following steps:
+   ![Screenshot of the "Verify Provider Information" pane.][15]
 
-    ![Configure Single Sign-On dialog][14]
+1. On the left pane, select **Roles**, and then select **Create role**.
 
-	a. As **Provider Type**, select **SAML**.
+   ![Screenshot of the "Create role" button on the Roles pane.][16]
 
-	b. In the **Provider Name** textbox, type a provider name (for example: *WAAD*).
+   > [!NOTE]
+   > The combined length of the role Amazon Resource Name (ARN) and the SAML provider ARN for a role that's being imported must be 240 or fewer characters.
 
-	c. To upload your downloaded **metadata file** from Azure portal, click **Choose File**.
+1. On the **Create role** page, do the following:
 
-	d. Click **Next Step**.
+   ![Screenshot of the "SAML 2.0 federation" trusted entity button on the "Create role" page.][19]
 
-6. On the **Verify Provider Information** dialog page, click **Create**.
+   a. Under **Select type of trusted entity**, select **SAML 2.0 federation**.
 
-    ![Configure Single Sign-On Verify][15]
+   b. Under **Choose a SAML 2.0 provider**, select the SAML provider that you created previously (for example, _WAAD_)
 
-7. Click **Roles**, and then click **Create role**.
+   c. Select **Allow programmatic and AWS Management Console access**.
 
-    ![Configure Single Sign-On Roles][16]
+   d. Select **Next: Permissions**.
 
-8. On the **Create role** page, perform the following steps:  
+1. In the search box, enter **Administrator Access**, select the **AdministratorAccess** check box, and then select **Next: Tags**.
 
-    ![Configure Single Sign-On Trust][19]
+   ![Screenshot of the "Policy name" list with the AdministratorAccess policy selected.](./media/aws-multi-accounts-tutorial/administrator-access.png)
 
-    a. Select **SAML 2.0 federation** under **Select type of trusted entity**.
+1. On the **Add tags (optional)** pane, do the following:
 
-	b. Under **Choose a SAML 2.0 Provider section**, select the **SAML provider** you have created previously (for example: *WAAD*)
+   ![Screenshot of the "Add tags (optional)" pane.](./media/aws-multi-accounts-tutorial/config2.png)
 
-	c. Select **Allow programmatic and AWS Management Console access**.
-  
-    d. Click **Next: Permissions**.
+   a. In the **Key** box, enter the key name (for example, _Azureadtest_).
 
-9. On the **Attach Permissions Policies** dialog, please attach appropriate policy as per your organization. Click **Next: Review**.  
+   b. In the **Value (optional)** box, enter the key value in the following format: `<accountname-aws-admin>`. The account name should be in all lowercase letters.
 
-    ![Configure Single Sign-On Policy][33]
+   c. Select **Next: Review**.
 
-10. On the **Review** dialog, perform the following steps:
+1. On the **Review** pane, do the following:
 
-    ![Configure Single Sign-On Review][34]
+   ![Screenshot of the Review pane, with the "Role name" and "Role description" boxes highlighted.][34]
 
-	a. In the **Role name** textbox, enter your Role name.
+   a. In the **Role name** box, enter the value in the following format: `<accountname-aws-admin>`.
 
-	b. In the **Role description** textbox, enter the description.
+   b. In the **Role description** box, enter the value that you used for the role name.
 
-    c. Click **Create Role**.
+   c. Select **Create role**.
 
-    d. Create as many roles as needed and map them to the Identity Provider.
+   d. Create as many roles as you need, and map them to the identity provider.
 
-11. Sign out from current AWS account and login with other account where you want to configure single sign on with Azure AD.
+   > [!NOTE]
+   > Similarly, you can create other roles, such as _accountname-finance-admin_, _accountname-read-only-user_, _accountname-devops-user_, or _accountname-tpm-user_, each with a different policy attached to it. You can change these role policies later, according to the requirements for each AWS account. It's a good idea to keep the same policies for each role across the AWS accounts.
 
-12. Perform step-2 to step-10 to create multiple roles that you want to setup for this account. If you have more than two accounts, please perform the same steps for all the accounts to create roles for them.
+1. Be sure to note the account ID for the AWS account either from the Amazon Elastic Compute Cloud (Amazon EC2) properties pane or the IAM dashboard, as shown in the following screenshot:
 
-13. Once all the roles are created in the accounts, they show up in the **Roles** list for those accounts.
+   ![Screenshot showing where the account ID is displayed on the "Identity and Access Management" pane.](./media/aws-multi-accounts-tutorial/aws-accountid.png)
 
-	![Roles setup](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_listofroles.png)
+1. Sign in to the Azure portal, and then go to **Groups**.
 
-14. We need to capture all the Role ARN and Trusted Entities for all the roles across all the accounts, which we need to map manually with Azure AD application.
+1. Create new groups with the same name as that of the IAM roles you created earlier, and then note the value in the **Object Id** box of each of these new groups.
 
-15. Click on the roles to copy **Role ARN** and **Trusted Entities** values. You need these values for all the roles that you need to create in Azure AD.
+   ![Screenshot of the account details for a new group.](./media/aws-multi-accounts-tutorial/copy-objectids.png)
 
-	![Roles setup](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_role_summary.png)
+1. Sign out of the current AWS account, and then sign in to another account where you want to configure SSO with Microsoft Entra ID.
 
-16. Perform the above step for all the roles in all the accounts and store all of them in format **Role ARN,Trusted entities** in a notepad.
+1. After you've created all the roles in the accounts, they're displayed in the **Roles** list for those accounts.
 
-17. Open [Azure AD Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) in another window.
+   ![Screenshot of the roles list, showing each role's name, description, and trusted entities.](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-listofroles.png)
 
-	a. Sign in to the Graph Explorer site using the Global Admin/Co-admin credentials for your tenant.
+You next need to capture all the role ARNs and trusted entities for all roles across all accounts. You'll need to map them manually with the Microsoft Entra application. To do so:
 
-	b. You need to have sufficient permissions to create the roles. Click on **modify permissions** to get the required permissions.
+1. Select each role to copy its role ARN and trusted entity values. You'll need them for all the roles that you'll create in Microsoft Entra ID.
 
-	![Graph explorer dialog box](./media/aws-multi-accounts-tutorial/graph-explorer-new9.png)
+   ![Screenshot of the Summary pane for the role ARNs and trusted entities.](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-role-summary.png)
 
-	c. Select following permissions from the list (if you don't have these already) and click "Modify Permissions" 
+1. Repeat the preceding step for all the roles in all the accounts, and then store them in a text file in the following format: `<Role ARN>,<Trusted entities>`.
 
-	![Graph explorer dialog box](./media/aws-multi-accounts-tutorial/graph-explorer-new10.png)
+1. Open [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer), and then do the following:
 
-	d. This will ask you to login again and accept the consent. After accepting the consent, you are logged into the Graph Explorer again.
+   a. Sign in to the Microsoft Graph Explorer site with the Global Administrator or Co-admin credentials for your tenant.
 
-	e. Change the version dropdown to **beta**. To fetch all the Service Principals from your tenant, use the following query:
+   b. You need sufficient permissions to create the roles. Select **modify permissions**.
 
-	`https://graph.microsoft.com/beta/servicePrincipals`
+   ![Screenshot of the "modify permissions" link on the Microsoft Graph Explorer Authentication pane.](./media/aws-multi-accounts-tutorial/graph-explorer-new9.png)
 
-	If you are using multiple directories, then you can use following pattern, which has your primary domain in it
-	`https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+   c. In the permissions list, if you don't already have the permissions that are shown in the following screenshot, select each one, and then select **Modify Permissions**.
 
-	![Graph explorer dialog box](./media/aws-multi-accounts-tutorial/graph-explorer-new1.png)
+   ![Screenshot of the Microsoft Graph Explorer permissions list, with the appropriate permissions highlighted.](./media/aws-multi-accounts-tutorial/graph-explorer-new10.png)
 
-	f. From the list of Service Principals fetched, get the one you need to modify. You can also use the Ctrl+F to search the application from all the listed ServicePrincipals. You can use following query by using the **Object id** which you have copied from Azure AD Properties page to get to the respective Service Principal.
+   d. Sign in to Graph Explorer again, and accept the site usage conditions.
 
-	`https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
+   e. At the top of the pane, select **GET** for the method, select **beta** for the version, and then, in the query box, enter either of the following:
 
-	![Graph explorer dialog box](./media/aws-multi-accounts-tutorial/graph-explorer-new2.png)
+   - To fetch all the service principals from your tenant, use `https://graph.microsoft.com/beta/servicePrincipals`.
+   - If you're using multiple directories, use `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`, which contains your primary domain.
 
-	g. Extract the appRoles property from the service principal object.
+   ![Screenshot of the Microsoft Graph Explorer query "Request Body" pane.](./media/aws-multi-accounts-tutorial/graph-explorer-new1.png)
 
-	![Graph explorer dialog box](./media/aws-multi-accounts-tutorial/graph-explorer-new3.png)
+   f. From the list of service principals, get the one you need to modify.
 
-	h. You now need to generate new roles for your application. 
+   You can also search the application for all the listed service principals by selecting Ctrl+F. To get a specific service principal, include in the query the service principal object ID, which you copied earlier from the Microsoft Entra Properties pane, as shown here:
 
-	i. Below JSON is an example of appRoles object. Create a similar object to add the roles you want for your application.
+   `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
 
-	```
-	{
-	"appRoles": [
-        {
-            "allowedMemberTypes": [
-                "User"
-            ],
-            "description": "msiam_access",
-            "displayName": "msiam_access",
-            "id": "7dfd756e-8c27-4472-b2b7-38c17fc5de5e",
-            "isEnabled": true,
-            "origin": "Application",
-            "value": null
-        },
-        {
-            "allowedMemberTypes": [
-                "User"
-            ],
-            "description": "Admin,WAAD",
-            "displayName": "Admin,WAAD",
-            "id": "4aacf5a4-f38b-4861-b909-bae023e88dde",
-            "isEnabled": true,
-            "origin": "ServicePrincipal",
-            "value": "arn:aws:iam::12345:role/Admin,arn:aws:iam::12345:saml-provider/WAAD"
-        },
-        {
-            "allowedMemberTypes": [
-                "User"
-            ],
-            "description": "Auditors,WAAD",
-            "displayName": "Auditors,WAAD",
-            "id": "bcad6926-67ec-445a-80f8-578032504c09",
-            "isEnabled": true,
-            "origin": "ServicePrincipal",
-            "value": "arn:aws:iam::12345:role/Auditors,arn:aws:iam::12345:saml-provider/WAAD"
-        }    ]
-	}
-	```
+   ![Screenshot showing a service principal query that includes the object ID.](./media/aws-multi-accounts-tutorial/graph-explorer-new2.png)
 
-	> [!Note]
-	> You can only add new roles after the **msiam_access** for the patch operation. Also, you can add as many roles as you want per your Organization need. Azure AD will send the **value** of these roles as the claim value in SAML response.
+   g. Extract the appRoles property from the service principal object.
 
-	j. Go back to your Graph Explorer and change the method from **GET** to **PATCH**. Patch the Service Principal object to have desired roles by updating appRoles property similar to the one shown above in the example. Click **Run Query** to execute the patch operation. A success message confirms the creation of the role for your Amazon Web Services application.
+   ![Screenshot of the code for extracting the appRoles property from the service principal object.](./media/aws-multi-accounts-tutorial/graph-explorer-new3.png)
 
-	![Graph explorer dialog box](./media/aws-multi-accounts-tutorial/graph-explorer-new11.png)
+   h. You now need to generate new roles for your application.
 
-18. After the Service Principal is patched with more roles, you can assign Users/Groups to the respective roles. This can be done by going to portal and navigating to the Amazon Web Services application. Click on the **Users and Groups** tab on the top.
+   i. The following JSON code is an example of an appRoles object. Create a similar object to add the roles you want for your application.
 
-19. We recommend you to create new groups for every AWS role so that you can assign that particular role in that group. Note that this is one to one mapping for one group to one role. You can then add the members who belong to that group.
+   ```
+   {
+   "appRoles": [
+       {
+           "allowedMemberTypes": [
+               "User"
+           ],
+           "description": "msiam_access",
+           "displayName": "msiam_access",
+           "id": "7dfd756e-8c27-4472-b2b7-38c17fc5de5e",
+           "isEnabled": true,
+           "origin": "Application",
+           "value": null
+       },
+       {
+           "allowedMemberTypes": [
+               "User"
+           ],
+           "description": "Admin,WAAD",
+           "displayName": "Admin,WAAD",
+           "id": "4aacf5a4-f38b-4861-b909-bae023e88dde",
+           "isEnabled": true,
+           "origin": "ServicePrincipal",
+           "value": "arn:aws:iam::12345:role/Admin,arn:aws:iam::12345:saml-provider/WAAD"
+       },
+       {
+           "allowedMemberTypes": [
+               "User"
+           ],
+           "description": "Auditors,WAAD",
+           "displayName": "Auditors,WAAD",
+           "id": "bcad6926-67ec-445a-80f8-578032504c09",
+           "isEnabled": true,
+           "origin": "ServicePrincipal",
+           "value": "arn:aws:iam::12345:role/Auditors,arn:aws:iam::12345:saml-provider/WAAD"
+       }    ]
+   }
+   ```
 
-20. Once the Groups are created, select the group and assign to the application.
+   > [!Note]
+   > You can add new roles only after you've added _msiam_access_ for the patch operation. You can also add as many roles as you want, depending on your organization's needs. Microsoft Entra ID sends the _value_ of these roles as the claim value in the SAML response.
 
-	![Configure Single Sign-On Add](./media/aws-multi-accounts-tutorial/graph-explorer-new5.png)
+   j. In Microsoft Graph Explorer, change the method from **GET** to **PATCH**. Patch the service principal object with the roles you want by updating the appRoles property, like the one shown in the preceding example. Select **Run Query** to execute the patch operation. A success message confirms the creation of the role for your AWS application.
 
-	> [!Note]
-	> Nested groups are not supported when assigning groups.
+   ![Screenshot of the Microsoft Graph Explorer pane, with the method changed to PATCH.](./media/aws-multi-accounts-tutorial/graph-explorer-new11.png)
 
-21. To assign the role to the group, select the role and click on **Assign** button in the bottom of the page.
+1. After the service principal is patched with more roles, you can assign users and groups to their respective roles. You do this in the Azure portal by going to the AWS application and then selecting the **Users and Groups** tab at the top.
 
-	![Configure Single Sign-On Add](./media/aws-multi-accounts-tutorial/graph-explorer-new6.png)
+1. We recommend that you create a new group for every AWS role so that you can assign that particular role in the group. This one-to-one mapping means that one group is assigned to one role. You can then add the members who belong to that group.
 
-	> [!Note]
-	> Please note that you need to refresh your session in Azure portal to see new roles.
+1. After you've created the groups, select the group and assign it to the application.
 
-### Test single sign-on
+   ![Screenshot of the "Users and groups" pane.](./media/aws-multi-accounts-tutorial/graph-explorer-new5.png)
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+   > [!Note]
+   > Nested groups are not supported when you assign groups.
 
-When you click the Amazon Web Services (AWS) tile in the Access Panel, you should get Amazon Web Services (AWS) application page with option to select the role.
+1. To assign the role to the group, select the role, and then select **Assign**.
 
-![Configure Single Sign-On Add](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_test_screen.png)
+   ![Screenshot of the "Add Assignment" pane.](./media/aws-multi-accounts-tutorial/graph-explorer-new6.png)
+
+   > [!Note]
+   > After you've assigned the roles, you can view them by refreshing your Azure portal session.
+
+### Test SSO
+
+In this section, you test your Microsoft Entra single sign-on configuration by using Microsoft My Apps.
+
+When you select the **AWS** tile in My Apps, the AWS application page opens with an option to select the role.
+
+![Screenshot of the AWS page for testing SSO.](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-test-screen.png)
 
 You can also verify the SAML response to see the roles being passed as claims.
 
-![Configure Single Sign-On Add](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_test_saml.png)
+![Screenshot of the SAML response.](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-test-saml.png)
 
-For more information about the Access Panel, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md).
+For more information about My Apps, see [Sign in and start apps from the My Apps portal](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
-## Additional resources
+## Next steps
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+After you configure AWS you can enforce session control, which protects the exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. For more information, see [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).
 
 <!--Image references-->
 
@@ -376,11 +381,11 @@ For more information about the Access Panel, see [Introduction to the Access 
 [19]: ./media/aws-multi-accounts-tutorial/ic795025.png
 [32]: ./media/aws-multi-accounts-tutorial/ic7950251.png
 [33]: ./media/aws-multi-accounts-tutorial/ic7950252.png
-[35]: ./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices_provisioning.png
-[34]: ./media/aws-multi-accounts-tutorial/ic7950253.png
-[36]: ./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices_securitycredentials.png
-[37]: ./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices_securitycredentials_continue.png
-[38]: ./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices_createnewaccesskey.png
-[39]: ./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices_provisioning_automatic.png
-[40]: ./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices_provisioning_testconnection.png
+[35]: ./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-provisioning.png
+[34]: ./media/aws-multi-accounts-tutorial/config3.png
+[36]: ./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-securitycredentials.png
+[37]: ./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-securitycredentials-continue.png
+[38]: ./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-createnewaccesskey.png
+[39]: ./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-provisioning-automatic.png
+[40]: ./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-provisioning-testconnection.png
 [41]: ./media/aws-multi-accounts-tutorial/

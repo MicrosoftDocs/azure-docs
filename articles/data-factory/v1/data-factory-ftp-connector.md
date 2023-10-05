@@ -1,21 +1,12 @@
 ---
-title: Move data from an FTP server by using Azure Data Factory | Microsoft Docs
+title: Move data from an FTP server by using Azure Data Factory 
 description: Learn about how to move data from an FTP server using Azure Data Factory.
-services: data-factory
-documentationcenter: ''
-author: linda33wj
-manager: craigg
-
-
-ms.assetid: eea3bab0-a6e4-4045-ad44-9ce06229c718
+author: jianleishen
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-
+ms.subservice: v1
 ms.topic: conceptual
-ms.date: 05/02/2018
-ms.author: jingwang
-
+ms.date: 04/12/2023
+ms.author: jianleishen
 robots: noindex
 ---
 # Move data from an FTP server by using Azure Data Factory
@@ -43,7 +34,7 @@ You can create a pipeline with a copy activity that moves data from an FTP sourc
 
 The easiest way to create a pipeline is to use the **Data Factory Copy Wizard**. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough.
 
-You can also use the following tools to create a pipeline: **Azure portal**, **Visual Studio**, **PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity.
+You can also use the following tools to create a pipeline: **Visual Studio**, **PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity.
 
 Whether you use the tools or APIs, perform the following steps to create a pipeline that moves data from a source data store to a sink data store:
 
@@ -72,10 +63,10 @@ The following table describes JSON elements specific to an FTP linked service.
 | gatewayName |Specify the name of the gateway in Data Management Gateway to connect to an on-premises FTP server. |No |&nbsp; |
 | port |Specify the port on which the FTP server is listening. |No |21 |
 | enableSsl |Specify whether to use FTP over an SSL/TLS channel. |No |true |
-| enableServerCertificateValidation |Specify whether to enable server SSL certificate validation when you are using FTP over SSL/TLS channel. |No |true |
+| enableServerCertificateValidation |Specify whether to enable server TLS/SSL certificate validation when you are using FTP over SSL/TLS channel. |No |true |
 
 >[!NOTE]
->The FTP connector supports accessing FTP server with either no encryption or explicit SSL/TLS encryption; it doesn’t support implicit SSL/TLS encryption.
+>The FTP connector supports accessing FTP server with either no encryption or explicit SSL/TLS encryption; it doesn't support implicit SSL/TLS encryption.
 
 ### Use Anonymous authentication
 
@@ -153,7 +144,7 @@ The **typeProperties** section is different for each type of dataset. It provide
 
 | Property | Description | Required |
 | --- | --- | --- |
-| folderPath |Subpath to the folder. Use escape character ‘ \ ’ for special characters in the string. See Sample linked service and dataset definitions for examples.<br/><br/>You can combine this property with **partitionBy** to have folder paths based on slice start and end date-times. |Yes |
+| folderPath |Subpath to the folder. Use escape character ' \ ' for special characters in the string. See Sample linked service and dataset definitions for examples.<br/><br/>You can combine this property with **partitionBy** to have folder paths based on slice start and end date-times. |Yes |
 | fileName |Specify the name of the file in the **folderPath** if you want the table to refer to a specific file in the folder. If you do not specify any value for this property, the table points to all files in the folder.<br/><br/>When **fileName** is not specified for an output dataset, the name of the generated file is in the following format: <br/><br/>`Data.<Guid>.txt` (Example: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |No |
 | fileFilter |Specify a filter to be used to select a subset of files in the **folderPath**, rather than all files.<br/><br/>Allowed values are: `*` (multiple characters) and `?` (single character).<br/><br/>Example 1: `"fileFilter": "*.log"`<br/>Example 2: `"fileFilter": 2014-1-?.txt"`<br/><br/> **fileFilter** is applicable for an input FileShare dataset. This property is not supported with Hadoop Distributed File System (HDFS). |No |
 | partitionedBy |Used to specify a dynamic **folderPath** and **fileName** for time series data. For example, you can specify a **folderPath** that is parameterized for every hour of data. |No |
@@ -209,7 +200,7 @@ In copy activity, when the source is of type **FileSystemSource**, the following
 ## JSON example: Copy data from FTP server to Azure Blob
 This sample shows how to copy data from an FTP server to Azure Blob storage. However, data can be copied directly to any of the sinks stated in the [supported data stores and formats](data-factory-data-movement-activities.md#supported-data-stores-and-formats), by using the copy activity in Data Factory.
 
-The following examples provide sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), or [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md):
+The following examples provide sample JSON definitions that you can use to create a pipeline by using [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), or [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md):
 
 * A linked service of type [FtpServer](#linked-service-properties)
 * A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties)

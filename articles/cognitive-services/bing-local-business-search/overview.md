@@ -1,17 +1,20 @@
 ---
-title: What is the Bing Local Business Search API? | Microsoft Docs
-titleSuffix: Azure Cognitive Services
+title: What is the Bing Local Business Search API?
+titleSuffix: Azure AI services
 description: The Bing Local Business Search API is a RESTful service that enables your applications to find information about local places and businesses based on search queries.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 11/01/2018
-ms.author: rosh
+ms.subservice: bing-local-business
+ms.topic: overview
+ms.date: 03/24/2020
+ms.author: aahi
 ---
 
 # What is Bing Local Business Search?
+
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 The Bing Local Business Search API is a RESTful service that enables your applications to find information about local businesses based on search queries. For example, `q=<business-name> in Redmond, Washington`, or `q=Italian restaurants near me`. 
 
 ## Features
@@ -24,18 +27,18 @@ The Bing Local Business Search API is a RESTful service that enables your applic
 ## Workflow
 Call the Bing Local Business Search API from any programming language that can make HTTP requests and parse JSON responses. This service is accessible using the REST API.
  
-1. Create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)  with access to the Bing Search APIs. If you don't have an Azure subscription, you can [create a free account](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).   
+1. Create an [Azure AI services API account](../cognitive-services-apis-create-account.md)  with access to the Bing Search APIs. If you don't have an Azure subscription, you can [create a free account](https://azure.microsoft.com/free/cognitive-services/).   
 2. URL encode your search terms for the `q=""` query parameter. For example, `q=nearby+restaurant` or `q=nearby%20restaurant`. Set pagination as well, if needed. 
 3. Send a [request to the Bing Local Business Search API](quickstarts/local-quickstart.md) 
 4. Parse the JSON response 
 
 > [!NOTE]
-> Currently, Local Business Search supports only the `en-US` market. 
-> [!NOTE]
-> Currently, Local Business Search does not support Autosuggest. 
+> Currently, Local Business Search: 
+> * Only supports only the `en-US` market. 
+> * Does not support Bing Autosuggest. 
 
 ## Next steps
 - [Query and response](local-search-query-response.md)
 - [Local Business Search quickstart](quickstarts/local-quickstart.md)
 - [Local Business Search API reference](local-search-reference.md)
-- [Use and display requirements](use-display-requirements.md)
+- [Use and display requirements](../bing-web-search/use-display-requirements.md)

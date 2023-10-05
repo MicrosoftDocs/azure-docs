@@ -1,31 +1,26 @@
 ---
-title: 'Atlassian Jira/Confluence admin guide - Azure Active Directory| Microsoft Docs'
-description: Admin guide to use Atlassian Jira and Confluence with Azure Active Directory (Azure AD)..
+title: 'Atlassian Jira/Confluence admin guide'
+description: Admin guide to use Atlassian Jira and Confluence with Microsoft Entra ID..
 services: active-directory
-documentationCenter: na
-author: jeevansd
-manager: daveba
-ms.reviewer: joflore
-
+author: dhivyagana
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/19/2018
-ms.author: jeedes
-
-ms.collection: M365-identity-device-management
+ms.topic: tutorial
+ms.date: 11/21/2022
+ms.author: dhivyag
 ---
-# Atlassian Jira and Confluence admin guide for Azure Active Directory
+# Atlassian Jira and Confluence admin guide for Microsoft Entra ID
 
 ## Overview
 
-The Azure Active Directory (Azure AD) single sign-on (SSO) plug-in enables Microsoft Azure AD customers to use their work or school account for signing in to Atlassian Jira and Confluence Server-based products. It implements SAML 2.0-based SSO.
+The Microsoft Entra single sign-on (SSO) plug-in enables Microsoft Entra customers to use their work or school account for signing in to Atlassian Jira and Confluence Server-based products. It implements SAML 2.0-based SSO.
 
 ## How it works
 
-When users want to sign in to the Atlassian Jira or Confluence application, they see the **Login with Azure AD** button on the sign-in page. When they select it, they're required to sign in by using the Azure AD organization sign-in page (that is, their work or school account).
+When users want to sign in to the Atlassian Jira or Confluence application, they see the **Login with Microsoft Entra ID** button on the sign-in page. When they select it, they're required to sign in by using the Microsoft Entra organization sign-in page (that is, their work or school account).
 
 After the users are authenticated, they should be able to sign in to the application. If they are already authenticated with the ID and password for their work or school account, then they directly sign in to the application. 
 
@@ -38,7 +33,7 @@ Users can also get to the Atlassian product through My Apps under the work or sc
 
 ## Audience
 
-Jira and Confluence admins can use the plug-in to enable SSO by using Azure AD.
+Jira and Confluence admins can use the plug-in to enable SSO by using Microsoft Entra ID.
 
 ## Assumptions
 
@@ -57,30 +52,19 @@ Note the following information before you install the plug-in:
 * Jira and Confluence versions are HTTPS enabled.
 * Jira and Confluence are available on the internet.
 * Admin credentials are in place for Jira and Confluence.
-* Admin credentials are in place for Azure AD.
+* Admin credentials are in place for Microsoft Entra ID.
 * WebSudo is disabled in Jira and Confluence.
 
 ## Supported versions of Jira and Confluence
 
 The plug-in supports the following versions of Jira and Confluence:
 
-* Jira Core and Software: 6.0 to 7.12
-* Jira Service Desk: 3.0.0 to 3.5.0
-* JIRA also supports 5.2. For more details, click [Microsoft Azure Active Directory single sign-on for JIRA 5.2](https://docs.microsoft.com/azure/active-directory/saas-apps/jira52microsoft-tutorial)
-* Confluence: 5.0 to 5.10
-* Confluence: 6.0.1
-* Confluence: 6.1.1
-* Confluence: 6.2.1
-* Confluence: 6.3.4
-* Confluence: 6.4.0
-* Confluence: 6.5.0
-* Confluence: 6.6.2
-* Confluence: 6.7.0
-* Confluence: 6.8.1
-* Confluence: 6.9.0
-* Confluence: 6.10.0
-* Confluence: 6.11.0
-* Confluence: 6.12.0
+* Jira Core and Software: 6.0 to 9.10.0
+* Jira Service Desk: 3.0.0 to 4.22.1.
+* JIRA also supports 5.2. For more details, click [Microsoft Entra single sign-on for JIRA 5.2](./jira52microsoft-tutorial.md).
+* Confluence: 5.0 to 5.10.
+* Confluence: 6.0.1 to 6.15.9.
+* Confluence: 7.0.1 to 8.5.1.
 
 ## Installation
 
@@ -104,23 +88,23 @@ Before you start using the plug-in, you must configure it. Select the plug-in, s
 
 The following image shows the configuration screen in both Jira and Confluence:
 
-![Plug-in configuration screen](./media/ms-confluence-jira-plugin-adminguide/jira.png)
+![Plug-in configuration screen](./media/jiramicrosoft-tutorial/jira-configure-addon.png)
 
-* **Metadata URL**: The URL to get federation metadata from Azure AD.
+* **Metadata URL**: The URL to get federation metadata from Microsoft Entra ID.
 
-* **Identifiers**: The URL that Azure AD uses to validate the source of the request. It maps to the **Identifier** element in Azure AD. The plug-in automatically derives this URL as https://*\<domain:port>*/.
+* **Identifiers**: The URL that Microsoft Entra ID uses to validate the source of the request. It maps to the **Identifier** element in Microsoft Entra ID. The plug-in automatically derives this URL as https://*\<domain:port>*/.
 
-* **Reply URL**: The reply URL in your identity provider (IdP) that initiates the SAML sign-in. It maps to the **Reply URL** element in Azure AD. The plug-in automatically derives this URL as https://*\<domain:port>*/plugins/servlet/saml/auth.
+* **Reply URL**: The reply URL in your identity provider (IdP) that initiates the SAML sign-in. It maps to the **Reply URL** element in Microsoft Entra ID. The plug-in automatically derives this URL as https://*\<domain:port>*/plugins/servlet/saml/auth.
 
-* **Sign On URL**: The sign-on URL in your IdP that initiates the SAML sign-in. It maps to the **Sign On** element in Azure AD. The plug-in automatically derives this URL as https://*\<domain:port>*/plugins/servlet/saml/auth.
+* **Sign On URL**: The sign-on URL in your IdP that initiates the SAML sign-in. It maps to the **Sign On** element in Microsoft Entra ID. The plug-in automatically derives this URL as https://*\<domain:port>*/plugins/servlet/saml/auth.
 
 * **IdP Entity ID**: The entity ID that your IdP uses. This box is populated when the metadata URL is resolved.
 
-* **Login URL**: The sign-in URL from your IdP. This box is populated from Azure AD when the metadata URL is resolved.
+* **Login URL**: The sign-in URL from your IdP. This box is populated from Microsoft Entra ID when the metadata URL is resolved.
 
-* **Logout URL**: The logout URL from your IdP. This box is populated from Azure AD when the metadata URL is resolved.
+* **Logout URL**: The logout URL from your IdP. This box is populated from Microsoft Entra ID when the metadata URL is resolved.
 
-* **X.509 Certificate**: Your IdP’s X.509 certificate. This box is populated from Azure AD when the metadata URL is resolved.
+* **X.509 Certificate**: Your IdP’s X.509 certificate. This box is populated from Microsoft Entra ID when the metadata URL is resolved.
 
 * **Login Button Name**: The name of the sign-in button that your organization wants users to see on the sign-in page.
 
@@ -132,17 +116,58 @@ The following image shows the configuration screen in both Jira and Confluence:
 
 * **Domain Name**: The domain name if sign-in is AD FS based.
 
-* **Enable Single Signout**: The selection to make if you want to sign out from Azure AD when a user signs out from Jira or Confluence.
+* **Enable Single Signout**: The selection to make if you want to sign out from Microsoft Entra ID when a user signs out from Jira or Confluence.
 
+* Enable **Force Azure Login** checkbox, if you wish to sign in through Microsoft Entra credentials only.
+
+* **Enable Use of Application Proxy** checkbox, if you have configured your on-premise atlassian application in an App Proxy setup.
+
+   * For App proxy setup , follow the steps on the [Microsoft Entra application proxy Documentation](../app-proxy/what-is-application-proxy.md).
+## Release Notes
+JIRA:
+
+|Plugin Version   |                                   Release Notes                                           |       Supported JIRA versions       |
+|-----------------|-------------------------------------------------------------------------------------------|-------------------------------------|
+|  1.0.20         |   Bug Fixes:                                                                              | Jira Core and Software:             |
+|                 |   JIRA SAML SSO add-on redirects to incorrect URL from mobile browser.                 |  7.0.0 to 9.10.0                    |
+|                 |   The mark log section after enabling the JIRA plugin.                                 |                                     |
+|                 |   The last login date for a user doesn't update when user signs in via SSO.           |                                     |
+|                 |                                                                                           |                                     |
+|  1.0.19         |   New Feature:                                                                            | Jira Core and Software:             |
+|                 |    Application Proxy Support - Checkbox on the configure plugin screen to toggle the App Proxy mode so as to make the Reply URL editable as per the need to point the App Proxy mode so as to make the Reply URL editable as per the need to point it to the proxy server URL |  6.0 to 9.3.1           |
+|                 |                                                                                           | Jira Service Desk: 3.0.0 to 4.22.1  |
+|                 |                                                                                           |                                     |
+|  1.0.18         |   Bug Fixes:                                                                              | Jira Core and Software:             |
+|                 |    Bug fix for the 405 error upon clicking on the Configure button of the Jira Microsoft Entra SSO Plugin.|  6.0 to 9.1.0.          |
+|                 |    JIRA server isn't rendering the "Project Setting Page" correctly.                  | Jira Service Desk: 3.0.0 to 4.22.1. |
+|                 |    JIRA isn't forcing Microsoft Entra Login. An extra button click was required.                |                                     |
+|                 |    We have now resolved the security fix in this version. This will protect you from user impersonation vulnerability.|       |
+|                 |    JIRA Service Desk logout issue is resolved.                                         |                                     |
+ 
+Confluence:
+
+|Plugin Version   |                                   Release Notes                                           |       Supported JIRA versions       |
+|-----------------|-------------------------------------------------------------------------------------------|-------------------------------------|
+|  6.3.9          |   Bug Fixes:                                                                              | Confluence Server: 7.20.3 to 8.5.1  |
+|                 |   System Error: Metadata link cannot be configured on SSO plugins.                        |                                     |
+|                 |                                                                                           |                                     |
+|  6.3.8          |   New Feature:                                                                            | Confluence Server: 5.0 to 7.20.1    |
+|                 |   Application Proxy Support - Checkbox on the configure plugin screen to toggle the App Proxy mode so as to make the Reply URL editable as per the need to point it to the proxy server URL                                                                      |                                     |
+|                 |                                                                                           |                                     |
+|  6.3.7          |   Bug Fixes:                                                                              | Confluence Server: 5.0 to 7.19.0    |
+|                 |   "Force Login" functionality allows the IT admins to force the Microsoft Entra authentication to users. This way users will not see the username and password box and they will be forced to use SSO.                                                              |                                     |
+|                 |   "Force Login" is configurable from the plugin                                           |                                     |
+|                 |   You can pass the domain string to Microsoft Entra ID so that Microsoft Entra ID can directly redirect the user to your Federation server.|        |  
+ 
 ## Troubleshooting
 
-* **You're getting multiple certificate errors**: Sign in to Azure AD and remove the multiple certificates that are available against the app. Ensure that only one certificate is present.
+* **You're getting multiple certificate errors**: Sign in to Microsoft Entra ID and remove the multiple certificates that are available against the app. Ensure that only one certificate is present.
 
-* **A certificate is about to expire in Azure AD**: Add-ons take care of automatic rollover of the certificate. When a certificate is about to expire, a new certificate should be marked active and unused certificates should be deleted. When a user tries to sign in to Jira in this scenario, the plug-in fetches and saves the new certificate.
+* **A certificate is about to expire in Microsoft Entra ID**: Add-ons take care of automatic rollover of the certificate. When a certificate is about to expire, a new certificate should be marked active and unused certificates should be deleted. When a user tries to sign in to Jira in this scenario, the plug-in fetches and saves the new certificate.
 
 * **You want to disable WebSudo (disable the secure administrator session)**:
 
-  * For Jira, secure administrator sessions (that is, password confirmation before accessing administration functions) are enabled by default. If you want to remove this ability in your Jira instance, specify the following line in your jira-config.properties file: `ira.websudo.is.disabled = true`
+  * For Jira, secure administrator sessions (that is, password confirmation before accessing administration functions) are enabled by default. If you want to remove this ability in your Jira instance, specify the following line in your jira-config.properties file: `jira.websudo.is.disabled = true`
 
   * For Confluence, follow the steps on the [Confluence support site](https://confluence.atlassian.com/doc/configuring-secure-administrator-sessions-218269595.html).
 
@@ -152,13 +177,13 @@ The following image shows the configuration screen in both Jira and Confluence:
 
   * Enter the URL in a browser and see if you receive the federation metadata XML.
 
-* **There's an internal server error**: Review the logs in the log directory of the installation. If you're getting the error when the user is trying to sign in by using Azure AD SSO, you can share the logs with the support team.
+* **There's an internal server error**: Review the logs in the log directory of the installation. If you're getting the error when the user is trying to sign in by using Microsoft Entra SSO, you can share the logs with the support team.
 
 * **There's a "User ID not found" error when the user tries to sign in**: Create the user ID in Jira or Confluence.
 
-* **There's an "App not found" error in Azure AD**: See if the appropriate URL is mapped to the app in Azure AD.
+* **There's an "App not found" error in Microsoft Entra ID**: See if the appropriate URL is mapped to the app in Microsoft Entra ID.
 
-* **You need support**: Reach out to the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). The team responds in 24-48 business hours.
+* **You need support**: Reach out to the [Microsoft Entra SSO Integration Team](mailto:SaaSApplicationIntegrations@service.microsoft.com). The team responds in 24-48 business hours.
 
   You can also raise a support ticket with Microsoft through the Azure portal channel.
 
@@ -168,7 +193,7 @@ Please refer below FAQs if you have any query regarding this plug-in.
 
 ### What does the plug-in do?
 
-The plug-in provides single sign-on (SSO) capability for Atlassian Jira (including Jira Core, Jira Software, Jira Service Desk) and Confluence on-premises software. The plug-in works with Azure Active Directory (Azure AD) as an identity provider (IdP).
+The plug-in provides single sign-on (SSO) capability for Atlassian Jira (including Jira Core, Jira Software, Jira Service Desk) and Confluence on-premises software. The plug-in works with Microsoft Entra ID as an identity provider (IdP).
 
 ### Which Atlassian products does the plug-in work with?
 
@@ -182,23 +207,12 @@ No. The plug-in supports only on-premises versions of Jira and Confluence.
 
 The plug-in supports these versions:
 
-* Jira Core and Software: 6.0 to 7.12
-* Jira Service Desk: 3.0.0 to 3.5.0
-* JIRA also supports 5.2. For more details, click [Microsoft Azure Active Directory single sign-on for JIRA 5.2](https://docs.microsoft.com/azure/active-directory/saas-apps/jira52microsoft-tutorial)
-* Confluence: 5.0 to 5.10
-* Confluence: 6.0.1
-* Confluence: 6.1.1
-* Confluence: 6.2.1
-* Confluence: 6.3.4
-* Confluence: 6.4.0
-* Confluence: 6.5.0
-* Confluence: 6.6.2
-* Confluence: 6.7.0
-* Confluence: 6.8.1
-* Confluence: 6.9.0
-* Confluence: 6.10.0
-* Confluence: 6.11.0
-* Confluence: 6.12.0
+* Jira Core and Software: 6.0 to 9.10.0
+* Jira Service Desk: 3.0.0 to 4.22.1.
+* JIRA also supports 5.2. For more details, click [Microsoft Entra single sign-on for JIRA 5.2](./jira52microsoft-tutorial.md).
+* Confluence: 5.0 to 5.10.
+* Confluence: 6.0.1 to 6.15.9.
+* Confluence: 7.0.1 to 8.5.1.
 
 ### Is the plug-in free or paid?
 
@@ -210,7 +224,7 @@ A restart is not required. You can start using the plug-in immediately.
 
 ### How do I get support for the plug-in?
 
-You can reach out to the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>) for any support needed for this plug-in. The team responds in 24-48 business hours.
+You can reach out to the [Microsoft Entra SSO Integration Team](mailto:SaaSApplicationIntegrations@service.microsoft.com) for any support needed for this plug-in. The team responds in 24-48 business hours.
 
 You can also raise a support ticket with Microsoft through the Azure portal channel.
 
@@ -218,9 +232,11 @@ You can also raise a support ticket with Microsoft through the Azure portal chan
 
 We have tested the plug-in only on 64-bit Windows Server installations of Jira and Confluence.
 
-### Does the plug-in work with IdPs other than Azure AD?
+<a name='does-the-plug-in-work-with-idps-other-than-azure-ad'></a>
 
-No. It works only with Azure AD.
+### Does the plug-in work with IdPs other than Microsoft Entra ID?
+
+No. It works only with Microsoft Entra ID.
 
 ### What version of SAML does the plug-in work with?
 

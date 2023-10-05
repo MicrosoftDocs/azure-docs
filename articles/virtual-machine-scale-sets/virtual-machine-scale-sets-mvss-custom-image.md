@@ -1,24 +1,20 @@
 ---
-title: 'Reference a custom image in an Azure scale set template | Microsoft Docs'
+title: 'Reference a custom image in an Azure scale set template'
 description: Learn how to add a custom image to an existing Azure Virtual Machine Scale Set template
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: mayanknayar
-manager: drewm
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
+author: cynthn
+ms.author: cynthn
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/26/2018
-ms.author: manayar
+ms.subservice: shared-image-gallery
+ms.date: 11/22/2022
+ms.reviewer: mimckitt
+
 ---
 
 # Add a custom image to an Azure scale set template
+
+> [!NOTE]
+> This document covers Virtual Machine Scale Sets running in Uniform Orchestration mode. We recommend using Flexible Orchestration for new workloads. For more information, see [Orchesration modes for Virtual Machine Scale Sets in Azure](virtual-machine-scale-sets-orchestration-modes.md).
 
 This article shows how to modify the [basic scale set template](virtual-machine-scale-sets-mvss-start.md) to deploy from custom image.
 
@@ -93,18 +89,17 @@ In the scale set resource, add a `dependsOn` clause referring to the custom imag
 
 In the `imageReference` of the scale set `storageProfile`, instead of specifying the publisher, offer, sku, and version of a platform image, specify the `id` of the `Microsoft.Compute/images` resource:
 
-```diff
-         "virtualMachineProfile": {
-           "storageProfile": {
-             "imageReference": {
--              "publisher": "Canonical",
--              "offer": "UbuntuServer",
--              "sku": "16.04-LTS",
--              "version": "latest"
-+              "id": "[resourceId('Microsoft.Compute/images', 'myCustomImage')]"
-             }
-           },
-           "osProfile": {
+```json
+  "virtualMachineProfile": {
+    "storageProfile": {
+      "imageReference": {
+        "id": "[resourceId('Microsoft.Compute/images', omImage')]"
+      }
+    },
+    "osProfile": {
+      ...
+    }
+  }
 ```
 
 In this example, use the `resourceId` function to get the resource ID of the image created in the same template. If you have created the managed disk image beforehand, you should provide the ID of that image instead. This ID must be of the form: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Compute/images/<image-name>`.

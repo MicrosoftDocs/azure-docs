@@ -1,14 +1,12 @@
 ---
 title: Build an IoT solution by using Azure Stream Analytics
 description: Getting-started tutorial for the Stream Analytics IoT solution of a tollbooth scenario
-services: stream-analytics
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: jasonh
+author: ajetasin
+ms.author: ajetasi
 ms.service: stream-analytics
-ms.topic: conceptual
-ms.date: 12/06/2018
-ms.custom: seodec18
+ms.topic: how-to
+ms.date: 02/15/2023
+ms.custom: seodec18, ignite-2022
 ---
 
 # Build an IoT solution by using Stream Analytics
@@ -16,7 +14,7 @@ ms.custom: seodec18
 ## Introduction
 In this solution, you learn how to use Azure Stream Analytics to get real-time insights from your data. Developers can easily combine streams of data, such as click-streams, logs, and device-generated events, with historical records or reference data to derive business insights. As a fully managed, real-time stream computation service that's hosted in Microsoft Azure, Azure Stream Analytics provides built-in resiliency, low latency, and scalability to get you up and running in minutes.
 
-After completing this solution, you are able to:
+After completing this solution, you're able to:
 
 * Familiarize yourself with the Azure Stream Analytics portal.
 * Configure and deploy a streaming job.
@@ -29,7 +27,7 @@ You need the following prerequisites to complete this solution:
 * An [Azure subscription](https://azure.microsoft.com/pricing/free-trial/)
 
 ## Scenario introduction: "Hello, Toll!"
-A toll station is a common phenomenon. You encounter them on many expressways, bridges, and tunnels across the world. Each toll station has multiple toll booths. At manual booths, you stop to pay the toll to an attendant. At automated booths, a sensor on top of each booth scans an RFID card that's affixed to the windshield of your vehicle as you pass the toll booth. It is easy to visualize the passage of vehicles through these toll stations as an event stream over which interesting operations can be performed.
+A toll station is a common phenomenon. You encounter them on many expressways, bridges, and tunnels across the world. Each toll station has multiple toll booths. At manual booths, you stop to pay the toll to an attendant. At automated booths, a sensor on top of each booth scans an RFID card that's affixed to the windshield of your vehicle as you pass the toll booth. It's easy to visualize the passage of vehicles through these toll stations as an event stream over which interesting operations can be performed.
 
 ![Picture of cars at toll booths](media/stream-analytics-build-an-iot-solution-using-stream-analytics/cars-in-toll-booth.jpg)
 
@@ -37,8 +35,9 @@ A toll station is a common phenomenon. You encounter them on many expressways, b
 This solution works with two streams of data. Sensors installed in the entrance and exit of the toll stations produce the first stream. The second stream is a static lookup dataset that has vehicle registration data.
 
 ### Entry data stream
-The entry data stream contains information about cars as they enter toll stations. The exit data events are live streamed into an Event Hub queue from a Web App included in the sample app.
+The entry data stream contains information about cars as they enter toll stations. The exit data events are live streamed into an event hub from a Web App included in the sample app.
 
+```
 | TollID | EntryTime | LicensePlate | State | Make | Model | VehicleType | VehicleWeight | Toll | Tag |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 |2014-09-10 12:01:00.000 |JNB 7001 |NY |Honda |CRV |1 |0 |7 | |
@@ -47,8 +46,9 @@ The entry data stream contains information about cars as they enter toll station
 | 2 |2014-09-10 12:03:00.000 |XYZ 1003 |CT |Toyota |Corolla |1 |0 |4 | |
 | 1 |2014-09-10 12:03:00.000 |BNJ 1007 |NY |Honda |CRV |1 |0 |5 |789123456 |
 | 2 |2014-09-10 12:05:00.000 |CDE 1007 |NJ |Toyota |4x4 |1 |0 |6 |321987654 |
+```
 
-Here is a short description of the columns:
+Here's a short description of the columns:
 
 | Column | Description |
 | --- | --- |
@@ -64,7 +64,7 @@ Here is a short description of the columns:
 | Tag |The e-Tag on the automobile that automates payment; blank where the payment was done manually |
 
 ### Exit data stream
-The exit data stream contains information about cars leaving the toll station. The exit data events are live streamed into an Event Hub queue from a Web App included in the sample app.
+The exit data stream contains information about cars leaving the toll station. The exit data events are live streamed into an event hub from a Web App included in the sample app.
 
 | **TollId** | **ExitTime** | **LicensePlate** |
 | --- | --- | --- |
@@ -75,7 +75,7 @@ The exit data stream contains information about cars leaving the toll station. T
 | 1 |2014-09-10T12:08:00.0000000Z |BNJ 1007 |
 | 2 |2014-09-10T12:07:00.0000000Z |CDE 1007 |
 
-Here is a short description of the columns:
+Here's a short description of the columns:
 
 | Column | Description |
 | --- | --- |
@@ -95,7 +95,7 @@ The solution uses a static snapshot of a commercial vehicle registration databas
 | SNY 7188 |592133890 |0 |
 | ELH 9896 |678427724 |1 |
 
-Here is a short description of the columns:
+Here's a short description of the columns:
 
 | Column | Description |
 | --- | --- |
@@ -104,7 +104,7 @@ Here is a short description of the columns:
 | Expired |The registration status of the vehicle: 0 if vehicle registration is active, 1 if registration is expired |
 
 ## Set up the environment for Azure Stream Analytics
-To complete this solution, you need a Microsoft Azure subscription. If you do not have an Azure account, you can [request a free trial version](https://azure.microsoft.com/pricing/free-trial/).
+To complete this solution, you need a Microsoft Azure subscription. If you don't have an Azure account, you can [request a free trial version](https://azure.microsoft.com/pricing/free-trial/).
 
 Be sure to follow the steps in the "Clean up your Azure account" section at the end of this article so that you can make the best use of your Azure credit.
 
@@ -122,7 +122,7 @@ There are several resources that can easily be deployed in a resource group toge
 
 5. Select an Azure location.
 
-6. Specify an **Interval** as a number of seconds. This value is used in the sample web app, for how frequently to send data into Event Hub.
+6. Specify an **Interval** as a number of seconds. This value is used in the sample web app, for how frequently to send data into an event hub.
 
 7. **Check** to agree to the terms and conditions.
 
@@ -133,19 +133,20 @@ There are several resources that can easily be deployed in a resource group toge
 10. After a few moments, a notification appears to confirm the **Deployment succeeded**.
 
 ### Review the Azure Stream Analytics TollApp resources
-1. Log in to the Azure portal
+
+1. Sign in to the Azure portal.
 
 2. Locate the Resource Group that you named in the previous section.
 
 3. Verify that the following resources are listed in the resource group:
-   - One Cosmos DB Account
+   - One Azure Cosmos DB Account
    - One Azure Stream Analytics Job
    - One Azure Storage Account
-   - One Azure Event Hub
+   - One Azure event hub
    - Two Web Apps
 
 ## Examine the sample TollApp job
-1. Starting from the resource group in the previous section, select the Stream Analytics streaming job starting with the name **tollapp** (name contains random characters for uniqueness).
+1. Starting from the resource group in the previous section, select the Stream Analytics streaming job starting with the name `tollapp` (name contains random characters for uniqueness).
 
 2. On the **Overview** page of the job, notice the **Query** box to view the query syntax.
 
@@ -158,15 +159,15 @@ There are several resources that can easily be deployed in a resource group toge
 
    To paraphrase the intent of the query, let’s say that you need to count the number of vehicles that enter a toll booth. Because a highway toll booth has a continuous stream of vehicles entering, those are entrance events are analogous to a stream that never stops. To quantify the stream, you have to define a "period of time" to measure over. Let's refine the question further, to "How many vehicles enter a toll booth every three minutes?" This is commonly referred to as the tumbling count.
 
-   As you can see, Azure Stream Analytics uses a query language that's like SQL and adds a few extensions to specify time-related aspects of the query.  For more details, read about [Time Management](https://msdn.microsoft.com/library/azure/mt582045.aspx) and [Windowing](https://msdn.microsoft.com/library/azure/dn835019.aspx) constructs used in the query.
+   As you can see, Azure Stream Analytics uses a query language that's like SQL and adds a few extensions to specify time-related aspects of the query.  For more details, read about [Time Management](/stream-analytics-query/time-management-azure-stream-analytics) and [Windowing](/stream-analytics-query/windowing-azure-stream-analytics) constructs used in the query.
 
 3. Examine the Inputs of the TollApp sample job. Only the EntryStream input is used in the current query.
-   - **EntryStream** input is an Event Hub connection that queues data representing each time a car enters a tollbooth on the highway. A web app that is part of the sample is creating the events, and that data is queued in this Event Hub. Note that this input is queried in the FROM clause of the streaming query.
-   - **ExitStream** input is an Event Hub connection that queues data representing each time a car exits a tollbooth on the highway. This streaming input is used in later variations of the query syntax.
+   - **EntryStream** input is an event hub connection that queues data representing each time a car enters a tollbooth on the highway. A web app that is part of the sample is creating the events, and that data is queued in this event hub. Note that this input is queried in the FROM clause of the streaming query.
+   - **ExitStream** input is an event hub connection that queues data representing each time a car exits a tollbooth on the highway. This streaming input is used in later variations of the query syntax.
    - **Registration** input is an Azure Blob storage connection, pointing to a static registration.json file, used for lookups as needed. This reference data input is used in later variations of the query syntax.
 
 4. Examine the Outputs of the TollApp sample job.
-   - **Cosmos DB** output is a Cosmos database collection that receives the output sink events. Note that this output is used in INTO clause of the streaming query.
+   - **Azure Cosmos DB** output is an Azure Cosmos DB database container that receives the output sink events. Note that this output is used in INTO clause of the streaming query.
 
 ## Start the TollApp streaming job
 Follow these steps to start the streaming job:
@@ -177,7 +178,7 @@ Follow these steps to start the streaming job:
 
 3. After a few moments, once the job is running, on the **Overview** page of the streaming job, view the **Monitoring** graph. The graph should show several thousand input events, and tens of output events.
 
-## Review the CosmosDB output data
+## Review the Azure Cosmos DB output data
 1. Locate the resource group that contains the TollApp resources.
 
 2. Select the Azure Cosmos DB Account with the name pattern **tollapp\<random\>-cosmos**.
@@ -186,11 +187,11 @@ Follow these steps to start the streaming job:
 
 4. Expand the **tollAppDatabase** > **tollAppCollection** > **Documents**.
 
-5. In the list of ids, several docs are shown once the output is available.
+5. In the list of IDs, several docs are shown once the output is available.
 
-6. Select each id to review the JSON document. Notice each tollid, windowend time, and the count of cars from that window.
+6. Select each ID to review the JSON document. Notice each `tollid`, `windowend time`, and the `count of cars` from that window.
 
-7. After an additional three minutes, another set of four documents is available, one document per tollid.
+7. After an additional three minutes, another set of four documents is available, one document per `tollid`.
 
 
 ## Report total time for each car
@@ -224,9 +225,9 @@ AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
 7. On the **Start job** pane, select **Now**.
 
 ### Review the total time in the output
-Repeat the steps in the preceding section to review the CosmosDB output data from the streaming job. Review the latest JSON documents.
+Repeat the steps in the preceding section to review the Azure Cosmos DB output data from the streaming job. Review the latest JSON documents.
 
-For example, this document shows an example car with a certain license plate, the entrytime and exit time, and the DATEDIFF calculated durationinminutes field showing the toll booth duration as two minutes:
+For example, this document shows an example car with a certain license plate, the `entrytime` and `exit time`, and the DATEDIFF calculated `durationinminutes` field showing the toll booth duration as two minutes:
 ```JSON
 {
     "tollid": 4,
@@ -259,7 +260,7 @@ WHERE Registration.Expired = '1'
 
 1. Repeat the steps in the preceding section to update the TollApp streaming job query syntax.
 
-2. Repeat the steps in the preceding section to review the CosmosDB output data from the streaming job.
+2. Repeat the steps in the preceding section to review the Azure Cosmos DB output data from the streaming job.
 
 Example output:
 ```json
@@ -300,7 +301,7 @@ To scale up the streaming job to more streaming units:
 
 4. Slide the **Streaming units** slider from 1 to 6. Streaming units define the amount of compute power that the job can receive. Select **Save**.
 
-5. **Start** the streaming job to demonstrate the additional scale. Azure Stream Analytics distributes work across more compute resources and achieve better throughput, partitioning the work across resources using the column designated in the PARTITION BY clause.
+5. **Start** the streaming job to demonstrate the additional scale. Azure Stream Analytics distributes work across more compute resources and achieves better throughput, partitioning the work across resources using the column designated in the PARTITION BY clause.
 
 ## Monitor the job
 The **MONITOR** area contains statistics about the running job. First-time configuration is needed to use the storage account in the same region (name toll like the rest of this document).
@@ -317,6 +318,6 @@ You can access **Activity Logs** from the job dashboard **Settings** area as wel
 3. Select **Delete resource group**. Type the name of the resource group to confirm deletion.
 
 ## Conclusion
-This solution introduced you to the Azure Stream Analytics service. It demonstrated how to configure inputs and outputs for the Stream Analytics job. Using the Toll Data scenario, the solution explained common types of problems that arise in the space of data in motion and how they can be solved with simple SQL-like queries in Azure Stream Analytics. The solution described SQL extension constructs for working with temporal data. It showed how to join data streams, how to enrich the data stream with static reference data, and how to scale out a query to achieve higher throughput.
+This solution introduced you to the Azure Stream Analytics service. It demonstrated how to configure inputs and outputs for the Stream Analytics job. By using the Toll Data scenario, the solution explained common types of problems that arise in the space of data in motion and how they can be solved with simple SQL-like queries in Azure Stream Analytics. The solution described SQL extension constructs for working with temporal data. It showed how to join data streams, how to enrich the data stream with static reference data, and how to scale out a query to achieve higher throughput.
 
-Although this solution provides a good introduction, it is not complete by any means. You can find more query patterns using the SAQL language at [Query examples for common Stream Analytics usage patterns](stream-analytics-stream-analytics-query-patterns.md).
+Although this solution provides a good introduction, it isn't complete by any means. You can find more query patterns using the SAQL language at [Query examples for common Stream Analytics usage patterns](stream-analytics-stream-analytics-query-patterns.md).

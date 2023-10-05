@@ -1,23 +1,15 @@
 ---
-title: Data Factory Functions and System Variables | Microsoft Docs
+title: Data Factory Functions and System Variables 
 description: Provides a list of Azure Data Factory functions and system variables
-documentationcenter: ''
-author: sharonlo101
-manager: craigg
-
-services: data-factory
-
-ms.assetid: b6b3c2ae-b0e8-4e28-90d8-daf20421660d
+author: dcstwh
+ms.author: weetok
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-
+ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/10/2018
-ms.author: shlo
-
-robots: noindex
+ms.date: 04/12/2023
 ---
+
 # Azure Data Factory - Functions and System Variables
 > [!NOTE]
 > This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [System variables in Data Factory](../control-flow-system-variables.md).
@@ -71,7 +63,7 @@ In the following sample, **sqlReaderQuery** property in a JSON file is assigned 
 }
 ```
 
-See [Custom Date and Time Format Strings](https://msdn.microsoft.com/library/8kb3ddd4.aspx) topic that describes different formatting options you can use (for example: ay vs. yyyy). 
+See [Custom Date and Time Format Strings](/dotnet/standard/base-types/custom-date-and-time-format-strings) topic that describes different formatting options you can use (for example: ay vs. yyyy). 
 
 ### Functions
 The following tables list all the functions in Azure Data Factory:
@@ -228,5 +220,4 @@ To read data from previous day instead of day represented by the SliceStart, use
 }
 ```
 
-See [Custom Date and Time Format Strings](https://msdn.microsoft.com/library/8kb3ddd4.aspx) topic that describes different formatting options you can use (for example: yy vs. yyyy). 
-
+See [Custom Date and Time Format Strings](/dotnet/standard/base-types/custom-date-and-time-format-strings) topic that describes different formatting options you can use (for example: yy vs. yyyy).

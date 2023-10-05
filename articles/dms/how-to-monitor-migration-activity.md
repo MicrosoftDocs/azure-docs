@@ -1,19 +1,16 @@
 ---
-title: Use Azure Database Migration Service to monitor migration activity | Microsoft Docs
+title: Monitor migration activity - Azure Database Migration Service
 description: Learn to use the Azure Database Migration Service to monitor migration activity.
-services: database-migration
-author: HJToland3
-ms.author: jtoland
-manager: craigg
-ms.reviewer: craigg
+author: croblesm
+ms.author: roblescarlos
+ms.reviewer: randolphwest
+ms.date: 02/20/2020
 ms.service: dms
-ms.workload: data-services
-ms.custom: mvc
-ms.topic: article
-ms.date: 03/12/2019
+ms.topic: how-to
+ms.custom: seo-lt-2019
 ---
 
-# Monitor migration activity
+# Monitor migration activity using the Azure Database Migration Service
 In this article, you learn how to monitor the progress of a migration at both a database level and a table level.
 
 ## Monitor at the database level
@@ -137,4 +134,4 @@ The following table describes the fields shown in table level migration progress
 > CDC values of Insert, Update and Delete and Total Applied may decrease when database is cutover or migration is restarted.
 
 ## Next steps
-- Review the migration guidance in the Microsoft [Database Migration Guide](https://datamigration.microsoft.com/).
+- Review the migration guidance in the Microsoft [Database Migration Guide](/data-migration/).

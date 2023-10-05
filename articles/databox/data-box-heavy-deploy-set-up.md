@@ -1,18 +1,30 @@
 ---
 title: Tutorial to set up Azure Data Box Heavy| Microsoft Docs
-description: Learn how to cable and connect your Azure Data Box Heavy
+description: In this tutorial, learn how to cable your Azure Data Box Heavy, connect Azure Data Box heavy, and turn on Azure Data Box Heavy.
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 05/24/2019
-ms.author: alkohli
-#Customer intent: As an IT admin, I need to be able to set up Data Box Heavy to upload on-premises data from my server onto Azure.
----
-# Tutorial: Cable and connect to your Azure Data Box Heavy (preview)
+ms.date: 10/18/2019
+ms.author: shaas
 
+# Customer intent: As an IT admin, I need to be able to set up Data Box Heavy to upload on-premises data from my server onto Azure.
+---
+::: zone target = "docs"
+
+# Tutorial: Cable and connect to your Azure Data Box Heavy
+
+::: zone-end
+
+::: zone target = "chromeless"
+
+## Get started with Azure Data Box Heavy
+
+::: zone-end
+
+::: zone target = "docs"
 
 This tutorial describes how to cable, connect, and turn on your Azure Data Box Heavy.
 
@@ -22,22 +34,34 @@ In this tutorial, you learn how to:
 > * Cable your Data Box Heavy
 > * Connect to your Data Box Heavy
 
+::: zone-end
+
+::: zone target = "chromeless"
+
+This guide provides instructions on how to review prerequisites, cable and connect your device, copy data, upload to Azure and then verify the uploaded data.
+
+::: zone-end
+
 ## Prerequisites
 
 Before you begin, make sure that:
 
 1. You've completed the [Tutorial: Order Azure Data Box Heavy](data-box-heavy-deploy-ordered.md).
-2. You've received your Data Box Heavy and the order status in the portal is **Delivered**.
-3. You've reviewed the [Data Box Heavy safety guidelines](data-box-safety.md).
-4. You must have access to a flat site in the datacenter with proximity to an available network connection that can accommodate a device with this footprint. This device can't be mounted on a rack.
-5. You've received four grounded power cords to use with your storage device.
-6. You should have a host computer connected to the datacenter network. Your Data Box Heavy will copy the data from this computer. Your host computer must run a [Supported operating system](data-box-heavy-system-requirements.md).
-7. Your datacenter needs to have high-speed network. We strongly recommend that you have at least one 10-GbE connection. 
-8. You need to have a laptop with RJ-45 cable to connect to the local UI and configure the device. Use the laptop to configure each node of the device once.
-9. You need one 40-Gbps cable or 10-Gbps cable per device node.
-    - Choose cables that are compatible with the [Mellanox MCX314A-BCCT](https://store.mellanox.com/products/mellanox-mcx314a-bcct-connectx-3-pro-en-network-interface-card-40-56gbe-dual-port-qsfp-pcie3-0-x8-8gt-s-rohs-r6.html) network interface.
+2. You've received your Data Box Heavy, and the order status in the portal is **Delivered**.
+   - If you used White Glove service for your order, the delivery service uncrated the device and took the crate with them to use when you return the device.
+   - If you managed shipping via another carrier, you have uncrated the device and saved the crate to use when you return the device. *You must return the device in the same crate it was shipped in.*
+1. You've reviewed the [Data Box Heavy safety guidelines](data-box-safety.md).
+1. You must have access to a flat site in the datacenter with proximity to an available network connection that can accommodate a device with this footprint. This device can't be mounted on a rack.
+1. You've received four grounded power cords to use with your storage device.
+1. You should have a host computer connected to the datacenter network. Your Data Box Heavy will copy the data from this computer. Your host computer must run a [Supported operating system](data-box-heavy-system-requirements.md).
+1. Your datacenter needs to have high-speed network. We strongly recommend that you have at least one 10-GbE connection. 
+1. You need to have a laptop with RJ-45 cable to connect to the local UI and configure the device. Use the laptop to configure each node of the device once.
+1. You need one 40-Gbps cable or 10-Gbps cable per device node.
+    - Choose cables that are compatible with the Mellanox MCX314A-BCCT network interface.
     - For the 40-Gbps cable, device end of the cable needs to be QSFP+.
     - For the 10-Gbps cable, you need an SFP+ cable that plugs into a 10-Gbps switch on one end, with a QSFP+ to SFP+ adapter (or the QSA adapter) for the end that plugs into the device.
+
+::: zone target = "docs"
 
 ## Cable your device for power
 
@@ -74,8 +98,8 @@ Take the following steps to cable your device.
 
 On one of the nodes of the device, take the following steps to cable for network.
 
-1. Use a CAT 6 RJ-45 network cable (blue cable in the picture) to connect the host computer to the 1-Gbps management port.
-2. Use a Twinax QSFP+ copper cable (black cables in the picture) to connect at least one 40-Gbps (preferred over 1 Gbps) network interface for data. If using a 10-Gbps switch, use a Twinax SFP+ copper cable with a QSFP+ to SFP+ adapter (the QSA adapter) to connect the 40 Gbps network interface for data.
+1. Use a CAT 6 RJ-45 network cable (top-right cable in picture, attached to plug labeled MGMT) to connect the host computer to the 1-Gbps management port.
+2. Use a QSFP+ cable (fiber or copper) to connect at least one 40-Gbps (preferred over 1 Gbps) network interface for data. If using a 10-Gbps switch, use an SFP+ cable with a QSFP+ to SFP+ adapter (the QSA adapter) to connect the 40 Gbps network interface for data.
 
     ![Data Box Heavy ports cabled](media/data-box-heavy-deploy-set-up/data-box-heavy-ports-cabled.png)
 
@@ -134,3 +158,5 @@ Advance to the next tutorial to learn how to copy data on your Data Box Heavy.
 
 > [!div class="nextstepaction"]
 > [Copy your data to Azure Data Box](./data-box-heavy-deploy-copy-data.md)
+
+::: zone-end

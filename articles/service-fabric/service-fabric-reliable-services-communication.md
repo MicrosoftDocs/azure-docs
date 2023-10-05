@@ -1,22 +1,14 @@
 ---
-title: Reliable Services communication overview | Microsoft Docs
+title: Reliable Services communication overview 
 description: Overview of the Reliable Services communication model, including opening listeners on services, resolving endpoints, and communicating between services.
-services: service-fabric
-documentationcenter: .net
-author: vturecek
-manager: chackdan
-editor: BharatNarasimman
-
-ms.assetid: 36217988-420e-409d-b0a4-e0e875b6eac8
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
 ms.service: service-fabric
-ms.devlang: multiple
-ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
-ms.date: 11/01/2017
-ms.author: vturecek
-
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # How to use the Reliable Services communication APIs
 Azure Service Fabric as a platform is completely agnostic about communication between services. All protocols and stacks are acceptable, from UDP to HTTP. It's up to the service developer to choose how services should communicate. The Reliable Services application framework provides built-in communication stacks as well as APIs that you can use to build your custom communication components.
 
@@ -92,7 +84,7 @@ public class MyStatefulService : StatefulService
 }
 ```
 
-In both cases, you return a collection of listeners. This allows your service to listen on multiple endpoints, potentially using different protocols, by using multiple listeners. For example, you may have an HTTP listener and a separate WebSocket listener. Each listener gets a name, and the resulting collection of *name : address* pairs are represented as a JSON object when a client requests the listening addresses for a service instance or a partition.
+In both cases, you return a collection of listeners. Using multiple listeners allows your service to listen on multiple endpoints, potentially using different protocols. For example, you may have an HTTP listener and a separate WebSocket listener. You can migrate from unsecure to secure remoting by first enabling both scenarios by having both a non-secure listener and a secure listener. Each listener gets a name, and the resulting collection of *name : address* pairs are represented as a JSON object when a client requests the listening addresses for a service instance or a partition.
 
 In a stateless service, the override returns a collection of ServiceInstanceListeners. A `ServiceInstanceListener` contains a function to create an `ICommunicationListener(C#) / CommunicationListener(Java)` and gives it a name. For stateful services, the override returns a collection of ServiceReplicaListeners. This is slightly different from its stateless counterpart, because a `ServiceReplicaListener` has an option to open an `ICommunicationListener` on secondary replicas. Not only can you use multiple communication listeners in a service, but you can also specify which listeners accept requests on secondary replicas and which ones listen only on primary replicas.
 
@@ -193,7 +185,7 @@ public CompletableFuture<String> openAsync(CancellationToken cancellationToken)
 Service Fabric provides APIs that allow clients and other services to then ask for this address by service name. This is important because the service address is not static. Services are moved around in the cluster for resource balancing and availability purposes. This is the mechanism that allow clients to resolve the listening address for a service.
 
 > [!NOTE]
-> For a complete walk-through of how to write a communication listener, see [Service Fabric Web API services with OWIN self-hosting](service-fabric-reliable-services-communication-webapi.md) for C#, whereas for Java you can write your own HTTP server implementation, see EchoServer application example at https://github.com/Azure-Samples/service-fabric-java-getting-started.
+> For a complete walk-through of how to write a communication listener, see [Service Fabric Web API services with OWIN self-hosting](./service-fabric-reliable-services-communication-aspnetcore.md) for C#, whereas for Java you can write your own HTTP server implementation, see EchoServer application example at https://github.com/Azure-Samples/service-fabric-java-getting-started.
 >
 >
 
@@ -294,7 +286,7 @@ public class MyCommunicationClient implements CommunicationClient {
 }
 ```
 
-The client factory is primarily responsible for creating communication clients. For clients that don't maintain a persistent connection, such as an HTTP client, the factory only needs to create and return the client. Other protocols that maintain a persistent connection, such as some binary protocols, should also be validated by the factory to determine whether the connection needs to be re-created.  
+The client factory is primarily responsible for creating communication clients. For clients that don't maintain a persistent connection, such as an HTTP client, the factory only needs to create and return the client. Other protocols that maintain a persistent connection, such as some binary protocols, should also be validated (`ValidateClient(string endpoint, MyCommunicationClient client)`) by the factory to determine whether the connection needs to be re-created.  
 
 ```csharp
 public class MyCommunicationClientFactory : CommunicationClientFactoryBase<MyCommunicationClient>

@@ -1,28 +1,28 @@
 ---
 title: Introduction to Azure Data Catalog
 description: This article provides an overview of Microsoft Azure Data Catalog, including its features and the problems it addresses. Data Catalog enables any user to register, discover, understand, and consume data sources.
-author: JasonWHowell
-ms.author: jasonh
 ms.service: data-catalog
 ms.topic: overview
-ms.date: 04/05/2019
+ms.date: 12/07/2022
 ---
 
 # What is Azure Data Catalog?
 
-Azure Data Catalog is a fully managed cloud service. It lets users discover the data sources they need and understand the data sources they find. At the same time, Data Catalog helps organizations get more value from their existing investments.
+[!INCLUDE [Microsoft Purview redirect](includes/catalog-to-purview-migration-flag.md)]
 
-With Data Catalog, any user (analyst, data scientist, or developer) can discover, understand, and consume data sources. Data Catalog includes a crowdsourcing model of metadata and annotations. It is a single, central place for all of an organization's users to contribute their knowledge and build a community and culture of data.
+Azure Data Catalog is a fully managed cloud service that lets users discover the data sources they need and understand the data sources they find. At the same time, Data Catalog helps organizations get more value from their existing investments.
+
+With Data Catalog, any user (analyst, data scientist, or developer) can discover, understand, and consume data sources in their data landscape. Data Catalog includes a crowdsourcing model of metadata and annotations, so everyone can contribute to making data discoverable and useable. It's a single, central place for all of an organization's users to contribute their knowledge and build a community and culture of data.
 
 ## Discovery challenges for data consumers
 
-Traditionally, discovering enterprise data sources has been an organic process based on tribal knowledge. For companies that want to get the most value from their information assets, this approach presents numerous challenges:
+Traditionally, discovering enterprise data sources has been an organic process based on tribal knowledge. For companies that want to get the most value from their information assets, this approach presents many challenges:
 
-* Users might not know that a data source exists unless they come into contact with it as part of another process. There is no central location where data sources are registered.
-* Unless users know the location of a data source, they cannot connect to the data by using a client application. Data-consumption experiences require users to know the connection string or path.
-* Unless users know the location of a data source's documentation, they cannot understand the intended uses of the data. Data sources and documentation might live in a variety of places and be consumed through a variety of experiences.
-* If users have questions about an information asset, they must locate the expert or team that's responsible for the data and engage them offline. There is no explicit connection between data and the experts that have perspectives on its use.
-* Unless users understand the process for requesting access to the data source, discovering the data source and its documentation still does not help them access the data.
+* Users might not know that a data source exists unless they come into contact with it as part of another process. There's no central location where data sources are registered.
+* Unless users know the location of a data source, they can’t connect to the data by using a client application. Data-consumption experiences require users to know the connection string or path.
+* Unless users know the location of a data source's documentation, they can’t understand the intended uses of the data. Data sources and documentation might live in various places and be consumed through various experiences.
+* If users have questions about an information asset, they must locate the expert or team that's responsible for the data and engage them offline. There's no explicit connection between data and the experts that have perspectives on its use.
+* Unless users understand the process for requesting access to the data source, discovering the data source and its documentation still doesn't help them access the data.
 
 ## Discovery challenges for data producers
 
@@ -61,7 +61,7 @@ To learn more about the capabilities of Data Catalog, see:
 * [How to work with big data](data-catalog-how-to-big-data.md)
 * [How to manage data assets](data-catalog-how-to-manage.md)
 * [How to set up the Business Glossary](data-catalog-how-to-business-glossary.md)
-* [Frequently asked questions](data-catalog-frequently-asked-questions.md)
+* [Frequently asked questions](data-catalog-frequently-asked-questions.yml)
 
 ## Next steps
 

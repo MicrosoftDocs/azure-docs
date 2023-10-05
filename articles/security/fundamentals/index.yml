@@ -1,0 +1,117 @@
+### YamlMime:Landing
+
+title: Azure security fundamentals documentation
+summary: Learn how to secure your cloud solutions on Azure with our best practices and guidance.
+
+metadata:
+  title: Azure security fundamentals documentation
+  description: Learn how to secure your cloud solutions on Azure.
+  services: security
+  ms.service: information-protection
+  ms.subservice: aiplabels
+  ms.topic: landing-page
+  author: TerryLanfear
+  ms.author: terrylan
+  manager: rkarlin
+  ms.date: 02/03/2021
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Azure security
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Introduction to Azure security
+            url: overview.md
+          - text: Security technical capabilities
+            url: technical-capabilities.md
+      - linkListType: concept
+        links:
+          - text: How Microsoft secures the Azure infrastructure
+            url: infrastructure.md
+
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Shared responsibility in the cloud
+            url: shared-responsibility.md
+          - text: Security services and technologies
+            url: services-technologies.md
+          - text: Built-in security controls
+            url: ../benchmarks/index.yml
+
+  # Card
+  - title: Mitigate threats
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Microsoft Defender for Cloud
+            url: ../../security-center/security-center-introduction.md
+      - linkListType: concept
+        links:
+          - text: Management and monitoring
+            url: management-monitoring-overview.md
+          - text: Threat protection
+            url: threat-detection.md
+          - text: Recover from identity compromise
+            url: recover-from-identity-compromise.md
+
+  # Card
+  - title: Best practices for securing your cloud solutions
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Network security
+            url: network-best-practices.md
+          - text: IaaS workloads
+            url: iaas.md
+          - text: Identity management and access control
+            url: identity-management-best-practices.md
+#          - text: Database security
+#            url: ../../sql-database/sql-database-security-best-practice.md
+          - text: PaaS deployments
+            url: paas-deployments.md
+          - text: Data security and encryption
+            url: data-encryption-best-practices.md
+          - text: Operational security
+            url: operational-best-practices.md
+
+  # Card
+  - title: Protect your Azure resources
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Encryption at rest
+            url: encryption-atrest.md
+          - text: Data protection
+            url: /azure/azure-sql/database/security-overview
+          - text: Network security
+            url: network-overview.md
+          - text: Virtual machines security
+            url: virtual-machines-overview.md
+          - text: Identity management security
+            url: identity-management-overview.md
+      - linkListType: learn
+        links:
+          - text: Secure your cloud applications
+            url: /training/paths/secure-your-cloud-apps/
+
+  # Card
+  - title: Build your security skills
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Implement network security
+            url: /training/paths/implement-network-security
+          - text: Manage identity and access
+            url: /training/paths/manage-identity-and-access
+          - text: Implement resource management security
+            url: /training/paths/implement-resource-mgmt-security
+          - text: Implement virtual machine host security
+            url: /training/paths/implement-host-security

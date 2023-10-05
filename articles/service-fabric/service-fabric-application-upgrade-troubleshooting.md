@@ -1,22 +1,14 @@
 ---
-title: Troubleshooting application upgrades | Microsoft Docs
+title: Troubleshooting application upgrades 
 description: This article covers some common issues around upgrading a Service Fabric application and how to resolve them.
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: chackdan
-editor: ''
-
-ms.assetid: 19ad152e-ec50-4327-9f19-065c875c003c
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
 ms.service: service-fabric
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 2/23/2018
-ms.author: subramar
-
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Troubleshoot application upgrades
 
 This article covers some of the common issues around upgrading an Azure Service Fabric application and how to resolve them.
@@ -229,7 +221,7 @@ The upgrade time for an upgrade domain is limited by *UpgradeDomainTimeout*.  If
 
 [Upgrading your Application Using Visual Studio](service-fabric-application-upgrade-tutorial.md) walks you through an application upgrade using Visual Studio.
 
-[Upgrading your Application Using Powershell](service-fabric-application-upgrade-tutorial-powershell.md) walks you through an application upgrade using PowerShell.
+[Upgrading your Application Using PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) walks you through an application upgrade using PowerShell.
 
 Control how your application upgrades by using [Upgrade Parameters](service-fabric-application-upgrade-parameters.md).
 

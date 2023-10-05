@@ -1,24 +1,17 @@
 ---
-title: Troubleshoot Virtual Network Gateway and Connections using Azure Network Watcher - REST | Microsoft Docs
-description: This page explains how to troubleshoot Virtual Network Gateways and Connections with Azure Network Watcher using REST
+title: Troubleshoot VNet gateway and connections - Azure REST API
+titleSuffix: Azure Network Watcher
+description: This page explains how to troubleshoot virtual network gateway and connections with Azure Network Watcher using REST API.
 services: network-watcher
-documentationcenter: na
-author: KumudD
-manager: twooley
-editor: 
-
-ms.assetid: e4d5f195-b839-4394-94ef-a04192766e55
+author: halkazwini
 ms.service: network-watcher
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload:  infrastructure-services
-ms.date: 06/19/2017
-ms.author: kumud
-
+ms.topic: how-to
+ms.workload: infrastructure-services
+ms.date: 01/07/2021
+ms.author: halkazwini
 ---
 
-# Troubleshoot Virtual Network gateway and Connections using Azure Network Watcher
+# Troubleshoot virtual network gateway and connections with Azure Network Watcher using REST API
 
 > [!div class="op_single_selector"]
 > - [Portal](diagnose-communication-problem-between-networks.md)
@@ -322,7 +315,7 @@ is a transient state while the Azure platform is being updated.",
 
 The action text provides general guidance on how to resolve the issue. If an action can be taken for the issue, a link is provided with additional guidance. In the case where there is no additional guidance, the response provides the url to open a support case.  For more information about the properties of the response and what is included, visit [Network Watcher Troubleshoot overview](network-watcher-troubleshoot-overview.md)
 
-For instructions on downloading files from azure storage accounts, refer to [Get started with Azure Blob storage using .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Another tool that can be used is Storage Explorer. More information about Storage Explorer can be found here at the following link: [Storage Explorer](https://storageexplorer.com/)
+For instructions on downloading files from azure storage accounts, refer to [Get started with Azure Blob storage using .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md). Another tool that can be used is Storage Explorer. More information about Storage Explorer can be found here at the following link: [Storage Explorer](https://storageexplorer.com/)
 
 ## Next steps
 

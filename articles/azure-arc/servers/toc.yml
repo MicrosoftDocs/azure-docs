@@ -1,0 +1,210 @@
+- name: Azure Arc-enabled servers documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: About Azure Arc-enabled servers
+    href: overview.md
+  - name: VMware FAQ
+    href: vmware-faq.md
+  - name: What's new with Connected Machine agent?
+    href: agent-release-notes.md
+  - name: Archive for Connected Machine agent release notes
+    href: agent-release-notes-archive.md
+- name: Quickstarts
+  items:
+  - name: Connect a machine to Arc-enabled servers
+    href: ./learn/quick-enable-hybrid-vm.md
+- name: Tutorials
+  items:
+  - name: Assign policy to assess compliance
+    href: ./learn/tutorial-assign-policy-portal.md
+  - name: Monitor machine
+    href: ./learn/tutorial-enable-vm-insights.md
+- name: Samples
+  items:
+  - name: Azure Resource Graph queries
+    href: ./resource-graph-samples.md
+- name: Concepts
+  items:
+    - name: Connected Machine agent overview
+      href: agent-overview.md
+    - name: Deploy Azure Monitor agent
+      href: concept-log-analytics-extension-deployment.md
+    - name: Security
+      items:
+       - name: Security controls by Azure Policy
+         displayName: regulatory, compliance, standards, domains
+         href: security-controls-policy.md
+       - name: Security overview
+         href: security-overview.md
+       - name: Private Link networking
+         href: private-link-security.md
+       - name: Security baseline
+         href: /security/benchmark/azure/baselines/azure-arc-enabled-servers-security-baseline?toc=/azure/azure-arc/servers/toc.json
+- name: How-to guides
+  items:
+  - name: Deploy
+    items:
+    - name: Plan for deployment
+      href: plan-at-scale-deployment.md
+    - name: Prerequisites
+      href: prerequisites.md
+    - name: Network requirements
+      href: network-requirements.md
+    - name: Deployment options
+      href: deployment-options.md
+    - name: Connect machines interactively
+      items:
+      - name: Connect machines using a deployment script
+        href: onboard-portal.md
+      - name: Connect machines from Windows Admin Center
+        href: onboard-windows-admin-center.md
+      - name: Connect machines to Azure Arc with PowerShell
+        href: onboard-powershell.md
+      - name: Connect machines to Azure Arc with PowerShell DSC
+        href: onboard-dsc.md
+    - name: Connect machines at scale
+      items:
+       - name: Connect machines using a service principal
+         href: onboard-service-principal.md
+       - name: Connect machines using Configuration Manager script
+         href: onboard-configuration-manager-powershell.md
+       - name: Connect machines using Configuration Manager custom task sequence
+         href: onboard-configuration-manager-custom-task.md 
+       - name: Connect machines at scale using group policy
+         href: onboard-group-policy-powershell.md
+       - name: Connect machines using Ansible playbooks
+         href: onboard-ansible-playbooks.md
+       - name: Connect machines from Automation Update Management
+         href: onboard-update-management-machines.md
+  - name: Migrate
+    items:
+    - name: Migrate machine to Azure
+      href: scenario-migrate-to-azure.md
+  - name: Manage
+    items:
+    - name: VM extensions
+      items:
+      - name: Overview
+        href: manage-vm-extensions.md
+      - name: Manage extensions from portal
+        href: manage-vm-extensions-portal.md
+      - name: Manage extensions with CLI
+        href: manage-vm-extensions-cli.md
+      - name: Manage extensions with PowerShell
+        href: manage-vm-extensions-powershell.md
+      - name: Deploy extensions using ARM template
+        href: manage-vm-extensions-template.md
+      - name: Deploy extensions using Ansible
+        href: manage-vm-extensions-ansible.md
+      - name: Automatic extension upgrade
+        href: manage-automatic-vm-extension-upgrade.md
+    - name: Use managed identities on server
+      href: managed-identity-authentication.md
+    - name: Manage agent
+      href: manage-agent.md
+    - name: Migrate machine across regions
+      href: manage-howto-migrate.md
+  - name: Scenarios
+    items:
+    - name: Test Arc-enabled servers using an Azure VM
+      href: plan-evaluate-on-azure-virtual-machine.md
+    - name: Onboard to Microsoft Sentinel
+      href: scenario-onboard-azure-sentinel.md
+    - name: Migrate to Azure Monitor Agent using Ansible
+      href: migrate-azure-monitor-agent-ansible.md
+    - name: Deploy and configure Azure Monitor Agent using Azure Policy
+      href: deploy-ama-policy.md
+    - name: Organize and inventory servers
+      href: organize-inventory-servers.md
+    - name: Onboard to Microsoft Defender for Cloud
+      href: ../../defender-for-cloud/quickstart-onboard-machines.md?toc=/azure/azure-arc/servers/toc.json&bc=/azure/azure-arc/servers/breadcrumb/toc.json
+    - name: Manage with Windows Admin Center
+      href: /windows-server/manage/windows-admin-center/azure/manage-arc-hybrid-machines?toc=/azure/azure-arc/servers/toc.json&bc=/azure/azure-arc/servers/breadcrumb/toc.json
+  - name: Connect via SSH
+    items:
+    - name: SSH access to Azure Arc-enabled servers
+      href: ssh-arc-overview.md
+    - name: Troubleshoot SSH access to Azure Arc-enabled servers
+      href: ssh-arc-troubleshoot.md
+  - name: Extended Security Updates
+    items:
+    - name: Prepare to deliver Extended Security Updates
+      href: prepare-extended-security-updates.md
+    - name: License provisioning for Extended Security Updates
+      href: license-extended-security-updates.md
+    - name: Deliver Extended Security Updates
+      href: deliver-extended-security-updates.md
+    - name: Programmatically manage Extended Security Updates licenses
+      href: api-extended-security-updates.md
+    - name: Troubleshoot Extended Security Updates
+      href: troubleshoot-extended-security-updates.md
+  - name: Troubleshooting
+    items:
+    - name: Agent connection issues
+      href: troubleshoot-agent-onboard.md
+    - name: VM Extension issues
+      href: troubleshoot-vm-extensions.md
+- name: Reference
+  items:
+  - name: azcmagent CLI
+    items:
+    - name: Overview
+      href: azcmagent.md
+    - name: azcmagent check
+      href: azcmagent-check.md
+    - name: azcmagent config
+      href: azcmagent-config.md
+    - name: azcmagent connect
+      href: azcmagent-connect.md
+    - name: azcmagent disconnect
+      href: azcmagent-disconnect.md
+    - name: azcmagent genkey
+      href: azcmagent-genkey.md
+    - name: azcmagent help
+      href: azcmagent-help.md
+    - name: azcmagent license
+      href: azcmagent-license.md
+    - name: azcmagent logs
+      href: azcmagent-logs.md
+    - name: azcmagent show
+      href: azcmagent-show.md
+    - name: azcmagent version
+      href: azcmagent-version.md
+  - name: Azure CLI
+    href: /cli/azure/connectedmachine
+  - name: Azure PowerShell
+    href: /powershell/module/az.connectedmachine/
+  - name: .NET
+    href: /dotnet/api/microsoft.azure.management.hybridcompute.hybridcomputemanagementclient.apiversion
+  - name: Azure Stack HCI REST
+    href: /rest/api/stackhci/
+  - name: REST
+    href: /rest/api/hybridcompute/
+  - name: Go
+    href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/hybridcompute/mgmt/2020-08-02/hybridcompute
+  - name: Java
+    href: /java/api/com.azure.resourcemanager.compute
+  - name: JavaScript
+    href: /javascript/api/%40azure/arm-hybridcompute
+  - name: Python
+    href: https://azuresdkdocs.blob.core.windows.net/$web/python/azure-mgmt-hybridcompute/2.0.0/index.html
+  - name: Azure Policy built-ins 
+    displayName: samples, policies, definitions
+    href: policy-reference.md
+  - name: License terms
+    href: /legal/azure-arc/license-terms?toc=/azure/azure-arc/servers/toc.json&bc=/azure/azure-arc/servers/breadcrumb/toc.json
+- name: Resources
+  items:
+  - name: Azure Arc Jumpstart
+    href: https://azurearcjumpstart.io
+  - name: Microsoft Q&A for Azure Arc
+    href: /answers/tags/146/azure-arc
+  - name: Azure updates
+    href: https://azure.microsoft.com/updates/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Regional availability
+    href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-arc&regions=all
+  - name: Product feedback
+    href: https://feedback.azure.com/d365community/forum/5c778dec-0625-ec11-b6e6-000d3a4f0858

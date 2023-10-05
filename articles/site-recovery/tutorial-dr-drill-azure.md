@@ -1,14 +1,12 @@
 ---
-title: Run a disaster recovery drill for on-premises machines to Azure with Azure Site Recovery | Microsoft Docs
-description: Learn about running disaster recovery drill from on-premises to Azure, with Azure Site Recovery
-author: rayne-wiselman
-manager: carmonm
+title: Run a disaster recovery drill to Azure with Azure Site Recovery 
+description: Learn how to run a disaster recovery drill from on-premises to Azure, with Azure Site Recovery.
 ms.service: site-recovery
-services: site-recovery
 ms.topic: tutorial
-ms.date: 05/30/2019
-ms.author: raynew
+ms.date: 11/12/2019
 ms.custom: MVC
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 
 ---
 # Run a disaster recovery drill to Azure
@@ -95,6 +93,6 @@ If you want to connect to Azure VMs using RDP/SSH after failover, [prepare to co
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Run a failover and failback for VMware VMs](vmware-azure-tutorial-failover-failback.md).
-> [Run a failover and failback for Hyper-V VMs](hyper-v-azure-failover-failback-tutorial.md).
+> [Run a failover and failback for VMware VMs](vmware-azure-tutorial-failover-failback.md)
+> [Run a failover and failback for Hyper-V VMs](hyper-v-azure-failover-failback-tutorial.md)
 > [Run a failover and failback for physical machines](physical-to-azure-failover-failback.md)

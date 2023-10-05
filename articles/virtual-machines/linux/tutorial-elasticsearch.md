@@ -1,23 +1,26 @@
 ---
 title: Deploy ElasticSearch on a development virtual machine in Azure 
-description: Tutorial - Install the Elastic Stack onto a development Linux VM in Azure
-services: virtual-machines-linux
-documentationcenter: virtual-machines
+description: Install the Elastic Stack (ELK) onto a development Linux VM in Azure
+services: virtual-machines
 author: rloutlaw
 manager: justhe
-tags: azure-resource-manager
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
-ms.topic: tutorial
+ms.custom: devx-track-azurecli
+ms.topic: how-to
 ms.date: 10/11/2017
 ms.author: routlaw
 ---
 
-# Install the Elastic Stack on an Azure VM
+# Install the Elastic Stack (ELK) on an Azure VM
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
 This article walks you through how to deploy [Elasticsearch](https://www.elastic.co/products/elasticsearch), [Logstash](https://www.elastic.co/products/logstash), and [Kibana](https://www.elastic.co/products/kibana), on an Ubuntu VM in Azure. To see the Elastic Stack in action, you can optionally connect to Kibana  and work with some sample logging data. 
+
+Additionally, you can follow the [Deploy Elastic on Azure Virtual Machines](/training/modules/deploy-elastic-azure-virtual-machines/) module for a more guided tutorial on deploying Elastic on Azure Virtual Machines.   
 
 In this tutorial you learn how to:
 
@@ -30,9 +33,9 @@ In this tutorial you learn how to:
 
  This deployment is suitable for basic development with the Elastic Stack. For more on the Elastic Stack, including recommendations for a production environment, see the [Elastic documentation](https://www.elastic.co/guide/index.html) and the [Azure Architecture Center](/azure/architecture/elasticsearch/).
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli). 
+- This article requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a resource group
 
@@ -40,7 +43,7 @@ Create a resource group with the [az group create](/cli/azure/group) command. An
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
@@ -50,18 +53,18 @@ Create a VM with the [az vm create](/cli/azure/vm) command.
 
 The following example creates a VM named *myVM* and creates SSH keys if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.  
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm create \
     --resource-group myResourceGroup \
     --name myVM \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --admin-username azureuser \
     --generate-ssh-keys
 ```
 
 When the VM has been created, the Azure CLI shows information similar to the following example. Take note of the `publicIpAddress`. This address is used to access the VM.
 
-```azurecli-interactive 
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -159,7 +162,7 @@ Test Logstash in interactive mode to make sure it's working correctly:
 sudo /usr/share/logstash/bin/logstash -e 'input { stdin { } } output { stdout {} }'
 ```
 
-This is a basic logstash [pipeline](https://www.elastic.co/guide/en/logstash/5.6/pipeline.html) that echoes standard input to standard output. 
+This is a basic Logstash [pipeline](https://www.elastic.co/guide/en/logstash/5.6/pipeline.html) that echoes standard input to standard output. 
 
 ```output
 The stdin plugin is now waiting for input:
@@ -206,7 +209,7 @@ You see the syslog entries in your terminal echoed as they are sent to Elasticse
 Edit `/etc/kibana/kibana.yml` and change the IP address Kibana listens on so you can access it from your web browser.
 
 ```bash
-server.host:"0.0.0.0"
+server.host: "0.0.0.0"
 ```
 
 Start Kibana with the following command:
@@ -223,7 +226,7 @@ az vm open-port --port 5601 --resource-group myResourceGroup --name myVM
 
 Open up the Kibana console and select **Create** to generate a default index based on the syslog data you sent to Elasticsearch earlier. 
 
-![Browse Syslog events in Kibana](media/elasticsearch-install/kibana-index.png)
+![Screenshot that shows the Kibana console and highlights the Create button.](media/elasticsearch-install/kibana-index.png)
 
 Select **Discover** on the Kibana console to search, browse, and filter through the syslog events.
 

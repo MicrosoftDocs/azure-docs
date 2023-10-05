@@ -1,0 +1,99 @@
+### YamlMime:Landing
+
+title: MedTech service documentation
+summary: MedTech service documentation for Azure Health Data Services. The MedTech service is one of the Azure Health Data Services designed to ingest device data from multiple devices, transform the device data into FHIR Observations, which are then persisted in the Azure Health Data Services FHIR service.
+
+metadata:
+  title: Azure Health Data Services MedTech service
+  description: MedTech service documentation for Azure Health Data Services. The MedTech service is one of the Azure Health Data Services designed to ingest device data from multiple devices, transform the device data into FHIR Observations, which are then persisted in the Azure Health Data Services FHIR service. 
+  services: healthcare-apis
+  ms.service: healthcare-apis
+  ms.subservice: data-transformation
+  ms.topic: landing-page 
+  ms.collection: collection
+  author: msjasteppe
+  ms.author: jasteppe
+  ms.date: 09/01/2023
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+
+  - title: About the MedTech service
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is the MedTech service?
+            url: overview.md
+          - text: Device data processing stages
+            url: overview-of-device-data-processing-stages.md
+      - linkListType: quickstart
+        links:
+          - text: Get started with the MedTech service
+            url: get-started.md
+           
+  - title: Deploy the MedTech service
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Deployment methods
+            url: deploy-choose-method.md
+      - linkListType: quickstart
+        links:     
+          - text: ARM template
+            url: deploy-arm-template.md
+          - text: Azure PowerShell or the Azure CLI
+            url: deploy-json-powershell-cli.md
+          - text: Bicep
+            url: deploy-bicep-powershell-cli.md
+          - text: Azure portal
+            url: deploy-manual-portal.md
+
+  - title: Configure the MedTech service mappings
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Device mapping
+            url: overview-of-device-mapping.md
+          - text: FHIR destination mapping
+            url: overview-of-fhir-destination-mapping.md 
+          - text: Scenario-based mappings samples
+            url: overview-of-samples.md
+      - linkListType: how-to-guide
+        links:
+          - text: Mapping debugger
+            url: how-to-use-mapping-debugger.md
+          - text: CalculatedContent templates
+            url: how-to-use-calculatedcontent-templates.md
+          - text: IotJsonPathContent templates
+            url: how-to-use-iotjsonpathcontent-templates.md
+          - text: Custom functions
+            url: how-to-use-custom-functions.md
+          
+  - title: Monitor the MedTech service
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Monitoring and health checks tabs
+            url: how-to-use-monitoring-and-health-checks-tabs.md
+          - text: Metrics
+            url: how-to-configure-metrics.md
+          - text: Diagnostic settings
+            url: how-to-enable-diagnostic-settings.md
+
+  - title: Troubleshoot the MedTech service
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Deployment errors
+            url: troubleshoot-errors-deployment.md
+          - text: Service log errors
+            url: troubleshoot-errors-logs.md
+
+  - title: MedTech service and Azure IoT Hub 
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Receive device messages through Azure IoT Hub
+            url: device-messages-through-iot-hub.md
+            

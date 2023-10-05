@@ -1,18 +1,20 @@
 ---
 title: Search the web for trending videos using the Bing Video Search API
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to use the Bing Video Search API to search the web for trending videos.
 services: cognitive-services
-author: swhite-msft
+
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.author: scottwhi
+
 ---
 
 # Get trending videos with the Bing Video Search API 
+
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 The Bing Video Search API enables you to find today's trending videos from across the web, and in different categories. 
 

@@ -1,154 +1,364 @@
 ---
-title: Create, change, or delete an Azure virtual network peering | Microsoft Docs
-description: Learn how to create, change, or delete a virtual network peering.
-services: virtual-network
-documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+title: Create, change, or delete an Azure virtual network peering
+description: Learn how to create, change, or delete a virtual network peering. With virtual network peering, you connect virtual networks in the same region and across regions.
+author: asudbring
 tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-network
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/01/2019
-ms.author: anavin
+ms.topic: how-to
+ms.date: 08/24/2023
+ms.author: allensu
+ms.custom: template-how-to, engagement-fy23, devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Create, change, or delete a virtual network peering
 
-Learn how to create, change, or delete a virtual network peering. Virtual network peering enables you to connect virtual networks in the same region and across regions (also known as Global VNet Peering) through the Azure backbone network. Once peered, the virtual networks are still managed as separate resources. If you're new to virtual network peering, you can learn more about it in the [virtual network peering overview](virtual-network-peering-overview.md) or by completing a [tutorial](tutorial-connect-virtual-networks-portal.md).
+Learn how to create, change, or delete a virtual network peering. Virtual network peering enables you to connect virtual networks in the same region and across regions (also known as Global Virtual Network Peering) through the Azure backbone network. Once peered, the virtual networks are still managed as separate resources. If you're new to virtual network peering, you can learn more about it in the [virtual network peering overview](virtual-network-peering-overview.md) or by completing the [virtual network peering tutorial](tutorial-connect-virtual-networks-portal.md).
 
-## Before you begin
+## Prerequisites
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+If you don't have an Azure account with an active subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Complete one of these tasks before starting the remainder of this article:
 
-Complete the following tasks before completing steps in any section of this article:
+# [**Portal**](#tab/peering-portal)
 
-- If you don't already have an Azure account, sign up for a [free trial account](https://azure.microsoft.com/free).
-- If using the portal, open https://portal.azure.com, and log in with an account that has the [necessary permissions](#permissions) to work with peerings.
-- If using PowerShell commands to complete tasks in this article, either run the commands in the [Azure Cloud Shell](https://shell.azure.com/powershell), or by running PowerShell from your computer. The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. This tutorial requires the Azure PowerShell module version 1.0.0 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` with an account that has the [necessary permissions](#permissions) to work with peering, to create a connection with Azure.
-- If using Azure Command-line interface (CLI) commands to complete tasks in this article, either run the commands in the [Azure Cloud Shell](https://shell.azure.com/bash), or by running the CLI from your computer. This tutorial requires the Azure CLI version 2.0.31 or later. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). If you are running the Azure CLI locally, you also need to run `az login` with an account that has the [necessary permissions](#permissions) to work with peering, to create a connection with Azure.
+Sign in to the [Azure portal](https://portal.azure.com) with an Azure account that has the [necessary permissions](#permissions) to work with peerings.
 
-The account you log into, or connect to Azure with, must be assigned to the [network contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or to a [custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) that is assigned the appropriate actions listed in [Permissions](#permissions).
+# [**PowerShell**](#tab/peering-powershell)
+
+Either run the commands in the [Azure Cloud Shell](https://shell.azure.com/powershell), or run PowerShell locally from your computer. The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. In the Azure Cloud Shell browser tab, find the **Select environment** dropdown list, then pick **PowerShell** if it isn't already selected.
+
+If you're running PowerShell locally, use Azure PowerShell module version 1.0.0 or later. Run `Get-Module -ListAvailable Az.Network` to find the installed version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). Run `Connect-AzAccount` to sign in to Azure with an account that has the [necessary permissions](#permissions) to work with VNet peerings.
+
+# [**Azure CLI**](#tab/peering-cli)
+
+Either run the commands in the [Azure Cloud Shell](https://shell.azure.com/bash), or run Azure CLI locally from your computer. The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. In the Azure Cloud Shell browser tab, find the **Select environment** dropdown list, then pick **Bash** if it isn't already selected.
+
+If you're running Azure CLI locally, use Azure CLI version 2.0.31 or later. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). Run `az login` to sign in to Azure with an account that has the [necessary permissions](#permissions) to work with VNet peerings.
+
+The account you use connect to Azure must be assigned to the [network contributor](../role-based-access-control/built-in-roles.md#network-contributor) role or to a [custom role](../role-based-access-control/custom-roles.md) that gets assigned the appropriate actions listed in [Permissions](#permissions).
+
+---
 
 ## Create a peering
 
-Before creating a peering, familiarize yourself with the requirements and constraints and [necessary permissions](#permissions).
+Before creating a peering, familiarize yourself with the [requirements and constraints](#requirements-and-constraints) and [necessary permissions](#permissions).
 
-1. In the search box at the top of the Azure portal, enter *virtual networks* in the search box. When **Virtual networks** appear in the search results, select it. Do not select **Virtual networks (classic)** if it appears in the list, as you cannot create a peering from a virtual network deployed through the classic deployment model.
-2. Select the virtual network in the list that you want to create a peering for.
-3. Under **SETTINGS**, select **Peerings**.
-4. Select **+ Add**. 
-5. <a name="add-peering"></a>Enter or select values for the following settings:
-    - **Name:** The name for the peering must be unique within the virtual network.
-    - **Virtual network deployment model:** Select which deployment model the virtual network you want to peer with was deployed through.
-    - **I know my resource ID:** If you have read access to the virtual network you want to peer with, leave this checkbox unchecked. If you don't have read access to the virtual network or subscription you want to peer with, check this box. Enter the full resource ID of the virtual network you want to peer with in the **Resource ID** box that appeared when you checked the box. The resource ID you enter must be for a virtual network that exists in the same, or [supported different](#requirements-and-constraints) Azure [region](https://azure.microsoft.com/regions) as this virtual network. The full resource ID looks similar to `/subscriptions/<Id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>`. You can get the resource ID  for a virtual network by viewing the properties for a virtual network. To learn how to view the properties for a virtual network, see [Manage virtual networks](manage-virtual-network.md#view-virtual-networks-and-settings). If the subscription is associated to a different Azure Active Directory tenant than the subscription with the virtual network you're creating the peering from, first add a user from each tenant as a [guest user](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) in the opposite tenant.
-    - **Subscription:** Select the [subscription](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) of the virtual network you want to peer with. One or more subscriptions are listed, depending on how many subscriptions your account has read access to. If you checked the **Resource ID** checkbox, this setting isn't available.
-    - **Virtual network:** Select the virtual network you want to peer with. You can select a virtual network created through either Azure deployment model. If you want to select a virtual network in a different region, you must select a virtual network in a [supported region](#cross-region). You must have read access to the virtual network for it to be visible in the list. If a virtual network is listed, but grayed out, it may be because the address space for the virtual network overlaps with the address space for this virtual network. If virtual network address spaces overlap, they cannot be peered. If you checked the **Resource ID** checkbox, this setting isn't available.
-    - **Allow virtual network access:** Select **Enabled** (default) if you want to enable communication between the two virtual networks. Enabling communication between virtual networks allows resources connected to either virtual network to communicate with each other with the same bandwidth and latency as if they were connected to the same virtual network. All communication between resources in the two virtual networks is over the Azure private network. The **VirtualNetwork** service tag for network security groups encompasses the virtual network and peered virtual network. To learn more about network security group service tags, see [Network security groups overview](security-overview.md#service-tags). Select **Disabled** if you don't want traffic to flow to the peered virtual network. You might select **Disabled** if you've peered a virtual network with another virtual network, but occasionally want to disable traffic flow between the two virtual networks. You may find enabling/disabling is more convenient than deleting and re-creating peerings. When this setting is disabled, traffic doesn't flow between the peered virtual networks.
-    - **Allow forwarded traffic:** Check this box to allow traffic *forwarded* by a network virtual appliance in a virtual network (that didn't originate from the virtual network) to flow to this virtual network through a peering. For example, consider three virtual networks named Spoke1, Spoke2, and Hub. A peering exists between each spoke virtual network and the Hub virtual network, but peerings don't exist between the spoke virtual networks. A network virtual appliance is deployed in the Hub virtual network, and user-defined routes are applied to each spoke virtual network that route traffic between the subnets through the network virtual appliance. If this checkbox is not checked for the peering between each spoke virtual network and the hub virtual network, traffic doesn't flow between the spoke virtual networks because the hub is not forwarding the traffic between the virtual networks. While enabling this capability allows the forwarded traffic through the peering, it does not create any user-defined routes or network virtual appliances. User-defined routes and network virtual appliances are created separately. Learn about [user-defined routes](virtual-networks-udr-overview.md#user-defined). You don't need to check this setting if traffic is forwarded between virtual networks through an Azure VPN Gateway.
-    - **Allow gateway transit:** Check this box if you have a virtual network gateway attached to this virtual network and want to allow traffic from the peered virtual network to flow through the gateway. For example, this virtual network may be attached to an on-premises network through a virtual network gateway. The gateway can be an ExpressRoute or VPN gateway. Checking this box allows traffic from the peered virtual network to flow through the gateway attached to this virtual network to the on-premises network. If you check this box, the peered virtual network cannot have a gateway configured. The peered virtual network must have the **Use remote gateways** checkbox checked when setting up the peering from the other virtual network to this virtual network. If you leave this box unchecked (default), traffic from the peered virtual network still flows to this virtual network, but cannot flow through a virtual network gateway attached to this virtual network. If the peering is between a virtual network (Resource Manager) and a virtual network (classic), the gateway must be in the virtual network (Resource Manager). You cannot enable this option if you're peering virtual networks in different regions.
+# [**Portal**](#tab/peering-portal)
 
-       In addition to forwarding traffic to an on-premises network, a VPN gateway can forward network traffic between virtual networks that are peered with the virtual network the gateway is in, without the virtual networks needing to be peered with each other. Using a VPN gateway to forward traffic is useful when you want to use a VPN gateway in a hub (see the hub and spoke example described for **Allow forwarded traffic**) virtual network to route traffic between spoke virtual networks that aren't peered with each other. To learn more about allowing use of a gateway for transit, see [Configure a VPN gateway for transit in a virtual network peering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json). This scenario requires implementing user-defined routes that specify the virtual network gateway as the next hop type. Learn about [user-defined routes](virtual-networks-udr-overview.md#user-defined). You can only specify a VPN gateway as a next hop type in a user-defined route, you cannot specify an ExpressRoute gateway as the next hop type in a user-defined route. You cannot enable this option if you're peering virtual networks in different regions.
+1. In the search box at the top of the Azure portal, enter **Virtual network**. Select **Virtual networks** in the search results. 
 
-    - **Use remote gateways:** Check this box to allow traffic from this virtual network to flow through a virtual network gateway attached to the virtual network you're peering with. For example, the virtual network you're peering with has a VPN gateway attached that enables communication to an on-premises network.  Checking this box allows traffic from this virtual network to flow through the VPN gateway attached to the peered virtual network. If you check this box, the peered virtual network must have a virtual network gateway attached to it and must have the **Allow gateway transit** checkbox checked. If you leave this box unchecked (default), traffic from the peered virtual network can still flow to this virtual network, but cannot flow through a virtual network gateway attached to this virtual network.
-    Only one peering for this virtual network can have this setting enabled.
+1. In **Virtual networks**, select the network you want to create a peering for.
 
-        You cannot use remote gateways if you already have a gateway configured in your virtual network. You cannot enable this option if you're peering virtual networks in different regions. To learn more about using a gateway for transit, see [Configure a VPN gateway for transit in a virtual network peering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+1. Select **Peerings** in **Settings**. 
 
-6. Select **OK** to add the peering to the virtual network you selected.
+1. Select **+ Add**.
+
+1. <a name="add-peering"></a>Enter or select values for the following settings, and then select **Add**.
+
+    | Settings | Description |
+    | -------- | ----------- |
+    | **This virtual network** | |
+    | Peering link name | The name of the peering from the local virtual network. The name must be unique within the virtual network. |
+    | Allow 'vnet-1' to access 'vnet-2' | By **default**, this option is selected. </br></br> - To enable communication between the two virtual networks through the default `VirtualNetwork` flow, select **Allow 'vnet-1' to access 'vnet-2' (default)**. This allows resources connected to either virtual network to communicate with each other over the Azure private network. The **VirtualNetwork** service tag for network security groups includes the virtual network and peered virtual network when this setting is selected. To learn more about service tags, see [Azure service tags](./service-tags-overview.md). |
+    | Allow 'vnet-1' to receive forwarded traffic from 'vnet-2' | This option **isn't selected by default.** </br></br> -To allow forwarded traffic from the peered virtual network, select **Allow 'vnet-1' to receive forwarded traffic from 'vnet-2'**. This setting can be selected if you want to allow traffic that doesn't originate from **vnet-2** to reach **vnet-1**. For example, if **vnet-2** has an NVA that receives traffic from outside of **vnet-2** that gets forwards to **vnet-1**, you can select this setting to allow that traffic to reach **vnet-1** from **vnet-2**. While enabling this capability allows the forwarded traffic through the peering, it doesn't create any user-defined routes or network virtual appliances. User-defined routes and network virtual appliances are created separately. Learn about [user-defined routes](virtual-networks-udr-overview.md#user-defined). </br></br> **NOTE:** *Not selecting the **Allow 'vnet-1' to receive forwarded traffic from 'vnet-2'** setting only changes the definition of the **VirtualNetwork** service tag. It *doesn't* fully prevent traffic flow across the peer connection, as explained in this setting description.* | 
+    | Allow gateway in 'vnet-1' to forward traffic to 'vnet-2' | This option **isn't selected by default**. </br></br> - Select **Allow gateway in 'vnet-1' to forward traffic to 'vnet-2'** if you want **vnet-2** to receive traffic from **vnet-1**'s gateway/Route Server. **vnet-1** must contain a gateway in order for this option to be enabled. |
+    | Enable 'vnet-1' to use 'vnet-2' remote gateway | This option **isn't selected by default.**  </br></br> - Select **Enable 'vnet-1' to use 'vnet-2' remote gateway** if you want **vnet-1** to use **vnet-2**'s gateway or Route Server. **vnet-1** can only use a remote gateway or Route Server from one peering connection. **vnet-2** has to have a gateway or Route Server in order for you to select this option. For example, the virtual network you're peering with has a VPN gateway that enables communication to an on-premises network. Selecting this setting allows traffic from this virtual network to flow through the VPN gateway in the peered virtual network. </br></br> You can also select this option, if you want this virtual network to use the remote Route Server to exchange routes, see [Azure Route Server](../route-server/overview.md). </br></br> **NOTE:** *You can't use remote gateways if you already have a gateway configured in your virtual network. To learn more about using a gateway for transit, see [Configure a VPN gateway for transit in a virtual network peering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md)*.| 
+    | **Remote virtual network** | |
+    | Peering link name | The name of the peering from the remote virtual network. The name must be unique within the virtual network. |
+    | Virtual network deployment model | Select which deployment model the virtual network you want to peer with was deployed through. |
+    | I know my resource ID | If you have read access to the virtual network you want to peer with, leave this checkbox unchecked. If you don't have read access to the virtual network or subscription you want to peer with, select this checkbox. |
+    | Resource ID | This field appears when you check **I know my resource ID** checkbox. The resource ID you enter must be for a virtual network that exists in the same, or [supported different](#requirements-and-constraints) Azure [region](https://azure.microsoft.com/regions) as this virtual network. </br></br> The full resource ID looks similar to `/subscriptions/<Id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>`. </br></br> You can get the resource ID  for a virtual network by viewing the properties for a virtual network. To learn how to view the properties for a virtual network, see [Manage virtual networks](manage-virtual-network.md#view-virtual-networks-and-settings). User permissions must be assigned if the subscription is associated to a different Azure Active Directory tenant than the subscription with the virtual network you're peering. Add a user from each tenant as a [guest user](../active-directory/external-identities/add-users-administrator.md#add-guest-users-to-the-directory) in the opposite tenant.
+    | Subscription | Select the [subscription](../azure-glossary-cloud-terminology.md#subscription) of the virtual network you want to peer with. One or more subscriptions are listed, depending on how many subscriptions your account has read access to. If you checked the **I know my resource ID** checkbox, this setting isn't available. |
+    | Virtual network | Select the virtual network you want to peer with. You can select a virtual network created through either Azure deployment model. If you want to select a virtual network in a different region, you must select a virtual network in a [supported region](#cross-region). You must have read access to the virtual network for it to be visible in the list. If a virtual network is listed, but grayed out, it may be because the address space for the virtual network overlaps with the address space for this virtual network. If virtual network address spaces overlap, they can't be peered. If you checked the **I know my resource ID** checkbox, this setting isn't available. |
+    | Allow 'vnet-2' to access 'vnet-1' | By **default**, this option is selected. </br></br>  - Select **Allow 'vnet-2' to access 'vnet-1'** if you want to enable communication between the two virtual networks through the default `VirtualNetwork` flow. Enabling communication between virtual networks allows resources that are connected to either virtual network to communicate with each other over the Azure private network. The **VirtualNetwork** service tag for network security groups encompasses the virtual network and peered virtual network when this setting is set to **Selected**. To learn more about service tags, see [Azure service tags](./service-tags-overview.md). |
+    | Allow 'vnet-2' to receive forwarded traffic from 'vnet-1' | This option **isn't selected by default**. </br></br> -To allow forwarded traffic from the peered virtual network, select **Allow 'vnet-2' to receive forwarded traffic from 'vnet-1'**. This setting can be selected if you want to allow traffic that doesn't originated from **vnet-1** to reach **vnet-2**. For example, if **vnet-1** has an NVA that receives traffic from outside of **vnet-1** that gets forwards to **vnet-2**, you can select this setting to allow that traffic to reach **vnet-2** from **vnet-1**. While enabling this capability allows the forwarded traffic through the peering, it doesn't create any user-defined routes or network virtual appliances. User-defined routes and network virtual appliances are created separately. Learn about [user-defined routes](virtual-networks-udr-overview.md#user-defined). </br></br> **NOTE:** *Not selecting the **Allow 'vnet-1' to receive forwarded traffic from 'vnet-2'** setting only changes the definition of the **VirtualNetwork** service tag. It *doesn't* fully prevent traffic flow across the peer connection, as explained in this setting description.*  |
+    | Allow gateway in 'vnet-2' to forward traffic to 'vnet-1' | This option **isn't selected by default**. </br></br> - Select **Allow gateway in 'vnet-2' to forward traffic to 'vnet-1'** if you want **vnet-1** to receive traffic from **vnet-2**'s gateway/Route Server. **vnet-2** must contain a gateway in order for this option to be enabled. |
+    | Enable 'vnet-2' to use 'vnet-1's' remote gateway |  This option **isn't selected by default.**  </br></br> - Select **Enable 'vnet-2' to use 'vnet-1' remote gateway** if you want **vnet-2** to use **vnet-1**'s gateway or Route Server. **vnet-2** can only use a remote gateway or Route Server from one peering connection. **vnet-1** has to have a gateway or Route Server in order for you to select this option. For example, the virtual network you're peering with has a VPN gateway that enables communication to an on-premises network. Selecting this setting allows traffic from this virtual network to flow through the VPN gateway in the peered virtual network. </br></br> You can also select this option, if you want this virtual network to use the remote Route Server to exchange routes, see [Azure Route Server](../route-server/overview.md). </br></br> This scenario requires implementing user-defined routes that specify the virtual network gateway as the next hop type. Learn about [user-defined routes](virtual-networks-udr-overview.md#user-defined). You can only specify a VPN gateway as a next hop type in a user-defined route, you can't specify an ExpressRoute gateway as the next hop type in a user-defined route. </br></br> **NOTE:** *You can't use remote gateways if you already have a gateway configured in your virtual network. To learn more about using a gateway for transit, see [Configure a VPN gateway for transit in a virtual network peering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md)*. |
+    
+    :::image type="content" source="./media/virtual-network-manage-peering/add-peering.png" alt-text="Screenshot of peering configuration page.":::
+
+    > [!NOTE]
+    > If you use a Virtual Network Gateway to send on-premises traffic transitively to a peered virtual network, the peered virtual network IP range for the on-premises VPN device must be set to 'interesting' traffic. You may need to add all Azure virtual network's CIDR addresses to the Site-2-Site IPSec VPN Tunnel configuration on the on-premises VPN device. CIDR addresses include resources like such as **Hub**, Spokes, and Point-2-Site IP address pools. Otherwise, your on-premises resources won't be able to communicate with resources in the peered VNet.
+    > Interesting traffic is communicated through Phase 2 security associations. The security association creates a dedicated VPN tunnel for each specified subnet. The on-premises and Azure VPN Gateway tier have to support the same number of Site-2-Site VPN tunnels and Azure VNet subnets. Otherwise, your on-premises resources won't be able to communicate with resources in the peered VNet.  Consult your on-premises VPN documentation for instructions to create Phase 2 security associations for each specified Azure VNet subnet. 
+
+1. Select the **Refresh** button after a few seconds, and the peering status will change from **Updating** to **Connected**.
+
+    :::image type="content" source="./media/virtual-network-manage-peering/vnet-peering-connected.png" alt-text="Screenshot of virtual network peering status on peerings page.":::
 
 For step-by-step instructions for implementing peering between virtual networks in different subscriptions and deployment models, see [next steps](#next-steps).
 
-### Commands
+# [**PowerShell**](#tab/peering-powershell)
 
-- **Azure CLI**: [az network vnet peering create](/cli/azure/network/vnet/peering)
-- **PowerShell**: [Add-AzVirtualNetworkPeering](/powershell/module/az.network/add-azvirtualnetworkpeering)
+Use [Add-AzVirtualNetworkPeering](/powershell/module/az.network/add-azvirtualnetworkpeering) to create virtual network peerings.
+
+```azurepowershell-interactive
+## Place the virtual network vnet-1 configuration into a variable. ##
+$net-1 = @{
+        Name = 'vnet-1'
+        ResourceGroupName = 'test-rg'
+}
+$vnet-1 = Get-AzVirtualNetwork @net-1
+
+## Place the virtual network vnet-2 configuration into a variable. ##
+$net-2 = @{
+        Name = 'vnet-2'
+        ResourceGroupName = 'test-rg-2'
+}
+$vnet-2 = Get-AzVirtualNetwork @net-2
+
+## Create peering from vnet-1 to vnet-2. ##
+$peer1 = @{
+        Name = 'vnet-1-to-vnet-2'
+        VirtualNetwork = $vnet-1
+        RemoteVirtualNetworkId = $vnet-2.Id
+}
+Add-AzVirtualNetworkPeering @peer1
+
+## Create peering from vnet-2 to vnet-1. ##
+$peer2 = @{
+        Name = 'vnet-2-to-vnet-1'
+        VirtualNetwork = $vnet-2
+        RemoteVirtualNetworkId = $vnet-1.Id
+}
+Add-AzVirtualNetworkPeering @peer2
+```
+
+# [**Azure CLI**](#tab/peering-cli)
+
+1. Use [az network vnet peering create](/cli/azure/network/vnet/peering#az-network-vnet-peering-create) to create virtual network peerings.
+
+```azurecli-interactive
+## Create peering from vnet-1 to vnet-2. ##
+az network vnet peering create \
+    --name vnet-1-to-vnet-2 \
+    --vnet-name vnet-1 \
+    --remote-vnet vnet-2 \
+    --resource-group test-rg \
+    --allow-vnet-access \
+    --allow-forwarded-traffic
+
+## Create peering from vnet-2 to vnet-1. ##
+az network vnet peering create \
+    --name vnet-2-to-vnet-1 \
+    --vnet-name vnet-2 \
+    --remote-vnet vnet-1 \
+    --resource-group test-rg-2 \
+    --allow-vnet-access \
+    --allow-forwarded-traffic
+```
+
+---
 
 ## View or change peering settings
 
-Before changing a peering, familiarize yourself with the requirements and constraints and [necessary permissions](#permissions).
+Before changing a peering, familiarize yourself with the [requirements and constraints](#requirements-and-constraints) and [necessary permissions](#permissions).
 
-1. In the search box at the top of the portal, enter *virtual networks* in the search box. When **Virtual networks** appear in the search results, select it. Do not select **Virtual networks (classic)** if it appears in the list, as you cannot create a peering from a virtual network deployed through the classic deployment model.
-2. Select the virtual network in the list that you want to change peering settings for.
-3. Under **SETTINGS**, select **Peerings**.
-4. Select the peering you want to view or change settings for.
-5. Change the appropriate setting. Read about the options for each setting in [step 5](#add-peering) of Create a peering.
-6. Select **Save**.
+# [**Portal**](#tab/peering-portal)
 
-**Commands**
+1. In the search box at the top of the Azure portal, enter **Virtual network**. Select **Virtual networks** in the search results. 
 
-- **Azure CLI**: [az network vnet peering list](/cli/azure/network/vnet/peering) to list peerings for a virtual network, [az network vnet peering show](/cli/azure/network/vnet/peering) to show settings for a specific peering, and [az network vnet peering update](/cli/azure/network/vnet/peering) to change peering settings.|
-- **PowerShell**: [Get-AzVirtualNetworkPeering](/powershell/module/az.network/get-azvirtualnetworkpeering) to retrieve view peering settings and [Set-AzVirtualNetworkPeering](/powershell/module/az.network/set-azvirtualnetworkpeering) to change settings.
+1. Select the virtual network that you would like to view or change its peering settings in **Virtual networks**.
+
+1. Select **Peerings** in **Settings** and then select the peering you want to view or change settings for.
+
+    :::image type="content" source="./media/virtual-network-manage-peering/select-peering.png" alt-text="Screenshot of select a peering to change settings from the virtual network.":::
+
+1. Change the appropriate setting. Read about the options for each setting in [step 4](#add-peering) of create a peering. Then select **Save** to complete the configuration changes.
+
+    :::image type="content" source="./media/virtual-network-manage-peering/change-peering-settings.png" alt-text="Screenshot of changing virtual network peering settings.":::
+
+# [**PowerShell**](#tab/peering-powershell)
+
+Use [Get-AzVirtualNetworkPeering](/powershell/module/az.network/get-azvirtualnetworkpeering) to list peerings of a virtual network and their settings.
+
+```azurepowershell-interactive
+$peer = @{
+        VirtualNetworkName = 'vnet-1'
+        ResourceGroupName = 'test-rg'
+}
+Get-AzVirtualNetworkPeering @peer
+```
+
+Use [Set-AzVirtualNetworkPeering](/powershell/module/az.network/set-azvirtualnetworkpeering) to change peering settings.
+
+```azurepowershell-interactive
+## Place the virtual network peering configuration into a variable. ##
+$peer = @{
+        Name = 'vnet-1-to-vnet-2'
+        ResourceGroupName = 'test-rg'
+}
+$peering = Get-AzVirtualNetworkPeering @peer
+
+# Allow traffic forwarded from remote virtual network. ##
+$peering.AllowForwardedTraffic = $True
+
+## Update the peering with changes made. ##
+Set-AzVirtualNetworkPeering -VirtualNetworkPeering $peering
+```
+
+# [**Azure CLI**](#tab/peering-cli)
+
+Use [az network vnet peering list](/cli/azure/network/vnet/peering#az-network-vnet-peering-list) to list peerings of a virtual network.
+
+```azurecli-interactive
+az network vnet peering list \
+    --resource-group test-rg \
+    --vnet-name vnet-1 \
+    --out table
+```
+
+Use [az network vnet peering show](/cli/azure/network/vnet/peering#az-network-vnet-peering-show) to show settings for a specific peering.
+
+```azurecli-interactive
+az network vnet peering show \
+    --resource-group test-rg \
+    --name vnet-1-to-vnet-2 \
+    --vnet-name vnet-1
+```
+
+Use [az network vnet peering update](/cli/azure/network/vnet/peering#az-network-vnet-peering-update) to change peering settings.
+
+```azurecli-interactive
+## Block traffic forwarded from remote virtual network. ##
+az network vnet peering update \
+    --resource-group test-rg \
+    --name vnet-1-to-vnet-2 \
+    --vnet-name vnet-1 \
+    --set allowForwardedTraffic=false
+```
+
+---
 
 ## Delete a peering
 
-Before deleting a peering, ensure your account has the [necessary permissions](#permissions).
+Before deleting a peering, familiarize yourself with the [requirements and constraints](#requirements-and-constraints) and [necessary permissions](#permissions).
 
-When a peering is deleted, traffic from a virtual network no longer flows to the peered virtual network. When virtual networks deployed through Resource Manager are peered, each virtual network has a peering to the other virtual network. Though deleting the peering from one virtual network disables the communication between the virtual networks, it does not delete the peering from the other virtual network. The peering status for the peering that exists in the other virtual network is **Disconnected**. You cannot recreate the peering until you re-create the peering in the first virtual network and the peering status for both virtual networks changes to *Connected*.
+# [**Portal**](#tab/peering-portal)
 
-If you want virtual networks to communicate sometimes, but not always, rather than deleting a peering, you can set the **Allow virtual network access** setting to **Disabled** instead. To learn how, read step 6 of the Create a peering section of this article. You may find disabling and enabling network access easier than deleting and recreating peerings.
+When a peering between two virtual networks is deleted, traffic can no longer flow between the virtual networks. If you want virtual networks to communicate sometimes, but not always, rather than deleting a peering,
+deselect the **Allow traffic to remote virtual network** setting if you want to block traffic to the remote virtual network. You may find disabling and enabling network access easier than deleting and recreating peerings.
 
-1. In the search box at the top of the portal, enter *virtual networks* in the search box. When **Virtual networks** appear in the search results, select it. Do not select **Virtual networks (classic)** if it appears in the list, as you cannot create a peering from a virtual network deployed through the classic deployment model.
-2. Select the virtual network in the list that you want to delete a peering for.
-3. Under **SETTINGS**, select **Peerings**.
-4. On the right side of the peering you want to delete, select **...**, select **Delete**, then select **Yes** to delete the peering from the first virtual network.
-5. Complete the previous steps to delete the peering from the other virtual network in the peering.
+1. In the search box at the top of the Azure portal, enter **Virtual network**. Select **Virtual networks** in the search results. 
 
-**Commands**
+1. Select the virtual network that you would like to view or change its peering settings in **Virtual networks**.
 
-- **Azure CLI**: [az network vnet peering delete](/cli/azure/network/vnet/peering)
-- **PowerShell**: [Remove-AzVirtualNetworkPeering](/powershell/module/az.network/remove-azvirtualnetworkpeering)
+1. Select **Peerings** in **Settings**.
+
+    :::image type="content" source="./media/virtual-network-manage-peering/select-peering.png" alt-text="Screenshot of select a peering to delete from the virtual network.":::
+
+1. On the right side of the peering you want to delete, select the **...** and then select **Delete**.
+
+    :::image type="content" source="./media/virtual-network-manage-peering/delete-peering.png" alt-text="Screenshot of deleting a peering from the virtual network.":::
+
+1.  Select **Yes** to confirm that you want to delete the peering and the corresponding peer.
+
+    :::image type="content" source="./media/virtual-network-manage-peering/confirm-deletion.png" alt-text="Screenshot of peering delete confirmation.":::
+
+    > [!NOTE]
+    > When you delete a virtual network peering from a virtual network, the peering from the remote virtual network will also be deleted. 
+
+# [**PowerShell**](#tab/peering-powershell)
+
+Use [Remove-AzVirtualNetworkPeering](/powershell/module/az.network/remove-azvirtualnetworkpeering) to delete virtual network peerings
+
+```azurepowershell-interactive
+## Delete vnet-1 to vnet-2 peering. ##
+$peer1 = @{
+        Name = 'vnet-1-to-vnet-2'
+        ResourceGroupName = 'test-rg'
+}
+Remove-AzVirtualNetworkPeering @peer1
+
+## Delete vnet-2 to vnet-1 peering. ##
+$peer2 = @{
+        Name = 'vnet-2-to-vnet-1'
+        ResourceGroupName = 'test-rg-2'
+}
+Remove-AzVirtualNetworkPeering @peer2
+```
+
+# [**Azure CLI**](#tab/peering-cli)
+
+Use [az network vnet peering delete](/cli/azure/network/vnet/peering#az-network-vnet-peering-delete) to delete virtual network peerings.
+
+```azurecli-interactive
+## Delete vnet-1 to vnet-2 peering. ##
+az network vnet peering delete \
+    --resource-group test-rg \
+    --name vnet-1-to-vnet-2 \
+    --vnet-name vnet-1
+
+## Delete vnet-2 to vnet-1 peering. ##
+az network vnet peering delete \
+    --resource-group test-rg-2 \
+    --name vnet-2-to-vnet-1 \
+    --vnet-name vnet-2
+```
+
+---
 
 ## Requirements and constraints
 
-- <a name="cross-region"></a>You can peer virtual networks in the same region, or different regions. Peering virtual networks in different regions is also referred to as *Global VNet Peering*. 
-- When creating a global peering, the peered virtual networks can exist in any Azure public cloud region or China cloud regions or Government cloud regions. You cannot peer across clouds. For example, a VNet in Azure public cloud cannot be peered to a VNet in Azure China cloud.
-- Resources in one virtual network cannot communicate with the front-end IP address of a Basic internal load balancer in a globally peered virtual network. Support for Basic Load Balancer only exists within the same region. Support for Standard Load Balancer exists for both, VNet Peering and Global VNet Peering. Services that use a Basic load balancer which will not work over Global VNet Peering are documented [here.](virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)
-- You can use remote gateways or allow gateway transit in globally peered virtual networks and locally peered virtual networks.
-- The virtual networks can be in the same, or different subscriptions. When you peer virtual networks in different subscriptions, both subscriptions can be associated to the same or different Azure Active Directory tenant. If you don't already have an AD tenant, you can [create one](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json-a-new-azure-ad-tenant). Support for peering across virtual networks from subscriptions associated to different Azure Active Directory tenants is not available in Portal. You can use CLI, PowerShell, or Templates.
-- The virtual networks you peer must have non-overlapping IP address spaces.
-- You can't add address ranges to, or delete address ranges from a virtual network's address space once a virtual network is peered with another virtual network. To add or remove address ranges, delete the peering, add or remove the address ranges, then re-create the peering. To add address ranges to, or remove address ranges from virtual networks, see [Manage virtual networks](manage-virtual-network.md).
-- You can peer two virtual networks deployed through Resource Manager or a virtual network deployed through Resource Manager with a virtual network deployed through the classic deployment model. You cannot peer two virtual networks created through the classic deployment model. If you're not familiar with Azure deployment models, read the [Understand Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) article. You can use a [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) to connect two virtual networks created through the classic deployment model.
-- When peering two virtual networks created through Resource Manager, a peering must be configured for each virtual network in the peering. You see one of the following types for peering status: 
-  - *Initiated:* When you create the peering to the second virtual network from the first virtual network, the peering status is *Initiated*. 
-  - *Connected:* When you create the peering from the second virtual network to the first virtual network, its peering status is *Connected*. If you view the peering status for the first virtual network, you see its status changed from *Initiated* to *Connected*. The peering is not successfully established until the peering status for both virtual network peerings is *Connected*.
-- When peering a virtual network created through Resource Manager with a virtual network created through the classic deployment model, you only configure a peering for the virtual network deployed through Resource Manager. You cannot configure peering for a virtual network (classic), or between two virtual networks deployed through the classic deployment model. When you create the peering from the virtual network (Resource Manager) to the virtual network (Classic), the peering status is *Updating*, then shortly changes to *Connected*.
-- A peering is established between two virtual networks. Peerings are not transitive. If you create peerings between:
-  - VirtualNetwork1 & VirtualNetwork2
-  - VirtualNetwork2 & VirtualNetwork3
+- <a name="cross-region"></a>You can peer virtual networks in the same region, or different regions. Peering virtual networks in different regions is also referred to as **Global Virtual Network Peering**.
 
-  There is no peering between VirtualNetwork1 and VirtualNetwork3 through VirtualNetwork2. If you want to create a virtual network peering between VirtualNetwork1 and VirtualNetwork3, you have to create a peering between VirtualNetwork1 and VirtualNetwork3.
-- You can't resolve names in peered virtual networks using default Azure name resolution. To resolve names in other virtual networks, you must use [Azure DNS for private domains](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or a custom DNS server. To learn how to set up your own DNS server, see [Name resolution using your own DNS server](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
-- Resources in peered virtual networks in the same region can communicate with each other with the same bandwidth and latency as if they were in the same virtual network. Each virtual machine size has its own maximum network bandwidth however. To learn more about maximum network bandwidth for different virtual machine sizes, see [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine sizes.
+- When creating a global peering, the peered virtual networks can exist in any Azure public cloud region or China cloud regions or Government cloud regions. You can't peer across clouds. For example, a virtual network in Azure public cloud can't be peered to a virtual network in Microsoft Azure operated by 21Vianet cloud.
+
+- Resources in one virtual network can't communicate with the front-end IP address of a basic load balancer (internal or public) in a globally peered virtual network. Support for basic load balancer only exists within the same region. Support for standard load balancer exists for both, Virtual Network Peering and Global Virtual Network Peering. Some services that use a basic load balancer don't work over global virtual network peering. For more information, see [Constraints related to Global Virtual Network Peering and Load Balancers](virtual-networks-faq.md#what-are-the-constraints-related-to-global-virtual-network-peering-and-load-balancers).
+
+- You can use remote gateways or allow gateway transit in globally peered virtual networks and locally peered virtual networks.
+
+- The virtual networks can be in the same, or different [subscriptions](#next-steps). When you peer virtual networks in different subscriptions, both subscriptions can be associated to the same or different Azure Active Directory tenant. If you don't already have an AD tenant, you can [create one](../active-directory/develop/quickstart-create-new-tenant.md).
+
+- The virtual networks you peer must have nonoverlapping IP address spaces.
+
+- You can peer two virtual networks deployed through Resource Manager or a virtual network deployed through Resource Manager with a virtual network deployed through the classic deployment model. You can't peer two virtual networks created through the classic deployment model. If you're not familiar with Azure deployment models, read the [Understand Azure deployment models](../azure-resource-manager/management/deployment-models.md) article. You can use a [VPN Gateway](../vpn-gateway/design.md#V2V) to connect two virtual networks created through the classic deployment model.
+
+- When you peer two virtual networks created through Resource Manager, a peering must be configured for each virtual network in the peering. You see one of the following types for peering status:
+
+  - **Initiated:** When you create the first peering, its status is *Initiated*. 
+  
+  - **Connected:** When you create the second peering, peering status becomes **Connected** for both peerings. The peering isn't successfully established until the peering status for both virtual network peerings is **Connected**.
+
+- When peering a virtual network created through Resource Manager with a virtual network created through the classic deployment model, you only configure a peering for the virtual network deployed through Resource Manager. You can't configure peering for a virtual network (classic), or between two virtual networks deployed through the classic deployment model. When you create the peering from the virtual network (Resource Manager) to the virtual network (Classic), the peering status is **Updating**, then shortly changes to **Connected**.
+
+- A peering is established between two virtual networks. Peerings by themselves aren't transitive. If you create peerings between:
+
+  - VirtualNetwork1 and VirtualNetwork2 
+
+  - VirtualNetwork2 and VirtualNetwork3
+    
+    There's no connectivity between VirtualNetwork1 and VirtualNetwork3 through VirtualNetwork2. If you want VirtualNetwork1 and VirtualNetwork3 to directly communicate, you have to create an explicit peering between VirtualNetwork1 and VirtualNetwork3, or go through an NVA in the **Hub** network. To learn more, see [**Hub**-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke).
+ 
+- You can't resolve names in peered virtual networks using default Azure name resolution. To resolve names in other virtual networks, you must use [Azure Private DNS](../dns/private-dns-overview.md) or a custom DNS server. To learn how to set up your own DNS server, see [Name resolution using your own DNS server](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
+
+- Resources in peered virtual networks in the same region can communicate with each other with the same latency as if they were within the same virtual network. The network throughput is based on the bandwidth that's allowed for the virtual machine, proportionate to its size. There isn't any extra restriction on bandwidth within the peering. Each virtual machine size has its own maximum network bandwidth. To learn more about maximum network bandwidth for different virtual machine sizes, see [Sizes for virtual machines in Azure](../virtual-machines/sizes.md).
+
 - A virtual network can be peered to another virtual network, and also be connected to another virtual network with an Azure virtual network gateway. When virtual networks are connected through both peering and a gateway, traffic between the virtual networks flows through the peering configuration, rather than the gateway.
+
 - Point-to-Site VPN clients must be downloaded again after virtual network peering has been successfully configured to ensure the new routes are downloaded to the client.
-- There is a nominal charge for ingress and egress traffic that utilizes a virtual network peering. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/virtual-network).
+
+- There's a nominal charge for ingress and egress traffic that utilizes a virtual network peering. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/virtual-network).
 
 ## Permissions
 
 The accounts you use to work with virtual network peering must be assigned to the following roles:
 
-- [Network Contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor): For a virtual network deployed through Resource Manager.
-- [Classic Network Contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor): For a virtual network deployed through the classic deployment model.
+- [Network Contributor](../role-based-access-control/built-in-roles.md#network-contributor): For a virtual network deployed through Resource Manager.
 
-If your account is not assigned to one of the previous roles, it must be assigned to a [custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) that is assigned the necessary actions from the following table:
+- [Classic Network Contributor](../role-based-access-control/built-in-roles.md#classic-network-contributor): For a virtual network deployed through, the classic deployment model.
+
+If your account isn't assigned to one of the previous roles, it must be assigned to a [custom role](../role-based-access-control/custom-roles.md) that is assigned the necessary actions from the following table:
 
 | Action                                                          | Name |
 |---                                                              |---   |
-| Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write  | Required to create a peering from virtual network A to virtual network B. Virtual network A must be a virtual network (Resource Manager)          |
-| Microsoft.Network/virtualNetworks/peer/action                   | Required to create a peering from virtual network B (Resource Manager) to virtual network A                                                       |
-| Microsoft.ClassicNetwork/virtualNetworks/peer/action                   | Required to create a peering from virtual network B (classic) to virtual network A                                                                |
-| Microsoft.Network/virtualNetworks/virtualNetworkPeerings/read   | Read a virtual network peering   |
-| Microsoft.Network/virtualNetworks/virtualNetworkPeerings/delete | Delete a virtual network peering |
+| **Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write**  | Required to create a peering from virtual network A to virtual network B. Virtual network A must be a virtual network (Resource Manager)          |
+| **Microsoft.Network/virtualNetworks/peer/action**                   | Required to create a peering from virtual network B (Resource Manager) to virtual network A                                                       |
+| **Microsoft.ClassicNetwork/virtualNetworks/peer/action**                   | Required to create a peering from virtual network B (classic) to virtual network A                                                                |
+| **Microsoft.Network/virtualNetworks/virtualNetworkPeerings/read**   | Read a virtual network peering   |
+| **Microsoft.Network/virtualNetworks/virtualNetworkPeerings/delete** | Delete a virtual network peering |
 
 ## Next steps
 
-- A virtual network peering is created between virtual networks created through the same, or different deployment models that exist in the same, or different subscriptions. Complete a tutorial for one of the following scenarios:
+- A virtual network peering can be created between virtual networks created through the same, or different deployment models that exist in the same, or different subscriptions. Complete a tutorial for one of the following scenarios:
 
   |Azure deployment model             | Subscription  |
   |---------                          |---------|
@@ -157,6 +367,8 @@ If your account is not assigned to one of the previous roles, it must be assigne
   |One Resource Manager, one classic  |[Same](create-peering-different-deployment-models.md)|
   |                                   |[Different](create-peering-different-deployment-models-subscriptions.md)|
 
-- Learn how to create a [hub and spoke network topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- Learn how to create a [**hub** and spoke network topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
+
 - Create a virtual network peering using [PowerShell](powershell-samples.md) or [Azure CLI](cli-samples.md) sample scripts, or using Azure [Resource Manager templates](template-samples.md)
-- Create and apply [Azure policy](policy-samples.md) for virtual networks
+
+- Create and assign [Azure Policy definitions](./policy-reference.md) for virtual networks

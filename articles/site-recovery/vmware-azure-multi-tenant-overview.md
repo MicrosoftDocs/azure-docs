@@ -1,12 +1,12 @@
 ---
-title: Overview of multi-tenant support for VMware VM disaster recovery to Azure (CSP) using Azure Site Recovery | Microsoft Docs
+title: VMware VM multi-tenant disaster recovery with Azure Site Recovery 
 description: Provides an overview of Azure Site Recovery support for VMWare disaster recovery to Azure in a multi-tenant environment (CSP) program.
-author: mayurigupta13
+author: ankitaduttaMSFT
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: mayg
+ms.author: ankitadutta
 
 ---
 # Overview of multi-tenant support for VMware disaster recovery to Azure with CSP
@@ -121,7 +121,7 @@ To restrict disaster recovery operations up until failover only (that is, withou
 
 As shown in the following diagram, the architectural difference in a dedicated hosting solution is that each tenant’s infrastructure is set up for that tenant only.
 
-![architecture-shared-hsp](./media/vmware-azure-multi-tenant-overview/dedicated-hosting-scenario.png)  
+![Diagram that shows the architectural difference in a dedicated hosting solution is that each tenant’s infrastructure is set up for that tenant only.](./media/vmware-azure-multi-tenant-overview/dedicated-hosting-scenario.png)  
 **Dedicated hosting scenario with multiple vCenters**
 
 ## Managed service solution

@@ -1,26 +1,33 @@
 ---
 title: Verify Azure Traffic Manager settings
-description: This article will help you verify your Traffic Manager settings.
+description: In this article, learn how to verify your Traffic Manager settings and test the traffic routing method.
 services: traffic-manager
-author: kumudd
+author: greg-lindsay
 ms.service: traffic-manager
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 03/16/2017
-ms.author: kumud
+ms.date: 05/22/2023
+ms.author: greglin
+ms.custom: template-how-to
 ---
 
+
+
 # Verify Traffic Manager settings
+
+## Prerequisites
+
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* This guide requires a Traffic Manager profile. To learn more, see [Create a Traffic Manager profile](./quickstart-create-traffic-manager-profile.md).
 
 To test your Traffic Manager settings, you need to have multiple clients, in various locations, from which you can run your tests. Then, bring the endpoints in your Traffic Manager profile down one at a time.
 
 * Set the DNS TTL value low so that changes propagate quickly (for example, 30 seconds).
-* Know the IP addresses of your Azure cloud services and websites in the profile you are testing.
+* Know the IP addresses of your Azure cloud services and websites in the profile you're testing.
 * Use tools that let you resolve a DNS name to an IP address and display that address.
 
-You are checking to see that the DNS names resolve to IP addresses of the endpoints in your profile. The names should resolve in a manner consistent with the traffic routing method defined in the Traffic Manager profile. You can use the tools like **nslookup** or **dig** to resolve DNS names.
+You're checking to see that the DNS names resolve to IP addresses of the endpoints in your profile. The names should resolve in a manner consistent with the traffic routing method defined in the Traffic Manager profile. You can use the tools like **nslookup** or **dig** to resolve DNS names.
+
 
 The following examples help you test your Traffic Manager profile.
 
@@ -30,12 +37,14 @@ The following examples help you test your Traffic Manager profile.
 2. Type `ipconfig /flushdns` to flush the DNS resolver cache.
 3. Type `nslookup <your Traffic Manager domain name>`. For example, the following command checks the domain name with the prefix *myapp.contoso*
 
-        nslookup myapp.contoso.trafficmanager.net
+    ```powershell
+    nslookup myapp.contoso.trafficmanager.net
+    ```
 
     A typical result shows the following information:
 
     + The DNS name and IP address of the DNS server being accessed to resolve this Traffic Manager domain name.
-    + The Traffic Manager domain name you typed on the command line after "nslookup" and the IP address to which the Traffic Manager domain resolves. The second IP address is the important one to check. It should match a public virtual IP (VIP) address for one of the cloud services or websites in the Traffic Manager profile you are testing.
+    + The Traffic Manager domain name you typed on the command line after "nslookup" and the IP address to which the Traffic Manager domain resolves. The second IP address is the important one to check. It should match a public virtual IP (VIP) address for one of the cloud services or websites in the Traffic Manager profile you're testing.
 
 ## How to test the failover traffic routing method
 

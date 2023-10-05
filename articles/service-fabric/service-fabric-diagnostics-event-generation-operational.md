@@ -1,21 +1,12 @@
 ---
-title: Azure Service Fabric Event List | Microsoft Docs
+title: Azure Service Fabric Event List 
 description: Comprehensive list of events provided by Azure Service Fabric to help monitor clusters.
-services: service-fabric
-documentationcenter: .net
-author: srrengar
-manager: chackdan
-editor: ''
-
-ms.assetid:
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: reference
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 2/25/2019
-ms.author: srrengar
-
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # List of Service Fabric events 
@@ -62,6 +53,13 @@ More details on cluster upgrades can be found [here](service-fabric-cluster-upgr
 | 25624 | NodeClosed | StateTransition |  A node shut down successfully | FabricNode | Informational | 
 | 25626 | NodeAborted | StateTransition |  A node has ungracefully shut down | FabricNode | Error | 
 
+**Ktl Logger Node events** 
+
+| EventId | Name | Category | Description |Source (Task) | Level |
+| --- | --- | --- | --- | --- | --- | 
+| 50187 | SharedLogWriteThrottled | Health | Writes to Shared log are throttling | KtlLoggerNode | Informational | 
+| 50188 | SharedLogWriteUnthrottled | Health | Writes to Shared log have unthrottled | KtlLoggerNode | Informational | 
+
 ## Application events
 
 **Application lifecycle events**
@@ -101,6 +99,40 @@ More details on application upgrades can be found [here](service-fabric-applicat
 | --- | --- | ---| --- | --- | --- |
 | 18940 | PartitionReconfigured | LifeCycle | A partition reconfiguration has completed | RA | Informational | 
 
+## Replica events
+
+**Replica lifecycle events**
+
+| EventId | Name | Category | Description |Source (Task) | Level |
+| --- | --- | ---| --- | --- | --- |
+| 61701 | ReliableDictionaryOpened | LifeCycle | Reliable dictionary has opened | DistributedDictionary | Informational |
+| 61702 | ReliableDictionaryClosed | LifeCycle | Reliable dictionary has closed | DistributedDictionary | Informational |
+| 61703 | ReliableDictionaryCheckpointRecovered | LifeCycle | Reliable dictionary has recovered its checkpoint | DistributedDictionary | Informational |
+| 61704 | ReliableDictionaryCheckpointFilesSent | LifeCycle | Replica has sent reliable dictionary's checkpoint files | DistributedDictionary | Informational |
+| 61705 | ReliableDictionaryCheckpointFilesReceived | LifeCycle | Replica has received reliable dictionary's checkpoint files | DistributedDictionary | Informational |
+| 61963 | ReliableQueueOpened | LifeCycle | Reliable queue has opened | DistributedQueue | Informational |
+| 61964 | ReliableQueueClosed | LifeCycle | Reliable queue has closed | DistributedQueue | Informational |
+| 61965 | ReliableQueueCheckpointRecovered | LifeCycle | Reliable queue has recovered its checkpoint | DistributedQueue | Informational |
+| 61966 | ReliableQueueCheckpointFilesSent | LifeCycle | Replica has sent reliable queue's checkpoint files | DistributedQueue | Informational |
+| 63647 | ReliableQueueCheckpointFilesReceived | LifeCycle | Replica has received reliable queue's checkpoint files | DistributedQueue | Informational |
+| 63648 | ReliableConcurrentQueueOpened | LifeCycle | Reliable concurrent queue has opened | ReliableConcurrentQueue | Informational |
+| 63649 | ReliableConcurrentQueueClosed | LifeCycle | Reliable concurrent queue has closed | ReliableConcurrentQueue | Informational |
+| 63650 | ReliableConcurrentQueueCheckpointRecovered | LifeCycle | Reliable concurrent queue has recovered its checkpoint | ReliableConcurrentQueue | Informational |
+| 61687 | TStoreError | Failure | Reliable collection has received an unexpected error | TStore | Error |
+| 63831 | PrimaryFullCopyInitiated | LifeCycle | Primary replica has initiated a full copy | TReplicator | Informational |
+| 63832 | PrimaryPartialCopyInitiated | LifeCycle | Primary replica has initiated a partial copy | TReplicator | Informational |
+| 16831 | BuildIdleReplicaStarted | LifeCycle | Primary replica has started building idle replica | Replication | Informational |
+| 16832 | BuildIdleReplicaCompleted | LifeCycle | Primary replica has completed building idle replica | Replication | Informational |
+| 16833 | BuildIdleReplicaFailed | LifeCycle | Primary replica has failed building idle replica | Replication | Warning |
+| 16834 | PrimaryReplicationQueueFull | Health | Primary replica's replication queue is full | Replication | Warning |
+| 16835 | PrimaryReplicationQueueWarning | Health | Primary replica's replication queue is near full | Replication | Warning |
+| 16836 | PrimaryReplicationQueueWarningMitigated | Health | Primary replica's replication queue is okay | Replication | Informational |
+| 16837 | SecondaryReplicationQueueFull | Health | Secondary replica's replication queue is full | Replication | Warning |
+| 16838 | SecondaryReplicationQueueWarning | Health | Secondary replica's replication queue is near full | Replication | Warning |
+| 16839 | SecondaryReplicationQueueWarningMitigated | Health | Secondary replica's replication queue is okay | Replication | Informational |
+| 16840 | PrimaryFaultedSlowSecondary | Health | Primary replica has faulted a slow secondary replica | Replication | Warning |
+| 16841 | ReplicatorFaulted | Health | Replica has faulted | Replication | Warning |
+
 ## Container events
 
 **Container lifecycle events** 
@@ -110,6 +142,26 @@ More details on application upgrades can be found [here](service-fabric-applicat
 | 23074 | ContainerActivated | A container has started | Hosting | Informational | 1 |
 | 23075 | ContainerDeactivated | A container has stopped | Hosting | Informational | 1 |
 | 23082 | ContainerExited | A container has exited - Check the UnexpectedTermination flag | Hosting | Informational | 1 |
+
+## BackupRestoreService Events
+
+When BackupRestoreService (BRS) is enabled on an SF Cluster, it exposes events for user triggered and periodic operations to let user understand the status of operations. User triggered operations cover actions like creating a backup policy on cluster, triggering backup on a partition or any other valid action in BRS context. BRS periodically emits status of current active policies at cluster level, information about last backup and upcoming scheduled backup and status of periodic backup at different stages at partition level.
+
+**BackupRestoreService partition events**
+
+| EventId | Name | Description |Source (Task) | Level |
+| --- | --- | ---| --- | --- |
+| 65305 | BRSInfo | Periodic backup triggered | BackupRestoreService | Informational |
+| 65307 | BRSWarning | Incremental backup failed, triggering a full backup | BackupRestoreService | Warning |
+| 65309 | BRSError | Periodic backup failed | BackupRestoreService | Error |
+
+**BackupRestoreService cluster events**
+
+| EventId | Name | Description |Source (Task) | Level |
+| --- | --- | ---| --- | --- |
+| 65306 | BRSInfo | Backup policy created | BackupRestoreService | Informational |
+| 65308 | BRSWarning | Backup policy deleted | BackupRestoreService | Warning |
+| 65310 | BRSError | AddBackupPolicy failed | BackupRestoreService | Error |
 
 ## Health reports
 

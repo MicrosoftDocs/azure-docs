@@ -1,10 +1,11 @@
-- name: Data Catalog Documentation
+- name: Azure Data Catalog documentation
   href: index.yml
 - name: Overview
   items:
   - name: What is Data Catalog?
     href: overview.md
-- name: Quickstart
+- name: Quickstarts
+  expanded: true
   items:
   - name: Create an Azure Data Catalog
     href: data-catalog-get-started.md
@@ -20,12 +21,12 @@
     href: data-catalog-dsr.md
   - name: Adopting Azure Data Catalog
     href: data-catalog-adopting-data-catalog.md
-  - name: Prerequisites
-    href: data-catalog-prerequisites.md
   - name: FAQ
-    href: data-catalog-frequently-asked-questions.md
-- name: How To
+    href: data-catalog-frequently-asked-questions.yml
+- name: How-to guides
   items:
+  - name: Migrate to Microsoft Purview
+    href: data-catalog-migration-to-azure-purview.md
   - name: Register data sources
     href: data-catalog-how-to-register.md
   - name: Discover data sources
@@ -55,11 +56,9 @@
 - name: Reference
   items:
   - name: Code samples
-    href: https://azure.microsoft.com/resources/samples/?service=data-catalog
+    href: data-catalog-samples.md
   - name: REST
     href: /rest/api/datacatalog/
-  - name: Resource Manager template
-    href: /azure/templates/microsoft.datacatalog/catalogs
   - name: Search syntax reference
     href: /rest/api/datacatalog/data-catalog-search-syntax-reference
   - name: Developer concepts
@@ -70,8 +69,8 @@
     href: https://azure.microsoft.com/roadmap/
   - name: Keyboard shortcuts for Azure Data Catalog
     href: data-catalog-keyboard-shortcuts.md
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredatacatalog
+  - name: Microsoft Q&A question page
+    href: /answers/topics/azure-data-catalog.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/data-catalog/
   - name: Pricing calculator

@@ -1,28 +1,29 @@
 ---
-author: ramonarguelles
-manager: vicenterivera
+author: pamistel
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
 
-ms.date: 04/03/2019
+ms.date: 08/05/2021
 ms.topic: include
-ms.author: rgarcia
+ms.author: pamistel
 ms.service: azure-spatial-anchors
 ---
-## Putting everything together
-
-Here is how the complete `MainActivity` class file should look like, after all
-the different elements have been put together. You can use it as a reference to
-compare against your own file, and spot if you may have any differences left.
 
 ```java
 package com.example.myfirstapp;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MotionEvent;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.ar.core.HitResult;
 import com.google.ar.core.Plane;
 import com.google.ar.sceneform.AnchorNode;
+import com.google.ar.sceneform.ArSceneView;
+import com.google.ar.sceneform.FrameTime;
+import com.google.ar.sceneform.Scene;
 import com.google.ar.sceneform.math.Vector3;
 import com.google.ar.sceneform.rendering.Color;
 import com.google.ar.sceneform.rendering.MaterialFactory;
@@ -30,22 +31,16 @@ import com.google.ar.sceneform.rendering.Renderable;
 import com.google.ar.sceneform.rendering.ShapeFactory;
 import com.google.ar.sceneform.ux.ArFragment;
 
-import android.view.MotionEvent;
-import android.util.Log;
-
-import com.google.ar.sceneform.ArSceneView;
-import com.google.ar.sceneform.Scene;
+import com.microsoft.azure.spatialanchors.AnchorLocateCriteria;
 import com.microsoft.azure.spatialanchors.CloudSpatialAnchor;
 import com.microsoft.azure.spatialanchors.CloudSpatialAnchorSession;
+import com.microsoft.azure.spatialanchors.LocateAnchorStatus;
 import com.microsoft.azure.spatialanchors.SessionLogLevel;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-
-import com.microsoft.azure.spatialanchors.AnchorLocateCriteria;
-import com.microsoft.azure.spatialanchors.LocateAnchorStatus;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -58,13 +53,13 @@ public class MainActivity extends AppCompatActivity {
 
     private ArSceneView sceneView;
     private CloudSpatialAnchorSession cloudSession;
+    private boolean sessionInitialized = false;
 
     private String anchorId = null;
     private boolean scanningForUpload = false;
     private final Object syncSessionProgress = new Object();
     private ExecutorService executorService = Executors.newSingleThreadExecutor();
 
-    // <onCreate>
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,14 +75,27 @@ public class MainActivity extends AppCompatActivity {
                 this.cloudSession.processFrame(sceneView.getArFrame());
             }
         });
-
+        scene.addOnUpdateListener(this::scene_OnUpdate);
         initializeSession();
     }
-    // </onCreate>
+
+    // <scene_OnUpdate>
+    private void scene_OnUpdate(FrameTime frameTime) {
+        if (!sessionInitialized) {
+            //retry if initializeSession did an early return due to ARCore Session not yet available (i.e. sceneView.getSession() == null)
+            initializeSession();
+        }
+    }
+    // </scene_OnUpdate>
 
     // <initializeSession>
     private void initializeSession() {
-        if (this.cloudSession != null){
+        if (sceneView.getSession() == null) {
+            //Early return if the ARCore Session is still being set up
+            return;
+        }
+
+        if (this.cloudSession != null) {
             this.cloudSession.close();
         }
         this.cloudSession = new CloudSpatialAnchorSession();
@@ -96,12 +104,13 @@ public class MainActivity extends AppCompatActivity {
         this.cloudSession.addOnLogDebugListener(args -> Log.d("ASAInfo", args.getMessage()));
         this.cloudSession.addErrorListener(args -> Log.e("ASAError", String.format("%s: %s", args.getErrorCode().name(), args.getErrorMessage())));
 
+        sessionInitialized = true;
+
         this.cloudSession.addSessionUpdatedListener(args -> {
             synchronized (this.syncSessionProgress) {
                 this.recommendedSessionProgress = args.getStatus().getRecommendedForCreateProgress();
                 Log.i("ASAInfo", String.format("Session progress: %f", this.recommendedSessionProgress));
-                if (!this.scanningForUpload)
-                {
+                if (!this.scanningForUpload) {
                     return;
                 }
             }
@@ -112,36 +121,36 @@ public class MainActivity extends AppCompatActivity {
                             this.recommendedSessionProgress,
                             this.recommendedSessionProgress,
                             this.recommendedSessionProgress))
-                        .thenAccept(material -> {
-                            this.nodeRenderable.setMaterial(material);
-                        });
+                            .thenAccept(material -> {
+                                this.nodeRenderable.setMaterial(material);
+                            });
                 }
             });
         });
 
         this.cloudSession.addAnchorLocatedListener(args -> {
-            if (args.getStatus() == LocateAnchorStatus.Located)
-            {
-                runOnUiThread(()->{
+            if (args.getStatus() == LocateAnchorStatus.Located) {
+                runOnUiThread(() -> {
                     this.anchorNode = new AnchorNode();
                     this.anchorNode.setAnchor(args.getAnchor().getLocalAnchor());
                     MaterialFactory.makeOpaqueWithColor(this, new Color(android.graphics.Color.GREEN))
-                        .thenAccept(greenMaterial -> {
-                            this.nodeRenderable = ShapeFactory.makeSphere(0.1f, new Vector3(0.0f, 0.15f, 0.0f), greenMaterial);
-                            this.anchorNode.setRenderable(nodeRenderable);
-                            this.anchorNode.setParent(arFragment.getArSceneView().getScene());
+                            .thenAccept(greenMaterial -> {
+                                this.nodeRenderable = ShapeFactory.makeSphere(0.1f, new Vector3(0.0f, 0.15f, 0.0f), greenMaterial);
+                                this.anchorNode.setRenderable(nodeRenderable);
+                                this.anchorNode.setParent(arFragment.getArSceneView().getScene());
 
-                            this.anchorId = null;
-                            synchronized (this.syncTaps) {
-                                this.tapExecuted = false;
-                            }
-                        });
+                                this.anchorId = null;
+                                synchronized (this.syncTaps) {
+                                    this.tapExecuted = false;
+                                }
+                            });
                 });
             }
         });
 
         this.cloudSession.getConfiguration().setAccountId(/* Copy your account Identifier in here */);
         this.cloudSession.getConfiguration().setAccountKey(/* Copy your account Key in here */);
+        this.cloudSession.getConfiguration().setAccountDomain(/* Copy your account Domain in here */);
         this.cloudSession.start();
     }
     // </initializeSession>
@@ -176,26 +185,27 @@ public class MainActivity extends AppCompatActivity {
                 this.recommendedSessionProgress,
                 this.recommendedSessionProgress,
                 this.recommendedSessionProgress))
-            .thenAccept(material -> {
-                this.nodeRenderable = ShapeFactory.makeSphere(0.1f, new Vector3(0.0f, 0.15f, 0.0f), material);
-                this.anchorNode.setRenderable(nodeRenderable);
-                this.anchorNode.setParent(arFragment.getArSceneView().getScene());
+                .thenAccept(material -> {
+                    this.nodeRenderable = ShapeFactory.makeSphere(0.1f, new Vector3(0.0f, 0.15f, 0.0f), material);
+                    this.anchorNode.setRenderable(nodeRenderable);
+                    this.anchorNode.setParent(arFragment.getArSceneView().getScene());
+                });
 
-                uploadCloudAnchorAsync(cloudAnchor)
-                    .thenAccept(id -> {
-                        this.anchorId = id;
-                        Log.i("ASAInfo", String.format("Cloud Anchor created: %s", this.anchorId));
-                        runOnUiThread(() -> {
-                            MaterialFactory.makeOpaqueWithColor(this, new Color(android.graphics.Color.BLUE))
+
+        uploadCloudAnchorAsync(cloudAnchor)
+                .thenAccept(id -> {
+                    this.anchorId = id;
+                    Log.i("ASAInfo", String.format("Cloud Anchor created: %s", this.anchorId));
+                    runOnUiThread(() -> {
+                        MaterialFactory.makeOpaqueWithColor(this, new Color(android.graphics.Color.BLUE))
                                 .thenAccept(blueMaterial -> {
                                     this.nodeRenderable.setMaterial(blueMaterial);
                                     synchronized (this.syncTaps) {
                                         this.tapExecuted = false;
                                     }
                                 });
-                        });
                     });
-            });
+                });
     }
     // </handleTap>
 
@@ -204,6 +214,7 @@ public class MainActivity extends AppCompatActivity {
         synchronized (this.syncSessionProgress) {
             this.scanningForUpload = true;
         }
+
 
         return CompletableFuture.runAsync(() -> {
             try {
@@ -223,9 +234,9 @@ public class MainActivity extends AppCompatActivity {
                 }
                 runOnUiThread(() -> {
                     MaterialFactory.makeOpaqueWithColor(this, new Color(android.graphics.Color.YELLOW))
-                        .thenAccept(yellowMaterial -> {
-                            this.nodeRenderable.setMaterial(yellowMaterial);
-                        });
+                            .thenAccept(yellowMaterial -> {
+                                this.nodeRenderable.setMaterial(yellowMaterial);
+                            });
                 });
 
                 this.cloudSession.createAnchorAsync(anchor).get();
@@ -236,12 +247,6 @@ public class MainActivity extends AppCompatActivity {
         }, executorService).thenApply(ignore -> anchor.getIdentifier());
     }
     // </uploadCloudAnchorAsync>
+
 }
 ```
-
-## Next steps
-
-In this tutorial, you've seen how to create a new Android app that integrates ARCore functionality with Azure Spatial Anchors. To learn more about the Azure Spatial Anchors library, continue to our guide on how to create and locate anchors.
-
-> [!div class="nextstepaction"]
-> [Create and locate anchors using Azure Spatial Anchors](/azure/spatial-anchors/create-locate-anchors-overview)

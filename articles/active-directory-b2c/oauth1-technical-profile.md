@@ -1,15 +1,16 @@
 ---
-title: Define an OAuth1 technical profile in a custom policy in Azure Active Directory B2C | Microsoft Docs
-description: Define an OAuth1 technical profile in a custom policy in Azure Active Directory B2C.
+title: Define an OAuth1 technical profile in a custom policy
+titleSuffix: Azure AD B2C
+description: Define an OAuth 1.0 technical profile in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: marsma
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -17,17 +18,17 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C provides support for the [OAuth 1.0 protocol](https://tools.ietf.org/html/rfc5849) identity provider. This article describes the specifics of a technical profile for interacting with a claims provider that supports this standardized protocol. With an OAuth1 technical profile, you can federate with an OAuth1 based identity provider, such as Twitter. Federating with the identity provider allows users to sign in with their existing social or enterprise identities.
+Azure Active Directory B2C (Azure AD B2C) provides support for the [OAuth 1.0 protocol](https://tools.ietf.org/html/rfc5849) identity provider. This article describes the specifics of a technical profile for interacting with a claims provider that supports this standardized protocol. With an OAuth1 technical profile, you can federate with an OAuth1 based identity provider, such as Twitter. Federating with the identity provider allows users to sign in with their existing social or enterprise identities.
 
 ## Protocol
 
 The **Name** attribute of the **Protocol** element needs to be set to `OAuth1`. For example, the protocol for the **Twitter-OAUTH1** technical profile is `OAuth1`.
 
-```XML
+```xml
 <TechnicalProfile Id="Twitter-OAUTH1">
   <DisplayName>Twitter</DisplayName>
   <Protocol Name="OAuth1" />
-  ...    
+  ...
 ```
 
 ## Input claims
@@ -46,7 +47,7 @@ The following example shows the claims returned by the Twitter identity provider
 - The **screen_name** claim that is mapped to the **displayName** claim.
 - The **email** claim without name mapping.
 
-The technical profile also returns claims that aren't returned by the identity provider: 
+The technical profile also returns claims that aren't returned by the identity provider:
 
 - The **identityProvider** claim that contains the name of the identity provider.
 - The **authenticationSource** claim with a default value of `socialIdpAuthentication`.
@@ -70,7 +71,7 @@ The technical profile also returns claims that aren't returned by the identity p
 | request_token_endpoint | Yes | The URL of the request token endpoint as per RFC 5849. |
 | authorization_endpoint | Yes | The URL of the authorization endpoint as per RFC 5849. |
 | access_token_endpoint | Yes | The URL of the token endpoint as per RFC 5849. |
-| ClaimsEndpoint | No | The URL of the user information endpoint. | 
+| ClaimsEndpoint | No | The URL of the user information endpoint. |
 | ClaimsResponseFormat | No | The claims response format.|
 
 ## Cryptographic keys
@@ -79,27 +80,12 @@ The **CryptographicKeys** element contains the following attribute:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| client_secret | Yes | The client secret of the identity provider application.   | 
+| client_secret | Yes | The client secret of the identity provider application.   |
 
 ## Redirect URI
 
-When you configure the redirect URL of your identity provider, enter `https://login.microsoftonline.com/te/tenant/policyId/oauth1/authresp`. Make sure to replace **tenant** with your tenant name (for example, contosob2c.onmicrosoft.com) and **policyId** with the identifier of your policy (for example, b2c_1a_policy). The redirect URI needs to be in all lowercase. Add a redirect URL for all policies that use the identity provider login. 
-
-If you are using the **b2clogin.com** domain instead of **login.microsoftonline.com** Make sure to use b2clogin.com instead of login.microsoftonline.com.
+When you configure the redirect URI of your identity provider, enter `https://{tenant-name}.b2clogin.com/{tenant-name}.onmicrosoft.com/{policy-id}/oauth1/authresp`. Make sure to replace `{tenant-name}` with your tenant's name (for example, contosob2c) and `{policy-id}` with the identifier of your policy (for example, b2c_1a_policy). The redirect URI needs to be in all lowercase. Add a redirect URL for all policies that use the identity provider login.
 
 Examples:
 
-- [Add Twitter as an OAuth1 identity provider by using custom policies](active-directory-b2c-custom-setup-twitter-idp.md)
-
-
-
-
-
-
-
-
-
-
-
-
-
+- [Add Twitter as an OAuth1 identity provider by using custom policies](identity-provider-twitter.md)

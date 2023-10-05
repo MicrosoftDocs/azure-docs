@@ -1,71 +1,57 @@
 ---
-title: License self-service password reset - Azure Active Directory
-description: Azure AD self-service password reset licensing requirements
+title: License self-service password reset
+description: Learn about the difference Microsoft Entra self-service password reset licensing requirements
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/11/2019
+ms.date: 01/29/2023
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.reviewer: sahenry
+ms.author: justinha
+author: justinha
+manager: amycolannino
+ms.reviewer: tilarso
 
 ms.collection: M365-identity-device-management
 ---
-# Licensing requirements for Azure AD self-service password reset
+# Licensing requirements for Microsoft Entra self-service password reset
 
-Azure Active Directory (Azure AD) comes in four editions: Free, Basic, Premium P1, and Premium P2. There are several different features that make up self-service password reset, including change, reset, unlock, and writeback, that are available in the different editions of Azure AD. This article tries to explain the differences. More details of the features included in each Azure AD edition can be found on the [Azure Active Directory pricing page](https://azure.microsoft.com/pricing/details/active-directory/).
+To reduce help desk calls and loss of productivity when a user can't sign in to their device or an application, user accounts in Microsoft Entra ID can be enabled for self-service password reset (SSPR). Features that make up SSPR include password change, reset, unlock, and writeback to an on-premises directory. Basic SSPR features are available in Microsoft 365 Business Standard or higher and all Microsoft Entra ID P1 or P2 SKUs at no cost.
+
+This article details the different ways that self-service password reset can be licensed and used. For specific details about pricing and billing, see the [Microsoft Entra pricing page](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
+
+Although some unlicensed users may technically be able to access SSPR, a license is required for any user that you intend to benefit from the service.
+
+> [!NOTE] 
+> Some tenant services are not currently capable of limiting benefits to specific users. Efforts should be taken to limit the service benefits to licensed users. This will help avoid potential service disruption to your organization once targeting capabilities are available.
 
 ## Compare editions and features
 
-Azure AD self-service password reset is licensed per user, to maintain compliance organizations are required to assign the appropriate license to their users.
+The following table outlines the different SSPR scenarios for password change, reset, or on-premises writeback, and which SKUs provide the feature.
 
-* Self-Service Password Change for cloud users
-   * I am a **cloud-only user** and know my password.
-      * I would like to **change** my password to something new.
-   * This functionality is included in all editions of Azure AD.
-
-* Self-Service Password Reset for cloud users
-   * I am a **cloud-only user** and have forgotten my password.
-      * I would like to **reset** my password to something I know.
-   * This functionality is included in Azure AD Basic, Premium P1 or P2, or Microsoft 365 Business.
-
-* Self-Service Password Reset/Change/Unlock **with on-premises writeback**
-   * I am a **hybrid user** my on-premises Active Directory user account is synchronized with my Azure AD account using Azure AD Connect. I would like to change my password, have forgotten my password, or been locked out.
-      * I would like to change my password or reset it to something I know, or unlock my account, **and** have that change synchronized back to on-premises Active Directory.
-   * This functionality is included in Azure AD Premium P1 or P2, or Microsoft 365 Business.
+| Feature | Microsoft Entra ID Free | Microsoft 365 Business Standard | Microsoft 365 Business Premium | Microsoft Entra ID P1 or P2 |
+| --- |:---:|:---:|:---:|:---:|
+| **Cloud-only user password change**<br />When a user in Microsoft Entra ID knows their password and wants to change it to something new. | ● | ● | ● | ● |
+| **Cloud-only user password reset**<br />When a user in Microsoft Entra ID has forgotten their password and needs to reset it. | | ● | ● | ● |
+| **Hybrid user password change or reset with on-prem writeback**<br />When a user in Microsoft Entra that's synchronized from an on-premises directory using Microsoft Entra Connect wants to change or reset their password and also write the new password back to on-prem. | | | ● | ● |
 
 > [!WARNING]
-> Standalone Office 365 licensing plans *don't support "Self-Service Password Reset/Change/Unlock with on-premises writeback"* and require a plan that includes Azure AD Premium P1, Premium P2, or Microsoft 365 Business for this functionality to work.
->
+> Standalone Microsoft 365 Basic and Standard licensing plans don't support SSPR with on-premises writeback. The on-premises writeback feature requires Microsoft Entra ID P1, Premium P2, or Microsoft 365 Business Premium. 
 
-Additional licensing information, including costs, can be found on the following pages:
+For additional licensing information, including costs, see the following pages:
 
-* [Azure Active Directory pricing site](https://azure.microsoft.com/pricing/details/active-directory/)
-* [Azure Active Directory features and capabilities](https://www.microsoft.com/cloud-platform/azure-active-directory-features)
+
+* [Microsoft 365 licensing guidance for security & compliance](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-tenantlevel-services-licensing-guidance/microsoft-365-security-compliance-licensing-guidance)
+* [Microsoft Entra pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)
+* [Microsoft Entra features and capabilities](https://www.microsoft.com/cloud-platform/azure-active-directory-features)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
 * [Microsoft 365 Enterprise](https://www.microsoft.com/microsoft-365/enterprise)
-* [Microsoft 365 Business service description](https://docs.microsoft.com/office365/servicedescriptions/microsoft-365-business-service-description)
-
-## Enable group or user-based licensing
-
-Azure AD now supports group-based licensing. Administrators can assign licenses in bulk to a group of users, rather than assigning them one at a time. For more information, see [Assign, verify, and resolve problems with licenses](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).
-
-Some Microsoft services are not available in all locations. Before a license can be assigned to a user, the administrator must specify the **Usage location** property on the user. Assignment of licenses can be done under the **User** > **Profile** > **Settings** section in the Azure portal. *When you use group license assignment, any users without a usage location specified inherit the location of the directory.*
+* [Microsoft 365 Business](/office365/servicedescriptions/office-365-service-descriptions-technet-library)
 
 ## Next steps
 
-* [How do I complete a successful rollout of SSPR?](howto-sspr-deployment.md)
-* [Reset or change your password](../user-help/active-directory-passwords-update-your-own-password.md)
-* [Register for self-service password reset](../user-help/active-directory-passwords-reset-register.md)
-* [What data is used by SSPR and what data should you populate for your users?](howto-sspr-authenticationdata.md)
-* [What authentication methods are available to users?](concept-sspr-howitworks.md#authentication-methods)
-* [What are the policy options with SSPR?](concept-sspr-policy.md)
-* [What is password writeback and why do I care about it?](howto-sspr-writeback.md)
-* [How do I report on activity in SSPR?](howto-sspr-reporting.md)
-* [What are all of the options in SSPR and what do they mean?](concept-sspr-howitworks.md)
-* [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)
-* [I have a question that was not covered somewhere else](active-directory-passwords-faq.md)
+To get started with SSPR, complete the following tutorial:
+
+> [!div class="nextstepaction"]
+> [Tutorial: Enable self-service password reset (SSPR)](tutorial-enable-sspr.md)

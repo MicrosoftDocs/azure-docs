@@ -1,0 +1,93 @@
+### YamlMime:Landing
+
+title: Azure Bastion documentation
+summary: Learn how to use Azure Bastion to connect to a virtual machine. Configure secure and seamless RDP/SSH connectivity to your virtual machines directly in the Azure portal over SSL. When you connect via Azure Bastion, your virtual machines don't need a public IP address.
+
+metadata:
+  title: Azure Bastion documentation
+  description: Learn how to use Azure Bastion to connect to a virtual machine. Configure secure and seamless RDP/SSH connectivity to your virtual machines directly in the Azure portal over SSL.
+  services: bastion
+  ms.service: bastion
+  ms.topic: landing-page
+  author: cherylmc
+  ms.author: cherylmc
+  ms.date: 05/17/2023
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Azure Bastion
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Bastion?
+            url: bastion-overview.md
+      - linkListType: concept
+        links:
+          - text: Azure Bastion FAQ
+            url: bastion-faq.md
+      - linkListType: learn
+        links:
+          - text: Introduction to Azure Bastion
+            url: /training/modules/intro-to-azure-bastion/
+      - linkListType: video
+        links:
+          - text: Azure Bastion
+            url: https://www.youtube.com/watch?v=WElUQm02BTU&list=PLLasX02E8BPDT2Z2pdCHNCkENpcQWy5n6&index=79
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Deploy Bastion with default settings
+            url: quickstart-host-portal.md
+      - linkListType: how-to-guide
+        links:
+          - text: Deploy Bastion using manual settings
+            url: ./tutorial-create-host-portal.md
+          - text: Connect to a virtual machine (Linux)
+            url: bastion-connect-vm-ssh-linux.md
+          - text: Connect to a virtual machine (Windows)
+            url: bastion-connect-vm-rdp-windows.md
+      - linkListType: learn
+        links:
+          - text: Connect to a VM using Azure Bastion
+            url: /training/modules/connect-vm-with-azure-bastion/
+      - linkListType: video
+        links:
+          - text: Working with Azure Bastion
+            url: https://go.microsoft.com/fwlink/?linkid=2095517
+  # Card
+  - title: Working with virtual machine sessions
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Connecting to VMs
+            url: vm-about.md#connect
+          - text: VM supported features
+            url: vm-about.md
+      - linkListType: how-to-guide
+        links:
+          - text: Copy and paste
+            url: bastion-vm-copy-paste.md
+          - text: Full screen view
+            url: bastion-vm-full-screen.md
+          - text: Upload or download files
+            url: vm-upload-download-native.md
+            
+ # Card
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure PowerShell
+            url: /powershell/module/az.network/
+          - text: Azure CLI
+            url: /cli/azure/network/bastion
+          - text: REST
+            url: /rest/api/virtualnetwork/bastion-hosts
+
+            

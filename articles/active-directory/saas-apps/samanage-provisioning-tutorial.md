@@ -1,173 +1,170 @@
 ---
-title: 'Tutorial: Configure Samanage for automatic user provisioning with Azure Active Directory | Microsoft Docs'
-description: Learn how to configure Azure Active Directory to automatically provision and deprovision user accounts to Samanage.
+title: 'Tutorial: Configure SolarWinds Service Desk (previously Samanage) for automatic user provisioning with Microsoft Entra ID'
+description: Learn how to automatically provision and de-provision user accounts from Microsoft Entra ID to SolarWinds Service Desk (previously Samanage).
 services: active-directory
-documentationcenter: ''
-author: zchia
-writer: zchia
-manager: beatrizd-msft
-
-ms.assetid: 62d0392f-37d4-436e-9aff-22f4e5b83623
+author: twimmers
+writer: twimmers
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/28/2019
-ms.author: v-wingf-msft
-ms.collection: M365-identity-device-management
+ms.topic: tutorial
+ms.date: 11/21/2022
+ms.author: thwimmer
 ---
 
-# Tutorial: Configure Samanage for automatic user provisioning
+# Tutorial: Configure SolarWinds Service Desk (previously Samanage) for automatic user provisioning
 
-This tutorial demonstrates the steps to perform in Samanage and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and deprovision users and groups to Samanage.
+This tutorial describes the steps you need to perform in both SolarWinds Service Desk (previously Samanage) and Microsoft Entra ID to configure automatic user provisioning. When configured, Microsoft Entra ID automatically provisions and de-provisions users and groups to [SolarWinds Service Desk](https://www.samanage.com/pricing/) using the Microsoft Entra provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Microsoft Entra ID](../app-provisioning/user-provisioning.md).
 
-> [!NOTE]
-> This tutorial describes a connector that's built on top of the Azure AD user provisioning service. For information on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to software-as-a-service (SaaS) applications with Azure Active Directory](../manage-apps/user-provisioning.md).
+## Migrate to the new SolarWinds Service Desk application
+
+If you have an existing integration with SolarWinds Service Desk, see the following section about upcoming changes. If you're setting up SolarWinds Service Desk for the first time, you can skip this section and move to **Capabilities supported**.
+
+#### What's changing?
+
+* Changes on the Microsoft Entra ID side: The authorization method to provision users in Samange has historically been **Basic auth**. Soon you will see the authorization method changed to **Long lived secret token**.
+
+
+#### What do I need to do to migrate my existing custom integration to the new application?
+
+If you have an existing SolarWinds Service Desk integration with valid admin credentials, **no action is required**. We automatically migrate customers to the new application. This process is done completely behind the scenes. If the existing credentials expire, or if you need to authorize access to the application again, you need to generate a long-lived secret token. To generate a new token, refer to Step 2 of this article.
+
+
+#### How can I tell if my application has been migrated? 
+
+When your application is migrated, in the **Admin Credentials** section, the **Admin Username** and **Admin Password** fields will be replaced with a single **Secret Token** field.
+
+## Capabilities supported
+
+> [!div class="checklist"]
+> * Create users in SolarWinds Service Desk
+> * Remove users in SolarWinds Service Desk when they do not require access anymore
+> * Keep user attributes synchronized between Microsoft Entra ID and SolarWinds Service Desk
+> * Provision groups and group memberships in SolarWinds Service Desk
+> * [Single sign-on](./samanage-tutorial.md) to SolarWinds Service Desk (recommended)
 
 ## Prerequisites
 
-The scenario outlined in this tutorial assumes that you have:
+The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
-* An Azure AD tenant.
-* A [Samanage tenant](https://www.samanage.com/pricing/) with the Professional package.
-* A user account in Samanage with admin permissions.
+* [A Microsoft Entra tenant](../develop/quickstart-create-new-tenant.md) 
+* A user account in Microsoft Entra ID with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
+* A [SolarWinds Service Desk tenant](https://www.samanage.com/pricing/) with the Professional package.
+* A user account in SolarWinds Service Desk with admin permissions.
 
-> [!NOTE]
-> The Azure AD provisioning integration relies on the [Samanage Rest API](https://www.samanage.com/api/). This API is available to Samanage developers for accounts with the Professional package.
+> [!Note]
+> Roles should not be manually edited in Microsoft Entra ID when doing role imports.
 
-## Add Samanage from the Azure Marketplace
+## Step 1: Plan your provisioning deployment
+1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
+2. Determine who will be in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+3. Determine what data to [map between Microsoft Entra ID and SolarWinds Service Desk](../app-provisioning/customize-application-attributes.md). 
 
-Before you configure Samanage for automatic user provisioning with Azure AD, add Samanage from the Azure Marketplace to your list of managed SaaS applications.
+<a name='step-2-configure-solarwinds-service-desk-to-support-provisioning-with-azure-ad'></a>
 
-To add Samanage from the Marketplace, follow these steps.
+## Step 2: Configure SolarWinds Service Desk to support provisioning with Microsoft Entra ID
 
-1. In the [Azure portal](https://portal.azure.com), in the navigation pane on the left, select **Azure Active Directory**.
+To generate a secret token for authentication, see [Tutorial tokens authentication for API integration](https://help.samanage.com/s/article/Tutorial-Tokens-Authentication-for-API-Integration-1536721557657).
 
-	![The Azure Active Directory icon](common/select-azuread.png)
+<a name='step-3-add-solarwinds-service-desk-from-the-azure-ad-application-gallery'></a>
 
-2. Go to **Enterprise applications**, and then select **All applications**.
+## Step 3: Add SolarWinds Service Desk from the Microsoft Entra application gallery
 
-	![The Enterprise applications blade](common/enterprise-applications.png)
+Add SolarWinds Service Desk from the Microsoft Entra application gallery to start managing provisioning to SolarWinds Service Desk. If you previously set up SolarWinds Service Desk for SSO, you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
 
-3. To add a new application, select **New application** at the top of the dialog box.
+## Step 4: Define who will be in scope for provisioning 
 
-	![The New application button](common/add-new-app.png)
+The Microsoft Entra provisioning service allows you to scope who will be provisioned based on assignment to the application and or based on attributes of the user / group. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. If you choose to scope who will be provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-4. In the search box, enter **Samanage** and select **Samanage** from the result panel. To add the application, select **Add**.
+* Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-	![Samanage in the results list](common/search-new-app.png)
+* If you need additional roles, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add new roles.
 
-## Assign users to Samanage
 
-Azure Active Directory uses a concept called *assignments* to determine which users should receive access to selected apps. In the context of automatic user provisioning, only the users or groups that were assigned to an application in Azure AD are synchronized.
+## Step 5: Configure automatic user provisioning to SolarWinds Service Desk 
 
-Before you configure and enable automatic user provisioning, decide which users or groups in Azure AD need access to Samanage. To assign these users or groups to Samanage, follow the instructions in [Assign a user or group to an enterprise app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal).
+This section guides you through the steps to configure the Microsoft Entra provisioning service to create, update, and disable users and/or groups in TestApp based on user and/or group assignments in Microsoft Entra ID.
 
-### Important tips for assigning users to Samanage
+<a name='to-configure-automatic-user-provisioning-for-solarwinds-service-desk-in-azure-ad'></a>
 
-*    Today, Samanage roles are automatically and dynamically populated in the Azure portal UI. Before you assign Samanage roles to users, make sure that an initial sync is completed against Samanage to retrieve the latest roles in your Samanage tenant.
+### To configure automatic user provisioning for SolarWinds Service Desk in Microsoft Entra ID:
 
-*    We recommend that you assign a single Azure AD user to Samanage to test your initial automatic user provisioning configuration. You can assign additional users and groups later after the tests are successful.
-
-*	 When you assign a user to Samanage, select any valid application-specific role, if available, in the assignment dialog box. Users with the **Default Access** role are excluded from provisioning.
-
-## Configure automatic user provisioning to Samanage
-
-This section guides you through the steps to configure the Azure AD provisioning service. Use it to create, update, and disable users or groups in Samanage based on user or group assignments in Azure AD.
-
-> [!TIP]
-> You also can enable SAML-based single sign-on for Samanage. Follow the instructions in the [Samanage single sign-on tutorial](samanage-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, although these two features complement each other.
-
-### Configure automatic user provisioning for Samanage in Azure AD
-
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications** > **All applications** > **Samanage**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **Samanage**.
-
-	![The Samanage link in the applications list](common/all-applications.png)
+1. In the applications list, select **SolarWinds Service Desk**.
 
 3. Select the **Provisioning** tab.
 
-	![Samanage Provisioning](./media/samanage-provisioning-tutorial/ProvisioningTab.png)
+	![Screenshot that shows the Provisioning tab selected.](common/provisioning.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Samanage Provisioning Mode](./media/samanage-provisioning-tutorial/ProvisioningCredentials.png)
+	![Screenshot that shows Provisioning Mode set to Automatic.](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, enter the admin username and admin password of your Samanage account. Examples of these values are:
+5. Under the **Admin Credentials** section, input `https://api.samanage.com` in **Tenant URL**.  Input the secret token value retrieved earlier in **Secret Token**. Select **Test Connection** to ensure Microsoft Entra ID can connect to SolarWinds Service Desk. If the connection fails, ensure your SolarWinds Service Desk account has Admin permissions and try again.
 
-   * In the **Admin Username** box, fill in the username of the admin account on your Samanage tenant. An example is admin@contoso.com.
+	![Screenshot that shows the Test Connection button selected.](./media/samanage-provisioning-tutorial/provisioning.png)
 
-   * In the **Admin Password** box, fill in the password of the admin account that corresponds to the admin username.
+6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 
-6. After you fill in the boxes shown in Step 5, select **Test Connection** to make sure that Azure AD can connect to Samanage. If the connection fails, make sure that your Samanage account has admin permissions and try again.
+	![Notification Email](common/provisioning-notification-email.png)
 
-	![Samanage Test Connection](./media/samanage-provisioning-tutorial/TestConnection.png)
+7. Select **Save**.
 
-7. In the **Notification Email** box, enter the email address of the person or group to receive the provisioning error notifications. Select the **Send an email notification when a failure occurs** check box.
+8. Under the **Mappings** section, select **Synchronize Microsoft Entra users to SolarWinds Service Desk**.
 
-	![Samanage Notification Email](./media/samanage-provisioning-tutorial/EmailNotification.png)
+9. Review the user attributes that are synchronized from Microsoft Entra ID to SolarWinds Service Desk in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in SolarWinds Service Desk for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you will need to ensure that the SolarWinds Service Desk API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
 
-8. Select **Save**.
+      ![Samange User mappings](./media/samanage-provisioning-tutorial/user-attributes.png)
 
-9. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Samanage**.
+10. Under the **Mappings** section, select **Synchronize Microsoft Entra groups to SolarWinds Service Desk**.
 
-	![Samanage user synchronization](./media/samanage-provisioning-tutorial/UserMappings.png)
+11. Review the group attributes that are synchronized from Microsoft Entra ID to SolarWinds Service Desk in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in SolarWinds Service Desk for update operations. Select the **Save** button to commit any changes.
 
-10. Review the user attributes that are synchronized from Azure AD to Samanage in the **Attribute Mappings** section. The attributes selected as **Matching** properties are used to match the user accounts in Samanage for update operations. To save any changes, select **Save**.
+      ![Samange Group mappings](./media/samanage-provisioning-tutorial/group-attributes.png)
 
-	![Samanage matching user attributes](./media/samanage-provisioning-tutorial/UserAttributeMapping.png)
+12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. To enable group mappings, under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Samanage**.
+13. To enable the Microsoft Entra provisioning service for SolarWinds Service Desk, change the **Provisioning Status** to **On** in the **Settings** section.
 
-	![Samanage group synchronization](./media/samanage-provisioning-tutorial/GroupMappings.png)
+	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
-12. Set **Enabled** to **Yes** to synchronize groups. Review the group attributes that are synchronized from Azure AD to Samanage in the **Attribute Mappings** section. The attributes selected as **Matching** properties are used to match the user accounts in Samanage for update operations. To save any changes, select **Save**.
+14. Define the users and/or groups that you would like to provision to SolarWinds Service Desk by choosing the desired values in **Scope** in the **Settings** section.
 
-	![Samanage matching group attributes](./media/samanage-provisioning-tutorial/GroupAttributeMapping.png)
+	![Provisioning Scope](common/provisioning-scope.png)
 
-13. To configure scoping filters, follow the instructions in the [scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+15. When you are ready to provision, select **Save**.
 
-14. To enable the Azure AD provisioning service for Samanage, in the **Settings** section, change **Provisioning Status** to **On**.
+	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 
-	![Samanage Provisioning Status](./media/samanage-provisioning-tutorial/ProvisioningStatus.png)
+This operation starts the initial synchronization cycle of all users and groups defined in **Scope** in the **Settings** section. The initial cycle takes longer to perform than subsequent cycles, which occur approximately every 40 minutes as long as the Microsoft Entra provisioning service is running. 
 
-15. Define the users or groups that you want to provision to Samanage. In the **Settings** section, select the values you want in **Scope**. When you select the **Sync all users and groups** option, consider the limitations as described in the following section "Connector limitations."
+## Step 6: Monitor your deployment
+Once you've configured provisioning, use the following resources to monitor your deployment:
 
-	![Samanage Scope](./media/samanage-provisioning-tutorial/ScopeSync.png)
-
-16. When you're ready to provision, select **Save**.
-
-	![Samanage Save](./media/samanage-provisioning-tutorial/SaveProvisioning.png)
-
-
-This operation starts the initial synchronization of all users or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than later syncs. They occur approximately every 40 minutes as long as the Azure AD provisioning service runs. 
-
-You can use the **Synchronization Details** section to monitor progress and follow links to the provisioning activity report. The report describes all the actions performed by the Azure AD provisioning service on Samanage.
-
-For information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
+1. Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
+2. Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion
+3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).
 
 ## Connector limitations
 
-If you select the **Sync all users and groups** option and configure a value for the Samanage **roles** attribute, the value under the **Default value if null (is optional)** box must be expressed in the following format:
+If you select the **Sync all users and groups** option and configure a value for the SolarWinds Service Desk **roles** attribute, the value under the **Default value if null (is optional)** box must be expressed in the following format:
 
 - {"displayName":"role"}, where role is the default value you want.
 
+## Change log
+
+* 09/14/2020 - Changed the company name in two SaaS tutorials from Samanage to SolarWinds Service Desk (previously Samanage) per `https://github.com/ravitmorales`.
+* 04/22/2020 - Updated authorization method from basic auth to long lived secret token.
+
 ## Additional resources
 
-* [Manage user account provisioning for enterprise apps](../manage-apps/configure-automatic-user-provisioning-portal.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
+* [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 
 ## Next steps
 
-* [Learn how to review logs and get reports on provisioning activity](../manage-apps/check-status-user-account-provisioning.md)
-
-<!--Image references-->
-[1]: ./media/samanage-provisioning-tutorial/tutorial_general_01.png
-[2]: ./media/samanage-provisioning-tutorial/tutorial_general_02.png
-[3]: ./media/samanage-provisioning-tutorial/tutorial_general_03.png
+* [Learn how to review logs and get reports on provisioning activity](../app-provisioning/check-status-user-account-provisioning.md)

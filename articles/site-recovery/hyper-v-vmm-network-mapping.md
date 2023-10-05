@@ -1,13 +1,11 @@
 ---
-title: About network mapping for Hyper-V VM (with VMM) disaster recovery to Azure with Site Recovery | Microsoft Docs
+title: About Hyper-V (with VMM) network mapping with Site Recovery 
 description: Describes how to set up network mapping for disaster recovery of Hyper-V VMs (managed in VMM clouds) to Azure, with Azure Site Recovery.
-services: site-recovery
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 05/30/2019
-ms.author: raynew
+ms.topic: conceptual
+ms.date: 11/14/2019
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 
 

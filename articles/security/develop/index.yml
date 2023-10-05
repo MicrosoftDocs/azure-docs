@@ -1,0 +1,54 @@
+### YamlMime:Landing
+
+title: Secure development documentation
+summary: Learn how to develop and deploy secure applications on Azure with our sample apps, best practices, and guidance.
+
+metadata:
+  title: Secure development documentation on Microsoft Azure
+  description: Learn how to develop secure applications on Azure by using sample apps, best practices, and guidance.
+  services: security
+  ms.service: app-service
+  ms.topic: landing-page
+  author: TerryLanfear
+  ms.author: terrylan
+  manager: rkarlin
+  ms.date: 10/24/2019
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Secure development best practices
+            url: secure-dev-overview.md
+          - text: Design phase
+            url: secure-design.md
+          - text: Development phase
+            url: secure-develop.md
+          - text: Deployment phase
+            url: secure-deploy.md
+
+  # Card
+  - title: Add analysis tools to your secure development
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Security code analysis
+            url: security-code-analysis-overview.md
+          - text: Threat modeling
+            url: threat-modeling-tool.md
+
+  # Card
+  - title: Build your skills
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Top 5 security items
+            url: /training/modules/top-5-security-items-to-consider
+          - text: Secure your cloud applications in Azure
+            url: /training/paths/secure-your-cloud-apps

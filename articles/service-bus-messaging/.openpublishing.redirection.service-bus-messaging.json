@@ -1,0 +1,209 @@
+{
+  "redirections": [
+  {
+    "source_path": "migrate-java-apps-wild-fly.md",
+    "redirect_url": "/azure/app-service/configure-language-java#use-service-bus-as-a-message-broker",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "policy-samples.md",
+    "redirect_url": "/azure/service-bus-messaging/policy-reference",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "service-bus-messaging-exceptions.md",
+    "redirect_url": "https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/TROUBLESHOOTING.md",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "service-bus-amqp-apache.md",
+    "redirect_url": "/azure/service-bus-messaging/service-bus-amqp-overview",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "service-bus-amqp-java.md",
+    "redirect_url": "/azure/service-bus-messaging/service-bus-java-how-to-use-jms-api-amqp",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "service-bus-amqp-php.md",
+    "redirect_url": "/azure/service-bus-messaging/service-bus-php-how-to-use-queues",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "service-bus-amqp-python.md",
+    "redirect_url": "/azure/service-bus-messaging/service-bus-python-how-to-use-queues",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "service-bus-architecture.md",
+    "redirect_url": "/azure/service-bus-messaging/service-bus-messaging-overview",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "service-bus-automation-manage.md",
+    "redirect_url": "/azure/service-bus-messaging/service-bus-management-libraries",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "service-bus-brokered-tutorial-dotnet.md",
+    "redirect_url": "/azure/service-bus-messaging/service-bus-dotnet-get-started-with-queues",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "service-bus-brokered-tutorial-rest.md",
+    "redirect_url": "/azure/service-bus-messaging/service-bus-dotnet-get-started-with-queues",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "service-bus-create-namespace-portal.md",
+    "redirect_url": "/azure/service-bus-messaging/service-bus-quickstart-portal#create-a-namespace-in-the-azure-portal",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "service-bus-create-queues.md",
+    "redirect_url": "/azure/service-bus-messaging/service-bus-dotnet-get-started-with-queues",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "service-bus-create-topics-subscriptions.md",
+    "redirect_url": "/azure/service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "service-bus-diagnostic-logs.md",
+    "redirect_url": "/azure/service-bus-messaging/monitor-service-bus-reference#resource-logs",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "service-bus-dotnet-advanced-message-queuing.md",
+    "redirect_url": "/azure/service-bus-messaging/service-bus-amqp-dotnet",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "service-bus-dotnet-get-started-with-queues-legacy.md",
+    "redirect_url": "/azure/service-bus-messaging/service-bus-dotnet-get-started-with-queues",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "service-bus-dotnet-how-to-use-topics-subscriptions-legacy.md",
+    "redirect_url": "/azure/service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "service-bus-event-hubs-manage-with-ps.md",
+    "redirect_url": "/azure/service-bus-messaging/service-bus-manage-with-ps",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "service-bus-fundamentals-hybrid-solutions.md",
+    "redirect_url": "/azure/service-bus-messaging/service-bus-messaging-overview",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "service-bus-java-amqp-overview.md",
+    "redirect_url": "/azure/service-bus-messaging/service-bus-java-how-to-use-jms-api-amqp",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "service-bus-java-how-to-use-amqp.md",
+    "redirect_url": "/azure/service-bus-messaging/service-bus-amqp-java",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "service-bus-java-how-to-use-queues-legacy.md",
+    "redirect_url": "/azure/service-bus-messaging/service-bus-java-how-to-use-queues",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "service-bus-java-how-to-use-topics-subscriptions-legacy.md",
+    "redirect_url": "/azure/service-bus-messaging/service-bus-java-how-to-use-topics-subscriptions",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "service-bus-messaging-security-attributes.md",
+    "redirect_url": "/azure/service-bus-messaging/security-baseline",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "service-bus-messaging-security-controls.md",
+    "redirect_url": "/azure/service-bus-messaging/security-baseline",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "service-bus-metrics-azure-monitor.md",
+    "redirect_url": "/azure/service-bus-messaging/monitor-service-bus-reference",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "service-bus-migrate-acs-sas.md",
+    "redirect_url": "/azure/service-bus-messaging/service-bus-sas",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "service-bus-nodejs-how-to-use-queues-new-package.md",
+    "redirect_url": "/azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md",
+    "redirect_url": "/azure/service-bus-messaging/service-bus-nodejs-how-to-use-topics-subscriptions",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "service-bus-paired-namespaces.md",
+    "redirect_url": "/azure/service-bus-messaging/service-bus-outages-disasters",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "service-bus-partitioned-queues-and-topics-amqp-overview.md",
+    "redirect_url": "/azure/service-bus-messaging/service-bus-amqp-protocol-guide",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "service-bus-powershell-how-to-provision.md",
+    "redirect_url": "/azure/service-bus-messaging/service-bus-manage-with-ps",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "service-bus-pricing-billing.md",
+    "redirect_url": "https://azure.microsoft.com/pricing/details/service-bus/",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "service-bus-role-based-access-control.md",
+    "redirect_url": "/azure/service-bus-messaging/service-bus-managed-service-identity",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "service-bus-ruby-how-to-use-queues.md",
+    "redirect_url": "https://github.com/Azure/azure-sdk-for-ruby",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "service-bus-ruby-how-to-use-topics-subscriptions.md",
+    "redirect_url": "https://github.com/Azure/azure-sdk-for-ruby",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "service-bus-sas-overview.md",
+    "redirect_url": "/azure/service-bus-messaging/service-bus-sas",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "service-bus-shared-access-signature-authentication.md",
+    "redirect_url": "/azure/service-bus-messaging/service-bus-sas",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "service-bus-tutorial-topics-subscriptions-powershell.md",
+    "redirect_url": "/azure/service-bus-messaging/service-bus-quickstart-powershell",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "enable-partitions.md",
+    "redirect_url": "/azure/service-bus-messaging/enable-partitions-basic-standard",
+    "redirect_document_id": false
+  }
+]
+}

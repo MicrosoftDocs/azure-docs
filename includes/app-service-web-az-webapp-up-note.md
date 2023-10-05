@@ -5,7 +5,7 @@ services: app-service
 author: msangapu
 ms.service: app-service
 ms.topic: "include"
-ms.date: 02/27/2019
+ms.date: 09/14/2021
 ms.author: msangapu
 ms.custom: "include file"
 ---
@@ -13,11 +13,13 @@ ms.custom: "include file"
 > [!NOTE]
 > The `az webapp up` command does the following actions:
 >
->- Create a default [resource group](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create).
+>- Create a default [resource group](/cli/azure/group#az-group-create).
 >
->- Create a default [app service plan](https://docs.microsoft.com/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create).
+>- Create a default [App Service plan](/cli/azure/appservice/plan#az-appservice-plan-create).
 >
->- [Create an app](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) with the specified name.
+>- [Create an app](/cli/azure/webapp#az-webapp-create) with the specified name.
 >
->- [Zip deploy](https://docs.microsoft.com/azure/app-service/deploy-zip) files from the current working directory to the app.
+>- [Zip deploy](../articles/app-service/deploy-zip.md#deploy-a-zip-package) all files from the current working directory, [with build automation enabled](../articles/app-service/deploy-zip.md#enable-build-automation-for-zip-deploy).
+>
+>- Cache the parameters locally in the *.azure/config* file so that you don't need to specify them again when deploying later with `az webapp up` or other `az webapp` commands from the project folder. The cached values are used automatically by default.
 >

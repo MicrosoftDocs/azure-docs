@@ -1,34 +1,154 @@
-﻿---
-title: Azure Government ITAR Overview | Microsoft  Docs
-description: This provides a comparision of features and guidance on developing applications for Azure Government
-services: azure-government
-cloud: gov
-documentationcenter: ''
-author: kydeeds
-manager: zakramer
-
-ms.assetid: e8c2c89e-d397-46f2-9b86-fd22049ffabf
-ms.service: azure-government
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: azure-government
-ms.date: 11/14/2016
-ms.author: kydeeds
-
 ---
-# ITAR Overview for Azure Government
-## Overview
-This information is intended for Azure Government customers with obligations under the International Traffic in Arms Regulations (ITAR) who intend to use Azure Government services to store, process, or transmit regulated information. The information provided describes the capabilities of Microsoft Azure Government services, and provides general guidance applicable to ITAR customers. Before including ITAR-controlled data in your Azure Government subscription, you should familiarize yourself with the Azure Government capabilities and consult your account team if you have any questions.
+title: Azure support for export controls
+description: Customer guidance for Azure export control support
+ms.service: azure-government
+ms.topic: article
+author: stevevi
+ms.author: stevevi
+ms.custom: references_regions
+recommendations: false
+ms.date: 05/31/2023
+---
 
-You should refer to the <a href="https://www.microsoft.com/en-us/TrustCenter/Compliance/default.aspx/"> Microsoft Azure Trust Center Compliance Page </a> for current information on the Azure Government services covered under ITAR. Additional Microsoft services might also be available, but are not within the scope of the Azure Government covered services. Azure Government services might also permit you to use a variety of additional resources, applications, or services that are provided by third parties—or by Microsoft under separate terms of use and privacy policies. You are responsible for reviewing the terms of all such “add-on” offerings, such as Marketplace offerings, to ensure that they meet your needs regarding ITAR compliance.
+# Azure support for export controls
 
-<a href="https://azure.microsoft.com/features/gov/"> Azure Government </a> is available to entities that handle data that is subject to certain government regulations and requirements, such as ITAR, where use of Azure Government is required to comply with regulations. Azure Government customers are subject to validation of eligibility. Validation of eligibility by Microsoft will include confirmation that you are a manufacturer, exporter, or broker of defense articles under the ITAR—as shown by your registration with the US Department of State—or through a sponsorship agreement with a government entity that has specific requirements for the handling of data.
+To help you navigate export control rules, Microsoft has published the [Microsoft Azure Export Controls](https://aka.ms/Azure-Export-Paper) whitepaper. It describes US export controls particularly as they apply to software and technical data, reviews potential sources of export control risks, and offers specific guidance to help you assess your obligations under these controls. Extra information is available from the Cloud Export FAQ, which is accessible from Frequently Asked Questions on [Exporting Microsoft products](https://www.microsoft.com/exporting).
 
-Entities with questions about eligibility for Azure Government should consult their account team.
+> [!NOTE]
+> **Disclaimer:** You're wholly responsible for ensuring your own compliance with all applicable laws and regulations. Information provided in this article doesn't constitute legal advice, and you should consult your legal advisor for any questions regarding regulatory compliance.
+
+## Overview of export control laws
+
+Export related definitions vary somewhat among various export control regulations. In simplified terms, an export often implies a transfer of restricted information, materials, equipment, software, and so on, to a foreign person or foreign destination by any means. US export control policy is enforced through export control laws and regulations administered primarily by the Department of Commerce, Department of State, Department of Energy, Nuclear Regulatory Commission, and Department of Treasury. Respective agencies within each department are responsible for specific areas of export control based on their historical administration, as shown in Table 1.
+
+**Table 1.**  US export control laws and regulations
+
+|Regulator|Law/Regulation|Reference|
+|------|------|------|
+|**Department of Commerce: </br> Bureau of Industry and Security (BIS)**|- Export Administration Act (EAA) of 1979 </br>- Export Administration Regulations (EAR)|- [P.L. 96-72](https://www.govinfo.gov/content/pkg/STATUTE-93/pdf/STATUTE-93-Pg503.pdf#page=1) </br>- [15 CFR Parts 730 – 774](https://www.ecfr.gov/current/title-15/subtitle-B/chapter-VII/subchapter-C)|
+|**Department of State: </br> Directorate of Defense Trade Controls (DDTC)**|- Arms Export Control Act (AECA) </br>- International Traffic in Arms Regulations (ITAR)|- [22 U.S.C. 39](https://uscode.house.gov/view.xhtml?path=/prelim@title22/chapter39&edition=prelim) </br>- [22 CFR Parts 120 – 130](https://www.ecfr.gov/current/title-22/chapter-I/subchapter-M)|
+|**Department of Energy: </br> National Nuclear Security Administration (NNSA)**|- Atomic Energy Act of 1954 (AEA) </br>- Assistance to Foreign Atomic Energy Activities|- [42 U.S.C. 2011 et. seq.](https://www.govinfo.gov/content/pkg/USCODE-2010-title42/html/USCODE-2010-title42-chap23-divsnA.htm) </br>- [10 CFR Part 810](https://www.ecfr.gov/current/title-10/chapter-III/part-810?toc=1)|
+|**Nuclear Regulatory Commission (NRC)**|- Nuclear Non-Proliferation Act of 1978 </br>- Export and Import of Nuclear Equipment and Materials|- [P.L. 95-242](https://www.govinfo.gov/content/pkg/STATUTE-92/pdf/STATUTE-92-Pg120.pdf) </br>- [10 CFR Part 110](https://www.ecfr.gov/current/title-10/chapter-I/part-110?toc=1)|
+|**Department of Treasury: </br> Office of Foreign Assets Control (OFAC)**|- Trading with the Enemy Act (TWEA) </br>- Foreign Assets Control Regulations|- [50 U.S.C. Sections 5 and 16](https://www.govinfo.gov/content/pkg/USCODE-2009-title50/pdf/USCODE-2009-title50-app-tradingwi.pdf) </br>- [31 CFR Part 500](https://www.ecfr.gov/current/title-31/subtitle-B/chapter-V)|
+
+This article contains a review of the current US export control regulations, considerations for cloud computing, and Azure features and commitments in support of export control requirements.
+
+## EAR
+
+The US Department of Commerce is responsible for enforcing the [Export Administration Regulations](https://www.bis.doc.gov/index.php/regulations/export-administration-regulations-ear) (EAR) through the [Bureau of Industry and Security](https://www.bis.doc.gov/) (BIS). According to BIS [definitions](https://www.bis.doc.gov/index.php/documents/regulation-docs/412-part-734-scope-of-the-export-administration-regulations/file), export is the transfer of protected technology or information to a foreign destination or release of protected technology or information to a foreign person in the United States, also known as deemed export. Items subject to the EAR can be found on the [Commerce Control List](https://www.bis.doc.gov/index.php/regulations/commerce-control-list-ccl) (CCL), and each item has a unique [Export Control Classification Number](https://www.bis.doc.gov/index.php/licensing/commerce-control-list-classification/export-control-classification-number-eccn) (ECCN) assigned. Items not listed on the CCL are designated as EAR99, and most EAR99 commercial products don't require a license to be exported. However, depending on the destination, end user, or end use of the item, even an EAR99 item may require a BIS export license.
+
+The EAR is applicable to dual-use items that have both commercial and military applications and to items with purely commercial application. The BIS has provided guidance that cloud service providers (CSP) aren't exporters of customers’ data due to the customers’ use of cloud services. Moreover, in the [final rule](https://www.federalregister.gov/documents/2016/06/03/2016-12734/revisions-to-definitions-in-the-export-administration-regulations) published on 3 June 2016, BIS clarified that EAR licensing requirements wouldn't apply if the transmission and storage of unclassified technical data and software were encrypted end-to-end using Federal Information Processing Standard (FIPS) 140 validated cryptographic modules and not intentionally stored in a military-embargoed country/region, that is, Country/Region Group D:5 as described in [Supplement No. 1 to Part 740](https://www.ecfr.gov/current/title-15/subtitle-B/chapter-VII/subchapter-C/part-740?toc=1) of the EAR, or in the Russian Federation. The US Department of Commerce has made it clear that, when data or software is uploaded to the cloud, the customer, not the cloud provider, is the *exporter* who has the responsibility to ensure that transfers, storage, and access to that data or software complies with the EAR.
+
+Both Azure and Azure Government can help you meet your EAR compliance requirements. Except for the Azure region in Hong Kong SAR, Azure and Azure Government datacenters aren't located in proscribed countries/regions or in the Russian Federation.
+
+Azure services rely on [FIPS 140](/azure/compliance/offerings/offering-fips-140-2) validated cryptographic modules in the underlying operating system, and provide you with [many options for encrypting data](../security/fundamentals/encryption-overview.md) in transit and at rest, including encryption key management using [Azure Key Vault](../key-vault/general/overview.md). The Key Vault service can store encryption keys in FIPS 140 validated hardware security modules (HSMs) under your control, also known as [customer-managed keys (CMK)](../security/fundamentals/encryption-models.md). Keys generated inside the Azure Key Vault HSMs aren't exportable – there can be no clear-text version of the key outside the HSMs. This binding is enforced by the underlying HSM. **Azure Key Vault is designed, deployed, and operated such that Microsoft and its agents don't see or extract your cryptographic keys.** For extra assurances, see [How does Azure Key Vault protect your keys?](../key-vault/managed-hsm/mhsm-control-data.md#how-does-azure-key-vault-managed-hsm-protect-your-keys)
+
+You're responsible for choosing Azure or Azure Government regions for deploying your applications and data. Moreover, you're responsible for designing your applications to apply end-to-end data encryption that meets EAR requirements. Microsoft doesn't inspect, approve, or monitor your applications deployed on Azure or Azure Government.
+
+Azure Government provides an extra layer of protection through contractual commitments regarding storage of your customer data in the United States and limiting potential access to systems processing your data to [screened US persons](./documentation-government-plan-security.md#screening). For more information about Azure support for EAR, see [Azure EAR compliance offering](/azure/compliance/offerings/offering-ear).
+
+## ITAR
+
+The US Department of State has export control authority over defense articles, services, and related technologies under the [International Traffic in Arms Regulations](https://www.ecfr.gov/current/title-22/chapter-I/subchapter-M) (ITAR) managed by the [Directorate of Defense Trade Controls](https://www.pmddtc.state.gov/ddtc_public?id=ddtc_public_portal_itar_landing) (DDTC). Items under ITAR protection are documented on the [United States Munitions List](https://www.ecfr.gov/current/title-22/part-121) (USML). If you're a manufacturer, exporter, and broker of defense articles, services, and related technologies as defined on the USML, you must be registered with DDTC, must understand and abide by ITAR, and must self-certify that you operate in accordance with ITAR.
+
+DDTC [revised the ITAR rules](https://www.federalregister.gov/documents/2019/12/26/2019-27438/international-traffic-in-arms-regulations-creation-of-definition-of-activities-that-are-not-exports) effective 25 March 2020 to align them more closely with the EAR. These ITAR revisions introduced an end-to-end data encryption carve-out that incorporated many of the same terms that the US Department of Commerce adopted in 2016 for the EAR. Specifically, the revised ITAR rules state that activities that don't constitute exports, re-exports, re-transfers, or temporary imports include (among other activities) the sending, taking, or storing of technical data that is 1) unclassified, 2) secured using end-to-end encryption, 3) secured using FIPS 140 compliant cryptographic modules as prescribed in the regulations, 4) not intentionally sent to a person in or stored in a [country/region proscribed in § 126.1](https://www.ecfr.gov/current/title-22/chapter-I/subchapter-M/part-126?toc=1) or the Russian Federation, and 5) not sent from a country/region proscribed in § 126.1 or the Russian Federation. Moreover, DDTC clarified that data in-transit via the Internet isn't deemed to be stored. End-to-end encryption implies the data is always kept encrypted between the originator and intended recipient, and the means of decryption isn't provided to any third party.
+
+There's no ITAR compliance certification; however, both Azure and Azure Government can help you meet your ITAR compliance obligations. Except for the Azure region in Hong Kong SAR, Azure and Azure Government datacenters aren't located in proscribed countries/regions or in the Russian Federation. Azure services rely on [FIPS 140](/azure/compliance/offerings/offering-fips-140-2) validated cryptographic modules in the underlying operating system, and provide you with [many options for encrypting data](../security/fundamentals/encryption-overview.md) in transit and at rest, including encryption key management using [Azure Key Vault](../key-vault/general/overview.md). The Key Vault service can store encryption keys in FIPS 140 validated hardware security modules (HSMs) under your control, also known as [customer-managed keys (CMK)](../security/fundamentals/encryption-models.md). Keys generated inside the Azure Key Vault HSMs aren't exportable – there can be no clear-text version of the key outside the HSMs. This binding is enforced by the underlying HSM. **Azure Key Vault is designed, deployed, and operated such that Microsoft and its agents don't see or extract your cryptographic keys.** For extra assurances, see [How does Azure Key Vault protect your keys?](../key-vault/managed-hsm/mhsm-control-data.md#how-does-azure-key-vault-managed-hsm-protect-your-keys)
+
+You're responsible for choosing Azure or Azure Government regions for deploying your applications and data. Moreover, you're responsible for designing your applications to apply end-to-end data encryption that meets ITAR requirements. Microsoft doesn't inspect, approve, or monitor your applications deployed on Azure or Azure Government.
+
+Azure Government provides an extra layer of protection through contractual commitments regarding storage of your customer data in the United States and limiting potential access to systems processing your data to [screened US persons](./documentation-government-plan-security.md#screening). For more information about Azure support for ITAR, see [Azure ITAR compliance offering](/azure/compliance/offerings/offering-itar).
+
+## DoE 10 CFR Part 810
+
+The US Department of Energy (DoE) export control regulation [10 CFR Part 810](https://www.ecfr.gov/current/title-10/chapter-III/part-810?toc=1) implements section 57b.(2) of the [Atomic Energy Act of 1954](https://www.nrc.gov/docs/ML1327/ML13274A489.pdf) (AEA), as amended by section 302 of the [Nuclear Nonproliferation Act of 1978](http://www.nrc.gov/docs/ML1327/ML13274A492.pdf#page=19) (NNPA). It's administered by the [National Nuclear Security Administration](https://www.energy.gov/nnsa/10-cfr-part-810) (NNSA). The revised Part 810 (final rule) became effective on 25 March 2015, and, among other things, it controls the export of unclassified nuclear technology and assistance. It enables peaceful nuclear trade by helping to assure that nuclear technologies exported from the United States will be used only for peaceful purposes. Paragraph 810.7 (b) states that specific DoE authorization is required for providing or transferring sensitive nuclear technology to any foreign entity.  
+
+**Azure Government can help you meet your DoE 10 CFR Part 810 export control requirements** because it's designed to implement specific controls that restrict access to information and systems to [US persons](./documentation-government-plan-security.md#screening) among Azure operations personnel. If you're deploying data to Azure Government, you're responsible for your own security classification process. For data subject to DoE export controls, the classification system is augmented by the [Unclassified Controlled Nuclear Information](https://www.energy.gov/sites/prod/files/hss/Classification/docs/UCNI-Tri-fold.pdf) (UCNI) controls established by Section 148 of the AEA. For more information about Azure support for DoE 10 CFR Part 810, see [Azure DoE 10 CFR Part 810 compliance offering](/azure/compliance/offerings/offering-doe-10-cfr-part-810).
+
+## NRC 10 CFR Part 110
+
+The [Nuclear Regulatory Commission](https://www.nrc.gov/) (NRC) is responsible for the [Export and import of nuclear equipment and materials](https://www.nrc.gov/about-nrc/ip/export-import.html) under the [10 CFR Part 110](https://www.ecfr.gov/current/title-10/chapter-I/part-110?toc=1) export control regulations. The NRC regulates the export and import of nuclear facilities and related equipment and materials. The NRC doesn't regulate nuclear technology and assistance related to these items, which are under the DoE jurisdiction. Therefore, the **NRC 10 CFR Part 110 regulations wouldn't be applicable** to Azure or Azure Government.
+
+## OFAC Sanctions Laws
+
+The [Office of Foreign Assets Control](https://home.treasury.gov/policy-issues/office-of-foreign-assets-control-sanctions-programs-and-information) (OFAC) is responsible for administering and enforcing economic and trade sanctions based on US foreign policy and national security goals against targeted foreign countries/regions, terrorists, international narcotics traffickers, and those entities engaged in activities related to the proliferation of weapons of mass destruction.
+
+The OFAC defines prohibited transactions as trade or financial transactions and other dealings in which US persons may not engage unless authorized by OFAC or expressly exempt by statute. For web-based interactions, see [FAQ No. 73](https://home.treasury.gov/policy-issues/financial-sanctions/faqs/73) for general guidance released by OFAC, which specifies, for example, that &#8220;Firms that facilitate or engage in e-commerce should do their best to know their customers directly.&#8221;
+
+As stated in the Microsoft Online Services Terms [Data Protection Addendum](https://aka.ms/dpa) (DPA), &#8220;Microsoft doesn't control or limit the regions from which customer or customer’s end users may access or move customer data.&#8221; For Microsoft online services, Microsoft conducts due diligence to prevent transactions with entities from OFAC embargoed countries/regions. For example, a sanctions target isn't allowed to provision Azure services. OFAC hasn't issued guidance, like the guidance provided by BIS for the EAR that draws a distinction between cloud service providers and customers when it comes to deemed export. Therefore, it would be **your responsibility to exclude sanctions targets from online transactions** involving your applications, including web sites, deployed on Azure. Microsoft doesn't block network traffic to your web sites deployed on Azure. Even though OFAC mentions that customers can restrict access based in IP table ranges, they also acknowledge that this approach doesn't fully address an internet’s firm compliance risks. Therefore, OFAC recommends that e-commerce firms should know their customers directly. Microsoft isn't responsible for and doesn't have the means to know directly the end users that interact with your applications deployed on Azure.
+
+OFAC sanctions are in place to prevent &#8220;conducting business with a sanctions target&#8221;, that is, preventing transactions involving trade, payments, financial instruments, and so on. OFAC sanctions aren't intended to prevent a resident of a proscribed country/region from viewing a public web site.
+
+## Managing export control requirements
+
+You should assess carefully how your use of Azure may implicate US export controls, and determine whether any of the data you want to store or process in the cloud may be subject to export controls. Microsoft provides you with contractual commitments, operational processes, and technical features to help you meet your export control obligations when using Azure. The following Azure features are available to help you manage potential export control risks:
+
+- **Ability to control data location** – You have visibility as to where your [data is stored](https://azure.microsoft.com/global-infrastructure/data-residency/), and robust tools to restrict data storage to a single geography or country/region. For example, you may therefore ensure that data is stored in the United States or your country/region of choice and minimize transfer of controlled technology/technical data outside the target country/region. Your data isn't *intentionally stored* in a non-conforming location, consistent with the EAR and ITAR rules.
+- **End-to-end encryption** – Implies the data is always kept encrypted between the originator and intended recipient, and the means of decryption isn't provided to any third party. Azure relies on [FIPS 140](/azure/compliance/offerings/offering-fips-140-2) validated cryptographic modules in the underlying operating system, and provides you with [many options for encrypting data](../security/fundamentals/encryption-overview.md) in transit and at rest, including encryption key management using [Azure Key Vault](../key-vault/general/overview.md). The Key Vault service can store encryption keys in FIPS 140 validated hardware security modules (HSMs) under your control, also known as [customer-managed keys (CMK)](../security/fundamentals/encryption-models.md). Azure Key Vault is designed, deployed, and operated such that Microsoft and its agents [don't see or extract your cryptographic keys](../key-vault/managed-hsm/mhsm-control-data.md#how-does-azure-key-vault-managed-hsm-protect-your-keys).
+- **Control over access to data** – You can know and control who can access your data and on what terms. Microsoft technical support personnel don't need and don't have default access to your data. For those rare instances where resolving your support requests requires elevated access to your data, [Customer Lockbox for Azure](../security/fundamentals/customer-lockbox-overview.md) puts you in charge of approving or denying data access requests.
+- **Tools and protocols to prevent unauthorized deemed export/re-export** – Apart from the EAR and ITAR *end-to-end encryption* safe harbor for physical storage locations, the use of encryption also helps protect against a potential deemed export, or deemed re-export, because even if a non-US person has access to the encrypted data, nothing is revealed to non-US person who can't read or understand the data while it's encrypted and thus there's no release of any controlled data. However, ITAR requires some authorization before granting foreign persons with access information that would enable them to decrypt ITAR technical data. Azure offers a wide range of encryption capabilities and solutions, flexibility to choose among encryption options, and robust tools for managing encryption.
+
+## Location of customer data
+
+Microsoft provides [strong customer commitments](https://www.microsoft.com/trust-center/privacy/data-location) regarding [cloud services data residency and transfer policies](https://azure.microsoft.com/global-infrastructure/data-residency/). Most Azure services are deployed regionally and enable you to specify the region into which the service will be deployed, for example, United States. This commitment helps ensure that [customer data](https://www.microsoft.com/trust-center/privacy/customer-data-definitions) stored in a US region will remain in the United States and won't be moved to another region outside the United States.
+
+## Data encryption
+
+Azure has extensive support to safeguard your data using [data encryption](../security/fundamentals/encryption-overview.md), including various encryption models:
+
+- Server-side encryption that uses service-managed keys, customer-managed keys (CMK) in Azure, or CMK in customer-controlled hardware.
+- Client-side encryption that enables you to manage and store keys on-premises or in another secure location.
+
+Data encryption provides isolation assurances that are tied directly to encryption key access. Since Azure uses strong ciphers for data encryption, only entities with access to encryption keys can have access to data. Revoking or deleting encryption keys renders the corresponding data inaccessible.
+
+### FIPS 140 validated cryptography
+
+The [Federal Information Processing Standard (FIPS) 140](https://csrc.nist.gov/publications/detail/fips/140/3/final) is a US government standard that defines minimum security requirements for cryptographic modules in information technology products. The current version of the standard, FIPS 140-3, has security requirements covering 11 areas related to the design and implementation of a cryptographic module. Microsoft maintains an active commitment to meeting the [FIPS 140 requirements](/azure/compliance/offerings/offering-fips-140-2), having validated cryptographic modules since the standard’s inception in 2001. Microsoft validates its cryptographic modules under the US National Institute of Standards and Technology (NIST) [Cryptographic Module Validation Program](https://csrc.nist.gov/Projects/cryptographic-module-validation-program) (CMVP). Multiple Microsoft products, including many cloud services, use these cryptographic modules.
+
+While the current CMVP FIPS 140 implementation guidance precludes a FIPS 140 validation for a cloud service, cloud service providers can obtain and operate FIPS 140 validated cryptographic modules for the computing elements that comprise their cloud services. Azure is built with a combination of hardware, commercially available operating systems (Linux and Windows), and Azure-specific version of Windows. Through the Microsoft [Security Development Lifecycle](https://www.microsoft.com/securityengineering/sdl/) (SDL), all Azure services use FIPS 140 approved algorithms for data security because the operating system uses FIPS 140 approved algorithms while operating at a hyper scale cloud. The corresponding crypto modules are FIPS 140 validated as part of the Microsoft [Windows FIPS validation program](/windows/security/threat-protection/fips-140-validation#modules-used-by-windows-server). Moreover, you can store your own cryptographic keys and other secrets in FIPS 140 validated hardware security modules (HSMs).
+
+### Encryption key management
+
+Proper protection and management of encryption keys is essential for data security. [Azure Key Vault](../key-vault/index.yml) is a cloud service for securely storing and managing secrets. Key Vault enables you to store your encryption keys in hardware security modules (HSMs) that are FIPS 140 validated. For more information, see [Data encryption key management](./azure-secure-isolation-guidance.md#data-encryption-key-management).
+
+### Data encryption in transit
+
+Azure provides many options for [encrypting data in transit](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit). Data encryption in transit isolates your network traffic from other traffic and helps protect data from interception. For more information, see [Data encryption in transit](./azure-secure-isolation-guidance.md#data-encryption-in-transit).
+
+### Data encryption at rest
+
+Azure provides extensive options for [encrypting data at rest](../security/fundamentals/encryption-atrest.md) to help you safeguard your data and meet your compliance needs using both Microsoft-managed encryption keys and customer-managed encryption keys. This process relies on multiple encryption keys and services such as Azure Key Vault and Azure Active Directory to ensure secure key access and centralized key management. For more information about Azure Storage encryption and Azure Disk encryption, see [Data encryption at rest](./azure-secure-isolation-guidance.md#data-encryption-at-rest).
+
+Azure SQL Database provides [transparent data encryption](/azure/azure-sql/database/transparent-data-encryption-tde-overview) (TDE) at rest by [default](https://azure.microsoft.com/updates/newly-created-azure-sql-databases-encrypted-by-default/). TDE performs real-time encryption and decryption operations on the data and log files. Database Encryption Key (DEK) is a symmetric key stored in the database boot record for availability during recovery. It's secured via a certificate stored in the master database of the server or an asymmetric key called TDE Protector stored under your control in [Azure Key Vault](../key-vault/general/security-features.md). Key Vault supports [bring your own key](/azure/azure-sql/database/transparent-data-encryption-byok-overview) (BYOK), which enables you to store the TDE Protector in Key Vault and control key management tasks including key rotation, permissions, deleting keys, enabling auditing/reporting on all TDE Protectors, and so on. The key can be generated by the Key Vault, imported, or [transferred to the Key Vault from an on-premises HSM device](../key-vault/keys/hsm-protected-keys.md). You can also use the [Always Encrypted](/azure/azure-sql/database/always-encrypted-azure-key-vault-configure) feature of Azure SQL Database, which is designed specifically to help protect sensitive data by allowing you to encrypt data inside your applications and [never reveal the encryption keys to the database engine](/sql/relational-databases/security/encryption/always-encrypted-database-engine). In this manner, Always Encrypted provides separation between those users who own the data and can view it and those users who manage the data but should have no access.
+
+## Restrictions on insider access
+
+All Azure and Azure Government employees in the United States are subject to Microsoft background checks. For more information, see [Screening](./documentation-government-plan-security.md#screening).
+
+Insider threat is characterized as potential for providing back-door connections and cloud service provider (CSP) privileged administrator access to your systems and data. For more information on how Microsoft restricts insider access to your data, see [Restrictions on insider access](./documentation-government-plan-security.md#restrictions-on-insider-access).
+
+## Monitoring your Azure resources
+
+Azure provides essential services that you can use to gain in-depth insight into your provisioned Azure resources and get alerted about suspicious activity, including outside attacks aimed at your applications and data. For more information about these services, see [Customer monitoring of Azure resources](./documentation-government-plan-security.md#customer-monitoring-of-azure-resources).
+
+## Conclusion
+
+You should carefully assess how your use of Azure may implicate US export controls and determine whether any of the data you want to store or process in the cloud may be subject to export controls. Microsoft Azure provides important technical features, operational processes, and contractual commitments to help you manage export control risks. Where technical data subject to US export controls may be involved, Azure is configured to offer features that help mitigate the potential risk of you inadvertently violating US export controls when accessing controlled technical data in Azure. With appropriate planning, you can use Azure features and your own internal procedures to help ensure full compliance with US export controls when using the Azure platform.
 
 ## Next steps
-<a href="https://www.microsoft.com/en-us/TrustCenter/Compliance/itar"> Microsoft Trust Center - ITAR web page </a>
 
-<a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
+To help you navigate export control rules, Microsoft has published the [Microsoft Azure Export Controls](https://aka.ms/Azure-Export-Paper) whitepaper, which describes US export controls (particularly as they apply to software and technical data), reviews potential sources of export control risks, and offers specific guidance to help you assess your obligations under these controls.
 
+Learn more about:
+
+- [Azure Security](../security/fundamentals/overview.md)
+- [Azure Compliance](../compliance/index.yml)
+- [Microsoft government solutions](https://www.microsoft.com/enterprise/government)
+- [What is Azure Government?](./documentation-government-welcome.md)
+- [Explore Azure Government](https://azure.microsoft.com/global-infrastructure/government/)
+- [Exporting Microsoft products](https://www.microsoft.com/exporting)
+- [Azure Government compliance](./documentation-government-plan-compliance.md)
+- [Azure EAR compliance offering](/azure/compliance/offerings/offering-ear)
+- [Azure ITAR compliance offering](/azure/compliance/offerings/offering-itar)
+- [Azure DoE 10 CFR Part 810 compliance offering](/azure/compliance/offerings/offering-doe-10-cfr-part-810)
+- [Azure FedRAMP compliance offering](/azure/compliance/offerings/offering-fedramp)

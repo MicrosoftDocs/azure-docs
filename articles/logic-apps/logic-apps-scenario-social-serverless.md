@@ -1,18 +1,16 @@
 ---
-title: Serverless scenario - Create customer insights dashboard with Azure services | Microsoft Docs
-description: Manage customer feedback, social media data, and more by building a customer dashboard with Azure Logic Apps and Azure Functions
+title: Create customer insights dashboard
+description: Manage customer feedback, social media data, and more by building a customer dashboard with Azure Logic Apps and Azure Functions.
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: jeffhollan
-ms.author: jehollan
-ms.reviewer: estfan, LADocs
-ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
-ms.topic: article
-ms.date: 03/15/2018
+ms.reviewer: estfan, azla
+ms.topic: how-to
+ms.date: 08/20/2022
 ---
 
-# Create streaming customer insights dashboard with Azure Logic Apps and Azure Functions
+# Create a streaming customer insights dashboard with Azure Logic Apps and Azure Functions
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 Azure offers [serverless](https://azure.microsoft.com/solutions/serverless/) tools that help you quickly build 
 and host apps in the cloud, without having to think about infrastructure. 
@@ -33,26 +31,21 @@ tweets based on predefined keywords.
 In this scenario, you create a logic app that triggers on finding feedback from customers. 
 Some connectors that help you respond to customer feedback include Outlook.com, 
 Office 365, Survey Monkey, Twitter, and an 
-[HTTP request from a web form](https://blogs.msdn.microsoft.com/logicapps/2017/01/30/calling-a-logic-app-from-an-html-form/). 
+[HTTP request from a web form](/archive/blogs/logicapps/calling-a-logic-app-from-an-html-form). 
 The workflow that you create monitors a hashtag on Twitter.
 
 You can [build the entire solution in Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) 
-and [deploy the solution with Azure Resource Manager template](../logic-apps/logic-apps-create-deploy-template.md). 
+and [deploy the solution with Azure Resource Manager template](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md). 
 For a video walkthrough that shows how to create this solution, 
-[watch this Channel 9 video](https://aka.ms/logicappsdemo). 
+[watch this Channel 9 video](/shows/). 
 
 ## Trigger on customer data
 
-1. In the Azure portal or Visual Studio, 
-create a blank logic app. 
+1. In the Azure portal or Visual Studio, create a blank logic app workflow.
 
-   If you're new to logic apps, 
-   review the [quickstart for the Azure portal](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
-   or the [quickstart for Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
+   If you're new to logic apps, review the [quickstart for the Azure portal](../logic-apps/quickstart-create-example-consumption-workflow.md) or the [quickstart for Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
-2. In Logic App Designer, find and add the 
-Twitter trigger that has this action: 
-**When a new tweet is posted**
+2. In workflow designer, find and add the Twitter trigger that has this action: **When a new tweet is posted**
 
 3. Set up the trigger to listen for 
 tweets based on a keyword or hashtag.
@@ -72,15 +65,15 @@ so that you can better understand the sentiments expressed.
 ## Analyze tweet text
 
 To detect the sentiment behind some text, 
-you can use [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/).
+you can use [Azure AI services](https://azure.microsoft.com/services/cognitive-services/).
 
-1. In Logic App Designer, under the trigger, choose **New step**.
+1. In workflow designer, under the trigger, choose **New step**.
 
 2. Find the **Text Analytics** connector.
 
 3. Select the **Detect Sentiment** action.
 
-4. If prompted, provide a valid Cognitive Services 
+4. If prompted, provide a valid Azure AI services 
 key for the Text Analytics service.
 
 5. Under **Request Body**, select the **Tweet Text** 
@@ -107,7 +100,7 @@ create a function app in your Azure subscription.
 Also, for your logic app to directly call a function, 
 the function must have an HTTP trigger binding, 
 for example, use the **HttpTrigger** template. 
-Learn [how to create your first function app and function in the Azure portal](../azure-functions/functions-create-first-azure-function-azure-portal.md).
+Learn [how to create your first function app and function in the Azure portal](../azure-functions/functions-get-started.md).
 
 For this scenario, use the tweet text as 
 the request body for your Azure Function. 
@@ -131,7 +124,7 @@ in the logic app that you're building.
 
 ## Add Azure function to logic app
 
-1. In Logic App Designer, under the **Detect Sentiment** action, 
+1. In workflow designer, under the **Detect Sentiment** action, 
 choose **New step**.
 
 2. Find the **Azure Functions** connector, 
@@ -160,10 +153,8 @@ To view previous run histories in Visual Studio or the Azure portal:
 Find your logic app, open the app's shortcut menu. 
 Select **Open run history**.
 
-  > [!NOTE]
-  > For Visual Studio 2019, Cloud Explorer can open 
-  > the Logic App Designer in the Azure portal, but can't 
-  > yet open the embedded Logic App Designer or run history.
+  > [!TIP]
+  > If you don't have this command in Visual Studio 2019, check that you have the latest updates for Visual Studio.
 
 * In the Azure portal, find your logic app. 
 On your logic app's menu, choose **Overview**. 
@@ -172,7 +163,7 @@ On your logic app's menu, choose **Overview**.
 
 After you create a logic app solution, 
 you can capture and deploy your app as an 
-[Azure Resource Manager template](../azure-resource-manager/resource-group-overview.md#template-deployment) 
+[Azure Resource Manager template](../azure-resource-manager/templates/overview.md) 
 to any Azure region in the world. 
 You can use this capability both to modify parameters 
 for creating different versions of your app and for 
@@ -180,10 +171,10 @@ integrating your solution into Azure Pipelines.
 You can also include Azure Functions in your deployment 
 template so that you can manage the entire solution 
 with all dependencies as a single template. Learn 
-[how to create logic app deployment templates](../logic-apps/logic-apps-create-deploy-template.md).
+how to [automate logic app deployment](logic-apps-azure-resource-manager-templates-overview.md).
 
 For an example deployment template with an Azure function, 
-check the [Azure quickstart template repository](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic).
+check the [Azure quickstart template repository](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/function-app-create-dynamic/azuredeploy.json).
 
 ## Next steps
 

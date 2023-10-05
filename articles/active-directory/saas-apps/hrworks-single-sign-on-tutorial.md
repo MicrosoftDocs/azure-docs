@@ -1,133 +1,137 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with HRworks Single Sign-On | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and HRworks Single Sign-On.
+title: 'Tutorial: Microsoft Entra single sign-on (SSO) integration with HRworks Single Sign-On'
+description: Learn how to configure single sign-on between Microsoft Entra ID and HRworks Single Sign-On.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: c4c5d434-3f8a-411e-83a5-c3d5276ddc0a
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/25/2019
+ms.date: 11/21/2022
 ms.author: jeedes
-
 ---
-# Tutorial: Azure Active Directory integration with HRworks Single Sign-On
 
-In this tutorial, you learn how to integrate HRworks Single Sign-On with Azure Active Directory (Azure AD).
-Integrating HRworks Single Sign-On with Azure AD provides you with the following benefits:
+# Tutorial: Microsoft Entra single sign-on (SSO) integration with HRworks Single Sign-On
 
-* You can control in Azure AD who has access to HRworks Single Sign-On.
-* You can enable your users to be automatically signed-in to HRworks Single Sign-On (Single Sign-On) with their Azure AD accounts.
-* You can manage your accounts in one central location - the Azure portal.
+In this tutorial, you'll learn how to integrate HRworks Single Sign-On with Microsoft Entra ID. When you integrate HRworks Single Sign-On with Microsoft Entra ID, you can:
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+* Control in Microsoft Entra ID who has access to HRworks Single Sign-On.
+* Enable your users to be automatically signed-in to HRworks Single Sign-On with their Microsoft Entra accounts.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
-To configure Azure AD integration with HRworks Single Sign-On, you need the following items:
+To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
-* HRworks Single Sign-On single sign-on enabled subscription
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* HRworks Single Sign-On single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment.
 
-* HRworks Single Sign-On supports **SP** initiated SSO
+* HRworks Single Sign-On supports **SP** initiated SSO.
 
-## Adding HRworks Single Sign-On from the gallery
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
-To configure the integration of HRworks Single Sign-On into Azure AD, you need to add HRworks Single Sign-On from the gallery to your list of managed SaaS apps.
+## Add HRworks Single Sign-On from the gallery
 
-**To add HRworks Single Sign-On from the gallery, perform the following steps:**
+To configure the integration of HRworks Single Sign-On into Microsoft Entra ID, you need to add HRworks Single Sign-On from the gallery to your list of managed SaaS apps.
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type **HRworks Single Sign-On** in the search box.
+1. Select **HRworks Single Sign-On** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-	![The Azure Active Directory button](common/select-azuread.png)
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
+<a name='configure-and-test-azure-ad-sso-for-hrworks-single-sign-on'></a>
 
-	![The Enterprise applications blade](common/enterprise-applications.png)
+## Configure and test Microsoft Entra SSO for HRworks Single Sign-On
 
-3. To add new application, click **New application** button on the top of dialog.
+Configure and test Microsoft Entra SSO with HRworks Single Sign-On using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in HRworks Single Sign-On.
 
-	![The New application button](common/add-new-app.png)
+To configure and test Microsoft Entra SSO with HRworks Single Sign-On, perform the following steps:
 
-4. In the search box, type **HRworks Single Sign-On**, select **HRworks Single Sign-On** from result panel then click **Add** button to add the application.
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
+1. **[Configure HRworks Single Sign-On SSO](#configure-hrworks-single-sign-on-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create HRworks Single Sign-On test user](#create-hrworks-single-sign-on-test-user)** - to have a counterpart of B.Simon in HRworks Single Sign-On that is linked to the Microsoft Entra representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-	 ![HRworks Single Sign-On in the results list](common/search-new-app.png)
+<a name='configure-azure-ad-sso'></a>
 
-## Configure and test Azure AD single sign-on
+## Configure Microsoft Entra SSO
 
-In this section, you configure and test Azure AD single sign-on with HRworks Single Sign-On based on a test user called **Britta Simon**.
-For single sign-on to work, a link relationship between an Azure AD user and the related user in HRworks Single Sign-On needs to be established.
+Follow these steps to enable Microsoft Entra SSO.
 
-To configure and test Azure AD single sign-on with HRworks Single Sign-On, you need to complete the following building blocks:
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **HRworks Single Sign-On** > **Single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Configure HRworks Single Sign-On Single Sign-On](#configure-hrworks-single-sign-on-single-sign-on)** - to configure the Single Sign-On settings on application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create HRworks Single Sign-On test user](#create-hrworks-single-sign-on-test-user)** - to have a counterpart of Britta Simon in HRworks Single Sign-On that is linked to the Azure AD representation of user.
-6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-### Configure Azure AD single sign-on
-
-In this section, you enable Azure AD single sign-on in the Azure portal.
-
-To configure Azure AD single sign-on with HRworks Single Sign-On, perform the following steps:
-
-1. In the [Azure portal](https://portal.azure.com/), on the **HRworks Single Sign-On** application integration page, select **Single sign-on**.
-
-    ![Configure single sign-on link](common/select-sso.png)
-
-2. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
-
-    ![Single sign-on select mode](common/select-saml-option.png)
-
-3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
-
-	![Edit Basic SAML Configuration](common/edit-urls.png)
-
-4. On the **Basic SAML Configuration** section, perform the following steps:
-
-    ![HRworks Single Sign-On Domain and URLs single sign-on information](common/sp-signonurl.png)
+1. On the **Basic SAML Configuration** section, perform the following step:
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://login.hrworks.de/?companyId=<companyId>&directssologin=true`
+    `https://login.hrworks.de/?companyId=<COMPANY_ID>&directssologin=true`
 
 	> [!NOTE]
-	> The value is not real. Update the value with the actual Sign-On URL. Contact [HRworks Single Sign-On Client support team](mailto:support@hrworks.de) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The value is not real. Update the value with the actual Sign-On URL. See [HRworks Single Sign-On Helpcenter article](https://help.hrworks.de/en/single-sign-on) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
-5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
 	![The Certificate download link](common/metadataxml.png)
 
-6. On the **Set up HRworks Single Sign-On** section, copy the appropriate URL(s) as per your requirement.
+1. On the **Set up HRworks Single Sign-On** section, copy the appropriate URL(s) based on your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-	a. Login URL
+<a name='create-an-azure-ad-test-user'></a>
 
-	b. Azure AD Identifier
+### Create a Microsoft Entra test user
 
-	c. Logout URL
+In this section, you'll create a test user called B.Simon.
 
-### Configure HRworks Single Sign-On Single Sign-On
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Select **Review + create**.
+1. Select **Create**.
 
-1. In a different web browser window, sign in to HRworks Single Sign-On as an Administrator.
+<a name='assign-the-azure-ad-test-user'></a>
 
-2. Click on **Administrator** > **Basics** > **Security** > **Single Sign-on** from the left side of menu bar and perform the following steps:
+### Assign the Microsoft Entra test user
 
-    ![Configure single sign-on](./media/hrworks-single-sign-on-tutorial/configure01.png)
+In this section, you'll enable B.Simon to use single sign-on by granting access to HRworks Single Sign-On.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **HRworks Single Sign-On**.
+1. In the app's overview page, select **Users and groups**.
+1. Select **Add user/group**, then select **Users and groups** in the **Add Assignment** dialog.
+   1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+   1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+   1. In the **Add Assignment** dialog, click the **Assign** button.
+
+## Configure HRworks Single Sign-On SSO
+
+
+
+
+1. In a different web browser window, sign in to your HRworks Single Sign-On company site as an administrator
+
+1. Click on **Administrator** > **Basics** > **Security** > **Single Sign-on** from the left side of menu bar and perform the following steps:
+
+    ![Configure single sign-on](./media/hrworks-single-sign-on-tutorial/configure.png)
 
 	a. Check the **Use Single Sign-on** box.
 
@@ -135,91 +139,40 @@ To configure Azure AD single sign-on with HRworks Single Sign-On, perform the fo
 
 	c. Select **Individual NameID identifier** as **Value for NameID**.
 
-	d. In Notepad, open the Metadata XML that you downloaded from the Azure portal, copy its content, and then paste it into the **Metadata** textbox.
+	d. In Notepad, open the Metadata XML that you downloaded, copy its content, and then paste it into the **Metadata** textbox.
 
 	e. Click **Save**.
 
-### Create an Azure AD test user 
-
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
-
-1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
-
-    ![The "Users and groups" and "All users" links](common/users.png)
-
-2. Select **New user** at the top of the screen.
-
-    ![New user Button](common/new-user.png)
-
-3. In the User properties, perform the following steps.
-
-    ![The User dialog box](common/user-properties.png)
-
-    a. In the **Name** field, enter **BrittaSimon**.
-  
-    b. In the **User name** field, type the username like BrittaSimon@contoso.com.
-
-    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
-
-    d. Click **Create**.
-
-### Assign the Azure AD test user
-
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to HRworks Single Sign-On.
-
-1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **HRworks Single Sign-On**.
-
-	![Enterprise applications blade](common/enterprise-applications.png)
-
-2. In the applications list, select **HRworks Single Sign-On**.
-
-	![The HRworks Single Sign-On link in the Applications list](common/all-applications.png)
-
-3. In the menu on the left, select **Users and groups**.
-
-    ![The "Users and groups" link](common/users-groups-blade.png)
-
-4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
-
-    ![The Add Assignment pane](common/add-assign-user.png)
-
-5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
-
-6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
-
-7. In the **Add Assignment** dialog, click the **Assign** button.
-
 ### Create HRworks Single Sign-On test user
 
-To enable Azure AD users, sign in to HRworks Single Sign-On, they must be provisioned into HRworks Single Sign-On. In HRworks Single Sign-On, provisioning is a manual task.
+To enable Microsoft Entra users, sign in to HRworks Single Sign-On, they must be provisioned into HRworks Single Sign-On. In HRworks Single Sign-On, provisioning is a manual task.
 
 **To provision a user account, perform the following steps:**
 
 1. Sign in to HRworks Single Sign-On as an Administrator.
 
-2. Click on **Administrator** > **Persons** > **Persons** > **New person** from the left side of menu bar.
+1. Click on **Administrator** > **Persons** > **Persons** > **New person** from the left side of menu bar.
 
-	 ![Configure Single Sign-On](./media/hrworks-single-sign-on-tutorial/configure02.png)
+	 ![Screenshot shows Screenshot shows H R works page with Persons and New person selected.](./media/hrworks-single-sign-on-tutorial/persons.png)
 
-3. On the Pop-up, click **Next**.
+1. On the Pop-up, click **Next**.
 
-	![Configure Single Sign-On](./media/hrworks-single-sign-on-tutorial/configure03.png)
+	![Screenshot shows a list of countries for you to choose from for the person.](./media/hrworks-single-sign-on-tutorial/new-person.png)
 
-4. On the **Create new person with country for legal terms** pop-up, fill the respective details like **First name**, **Last name** and click **Create**.
-	
-	![Configure Single Sign-On](./media/hrworks-single-sign-on-tutorial/configure04.png)
+1. On the **Create new person with country for legal terms** pop-up, fill the respective details like **First name**, **Last name** and click **Create**.
 
-### Test single sign-on 
+	![Screenshot shows text boxes where you can enter first and last names for the person.](./media/hrworks-single-sign-on-tutorial/create-person.png)
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+## Test SSO
 
-When you click the HRworks Single Sign-On tile in the Access Panel, you should be automatically signed in to the HRworks Single Sign-On for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
-## Additional Resources
+* Click on **Test this application**, this will redirect to HRworks Single Sign-On Sign-on URL where you can initiate the login flow. 
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+* Go to HRworks Single Sign-On Sign-on URL directly and initiate the login flow from there.
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+* You can use Microsoft My Apps. When you click the HRworks Single Sign-On tile in the My Apps, this will redirect to HRworks Single Sign-On Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+## Next steps
 
+Once you configure HRworks Single Sign-On you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

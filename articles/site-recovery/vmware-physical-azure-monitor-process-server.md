@@ -1,13 +1,11 @@
 ---
 title: Monitor the Azure Site Recovery process server
-description: This article describes how to monitor Azure Site Recovery process server.
-author: rayne-wiselman
-manager: carmonm
+description: This article describes how to monitor Azure Site Recovery process server used for VMware VM/physical server disaster recovery
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
-ms.author: raynew
-
+ms.date: 11/14/2019
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 # Monitor the process server
 
@@ -52,10 +50,12 @@ The process server generates a number of health alerts, summarized in the follow
 ![Warning][yellow] | CPU utilization > 80% for the last 15 minutes
 ![Warning][yellow] | Memory usage > 80% for the last 15 minutes
 ![Warning][yellow] | Cache folder free space < 30% for the last 15 minutes
+![Warning][yellow] | Site Recovery monitors pending/outgoing data every five minutes, and estimates that data in the process server cache can't be uploaded to Azure within 30 minutes.
 ![Warning][yellow] | Process server services aren't running for the last 15 minutes
 ![Critical][red] | CPU utilization > 95% for the last 15 minutes
 ![Critical][red] | Memory usage > 95% for the last 15 minutes
 ![Critical][red] | Cache folder free space < 25% for the last 15 minutes
+![Critical][red] | Site Recovery monitors pending/outgoing data every five minutes, and estimates that data in the process server cache can't be uploaded to Azure within 45 minutes.
 ![Critical][red] | No heartbeat from the process server for 15 minutes.
 
 ![Table key](./media/vmware-physical-azure-monitor-process-server/table-key.png)
@@ -89,7 +89,7 @@ You can also monitor process servers in the vault under **Site Recovery Infrastr
 ## Next steps
 
 - If you have any process servers issues, follow our [troubleshooting guidance](vmware-physical-azure-troubleshoot-process-server.md)
-- If you need more help, post your question in the [Azure Site Recovery forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). 
+- If you need more help, post your question in the [Microsoft Q&A question page for Azure Site Recovery](/answers/topics/azure-site-recovery.html). 
 
 [green]: ./media/vmware-physical-azure-monitor-process-server/green.png
 [yellow]: ./media/vmware-physical-azure-monitor-process-server/yellow.png

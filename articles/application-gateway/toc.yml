@@ -1,11 +1,15 @@
-- name: Application Gateway Documentation
+- name: Application Gateway documentation
   href: index.yml
 - name: Overview
   items:
   - name: About application gateways
     href: overview.md
-  - name: What's new?
-    href: whats-new.md
+  - name: Application Gateway v2
+    href: overview-v2.md
+  - name: Application Gateway for Containers
+    href: ./for-containers/overview.md
+  - name: Well-Architected review of Application Gateway
+    href: /azure/architecture/framework/services/networking/azure-application-gateway?toc=/azure/application-gateway/toc.json&bc=/azure/application-gateway/breadcrumb/toc.json
 - name: Quickstarts
   expanded: true
   items:
@@ -15,10 +19,16 @@
     href: quick-create-powershell.md
   - name: Create Application Gateway - Azure CLI
     href: quick-create-cli.md
+  - name: Create Application Gateway - Bicep
+    displayName: ARM, Resource Manager, Template
+    href: quick-create-bicep.md
+  - name: Create Application Gateway - ARM template
+    displayName: Resource Manager
+    href: quick-create-template.md
+  - name: Create Application Gateway - Terraform
+    href: quick-create-terraform.md
 - name: Tutorials
   items:
-  - name: Enable web application firewall
-    href: application-gateway-web-application-firewall-portal.md
   - name: Secure with SSL
     href: create-ssl-portal.md
   - name: Host multiple sites
@@ -29,24 +39,36 @@
     href: tutorial-url-redirect-cli.md
   - name: Autoscaling and zone redundant
     href: tutorial-autoscale-ps.md
-- name: Samples
-  items:
-  - name: Azure PowerShell
-    href: powershell-samples.md
-  - name: Azure CLI
-    href: cli-samples.md
+  - name: Ingress Controller add-on for AKS (Greenfield)
+    href: tutorial-ingress-controller-add-on-new.md
+  - name: Ingress Controller add-on for AKS (Brownfield)
+    href: tutorial-ingress-controller-add-on-existing.md
+  - name: Deploy Application Gateway with DDoS protection
+    href: tutorial-protect-application-gateway.md
 - name: Concepts
   items:
   - name: Basics
     items:
+    - name: Application Gateway features
+      href: features.md
     - name: How Application Gateway works
       href: how-application-gateway-works.md
     - name: Application Gateway components
       href: application-gateway-components.md
-    - name: Configuration overview
-      href: configuration-overview.md
-  - name: Autoscaling v2 SKU
-    href: application-gateway-autoscaling-zone-redundant.md
+    - name: Configuration
+      items:
+      - name: Overview
+        href: configuration-overview.md
+      - name: Infrastructure
+        href: configuration-infrastructure.md
+      - name: Frontend IP address
+        href: configuration-frontend-ip.md
+      - name: Listeners
+        href: configuration-listeners.md
+      - name: Request routing rules
+        href: configuration-request-routing-rules.md
+      - name: HTTP settings
+        href: configuration-http-settings.md
   - name: Routing
     items:
     - name: Multiple site hosting
@@ -55,54 +77,68 @@
       href: url-route-overview.md
     - name: Redirection
       href: redirect-overview.md
-    - name: Rewrite HTTP headers
-      href: rewrite-http-headers.md
-    - name: Custom error pages
-      href: custom-error.md      
+    - name: Rewrite HTTP headers and URL
+      href: rewrite-http-headers-url.md
+  - name: Security
+    items:
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/application-gateway-security-baseline?toc=/azure/application-gateway/toc.json
+    - name: Private Deployment
+      href: application-gateway-private-deployment.md
+    - name: Private Link
+      href: private-link.md
   - name: SSL
     items:
     - name: SSL termination and end to end SSL
       href: ssl-overview.md
     - name: SSL policy overview
       href: application-gateway-ssl-policy-overview.md
+    - name: Mutual authentication
+      href: mutual-authentication-overview.md
     - name: Using Key Vault
       href: key-vault-certs.md
-  - name: WAF
-    items:
-    - name: Web application firewall
-      href: waf-overview.md
-    - name: WAF configuration
-      href: application-gateway-waf-configuration.md
-    - name: Custom rules
-      href: custom-waf-rules-overview.md
+    - name: SSL certificate management (preview)
+      href: ssl-certificate-management.md
   - name: Health monitoring
-    items: 
+    items:
+    - name: Monitor Azure Application Gateway
+      href: monitor-application-gateway.md
     - name: Health probe
       href: application-gateway-probe-overview.md
-    - name: Diagnostics
-      href: application-gateway-diagnostics.md 
-  - name: App service webapp and multi-tenant support
-    href: application-gateway-web-app-overview.md
+    - name: Backend health
+      href: application-gateway-backend-health.md      
+    - name: Diagnostic logs
+      href: application-gateway-diagnostics.md
+    - name: Metrics
+      href: application-gateway-metrics.md
+  - name: Support for working remotely
+    href: ../networking/working-remotely-support.md?toc=%2fazure%2fapplication-gateway%2ftoc.json
+  - name: High traffic support
+    href: high-traffic-support.md
+  - name: Autoscaling v2 SKU
+    href: application-gateway-autoscaling-zone-redundant.md
   - name: WebSocket support
     href: application-gateway-websocket.md
+  - name: Ingress for AKS
+    href: ingress-controller-overview.md
+  - name: Understanding pricing
+    href: understanding-pricing.md
   - name: FAQ
-    href: application-gateway-faq.md
+    href: application-gateway-faq.yml
 - name: How-to guides
   items:
   - name: Host single site
-    items:   
+    items:
     - name: Azure PowerShell
       href: tutorial-manage-web-traffic-powershell.md
     - name: Azure CLI
-      href: tutorial-manage-web-traffic-cli.md       
-    - name: Template
-      href: create-vmss-template.md
+      href: tutorial-manage-web-traffic-cli.md
   - name: Configure internal load balancer
     items:
     - name: Azure portal
       href: configure-application-gateway-with-private-frontend-ip.md
     - name: Azure PowerShell
-      href: application-gateway-ilb-arm.md      
+      href: application-gateway-ilb-arm.md
   - name: Configure SSL
     items:
     - name: SSL termination
@@ -113,42 +149,64 @@
         href: tutorial-ssl-cli.md
       - name: Configure Key Vault - PowerShell
         href: configure-keyvault-ps.md
+      - name: Configure Key Vault - Portal
+        href: configure-key-vault-portal.md
     - name: End-to-end SSL
-      items:        
+      items:
       - name: End-to-end SSL - Portal
-        href: end-to-end-ssl-portal.md      
+        href: end-to-end-ssl-portal.md
       - name: End-to-end SSL - PowerShell
         href: application-gateway-end-to-end-ssl-powershell.md
+    - name: Mutual authentication
+      items:
+      - name: Mutual authentication - Portal 
+        href: mutual-authentication-portal.md
+      - name: Mutual authentication - PowerShell
+        href: mutual-authentication-powershell.md
     - name: Manage certificates
       items:             
-      - name: Create certificates for whitelisting backend
-        href: certificates-for-backend-authentication.md        
+      - name: Certificates for the backend
+        href: certificates-for-backend-authentication.md
       - name: Renew certificates
         href: renew-certificates.md
+      - name: Generate self-signed certificates for backend
+        href: self-signed-certificates.md
+      - name: Trusted client certificates
+        href: mutual-authentication-certificate-management.md
     - name: SSL policy
-      items:           
+      items:
       - name: Configure SSL policy
         href: application-gateway-configure-ssl-policy-powershell.md
-  - name: Configure Web Application Firewall
+      - name: Listener specific SSL policy 
+        href: application-gateway-configure-listener-specific-ssl-policy.md
+  - name: Ingress for AKS 
     items:
-    - name: Azure PowerShell
-      href: tutorial-restrict-web-traffic-powershell.md
-    - name: Azure CLI
-      href: tutorial-restrict-web-traffic-cli.md      
-  - name: Configure WAF rule sets
-    items:
-    - name: Azure portal
-      href: application-gateway-customize-waf-rules-portal.md
-    - name: Azure PowerShell
-      href: application-gateway-customize-waf-rules-powershell.md
-    - name: Azure CLI
-      href: application-gateway-customize-waf-rules-cli.md
-  - name:   WAF custom rules
-    items:
-    - name: Custom rule examples
-      href: create-custom-waf-rules.md
-    - name: Configure WAF with custom rules
-      href: configure-waf-custom-rules.md 
+    - name: Ingress for AKS via Helm (Brownfield)
+      href: ingress-controller-install-existing.md
+    - name: Ingress for AKS via Helm (Greenfield)
+      href: ingress-controller-install-new.md
+    - name: Migrate from Helm deployment to AKS add-on 
+      href: ingress-controller-migration.md
+    - name: Disable and re-enable AKS Ingress Controller add-on
+      href: ingress-controller-disable-addon.md
+    - name: Enable cookie affinity 
+      href: ingress-controller-cookie-affinity.md
+    - name: Enable multiple namespace support 
+      href: ingress-controller-multiple-namespace-support.md
+    - name: Use private IP for internal routing
+      href: ingress-controller-private-ip.md
+    - name: Add health probes to AKS pods
+      href: ingress-controller-add-health-probes.md
+    - name: Use Application Gateway to expose AKS service over HTTP/HTTPS 
+      href: ingress-controller-expose-service-over-http-https.md
+    - name: Upgrade ingress controller using Helm 
+      href: ingress-controller-update-ingress-controller.md
+    - name: Use LetsEncrypt.org with Application Gateway
+      href: ingress-controller-letsencrypt-certificate-application-gateway.md
+    - name: Expose WebSocket to Application Gateway 
+      href: ingress-controller-expose-websocket-server.md
+    - name: Autoscale AKS pods with Application Gateway metrics
+      href: ingress-controller-autoscale-pods.md
   - name: Route by URL
     items:
     - name: Azure PowerShell
@@ -158,7 +216,7 @@
   - name: Host multiple sites
     items:
     - name: Azure PowerShell
-      href: tutorial-multiple-sites-powershell.md    
+      href: tutorial-multiple-sites-powershell.md
     - name: Azure CLI
       href: tutorial-multiple-sites-cli.md
   - name: Redirect traffic
@@ -178,27 +236,29 @@
       - name: Azure CLI
         href: redirect-http-to-https-cli.md
     - name: Redirect internal traffic
-      items: 
+      items:
       - name: Azure PowerShell
         href: redirect-internal-site-powershell.md
       - name: Azure CLI
         href: redirect-internal-site-cli.md
     - name: Redirect web traffic using Azure PowerShell
       href: tutorial-url-redirect-powershell.md
-  - name: Rewrite HTTP headers
+  - name: Rewrite HTTP headers and URL
     items:
-    - name: Azure portal
-      href: rewrite-http-headers-portal.md    
-    - name: Azure PowerShell
-      href: add-http-header-rewrite-rule-powershell.md
-    - name: Create and rewrite HTTP headers
-      href: tutorial-http-header-rewrite-powershell.md
-  - name: Configure App service webapp and multi-tenant service
-    items:
-    - name: Portal
-      href: configure-web-app-portal.md    
-    - name: Azure PowerShell
-      href: create-web-app.md
+    - name: Header rewrite
+      items:
+        - name: Azure portal
+          href: rewrite-http-headers-portal.md
+        - name: Azure PowerShell
+          href: add-http-header-rewrite-rule-powershell.md
+        - name: Create and rewrite HTTP headers
+          href: tutorial-http-header-rewrite-powershell.md
+    - name: URL rewrite
+      items:
+        - name: Azure portal
+          href: rewrite-url-portal.md
+  - name: Configure App Service
+    href: configure-web-app.md
   - name: Configure custom probes
     items:
       - name: Portal
@@ -211,45 +271,85 @@
     items:
       - name: ILB with an App Service Environment
         href: create-gateway-internal-load-balancer-app-service-environment.md
-      - name: Redirection to App Service’s URL
+      - name: App service issues
         href: troubleshoot-app-service-redirection-app-service-url.md
       - name: Session affinity issues
-        href: how-to-troubleshoot-application-gateway-session-affinity-issues.md           
+        href: how-to-troubleshoot-application-gateway-session-affinity-issues.md
       - name: Bad Gateway (502) errors
         href: application-gateway-troubleshooting-502.md
-  - name: Migrate from v1 to v2
-    href: migrate-v1-v2.md
+      - name: HTTP response codes
+        href: http-response-codes.md
+      - name: Mutual authentication
+        href: mutual-authentication-troubleshooting.md
+      - name: Ingress for AKS 
+        href: ingress-controller-troubleshoot.md
+      - name: Resource Health
+        href: resource-health-overview.md
+      - name: Use Log Analytics
+        href: log-analytics.md
+      - name: Backend health issues
+        href: application-gateway-backend-health-troubleshooting.md
+      - name: Key Vault errors
+        href: application-gateway-key-vault-common-errors.md
+      - name: Disabled listeners
+        href: disabled-listeners.md
+  - name: Proxy buffer configuration
+    href: proxy-buffers.md
+  - name: Custom error pages
+    href: custom-error.md
+  - name: Migrating to v2 SKU
+    items:
+      - name: About v1 retirement
+        href: v1-retirement.md
+      - name: Migrate from v1 to v2
+        href: migrate-v1-v2.md  
+      - name: FAQ
+        href: retirement-faq.md
+  - name: Configure alerts
+    href: configure-alerts-with-templates.md
+  - name: Classic to Resource Manager
+    href: classic-to-resource-manager.md
+  - name: Configure Private Link
+    href: private-link-configure.md
 - name: Reference
   items:
-  - name: CRS rules
-    href: application-gateway-crs-rulegroups-rules.md
+  - name: Monitoring data
+    href: monitor-application-gateway-reference.md
+  - name: Ingress for AKS annotations
+    href: ingress-controller-annotations.md
   - name: Azure CLI
     href: /cli/azure/network/application-gateway
   - name: Azure PowerShell
-    href: /powershell/azure/overview
+    href: /powershell/azure/
   - name: .NET
-    href: /dotnet/api
+    href: /dotnet/api/
   - name: Java
-    href: /java/api
+    href: /java/api/
   - name: Node.js
     href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
   - name: Python
     href: https://azure.microsoft.com/develop/python/
   - name: REST
-    href: /rest/api/applicationgateway
+    href: /rest/api/application-gateway/application-gateways
   - name: Azure Resource Manager
-    href: ../azure-resource-manager/resource-group-overview.md
+    displayName: ARM
+    href: ../azure-resource-manager/management/overview.md
+  - name: Resource Manager template
+    displayName: ARM
+    href: /azure/templates/microsoft.network/applicationgateways
 - name: Resources
   items:
   - name: Author templates
-    href: ../azure-resource-manager/resource-group-authoring-templates.md
+    displayName: ARM
+    href: ../azure-resource-manager/templates/syntax.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Community templates
-    href: https://azure.microsoft.com/documentation/templates
+    displayName: ARM
+    href: https://azure.microsoft.com/resources/templates/
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/#Linux
+    href: https://azure.microsoft.com/pricing/details/application-gateway/
   - name: Regional availability
-    href: https://azure.microsoft.com/regions/services/
+    href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-application-gateway

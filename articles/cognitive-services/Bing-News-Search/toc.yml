@@ -1,12 +1,12 @@
 - name: Bing News Search Documentation
-  href: index.yml
+  href: ../bing-web-search/index.yml
 - name: Overview
   expanded: true
   items:
     - name: What is the Bing News Search API?
       href: search-the-web.md
     - name: Compare the Bing Search APIs
-      href: ../Bing-Web-Search/bing-api-comparison.md
+      href: ../bing-web-search/bing-api-comparison.md
       maintainContext: true
 - name: Quickstarts
   items:
@@ -28,14 +28,8 @@
       href: go.md
   - name: SDK
     items:
-    - name: Using C#
-      href: news-search-sdk-quickstart.md
-    - name: Using Node.js
-      href: news-search-sdk-node-quickstart.md
-    - name: Using Python
-      href: news-sdk-python-quickstart.md
-    - name: Using Java
-      href: news-sdk-java-quickstart.md
+    - name: Bing News Search client libraries
+      href: ./quickstarts/client-libraries.md
 - name: Tutorials
   items:
   - name: Create a single-page web app
@@ -47,17 +41,15 @@
 - name: How-to guides
   items:
   - name: Handle hit highlighting
-    href: hit-highlighting.md
-  - name: Page news
-    href: paging-news.md
+    href: ../bing-web-search/hit-highlighting.md
+    maintainContext: true
+  - name: Page through search results
+    href: ../bing-web-search/paging-search-results.md
   - name: Resize and crop thumbnails
-    href: resize-and-crop-thumbnails.md
+    maintainContext: true
+    href: ../bing-web-search/resize-and-crop-thumbnails.md
   - name: Upgrade from v5 to v7 of the API
     href: bing-news-upgrade-guide-v5-to-v7.md
-  - name: Work with Visual Studio
-    items:
-    - name: Use the Bing News Search Connected Service
-      href: vs-bing-news-search-connected-service.md
 - name: Concepts
   items:
     - name: Sending search queries
@@ -67,47 +59,43 @@
 - name: Reference
   items:
   - name: Bing News Search API v7
-    href: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference
+    href: /rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference
   - name: Bing News Search API v5
-    href: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v5-reference
+    href: /rest/api/cognitiveservices-bingsearch/bing-news-api-v5-reference
   - name: SDKs
     items:
       - name: .NET
-        href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingnews?view=azure-dotnet
+        href: /dotnet/api/overview/azure/cognitiveservices/bing-news-search-readme
       - name: Java
-        href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/newssearch?view=azure-java-stable
+        href: /java/api/overview/azure/cognitiveservices/client/bingnewssearch
       - name: Python
-        href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/newssearch?view=azure-python
+        href: /python/api/azure-cognitiveservices-search-newssearch/
       - name: Node.js
-        href: https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/newssearch?view=azure-node-latest
+        href: /javascript/api/@azure/cognitiveservices-newssearch/
       - name: Go
         href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/newssearch
   - name: Use and display requirements
-    href: ../Bing-Web-Search/use-display-requirements.md
+    href: ../bing-web-search/use-display-requirements.md
     maintainContext: true
 - name: Resources
   items:
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/search-api/news/
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/911449-bing-news-search-api
   - name: Stack Overflow
     href: https://stackoverflow.com/search?q=bing+news+search
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: Knowledge Base
-    href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
   - name: Get API key
-    href: https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api
+    href: https://azure.microsoft.com/free/cognitive-services
   - name: Try it!
     href: https://dev.cognitive.microsoft.com/docs/services/56b43f72cf5ff8098cef380a/operations/56f02400dbe2d91900c68553
   - name: Bing News Search endpoints
     href: endpoint-news.md
-  - name: Language and region support
+  - name: Language support
     href: language-support.md
   - name: Analytics for Bing News Search API
-    href: bing-news-stats.md
+    href: ../bing-web-search/bing-web-stats.md
   - name: Compliance
     href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/

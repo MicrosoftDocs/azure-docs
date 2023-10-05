@@ -1,0 +1,51 @@
+### YamlMime:FAQ
+metadata:
+  title: Frequently asked questions about continuous backup
+  titleSuffix: Azure Cosmos DB
+  description: This article lists frequently asked questions about the Azure Cosmos DB point-in-time restore feature that's available in continuous backup mode.
+  author: kanshiG
+  ms.author: govindk
+  ms.reviewer: mjbrown
+  ms.topic: faq
+  ms.service: cosmos-db
+  ms.date: 04/19/2023
+  ms.custom: ignite-2022
+title: Frequently asked questions about the Azure Cosmos DB continuous backup
+summary: |
+  [!INCLUDE[NoSQL, MongoDB, Gremlin, Table](includes/appliesto-nosql-mongodb-gremlin-table.md)]
+  
+  This article lists frequently asked questions about the Azure Cosmos DB point-in-time restore functionality that's available in continuous backup mode.
+sections:
+  - name: Ignored
+    questions:
+      - question: |
+          How much time does it takes to restore?
+        answer: |
+          Restore time is a function of the data size, the amount of log backup that needs to be replayed, and the number of partitions that need to be restored. Restoring 1 terabyte of data typically takes 30 to 90 minutes.
+      - question: |
+          Can I submit the restore time in local time?
+        answer: |
+          The restore might not happen, depending on whether key resources like databases or containers existed at that time. You can verify by entering the time and looking at a selected database or container for that time. If that is no resources exist to restore, the restore process doesn't work.
+      - question: |
+          How can I track the restoration of an account?
+        answer: |
+          [!INCLUDE[](includes/continuous-backup-restore-frequently-asked-questions-restore-progress-commands.md)]          
+      - question: |
+          How can I find out whether a continuous backup mode account was restored from another account?
+        answer: |
+          You can identify whether an account is restored and gets the restore details by using the [Azure portal](restore-account-continuous-backup.md#get-the-restore-details-portal), [Azure PowerShell](restore-account-continuous-backup.md#get-the-restore-details-powershell), and the [Azure CLI](restore-account-continuous-backup.md#get-the-restore-details-cli).          
+      - question: |
+          What is "instanceId" in the account definition?
+        answer: |
+          [!INCLUDE[](includes/continuous-backup-restore-frequently-asked-questions-instanceid.md)]         
+      - question: |
+          Is continuous backup supported for Azure Synapse Link-enabled accounts?
+        answer: |
+          No. Currently, continuous backup mode and Azure Synapse Link can't coexist in the same database account.
+additionalContent: |
+  ## Next steps
+  
+  * Learn more about [continuous backup](continuous-backup-restore-introduction.md) mode.
+  * Provision an account with continuous backup by using the [Azure portal](provision-account-continuous-backup.md#provision-portal), [PowerShell](provision-account-continuous-backup.md#provision-powershell), the [Azure CLI](provision-account-continuous-backup.md#provision-cli), or [Azure Resource Manager](provision-account-continuous-backup.md#provision-arm-template).
+  * [Manage permissions](continuous-backup-restore-permissions.md) required to restore data with continuous backup mode.
+  * Learn about the [resource model of continuous backup mode](continuous-backup-restore-resource-model.md).

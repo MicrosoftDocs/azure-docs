@@ -1,17 +1,33 @@
 ---
 title: Tutorial to copy data to Azure Data Box Disk| Microsoft Docs
-description: Use this tutorial to learn how to copy data to your Azure Data Box Disk
+description: In this tutorial, learn how to copy data from your host computer to Azure Data Box Disk and then generate checksums to verify data integrity.
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 04/16/2019
-ms.author: alkohli
-Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
+ms.date: 11/18/2022
+ms.author: shaas
+
+# Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
+
+::: zone target="docs"
+
 # Tutorial: Copy data to Azure Data Box Disk and verify
+
+::: zone-end
+
+::: zone target="chromeless"
+
+## Copy data to Azure Data Box Disk and validate
+
+After the disks are connected and unlocked, you can copy data from your source data server to your disks. After the data copy is complete, you should validate the data to ensure that it will successfully upload to Azure.
+
+::: zone-end
+
+::: zone target="docs"
 
 This tutorial describes how to copy data from your host computer and then generate checksums to verify data integrity.
 
@@ -26,7 +42,7 @@ In this tutorial, you learn how to:
 Before you begin, make sure that:
 - You have completed the [Tutorial: Install and configure your Azure Data Box Disk](data-box-disk-deploy-set-up.md).
 - Your disks are unlocked and connected to a client computer.
-- Your client computer that is used to copy data to the disks must run a [Supported operating system](data-box-disk-system-requirements.md##supported-operating-systems-for-clients).
+- Your client computer that is used to copy data to the disks is running a [Supported operating system](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
 - Make sure that the intended storage type for your data matches [Supported storage types](data-box-disk-system-requirements.md#supported-storage-types-for-upload).
 - Review [Managed disk limits in Azure object size limits](data-box-disk-limits.md#azure-object-size-limits).
 
@@ -37,7 +53,8 @@ Review the following considerations before you copy the data to the disks:
 
 - It is your responsibility to ensure that you copy the data to folders that correspond to the appropriate data format. For instance, copy the block blob data to the folder for block blobs. If the data format does not match the appropriate folder (storage type), then at a later step, the data upload to Azure fails.
 - While copying data, ensure that the data size conforms to the size limits described in the [Azure storage and Data Box Disk limits](data-box-disk-limits.md).
-- If data, which is being uploaded by Data Box Disk, is concurrently uploaded by other applications outside of Data Box Disk, then this could result in upload job failures and data corruption.
+- If you want to preserve metadata (ACLs, timestamps, and file attributes) when transferring data to Azure Files, follow the guidance in [Preserving file ACLs, attributes, and timestamps with Azure Data Box Disk](data-box-disk-file-acls-preservation.md).
+- If data that is being uploaded by Data Box Disk is concurrently uploaded by other applications outside of Data Box Disk, this could result in upload job failures and data corruption.
 
    > [!IMPORTANT]
    >  If you specified managed disks as one of the storage destinations during order creation, the following section is applicable.
@@ -45,11 +62,11 @@ Review the following considerations before you copy the data to the disks:
 - You can only have one managed disk with a given name in a resource group across all the precreated folders and across all the Data Box Disk. This implies that the VHDs uploaded to the precreated folders should have unique names. Make sure that the given name does not match an already existing managed disk in a resource group. If VHDs have same names, then only one VHD is converted to managed disk with that name. The other VHDs are uploaded as page blobs into the staging storage account.
 - Always copy the VHDs to one of the precreated folders. If you copy the VHDs outside of these folders or in a folder that you created, the VHDs are uploaded to Azure Storage account as page blobs and not managed disks.
 - Only the fixed VHDs can be uploaded to create managed disks. Dynamic VHDs, differencing VHDs or VHDX files are not supported.
-
+- If you don't have long paths enabled on the client, and any path and file name in your data copy exceeds 256 characters, the Data Box Split Copy Tool (DataBoxDiskSplitCopy.exe) or the Data Box Disk Validation tool (DataBoxDiskValidation.cmd) will report failures. To avoid this kind of failure, [enable long paths on your Windows client](/windows/win32/fileio/maximum-file-path-limitation?tabs=cmd#enable-long-paths-in-windows-10-version-1607-and-later).
 
 Perform the following steps to connect and copy data from your computer to the Data Box Disk.
 
-1. View the contents of the unlocked drive. The list of the precreated folders and subfolders in the drive is different depending upon the options selected when placing the Data Box Disk order.
+1. View the contents of the unlocked drive. The list of the precreated folders and subfolders in the drive is different depending upon the options selected when placing the Data Box Disk order. If a precreated folder does not exist, do not create it as copying to a user created folder will fail to upload on Azure.
 
     |Selected storage destination  |Storage account type|Staging storage account type |Folders and sub-folders  |
     |---------|---------|---------|------------------|
@@ -67,7 +84,7 @@ Perform the following steps to connect and copy data from your computer to the D
 
     A container is created in the Azure storage account for each subfolder under BlockBlob and PageBlob folders. All files under BlockBlob and PageBlob folders are copied into a default container `$root` under the Azure Storage account. Any files in the `$root` container are always uploaded as block blobs.
 
-   Copy files to a folder within *AzureFile* folder. A sub-folder within *AzureFile* folder creates a fileshare. Files copied directly to *AzureFile* folder fail and are uploaded as block blobs.
+   Copy files to a folder within *AzureFile* folder. All files under *AzureFile* folder will be uploaded as files to a default container of type “databox-format-Guid” (ex: databox-azurefile-7ee19cfb3304122d940461783e97bf7b4290a1d7).
 
     If files and folders exist in the root directory, then you must move those to a different folder before you begin data copy.
 
@@ -193,15 +210,15 @@ This optional procedure may be used when you are using multiple disks and have a
 3. Identify the source data to copy. For instance, in this case:
     - Following block blob data was identified.
 
-         ![Split copy data](media/data-box-disk-deploy-copy-data/split-copy-2.png)    
+         ![Split copy data 2](media/data-box-disk-deploy-copy-data/split-copy-2.png)    
 
     - Following page blob data was identified.
 
-         ![Split copy data](media/data-box-disk-deploy-copy-data/split-copy-3.png)
+         ![Split copy data 3](media/data-box-disk-deploy-copy-data/split-copy-3.png)
  
 4. Go to the folder where the software is extracted. Locate the `SampleConfig.json` file in that folder. This is a read-only file that you can modify and save.
 
-   ![Split copy data](media/data-box-disk-deploy-copy-data/split-copy-4.png)
+   ![Split copy data 4](media/data-box-disk-deploy-copy-data/split-copy-4.png)
  
 5. Modify the `SampleConfig.json` file.
  
@@ -210,11 +227,11 @@ This optional procedure may be used when you are using multiple disks and have a
    - Enter the drive letters corresponding to the target disks. The data is taken from the source path and copied across multiple disks.
    - Provide a path for the log files. By default, it is sent to the current directory where the `.exe` is located.
 
-     ![Split copy data](media/data-box-disk-deploy-copy-data/split-copy-5.png)
+     ![Split copy data 5](media/data-box-disk-deploy-copy-data/split-copy-5.png)
 
 6. To validate the file format, go to `JSONlint`. Save the file as `ConfigFile.json`. 
 
-     ![Split copy data](media/data-box-disk-deploy-copy-data/split-copy-6.png)
+     ![Split copy data 6](media/data-box-disk-deploy-copy-data/split-copy-6.png)
  
 7. Open a Command Prompt window. 
 
@@ -222,37 +239,39 @@ This optional procedure may be used when you are using multiple disks and have a
 
     `DataBoxDiskSplitCopy.exe PrepImport /config:<Your-config-file-name.json>`
 
-     ![Split copy data](media/data-box-disk-deploy-copy-data/split-copy-7.png)
+     ![Split copy data 7](media/data-box-disk-deploy-copy-data/split-copy-7.png)
  
 9. Enter to continue the script.
 
-    ![Split copy data](media/data-box-disk-deploy-copy-data/split-copy-8.png)
+    ![Split copy data 8](media/data-box-disk-deploy-copy-data/split-copy-8.png)
   
 10. When the dataset is split and copied, the summary of the Split Copy tool for the copy session is presented. A sample output is shown below.
 
-    ![Split copy data](media/data-box-disk-deploy-copy-data/split-copy-9.png)
+    ![Split copy data 9](media/data-box-disk-deploy-copy-data/split-copy-9.png)
  
 11. Verify that the data is split across the target disks. 
  
-    ![Split copy data](media/data-box-disk-deploy-copy-data/split-copy-10.png)
-    ![Split copy data](media/data-box-disk-deploy-copy-data/split-copy-11.png)
+    ![Split copy data 10](media/data-box-disk-deploy-copy-data/split-copy-10.png)
+    ![Split copy data 11](media/data-box-disk-deploy-copy-data/split-copy-11.png)
 	 
     If you examine the contents of `n:` drive further, you will see that two sub-folders are created corresponding to block blob and page blob format data.
     
-     ![Split copy data](media/data-box-disk-deploy-copy-data/split-copy-12.png)
+     ![Split copy data 12](media/data-box-disk-deploy-copy-data/split-copy-12.png)
 
 12. If the copy session fails, then to recover and resume, use the following command:
 
     `DataBoxDiskSplitCopy.exe PrepImport /config:<configFile.json> /ResumeSession`
+
+If you see errors using the Split Copy tool, go to how to [troubleshoot Split Copy tool errors](data-box-disk-troubleshoot-data-copy.md).
 
 After the data copy is complete, you can proceed to validate your data. If you used the Split Copy tool, skip the validation (Split Copy tool validates as well) and advance to the next tutorial.
 
 
 ## Validate data
 
-If you did not use the Split Copy tool to copy data, you will need to validate your data. To verify the data, perform the following steps.
+If you did not use the Data Box Split Copy tool to copy data, you will need to validate your data. To verify the data, perform the following steps.
 
-1. Run the `DataBoxDiskValidation.cmd` for checksum validation in the *DataBoxDiskImport* folder of your drive.
+1. Run the `DataBoxDiskValidation.cmd` for checksum validation in the *DataBoxDiskImport* folder of your drive. This is available for Windows environment only. Linux users need to validate that the source data that is copied to the disk meets the [prerequisites](./data-box-disk-limits.md).
     
     ![Data Box Disk validation tool output](media/data-box-disk-deploy-copy-data/data-box-disk-validation-tool-output.png)
 
@@ -262,9 +281,11 @@ If you did not use the Split Copy tool to copy data, you will need to validate y
 
     > [!TIP]
     > - Reset the tool between two runs.
-    > - Use option 1 if dealing with large data set containing small files (~ KBs). This option only validates the files, as checksum generation may take a very long time and the performance could be very slow.
+    > - The checksum process may take more time if you have a large data set containing small files (~KBs).  If you use option 1 and skip checksum creation, then you need to independently verify the data integrity of the uploaded data in Azure preferably via checksums before you delete any copies of the data in your possession.
 
 3. If using multiple disks, run the command for each disk.
+
+If you see errors during validation, see [troubleshoot validation errors](data-box-disk-troubleshoot.md).
 
 ## Next steps
 
@@ -278,3 +299,40 @@ Advance to the next tutorial to learn how to return the Data Box Disk and verify
 
 > [!div class="nextstepaction"]
 > [Ship your Azure Data Box back to Microsoft](./data-box-disk-deploy-picked-up.md)
+
+::: zone-end
+
+::: zone target="chromeless"
+
+### Copy data to disks
+
+Take the following steps to connect and copy data from your computer to the Data Box Disk.
+
+1. View the contents of the unlocked drive. The list of the precreated folders and subfolders in the drive is different depending upon the options selected when placing the Data Box Disk order.
+2. Copy the data to folders that correspond to the appropriate data format. For instance, copy the unstructured data to the folder for *BlockBlob* folder, VHD or VHDX data to *PageBlob* folder and files to *AzureFile*. If the data format does not match the  appropriate folder (storage type), then at a later step, the data upload to Azure fails.
+
+    - Make sure that all the containers, blobs, and files conform to [Azure naming conventions](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions) and [Azure object size limits](data-box-disk-limits.md#azure-object-size-limits). If these rules or limits are not followed, the data upload to Azure will fail.     
+    - If your order has Managed Disks as one of the storage destinations, see the naming conventions for [managed disks](data-box-disk-limits.md#managed-disk-naming-conventions).
+    - A container is created in the Azure storage account for each subfolder under BlockBlob and PageBlob folders. All files under *BlockBlob* and *PageBlob* folders are copied into a default container $root under the Azure Storage account. Any files in the $root container are always uploaded as block blobs.
+    - Create a sub-folder within *AzureFile* folder. This sub-folder maps to a fileshare in the cloud. Copy files to the sub-folder. Files copied directly to *AzureFile* folder fail and are uploaded as block blobs.
+    - If files and folders exist in the root directory, then you must move those to a different folder before you begin data copy.
+
+3. Use drag and drop with File Explorer or any SMB compatible file copy tool such as Robocopy to copy your data. Multiple copy jobs can be initiated using the following command:
+
+    ```
+    Robocopy <source> <destination>  * /MT:64 /E /R:1 /W:1 /NFL /NDL /FFT /Log:c:\RobocopyLog.txt
+    ```
+4. Open the target folder to view and verify the copied files. If you have any errors during the copy process, download the log files for troubleshooting. The log files are located as specified in the robocopy command.
+
+Use the optional procedure of [split and copy](data-box-disk-deploy-copy-data.md#split-and-copy-data-to-disks) when you are using multiple disks and have a large dataset that needs to be split and copied across all the disks.
+
+### Validate data
+
+Take the following steps to verify your data.
+
+1. Run the `DataBoxDiskValidation.cmd` for checksum validation in the *DataBoxDiskImport* folder of your drive.
+2. Use option 2 to validate your files and generate checksums. Depending upon your data size, this step may take a while. If there are any errors during validation and checksum generation, you are notified and a link to the error logs is also provided.
+
+    For more information on data validation, see [Validate data](#validate-data). If you experience errors during validation, see [troubleshoot validation errors](data-box-disk-troubleshoot.md).
+
+::: zone-end

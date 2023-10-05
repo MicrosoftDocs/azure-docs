@@ -1,27 +1,20 @@
 ---
 title: Create an Azure Load Balancer rule for a cluster
 description: Configure an Azure Load Balancer to open ports for your Azure Service Fabric cluster.
-services: service-fabric
-documentationcenter: na
-author: aljo-microsoft
-manager: chackdan
-editor: ''
-
-ms.assetid: 
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
 ms.service: service-fabric
-ms.devlang: na
-ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 12/06/2017
-ms.author: aljo
+ms.custom: devx-track-azurecli
+services: service-fabric
+ms.date: 07/11/2022
 ---
 
 # Open ports for a Service Fabric cluster
 
 The load balancer deployed with your Azure Service Fabric cluster directs traffic to your app running on a node. If you change your app to use a different port, you must expose that port (or route a different port) in the Azure Load Balancer.
 
-When you deployed your Service Fabric cluster to Azure, a load balancer was automatically created for you. If you do not have a load balancer, see [Configure an Internet-facing load balancer](../load-balancer/load-balancer-get-started-internet-portal.md).
+When you deployed your Service Fabric cluster to Azure, a load balancer was automatically created for you. If you do not have a load balancer, see [Configure an Internet-facing load balancer](../load-balancer/quickstart-load-balancer-standard-public-portal.md).
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -32,7 +25,7 @@ Your Service Fabric application **ServiceManifest.xml** config file defines the 
 
 ## Create a load balancer rule
 
-A Load Balancer rule opens up an internet-facing port and forwards traffic to the internal node's port used by your application. If you do not have a load balancer, see [Configure an Internet-facing load balancer](../load-balancer/load-balancer-get-started-internet-portal.md).
+A Load Balancer rule opens up an internet-facing port and forwards traffic to the internal node's port used by your application. If you do not have a load balancer, see [Configure an Internet-facing load balancer](../load-balancer/quickstart-load-balancer-standard-public-portal.md).
 
 To create a Load Balancer rule, you need to collect the following information:
 
@@ -67,7 +60,7 @@ The Azure CLI command has a few parameters that are described in the following t
 
 
 >[!NOTE]
->For more information on how to create a load balancer with the Azure CLI, see [Create a load balancer with the Azure CLI](../load-balancer/load-balancer-get-started-internet-arm-cli.md).
+>For more information on how to create a load balancer with the Azure CLI, see [Create a load balancer with the Azure CLI](../load-balancer/quickstart-load-balancer-standard-internal-cli.md).
 
 ## PowerShell
 
@@ -103,8 +96,8 @@ $lb | Set-AzLoadBalancer
 Regarding the `New-AzLoadBalancerRuleConfig` command, the `-FrontendPort` represents the port the load balancer exposes for external connections, and the `-BackendPort` represents the port the service fabric app is listening to.
 
 >[!NOTE]
->For more information on how to create a load balancer with PowerShell, see [Create a load balancer with PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md).
+>For more information on how to create a load balancer with PowerShell, see [Create a load balancer with PowerShell](../load-balancer/quickstart-load-balancer-standard-internal-powershell.md).
 
 ## Next steps
 
-Learn more about [networking in Service Fabric](service-fabric-patterns-networking.md).rvice-fabric-patterns-networking.md).
+Learn more about [networking in Service Fabric](service-fabric-patterns-networking.md).

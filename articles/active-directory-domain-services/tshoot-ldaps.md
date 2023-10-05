@@ -1,46 +1,47 @@
 ---
-title: Troubleshoot Secure LDAP (LDAPS) in Azure AD Domain Services | Microsoft Docs
-description: Troubleshoot Secure LDAP (LDAPS) for an Azure AD Domain Services managed domain
+title: Troubleshoot secure LDAP in Microsoft Entra Domain Services | Microsoft Docs
+description: Learn how to troubleshoot secure LDAP (LDAPS) for a Microsoft Entra Domain Services managed domain
 services: active-directory-ds
-documentationcenter: ''
-author: MikeStephens-MS
-manager: daveba
-editor: curtand
+author: justinha
+manager: amycolannino
 
 ms.assetid: 445c60da-e115-447b-841d-96739975bdf6
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 05/20/2019
-ms.author: mstephen
+ms.topic: troubleshooting
+ms.date: 01/29/2023
+ms.author: justinha
 
 ---
-# Troubleshoot Secure LDAP (LDAPS) for an Azure AD Domain Services managed domain
+# Troubleshoot secure LDAP connectivity issues to a Microsoft Entra Domain Services managed domain
 
-## Connection issues
-If you have trouble connecting to the managed domain using secure LDAP:
+Applications and services that use lightweight directory access protocol (LDAP) to communicate with Microsoft Entra Domain Services (Microsoft Entra DS) can be [configured to use secure LDAP](tutorial-configure-ldaps.md). An appropriate certificate and required network ports must be open for secure LDAP to work correctly.
 
-* The issuer chain of the secure LDAP certificate must be trusted on the client. You may choose to add the Root certification authority to the trusted root certificate store on the client to establish the trust.
-* Verify that the LDAP client (for example, ldp.exe) connects to the secure LDAP endpoint using a DNS name, not the IP address.
+This article helps you troubleshoot issues with secure LDAP access in Microsoft Entra DS.
+
+## Common connection issues
+
+If you have trouble connecting to a Microsoft Entra DS managed domain using secure LDAP, review the following troubleshooting steps. After each troubleshooting step, try to connect to the managed domain again:
+
+* The issuer chain of the secure LDAP certificate must be trusted on the client. You can add the Root certification authority (CA) to the trusted root certificate store on the client to establish the trust.
+    * Make sure you [export and apply the certificate to client computers][client-cert].
+* Verify the secure LDAP certificate for your managed domain has the DNS name in the *Subject* or the *Subject Alternative Names* attribute.
+    * Review the [secure LDAP certificate requirements][certs-prereqs] and create a replacement certificate if needed.
+* Verify that the LDAP client, such as *ldp.exe* connects to the secure LDAP endpoint using a DNS name, not the IP address.
+    * The certificate applied to the managed domain doesn't include the IP addresses of the service, only the DNS names.
 * Check the DNS name the LDAP client connects to. It must resolve to the public IP address for secure LDAP on the managed domain.
-* Verify the secure LDAP certificate for your managed domain has the DNS name in the Subject or the Subject Alternative Names attribute.
-* The NSG settings for the virtual network must allow the traffic to port 636 from the internet. This step applies only if you've enabled secure LDAP access over the internet.
+    * If the DNS name resolves to the internal IP address, update the DNS record to resolve to the external IP address.
+* For external connectivity, the network security group must include a rule that allows the traffic to TCP port 636 from the internet.
+    * If you can connect to the managed domain using secure LDAP from resources directly connected to the virtual network but not external connections, make sure you [create a network security group rule to allow secure LDAP traffic][ldaps-nsg].
 
+## Next steps
 
-## Need help?
-If you still have trouble connecting to the managed domain using secure LDAP, [contact the product team](contact-us.md) for help. Include the following information to help diagnose the issue better:
-* A screenshot of ldp.exe making the connection and failing.
-* Your Azure AD tenant ID, and the DNS domain name of your managed domain.
-* Exact user name that you're trying to bind as.
+If you still have issues, [open an Azure support request][azure-support] for additional troubleshooting assistance.
 
-
-## Related content
-* [Azure AD Domain Services - Getting Started guide](create-instance.md)
-* [Manage an Azure AD Domain Services domain](manage-domain.md)
-* [LDAP query basics](https://technet.microsoft.com/library/aa996205.aspx)
-* [Manage Group Policy for Azure AD Domain Services](manage-group-policy.md)
-* [Network security groups](../virtual-network/security-overview.md)
-* [Create a Network Security Group](../virtual-network/tutorial-filter-network-traffic.md)
+<!-- INTERNAL LINKS -->
+[azure-support]: /azure/active-directory/fundamentals/how-to-get-support
+[configure-ldaps]: tutorial-configure-ldaps.md
+[certs-prereqs]: tutorial-configure-ldaps.md#create-a-certificate-for-secure-ldap
+[client-cert]: tutorial-configure-ldaps.md#export-a-certificate-for-client-computers
+[ldaps-nsg]: tutorial-configure-ldaps.md#lock-down-secure-ldap-access-over-the-internet

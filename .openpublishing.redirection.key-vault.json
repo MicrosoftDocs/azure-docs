@@ -1,0 +1,514 @@
+{
+  "redirections": [
+    {
+      "source_path_from_root": "/articles/key-vault/key-vault-versions.md",
+      "redirect_url": "/azure/key-vault",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/automation-manage-key-vault.md",
+      "redirect_url": "/azure/key-vault/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/key-vault-whatis.md",
+      "redirect_url": "/azure/key-vault/basic-concepts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/general/import-cert-faqs.yml",
+      "redirect_url": "/azure/key-vault/general/faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/certificate-scenarios.md",
+      "redirect_url": "/azure/key-vault/certificates/certificate-scenarios",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/create-certificate.md",
+      "redirect_url": "/azure/key-vault/certificates/create-certificate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/create-certificate-scenarios.md",
+      "redirect_url": "/azure/key-vault/certificates/create-certificate-scenarios",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/about-keys-secrets-and-certificates.md",
+      "redirect_url": "/azure/key-vault/general/about-keys-secrets-certificates",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/key-vault-access-behind-firewall.md",
+      "redirect_url": "/azure/key-vault/general/access-behind-firewall",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/general/group-permissions-for-apps.md",
+      "redirect_url": "/azure/key-vault/general/assign-access-policy-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/key-vault-group-permissions-for-apps.md",
+      "redirect_url": "/azure/key-vault/general/assign-access-policy-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/general/managed-identity.md",
+      "redirect_url": "/azure/key-vault/general/assign-access-policy-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/managed-identity.md",
+      "redirect_url": "/azure/key-vault/general/assign-access-policy-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/authentication-requests-and-responses.md",
+      "redirect_url": "/azure/key-vault/general/authentication-requests-and-responses",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/azure-policy.md",
+      "redirect_url": "/azure/key-vault/general/azure-policy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/basic-concepts.md",
+      "redirect_url": "/azure/key-vault/general/basic-concepts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/key-vault-best-practices.md",
+      "redirect_url": "/azure/key-vault/general/security-features",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/common-parameters-and-headers.md",
+      "redirect_url": "/azure/key-vault/general/common-parameters-and-headers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/key-vault-customer-data.md",
+      "redirect_url": "/azure/key-vault/general/customer-data",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/key-vault-developers-guide.md",
+      "redirect_url": "/azure/key-vault/general/developers-guide",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/key-vault-disaster-recovery-guidance.md",
+      "redirect_url": "/azure/key-vault/general/disaster-recovery-guidance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/key-vault-dotnet2api-release-notes.md",
+      "redirect_url": "/azure/key-vault/general/dotnet2api-release-notes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/event-grid-logicapps.md",
+      "redirect_url": "/azure/key-vault/general/event-grid-logicapps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/event-grid-overview.md",
+      "redirect_url": "/azure/key-vault/general/event-grid-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/event-grid-tutorial.md",
+      "redirect_url": "/azure/key-vault/general/event-grid-tutorial",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/general/soft-delete-cli.md",
+      "redirect_url": "/azure/key-vault/general/key-vault-recovery?tabs=azure-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/general/soft-delete-powershell.md",
+      "redirect_url": "/azure/key-vault/general/key-vault-recovery?tabs=azure-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/key-vault-logging.md",
+      "redirect_url": "/azure/key-vault/general/logging",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/key-vault-manage-with-cli2.md",
+      "redirect_url": "/azure/key-vault/general/manage-with-cli2",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/keyvault-moveregion.md",
+      "redirect_url": "/azure/key-vault/general/move-region",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/keyvault-moveresourcegroup.md",
+      "redirect_url": "/azure/key-vault/general/move-resourcegroup",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/keyvault-move-subscription.md",
+      "redirect_url": "/azure/key-vault/general/move-subscription",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/key-vault-subscription-move-fix.md",
+      "redirect_url": "/azure/key-vault/general/move-subscription",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/key-vault-network-security.md",
+      "redirect_url": "/azure/key-vault/general/network-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/key-vault-overview.md",
+      "redirect_url": "/azure/key-vault/general/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/general/security-overview.md",
+      "redirect_url": "/azure/key-vault/general/security-features",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/overview-security.md",
+      "redirect_url": "/azure/key-vault/general/security-features",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/general/overview-security.md",
+      "redirect_url": "/azure/key-vault/general/security-features",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/key-vault-ovw-security-worlds.md",
+      "redirect_url": "/azure/key-vault/general/overview-security-worlds",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/key-vault-ovw-throttling.md",
+      "redirect_url": "/azure/key-vault/general/overview-throttling",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/key-vault-overview-vnet-service-endpoints.md",
+      "redirect_url": "/azure/key-vault/general/overview-vnet-service-endpoints",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/private-link-service.md",
+      "redirect_url": "/azure/key-vault/general/private-link-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/rest-error-codes.md",
+      "redirect_url": "/azure/key-vault/general/rest-error-codes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/key-vault-secure-your-key-vault.md",
+      "redirect_url": "/azure/key-vault/general/security-features",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/general/secure-your-key-vault.md",
+      "redirect_url": "/azure/key-vault/general/security-features",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/general/key-vault-security-controls.md",
+      "redirect_url": "/azure/key-vault/general/security-baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/key-vault-security-controls.md",
+      "redirect_url": "/azure/key-vault/general/security-baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/security-baseline.md",
+      "redirect_url": "/azure/key-vault/general/security-baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/security-recommendations.md",
+      "redirect_url": "/azure/key-vault/general/security-features",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/general/security-recommendations.md",
+      "redirect_url": "/azure/key-vault/general/security-features",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/key-vault-service-limits.md",
+      "redirect_url": "/azure/key-vault/general/service-limits.",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/key-vault-soft-delete-cli.md",
+      "redirect_url": "/azure/key-vault/general/soft-delete-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/general/overview-soft-delete.md",
+      "redirect_url": "/azure/key-vault/general/soft-delete-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/key-vault-ovw-soft-delete.md",
+      "redirect_url": "/azure/key-vault/general/soft-delete-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/key-vault-soft-delete-powershell.md",
+      "redirect_url": "/azure/key-vault/general/soft-delete-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/tutorial-net-create-vault-azure-web-app.md",
+      "redirect_url": "/azure/key-vault/general/tutorial-net-create-vault-azure-web-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/general/tutorial-net-windows-virtual-machine.md",
+      "redirect_url": "/azure/key-vault/general/tutorial-net-virtual-machine",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/secrets/tutorial-net-linux-virtual-machine.md",
+      "redirect_url": "/azure/key-vault/general/tutorial-net-virtual-machine",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/tutorial-net-linux-virtual-machine.md",
+      "redirect_url": "/azure/key-vault/general/tutorial-net-virtual-machine",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/tutorial-net-windows-virtual-machine.md",
+      "redirect_url": "/azure/key-vault/general/tutorial-net-virtual-machine",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/general/tutorial-python-windows-virtual-machine.md",
+      "redirect_url": "/azure/key-vault/general/tutorial-python-virtual-machine",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/secrets/tutorial-python-linux-virtual-machine.md",
+      "redirect_url": "/azure/key-vault/general/tutorial-python-virtual-machine",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/tutorial-python-linux-virtual-machine.md",
+      "redirect_url": "/azure/key-vault/general/tutorial-python-virtual-machine",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/tutorial-python-windows-virtual-machine.md",
+      "redirect_url": "/azure/key-vault/general/tutorial-python-virtual-machine",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/vs-key-vault-add-connected-service.md",
+      "redirect_url": "/azure/key-vault/general/vs-key-vault-add-connected-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/key-vault-hsm-protected-keys.md",
+      "redirect_url": "/azure/key-vault/keys/hsm-protected-keys",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/hsm-protected-keys-legacy.md",
+      "redirect_url": "/azure/key-vault/keys/hsm-protected-keys-legacy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/hsm-protected-keys-vendor-agnostic-byok.md",
+      "redirect_url": "/azure/key-vault/keys/hsm-protected-keys-vendor-agnostic-byok",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/key-vault-manage-with-cli.md",
+      "redirect_url": "/azure/key-vault/key-vault-manage-with-cli2",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/key-vault-get-started.md",
+      "redirect_url": "/azure/key-vault/key-vault-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/policy-samples.md",
+      "redirect_url": "/azure/key-vault/policy-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/key-vault-key-rotation-log-monitoring.md",
+      "redirect_url": "/azure/key-vault/secrets/key-rotation-log-monitoring",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/key-vault-ovw-storage-keys.md",
+      "redirect_url": "/azure/key-vault/secrets/overview-storage-keys",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/key-vault-overview-storage-keys-powershell.md",
+      "redirect_url": "/azure/key-vault/secrets/overview-storage-keys-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/quick-create-cli.md",
+      "redirect_url": "/azure/key-vault/secrets/quick-create-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/quick-create-java.md",
+      "redirect_url": "/azure/key-vault/secrets/quick-create-java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/quick-create-net.md",
+      "redirect_url": "/azure/key-vault/secrets/quick-create-net",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/quick-create-net-v3.md",
+      "redirect_url": "/azure/key-vault/secrets/quick-create-net-v3",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/secrets/quick-create-net-v3.md",
+      "redirect_url": "/azure/key-vault/secrets/quick-create-net-v4",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/quick-create-portal.md",
+      "redirect_url": "/azure/key-vault/secrets/quick-create-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/quick-create-powershell.md",
+      "redirect_url": "/azure/key-vault/secrets/quick-create-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/quick-create-python.md",
+      "redirect_url": "/azure/key-vault/secrets/quick-create-python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/quick-create-template.md",
+      "redirect_url": "/azure/key-vault/secrets/quick-create-template",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/storage-keys-sas-tokens-code.md",
+      "redirect_url": "/azure/key-vault/secrets/storage-keys-sas-tokens-code",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/tutorial-rotation.md",
+      "redirect_url": "/azure/key-vault/secrets/tutorial-rotation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/secrets/key-rotation-log-monitoring.md",
+      "redirect_url": "/azure/key-vault/secrets/tutorial-rotation-dual",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/key-vault-use-from-web-application.md",
+      "redirect_url": "/azure/key-vault/tutorial-net-create-vault-azure-web-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/tutorial-web-application-keyvault.md",
+      "redirect_url": "/azure/key-vault/tutorial-net-create-vault-azure-web-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/vs-key-vault-aspnet-core-get-started.md",
+      "redirect_url": "/azure/key-vault/vs-key-vault-add-connected-service",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/vs-key-vault-aspnet-core-what-happened.md",
+      "redirect_url": "/azure/key-vault/vs-key-vault-add-connected-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/vs-key-vault-aspnet-get-started.md",
+      "redirect_url": "/azure/key-vault/vs-key-vault-add-connected-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/vs-key-vault-aspnet-what-happened.md",
+      "redirect_url": "/azure/key-vault/vs-key-vault-add-connected-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/general/vs-secure-secret-appsettings.md",
+      "redirect_url": "/previous-versions/azure/key-vault/vs-secure-secret-appsettings",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/vs-secure-secret-appsettings.md",
+      "redirect_url": "/previous-versions/azure/key-vault/vs-secure-secret-appsettings",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/general/service-to-service-authentication.md",
+      "redirect_url": "/dotnet/api/overview/azure/service-to-service-authentication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/service-to-service-authentication.md",
+      "redirect_url": "/dotnet/api/overview/azure/service-to-service-authentication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/secrets/quick-create-github-secret.md",
+      "redirect_url": "/azure/developer/github/deploy-to-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/general/authentication-fundamentals.md",
+      "redirect_url": "/azure/key-vault/general/authentication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/general/key-vault-integrate-kubernetes.md",
+      "redirect_url": "/azure/aks/csi-secrets-store-driver",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/general/assign-access-policy-portal.md",
+      "redirect_url": "/azure/key-vault/general/assign-access-policy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/general/assign-access-policy-cli.md",
+      "redirect_url": "/azure/key-vault/general/assign-access-policy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/general/assign-access-policy-powershell.md",
+      "redirect_url": "/azure/key-vault/general/assign-access-policy",
+      "redirect_document_id": false
+    }
+  ]
+}

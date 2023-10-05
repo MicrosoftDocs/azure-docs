@@ -1,20 +1,12 @@
 ---
-title: Mapping dataset columns in Azure Data Factory | Microsoft Docs
+title: Mapping dataset columns in Azure Data Factory 
 description: 'Learn how to map source columns to destination columns.'
-services: data-factory
-documentationcenter: ''
-author: linda33wj
-manager: craigg
-
-
+author: jianleishen
+ms.author: jianleishen
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-
+ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/10/2018
-ms.author: jingwang
-
+ms.date: 04/12/2023
 robots: noindex
 ---
 
@@ -22,7 +14,7 @@ robots: noindex
 > [!NOTE]
 > This article applies to version 1 of Data Factory. 
 
-Column mapping can be used to specify how columns specified in the “structure” of source table map to columns specified in the “structure” of sink table. The **columnMapping** property is available in the **typeProperties** section of the Copy activity.
+Column mapping can be used to specify how columns specified in the "structure" of source table map to columns specified in the "structure" of sink table. The **columnMapping** property is available in the **typeProperties** section of the Copy activity.
 
 Column mapping supports the following scenarios:
 
@@ -31,15 +23,15 @@ Column mapping supports the following scenarios:
 
 The following are error conditions that result in an exception:
 
-* Either fewer columns or more columns in the “structure” of sink table than specified in the mapping.
+* Either fewer columns or more columns in the "structure" of sink table than specified in the mapping.
 * Duplicate mapping.
 * SQL query result does not have a column name that is specified in the mapping.
 
 > [!NOTE]
 > The following samples are for Azure SQL and Azure Blob but are applicable to any data store that supports rectangular datasets. Adjust dataset and linked service definitions in examples to point to data in the relevant data source.
 
-## Sample 1 – column mapping from Azure SQL to Azure blob
-In this sample, the input table has a structure and it points to a SQL table in an Azure SQL database.
+## Sample 1 - column mapping from Azure SQL to Azure blob
+In this sample, the input table has a structure and it points to a SQL table in Azure SQL Database.
 
 ```json
 {
@@ -137,10 +129,10 @@ The following JSON defines a copy activity in a pipeline. The columns from sourc
 ```
 **Column mapping flow:**
 
-![Column mapping flow](./media/data-factory-map-columns/column-mapping-flow.png)
+:::image type="content" source="./media/data-factory-map-columns/column-mapping-flow.png" alt-text="Column mapping flow":::
 
-## Sample 2 – column mapping with SQL query from Azure SQL to Azure blob
-In this sample, a SQL query is used to extract data from Azure SQL instead of simply specifying the table name and the column names in “structure” section. 
+## Sample 2 - column mapping with SQL query from Azure SQL to Azure blob
+In this sample, a SQL query is used to extract data from Azure SQL instead of simply specifying the table name and the column names in "structure" section. 
 
 ```json
 {
@@ -172,11 +164,11 @@ In this sample, a SQL query is used to extract data from Azure SQL instead of si
         }
 }
 ```
-In this case, the query results are first mapped to columns specified in “structure” of source. Next, the columns from source “structure” are mapped to columns in sink “structure” with rules specified in columnMappings.  Suppose the query returns 5 columns, two more columns than those specified in the “structure” of source.
+In this case, the query results are first mapped to columns specified in "structure" of source. Next, the columns from source "structure" are mapped to columns in sink "structure" with rules specified in columnMappings.  Suppose the query returns 5 columns, two more columns than those specified in the "structure" of source.
 
 **Column mapping flow**
 
-![Column mapping flow-2](./media/data-factory-map-columns/column-mapping-flow-2.png)
+:::image type="content" source="./media/data-factory-map-columns/column-mapping-flow-2.png" alt-text="Column mapping flow-2":::
 
 ## Next steps
 See the article for a tutorial on using Copy Activity: 

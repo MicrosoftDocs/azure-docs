@@ -1,23 +1,19 @@
 ---
-title: Handle Cloud Service lifecycle events | Microsoft Docs
-description: Learn how the lifecycle methods of a Cloud Service role can be used in .NET
-services: cloud-services
-documentationcenter: .net
-author: jpconnock
-manager: timlt
-editor: ''
-
-ms.assetid: 39b30acd-57b9-48b7-a7c4-40ea3430e451
-ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
+title: Handle Cloud Service (classic) lifecycle events | Microsoft Docs
+description: Learn how to use the lifecycle methods of a Cloud Service role in .NET, including RoleEntryPoint, which provides methods to respond to lifecycle events.
 ms.topic: article
-ms.date: 07/18/2017
-ms.author: jeconnoc
-
+ms.service: cloud-services
+ms.date: 02/21/2023
+author: hirenshah1
+ms.author: hirshah
+ms.reviewer: mimckitt
+ms.custom: compute-evergreen, devx-track-dotnet
 ---
+
 # Customize the Lifecycle of a Web or Worker role in .NET
+
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
+
 When you create a worker role, you extend the [RoleEntryPoint](/previous-versions/azure/reference/ee758619(v=azure.100)) class which provides methods for you to override that let you respond to lifecycle events. For web roles this class is optional, so you must use it to respond to lifecycle events.
 
 ## Extend the RoleEntryPoint class
@@ -25,7 +21,7 @@ The [RoleEntryPoint](/previous-versions/azure/reference/ee758619(v=azure.100)) c
 
 When extending **RoleEntryPoint**, you should be aware of the following behaviors of the methods:
 
-* The [OnStart](/previous-versions/azure/reference/ee772851(v=azure.100)) and [OnStop](/previous-versions/azure/reference/ee772844(v=azure.100)) methods return a boolean value, so it is possible to return **false** from these methods.
+* The [OnStart](/previous-versions/azure/reference/ee772851(v=azure.100)) method returns a boolean value, so it is possible to return **false** from this method.
   
    If your code returns **false**, the role process is abruptly terminated, without running any shutdown sequence you may have in place. In general, you should avoid returning **false** from the **OnStart** method.
 * Any uncaught exception within an overload of a **RoleEntryPoint** method is treated as an unhandled exception.
@@ -78,4 +74,3 @@ You can use the ASP.NET lifecycle methods, in addition to those provided by the 
 
 ## Next steps
 Learn how to [create a cloud service package](cloud-services-model-and-package.md).
-

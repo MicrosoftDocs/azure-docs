@@ -1,12 +1,13 @@
 ﻿---
-title: Understand Azure IoT Hub direct methods | Microsoft Docs
-description: Developer guide - use direct methods to invoke code on your devices from a service app.
-author: nberdy
+title: Understand Azure IoT Hub direct methods
+description: This article describes how to use direct methods to invoke code on your devices from a service app.
+author: kgremban
+
+ms.author: kgremban
 ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
-ms.date: 07/17/2018
-ms.author: nberdy
+ms.topic: concept-article
+ms.date: 07/15/2022
+ms.custom: [amqp, mqtt,'Role: Cloud Development', 'Role: IoT Device']
 ---
 
 # Understand and invoke direct methods from IoT Hub
@@ -25,40 +26,41 @@ Refer to [Cloud-to-device communication guidance](iot-hub-devguide-c2d-guidance.
 
 ## Method lifecycle
 
-Direct methods are implemented on the device and may require zero or more inputs in the method payload to correctly instantiate. You invoke a direct method through a service-facing URI (`{iot hub}/twins/{device id}/methods/`). A device receives direct methods through a device-specific MQTT topic (`$iothub/methods/POST/{method name}/`) or through AMQP links (the `IoThub-methodname` and `IoThub-status` application properties). 
+Direct methods are implemented on the device and may require zero or more inputs in the method payload to correctly instantiate. You invoke a direct method through a service-facing URI (`{iot hub}/twins/{device id}/methods/`). A device receives direct methods through a device-specific MQTT topic (`$iothub/methods/POST/{method name}/`) or through AMQP links (the `IoThub-methodname` and `IoThub-status` application properties).
 
 > [!NOTE]
 > When you invoke a direct method on a device, property names and values can only contain US-ASCII printable alphanumeric, except any in the following set: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``
-> 
+>
 
-Direct methods are synchronous and either succeed or fail after the timeout period (default: 30 seconds, settable up to 300 seconds). Direct methods are useful in interactive scenarios where you want a device to act if and only if the device is online and receiving commands. For example, turning on a light from a phone. In these scenarios, you want to see an immediate success or failure so the cloud service can act on the result as soon as possible. The device may return some message body as a result of the method, but it isn't required for the method to do so. There is no guarantee on ordering or any concurrency semantics on method calls.
+Direct methods are synchronous and either succeed or fail after the timeout period (default: 30 seconds, settable between 5 and 300 seconds). Direct methods are useful in interactive scenarios where you want a device to act if and only if the device is online and receiving commands. For example, turning on a light from a phone. In these scenarios, you want to see an immediate success or failure so the cloud service can act on the result as soon as possible. The device may return some message body as a result of the method, but it isn't required for the method to do so. There is no guarantee on ordering or any concurrency semantics on method calls.
 
-Direct methods are HTTPS-only from the cloud side, and MQTT or AMQP from the device side.
+Direct methods are HTTPS-only from the cloud side and MQTT, AMQP, MQTT over WebSockets, or AMQP over WebSockets from the device side.
 
 The payload for method requests and responses is a JSON document up to 128 KB.
 
 ## Invoke a direct method from a back-end app
 
-Now, invoke a direct method from a back-end app.
+To invoke a direct method from a back-end app use the [Invoke device method](/rest/api/iothub/service/devices/invoke-method) REST API or its equivalent in one of the [IoT Hub service SDKs](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
 
 ### Method invocation
 
 Direct method invocations on a device are HTTPS calls that are made up of the following items:
 
-* The *request URI* specific to the device along with the [API version](/rest/api/iothub/service/invokedevicemethod):
+* The *request URI* specific to the device along with the API version:
 
     ```http
-    https://fully-qualified-iothubname.azure-devices.net/twins/{deviceId}/methods?api-version=2018-06-30
+    https://fully-qualified-iothubname.azure-devices.net/twins/{deviceId}/methods?api-version=2021-04-12
     ```
 
 * The POST *method*
 
-* *Headers* that contain the authorization, request ID, content type, and content encoding.
+* *Headers* that contain the authorization, content type, and content encoding.
 
 * A transparent JSON *body* in the following format:
 
     ```json
     {
+        "connectTimeoutInSeconds": 200,
         "methodName": "reboot",
         "responseTimeoutInSeconds": 200,
         "payload": {
@@ -68,15 +70,25 @@ Direct method invocations on a device are HTTPS calls that are made up of the fo
     }
     ```
 
-Timeout is in seconds. If timeout is not set, it defaults to 30 seconds.
+The value provided as `responseTimeoutInSeconds` in the request is the amount of time that IoT Hub service must await for completion of a direct method execution on a device. Set this timeout to be at least as long as the expected execution time of a direct method by a device. If timeout is not provided, the default value of 30 seconds is used. The minimum and maximum values for `responseTimeoutInSeconds` are 5 and 300 seconds, respectively.
+
+The value provided as `connectTimeoutInSeconds` in the request is the amount of time upon invocation of a direct method that IoT Hub service must await for a disconnected device to come online. The default value is 0, meaning that devices must already be online upon invocation of a direct method. The maximum value for `connectTimeoutInSeconds` is 300 seconds.
 
 #### Example
 
-See below for a barebone example using `curl`. 
+This example will allow you to securely initiate a request to invoke a direct method on an IoT device registered to an Azure IoT hub.
+
+To begin, use the [Microsoft Azure IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension) to create a SharedAccessSignature.
+
+```azurecli
+az iot hub generate-sas-token -n <iothubName> --du <duration>
+```
+
+Next, replace the Authorization header with your newly generated SharedAccessSignature, then modify the `iothubName`, `deviceId`, `methodName` and `payload` parameters to match your implementation in the example `curl` command below.
 
 ```bash
 curl -X POST \
-  https://iothubname.azure-devices.net/twins/myfirstdevice/methods?api-version=2018-06-30 \
+  https://<iothubName>.azure-devices.net/twins/<deviceId>/methods?api-version=2021-04-12\
   -H 'Authorization: SharedAccessSignature sr=iothubname.azure-devices.net&sig=x&se=x&skn=iothubowner' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -89,13 +101,25 @@ curl -X POST \
 }'
 ```
 
+Execute the modified command to invoke the specified direct method. Successful requests will return an HTTP 200 status code.
+
+> [!NOTE]
+> The example above demonstrates invoking a direct method on a device.  If you want to invoke a direct method in an IoT Edge Module, you would need to modify the url request as shown below:
+>
+> ```bash
+> https://<iothubName>.azure-devices.net/twins/<deviceId>/modules/<moduleName>/methods?api-version=2021-04-12
+> ```
+
 ### Response
 
 The back-end app receives a response that is made up of the following items:
 
-* *HTTP status code*, which is used for errors coming from the IoT Hub, including a 404 error for devices not currently connected.
+* *HTTP status code*:
+  * 200 indicates successful execution of direct method;
+  * 404 indicates that either device ID is invalid, or that the device was not online upon invocation of a direct method and for `connectTimeoutInSeconds` thereafter (use accompanied error message to understand the root cause);
+  * 504 indicates gateway timeout caused by device not responding to a direct method call within `responseTimeoutInSeconds`.
 
-* *Headers* that contain the ETag, request ID, content type, and content encoding.
+* *Headers* that contain the request ID, content type, and content encoding.
 
 * A JSON *body* in the following format:
 
@@ -106,25 +130,25 @@ The back-end app receives a response that is made up of the following items:
     }
     ```
 
-    Both `status` and `body` are provided by the device and used to respond with the device's own status code and/or description.
+    Both `status` and `payload` are provided by the device and used to respond with the device's own status code and the method response.
 
 ### Method invocation for IoT Edge modules
 
-Invoking direct methods using a module ID is supported in the [IoT Service Client C# SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices/).
+Invoking direct methods on a module is supported by the [Invoke module method](/rest/api/iothub/service/modules/invoke-method) REST API or its equivalent in one of the IoT Hub service SDKs.
 
-For this purpose, use the `ServiceClient.InvokeDeviceMethodAsync()` method and pass in the `deviceId` and `moduleId` as parameters.
+The `moduleId` is passed along with the `deviceId` in the request URI when using the REST API or as a parameter when using a service SDK. For example, `https://<iothubName>.azure-devices.net/twins/<deviceId>/modules/<moduleName>/methods?api-version=2021-04-12`. The request body and response is similar to that of direct methods invoked on the device.
 
 ## Handle a direct method on a device
 
-Let's look at how to handle a direct method on an IoT device.
+On an IoT device, direct methods can be received over MQTT, AMQP, or either of these protocols over WebSockets. The [IoT Hub device SDKs](iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) help you receive and respond to direct methods on devices without having to worry about the underlying protocol details.
 
 ### MQTT
 
-The following section is for the MQTT protocol.
+The following section is for the MQTT protocol. To learn more about using the MQTT protocol directly with IoT Hub, see [MQTT protocol support](../iot/iot-mqtt-connect-to-iot-hub.md).
 
 #### Method invocation
 
-Devices receive direct method requests on the MQTT topic: `$iothub/methods/POST/{method name}/?$rid={request id}`. The number of subscriptions per device is limited to 5. It is therefore recommended not to subscribe to each direct method individually. Instead consider subscribing to `$iothub/methods/POST/#` and then filter the delivered messages based on your desired method names.
+Devices receive direct method requests on the MQTT topic: `$iothub/methods/POST/{method name}/?$rid={request id}`. However, the `request id` is generated by IoT Hub and cannot be known ahead of time, so subscribe to `$iothub/methods/POST/#` and then filter the delivered messages based on method names supported by your device. (You'll use the `request id` to respond.)
 
 The body that the device receives is in the following format:
 
@@ -143,13 +167,13 @@ The device sends responses to `$iothub/methods/res/{status}/?$rid={request id}`,
 
 * The `status` property is the device-supplied status of method execution.
 
-* The `$rid` property is the request ID from the method invocation received from IoT Hub.
+* The `$rid` property is the request ID from the method invocation received from IoT Hub. The request ID is a hexadecimal formatted value.
 
 The body is set by the device and can be any status.
 
 ### AMQP
 
-The following section is for the AMQP protocol.
+The following section is for the AMQP protocol. To learn more about using the AMQP protocol directly with IoT Hub, see [AMQP protocol support](iot-hub-amqp-support.md).
 
 #### Method invocation
 
@@ -167,9 +191,9 @@ The AMQP message arrives on the receive link that represents the method request.
 
 The device creates a sending link to return the method response on address `amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`.
 
-The method’s response is returned on the sending link and is structured as follows:
+The method's response is returned on the sending link and is structured as follows:
 
-* The correlation ID property, which contains the request ID passed in the method’s request message.
+* The correlation ID property, which contains the request ID passed in the method's request message.
 
 * An application property named `IoThub-status`, which contains the user supplied method status.
 
@@ -187,7 +211,7 @@ Other reference topics in the IoT Hub developer guide include:
 
 * [IoT Hub query language for device twins, jobs, and message routing](iot-hub-devguide-query-language.md) describes the IoT Hub query language you can use to retrieve information from IoT Hub about your device twins and jobs.
 
-* [IoT Hub MQTT support](iot-hub-mqtt-support.md) provides more information about IoT Hub support for the MQTT protocol.
+* [IoT Hub MQTT support](../iot/iot-mqtt-connect-to-iot-hub.md) provides more information about IoT Hub support for the MQTT protocol.
 
 ## Next steps
 
@@ -197,5 +221,5 @@ Now you have learned how to use direct methods, you may be interested in the fol
 
 If you would like to try out some of the concepts described in this article, you may be interested in the following IoT Hub tutorial:
 
-* [Use direct methods](quickstart-control-device-node.md)
-* [Device management with Azure IoT Tools for VS Code](iot-hub-device-management-iot-toolkit.md)
+* [Quickstart: Control a device connected to an IoT hub](quickstart-control-device.md)
+* [Device management with the Azure IoT Hub extension for VS Code](iot-hub-device-management-iot-toolkit.md)

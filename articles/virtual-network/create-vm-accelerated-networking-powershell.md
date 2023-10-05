@@ -1,301 +1,308 @@
 ---
-title: Create an Azure virtual machine with Accelerated Networking | Microsoft Docs
-description: Learn how to create a Linux virtual machine with Accelerated Networking.
+title: Use PowerShell to create a VM with Accelerated Networking
+description: Use Azure PowerShell to create and manage Windows virtual machines that have Accelerated Networking enabled for improved network performance.
 services: virtual-network
-documentationcenter: ''
-author: gsilva5
+author: steveesp
 manager: gedegrac
-editor: ''
-
-ms.assetid:
 ms.service: virtual-network
-ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows
+ms.custom: devx-track-azurepowershell
 ms.workload: infrastructure
-ms.date: 01/04/2018
-ms.author: gsilva
+ms.date: 03/20/2023
+ms.author: steveesp
 ---
 
-# Create a Windows virtual machine with Accelerated Networking
+# Use Azure PowerShell to create a VM with Accelerated Networking
 
-In this tutorial, you learn how to create a Windows virtual machine (VM) with Accelerated Networking. To create a Linux VM with Accelerated Networking, see [Create a Linux VM with Accelerated Networking](create-vm-accelerated-networking-cli.md). Accelerated networking enables single root I/O virtualization (SR-IOV) to a VM, greatly improving its networking performance. This high-performance path bypasses the host from the datapath, reducing latency, jitter, and CPU utilization, for use with the most demanding network workloads on supported VM types. The following picture shows communication between two VMs with and without accelerated networking:
+This article describes how to use Azure PowerShell to create a Windows virtual machine (VM) with Accelerated Networking (AccelNet) enabled. The article also discusses how to enable and manage Accelerated Networking on existing VMs.
 
-![Comparison](./media/create-vm-accelerated-networking/accelerated-networking.png)
+You can also create a VM with Accelerated Networking enabled by using the [Azure portal](quick-create-portal.md). For more information about using the Azure portal to manage Accelerated Networking on VMs, see [Manage Accelerated Networking through the portal](#manage-accelerated-networking-through-the-portal).
 
-Without accelerated networking, all networking traffic in and out of the VM must traverse the host and the virtual switch. The virtual switch provides all policy enforcement, such as network security groups, access control lists, isolation, and other network virtualized services to network traffic. To learn more about virtual switches, see [Hyper-V network virtualization and virtual switch](https://technet.microsoft.com/library/jj945275.aspx).
+To use Azure CLI to create a Linux or Windows VM with Accelerated Networking enabled, see [Use Azure CLI to create a VM with Accelerated Networking](create-vm-accelerated-networking-cli.md).
 
-With accelerated networking, network traffic arrives at the VM's network interface (NIC), and is then forwarded to the VM. All network policies that the virtual switch applies are now offloaded and applied in hardware. Applying policy in hardware enables the NIC to forward network traffic directly to the VM, bypassing the host and the virtual switch, while maintaining all the policy it applied in the host.
+## Prerequisites
 
-The benefits of accelerated networking only apply to the VM that it is enabled on. For the best results, it is ideal to enable this feature on at least two VMs connected to the same Azure Virtual Network (VNet). When communicating across VNets or connecting on-premises, this feature has minimal impact to overall latency.
+- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## Benefits
-* **Lower Latency / Higher packets per second (pps):** Removing the virtual switch from the datapath removes the time packets spend in the host for policy processing and increases the number of packets that can be processed inside the VM.
-* **Reduced jitter:** Virtual switch processing depends on the amount of policy that needs to be applied and the workload of the CPU that is doing the processing. Offloading the policy enforcement to the hardware removes that variability by delivering packets directly to the VM, removing the host to VM communication and all software interrupts and context switches.
-* **Decreased CPU utilization:** Bypassing the virtual switch in the host leads to less CPU utilization for processing network traffic.
+- [Azure PowerShell](/powershell/azure/install-azure-powershell) 1.0.0 or later installed. To find your currently installed version, run `Get-Module -ListAvailable Az`. If you need to install or upgrade, install the latest version of the Az module from the [PowerShell Gallery](https://www.powershellgallery.com/packages/Az).
 
-## Limitations and Constraints
+- In PowerShell, sign in to your Azure account by using [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
-### Supported operating systems
-The following distributions are supported out of the box from the Azure Gallery:
-* **Windows Server 2016 Datacenter** 
-* **Windows Server 2012 R2 Datacenter**
+## Create a VM with Accelerated Networking
 
-### Supported VM instances
-Accelerated Networking is supported on most general purpose and compute-optimized instance sizes with 2 or more vCPUs.  These supported series are: D/DSv2 and F/Fs
+In the following examples, you can replace the example parameters such as `<myResourceGroup>`, `<myNic>`, and `<myVm>` with your own values.
 
-On instances that support hyperthreading, Accelerated Networking is supported on VM instances with 4 or more vCPUs. Supported series are: D/Dsv3, E/Esv3, Fsv2, Lsv2, Ms/Mms and Ms/Mmsv2.
+### Create a virtual network
 
-For more information on VM instances, see [Windows VM sizes](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+1. Use [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup) to create a resource group to contain the resources.
 
-### Regions
-Available in all public Azure regions and Azure Government Cloud.
+   ```azurepowershell
+   New-AzResourceGroup -Name "<myResourceGroup>" -Location "<myAzureRegion>"
+   ```
 
-### Enabling Accelerated Networking on a running VM
-A supported VM size without accelerated networking enabled can only have the feature enabled when it is stopped and deallocated.
+1. Use [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.Network/New-azVirtualNetworkSubnetConfig) to create a subnet configuration.
 
-### Deployment through Azure Resource Manager
-Virtual machines (classic) cannot be deployed with Accelerated Networking.
+   ```azurepowershell
+   $subnet = New-AzVirtualNetworkSubnetConfig `
+     -Name "<mySubnet>" `
+     -AddressPrefix "<192.168.1.0/24>"
+   ```
 
-## Create a Windows VM with Azure Accelerated Networking
-## Portal creation
-Though this article provides steps to create a virtual machine with accelerated networking using Azure Powershell, you can also [create a virtual machine with accelerated networking using the Azure portal](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). When creating a virtual machine in the portal, in the **Create a virtual machine** blade, choose the **Networking** tab.  In this tab, there is an option for **Accelerated networking**.  If you have chosen a [supported operating system](#supported-operating-systems) and [VM size](#supported-vm-instances), this option will automatically populate to "On."  If not, it will populate the "Off" option for Accelerated Networking and give the user a reason why it is not be enabled.   
-* *Note:* Only supported operating systems can be enabled through the portal.  If you are using a custom image, and your image supports Accelerated Networking, please create your VM using CLI or Powershell. 
+1. Use [New-AzVirtualNetwork](/powershell/module/az.Network/New-azVirtualNetwork) to create a virtual network with the subnet.
 
-After the virtual machine is created, you can confirm Accelerated Networking is enabled by following the instructions in the Confirm that accelerated networking is enabled.
+   ```azurepowershell
+   $vnet = New-AzVirtualNetwork -ResourceGroupName "<myResourceGroup>" `
+     -Location "<myAzureRegion>" `
+     -Name "<myVnet>" `
+     -AddressPrefix "<192.168.0.0/16>" `
+     -Subnet $Subnet
+   ```
 
-## Powershell creation
-## Create a virtual network
+### Create a network security group
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+1. A network security group (NSG) contains several default rules, one of which disables all inbound access from the internet. Use [New-AzNetworkSecurityRuleConfig](/powershell/module/az.Network/New-azNetworkSecurityRuleConfig) to create a new rule so that you can remotely connect to the VM via Remote Desktop Protocol (RDP).
 
-Install [Azure PowerShell](/powershell/azure/install-az-ps) version 1.0.0 or later. To find your currently installed version, run `Get-Module -ListAvailable Az`. If you need to install or upgrade, install the latest version of the Az module from the [PowerShell Gallery](https://www.powershellgallery.com/packages/Az). In a PowerShell session, log in to an Azure account using [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
+   ```azurepowershell
+   $rdp = New-AzNetworkSecurityRuleConfig `
+     -Name "Allow-RDP-All" `
+     -Description "Allow RDP" `
+     -Access Allow `
+     -Protocol Tcp `
+     -Direction Inbound `
+     -Priority 100 `
+     -SourceAddressPrefix * `
+     -SourcePortRange * `
+     -DestinationAddressPrefix * `
+     -DestinationPortRange 3389
+   ```
 
-In the following examples, replace example parameter names with your own values. Example parameter names included *myResourceGroup*, *myNic*, and *myVM*.
+1. Use [New-AzNetworkSecurityGroup](/powershell/module/az.Network/New-azNetworkSecurityGroup) to create the NSG and assign the `Allow-RDP-All` rule to the NSG.
 
-Create a resource group with [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). The following example creates a resource group named *myResourceGroup* in the *centralus* location:
+   ```azurepowershell
+   $nsg = New-AzNetworkSecurityGroup `
+     -ResourceGroupName "<myResourceGroup>" `
+     -Location "<myAzureRegion>" `
+     -Name "<myNsg>" `
+     -SecurityRules $rdp
+   ```
 
-```powershell
-New-AzResourceGroup -Name "myResourceGroup" -Location "centralus"
-```
+1. Use [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.Network/Set-azVirtualNetworkSubnetConfig) to associate the NSG to the subnet. The NSG rules are effective for all resources deployed in the subnet.
 
-First, create a subnet configuration with [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.Network/New-azVirtualNetworkSubnetConfig). The following example creates a subnet named *mySubnet*:
+   ```azurepowershell
+   Set-AzVirtualNetworkSubnetConfig `
+     -VirtualNetwork $vnet `
+     -Name "<mySubnet>" `
+     -AddressPrefix "<192.168.1.0/24>" `
+     -NetworkSecurityGroup $nsg
+   ```
 
-```powershell
-$subnet = New-AzVirtualNetworkSubnetConfig `
-    -Name "mySubnet" `
-    -AddressPrefix "192.168.1.0/24"
-```
+### Create a network interface with accelerated networking
 
-Create a virtual network with [New-AzVirtualNetwork](/powershell/module/az.Network/New-azVirtualNetwork), with the *mySubnet* subnet.
+1. Use [New-AzPublicIpAddress](/powershell/module/az.Network/New-azPublicIpAddress) to create a public IP address.  The VM doesn't need a public IP address if you don't access it from the internet, but you need the public IP to complete the steps for this article.
 
-```powershell
-$vnet = New-AzVirtualNetwork -ResourceGroupName "myResourceGroup" `
-    -Location "centralus" `
-    -Name "myVnet" `
-    -AddressPrefix "192.168.0.0/16" `
-    -Subnet $Subnet
-```
+   ```azurepowershell
+   $publicIp = New-AzPublicIpAddress `
+     -ResourceGroupName "<myResourceGroup>" `
+     -Name "<myPublicIp>" `
+     -Location "<myAzureRegion>" `
+     -AllocationMethod Dynamic
+   ```
 
-## Create a network security group
+1. Use [New-AzNetworkInterface](/powershell/module/az.Network/New-azNetworkInterface) to create a network interface (NIC) with Accelerated Networking enabled, and assign the public IP address to the NIC.
 
-First, create a network security group rule with [New-AzNetworkSecurityRuleConfig](/powershell/module/az.Network/New-azNetworkSecurityRuleConfig).
+   ```azurepowershell
+   $nic = New-AzNetworkInterface `
+     -ResourceGroupName "<myResourceGroup>" `
+     -Name "<myNic>" `
+     -Location "<myAzureRegion>" `
+     -SubnetId $vnet.Subnets[0].Id `
+     -PublicIpAddressId $publicIp.Id `
+     -EnableAcceleratedNetworking
+   ```
 
-```powershell
-$rdp = New-AzNetworkSecurityRuleConfig `
-    -Name 'Allow-RDP-All' `
-    -Description 'Allow RDP' `
-    -Access Allow `
-    -Protocol Tcp `
-    -Direction Inbound `
-    -Priority 100 `
-    -SourceAddressPrefix * `
-    -SourcePortRange * `
-    -DestinationAddressPrefix * `
-    -DestinationPortRange 3389
-```
+### Create a VM and attach the network interface
 
-Create a network security group with [New-AzNetworkSecurityGroup](/powershell/module/az.Network/New-azNetworkSecurityGroup) and assign the *Allow-RDP-All* security rule to it. In addition to the *Allow-RDP-All* rule, the network security group contains several default rules. One default rule disables all inbound access from the Internet, which is why the *Allow-RDP-All* rule is assigned to the network security group so that you can remotely connect to the virtual machine, once it's created.
+1. Use [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential) to set a user name and password for the VM and store them in the `$cred` variable.
 
-```powershell
-$nsg = New-AzNetworkSecurityGroup `
-    -ResourceGroupName myResourceGroup `
-    -Location centralus `
-    -Name "myNsg" `
-    -SecurityRules $rdp
-```
-
-Associate the network security group to the *mySubnet* subnet with [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.Network/Set-azVirtualNetworkSubnetConfig). The rule in the network security group is effective for all resources deployed in the subnet.
-
-```powershell
-Set-AzVirtualNetworkSubnetConfig `
-    -VirtualNetwork $vnet `
-    -Name 'mySubnet' `
-    -AddressPrefix "192.168.1.0/24" `
-    -NetworkSecurityGroup $nsg
-```
+   ```azurepowershell
+   $cred = Get-Credential
+   ```
 
-## Create a network interface with accelerated networking
-Create a public IP address with [New-AzPublicIpAddress](/powershell/module/az.Network/New-azPublicIpAddress). A public IP address isn't required if you don't plan to access the virtual machine from the Internet, but to complete the steps in this article, it is required.
+1. Use [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig) to define a VM with a VM size that supports accelerated networking, as listed in [Windows Accelerated Networking](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). For a list of all Windows VM sizes and characteristics, see [Windows VM sizes](/azure/virtual-machines/sizes).
 
-```powershell
-$publicIp = New-AzPublicIpAddress `
-    -ResourceGroupName myResourceGroup `
-    -Name 'myPublicIp' `
-    -location centralus `
-    -AllocationMethod Dynamic
-```
+   ```azurepowershell
+   $vmConfig = New-AzVMConfig -VMName "<myVm>" -VMSize "Standard_DS4_v2"
+   ```
 
-Create a network interface with [New-AzNetworkInterface](/powershell/module/az.Network/New-azNetworkInterface) with accelerated networking enabled and assign the public IP address to the network interface. The following example creates a network interface named *myNic* in the *mySubnet* subnet of the *myVnet* virtual network and assigns the *myPublicIp* public IP address to it:
+1. Use [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem) and [Set-AzVMSourceImage](/powershell/module/az.compute/set-azvmsourceimage) to create the rest of the VM configuration. The following example creates a Windows Server 2019 Datacenter VM:
 
-```powershell
-$nic = New-AzNetworkInterface `
-    -ResourceGroupName "myResourceGroup" `
-    -Name "myNic" `
-    -Location "centralus" `
-    -SubnetId $vnet.Subnets[0].Id `
-    -PublicIpAddressId $publicIp.Id `
-    -EnableAcceleratedNetworking
-```
+   ```azurepowershell
+   $vmConfig = Set-AzVMOperatingSystem -VM $vmConfig `
+     -Windows `
+     -ComputerName "<myVM>" `
+     -Credential $cred `
+     -ProvisionVMAgent `
+     -EnableAutoUpdate
+   $vmConfig = Set-AzVMSourceImage -VM $vmConfig `
+     -PublisherName "MicrosoftWindowsServer" `
+     -Offer "WindowsServer" `
+     -Skus "2019-Datacenter" `
+     -Version "latest"
+   ```
 
-## Create the virtual machine
+1. Use [Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface) to attach the NIC that you previously created to the VM.
 
-Set your VM credentials to the `$cred` variable using [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential):
+   ```azurepowershell
+   $vmConfig = Add-AzVMNetworkInterface -VM $vmConfig -Id $nic.Id
+   ```
 
-```powershell
-$cred = Get-Credential
-```
+1. Use [New-AzVM](/powershell/module/az.compute/new-azvm) to create the VM with Accelerated Networking enabled.
 
-First, define your VM with [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig). The following example defines a VM named *myVM* with a VM size that supports Accelerated Networking (*Standard_DS4_v2*):
+   ```azurepowershell
+   New-AzVM -VM $vmConfig -ResourceGroupName "<myResourceGroup>" -Location "<myAzureRegion>"
+   ```
 
-```powershell
-$vmConfig = New-AzVMConfig -VMName "myVm" -VMSize "Standard_DS4_v2"
-```
+## Confirm the Ethernet controller is installed
 
-For a list of all VM sizes and characteristics, see [Windows VM sizes](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Once you create the VM in Azure, connect to the VM and confirm that the Ethernet controller is installed in Windows.
 
-Create the rest of your VM configuration with [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem) and [Set-AzVMSourceImage](/powershell/module/az.compute/set-azvmsourceimage). The following example creates a Windows Server 2016 VM:
+1. In the [Azure portal](https://portal.azure.com), search for and select *virtual machines*.
 
-```powershell
-$vmConfig = Set-AzVMOperatingSystem -VM $vmConfig `
-    -Windows `
-    -ComputerName "myVM" `
-    -Credential $cred `
-    -ProvisionVMAgent `
-    -EnableAutoUpdate
-$vmConfig = Set-AzVMSourceImage -VM $vmConfig `
-    -PublisherName "MicrosoftWindowsServer" `
-    -Offer "WindowsServer" `
-    -Skus "2016-Datacenter" `
-    -Version "latest"
-```
+1. On the **Virtual machines** page, select your new VM.
 
-Attach the network interface that you previously created with [Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface):
+1. On the VM's **Overview** page, select **Connect**.
 
-```powershell
-$vmConfig = Add-AzVMNetworkInterface -VM $vmConfig -Id $nic.Id
-```
+1. On the **Connect** screen, select **Native RDP**.
 
-Finally, create your VM with [New-AzVM](/powershell/module/az.compute/new-azvm):
+1. On the **Native RDP** screen, select **Download RDP file**.
 
-```powershell
-New-AzVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "centralus"
-```
+1. Open the downloaded RDP file, and then sign in with the credentials you entered when you created the VM.
 
-## Confirm the driver is installed in the operating system
+1. On the remote VM, right-click **Start** and select **Device Manager**.
 
-Once you create the VM in Azure, connect to the VM and confirm that the driver is installed in Windows.
+1. In the **Device Manager** window, expand the **Network adapters** node.
 
-1. From an Internet browser, open the Azure [portal](https://portal.azure.com) and sign in with your Azure account.
-2. In the box that contains the text *Search resources* at the top of the Azure portal, type *myVm*. When **myVm** appears in the search results, click it. If **Creating** is visible under the **Connect** button, Azure has not yet finished creating the VM. Click **Connect** in the top left corner of the overview only after you no longer see **Creating** under the **Connect** button.
-3. Enter the username and password you entered in [Create the virtual machine](#create-the-virtual-machine). If you've never connected to a Windows VM in Azure, see [Connect to virtual machine](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-virtual-machine).
-4. Right-click the Windows Start button and click **Device Manager**. Expand the **Network adapters** node. Confirm that the **Mellanox ConnectX-3 Virtual Function Ethernet Adapter** appears, as shown in the following picture:
+1. Confirm that the **Mellanox ConnectX-4 Lx Virtual Ethernet Adapter** appears, as shown in the following image:
 
-    ![Device Manager](./media/create-vm-accelerated-networking/device-manager.png)
+   ![Mellanox ConnectX-3 Virtual Function Ethernet Adapter, new network adapter for accelerated networking, Device Manager](./media/create-vm-accelerated-networking/device-manager.png)
 
-Accelerated Networking is now enabled for your VM.
+   The presence of the adapter confirms that Accelerated Networking is enabled for your VM.
 
-## Enable Accelerated Networking on existing VMs
-If you have created a VM without Accelerated Networking, it is possible to enable this feature on an existing VM.  The VM must support Accelerated Networking by meeting the following prerequisites that are also outlined above:
+> [!NOTE]
+> If the Mellanox adapter fails to start, open an administrator command prompt on the remote VM and enter the following command:
+>
+> `netsh int tcp set global rss = enabled`
 
-* The VM must be a supported size for Accelerated Networking
-* The VM must be a supported Azure Gallery image (and kernel version for Linux)
-* All VMs in an availability set or VMSS must be stopped/deallocated before enabling Accelerated Networking on any NIC
+<a name="enable-accelerated-networking-on-existing-vms"></a>
+## Manage Accelerated Networking on existing VMs
 
-### Individual VMs & VMs in an availability set
-First stop/deallocate the VM or, if an Availability Set, all the VMs in the Set:
+You can enable Accelerated Networking on an existing VM. The VM must meet the following requirements to support Accelerated Networking:
 
-```azurepowershell
-Stop-AzureRmVM -ResourceGroup "myResourceGroup" `
-	-Name "myVM"
-```
+- Be a supported size for Accelerated Networking.
+- Be a supported Azure Marketplace image.
+- Be stopped or deallocated before you can enable Accelerated Networking on any NIC. This requirement applies to all individual VMs or VMs in an availability set or Azure Virtual Machine Scale Sets.
 
-Important, please note, if your VM was created individually, without an availability set, you only need to stop/deallocate the individual VM to enable Accelerated Networking.  If your VM was created with an availability set, all VMs contained in the availability set will need to be stopped/deallocated before enabling Accelerated Networking on any of the NICs. 
+### Enable Accelerated Networking on individual VMs or VMs in availability sets
 
-Once stopped, enable Accelerated Networking on the NIC of your VM:
+1. Stop or deallocate the VM or, if an availability set, all the VMs in the set:
 
-```azurepowershell
-$nic = Get-AzureRMNetworkInterface -ResourceGroupName "myResourceGroup" `
-    -Name "myNic"
+   ```azurepowershell
+   Stop-AzVM -ResourceGroup "<myResourceGroup>" -Name "<myVM>"
+   ```
 
-$nic.EnableAcceleratedNetworking = $true
+   If you created your VM individually without an availability set, you must stop or deallocate only the individual VM to enable Accelerated Networking. If you created your VM with an availability set, you must stop or deallocate all VMs in the set, so the VMs end up on a cluster that supports Accelerated Networking.
 
-$nic | Set-AzureRMNetworkInterface
-```
+   The stop or deallocate requirement is unnecessary to disable Accelerated Networking. Clusters that support Accelerated Networking also work fine with NICs that don't use Accelerated Networking.
 
-Restart your VM or, if in an availability set, all the VMs in the set, and confirm that Accelerated Networking is enabled:
+1. Enable Accelerated Networking on the NIC of your VM:
 
-```azurepowershell
-Start-AzureRmVM -ResourceGroup "myResourceGroup" `
-	-Name "myVM"
-```
+   ```azurepowershell
+   $nic = Get-AzNetworkInterface -ResourceGroupName "<myResourceGroup>" -Name "<myNic>"
+   
+   $nic.EnableAcceleratedNetworking = $true
+   
+   $nic | Set-AzNetworkInterface
+   ```
 
-### VMSS
-VMSS is slightly different but follows the same workflow.  First, stop the VMs:
+3. Restart your VM, or all the VMs in the availability set, and [confirm that Accelerated Networking is enabled](#confirm-the-ethernet-controller-is-installed).
 
-```azurepowershell
-Stop-AzVmss -ResourceGroupName "myResourceGroup" `
-    -VMScaleSetName "myScaleSet"
-```
+   ```azurepowershell
+   Start-AzVM -ResourceGroup "<myResourceGroup>" -Name "<myVM>"
+   ```
 
-Once the VMs are stopped, update the Accelerated Networking property under the network interface:
+### Enable Accelerated Networking on Virtual Machine Scale Sets
 
-```azurepowershell
-$vmss = Get-AzVmss -ResourceGroupName "myResourceGroup" `
-    -VMScaleSetName "myScaleSet"
+Azure Virtual Machine Scale Sets is slightly different but follows the same workflow.
 
-$vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].EnableAcceleratedNetworking = $true
+1. Stop the VMs:
 
-Update-AzVmss -ResourceGroupName "myResourceGroup" `
-    -VMScaleSetName "myScaleSet" `
-    -VirtualMachineScaleSet $vmss
-```
+   ```azurepowershell
+   Stop-AzVmss -ResourceGroupName "<myResourceGroup>" -VMScaleSetName "<myScaleSet>"
+    ```
 
-Please note, a VMSS has VM upgrades that apply updates using three different settings, automatic, rolling and manual.  In these instructions the policy is set to automatic so that the VMSS will pick up the changes immediately after restarting.  To set it to automatic so that the changes are immediately picked up:
+1. Update the Accelerated Networking property under the NIC:
 
-```azurepowershell
-$vmss.UpgradePolicy.AutomaticOSUpgrade = $true
+   ```azurepowershell
+   $vmss = Get-AzVmss -ResourceGroupName "<myResourceGroup>" -VMScaleSetName "<myScaleSet>"
+   
+   $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].EnableAcceleratedNetworking = $true
+   
+   Update-AzVmss 
+     -ResourceGroupName "<myResourceGroup>" `
+     -VMScaleSetName "<myScaleSet>" `
+     -VirtualMachineScaleSet $vmss
+   ```
 
-Update-AzVmss -ResourceGroupName "myResourceGroup" `
-    -VMScaleSetName "myScaleSet" `
-    -VirtualMachineScaleSet $vmss
-```
+1. Virtual Machine Scale Sets has an upgrade policy that applies updates by using automatic, rolling, or manual settings. Set the upgrade policy to automatic so that the changes are immediately picked up.
 
-Finally, restart the VMSS:
+   ```azurepowershell
+   $vmss.UpgradePolicy.Mode = "Automatic"
+   
+   Update-AzVmss 
+     -ResourceGroupName "<myResourceGroup>" `
+     -VMScaleSetName "<myScaleSet>" `
+     -VirtualMachineScaleSet $vmss
+   ```
 
-```azurepowershell
-Start-AzVmss -ResourceGroupName "myResourceGroup" `
-    -VMScaleSetName "myScaleSet"
-```
+1. Restart the scale set:
 
-Once you restart, wait for the upgrades to finish but once completed, the VF will appear inside the VM.  (Please make sure you are using a supported OS and VM size)
+   ```azurepowershell
+   Start-AzVmss -ResourceGroupName "<myResourceGroup>" -VMScaleSetName "<myScaleSet>"
+   ```
 
-### Resizing existing VMs with Accelerated Networking
+Once you restart and the upgrades finish, the virtual function (VF) appears inside VMs that use a supported OS and VM size.
 
-VMs with Accelerated Networking enabled can only be resized to VMs that support Accelerated Networking.  
+### Resize existing VMs with Accelerated Networking
 
-A VM with Accelerated Networking enabled cannot be resized to a VM instance that does not support Accelerated Networking using the resize operation.  Instead, to resize one of these VMs:
+VMs with Accelerated Networking enabled can be resized only to sizes that also support Accelerated Networking. You can't resize a VM with Accelerated Networking to a VM instance that doesn't support Accelerated Networking by using the resize operation. Instead, use the following process to resize these VMs:
 
-* Stop/Deallocate the VM or if in an availability set/VMSS, stop/deallocate all the VMs in the set/VMSS.
-* Accelerated Networking must be disabled on the NIC of the VM or if in an availability set/VMSS, all VMs in the set/VMSS.
-* Once Accelerated Networking is disabled, the VM/availability set/VMSS can be moved to a new size that does not support Accelerated Networking and restarted.
+1. Stop and deallocate the VM or all the VMs in the availability set or Virtual Machine Scale Sets.
+1. Disable Accelerated Networking on the NIC of the VM or all the VMs in the availability set or Virtual Machine Scale Sets.
+1. Move the VM or VMs to a new size that doesn't support Accelerated Networking, and restart them.
+
+### Manage Accelerated Networking through the portal
+
+When you [create a VM in the Azure portal](quick-create-portal.md), you can select the **Enable accelerated networking** checkbox on the **Networking** tab of the **Create a virtual machine** screen. If the VM uses a [supported operating system](./accelerated-networking-overview.md#supported-operating-systems) and [VM size](./accelerated-networking-overview.md#supported-vm-instances) for Accelerated Networking, the checkbox is automatically selected. If Accelerated Networking isn't supported, the checkbox isn't selected, and a message explains the reason.
+
+>[!NOTE]
+>You can enable Accelerated Networking during portal VM creation only for Azure Marketplace supported operating systems. To create and enable Accelerated Networking for a VM with a custom OS image, you must use PowerShell or Azure CLI.
+
+To enable or disable Accelerated Networking for an existing VM through the Azure portal:
+
+1. From the [Azure portal](https://portal.azure.com) page for the VM, select **Networking** from the left menu.
+1. On the **Networking** page, select the **Network Interface**.
+1. At the top of the NIC **Overview** page, select **Edit accelerated networking**.
+1. Select **Automatic**, **Enabled**, or **Disabled**, and then select **Save**.
+
+To confirm whether Accelerated Networking is enabled for an existing VM:
+
+1. From the [Azure portal](https://portal.azure.com) page for the VM, select **Networking** from the left menu.
+1. On the **Networking** page, select the **Network Interface**.
+1. On the NIC **Overview** page, under **Essentials**, note whether **Accelerated networking** is set to **Enabled** or **Disabled**.
+
+## Next steps
+
+- [How Accelerated Networking works in Linux and FreeBSD VMs](accelerated-networking-how-it-works.md)
+- [Create a VM with Accelerated Networking by using Azure CLI](create-vm-accelerated-networking-cli.md)
+- [Proximity placement groups](../virtual-machines/co-location.md)

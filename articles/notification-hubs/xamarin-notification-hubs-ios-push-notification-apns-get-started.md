@@ -1,25 +1,25 @@
 ---
-title: Push notifications to Xamarin.iOS apps using Azure Notification Hubs | Microsoft Docs
+title: Send push notifications to Xamarin using Azure Notification Hubs | Microsoft Docs
 description: In this tutorial, you learn how to use Azure Notification Hubs to send push notifications to a Xamarin.iOS application.
 services: notification-hubs
 keywords: ios push notifications,push messages,push notifications,push message
 documentationcenter: xamarin
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
 
-ms.assetid: 4d4dfd42-c5a5-4360-9d70-7812f96924d2
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-ios
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: tutorial
-ms.custom: mvc
-ms.date: 05/23/2019
-ms.author: jowargo
+ms.custom: "mvc, devx-track-csharp"
+ms.date: 01/12/2021
+ms.author: sethm
+ms.reviewer: thsomasu
+ms.lastreviewed: 05/23/2019
 ---
 
-# Tutorial: Push notifications to Xamarin.iOS apps using Azure Notification Hubs
+# Tutorial: Send push notifications to Xamarin.iOS apps using Azure Notification Hubs
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -53,25 +53,6 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 
 [!INCLUDE [Notification Hubs Enable Apple Push Notifications](../../includes/notification-hubs-enable-apple-push-notifications.md)]
 
-## Configure your notification hub for iOS push notifications
-
-This section walks you through the steps to create a new notification hub and configure authentication with APNs using the **.p12** push certificate that you previously created. If you want to use a notification hub that you have already created, you can skip to step 5.
-
-[!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
-
-### Configure iOS settings for the notification hub
-
-1. Select **Apple (APNS)** in the **NOTIFICATION SETTINGS** group.
-2. Select **Certificate**, click the **file** icon, and select the **.p12** file that you exported earlier.
-3. Specify the **password** for the certificate.
-4. Select **Sandbox** mode. Use the **Production** mode only if you want to send push notifications to users who purchased your app from the store.
-
-    ![Configure APNs in Azure portal][6]
-
-    ![Configure APNs certification in Azure portal][7]
-
-Your notification hub is now configured to work with APNs, and you have the connection strings to register your app and send push notifications.
-
 ## Connect your app to the notification hub
 
 ### Create a new project
@@ -103,14 +84,20 @@ Your notification hub is now configured to work with APNs, and you have the conn
 7. In `AppDelegate.cs`, add the following using statement:
 
     ```csharp
-    using WindowsAzure.Messaging;
+    using WindowsAzure.Messaging.NotificationHubs;
     using UserNotifications
     ```
 
-8. Declare an instance of `SBNotificationHub`:
+8. Create an implementation of the `MSNotificationHubDelegate` in the `AppDelegate.cs`:
 
     ```csharp
-    private SBNotificationHub Hub { get; set; }
+    public class AzureNotificationHubListener : MSNotificationHubDelegate
+    {
+        public override void DidReceivePushNotification(MSNotificationHub notificationHub, MSNotificationHubMessage message)
+        {
+
+        }
+    }
     ```
 
 9. In `AppDelegate.cs`, update `FinishedLaunching()` to match the following code:
@@ -118,104 +105,32 @@ Your notification hub is now configured to work with APNs, and you have the conn
     ```csharp
     public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
     {
-        if (UIDevice.CurrentDevice.CheckSystemVersion(10, 0))
-        {
-            UNUserNotificationCenter.Current.RequestAuthorization(UNAuthorizationOptions.Alert | UNAuthorizationOptions.Sound | UNAuthorizationOptions.Sound,
-                                                                    (granted, error) =>
-            {
-                if (granted)
-                    InvokeOnMainThread(UIApplication.SharedApplication.RegisterForRemoteNotifications);
-            });
-        } else if (UIDevice.CurrentDevice.CheckSystemVersion (8, 0)) {
-            var pushSettings = UIUserNotificationSettings.GetSettingsForTypes (
-                    UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound,
-                    new NSSet ());
-
-            UIApplication.SharedApplication.RegisterUserNotificationSettings (pushSettings);
-            UIApplication.SharedApplication.RegisterForRemoteNotifications ();
-        } else {
-            UIRemoteNotificationType notificationTypes = UIRemoteNotificationType.Alert | UIRemoteNotificationType.Badge | UIRemoteNotificationType.Sound;
-            UIApplication.SharedApplication.RegisterForRemoteNotificationTypes (notificationTypes);
-        }
+        // Set the Message listener
+        MSNotificationHub.SetDelegate(new AzureNotificationHubListener());
+        
+        // Start the SDK
+        MSNotificationHub.Start(ListenConnectionString, NotificationHubName);
 
         return true;
     }
     ```
 
-10. In `AppDelegate.cs`, override the `RegisteredForRemoteNotifications()` method:
+10. In `AppDelegate.cs`, implement the `DidReceivePushNotification` method for the `AzureNotificationHubListener` class:
 
     ```csharp
-    public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
+    public override void DidReceivePushNotification(MSNotificationHub notificationHub, MSNotificationHubMessage message)
     {
-        Hub = new SBNotificationHub(Constants.ListenConnectionString, Constants.NotificationHubName);
+        // This sample assumes { aps: { alert: { title: "Hello", body: "World" } } }
+        var alertTitle = message.Title ?? "Notification";
+        var alertBody = message.Body;
 
-        Hub.UnregisterAllAsync (deviceToken, (error) => {
-            if (error != null)
-            {
-                System.Diagnostics.Debug.WriteLine("Error calling Unregister: {0}", error.ToString());
-                return;
-            }
-
-            NSSet tags = null; // create tags if you want
-            Hub.RegisterNativeAsync(deviceToken, tags, (errorCallback) => {
-                if (errorCallback != null)
-                    System.Diagnostics.Debug.WriteLine("RegisterNativeAsync error: " + errorCallback.ToString());
-            });
-        });
+        var myAlert = UIAlertController.Create(alertTitle, alertBody, UIAlertControllerStyle.Alert);
+        myAlert.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Default, null));
+        UIApplication.SharedApplication.KeyWindow.RootViewController.PresentViewController(myAlert, true, null);
     }
     ```
 
-11. In `AppDelegate.cs`, override the `ReceivedRemoteNotification()` method:
-
-    ```csharp
-    public override void ReceivedRemoteNotification(UIApplication application, NSDictionary userInfo)
-    {
-        ProcessNotification(userInfo, false);
-    }
-    ```
-
-12. In `AppDelegate.cs`, create the `ProcessNotification()` method:
-
-    ```csharp
-    void ProcessNotification(NSDictionary options, bool fromFinishedLaunching)
-    {
-        // Check to see if the dictionary has the aps key.  This is the notification payload you would have sent
-        if (null != options && options.ContainsKey(new NSString("aps")))
-        {
-            //Get the aps dictionary
-            NSDictionary aps = options.ObjectForKey(new NSString("aps")) as NSDictionary;
-
-            string alert = string.Empty;
-
-            //Extract the alert text
-            // NOTE: If you're using the simple alert by just specifying
-            // "  aps:{alert:"alert msg here"}  ", this will work fine.
-            // But if you're using a complex alert with Localization keys, etc.,
-            // your "alert" object from the aps dictionary will be another NSDictionary.
-            // Basically the JSON gets dumped right into a NSDictionary,
-            // so keep that in mind.
-            if (aps.ContainsKey(new NSString("alert")))
-                alert = (aps [new NSString("alert")] as NSString).ToString();
-
-            //If this came from the ReceivedRemoteNotification while the app was running,
-            // we of course need to manually process things like the sound, badge, and alert.
-            if (!fromFinishedLaunching)
-            {
-                //Manually show an alert
-                if (!string.IsNullOrEmpty(alert))
-                {
-                    UIAlertView avAlert = new UIAlertView("Notification", alert, null, "OK", null);
-                    avAlert.Show();
-                }
-            }
-        }
-    }
-    ```
-
-    > [!NOTE]
-    > You can choose to override `FailedToRegisterForRemoteNotifications()` to handle situations such as no network connection. This is especially important where the user might start your application in offline mode (for example, Airplane) and you want to handle push messaging scenarios specific to your app.
-
-13. Run the app on your device.
+11. Run the app on your device.
 
 ## Send test push notifications
 

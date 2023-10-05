@@ -1,35 +1,38 @@
 ---
 title: "Quickstart: Call your Bing Custom Search endpoint using Node.js | Microsoft Docs"
-titlesuffix: Azure Cognitive Services
-description: Use this quickstart to begin requesting search results from your Bing Custom Search instance using Node.js
+titleSuffix: Azure AI services
+description: Use this quickstart to begin requesting search results from your Bing Custom Search instance using Node.js.
 services: cognitive-services
 author: aahill
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 05/15/2019
+ms.date: 05/08/2020
 ms.author: aahi
+ms.devlang: javascript
+ms.custom: devx-track-js, mode-api
 ---
 
 # Quickstart: Call your Bing Custom Search endpoint using Node.js
 
-Use this quickstart to begin requesting search results from your Bing Custom Search instance. While this application is written in JavaScript, the Bing Custom Search API is a RESTful web service compatible with most programming languages. The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingCustomSearchv7.js).
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
+
+Use this quickstart to learn how to request search results from your Bing Custom Search instance. Although this application is written in JavaScript, the Bing Custom Search API is a RESTful web service compatible with most programming languages. The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingCustomSearchv7.js).
 
 ## Prerequisites
 
-- A Bing Custom Search instance. See [Quickstart: Create your first Bing Custom Search instance](quick-start.md) for more information.
+- A Bing Custom Search instance. For more information, see [Quickstart: Create your first Bing Custom Search instance](quick-start.md).
 
-- [Node.js](https://www.nodejs.org/)
+- [The Node.js JavaScript runtime](https://www.nodejs.org/).
 
-- The [JavaScript Request Library](https://github.com/request/request)
+- The [JavaScript request library](https://github.com/request/request).
 
 [!INCLUDE [cognitive-services-bing-custom-search-prerequisites](../../../includes/cognitive-services-bing-custom-search-signup-requirements.md)]
 
 ## Create and initialize the application
 
-1. Create a new JavaScript file in your favorite IDE or editor, and add a `require()` statement for the requests library. Create variables for your subscription key, Custom Configuration ID, and a search term. 
+- Create a new JavaScript file in your favorite IDE or editor, and add a `require()` statement for the requests library. Create variables for your subscription key, custom configuration ID, and search term.
 
     ```javascript
     var request = require("request");
@@ -41,7 +44,7 @@ Use this quickstart to begin requesting search results from your Bing Custom Sea
 
 ## Send and receive a search request 
 
-1. Create a variable to store the information being sent in your request. Construct the request URL by appending your search term to the `q=` query parameter, and your search instance's Custom Configuration ID to `customconfig=`. separate the parameters with a `&` character. 
+1. Create a variable to store the information being sent in your request. Construct the request URL by appending your search term to the `q=` query parameter, and your search instance's custom configuration ID to the `customconfig=` parameter. Separate the parameters with an ampersand (`&`). You can use the global endpoint in the following code, or use the [custom subdomain](../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```javascript
     var info = {
@@ -54,7 +57,7 @@ Use this quickstart to begin requesting search results from your Bing Custom Sea
     }
     ```
 
-1. Use the JavaScript Request Library to send a search request to your Bing Custom Search instance and print out information about the results, including its name, url, and the date the webpage was last crawled.
+1. Use the JavaScript request library to send a search request to your Bing Custom Search instance and print information about the results, including its name, url, and the date the webpage was last crawled.
 
     ```javascript
     request(info, function(error, response, body){

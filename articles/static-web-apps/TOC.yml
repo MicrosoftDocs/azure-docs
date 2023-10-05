@@ -1,0 +1,239 @@
+- name: Azure Static Web Apps Documentation
+  href: index.yml
+- name: Overview
+  items:
+    - name: About Static Web Apps
+      href: overview.md
+    - name: Hosting plans
+      href: plans.md
+- name: Quickstarts
+  expanded: true
+  items:
+    - name: Build your first static web app
+      expanded: true
+      items:
+        - name: Visual Studio Code
+          href: getting-started.md
+        - name: Azure portal
+          href: get-started-portal.md
+          displayName: github, devops
+        - name: Azure CLI
+          href: get-started-cli.md
+- name: Concepts
+  items:
+    - name: APIs
+      items:
+        - name: Overview
+          href: apis-overview.md
+        - name: Azure Functions
+          items:
+            - name: Integration options
+              href: apis-functions.md
+            - name: Add an API
+              href: add-api.md
+            - name: Bring your own functions
+              href: functions-bring-your-own.md
+        - name: Azure API Management
+          href: apis-api-management.md
+        - name: Azure App Service
+          href: apis-app-service.md 
+        - name: Azure Container Apps
+          href: apis-container-apps.md
+    - name: Configuration
+      items:
+        - name: Configuration overview
+          href: configuration-overview.md
+        - name: Application configuration
+          href: configuration.md
+          displayName: routing, routes
+        - name: Build configuration
+          href: build-configuration.md
+        - name: App settings
+          href: application-settings.md
+          displayName: environment variables
+    - name: Database connections
+      items:
+        - name: Overview
+          href: database-overview.md
+        - name: Configuration
+          href: database-configuration.md
+    - name: Security
+      items:
+        - name: Authentication and authorization
+          href: authentication-authorization.md
+        - name: Access user information
+          href: user-information.md
+        - name: Custom authentication
+          href: authentication-custom.md
+    - name: Preview environments
+      items:
+        - name: About preview environments
+          href: preview-environments.md
+        - name: Pull request environments
+          href: review-publish-pull-requests.md
+        - name: Branch environments
+          href: branch-environments.md
+        - name: Named environments
+          href: named-environments.md
+    - name: Custom domains
+      items:
+      - name: About custom domains
+        href: custom-domain.md
+      - name: Use Azure DNS
+        items:
+        - name: Delegate your domain to Azure DNS
+          href: azure-dns-zone.md
+        - name: Set up a custom domain
+          href: custom-domain-azure-dns.md
+        - name: Set up the apex domain
+          href: apex-domain-azure-dns.md
+      - name: Use an external provider
+        items:
+        - name: Set up a custom domain
+          href: custom-domain-external.md
+        - name: Set up the apex domain
+          href: apex-domain-external.md
+      - name: Manage the default domain
+        href: custom-domain-default.md
+    - name: Supported languages and runtimes
+      href: languages-runtimes.md
+    - name: Enterprise-grade edge
+      href: enterprise-edge.md
+- name: How-to guides
+  items:
+    - name: APIs
+      items:
+        - name: Azure Functions
+          items:
+            - name: Add an API
+              href: add-api.md
+            - name: Bring your own functions
+              href: functions-bring-your-own.md
+        - name: Azure API Management
+          href: apis-api-management.md
+        - name: Azure App Service
+          href: apis-app-service.md 
+        - name: Azure Container Apps
+          href: apis-container-apps.md
+    - name: Security
+      items:
+        - name: Set up a private endpoint
+          href: private-endpoint.md
+        - name: Secure authentication secrets
+          href: key-vault-secrets.md
+        - name: Set up password protection
+          href: password-protection.md
+    - name: Set up local development
+      href: local-development.md
+      displayName: swa cli
+    - name: Configure app settings
+      href: application-settings.md
+    - name: Configure front-end frameworks and libraries
+      href: front-end-frameworks.md
+    - name: Split traffic
+      href: traffic-splitting.md
+    - name: Enable monitoring
+      href: monitor.md
+      displayName: Application Insights
+    - name: Inject custom code at runtime
+      href: snippets.md  
+    - name: Reset deployment tokens
+      href: deployment-token-management.md
+    - name: Troubleshoot errors
+      href: troubleshooting.md
+      displayName: deployment, runtime, errors
+    - name: Deploy with external source control providers
+      href: external-providers.md
+      displayName: Jenkins, Jekyll
+- name: Tutorials
+  items:
+    - name: Publish from a static site generator
+      items:
+        - name: Gatsby
+          href: publish-gatsby.md
+        - name: Hugo
+          href: publish-hugo.md
+        - name: VuePress
+          href: publish-vuepress.md
+        - name: Jekyll
+          href: publish-jekyll.md
+    - name: Deploy from a framework
+      items:
+        - name: Angular
+          href: deploy-angular.md
+        - name: Blazor
+          href: deploy-blazor.md
+        - name: React
+          href: deploy-react.md
+        - name: Next.js
+          href: nextjs.md
+          items:
+          - name: Statically generated Next.js
+            href: deploy-nextjs-static-export.md
+          - name: Hybrid Next.js application (preview)
+            href: deploy-nextjs-hybrid.md
+        - name: Nuxt.js
+          href: deploy-nuxtjs.md
+        - name: Vue
+          href: deploy-vue.md
+    - name: Add a database connection
+      items:
+      - name: Azure Cosmos DB 
+        href: database-azure-cosmos-db.md
+      - name: Azure SQL
+        href: database-azure-sql.md
+      - name: Azure Database for MySQL
+        href: database-mysql.md
+      - name: Azure Database for PostgreSQL
+        href: database-postgresql.md
+    - name: Add a database with Mongoose.js and Azure Cosmos DB
+      href: add-mongoose.md
+    - name: Publish with an ARM template
+      href: publish-azure-resource-manager.md
+    - name: Add Azure Front Door
+      href: front-door-manual.md
+    - name: Set user roles programmatically
+      href: assign-roles-microsoft-graph.md
+    - name: Use an external code host
+      items:
+        - name: Overview
+          href: external-providers.md
+        - name: Bitbucket
+          href: bitbucket.md
+        - name: GitLab
+          href: gitlab.md
+- name: Samples
+  href: /samples/browse/?terms=static%20web%20apps
+- name: Reference
+  items:
+    - name: Azure CLI
+      href: /cli/azure/staticwebapp
+    - name: REST API
+      href: /rest/api/appservice/static-sites
+    - name: SWA CLI
+      items:
+        - name: Summary
+          href: static-web-apps-cli.yml
+        - name: Configure SWA CLI
+          href: static-web-apps-cli-configuration.md
+        - name: Deploy static web app with SWA CLI
+          href: static-web-apps-cli-deploy.md
+- name: Resources
+  items:
+    - name: Build your skills with Microsoft Learn training
+      items:
+        - name: Publish an Angular, React, Svelte, or Vue JavaScript app
+          href: /training/modules/publish-app-service-static-web-app-api
+        - name: Publish an API
+          href: /training/modules/publish-static-web-app-api-preview-url
+        - name: Create and publish a static web app with Gatsby
+          href: /training/modules/create-deploy-static-webapp-gatsby-app-service
+        - name: Create and publish a static web app with Blazor
+          href: /training/modules/publish-app-service-static-web-app-api-dotnet
+    - name: Pricing
+      href: https://azure.microsoft.com/pricing/details/app-service/static/
+    - name: Quotas
+      href: quotas.md
+    - name: Frequently asked questions
+      href: faq.yml
+      displayName: faq

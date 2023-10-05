@@ -1,33 +1,33 @@
 ---
-title: 'Reset circuit peering - ExpressRoute:  Azure | Microsoft Docs'
-description: How to disable and enable ExpressRoute circuit peerings.
+title: 'Azure ExpressRoute: Reset circuit peering using Azure PowerShell'
+description: Learn how to enable and disable peerings for an Azure ExpressRoute circuit using Azure PowerShell.
 services: expressroute
 author:  charwen
 
 ms.service: expressroute
-ms.topic: conceptual
-ms.date: 08/15/2018
-ms.author: charwen
-ms.custom: seodec18
+ms.custom: devx-track-azurepowershell
+ms.topic: how-to
+ms.date: 12/15/2020
+ms.author: duau
 ---
 
-# Reset ExpressRoute circuit peerings
+# Reset ExpressRoute circuit peerings using Azure PowerShell
 
-This article describes how to disable and enable peerings of an ExpressRoute circuit using PowerShell. When you disable a peering, the BGP session on both the primary connection and the secondary connection of your ExpressRoute circuit will be shut down. You will lose connectivity through this peering to Microsoft. When you enable a peering, the BGP session on both the primary connection and the secondary connection of your ExpressRoute circuit will be brought up. You will regain connectivity through this peering to Microsoft. You can enable and disable Microsoft Peering and Azure Private Peering on an ExpressRoute circuit independently. When you first configure the peerings on your ExpressRoute circuit, the peerings are enabled by default.
+This article describes how to enable and disable peerings of an ExpressRoute circuit using PowerShell. Peerings are enabled by default when you create them. When you disable a peering, the BGP session on both the primary and the secondary connection of your ExpressRoute circuit will be shut down. You'll lose connectivity for this peering to Microsoft. When you enable a peering, the BGP session on both the primary and the secondary connection of your ExpressRoute circuit will be established. The connectivity to Microsoft will be restored for this peering. You can enable and disable peering for Microsoft Peering and Azure Private Peering independently on the ExpressRoute circuit.
 
-There are a couple scenarios where you may find it helpful resetting your ExpressRoute peerings.
-* Test your disaster recovery design and implementation. For example, you have two ExpressRoute circuits. You can disable the peerings of one circuit and force your network traffic to fail over to the other circuit.
-* Enable Bidirectional Forwarding Detection (BFD) on Azure Private Peering of your ExpressRoute circuit. BFD is enabled by default if your ExpressRoute circuit is created after August 1, 2018. If your circuit was created before that, BFD wasn't enabled. You can enable BFD by disabling the peering and reenabling it. It should be noted that BFD is supported on Azure Private Peering only.
+There are a two scenarios where you may find it helpful to reset your ExpressRoute peerings.
+* If you want to test your disaster recovery design and implementation. For example, you have two ExpressRoute circuits. You can disable the peerings on one circuit and force your network traffic to fail over to the other circuit.
+* Enable Bidirectional Forwarding Detection (BFD) on either Azure Private Peering or Microsoft Peering of your ExpressRoute circuit. BFD gets enabled by default on Azure Private Peering if you created your ExpressRoute circuit after August 1, 2018 and for Microsoft Peering after January 10, 2020. If your circuit was created before the date listed, you'll need reset the peering to enable BFD. 
 
 ### Working with Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
 ## Reset a peering
 
-1. If you are running PowerShell locally, open your PowerShell console with elevated privileges, and connect to your account. Use the following example to help you connect:
+1. If you're running PowerShell locally, open your PowerShell console with elevated privileges, and connect to your account. Use the following example to help you connect:
 
    ```azurepowershell
    Connect-AzAccount
@@ -130,15 +130,23 @@ There are a couple scenarios where you may find it helpful resetting your Expres
    AllowClassicOperations           : False
    GatewayManagerEtag               :
    ```
-6. Run the following commands to change the state of the peering.
+6. Run the following commands to change the peering state to disabled.
 
    ```azurepowershell-interactive
    $ckt.Peerings[0].State = "Disabled"
    Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
    ```
-   The peering should be in a state you set. 
+   The peering should be in a disabled state you set. 
 
+7. Run the following commands to change the peering state back to enabled.
+
+   ```azurepowershell-interactive
+   $ckt.Peerings[0].State = "Enabled"
+   Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
+   ```
+   The peering should be in a enabled state you set.
+   
 ## Next steps
-If you need help to troubleshoot an ExpressRoute problem, check out the following articles:
+If you need help with troubleshooting an ExpressRoute problem, see the following articles:
 * [Verifying ExpressRoute connectivity](expressroute-troubleshooting-expressroute-overview.md)
 * [Troubleshooting network performance](expressroute-troubleshooting-network-performance.md)

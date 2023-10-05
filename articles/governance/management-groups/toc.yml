@@ -1,0 +1,81 @@
+- name: Azure management groups documentation
+  href: ./index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: Azure Management
+    href: ../azure-management.md
+  - name: Management groups
+    href: ./overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create a management group - Portal
+    displayName: hierarchy
+    href: ./create-management-group-portal.md
+  - name: Create a management group - Azure CLI
+    displayName: hierarchy
+    href: ./create-management-group-azure-cli.md
+  - name: Create a management group - Azure PowerShell
+    displayName: hierarchy
+    href: ./create-management-group-powershell.md
+  - name: Create a management group - .NET
+    displayName: hierarchy
+    href: ./create-management-group-dotnet.md
+  - name: Create a management group - Go
+    displayName: hierarchy
+    href: ./create-management-group-go.md
+  - name: Create a management group - JavaScript
+    displayName: hierarchy
+    href: ./create-management-group-javascript.md
+  - name: Create a management group - Python
+    displayName: hierarchy
+    href: ./create-management-group-python.md
+  - name: Create a management group - REST
+    displayName: hierarchy
+    href: ./create-management-group-rest-api.md
+- name: Tutorials
+  items:
+  - name: "Learn: Create a subscription governance strategy"
+    displayName: governance, module
+    href: /training/modules/build-cloud-governance-strategy-azure/10-create-subscription-governance-strategy
+- name: Samples
+  items:
+  - name: Azure Resource Graph queries
+    href: ./resource-graph-samples.md
+- name: How-to guides
+  expanded: true
+  items:
+  - name: Manage your resource hierarchy
+    href: ./manage.md
+  - name: Protect your resource hierarchy
+    href: ./how-to/protect-resource-hierarchy.md
+- name: Troubleshoot
+  displayName: errors, violation
+  href: ./troubleshoot/general.md
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/account/management-group
+  - name: Azure PowerShell
+    href: /powershell/module/az.resources/#resources
+  - name: Azure SDK for .NET
+    href: /dotnet/api/overview/azure/management-groups
+  - name: Azure SDK for Go
+    href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/preview/resources/mgmt/2018-03-01-preview/managementgroups
+  - name: Azure SDK for JavaScript
+    href: /javascript/api/@azure/arm-managementgroups/managementgroups
+  - name: Azure SDK for Python
+    href: /python/api/azure-mgmt-managementgroups/azure.mgmt.managementgroups
+  - name: REST
+    href: /rest/api/managementgroups
+  - name: Resource Manager templates
+    href: /azure/templates/microsoft.management/managementgroups
+- name: Resources
+  items:
+  - name: Azure updates
+    href: https://azure.microsoft.com/updates/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: UserVoice
+    href: https://feedback.azure.com/d365community/forum/675ae472-f324-ec11-b6e6-000d3a4f0da0?c=594fc5b1-f324-ec11-b6e6-000d3a4f0da0

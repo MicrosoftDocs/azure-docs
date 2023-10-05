@@ -1,145 +1,177 @@
 ---
-title: Call or trigger logic apps with Azure Functions and Azure Service Bus
-description: Create Azure functions that call or trigger logic apps by using Azure Service Bus
+title: Set up long-running tasks by calling workflows with Azure Functions
+description: Set up long-running tasks by creating an Azure Logic Apps workflow that monitors and responds to messages or events and uses Azure Functions to trigger the workflow.
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: jehollan, klam, LADocs
-ms.topic: article
-ms.assetid: 19cbd921-7071-4221-ab86-b44d0fc0ecef
-ms.date: 06/04/2019
+ms.reviewer: estfan, azla
+ms.topic: how-to
+ms.date: 11/7/2022
+ms.custom: devx-track-csharp
+#Customer intent: As a logic apps developer, I want to set up a long-running task by creating a logic app workflow that monitors and responds to messages or events and uses Azure Functions to call the workflow.
 ---
 
-# Call or trigger logic apps by using Azure Functions and Azure Service Bus
+# Set up long running tasks by calling logic app workflows with Azure Functions
 
-You can use [Azure Functions](../azure-functions/functions-overview.md) to trigger a logic app when you need to deploy a long-running listener or task. For example, you can create an Azure function that listens in on an [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) queue and immediately fires a logic app as a push trigger.
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+
+When you need to deploy a long-running listener or task, you can create a logic app workflow that uses the Request trigger and Azure Functions to call that trigger and run the workflow.
+
+For example, you can create a function that listens for messages that arrive in an Azure Service Bus queue. When this event happens, the function calls the Request trigger, which works as a push trigger to automatically run your workflow.
+
+This how-to guide shows how to create a logic app workflow that starts with the Request trigger. You then create a function that listens to a Service Bus queue. When a message arrives in the queue, the function calls the endpoint created by the Request trigger to run your workflow.
+
+> [!NOTE]
+>
+> Although you can implement this behavior using either a Consumption or Standard logic app workflow, 
+> this example continues with a Consumption workflow.
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+* An Azure account and subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An Azure Service Bus namespace. If you don't have a namespace, [create your namespace first](../service-bus-messaging/service-bus-create-namespace-portal.md).
+* A Service Bus namespace. If you don't have a namespace, [create your namespace first](../service-bus-messaging/service-bus-create-namespace-portal.md). For more information, see [What is Azure Service Bus?](../service-bus-messaging/service-bus-messaging-overview.md)
 
-* An Azure function app, which is a container for Azure functions. If you don't have a function app, [create your function app first](../azure-functions/functions-create-first-azure-function.md), and make sure that you select .NET as the runtime stack.
+* A function app, which is a container for your functions. If you don't have a function app, [create your function app first](../azure-functions/functions-get-started.md), and make sure that you select .NET for the **Runtime stack** property.
 
-* Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Basic knowledge about how to create logic app workflows. For more information, see [Create an example Consumption logic app workflow in multi-tenant Azure Logic Apps](quickstart-create-example-consumption-workflow.md).
 
-## Create logic app
+## Create a logic app workflow
 
-For this scenario, you have a function running each logic app that you want to trigger. First, create a logic app that starts with an HTTP request trigger. The function calls that endpoint whenever a queue message is received.  
+1. In the [Azure portal](https://portal.azure.com), create a Consumption blank logic app by selecting the **Blank Logic App** template.
 
-1. Sign in to the [Azure portal](https://portal.azure.com), and create blank logic app.
+1. After the designer opens, under the designer search box, select **Built-in**. In the search box, enter **request**.
 
-   If you're new to logic apps, review [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+1. From the triggers list, select the trigger named **When a HTTP request is received**.
 
-1. In the search box, enter "http request". From the triggers list, select this trigger: **When a HTTP request is received**
+   :::image type="content" source="./media/logic-apps-scenario-function-sb-trigger/when-http-request-received-trigger.png" alt-text="Screenshot of the designer in the portal. The search box contains 'http request.' Under 'Triggers,' 'When a HTTP request is received' is highlighted.":::
 
-   ![Select trigger](./media/logic-apps-scenario-function-sb-trigger/when-http-request-received-trigger.png)
+   With the Request trigger, you can optionally enter a JSON schema to use with the queue message. JSON schemas help the designer understand the structure for the input data, and make the outputs easier for you to use in your workflow.
 
-   With the Request trigger, you can optionally enter a JSON schema to use with the queue message. JSON schemas help the Logic App Designer understand the structure for the input data, and make the outputs easier for you to use in your workflow.
+1. To specify a schema, enter the schema in the **Request Body JSON Schema** box.
 
-1. To specify a schema, enter the schema in the **Request Body JSON Schema** box, for example:
-
-   ![Specify JSON schema](./media/logic-apps-scenario-function-sb-trigger/when-http-request-received-trigger-schema.png)
+   :::image type="content" source="./media/logic-apps-scenario-function-sb-trigger/when-http-request-received-trigger-schema.png" alt-text="Screenshot of the details of an HTTP request trigger. Some JSON code is visible in the 'Request Body JSON Schema' box.":::
 
    If you don't have a schema, but you have a sample payload in JSON format, you can generate a schema from that payload.
 
-   1. In the Request trigger, choose **Use sample payload to generate schema**.
+   1. In the Request trigger, select **Use sample payload to generate schema**.
 
-   1. Under **Enter or paste a sample JSON payload**, enter your sample payload, and then choose **Done**.
+   1. Under **Enter or paste a sample JSON payload**, enter your sample payload, and then select **Done**.
 
-      ![Enter sample payload](./media/logic-apps-scenario-function-sb-trigger/enter-sample-payload.png)
+      :::image type="content" source="./media/logic-apps-scenario-function-sb-trigger/enter-sample-payload.png" alt-text="Screenshot of the details of an HTTP request trigger. Under 'Enter or paste a sample JSON payload,' some payload data is visible.":::
 
-   This sample payload generates this schema that appears in the trigger:
+      The sample payload that's pictured earlier generates the following schema, which appears in the trigger:
 
-   ```json
-   {
-      "type": "object",
-      "properties": {
-         "address": {
-            "type": "object",
-            "properties": {
-               "number": {
-                  "type": "integer"
-               },
-               "street": {
-                  "type": "string"
-               },
-               "city": {
-                  "type": "string"
-               },
-               "postalCode": {
-                  "type": "integer"
-               },
-               "country": {
-                  "type": "string"
+      ```json
+      {
+         "type": "object",
+         "properties": {
+            "address": {
+               "type": "object",
+               "properties": {
+                  "number": {
+                     "type": "integer"
+                  },
+                  "street": {
+                     "type": "string"
+                  },
+                  "city": {
+                     "type": "string"
+                  },
+                  "postalCode": {
+                     "type": "integer"
+                  },
+                  "country": {
+                     "type": "string"
+                  }
                }
             }
          }
       }
-   }
-   ```
+      ```
 
-1. Add any other actions that you want to run after receiving the queue message.
+1. Under the trigger, add any other actions that you want to use to process the received message.
 
-   For example, you can send an email with the Office 365 Outlook connector.
+   For example, you can add an action that sends email with the Office 365 Outlook connector.
 
-1. Save your logic app, which generates the callback URL for the trigger in this logic app. Later, you use this callback URL in the code for the Azure Service Bus Queue trigger.
+1. Save your logic app workflow.
 
-   The callback URL appears in the **HTTP POST URL** property.
+   This step generates the callback URL for the Request trigger in your workflow. Later, you use this callback URL in the code for the Azure Service Bus Queue trigger. The callback URL appears in the **HTTP POST URL** property.
 
-   ![Generated callback URL for trigger](./media/logic-apps-scenario-function-sb-trigger/callback-URL-for-trigger.png)
+   :::image type="content" source="./media/logic-apps-scenario-function-sb-trigger/callback-URL-for-trigger.png" alt-text="Screenshot of the details of an HTTP request trigger. Next to 'HTTP POST URL,' a URL is visible.":::
 
-## Create Azure function
+## Create a function
 
-Next, create the function that acts as the trigger and listens to the queue.
+Next, create the function that listens to the queue and calls the endpoint on the Request trigger when a message arrives.
 
-1. In the Azure portal, open and expand your function app, if not already open. 
+1. In the [Azure portal](https://portal.azure.com), open your function app.
 
-1. Under your function app name, expand **Functions**. On the **Functions** pane, choose **New function**.
+1. On the function app navigation menu, select **Functions**. On the **Functions** pane, select **Create**.
 
-   ![Expand "Functions" and choose "New function"](./media/logic-apps-scenario-function-sb-trigger/create-new-function.png)
+   :::image type="content" source="./media/logic-apps-scenario-function-sb-trigger/add-new-function-to-function-app.png" alt-text="Screenshot of a function app with 'Functions' highlighted on the function app menu. The 'Functions' page is opened, and 'Create' is highlighted.":::
 
-1. Select this template based on whether you created a new function app where you selected .NET as the runtime stack, or you're using an existing function app.
+1. Under **Select a template**, select the template named **Azure Service Bus Queue trigger**. After the **Template details** section appears, which shows different options based on your template selection, provide the following information:
 
-   * For new function apps, select this template: **Service Bus Queue trigger**
+   | Property | Value | Description |
+   |----------|-------|-------------|
+   | **New Function** | <*function-name*> | Enter a name for your function. |
+   | **Service Bus connection** | <*Service-Bus-connection*> | Select **New** to set up the connection for your Service Bus queue, which uses the Service Bus SDK `OnMessageReceive()` listener. |
+   | **Queue name** |  <*queue-name*> | Enter the name for your queue. |
 
-     ![Select template for new function app](./media/logic-apps-scenario-function-sb-trigger/current-add-queue-trigger-template.png)
+   :::image type="content" source="./media/logic-apps-scenario-function-sb-trigger/current-add-queue-trigger-template.png" alt-text="Screenshot of the 'Create function' pane with 'Azure Service Bus Queue trigger' highlighted, and template example details entered.":::
 
-   * For an existing function app, select this template: **Service Bus Queue trigger - C#**
+1. When you're done, select **Create**.
 
-     ![Select template for existing function app](./media/logic-apps-scenario-function-sb-trigger/legacy-add-queue-trigger-template.png)
+   The Azure portal now shows the **Overview** page for your new Azure Service Bus Queue trigger function.
 
-1. On the **Azure Service Bus Queue trigger** pane, provide a name for your trigger, and set up the **Service Bus connection** for the queue, which uses the Azure Service Bus SDK `OnMessageReceive()` listener, and choose **Create**.
+1. Now, write a basic function to call the endpoint for the logic app workflow that you created earlier. Before you write your function, review the following considerations:
 
-1. Write a basic function to call the previously created logic app endpoint by using the queue message as a trigger. This example uses the `application/json` message content type, but you can change this type as necessary. If possible, reuse the instance of HTTP clients. For more information, see [Manage connections in Azure Functions](../azure-functions/manage-connections.md).
+   * Trigger the function by using the message from the queue message.
 
-   ```CSharp
+   * Due to possible concurrently running functions, high volumes, or heavy loads, avoid instantiating the [HTTPClient class](/dotnet/api/system.net.http.httpclient) with the `using` statement and directly creating HTTPClient instances per request. For more information, see [Use HttpClientFactory to implement resilient HTTP requests](/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net-core).
+   
+   * If possible, reuse the instance of HTTP clients. For more information, see [Manage connections in Azure Functions](../azure-functions/manage-connections.md).
+
+   The following example uses the [`Task.Run` method](/dotnet/api/system.threading.tasks.task.run) in [asynchronous](/dotnet/csharp/language-reference/keywords/async) mode. For more information, see [Asynchronous programming with async and await](/dotnet/csharp/programming-guide/concepts/async/). The example also uses the `application/json` message content type, but you can change this type as necessary.
+
+   ```csharp
    using System;
    using System.Threading.Tasks;
    using System.Net.Http;
    using System.Text;
 
-   // Callback URL for previously created Request trigger
+   // Set up the URI for the logic app workflow. You can also get this value on the logic app's 'Overview' pane, under the trigger history, or from an environment variable.
    private static string logicAppUri = @"https://prod-05.westus.logic.azure.com:443/workflows/<remaining-callback-URL>";
 
-   // Reuse the instance of HTTP clients if possible
+   // Reuse the instance of HTTP clients if possible. For more information, see https://learn.microsoft.com/azure/azure-functions/manage-connections.
    private static HttpClient httpClient = new HttpClient();
 
-   public static void Run(string myQueueItem, ILogger log)
+   public static async Task Run(string myQueueItem, TraceWriter log) 
    {
-       log.LogInformation($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
-
-       var response = httpClient.PostAsync(logicAppUri, new StringContent(myQueueItem, Encoding.UTF8, "application/json")).Result;
+      log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
+      var response = await httpClient.PostAsync(logicAppUri, new StringContent(myQueueItem, Encoding.UTF8, "application/json")); 
    }
    ```
 
-1. To test the function, add a queue message by using a tool such as the [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer).
+## Test your logic app workflow
 
-   The logic app triggers immediately after the function receives the message.
+For testing, add a message to your Service Bus queue by using the following steps or other tool:
+
+1. In the [Azure portal](https://portal.azure.com), open your Service Bus namespace.
+
+1. On the Service Bus namespace navigation menu, select **Queues**.
+
+   :::image type="content" source="./media/logic-apps-scenario-function-sb-trigger/service-bus-namespace-queues.png" alt-text="Screenshot of a Service Bus namespace. On the navigation menu, 'Queues' is highlighted.":::
+
+1. Select the Service Bus queue that you linked to your function earlier using a Service Bus connection.
+
+1. On the queue navigation menu, select **Service Bus Explorer**, and then on the toolbar, select **Send messages**.
+
+   :::image type="content" source="./media/logic-apps-scenario-function-sb-trigger/select-service-bus-explorer.png" alt-text="Screenshot of a Service Bus queue page in the portal, with 'Send messages' highlighted. On the navigation menu, 'Service Bus Explorer' is highlighted.":::
+
+1. On the **Send messages** pane, specify the message to send to your Service Bus queue.
+
+   This message triggers your logic app workflow.
 
 ## Next steps
 
-[Call, trigger, or nest workflows by using HTTP endpoints](../logic-apps/logic-apps-http-endpoint.md)
+* [Call, trigger, or nest workflows by using HTTP endpoints](logic-apps-http-endpoint.md)

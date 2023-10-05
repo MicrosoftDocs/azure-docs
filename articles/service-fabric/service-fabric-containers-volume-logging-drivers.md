@@ -1,41 +1,36 @@
 ---
-title: Service Fabric Azure Files Volume Driver (Preview) | Microsoft Docs
-description: Service Fabric supports using Azure Files to backup volumes from your container. This is currently in preview.
-services: service-fabric
-documentationcenter: other
-author: aljo-microsoft
-manager: chackdan
-editor: ''
-
-ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
+title: Azure Files volume driver for Service Fabric
+description: Service Fabric supports using Azure Files to backup volumes from your container.
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
 ms.service: service-fabric
-ms.devlang: other
-ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 6/10/2018
-ms.author: aljo, subramar
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
-# Service Fabric Azure Files Volume Driver (Preview)
-The Azure Files volume plugin is a [Docker volume plugin](https://docs.docker.com/engine/extend/plugins_volume/) that provides [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) based volumes for Docker containers. This Docker volume plugin is packaged as a Service Fabric application that can be deployed to Service Fabric clusters. It's purpose is to provide Azure Files based volumes for other Service Fabric container applications that are deployed to the cluster.
+# Azure Files volume driver for Service Fabric
+
+The Azure Files volume driver is a [Docker volume plugin](https://docs.docker.com/engine/extend/plugins_volume/) that provides [Azure Files](../storage/files/storage-files-introduction.md) based volumes for Docker containers. It is packaged as a Service Fabric application that can be deployed to a Service Fabric cluster to provide volumes for other Service Fabric container applications within the cluster.
 
 > [!NOTE]
-> Version 6.4.571.9590 of the Azure Files volume plugin is a preview release that is available with this document. As a preview release, it is **not** supported for use in production environments.
+> Version 6.5.661.9590 of the Azure Files volume plugin has been released for general availability.
 >
 
 ## Prerequisites
-* The Windows version of the Azure Files volume plugin works on [Windows Server version 1709](https://docs.microsoft.com/windows-server/get-started/whats-new-in-windows-server-1709), [Windows 10 version 1709](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1709) or later operating systems only. The Linux version of the Azure Files volume plugin works on all operating system versions supported by Service Fabric.
+* The Windows version of the Azure Files volume plugin works on [Windows Server version 1709](/windows-server/get-started/whats-new-in-windows-server-1709), [Windows 10 version 1709](/windows/whats-new/whats-new-windows-10-version-1709) or later operating systems only.
+
+* The Linux version of the Azure Files volume plugin works on all operating system versions supported by Service Fabric.
 
 * The Azure Files volume plugin only works on Service Fabric version 6.2 and newer.
 
-* Follow the instructions in the [Azure Files documentation](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share) to create a file share for the Service Fabric container application to use as volume.
+* Follow the instructions in the [Azure Files documentation](../storage/files/storage-how-to-create-file-share.md) to create a file share for the Service Fabric container application to use as volume.
 
-* You will need [Powershell with the Service Fabric module](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started) or [SFCTL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) installed.
+* You will need [PowerShell with the Service Fabric module](./service-fabric-get-started.md) or [SFCTL](./service-fabric-cli.md) installed.
 
-* If you are using hyperv containers, the following snippets need to be added in the ClusterManifest (local cluster) or fabricSettings section in your ARM template (Azure cluster) or ClusterConfig.json (standalone cluster). You will need  the volume name and the port that the volume listens to on the cluster. 
+* If you are using Hyper-V containers, the following snippets need to be added in the ClusterManifest (local cluster) or fabricSettings section in your Azure Resource Manager template (Azure cluster) or ClusterConfig.json (standalone cluster).
 
-In the ClusterManifest, the following needs to be added in the Hosting section. In this example, the volume name is **sfazurefile** and the port it listens to on the cluster is **19100**.  
+In the ClusterManifest, the following needs to be added in the Hosting section. In this example, the volume name is **sfazurefile** and the port it listens to on the cluster is **19100**. Replace them with the correct values for your cluster.
 
 ``` xml 
 <Section Name="Hosting">
@@ -43,7 +38,7 @@ In the ClusterManifest, the following needs to be added in the Hosting section. 
 </Section>
 ```
 
-In the fabricSettings section in your ARM template (for Azure deployments) or ClusterConfig.json (for standalone deployments), the following snippet needs to be added. 
+In the fabricSettings section in your Azure Resource Manager template (for Azure deployments) or ClusterConfig.json (for standalone deployments), the following snippet needs to be added. Again, replace the volume name and port values with your own.
 
 ```json
 "fabricSettings": [
@@ -59,12 +54,31 @@ In the fabricSettings section in your ARM template (for Azure deployments) or Cl
 ]
 ```
 
+## Deploy a sample application using Service Fabric Azure Files volume driver
 
-## Deploy the Service Fabric Azure Files application
+### Using Azure Resource Manager via the provided PowerShell script (recommended)
 
-The Service Fabric application that provides the volumes for your containers can be downloaded from the following [link](https://download.microsoft.com/download/C/0/3/C0373AA9-DEFA-48CF-9EBE-994CA2A5FA2F/AzureFilesVolumePlugin.6.4.571.9590.zip). The application can be deployed to the cluster via [PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications), [CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-lifecycle-sfctl) or [FabricClient APIs](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications-fabricclient).
+If your cluster is based in Azure, we recommend deploying applications to it using the Azure Resource Manager application resource model for ease of use and to help move towards the model of maintaining infrastructure as code. This approach eliminates the need to keep track of the app version for the Azure Files volume driver. It also enables you to maintain separate Azure Resource Manager templates for each supported OS. The script assumes you are deploying the latest version of the Azure Files application and takes parameters for OS type, cluster subscription ID, and resource group. You can download the script from the [Service Fabric download site](https://sfazfilevd.blob.core.windows.net/sfazfilevd/DeployAzureFilesVolumeDriver.zip). Note that this automatically sets the ListenPort, which is the port on which the Azure Files volume plugin listens for requests from the Docker daemon, to 19100. You can change it by adding parameter named "listenPort". Ensure that the port does not conflict with any other port that the cluster or your applications uses.
+ 
 
-1. Using the command line, change directory to the root directory of the application package downloaded.
+Azure Resource Manager deployment command for Windows:
+```powershell
+.\DeployAzureFilesVolumeDriver.ps1 -subscriptionId [subscriptionId] -resourceGroupName [resourceGroupName] -clusterName [clusterName] -windows
+```
+
+Azure Resource Manager deployment command for Linux:
+```powershell
+.\DeployAzureFilesVolumeDriver.ps1 -subscriptionId [subscriptionId] -resourceGroupName [resourceGroupName] -clusterName [clusterName] -linux
+```
+
+Once you've successfully run the script, you can skip to the [configuring your application section.](#configure-your-applications-to-use-the-volume)
+
+
+### Manual deployment for standalone clusters
+
+The Service Fabric application that provides the volumes for your containers can be downloaded from the [Service Fabric download site](https://sfazfilevd.blob.core.windows.net/sfazfilevd/AzureFilesVolumePlugin.6.5.661.9590.zip). The application can be deployed to the cluster via [PowerShell](./service-fabric-deploy-remove-applications.md), [CLI](./service-fabric-application-lifecycle-sfctl.md) or [FabricClient APIs](./service-fabric-deploy-remove-applications-fabricclient.md).
+
+1. Using the command line, change directory to the root directory of the downloaded application package.
 
     ```powershell
     cd .\AzureFilesVolume\
@@ -74,8 +88,7 @@ The Service Fabric application that provides the volumes for your containers can
     cd ~/AzureFilesVolume
     ```
 
-2. Copy the application package to the image store
-Run the command below with the appropriate value for [ApplicationPackagePath] and [ImageStoreConnectionString]:
+2. Next, copy the application package to the image store  with the appropriate values for [ApplicationPackagePath] and [ImageStoreConnectionString]:
 
     ```powershell
     Copy-ServiceFabricApplicationPackage -ApplicationPackagePath [ApplicationPackagePath] -ImageStoreConnectionString [ImageStoreConnectionString] -ApplicationPackagePathInImageStore AzureFilesVolumePlugin
@@ -96,33 +109,35 @@ Run the command below with the appropriate value for [ApplicationPackagePath] an
     sfctl application provision --application-type-build-path [ApplicationPackagePath]
     ```
 
-4. Create the application
-    In the command to create the application below, note the **ListenPort** application parameter. This value specified for this application parameter is the port on which the Azure Files volume plugin listens for requests from the Docker daemon. It is important to ensure that the port provided to the application match the VolumePluginPorts in the ClusterManifest and does not conflict with any other port that the cluster or your applications use.
+4. Create the application, paying close attention to the **ListenPort** application parameter value. This value is the port on which the Azure Files volume plugin listens for requests from the Docker daemon. Ensure that the port provided to the application matches the VolumePluginPorts in the ClusterManifest and does not conflict with any other port that the cluster or your applications uses.
 
     ```powershell
-    New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.4.571.9590 -ApplicationParameter @{ListenPort='19100'}
+    New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.5.661.9590   -ApplicationParameter @{ListenPort='19100'}
     ```
 
     ```bash
-    sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.4.571.9590 --parameter '{"ListenPort":"19100"}'
+    sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.5.661.9590  --parameter '{"ListenPort":"19100"}'
     ```
 
 > [!NOTE]
 > 
-> Windows Server 2016 Datacenter does not support mapping SMB mounts to containers ([That is only supported on Windows Server version 1709](https://docs.microsoft.com/virtualization/windowscontainers/manage-containers/container-storage)). This constraint prevents network volume mapping and Azure Files volume drivers on versions older than 1709.
+> Windows Server 2016 Datacenter does not support mapping SMB mounts to containers ([That is only supported on Windows Server version 1709](/virtualization/windowscontainers/manage-containers/container-storage)). This constraint prevents network volume mapping and Azure Files volume drivers on versions older than 1709.
 
-### Deploy the application on a local development cluster
-The default service instance count for the Azure Files volume plugin application is -1, which means that there is an instance of the service deployed to each node in the cluster. However, when deploying the Azure Files volume plugin application on a local development cluster, the service instance count should be specified as 1. This can be done via the **InstanceCount** application parameter. Therefore, the command for deploying the Azure Files volume plugin application on a local development cluster is:
+#### Deploy the application on a local development cluster
+Follow steps 1-3 from the [above.](#manual-deployment-for-standalone-clusters)
+
+ The default service instance count for the Azure Files volume plugin application is -1, which means that there is an instance of the service deployed to each node in the cluster. However, when deploying the Azure Files volume plugin application on a local development cluster, the service instance count should be specified as 1. This can be done via the **InstanceCount** application parameter. Therefore, the command for creating the Azure Files volume plugin application on a local development cluster is:
 
 ```powershell
-New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.4.571.9590 -ApplicationParameter @{ListenPort='19100';InstanceCount='1'}
+New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.5.661.9590  -ApplicationParameter @{ListenPort='19100';InstanceCount='1'}
 ```
 
 ```bash
-sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.4.571.9590 --parameter '{"ListenPort": "19100","InstanceCount": "1"}'
+sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.5.661.9590  --parameter '{"ListenPort": "19100","InstanceCount": "1"}'
 ```
+
 ## Configure your applications to use the volume
-The following snippet shows how an Azure Files based volume can be specified in the application manifest of your application. The specific element of interest is the **Volume** tag:
+The following snippet shows how an Azure Files based volume can be specified in the application manifest file of your application. The specific element of interest is the **Volume** tag:
 
 ```xml
 ?xml version="1.0" encoding="UTF-8"?>
@@ -156,11 +171,11 @@ The following snippet shows how an Azure Files based volume can be specified in 
 </ApplicationManifest>
 ```
 
-The driver name for the Azure Files volume plugin is **sfazurefile**. This value is set for the **Driver** attribute of the **Volume** element in the application manifest.
+The driver name for the Azure Files volume plugin is **sfazurefile**. This value is set for the **Driver** attribute of the **Volume** tag element in the application manifest.
 
-In the **Volume** element in the snippet above, the Azure Files volume plugin requires the following tags:
+In the **Volume** tag in the snippet above, the Azure Files volume plugin requires the following attributes:
 - **Source** - This is the name of the volume. The user can pick any name for their volume.
-- **Destination** - This tag is the location that the volume is mapped to within the running container. Thus, your destination can't be a location that already exists within your container
+- **Destination** - This attribute is the location that the volume is mapped to within the running container. Thus, your destination can't be a location that already exists within your container
 
 As shown in the **DriverOption** elements in the snippet above, the Azure Files volume plugin supports the following driver options:
 - **shareName** - Name of the Azure Files file share that provides the volume for the container.
@@ -182,9 +197,9 @@ As shown in the **DriverOption** elements in the snippet above, the Azure Files 
     ```
 
 ## Using your own volume or logging driver
-Service Fabric also allows the usage of your own custom [volume](https://docs.docker.com/engine/extend/plugins_volume/) or [logging](https://docs.docker.com/engine/admin/logging/overview/) drivers. If the Docker volume/logging driver is not installed on the cluster, you can install it manually by using the RDP/SSH protocols. You can perform the install with these protocols through a [virtual machine scale set start-up script](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) or an [SetupEntryPoint script](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-model).
+Service Fabric also allows the usage of your own custom [volume](https://docs.docker.com/engine/extend/plugins_volume/) or [logging](https://docs.docker.com/engine/admin/logging/overview/) drivers. If the Docker volume/logging driver is not installed on the cluster, you can install it manually by using the RDP/SSH protocols. You can perform the install with these protocols through a [virtual machine scale set start-up script](https://azure.microsoft.com/resources/templates/vmss-custom-script-windows/) or an [SetupEntryPoint script](./service-fabric-application-model.md).
 
-An example of the script to install the [Docker volume driver for Azure](https://docs.docker.com/docker-for-azure/persistent-data-volumes/) is as follows:
+An example of the script to install the [Docker volume driver for Azure](https://docs.docker.com/cloud/aci-compose-features/) is as follows:
 
 ```bash
 docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:17.09.0-ce-azure1  \
@@ -225,4 +240,4 @@ If a Docker log driver is specified, you have to deploy agents (or containers) t
 
 ## Next steps
 * To see container samples, including the volume driver, please visit the [Service Fabric container samples](https://github.com/Azure-Samples/service-fabric-containers)
-* To deploy containers to a Service Fabric cluster, refer the article [Deploy a container on Service Fabric](service-fabric-deploy-container.md)
+* To deploy containers to a Service Fabric cluster, refer the article [Deploy a container on Service Fabric](./service-fabric-get-started-containers.md)

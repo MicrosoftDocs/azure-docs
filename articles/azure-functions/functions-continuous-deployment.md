@@ -1,142 +1,64 @@
 ---
-title: Continuous deployment for Azure Functions | Microsoft Docs
-description: Use the continuous deployment facilities of Azure App Service to publish your functions.
-services: functions
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
-
+title: Continuous deployment for Azure Functions
+description: Use the continuous deployment features of Azure App Service to publish your functions.
 ms.assetid: 361daf37-598c-4703-8d78-c77dbef91643
-ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/25/2016
-ms.author: glenga
+ms.date: 09/25/2019
 #Customer intent: As a developer, I want to learn how to set up a continuous integration environment so that function app updates are deployed automatically when I check in my code changes.
 ---
+
 # Continuous deployment for Azure Functions
-Azure Functions makes it easy to deploy your function app by using continuous integration. Functions integrates with major code repositories and deployment sources. This integration enables a workflow where function code updates made through one of these services trigger deployment to Azure. If you're new to Azure Functions, start with the [Azure Functions overview](functions-overview.md).
 
-Continuous deployment is a great option for projects where you're integrating multiple and frequent contributions. It also lets you maintain source control on your function code. Azure Functions supports the following deployment sources:
+You can use Azure Functions to deploy your code continuously by using [source control integration](functions-deployment-technologies.md#source-control). Source control integration enables a workflow in which a code update triggers deployment to Azure. If you're new to Azure Functions, get started by reviewing the [Azure Functions overview](functions-overview.md).
 
-* [Bitbucket](https://bitbucket.org/)
-* [Dropbox](https://www.dropbox.com/)
-* External repository (Git or Mercurial)
-* [Git local repository](../app-service/deploy-local-git.md)
+Continuous deployment is a good option for projects where you integrate multiple and frequent contributions. When you use continuous deployment, you maintain a single source of truth for your code, which allows teams to easily collaborate. You can configure continuous deployment in Azure Functions from the following source code locations:
+
+* [Azure Repos](https://azure.microsoft.com/services/devops/repos/)
 * [GitHub](https://github.com)
-* [OneDrive](https://onedrive.live.com/)
-* [Azure DevOps](https://azure.microsoft.com/services/devops/)
+* [Bitbucket](https://bitbucket.org/)
 
-Deployments are configured on a per-function app basis. After continuous deployment is enabled, access to function code in the portal is set to *read-only*.
+The unit of deployment for functions in Azure is the function app. All functions in a function app are deployed at the same time. After you enable continuous deployment, access to function code in the Azure portal is configured as *read-only* because the source of truth is set to be elsewhere.
 
 ## Requirements for continuous deployment
 
-Before you set up continuous deployment, you must have your deployment source configured and your function code in the deployment source. In a function app deployment, each function is in a named subdirectory, where the directory name is the name of the function.  
+For continuous deployment to succeed, your directory structure must be compatible with the basic folder structure that Azure Functions expects.
 
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
-To be able to deploy from Azure DevOps, you must first link your Azure DevOps organization with your Azure subscription. For more information, see [Set up billing for your Azure DevOps organization](https://docs.microsoft.com/azure/devops/organizations/billing/set-up-billing-for-your-organization-vs#set-up-billing).
+>[!NOTE]  
+> Continuous deployment is not yet supported for Linux apps running on a Consumption plan. 
 
-## Set up continuous deployment
-Use this procedure to configure continuous deployment for an existing function app. These steps demonstrate integration with a GitHub repository, but similar steps apply for Azure DevOps or other deployment services.
+## <a name="credentials"></a>Set up continuous deployment
 
-1. In your function app in the [Azure portal](https://portal.azure.com), select **Platform features** > **Deployment options**. 
-   
-    ![Selections for opening deployment options](./media/functions-continuous-deployment/setup-deployment.png)
- 
-1. On the **Deployments** blade, select **Setup**.
- 
-    ![Deployments blade](./media/functions-continuous-deployment/setup-deployment-1.png)
-   
-1. On the **Deployment source** blade, select **Choose source**. Fill in the information for your chosen deployment source, and then select **OK**.
-   
-    ![Choosing a deployment source](./media/functions-continuous-deployment/choose-deployment-source.png)
+To configure continuous deployment for an existing function app, complete these steps. The steps demonstrate integration with a GitHub repository, but similar steps apply for Azure Repos or other source code repositories.
 
-After you set up continuous deployment, all file changes in your deployment source are copied to the function app and a full site deployment is triggered. The site is redeployed when files in the source are updated.
+1. In your function app in the [Azure portal](https://portal.azure.com), select **Deployment Center**, select **GitHub**, and then select **Authorize**. If you've already authorized GitHub, select **Continue** and skip the next step. 
 
-## Deployment scenarios
+    :::image type="content" source="./media/functions-continuous-deployment/github.png" alt-text="Azure App Service Deployment Center":::
 
-Typical deployment scenarios include creating a staging deployment and moving existing functions to continuous deployment.
+3. In GitHub, select **Authorize AzureAppService**.
 
-<a name="staging"></a>
-### Create a staging deployment
+    :::image type="content" source="./media/functions-continuous-deployment/authorize.png" alt-text="Authorize Azure App Service":::
 
-Function apps don't yet support deployment slots. But you can still manage separate staging and production deployments by using continuous integration.
+    Enter your GitHub password and then select **Continue**.
 
-The process to configure and work with a staging deployment looks generally like this:
+4. Select one of the following build providers:
 
-1. Create two function apps in your subscription: one for the production code and one for staging. 
+    * **App Service build service**: Best when you don't need a build or if you need a generic build.
+    * **Azure Pipelines (Preview)**: Best when you need more control over the build. This provider currently is in preview.
 
-1. Create a deployment source, if you don't already have one. This example uses [GitHub].
+    Select **Continue**.
 
-1. For your production function app, complete the preceding steps in [Set up continuous deployment](#set-up-continuous-deployment) and set the deployment branch to the master branch of your GitHub repository.
-   
-    ![Selections to choose a deployment branch](./media/functions-continuous-deployment/choose-deployment-branch.png)
+5. Configure information specific to the source control option you specified. For GitHub, you must enter or select values for **Organization**, **Repository**, and **Branch**. The values are based on the location of your code. Then, select **Continue**.
 
-1. Repeat step 3 for the staging function app, but choose the staging branch instead in your GitHub repo. If your deployment source doesn't support branching, use a different folder.
-    
-1. Make updates to your code in the staging branch or folder, and then verify that the staging deployment reflects those changes.
+    :::image type="content" source="./media/functions-continuous-deployment/github-specifics.png" alt-text="Configure GitHub":::
 
-1. After testing, merge changes from the staging branch into the master branch. This merge triggers deployment to the production function app. If your deployment source doesn't support branches, overwrite the files in the production folder with the files from the staging folder.
+6. Review all details, and then select **Finish** to complete your deployment configuration.
 
-<a name="existing"></a>
-### Move existing functions to continuous deployment
-When you have existing functions that you have created and maintained in the portal, you need to download your function code files by using FTP or the local Git repository before you can set up continuous deployment as described earlier. You can do this in the Azure App Service settings for your function app. After you download the files, you can upload them to your chosen continuous deployment source.
+When the process is finished, all code from the specified source is deployed to your app. At that point, changes in the deployment source trigger a deployment of those changes to your function app in Azure.
 
 > [!NOTE]
-> After you configure continuous integration, you can no longer edit your source files in the Functions portal.
-
-<a name="credentials"></a>
-#### Configure deployment credentials
-Before you can download files from your function app by using FTP or a local Git repository, you must configure your credentials to access the site. Credentials are set at the function app level. Use the following steps to set deployment credentials in the Azure portal:
-
-1. In your function app in the [Azure portal](https://portal.azure.com), select **Platform features** > **Deployment credentials**.
-   
-1. Enter a username and password, and then select **Save**. 
-
-   ![Selections to set local deployment credentials](./media/functions-continuous-deployment/setup-deployment-credentials.png)
-
-You can now use these credentials to access your function app from FTP or the built-in Git repo.
-
-<a name="downftp"></a>
-#### Download files by using FTP
-
-1. In your function app in the [Azure portal](https://portal.azure.com), select **Platform features** > **Properties**. Then, copy the values for **FTP/Deployment User**, **FTP Host Name**, and **FTPS Host Name**.  
-
-   **FTP/Deployment User** must be entered as displayed in the portal, including the app name, to provide proper context for the FTP server.
-   
-   ![Selections to get your deployment information](./media/functions-continuous-deployment/get-deployment-credentials.png)
-
-1. From your FTP client, use the connection information that you gathered to connect to your app and download the source files for your functions.
-
-<a name="downgit"></a>
-#### Download files by using a local Git repository
-
-1. In your function app in the [Azure portal](https://portal.azure.com), select **Platform features** > **Deployment options**. 
-   
-    ![Selections for opening deployment options](./media/functions-continuous-deployment/setup-deployment.png)
- 
-1. Then on the **Deployments** blade, select **Setup**.
- 
-    ![Deployments blade](./media/functions-continuous-deployment/setup-deployment-1.png)
-   
-1. On the **Deployment source** blade, select **Local Git repository** > **OK**.
-
-1. In **Platform features**, select **Properties** and note the value of the Git URL. 
-   
-    ![Selections for getting the Git URL](./media/functions-continuous-deployment/get-local-git-deployment-url.png)
-
-1. Clone the repository on your local machine by using a Git-aware command prompt or your favorite Git tool. The Git clone command looks like this:
-   
-        git clone https://username@my-function-app.scm.azurewebsites.net:443/my-function-app.git
-
-1. Fetch files from your function app to the clone on your local computer, as in the following example:
-   
-        git pull origin master
-   
-    If requested, supply your [configured deployment credentials](#credentials).  
-
-[GitHub]: https://github.com/
+> After you configure continuous integration, you can no longer edit your source files in the Functions portal. If you originally published your code from your local computer, you may need to change the `WEBSITE_RUN_FROM_PACKAGE` setting in your function app to a value of `0`. 
 
 ## Next steps
 

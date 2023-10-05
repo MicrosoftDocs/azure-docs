@@ -1,143 +1,202 @@
 ---
-title: 'Azure Active Directory Domain Services: Join a CentOS VM to a managed domain | Microsoft Docs'
-description: Join a CentOS Linux virtual machine to Azure AD Domain Services
+title: Join a CentOS VM to Microsoft Entra Domain Services | Microsoft Docs
+description: Learn how to configure and join a CentOS Linux virtual machine to a Microsoft Entra Domain Services managed domain.
 services: active-directory-ds
-documentationcenter: ''
-author: MikeStephens-MS
-manager: daveba
-editor: curtand
+author: justinha
+manager: amycolannino
 
 ms.assetid: 16100caa-f209-4cb0-86d3-9e218aeb51c6
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 05/20/2019
-ms.author: mstephen
-
+ms.custom: devx-track-linux
+ms.topic: how-to
+ms.date: 09/23/2023
+ms.author: justinha
 ---
-# Join a CentOS Linux virtual machine to a managed domain
-This article shows you how to join a CentOS Linux virtual machine in Azure to an Azure AD Domain Services managed domain.
+# Join a CentOS Linux virtual machine to a Microsoft Entra Domain Services managed domain
 
-[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
+To let users sign in to virtual machines (VMs) in Azure using a single set of credentials, you can join VMs to a Microsoft Entra Domain Services managed domain. When you join a VM to a Domain Services managed domain, user accounts and credentials from the domain can be used to sign in and manage servers. Group memberships from the managed domain are also applied to let you control access to files or services on the VM.
 
-## Before you begin
-To perform the tasks listed in this article, you need:
-1. A valid **Azure subscription**.
-2. An **Azure AD directory** - either synchronized with an on-premises directory or a cloud-only directory.
-3. **Azure AD Domain Services** must be enabled for the Azure AD directory. If you haven't done so, follow all the tasks outlined in the [Getting Started guide](create-instance.md).
-4. Ensure that you have configured the IP addresses of the managed domain as the DNS servers for the virtual network. For more information, see [how to update DNS settings for the Azure virtual network](active-directory-ds-getting-started-dns.md)
-5. Complete the steps required to [synchronize passwords to your Azure AD Domain Services managed domain](active-directory-ds-getting-started-password-sync.md).
+This article shows you how to join a CentOS Linux VM to a managed domain.
 
+## Prerequisites
 
-## Provision a CentOS Linux virtual machine
-Provision a CentOS virtual machine in Azure, using any of the following methods:
-* [Azure portal](../virtual-machines/linux/quick-create-portal.md)
-* [Azure CLI](../virtual-machines/linux/quick-create-cli.md)
-* [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
+To complete this tutorial, you need the following resources and privileges:
 
-> [!IMPORTANT]
-> * Deploy the virtual machine into the **same virtual network in which you have enabled Azure AD Domain Services**.
-> * Pick a **different subnet** than the one in which you have enabled Azure AD Domain Services.
->
+* An active Azure subscription.
+    * If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* A Microsoft Entra tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
+    * If needed, [create a Microsoft Entra tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
+* A Microsoft Entra Domain Services managed domain enabled and configured in your Microsoft Entra tenant.
+    * If needed, the first tutorial [creates and configures a Microsoft Entra Domain Services managed domain][create-azure-ad-ds-instance].
+* A user account that's part of the managed domain.
+* Unique Linux VM names that are a maximum of 15 characters to avoid truncated names that might cause conflicts in Active Directory.
 
+## Create and connect to a CentOS Linux VM
 
-## Connect remotely to the newly provisioned Linux virtual machine
-The CentOS virtual machine has been provisioned in Azure. The next task is to connect remotely to the virtual machine using the local administrator account created while provisioning the VM.
+If you have an existing CentOS Linux VM in Azure, connect to it using SSH, then continue on to the next step to [start configuring the VM](#configure-the-hosts-file).
 
-Follow the instructions in the article [How to log on to a virtual machine running Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+If you need to create a CentOS Linux VM, or want to create a test VM for use with this article, you can use one of the following methods:
 
+* [Microsoft Entra admin center](/azure/virtual-machines/linux/quick-create-portal)
+* [Azure CLI](/azure/virtual-machines/linux/quick-create-cli)
+* [Azure PowerShell](/azure/virtual-machines/linux/quick-create-powershell)
 
-## Configure the hosts file on the Linux virtual machine
-In your SSH terminal, edit the /etc/hosts file and update your machine’s IP address and hostname.
+When you create the VM, pay attention to the virtual network settings to make sure that the VM can communicate with the managed domain:
 
-```
+* Deploy the VM into the same, or a peered, virtual network in which you have enabled Microsoft Entra Domain Services.
+* Deploy the VM into a different subnet than your managed domain.
+
+Once the VM is deployed, follow the steps to connect to the VM using SSH.
+
+## Configure the hosts file
+
+To make sure that the VM host name is correctly configured for the managed domain, edit the */etc/hosts* file and set the hostname:
+
+```bash
 sudo vi /etc/hosts
 ```
 
-In the hosts file, enter the following value:
+In the *hosts* file, update the *localhost* address. In the following example:
 
+* *aaddscontoso.com* is the DNS domain name of your managed domain.
+* *centos* is the hostname of your CentOS VM that you're joining to the managed domain.
+
+Update these names with your own values:
+
+```config
+127.0.0.1 centos.aaddscontoso.com centos
 ```
-127.0.0.1 contoso-centos.contoso100.com contoso-centos
+
+When done, save and exit the *hosts* file using the `:wq` command of the editor.
+
+## Install required packages
+
+The VM needs some additional packages to join the VM to the managed domain. To install and configure these packages, update and install the domain-join tools using `yum`:
+
+```bash
+sudo yum install adcli realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir samba-common-tools
 ```
-Here, 'contoso100.com' is the DNS domain name of your managed domain. 'contoso-centos' is the hostname of the CentOS virtual machine you are joining to the managed domain.
 
+## Join VM to the managed domain
 
-## Install required packages on the Linux virtual machine
-Next, install packages required for domain join on the virtual machine. In your SSH terminal, type the following command to install the required packages:
+Now that the required packages are installed on the VM, join the VM to the managed domain.
 
-    ```
-    sudo yum install realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir samba-common-tools
-    ```
+1. Use the `realm discover` command to discover the managed domain. The following example discovers the realm *AADDSCONTOSO.COM*. Specify your own managed domain name in ALL UPPERCASE:
 
-
-## Join the Linux virtual machine to the managed domain
-Now that the required packages are installed on the Linux virtual machine, the next task is to join the virtual machine to the managed domain.
-
-1. Discover the AAD Domain Services managed domain. In your SSH terminal, type the following command:
-
-    ```
-    sudo realm discover CONTOSO100.COM
+    ```bash
+    sudo realm discover AADDSCONTOSO.COM
     ```
 
-   > [!NOTE]
-   > **Troubleshooting:**
-   > If *realm discover* is unable to find your managed domain:  
-   >    * Ensure that the domain is reachable from the virtual machine (try ping).  
-   >    * Check that the virtual machine has indeed been deployed to the same virtual network in which the managed domain is available.
-   >    * Check to see if you have updated the DNS server settings for the virtual network to point to the domain controllers of the managed domain.  
+   If the `realm discover` command can't find your managed domain, review the following troubleshooting steps:
 
-2. Initialize Kerberos. In your SSH terminal, type the following command:
+    * Make sure that the domain is reachable from the VM. Try `ping aaddscontoso.com` to see if a positive reply is returned.
+    * Check that the VM is deployed to the same, or a peered, virtual network in which the managed domain is available.
+    * Confirm that the DNS server settings for the virtual network have been updated to point to the domain controllers of the managed domain.
 
-    > [!TIP]
-    > * Specify a user who belongs to the 'AAD DC Administrators' group.
-    > * Specify the domain name in capital letters, else kinit fails.
-    >
+1. Now initialize Kerberos using the `kinit` command. Specify a user that's a part of the managed domain. If needed, [add a user account to a group in Microsoft Entra ID](/azure/active-directory/fundamentals/how-to-manage-groups).
 
-    ```
-    kinit bob@CONTOSO100.COM
+    Again, the managed domain name must be entered in ALL UPPERCASE. In the following example, the account named `contosoadmin@aaddscontoso.com` is used to initialize Kerberos. Enter your own user account that's a part of the managed domain:
+
+    ```bash
+    sudo kinit contosoadmin@AADDSCONTOSO.COM
     ```
 
-3. Join the machine to the domain. In your SSH terminal, type the following command:
+1. Finally, join the VM to the managed domain using the `realm join` command. Use the same user account that's a part of the managed domain that you specified in the previous `kinit` command, such as `contosoadmin@AADDSCONTOSO.COM`:
 
-    > [!TIP]
-    > Use the same user account you specified in the preceding step ('kinit').
-    >
-
-    ```
-    sudo realm join --verbose CONTOSO100.COM -U 'bob@CONTOSO100.COM'
+    ```bash
+    sudo realm join --verbose AADDSCONTOSO.COM -U 'contosoadmin@AADDSCONTOSO.COM' --membership-software=adcli
     ```
 
-You should get a message ("Successfully enrolled machine in realm") when the machine is successfully joined to the managed domain.
+It takes a few moments to join the VM to the managed domain. The following example output shows the VM has successfully joined to the managed domain:
 
+```output
+Successfully enrolled machine in realm
+```
 
-## Verify domain join
-Verify whether the machine has been successfully joined to the managed domain. Connect to the domain joined CentOS VM using a different SSH connection. Use a domain user account and then check to see if the user account is resolved correctly.
+If your VM can't successfully complete the domain-join process, make sure that the VM's network security group allows outbound Kerberos traffic on TCP + UDP port 464 to the virtual network subnet for your managed domain.
 
-1. In your SSH terminal, type the following command to connect to the domain joined CentOS virtual machine using SSH. Use a domain account that belongs to the managed domain (for example, 'bob@CONTOSO100.COM' in this case.)
-    ```
-    ssh -l bob@CONTOSO100.COM contoso-centos.contoso100.com
-    ```
+## Allow password authentication for SSH
 
-2. In your SSH terminal, type the following command to see if the home directory was initialized correctly.
-    ```
-    pwd
-    ```
+By default, users can only sign in to a VM using SSH public key-based authentication. Password-based authentication fails. When you join the VM to a managed domain, those domain accounts need to use password-based authentication. Update the SSH configuration to allow password-based authentication as follows.
 
-3. In your SSH terminal, type the following command to see if the group memberships are being resolved correctly.
-    ```
-    id
+1. Open the *sshd_conf* file with an editor:
+
+    ```bash
+    sudo vi /etc/ssh/sshd_config
     ```
 
+1. Update the line for *PasswordAuthentication* to *yes*:
 
-## Troubleshooting domain join
-Refer to the [Troubleshooting domain join](join-windows-vm.md#troubleshoot-joining-a-domain) article.
+    ```bash
+    PasswordAuthentication yes
+    ```
 
-## Related Content
-* [Azure AD Domain Services - Getting Started guide](create-instance.md)
-* [Join a Windows Server virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-windows-vm.md)
-* [How to log on to a virtual machine running Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* [Installing Kerberos](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/installing-kerberos.html)
-* [Red Hat Enterprise Linux 7 - Windows Integration Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Windows_Integration_Guide/index.html)
+    When done, save and exit the *sshd_conf* file using the `:wq` command of the editor.
+
+1. To apply the changes and let users sign in using a password, restart the SSH service:
+
+    ```bash
+    sudo systemctl restart sshd
+    ```
+
+## Grant the 'AAD DC Administrators' group sudo privileges
+
+To grant members of the *AAD DC Administrators* group administrative privileges on the CentOS VM, you add an entry to the */etc/sudoers*. Once added, members of the *AAD DC Administrators* group can use the `sudo` command on the CentOS VM.
+
+1. Open the *sudoers* file for editing:
+
+    ```bash
+    sudo visudo
+    ```
+
+1. Add the following entry to the end of */etc/sudoers* file. The *AAD DC Administrators* group contains whitespace in the name, so include the backslash escape character in the group name. Add your own domain name, such as *aaddscontoso.com*:
+
+    ```config
+    # Add 'AAD DC Administrators' group members as admins.
+    %AAD\ DC\ Administrators@aaddscontoso.com ALL=(ALL) NOPASSWD:ALL
+    ```
+
+    When done, save and exit the editor using the `:wq` command of the editor.
+
+## Sign in to the VM using a domain account
+
+To verify that the VM has been successfully joined to the managed domain, start a new SSH connection using a domain user account. Confirm that a home directory has been created, and that group membership from the domain is applied.
+
+1. Create a new SSH connection from your console. Use a domain account that belongs to the managed domain using the `ssh -l` command, such as `contosoadmin@aaddscontoso.com` and then enter the address of your VM, such as *centos.aaddscontoso.com*. If you use the Azure Cloud Shell, use the public IP address of the VM rather than the internal DNS name.
+
+    ```bash
+    sudo ssh -l contosoadmin@AADDSCONTOSO.com centos.aaddscontoso.com
+    ```
+
+1. When you've successfully connected to the VM, verify that the home directory was initialized correctly:
+
+    ```bash
+    sudo pwd
+    ```
+
+    You should be in the */home* directory with your own directory that matches the user account.
+
+1. Now check that the group memberships are being resolved correctly:
+
+    ```bash
+    sudo id
+    ```
+
+    You should see your group memberships from the managed domain.
+
+1. If you signed in to the VM as a member of the *AAD DC Administrators* group, check that you can correctly use the `sudo` command:
+
+    ```bash
+    sudo yum update
+    ```
+
+## Next steps
+
+If you have problems connecting the VM to the managed domain or signing in with a domain account, see [Troubleshooting domain join issues](join-windows-vm.md#troubleshoot-domain-join-issues).
+
+<!-- INTERNAL LINKS -->
+[create-azure-ad-tenant]: /azure/active-directory/fundamentals/sign-up-organization
+[associate-azure-ad-tenant]: /azure/active-directory/fundamentals/how-subscriptions-associated-directory
+[create-azure-ad-ds-instance]: tutorial-create-instance.md

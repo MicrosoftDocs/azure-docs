@@ -1,34 +1,20 @@
 ---
-# required metadata
-title: Data operation samples - Azure Logic Apps | Microsoft Docs
-description: Code samples for data operation action definitions in Azure Logic Apps
+title: Code samples for using data operations
+description: Try code samples that show how to use data operations in workflows created with Azure Logic Apps.
 services: logic-apps
-ms.service: logic-apps
-author: ecfan
-ms.author: estfan
-manager: jeconnoc
-ms.topic: reference
-ms.date: 07/25/2018
-
-# optional metadata
-ms.reviewer: klam, LADocs
 ms.suite: integration
+ms.reviewer: estfan, azla
+ms.topic: conceptual
+ms.date: 08/20/2022
 ---
 
 # Data operation code samples for Azure Logic Apps
 
-Here are the code samples for the data operation action definitions in the article, 
-[Perform data operations](../logic-apps/logic-apps-perform-data-operations.md). 
-You can use these samples for when you want to try the examples with your own 
-logic app's underlying workflow definition, Azure subscription, and API connections. 
-Just copy and paste these action definitions into the code view editor for 
-your logic app's workflow definition, and then modify the definitions for your specific workflow. 
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-Based on JavaScript Object Notation (JSON) standards, 
-these action definitions appear in alphabetical order. 
-However, in the Logic App Designer, each definition appears 
-in the correct sequence within your workflow because each 
-action definition's `runAfter` property specifies the run order. 
+Here are the code samples for the data operation action definitions in the article, [Perform data operations](../logic-apps/logic-apps-perform-data-operations.md). You can use these samples for when you want to try the examples with your own logic app's underlying workflow definition, Azure subscription, and API connections. Just copy and paste these action definitions into the code view editor for your logic app's workflow definition, and then modify the definitions for your specific workflow. 
+
+Based on JavaScript Object Notation (JSON) standards, these action definitions appear in alphabetical order. However, in the Logic App Designer, each definition appears in the correct sequence within your workflow because each action definition's `runAfter` property specifies the run order.
 
 <a name="compose-action-example"></a>
 
@@ -105,8 +91,7 @@ here are the action definitions you can use:
 
 ## Create CSV table
 
-To try the [**Create CSV table** action example](../logic-apps/logic-apps-perform-data-operations.md#create-csv-table-action), 
-here are the action definitions you can use:
+To try the [**Create CSV table** action example](../logic-apps/logic-apps-perform-data-operations.md#create-csv-table-action), here are the action definitions you can use:
 
 ```json
 "actions": {
@@ -197,8 +182,7 @@ here are the action definitions you can use:
 
 ## Filter array
 
-To try the [**Filter array** action example](../logic-apps/logic-apps-perform-data-operations.md#filter-array-action), 
-here are the action definitions you can use:
+To try the [**Filter array** action example](../logic-apps/logic-apps-perform-data-operations.md#filter-array-action), here are the action definitions you can use:
 
 ```json
 "actions": {
@@ -239,8 +223,7 @@ here are the action definitions you can use:
 
 ## Join
 
-To try the [**Join** action example](../logic-apps/logic-apps-perform-data-operations.md#join-action), 
-here are the action definitions you can use:
+To try the [**Join** action example](../logic-apps/logic-apps-perform-data-operations.md#join-action), here are the action definitions you can use:
 
 ```json
 "actions": {
@@ -281,8 +264,7 @@ here are the action definitions you can use:
 
 ## Parse JSON
 
-To try the [**Parse JSON** action example](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action), 
-here are the action definitions you can use:
+To try the [**Parse JSON** action example](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action), here are the action definitions you can use:
 
 ```json
 "actions": {
@@ -334,6 +316,7 @@ here are the action definitions you can use:
             "Succeeded"
          ]
       }
+   }
 },
 ```
 
@@ -341,8 +324,7 @@ here are the action definitions you can use:
 
 ## Select
 
-To try the [**Select** action example](../logic-apps/logic-apps-perform-data-operations.md#select-action), 
-here are the action definitions you can use:
+To try the [**Select** action example](../logic-apps/logic-apps-perform-data-operations.md#select-action), here are the action definitions you can use:
 
 ```json
 "actions": {
@@ -380,11 +362,6 @@ here are the action definitions you can use:
    }
 },
 ```
-
-## Get support
-
-* For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
 ## Next steps
 

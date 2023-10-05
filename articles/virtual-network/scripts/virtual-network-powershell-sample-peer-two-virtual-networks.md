@@ -1,28 +1,19 @@
-﻿---
-title: Azure PowerShell script sample - Peer two virtual networks | Microsoft Docs
-description: Azure PowerShell script sample - Peer two virtual networks
-services: virtual-network
-documentationcenter: virtual-network
-author: KumudD
-manager: twooley
-editor: ''
-tags:
-
-ms.assetid:
+---
+title: Peer two virtual networks - Azure PowerShell script sample
+description: Create and connect two virtual networks in the same region. Use the Azure script for two peer virtual networks to connect the networks through the Azure network.
+author: asudbring
 ms.service: virtual-network
-ms.devlang: powershell
 ms.topic: sample
-ms.tgt_pltfrm:
-ms.workload: infrastructure
-ms.date: 03/20/2018
-ms.author: kumud
+ms.date: 03/23/2023
+ms.author: allensu 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Peer two virtual networks script sample
 
-This script sample creates and connects two virtual networks in the same region through the Azure network. After running the script, you will create a peering between two virtual networks.
+This script sample creates and connects two virtual networks in the same region through the Azure network. After running the script, you'll create a peering between two virtual networks.
 
-You can execute the script from the Azure [Cloud Shell](https://shell.azure.com/powershell), or from a local PowerShell installation. If you use PowerShell locally, this script requires the Az PowerShell module version 5.4.1 or later. To find the installed version, run `Get-Module -ListAvailable Az`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+You can execute the script from the Azure [Cloud Shell](https://shell.azure.com/powershell), or from a local PowerShell installation. If you use PowerShell locally, this script requires the Az PowerShell module version 5.4.1 or later. To find the installed version, run `Get-Module -ListAvailable Az`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -53,6 +44,6 @@ This script uses the following commands to create a resource group, virtual mach
 
 ## Next steps
 
-For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/overview).
+For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/).
 
-Additional virtual network PowerShell script samples can be found in [Virtual network PowerShell samples](../powershell-samples.md).
+More virtual network PowerShell script samples can be found in [Virtual network PowerShell samples](../powershell-samples.md).

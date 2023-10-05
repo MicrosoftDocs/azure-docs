@@ -1,153 +1,143 @@
 ---
-title: Azure Quickstart - Run Batch job - Portal 
-description:  Quickly learn to run a Batch job with the Azure portal.
-services: batch
-author: laurenhughes
-manager: jeconnoc
-
-ms.service: batch
-ms.devlang: na
+title: 'Quickstart: Use the Azure portal to create a Batch account and run a job'
+description: Follow this quickstart to use the Azure portal to create a Batch account, a pool of compute nodes, and a job that runs basic tasks on the pool.
+ms.date: 04/13/2022
 ms.topic: quickstart
-ms.date: 07/03/2018
-ms.author: lahugh
-ms.custom: mvc
+ms.custom: mvc, mode-ui
 ---
 
-# Quickstart: Run your first Batch job in the Azure portal
+# Quickstart: Use the Azure portal to create a Batch account and run a job
 
-This quickstart shows how to use the Azure portal to create a Batch account, a *pool* of compute nodes (virtual machines), and a *job* that runs basic *tasks* on the pool. After completing this quickstart, you will understand the key concepts of the Batch service and be ready to try Batch with more realistic workloads at larger scale.
+This quickstart shows you how to get started with Azure Batch by using the Azure portal. You create a Batch account that has a pool of virtual machines (VMs), or compute nodes. You then create and run a job with tasks that run on the pool nodes.
 
-[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+After you complete this quickstart, you understand the [key concepts of the Batch service](batch-service-workflow-features.md) and are ready to use Batch with more realistic, larger scale workloads.
 
-## Sign in to Azure 
+## Prerequisites
 
-Sign in to the Azure portal at https://portal.azure.com.
+- [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## Create a Batch account
+>[!NOTE]
+>For some regions and subscription types, quota restrictions might cause Batch account or node creation to fail or not complete. In this situation, you can request a quota increase at no charge. For more information, see [Batch service quotas and limits](batch-quota-limit.md).
 
-Follow these steps to create a sample Batch account for test purposes. You need a Batch account to create pools and jobs. As shown here, you can link an Azure storage account with the Batch account. Although not required for this quickstart, the storage account is useful to deploy applications and store input and output data for most real-world workloads.
+<a name="create-a-batch-account"></a>
+## Create a Batch account and Azure Storage account
 
+You need a Batch account to create pools and jobs. The following steps create an example Batch account. You also create an Azure Storage account to link to your Batch account. Although this quickstart doesn't use the storage account, most real-world Batch workloads use a linked storage account to deploy applications and store input and output data.
 
-1. Select **Create a resource** > **Compute** > **Batch Service**. 
+1. Sign in to the [Azure portal](https://portal.azure.com), and search for and select **batch accounts**.
 
-   ![Batch in the Marketplace][marketplace_portal]
+   :::image type="content" source="media/quick-create-portal/marketplace-batch.png" alt-text="Screenshot of selecting Batch accounts in the Azure portal.":::
 
-2. Enter values for **Account name** and **Resource group**. The account name must be unique within the Azure **Location** selected, use only lowercase characters or numbers, and contain 3-24 characters. 
+1. On the **Batch accounts** page, select **Create**.
 
-3. In **Storage account**, select an existing storage account or create a new one.
+1. On the **New Batch account** page, enter or select the following values:
 
-4. Keep the defaults for remaining settings, and select **Create** to create the account.
+   - Under **Resource group**, select **Create new**, enter the name *qsBatch*, and then select **OK**. The resource group is a logical container that holds the Azure resources for this quickstart.
+   - For **Account name**, enter the name *mybatchaccount*. The Batch account name must be unique within the Azure region you select, can contain only lowercase letters and numbers, and must be between 3-24 characters.
+   - For **Location**, select **East US**.
+   - Under **Storage account**, select the link to **Select a storage account**.
 
-   ![Create a Batch account][account_portal]  
+   :::image type="content" source="media/quick-create-portal/new-batch-account.png" alt-text="Screenshot of the New Batch account page in the Azure portal.":::
 
-When the **Deployment succeeded** message appears, go to the Batch account in the portal.
+1. On the **Create storage account** page, under **Name**, enter **mybatchstorage**. Leave the other settings at their defaults, and select **OK**.
+
+1. Select **Review + create** at the bottom of the **New Batch account** page, and when validation passes, select **Create**.
+
+1. When the **Deployment succeeded** message appears, select **Go to resource** to go to the Batch account that you created.
 
 ## Create a pool of compute nodes
 
-Now that you have a Batch account, create a sample pool of Windows compute nodes for test purposes. The pool for this quick example consists of 2 nodes running a Windows Server 2012 R2 image from the Azure Marketplace.
+Next, create a pool of Windows compute nodes in your Batch account. The following steps create a pool that consists of two Standard_A1_v2 size VMs running Windows Server 2019. This node size offers a good balance of performance versus cost for this quickstart.
 
+1. On your Batch account page, select **Pools** from the left navigation.
 
-1. In the Batch account, select **Pools** > **Add**.
+1. On the **Pools** page, select **Add**.
 
-2. Enter a **Pool ID** called *mypool*. 
+1. On the **Add pool** page, for **Name**, enter *myPool*.
 
-3. In **Operating System**, select the following settings (you can explore other options).
-  
-   |Setting  |Value  |
-   |---------|---------|
-   |**Image Type**|Marketplace (Linux/Windows)|
-   |**Publisher**     |MicrosoftWindowsServer|
-   |**Offer**     |WindowsServer|
-   |**Sku**     |2012-R2-Datacenter-smalldisk|
+1. Under **Operating System**, select the following settings:
+   - **Publisher**: Select **microsoftwindowsserver**.
+   - **Sku**: Select **2019-datacenter-core-smalldisk**.
 
-   ![Select a pool operating system][pool_os] 
+1. Scroll down to **Node size**, and for **VM size**, select **Standard_A1_v2**.
 
-4. Scroll down to enter **Node Size** and **Scale** settings. The suggested node size offers a good balance of performance versus cost for this quick example.
-  
-   |Setting  |Value  |
-   |---------|---------|
-   |**Node pricing tier**     |Standard_A1|
-   |**Target dedicated nodes**     |2|
+1. Under **Scale**, for **Target dedicated nodes**, enter *2*.
 
-   ![Select a pool size][pool_size] 
+1. Accept the defaults for the remaining settings, and select **OK** at the bottom of the page.
 
-5. Keep the defaults for remaining settings, and select **OK** to create the pool.
+Batch creates the pool immediately, but takes a few minutes to allocate and start the compute nodes. On the **Pools** page, you can select **myPool** to go to the **myPool** page and see the pool status of **Resizing** under **Essentials** > **Allocation state**. You can proceed to create a job and tasks while the pool state is still **Resizing** or **Starting**.
 
-Batch creates the pool immediately, but it takes a few minutes to allocate and start the compute nodes. During this time, the pool's **Allocation state** is **Resizing**. You can go ahead and create a job and tasks while the pool is resizing. 
-
-![Pool in Resizing state][pool_resizing]
-
-After a few minutes, the state of the pool is **Steady**, and the nodes start. Select **Nodes** to check the state of the nodes. When a node's state is **Idle**, it is ready to run tasks. 
+After a few minutes, the **Allocation state** changes to **Steady**, and the nodes start. To check the state of the nodes, select **Nodes** in the **myPool** page left navigation. When a node's state is **Idle**, it's ready to run tasks.
 
 ## Create a job
 
-Now that you have a pool, create a job to run on it. A Batch job is a logical group for one or more tasks. A job includes settings common to the tasks, such as priority and the pool to run tasks on. Initially the job has no tasks. 
+Now create a job to run on the pool. A Batch job is a logical group of one or more tasks. The job includes settings common to the tasks, such as priority and the pool to run tasks on. The job doesn't have tasks until you create them.
 
-1. In the Batch account view, select **Jobs** > **Add**. 
+1. On the **mybatchaccount** page, select **Jobs** from the left navigation.
 
-2. Enter a **Job ID** called *myjob*. In **Pool**, select *mypool*. Keep the defaults for the remaining settings, and select **OK**.
+1. On the **Jobs** page, select **Add**.
 
-   ![Create a job][job_create]
+1. On the **Add job** page, for **Job ID**, enter *myJob*.
 
-After the job is created, the **Tasks** page opens.
+1. Select **Select pool**, and on the **Select pool** page, select **myPool**, and then select **Select**.
+
+1. On the **Add job** page, select **OK**. Batch creates the job and lists it on the **Jobs** page.
 
 ## Create tasks
 
-Now create sample tasks to run in the job. Typically you create multiple tasks that Batch queues and distributes to run on the compute nodes. In this example, you create two identical tasks. Each task runs a command line to display the Batch environment variables on a compute node, and then waits 90 seconds. 
+Jobs can contain multiple tasks that Batch queues and distributes to run on the compute nodes. Batch provides several ways to deploy apps and scripts to compute nodes. When you create a task, you specify your app or script in a command line. 
 
-When you use Batch, the command line is where you specify your app or script. Batch provides a number of ways to deploy apps and scripts to compute nodes. 
+The following procedure creates and runs two identical tasks in your job. Each task runs a command line that displays the Batch environment variables on the compute node, and then waits 90 seconds.
 
-To create the first task:
+1. On the **Jobs** page, select **myJob**.
 
-1. Select **Add**.
+1. On the **Tasks** page, select **Add**.
 
-2. Enter a **Task ID** called *mytask*. 
+1. On the **Add task** page, for **Task ID**, enter *myTask1*.
 
-3. In **Command line**, enter `cmd /c "set AZ_BATCH & timeout /t 90 > NUL"`. Keep the defaults for the remaining settings, and select **OK**.
+1. In **Command line**, enter `cmd /c "set AZ_BATCH & timeout /t 90 > NUL"`.
 
-   ![Create a task][task_create]
+1. Accept the defaults for the remaining settings, and select **Submit**.
 
-After you create a task, Batch queues it to run on the pool. When a node is available to run it, the task runs.
+1. Repeat the preceding steps to create a second task, but enter *myTask2* for **Task ID**.
 
-To create a second task, go back to step 1. Enter a different **Task ID**, but specify an identical command line. If the first task is still running, Batch starts the second task on the other node in the pool.
+After you create each task, Batch queues it to run on the pool. Once a node is available, the task runs on the node. In the quickstart example, if the first task is still running on one node, Batch starts the second task on the other node in the pool.
 
 ## View task output
 
-The preceding task examples complete in a couple of minutes. To view the output of a completed task, select **Files on node**, and then select the file `stdout.txt`. This file shows the standard output of the task. The contents are similar to the following:
+The tasks should complete in a couple of minutes. To update task status, select **Refresh** at the top of the **Tasks** page.
 
-![View task output][task_output]
+To view the output of a completed task, you can select the task from the **Tasks** page. On the **myTask1** page, select the *stdout.txt* file to view the standard output of the task.
 
-The contents show the Azure Batch environment variables that are set on the node. When you create your own Batch jobs and tasks, you can reference these environment variables in task command lines, and in the apps and scripts run by the command lines.
+:::image type="content" source="media/quick-create-portal/task-page.png" alt-text="Screenshot of a task page for a completed Batch job.":::
+
+The contents of the *stdout.txt* file are similar to the following example:
+
+:::image type="content" source="media/quick-create-portal/task-output.png" alt-text="Screenshot of the standard output file from a completed task.":::
+
+The standard output for this task shows the Azure Batch environment variables that are set on the node. As long as this node exists, you can refer to these environment variables in Batch job task command lines, and in the apps and scripts the command lines run.
 
 ## Clean up resources
 
-If you want to continue with Batch tutorials and samples, use the Batch account and linked storage account created in this quickstart. There is no charge for the Batch account itself.
+If you want to continue with Batch tutorials and samples, you can use the Batch account and linked storage account that you created in this quickstart. There's no charge for the Batch account itself.
 
-You are charged for the pool while the nodes are running, even if no jobs are scheduled. When you no longer need the pool, delete it. In the account view, select **Pools** and the name of the pool. Then select **Delete**.  When you delete the pool, all task output on the nodes is deleted. 
+Pools and nodes incur charges while the nodes are running, even if they aren't running jobs. When you no longer need a pool, delete it.
 
-When no longer needed, delete the resource group, Batch account, and all related resources. To do so, select the resource group for the Batch account and select **Delete resource group**.
+To delete a pool:
+
+1. On your Batch account page, select **Pools** from the left navigation.
+1. On the **Pools** page, select the pool to delete, and then select **Delete**.
+1. On the **Delete pool** screen, enter the name of the pool, and then select **Delete**.
+
+Deleting a pool deletes all task output on the nodes, and the nodes themselves.
+
+When you no longer need any of the resources you created for this quickstart, you can delete the resource group and all its resources, including the storage account, Batch account, and node pools. To delete the resource group, select **Delete resource group** at the top of the **qsBatch** resource group page. On the **Delete a resource group** screen, enter the resource group name *qsBatch*, and then select **Delete**.
 
 ## Next steps
 
-In this quickstart, you created a Batch account, a Batch pool, and a Batch job. The job ran sample tasks, and you viewed output created on one of the nodes. Now that you understand the key concepts of the Batch service, you are ready to try Batch with more realistic workloads at larger scale. To learn more about Azure Batch, continue to the Azure Batch tutorials. 
+In this quickstart, you created a Batch account and pool, and created and ran a Batch job and tasks. You monitored node and task status, and viewed task output from the nodes.
+
+Now that you understand the key concepts of the Batch service, you're ready to use Batch with more realistic, larger scale workloads. To learn more about Azure Batch, continue to the Azure Batch tutorials.
 
 > [!div class="nextstepaction"]
 > [Azure Batch tutorials](./tutorial-parallel-dotnet.md)
-
-[marketplace_portal]: ./media/quick-create-portal/marketplace-batch.png
-
-[account_portal]: ./media/quick-create-portal/batch-account-portal.png
-
-[account_keys]: ./media/quick-create-portal/batch-account-keys.png
-
-[pool_os]: ./media/quick-create-portal/pool-operating-system.png
-
-[pool_size]: ./media/quick-create-portal/pool-size.png
-
-[pool_resizing]: ./media/quick-create-portal/pool-resizing.png
-
-[job_create]: ./media/quick-create-portal/job-create.png
-
-[task_create]: ./media/quick-create-portal/task-create.png
-
-[task_output]: ./media/quick-create-portal/task-output.png

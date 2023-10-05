@@ -1,0 +1,17 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Active Directory
+    tocHref: /azure/active-directory/
+    topicHref: /azure/active-directory/index
+    items:
+    - name: Develop
+      tocHref: /azure/active-directory/app-provisioning/
+      topicHref: /azure/active-directory/develop/index
+    - name: Develop
+      tocHref: /azure/developer/java/spring-framework/
+      topicHref: /azure/active-directory/develop/index
+    - name: Develop
+      tocHref: /azure/active-directory/fundamentals/
+      topicHref: /azure/active-directory/develop/index

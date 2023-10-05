@@ -1,0 +1,291 @@
+### YamlMime:FAQ
+metadata:
+  title: Frequently asked questions - Azure Event Hubs | Microsoft Docs
+  description: This article provides a list of frequently asked questions (FAQ) for Azure Event Hubs and their answers. 
+  ms.topic: faq
+  ms.service: event-hubs
+  ms.date: 08/26/2022
+title: Event Hubs frequently asked questions
+summary: |
+
+sections:
+  - name: General
+    questions:
+      - question: |
+          What is an Azure Event Hubs namespace?
+        answer: |
+          A namespace is a scoping container for Event Hub/Kafka Topics. It gives you a unique [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name). A namespace serves as an application container that can house multiple Event Hub/Kafka Topics. 
+          
+      - question: |
+          Is it possible to change pricing tier after deployment?
+        answer: |
+          No. Once deployed, it is not possible to change (for example) from Standard Tier to Premium Tier without deploying a new resource.
+          
+      - question: |
+          When do I create a new namespace vs. use an existing namespace?
+        answer: |
+          Capacity allocations throughput units (TUs) or [processing units (PUs)](./event-hubs-scalability.md#processing-units)) are billed at the namespace level. A namespace is also associated with a region.
+          
+          You may want to create a new namespace instead of using an existing one in one of the following scenarios: 
+          
+          - You need an Event Hubs associated with a new region.
+          - You need an Event Hubs associated with a different subscription.
+          - You need an Event Hubs with a distinct capacity allocation (that is, the capacity need for the namespace with the added event hub would exceed the 40 TU threshold and you don't want to go for the dedicated cluster)  
+          
+      - question: |
+          What is the difference between Event Hubs Basic and Standard tiers?
+        answer: |
+          The Standard tier of Azure Event Hubs provides features beyond what is available in the Basic tier. The following features are included with Standard:
+          
+          * Longer event retention
+          * Additional brokered connections, with an overage charge for more than the number included
+          * More than a single [consumer group](event-hubs-features.md#consumer-groups)
+          * [Capture](event-hubs-capture-overview.md)
+          * [Kafka integration](azure-event-hubs-kafka-overview.md)
+          
+          For more information about pricing tiers, including Event Hubs Dedicated, see the [Event Hubs pricing details](https://azure.microsoft.com/pricing/details/event-hubs/).
+          
+      - question: |
+          Where is Azure Event Hubs available?
+        answer: |
+          Azure Event Hubs is available in all supported Azure regions. For a list, visit the [Azure regions](https://azure.microsoft.com/regions/) page.  
+          
+      - question: |
+          Can I use a single Advanced Message Queuing Protocol (AMQP) connection to send and receive from multiple event hubs?
+        answer: |
+          Yes, as long as all the event hubs are in the same namespace.
+
+      - question: |
+          What is the maximum retention period for events?
+        answer: |
+          Event Hubs Standard tier currently supports a maximum retention period of seven days while for Premium and dedicated tier this limit is 90 days. Event hubs aren't intended as a permanent data store. Retention periods greater than 24 hours are intended for scenarios in which it's convenient to replay an event stream into the same systems. For example, to train or verify a new machine learning model on existing data. If you need message retention beyond seven days, enabling [Event Hubs Capture](event-hubs-capture-overview.md) on your event hub pulls the data from your event hub into the Storage account or Azure Data Lake Service account of your choosing. Enabling Capture incurs a charge based on your purchased throughput units.
+          
+          You can configure the retention period for the captured data on your storage account. The **lifecycle management** feature of Azure Storage offers a rich, rule-based policy for general purpose v2 and blob storage accounts. Use the policy to transition your data to the appropriate access tiers or expire at the end of the data's lifecycle. For more information, see [Manage the Azure Blob storage lifecycle](../storage/blobs/lifecycle-management-overview.md). 
+          
+      - question: |
+          How do I monitor my Event Hubs?
+        answer: |
+          Event Hubs emits exhaustive metrics that provide the state of your resources to [Azure Monitor](../azure-monitor/overview.md). They also let you assess the overall health of the Event Hubs service not only at the namespace level but also at the entity level. Learn about what monitoring is offered for [Azure Event Hubs](monitor-event-hubs.md).
+          
+      - question: |
+          Where does Azure Event Hubs store data?
+        answer: |
+          Azure Event Hubs standard, premium and dedicated tiers store and process data published to it in the region that you select when you create an Event Hubs name space. By default, customer data stays within that region. When geo-disaster recovery is set up for an Azure Event Hubs namespace, metadata is copied over to the secondary region that you select. Therefore, this service automatically satisfies the region data residency requirements including the ones specified in the [Trust Center](https://azuredatacentermap.azurewebsites.net/). 
+          
+          [!INCLUDE [event-hubs-connectivity](./includes/event-hubs-connectivity.md)]
+          
+  - name: Apache Kafka integration
+    questions:
+      - question: |
+          How do I integrate my existing Kafka application with Event Hubs?
+        answer: |
+          Event Hubs provides a Kafka endpoint that can be used by your existing Apache Kafka based applications. A configuration change is all that is required to have the PaaS Kafka experience. It provides an alternative to running your own Kafka cluster. Event Hubs supports Apache Kafka 1.0 and newer client versions and works with your existing Kafka applications, tools, and frameworks. For more information, see [Event Hubs for Kafka repo](https://github.com/Azure/azure-event-hubs-for-kafka).
+          
+      - question: |
+          What configuration changes need to be done for my existing application to talk to Event Hubs?
+        answer: |
+          To connect to an event hub, you'll need to update the Kafka client configs. It's done by creating an Event Hubs namespace and obtaining the [connection string](event-hubs-get-connection-string.md). Change the bootstrap.servers to point the Event Hubs FQDN and the port to 9093. Update the sasl.jaas.config to direct the Kafka client to your Event Hubs endpoint (which is the connection string you've obtained), with correct authentication as shown below:
+          
+          ```properties
+          bootstrap.servers={YOUR.EVENTHUBS.FQDN}:9093
+          request.timeout.ms=60000
+          security.protocol=SASL_SSL
+          sasl.mechanism=PLAIN
+          sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
+          ```
+          
+          Example:
+          
+          ```properties
+          bootstrap.servers=dummynamespace.servicebus.windows.net:9093
+          request.timeout.ms=60000
+          security.protocol=SASL_SSL
+          sasl.mechanism=PLAIN
+          sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://dummynamespace.servicebus.windows.net/;SharedAccessKeyName=DummyAccessKeyName;SharedAccessKey=XXXXXXXXXXXXXXXXXXXXX";
+          ```
+          
+          > [!NOTE]
+          > If sasl.jaas.config isn't a supported configuration in your framework, find the configurations that are used to set the SASL username and password and use them instead. Set the username to $ConnectionString and the password to your Event Hubs connection string.
+          
+      - question: |
+          What is the message/event size for Event Hubs?
+        answer: |
+          The maximum message size allowed for Event Hubs is 1 MB.
+
+  - name: Throughput units
+    questions:
+      - question: |
+          What are Event Hubs throughput units? (Applied to **standard** tier only)
+        answer: |
+          Throughput in Event Hubs defines the amount of data in mega bytes or the number (in thousands) of 1-KB events that ingress and egress through Event Hubs. This throughput is measured in throughput units (TUs). Purchase TUs before you can start using the Event Hubs service. You can explicitly select Event Hubs TUs either by using portal or Event Hubs Resource Manager templates. 
+          
+          
+      - question: |
+          Do throughput units apply to all event hubs in a namespace?
+        answer: |
+          Yes, throughput units (TUs) apply to all event hubs in an Event Hubs namespace. It means that you purchase TUs at the namespace level and are shared among the event hubs under that namespace. Each TU entitles the namespace to the following capabilities:
+          
+          - Up to 1 MB per second of ingress events (events sent into an event hub), but no more than 1000 ingress events, management operations, or control API calls per second.
+          - Up to 2 MB per second of egress events (events consumed from an event hub), but no more than 4096 egress events.
+          - Up to 84 GB of event storage (enough for the default 1 hour retention period).
+          
+      - question: |
+          How are throughput units billed?
+        answer: |
+          Throughput units (TUs) are billed on an hourly basis. The billing is based on the maximum number of units that was selected during the given hour. 
+
+      - question: |
+          How can I optimize the usage on my throughput units?
+        answer: |
+          You can start as low as one throughput unit (TU), and turn on [auto-inflate](event-hubs-auto-inflate.md). The auto-inflate feature lets you grow your TUs as your traffic/payload increases. You can also set an upper limit on the number of TUs.
+          
+      - question: |
+          How does Auto-inflate feature of Event Hubs work?
+        answer: |
+          The auto-inflate feature lets you scale up your throughput units (TUs). It means that you can start by purchasing low TUs and auto-inflate scales up your TUs as your ingress increases. It gives you a cost-effective option and complete control of the number of TUs to manage. This feature is a **scale-up only** feature, and you can completely control the scaling down of the number of TUs by updating it. 
+          
+          You may want to start with low throughput units (TUs), for example, 2 TUs. If you predict that your traffic may grow to 15 TUs, turn-on the auto-inflate feature on your namespace, and set the max limit to 15 TUs. You can now grow your TUs automatically as your traffic grows.
+          
+      - question: |
+          Is there a cost associated when I turn on the auto-inflate feature?
+        answer: |
+          There's **no cost** associated with this feature. 
+          
+      - question: |
+          Can Zone Redundancy be enabled for an existing Event Hub Namespace?
+        answer: |
+          Currently, this isn't possible because old Event Hub Namespaces are in different clusters, and there's no way to migrate them to the new clusters that automatically enable zone redundancy when new Event Hub namespaces are created.
+
+      - question: |
+          How are throughput limits enforced?
+        answer: |
+          If the total **ingress** throughput or the total ingress event rate across all event hubs in a namespace exceeds the aggregate throughput unit allowances, senders are throttled and receive errors indicating that the ingress quota has been exceeded.
+          
+          If the total **egress** throughput or the total event egress rate across all event hubs in a namespace exceeds the aggregate throughput unit allowances, receivers are throttled but no throttling errors are generated. 
+          
+          Ingress and egress quotas are enforced separately, so that no sender can cause event consumption to slow down, nor can a receiver prevent events from being sent into an event hub.
+          
+      - question: |
+          Is there a limit on the number of throughput units that can be reserved/selected?
+        answer: |
+          When creating a basic or a standard tier namespace in the Azure portal, you can select up to 40 TUs for the namespace. 
+          Beyond 40 TUs, Event Hubs offers the resource/capacity-based models such as Event Hubs Premium and Event Hubs Dedicated clusters. For more information, see [Event Hubs Premium - overview](event-hubs-premium-overview.md) and [Event Hubs Dedicated - overview](event-hubs-dedicated-overview.md).
+          
+  - name: Dedicated clusters
+    questions:
+      - question: |
+          What are Event Hubs Dedicated clusters?
+        answer: |
+          Event Hubs Dedicated clusters offer single-tenant deployments for customers with most demanding requirements. This offering builds a capacity-based cluster that is not bound by throughput units. It means that you could use the cluster to ingest and stream your data as dictated by the CPU and memory usage of the cluster. For more information, see [Event Hubs Dedicated clusters](event-hubs-dedicated-overview.md).
+          
+      - question: |
+          How do I create an Event Hubs Dedicated cluster?
+        answer: |
+          For step-by-step instructions and more information on setting up an Event Hubs dedicated cluster, see the [Quickstart: Create a dedicated Event Hubs cluster using Azure portal](event-hubs-dedicated-cluster-create-portal.md). 
+          
+          
+          [!INCLUDE [event-hubs-dedicated-clusters-faq](./includes/event-hubs-dedicated-clusters-faq.md)]
+          
+          
+  - name: Partitions
+    questions:
+      - question: |
+          How many partitions do I need?
+        answer: |
+          [!INCLUDE [event-hubs-partition-count](./includes/event-hubs-partition-count.md)]
+          
+  - name: Pricing
+    questions:
+      - question: |
+          Where can I find more pricing information?
+        answer: |
+          For complete information about Event Hubs pricing, see the [Event Hubs pricing details](https://azure.microsoft.com/pricing/details/event-hubs/).
+          
+      - question: |
+          Is there a charge for retaining Event Hubs events for more than 24 hours?
+        answer: |
+          The Event Hubs Standard tier does allow message retention periods longer than 24 hours, for a maximum of seven days. If the size of the total number of stored events exceeds the storage allowance for the number of selected throughput units (84 GB per throughput unit), the size that exceeds the allowance is charged at the published Azure Blob storage rate. The storage allowance in each throughput unit covers all storage costs for retention periods of 24 hours even if the throughput unit is used up to the maximum ingress allowance.
+
+      - question: |
+          How is the Event Hubs storage size calculated and charged?
+        answer: |
+          The total size of all stored events, including any internal overhead for event headers or on disk storage structures in all event hubs, is measured throughout the day. At the end of the day, the peak storage size is calculated. The daily storage allowance is calculated based on the minimum number of throughput units that were selected during the day (each throughput unit provides an allowance of 84 GB). If the total size exceeds the calculated daily storage allowance, the excess storage is billed using Azure Blob storage rates (at the **Locally Redundant Storage** rate).
+
+      - question: |
+          How are Event Hubs ingress events calculated?
+        answer: |
+          Each event sent to an event hub counts as a billable message. An *ingress event* is defined as a unit of data that is less than or equal to 64 KB. Any event that is less than or equal to 64 KB in size is considered to be one billable event. If the event is greater than 64 KB, the number of billable events is calculated according to the event size, in multiples of 64 KB. For example, an 8-KB event sent to the event hub is billed as one event, but a 96-KB message sent to the event hub is billed as two events.
+          
+          Events consumed from an event hub, and management operations and control calls such as checkpoints, aren't counted as billable ingress events, but accrue up to the throughput unit allowance.
+          
+      - question: |
+          Do brokered connection charges apply to Event Hubs?
+        answer: |
+          Connection charges apply only when the AMQP protocol is used. There are no connection charges for sending events using HTTP, regardless of the number of sending systems or devices. If you plan to use AMQP (for example, to achieve more efficient event streaming or to enable bi-directional communication in IoT command and control scenarios), see the [Event Hubs pricing information](https://azure.microsoft.com/pricing/details/event-hubs/) page for details about how many connections are included in each service tier.
+          
+      - question: |
+          How is Event Hubs Capture billed?
+        answer: |
+          Capture is enabled when any event hub in the namespace has the Capture option enabled. Event Hubs Capture is billed monthly per purchased throughput unit. As the throughput unit count is increased or decreased, Event Hubs Capture billing reflects these changes in whole hour increments. For more information about Event Hubs Capture billing, see [Event Hubs pricing information](https://azure.microsoft.com/pricing/details/event-hubs/).
+          
+      - question: |
+          Do I get billed for the storage account I select for Event Hubs Capture?
+        answer: |
+          Capture uses a storage account you provide when enabled on an event hub. As it is your storage account, any changes for this configuration are billed to your Azure subscription.
+
+  - name: Quotas
+    questions:
+      - question: |
+          Are there any quotas associated with Event Hubs?
+        answer: |
+          For a list of all Event Hubs quotas, see [quotas](event-hubs-quotas.md).
+          
+  - name: Troubleshooting
+    questions:
+      - question: |
+          Why am I not able to create a namespace after deleting it from another subscription? 
+        answer: |
+          When you delete a namespace from a subscription, wait for 4 hours before recreating it with the same name in another subscription. Otherwise, you may receive the following error message: `Namespace already exists`. 
+          
+      - question: |
+          What are some of the exceptions generated by Event Hubs and their suggested actions?
+        answer: |
+          For a list of possible Event Hubs exceptions, see [Exceptions overview](event-hubs-messaging-exceptions.md).
+          
+      - question: |
+          Diagnostic logs
+        answer: |
+          Event Hubs supports two types of [diagnostics logs](monitor-event-hubs-reference.md#resource-logs) - Capture error logs and operational logs - both of which are represented in json and can be turned on through the Azure portal.
+          
+      - question: |
+          Support and SLA
+        answer: |
+          Technical support for Event Hubs is available through the [Microsoft Q&A question page for Azure Service Bus](/answers/topics/azure-service-bus.html). Billing and subscription management support is provided at no cost.
+          
+          To learn more about our SLA, see the [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/) page.
+          
+  - name: Azure Stack Hub
+    questions:
+      - question: |
+          How can I target a specific version of Azure Storage SDK when using Azure Blob Storage as a checkpoint store?
+        answer: |
+          If you run this code on Azure Stack Hub, you'll experience runtime errors unless you target a specific Storage API version. That's because the Event Hubs SDK uses the latest available Azure Storage API available in  Azure that may not be available on your Azure Stack Hub platform. Azure Stack Hub may support a different version of Storage Blob SDK than that are typically available on Azure. If you're using Azure Blog Storage as a checkpoint store, check the [supported Azure Storage API version for your Azure Stack Hub build](/azure-stack/user/azure-stack-acs-differences?#api-version) and target that version in your code. 
+          
+          For example, If you're running on Azure Stack Hub version 2005, the highest available version for the Storage service is version 2019-02-02. By default, the Event Hubs SDK client library uses the highest available version on Azure (2019-07-07 at the time of the release of the SDK). In this case, besides following steps in this section, you'll also need to add code to target the Storage service API version 2019-02-02. For an example of how to target a specific Storage API version, see the following samples for C#, Java, Python, and JavaScript/TypeScript.  
+          
+          For an example of how to target a specific Storage API version from your code, see the following samples on GitHub: 
+          
+          - [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/)
+          - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/EventProcessorWithCustomStorageVersion.java)
+          - Python - [Synchronous](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob/samples/receive_events_using_checkpoint_store_storage_api_version.py), [Asynchronous](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/receive_events_using_checkpoint_store_storage_api_version_async.py)
+          - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/eventhub/eventhubs-checkpointstore-blob/samples/v1/javascript/receiveEventsWithApiSpecificStorage.js) and [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/eventhub/eventhubs-checkpointstore-blob/samples/v1/typescript/src/receiveEventsWithApiSpecificStorage.ts)
+          
+additionalContent: |
+
+  ## Next steps
+  
+  You can learn more about Event Hubs by visiting the following links:
+
+  * [Event Hubs overview](./event-hubs-about.md)
+  * [Create an Event Hub](event-hubs-create.md)
+  * [Event Hubs Auto-inflate](event-hubs-auto-inflate.md)

@@ -1,88 +1,100 @@
 ---
-title:  Continuous Monitoring of your DevOps release pipeline with Azure DevOps and Azure Application Insights  | Microsoft Docs
-description: Provides instructions to quickly setup continuous monitoring with Application Insights
-services: application-insights
-keywords:
-author: mrbullwinkle
-ms.author: mbullwin
-ms.date: 11/13/2017
-ms.service: application-insights
+title: Continuous monitoring of your Azure DevOps release pipeline | Microsoft Docs
+description: This article provides instructions to quickly set up continuous monitoring with Azure Pipelines and Application Insights.
 ms.topic: conceptual
-manager: carmonm
+ms.date: 05/01/2020
+ms.reviewer: abinetabate
 ---
 
 # Add continuous monitoring to your release pipeline
 
-Azure DevOps Services integrates with Azure Application Insights to allow continuous monitoring of your DevOps release pipeline throughout the software development lifecycle. 
+Azure Pipelines integrates with Application Insights to allow continuous monitoring of your Azure DevOps release pipeline throughout the software development lifecycle.
 
-Azure DevOps Services now supports continuous monitoring whereby release pipelines can incorporate monitoring data from Application Insights and other Azure resources. When an Application Insights alert is detected, the deployment can remain gated or be rolled back until the alert is resolved. If all checks pass, deployments can proceed automatically from test all the way to production without the need for manual intervention. 
+With continuous monitoring, release pipelines can incorporate monitoring data from Application Insights and other Azure resources. When the release pipeline detects an Application Insights alert, the pipeline can gate or roll back the deployment until the alert is resolved. If all checks pass, deployments can proceed automatically from test all the way to production, without the need for manual intervention.
 
 ## Configure continuous monitoring
 
-1. Select an existing Azure DevOps Services Project.
+1. In [Azure DevOps](https://dev.azure.com), select an organization and project.
 
-2. Hover over **Build and Release** > Select **Releases** > Click the **plus sign** > **Create release definition** > Search for **Monitoring** > **Azure App Service Deployment with Continuous Monitoring.**
+1. On the left menu of the project page, select **Pipelines** > **Releases**.
 
-   ![New Azure DevOps Services Release Pipeline](media/continuous-monitoring/001.png)
+1. Select the dropdown arrow next to **New** and select **New release pipeline**. Or, if you don't have a pipeline yet, select **New pipeline** on the page that appears.
 
-3. Click **Apply.**
+1. On the **Select a template** pane, search for and select **Azure App Service deployment with continuous monitoring**, and then select **Apply**.
 
-4. Next to the red exclamation point select the text in blue to **View environment tasks.**
+   :::image type="content" source="media/continuous-monitoring/001.png" lightbox="media/continuous-monitoring/001.png" alt-text="Screenshot that shows a new Azure Pipelines release pipeline.":::
 
-   ![View environment tasks](media/continuous-monitoring/002.png)
+1. In the **Stage 1** box, select the hyperlink to **View stage tasks.**
 
-   A configuration box will appear, use the following table to fill out the input fields.
+   :::image type="content" source="media/continuous-monitoring/002.png" lightbox="media/continuous-monitoring/002.png" alt-text="Screenshot that shows View stage tasks.":::
+
+1. In the **Stage 1** configuration pane, fill in the following fields:
 
     | Parameter        | Value |
    | ------------- |:-----|
-   | **Environment name**      | Name that describes the release pipeline environment |
-   | **Azure subscription** | Drop-down populates with any Azure subscriptions linked to the Azure DevOps Services organization|
-   | **App Service name** | Manual entry of a new value may be required for this field depending on other selections |
-   | **Resource Group**    | Drop-down populates with available Resource Groups |
-   | **Application Insights resource name** | Drop-down populates with all Application Insights resources that correspond to the previously selected resource group.
+   | **Stage name**      | Provide a stage name or leave it at **Stage 1**. |
+   | **Azure subscription** | Select the dropdown arrow and select the linked Azure subscription you want to use.|
+   | **App type** | Select the dropdown arrow and select your app type. |
+   | **App Service name** | Enter the name of your Azure App Service. |
+   | **Resource Group name for Application Insights**    | Select the dropdown arrow and select the resource group you want to use. |
+   | **Application Insights resource name** | Select the dropdown arrow and select the Application Insights resource for the resource group you selected.
 
-5. Select **Configure Application Insights alerts**
-
-6. For default alert rules, select **Save** > Enter a descriptive comment > Click **OK**
+1. To save the pipeline with default alert rule settings, select **Save** in the upper-right corner of the Azure DevOps window. Enter a descriptive comment and select **OK**.
 
 ## Modify alert rules
 
-1. To modify the predefined Alert settings, click the box with **ellipses ...** to the right of **Alert rules.**
+Out of the box, the **Azure App Service deployment with continuous monitoring** template has four alert rules: **Availability**, **Failed requests**, **Server response time**, and **Server exceptions**. You can add more rules or change the rule settings to meet your service level needs.
 
-   (Out-of-box four alert rules are present: Availability, Failed requests, Server response time, Server exceptions.)
+To modify alert rule settings:
 
-2. Click the drop-down symbol next to **Availability.**
+In the left pane of the release pipeline page, select **Configure Application Insights Alerts**.
 
-3. Modify the availability **Threshold** to meet your service level requirements.
+The four default alert rules are created via an Inline script:
 
-   ![Modify Alert](media/continuous-monitoring/003.png)
+```azurecli
+$subscription = az account show --query "id";$subscription.Trim("`"");$resource="/subscriptions/$subscription/resourcegroups/"+"$(Parameters.AppInsightsResourceGroupName)"+"/providers/microsoft.insights/components/" + "$(Parameters.ApplicationInsightsResourceName)";
+az monitor metrics alert create -n 'Availability_$(Release.DefinitionName)' -g $(Parameters.AppInsightsResourceGroupName) --scopes $resource --condition 'avg availabilityResults/availabilityPercentage < 99' --description "created from Azure DevOps";
+az monitor metrics alert create -n 'FailedRequests_$(Release.DefinitionName)' -g $(Parameters.AppInsightsResourceGroupName) --scopes $resource --condition 'count requests/failed > 5' --description "created from Azure DevOps";
+az monitor metrics alert create -n 'ServerResponseTime_$(Release.DefinitionName)' -g $(Parameters.AppInsightsResourceGroupName) --scopes $resource --condition 'avg requests/duration > 5' --description "created from Azure DevOps";
+az monitor metrics alert create -n 'ServerExceptions_$(Release.DefinitionName)' -g $(Parameters.AppInsightsResourceGroupName) --scopes $resource --condition 'count exceptions/server > 5' --description "created from Azure DevOps";
+```
 
-4. Select **OK** > **Save** > Enter a descriptive comment > Click **OK.**
+You can modify the script and add more alert rules. You can also modify the alert conditions. And you can remove alert rules that don't make sense for your deployment purposes.
 
 ## Add deployment conditions
 
-1. Click **Pipeline** > Select the **Pre** or **Post-deployment conditions** symbol depending on the stage that requires a continuous monitoring gate.
+When you add deployment gates to your release pipeline, an alert that exceeds the thresholds you set prevents unwanted release promotion. After you resolve the alert, the deployment can proceed automatically.
 
-   ![Pre-Deployment Conditions](media/continuous-monitoring/004.png)
+To add deployment gates:
 
-2. Set **Gates** to  **Enabled** > **Approval gates**>  Click **Add.**
+1. On the main pipeline page, under **Stages**, select the **Pre-deployment conditions** or **Post-deployment conditions** symbol, depending on which stage needs a continuous monitoring gate.
 
-3. Select **Azure Monitor** (This option gives you the ability to access alerts both from Azure Monitor and Application Insights)
+   :::image type="content" source="media/continuous-monitoring/004.png" lightbox="media/continuous-monitoring/004.png" alt-text="Screenshot that shows Pre-deployment conditions.":::
 
-    ![Azure Monitor](media/continuous-monitoring/005.png)
+1. In the **Pre-deployment conditions** configuration pane, set **Gates** to **Enabled**.
 
-4. Enter a **Gates timeout** value.
+1. Next to **Deployment gates**, select **Add**.
 
-5. Enter a **Sampling Interval.**
+1. Select **Query Azure Monitor alerts** from the dropdown menu. This option lets you access both Azure Monitor and Application Insights alerts.
 
-## Deployment gate status logs
+   :::image type="content" source="media/continuous-monitoring/005.png" lightbox="media/continuous-monitoring/005.png" alt-text="Screenshot that shows Query Azure Monitor alerts.":::
 
-Once you add deployment gates, an alert in Application Insights which exceeds your previously defined threshold, guards your deployment from unwanted release promotion. Once the alert is resolved, the deployment can proceed automatically.
+1. Under **Evaluation options**, enter the values you want for settings like **The time between re-evaluation of gates** and **The timeout after which gates fail**.
 
-To observe this behavior, Select **Releases** > Right-click Release name **open** > **Logs.**
+## View release logs
 
-![Logs](media/continuous-monitoring/006.png)
+You can see deployment gate behavior and other release steps in the release logs. To open the logs:
+
+1. Select **Releases** from the left menu of the pipeline page.
+
+1. Select any release.
+
+1. Under **Stages**, select any stage to view a release summary.
+
+1. To view logs, select **View logs** in the release summary, select the **Succeeded** or **Failed** hyperlink in any stage, or hover over any stage and select **Logs**.
+
+   :::image type="content" source="media/continuous-monitoring/006.png" lightbox="media/continuous-monitoring/006.png" alt-text="Screenshot that shows viewing release logs.":::
 
 ## Next steps
 
-To learn more about Azure Pipelines try these [quickstarts.](https://docs.microsoft.com/azure/devops/pipelines)
+For more information about Azure Pipelines, see the [Azure Pipelines documentation](/azure/devops/pipelines).

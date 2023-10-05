@@ -1,13 +1,10 @@
 ---
-title: Azure Container Registry webhook schema reference
-description: Webhook request JSON payload reference for Azure Container Registry.
-services: container-registry
-author: dlepow
-
-ms.service: container-registry
+title: Registry webhook schema reference
+description: Reference for JSON payload for webhook requests in an Azure container registry, which are generated when webhooks are enabled for artifact push or delete events
 ms.topic: article
-ms.date: 03/05/2019
-ms.author: danlep
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ---
 
 # Azure Container Registry webhook reference

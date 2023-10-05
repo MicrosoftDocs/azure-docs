@@ -1,0 +1,23 @@
+items:
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+    - name: API Management
+      tocHref: /azure/azure-resource-manager/
+      topicHref: /azure/api-management/index
+    - name: API Management
+      tocHref: /azure/templates/
+      topicHref: /azure/api-management/index
+    - name: API Management
+      tocHref: /azure/service-fabric/
+      topicHref: /azure/api-management/index
+    - name: API Management
+      tocHref: /azure/architecture/
+      topicHref: /azure/api-management/index
+    - name: API Management
+      tocHref: /azure/cloud-adoption-framework/
+      topicHref: /azure/api-management/index
+    - name: API Management
+      tocHref: /azure/reliability/
+      topicHref: /azure/api-management/index

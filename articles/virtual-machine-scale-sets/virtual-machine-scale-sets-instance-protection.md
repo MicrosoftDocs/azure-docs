@@ -1,32 +1,25 @@
 ---
-title: Instance Protection for Azure virtual machine scale set instances | Microsoft Docs
-description: Learn how to protect Azure virtual machine scale set instances from scale-in and scale-set operations.
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: mayanknayar
-manager: drewm
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid:
+title: Instance Protection for Azure Virtual Machine Scale Set instances
+description: Learn how to protect Azure Virtual Machine Scale Set instances from scale-in and scale-set operations.
+author: ju-shim
+ms.author: jushiman
+ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/22/2019
-ms.author: manayar
-
+ms.subservice: instance-protection
+ms.date: 11/22/2022
+ms.reviewer: mimckitt
+ms.custom: avverma
 ---
-# Instance Protection for Azure virtual machine scale set instances (Preview)
-Azure virtual machine scale sets enable better elasticity for your workloads through [Autoscale](virtual-machine-scale-sets-autoscale-overview.md), so you can configure when your infrastructure scales-out and when it scales-in. Scale sets also enable you to centrally manage, configure, and update a large number of VMs through different [upgrade policy](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) settings. You can configure an update on the scale set model and the new configuration is applied automatically to every scale set instance if you've set the upgrade policy to Automatic or Rolling.
+# Instance Protection for Azure Virtual Machine Scale Set instances
+
+> [!NOTE]
+> This document covers Virtual Machine Scale Sets using Uniform Orchestration mode. We recommend using Flexible Orchestration for new workloads. For more information, see [Orchesration modes for Virtual Machine Scale Sets in Azure](virtual-machine-scale-sets-orchestration-modes.md).
+
+Azure Virtual Machine Scale Sets enable better elasticity for your workloads through [Autoscale](virtual-machine-scale-sets-autoscale-overview.md), so you can configure when your infrastructure scales-out and when it scales-in. Scale sets also enable you to centrally manage, configure, and update a large number of VMs through different [upgrade policy](virtual-machine-scale-sets-upgrade-policy.md) settings. You can configure an update on the scale set model and the new configuration is applied automatically to every scale set instance if you've set the upgrade policy to Automatic or Rolling.
 
 As your application processes traffic, there can be situations where you want specific instances to be treated differently from the rest of the scale set instance. For example, certain instances in the scale set could be performing long-running operations, and you don't want these instances to be scaled-in until the operations complete. You might also have specialized a few instances in the scale set to perform additional or different tasks than the other members of the scale set. You require these 'special' VMs not to be modified with the other instances in the scale set. Instance protection provides the additional controls to enable these and other scenarios for your application.
 
 This article describes how you can apply and use the different instance protection capabilities with scale set instances.
-
-> [!NOTE]
->Instance protection is currently in Public Preview. No opt-in procedure is needed to use the public preview functionality described below. Instance protection preview is only supported with API version 2019-03-01 and on scale sets using managed disks.
 
 ## Types of instance protection
 Scale sets provide two types of instance protection capabilities:
@@ -48,6 +41,17 @@ Scale sets provide two types of instance protection capabilities:
 Instance protection can be applied to scale set instances after the instances are created. Protection is applied and modified only on the [instance model](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-vm-model-view) and not on the [scale set model](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-model).
 
 There are multiple ways of applying scale-in protection on your scale set instances as detailed in the examples below.
+
+### Azure portal
+
+You can apply scale-in protection through the Azure portal to an instance in the scale set. You cannot adjust more than one instance at a time. Repeat the steps for each instance you want to protect.
+ 
+1. Go to an existing Virtual Machine Scale Set.
+1. Select **Instances** from the menu on the left, under **Settings**.
+1. Select the name of the instance you want to protect.
+1. Select the **Protection Policy** tab.
+1. In the **Protection Policy** blade, select the **Protect from scale-in** option.
+1. Select **Save**. 
 
 ### REST API
 
@@ -105,6 +109,17 @@ Instance protection can be applied to scale set instances after the instances ar
 Protecting an instance from scale set actions also protects the instance from Autoscale initiated scale-in.
 
 There are multiple ways of applying scale set actions protection on your scale set instances as detailed in the examples below.
+
+### Azure portal
+
+You can apply protection from scale set actions through the Azure portal to an instance in the scale set. You cannot adjust more than one instance at a time. Repeat the steps for each instance you want to protect.
+ 
+1. Go to an existing Virtual Machine Scale Set.
+1. Select **Instances** from the menu on the left, under **Settings**.
+1. Select the name of the instance you want to protect.
+1. Select the **Protection Policy** tab.
+1. In the **Protection Policy** blade, select the **Protect from scale set actions** option.
+1. Select **Save**. 
 
 ### REST API
 
@@ -173,4 +188,4 @@ You can apply instance protection to scale set instances after the instances are
 Instance protection is only supported with API version 2019-03-01 and above. Check the API version being used and update as required. You might also need to update your PowerShell or CLI to the latest version.
 
 ## Next steps
-Learn how to [deploy your application](virtual-machine-scale-sets-deploy-app.md) on virtual machine scale sets.
+Learn how to [deploy your application](virtual-machine-scale-sets-deploy-app.md) on Virtual Machine Scale Sets.

@@ -1,6 +1,6 @@
 ---
-title: Send image queries - Bing Image Search API
-titleSuffix: Azure Cognitive Services
+title: Customize and suggest image search queries - Bing Image Search API
+titleSuffix: Azure AI services
 description: Learn about customizing the search queries you send to the Bing Image Search API.
 services: cognitive-services
 author: aahill
@@ -9,23 +9,23 @@ ms.assetid: C2862E98-8BCC-423B-9C4A-AC79A287BE38
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 01/05/2022
 ms.author: aahi
 ---
 
-# Send queries to the Bing Image Search API
+# Customize and suggest image search queries
 
-The Bing Image Search API provides an experience similar to Bing.com/Images. You can use it to send a search query to Bing and get back a list of relevant images.
+[!INCLUDE [Bing move notice](../../bing-web-search/includes/bing-move-notice.md)]
 
-## Use and suggest search terms
+Use this article to learn how to customize queries and suggest search terms to send to the Bing Image Search API.
 
-After a search term is entered, URL-encode the term before you set the [**q**](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query) query parameter. For example, if you enter *sailing dinghies*, set `q` to `sailing+dinghies` or `sailing%20dinghies`.
+## Suggest search terms
 
-If your app has a search box where search terms are entered, you can use the [Bing Autosuggest API](../../bing-autosuggest/get-suggested-search-terms.md) to improve the experience. The API can display suggested search terms in real time. The API returns suggested query strings based on partial search terms and Cognitive Services.
+If your app has a search box where search terms are entered, you can use the [Bing Autosuggest API](../../bing-autosuggest/get-suggested-search-terms.md) to improve the experience. The API can display suggested search terms in real time. The API returns suggested query strings based on partial search terms and Azure AI services.
 
 ## Pivot the query
 
-If Bing can segment the original search query, the returned [Images](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) object contains `pivotSuggestions`. Pivot suggestions can be displayed as optional search terms to the user. For example, if the original query was *Microsoft Surface*, Bing might segment the query into *Microsoft* and *Surface* and provide suggested pivots for each. These suggestions can be displayed as optional query terms to the user.
+If Bing can segment the original search query, the returned [Images](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) object contains `pivotSuggestions`. Pivot suggestions can be displayed as optional search terms to the user. For example, if the original query was *Microsoft Surface*, Bing might segment the query into *Microsoft* and *Surface* and provide suggested pivots for each. These suggestions can be displayed as optional query terms to the user.
 
 The following example shows the pivot suggestions for *Microsoft Surface*:  
 
@@ -86,7 +86,7 @@ The following example shows the pivot suggestions for *Microsoft Surface*:
 }
 ```
 
-The `pivotSuggestions` field contains the list of segments (pivots) that the original query was broken into. For each pivot, the response contains a list of [Query](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query_obj) objects that contain suggested queries. The `text` field contains the suggested query. The `displayText` field contains the term that replaces the pivot in the original query. An example is Release Date of Surface.
+The `pivotSuggestions` field contains the list of segments (pivots) that the original query was broken into. For each pivot, the response contains a list of [Query](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query_obj) objects that contain suggested queries. The `text` field contains the suggested query. The `displayText` field contains the term that replaces the pivot in the original query. An example is Release Date of Surface.
 
 If the pivot query string is what the user is looking for, use the `text` and `thumbnail` fields to display the pivot query strings. Make the thumbnail and text clickable by using the `webSearchUrl` URL or the `searchLink` URL. Use `webSearchUrl` to send the user to the Bing search results. If you provide your own results page, use `searchLink`.
 
@@ -98,7 +98,7 @@ The following shows an example of the pivot queries.
 
 ## Expand the query
 
-If Bing can expand the query to narrow the original search, the [Images](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) object contains the `queryExpansions` field. For example, if the query was *Microsoft Surface*, the expanded queries might be:
+If Bing can expand the query to narrow the original search, the [Images](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) object contains the `queryExpansions` field. For example, if the query was *Microsoft Surface*, the expanded queries might be:
 - Microsoft Surface **Pro 3**.
 - Microsoft Surface **RT**.
 - Microsoft Surface **Phone**.
@@ -144,7 +144,7 @@ The following example shows the expanded queries for *Microsoft Surface*.
 }
 ```
 
-The `queryExpansions` field contains a list of [Query](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query_obj) objects. The `text` field contains the expanded query. The `displayText` field contains the expansion term. If the expanded query string is what the user is looking for, use the `text` and `thumbnail` fields to display the expanded query strings. Make the thumbnail and text clickable by using the `webSearchUrl` URL or the `searchLink` URL. Use `webSearchUrl` to send the user to the Bing search results. if you provide your own results page, use `searchLink`.
+The `queryExpansions` field contains a list of [Query](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query_obj) objects. The `text` field contains the expanded query. The `displayText` field contains the expansion term. If the expanded query string is what the user is looking for, use the `text` and `thumbnail` fields to display the expanded query strings. Make the thumbnail and text clickable by using the `webSearchUrl` URL or the `searchLink` URL. Use `webSearchUrl` to send the user to the Bing search results. if you provide your own results page, use `searchLink`.
 
 <!-- Removing until we can replace with a sanitized image.
 The following shows an example Bing implementation that uses expanded queries. If the user clicks the Microsoft Surface Pro 3 link, they're taken to the Bing search results page, which shows them images of the Pro 3.

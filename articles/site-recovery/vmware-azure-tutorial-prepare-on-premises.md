@@ -1,16 +1,12 @@
 ---
-title: Prepare on-premises VMware servers for disaster recovery of VMware VMs to Azure| Microsoft Docs
+title: Prepare for VMware VM disaster recovery with Azure Site Recovery
 description: Learn how to prepare on-premises VMware servers for disaster recovery to Azure using the Azure Site Recovery service.
-services: site-recovery
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
-services: site-recovery
 ms.topic: tutorial
-ms.date: 05/30/2019
-ms.author: raynew
+ms.date: 11/12/2019
 ms.custom: MVC
-
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 # Prepare on-premises VMware servers for disaster recovery to Azure
 
@@ -109,12 +105,12 @@ To connect to Linux VMs using SSH after failover, do the following:
    automatically on system boot.
 - Check that firewall rules allow an SSH connection.
 - On the Azure VM after failover, allow incoming connections to the SSH port for the network security group rules on the failed over VM, and for the Azure subnet to which it's connected.
-- [Add a public IP address](site-recovery-monitoring-and-troubleshooting.md) for the VM.
+- [Add a public IP address](./site-recovery-monitor-and-troubleshoot.md) for the VM.
 - You can check **Boot diagnostics** to view a screenshot of the VM.
 
 
 ## Failback requirements
-If you plan to fail back to your on-premises site, there are a number of [prerequisites for failback](vmware-azure-reprotect.md##before-you-begin). You can prepare these now, but you don't need to. You can prepare after you fail over to Azure.
+If you plan to fail back to your on-premises site, there are a number of [prerequisites for failback](vmware-azure-reprotect.md#before-you-begin). You can prepare these now, but you don't need to. You can prepare after you fail over to Azure.
 
 
 

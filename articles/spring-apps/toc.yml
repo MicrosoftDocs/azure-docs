@@ -1,0 +1,584 @@
+items:
+- name: Azure Spring Apps documentation
+  href: index.yml
+  displayName: Azure Spring Apps
+- name: Overview
+  expanded: true
+  items:
+  - name: What is Azure Spring Apps?
+    href: overview.md
+  - name: What's new
+    href: whats-new.md
+  - name: Cost management
+    href: cost-management.md
+  - name: Compare Java application hosting options on Azure
+    href: /azure/architecture/guide/technology-choices/service-for-java-comparison?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+  - name: Migrate Spring Boot to Azure Spring Apps
+    href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-apps?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+  - name: Migrate Spring Cloud to Azure Spring Apps
+    href: /azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Launch your first app
+    href: quickstart.md?pivots=sc-enterprise
+  - name: Launch your first web app
+    href: quickstart-deploy-web-app.md?pivots=sc-enterprise
+  - name: Launch your first RESTful API app
+    href: quickstart-deploy-restful-api-app.md
+  - name: Launch your first event-driven app
+    href: quickstart-deploy-event-driven-app.md?pivots=sc-enterprise
+  - name: Launch your first microservice apps
+    href: quickstart-deploy-microservice-apps.md
+  - name: Launch your first Java Native Image app
+    href: quickstart-deploy-java-native-image-app.md
+- name: Tutorials
+  expanded: true
+  items:
+  - name: "Run polyglot apps on Enterprise plan (ACME Fitness Store)"
+    items:
+    - name: Introduction to Fitness Store sample
+      href: quickstart-sample-app-acme-fitness-store-introduction.md
+    - name: Build and deploy apps
+      href: quickstart-deploy-apps-enterprise.md
+    - name: Configure single sign-on
+      href: quickstart-configure-single-sign-on-enterprise.md
+    - name: Integrate Azure Database for PostgreSQL and Azure Cache for Redis
+      href: quickstart-integrate-azure-database-and-redis-enterprise.md
+    - name: Load application secrets using Key Vault
+      href: quickstart-key-vault-enterprise.md
+    - name: Monitor applications end-to-end
+      href: quickstart-monitor-end-to-end-enterprise.md
+    - name: Set request rate limits
+      href: quickstart-set-request-rate-limits-enterprise.md
+    - name: Automate deployments
+      href: quickstart-automate-deployments-github-actions-enterprise.md
+  - name: "Run microservice apps (Pet Clinic)"
+    items:
+    - name: Introduction to PetClinic sample
+      href: quickstart-sample-app-introduction.md
+    - name: Provision a service instance
+      href: quickstart-provision-service-instance.md
+    - name: Set up Config Server
+      href: quickstart-setup-config-server.md
+    - name: Build and deploy apps
+      href: quickstart-deploy-apps.md
+    - name: Set up Log Analytics
+      href: quickstart-setup-log-analytics.md
+    - name: Use logs, metrics and tracing
+      href: quickstart-logs-metrics-tracing.md
+    - name: Integrate with Azure Database for MySQL
+      href: quickstart-integrate-azure-database-mysql.md
+  - name: Authenticate client with Spring Cloud Gateway
+    href: tutorial-authenticate-client-with-gateway.md
+- name: Concepts
+  items:
+  - name: App and deployment
+    href: concept-understand-app-and-deployment.md
+  - name: Version support for Java, Spring Boot, and more
+    href: concept-app-customer-responsibilities.md
+  - name: Blue-green deployment strategies
+    href: concepts-blue-green-deployment-strategies.md
+  - name: Zero downtime deployment
+    href: concept-zero-downtime-deployment.md
+  - name: Quotas and limits
+    href: quotas.md
+  - name: Understand app status
+    href: concept-app-status.md
+  - name: Memory
+    items:
+    - name: Java memory management
+      href: concepts-for-java-memory-management.md
+    - name: Tools to troubleshoot memory issues
+      href: tools-to-troubleshoot-memory-issues.md
+    - name: Fix app restart issues caused by OOM
+      href: how-to-fix-app-restart-issues-caused-by-out-of-memory.md
+    - name: Containerize your Java applications
+      href: /azure/developer/java/containers/overview?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+  - name: Metrics
+    href: concept-metrics.md
+  - name: Spring Boot Actuator
+    href: concept-manage-monitor-app-spring-boot-actuator.md
+  - name: Customize Azure Spring Apps egress with a user-defined route
+    href: concept-outbound-type.md
+  - name: Enterprise plan in Azure Marketplace
+    href: how-to-enterprise-marketplace-offer.md
+  - name: VMware Tanzu components
+    href: VMware-Tanzu-components.md
+- name: Security
+  items:
+  - name: Passwordless connection to an Azure database
+    href: /azure/developer/java/spring-framework/deploy-passwordless-spring-database-app?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+  - name: Managed identity to connect Key Vault
+    href: tutorial-managed-identities-key-vault.md
+  - name: Managed identity to invoke Azure Functions
+    href: tutorial-managed-identities-functions.md
+  - name: Security controls
+    href: concept-security-controls.md
+  - name: Security baseline
+    href: /security/benchmark/azure/baselines/spring-cloud-security-baseline?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+  - name: Azure Policy Security controls
+    href: security-controls-policy.md
+- name: How-to guides
+  items:
+  - name: Enterprise plan
+    items:
+    - name: Provisioning
+      items:
+      - name: Provision using Bicep
+        href: quickstart-deploy-infrastructure-vnet-bicep.md?tabs=azure-spring-apps-enterprise
+      - name: Provision using an ARM template
+        href: quickstart-deploy-infrastructure-vnet.md?tabs=azure-spring-apps-enterprise
+      - name: Provision using Azure CLI
+        href: quickstart-deploy-infrastructure-vnet-azure-cli.md?tabs=azure-spring-apps-enterprise
+      - name: Provision using Terraform
+        href: quickstart-deploy-infrastructure-vnet-terraform.md?tabs=azure-spring-apps-enterprise
+    - name: Develop
+      items:
+      - name: Prepare a Java Spring app for deployment
+        href: how-to-prepare-app-deployment.md?tabs=enterprise-plan
+      - name: Use Application Configuration Service
+        href: how-to-enterprise-application-configuration-service.md
+      - name: Use Build Service
+        href: how-to-enterprise-build-service.md
+      - name: Configure APM integration and CA certificates
+        href: how-to-enterprise-configure-apm-integration-and-ca-certificates.md
+      - name: Use Service Registry
+        href: how-to-enterprise-service-registry.md
+      - name: Use API portal
+        href: how-to-use-enterprise-api-portal.md
+      - name: Spring Cloud Gateway
+        items:
+        - name: Manage Spring Cloud Gateway
+          href: how-to-configure-enterprise-spring-cloud-gateway.md
+        - name: Configure routes
+          href: how-to-use-enterprise-spring-cloud-gateway.md
+        - name: Configure route filters
+          href: how-to-configure-enterprise-spring-cloud-gateway-filters.md
+        - name: Troubleshoot
+          href: how-to-troubleshoot-enterprise-spring-cloud-gateway.md
+      - name: Configure Tanzu Dev Tools
+        href: how-to-use-dev-tool-portal.md
+      - name: Use VMware Tanzu Application Accelerator
+        href: how-to-use-accelerator.md
+      - name: Use Application Live View
+        href: how-to-use-application-live-view.md
+      - name: Monitor apps using Application Live View
+        href: monitor-apps-by-application-live-view.md
+    - name: Deploy
+      items:
+      - name: Set up a staging environment
+        href: how-to-staging-environment.md
+      - name: Use IntelliJ to deploy apps
+        href: how-to-intellij-deploy-apps.md
+      - name: Use VS Code to deploy apps
+        href: https://code.visualstudio.com/docs/java/java-spring-apps
+      - name: Deploy Spring apps with Maven
+        href: how-to-maven-deploy-apps.md
+      - name: Deploy Spring apps with Azure PowerShell
+        href: how-to-deploy-powershell.md
+      - name: Deploy polyglot enterprise applications
+        href: how-to-enterprise-deploy-polyglot-apps.md
+      - name: Deploy with a custom container
+        href: how-to-deploy-with-custom-container-image.md
+      - name: Deploy web static files
+        href: how-to-enterprise-deploy-static-file.md
+      - name: Deploy large CPU and memory applications for Enterprise plan
+        href: how-to-enterprise-large-cpu-memory-applications.md
+      - name: Deploy applications at scale for Enterprise plan
+        href: how-to-enterprise-deploy-app-at-scale.md
+    - name: Manage
+      items:
+      - name: Start or stop a service
+        href: how-to-start-stop-service.md
+      - name: Start, stop, and delete an app
+        href: how-to-start-stop-delete.md
+      - name: Use custom persistent storage
+        href: how-to-custom-persistent-storage.md
+      - name: Use custom persistent storage with the Standard consumption and dedicated plan
+        href: how-to-custom-persistent-storage-with-standard-consumption.md
+      - name: Identify outbound public IP addresses
+        href: how-to-outbound-public-ip.md
+      - name: Move across regions
+        href: how-to-move-across-regions.md
+    - name: Scale
+      items:
+      - name: Manually scale an app
+        href: how-to-scale-manual.md
+      - name: Autoscale an app
+        href: how-to-setup-autoscale.md
+    - name: Integrate
+      items:
+      - name: Create a service connection from the Azure portal
+        href: ../service-connector/quickstart-portal-spring-cloud-connection.md?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+      - name: Azure Cosmos DB
+        href: how-to-bind-cosmos.md
+      - name: Azure Cache for Redis
+        href: how-to-bind-redis.md
+      - name: Azure Database for MySQL
+        href: how-to-bind-mysql.md
+      - name: Azure Database for Postgres
+        href: how-to-bind-postgres.md
+      - name: Azure SQL Database with Managed identity
+        href: connect-managed-identity-to-azure-sql.md
+      - name: Azure Load Balance Solutions
+        href: how-to-integrate-azure-load-balancers.md
+      - name: Use gRPC
+        href: how-to-use-grpc.md
+    - name: Monitor
+      items:
+      - name: Alerts and action groups
+        href: tutorial-alerts-action-groups.md
+      - name: Circuit Breaker Dashboard
+        href: tutorial-circuit-breaker.md
+      - name: Analyze logs and metrics
+        href: diagnostic-services.md
+      - name: Stream logs in real time
+        href: how-to-log-streaming.md
+      - name: Resilience4J Circuit Breaker Metrics
+        href: how-to-circuit-breaker-metrics.md
+      - name: Structured application log
+        href: structured-app-log.md
+      - name: Monitor app lifecycle events
+        href: monitor-app-lifecycle-events.md
+      - name: Logback with custom persistent storage
+        href: how-to-write-log-to-custom-persistent-storage.md
+      - name: Analyze logs with ELK
+        href: how-to-elastic-diagnostic-settings.md
+      - name: Health probes and graceful termination
+        href: how-to-configure-health-probes-graceful-termination.md
+    - name: Network
+      items:
+      - name: Custom DNS name
+        href: how-to-custom-domain.md
+      - name: Deploy Azure Spring Apps in a virtual network
+        href: how-to-deploy-in-azure-virtual-network.md
+      - name: Access your application in a private network
+        href: access-app-virtual-network.md
+      - name: Expose applications to the internet with TLS Termination at gateway
+        href: expose-apps-gateway-tls-termination.md
+      - name: Expose applications to the internet with end-to-end TLS/SSL
+        href: expose-apps-gateway-end-to-end-tls.md
+      - name: Expose applications to the internet from a public network
+        href: how-to-access-app-from-internet-virtual-network.md
+      - name: Configure Palo Alto
+        href: how-to-configure-palo-alto.md
+      - name: Control egress traffic for an Azure Spring Apps instance
+        href: how-to-create-user-defined-route-instance.md
+      - name: Customize the ingress configuration in Azure Spring Apps
+        href: how-to-configure-ingress.md
+      - name: Customer responsibilities running Azure Spring Apps in a virtual network
+        href: vnet-customer-responsibilities.md
+      - name: Troubleshooting Azure Spring Apps in virtual networks
+        href: troubleshooting-vnet.md
+      - name: Map DNS names to applications in multiple Azure Spring Apps service instances in the same virtual network
+        href: how-to-map-dns-virtual-network.md
+    - name: Secure
+      items:
+      - name: Secure communications end-to-end in Zero Trust
+        href: secure-communications-end-to-end.md
+      - name: Use managed identities for applications in Azure Spring Apps
+        href: how-to-use-managed-identities.md
+      - name: Enable system-assigned managed identity
+        href: how-to-enable-system-assigned-managed-identity.md?pivots=sc-enterprise
+      - name: Manage user-assigned managed identities
+        href: how-to-manage-user-assigned-managed-identities.md?pivots=sc-enterprise
+      - name: Create roles and permissions
+        href: how-to-permissions.md
+      - name: Use TLS/SSL certificates
+        href: how-to-use-tls-certificate.md
+      - name: Enable ingress-to-app Transport Layer Security
+        href: how-to-enable-ingress-to-app-tls.md
+      - name: Configure single sign-on
+        href: how-to-set-up-sso-with-azure-ad.md
+    - name: Automate
+      items:
+      - name: CI/CD with Azure DevOps
+        href: how-to-cicd.md
+      - name: CI/CD with GitHub Actions
+        href: how-to-github-actions.md
+      - name: Auth with Key Vault in GitHub Actions
+        href: github-actions-key-vault.md
+    - name: Disaster recovery
+      items:
+      - name: Redundancy and high availability
+        href: how-to-enable-redundancy-and-disaster-recovery.md
+    - name: Troubleshoot
+      items:
+      - name: Self-diagnose and solve problems
+        href: how-to-self-diagnose-solve.md
+      - name: Self-diagnose running in virtual networks
+        href: how-to-self-diagnose-running-in-vnet.md
+      - name: Troubleshoot common issues
+        href: troubleshoot.md
+      - name: Troubleshoot common exit code issues
+        href: troubleshoot-exit-code.md
+      - name: Troubleshoot common build issues in Azure Spring Apps
+        href: troubleshoot-build-exit-code.md
+      - name: Capture heap/thread dump and use JFR
+        href: how-to-capture-dumps.md
+      - name: Use JVM options for troubleshooting
+        href: how-to-dump-jvm-options.md
+      - name: Connect to an app instance for troubleshooting
+        href: how-to-connect-to-app-instance-for-troubleshooting.md
+      - name: Debug your apps remotely
+        href: how-to-remote-debugging-app-instance.md
+    - name: Migrate
+      items:
+      - name: Migrate Standard and Basic to Enterprise
+        href: how-to-migrate-standard-tier-to-enterprise-tier.md
+      - name: Spring Cloud
+        href: /azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+      - name: Spring Boot
+        href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-apps?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+      - name: Tomcat
+        href: /azure/developer/java/migration/migrate-tomcat-to-azure-spring-apps?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+  - name: Standard consumption and dedicated plan
+    items:
+    - name: Provision a service instance
+      href: quickstart-provision-standard-consumption-service-instance.md
+    - name: Provision in an Azure Container Apps environment with VNet
+      href: quickstart-provision-standard-consumption-app-environment-with-virtual-network.md
+    - name: Access apps in a VNet
+      href: quickstart-access-standard-consumption-within-virtual-network.md
+    - name: Set up autoscale
+      href: quickstart-apps-autoscale-standard-consumption.md
+    - name: Map a custom domain to Azure Spring Apps
+      href: quickstart-standard-consumption-custom-domain.md
+    - name: Analyze logs and metrics
+      href: quickstart-analyze-logs-and-metrics-standard-consumption.md
+    - name: Enable and disable Spring Cloud Config Server
+      href: quickstart-standard-consumption-config-server.md
+    - name: Enable and disable Eureka Server
+      href: quickstart-standard-consumption-eureka-server.md
+    - name: Use custom persistent storage with the Standard consumption and dedicated plan
+      href: how-to-custom-persistent-storage-with-standard-consumption.md
+    - name: Application Insights using Java In-Process Agent
+      href: how-to-application-insights.md
+    - name: Use Dynatrace Java OneAgent
+      href: how-to-dynatrace-one-agent-monitor.md
+    - name: New Relic Java in-process agent
+      href: how-to-new-relic-monitor.md
+    - name: AppDynamics in-process agent
+      href: how-to-appdynamics-java-agent-monitor.md
+    - name: Customer responsibilities for Standard consumption and dedicated plan in a virtual network
+      href: standard-consumption-customer-responsibilities.md
+  - name: Basic/Standard plan
+    items:
+    - name: Provisioning
+      items:
+      - name: Provision using Bicep
+        href: quickstart-deploy-infrastructure-vnet-bicep.md?tabs=azure-spring-apps-standard
+      - name: Provision using an ARM template
+        href: quickstart-deploy-infrastructure-vnet.md?tabs=azure-spring-apps-standard
+      - name: Provision using Azure CLI
+        href: quickstart-deploy-infrastructure-vnet-azure-cli.md?tabs=azure-spring-apps-standard
+      - name: Provision using Terraform
+        href: quickstart-deploy-infrastructure-vnet-terraform.md?tabs=azure-spring-apps-standard
+    - name: Develop
+      items:
+      - name: Prepare a Java Spring app for deployment
+        href: how-to-prepare-app-deployment.md?tabs=basic-standard-plan
+      - name: Set up a Config Server
+        href: how-to-config-server.md
+      - name: Enable Service Registration
+        href: how-to-service-registration.md
+    - name: Deploy
+      items:
+      - name: Set up a staging environment
+        href: how-to-staging-environment.md
+      - name: Launch Java app from source code
+        href: how-to-launch-from-source.md
+      - name: Use IntelliJ to deploy apps
+        href: how-to-intellij-deploy-apps.md
+      - name: Use VS Code to deploy apps
+        href: https://code.visualstudio.com/docs/java/java-spring-apps
+      - name: Deploy Spring apps with Maven
+        href: how-to-maven-deploy-apps.md
+      - name: Deploy Spring apps with Azure PowerShell
+        href: how-to-deploy-powershell.md
+      - name: Deploy with a custom container
+        href: how-to-deploy-with-custom-container-image.md
+    - name: Manage
+      items:
+      - name: Start or stop a service
+        href: how-to-start-stop-service.md
+      - name: Start, stop, and delete an app
+        href: how-to-start-stop-delete.md
+      - name: Use built-in persistent storage
+        href: how-to-built-in-persistent-storage.md
+      - name: Use custom persistent storage
+        href: how-to-custom-persistent-storage.md
+      - name: Identify outbound public IP addresses
+        href: how-to-outbound-public-ip.md
+      - name: Move across regions
+        href: how-to-move-across-regions.md
+    - name: Scale
+      items:
+      - name: Manually scale an app
+        href: how-to-scale-manual.md
+      - name: Autoscale an app
+        href: how-to-setup-autoscale.md
+    - name: Integrate
+      items:
+      - name: Create a service connection from the Azure portal
+        href: ../service-connector/quickstart-portal-spring-cloud-connection.md?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+      - name: Azure Cosmos DB
+        href: how-to-bind-cosmos.md
+      - name: Azure Cache for Redis
+        href: how-to-bind-redis.md
+      - name: Azure Database for MySQL
+        href: how-to-bind-mysql.md
+      - name: Azure Database for Postgres
+        href: how-to-bind-postgres.md
+      - name: Azure SQL Database with Managed identity
+        href: connect-managed-identity-to-azure-sql.md
+      - name: Azure Load Balance Solutions
+        href: how-to-integrate-azure-load-balancers.md
+      - name: Use gRPC
+        href: how-to-use-grpc.md
+    - name: Monitor
+      items:
+      - name: Alerts and action groups
+        href: tutorial-alerts-action-groups.md
+      - name: Circuit Breaker Dashboard
+        href: tutorial-circuit-breaker.md
+      - name: Analyze logs and metrics
+        href: diagnostic-services.md
+      - name: Stream logs in real time
+        href: how-to-log-streaming.md
+      - name: Application Insights using Java In-Process Agent
+        href: how-to-application-insights.md
+      - name: Resilience4J Circuit Breaker Metrics
+        href: how-to-circuit-breaker-metrics.md
+      - name: Structured application log
+        href: structured-app-log.md
+      - name: Use Dynatrace Java OneAgent
+        href: how-to-dynatrace-one-agent-monitor.md
+      - name: New Relic Java in-process agent
+        href: how-to-new-relic-monitor.md
+      - name: AppDynamics in-process agent
+        href: how-to-appdynamics-java-agent-monitor.md
+      - name: Monitor app lifecycle events
+        href: monitor-app-lifecycle-events.md
+      - name: Logback with custom persistent storage
+        href: how-to-write-log-to-custom-persistent-storage.md
+      - name: Elastic APM Java Agent
+        href: how-to-elastic-apm-java-agent-monitor.md
+      - name: Analyze logs with ELK
+        href: how-to-elastic-diagnostic-settings.md
+      - name: Health probes and graceful termination
+        href: how-to-configure-health-probes-graceful-termination.md
+      - name: Optimize application observability
+        href: application-observability.md
+    - name: Network
+      items:
+      - name: Custom DNS name
+        href: how-to-custom-domain.md
+      - name: Deploy Azure Spring Apps in a virtual network
+        href: how-to-deploy-in-azure-virtual-network.md
+      - name: Access your application in a private network
+        href: access-app-virtual-network.md
+      - name: Expose applications to the internet with TLS Termination at gateway
+        href: expose-apps-gateway-tls-termination.md
+      - name: Expose applications to the internet with end-to-end TLS/SSL
+        href: expose-apps-gateway-end-to-end-tls.md
+      - name: Expose applications to the internet from a public network
+        href: how-to-access-app-from-internet-virtual-network.md
+      - name: Configure Palo Alto
+        href: how-to-configure-palo-alto.md
+      - name: Control egress traffic for an Azure Spring Apps instance
+        href: how-to-create-user-defined-route-instance.md
+      - name: Customize the ingress configuration in Azure Spring Apps
+        href: how-to-configure-ingress.md
+      - name: Customer responsibilities running Azure Spring Apps in a virtual network
+        href: vnet-customer-responsibilities.md
+      - name: Troubleshooting Azure Spring Apps in virtual networks
+        href: troubleshooting-vnet.md
+      - name: Map DNS names to applications in multiple Azure Spring Apps service instances in the same virtual network
+        href: how-to-map-dns-virtual-network.md
+    - name: Secure
+      items:
+      - name: Secure communications end-to-end in Zero Trust
+        href: secure-communications-end-to-end.md
+      - name: Use managed identities for applications in Azure Spring Apps
+        href: how-to-use-managed-identities.md
+      - name: Enable system-assigned managed identity
+        href: how-to-enable-system-assigned-managed-identity.md?pivots=sc-standard
+      - name: Manage user-assigned managed identities
+        href: how-to-manage-user-assigned-managed-identities.md?pivots=sc-standard
+      - name: Create roles and permissions
+        href: how-to-permissions.md
+      - name: Use TLS/SSL certificates
+        href: how-to-use-tls-certificate.md
+      - name: Enable ingress-to-app Transport Layer Security
+        href: how-to-enable-ingress-to-app-tls.md
+      - name: Access Config Server and Service Registry
+        href: how-to-access-data-plane-azure-ad-rbac.md
+    - name: Automate
+      items:
+      - name: CI/CD with Azure DevOps
+        href: how-to-cicd.md
+      - name: CI/CD with GitHub Actions
+        href: how-to-github-actions.md
+      - name: Auth with Key Vault in GitHub Actions
+        href: github-actions-key-vault.md
+    - name: Disaster recovery
+      items:
+      - name: Redundancy and high availability
+        href: how-to-enable-redundancy-and-disaster-recovery.md
+    - name: Troubleshoot
+      items:
+      - name: Self-diagnose and solve problems
+        href: how-to-self-diagnose-solve.md
+      - name: Self-diagnose running in virtual networks
+        href: how-to-self-diagnose-running-in-vnet.md
+      - name: Troubleshoot common issues
+        href: troubleshoot.md
+      - name: Troubleshoot common exit code issues
+        href: troubleshoot-exit-code.md
+      - name: Capture heap/thread dump and use JFR
+        href: how-to-capture-dumps.md
+      - name: Use JVM options for troubleshooting
+        href: how-to-dump-jvm-options.md
+      - name: Connect to an app instance for troubleshooting
+        href: how-to-connect-to-app-instance-for-troubleshooting.md
+      - name: Debug your apps remotely
+        href: how-to-remote-debugging-app-instance.md
+    - name: Migrate
+      items:
+      - name: Migrate Standard and Basic to Enterprise
+        href: how-to-migrate-standard-tier-to-enterprise-tier.md
+      - name: Spring Cloud
+        href: /azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+      - name: Spring Boot
+        href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-apps?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+      - name: Tomcat
+        href: /azure/developer/java/migration/migrate-tomcat-to-azure-spring-apps?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+- name: Architecture
+  items:
+  - name: Architecture design
+    href: /azure/architecture/web-apps/spring-apps?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+  - name: Landing zone accelerator
+    href: /azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/landing-zone-accelerator?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+  - name: Deploy to multiple regions
+    href: /azure/architecture/reference-architectures/microservices/spring-apps-multi-region?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+- name: Reference
+  items:
+  - name: API breaking changes
+    href: breaking-changes.md
+  - name: Azure CLI plugin
+    href: /cli/azure/spring?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+  - name: Azure PowerShell
+    href: /powershell/module/az.springcloud?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+  - name: Azure Pipelines task
+    href: /azure/devops/pipelines/tasks/deploy/azure-spring-cloud?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+  - name: Resources
+    href: resources.md
+  - name: Frequently asked questions
+    href: faq.md
+  - name: REST API reference
+    href: /rest/api/azurespringcloud/?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: policy-reference.md

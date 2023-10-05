@@ -1,11 +1,10 @@
 ---
-title: Azure Analysis Services resource and object limits | Microsoft Docs
-description: Describes Azure Analysis Services resource and object limits.
+title: Learn about Azure Analysis Services resource and object limits | Microsoft Docs
+description: This article describes resource and object limits for an Azure Analysis Services server.
 author: minewiskan
-manager: kfile
-ms.service: azure-analysis-services
+ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 04/11/2019
+ms.date: 01/24/2023
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -16,38 +15,7 @@ This article describes resource and model object limits.
 
 ## Tier limits
 
-### Developer tier
-
-This tier is recommended for evaluation, development, and test scenarios. A single plan includes the same functionality of the standard tier, but is limited in processing power, QPUs, and memory size. Query replica scale-out isn't available for this tier. This tier doesn't offer an SLA.
-
-|Plan  |QPUs  |Memory (GB)  |
-|---------|---------|---------|
-|D1    |    20     |    3     |
-
-
-### Basic tier
-
-The tier is recommended for production solutions with smaller tabular models, limited user concurrency, and simple data refresh requirements. Query replica scale-out *is not available* for this tier. Perspectives, multiple partitions, and DirectQuery tabular model features aren't supported in this tier.  
-
-|Plan  |QPUs  |Memory (GB)  |
-|---------|---------|---------|
-|B1    |    40     |    10     |
-|B2    |    80     |    20     |
-
-### Standard tier
-
-This tier is for mission-critical production applications that require elastic user-concurrency, and have rapidly growing data models. It supports advanced data refresh for near real-time data model updates, and supports all tabular modeling features.
-
-|Plan  |QPUs  |Memory (GB)  |
-|---------|---------|---------|
-|S1    |    40     |    10     |
-|S2    |    100     |    25     |
-|S3    |    200     |    50     |
-|S4    |    400     |    100     |
-|S8*    |    320     |    200     |
-|S9*    |    640    |    400     |
-
-\* Not available in all regions.  
+For Query Processing Units (QPU) and Memory limits for developer, basic, and standard tiers, see the [Azure Analysis Services pricing page](https://azure.microsoft.com/pricing/details/analysis-services/).
 
 ## Object limits
 

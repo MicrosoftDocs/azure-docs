@@ -1,179 +1,158 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Drift | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Drift.
+title: 'Tutorial: Microsoft Entra single sign-on (SSO) integration with Drift'
+description: Learn how to configure single sign-on between Microsoft Entra ID and Drift.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: CelesteDG
 ms.reviewer: celested
-
-ms.assetid: 39dcbb95-c192-448c-86a1-cedede1c0972
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/27/2019
+ms.date: 11/21/2022
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Integrate Drift with Azure Active Directory
+# Tutorial: Microsoft Entra single sign-on (SSO) integration with Drift
 
-In this tutorial, you'll learn how to integrate Drift with Azure Active Directory (Azure AD). When you integrate Drift with Azure AD, you can:
+In this tutorial, you'll learn how to integrate Drift with Microsoft Entra ID. When you integrate Drift with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to Drift.
-* Enable your users to be automatically signed-in to Drift with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
-
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+* Control in Microsoft Entra ID who has access to Drift.
+* Enable your users to be automatically signed-in to Drift with their Microsoft Entra accounts.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Drift single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment. Drift supports **SP and IDP** initiated SSO and **Just In Time** user provisioning.
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment.
 
-## Adding Drift from the gallery
+* Drift supports **SP and IDP** initiated SSO.
+* Drift supports **Just In Time** user provisioning.
 
-To configure the integration of Drift into Azure AD, you need to add Drift from the gallery to your list of managed SaaS apps.
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
-1. On the left navigation pane, select the **Azure Active Directory** service.
-1. Navigate to **Enterprise Applications** and then select **All Applications**.
-1. To add new application, select **New application**.
+## Add Drift from the gallery
+
+To configure the integration of Drift into Microsoft Entra ID, you need to add Drift from the gallery to your list of managed SaaS apps.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
 1. In the **Add from the gallery** section, type **Drift** in the search box.
 1. Select **Drift** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Configure and test Azure AD single sign-on
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-Configure and test Azure AD SSO with Drift using a test user called **B. Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Drift.
+<a name='configure-and-test-azure-ad-sso-for-drift'></a>
 
-To configure and test Azure AD SSO with Drift, complete the following building blocks:
+## Configure and test Microsoft Entra SSO for Drift
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** to enable your users to use this feature.
-2. **[Configure Drift](#configure-drift)** to configure the SSO settings on application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with B. Simon.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable B. Simon to use Azure AD single sign-on.
-5. **[Create Drift test user](#create-drift-test-user)** to have a counterpart of B. Simon in Drift that is linked to the Azure AD representation of user.
-6. **[Test SSO](#test-sso)** to verify whether the configuration works.
+Configure and test Microsoft Entra SSO with Drift using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in Drift.
 
-### Configure Azure AD SSO
+To configure and test Microsoft Entra SSO with Drift, perform the following steps:
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
+1. **[Configure Drift SSO](#configure-drift-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create Drift test user](#create-drift-test-user)** - to have a counterpart of B.Simon in Drift that is linked to the Microsoft Entra representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Drift** application integration page, find the **Manage** section and select **Single sign-on**.
-1. On the **Select a Single sign-on method** page, select **SAML**.
-1. On the **Set up Single Sign-On with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+<a name='configure-azure-ad-sso'></a>
+
+## Configure Microsoft Entra SSO
+
+Follow these steps to enable Microsoft Entra SSO.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Drift** > **Single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, the application is pre-configured and the necessary URLs are already pre-populated with Azure. The user needs to save the configuration by clicking the **Save** button and perform the following steps:
+1. On the **Basic SAML Configuration** section the application is pre-configured in **IDP** initiated mode and the necessary URLs are already pre-populated with Azure. The user needs to save the configuration by clicking the **Save** button.
 
 	a. Click **Set additional URLs**.
  
-	b. In the **Relay State** text box, type a URL:
+	b. In the **Relay State** text box, type the URL:
     `https://app.drift.com` 
 
-	c. If you wish to configure the application in **SP** initiated mode perform the following step:
+1. Perform the following step if you wish to configure the application in SP initiated mode, click Set additional URLs :
 
-	d. In the **Sign-on URL** text box, type a URL:
+	a. In the **Sign-on URL** text box, type the URL:
     `https://start.drift.com`
 
-6. Your Drift application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open User Attributes dialog.
+6. Your Drift application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
 	![image](common/edit-attribute.png)
 
-7. In addition to above, Drift application expects few more attributes to be passed back in SAML response. In the User Claims section on the User Attributes dialog, perform the following steps to add SAML token attribute as shown in the below table: 
+7. In addition to above, Drift application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirement. 
 
 	| Name | Source Attribute|
 	| ---------------| --------------- |    
 	| Name | user.displayname |
 
-	a. Click **Add new claim** to open the **Manage user claims** dialog.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
-	![image](common/new-save-attribute.png)
-
-	![image](common/new-attribute-details.png)
-
-	b. In the **Name** textbox, type the attribute name shown for that row.
-
-	c. Leave the **Namespace** blank.
-
-	d. Select Source as **Attribute**.
-
-	e. From the **Source attribute** list, type the attribute value shown for that row.
-
-	f. Click **Ok**
-
-	g. Click **Save**.
-
-1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
-
-   ![The Certificate download link](common/metadataxml.png)
+	![The Certificate download link](common/metadataxml.png)
 
 1. On the **Set up Drift** section, copy the appropriate URL(s) based on your requirement.
 
-   ![Copy configuration URLs](common/copy-configuration-urls.png)
+	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-### Configure Drift
+<a name='create-an-azure-ad-test-user'></a>
 
-1. To automate the configuration within Drift, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
+### Create a Microsoft Entra test user
 
-	![My apps extension](common/install-myappssecure-extension.png)
+In this section, you'll create a test user called B.Simon.
 
-2. After adding extension to the browser, click on **Setup Drift** will direct you to the Drift application. From there, provide the admin credentials to sign into Drift. The browser extension will automatically configure the application for you and automate steps 3-4.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Select **Review + create**.
+1. Select **Create**.
 
-	![Setup configuration](common/setup-sso.png)
+<a name='assign-the-azure-ad-test-user'></a>
 
-3. If you want to setup Drift manually, open a new web browser window and sign into your Drift company site as an administrator and perform the following steps:
+### Assign the Microsoft Entra test user
+
+In this section, you'll enable B.Simon to use single sign-on by granting access to Drift.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Drift**.
+1. In the app's overview page, select **Users and groups**.
+1. Select **Add user/group**, then select **Users and groups** in the **Add Assignment** dialog.
+   1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+   1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+   1. In the **Add Assignment** dialog, click the **Assign** button.
+
+## Configure Drift SSO
+
+
+
+
+1. In a different web browser window, sign in to your Drift company site as an administrator
 
 4. From the left side of menu bar, click on **Settings icon** > **App Settings** > **Authentication** and perform the following steps:
 
-	![The Admin link](./media/drift-tutorial/tutorial_drift_admin.png)
+	![The Admin link](./media/drift-tutorial/admin.png)
 
-	a. Upload the **Federation Metadata XML** that you have downloaded from the Azure portal, into the **Upload Identity Provider metadata file** text box.
+	a. Upload the **Federation Metadata XML** that you have downloaded, into the **Upload Identity Provider metadata file** text box.
 
 	b. After uploading the metadata file, the remaining values get auto populated on the page automatically.
 
 	c. Click **Enable SAML**.
-
-### Create an Azure AD test user
-
-In this section, you'll create a test user in the Azure portal called B. Simon.
-
-1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
-1. Select **New user** at the top of the screen.
-1. In the **User** properties, follow these steps:
-   1. In the **Name** field, enter `B. Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. For example, `B. Simon@contoso.com`.
-   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-   1. Click **Create**.
-
-### Assign the Azure AD test user
-
-In this section, you'll enable B. Simon to use Azure single sign-on by granting access to Drift.
-
-1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
-1. In the applications list, select **Drift**.
-1. In the app's overview page, find the **Manage** section and select **Users and groups**.
-
-   ![The "Users and groups" link](common/users-groups-blade.png)
-
-1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
-
-	![The Add User link](common/add-assign-user.png)
-
-1. In the **Users and groups** dialog, select **B. Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
-1. In the **Add Assignment** dialog, click the **Assign** button.
 
 ### Create Drift test user
 
@@ -182,14 +161,22 @@ In this section, a user called Britta Simon is created in Drift. Drift supports 
 >[!Note]
 >If you need to create a user manually, contact [Drift support team](mailto:integrations@drift.com).
 
-### Test SSO
+## Test SSO 
 
-When you select the Drift tile in the Access Panel, you should be automatically signed in to the Drift for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
-## Additional Resources
+#### SP initiated:
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+* Click on **Test this application**, this will redirect to Drift Sign on URL where you can initiate the login flow.  
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+* Go to Drift Sign-on URL directly and initiate the login flow from there.
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+#### IDP initiated:
+
+* Click on **Test this application**, and you should be automatically signed in to the Drift for which you set up the SSO. 
+
+You can also use Microsoft My Apps to test the application in any mode. When you click the Drift tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Drift for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
+
+## Next steps
+
+Once you configure Drift you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

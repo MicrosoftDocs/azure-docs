@@ -1,19 +1,17 @@
 ---
-title: Get started with Azure Data Lake Analytics using Azure PowerShell
+title: Create & query Azure Data Lake Analytics - PowerShell
 description: Use Azure PowerShell to create an Azure Data Lake Analytics account and submit a U-SQL job.
-services: data-lake-analytics
 ms.service: data-lake-analytics
-author: saveenr
-ms.author: saveenr
-
-ms.reviewer: jasonwhowell
-ms.assetid: 8a4e901e-9656-4a60-90d0-d78ff2f00656
+ms.reviewer: whhender
 ms.topic: conceptual
-ms.date: 05/04/2017
+ms.date: 01/20/2023
+ms.custom: devx-track-azurepowershell
 ---
 # Get started with Azure Data Lake Analytics using Azure PowerShell
 
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
+
+[!INCLUDE [retirement-flag-creation](includes/retirement-flag-creation.md)]
 
 Learn how to use Azure PowerShell to create Azure Data Lake Analytics accounts and then submit and run U-SQL jobs. For more information about Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
 
@@ -23,12 +21,12 @@ Learn how to use Azure PowerShell to create Azure Data Lake Analytics accounts a
 
 Before you begin this tutorial, you must have the following information:
 
-* **An Azure Data Lake Analytics account**. See [Get started with Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-get-started-portal).
-* **A workstation with Azure PowerShell**. See [How to install and configure Azure PowerShell](/powershell/azure/overview).
+* **An Azure Data Lake Analytics account**. See [Get started with Data Lake Analytics](./data-lake-analytics-get-started-portal.md).
+* **A workstation with Azure PowerShell**. See [How to install and configure Azure PowerShell](/powershell/azure/).
 
 ## Log in to Azure
 
-This tutorial assumes you are already familiar with using Azure PowerShell. In particular, you need to know how to log in to Azure. See the [Get started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps) if you need help.
+This tutorial assumes you're already familiar with using Azure PowerShell. In particular, you need to know how to log in to Azure. See the [Get started with Azure PowerShell](/powershell/azure/get-started-azureps) if you need help.
 
 To log in with a subscription name:
 
@@ -36,7 +34,7 @@ To log in with a subscription name:
 Connect-AzAccount -SubscriptionName "ContosoSubscription"
 ```
 
-Instead of the subscription name, you can also use a subscription id to log in:
+Instead of the subscription name, you can also use a subscription ID to log in:
 
 ```powershell
 Connect-AzAccount -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -44,7 +42,7 @@ Connect-AzAccount -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 
 If  successful, the output of this command looks like the following text:
 
-```
+```text
 Environment           : AzureCloud
 Account               : joe@contoso.com
 TenantId              : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -124,6 +122,6 @@ Export-AdlStoreItem -Account $adls -Path "/data.csv" -Destination "C:\data.csv"
 
 ## See also
 
-* To see the same tutorial using other tools, click the tab selectors on the top of the page.
+* To see the same tutorial using other tools, select the tab selectors on the top of the page.
 * To learn U-SQL, see [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md).
 * For management tasks, see [Manage Azure Data Lake Analytics using Azure portal](data-lake-analytics-manage-use-portal.md).

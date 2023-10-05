@@ -1,0 +1,35 @@
+### YamlMime:Landing
+
+title: Azure SQL Server Stretch Database documentation
+summary: Learn how to use SQL Server Stretch Database to migrate cold data transparently and securely to the Azure cloud. You can set up cost-effective availability for databases with infrequently used data without requiring changes to existing queries or applications.
+
+metadata:
+  title: Azure SQL Server Stretch Database documentation
+  description: Learn how to use SQL Server Stretch Database to migrate cold data transparently and securely to the Azure cloud. You can set up cost-effective availability for databases with infrequently used data without requiring changes to existing queries or applications.
+  services: sql-server-stretch-database
+  ms.service: sql-server-stretch-database
+  ms.topic: landing-page
+  author: rothja
+  ms.author: jroth
+  ms.date: 03/30/2020
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure SQL Server Stretch Database?
+            url: /sql/sql-server/stretch-database/stretch-database
+      - linkListType: video
+        links:
+          - text: Azure SQL Server Stretch Database video
+            url: https://azure.microsoft.com/documentation/videos/index/?services=sql-server-stretch-database
+      - linkListType: how-to-guide
+        links:
+          - text: Identify databases and tables for Stretch Database with Data Migration Assistant
+            url: /sql/sql-server/stretch-database/stretch-database-databases-and-tables-stretch-database-advisor
+          - text: Get started by running the Enable Database for Stretch Wizard
+            url: /sql/sql-server/stretch-database/get-started-by-running-the-enable-database-for-stretch-wizard

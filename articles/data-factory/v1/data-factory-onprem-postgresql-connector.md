@@ -1,21 +1,12 @@
 ---
-title: Move data From PostgreSQL using Azure Data Factory | Microsoft Docs
+title: Move data From PostgreSQL using Azure Data Factory 
 description: Learn about how to move data from PostgreSQL Database using Azure Data Factory.
-services: data-factory
-documentationcenter: ''
-author: linda33wj
-manager: craigg
-
-
-ms.assetid: 888d9ebc-2500-4071-b6d1-0f6bd1b5997c
+author: jianleishen
+ms.author: jianleishen
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-
+ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/10/2018
-ms.author: jingwang
-
+ms.date: 04/12/2023
 robots: noindex
 ---
 # Move data from PostgreSQL using Azure Data Factory
@@ -48,7 +39,6 @@ You can create a pipeline with a copy activity that moves data from an on-premis
 
 - The easiest way to create a pipeline is to use the **Copy Wizard**. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
 - You can also use the following tools to create a pipeline:
-  - Azure portal
   - Visual Studio
   - Azure PowerShell
   - Azure Resource Manager template
@@ -109,7 +99,7 @@ When source is of type **RelationalSource** (which includes PostgreSQL), the fol
  `"query": "select * from \"MySchema\".\"MyTable\""`
 
 ## JSON example: Copy data from PostgreSQL to Azure Blob
-This example provides sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data from PostgreSQL database to Azure Blob Storage. However, data can be copied to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.
+This example provides sample JSON definitions that you can use to create a pipeline by using [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data from PostgreSQL database to Azure Blob Storage. However, data can be copied to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.
 
 > [!IMPORTANT]
 > This sample provides JSON snippets. It does not include step-by-step instructions for creating the data factory. See [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article for step-by-step instructions.
@@ -160,7 +150,7 @@ As a first step, set up the data management gateway. The instructions are in the
 ```
 **PostgreSQL input dataset:**
 
-The sample assumes you have created a table “MyTable” in PostgreSQL and it contains a column called “timestamp” for time series data.
+The sample assumes you have created a table "MyTable" in PostgreSQL and it contains a column called "timestamp" for time series data.
 
 Setting `"external": true` informs the Data Factory service that the dataset is external to the data factory and is not produced by an activity in the data factory.
 

@@ -2,287 +2,390 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What are virtual machine scale sets?
+  - name: What are Virtual Machine Scale Sets?
     href: overview.md
-- name: Quickstarts
+  - name: Orchestration modes
+    href: virtual-machine-scale-sets-orchestration-modes.md
+  - name: Scale Set FAQ
+    href: virtual-machine-scale-sets-faq.yml
+  - name: What's new
+    href: whats-new.md  
   expanded: true
+- name: Quickstarts
   items:
   - name: Create in the Azure portal
-    href: quick-create-portal.md
+    href: flexible-virtual-machine-scale-sets-portal.md
   - name: Create with the Azure CLI
-    href: quick-create-cli.md
+    href: flexible-virtual-machine-scale-sets-cli.md
   - name: Create with Azure PowerShell
-    href: quick-create-powershell.md
-  - name: Create with a template
-    items:
-    - name: Linux scale set
-      href: quick-create-template-linux.md
-    - name: Windows scale set
-      href: quick-create-template-windows.md
+    href: flexible-virtual-machine-scale-sets-powershell.md
+  - name: Create with Bicep
+    displayName: ARM, Template, Resource Manager, Bicep
+    href: quick-create-bicep-windows.md
+  - name: Create with ARM template
+    href: flexible-virtual-machine-scale-sets-rest-api.md
 - name: Tutorials
-  items:
-  - name: 1 - Create / manage scale set
+  items: 
+  - name: Create and manage
     items:
     - name: Azure CLI
       href: tutorial-create-and-manage-cli.md
     - name: Azure PowerShell
       href: tutorial-create-and-manage-powershell.md
-  - name: 2 - Use data disks
+  - name: Connect to Instances
+    items: 
+    - name: Azure CLI
+      href: tutorial-connect-to-instances-cli.md
+    - name: Azure PowerShell
+      href: tutorial-connect-to-instances-powershell.md
+  - name: Modify a scale set
+    items:
+    - name: Azure CLI
+      href: tutorial-modify-scale-sets-cli.md
+    - name: Azure PowerShell
+      href: tutorial-modify-scale-sets-powershell.md
+  - name: Use data disks
     items:
     - name: Azure CLI
       href: tutorial-use-disks-cli.md
     - name: Azure PowerShell
       href: tutorial-use-disks-powershell.md
-  - name: 3 - Use a custom VM image
+  - name: Use a custom VM image
     items:
     - name: Azure CLI
       href: tutorial-use-custom-image-cli.md
     - name: Azure PowerShell
       href: tutorial-use-custom-image-powershell.md
-  - name: 4 - Deploy apps to a scale set
+  - name: Deploy apps to a scale set
     items:
     - name: Azure CLI
       href: tutorial-install-apps-cli.md
     - name: Azure PowerShell
       href: tutorial-install-apps-powershell.md
-    - name: Template
-      href: tutorial-install-apps-template.md
-  - name: 5 - Autoscale a scale set
+  - name: Autoscale a scale set
     items:
     - name: Azure CLI
       href: tutorial-autoscale-cli.md
     - name: Azure PowerShell
-      href: tutorial-autoscale-powershell.md
-    - name: Template
-      href: tutorial-autoscale-template.md
-- name: Samples
+      href: ../azure-monitor/autoscale/autoscale-using-powershell.md
+      maintainContext: true
+- name: Scale
   items:
-  - name: Azure CLI
-    href: cli-samples.md
-  - name: PowerShell
-    href: powershell-samples.md
-- name: Concepts
-  items:
-  - name: Azure Resource Manager
-    href: ../azure-resource-manager/resource-group-overview.md
+  - name: Scaling Profile
+    href: virtual-machine-scale-sets-scaling-profile.md
+  - name: Autoscale
+    href: virtual-machine-scale-sets-autoscale-overview.md
+  - name: Configure autoscale
+    href: virtual-machine-scale-sets-autoscale-portal.md
+  - name: Predictive autoscale
+    href: ../azure-monitor/autoscale/autoscale-predictive.md
     maintainContext: true
-  - name: Regions and availability
-    href: ../virtual-machines/windows/regions-and-availability.md
+  - name: Troubleshoot autoscale
+    href: virtual-machine-scale-sets-troubleshoot.md 
+  - name: Scale-In Policy
+    href: virtual-machine-scale-sets-scale-in-policy.md 
+  - name: Instance protection
+    href: virtual-machine-scale-sets-instance-protection.md
+  - name: Attach VMs to a scale set
+    href: virtual-machine-scale-sets-attach-detach-vm.md
+  - name: Working with large uniform scale sets
+    href: virtual-machine-scale-sets-placement-groups.md
+- name: Reliability
+  items: 
+  - name: Reliability in Virtual Machine Scale Sets
+    href: ../reliability/reliability-virtual-machines.md?toc=/azure/virtual-machine-scale-sets/toc.json&bc=/azure/virtual-machine-scale-sets/breadcrumb/toc.json
+  - name: Design considerations
+    href: virtual-machine-scale-sets-design-overview.md
+  - name: vCPU quotas
+    href: ../virtual-machines/linux/quotas.md
     maintainContext: true
+  - name: Capacity reservations
+    href: ../virtual-machines/capacity-reservation-overview.md
+  - name: Automatic instance repairs
+    href: virtual-machine-scale-sets-automatic-instance-repairs.md
+- name: Cost optimization
+  items: 
+  - name: Azure Spot Virtual Machines
+    href: use-spot.md
+  - name: Spot Priority Mix
+    href: spot-priority-mix.md
+  - name: Reserved instances
+    href: ../cost-management-billing/reservations/save-compute-costs-reservations.md
+  - name: Azure Hybrid Benefit
+    items: 
+    - name: Hybrid Benefit for Linux
+      href: ../virtual-machines/linux/azure-hybrid-benefit-linux.md
+      maintainContext: true
+    - name: Hybrid Benefit for Windows
+      href: ../virtual-machines/windows/hybrid-use-benefit-licensing.md
+      maintainContext: true
+    - name: Hybrid benefit for Uniform Scale Sets
+      href: azure-hybrid-benefit-linux.md
+- name: Management
+  items: 
+  - name: Manage Upgrade Policies
+    href: virtual-machine-scale-sets-upgrade-policy.md
+  - name: Common management tasks
     items:
-    - name: Manage fault domains in scale sets
-      href: virtual-machine-scale-sets-manage-fault-domains.md
-  - name: VM types and sizes
-    href: ../virtual-machines/windows/sizes.md
-    maintainContext: true
-    items:
-    - name: General purpose
-      href: ../virtual-machines/windows/sizes-general.md
-      maintainContext: true
-      items:
-      - name: B-series burstable
-        href: ../virtual-machines/windows/b-series-burstable.md
-        maintainContext: true
-    - name: Compute optimized
-      href: ../virtual-machines/windows/sizes-compute.md
-      maintainContext: true
-    - name: Memory optimized
-      href: ../virtual-machines/windows/sizes-memory.md
-      maintainContext: true
-      items:
-      - name: Constrained vCPUs
-        href: ../virtual-machines/windows/constrained-vcpu.md
-        maintainContext: true
-    - name: Storage optimized
-      href: ../virtual-machines/windows/sizes-storage.md
-      maintainContext: true
-    - name: GPU optimized
-      href: ../virtual-machines/windows/sizes-gpu.md
-      maintainContext: true
-      items:
-      - name: Setup GPU drivers
-        href: ../virtual-machines/windows/n-series-driver-setup.md
-        maintainContext: true
-    - name: High performance compute
-      href: ../virtual-machines/windows/sizes-hpc.md
-      maintainContext: true
-    - name: Azure compute units (ACU)
-      href: ../virtual-machines/windows/acu.md
-      maintainContext: true
-    - name: Benchmark scores
-      href: ../virtual-machines/windows/compute-benchmark-scores.md
-      maintainContext: true
-  - name: Endorsed Linux distros
-    href: ../virtual-machines/linux/endorsed-distros.md
-    maintainContext: true
-  - name: Maintenance and updates
-    href: ../virtual-machines/windows/maintenance-and-updates.md
-    maintainContext: true
-  - name: Disk storage
-    items:
-    - name: Managed Disks
-      href: ../virtual-machines/windows/managed-disks-overview.md
-      maintainContext: true
-    - name: Select a disk type
-      href: ../virtual-machines/windows/disks-types.md
-      maintainContext: true
-    - name: Premium storage performance
-      href: ../virtual-machines/windows/premium-storage-performance.md
-      maintainContext: true
-    - name: Ephemeral OS disks
-      href: ephemeral-os-disks.md
-    - name: Scalability targets for disks
-      href: ../virtual-machines/windows/disk-scalability-targets.md
-      maintainContext: true
-    - name: Backup and disaster recovery for disks
-      href: ../virtual-machines/windows/backup-and-disaster-recovery-for-azure-iaas-disks.md
-      maintainContext: true
-  - name: Networking
-    href: ../virtual-machines/windows/network-overview.md
-    maintainContext: true
-  - name: Infrastructure automation
-    href: ../virtual-machines/windows/infrastructure-automation.md
-    maintainContext: true
-  - name: Security and policy
-    href: ../virtual-machines/windows/security-policy.md
-    maintainContext: true
-  - name: Monitoring
-    href: ../virtual-machines/windows/monitor.md
-    maintainContext: true
-  - name: Deployment considerations
-    items:
-    - name: vCPU quotas
-      href: ../virtual-machines/windows/quotas.md
-      maintainContext: true
-  - name: Scale Set FAQ
-    href: virtual-machine-scale-sets-faq.md
-- name: How To
-  items:
-  - name: Plan and design
-    items:
-    - name: Design considerations
-      href: virtual-machine-scale-sets-design-overview.md
-    - name: Understand instance IDs
-      href: virtual-machine-scale-sets-instance-ids.md
-  - name: Create a template
-    items:
-    - name: Learn about scale set templates
-      href: virtual-machine-scale-sets-mvss-start.md
-    - name: Use an existing virtual network
-      href: virtual-machine-scale-sets-mvss-existing-vnet.md
-    - name: Use a custom image
-      href: virtual-machine-scale-sets-mvss-custom-image.md
-    - name: Use guest-based autoscaling with a Linux scale set template
-      href: virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md
-  - name: Deploy
-    items:
-    - name: Create with Visual Studio
-      href: virtual-machine-scale-sets-vs-create.md
-    - name: Use Availability Zones
-      href: virtual-machine-scale-sets-use-availability-zones.md
-    - name: Autoscale a scale set
-      href: virtual-machine-scale-sets-autoscale-overview.md
-      items:
-      - name: Use the Azure portal
-        href: virtual-machine-scale-sets-autoscale-portal.md
-      - name: Advanced autoscale
-        href: ../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md
-        maintainContext: true
-      - name: Troubleshoot autoscale
-        href: virtual-machine-scale-sets-troubleshoot.md
-    - name: Applications on scale sets
-      href: virtual-machine-scale-sets-deploy-app.md
-    - name: Extensions on scale sets
-      items:
-        - name: Extension sequencing on scale sets
-          href: virtual-machine-scale-sets-extension-sequencing.md
-        - name: Application Health extension
-          href: virtual-machine-scale-sets-health-extension.md
-    - name: Use data disks with scale sets
-      href: virtual-machine-scale-sets-attached-disks.md
-    - name: Encrypt disks in scale sets
-      items:
-      - name: Use PowerShell
-        href: virtual-machine-scale-sets-encrypt-disks-ps.md
-      - name: Use the Azure CLI
-        href: virtual-machine-scale-sets-encrypt-disks-cli.md
-      - name: Extension sequencing
-        href: ../security/azure-security-disk-encryption-extension-sequencing.md
-        maintainContext: true
-    - name: Work with large scale sets
-      href: virtual-machine-scale-sets-placement-groups.md
-    - name: Convert a scale set template to use managed disk
-      href: virtual-machine-scale-sets-convert-template-to-md.md
-    - name: Use low-priority
-      href: virtual-machine-scale-sets-use-low-priority.md
-  - name: Manage
-    items:
-    - name: Common management tasks
-      items:
-      - name: Use the Azure CLI
-        href: virtual-machine-scale-sets-manage-cli.md
-      - name: Use Azure PowerShell
-        href: virtual-machine-scale-sets-manage-powershell.md
+    - name: Use the Azure CLI
+      href: virtual-machine-scale-sets-manage-cli.md
+    - name: Use Azure PowerShell
+      href: virtual-machine-scale-sets-manage-powershell.md
     - name: Modify a scale set
       href: virtual-machine-scale-sets-upgrade-scale-set.md
-    - name: Networking for scale sets
-      href: virtual-machine-scale-sets-networking.md
-    - name: Automatic OS upgrades
-      href: virtual-machine-scale-sets-automatic-upgrade.md
-    - name: Instance protection (Preview)
-      href: virtual-machine-scale-sets-instance-protection.md
-    - name: Shared image galleries
-      items:
-      - name: Overview
-        href: shared-image-galleries.md
-      - name: CLI
-        href: shared-images-cli.md
-      - name: PowerShell
-        href: shared-images-powershell.md
-      - name: Share images across tenants
-        href: share-images-across-tenants.md
-      - name: Troubleshoot shared images
-        href: troubleshooting-shared-images.md
-    - name: Vertical scaling in a scale set
-      href: virtual-machine-scale-sets-vertical-scale-reprovision.md
     - name: Using DSC and scale sets
       href: virtual-machine-scale-sets-dsc.md
-    - name: Convert a template to managed disks
-      href: virtual-machine-scale-sets-convert-template-to-md.md
-    - name: Planned maintenance
-      href: virtual-machine-scale-sets-maintenance-notifications.md
-  - name: Use Ansible
+    - name: Scale set templates
+      href: virtual-machine-scale-sets-mvss-start.md
+    - name: Autoscale using guest metrics
+      href: virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md
+    - name: Deploy your application
+      href: virtual-machine-scale-sets-deploy-app.md
+    - name: Custom image templates
+      href: virtual-machine-scale-sets-mvss-custom-image.md
+  - name: Manage fault domains in scale sets
+    href: virtual-machine-scale-sets-manage-fault-domains.md
+  - name: Understand instance IDs
+    href: virtual-machine-scale-sets-instance-ids.md
+  - name: Azure Compute Gallery
+    items: 
+    - name: Overview
+      href: ../virtual-machines/azure-compute-gallery.md
+      maintainContext: true
+    - name: Specialized image version
+      href: instance-specialized-image-version.md
+    - name: Generalized image version
+      href: instance-generalized-image-version.md
+  - name: Run Command
     items:
-    - name: Create and manage scale sets
-      href: /azure/ansible/ansible-create-configure-vmss
+    - name: Overview
+      displayName: Run command
+      href: ../virtual-machines/run-command-overview.md
       maintainContext: true
-    - name: Deploy apps to scale sets
-      href: /azure/ansible/ansible-deploy-app-vmss
+    - name: Action Run Commands for Linux
+      href: ../virtual-machines/linux/run-command.md
       maintainContext: true
-    - name: Autoscale a scale set
-      href: /azure/ansible/ansible-auto-scale-vmss
+    - name: Action Run Commands for Windows
+      href: ../virtual-machines/windows/run-command.md
       maintainContext: true
+    - name: Managed Run Commands for Linux 
+      href: ../virtual-machines/linux/run-command-managed.md
+      maintainContext: true
+    - name: Managed Run Commands for Windows
+      href: ../virtual-machines/windows/run-command-managed.md
+      maintainContext: true
+  - name: Proximity placement groups
+    href: proximity-placement-groups.md
+  - name: Extensions
+    items:
+    - name: Extensions Overview
+      href: ../virtual-machines/extensions/overview.md
+      maintainContext: true
+    - name: Automatic extension upgrade 
+      href: ../virtual-machines/automatic-extension-upgrade.md
+      maintainContext: true
+    - name: Extension sequencing on scale sets
+      href: virtual-machine-scale-sets-extension-sequencing.md
+    - name: Application Health extension
+      href: virtual-machine-scale-sets-health-extension.md
+- name: Monitoring
+  items:
+  - name: Monitor virtual machines
+    href: ../virtual-machines/monitor-vm.md
+    maintainContext: true
+  - name: VM insights
+    href: ../azure-monitor/vm/vminsights-overview.md
+    maintainContext: true
+  - name: Terminate notifications
+    href: virtual-machine-scale-sets-terminate-notification.md
+  - name: Instance Metadata service
+    items:
+    - name: CLI
+      displayName: Monitor metadata
+      href: ../virtual-machines/linux/instance-metadata-service.md
+      maintainContext: true
+    - name: PowerShell
+      displayName: Monitor metadata
+      href: ../virtual-machines/windows/instance-metadata-service.md
+      maintainContext: true
+- name: Updates and maintenance
+  items: 
+  - name: Maintenance notifications
+    items:
+    - name: Overview
+      href: virtual-machine-scale-sets-maintenance-notifications.md
+      maintainContext: true
+    - name: CLI
+      displayName: Maintenance notifications
+      href: ../virtual-machines/maintenance-notifications-cli.md
+      maintainContext: true
+    - name: Portal
+      displayName: Maintenance notifications
+      href: ../virtual-machines/maintenance-notifications-portal.md
+      maintainContext: true
+    - name: PowerShell
+      displayName: Maintenance notifications
+      href: ../virtual-machines/maintenance-notifications-powershell.md
+      maintainContext: true
+  - name: Maintenance configurations
+    items:
+    - name: Overview
+      displayName: Maintenance configurations
+      href: ../virtual-machines/maintenance-configurations.md
+      maintainContext: true
+    - name: CLI
+      displayName: Maintenance configurations
+      href: ../virtual-machines/maintenance-configurations-cli.md
+      maintainContext: true
+    - name: PowerShell
+      displayName: Maintenance configurations
+      href: ../virtual-machines/maintenance-configurations-powershell.md
+      maintainContext: true
+    - name: Portal
+      displayName: Maintenance configurations
+      href: ../virtual-machines/maintenance-configurations-portal.md
+      maintainContext: true
+  - name: Scheduled events
+    items:
+    - name: Linux
+      href: ../virtual-machines/linux/scheduled-events.md
+      maintainContext: true
+      displayname: Scheduled events
+    - name: Windows
+      items:
+      - name: Scheduled events
+        href: ../virtual-machines/windows/scheduled-events.md
+        maintainContext: true
+      - name: Monitor scheduled events
+        href: ../virtual-machines/windows/scheduled-event-service.md
+        maintainContext: true
+- name: Disks
+  items:
+  - name: Select a disk type
+    href: ../virtual-machines/disks-types.md
+    maintainContext: true
+  - name: Premium storage performance
+    href: ../virtual-machines/premium-storage-performance.md
+    maintainContext: true
+  - name: Ephemeral OS disks
+    href: ../virtual-machines/ephemeral-os-disks.md
+    maintainContext: true
+  - name: Scalability targets for disks
+    href: ../virtual-machines/disks-scalability-targets.md
+    maintainContext: true
+  - name: Use data disks with scale sets
+    href: virtual-machine-scale-sets-attached-disks.md
+  - name: Encrypt disks in scale sets
+    items:
+    - name: Use PowerShell
+      href: disk-encryption-powershell.md
+    - name: Use the Azure CLI
+      href: disk-encryption-cli.md
+    - name: Use Azure Resource Manager templates
+      href: disk-encryption-azure-resource-manager.md
+    - name: Extension sequencing
+      href: disk-encryption-extension-sequencing.md
+    - name: Key vault for Azure Disk Encryption
+      href: disk-encryption-key-vault.md
+    - name: Server-side disk Encryption
+      href: ../virtual-machines/disk-encryption.md
+      maintainContext: true
+    - name: Azure Disk Encryption
+      href: disk-encryption-overview.md
+- name: Networking
+  items: 
+  - name: Networking Overview
+    href: ../virtual-network/network-overview.md
+    maintainContext: true
+  - name: Default outbound access in Azure
+    href: ../virtual-network/ip-services/default-outbound-access.md
+    maintainContext: true
+  - name: Networking for scale sets
+    href: virtual-machine-scale-sets-networking.md
+  - name: Use an existing virtual network
+    href: virtual-machine-scale-sets-mvss-existing-vnet.md
+- name: Security
+  items:
+  - name: Policy definitions
+    href: policy-reference.md
+  - name: Security and policy
+    href: ../virtual-machines/security-policy.md
+    maintainContext: true
+  - name: Azure security baseline
+    href: /security/benchmark/azure/baselines/virtual-machine-scale-sets-security-baseline
+    maintainContext: true
+  - name: Hotpatch
+    href: ../automanage/automanage-hotpatch.md
+    maintainContext: true
+  - name: Automatic VM guest patching
+    href: ../virtual-machines/automatic-vm-guest-patching.md
+    maintainContext: true
+  - name: Automatic OS image upgrades
+    items: 
+    - name: Overview
+      href: virtual-machine-scale-sets-automatic-upgrade.md
+    - name: Maintenance control
+      items:
+      - name: PowerShell
+        href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control-powershell.md
+        maintainContext: true
+      - name: CLI
+        href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control-CLI.md
+        maintainContext: true
+      - name: Portal
+        href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control-portal.md
+        maintainContext: true
 - name: Reference
   items:
-  - name: Azure PowerShell
-    href: /powershell/azure/overview
+  - name: API comparison
+    href: orchestration-modes-api-comparison.md
   - name: Azure CLI
-    href: ../virtual-machines/azure-cli-arm-commands.md
+    href: /cli/azure/vmss
+  - name: Azure PowerShell
+    href: /powershell/azure/
   - name: REST
     href: /rest/api/virtualmachinescalesets/
   - name: Azure templates
     href: /azure/templates/microsoft.compute/virtualmachinescalesets
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ../virtual-machines/policy-reference.md
+    maintainContext: true
 - name: Resources
   items:
+  - name: Cloud adoption framework
+    href: /azure/cloud-adoption-framework/get-started/
+  - name: Architecture center
+    href: /azure/architecture/
+  - name: Migration tools
+    href: /azure/cloud-adoption-framework/migrate/azure-migration-guide/?tabs=MigrationTools
+  - name: Microsoft Q&A
+    href: /answers/topics/azure-virtual-machines.html
+  - name: Azure Quickstart Templates
+    href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/#Linux
+  - name: Regional availability
+    href: https://azure.microsoft.com/regions/services/
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/?products=azure-virtual-machines
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=compute
-  - name: Pricing
-    items:
-    - name: Linux
-      href: https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/
-    - name: Windows
-      href: https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-vm-scale-set
+  - name: Common CLI commands
+    href: ../virtual-machines/linux/cli-manage.md
+  - name: Common PowerShell commands
+    href: ../virtual-machines/windows/ps-common-ref.md
+  - name: Common networking PowerShell commands
+    href: ../virtual-machines/windows/ps-common-network-ref.md
+  - name: VM template description
+    href: ../virtual-machines/windows/template-description.md
+  - name: FAQ
+    items:
+    - name: Linux
+      href: ../virtual-machines/linux/faq.yml
+    - name: Windows
+      href: ../virtual-machines/windows/faq.yml
+- name: Support and troubleshooting
+  href: vmss-support-help.md

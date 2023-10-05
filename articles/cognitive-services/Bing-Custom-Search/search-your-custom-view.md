@@ -1,7 +1,7 @@
 ---
 title: Search a custom view - Bing Custom Search
-titlesuffix: Azure Cognitive Services
-description: Describes how to search a custom view of the web.
+titleSuffix: Azure AI services
+description: After you've configured your custom search experience, you can test it from within the Bing Custom Search portal.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,11 +9,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: conceptual
-ms.date: 05/09/2019
-ms.author: maheshb
+ms.date: 02/03/2020
+ms.author: aahi
 ---
 
 # Call your Bing Custom Search instance from the Portal
+
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 After you've configured your custom search experience, you can test it from within the Bing Custom Search [portal](https://customsearch.ai). 
 
@@ -22,7 +24,7 @@ After you've configured your custom search experience, you can test it from with
 
 After you've signed into the Bing Custom Search [portal](https://customsearch.ai), select your search instance and click the **Production** tab. Under **Endpoints**, select an API endpoint (for example, Web API). Your subscription determines what endpoints are shown.
 
-To create a search query, enter the parameter values for your endpoint. Note that the parameters displayed in the portal may change depending on the endpoint you choose. See the [Custom Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) for more information. To change the subscription your search instance uses, add the appropriate subscription key, and update the appropriate market and/or language parameters.
+To create a search query, enter the parameter values for your endpoint. Note that the parameters displayed in the portal may change depending on the endpoint you choose. See the [Custom Search API reference](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) for more information. To change the subscription your search instance uses, add the appropriate subscription key, and update the appropriate market and/or language parameters.
 
 Some important parameters are below:
 
@@ -38,7 +40,7 @@ Clicking **Additional Parameters** reveals the following parameters:
 
 |Parameter  |Description  |
 |---------|---------|
-|Safe Search     | A filter used to filter webpages for adult content. Only available for the Web, Image, Video, and Hosted UI endpoints.        |
+|Safe Search     | A filter used to filter webpages for adult content. Only available for the Web, Image, Video, and Hosted UI endpoints. Note that Bing Custom Video Search only supports two values: `moderate` and `strict`.        |
 |User Interface Language    | The language used for user interface strings. For example, if you enable images and videos in Hosted UI, the **Image** and **Video** tabs use the specified language.        |
 |Count     | The number of search results to return in the response. Available only for Web, Image, and Video endpoints.         |
 |Offset    | The number of search results to skip before returning results. Available only for Web, Image, and Video endpoints.        |
@@ -56,4 +58,4 @@ You can change the subscription associated with your Bing Custom Search instance
 - [Call your custom view with NodeJs](./call-endpoint-nodejs.md)
 - [Call your custom view with Python](./call-endpoint-python.md)
 
-- [Call your custom view with the C# SDK](./sdk-csharp-quick-start.md)
+- [Call your custom view with the C# SDK](./quickstarts/client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp)

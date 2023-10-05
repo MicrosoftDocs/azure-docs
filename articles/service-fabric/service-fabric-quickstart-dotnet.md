@@ -1,22 +1,13 @@
 ---
-title: Create a .NET app on Service Fabric in Azure | Microsoft Docs
+title: Quickly create a .NET app on Service Fabric in Azure
 description: In this quickstart, you create a .NET application for Azure using the Service Fabric reliable services sample application.
-services: service-fabric
-documentationcenter: .net
-author: mikkelhegn
-manager: msfussell
-editor: ''
-
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: quickstart
-ms.tgt_pltfrm: NA
-ms.workload: azure-vs
-ms.date: 03/26/2018
-ms.author: mikhegn
-ms.custom: mvc, devcenter, vs-azure
-
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+ms.custom: devx-track-dotnet
+services: service-fabric
+ms.date: 07/11/2022
 ---
 # Quickstart: Deploy a .NET reliable services application to Service Fabric
 
@@ -32,7 +23,7 @@ Using this application you learn how to:
 * Use ASP.NET core as a web front end
 * Store application data in a stateful service
 * Debug your application locally
-* Scale-out the application across multiple nodes
+* Scale out the application across multiple nodes
 * Perform a rolling application upgrade
 
 ## Prerequisites
@@ -59,6 +50,8 @@ After you install the runtime, SDKs, Visual Studio tools, Docker, and have Docke
 > Although unnecessary for this particular quickstart, the instruction to have
 > Docker running when you create the cluster is included as a best-practice.
 > Test that Docker is running by opening a terminal window and running `docker ps` to see if an error occurs. If the response does not indicate an error, Docker is running and you're ready to build a cluster.
+>
+> [Set up Windows 10 or Windows Server for containers](/virtualization/windowscontainers/quick-start/set-up-environment?tabs=Windows-10-Client)
 
 1. Open a new, elevated PowerShell window as an administrator.
 2. Run the following PowerShell command to create a development cluster:
@@ -122,7 +115,7 @@ When you vote in the application, the following events occur:
 
 ## Debug in Visual Studio
 
-The application should be running OK, but you can use the debugger to see how key parts of the application work. When debugging the application in Visual Studio, you're using a local Service Fabric development cluster. You can adjust your debugging experience to your scenario. In this application, data is stored in back-end service using a reliable dictionary. Visual Studio removes the application per default when you stop the debugger. Removing the application causes the data in the back-end service to also be removed. To persist the data between debugging sessions, you can change the **Application Debug Mode** as a property on the **Voting** project in Visual Studio.
+The application should be running OK, but you can use the debugger to see how key parts of the application work. When debugging the application in Visual Studio, you're using a local Service Fabric development cluster. You can adjust your debugging experience to your scenario. In this application, data is stored in back-end service using a reliable dictionary. Visual Studio removes the application per default when you stop the debugger. Removing the application causes the data in the back-end service to also be removed. To persist the data between debugging sessions, open *Voting* project **Properties** and change [**Application Debug Mode**](service-fabric-manage-application-in-visual-studio.md#to-set-the-application-debug-mode-property) to *Auto Upgrade*.
 
 To look at what happens in the code, complete the following steps:
 
@@ -167,7 +160,7 @@ To upgrade the application, do the following:
 
     ![Change Version Dialog](./media/service-fabric-quickstart-dotnet/change-version.png)
 7. In the **Publish Service Fabric Application** dialog, check the **Upgrade the Application checkbox**.
-8.  Change **Target profile** to **PublishProfiles\Local.5Node.xml** and ensure that **Connection Endpoint** is set to **Local Cluster**. 
+8.  Change **Target profile** to **PublishProfiles\Local.5Node.xml** and ensure that **Connection Endpoint** is set to **Local Cluster**.
 9. Select **Upgrade the Application**.
 
     ![Publish Dialog Upgrade Setting](./media/service-fabric-quickstart-dotnet/upgrade-app.png)
@@ -190,7 +183,7 @@ In this quickstart, you learned how to:
 * Use ASP.NET core as a web front end
 * Store application data in a stateful service
 * Debug your application locally
-* Scale-out the application across multiple nodes
+* Scale out the application across multiple nodes
 * Perform a rolling application upgrade
 
 To learn more about Service Fabric and .NET, take a look at this tutorial:

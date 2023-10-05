@@ -1,17 +1,16 @@
 ---
-title: Create or join parallel branches - Azure Logic Apps | Microsoft Docs
-description: How to create or join parallel branches for workflows in Azure Logic Apps
+title: Create or join parallel branches for actions in workflows
+description: Learn how to create or merge parallel running branches for independent workflow actions in Azure Logic Apps.
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.topic: article
-ms.date: 10/10/2018
+ms.reviewer: estfan, azla
+ms.topic: how-to
+ms.date: 09/01/2022
 ---
 
 # Create or join parallel branches for workflow actions in Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 By default, your actions in logic app workflows run sequentially. 
 To perform independent actions at the same time, 
@@ -29,7 +28,7 @@ and then [join those branches](#join-branches) later in your flow.
 * An Azure subscription. If you don't have a subscription, 
 [sign up for a free Azure account](https://azure.microsoft.com/free/). 
 
-* Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Basic knowledge about [logic app workflows](../logic-apps/logic-apps-overview.md)
 
 <a name="parallel-branches"></a>
 
@@ -62,7 +61,7 @@ and then choose **Add a parallel branch**.
 
 1. In the search box, find and select the action you want.
 
-   ![Find and select the action you want](media/logic-apps-control-flow-branches/find-select-parallel-action.png)
+   ![Screenshot that shows the "Choose an action" window in the Logic App Designer.](media/logic-apps-control-flow-branches/find-select-parallel-action.png)
 
    Your selected action now appears in the parallel branch, for example:
 
@@ -78,7 +77,7 @@ and then select **Add an action**.
 
 1. In the search box, find and select the action you want.
 
-   ![Find and select sequential action](media/logic-apps-control-flow-branches/find-select-sequential-action.png)
+   ![Screenshot that shows the "Choose an action" window and search box in the Logic App Designer.](media/logic-apps-control-flow-branches/find-select-sequential-action.png)
 
    Your selected action now appears within the current branch, for example:
 
@@ -209,13 +208,13 @@ structure in your logic app's JSON definition instead, for example:
 
 ## Get support
 
-* For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* For questions, visit the [Microsoft Q&A question page for Azure Logic Apps](/answers/topics/azure-logic-apps.html).
 * To submit or vote on features and suggestions, visit the 
 [Azure Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
 ## Next steps
 
-* [Run steps based on a condition (conditional statements)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
-* [Run steps based on different values (switch statements)](../logic-apps/logic-apps-control-flow-switch-statement.md)
+* [Run steps based on a condition (condition action)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
+* [Run steps based on different values (switch action)](../logic-apps/logic-apps-control-flow-switch-statement.md)
 * [Run and repeat steps (loops)](../logic-apps/logic-apps-control-flow-loops.md)
 * [Run steps based on grouped action status (scopes)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)

@@ -1,27 +1,113 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure Migrate Documentation
-metadata:
-  title: Azure Migrate Documentation - Tutorials, API Reference | Microsoft Docs
-  description: Learn how to assess on-premises machines for migration to Azure
-  services: migration-planner
-  author: rayne-wiselman
-  manager: carmonm
-  ms.service: migration
-  ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.topic: landing-page
-  ms.date: 11/22/2017
-  ms.author: raynew
-abstract:
-  description: Azure Migrate helps you to discover and assess the suitability of on-premises machines for migration to Azure, and provides sizing and cost estimates for running Azure VMs.
-sections:
-- title: Step-by-Step Tutorials
-  items:
-  - type: paragraph
-    text: Learn how to assess VMware VMs for migration to Azure
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="tutorial-assessment-vmware">Discover and assess on-premises VMware VMs</a>
+### YamlMime:Landing
 
+title: Azure Migrate documentation
+summary: Find articles to help you discover, assess, and migrate your on-premises environment using tools in the Azure Migrate hub.
+
+metadata:
+  title: Azure Migrate documentation
+  description: Find Azure migration tutorials, resources, and migration assessment tools. Learn how to use tools in the Azure Migrate hub to discover, assess, and migrate your on-premises environment to Azure.
+  ms.service: azure-migrate
+  ms.topic: landing-page
+  ms.collection: collection
+  author: jyothisuri
+  ms.author: jsuri
+  ms.date: 07/08/2020
+  ms.custom: seo-azure-migrate
+  keywords: azure migrate, azure migration, azure migrate assessment tool, azure migrate tool, azure migrate documentation, azure migration documentation
+
+landingContent:
+  - title: About Azure Migrate
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Migrate?
+            url: ./migrate-services-overview.md
+          - text: What's new in Azure Migrate?
+            url: ./whats-new.md
+          - text: Common questions
+            url: ./resources-faq.md
+
+  - title: Get started
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Assess VMware VMs with Server Assessment
+            url: ./tutorial-discover-vmware.md
+          - text: Assess Hyper-V VMs with Server Assessment
+            url: ./tutorial-discover-hyper-v.md
+          - text: Assess physical servers with Server Assessment
+            url: ./tutorial-discover-physical.md
+          - text: Assess servers using imported data
+            url: ./tutorial-discover-import.md
+          - text: Assess SQL instances for migration to Azure SQL
+            url: ./tutorial-assess-sql.md
+          - text: Migrate VMware VMs with Migration and modernization
+            url: ./server-migrate-overview.md
+          - text: Migrate Hyper-V VMs with Migration and modernization
+            url: ./tutorial-migrate-hyper-v.md
+          - text: Migrate physical servers/VMs with Migration and modernization
+            url: ./tutorial-migrate-physical-virtual-machines.md
+          - text: Modernize ASP.NET web apps to Azure Kubernetes Service (AKS)
+            url: ./tutorial-modernize-asp-net-aks.md
+
+  - title: Start deployment
+    linkLists:
+      - linkListType: deploy
+        links:
+          - text: Review best practices for Server Assessment
+            url: ./best-practices-assessment.md
+          - text: Learn about Azure Migrate appliance deployment
+            url: ./migrate-replication-appliance.md
+          - text: Review the Azure Migrate support matrix
+            url: migrate-support-matrix.md
+          - text: Review the VMware support matrix
+            url: ./migrate-support-matrix-vmware.md
+          - text: Review the Hyper-V support matrix
+            url: ./migrate-support-matrix-hyper-v.md
+          - text: Review the physical server support matrix
+            url: ./migrate-support-matrix-physical.md
+
+  - title: Manage
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Business case
+            url: ./how-to-build-a-business-case.md
+          - text: Add assessment tools
+            url: ./how-to-assess.md
+          - text: Discover application inventory
+            url: ./how-to-discover-applications.md
+          - text: Add migration tools
+            url: ./how-to-migrate.md
+          - text: Upgrade Windows OS
+            url: ./how-to-upgrade-windows.md
+          - text: Scale VMware assessment
+            url: ./scale-vmware-assessment.md
+          - text: Automate and scale migration
+            url: ./how-to-migrate-at-scale.md
+          - text: Troubleshoot assessment and migration
+            url: ./troubleshoot-general.md
+
+  - title: Learn more
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Learn about VMware/physical agent-based migration
+            url: ./agent-based-migration-architecture.md
+          - text: Learn about Hyper-V migration
+            url: ./hyper-v-migration-architecture.md
+          - text: Learn about assessments
+            url: ./concepts-assessment-calculation.md
+          - text: Learn about dependency visualization
+            url: ./concepts-dependency-visualization.md
+
+  - title: Get involved
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Request a service feature
+            url: https://feedback.azure.com/d365community/forum/cd45915f-0f25-ec11-b6e6-000d3a4f09d0
+          - text: Ask a forum question
+            url: /answers/topics/azure-migrate.html
+          - text: Azure Tech Community
+            url: https://techcommunity.microsoft.com/t5/Azure-Migration/bd-p/AzureMigration

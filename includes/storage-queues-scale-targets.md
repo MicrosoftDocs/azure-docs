@@ -1,10 +1,11 @@
 ---
 author: tamram
-ms.service: storage
+ms.service: azure-storage
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ---
+
 | Resource | Target |
 |----------|---------------|
 | Maximum size of a single queue | 500 TiB |

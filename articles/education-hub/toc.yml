@@ -1,0 +1,86 @@
+- name: Azure Education Hub Documentation
+  href: ./index.yml
+- name: Overview 
+  items:
+  - name: What is the Education Hub?
+    href: about-education-hub.md
+- name: Quickstarts
+  items:
+  - name: Access the Education Hub
+    href: access-education-hub.md
+  - name: Get started with the Education Hub
+    href: get-started-education-hub.md
+  - name: Set up a lab
+    href: set-up-lab.md
+  - name: Allocate Credit to an Educator
+    href: it-admin-allocate-credit.md
+- name: How-to guides
+  items:
+  - name: Manage your Academic Grant
+    href: hub-overview-page.md
+  - name: Create an assignment and allocate credit
+    href: create-assignment-allocate-credit.md
+  - name: Support
+    items:
+  - name: Service desk
+    href: educator-service-desk.md
+- name: Azure Dev Tools for Teaching
+  items:
+  - name: Overview    
+    items:
+    - name: What is Azure Dev Tools for Teaching?
+      href: azure-dev-tools-teaching/about-program.md
+    - name: Azure for Students
+      href: azure-dev-tools-teaching/azure-students-program.md
+    - name: Azure for Students Starter
+      href: azure-dev-tools-teaching/azure-students-starter-program.md
+  - name: Quickstarts
+    items: 
+    - name: Enroll or renew a subscription
+      href: azure-dev-tools-teaching/enroll-renew-subscription.md
+    - name: Set up access
+      href: azure-dev-tools-teaching/set-up-access.md
+  - name: How-to guides
+    items:
+    - name: How to manage students
+      href: azure-dev-tools-teaching/manage-students.md
+    - name: How to download software
+      href: azure-dev-tools-teaching/download-software.md
+  - name: Troubleshooting
+    items:
+    - name: Login errors
+      href: azure-dev-tools-teaching/troubleshoot-login.md
+- name: Azure Dev Tools for Teaching
+  items:
+  - name: How-to guides
+    items:
+    - name: How to setup custom tenant for Azure Classroom
+      href: custom-tenant-set-up-classroom.md
+- name: Azure Education Hub REST APIs
+  items:
+  - name: How-to guides
+    items:
+    - name: How to use a script to automate lab functionality
+      href: full-api-script.md
+    - name: How to create a lab
+      href: create-lab-education-hub.md
+    - name: How to add students to a lab
+      href: add-student-api.md
+    - name: How to delete a lab
+      href: delete-lab-education-hub-apis.md
+  - name: Tutorials
+    items:
+    - name: Find IDs required for calling Azure Education Hub APIs
+      href: find-ids.md
+- name: Azure Education Hub Legacy
+  items:
+  - name: Quickstarts
+    items:
+    - name: Set up a course and create a classroom
+      href: set-up-course-classroom.md
+- name: Resources
+  items:
+  - name: FAQ
+    href: azure-dev-tools-teaching/program-faq.yml
+  - name: Support
+    href: azure-dev-tools-teaching/program-support.md

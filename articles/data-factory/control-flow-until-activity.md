@@ -1,23 +1,38 @@
 ---
-title: Until activity in Azure Data Factory | Microsoft Docs
-description: The Until activity executes a set of activities in a loop until the condition associated with the activity evaluates to true or it times out. 
-services: data-factory
-documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
-
+title: Until activity
+titleSuffix: Azure Data Factory & Azure Synapse
+description: The Until activity in Azure Data Factory and Synapse Analytics pipelines executes a set of activities in a loop until the condition associated with the activity evaluates to true or it times out. 
+author: chez-charlie
+ms.author: chez
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-
+ms.subservice: orchestration
 ms.topic: conceptual
-ms.date: 01/10/2018
-ms.author: shlo
-
+ms.date: 10/25/2022
+ms.custom: devx-track-azurepowershell, synapse
 ---
-# Until activity in Azure Data Factory
-The Until activity provides the same functionality that a do-until looping structure provides in programming languages. It executes a set of activities in a loop until the condition associated with the activity evaluates to true. You can specify a timeout value for the until activity in Data Factory. 
+
+# Until activity in Azure Data Factory and Synapse Analytics
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+The Until activity provides the same functionality that a do-until looping structure provides in programming languages. It executes a set of activities in a loop until the condition associated with the activity evaluates to true. If an inner activity fails, the Until activity does not stop. You can specify a timeout value for the until activity. 
+
+## Create an Until activity with UI
+
+To use an Until activity in a pipeline, complete the following steps:
+
+1. Search for _Until_ in the pipeline Activities pane, and drag a Until activity to the pipeline canvas.  
+1. Select the Until activity on the canvas if it is not already selected, and its  **Settings** tab, to edit its details.
+
+   :::image type="content" source="media/control-flow-until-activity/until-activity.png" alt-text="Shows the Settings tab of the Until activity in the pipeline canvas.":::
+
+1. Enter an expression that will be evaluated after all child activities defined in the Until activity are executed.  If the expression evaluates to false, the Until activity will execute all its child activities again.  When it evaluates to true, the Until activity will complete.  The expression can be a literal string expression, or any combination of dynamic [expressions, functions](control-flow-expression-language-functions.md), [system variables](control-flow-system-variables.md), or [outputs from other activities](how-to-expression-language-functions.md#examples-of-using-parameters-in-expressions).  The example below checks the value of a previously defined pipeline array variable called TestVariable to see if it evaluates to ['done'].
+
+   :::image type="content" source="media/control-flow-until-activity/dynamic-content-to-check-variable-value.png" alt-text="Shows the &nbsp;Add dynamic content&nbsp; pane with an expression to check a variable for a defined value.":::
+
+1. Define activities that the Until activity will execute by selecting the Edit Activities button on the Until activity directly, or by selecting the Activities tab to select it there.  A new activities editor pane will be displayed where you can add any activities for the Until activity to execute.  In this example, a Set Variable activity simply sets the value of the variable referenced in the expression above to ['done'], so the Until activity's expression will be true the first time it is executed, and the Until activity will stop.  In your real-world use, you can check any conditions required and the Until activity will continue to execute its child activities each time the expression is evaluated, until the conditions are met.
+
+   :::image type="content" source="media/control-flow-until-activity/child-activities-editor.png" alt-text="Shows the activities editor for an Until activity with a Set Variable activity defined.":::
 
 ## Syntax
 
@@ -60,10 +75,10 @@ Activities | Set of activities that are executed until expression evaluates to `
 ## Example 1
 
 > [!NOTE]
-> This section provides JSON definitions and sample PowerShell commands to run the pipeline. For a walkthrough with step-by-step instructions to create a Data Factory pipeline by using Azure PowerShell and JSON definitions, see [tutorial: create a data factory by using Azure PowerShell](quickstart-create-data-factory-powershell.md).
+> This section provides JSON definitions and sample PowerShell commands to run the pipeline. For a walkthrough with step-by-step instructions to create a pipeline by using Azure PowerShell and JSON definitions, see [tutorial: create a data factory by using Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
 ### Pipeline with Until activity
-In this example, the pipeline has two activities: **Until** and **Wait**. The Wait activity waits for the specified period of time before running the Web activity in the loop. To learn about expressions and functions in Data Factory, see [Expression language and functions](control-flow-expression-language-functions.md). 
+In this example, the pipeline has two activities: **Until** and **Wait**. The Wait activity waits for the specified period of time before running the Web activity in the loop. To learn about expressions and functions, see [Expression language and functions](control-flow-expression-language-functions.md). 
 
 ```json
 {
@@ -197,10 +212,7 @@ The pipeline in this sample copies data from an input folder to an output folder
     "properties": {
         "type": "AzureStorage",
         "typeProperties": {
-            "connectionString": {
-                "value": "DefaultEndpointsProtocol=https;AccountName=<Azure Storage account name>;AccountKey=<Azure Storage account key>",
-                "type": "SecureString"
-            }
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<Azure Storage account name>;AccountKey=<Azure Storage account key>"
         }
     }
 }
@@ -287,7 +299,7 @@ while ($True) {
 ```
 
 ## Next steps
-See other control flow activities supported by Data Factory: 
+See other supported control flow activities: 
 
 - [If Condition Activity](control-flow-if-condition-activity.md)
 - [Execute Pipeline Activity](control-flow-execute-pipeline-activity.md)

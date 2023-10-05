@@ -1,29 +1,21 @@
 ---
-title: Tutorial install Service Fabric standalone client - Azure Service Fabric | Microsoft Docs
-description: In this tutorial you learn how to install the Service Fabric standalone client on the cluster you created in the previous tutorial article.
-services: service-fabric
-documentationcenter: .net
-author: dkkapur
-manager: chackdan
-editor: ''
-
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: dotNet
+title: Install Service Fabric standalone client
+description: In this tutorial, learn how to install the Service Fabric standalone client on the cluster.
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 05/11/2018
-ms.author: dekapur
-ms.custom: mvc
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Tutorial: Install and create Service Fabric cluster
 
-Service Fabric standalone clusters offer you the option to choose your own environment and create a cluster as part of the "any OS, any cloud" approach that Service Fabric is taking. In this tutorial series, you create a standalone cluster hosted on AWS and install an application into it.
+Service Fabric standalone clusters offer you the option to choose your own environment and create a cluster as part of the "any OS, any cloud" approach that Service Fabric is taking. In this tutorial series, you create a standalone cluster hosted on AWS or Azure and install an application into it.
 
 This tutorial is part two of a series. This tutorial walks you through the steps for creating a Service Fabric standalone cluster.
 
-In part two of the series, you learn how to:
+In this article, you'll learn how to:
 
 > [!div class="checklist"]
 > * Download & install the Service Fabric standalone package
@@ -32,7 +24,7 @@ In part two of the series, you learn how to:
 
 ## Download the Service Fabric for Windows Server package
 
-Service Fabric provides a setup package to create Service Fabric standalone clusters.  [Download the setup package](https://go.microsoft.com/fwlink/?LinkId=730690) on your local computer.  Once it has successfully downloaded copy it over the RDP connection to your EC2 instance, and paste it on the Desktop.
+Service Fabric provides a setup package to create Service Fabric standalone clusters.  [Download the setup package](https://go.microsoft.com/fwlink/?LinkId=730690) on your local computer.  Once it has successfully downloaded copy it over the RDP connection to your VM, and paste it on the Desktop.
 
 Select the zip file and open the context menu and select **Extract All** > **Extract**.  As you extract the files, you will generate a folder on the desktop that is the same as the zip file name.
 
@@ -42,18 +34,18 @@ If you want to get more detail on the [contents of the setup package](service-fa
 
 You're building a three-node windows cluster, so you need to modify the `ClusterConfig.Unsecure.MultiMachine.json` file.
 
-Next, update the three ipAddress lines which occur in the file on lines 8, 15, and 22 to the IP Addresses for each of the instances.
+Next, update the three ipAddress lines that occur in the file on lines 8, 15, and 22 to the IP Addresses for each of the instances.
 
 After updating the nodes, they appear as follows:
 
 ```json
-        {
-            "nodeName": "vm0",
-            "ipAddress": "172.31.27.1",
-            "nodeTypeRef": "NodeType0",
-            "faultDomain": "fd:/dc1/r0",
-            "upgradeDomain": "UD0"
-        }
+{
+  "nodeName": "vm0",
+  "ipAddress": "172.31.27.1",
+  "nodeTypeRef": "NodeType0",
+  "faultDomain": "fd:/dc1/r0",
+  "upgradeDomain": "UD0"
+}
 ```
 
 Then you need to update a couple of the properties.  On line 34, you need to modify the connection string for the diagnostic store it should look like this `"connectionstring": "C:\\ProgramData\\SF\\DiagnosticsStore"`
@@ -81,7 +73,7 @@ cd .\Desktop\Microsoft.Azure.ServiceFabric.WindowsServer.6.2.274.9494\
 .\TestConfiguration.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json
 ```
 
-You should see output like below. If the bottom field "Passed" is returned as `True`, sanity checks have passed and the cluster looks to be deployable based on the input configuration.
+You should see output like the example below. If the bottom field "Passed" is returned as `True`, sanity checks have passed and the cluster looks to be deployable based on the input configuration.
 
 ```powershell
 Trace folder already exists. Traces will be written to existing trace folder: C:\Users\Administrator\Desktop\Microsoft.Azure.ServiceFabric.WindowsServer.6.2.274.9494\DeploymentTraces
@@ -105,7 +97,7 @@ Passed                     : True
 
 ## Create the cluster
 
-Once you have a successfully validated your cluster config run the *CreateServiceFabricCluster.ps1* script to deploy the Service Fabric cluster to the virtual machines in the configuration file.
+Once you have a successfully validated your cluster config, run the *CreateServiceFabricCluster.ps1* script to deploy the Service Fabric cluster to the virtual machines in the configuration file.
 
 ```powershell
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json -AcceptEULA
@@ -122,7 +114,7 @@ Your cluster is successfully created! You can connect and manage your cluster us
 >
 >
 
-### Bring up Service Fabric Explorer
+### Open Service Fabric Explorer
 
 Now you can connect to the cluster with Service Fabric Explorer either directly from one of the machines with http:\//localhost:19080/Explorer/index.html or remotely with http:\//<*IPAddressofaMachine*>:19080/Explorer/index.html.
 
@@ -132,7 +124,7 @@ You can add or remove nodes to your standalone Service Fabric cluster as your bu
 
 ## Next steps
 
-In part two of the series, you learned about uploading large amounts of random data to a storage account in parallel, such as how to:
+In this article, you learned about uploading large amounts of random data to a storage account in parallel, such as how to:
 
 > [!div class="checklist"]
 > * Configure the connection string

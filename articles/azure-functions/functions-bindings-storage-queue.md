@@ -1,545 +1,217 @@
 ---
-title: Azure Queue storage bindings for Azure Functions
+title: Azure Queue storage trigger and bindings for Azure Functions overview
 description: Understand how to use the Azure Queue storage trigger and output binding in Azure Functions.
-services: functions
-documentationcenter: na
-author: craigshoemaker
-manager: jeconnoc
-keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
-
-ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
-ms.date: 09/03/2018
-ms.author: cshoe
-ms.custom: cc996988-fb4f-47
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
+ms.date: 11/11/2022
+zone_pivot_groups: programming-languages-set-functions
 ---
 
-# Azure Queue storage bindings for Azure Functions
+# Azure Queue storage trigger and bindings for Azure Functions overview
 
-This article explains how to work with Azure Queue storage bindings in Azure Functions. Azure Functions supports trigger and output bindings for queues.
+Azure Functions can run as new Azure Queue storage messages are created and can write queue messages within a function.
 
-[!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+| Action | Type |
+|---------|---------|
+| Run a function as queue storage data changes | [Trigger](./functions-bindings-storage-queue-trigger.md) |
+| Write queue storage messages |[Output binding](./functions-bindings-storage-queue-output.md) |
 
-## Packages - Functions 1.x
+::: zone pivot="programming-language-csharp"
 
-The Queue storage bindings are provided in the [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet package, version 2.x. Source code for the package is in the [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Queue) GitHub repository.
+## Install extension
 
-[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
+The extension NuGet package you install depends on the C# mode you're using in your function app: 
+
+# [Isolated worker model](#tab/isolated-process)
+
+Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
+
+# [In-process model](#tab/in-process)
+
+Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
+
+In a variation of this model, Functions can be run using [C# scripting], which is supported primarily for C# portal editing. To update existing binding extensions for C# script apps running in the portal without having to republish your function app, see [Update your extensions].
+
+---
+
+The functionality of the extension varies depending on the extension version:
+
+# [Extension 5.x+](#tab/extensionv5/in-process)
+
+<a name="storage-extension-5x-and-higher"></a>
+
+_This section describes using a [class library](./functions-dotnet-class-library.md). For [C# scripting], you would need to instead [install the extension bundle][Update your extensions], version 4.x._
+
+[!INCLUDE [functions-bindings-supports-identity-connections-note](../../includes/functions-bindings-supports-identity-connections-note.md)]
+
+This version allows you to bind to types from [Azure.Storage.Queues].
+
+This extension is available by installing the [Microsoft.Azure.WebJobs.Extensions.Storage.Queues NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage.Queues), version 5.x.
+
+Using the .NET CLI:
+
+```dotnetcli
+dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage.Queues --version 5.0.0
+``` 
+
+[!INCLUDE [functions-bindings-storage-extension-v5-tables-note](../../includes/functions-bindings-storage-extension-v5-tables-note.md)]
+
+# [Functions 2.x+](#tab/functionsv2/in-process)
+
+<a name="functions-2x-and-higher"></a>
+
+_This section describes using a [class library](./functions-dotnet-class-library.md). For [C# scripting], you would need to instead [install the extension bundle][Update your extensions], version 2.x._
+
+Working with the trigger and bindings requires that you reference the appropriate NuGet package. Install the [NuGet package], version 3.x or 4.x.
+
+# [Functions 1.x](#tab/functionsv1/in-process)
+
+[!INCLUDE [functions-runtime-1x-retirement-note](../../includes/functions-runtime-1x-retirement-note.md)]
+
+Functions 1.x apps automatically have a reference the [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet package, version 2.x.
 
 [!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
 
-## Packages - Functions 2.x
-
-The Queue storage bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) NuGet package, version 3.x. Source code for the package is in the [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Queues) GitHub repository.
-
-[!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
-
-## Encoding
-Functions expect a *base64* encoded string. Any adjustments to the encoding type (in order to prepare data as a *base64* encoded string) need to be implemented in the calling service.
-
-## Trigger
-
-Use the queue trigger to start a function when a new item is received on a queue. The queue message is provided as input to the function.
-
-## Trigger - example
-
-See the language-specific example:
-
-* [C#](#trigger---c-example)
-* [C# script (.csx)](#trigger---c-script-example)
-* [JavaScript](#trigger---javascript-example)
-* [Java](#trigger---java-example)
-
-### Trigger - C# example
-
-The following example shows a [C# function](functions-dotnet-class-library.md) that polls the `myqueue-items` queue and writes a log each time a queue item is processed.
-
-```csharp
-public static class QueueFunctions
-{
-    [FunctionName("QueueTrigger")]
-    public static void QueueTrigger(
-        [QueueTrigger("myqueue-items")] string myQueueItem, 
-        ILogger log)
-    {
-        log.LogInformation($"C# function processed: {myQueueItem}");
-    }
-}
-```
-
-### Trigger - C# script example
-
-The following example shows a queue trigger binding in a *function.json* file and [C# script (.csx)](functions-reference-csharp.md) code that uses the binding. The function polls the `myqueue-items` queue and writes a log each time a queue item is processed.
-
-Here's the *function.json* file:
-
-```json
-{
-    "disabled": false,
-    "bindings": [
-        {
-            "type": "queueTrigger",
-            "direction": "in",
-            "name": "myQueueItem",
-            "queueName": "myqueue-items",
-            "connection":"MyStorageConnectionAppSetting"
-        }
-    ]
-}
-```
-
-The [configuration](#trigger---configuration) section explains these properties.
-
-Here's the C# script code:
-
-```csharp
-#r "Microsoft.WindowsAzure.Storage"
-
-using Microsoft.Extensions.Logging;
-using Microsoft.WindowsAzure.Storage.Queue;
-using System;
-
-public static void Run(CloudQueueMessage myQueueItem, 
-    DateTimeOffset expirationTime, 
-    DateTimeOffset insertionTime, 
-    DateTimeOffset nextVisibleTime,
-    string queueTrigger,
-    string id,
-    string popReceipt,
-    int dequeueCount,
-    ILogger log)
-{
-    log.LogInformation($"C# Queue trigger function processed: {myQueueItem.AsString}\n" +
-        $"queueTrigger={queueTrigger}\n" +
-        $"expirationTime={expirationTime}\n" +
-        $"insertionTime={insertionTime}\n" +
-        $"nextVisibleTime={nextVisibleTime}\n" +
-        $"id={id}\n" +
-        $"popReceipt={popReceipt}\n" + 
-        $"dequeueCount={dequeueCount}");
-}
-```
-
-The [usage](#trigger---usage) section explains `myQueueItem`, which is named by the `name` property in function.json.  The [message metadata section](#trigger---message-metadata) explains all of the other variables shown.
-
-### Trigger - JavaScript example
-
-The following example shows a queue trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function polls the `myqueue-items` queue and writes a log each time a queue item is processed.
-
-Here's the *function.json* file:
-
-```json
-{
-    "disabled": false,
-    "bindings": [
-        {
-            "type": "queueTrigger",
-            "direction": "in",
-            "name": "myQueueItem",
-            "queueName": "myqueue-items",
-            "connection":"MyStorageConnectionAppSetting"
-        }
-    ]
-}
-```
-
-The [configuration](#trigger---configuration) section explains these properties.
-
-> [!NOTE]
-> The name parameter reflects as `context.bindings.<name>` in the JavaScript code which contains the queue item payload. This payload is also passed as the second parameter to the function.
-
-Here's the JavaScript code:
-
-```javascript
-module.exports = async function (context, message) {
-    context.log('Node.js queue trigger function processed work item', message);
-    // OR access using context.bindings.<name>
-    // context.log('Node.js queue trigger function processed work item', context.bindings.myQueueItem);
-    context.log('expirationTime =', context.bindingData.expirationTime);
-    context.log('insertionTime =', context.bindingData.insertionTime);
-    context.log('nextVisibleTime =', context.bindingData.nextVisibleTime);
-    context.log('id =', context.bindingData.id);
-    context.log('popReceipt =', context.bindingData.popReceipt);
-    context.log('dequeueCount =', context.bindingData.dequeueCount);
-    context.done();
-};
-```
-
-The [usage](#trigger---usage) section explains `myQueueItem`, which is named by the `name` property in function.json.  The [message metadata section](#trigger---message-metadata) explains all of the other variables shown.
-
-### Trigger - Java example
-
-The following Java example shows a storage queue trigger functions which logs the triggered message placed into queue `myqueuename`.
-
- ```java
- @FunctionName("queueprocessor")
- public void run(
-    @QueueTrigger(name = "msg",
-                   queueName = "myqueuename",
-                   connection = "myconnvarname") String message,
-     final ExecutionContext context
- ) {
-     context.getLogger().info(message);
- }
- ```
-
-## Trigger - attributes
-
-In [C# class libraries](functions-dotnet-class-library.md), use the following attributes to configure a queue trigger:
-
-* [QueueTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueTriggerAttribute.cs)
-
-  The attribute's constructor takes the name of the queue to monitor, as shown in the following example:
-
-  ```csharp
-  [FunctionName("QueueTrigger")]
-  public static void Run(
-      [QueueTrigger("myqueue-items")] string myQueueItem, 
-      ILogger log)
-  {
-      ...
-  }
-  ```
+# [Extension 5.x+](#tab/extensionv5/isolated-process)
 
-  You can set the `Connection` property to specify the storage account to use, as shown in the following example:
+[!INCLUDE [functions-bindings-supports-identity-connections-note](../../includes/functions-bindings-supports-identity-connections-note.md)]
 
-  ```csharp
-  [FunctionName("QueueTrigger")]
-  public static void Run(
-      [QueueTrigger("myqueue-items", Connection = "StorageConnectionAppSetting")] string myQueueItem, 
-      ILogger log)
-  {
-      ....
-  }
-  ```
+This version allows you to bind to types from [Azure.Storage.Queues](/dotnet/api/azure.storage.queues).
 
-  For a complete example, see [Trigger - C# example](#trigger---c-example).
+Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Storage.Queues), version 5.x.
 
-* [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
 
-  Provides another way to specify the storage account to use. The constructor takes the name of an app setting that contains a storage connection string. The attribute can be applied at the parameter, method, or class level. The following example shows class level and method level:
+Using the .NET CLI:
 
-  ```csharp
-  [StorageAccount("ClassLevelStorageAppSetting")]
-  public static class AzureFunctions
-  {
-      [FunctionName("QueueTrigger")]
-      [StorageAccount("FunctionLevelStorageAppSetting")]
-      public static void Run( //...
-  {
-      ...
-  }
-  ```
+```dotnetcli
+dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Storage.Queues --version 5.0.0
+``` 
 
-The storage account to use is determined in the following order:
+[!INCLUDE [functions-bindings-storage-extension-v5-isolated-worker-tables-note](../../includes/functions-bindings-storage-extension-v5-isolated-worker-tables-note.md)]
 
-* The `QueueTrigger` attribute's `Connection` property.
-* The `StorageAccount` attribute applied to the same parameter as the `QueueTrigger` attribute.
-* The `StorageAccount` attribute applied to the function.
-* The `StorageAccount` attribute applied to the class.
-* The "AzureWebJobsStorage" app setting.
+# [Functions 2.x+](#tab/functionsv2/isolated-process)
 
-## Trigger - configuration
+Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Storage/), version 4.x.
 
-The following table explains the binding configuration properties that you set in the *function.json* file and the `QueueTrigger` attribute.
+# [Functions 1.x](#tab/functionsv1/isolated-process)
 
-|function.json property | Attribute property |Description|
-|---------|---------|----------------------|
-|**type** | n/a| Must be set to `queueTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
-|**direction**| n/a | In the *function.json* file only. Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. |
-|**name** | n/a |The name of the variable that contains the queue item payload in the function code.  |
-|**queueName** | **QueueName**| The name of the queue to poll. |
-|**connection** | **Connection** |The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.|
+Functions version 1.x doesn't support the isolated worker process.
 
-[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+---
 
-## Trigger - usage
-
-In C# and C# script, access the message data by using a method parameter such as `string paramName`. In C# script, `paramName` is the value specified in the `name` property of *function.json*. You can bind to any of the following types:
-
-* Object - The Functions runtime deserializes a JSON payload into an instance of an arbitrary class defined in your code. 
-* `string`
-* `byte[]`
-* [CloudQueueMessage]
-
-If you try to bind to `CloudQueueMessage` and get an error message, make sure that you have a reference to [the correct Storage SDK version](#azure-storage-sdk-version-in-functions-1x).
-
-In JavaScript, use `context.bindings.<name>` to access the queue item payload. If the payload is JSON, it's deserialized into an object.
-
-## Trigger - message metadata
-
-The queue trigger provides several [metadata properties](./functions-bindings-expressions-patterns.md#trigger-metadata). These properties can be used as part of binding expressions in other bindings or as parameters in your code. These are properties of the [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) class.
-
-|Property|Type|Description|
-|--------|----|-----------|
-|`QueueTrigger`|`string`|Queue payload (if a valid string). If the queue message payload as a string, `QueueTrigger` has the same value as the variable named by the `name` property in *function.json*.|
-|`DequeueCount`|`int`|The number of times this message has been dequeued.|
-|`ExpirationTime`|`DateTimeOffset`|The time that the message expires.|
-|`Id`|`string`|Queue message ID.|
-|`InsertionTime`|`DateTimeOffset`|The time that the message was added to the queue.|
-|`NextVisibleTime`|`DateTimeOffset`|The time that the message will next be visible.|
-|`PopReceipt`|`string`|The message's pop receipt.|
-
-## Trigger - poison messages
-
-When a queue trigger function fails, Azure Functions retries the function up to five times for a given queue message, including the first try. If all five attempts fail, the functions runtime adds a message to a queue named *&lt;originalqueuename>-poison*. You can write a function to process messages from the poison queue by logging them or sending a  notification that manual attention is needed.
-
-To handle poison messages manually, check the [dequeueCount](#trigger---message-metadata) of the queue message.
-
-## Trigger - polling algorithm
-
-The queue trigger implements a random exponential back-off algorithm to reduce the effect of idle-queue polling on storage transaction costs.  When a message is found, the runtime waits two seconds and then checks for another message; when no message is found, it waits about four seconds before trying again. After subsequent failed attempts to get a queue message, the wait time continues to increase until it reaches the maximum wait time, which defaults to one minute. The maximum wait time is configurable via the `maxPollingInterval` property in the [host.json file](functions-host-json.md#queues).
-
-## Trigger - concurrency
-
-When there are multiple queue messages waiting, the queue trigger retrieves a batch of messages and invokes function instances concurrently to process them. By default, the batch size is 16. When the number being processed gets down to 8, the runtime gets another batch and starts processing those messages. So the maximum number of concurrent messages being processed per function on one virtual machine (VM) is 24. This limit applies separately to each queue-triggered function on each VM. If your function app scales out to multiple VMs, each VM will wait for triggers and attempt to run functions. For example, if a function app scales out to 3 VMs, the default maximum number of concurrent instances of one queue-triggered function is 72.
-
-The batch size and the threshold for getting a new batch are configurable in the [host.json file](functions-host-json.md#queues). If you want to minimize parallel execution for queue-triggered functions in a function app, you can set the batch size to 1. This setting eliminates concurrency only so long as your function app runs on a single virtual machine (VM). 
-
-The queue trigger automatically prevents a function from processing a queue message multiple times; functions do not have to be written to be idempotent.
-
-## Trigger - host.json properties
-
-The [host.json](functions-host-json.md#queues) file contains settings that control queue trigger behavior. See the [host.json settings](#hostjson-settings) section for details regarding available settings.
-
-## Output
-
-Use the Azure Queue storage output binding to write messages to a queue.
-
-## Output - example
-
-See the language-specific example:
-
-* [C#](#output---c-example)
-* [C# script (.csx)](#output---c-script-example)
-* [JavaScript](#output---javascript-example)
-* [Java](#output---java-example)
-
-### Output - C# example
-
-The following example shows a [C# function](functions-dotnet-class-library.md) that creates a queue message for each HTTP request received.
-
-```csharp
-[StorageAccount("AzureWebJobsStorage")]
-public static class QueueFunctions
-{
-    [FunctionName("QueueOutput")]
-    [return: Queue("myqueue-items")]
-    public static string QueueOutput([HttpTrigger] dynamic input,  ILogger log)
-    {
-        log.LogInformation($"C# function processed: {input.Text}");
-        return input.Text;
-    }
-}
-```
-
-### Output - C# script example
-
-The following example shows an HTTP trigger binding in a *function.json* file and [C# script (.csx)](functions-reference-csharp.md) code that uses the binding. The function creates a queue item with a **CustomQueueMessage** object payload for each HTTP request received.
-
-Here's the *function.json* file:
-
-```json
-{
-  "bindings": [
-    {
-      "type": "httpTrigger",
-      "direction": "in",
-      "authLevel": "function",
-      "name": "input"
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "return"
-    },
-    {
-      "type": "queue",
-      "direction": "out",
-      "name": "$return",
-      "queueName": "outqueue",
-      "connection": "MyStorageConnectionAppSetting"
-    }
-  ]
-}
-```
-
-The [configuration](#output---configuration) section explains these properties.
-
-Here's C# script code that creates a single queue message:
-
-```cs
-public class CustomQueueMessage
-{
-    public string PersonName { get; set; }
-    public string Title { get; set; }
-}
-
-public static CustomQueueMessage Run(CustomQueueMessage input, ILogger log)
-{
-    return input;
-}
-```
-
-You can send multiple messages at once by using an `ICollector` or `IAsyncCollector` parameter. Here's C# script code that sends multiple messages, one with the HTTP request data and one with hard-coded values:
-
-```cs
-public static void Run(
-    CustomQueueMessage input, 
-    ICollector<CustomQueueMessage> myQueueItems, 
-    ILogger log)
-{
-    myQueueItems.Add(input);
-    myQueueItems.Add(new CustomQueueMessage { PersonName = "You", Title = "None" });
-}
-```
-
-### Output - JavaScript example
-
-The following example shows an HTTP trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function creates a queue item for each HTTP request received.
-
-Here's the *function.json* file:
-
-```json
-{
-  "bindings": [
-    {
-      "type": "httpTrigger",
-      "direction": "in",
-      "authLevel": "function",
-      "name": "input"
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "return"
-    },
-    {
-      "type": "queue",
-      "direction": "out",
-      "name": "$return",
-      "queueName": "outqueue",
-      "connection": "MyStorageConnectionAppSetting"
-    }
-  ]
-}
-```
-
-The [configuration](#output---configuration) section explains these properties.
-
-Here's the JavaScript code:
-
-```javascript
-module.exports = function (context, input) {
-    context.done(null, input.body);
-};
-```
-
-You can send multiple messages at once by defining a message array for the `myQueueItem` output binding. The following JavaScript code sends two queue messages with hard-coded values for each HTTP request received.
-
-```javascript
-module.exports = function(context) {
-    context.bindings.myQueueItem = ["message 1","message 2"];
-    context.done();
-};
-```
-
-### Output - Java example
-
- The following example shows a Java function that creates a queue message for when triggered by a  HTTP request.
-
-```java
-@FunctionName("httpToQueue")
-@QueueOutput(name = "item", queueName = "myqueue-items", connection = "AzureWebJobsStorage")
- public String pushToQueue(
-     @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
-     final String message,
-     @HttpOutput(name = "response") final OutputBinding&lt;String&gt; result) {
-       result.setValue(message + " has been added.");
-       return message;
- }
-```
-
-In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@QueueOutput` annotation on parameters whose value would be written to Queue storage.  The parameter type should be `OutputBinding<T>`, where T is any native Java type of a POJO.
-
-
-## Output - attributes
-
-In [C# class libraries](functions-dotnet-class-library.md), use the [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs).
-
-The attribute applies to an `out` parameter or the return value of the function. The attribute's constructor takes the name of the queue, as shown in the following example:
-
-```csharp
-[FunctionName("QueueOutput")]
-[return: Queue("myqueue-items")]
-public static string Run([HttpTrigger] dynamic input,  ILogger log)
-{
-    ...
-}
-```
-
-You can set the `Connection` property to specify the storage account to use, as shown in the following example:
-
-```csharp
-[FunctionName("QueueOutput")]
-[return: Queue("myqueue-items", Connection = "StorageConnectionAppSetting")]
-public static string Run([HttpTrigger] dynamic input,  ILogger log)
-{
-    ...
-}
-```
-
-For a complete example, see [Output - C# example](#output---c-example).
-
-You can use the `StorageAccount` attribute to specify the storage account at class, method, or parameter level. For more information, see Trigger - attributes.
-
-## Output - configuration
-
-The following table explains the binding configuration properties that you set in the *function.json* file and the `Queue` attribute.
-
-|function.json property | Attribute property |Description|
-|---------|---------|----------------------|
-|**type** | n/a | Must be set to `queue`. This property is set automatically when you create the trigger in the Azure portal.|
-|**direction** | n/a | Must be set to `out`. This property is set automatically when you create the trigger in the Azure portal. |
-|**name** | n/a | The name of the variable that represents the queue in function code. Set to `$return` to reference the function return value.|
-|**queueName** |**QueueName** | The name of the queue. |
-|**connection** | **Connection** |The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.|
-
-[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
-
-## Output - usage
-
-In C# and C# script, write a single queue message by using a method parameter such as `out T paramName`. In C# script, `paramName` is the value specified in the `name` property of *function.json*. You can use the method return type instead of an `out` parameter, and `T` can be any of the following types:
-
-* An object serializable as JSON
-* `string`
-* `byte[]`
-* [CloudQueueMessage] 
-
-If you try to bind to `CloudQueueMessage` and get an error message, make sure that you have a reference to [the correct Storage SDK version](#azure-storage-sdk-version-in-functions-1x).
-
-In C# and C# script, write multiple queue messages by using one of the following types: 
-
-* `ICollector<T>` or `IAsyncCollector<T>`
-* [CloudQueue](/dotnet/api/microsoft.azure.storage.queue.cloudqueue)
-
-In JavaScript functions, use `context.bindings.<name>` to access the output queue message. You can use a string or a JSON-serializable object for the queue item payload.
-
-
-## Exceptions and return codes
-
-| Binding |  Reference |
-|---|---|
-| Queue | [Queue Error Codes](https://docs.microsoft.com/rest/api/storageservices/queue-service-error-codes) |
-| Blob, Table, Queue | [Storage Error Codes](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
-| Blob, Table, Queue |  [Troubleshooting](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
-
-<a name="host-json"></a>  
-
-## host.json settings
-
-This section describes the global configuration settings available for this binding in version 2.x. The example host.json file below contains only the version 2.x settings for this binding. For more information about global configuration settings in version 2.x, see [host.json reference for Azure Functions version 2.x](functions-host-json.md).
+::: zone-end
+
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"  
+
+## Install bundle
+
+The Blob storage binding is part of an [extension bundle], which is specified in your host.json project file. You may need to modify this bundle to change the version of the binding, or if bundles aren't already installed. To learn more, see [extension bundle].
+
+# [Bundle v3.x](#tab/extensionv3)
+
+[!INCLUDE [functions-bindings-supports-identity-connections-note](../../includes/functions-bindings-supports-identity-connections-note.md)]
+
+You can add this version of the extension from the preview extension bundle v3 by adding or replacing the following code in your `host.json` file:
+
+[!INCLUDE [functions-extension-bundles-json-v3](../../includes/functions-extension-bundles-json-v3.md)]
+
+To learn more, see [Update your extensions].
+
+# [Bundle v2.x](#tab/extensionv2)
+
+You can install this version of the extension in your function app by registering the [extension bundle], version 2.x.
+
+# [Functions 1.x](#tab/functions1)
+
+Functions 1.x apps automatically have a reference to the extension.
+
+---
+
+::: zone-end
+
+::: zone pivot="programming-language-csharp"
+
+## Binding types
+
+The binding types supported for .NET depend on both the extension version and C# execution mode, which can be one of the following: 
+   
+# [Isolated worker model](#tab/isolated-process)
+
+An isolated worker process class library compiled C# function runs in a process isolated from the runtime.  
+   
+# [In-process model](#tab/in-process)
+
+An in-process class library is a compiled C# function runs in the same process as the Functions runtime.
+ 
+---
+
+Choose a version to see binding type details for the mode and version.
+
+# [Extension 5.x+](#tab/extensionv5/in-process)
+
+The Azure Queues extension supports parameter types according to the table below.
+
+ Binding scenario | Parameter types |
+|-|-|
+| Queue trigger | [QueueMessage]<br/>JSON serializable types<sup>1</sup><br/>`string`<br/>`byte[]`<br/>[BinaryData] |
+| Queue output (single message)  | [QueueMessage]<br/>JSON serializable types<sup>1</sup><br/>`string`<br/>`byte[]`<br/>[BinaryData] |
+| Queue output (multiple messages)  | [QueueClient]<br/>`ICollector<T>` or `IAsyncCollector<T>` where `T` is one of the single message types |
+
+<sup>1</sup> Messages containing JSON data can be deserialized into known plain-old CLR object (POCO) types.
+
+# [Functions 2.x+](#tab/functionsv2/in-process)
+
+Earlier versions of the extension exposed types from the now deprecated [Microsoft.Azure.Storage.Queues] namespace. Newer types from [Azure.Storage.Queues] are exclusive to **Extension 5.x+**.
+
+This version of the extension supports parameter types according to the table below.
+
+ Binding scenario | Parameter types |
+|-|-|
+| Queue trigger | [CloudQueueMessage]<br/>JSON serializable types<sup>1</sup><br/>`string`<br/>`byte[]` |
+| Queue output  | [CloudQueueMessage]<br/>JSON serializable types<sup>1</sup><br/>`string`<br/>`byte[]`<br/>[CloudQueue] |
+
+<sup>1</sup> Messages containing JSON data can be deserialized into known plain-old CLR object (POCO) types.
+
+# [Functions 1.x](#tab/functionsv1/in-process)
+
+Functions 1.x exposed types from the deprecated [Microsoft.WindowsAzure.Storage] namespace. Newer types from [Azure.Storage.Queues] are exclusive to the **Extension 5.x+**. To use these, you will need to [upgrade your application to Functions 4.x].
+
+# [Extension 5.x+](#tab/extensionv5/isolated-process)
+
+The isolated worker process supports parameter types according to the tables below. Support for binding to types from [Azure.Storage.Queues] is in preview.
+
+**Queue trigger**
+
+[!INCLUDE [functions-bindings-storage-queue-trigger-dotnet-isolated-types](../../includes/functions-bindings-storage-queue-trigger-dotnet-isolated-types.md)]
+
+**Queue output binding**
+
+[!INCLUDE [functions-bindings-storage-queue-output-dotnet-isolated-types](../../includes/functions-bindings-storage-queue-output-dotnet-isolated-types.md)]
+
+# [Functions 2.x+](#tab/functionsv2/isolated-process)
+
+Earlier versions of extensions in the isolated worker process only support binding to string types. Additional options are available to the **Extension 5.x**.
+
+# [Functions 1.x](#tab/functionsv1/isolated-process)
+
+Functions version 1.x doesn't support the isolated worker process. To use the isolated worker model, [upgrade your application to Functions 4.x].
+
+---
+
+[QueueMessage]: /dotnet/api/azure.storage.queues.models.queuemessage
+[QueueClient]: /dotnet/api/azure.storage.queues.queueclient
+[BinaryData]: /dotnet/api/system.binarydata
+
+[CloudQueueMessage]: /dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage
+[CloudQueue]: /dotnet/api/microsoft.azure.storage.queue.cloudqueue
+
+[upgrade your application to Functions 4.x]: ./migrate-version-1-version-4.md
+
+:::zone-end
+
+## <a name="host-json"></a>host.json settings
+
+[!INCLUDE [functions-host-json-section-intro](../../includes/functions-host-json-section-intro.md)]
 
 > [!NOTE]
 > For a reference of host.json in Functions 1.x, see [host.json reference for Azure Functions 1.x](functions-host-json-v1.md).
@@ -553,33 +225,33 @@ This section describes the global configuration settings available for this bind
             "visibilityTimeout" : "00:00:30",
             "batchSize": 16,
             "maxDequeueCount": 5,
-            "newBatchThreshold": 8
+            "newBatchThreshold": 8,
+            "messageEncoding": "base64"
         }
     }
 }
 ```
 
-
 |Property  |Default | Description |
 |---------|---------|---------|
-|maxPollingInterval|00:00:01|The maximum interval between queue polls. Minimum is 00:00:00.100 (100 ms) and increments up to 00:01:00 (1 min). |
+|maxPollingInterval|00:01:00|The maximum interval between queue polls. The minimum interval is 00:00:00.100 (100 ms). Intervals increment up to `maxPollingInterval`. The default value of `maxPollingInterval` is 00:01:00 (1 min). `maxPollingInterval` must not be less than 00:00:00.100 (100 ms). In Functions 2.x and later, the data type is a `TimeSpan`. In Functions 1.x, it is in milliseconds.|
 |visibilityTimeout|00:00:00|The time interval between retries when processing of a message fails. |
-|batchSize|16|The number of queue messages that the Functions runtime retrieves simultaneously and processes in parallel. When the number being processed gets down to the `newBatchThreshold`, the runtime gets another batch and starts processing those messages. So the maximum number of concurrent messages being processed per function is `batchSize` plus `newBatchThreshold`. This limit applies separately to each queue-triggered function. <br><br>If you want to avoid parallel execution for messages received on one queue, you can set `batchSize` to 1. However, this setting eliminates concurrency only so long as your function app runs on a single virtual machine (VM). If the function app scales out to multiple VMs, each VM could run one instance of each queue-triggered function.<br><br>The maximum `batchSize` is 32. |
+|batchSize|16|The number of queue messages that the Functions runtime retrieves simultaneously and processes in parallel. When the number being processed gets down to the `newBatchThreshold`, the runtime gets another batch and starts processing those messages. So the maximum number of concurrent messages being processed per function is `batchSize` plus `newBatchThreshold`. This limit applies separately to each queue-triggered function. <br><br>If you want to avoid parallel execution for messages received on one queue, you can set `batchSize` to 1. However, this setting eliminates concurrency as long as your function app runs only on a single virtual machine (VM). If the function app scales out to multiple VMs, each VM could run one instance of each queue-triggered function.<br><br>The maximum `batchSize` is 32. |
 |maxDequeueCount|5|The number of times to try processing a message before moving it to the poison queue.|
-|newBatchThreshold|batchSize/2|Whenever the number of messages being processed concurrently gets down to this number, the runtime retrieves another batch.|
+|newBatchThreshold|N*batchSize/2|Whenever the number of messages being processed concurrently gets down to this number, the runtime retrieves another batch.<br><br>`N` represents the number of vCPUs available when running on App Service or Premium Plans. Its value is `1` for the Consumption Plan.|
+|messageEncoding|base64| This setting is only available in [extension bundle version 5.0.0 and higher](#storage-extension-5x-and-higher). It represents the encoding format for messages. Valid values are `base64` and `none`.|
 
 ## Next steps
 
-* [Learn more about Azure functions triggers and bindings](functions-triggers-bindings.md)
+- [Run a function as queue storage data changes (Trigger)](./functions-bindings-storage-queue-trigger.md)
+- [Write queue storage messages (Output binding)](./functions-bindings-storage-queue-output.md)
+ 
+[extension bundle]: ./functions-bindings-register.md#extension-bundles
+[NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage
+[Update your extensions]: ./functions-bindings-register.md
 
-<!--
-> [!div class="nextstepaction"]
-> [Go to a quickstart that uses a Queue storage trigger](functions-create-storage-queue-triggered-function.md)
--->
+[Azure.Storage.Queues]: /dotnet/api/azure.storage.queues
+[Microsoft.Azure.Storage.Queues]: /dotnet/api/microsoft.azure.storage.queue
+[Microsoft.WindowsAzure.Storage]: /dotnet/api/microsoft.windowsazure.storage
 
-> [!div class="nextstepaction"]
-> [Go to a tutorial that uses a Queue storage output binding](functions-integrate-storage-queue-output-binding.md)
-
-<!-- LINKS -->
-
-[CloudQueueMessage]: /dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage
+[C# scripting]: ./functions-reference-csharp.md

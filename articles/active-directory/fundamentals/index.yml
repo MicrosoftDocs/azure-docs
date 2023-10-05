@@ -1,48 +1,81 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure Active Directory fundamentals documentation
-metadata:
-  document_id: 
-  title: Azure Active Directory fundamentals documentation
-  description: Learn about the basic concepts and processes available while using Azure Active Directory.
-  services: active-directory
-  ms.subservice: fundamentals
-  author: eross-msft
-  manager: daveba
+### YamlMime:Landing
 
+title: Microsoft Entra ID fundamentals documentation 
+summary: Learn basic Microsoft Entra ID concepts and processes, including how to create a basic environment, basic users, and groups, to get started.
+
+metadata:
+  title: Microsoft Entra ID fundamentals documentation 
+  description: "Learn basic Microsoft Entra ID concepts and processes, including how to create a basic environment, basic users, and groups, to get started."
+  manager: amycolannino
+  ms.author: barclayn
+  ms.collection: na
+  ms.date: 08/27/2019
   ms.service: active-directory
+  ms.subservice: fundamentals
   ms.topic: landing-page
-  ms.date: 09/07/2018
-  ms.author: lizross
-abstract:
-  description: Learn about basic Azure Active Directory (Azure AD) concepts and processes, including how to create basic users, groups, and how to create a basic environment to get started.
-sections:
-- title: 5-Minute Quickstarts
-  items:
-  - type: paragraph
-    text: 'Learn how to get started with the Azure Active Directory portal.'
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: ./media/index/i_portal.png
-      text: Access Azure AD to create a tenant
-      href: active-directory-access-create-new-tenant.md
-    - image: 
-        src: ./media/index/i_tasks.png
-      text: View groups and members
-      href: active-directory-groups-view-azure-portal.md
-- title: Step-by-Step guides
-  items:
-  - type: paragraph
-    text: Learn how to perform basic tasks to set up in your Azure Active Directory environment
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="/azure/active-directory/fundamentals/active-directory-get-started-premium">Sign up for Azure AD Premium</a>
-    - html: <a href="/azure/active-directory/fundamentals/add-custom-domain">How to add a custom domain name</a>
-    - html: <a href="/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal">How to create a basic group and add members</a>
-    - html: <a href="/azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners">How to add group owners</a>
-    - html: <a href="/azure/active-directory/fundamentals/add-users-azure-active-directory">How to add a new user</a>
-    - html: <a href="/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal">How to assign roles to users</a>
-    - html: <a href="/azure/active-directory/fundamentals/license-users-groups">How to assign licenses to users</a>
+  services: active-directory
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+  # Card 
+  - title: About Microsoft Entra ID
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Microsoft Entra ID?
+            url: ./whatis.md
+          - text: What's new in Microsoft Entra ID
+            url: whats-new.md
+      - linkListType: concept
+        links:
+          - text: Microsoft Entra architecture
+            url: ../architecture/architecture.md
+
+  # Card 
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Access the portal and create a tenant
+            url: ./create-new-tenant.md
+          - text: Create a group and add members 
+            url: ./groups-view-azure-portal.md
+          - text: Add company branding 
+            url: how-to-customize-branding.md
+  # Card
+  - title: Create a Microsoft Entra account
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Sign up for Microsoft Entra ID P1 or P2 editions
+            url: ./get-started-premium.md
+          - text: Sign up for Microsoft Entra ID as an organization
+            url: sign-up-organization.md
+          - text: Add your custom domain name 
+            url: add-custom-domain.md
+
+  # Card
+  - title: Manage groups in Microsoft Entra ID
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Learn about groups
+            url: concept-learn-about-groups.md
+      - linkListType: how-to-guide
+        links:
+          - text: Manage groups and group membership
+            url: how-to-manage-groups.md
+
+
+   # Card
+  - title: Add users and assign roles and licenses
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Create or delete users
+            url: how-to-create-delete-users.md
+          - text: Assign roles to users
+            url: ./how-subscriptions-associated-directory.md
+          - text: Assign licenses to users
+            url: license-users-groups.md

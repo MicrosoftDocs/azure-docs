@@ -1,21 +1,12 @@
 ---
-title: Azure Service Fabric CLI- sfctl node | Microsoft Docs
-description: Describes the Service Fabric CLI sfctl node commands.
-services: service-fabric
-documentationcenter: na
-author: Christina-Kang
-manager: chackdan
-editor: ''
-
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: cli
+title: Azure Service Fabric CLI- sfctl node
+description: Learn about sfctl, the Azure Service Fabric command line interface. Includes a list of commands for managing cluster nodes.
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 
 # sfctl node
@@ -25,17 +16,44 @@ Manage the nodes that form a cluster.
 
 |Command|Description|
 | --- | --- |
+| add-configuration-parameter-overrides | Adds the list of configuration overrides on the specified node. |
 | disable | Deactivate a Service Fabric cluster node with the specified deactivation intent. |
 | enable | Activate a Service Fabric cluster node that is currently deactivated. |
+| get-configuration-overrides | Gets the list of configuration overrides on the specified node. |
 | health | Gets the health of a Service Fabric node. |
 | info | Gets the information about a specific node in the Service Fabric cluster. |
 | list | Gets the list of nodes in the Service Fabric cluster. |
 | load | Gets the load information of a Service Fabric node. |
+| remove-configuration-overrides | Removes configuration overrides on the specified node. |
 | remove-state | Notifies Service Fabric that the persisted state on a node has been permanently removed or lost. |
 | report-health | Sends a health report on the Service Fabric node. |
 | restart | Restarts a Service Fabric cluster node. |
 | transition | Starts or stops a cluster node. |
 | transition-status | Gets the progress of an operation started using StartNodeTransition. |
+
+## sfctl node add-configuration-parameter-overrides
+Adds the list of configuration overrides on the specified node.
+
+This api allows adding all existing configuration overrides on the specified node.
+
+### Arguments
+
+|Argument|Description|
+| --- | --- |
+| --config-parameter-override-list [Required] | Description for adding list of configuration overrides. |
+| --node-name                      [Required] | The name of the node. |
+| --force | Force adding configuration overrides on specified nodes. |
+| --timeout -t | The server timeout for performing the operation in seconds. This timeout specifies the time duration that the client is willing to wait for the requested operation to complete. The default value for this parameter is 60 seconds.  Default\: 60. |
+
+### Global Arguments
+
+|Argument|Description|
+| --- | --- |
+| --debug | Increase logging verbosity to show all debug logs. |
+| --help -h | Show this help message and exit. |
+| --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
+| --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl node disable
 Deactivate a Service Fabric cluster node with the specified deactivation intent.
@@ -48,7 +66,7 @@ Deactivate a Service Fabric cluster node with the specified deactivation intent.
 | --- | --- |
 | --node-name [Required] | The name of the node. |
 | --deactivation-intent | Describes the intent or reason for deactivating the node. The possible values are following. |
-| --timeout -t | Server timeout in seconds.  Default\: 60. |
+| --timeout -t | The server timeout for performing the operation in seconds. This timeout specifies the time duration that the client is willing to wait for the requested operation to complete. The default value for this parameter is 60 seconds.  Default\: 60. |
 
 ### Global Arguments
 
@@ -70,7 +88,29 @@ Activates a Service Fabric cluster node that is currently deactivated. Once acti
 |Argument|Description|
 | --- | --- |
 | --node-name [Required] | The name of the node. |
-| --timeout -t | Server timeout in seconds.  Default\: 60. |
+| --timeout -t | The server timeout for performing the operation in seconds. This timeout specifies the time duration that the client is willing to wait for the requested operation to complete. The default value for this parameter is 60 seconds.  Default\: 60. |
+
+### Global Arguments
+
+|Argument|Description|
+| --- | --- |
+| --debug | Increase logging verbosity to show all debug logs. |
+| --help -h | Show this help message and exit. |
+| --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
+| --verbose | Increase logging verbosity. Use --debug for full debug logs. |
+
+## sfctl node get-configuration-overrides
+Gets the list of configuration overrides on the specified node.
+
+This api allows getting all existing configuration overrides on the specified node.
+
+### Arguments
+
+|Argument|Description|
+| --- | --- |
+| --node-name [Required] | The name of the node. |
+| --timeout -t | The server timeout for performing the operation in seconds. This timeout specifies the time duration that the client is willing to wait for the requested operation to complete. The default value for this parameter is 60 seconds.  Default\: 60. |
 
 ### Global Arguments
 
@@ -93,7 +133,7 @@ Gets the health of a Service Fabric node. Use EventsHealthStateFilter to filter 
 | --- | --- |
 | --node-name       [Required] | The name of the node. |
 | --events-health-state-filter | Allows filtering the collection of HealthEvent objects returned based on health state. The possible values for this parameter include integer value of one of the following health states. Only events that match the filter are returned. All events are used to evaluate the aggregated health state. If not specified, all entries are returned. The state values are flag-based enumeration, so the value could be a combination of these values, obtained using the bitwise 'OR' operator. For example, If the provided value is 6 then all of the events with HealthState value of OK (2) and Warning (4) are returned.  <br> - Default - Default value. Matches any HealthState. The value is zero.  <br> - None - Filter that doesn't match any HealthState value. Used in order to return no results on a given collection of states. The value is 1.  <br> - Ok - Filter that matches input with HealthState value Ok. The value is 2.  <br> - Warning - Filter that matches input with HealthState value Warning. The value is 4.  <br> - Error - Filter that matches input with HealthState value Error. The value is 8.  <br> - All - Filter that matches input with any HealthState value. The value is 65535. |
-| --timeout -t | Server timeout in seconds.  Default\: 60. |
+| --timeout -t | The server timeout for performing the operation in seconds. This timeout specifies the time duration that the client is willing to wait for the requested operation to complete. The default value for this parameter is 60 seconds.  Default\: 60. |
 
 ### Global Arguments
 
@@ -115,7 +155,7 @@ The response includes the name, status, ID, health, uptime, and other details ab
 |Argument|Description|
 | --- | --- |
 | --node-name [Required] | The name of the node. |
-| --timeout -t | Server timeout in seconds.  Default\: 60. |
+| --timeout -t | The server timeout for performing the operation in seconds. This timeout specifies the time duration that the client is willing to wait for the requested operation to complete. The default value for this parameter is 60 seconds.  Default\: 60. |
 
 ### Global Arguments
 
@@ -139,7 +179,7 @@ The response includes the name, status, ID, health, uptime, and other details ab
 | --continuation-token | The continuation token parameter is used to obtain next set of results. A continuation token with a non-empty value is included in the response of the API when the results from the system do not fit in a single response. When this value is passed to the next API call, the API returns next set of results. If there are no further results, then the continuation token does not contain a value. The value of this parameter should not be URL encoded. |
 | --max-results | The maximum number of results to be returned as part of the paged queries. This parameter defines the upper bound on the number of results returned. The results returned can be less than the specified maximum results if they do not fit in the message as per the max message size restrictions defined in the configuration. If this parameter is zero or not specified, the paged query includes as many results as possible that fit in the return message. |
 | --node-status-filter | Allows filtering the nodes based on the NodeStatus. Only the nodes that are matching the specified filter value will be returned. The filter value can be one of the following.  Default\: default. |
-| --timeout -t | Server timeout in seconds.  Default\: 60. |
+| --timeout -t | The server timeout for performing the operation in seconds. This timeout specifies the time duration that the client is willing to wait for the requested operation to complete. The default value for this parameter is 60 seconds.  Default\: 60. |
 
 ### Global Arguments
 
@@ -161,7 +201,29 @@ Retrieves the load information of a Service Fabric node for all the metrics that
 |Argument|Description|
 | --- | --- |
 | --node-name [Required] | The name of the node. |
-| --timeout -t | Server timeout in seconds.  Default\: 60. |
+| --timeout -t | The server timeout for performing the operation in seconds. This timeout specifies the time duration that the client is willing to wait for the requested operation to complete. The default value for this parameter is 60 seconds.  Default\: 60. |
+
+### Global Arguments
+
+|Argument|Description|
+| --- | --- |
+| --debug | Increase logging verbosity to show all debug logs. |
+| --help -h | Show this help message and exit. |
+| --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
+| --verbose | Increase logging verbosity. Use --debug for full debug logs. |
+
+## sfctl node remove-configuration-overrides
+Removes configuration overrides on the specified node.
+
+This api allows removing all existing configuration overrides on specified node.
+
+### Arguments
+
+|Argument|Description|
+| --- | --- |
+| --node-name [Required] | The name of the node. |
+| --timeout -t | The server timeout for performing the operation in seconds. This timeout specifies the time duration that the client is willing to wait for the requested operation to complete. The default value for this parameter is 60 seconds.  Default\: 60. |
 
 ### Global Arguments
 
@@ -176,18 +238,14 @@ Retrieves the load information of a Service Fabric node for all the metrics that
 ## sfctl node remove-state
 Notifies Service Fabric that the persisted state on a node has been permanently removed or lost.
 
-This implies that it is not possible to recover the persisted state of that node. This generally happens if a hard disk has been wiped clean, or if a hard disk crashes. The node has to be down for this operation to be successful. This operation lets Service Fabric know that the replicas on that node no longer exist, and that Service Fabric should stop waiting for those replicas to come back up. Do not run this cmdlet if the state on the node has not been removed and the node can come back up with its state intact.
-
-Starting from Service Fabric 6.5, in order to use this cmdlet for seed nodes, please change the seed nodes to regular (non-seed) nodes and then invoke this cmdlet to remove the node state. 
-If the cluster is running on Azure, after the seed node goes down, Service Fabric will try to change it to a non-seed node automatically. To make this happen, make sure the number of non-seed nodes in the primary node type is no less than the number of Down seed nodes. If necessary, add more nodes to the primary node type to achieve this. 
-For standalone cluster, if the Down seed node is not expected to come back up with its state intact, please remove the node from the cluster, see [remove nodes from Service Fabric standalone cluster](/azure/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes) 
+This implies that it is not possible to recover the persisted state of that node. This generally happens if a hard disk has been wiped clean, or if a hard disk crashes. The node has to be down for this operation to be successful. This operation lets Service Fabric know that the replicas on that node no longer exist, and that Service Fabric should stop waiting for those replicas to come back up. Do not run this cmdlet if the state on the node has not been removed and the node can come back up with its state intact. Starting from Service Fabric 6.5, in order to use this API for seed nodes, please change the seed nodes to regular (non-seed) nodes and then invoke this API to remove the node state. If the cluster is running on Azure, after the seed node goes down, Service Fabric will try to change it to a non-seed node automatically. To make this happen, make sure the number of non-seed nodes in the primary node type is no less than the number of Down seed nodes. If necessary, add more nodes to the primary node type to achieve this. For standalone cluster, if the Down seed node is not expected to come back up with its state intact, please remove the node from the cluster. For more information, see [Add or remove nodes to a standalone Service Fabric cluster running on Windows Server](./service-fabric-cluster-windows-server-add-remove-nodes.md).
 
 ### Arguments
 
 |Argument|Description|
 | --- | --- |
 | --node-name [Required] | The name of the node. |
-| --timeout -t | Server timeout in seconds.  Default\: 60. |
+| --timeout -t | The server timeout for performing the operation in seconds. This timeout specifies the time duration that the client is willing to wait for the requested operation to complete. The default value for this parameter is 60 seconds.  Default\: 60. |
 
 ### Global Arguments
 
@@ -216,7 +274,7 @@ Reports health state of the specified Service Fabric node. The report must conta
 | --immediate | A flag that indicates whether the report should be sent immediately. <br><br> A health report is sent to a Service Fabric gateway Application, which forwards to the health store. If Immediate is set to true, the report is sent immediately from HTTP Gateway to the health store, regardless of the fabric client settings that the HTTP Gateway Application is using. This is useful for critical reports that should be sent as soon as possible. Depending on timing and other conditions, sending the report may still fail, for example if the HTTP Gateway is closed or the message doesn't reach the Gateway. If Immediate is set to false, the report is sent based on the health client settings from the HTTP Gateway. Therefore, it will be batched according to the HealthReportSendInterval configuration. This is the recommended setting because it allows the health client to optimize health reporting messages to health store as well as health report processing. By default, reports are not sent immediately. |
 | --remove-when-expired | Value that indicates whether the report is removed from health store when it expires. <br><br> If set to true, the report is removed from the health store after it expires. If set to false, the report is treated as an error when expired. The value of this property is false by default. When clients report periodically, they should set RemoveWhenExpired false (default). This way, is the reporter has issues (e.g. deadlock) and can't report, the entity is evaluated at error when the health report expires. This flags the entity as being in Error health state. |
 | --sequence-number | The sequence number for this health report as a numeric string. <br><br> The report sequence number is used by the health store to detect stale reports. If not specified, a sequence number is auto-generated by the health client when a report is added. |
-| --timeout -t | Server timeout in seconds.  Default\: 60. |
+| --timeout -t | Default\: 60. |
 | --ttl | The duration for which this health report is valid. This field uses ISO8601 format for specifying the duration. <br><br> When clients report periodically, they should send reports with higher frequency than time to live. If clients report on transition, they can set the time to live to infinite. When time to live expires, the health event that contains the health information is either removed from health store, if RemoveWhenExpired is true, or evaluated at error, if RemoveWhenExpired false. If not specified, time to live defaults to infinite value. |
 
 ### Global Arguments
@@ -241,7 +299,7 @@ Restarts a Service Fabric cluster node that is already started.
 | --node-name [Required] | The name of the node. |
 | --create-fabric-dump | Specify True to create a dump of the fabric node process. This is case-sensitive.  Default\: False. |
 | --node-instance-id | The instance ID of the target node. If instance ID is specified the node is restarted only if it matches with the current instance of the node. A default value of "0" would match any instance ID. The instance ID can be obtained using get node query.  Default\: 0. |
-| --timeout -t | Server timeout in seconds.  Default\: 60. |
+| --timeout -t | The server timeout for performing the operation in seconds. This timeout specifies the time duration that the client is willing to wait for the requested operation to complete. The default value for this parameter is 60 seconds.  Default\: 60. |
 
 ### Global Arguments
 
@@ -267,7 +325,7 @@ Starts or stops a cluster node.  A cluster node is a process, not the OS instanc
 | --node-transition-type     [Required] | Indicates the type of transition to perform.  NodeTransitionType.Start will start a stopped node. NodeTransitionType.Stop will stop a node that is up. |
 | --operation-id             [Required] | A GUID that identifies a call of this API.  This is passed into the corresponding GetProgress API. |
 | --stop-duration-in-seconds [Required] | The duration, in seconds, to keep the node stopped.  The minimum value is 600, the maximum is 14400.  After this time expires, the node will automatically come back up. |
-| --timeout -t | Server timeout in seconds.  Default\: 60. |
+| --timeout -t | The server timeout for performing the operation in seconds. This timeout specifies the time duration that the client is willing to wait for the requested operation to complete. The default value for this parameter is 60 seconds.  Default\: 60. |
 
 ### Global Arguments
 
@@ -290,7 +348,7 @@ Gets the progress of an operation started with StartNodeTransition using the pro
 | --- | --- |
 | --node-name    [Required] | The name of the node. |
 | --operation-id [Required] | A GUID that identifies a call of this API.  This is passed into the corresponding GetProgress API. |
-| --timeout -t | Server timeout in seconds.  Default\: 60. |
+| --timeout -t | The server timeout for performing the operation in seconds. This timeout specifies the time duration that the client is willing to wait for the requested operation to complete. The default value for this parameter is 60 seconds.  Default\: 60. |
 
 ### Global Arguments
 
@@ -305,4 +363,4 @@ Gets the progress of an operation started with StartNodeTransition using the pro
 
 ## Next steps
 - [Setup](service-fabric-cli.md) the Service Fabric CLI.
-- Learn how to use the Service Fabric CLI using the [sample scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Learn how to use the Service Fabric CLI using the [sample scripts](./scripts/sfctl-upgrade-application.md).

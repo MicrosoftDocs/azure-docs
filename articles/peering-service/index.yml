@@ -1,0 +1,57 @@
+### YamlMime:Landing
+
+title: Azure Peering Service documentation
+summary: Learn about Azure Peering Service
+
+metadata:
+  title: Azure Peering Service documentation
+  description: Learn how to deploy and manage Azure Peering Service connections.
+  services: peering-service
+  ms.service: peering-service
+  ms.subservice: peering-service
+  ms.topic: landing-page
+  author: halkazwini
+  ms.author: halkazwini
+  ms.date: 06/13/2023
+  ms.custom: engagement-fy23
+  
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Peering Service
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Peering Service?
+            url: about.md
+      - linkListType: concept
+        links:
+          - text: Locations and partners
+            url: location-partners.md
+
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Peering Service connections
+            url: connection.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create a Peering Service connection
+            url: azure-portal.md
+          - text: Access connection telemetry
+            url: connection-telemetry.md
+
+  # Card
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure PowerShell
+            url: /powershell/module/az.peering/
+          - text: Azure CLI
+            url: /cli/azure/peering/

@@ -1,0 +1,102 @@
+### YamlMime:Landing
+
+title: Microsoft Defender for Cloud documentation # < 60 chars
+summary: Microsoft Defender for Cloud provides unified security management and advanced threat protection across hybrid cloud workloads. # < 160 chars
+
+metadata:
+  title: Microsoft Defender for Cloud documentation
+  description: Get started with Defender for Cloud, learn how to secure your workloads, limit risks, and detect and respond to attacks with our quickstarts & tutorials.
+  services: defender-for-cloud
+  author: elkrieger
+  ms.author: elkrieger
+  manager: raynew
+  ms.topic: landing-page
+  ms.custom: ignite-2022
+  ms.collection: collection
+  ms.date: 01/08/2023
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Defender for Cloud
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What are the key capabilities of Defender for Cloud?
+            url: defender-for-cloud-introduction.md
+          - text: Which versions of Windows Server and Linux are supported?
+            url: security-center-os-coverage.md
+          - text: How do I get started with Defender for Cloud?
+            url: get-started.md
+          - text: What are security policies, initiatives, and recommendations?
+            url: security-policy-concept.md
+ 
+  # Card
+  - title: Stay current
+    linkLists:
+      - linkListType: whats-new
+        links:
+          - text: Release notes for Defender for Cloud
+            url: release-notes.md
+          - text: Important upcoming changes
+            url: upcoming-changes.md
+          - text: Overview of Defender for DevOps
+            url: defender-for-devops-introduction.md
+          - text: Microsoft cloud security benchmark in Defender for Cloud
+            url: concept-regulatory-compliance.md
+
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Enable Defender for Cloud on your subscriptions
+            url: get-started.md
+          - text: Enable enhanced security features
+            url: enable-enhanced-security.md
+          - text: Connect hybrid and multicloud machines
+            url: quickstart-onboard-machines.md
+          - text: Set up email notifications
+            url: configure-email-notifications.md
+
+  # Card
+  - title: Improve your secure score
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Understanding secure score
+            url: secure-score-security-controls.md
+          - text: Remediate security recommendations
+            url: implement-security-recommendations.md
+          - text: Exempt a resource from a recommendation
+            url: exempt-resource.md
+          - text: Track your scores over time
+            url: custom-dashboards-azure-workbooks.md#use-the-secure-score-over-time-workbook
+
+  # Card
+  - title: Mitigate threats
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Manage just-in-time access
+            url: just-in-time-access-usage.md
+          - text: Set up adaptive application controls
+            url: adaptive-application-controls.md
+          - text: Implement adaptive network hardening
+            url: adaptive-network-hardening.md
+          - text: Use the Workload protections
+            url: workload-protections-dashboard.md
+
+  # Card
+  - title: Defend multicloud resources
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Use Defender for Cloud to protect multicloud resources
+            url: multicloud.yml
+      - linkListType: video
+        links:
+          - text: Protecting multicloud environments (AWS & GCP)
+            url: https://youtu.be/bVsifz3ZyPY

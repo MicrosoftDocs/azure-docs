@@ -1,0 +1,209 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/virtual-desktop/connect-windows-7-and-10.md",
+            "redirect_url": "/azure/virtual-desktop/connect-windows-7-10",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/create-file-share.md",
+            "redirect_url": "/azure/virtual-desktop/fslogix-profile-container-configure-azure-files-active-directory",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/azure-files-authorization.md",
+            "redirect_url": "/azure/virtual-desktop/fslogix-profile-container-configure-azure-files-active-directory",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/create-profile-container-adds.md",
+            "redirect_url": "/azure/virtual-desktop/fslogix-profile-container-configure-azure-files-active-directory",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/shortpath.md",
+            "redirect_url": "/azure/virtual-desktop/rdp-shortpath",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/shortpath-public.md",
+            "redirect_url": "/azure/virtual-desktop/rdp-shortpath",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-desktop/azure-stack-hci-faq.yml",
+            "redirect_url": "/azure/virtual-desktop/azure-stack-hci",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/user-documentation/connect-android.md",
+            "redirect_url": "/azure/virtual-desktop/users/connect-android-chrome-os",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/user-documentation/connect-ios.md",
+            "redirect_url": "/azure/virtual-desktop/users/connect-ios-ipados",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/user-documentation/connect-macos.md",
+            "redirect_url": "/azure/virtual-desktop/users/connect-macos",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/user-documentation/connect-microsoft-store.md",
+            "redirect_url": "/azure/virtual-desktop/users/connect-microsoft-store",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/user-documentation/connect-web.md",
+            "redirect_url": "/azure/virtual-desktop/users/connect-web",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/user-documentation/connect-windows-7-10.md",
+            "redirect_url": "/azure/virtual-desktop/users/connect-windows",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/user-documentation/index.yml",
+            "redirect_url": "/azure/virtual-desktop/users/",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/user-documentation/linux-overview.md",
+            "redirect_url": "/azure/virtual-desktop/users/connect-thin-clients",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/azure-monitor.md",
+            "redirect_url": "/azure/virtual-desktop/insights",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/azure-monitor-costs.md",
+            "redirect_url": "/azure/virtual-desktop/insights-costs",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/azure-monitor-glossary.md",
+            "redirect_url": "/azure/virtual-desktop/insights-glossary",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/troubleshoot-azure-monitor.md",
+            "redirect_url": "/azure/virtual-desktop/troubleshoot-insights",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/whats-new-azure-monitor.md",
+            "redirect_url": "/azure/virtual-desktop/whats-new-insights",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/troubleshoot-client.md",
+            "redirect_url": "/azure/virtual-desktop/troubleshoot-client-windows",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/private-5g-core/disconnected-mode.md",
+            "redirect_url": "/azure/private-5g-core/azure-stack-edge-disconnects",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/virtual-desktop-fall-2019/connect-windows-7-10-2019.md",
+            "redirect_url": "/azure/virtual-desktop/virtual-desktop-fall-2019/connect-windows-2019",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/virtual-desktop-fall-2019/deploy-windows-7-virtual-machine.md",
+            "redirect_url": "/azure/virtual-desktop/virtual-desktop-fall-2019/create-host-pools-azure-marketplace-2019",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/virtual-desktop-fall-2019/troubleshoot-windows-7-vm.md",
+            "redirect_url": "/azure/virtual-desktop/virtual-desktop-fall-2019/troubleshoot-vm-configuration-2019",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/deploy-windows-7-virtual-machine.md",
+            "redirect_url": "/azure/virtual-desktop/deploy-windows-server-virtual-machine",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/powershell-module.md",
+            "redirect_url": "/azure/virtual-desktop/cli-powershell",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/deploy-azure-ad-joined-vm.md",
+            "redirect_url": "/azure/virtual-desktop/azure-ad-joined-session-hosts",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/configure-vm-gpu.md",
+            "redirect_url": "/azure/virtual-desktop/enable-gpu-acceleration",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/create-validation-host-pool.md",
+            "redirect_url": "/azure/virtual-desktop/configure-validation-environment",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/expand-existing-host-pool.md",
+            "redirect_url": "/azure/virtual-desktop/add-session-hosts-host-pool",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/create-host-pools-azure-marketplace.md",
+            "redirect_url": "/azure/virtual-desktop/create-host-pool",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/create-host-pools-powershell.md",
+            "redirect_url": "/azure/virtual-desktop/create-host-pool",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/deploy-windows-server-virtual-machine.md",
+            "redirect_url": "/azure/virtual-desktop/add-session-hosts-host-pool",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/environment-setup.md",
+            "redirect_url": "/azure/virtual-desktop/terminology",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/app-attach-image-prep.md",
+            "redirect_url": "/azure/virtual-desktop/msix-app-attach-create-msix-image",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/app-attach-msixmgr.md",
+            "redirect_url": "/azure/virtual-desktop/msix-app-attach-create-msix-image",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/fslogix-office-app-rule-editor.md",
+            "redirect_url": "/azure/virtual-desktop/install-office-on-wvd-master-image",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/app-attach-glossary.md",
+            "redirect_url": "/azure/virtual-desktop/what-is-app-attach",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/windows-10-multisession-faq.yml",
+            "redirect_url": "/azure/virtual-desktop/windows-multisession-faq",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/install-client-per-user.md",
+            "redirect_url": "/azure/virtual-desktop/install-windows-client-per-user",
+            "redirect_document_id": true
+        }
+    ]
+}

@@ -1,101 +1,76 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with TOPdesk - Public | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and TOPdesk - Public.
+title: 'Tutorial: Microsoft Entra integration with TOPdesk - Public'
+description: Learn how to configure single sign-on between Microsoft Entra ID and TOPdesk - Public.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 0873299f-ce70-457b-addc-e57c5801275f
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/02/2019
+ms.date: 11/21/2022
 ms.author: jeedes
-
 ---
-# Tutorial: Azure Active Directory integration with TOPdesk - Public
+# Tutorial: Microsoft Entra integration with TOPdesk - Public
 
-In this tutorial, you learn how to integrate TOPdesk - Public with Azure Active Directory (Azure AD).
-Integrating TOPdesk - Public with Azure AD provides you with the following benefits:
+In this tutorial, you'll learn how to integrate TOPdesk - Public with Microsoft Entra ID. When you integrate TOPdesk - Public with Microsoft Entra ID, you can:
 
-* You can control in Azure AD who has access to TOPdesk - Public.
-* You can enable your users to be automatically signed-in to TOPdesk - Public (Single Sign-On) with their Azure AD accounts.
-* You can manage your accounts in one central location - the Azure portal.
-
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+* Control in Microsoft Entra ID who has access to TOPdesk - Public.
+* Enable your users to be automatically signed-in to TOPdesk - Public with their Microsoft Entra accounts.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
-To configure Azure AD integration with TOPdesk - Public, you need the following items:
+To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
-* TOPdesk - Public single sign-on enabled subscription
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* TOPdesk - Public single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+In this tutorial, you configure and test Microsoft Entra single sign-on in a test environment.
 
-* TOPdesk - Public supports **SP** initiated SSO
+* TOPdesk - Public supports **SP** initiated SSO.
 
-## Adding TOPdesk - Public from the gallery
+## Add TOPdesk - Public from the gallery
 
-To configure the integration of TOPdesk - Public into Azure AD, you need to add TOPdesk - Public from the gallery to your list of managed SaaS apps.
+To configure the integration of TOPdesk - Public into Microsoft Entra ID, you need to add TOPdesk - Public from the gallery to your list of managed SaaS apps.
 
-**To add TOPdesk - Public from the gallery, perform the following steps:**
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type **TOPdesk - Public** in the search box.
+1. Select **TOPdesk - Public** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-	![The Azure Active Directory button](common/select-azuread.png)
+<a name='configure-and-test-azure-ad-sso-for-topdesk---public'></a>
 
-2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
+## Configure and test Microsoft Entra SSO for TOPdesk - Public
 
-	![The Enterprise applications blade](common/enterprise-applications.png)
+Configure and test Microsoft Entra SSO with TOPdesk - Public using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in TOPdesk - Public.
 
-3. To add new application, click **New application** button on the top of dialog.
+To configure and test Microsoft Entra SSO with TOPdesk - Public, perform the following steps:
 
-	![The New application button](common/add-new-app.png)
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
+1. **[Configure TOPdesk - Public SSO](#configure-topdesk---public-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create TOPdesk - Public test user](#create-topdesk---public-test-user)** - to have a counterpart of B.Simon in TOPdesk - Public that is linked to the Microsoft Entra representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-4. In the search box, type **TOPdesk - Public**, select **TOPdesk - Public** from result panel then click **Add** button to add the application.
+<a name='configure-azure-ad-sso'></a>
 
-	 ![TOPdesk - Public in the results list](common/search-new-app.png)
+## Configure Microsoft Entra SSO
 
-## Configure and test Azure AD single sign-on
+Follow these steps to enable Microsoft Entra SSO.
 
-In this section, you configure and test Azure AD single sign-on with TOPdesk - Public based on a test user called **Britta Simon**.
-For single sign-on to work, a link relationship between an Azure AD user and the related user in TOPdesk - Public needs to be established.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **TOPdesk - Public** > **Single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-To configure and test Azure AD single sign-on with TOPdesk - Public, you need to complete the following building blocks:
-
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Configure TOPdesk - Public Single Sign-On](#configure-topdesk---public-single-sign-on)** - to configure the Single Sign-On settings on application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create TOPdesk - Public test user](#create-topdesk---public-test-user)** - to have a counterpart of Britta Simon in TOPdesk - Public that is linked to the Azure AD representation of user.
-6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
-
-### Configure Azure AD single sign-on
-
-In this section, you enable Azure AD single sign-on in the Azure portal.
-
-To configure Azure AD single sign-on with TOPdesk - Public, perform the following steps:
-
-1. In the [Azure portal](https://portal.azure.com/), on the **TOPdesk - Public** application integration page, select **Single sign-on**.
-
-    ![Configure single sign-on link](common/select-sso.png)
-
-2. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
-
-    ![Single sign-on select mode](common/select-saml-option.png)
-
-3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
-
-	![Edit Basic SAML Configuration](common/edit-urls.png)
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
 4.	On the **Basic SAML Configuration** section, if you have **Service Provider metadata file**, perform the following steps:
 
@@ -112,17 +87,18 @@ To configure Azure AD single sign-on with TOPdesk - Public, perform the followin
 
 	c. After the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in Basic SAML Configuration section.
 
-    ![TOPdesk - Public Domain and URLs single sign-on information](common/sp-identifier-reply.png)
-
     d. In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<companyname>.topdesk.net`
 
-	e. In the **Identifier** textbox, type a URL using the following pattern: `https://<companyname>.topdesk.net/tas/public/login/verify`
-
+	e. In the **Identifier URL** textbox, fill in the TOPdesk metadata URL that you can retrieve from the TOPdesk configuration. It should use the following pattern: `https://<companyname>.topdesk.net/saml-metadata/<identifier>`
+	
+	f. In the **Reply URL** textbox, type a URL using the following pattern:
+    `https://<companyname>.topdesk.net/tas/public/login/verify`
+	
 	> [!NOTE] 
-	> If the **Identifier** and **Reply URL** values do not get auto populated, you need to enter them manually. For Identifier, follow the pattern as mentioned above and you get Reply URL value from the **Configure TOPdesk - Public Single Sign-On** section which is explained later in the tutorial. The **Sign-on URL** value is not real, so you need to update the value with the actual Sign-On URL. Contact [TOPdesk - Public Client support team](https://help.topdesk.com/saas/enterprise/user/) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> If the **Identifier** and **Reply URL** values do not get auto populated, you need to enter them manually. For Identifier, follow the pattern as mentioned above and you get Reply URL value from the **Configure TOPdesk - Public Single Sign-On** section which is explained later in the tutorial. The **Sign-on URL** value is not real, so you need to update the value with the actual Sign-On URL. Contact [TOPdesk - Public Client support team](https://my.topdesk.com/) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
-5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
+1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
 	![The Certificate download link](common/metadataxml.png)
 
@@ -130,43 +106,67 @@ To configure Azure AD single sign-on with TOPdesk - Public, perform the followin
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-	a. Login URL
+<a name='create-an-azure-ad-test-user'></a>
 
-	b. Azure AD Identifier
+### Create a Microsoft Entra test user 
 
-	c. Logout URL
+In this section, you'll create a test user called B.Simon.
 
-### Configure TOPdesk - Public Single Sign-On
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Select **Review + create**.
+1. Select **Create**.
+
+<a name='assign-the-azure-ad-test-user'></a>
+
+### Assign the Microsoft Entra test user
+
+In this section, you'll enable B.Simon to use single sign-on by granting access to TOPdesk - Public.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **TOPdesk - Public**.
+1. In the app's overview page, select **Users and groups**.
+1. Select **Add user/group**, then select **Users and groups** in the **Add Assignment** dialog.
+   1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+   1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+   1. In the **Add Assignment** dialog, click the **Assign** button.
+
+## Configure TOPdesk - Public SSO
 
 1. Sign on to your **TOPdesk - Public** company site as an administrator.
 
 2. In the **TOPdesk** menu, click **Settings**.
    
-    ![Settings](./media/topdesk-public-tutorial/ic790598.png "Settings")
+    ![Settings](./media/topdesk-public-tutorial/menu.png "Settings")
 
 3. Click **Login Settings**.
    
-    ![Login Settings](./media/topdesk-public-tutorial/ic790599.png "Login Settings")
+    ![Login Settings](./media/topdesk-public-tutorial/login.png "Login Settings")
 
 4. Expand the **Login Settings** menu, and then click **General**.
    
-    ![General](./media/topdesk-public-tutorial/ic790600.png "General")
+    ![General Settings](./media/topdesk-public-tutorial/general.png "General Settings")
 
 5. In the **Public** section of the **SAML login** configuration section, perform the following steps:
    
-    ![Technical Settings](./media/topdesk-public-tutorial/ic790601.png "Technical Settings")
+    ![Technical Settings](./media/topdesk-public-tutorial/public.png "Technical Settings")
    
     a. Click **Download** to download the public metadata file, and then save it locally on your computer.
    
     b. Open the downloaded metadata file, and then locate the **AssertionConsumerService** node.
 
-    ![AssertionConsumerService](./media/topdesk-public-tutorial/ic790619.png "AssertionConsumerService")
+    ![AssertionConsumerService](./media/topdesk-public-tutorial/service.png "AssertionConsumerService")
    
     c. Copy the **AssertionConsumerService** value, paste this value in the **Reply URL** textbox in **Basic SAML Configuration** section.      
    
 6. To create a certificate file, perform the following steps:
     
-    ![Certificate](./media/topdesk-public-tutorial/ic790606.png "Certificate")
+    ![Certificate](./media/topdesk-public-tutorial/certificate-file.png "Certificate")
     
     a. Open the downloaded metadata file from Azure portal.
     
@@ -178,11 +178,11 @@ To configure Azure AD single sign-on with TOPdesk - Public, perform the followin
 
 7. In the **Public** section, click **Add**.
     
-    ![SAML Login](./media/topdesk-public-tutorial/ic790625.png "SAML Login")
+    ![SAML Login](./media/topdesk-public-tutorial/add.png "SAML Login")
 
 8. On the **SAML configuration assistant** dialog page, perform the following steps:
     
-    ![SAML Configuration Assistant](./media/topdesk-public-tutorial/ic790608.png "SAML Configuration Assistant")
+    ![SAML Configuration Assistant](./media/topdesk-public-tutorial/configuration.png "SAML Configuration Assistant")
     
     a. To upload your downloaded metadata file from Azure portal, under **Federation Metadata**, click **Browse**.
 
@@ -196,59 +196,9 @@ To configure Azure AD single sign-on with TOPdesk - Public, perform the followin
 
     f. Click **Save**.
 
-### Create an Azure AD test user 
-
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
-
-1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
-
-    ![The "Users and groups" and "All users" links](common/users.png)
-
-2. Select **New user** at the top of the screen.
-
-    ![New user Button](common/new-user.png)
-
-3. In the User properties, perform the following steps.
-
-    ![The User dialog box](common/user-properties.png)
-
-    a. In the **Name** field enter **BrittaSimon**.
-  
-    b. In the **User name** field type brittasimon@yourcompanydomain.extension. For example, BrittaSimon@contoso.com
-
-    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
-
-    d. Click **Create**.
-
-### Assign the Azure AD test user
-
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to TOPdesk - Public.
-
-1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **TOPdesk - Public**.
-
-	![Enterprise applications blade](common/enterprise-applications.png)
-
-2. In the applications list, select **TOPdesk - Public**.
-
-	![The TOPdesk - Public link in the Applications list](common/all-applications.png)
-
-3. In the menu on the left, select **Users and groups**.
-
-    ![The "Users and groups" link](common/users-groups-blade.png)
-
-4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
-
-    ![The Add Assignment pane](common/add-assign-user.png)
-
-5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
-
-6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
-
-7. In the **Add Assignment** dialog click the **Assign** button.
-
 ### Create TOPdesk - Public test user
 
-In order to enable Azure AD users to sign into TOPdesk - Public, they must be provisioned into TOPdesk - Public. In the case of TOPdesk - Public, provisioning is a manual task.
+In order to enable Microsoft Entra users to sign into TOPdesk - Public, they must be provisioned into TOPdesk - Public. In the case of TOPdesk - Public, provisioning is a manual task.
 
 ### To configure user provisioning, perform the following steps:
 
@@ -256,11 +206,11 @@ In order to enable Azure AD users to sign into TOPdesk - Public, they must be pr
 
 2. In the menu on the top, click **TOPdesk \> New \> Support Files \> Person**.
    
-    ![Person](./media/topdesk-public-tutorial/ic790628.png "Person")
+    ![Person](./media/topdesk-public-tutorial/files.png "Person")
 
 3. On the New Person dialog, perform the following steps:
    
-    ![New Person](./media/topdesk-public-tutorial/ic790629.png "New Person")
+    ![New Person](./media/topdesk-public-tutorial/new.png "New Person")
    
     a. Click the General tab.
 
@@ -271,18 +221,18 @@ In order to enable Azure AD users to sign into TOPdesk - Public, they must be pr
     d. Click **Save**.
 
 > [!NOTE]
-> You can use any other TOPdesk - Public user account creation tools or APIs provided by TOPdesk - Public to provision Azure AD user accounts.
+> You can use any other TOPdesk - Public user account creation tools or APIs provided by TOPdesk - Public to provision Microsoft Entra user accounts.
 
-### Test single sign-on 
+## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
-When you click the TOPdesk - Public tile in the Access Panel, you should be automatically signed in to the TOPdesk - Public for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Click on **Test this application**, this will redirect to TOPdesk - Public Sign-on URL where you can initiate the login flow. 
 
-## Additional Resources
+* Go to TOPdesk - Public Sign-on URL directly and initiate the login flow from there.
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+* You can use Microsoft My Apps. When you click the TOPdesk - Public tile in the My Apps, this will redirect to TOPdesk - Public Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+## Next steps
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+Once you configure TOPdesk - Public you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

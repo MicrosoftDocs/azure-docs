@@ -2,36 +2,35 @@
 title: Python UDF with Apache Hive and Apache Pig - Azure HDInsight 
 description: Learn how to use Python User Defined Functions (UDF) from Apache Hive and Apache Pig in HDInsight, the Apache Hadoop technology stack on Azure.
 ms.service: hdinsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
-ms.topic: conceptual
-ms.date: 03/15/2019
-ms.custom: H1Hack27Feb2017,hdinsightactive
+ms.topic: how-to
+ms.date: 09/15/2023
+ms.custom: H1Hack27Feb2017,hdinsightactive, devx-track-python, devx-track-azurepowershell
 ---
+
 # Use Python User Defined Functions (UDF) with Apache Hive and Apache Pig in HDInsight
 
 Learn how to use Python user-defined functions (UDF) with Apache Hive and Apache Pig in Apache Hadoop on Azure HDInsight.
 
 ## <a name="python"></a>Python on HDInsight
 
-Python2.7 is installed by default on HDInsight 3.0 and later. Apache Hive can be used with this version of Python for stream processing. Stream processing uses STDOUT and STDIN to pass data between Hive and the UDF.
+`Python2.7` is installed by default on HDInsight 3.0 and later. Apache Hive can be used with this version of Python for stream processing. Stream processing uses STDOUT and STDIN to pass data between Hive and the UDF.
 
-HDInsight also includes Jython, which is a Python implementation written in Java. Jython runs directly on the Java Virtual Machine and does not use streaming. Jython is the recommended Python interpreter when using Python with Pig.
+HDInsight also includes Jython, which is a Python implementation written in Java. Jython runs directly on the Java Virtual Machine and doesn't use streaming. Jython is the recommended Python interpreter when using Python with Pig.
 
 ## Prerequisites
 
 * **A Hadoop cluster on HDInsight**. See [Get Started with HDInsight on Linux](apache-hadoop-linux-tutorial-get-started.md).
 * **An SSH client**. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
-* The [URI scheme](../hdinsight-hadoop-linux-information.md#URI-and-scheme) for your clusters primary storage. This would be wasb:// for Azure Storage, abfs:// for Azure Data Lake Storage Gen2 or adl:// for Azure Data Lake Storage Gen1. If secure transfer is enabled for Azure Storage or Data Lake Storage Gen2, the URI would be wasbs:// or abfss://, respectively  See also, [secure transfer](../../storage/common/storage-require-secure-transfer.md).
+* The [URI scheme](../hdinsight-hadoop-linux-information.md#URI-and-scheme) for your clusters primary storage. This would be `wasb://` for Azure Storage, `abfs://` for Azure Data Lake Storage Gen2 or adl:// for Azure Data Lake Storage Gen1. If secure transfer is enabled for Azure Storage, the URI would be wasbs://.  See also, [secure transfer](../../storage/common/storage-require-secure-transfer.md).
 * **Possible change to storage configuration.**  See [Storage configuration](#storage-configuration) if using storage account kind `BlobStorage`.
-* Optional.  If Planning to use PowerShell, you will need the [AZ module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) installed.
+* Optional. If planning to use PowerShell, you need the [AZ module](/powershell/azure/new-azureps-module-az) installed.
 
 > [!NOTE]  
 > The storage account used in this article was Azure Storage with [secure transfer](../../storage/common/storage-require-secure-transfer.md) enabled and thus `wasbs` is used throughout the article.
 
 ## Storage configuration
-No action is required if the storage account used is of kind `Storage (general purpose v1)` or `StorageV2 (general purpose v2)`.  The process in this article will produce output to at least `/tezstaging`.  A default hadoop configuration will contain `/tezstaging` in the `fs.azure.page.blob.dir` configuration variable in `core-site.xml` for service `HDFS`.  This configuration will cause output to the directory to be page blobs, which are not supported for storage account kind `BlobStorage`.  To use `BlobStorage` for this article, remove `/tezstaging` from the `fs.azure.page.blob.dir` configuration variable.  The configuration can be accessed from the [Ambari UI](../hdinsight-hadoop-manage-ambari.md).  Otherwise, you will receive the error message: `Page blob is not supported for this account type.`
+
+No action is required if the storage account used is of kind `Storage (general purpose v1)` or `StorageV2 (general purpose v2)`.  The process in this article produces output to at least `/tezstaging`.  A default hadoop configuration contains `/tezstaging` in the `fs.azure.page.blob.dir` configuration variable in `core-site.xml` for service `HDFS`.  This configuration causes output to the directory to be page blobs, which aren't supported for storage account kind `BlobStorage`.  To use `BlobStorage` for this article, remove `/tezstaging` from the `fs.azure.page.blob.dir` configuration variable.  The configuration can be accessed from the [Ambari UI](../hdinsight-hadoop-manage-ambari.md).  Otherwise, you receive the error message: `Page blob is not supported for this account type.`
 
 > [!WARNING]  
 > The steps in this document make the following assumptions:  
@@ -39,7 +38,7 @@ No action is required if the storage account used is of kind `Storage (general p
 > * You create the Python scripts on your local development environment.
 > * You upload the scripts to HDInsight using either the `scp` command or the provided PowerShell script.
 >
-> If you want to use the [Azure Cloud Shell (bash)](https://docs.microsoft.com/azure/cloud-shell/overview) to work with HDInsight, then you must:
+> If you want to use the [Azure Cloud Shell (bash)](../../cloud-shell/overview.md) to work with HDInsight, then you must:
 >
 > * Create the scripts inside the cloud shell environment.
 > * Use `scp` to upload the files from the cloud shell to HDInsight.
@@ -99,21 +98,22 @@ This script performs the following actions:
 The script output is a concatenation of the input values for `devicemake` and `devicemodel`, and a hash of the concatenated value.
 
 ### Upload file (shell)
-In the commands below, replace `sshuser` with the actual username if different.  Replace `mycluster` with the actual cluster name.  Ensure your working directory is where the file is located.
 
-1. Use `scp` to copy the files to your HDInsight cluster. Edit and enter the command below:
+The following command, replaces `sshuser` with the actual username if different.  Replace `mycluster` with the actual cluster name.  Ensure your working directory is where the file is located.
+
+1. Use `scp` to copy the files to your HDInsight cluster. Edit and enter the command:
 
     ```cmd
     scp hiveudf.py sshuser@mycluster-ssh.azurehdinsight.net:
     ```
 
-2. Use SSH to connect to the cluster.  Edit and enter the command below:
+2. Use SSH to connect to the cluster. Edit and enter the command:
 
     ```cmd
     ssh sshuser@mycluster-ssh.azurehdinsight.net
     ```
 
-3. From the SSH session, add the python files uploaded previously to the storage for the cluster.
+3. From the SSH session, add the Python files uploaded previously to the storage for the cluster.
 
     ```bash
     hdfs dfs -put hiveudf.py /hiveudf.py
@@ -140,13 +140,15 @@ In the commands below, replace `sshuser` with the actual username if different. 
    ORDER BY clientid LIMIT 50;
    ```
 
-3. After entering the last line, the job should start. Once the job completes, it returns output similar to the following example:
+3. Once the last line entered, the job should start. Once the job completes, it returns output similar to the following example:
 
-        100041    RIM 9650    d476f3687700442549a83fac4560c51c
-        100041    RIM 9650    d476f3687700442549a83fac4560c51c
-        100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
-        100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
-        100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
+    ```output
+    100041    RIM 9650    d476f3687700442549a83fac4560c51c
+    100041    RIM 9650    d476f3687700442549a83fac4560c51c
+    100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
+    100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
+    100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
+    ```
 
 4. To exit Beeline, enter the following command:
 
@@ -155,9 +157,6 @@ In the commands below, replace `sshuser` with the actual username if different. 
     ```
 
 ### Upload file (PowerShell)
-
-> [!IMPORTANT]  
-> These PowerShell scripts will not work if [secure transfer](../../storage/common/storage-require-secure-transfer.md) is enabled.  Either use shell commands or disable secure transfer.
 
 PowerShell can also be used to remotely run Hive queries. Ensure your working directory is where `hiveudf.py` is located.  Use the following PowerShell script to run a Hive query that uses the `hiveudf.py` script:
 
@@ -169,6 +168,9 @@ if(-not($sub))
 {
     Connect-AzAccount
 }
+
+# If you have multiple subscriptions, set the one to use
+# Select-AzSubscription -SubscriptionId "<SUBSCRIPTIONID>"
 
 # Revise file path as needed
 $pathToStreamingFile = ".\hiveudf.py"
@@ -199,9 +201,7 @@ Set-AzStorageBlobContent `
 > [!NOTE]  
 > For more information on uploading files, see the [Upload data for Apache Hadoop jobs in HDInsight](../hdinsight-upload-data.md) document.
 
-
 #### Use Hive UDF
-
 
 ```PowerShell
 # Script should stop on failures
@@ -214,6 +214,9 @@ if(-not($sub))
 {
     Connect-AzAccount
 }
+
+# If you have multiple subscriptions, set the one to use
+# Select-AzSubscription -SubscriptionId "<SUBSCRIPTIONID>"
 
 # Get cluster info
 $clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
@@ -272,12 +275,13 @@ Get-AzHDInsightJobOutput `
 
 The output for the **Hive** job should appear similar to the following example:
 
-    100041    RIM 9650    d476f3687700442549a83fac4560c51c
-    100041    RIM 9650    d476f3687700442549a83fac4560c51c
-    100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
-    100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
-    100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
-
+```output
+100041    RIM 9650    d476f3687700442549a83fac4560c51c
+100041    RIM 9650    d476f3687700442549a83fac4560c51c
+100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
+100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
+100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
+```
 
 ## <a name="pigpython"></a>Apache Pig UDF
 
@@ -320,6 +324,7 @@ On your development environment, create a text file named `pigudf.py`. Use the f
 # Uncomment the following if using C Python
 #from pig_util import outputSchema
 
+
 @outputSchema("log: {(date:chararray, time:chararray, classname:chararray, level:chararray, detail:chararray)}")
 def create_structure(input):
     if (input.startswith('java.lang.Exception')):
@@ -328,7 +333,7 @@ def create_structure(input):
     return date, time, classname, level, detail
 ```
 
-In the Pig Latin example, the `LINE` input is defined as a chararray because there is no consistent schema for the input. The Python script transforms the data into a consistent schema for output.
+In the Pig Latin example, the `LINE` input is defined as a chararray because there's no consistent schema for the input. The Python script transforms the data into a consistent schema for output.
 
 1. The `@outputSchema` statement defines the format of the data that is returned to Pig. In this case, it's a **data bag**, which is a Pig data type. The bag contains the following fields, all of which are chararray (strings):
 
@@ -348,30 +353,27 @@ In the Pig Latin example, the `LINE` input is defined as a chararray because the
 
 When the data is returned to Pig, it has a consistent schema as defined in the `@outputSchema` statement.
 
-
-
 ### Upload file (shell)
 
 In the commands below, replace `sshuser` with the actual username if different.  Replace `mycluster` with the actual cluster name.  Ensure your working directory is where the file is located.
 
-1. Use `scp` to copy the files to your HDInsight cluster. Edit and enter the command below:
+1. Use `scp` to copy the files to your HDInsight cluster. Edit and enter the command:
 
     ```cmd
     scp pigudf.py sshuser@mycluster-ssh.azurehdinsight.net:
     ```
 
-2. Use SSH to connect to the cluster.  Edit and enter the command below:
+2. Use SSH to connect to the cluster.  Edit and enter the command:
 
     ```cmd
     ssh sshuser@mycluster-ssh.azurehdinsight.net
     ```
 
-3. From the SSH session, add the python files uploaded previously to the storage for the cluster.
+3. From the SSH session, add the Python files uploaded previously to the storage for the cluster.
 
     ```bash
     hdfs dfs -put pigudf.py /pigudf.py
     ```
-
 
 ### Use Pig UDF (shell)
 
@@ -385,7 +387,7 @@ In the commands below, replace `sshuser` with the actual username if different. 
 
    ```pig
    Register wasbs:///pigudf.py using jython as myfuncs;
-   LOGS = LOAD 'wasb:///example/data/sample.log' as (LINE:chararray);
+   LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
    LOG = FILTER LOGS by LINE is not null;
    DETAILS = foreach LOG generate myfuncs.create_structure(LINE);
    DUMP DETAILS;
@@ -393,11 +395,13 @@ In the commands below, replace `sshuser` with the actual username if different. 
 
 3. After entering the following line, the job should start. Once the job completes, it returns output similar to the following data:
 
-        ((2012-02-03,20:11:56,SampleClass5,[TRACE],verbose detail for id 990982084))
-        ((2012-02-03,20:11:56,SampleClass7,[TRACE],verbose detail for id 1560323914))
-        ((2012-02-03,20:11:56,SampleClass8,[DEBUG],detail for id 2083681507))
-        ((2012-02-03,20:11:56,SampleClass3,[TRACE],verbose detail for id 1718828806))
-        ((2012-02-03,20:11:56,SampleClass3,[INFO],everything normal for id 530537821))
+    ```output
+    ((2012-02-03,20:11:56,SampleClass5,[TRACE],verbose detail for id 990982084))
+    ((2012-02-03,20:11:56,SampleClass7,[TRACE],verbose detail for id 1560323914))
+    ((2012-02-03,20:11:56,SampleClass8,[DEBUG],detail for id 2083681507))
+    ((2012-02-03,20:11:56,SampleClass3,[TRACE],verbose detail for id 1718828806))
+    ((2012-02-03,20:11:56,SampleClass3,[INFO],everything normal for id 530537821))
+    ```
 
 4. Use `quit` to exit the Grunt shell, and then use the following to edit the pigudf.py file on the local file system:
 
@@ -425,11 +429,7 @@ In the commands below, replace `sshuser` with the actual username if different. 
 
     Once this job completes, you should see the same output as when you previously ran the script using Jython.
 
-
 ### Upload file (PowerShell)
-
-> [!IMPORTANT]  
-> These PowerShell scripts will not work if [secure transfer](../../storage/common/storage-require-secure-transfer.md) is enabled.  Either use shell commands or disable secure transfer.
 
 PowerShell can also be used to remotely run Hive queries. Ensure your working directory is where `pigudf.py` is located.  Use the following PowerShell script to run a Hive query that uses the `pigudf.py` script:
 
@@ -441,6 +441,9 @@ if(-not($sub))
 {
     Connect-AzAccount
 }
+
+# If you have multiple subscriptions, set the one to use
+# Select-AzSubscription -SubscriptionId "<SUBSCRIPTIONID>"
 
 # Revise file path as needed
 $pathToJythonFile = ".\pigudf.py"
@@ -544,11 +547,13 @@ Get-AzHDInsightJobOutput `
 
 The output for the **Pig** job should appear similar to the following data:
 
-    ((2012-02-03,20:11:56,SampleClass5,[TRACE],verbose detail for id 990982084))
-    ((2012-02-03,20:11:56,SampleClass7,[TRACE],verbose detail for id 1560323914))
-    ((2012-02-03,20:11:56,SampleClass8,[DEBUG],detail for id 2083681507))
-    ((2012-02-03,20:11:56,SampleClass3,[TRACE],verbose detail for id 1718828806))
-    ((2012-02-03,20:11:56,SampleClass3,[INFO],everything normal for id 530537821))
+```output
+((2012-02-03,20:11:56,SampleClass5,[TRACE],verbose detail for id 990982084))
+((2012-02-03,20:11:56,SampleClass7,[TRACE],verbose detail for id 1560323914))
+((2012-02-03,20:11:56,SampleClass8,[DEBUG],detail for id 2083681507))
+((2012-02-03,20:11:56,SampleClass3,[TRACE],verbose detail for id 1718828806))
+((2012-02-03,20:11:56,SampleClass3,[INFO],everything normal for id 530537821))
+```
 
 ## <a name="troubleshooting"></a>Troubleshooting
 
@@ -556,7 +561,9 @@ The output for the **Pig** job should appear similar to the following data:
 
 When running the hive job, you may encounter an error similar to the following text:
 
-    Caused by: org.apache.hadoop.hive.ql.metadata.HiveException: [Error 20001]: An error occurred while reading or writing to your custom script. It may have crashed with an error.
+```output
+Caused by: org.apache.hadoop.hive.ql.metadata.HiveException: [Error 20001]: An error occurred while reading or writing to your custom script. It may have crashed with an error.
+```
 
 This problem may be caused by the line endings in the Python file. Many Windows editors default to using CRLF as the line ending, but Linux applications usually expect LF.
 
@@ -566,7 +573,7 @@ You can use the following PowerShell statements to remove the CR characters befo
 
 ### PowerShell scripts
 
-Both of the example PowerShell scripts used to run the examples contain a commented line that displays error output for the job. If you are not seeing the expected output for the job, uncomment the following line and see if the error information indicates a problem.
+Both of the example PowerShell scripts used to run the examples contain a commented line that displays error output for the job. If you aren't seeing the expected output for the job, uncomment the following line and see if the error information indicates a problem.
 
 [!code-powershell[main](../../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=135-139)]
 
@@ -579,10 +586,9 @@ The error information (STDERR) and the result of the job (STDOUT) are also logge
 
 ## <a name="next"></a>Next steps
 
-If you need to load Python modules that aren't provided by default, see [How to deploy a module to Azure HDInsight](https://blogs.msdn.com/b/benjguin/archive/2014/03/03/how-to-deploy-a-python-module-to-windows-azure-hdinsight.aspx).
+If you need to load Python modules that aren't provided by default, see [How to deploy a module to Azure HDInsight](/archive/blogs/benjguin/how-to-deploy-a-python-module-to-windows-azure-hdinsight).
 
 For other ways to use Pig, Hive, and to learn about using MapReduce, see the following documents:
 
 * [Use Apache Hive with HDInsight](hdinsight-use-hive.md)
-* [Use Apache Pig with HDInsight](hdinsight-use-pig.md)
 * [Use MapReduce with HDInsight](hdinsight-use-mapreduce.md)

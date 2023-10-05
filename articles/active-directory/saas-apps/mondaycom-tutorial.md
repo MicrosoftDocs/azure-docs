@@ -1,236 +1,198 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with monday.com | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and monday.com.
+title: 'Tutorial: Microsoft Entra SSO integration with monday.com'
+description: Learn how to configure single sign-on between Microsoft Entra ID and monday.com.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 9e8ad807-0664-4e31-91de-731097c768e2
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/15/2019
+ms.date: 11/21/2022
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Azure Active Directory integration with monday.com
+# Tutorial: Microsoft Entra SSO integration with monday.com
 
-In this tutorial, you learn how to integrate monday.com with Azure Active Directory (Azure AD).
+In this tutorial, you'll learn how to integrate monday.com with Microsoft Entra ID. When you integrate monday.com with Microsoft Entra ID, you can:
 
-Integrating monday.com with Azure AD gives you the following benefits:
-
-* You can use Azure AD to control who has access to monday.com.
-* Users can be automatically signed in to monday.com with their Azure AD accounts (single sign-on).
-* You can manage your accounts in one central location, the Azure portal.
-
-For more information about software as a service (SaaS) app integration with Azure AD, see [Single sign-on to applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+* Control in Microsoft Entra ID who has access to monday.com.
+* Enable your users to be automatically signed-in to monday.com with their Microsoft Entra accounts.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
-To configure Azure AD integration with monday.com, you need the following items:
+To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-* A monday.com subscription with single sign-on enabled.
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* monday.com single sign-on (SSO) enabled subscription.
+
+> [!NOTE]
+> This integration is also available to use from Microsoft Entra US Government Cloud environment. You can find this application in the Microsoft Entra US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD single sign-on in a test environment and integrate monday.com with Azure AD.
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment.
 
-monday.com supports the following features:
+* monday.com supports **SP and IDP** initiated SSO.
+* monday.com supports [**automated** user provisioning and deprovisioning](mondaycom-provisioning-tutorial.md) (recommended).
+* monday.com supports **Just In Time** user provisioning.
 
-* **SP-initiated single sign-on**
-* **IDP-initiated single sign-on**
-* **Just-in-time user provisioning**
+## Add monday.com from the gallery
 
-## Add monday.com in the Azure portal
+To configure the integration of monday.com into Microsoft Entra ID, you need to add monday.com from the gallery to your list of managed SaaS apps.
 
-To integrate monday.com with Azure AD, you must add monday.com to your list of managed SaaS apps.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type **monday.com** in the search box.
+1. Select **monday.com** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-1. In the left menu, select **Azure Active Directory**.
+<a name='configure-and-test-azure-ad-sso-for-mondaycom'></a>
 
-	![The Azure Active Directory option](common/select-azuread.png)
+## Configure and test Microsoft Entra SSO for monday.com
 
-1. Select **Enterprise applications** > **All applications**.
+Configure and test Microsoft Entra SSO with monday.com using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in monday.com.
 
-	![The Enterprise applications pane](common/enterprise-applications.png)
+To configure and test Microsoft Entra SSO with monday.com, perform the following steps:
 
-1. To add an application, select **New application**.
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
+1. **[Configure monday.com SSO](#configure-mondaycom-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create monday.com test user](#create-mondaycom-test-user)** - to have a counterpart of B.Simon in monday.com that is linked to the Microsoft Entra representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-	![The New application option](common/add-new-app.png)
+<a name='configure-azure-ad-sso'></a>
 
-1. In the search box, enter **monday.com**. In the search results, select **monday.com**, and then select **Add**.
+## Configure Microsoft Entra SSO
 
-	![monday.com in the results list](common/search-new-app.png)
+Follow these steps to enable Microsoft Entra SSO.
 
-## Configure and test Azure AD single sign-on
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **monday.com** > **Single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-In this section, you configure and test Azure AD single sign-on with monday.com based on a test user named **Britta Simon**. For single sign-on to work, you must establish a linked relationship between an Azure AD user and the related user in monday.com.
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-To configure and test Azure AD single sign-on with monday.com, you must complete the following building blocks:
+1. On the **Basic SAML Configuration** section, if you have **Service Provider metadata file** and wish to configure in **IDP** initiated mode, perform the following steps:
 
-| Task | Description |
-| --- | --- |
-| **[Configure Azure AD single sign-on](#configure-azure-ad-single-sign-on)** | Enables your users to use this feature. |
-| **[Configure monday.com single sign-on](#configure-mondaycom-single-sign-on)** | Configures the single sign-on settings in the application. |
-| **[Create an Azure AD test user](#create-an-azure-ad-test-user)** | Tests Azure AD single sign-on for a user named Britta Simon. |
-| **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** | Enables Britta Simon to use Azure AD single sign-on. |
-| **[Create a monday.com test user](#create-a-mondaycom-test-user)** | Creates a counterpart of Britta Simon in monday.com that is linked to the Azure AD representation of the user. |
-| **[Test single sign-on](#test-single-sign-on)** | Verifies that the configuration works. |
+    a. Click **Upload metadata file**.
 
-### Configure Azure AD single sign-on
+    ![Upload metadata file](common/upload-metadata.png)
 
-In this section, you configure Azure AD single sign-on with monday.com in the Azure portal.
+    b. Click on **folder logo** to select the metadata file and click **Upload**.
 
-1. In the [Azure portal](https://portal.azure.com/), in the **monday.com** application integration pane, select **Single sign-on**.
+    ![choose metadata file](common/browse-upload-metadata.png)
 
-    ![Configure single sign-on option](common/select-sso.png)
+    c. After the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in Basic SAML Configuration section.
 
-1. In the **Select a single sign-on method** pane, select **SAML** or **SAML/WS-Fed** mode to enable single sign-on.
+    > [!Note]
+    > If the **Identifier** and **Reply URL** values do not get populated automatically, then fill in the values manually. The **Identifier** and the **Reply URL** are the same and value is in the following pattern: `https://<YOUR_DOMAIN>.monday.com/saml/saml_callback`
 
-    ![Single sign-on select mode](common/select-saml-option.png)
+1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-1. In the **Set up Single Sign-On with SAML** pane, select **Edit** (the pencil icon) to open the **Basic SAML Configuration** pane.
+    In the **Sign-on URL** text box, type a URL using the following pattern:
+    `https://<YOUR_DOMAIN>.monday.com`
 
-	![Edit Basic SAML Configuration](common/edit-urls.png)
+    > [!NOTE]
+    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign-On URL. Contact [monday.com Client support team](https://monday.com/contact-us/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
-1. In the **Basic SAML Configuration** pane, if you have a service provider metadata file and you want to configure *IDP-initiated mode*, complete the following steps:
+1. monday.com application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
-	1. Select **Upload metadata file**.
+    ![Screenshot shows User Attributes & Claims with default values such as Givenname user.givenname and Emailaddress User.mail.](common/default-attributes.png)
 
-       ![The Upload metadata file option](common/upload-metadata.png)
+1. In addition to above, monday.com application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
 
-	1. To select the metadata file, select the folder icon, and then select **Upload**.
+    | Name | Source Attribute |
+    |--|--|
+    | Email | user.mail |
+    | FirstName | user.givenname |
+    | LastName | user.surname |
 
-	   ![Select the metadata file and then select the Upload button](common/browse-upload-metadata.png)
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
-	1. After the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values are automatically populated in the **Basic SAML Configuration** pane:
+    ![The Certificate download link](common/certificatebase64.png)
 
-	   ![The IDP values in the Basic SAML Configuration pane](common/idp-intiated.png)
+1. On the **Set up monday.com** section, copy the appropriate URL(s) based on your requirement.
 
-	   > [!Note]
-	   > If the **Identifier** and **Reply URL** values aren't automatically populated, enter the values manually.
+    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
-1. To configure the application in *SP-initiated mode*:
+<a name='create-an-azure-ad-test-user'></a>
 
-    1. Select **Set additional URLs**.
-	
-	1. In the **Sign on URL** box, enter a URL that has the following pattern: https:\//\<your-domain>.monday.com. Contact the [monday.com client support team](mailto:support@monday.com) to get the sign-on URL.
+### Create a Microsoft Entra test user
 
-		![The Set additional URLs option](common/metadata-upload-additional-signon.png)
+In this section, you'll create a test user called B.Simon.
 
-1. The monday.com application expects the SAML assertions to be in a specific format. Configure the following claims for this application. To manage these attribute values, in the **Set up Single Sign-On with SAML** pane, select **Edit** to open the **User Attributes** pane.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Select **Review + create**.
+1. Select **Create**.
 
-	![The User attributes pane](common/edit-attribute.png)
+<a name='assign-the-azure-ad-test-user'></a>
 
-1. Under **User claims**, select **Edit** to edit the claims. To add a claim, select **Add new claim**, and then configure the SAML token attribute as shown in the preceding image. Then, complete the following steps: 
+### Assign the Microsoft Entra test user
 
-	1. Select **Add new claim**.
+In this section, you'll enable B.Simon to use single sign-on by granting access to monday.com.
 
-	    ![The Add new claim option in the User claims pane](common/new-save-attribute.png)
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **monday.com**.
+1. In the app's overview page, select **Users and groups**.
+1. Select **Add user/group**, then select **Users and groups** in the **Add Assignment** dialog.
+   1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+   1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+   1. In the **Add Assignment** dialog, click the **Assign** button.
 
-	1. In the **Manage user claims** pane, set the following values:
-		
-	   1. In the **Name** box, enter the attribute name shown for the user claim row.
+## Configure monday.com SSO
 
-       1. Leave **Namespace** blank.
 
-	   1. For **Source**, select **Attribute**.
 
-	   1. In the **Source attribute** list, select the attribute value shown for the user claim row.
 
-	   1. Select **OK**, and then select **Save**.
+1. In a different web browser window, sign in to your up monday.com company site as an administrator
 
-       ![The Manage user claims](common/new-attribute-details.png)
+1. Go to the **Profile** on the top-right corner of page and click on **Admin**.
 
-1. In the **Set up Single Sign-On with SAML** pane, under **SAML Signing Certificate**, select **Download** next to **Certificate (Base64)**. Select a download option based on your requirements. Save the certificate on your computer.
+    ![Screenshot shows the Admin profile selected.](./media/mondaycom-tutorial/admin.png)
 
-	![The Certificate (Base64) download option](common/certificatebase64.png)
+1. Select **Security** and make sure to click on **Open** next to SAML.
 
-1. In the **Set up monday.com** section, copy the following URLs based on your requirements:
+    ![Screenshot shows the Security tab with the option to Open next to SAML.](./media/mondaycom-tutorial/security.png)
 
-	* Login URL
-	* Azure AD Identifier
-	* Logout URL
+1. Fill in the details below from your IDP.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+    ![Screenshot shows the SAML provider where you can enter information from your I D P.](./media/mondaycom-tutorial/configuration.png)
 
-### Configure monday.com single sign-on
+    > [!NOTE]
+    > For more details refer [this](https://support.monday.com/hc/articles/360000460605-SAML-Single-Sign-on?abcb=34642) article.
 
-To configure single sign-on on the monday.com side, send the downloaded Certificate (Base64) file and the relevant URLs that you copied from the Azure portal to the [monday.com support team](mailto:support@monday.com). The monday.com support team uses the information you send them to ensure that the SAML single sign-on connection is set properly on both sides.
+### Create monday.com test user
 
-### Create an Azure AD test user
+In this section, a user called B.Simon is created in monday.com. monday.com supports just-in-time provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in monday.com, a new one is created when you attempt to access monday.com.
 
-In this section, you create a test user named Britta Simon in the Azure portal.
+## Test SSO
 
-1. In the Azure portal, select **Azure Active Directory** > **Users** > **All users**.
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
-    ![The Users and All users options](common/users.png)
+#### SP initiated:
 
-1. Select **New user**.
+* Click on **Test this application**, this will redirect to monday.com Sign on URL where you can initiate the login flow.  
 
-    ![The New user option](common/new-user.png)
+* Go to monday.com Sign-on URL directly and initiate the login flow from there.
 
-1. In the **User** pane, complete the following steps:
+#### IDP initiated:
 
-    1. In the **Name** box, enter **BrittaSimon**.
-  
-    1. In the **User name** box, enter **brittasimon\@\<your-company-domain>.\<extension>**. For example, **brittasimon\@contoso.com**.
+* Click on **Test this application**, and you should be automatically signed in to the monday.com for which you set up the SSO. 
 
-    1. Select the **Show password** check box. Write down the value that's displayed in the **Password** box.
-
-    1. Select **Create**.
-
-	![The User pane](common/user-properties.png)
-
-### Assign the Azure AD test user
-
-In this section, you grant Britta Simon access to monday.com so she can use Azure single sign-on.
-
-1. In the Azure portal, select **Enterprise applications** > **All applications** > **monday.com**.
-
-	![The Enterprise applications pane](common/enterprise-applications.png)
-
-1. In the applications list, select **monday.com**.
-
-	![monday.com in the applications list](common/all-applications.png)
-
-1. In the menu, select **Users and groups**.
-
-    ![The Users and groups option](common/users-groups-blade.png)
-
-1. Select **Add user**. Then, in the **Add assignment** pane, select **Users and groups**.
-
-    ![The Add assignment pane](common/add-assign-user.png)
-
-1. In the **Users and groups** pane, select **Britta Simon** in the list of users. Choose **Select**.
-
-1. If you are expecting a role value in the SAML assertion, in the **Select role** pane, select the relevant role for the user from the list. Choose **Select**.
-
-1. In the **Add Assignment** pane, select **Assign**.
-
-### Create a monday.com test user
-
-In this section, a user named Britta Simon is created in the monday.com application. monday.com supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in monday.com, a new one is created after authentication.
-
-### Test single sign-on
-
-In this section, you test your Azure AD single sign-on configuration by using the My Apps portal.
-
-After you set up single sign-on, when you select **monday.com** in the My Apps portal, you are automatically signed in to monday.com. For more information about the My Apps portal, see [Access and use apps in the My Apps portal](../user-help/my-apps-portal-end-user-access.md).
+You can also use Microsoft My Apps to test the application in any mode. When you click the monday.com tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the monday.com for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-To learn more, review these articles:
-
-- [List of tutorials for integrating SaaS apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-- [Single sign-on to applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+Once you configure monday.com you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

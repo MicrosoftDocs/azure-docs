@@ -1,0 +1,274 @@
+### YamlMime:Landing
+
+title: Azure Synapse Analytics  # < 60 chars
+summary: Azure Synapse is a limitless analytics service that brings together enterprise data warehousing and Big Data analytics. It gives you the freedom to query data on your terms, using either serverless or dedicated resources—at scale. # < 160 chars
+metadata:
+  title: Azure Synapse Analytics
+  description: Azure Synapse is a limitless analytics service that brings together enterprise data warehousing and Big Data analytics. It gives you the freedom to query data on your terms, using either serverless on-demand or provisioned resources—at scale.
+  ms.service: synapse-analytics
+  ms.subservice: overview 
+  ms.topic: landing-page
+  ms.collection: collection
+  author: WilliamDAssafMSFT
+  ms.author: wiassaf
+  ms.date: 08/09/2022
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: About Azure Synapse Analytics
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Synapse
+            url: overview-what-is.md
+          - text: What's new?
+            url: whats-new.md
+          - text: Terminology
+            url: overview-terminology.md
+          - text: FAQ
+            url: overview-faq.yml
+
+  # Card
+  - title: Synapse SQL
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Azure Synapse SQL architecture
+            url: ./sql/overview-architecture.md
+      - linkListType: quickstart
+        links:
+          - text: Use serverless SQL pool
+            url: quickstart-sql-on-demand.md
+          - text: Create a dedicated SQL pool using Synapse Studio
+            url: quickstart-create-sql-pool-studio.md
+      - linkListType: deploy
+        links:
+          - text: Migration guides
+            url: migration-guides/index.yml
+
+  - title: Get started with Azure Synapse Analytics
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Step-by-step to getting started
+            url: get-started.md
+          - text: STEP 1 - Create and set up a Synapse workspace
+            url: get-started-create-workspace.md
+          - text: STEP 2 - Analyze using a dedicated SQL pool
+            url: get-started-analyze-sql-pool.md
+          - text: STEP 3 - Analyze using Apache Spark
+            url: get-started-analyze-spark.md
+          - text: STEP 4 - Analyze using a serverless SQL pool
+            url: get-started-analyze-sql-on-demand.md
+          - text: STEP 5 - Analyze data in a storage account
+            url: get-started-analyze-storage.md
+          - text: STEP 6 - Orchestrate with pipelines
+            url: get-started-pipelines.md
+          - text: STEP 7 - Visualize data with Power BI
+            url: get-started-visualize-power-bi.md
+          - text: STEP 8 - Monitor activities
+            url: get-started-monitor.md
+          - text: STEP 9 - Explore the Knowledge center
+            url: get-started-knowledge-center.md
+
+  # Card
+  - title: Data Explorer
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Data Explorer in Azure Synapse Analytics
+            url: data-explorer/data-explorer-overview.md
+      - linkListType: quickstart
+        links:
+          - text: Create a Data Explorer pool using the Synapse Studio
+            url: data-explorer/data-explorer-create-pool-studio.md
+
+  # Card
+  - title: Database templates
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Database templates in Azure Synapse Analytics
+            url: database-designer/overview-database-templates.md
+      - linkListType: quickstart
+        links:
+          - text: Create a new Lake database leveraging database templates
+            url: database-designer/quick-start-create-lake-database.md
+
+  # Card
+  - title: Apache Spark
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Apache Spark in Azure Synapse Analytics
+            url: ./spark/apache-spark-overview.md
+      - linkListType: quickstart
+        links:
+          - text: Create a serverless Apache Spark pool using Synapse Studio
+            url: quickstart-create-apache-spark-pool-studio.md
+
+  # Card
+  - title: Synapse Link
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Azure Synapse Link for Azure Cosmos DB
+            url: ../cosmos-db/synapse-link.md?context=/azure/synapse-analytics/context/context
+          - text: Azure Synapse Link for SQL
+            url: ./synapse-link/sql-synapse-link-overview.md
+                        
+      - linkListType: quickstart
+        links:
+          - text: Connect to Azure Synapse Link for Azure Cosmos DB
+            url: quickstart-connect-synapse-link-cosmos-db.md
+          - text: Connect to Azure Synapse Link for Azure SQL DB
+            url: ./synapse-link/connect-synapse-link-sql-database.md
+          - text: Connect to Azure Synapse Link for SQL Server 2022
+            url: ./synapse-link/connect-synapse-link-sql-server-2022.md
+            
+  # Card
+  - title: Machine Learning
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Machine Learning in Azure Synapse
+            url: ./machine-learning/what-is-machine-learning.md
+      - linkListType: quickstart
+        links:
+          - text: Create a new Azure Machine Learning linked service
+            url: ./machine-learning/quickstart-integrate-azure-machine-learning.md      
+      - linkListType: tutorial
+        links:
+          - text: Model scoring wizard for SQL pools
+            url: ./machine-learning/tutorial-sql-pool-model-scoring-wizard.md
+
+  # Card
+  - title: Pipeline and data flow
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Pipeline and activities
+            url: ../data-factory/concepts-pipelines-activities.md?context=/azure/synapse-analytics/context/context
+      - linkListType: quickstart
+        links:
+          - text: Transform data
+            url: quickstart-data-flow.md
+          - text: Load data to SQL pool 
+            url: quickstart-copy-activity-load-sql-pool.md
+
+  # # Card (optional)
+  # - title: Dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics 
+  #   linkLists:
+  #     - linkListType: overview
+  #       links:
+  #         - text: What is dedicated SQL pool (formerly SQL DW)?
+  #           url: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md
+  #     - linkListType: architecture
+  #       links:
+  #         - text: Dedicated SQL pool (formerly SQL DW) architecture
+  #           url: ./sql-data-warehouse/massively-parallel-processing-mpp-architecture.md
+  #         - text: Reference Architecture
+  #           url: /azure/architecture/reference-architectures/data/enterprise-bi-synapse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+
+
+
+
+
+
+  # # Card (optional)
+  # - title: Load data
+  #   linkLists:
+  #     - linkListType: quickstart
+  #       links:
+  #         - text: Fast data ingestion with the COPY statement
+  #           url: quickstart-bulk-load-copy-tsql.md
+  #         - text: COPY statement examples
+  #           url: quickstart-bulk-load-copy-tsql-examples.md
+  #     - linkListType: concept
+  #       links:
+  #         - text: Design data loading strategy
+  #           url: design-elt-data-loading.md
+  #         - text: Best practices
+  #           url: guidance-for-loading-data.md
+  #     - linkListType: how-to-guide
+  #       links:
+  #         - text: Load data from Azure Data Lake Storage
+  #           url: sql-data-warehouse-load-from-azure-data-lake-store.md
+  #     - linkListType: tutorial
+  #       links:
+  #         - text: Load data from Azure Blob storage
+  #           url: load-data-from-azure-blob-storage-using-polybase.md
+
+  # # Card
+  # - title: Performance tuning
+  #   linkLists:
+  #     - linkListType: overview
+  #       links:
+  #         # - text: Best practices
+  #         #   url: sql-data-warehouse-best-practices.md
+  #         - text: Ordered clustered columnstore index tuning
+  #           url: performance-tuning-ordered-cci.md
+  #         # - text: Use materialized views for workload tuning
+  #         #   url: performance-tuning-materialized-views.md
+  #     - linkListType: how-to-guide
+  #       links:
+  #         - text: Analyze your workload
+  #           url: analyze-your-workload.md
+  #         # - text: linktext2
+  #         #   url: file2.md
+
+  # # Card
+  # - title: Manage and monitor
+  #   linkLists:
+  #     - linkListType: overview
+  #       links:
+  #         - text: Learn to manage and monitor your data warehouse
+  #           url: sql-data-warehouse-overview-manageability-monitoring.md
+  #     #     - text: linktext2
+  #     #       url: file2.md
+  #     - linkListType: how-to-guide
+  #       links:
+  #         - text: Monitor your workload using DMVs
+  #           url: sql-data-warehouse-manage-monitor.md
+  #         - text: Manage and monitor workload importance
+  #           url: sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md
+
+  # # Card
+  # - title: Secure your data warehouse
+  #   linkLists:
+  #     - linkListType: overview
+  #       links:
+  #         - text: Understand the basics of securing your data warehouse
+  #           url: sql-data-warehouse-overview-manage-security.md
+  #         # - text: linktext2
+  #         #   url: file2.md
+  #     - linkListType: how-to-guide
+  #       links:
+  #         - text: Configure Azure Active Directory authentication
+  #           url: /azure/sql-database/sql-database-aad-authentication-configure?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+  #     #     - text: linktext2
+  #     #       url: file2.md
+
+  # # Card
+  # # - title: Resources
+  # #   linkLists:
+  # #     - linkListType: video
+  # #       links:
+  # #         - text: Watch the latest Synapse SQL videos
+  # #           url: sql-data-warehouse-videos.md
+  # #         - text: linktext2
+  # #           url: file2.md
+
+  #  # Card
+  # - title: References
+  #   linkLists:
+  #     - linkListType: video
+  #       links:
+  #         - text: Watch the latest Synapse SQL videos
+  #           url: sql-data-warehouse-videos.md
+  #         - text: linktext2
+  #           url: file2.md

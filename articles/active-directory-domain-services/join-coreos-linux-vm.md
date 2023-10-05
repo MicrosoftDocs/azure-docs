@@ -1,148 +1,175 @@
 ---
-title: 'Azure Active Directory Domain Services: Join a CoreOS Linux VM to a managed domain | Microsoft Docs'
-description: Join a CoreOS Linux virtual machine to Azure AD Domain Services
+title: Join a CoreOS VM to Microsoft Entra Domain Services | Microsoft Docs
+description: Learn how to configure and join a CoreOS virtual machine to a Microsoft Entra Domain Services managed domain.
 services: active-directory-ds
-documentationcenter: ''
-author: MikeStephens-MS
-manager: daveba
-editor: curtand
+author: justinha
+manager: amycolannino
 
 ms.assetid: 5db65f30-bf69-4ea3-9ea5-add1db83fdb8
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 05/20/2019
-ms.author: mstephen
+ms.topic: how-to
+ms.date: 09/23/2023
+ms.author: justinha
 
 ---
-# Join a CoreOS Linux virtual machine to a managed domain
-This article shows you how to join a CoreOS Linux virtual machine in Azure to an Azure AD Domain Services managed domain.
+# Join a CoreOS virtual machine to a Microsoft Entra Domain Services managed domain
 
-[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
+To let users sign in to virtual machines (VMs) in Azure using a single set of credentials, you can join VMs to a Microsoft Entra Domain Services managed domain. When you join a VM to a Domain Services managed domain, user accounts and credentials from the domain can be used to sign in and manage servers. Group memberships from the managed domain are also applied to let you control access to files or services on the VM.
 
-## Before you begin
-To perform the tasks listed in this article, you need:
-1. A valid **Azure subscription**.
-2. An **Azure AD directory** - either synchronized with an on-premises directory or a cloud-only directory.
-3. **Azure AD Domain Services** must be enabled for the Azure AD directory. If you haven't done so, follow all the tasks outlined in the [Getting Started guide](create-instance.md).
-4. Ensure that you have configured the IP addresses of the managed domain as the DNS servers for the virtual network. For more information, see [how to update DNS settings for the Azure virtual network](active-directory-ds-getting-started-dns.md)
-5. Complete the steps required to [synchronize passwords to your Azure AD Domain Services managed domain](active-directory-ds-getting-started-password-sync.md).
+This article shows you how to join a CoreOS VM to a managed domain.
 
+## Prerequisites
 
-## Provision a CoreOS Linux virtual machine
-Provision a CoreOS virtual machine in Azure, using any of the following methods:
-* [Azure portal](../virtual-machines/linux/quick-create-portal.md)
-* [Azure CLI](../virtual-machines/linux/quick-create-cli.md)
-* [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
+To complete this tutorial, you need the following resources and privileges:
 
-This article uses the **CoreOS Linux (Stable)** virtual machine image in Azure.
+* An active Azure subscription.
+    * If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* A Microsoft Entra tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
+    * If needed, [create a Microsoft Entra tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
+* A Microsoft Entra Domain Services managed domain enabled and configured in your Microsoft Entra tenant.
+    * If needed, the first tutorial [creates and configures a Microsoft Entra Domain Services managed domain][create-azure-ad-ds-instance].
+* A user account that's a part of the managed domain.
+* Unique Linux VM names that are a maximum of 15 characters to avoid truncated names that might cause conflicts in Active Directory.
 
-> [!IMPORTANT]
-> * Deploy the virtual machine into the **same virtual network in which you have enabled Azure AD Domain Services**.
-> * Pick a **different subnet** than the one in which you have enabled Azure AD Domain Services.
->
+## Create and connect to a CoreOS Linux VM
 
+If you have an existing CoreOS Linux VM in Azure, connect to it using SSH, then continue on to the next step to [start configuring the VM](#configure-the-hosts-file).
 
-## Connect remotely to the newly provisioned Linux virtual machine
-The CoreOS virtual machine has been provisioned in Azure. The next task is to connect remotely to the virtual machine using the local administrator account created while provisioning the VM.
+If you need to create a CoreOS Linux VM, or want to create a test VM for use with this article, you can use one of the following methods:
 
-Follow the instructions in the article [How to log on to a virtual machine running Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* [Microsoft Entra admin center](/azure/virtual-machines/linux/quick-create-portal)
+* [Azure CLI](/azure/virtual-machines/linux/quick-create-cli)
+* [Azure PowerShell](/azure/virtual-machines/linux/quick-create-powershell)
 
+When you create the VM, pay attention to the virtual network settings to make sure that the VM can communicate with the managed domain:
 
-## Configure the hosts file on the Linux virtual machine
-In your SSH terminal, edit the /etc/hosts file and update your machine’s IP address and hostname.
+* Deploy the VM into the same, or a peered, virtual network in which you have enabled Microsoft Entra Domain Services.
+* Deploy the VM into a different subnet than your Microsoft Entra Domain Services managed domain.
 
-```
+Once the VM is deployed, follow the steps to connect to the VM using SSH.
+
+## Configure the hosts file
+
+To make sure that the VM host name is correctly configured for the managed domain, edit the */etc/hosts* file and set the hostname:
+
+```console
 sudo vi /etc/hosts
 ```
 
-In the hosts file, enter the following value:
+In the *hosts* file, update the *localhost* address. In the following example:
 
-```
-127.0.0.1 contoso-coreos.contoso100.com contoso-coreos
-```
-Here, 'contoso100.com' is the DNS domain name of your managed domain. 'contoso-coreos' is the hostname of the CoreOS virtual machine you are joining to the managed domain.
+* *aaddscontoso.com* is the DNS domain name of your managed domain.
+* *coreos* is the hostname of your CoreOS VM that you're joining to the managed domain.
 
+Update these names with your own values:
 
-## Configure the SSSD service on the Linux virtual machine
-Next, update your SSSD configuration file in ('/etc/sssd/sssd.conf') to match the following sample:
-
- ```
- [sssd]
- config_file_version = 2
- services = nss, pam
- domains = CONTOSO100.COM
-
- [domain/CONTOSO100.COM]
- id_provider = ad
- auth_provider = ad
- chpass_provider = ad
-
- ldap_uri = ldap://contoso100.com
- ldap_search_base = dc=contoso100,dc=com
- ldap_schema = rfc2307bis
- ldap_sasl_mech = GSSAPI
- ldap_user_object_class = user
- ldap_group_object_class = group
- ldap_user_home_directory = unixHomeDirectory
- ldap_user_principal = userPrincipalName
- ldap_account_expire_policy = ad
- ldap_force_upper_case_realm = true
- fallback_homedir = /home/%d/%u
-
- krb5_server = contoso100.com
- krb5_realm = CONTOSO100.COM
- ```
-Replace 'CONTOSO100.COM' with the DNS domain name of your managed domain. Make sure you specify the domain name in capital case in the conf file.
-
-
-## Join the Linux virtual machine to the managed domain
-Now that the required packages are installed on the Linux virtual machine, the next task is to join the virtual machine to the managed domain.
-
-```
-sudo adcli join -D CONTOSO100.COM -U bob@CONTOSO100.COM -K /etc/krb5.keytab -H contoso-coreos.contoso100.com -N coreos
+```console
+127.0.0.1 coreos coreos.aaddscontoso.com
 ```
 
+When done, save and exit the *hosts* file using the `:wq` command of the editor.
 
-> [!NOTE]
-> **Troubleshooting:**
-> If *adcli* is unable to find your managed domain:
->   * Ensure that the domain is reachable from the virtual machine (try ping).
->   * Check that the virtual machine has indeed been deployed to the same virtual network in which the managed domain is available.
->   * Check to see if you have updated the DNS server settings for the virtual network to point to the domain controllers of the managed domain.
+## Configure the SSSD service
 
-Start the SSSD service. In your SSH terminal, type the following command:
-  ```
-  sudo systemctl start sssd.service
-  ```
+Update the */etc/sssd/sssd.conf* SSSD configuration.
 
+```console
+sudo vi /etc/sssd/sssd.conf
+```
 
-## Verify domain join
-Verify whether the machine has been successfully joined to the managed domain. Connect to the domain joined CoreOS VM using a different SSH connection. Use a domain user account and then check to see if the user account is resolved correctly.
+Specify your own managed domain name for the following parameters:
 
-1. In your SSH terminal, type the following command to connect to the domain joined CoreOS virtual machine using SSH. Use a domain account that belongs to the managed domain (for example, 'bob@CONTOSO100.COM' in this case.)
+* *domains* in ALL UPPER CASE
+* *[domain/AADDSCONTOSO]* where AADDSCONTOSO is in ALL UPPER CASE
+* *ldap_uri*
+* *ldap_search_base*
+* *krb5_server*
+* *krb5_realm* in ALL UPPER CASE
+
+```console
+[sssd]
+config_file_version = 2
+services = nss, pam
+domains = AADDSCONTOSO.COM
+
+[domain/AADDSCONTOSO]
+id_provider = ad
+auth_provider = ad
+chpass_provider = ad
+
+ldap_uri = ldap://aaddscontoso.com
+ldap_search_base = dc=aaddscontoso,dc=com
+ldap_schema = rfc2307bis
+ldap_sasl_mech = GSSAPI
+ldap_user_object_class = user
+ldap_group_object_class = group
+ldap_user_home_directory = unixHomeDirectory
+ldap_user_principal = userPrincipalName
+ldap_account_expire_policy = ad
+ldap_force_upper_case_realm = true
+fallback_homedir = /home/%d/%u
+
+krb5_server = aaddscontoso.com
+krb5_realm = AADDSCONTOSO.COM
+```
+
+## Join the VM to the managed domain
+
+With the SSSD configuration file updated, now join the virtual machine to the managed domain.
+
+1. First, use the `adcli info` command to verify you can see information about the managed domain. The following example gets information for the domain *AADDSCONTOSO.COM*. Specify your own managed domain name in ALL UPPERCASE:
+
+    ```console
+    sudo adcli info AADDSCONTOSO.COM
     ```
-    ssh -l bob@CONTOSO100.COM contoso-coreos.contoso100.com
+
+   If the `adcli info` command can't find your managed domain, review the following troubleshooting steps:
+
+    * Make sure that the domain is reachable from the VM. Try `ping aaddscontoso.com` to see if a positive reply is returned.
+    * Check that the VM is deployed to the same, or a peered, virtual network in which the managed domain is available.
+    * Confirm that the DNS server settings for the virtual network have been updated to point to the domain controllers of the managed domain.
+
+1. Now join the VM to the managed domain using the `adcli join` command. Specify a user that's a part of the managed domain. If needed, [add a user account to a group in Microsoft Entra ID](/azure/active-directory/fundamentals/how-to-manage-groups).
+
+    Again, the managed domain name must be entered in ALL UPPERCASE. In the following example, the account named `contosoadmin@aaddscontoso.com` is used to initialize Kerberos. Enter your own user account that's a part of the managed domain.
+
+    ```console
+    sudo adcli join -D AADDSCONTOSO.COM -U contosoadmin@AADDSCONTOSO.COM -K /etc/krb5.keytab -H coreos.aaddscontoso.com -N coreos
     ```
 
-2. In your SSH terminal, type the following command to see if the home directory was initialized correctly.
-    ```
-    pwd
+    The `adcli join` command doesn't return any information when the VM has successfully joined to the managed domain.
+
+1. To apply the domain-join configuration, start the SSSD service:
+  
+    ```console
+    sudo systemctl start sssd.service
     ```
 
-3. In your SSH terminal, type the following command to see if the group memberships are being resolved correctly.
+## Sign in to the VM using a domain account
+
+To verify that the VM has been successfully joined to the managed domain, start a new SSH connection using a domain user account. Confirm that a home directory has been created, and that group membership from the domain is applied.
+
+1. Create a new SSH connection from your console. Use a domain account that belongs to the managed domain using the `ssh -l` command, such as `contosoadmin@aaddscontoso.com` and then enter the address of your VM, such as *coreos.aaddscontoso.com*. If you use the Azure Cloud Shell, use the public IP address of the VM rather than the internal DNS name.
+
+    ```console
+    ssh -l contosoadmin@AADDSCONTOSO.com coreos.aaddscontoso.com
     ```
+
+1. Now check that the group memberships are being resolved correctly:
+
+    ```console
     id
     ```
 
+    You should see your group memberships from the managed domain.
 
-## Troubleshooting domain join
-Refer to the [Troubleshooting domain join](join-windows-vm.md#troubleshoot-joining-a-domain) article.
+## Next steps
 
-## Related Content
-* [Azure AD Domain Services - Getting Started guide](create-instance.md)
-* [Join a Windows Server virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-windows-vm.md)
-* [How to log on to a virtual machine running Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+If you have problems connecting the VM to the managed domain or signing in with a domain account, see [Troubleshooting domain join issues](join-windows-vm.md#troubleshoot-domain-join-issues).
+
+<!-- INTERNAL LINKS -->
+[create-azure-ad-tenant]: /azure/active-directory/fundamentals/sign-up-organization
+[associate-azure-ad-tenant]: /azure/active-directory/fundamentals/how-subscriptions-associated-directory
+[create-azure-ad-ds-instance]: tutorial-create-instance.md

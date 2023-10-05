@@ -1,0 +1,68 @@
+### YamlMime:FAQ
+metadata:
+  title: Common questions - Defender for APIs
+  description: Frequently asked questions about Defender for APIs 
+  author: alizabernstein
+  ms.author: alizabernstein
+  ms.service: 
+  ms.topic: faq
+  ms.date: 06/08/2023
+title: Common questions about Defender for APIs
+
+## Common questions for Defender for APIs
+
+sections:
+  - name: Availability and onboarding
+    questions:      
+      - question: I’m getting an error while onboarding APIs to Defender for APIs from the Recommendations page.
+        answer: If you encounter errors like "Access Denied", "Forbidden", "Role Assignment not found", or "Authorization Failed", ensure that you have the right level of permission for the Azure API Management service and Microsoft Defender for Cloud. Required set of permissions can be found [here](/azure/defender-for-cloud/defender-for-apis-introduction). 
+                The error "Request Header or Cookie Too Large" can typically be fixed by clearing all cookies; clear your browser cookies and try the operation again.
+
+      - question: Does onboarding APIs to Defender for APIs affect my Azure API Management service?
+        answer: Enabling Defender for APIs monitoring coverage requires compute & memory utilization on the Azure API Management service. Monitor the performance of your Azure API Management service while onboarding APIs and scale out your Azure API Management resources when needed.
+
+      - question: I use Azure API Management Consumption tier offering. Can I use Defender for APIs?
+        answer: No, support for Azure API Management consumption tier is currently not available.
+
+  - name: Questions related to region/geo 
+    questions:
+      - question: I just moved my APIs within my Azure API Management service to a new region. Why are these not updated?
+        answer: APIs that are moved from one region to another region require [offboarding](defender-for-apis-manage.md#offboard-an-api) and [onboarding](defender-for-apis-deploy.md) of the APIs.
+
+      - question: How do I enable Defender for APIs plan for a specific set of Azure API Management services?
+        answer: Microsoft Defender for APIs plan is enabled at the subscription level. You can select which APIs in Azure API Management from that subscription are onboarded for security coverage. 
+
+      - question: I onboarded APIs from Azure API Management to Defender for APIs, but they're still showing under unhealthy resources on the recommendation page / I don't see any security insights for the APIs I onboarded.
+        answer: Defender for APIs will take 30 minutes to generate the first security insights after onboarding an API and to move the onboarded APIs from unhealthy to healthy status. Thereafter, security insights are refreshed every 30 minutes.
+      
+      - question: Why do security insights within the API collection details page show as "Awaiting Data"?
+        answer: API endpoints that have received no traffic since onboarding to Defender for APIs display the message ‘Awaiting data’ under security insights. Until the API endpoint receives traffic, the security insight assessment can't be made.
+    
+      - question: I have a self-hosted Azure API Management gateway. Can I use Defender for APIs for securing my APIs?
+        answer: Currently Defender for APIs support is limited to the cloud hosted instances of Azure API Management gateways only.
+
+      - question: My Azure API Management service is in a VNet. Do I need to have additional connectivity configured for Defender for APIs?
+        answer: No, Defender for APIs won't need special configuration for accessing API data from Azure API Management service behind a VNET.
+
+      - question: What is the IP address shown in Defender for APIs alerts description page if x-forwarded-for is configured within our network? 
+        answer: Defender for APIs shows the IP address of the inbound IP address from client IPs. If x-forwarded-for is used, Defender for APIs validates the IP hops as part of the x-forwarded-for used within the request to show the most accurate IP that inbound request is coming from. 
+    
+      - question: We use a custom domain URL within Azure API Management, will Defender for APIs show this URL as the Endpoint URL?
+        answer: Custom domain URLs aren't shown within the Endpoint URL. The Defender for APIs Endpoint URL shows the base URL of your API Management API endpoint
+
+  - name: Questions about alerts in Defender for APIs 
+    questions:
+      - question: How soon can we receive alerts on anomalous APIs? 
+        answer: APIs are assessed against their behavior studying traffic for the past 30 days. The alerts on anomalous APIs may be generated sooner if the API receives significant traffic for the ML models to learn traffic behavior. 
+
+  - name: Questions about Defender for APIs and WAF
+    questions:
+      - question: Is Azure WAF sufficient for securing APIs? 
+        answer:  While Web Application Firewalls (WAF) are a valuable solution for protecting applications, they may not provide complete security for APIs. WAFs are designed to apply generalized protection measures like dictionary, pattern, and signature mapping, which work well for applications with consistent traffic patterns. However, APIs are unique to each application and have dynamically changing nature, making the abstract protections offered by WAFs less effective. <br> APIs have different request and response payloads, and each consumer interacts with them in their own specific ways. The general dictionary, pattern, and signature mappings used by WAFs may not adequately offer complete in depth protection for APIs due to their uniqueness. Although there are some cases where overlap exists, such as detecting and preventing SQL injection attacks, APIs often require more granular security measures. <br> To achieve the level of security needed for APIs, a solution like Microsoft Defender for APIs is recommended. Defender for APIs learns and understands the API logic using machine learning algorithms, thereby providing a contextual understanding that enables more precise and effective security measures. This granular level of protection helps safeguard APIs against various threats and ensures a higher level of security for organizations. 
+
+additionalContent: |
+
+  ## Next steps
+  
+  [Learn about Defender for APIs](defender-for-apis-introduction.md)
+  

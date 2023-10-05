@@ -1,71 +1,128 @@
 ---
-title: Add a tile layer to Azure Maps | Microsoft Docs
-description: How to add a tile Layer to the Javascript map
-author: rbrundritt
-ms.author: richbrun
-ms.date: 12/3/2018
-ms.topic: conceptual
+title: Add a tile layer to a map
+titleSuffix: Microsoft Azure Maps
+description: Learn how to superimpose images on maps. See an example that uses the Azure Maps Web SDK to add a tile layer containing a weather radar overlay to a map.
+author: sinnypan
+ms.author: sipa
+ms.date: 06/08/2023
+ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
-manager: 
-ms.custom: codepen
 ---
 
 # Add a tile layer to a map
 
-This article shows you how you can overlay a Tile layer on the map. Tile layers allow you to superimpose images on top of Azure Maps base map tiles. More information on Azure Maps tiling system can be found in the [Zoom levels and tile grid](zoom-levels-and-tile-grid.md) documentation.
+This article shows you how to overlay a Tile layer on the map. Tile layers allow you to superimpose images on top of Azure Maps base map tiles. For more information on Azure Maps tiling system, see [Zoom levels and tile grid](zoom-levels-and-tile-grid.md).
 
-A Tile layer load in tiles from a server. These images can either be pre-rendered and stored like any other image on a server using a naming convention that the tile layer understands, or a dynamic service that generates the images on the fly. There are three different tile service naming conventions supported by Azure Maps [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) class; 
+A Tile layer loads in tiles from a server. These images can either be prerendered or dynamically rendered. Prerendered images are stored like any other image on a server using a naming convention that the tile layer understands. Dynamically rendered images use a service to load the images close to real time. There are three different tile service naming conventions supported by Azure Maps [TileLayer](/javascript/api/azure-maps-control/atlas.layer.tilelayer) class:
 
-* X, Y, Zoom notation - Based on the zoom level, x is the column and y is the row position of the tile in the tile grid.
-* Quadkey notation - Combination x, y, zoom information into a single string value that is a unique identifier for a tile.
-* Bounding Box - Bounding box coordinates can be used to specify an image in the format `{west},{south},{east},{north}` which is commonly used by [Web Mapping Services (WMS)](https://www.opengeospatial.org/standards/wms).
+* X, Y, Zoom notation - X is the column, Y is the row position of the tile in the tile grid, and the Zoom notation a value based on the zoom level.
+* Quadkey notation - Combines x, y, and zoom information into a single string value. This string value becomes a unique identifier for a single tile.
+* Bounding Box -  Specify an image in the Bounding box coordinates format: `{west},{south},{east},{north}`. This format is commonly used by [web-mapping Services (WMS)](https://www.opengeospatial.org/standards/wms).
 
 > [!TIP]
-> A [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) is a great way to visualize large data sets on the map. Not only can a tile layer be generated from an image, but vector data can also be rendered as a tile layer too. By rendering vector data as a tile layer, the map control only needs to load the tiles which can be much smaller in file size than the vector data they represent. This technique is used by many who need to render millions of rows of data on the map.
+> A [TileLayer](/javascript/api/azure-maps-control/atlas.layer.tilelayer) is a great way to visualize large data sets on the map. Not only can a tile layer be generated from an image, vector data can also be rendered as a tile layer too. By rendering vector data as a tile layer, map control only needs to load the tiles which are smaller in file size than the vector data they represent. This technique is commonly used to render millions of rows of data on the map.
 
-The tile URL passed into a Tile layer must be an http/https URL to a TileJSON resource or a tile URL template that uses the following parameters: 
+The tile URL passed into a Tile layer must be an http or an https URL to a TileJSON resource or a tile URL template that uses the following parameters:
 
 * `{x}` - X position of the tile. Also needs `{y}` and `{z}`.
 * `{y}` - Y position of the tile. Also needs `{x}` and `{z}`.
 * `{z}` - Zoom level of the tile. Also needs `{x}` and `{y}`.
 * `{quadkey}` - Tile quadkey identifier based on the Bing Maps tile system naming convention.
 * `{bbox-epsg-3857}` - A bounding box string with the format `{west},{south},{east},{north}` in the EPSG 3857 Spatial Reference System.
-* `{subdomain}` - A placeholder where the subdomain values if specified will be added.
+* `{subdomain}` - A placeholder for the subdomain values, if specified the `subdomain` is added.
+* `{azMapsDomain}` - A placeholder to align the domain and authentication of tile requests with the same values used by the map.
 
 ## Add a tile layer
 
- This sample shows how to create a tile layer that points to a set of tiles that use the x, y, zoom tiling system. The source of this tile layer is a weather radar overlay from the [Iowa Environmental Mesonet of Iowa State University](https://mesonet.agron.iastate.edu/ogc/).
+ This sample shows how to create a tile layer that points to a set of tiles. This sample uses the x, y, zoom tiling system. The source of this tile layer is the [OpenSeaMap project], which contains crowd sourced nautical charts. Ideally users would clearly see the labels of cities as they navigate the map when viewing radar data. This behavior can be implemented by inserting the tile layer below the `labels` layer.
 
-<br/>
+```javascript
+//Create a tile layer and add it to the map below the label layer.
+map.layers.add(new atlas.layer.TileLayer({
+    tileUrl: 'https://tiles.openseamap.org/seamark/{z}/{x}/{y}.png',
+    opacity: 0.8,
+    tileSize: 256,
+    minSourceZoom: 7,
+    maxSourceZoom: 17
+}), 'labels');
+```
 
-<iframe height='500' scrolling='no' title='Tile Layer using X, Y, and Z' src='//codepen.io/azuremaps/embed/BGEQjG/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/BGEQjG/'>Tile Layer using X, Y, and Z</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+For a fully functional sample that shows how to create a tile layer that points to a set of tiles using the x, y, zoom tiling system, see the [Tile Layer using X, Y, and Z] sample in the [Azure Maps Samples]. The source of the tile layer in this sample is a nautical chart from the [OpenSeaMap project], an OpenStreetMaps project licensed under ODbL. For the source code for this sample, see [Tile Layer using X, Y, and Z source code].
 
-In the code above, the first block of code constructs a Map object. You can see [create a map](./map-create.md) for instructions.
+:::image type="content" source="./media/map-add-tile-layer/tile-layer.png"alt-text="A screenshot of map with a tile layer that points to a set of tiles using the x, y, zoom tiling system. The source of this tile layer is the OpenSeaMap project.":::
 
-In the second block of code, an [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) is created by passing a formatted URL to a tile service, the tile size, and an opacity to make it semi-transparent. Additionally, when adding the tile layer to the map, it is added below the `labels` layer so that the labels are still clearly visible.
+<!--------------------------------------------------
+> [!VIDEO //codepen.io/azuremaps/embed/BGEQjG/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
+---------------------------------------------------->
+
+## Add an OGC web-mapping service (WMS)
+
+A web-mapping service (WMTS) is an Open Geospatial Consortium (OGC) standard for serving images of map data. There are many open data sets available in this format that you can use with Azure Maps. This type of service can be used with a tile layer if the service supports the `EPSG:3857` coordinate reference system (CRS). When using a WMS service, set the width and height parameters to the value supported by the service, be sure to set this value in the `tileSize` option. In the formatted URL, set the `BBOX` parameter of the service with the `{bbox-epsg-3857}` placeholder.
+
+For a fully functional sample that shows how to create a tile layer that points to a Web Mapping Service (WMS), see the [WMS Tile Layer] sample in the [Azure Maps Samples]. For the source code for this sample, see [WMS Tile Layer source code].
+
+The following screenshot shows the [WMS Tile Layer] sample that overlays a web-mapping service of geological data from the [U.S. Geological Survey (USGS)] on top of the map and below the labels.
+
+:::image type="content" source="./media/map-add-tile-layer/wms-tile-layer.png"alt-text="A screenshot of a world map with a tile layer that points to a Web Mapping Service (WMS).":::
+
+<!--------------------------------------------------
+> [!VIDEO https://codepen.io/azuremaps/embed/BapjZqr?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
+----------------------------------------------->
+
+## Add an OGC web-mapping tile service (WMTS)
+
+A web-mapping tile service (WMTS) is an Open Geospatial Consortium (OGC) standard for serving tiled based overlays for maps. There are many open data sets available in this format that you can use with Azure Maps. This type of service can be used with a tile layer if the service supports the `EPSG:3857` or `GoogleMapsCompatible` coordinate reference system (CRS). When using a WMTS service, set the width and height parameters to the same value supported by the service, be sure to also set this value in the `tileSize` option. In the formatted URL, replace the following placeholders accordingly:
+
+* `{TileMatrix}` => `{z}`
+* `{TileRow}` => `{y}`
+* `{TileCol}` => `{x}`
+
+For a fully functional sample that shows how to create a tile layer that points to a Web Mapping Tile Service (WMTS), see the [WMTS Tile Layer] sample in the [Azure Maps Samples]. For the source code for this sample, see [WMTS Tile Layer source code].
+
+The following screenshot shows the WMTS Tile Layer sample overlaying a web-mapping tile service of imagery from the U.S. Geological Survey (USGS) National Map on top of a map, below roads and labels.
+
+:::image type="content" source="./media/map-add-tile-layer/wmts-tile-layer.png"alt-text="A screenshot of a map with a tile layer that points to a Web Mapping Tile Service (WMTS) overlay.":::
+
+<!--------------------------------------------------
+> [!VIDEO https://codepen.io/azuremaps/embed/BapjZVY?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
+----------------------------------------------->
 
 ## Customize a tile layer
 
-The Tile layer only has a many styling options. Here is a tool to try them out.
+The tile layer class has many styling options. The [Tile Layer Options] sample is a tool to try them out. For the source code for this sample, see [Tile Layer Options source code].
 
-<br/>
+:::image type="content" source="./media/map-add-tile-layer/tile-layer-options.png"alt-text="A screenshot of Tile Layer Options sample.":::
 
-<iframe height='700' scrolling='no' title='Tile Layer Options' src='//codepen.io/azuremaps/embed/xQeRWX/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/xQeRWX/'>Tile Layer Options</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+<!--------------------------------------------------
+> [!VIDEO //codepen.io/azuremaps/embed/xQeRWX/?height=700&theme-id=0&default-tab=result]
+----------------------------------------------->
 
 ## Next steps
 
 Learn more about the classes and methods used in this article:
 
 > [!div class="nextstepaction"]
-> [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest)
+> [TileLayer](/javascript/api/azure-maps-control/atlas.layer.tilelayer)
 
 > [!div class="nextstepaction"]
-> [TileLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.tilelayeroptions?view=azure-iot-typescript-latest)
+> [TileLayerOptions](/javascript/api/azure-maps-control/atlas.tilelayeroptions)
 
 See the following articles for more code samples to add to your maps:
 
 > [!div class="nextstepaction"]
 > [Add an image layer](./map-add-image-layer.md)
+
+[Azure Maps Samples]: https://samples.azuremaps.com
+[Tile Layer Options]: https://samples.azuremaps.com/tile-layers/tile-layer-options
+[WMS Tile Layer]: https://samples.azuremaps.com/tile-layers/wms-tile-layer
+[WMTS Tile Layer]: https://samples.azuremaps.com/tile-layers/wmts-tile-layer
+[Tile Layer using X, Y, and Z]: https://samples.azuremaps.com/tile-layers/tile-layer-using-x,-y-and-z
+
+[Tile Layer Options source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Tile%20Layers/Tile%20Layer%20Options/Tile%20Layer%20Options.html
+[WMS Tile Layer source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Tile%20Layers/WMS%20Tile%20Layer/WMS%20Tile%20Layer.html
+[WMTS Tile Layer source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Tile%20Layers/WMTS%20Tile%20Layer/WMTS%20Tile%20Layer.html
+[Tile Layer using X, Y, and Z source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Tile%20Layers/Tile%20Layer%20using%20X,%20Y%20and%20Z/Tile%20Layer%20using%20X,%20Y%20and%20Z.html
+
+[OpenSeaMap project]: https://openseamap.org/index.php
+[U.S. Geological Survey (USGS)]: https://mrdata.usgs.gov/
+[U.S. Geological Survey (USGS) National Map]:https://viewer.nationalmap.gov/services

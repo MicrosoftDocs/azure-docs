@@ -1,21 +1,12 @@
 ---
-title: Azure Service Fabric CLI- sfctl service | Microsoft Docs
-description: Describes the Service Fabric CLI sfctl service commands.
-services: service-fabric
-documentationcenter: na
-author: Christina-Kang
-manager: chackdan
-editor: ''
-
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: cli
+title: Azure Service Fabric CLI- sfctl service
+description: Learn about sfctl, the Azure Service Fabric command line interface. Includes a list of commands for managing services, service types, and service packages.
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 
 # sfctl service
@@ -57,7 +48,7 @@ Gets the name of the application for the specified service. A 404 FABRIC_E_SERVI
 |Argument|Description|
 | --- | --- |
 | --service-id [Required] | The identity of the service. This ID is typically the full name of the service without the 'fabric\:' URI scheme. Starting from version 6.0, hierarchical names are delimited with the "\~" character. For example, if the service name is "fabric\:/myapp/app1/svc1", the service identity would be "myapp\~app1\~svc1" in 6.0+ and "myapp/app1/svc1" in previous versions. |
-| --timeout -t | Server timeout in seconds.  Default\: 60. |
+| --timeout -t | The server timeout for performing the operation in seconds. This timeout specifies the time duration that the client is willing to wait for the requested operation to complete. The default value for this parameter is 60 seconds.  Default\: 60. |
 
 ### Global Arguments
 
@@ -82,7 +73,7 @@ Gets the list of code packages deployed on a Service Fabric node for the given a
 | --node-name      [Required] | The name of the node. |
 | --code-package-name | The name of code package specified in service manifest registered as part of an application type in a Service Fabric cluster. |
 | --service-manifest-name | The name of a service manifest registered as part of an application type in a Service Fabric cluster. |
-| --timeout -t | Server timeout in seconds.  Default\: 60. |
+| --timeout -t | The server timeout for performing the operation in seconds. This timeout specifies the time duration that the client is willing to wait for the requested operation to complete. The default value for this parameter is 60 seconds.  Default\: 60. |
 
 ### Global Arguments
 
@@ -102,7 +93,7 @@ Creates the specified Service Fabric service.
 |Argument|Description|
 | --- | --- |
 | --app-id       [Required] | The identity of the application. This is typically the full name of the application without the 'fabric\:' URI scheme. Starting from version 6.0, hierarchical names are delimited with the '\~' character. For example, if the application name is 'fabric\:/myapp/app1', the application identity would be 'myapp\~app1' in 6.0+ and 'myapp/app1' in previous versions. |
-| --name         [Required] | Name of the service. This should be a child of the application id. This is the full name including the `fabric\:` URI. For example service `fabric\:/A/B` is a child of application `fabric\:/A`. |
+| --name         [Required] | Name of the service. This should be a child of the application ID. This is the full name including the `fabric\:` URI. For example service `fabric\:/A/B` is a child of application `fabric\:/A`. |
 | --service-type [Required] | Name of the service type. |
 | --activation-mode | The activation mode for the service package. |
 | --constraints | The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following\:"NodeColor == blue". |
@@ -116,7 +107,7 @@ Creates the specified Service Fabric service.
 | --int-scheme-low | The start of the key integer range, if using an uniform integer partition scheme. |
 | --load-metrics | JSON encoded list of metrics used when load balancing services across nodes. |
 | --min-replica-set-size | The minimum replica set size as a number. This applies to stateful services only. |
-| --move-cost | Specifies the move cost for the service. Possible values are\: 'Zero', 'Low', 'Medium', 'High'. |
+| --move-cost | Specifies the move cost for the service. Possible values are\: 'Zero', 'Low', 'Medium', 'High', 'VeryHigh'. |
 | --named-scheme | Indicates the service should have multiple named partitions. |
 | --named-scheme-list | JSON encoded list of names to partition the service across, if using the named partition scheme. |
 | --no-persisted-state | If true, this indicates the service has no persistent state stored on the local disk, or it only stores state in memory. |
@@ -124,12 +115,13 @@ Creates the specified Service Fabric service.
 | --quorum-loss-wait | The maximum duration, in seconds, for which a partition is allowed to be in a state of quorum loss. This applies to stateful services only. |
 | --replica-restart-wait | The duration, in seconds, between when a replica goes down and when a new replica is created. This applies to stateful services only. |
 | --scaling-policies | JSON encoded list of scaling policies for this service. |
+| --service-placement-time | The duration for which replicas can stay InBuild before reporting that build is stuck. This applies to stateful services only. |
 | --singleton-scheme | Indicates the service should have a single partition or be a non-partitioned service. |
 | --stand-by-replica-keep | The maximum duration, in seconds,  for which StandBy replicas will be maintained before being removed. This applies to stateful services only. |
 | --stateful | Indicates the service is a stateful service. |
 | --stateless | Indicates the service is a stateless service. |
 | --target-replica-set-size | The target replica set size as a number. This applies to stateful services only. |
-| --timeout -t | Server timeout in seconds.  Default\: 60. |
+| --timeout -t | Default\: 60. |
 
 ### Global Arguments
 
@@ -152,7 +144,7 @@ A service must be created before it can be deleted. By default, Service Fabric w
 | --- | --- |
 | --service-id [Required] | The identity of the service. This ID is typically the full name of the service without the 'fabric\:' URI scheme. Starting from version 6.0, hierarchical names are delimited with the "\~" character. For example, if the service name is "fabric\:/myapp/app1/svc1", the service identity would be "myapp\~app1\~svc1" in 6.0+ and "myapp/app1/svc1" in previous versions. |
 | --force-remove | Remove a Service Fabric application or service forcefully without going through the graceful shutdown sequence. This parameter can be used to forcefully delete an application or service for which delete is timing out due to issues in the service code that prevents graceful close of replicas. |
-| --timeout -t | Server timeout in seconds.  Default\: 60. |
+| --timeout -t | The server timeout for performing the operation in seconds. This timeout specifies the time duration that the client is willing to wait for the requested operation to complete. The default value for this parameter is 60 seconds.  Default\: 60. |
 
 ### Global Arguments
 
@@ -177,7 +169,7 @@ Gets the list containing the information about a specific service type from the 
 | --node-name         [Required] | The name of the node. |
 | --service-type-name [Required] | Specifies the name of a Service Fabric service type. |
 | --service-manifest-name | The name of the service manifest to filter the list of deployed service type information. If specified, the response will only contain the information about service types that are defined in this service manifest. |
-| --timeout -t | Server timeout in seconds.  Default\: 60. |
+| --timeout -t | The server timeout for performing the operation in seconds. This timeout specifies the time duration that the client is willing to wait for the requested operation to complete. The default value for this parameter is 60 seconds.  Default\: 60. |
 
 ### Global Arguments
 
@@ -201,7 +193,7 @@ Gets the list containing the information about service types from the applicatio
 | --application-id [Required] | The identity of the application. This is typically the full name of the application without the 'fabric\:' URI scheme. Starting from version 6.0, hierarchical names are delimited with the "\~" character. For example, if the application name is "fabric\:/myapp/app1", the application identity would be "myapp\~app1" in 6.0+ and "myapp/app1" in previous versions. |
 | --node-name      [Required] | The name of the node. |
 | --service-manifest-name | The name of the service manifest to filter the list of deployed service type information. If specified, the response will only contain the information about service types that are defined in this service manifest. |
-| --timeout -t | Server timeout in seconds.  Default\: 60. |
+| --timeout -t | The server timeout for performing the operation in seconds. This timeout specifies the time duration that the client is willing to wait for the requested operation to complete. The default value for this parameter is 60 seconds.  Default\: 60. |
 
 ### Global Arguments
 
@@ -223,7 +215,7 @@ Gets the description of an existing Service Fabric service. A service must be cr
 |Argument|Description|
 | --- | --- |
 | --service-id [Required] | The identity of the service. This ID is typically the full name of the service without the 'fabric\:' URI scheme. Starting from version 6.0, hierarchical names are delimited with the "\~" character. For example, if the service name is "fabric\:/myapp/app1/svc1", the service identity would be "myapp\~app1\~svc1" in 6.0+ and "myapp/app1/svc1" in previous versions. |
-| --timeout -t | Server timeout in seconds.  Default\: 60. |
+| --timeout -t | The server timeout for performing the operation in seconds. This timeout specifies the time duration that the client is willing to wait for the requested operation to complete. The default value for this parameter is 60 seconds.  Default\: 60. |
 
 ### Global Arguments
 
@@ -250,7 +242,7 @@ Gets the container logs for container deployed on a Service Fabric node for the 
 | --service-manifest-name [Required] | The name of a service manifest registered as part of an application type in a Service Fabric cluster. |
 | --previous | Specifies whether to get container logs from exited/dead containers of the code package instance. |
 | --tail | Number of lines to show from the end of the logs. Default is 100. 'all' to show the complete logs. |
-| --timeout -t | Server timeout in seconds.  Default\: 60. |
+| --timeout -t | The server timeout for performing the operation in seconds. This timeout specifies the time duration that the client is willing to wait for the requested operation to complete. The default value for this parameter is 60 seconds.  Default\: 60. |
 
 ### Global Arguments
 
@@ -275,7 +267,7 @@ Gets the health information of the specified service. Use EventsHealthStateFilte
 | --events-health-state-filter | Allows filtering the collection of HealthEvent objects returned based on health state. The possible values for this parameter include integer value of one of the following health states. Only events that match the filter are returned. All events are used to evaluate the aggregated health state. If not specified, all entries are returned. The state values are flag-based enumeration, so the value could be a combination of these values, obtained using the bitwise 'OR' operator. For example, If the provided value is 6 then all of the events with HealthState value of OK (2) and Warning (4) are returned.  <br> - Default - Default value. Matches any HealthState. The value is zero.  <br> - None - Filter that doesn't match any HealthState value. Used in order to return no results on a given collection of states. The value is 1.  <br> - Ok - Filter that matches input with HealthState value Ok. The value is 2.  <br> - Warning - Filter that matches input with HealthState value Warning. The value is 4.  <br> - Error - Filter that matches input with HealthState value Error. The value is 8.  <br> - All - Filter that matches input with any HealthState value. The value is 65535. |
 | --exclude-health-statistics | Indicates whether the health statistics should be returned as part of the query result. False by default. The statistics show the number of children entities in health state Ok, Warning, and Error. |
 | --partitions-health-state-filter | Allows filtering of the partitions health state objects returned in the result of service health query based on their health state. The possible values for this parameter include integer value of one of the following health states. Only partitions that match the filter are returned. All partitions are used to evaluate the aggregated health state. If not specified, all entries are returned. The state values are flag-based enumeration, so the value could be a combination of these value obtained using bitwise 'OR' operator. For example, if the provided value is 6 then health state of partitions with HealthState value of OK (2) and Warning (4) will be returned.  <br> - Default - Default value. Matches any HealthState. The value is zero.  <br> - None - Filter that doesn't match any HealthState value. Used in order to return no results on a given collection of states. The value is 1.  <br> - Ok - Filter that matches input with HealthState value Ok. The value is 2.  <br> - Warning - Filter that matches input with HealthState value Warning. The value is 4.  <br> - Error - Filter that matches input with HealthState value Error. The value is 8.  <br> - All - Filter that matches input with any HealthState value. The value is 65535. |
-| --timeout -t | Server timeout in seconds.  Default\: 60. |
+| --timeout -t | The server timeout for performing the operation in seconds. This timeout specifies the time duration that the client is willing to wait for the requested operation to complete. The default value for this parameter is 60 seconds.  Default\: 60. |
 
 ### Global Arguments
 
@@ -298,7 +290,7 @@ Returns the information about the specified service belonging to the specified S
 | --- | --- |
 | --application-id [Required] | The identity of the application. This is typically the full name of the application without the 'fabric\:' URI scheme. Starting from version 6.0, hierarchical names are delimited with the "\~" character. For example, if the application name is "fabric\:/myapp/app1", the application identity would be "myapp\~app1" in 6.0+ and "myapp/app1" in previous versions. |
 | --service-id     [Required] | The identity of the service. This ID is typically the full name of the service without the 'fabric\:' URI scheme. Starting from version 6.0, hierarchical names are delimited with the "\~" character. For example, if the service name is "fabric\:/myapp/app1/svc1", the service identity would be "myapp\~app1\~svc1" in 6.0+ and "myapp/app1/svc1" in previous versions. |
-| --timeout -t | Server timeout in seconds.  Default\: 60. |
+| --timeout -t | The server timeout for performing the operation in seconds. This timeout specifies the time duration that the client is willing to wait for the requested operation to complete. The default value for this parameter is 60 seconds.  Default\: 60. |
 
 ### Global Arguments
 
@@ -322,7 +314,7 @@ Returns the information about all services belonging to the application specifie
 | --application-id [Required] | The identity of the application. This is typically the full name of the application without the 'fabric\:' URI scheme. Starting from version 6.0, hierarchical names are delimited with the "\~" character. For example, if the application name is "fabric\:/myapp/app1", the application identity would be "myapp\~app1" in 6.0+ and "myapp/app1" in previous versions. |
 | --continuation-token | The continuation token parameter is used to obtain next set of results. A continuation token with a non-empty value is included in the response of the API when the results from the system do not fit in a single response. When this value is passed to the next API call, the API returns next set of results. If there are no further results, then the continuation token does not contain a value. The value of this parameter should not be URL encoded. |
 | --service-type-name | The service type name used to filter the services to query for. |
-| --timeout -t | Server timeout in seconds.  Default\: 60. |
+| --timeout -t | The server timeout for performing the operation in seconds. This timeout specifies the time duration that the client is willing to wait for the requested operation to complete. The default value for this parameter is 60 seconds.  Default\: 60. |
 
 ### Global Arguments
 
@@ -346,7 +338,7 @@ Gets the manifest describing a service type. The response contains the service m
 | --application-type-name    [Required] | The name of the application type. |
 | --application-type-version [Required] | The version of the application type. |
 | --service-manifest-name    [Required] | The name of a service manifest registered as part of an application type in a Service Fabric cluster. |
-| --timeout -t | Server timeout in seconds.  Default\: 60. |
+| --timeout -t | The server timeout for performing the operation in seconds. This timeout specifies the time duration that the client is willing to wait for the requested operation to complete. The default value for this parameter is 60 seconds.  Default\: 60. |
 
 ### Global Arguments
 
@@ -370,7 +362,7 @@ Downloads packages associated with specified service manifest to the image cache
 | --node-name             [Required] | The name of the node. |
 | --service-manifest-name [Required] | The name of service manifest associated with the packages that will be downloaded. |
 | --share-policy | JSON encoded list of sharing policies. Each sharing policy element is composed of a 'name' and 'scope'. The name corresponds to the name of the code, configuration, or data package that is to be shared. The scope can be either 'None', 'All', 'Code', 'Config' or 'Data'. |
-| --timeout -t | Server timeout in seconds.  Default\: 60. |
+| --timeout -t | Default\: 60. |
 
 ### Global Arguments
 
@@ -395,7 +387,7 @@ Gets the information about health of a service package for a specific applicatio
 | --node-name            [Required] | The name of the node. |
 | --service-package-name [Required] | The name of the service package. |
 | --events-health-state-filter | Allows filtering the collection of HealthEvent objects returned based on health state. The possible values for this parameter include integer value of one of the following health states. Only events that match the filter are returned. All events are used to evaluate the aggregated health state. If not specified, all entries are returned. The state values are flag-based enumeration, so the value could be a combination of these values, obtained using the bitwise 'OR' operator. For example, If the provided value is 6 then all of the events with HealthState value of OK (2) and Warning (4) are returned.  <br> - Default - Default value. Matches any HealthState. The value is zero.  <br> - None - Filter that doesn't match any HealthState value. Used in order to return no results on a given collection of states. The value is 1.  <br> - Ok - Filter that matches input with HealthState value Ok. The value is 2.  <br> - Warning - Filter that matches input with HealthState value Warning. The value is 4.  <br> - Error - Filter that matches input with HealthState value Error. The value is 8.  <br> - All - Filter that matches input with any HealthState value. The value is 65535. |
-| --timeout -t | Server timeout in seconds.  Default\: 60. |
+| --timeout -t | The server timeout for performing the operation in seconds. This timeout specifies the time duration that the client is willing to wait for the requested operation to complete. The default value for this parameter is 60 seconds.  Default\: 60. |
 
 ### Global Arguments
 
@@ -419,7 +411,7 @@ Returns the information about the service packages deployed on a Service Fabric 
 | --application-id       [Required] | The identity of the application. This is typically the full name of the application without the 'fabric\:' URI scheme. Starting from version 6.0, hierarchical names are delimited with the "\~" character. For example, if the application name is "fabric\:/myapp/app1", the application identity would be "myapp\~app1" in 6.0+ and "myapp/app1" in previous versions. |
 | --node-name            [Required] | The name of the node. |
 | --service-package-name [Required] | The name of the service package. |
-| --timeout -t | Server timeout in seconds.  Default\: 60. |
+| --timeout -t | The server timeout for performing the operation in seconds. This timeout specifies the time duration that the client is willing to wait for the requested operation to complete. The default value for this parameter is 60 seconds.  Default\: 60. |
 
 ### Global Arguments
 
@@ -442,7 +434,7 @@ Returns the information about the service packages deployed on a Service Fabric 
 | --- | --- |
 | --application-id [Required] | The identity of the application. This is typically the full name of the application without the 'fabric\:' URI scheme. Starting from version 6.0, hierarchical names are delimited with the "\~" character. For example, if the application name is "fabric\:/myapp/app1", the application identity would be "myapp\~app1" in 6.0+ and "myapp/app1" in previous versions. |
 | --node-name      [Required] | The name of the node. |
-| --timeout -t | Server timeout in seconds.  Default\: 60. |
+| --timeout -t | The server timeout for performing the operation in seconds. This timeout specifies the time duration that the client is willing to wait for the requested operation to complete. The default value for this parameter is 60 seconds.  Default\: 60. |
 
 ### Global Arguments
 
@@ -464,7 +456,7 @@ Indicates to the Service Fabric cluster that it should attempt to recover the sp
 |Argument|Description|
 | --- | --- |
 | --service-id [Required] | The identity of the service. This ID is typically the full name of the service without the 'fabric\:' URI scheme. Starting from version 6.0, hierarchical names are delimited with the "\~" character. For example, if the service name is "fabric\:/myapp/app1/svc1", the service identity would be "myapp\~app1\~svc1" in 6.0+ and "myapp/app1/svc1" in previous versions. |
-| --timeout -t | Server timeout in seconds.  Default\: 60. |
+| --timeout -t | The server timeout for performing the operation in seconds. This timeout specifies the time duration that the client is willing to wait for the requested operation to complete. The default value for this parameter is 60 seconds.  Default\: 60. |
 
 ### Global Arguments
 
@@ -493,7 +485,7 @@ Reports health state of the specified Service Fabric service. The report must co
 | --immediate | A flag that indicates whether the report should be sent immediately. <br><br> A health report is sent to a Service Fabric gateway Application, which forwards to the health store. If Immediate is set to true, the report is sent immediately from HTTP Gateway to the health store, regardless of the fabric client settings that the HTTP Gateway Application is using. This is useful for critical reports that should be sent as soon as possible. Depending on timing and other conditions, sending the report may still fail, for example if the HTTP Gateway is closed or the message doesn't reach the Gateway. If Immediate is set to false, the report is sent based on the health client settings from the HTTP Gateway. Therefore, it will be batched according to the HealthReportSendInterval configuration. This is the recommended setting because it allows the health client to optimize health reporting messages to health store as well as health report processing. By default, reports are not sent immediately. |
 | --remove-when-expired | Value that indicates whether the report is removed from health store when it expires. <br><br> If set to true, the report is removed from the health store after it expires. If set to false, the report is treated as an error when expired. The value of this property is false by default. When clients report periodically, they should set RemoveWhenExpired false (default). This way, is the reporter has issues (e.g. deadlock) and can't report, the entity is evaluated at error when the health report expires. This flags the entity as being in Error health state. |
 | --sequence-number | The sequence number for this health report as a numeric string. <br><br> The report sequence number is used by the health store to detect stale reports. If not specified, a sequence number is auto-generated by the health client when a report is added. |
-| --timeout -t | Server timeout in seconds.  Default\: 60. |
+| --timeout -t | Default\: 60. |
 | --ttl | The duration for which this health report is valid. This field uses ISO8601 format for specifying the duration. <br><br> When clients report periodically, they should send reports with higher frequency than time to live. If clients report on transition, they can set the time to live to infinite. When time to live expires, the health event that contains the health information is either removed from health store, if RemoveWhenExpired is true, or evaluated at error, if RemoveWhenExpired false. If not specified, time to live defaults to infinite value. |
 
 ### Global Arguments
@@ -519,7 +511,7 @@ Resolve a Service Fabric service partition to get the endpoints of the service r
 | --partition-key-type | Key type for the partition. This parameter is required if the partition scheme for the service is Int64Range or Named. The possible values are following. - None (1) - Indicates that the PartitionKeyValue parameter is not specified. This is valid for the partitions with partitioning scheme as Singleton. This is the default value. The value is 1. - Int64Range (2) - Indicates that the PartitionKeyValue parameter is an int64 partition key. This is valid for the partitions with partitioning scheme as Int64Range. The value is 2. - Named (3) - Indicates that the PartitionKeyValue parameter is a name of the partition. This is valid for the partitions with partitioning scheme as Named. The value is 3. |
 | --partition-key-value | Partition key. This is required if the partition scheme for the service is Int64Range or Named. This is not the partition ID, but rather, either the integer key value, or the name of the partition ID. For example, if your service is using ranged partitions from 0 to 10, then they PartitionKeyValue would be an integer in that range. Query service description to see the range or name. |
 | --previous-rsp-version | The value in the Version field of the response that was received previously. This is required if the user knows that the result that was gotten previously is stale. |
-| --timeout -t | Server timeout in seconds.  Default\: 60. |
+| --timeout -t | The server timeout for performing the operation in seconds. This timeout specifies the time duration that the client is willing to wait for the requested operation to complete. The default value for this parameter is 60 seconds.  Default\: 60. |
 
 ### Global Arguments
 
@@ -542,7 +534,7 @@ Gets the list containing the information about service types that are supported 
 | --- | --- |
 | --application-type-name    [Required] | The name of the application type. |
 | --application-type-version [Required] | The version of the application type. |
-| --timeout -t | Server timeout in seconds.  Default\: 60. |
+| --timeout -t | The server timeout for performing the operation in seconds. This timeout specifies the time duration that the client is willing to wait for the requested operation to complete. The default value for this parameter is 60 seconds.  Default\: 60. |
 
 ### Global Arguments
 
@@ -568,16 +560,17 @@ Updates the specified service using the given update description.
 | --instance-count | The instance count. This applies to stateless services only. |
 | --load-metrics | JSON encoded list of metrics used when load balancing across nodes. |
 | --min-replica-set-size | The minimum replica set size as a number. This applies to stateful services only. |
-| --move-cost | Specifies the move cost for the service. Possible values are\: 'Zero', 'Low', 'Medium', 'High'. |
+| --move-cost | Specifies the move cost for the service. Possible values are\: 'Zero', 'Low', 'Medium', 'High', 'VeryHigh'. |
 | --placement-policy-list | JSON encoded list of placement policies for the service, and any associated domain names. Policies can be one or more of\: `NonPartiallyPlaceService`, `PreferPrimaryDomain`, `RequireDomain`, `RequireDomainDistribution`. |
 | --quorum-loss-wait | The maximum duration, in seconds, for which a partition is allowed to be in a state of quorum loss. This applies to stateful services only. |
 | --replica-restart-wait | The duration, in seconds, between when a replica goes down and when a new replica is created. This applies to stateful services only. |
 | --scaling-policies | JSON encoded list of scaling policies for this service. |
+| --service-placement-time | The duration for which replicas can stay InBuild before reporting that build is stuck. This applies to stateful services only. |
 | --stand-by-replica-keep | The maximum duration, in seconds,  for which StandBy replicas will be maintained before being removed. This applies to stateful services only. |
 | --stateful | Indicates the target service is a stateful service. |
 | --stateless | Indicates the target service is a stateless service. |
 | --target-replica-set-size | The target replica set size as a number. This applies to stateful services only. |
-| --timeout -t | Server timeout in seconds.  Default\: 60. |
+| --timeout -t | Default\: 60. |
 
 ### Global Arguments
 
@@ -592,4 +585,4 @@ Updates the specified service using the given update description.
 
 ## Next steps
 - [Set up](service-fabric-cli.md) the Service Fabric CLI.
-- Learn how to use the Service Fabric CLI using the [sample scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Learn how to use the Service Fabric CLI using the [sample scripts](./scripts/sfctl-upgrade-application.md).

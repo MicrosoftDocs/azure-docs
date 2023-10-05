@@ -1,64 +1,56 @@
 ---
-title: Delegated access in Windows Virtual Desktop Preview  - Azure
-description: How to delegate administrative capabilities on a Windows Virtual Desktop Preview deployment, including examples.
-services: virtual-desktop
+title: Delegated access in Azure Virtual Desktop - Azure
+description: How to delegate administrative capabilities on a Azure Virtual Desktop deployment, including examples.
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 03/21/2019
-ms.author: helohr
+ms.date: 04/30/2020
+ms.author: helohr 
+ms.custom: devx-track-azurepowershell
+manager: femila
 ---
-# Delegated access in Windows Virtual Desktop Preview
+# Delegated access in Azure Virtual Desktop
 
-Windows Virtual Desktop Preview has a delegated access model that lets you define the amount of access a particular user is allowed to have by assigning them a role. A role assignment has three components: security principal, role definition, and scope. The Windows Virtual Desktop delegated access model is based on the Azure RBAC model. To learn more about specific role assignments and their components, see [the Azure role-based access control overview](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles).
+>[!IMPORTANT]
+>This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/delegated-access-virtual-desktop-2019.md).
 
-Windows Virtual Desktop delegated access supports the following values for each element of the role assignment:
+Azure Virtual Desktop has a delegated access model that lets you define the amount of access a particular user is allowed to have by assigning them a role. A role assignment has three components: security principal, role definition, and scope. The Azure Virtual Desktop delegated access model is based on the Azure RBAC model. To learn more about specific role assignments and their components, see [the Azure role-based access control overview](../role-based-access-control/built-in-roles.md).
+
+Azure Virtual Desktop delegated access supports the following values for each element of the role assignment:
 
 * Security principal
     * Users
+    * User groups
     * Service principals
 * Role definition
     * Built-in roles
+    * Custom roles
 * Scope
-    * Tenant groups
-    * Tenants
     * Host pools
-    * App groups
-
-## Built-in roles
-
-Delegated access in Windows Virtual Desktop has several built-in role definitions you can assign to users and service principals.
-
-* An RDS Owner can manage everything, including access to resources.
-* An RDS Contributor can manage everything but access to resources.
-* An RDS Reader can view everything but can't make any changes.
-* An RDS Operator can view diagnostic activities.
+    * Application groups
+    * Workspaces
 
 ## PowerShell cmdlets for role assignments
 
-You can run the following cmdlets to create, view, and edit role assignments:
+Before you start, make sure to follow the instructions in [Set up the PowerShell module](powershell-module.md) to set up the Azure Virtual Desktop PowerShell module if you haven't already.
 
-* **Get-RdsRoleAssignment** displays a list of role assignments.
-* **New-RdsRoleAssignment** creates a new role assignment.
-* **Set-RdsRoleAssignment** edits role assignments.
+Azure Virtual Desktop uses Azure role-based access control (Azure RBAC) while publishing application groups to users or user groups. The Desktop Virtualization User role is assigned to the user or user group and the scope is the application group. This role gives the user special data access on the application group.
 
-### Accepted parameters
+Run the following cmdlet to add Azure Active Directory users to an application group:
 
-You can modify the basic three cmdlets with the following parameters:
+```powershell
+New-AzRoleAssignment -SignInName <userupn> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <appgroupname> -ResourceGroupName <resourcegroupname> -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'
+```
 
-* **AadTenantId**: specifies the Azure Active Directory tenant ID from which the service principal is a member.
-* **AppGroupName**: name of the Remote Desktop app group.
-* **Diagnostics**: indicates the diagnostics scope. (Must be paired with either the **Infrastructure** or **Tenant** parameters.)
-* **HostPoolName**: name of the Remote Desktop host pool.
-* **Infrastructure**: indicates the infrastructure scope.
-* **RoleDefinitionName**: name of the Remote Desktop Services role-based access control role assigned to the user, group, or app. (For example, Remote Desktop Services Owner, Remote Desktop Services Reader, and so on.)
-* **ServerPrincipleName**: name of the Azure Active Directory application.
-* **SignInName**: the user's email address or user principal name.
-* **TenantName**: name of the Remote Desktop tenant.
+Run the following cmdlet to add Azure Active Directory user group to an application group:
+
+```powershell
+New-AzRoleAssignment -ObjectId <usergroupobjectid> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <appgroupname> -ResourceGroupName <resourcegroupname> -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'
+```
 
 ## Next steps
 
-For a more complete list of PowerShell cmdlets each role can use, see the [PowerShell reference](/powershell/windows-virtual-desktop/overview).
+For a more complete list of PowerShell cmdlets each role can use, see the [PowerShell reference](/powershell/module/az.desktopvirtualization).
 
-For guidelines for how to set up a Windows Virtual Desktop environment, see [Windows Virtual Desktop Preview environment](environment-setup.md).
+For a complete list of roles supported in Azure RBAC, see [Azure built-in roles](../role-based-access-control/built-in-roles.md).
+
+For guidelines for how to set up a Azure Virtual Desktop environment, see [Azure Virtual Desktop environment](environment-setup.md).

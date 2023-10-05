@@ -1,21 +1,12 @@
 ---
-title: Azure Service Fabric CLI- sfctl is | Microsoft Docs
-description: Describes the Service Fabric CLI sfctl is commands.
-services: service-fabric
-documentationcenter: na
-author: Christina-Kang
-manager: chackdan
-editor: ''
-
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: cli
+title: Azure Service Fabric CLI- sfctl is
+description: Learn about sfctl, the Azure Service Fabric command-line interface. Includes a list of commands for managing infrastructure.
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 
 # sfctl is
@@ -39,7 +30,7 @@ For clusters that have one or more instances of the Infrastructure Service confi
 | --- | --- |
 | --command [Required] | The text of the command to be invoked. The content of the command is infrastructure-specific. |
 | --service-id | The identity of the infrastructure service. <br><br> This is the full name of the infrastructure service without the 'fabric\:' URI scheme. This parameter required only for the cluster that has more than one instance of infrastructure service running. |
-| --timeout -t | Server timeout in seconds.  Default\: 60. |
+| --timeout -t | Default\: 60. |
 
 ### Global Arguments
 
@@ -62,7 +53,7 @@ For clusters that have one or more instances of the Infrastructure Service confi
 | --- | --- |
 | --command [Required] | The text of the command to be invoked. The content of the command is infrastructure-specific. |
 | --service-id | The identity of the infrastructure service. <br><br> This is the full name of the infrastructure service without the 'fabric\:' URI scheme. This parameter required only for the cluster that has more than one instance of infrastructure service running. |
-| --timeout -t | Server timeout in seconds.  Default\: 60. |
+| --timeout -t | Default\: 60. |
 
 ### Global Arguments
 
@@ -77,4 +68,4 @@ For clusters that have one or more instances of the Infrastructure Service confi
 
 ## Next steps
 - [Set up](service-fabric-cli.md) the Service Fabric CLI.
-- Learn how to use the Service Fabric CLI using the [sample scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Learn how to use the Service Fabric CLI using the [sample scripts](./scripts/sfctl-upgrade-application.md).

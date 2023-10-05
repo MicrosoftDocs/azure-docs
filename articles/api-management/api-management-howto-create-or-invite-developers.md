@@ -1,24 +1,23 @@
 ---
-title: How manage user accounts in Azure API Management | Microsoft Docs
-description: Learn how to create or invite users in Azure API Management
+title: How to manage user accounts in Azure API Management | Microsoft Docs
+description: Learn how to create or invite users in Azure API Management. View additional resources to use after creating a developer account.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: cfowler
 editor: ''
 
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
-ms.author: apimpm
+ms.author: danlep
 
 ---
 # How to manage user accounts in Azure API Management
 
-In API Management, developers are the users of the APIs that you expose using API Management. This guide shows to how to create and invite developers to use the APIs and products that you make available to them with your API Management instance. For information on managing user accounts programmatically, see the [User entity](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/user) documentation in the [API Management REST](/rest/api/apimanagement/) reference.
+In API Management, developers are the users of the APIs that you expose using API Management. This guide shows how to create and invite developers to use the APIs and products that you make available to them with your API Management instance. For information on managing user accounts programmatically, see the [User entity](/rest/api/apimanagement/current-ga/user) documentation in the [API Management REST](/rest/api/apimanagement/) reference.
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -53,6 +52,8 @@ When a developer is invited, an email is sent to the developer. This email is ge
 
 Once the invitation is accepted, the account becomes active.
 
+Invitation link will be active for 2 days.
+
 ## <a name="block-developer"> </a> Deactivate or reactivate a developer account
 
 By default, newly created or invited developer accounts are **Active**. To deactivate a developer account, click **Block**. To reactivate a blocked developer account, click **Activate**. A blocked developer account can't access the developer portal or call any APIs. To delete a user account, click **Delete**.
@@ -65,7 +66,7 @@ To block a user, follow the following steps.
 
 ## Reset a user password
 
-To programmatically work with user accounts, see the User entity documentation in the [API Management REST API](/rest/api/apimanagement/) reference. To reset a user account password to a specific value, you can use the [Update a user](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) operation and specify the desired password.
+To programmatically work with user accounts, see the User entity documentation in the [API Management REST API](/rest/api/apimanagement/) reference. To reset a user account password to a specific value, you can use the [Update a user](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) operation and specify the desired password.
 
 ## <a name="next-steps"> </a>Next steps
 Once a developer account is created, you can associate it with roles and subscribe it to products and APIs. For more information, see [How to create and use groups][How to create and use groups].

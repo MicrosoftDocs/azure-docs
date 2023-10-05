@@ -1,57 +1,78 @@
 ---
-title: Web app that calls web APIs (sign in) - Microsoft identity platform
-description: Learn how to build a Web app that calls web APIs (sign in)
+title: Remove accounts from the token cache on sign-out
+description: Learn how to remove an account from the token cache on sign-out
 services: active-directory
-documentationcenter: dev-center-name
-author: jmprieur
+author: cilwerner
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
-ms.author: jmprieur
+ms.date: 05/08/2023
+ms.author: cwerner
+ms.reviewer: jmprieur
 ms.custom: aaddev 
-#Customer intent: As an application developer, I want to know how to write a Web app that calls Web APIs using the Microsoft identity platform for developers.
-ms.collection: M365-identity-device-management
+#Customer intent: As an application developer, I want to know how to write a web app that calls web APIs by using the Microsoft identity platform.
 ---
 
-# Web app that calls web APIs - sign in
+# A web app that calls web APIs: Remove accounts from the token cache on global sign-out
 
-You already know how to add sign-in to your web app. You learn that in [Web app that signs-in users - add sign-in](scenario-web-app-sign-user-sign-in.md).
+You learned how to add sign-in to your web app in [Web app that signs in users: Sign-in and sign-out](scenario-web-app-sign-user-sign-in.md).
 
-What is different here, is that when the user has signed out, from this application, or from any application, you want to remove from the token cache, the tokens associated with the user.
+Sign-out is different for a web app that calls web apis. When the user signs out from your application, or from any application, you must remove the tokens associated with that user from the token cache.
 
-## Intercepting the callback after sign out - Single Sign Out
+## Intercept the callback after single sign-out
 
-Your application can intercept the after `logout` event, for instance to clear the entry of the token cache associated with the account that signed out. We'll see in the second part of this tutorial (about the Web app calling a Web API), that the web app will store access tokens for the user in a cache. Intercepting the after `logout` callback enables your web application to remove the user from the token cache. This mechanism is illustrated in the `AddMsal()` method of [StartupHelper.cs L137-143](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/b87a1d859ff9f9a4a98eb7b701e6a1128d802ec5/Microsoft.Identity.Web/StartupHelpers.cs#L137-L143)
+To clear the token-cache entry associated with the account that signed out, your application can intercept the after `logout` event. Web apps store access tokens for each user in a token cache. By intercepting the after `logout` callback,  your web application can remove the user from the cache.
 
-The **Logout Url** that you've registered for your application enables you to implement single sign out. The Microsoft identity platform `logout` endpoint will call the **Logout URL** registered with your application. This call happens if the sign-out was initiated from your web app, or from another web app or the browser. For more information, see [Single sign-out](https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc#single-sign-out) in the conceptual documentation.
+# [ASP.NET Core](#tab/aspnetcore)
 
-```CSharp
-public static IServiceCollection AddMsal(this IServiceCollection services, IEnumerable<string> initialScopes)
-{
-    services.AddTokenAcquisition();
+Microsoft.Identity.Web takes care of implementing sign-out for you. For details see [Microsoft.Identity.Web source code](https://github.com/AzureAD/microsoft-identity-web/blob/c29f1a7950b940208440bebf0bcb524a7d6bee22/src/Microsoft.Identity.Web/WebAppExtensions/WebAppCallsWebApiAuthenticationBuilderExtensions.cs#L168-L176)
 
-    services.Configure<OpenIdConnectOptions>(AzureADDefaults.OpenIdScheme, options =>
-    {
-     ...
-        // Handling the sign-out: removing the account from MSAL.NET cache
-        options.Events.OnRedirectToIdentityProviderForSignOut = async context =>
-        {
-            // Remove the account from MSAL.NET token cache
-            var _tokenAcquisition = context.HttpContext.RequestServices.GetRequiredService<ITokenAcquisition>();
-            await _tokenAcquisition.RemoveAccount(context);
-        };
-    });
-    return services;
-}
-```
+# [ASP.NET](#tab/aspnet)
+
+The ASP.NET sample doesn't remove accounts from the cache on global sign-out.
+
+# [Java](#tab/java)
+
+The Java sample doesn't remove accounts from the cache on global sign-out.
+
+# [Node.js](#tab/nodejs)
+
+The Node sample doesn't remove accounts from the cache on global sign-out.
+
+# [Python](#tab/python)
+
+The Python sample doesn't remove accounts from the cache on global sign-out.
+
+---
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Acquiring a token for the web app](scenario-web-app-call-api-acquire-token.md)
+# [ASP.NET Core](#tab/aspnetcore)
+
+Move on to the next article in this scenario,
+[Acquire a token for the web app](./scenario-web-app-call-api-acquire-token.md?tabs=aspnetcore).
+
+# [ASP.NET](#tab/aspnet)
+
+Move on to the next article in this scenario,
+[Acquire a token for the web app](./scenario-web-app-call-api-acquire-token.md?tabs=aspnet).
+
+# [Java](#tab/java)
+
+Move on to the next article in this scenario,
+[Acquire a token for the web app](./scenario-web-app-call-api-acquire-token.md?tabs=java).
+
+# [Node.js](#tab/nodejs)
+
+Move on to the next article in this scenario,
+[Acquire a token for the web app](./scenario-web-app-call-api-acquire-token.md?tabs=nodejs).
+
+# [Python](#tab/python)
+
+Move on to the next article in this scenario,
+[Acquire a token for the web app](./scenario-web-app-call-api-acquire-token.md?tabs=python).
+
+---

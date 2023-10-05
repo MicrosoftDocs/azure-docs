@@ -1,95 +1,192 @@
 ---
-title: Azure Quickstart - Create a Front Door profile for high availability of applications using the Azure portal
-description: This quickstart article describes how to create a Front Door for your highly available and high performance global web application.
+title: 'Quickstart: How to use Azure Front Door Service to enable high availability - Azure portal'
+description: In this quickstart, you learn how to use the Azure portal to set up Azure Front Door Service for your web application that requires high availability and high performance across the globe.
 services: front-door
-documentationcenter: ''
-author: sharad4u
-editor: ''
-ms.assetid:
-ms.service: frontdoor
-ms.devlang: na
+author: duongau
+ms.author: duau
+manager: KumudD
+ms.date: 10/02/2023
 ms.topic: quickstart
-ms.tgt_pltfrm: na
+ms.service: frontdoor
 ms.workload: infrastructure-services
-ms.date: 08/31/2018
-ms.author: sharadag
-# Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
+ms.custom: template-tutorial, mode-ui, engagement-fy23
+#Customer intent: As an IT admin, I want to manage user traffic to ensure high availability of web applications.
 ---
 
 # Quickstart: Create a Front Door for a highly available global web application
 
-This quickstart describes how to create a Front Door profile that delivers high availability and high performance for your global web application. 
+This quickstart shows you how to use the Azure portal to set up high availability for a web application with Azure Front Door. You create a Front Door configuration that distributes traffic across two instances of a web application running in different Azure regions. The configuration uses equal weighted and same priority backends, which means that Azure Front Door directs traffic to the closest available site that hosts the application. Azure Front Door also monitors the health of the web application and performs automatic failover to the next nearest site if the closest site is down.
 
-The scenario described in this quickstart includes two instances of a web application running in different Azure regions. A Front Door configuration based on equal [weighted and same priority backends](front-door-routing-methods.md) is created that helps direct user traffic to the nearest set of site backends running the application. Front Door continuously monitors the web application and provides automatic failover to the next available backend when the nearest site is unavailable.
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-## Sign in to Azure 
-Sign in to the Azure portal at https://portal.azure.com.
+:::image type="content" source="media/quickstart-create-front-door/environment-diagram.png" alt-text="Diagram of Front Door deployment environment using the Azure portal." border="false":::
 
 ## Prerequisites
-This quickstart requires that you have deployed two instances of a web application running in different Azure regions (*East US* and *West Europe*). Both the web application instances run in Active/Active mode, that is, either of them can take traffic at any time unlike a Active/Stand-By configuration where one acts as a failover.
 
-1. On the top left-hand side of the screen, select **Create a resource** > **Web** > **Web App** > **Create**.
-2. In **Web App**, enter or select the following information and enter default settings where none are specified:
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-     | Setting         | Value     |
-     | ---              | ---  |
-     | Name           | Enter a unique name for your web app  |
-     | Resource group          | Select **New**, and then type *myResourceGroupFD1* |
-     | App Service plan/Location         | Select **New**.  In the App Service plan, enter  *myAppServicePlanEastUS*, and then select **OK**. 
-     |      Location  |   East US        |
-    |||
+## Create two instances of a web app
 
-3. Select **Create**.
-4. A default website is created when the Web App is successfully deployed.
-5. Repeat steps 1-3 to create a second website in a different Azure region with the following settings:
+To complete this quickstart, you need two instances of a web application running in different Azure regions. The web application instances operate in *Active/Active* mode, which means that they can both handle traffic simultaneously. This setup is different from *Active/Stand-By* mode, where one instance serves as a backup for the other.
 
-     | Setting         | Value     |
-     | ---              | ---  |
-     | Name           | Enter a unique name for your Web App  |
-     | Resource group          | Select **New**, and then type *myResourceGroupFD2* |
-     | App Service plan/Location         | Select **New**.  In the App Service plan, enter  *myAppServicePlanWestEurope*, and then select **OK**. 
-     |      Location  |   West Europe      |
-    |||
+To follow this quickstart, you need two web apps that run in different Azure regions. If you don't have them already, you can use these steps to create example web apps.
 
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. On the top left corner of the screen, select **+ Create a resource** and then search for **Web App**.
+
+    :::image type="content" source="media/quickstart-create-front-door/front-door-create-web-app.png" alt-text="Create a web app in the Azure portal." lightbox="./media/quickstart-create-front-door/front-door-create-web-app.png":::
+
+1. On the Basics tab of the Create Web App page, provide or select the following details.
+
+    | Setting | Value |
+    |--|--|
+    | **Subscription** | Choose your subscription. |
+    | **Resource group** | Select **Create new** and type *FrontDoorQS_rg1* in the text box. |
+    | **Name** | 	Type a unique **Name** for your web app. For example, *WebAppContoso-1*. |
+    | **Publish** | Select **Code**. |
+    | **Runtime stack** | Select **.NET Core 3.1 (LTS)**. |
+    | **Operating System** | Select **Windows**. |
+    | **Region** | Select **Central US**. |
+    | **Windows Plan** | Select **Create new** and type *myAppServicePlanCentralUS* in the text box. |
+    | **Sku and size** | Select **Standard S1 100 total ACU, 1.75 GB memory**. |
+
+1. Select **Review + create** and verify the summary details. Then, select **Create** to initiate the deployment process. The deployment may take several minutes to complete.
+
+    :::image type="content" source="media/quickstart-create-front-door/create-web-app.png" alt-text="Screenshot showing Create Web App page." lightbox="./media/quickstart-create-front-door/create-web-app.png":::
+
+Once you have successfully deployed your first web app, proceed to create another one. Follow the same steps and enter the same values as before, except for the ones listed:
+
+| Setting | Value |
+|--|--|
+| **Resource group** | Select **Create new** and type *FrontDoorQS_rg2* |
+| **Name** | Type a unique name for your Web App, for example, *WebAppContoso-2* |
+| **Region** | Select a different region than the first Web App, for example, *East US* |
+| **App Service plan** > **Windows Plan** | Select **New** and type *myAppServicePlanEastUS*, and then select **OK** |
 
 ## Create a Front Door for your application
-### A. Add a frontend host for Front Door
-Create a Front Door configuration that directs user traffic based on lowest latency between the two backends.
 
-1. On the top left-hand side of the screen, select **Create a resource** > **Networking** > **Front Door** > **Create**.
-2. In the **Create a Front Door**, you start with adding the basic info and provide a subscription where you want the Front Door to be configured. Similarly, like any other Azure resource you also need to provide a ResourceGroup and a Resource Group region if you are creating a new one. Lastly, you need to  provide a name for your Front Door.
-3. Once the basic info is filled in, the first step you need to define is the **frontend host** for the configuration. The result should be a valid domain name like `myappfrontend.azurefd.net`. This hostname needs to be globally unique but Front Door will take care of that validation. 
+Set up Azure Front Door to route user traffic based on the lowest latency between the two web app servers. Start by adding a frontend host for Azure Front Door.
 
-### B. Add application backend and backend pools
+1. From the home page or the Azure menu, select **+ Create a resource**. Select **Networking** > **Front Door and CDN profiles**.
 
-Next, you need to configure your application backend(s) in a backend pool for Front Door to know where your application resides. 
+1. On the *Compare offerings* page, select **Explore other offerings**. Then select **Azure Front Door (classic)**. Then select **Continue**.
 
-1. Click the '+' icon to add a backend pool and then specify a **name** for your backend pool, say `myBackendPool`.
-2. Next, click on Add Backends to add your websites created earlier.
-3. Select **Target host type** as 'App Service', select the subscription in which you created the web site and then choose the first web site from the **Target host name**, that is, *myAppServicePlanEastUS.azurewebsites.net*.
-4. Leave the remaining fields as is for now and click **Add'**.
-5. Repeat steps 2 to 4 to add the other website, that is, *myAppServicePlanWestEurope.azurewebsites.net*
-6. You can optionally choose to update the Health Probes and Load Balancing settings for the backend pool, but the default values should also work. Click **Add**.
+1. In the Basics tab of *Create a Front Door* page, provide or select the following information, and then select **Next: Configuration**.
+
+    | Setting | Value |
+    | --- | --- |
+    | **Subscription** | Select your subscription. |    
+    | **Resource group** | Select **Create new** and type *FrontDoorQS_rg0* in the text box.|
+    | **Resource group location** | Select **Central US**. |
+
+1. In **Frontends/domains**, select **+** to open **Add a frontend host** page.
+
+1. For **Host name**, type a globally unique hostname. For example, *contoso-frontend*. Select **Add**.
+
+    :::image type="content" source="media/quickstart-create-front-door/add-frontend-host-azure-front-door.png" alt-text="Add a frontend host for Azure Front Door." lightbox="./media/quickstart-create-front-door/add-frontend-host-azure-front-door.png":::
+
+Next, set up a backend pool that includes your two web apps.
+
+1. Still in **Create a Front Door**, in **Backend pools**, select **+** to open the **Add a backend pool** page.
+
+1. For **Name**, type *myBackendPool*, then select **Add a backend**.
+
+    :::image type="content" source="media/quickstart-create-front-door/front-door-add-backend-pool.png" alt-text="Add a backend pool." lightbox="./media/quickstart-create-front-door/front-door-add-backend-pool.png":::
+
+1. Provide or select the following information in the *Add a backend* pane and select **Add**.
+
+    | Setting | Value |
+    | --- | --- |
+    | **Backend host type** | Select **App service**. |   
+    | **Subscription** | Select your subscription. |    
+    | **Backend host name** | Select the first web app you created. For example, *WebAppContoso-1*. |
+
+    **Keep all other fields default.**
+
+    :::image type="content" source="media/quickstart-create-front-door/front-door-add-a-backend.png" alt-text="Add a backend host to your Front Door." lightbox="./media/quickstart-create-front-door/front-door-add-a-backend.png":::
+
+1. “Select **Add a backend** again. Provide or select the following information and select **Add**.
+
+    | Setting | Value |
+    | --- | --- |
+    | **Backend host type** | Select **App service**. |   
+    | **Subscription** | Select your subscription. |    
+    | **Backend host name** | Select the second web app you created. For example, *WebAppContoso-2*. |
+
+    **Keep all other fields default.**
+
+1. Select **Add** on the *Add a backend pool* page to finish the configuration of the backend pool.
+
+    :::image type="content" source="media/quickstart-create-front-door/front-door-add-backend-pool-complete.png" alt-text="Add a backend pool for Azure Front Door." lightbox="./media/quickstart-create-front-door/front-door-add-backend-pool-complete.png":::
+
+Lastly, create a routing rule. A routing rule links your frontend host to the backend pool. The rule routes a request for `contoso-frontend.azurefd.net` to **myBackendPool**.
+
+1. Still in *Create a Front Door*, in *Routing rules*, select **+** to set up a routing rule.
+
+1. In *Add a rule*, for **Name**, type LocationRule. Keep all the default values, then select Add to create the routing rule.”
+
+    :::image type="content" source="media/quickstart-create-front-door/front-door-add-a-rule.png" alt-text="Screenshot showing Add a rule when creating Front Door." lightbox="./media/quickstart-create-front-door/front-door-add-a-rule.png":::
+
+    > [!WARNING]
+    > It's essential that you associate each of the frontend hosts in your Azure Front Door with a routing rule that has a default path `/*`. This means that you need to have at least one routing rule for each of your frontend hosts at the default path `/*` among all of your routing rules. Otherwise, your end-user traffic may not be routed properly. 
+
+1. Select **Review + create** and verify the details. Then, select **Create** to start the deployment.
+
+    :::image type="content" source="media/quickstart-create-front-door/configuration-azure-front-door.png" alt-text="Configured Azure Front Door." lightbox="./media/quickstart-create-front-door/configuration-azure-front-door.png":::
 
 
-### C. Add a routing rule
-Lastly, click the '+' icon on Routing rules to configure a routing rule. This is needed to map your frontend host to the backend pool, which basically is configuring that if a request comes to `myappfrontend.azurefd.net`, then forward it to the backend pool `myBackendPool`. 
-Click **Add** to add the routing rule for your Front Door. You should now be good to creating the Front Door and so click on **Review and Create**.
+## View Azure Front Door in action
 
->[!WARNING]
-> You **must** ensure that each of the frontend hosts in your Front Door has a routing rule with a default path ('/\*') associated with it. That is, across all of your routing rules there must be at least one routing rule for each of your frontend hosts defined at the default path ('/\*'). Failing to do so, may result in your end-user traffic not getting routed correctly.
+Once you create a Front Door, it takes a few minutes for the configuration to be deployed globally; once completed, access the frontend host you created. In the browser, go to your frontend host address. Your requests automatically get routed to your nearest server from the specified servers in the backend pool.
 
-## View Front Door in action
-Once you create a Front Door, it will take a few minutes for the configuration to be deployed globally everywhere. Once complete, access the frontend host you created, that is, go to a web browser and hit the URL `myappfrontend.azurefd.net`. Your request will automatically get routed to the nearest backend to you from the specified backends in the backend pool. 
+If you followed this quickstart to create these apps, you see an information page.
 
-### View Front Door handle application failover
-If you want to test Front Door's instant global failover in action, you can go to one of the web sites you created and stop it. Based on the Health Probe setting defined for the backend pool, we will instantly fail over the traffic to the other web site deployment. 
-You can also test  behavior, by disabling the backend in the backend pool configuration for your Front Door. 
+To test the instant global failover feature, try the following steps:
+
+1. Navigate to the resource group **FrontDoorQS_rg0** and select the Front Door service.”
+
+    :::image type="content" source="./media/quickstart-create-front-door/front-door-view-frontend-service.png" alt-text="Screenshot of frontend service." lightbox="./media/quickstart-create-front-door/front-door-view-frontend-service.png":::
+
+1. From the **Overview** page, copy the **Frontend host** address.
+
+    :::image type="content" source="./media/quickstart-create-front-door/front-door-view-frontend-host-address.png" alt-text="Screenshot of frontend host address." lightbox="./media/quickstart-create-front-door/front-door-view-frontend-host-address.png":::
+
+1. Open the browser, as described previously, and go to your frontend address.
+
+1. In the Azure portal, search for and select App services. Scroll down to find one of your web apps, for example, *WebAppContoso-1*.
+
+1. Select your web app, and then select **Stop**, and **Yes** to confirm.
+
+1. Refresh your browser. You should see the same information page.
+
+    > [!TIP]
+    > These actions may take some time to take effect. You may need to refresh the browser again.”
+
+1. Locate the other web app, and stop it as well.
+
+1. Refresh your browser. This time, you should see an error message.
+
+   :::image type="content" source="media/quickstart-create-front-door/web-app-stopped-message.png" alt-text="Both instances of the web app stopped." lightbox="./media/quickstart-create-front-door/web-app-stopped-message.png":::
 
 ## Clean up resources
-When no longer needed, delete the resource groups, web applications, and all related resources.
+
+After you're done, you can delete all the items you created. Deleting the resource group also deletes its contents. If you don't intend to use this Front Door, you should delete the resources to avoid incurring unnecessary charges.
+
+1. In the Azure portal, search for and select **Resource groups**, or choose **Resource groups** from the Azure portal menu.
+
+1. Filter or scroll down to find a resource group, for example, *FrontDoorQS_rg0*.
+
+1. Choose the resource group, then select **Delete** resource group.
+
+    > [!WARNING]
+    > This action can't be undone.
+
+1. Enter the name of the resource group that you want to delete, and then select **Delete**.
+
+1. Repeat these steps for the remaining two groups.
 
 ## Next steps
-In this quickstart, you created a Front Door that allows you to direct user traffic for web applications that require high availability and maximum performance. To learn more about routing traffic, read the [Routing Methods](front-door-routing-methods.md) used by Front Door.
+
+Proceed to the next article to learn how to configure a custom domain for your Front Door.
+
+> [!div class="nextstepaction"]
+> [Add a custom domain](front-door-custom-domain.md)

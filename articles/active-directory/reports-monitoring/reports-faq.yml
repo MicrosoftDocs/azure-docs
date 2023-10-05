@@ -1,0 +1,258 @@
+### YamlMime:FAQ
+metadata:
+  title: Microsoft Entra monitoring and health FAQ
+  description: Frequently asked questions around Microsoft Entra monitoring and health, including logs and reports.
+  services: active-directory
+  author: shlipsey3
+  manager: amycolannino
+  ms.service: active-directory
+  ms.workload: identity
+  ms.topic: faq
+  ms.subservice: report-monitor
+  ms.date: 10/02/2023
+  ms.author: sarahlipsey
+  ms.reviewer: egreenberg14
+
+title: Frequently asked questions around Microsoft Entra monitoring and health
+summary: |
+  This article includes answers to frequently asked questions about Microsoft Entra monitoring and health. For more information, see [Microsoft Entra monitoring and health overview](overview-monitoring-health.md). 
+  
+
+sections:
+  - name: Getting started
+    questions:
+      - question: |
+          How do I get a premium license?
+        answer: |
+          See [Getting started with Microsoft Entra ID P1 or P2](../fundamentals/get-started-premium.md) to upgrade your Microsoft Entra edition.
+          
+      - question: |
+          How soon should I see activities data after getting a premium license?
+        answer: |
+          If you already have activities data as a free license, then you can see it immediately. If you don't have any data, then it takes up to three days for the data to show up in the reports.
+
+      - question: |
+          Can I see last month's data after getting a Microsoft Entra ID P1 or P2 license?
+        answer: |
+          If you've recently switched to a Premium version (including a trial version), you can see data up to seven days initially. When data accumulates, you can see data for the past 30 days.
+ 
+      - question: |
+          I currently use the `https://graph.windows.net/<tenant-name>/reports/` endpoint APIs to pull Microsoft Entra security reports (specific types of detections, such as leaked credentials or sign-ins from anonymous IP addresses) into our reporting systems programmatically. What should I switch to?
+        answer: |
+          You can use the [Identity Protection risk detections API](../identity-protection/howto-identity-protection-graph-api.md) to access security detections through Microsoft Graph. This new format gives greater flexibility in how you can query data. The format includes advanced filtering and field selection and standardizes risk detections into one type for easier integration into SIEMs and other data collection tools. Because the data is in a different format, you can't substitute a new query for your old queries. However, [the new API uses Microsoft Graph](/graph/api/resources/identityprotection-root), which is the Microsoft standard for such APIs as Microsoft 365 or Microsoft Entra ID. So the work required can either extend your current Microsoft Graph investments or help you begin your transition to this new standard platform.
+
+  - name: Activity logs
+    questions:
+      - question: |
+          Do I need to be a Global Administrator to see the activity logs in the Microsoft Entra admin center?
+        answer: |
+          No, the [least privilege role](../roles/delegate-by-task.md) to view audit and sign-in logs is **Reports Reader**. Other roles include **Security Reader** and **Security Administrator**.
+
+      - question: |
+          What logs can I integrate with Azure Monitor?
+        answer: |
+          Sign-in and audit logs are both available for routing through Azure Monitor. B2C-related audit events are currently not included. For more information, see [Microsoft Entra activity log integrations](concept-activity-logs-azure-monitor.md) and the [Graph API activity log overview](/graph/api/resources/azure-ad-auditlog-overview)
+
+      - question: |
+          What SIEM tools are currently supported for integrating Microsoft Entra activity logs?
+        answer: |
+          For a current list of the supported SIEM tools, see [Stream Azure monitoring data to an event hub for consumption by an external tool](../../azure-monitor/essentials/stream-monitoring-data-event-hubs.md).
+
+      - question: |
+          Can I access the data from an event hub without using an external SIEM tool?
+        answer: |
+          Yes. To access the logs from your custom application, you can use the [Event Hubs API](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md).
+
+      - question: |
+          Can I get Microsoft 365 activity log information through the Microsoft Entra admin center or the Azure portal?
+        answer: |
+          Microsoft 365 and Microsoft Entra activity logs share many directory resources. If you want a full view of the Microsoft 365 activity logs, you should go to the [Microsoft 365 admin center](https://admin.microsoft.com) to get Office 365 Activity log information.
+          
+      - question: |
+          Which APIs do I use to get information about Microsoft 365 Activity logs?
+        answer: |
+          The APIs for Microsoft 365 are described in the [Microsoft 365 Management APIs](/office/office-365-management-api/office-365-management-apis-overview) article.
+          
+      - question: |
+          How many records I can download from the Microsoft Entra admin center?
+        answer: |
+          How many logs you can download from the Microsoft Entra admin center is determined by a few factors, including browser memory size, network speeds, and current load on Microsoft Entra reporting APIs. In general, you can expect to download up to 250,000 records from the Microsoft Entra admin center. Depending on the number of fields you included, this number could vary. To download data sets larger than 250,000 records, use the [reporting API](/graph/api/resources/azure-ad-auditlog-overview?view=graph-rest-1.0) to download the data. The specific set of logs you can download is determined by the filters active in the Microsoft Entra admin center when you begin the download (for example, filtering to a specific user in the Microsoft Entra admin center will mean your download pulls logs for that specific user). 
+
+      - question: |
+          How long does Microsoft Entra ID store activity logs? What is the data retention?
+        answer: |
+          Depending on your license, Microsoft Entra ID stores activity logs for between 7 and 30 days. For more information, see [Microsoft Entra report retention policies](reference-reports-data-retention.md).  
+
+      - question: |
+          What happens if an Administrator changes the retention period of a diagnostic setting?
+        answer: |
+          The new retention policy will be applied to logs collected after the change. Logs collected before the policy change are unaffected. The Diagnostic settings storage retention feature is being deprecated. For details on this change, see [**Migrate from diagnostic settings storage retention to Azure Storage lifecycle management**](../../azure-monitor/essentials/migrate-to-azure-storage-lifecycle-policy.md).
+
+      - question: |
+          How can I find out if a user purchased a license or enabled a trial license for my tenant? I don't see this activity in the audit logs.
+        answer: |
+          At this time, there isn't a specific activity in the audit logs for license purchases or enablement. However, you may be able to correlate the "Onboard resource to PIM" activity from the "Resource Management" category to the purchase or enablement of a license. This activity may not always be available or provide the exact details.
+
+  - name: Sign-in logs
+    questions:
+      - question: |
+          I used the signInActivity resource to look up a user's last sign-in time, but it hasn't updated after a few hours. When will it be updated with the latest sign in time? 
+        answer: |
+          The signInActivity resource is used to find inactive [users who haven't signed in for some time](howto-manage-inactive-user-accounts.md). It doesn't update in near real time. If you need to find the user's last sign-in activity more quickly, you can use the Microsoft Entra sign-in logs to see near real time sign-in activity for all your users. 
+
+      - question: |
+          What data is included in the CSV file I can download from the Microsoft Entra sign-in logs?
+        answer: |
+          The CSV includes sign-in logs for your users and service principals. However, data that is represented as a nested array in the MS Graph API for sign-in logs isn't included. For example, Conditional Access policies and report-only information aren't included. If you need to export all the information contained in your sign-in logs, use the **Export Data Settings** feature. 
+
+      - question: |
+          I see .XXX in part of the IP address from a user in my sign-in logs. Why is that happening?
+        answer: |
+          Microsoft Entra ID may redact part of an IP address in the sign-in logs to protect user privacy when a user may not belong to the tenant viewing the logs. This action happens in two cases: first, during cross tenant sign ins, such as when a CSP technician signs into a tenant that CSP manages. Second, when our service wasn't able to determine the user's identity with sufficient confidence to be sure the user belongs to the tenant viewing the logs.
+
+      - question: |
+          I see "PII Removed" in the Device Details of a user in my sign-in logs. Why is that happening?
+        answer: |
+          Microsoft Entra ID redacts Personally Identifiable Information (PII) generated by devices that don't belong to your tenant to ensure customer data. PII doesn't spread beyond tenant boundaries without user and data owner consent.
+
+      - question: |
+          I see duplicate sign-in entries / multiple sign-in events per requestID. Why is that happening?
+        answer: |
+          There are several reasons sign-in entries may be duplicated in your logs.
+          - If a risk is identified on a sign-in, another nearly identical event is published immediately after with risk included.
+          - If MFA events related to a sign-in are received, all related events are aggregated to the original sign-in.
+          - If partner publishing for a sign-in event fails, such as publishing to Kusto, an entire batch of events is retried and published again, which may result in duplicates.
+          - Sign-in events that involve multiple Conditional Access policies may be split into multiple events, which can result in at least two events per sign-in event.
+
+      - question: |
+          Why do my non-interactive sign-ins appear to have the same time stamp?
+        answer: |
+          Non-interactive sign-ins can trigger a large volume of events every hour, so they're grouped together in the logs.
+          
+          In many cases, non-interactive sign-ins have all the same characteristics, except for the date and time of the sign-in. If the time aggregate is set to 24 hours, the logs appear to show the sign-ins at the same time. Each of these grouped rows can be expanded to view the exact time stamp.
+
+      - question: |
+          I'm seeing User IDs in the username field of my sign-in log. Why is this happening?
+        answer: |
+          With passwordless authentication, User IDs appear as the username. To confirm this scenario, look at the details of the sign-in event in question. The *authenticationDetail* field says *passwordless*.
+
+      - question: |
+          I see a 90025 error in the sign in logs. Does this mean my user failed to sign in? Has my tenant hit a throttling limit?
+        answer: |
+          No, in general 90025 errors are resolved by an automatic retry without the user noticing the error. This error can occur when an internal Microsoft Entra subservice hits its retry allowance and doesn't indicate your tenant is being throttled. These errors are usually resolved by Microsoft Entra ID internally. If the user is unable to sign in due to this error, manually trying again should resolve the issue. 
+
+      - question: |
+          In the Service Principal sign-in logs, what does it mean if I see “00000000-0000-0000-0000-000000000000” or “” for Service Principal ID or Resource Service Principal ID in my sign-in logs?
+        answer: |
+          If the Service Principal ID has the value “0000000-0000-0000-0000-000000000000" there's no Service Principal for the client application in that instance of authentication. Microsoft Entra no longer issues access tokens without a client Service Principal, except for a few Microsoft and third party applications.
+
+          If the Resource Service Principal ID has the value “0000000-0000-0000-0000-000000000000" there's no Service Principal for the resource application in that instance of authentication.
+
+          This behavior is currently allowed only for a limited number of resource apps.
+ 
+          You can query for instances of authentication without a client or resource Service Principal in your tenant.
+
+          - To find instances of sign-in logs for your tenant where a client Service Principal is missing, use the following query:
+            ```http
+            https://graph.microsoft.com/beta/auditLogs/signIns?$filter=signInEventTypes/any(t: t eq 'servicePrincipal') and servicePrincipalId eq '00000000-0000-0000-0000-000000000000'
+            ```
+          - To find instances of sign-in logs for your tenant where a resource Service Principal is missing, use the following query:
+            ```http
+            https://graph.microsoft.com/beta/auditLogs/signIns?$filter=signInEventTypes/any(t: t eq 'servicePrincipal') and resourceServicePrincipalId eq '00000000-0000-0000-0000-000000000000'
+            ```
+          You can also find these sign-in logs in Microsoft Entra admin center.
+
+          - Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
+          - Browse to **Identity** > **Monitoring & health** > **Sign-in logs**.
+          - Select **Service Principal Sign-ins**. 
+          - Select an appropriate time frame in the Date field (last 24 hours, 7 days etc.).
+          -	Add a filter and select **Service Principal ID** and provide the value '00000000-0000-0000-0000-000000000000' to get instances of authentication with no client Service Principal.
+            
+      - question: |
+          How can I restrict sign-in (authentication) for various apps that I see in the Service Principal sign-in logs?
+        answer:
+          If you wish to control how authentication works in your tenant for specific client or resource apps, follow instructions in the [Restrict Microsoft Entra app to a set of users](../develop/howto-restrict-your-app-to-a-set-of-users.md) article.
+
+      - question: |
+          Why do sign-ins that are technically non-interactive show up on my interactive sign-in logs?
+        answer:
+          Some non-interactive sign-ins were made available before the non-interactive sign-in logs were available in public preview. These non-interactive sign-ins were included in the interactive sign-in logs and remained in the interactive sign-in logs after the non-interactive logs became available.
+          
+          Sign-ins using the FIDO2 keys are an example of non-interactive sign-ins that show up in the interactive sign-in logs.
+
+          At this time, these non-interactive logs are always included in the interactive sign-in log. 
+
+  - name: Conditional Access
+    questions:
+      - question: |
+          What Conditional Access details can I see in the sign-in logs?
+        answer: |
+          You can troubleshoot Conditional Access policies through all sign-in logs. Review the Conditional Access status and dive into the details of the policies that applied to the sign-in and the result for each policy.
+
+          To get started:
+          
+          - Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
+          - Browse to **Identity** > **Monitoring & health** > **Sign-in logs**.
+          - Select the sign-in that you want to troubleshoot.
+          - Select the **Conditional Access** tab.
+          Here, you can view all the policies that impacted the sign-in and the result for each policy. 
+              
+      - question: |
+          What are all possible values for the Conditional Access status?
+        answer: |
+          Conditional Access status can have the following values:
+          
+          - **Not Applied**: There was no Conditional Access policy with the user and app in scope. 
+          - **Success**: There was a Conditional Access policy with the user and app in scope and Conditional Access policies were successfully satisfied. 
+          - **Failure**: The sign-in satisfied the user and application condition of at least one Conditional Access policy and grant controls are either not satisfied or set to block access.
+              
+      - question: |
+          What are all possible values for the Conditional Access policy result?
+        answer: |
+          A Conditional Access policy can have the following results:
+          
+          - **Success**: The policy was successfully satisfied.
+          - **Failure**: The policy wasn't satisfied.
+          - **Not applied**: The policy conditions may not have been met.
+          - **Not enabled**: The policy may be in a disabled state. 
+              
+      - question: |
+          The policy name in the sign-in log doesn't match the policy name in Conditional Access. Why?
+        answer: |
+          The policy name in the sign-in log is based on the Conditional Access policy name at the time of the sign-in. The name can be inconsistent with the policy name in Conditional Access if you updated the policy name after the sign-in.
+
+      - question: |
+          My sign-in was blocked due to a Conditional Access policy, but the sign-in log shows that the sign-in succeeded. Why?
+        answer: |
+          Currently the sign-in log may not show accurate results for Exchange ActiveSync scenarios when Conditional Access is applied. There can be cases when the sign-in result in the report shows a successful sign-in, but the sign-in actually failed due to a  policy.
+
+  - name: Microsoft Graph APIs
+    questions:
+      - question: |
+          I currently use the `https://graph.windows.net/<tenant-name>/reports/` endpoint APIs to pull Microsoft Entra audit and integrated application usage reports into our reporting systems programmatically. What should I switch to?
+        answer: |
+          Look up the [API reference](https://developer.microsoft.com/graph/) to see how you can [use the APIs to access activity logs](./howto-configure-prerequisites-for-reporting-api.md). This endpoint has two reports (**Audit** and **Sign-ins**) which provide all the data you got in the old API endpoint. This new endpoint also has a sign-ins report with the Microsoft Entra ID P1 or P2 license that you can use to get app usage, device usage, and user sign-in information.
+          
+      - question: |
+          I currently use the `https://graph.windows.net/<tenant-name>/reports/` endpoint APIs to pull Microsoft Entra security reports (specific types of detections, such as leaked credentials or sign-ins from anonymous IP addresses) into our reporting systems programmatically. What should I switch to?
+        answer: |
+          You can use the [Identity Protection risk detections API](../identity-protection/howto-identity-protection-graph-api.md) to access security detections through Microsoft Graph. This new format gives greater flexibility in how you can query data. The format provides advanced filtering, field selection, and standardizes risk detections into one type for easier integration into SIEMs and other data collection tools. Because the data is in a different format, you can't substitute a new query for your old queries. However, [the new API uses Microsoft Graph](/graph/api/resources/identityprotection-root), which is the Microsoft standard for such APIs as Microsoft 365 or Microsoft Entra ID. So the work required can either extend your current Microsoft Graph investments or help you begin your transition to this new standard platform.
+
+      - question: |
+          I keep getting permissions errors when running queries. I thought I had the appropriate role.
+        answer: |
+          You may need to sign in to Microsoft Graph separately from the Microsoft Entra admin center. Select your profile icon on the upper-right corner and sign in to the right directory.
+          You may be trying to run a query that you don't have permissions for. Select **Modify Permissions** and select the **Consent** button. Follow the sign-in prompts.
+
+      - question: |
+          Why are there `MicrosoftGraphActivityLogs` events that don't correlate to a Service Principal sign-in?
+          
+        answer:
+          Every time a token is used to call a Microsoft Graph endpoint, the `MicrosoftGraphActivityLogs` are updated with that call. Some of those calls are first-party, app-only calls, which aren't published to the Service Principal sign-in logs. When a `MicrosoftGraphActivityLogs` shows a `uniqueTokenIdentifier` that you can't locate in the sign-in logs, the token identifier is referencing a first-party app-only token.
+
+  - name: Identity recommendations
+    questions:
+      - question: |
+          Why did a recommendation that was "completed" change back to "active"?
+        answer: |
+          If the service detects activity related to that recommendation for something marked as "completed" it changes automatically back to "active."

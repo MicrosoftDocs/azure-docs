@@ -1,0 +1,63 @@
+### YamlMime:Landing
+
+title: Microsoft Defender for IoT for device builders documentation
+summary: 'Microsoft Defender for IoT provides comprehensive threat detection for IoT/OT environments, with multiple deployment options including fully on-premises, cloud-connected, or hybrid.'
+
+metadata: 
+  title: Microsoft Defender for IoT for device builders documentation
+  description: Microsoft Defender for IoT provides comprehensive threat detection for IoT/OT environments, with multiple deployment options including fully on-premises, cloud-connected, or hybrid.
+  services: service
+  ms.service: defender-for-iot
+  ms.topic: landing-page
+  ms.collection: M365-security-compliance
+  author: batamig
+  manager: raynew
+  ms.date: 01/01/2023
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+  - title: About Microsoft Defender for IoT for device builders
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Microsoft Defender for IoT for device builders?
+            url: overview.md
+          - text: Agent-based solution for device builders architecture
+            url: architecture-agent-based.md
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links: 
+          - text: Onboard Defender for IoT to an agent-based solution
+            url: quickstart-onboard-iot-hub.md
+          - text: Configure your Microsoft Defender for IoT solution
+            url: quickstart-configure-your-solution.md
+  - title: Security
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Security recommendations
+            url: concept-recommendations.md
+          - text: Event aggregation
+            url: concept-event-aggregation.md
+          - text: Firmware analysis (preview)
+            url: overview-firmware-analysis.md
+  - title: How-to
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Configure Microsoft Defender for IoT agent-based solution
+            url: how-to-configure-agent-based-solution.md
+          - text: Investigate OS baseline
+            url: how-to-investigate-cis-benchmark.md
+          - text: Create custom alerts
+            url: quickstart-create-custom-alerts.md
+          - text: Configure and customize Defender-IoT-micro-agent for Azure RTOS (preview)
+            url: how-to-azure-rtos-security-module.md
+  - title: New in docs
+    linkLists:
+      - linkListType: whats-new
+        links:
+          - text: What's new for device builders?
+            url: release-notes.md

@@ -2,18 +2,27 @@
   href: index.yml
 - name: Overview
   items:
-  - name: Overview of Azure Blueprints
+  - name: What is Azure Blueprints?
     displayName: templates, policy, definition, assignment, rbac
-    href: overview.md
+    href: ./overview.md
 - name: Quickstarts
   expanded: true
   items:
   - name: Create a blueprint - Portal
     displayName: publish, assign, track, unassign, delete
-    href: create-blueprint-portal.md
+    href: ./create-blueprint-portal.md
+  - name: Create a blueprint - Azure PowerShell
+    displayName: publish, assign, track, unassign, delete
+    href: ./create-blueprint-powershell.md
+  - name: Create a blueprint - Azure CLI
+    displayName: publish, assign, track, unassign, delete
+    href: ./create-blueprint-azurecli.md
   - name: Create a blueprint - REST API
     displayName: publish, assign, track, unassign, delete
     href: create-blueprint-rest-api.md
+  - name: Create a blueprint - ARM template
+    displayName: assign, compliance, resource manager
+    href: ../../azure-resource-manager/templates/deploy-to-subscription.md?toc=/azure/governance/blueprints/toc.json&bc=/azure/governance/blueprints/breadcrumb/toc.json#azure-blueprints
 - name: Tutorials
   items:
   - name: Create from a blueprint sample
@@ -22,11 +31,38 @@
   - name: Protect new resources with blueprint resource locks
     displayName: read only, do not delete, lock assignment
     href: ./tutorials/protect-new-resources.md
+  - name: "Learn: Govern multiple subscriptions by using Azure Blueprints"
+    displayName: governance, module
+    href: /training/modules/build-cloud-governance-strategy-azure/8-govern-subscriptions-azure-blueprints
 - name: Samples
   items:
   - name: Index
     displayName: list, examples
     href: ./samples/index.md
+  - name: Azure Security Benchmark Foundation
+    items:
+    - name: Overview
+      displayName: standards, azure, benchmark, foundation
+      href: ./samples/azure-security-benchmark-foundation/index.md
+    - name: Steps to deploy
+      displayName: standards, azure, benchmark, foundation, deploy
+      href: ./samples/azure-security-benchmark-foundation/deploy.md
+  - name: Australian Government ISM PROTECTED
+    items:
+    - name: Overview
+      displayName: standards, Australian, Government, ISM, PROTECTED
+      href: ./samples/ism-protected/index.md
+    - name: Control mapping
+      displayName: standards, Australian, Government, ISM, PROTECTED
+      href: ./samples/ism-protected/control-mapping.md
+    - name: Steps to deploy
+      displayName: standards, Australian, Government, ISM, PROTECTED
+      href: ./samples/ism-protected/deploy.md
+  - name: Canada Federal PBMM
+    href: ./samples/canada-federal-pbmm.md
+  - name: ISO 27001
+    displayName: standards, iso, 27001, 2013
+    href: ./samples/iso-27001-2013.md
   - name: ISO 27001 - Shared Services
     items:
     - name: Overview
@@ -49,6 +85,35 @@
     - name: Steps to deploy
       displayName: standards, iso, 27001
       href: ./samples/iso27001-ase-sql-workload/deploy.md
+  - name: SWIFT CSP v2020
+    items:
+    - name: Overview
+      displayName: standards, SWIFT CSP-CSCF v2020
+      href: ./samples/swift-2020/index.md
+    - name: Control mapping
+      displayName: standards, SWIFT CSP-CSCF v2020
+      href: ./samples/swift-2020/control-mapping.md
+    - name: Steps to deploy
+      displayName: standards, SWIFT CSP-CSCF v2020
+      href: ./samples/swift-2020/deploy.md
+  - name: UK OFFICIAL and UK NHS
+    href: ./samples/ukofficial-uknhs.md
+  - name: CAF Foundation
+    items:
+    - name: Overview
+      displayName: caf, foundation
+      href: ./samples/caf-foundation/index.md
+    - name: Steps to deploy
+      displayName: caf, foundation, deploy
+      href: ./samples/caf-foundation/deploy.md
+  - name: CAF Migrate landing zone
+    items:
+    - name: Overview
+      displayName: caf, migrate, landing zone
+      href: ./samples/caf-migrate-landing-zone/index.md
+    - name: Steps to deploy
+      displayName: caf, migrate, landing zone, deploy
+      href: ./samples/caf-migrate-landing-zone/deploy.md
 - name: Concepts
   items:
   - name: Lifecycle of a blueprint
@@ -63,7 +128,7 @@
   - name: Sequencing order of blueprint deployment
     displayName: customize
     href: ./concepts/sequencing-order.md
-  - name: Resource locking in Blueprints
+  - name: Resource locking in Azure Blueprints
     displayName: mode, state, read only, edit, denyAssignments
     href: ./concepts/resource-locking.md
 - name: How-to guides
@@ -71,20 +136,28 @@
   - name: Manage assignments with PowerShell
     displayName: create, update, remove
     href: ./how-to/manage-assignments-ps.md
+  - name: Import and export with PowerShell
+    displayName: import, export, folders
+    href: ./how-to/import-export-ps.md
   - name: Update existing assignments from the portal
     displayName: lock, errors
     href: ./how-to/update-existing-assignments.md
+  - name: Configure your environment for a Blueprint Operator
+    displayName: rbac, user-assigned, managed, identity, management group
+    href: ./how-to/configure-for-blueprint-operator.md
   - name: Manage Blueprints as Code (community)
     href: https://github.com/Azure/azure-blueprints/blob/master/README.md
 - name: Troubleshoot
   displayName: errors, violation
   href: ./troubleshoot/general.md
-- name: References
+- name: Reference
   items:
+  - name: Azure CLI
+    href: /cli/azure/blueprint
   - name: Azure PowerShell
     href: /powershell/module/az.blueprint/#blueprint
   - name: Azure SDK for .NET
-    href: /dotnet/api/overview/azure/blueprints/management
+    href: /dotnet/api/microsoft.azure.management.blueprint
   - name: REST
     href: /rest/api/blueprints/
   - name: PSGallery (Az.Blueprint module)
@@ -97,13 +170,15 @@
   items:
   - name: GitHub - Azure Blueprints samples
     href: https://github.com/Azure/azure-blueprints
-  - name: Azure roadmap
-    href: https://azure.microsoft.com/roadmap/
-  - name: Pricing calculator
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: UserVoice
-    href: https://feedback.azure.com/forums/915958-azure-governance
+  - name: Microsoft Q&A for Azure Blueprints
+    href: /answers/topics/azure-blueprints.html
   - name: Governance YouTube Channel
     href: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
   - name: Azure Friday - Azure Blueprints Overview
-    href: https://channel9.msdn.com/Shows/Azure-Friday/An-overview-of-Azure-Blueprints
+    href: /Shows/Azure-Friday/An-overview-of-Azure-Blueprints
+  - name: Azure updates
+    href: https://azure.microsoft.com/updates/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: UserVoice
+    href: https://feedback.azure.com/d365community/forum/675ae472-f324-ec11-b6e6-000d3a4f0da0?c=775ae472-f324-ec11-b6e6-000d3a4f0da0

@@ -1,57 +1,91 @@
 ---
-title: 'Azure Active Directory Domain Services: Troubleshooting Network Security Group configuration | Microsoft Docs'
-description: Troubleshooting NSG configuration for Azure AD Domain Services
+title: Resolve network security group alerts in Microsoft Entra Domain Services | Microsoft Docs
+description: Learn how to troubleshoot and resolve network security group configuration alerts for Microsoft Entra Domain Services
 services: active-directory-ds
-documentationcenter: ''
-author: MikeStephens-MS
-manager:
-editor:
+author: justinha
+manager: amycolannino
 
 ms.assetid: 95f970a7-5867-4108-a87e-471fa0910b8c
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/22/2019
-ms.author: mstephen
+ms.topic: troubleshooting
+ms.date: 09/15/2023
+ms.author: justinha
 
 ---
-# Troubleshoot invalid networking configuration for your managed domain
-This article helps you troubleshoot and resolve network-related configuration errors that result in the following alert message:
+# Known issues: Network configuration alerts in Microsoft Entra Domain Services
+
+To let applications and services correctly communicate with a Microsoft Entra Domain Services managed domain, specific network ports must be open to allow traffic to flow. In Azure, you control the flow of traffic using network security groups. The health status of a Domain Services managed domain shows an alert if the required network security group rules aren't in place.
+
+This article helps you understand and resolve common alerts for network security group configuration issues.
 
 ## Alert AADDS104: Network error
-**Alert message:**
- *Microsoft is unable to reach the domain controllers for this managed domain. This may happen if a network security group (NSG) configured on your virtual network blocks access to the managed domain. Another possible reason is if there is a user-defined route that blocks incoming traffic from the internet.*
 
-Invalid NSG configurations are the most common cause of network errors for Azure AD Domain Services. The Network Security Group (NSG) configured for your virtual network must allow access to [specific ports](network-considerations.md#ports-required-for-azure-ad-domain-services). If these ports are blocked, Microsoft cannot monitor or update your managed domain. Additionally, synchronization between your Azure AD directory and your managed domain is impacted. While creating your NSG, keep these ports open to avoid interruption in service.
+### Alert message
 
-### Checking your NSG for compliance
+*Microsoft is unable to reach the domain controllers for this managed domain. This may happen if a network security group (NSG) configured on your virtual network blocks access to the managed domain. Another possible reason is if there is a user-defined route that blocks incoming traffic from the internet.*
 
-1. Navigate to the [Network security groups](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups) page in the Azure portal
-2. From the table, choose the NSG associated with the subnet in which your managed domain is enabled.
-3. Under **Settings** in the left-hand panel, click **Inbound security rules**
-4. Review the rules in place and identify which rules are blocking access to [these ports](network-considerations.md#ports-required-for-azure-ad-domain-services)
-5. Edit the NSG to ensure compliance by either deleting the rule, adding a rule, or creating a new NSG entirely. Steps to [add a rule](#add-a-rule-to-a-network-security-group-using-the-azure-portal) or create a new, compliant NSG are below
+Invalid network security group rules are the most common cause of network errors for Domain Services. The network security group for the virtual network must allow access to specific ports and protocols. If these ports are blocked, the Azure platform can't monitor or update the managed domain. The synchronization between the Microsoft Entra directory and Domain Services is also impacted. Make sure you keep the default ports open to avoid interruption in service.
 
-## Sample NSG
-The following table depicts a sample NSG that would keep your managed domain secure while allowing Microsoft to monitor, manage, and update information.
+## Default security rules
 
-![sample NSG](./media/active-directory-domain-services-alerts/default-nsg.png)
+The following default inbound and outbound security rules are applied to the network security group for a managed domain. These rules keep Domain Services secure and allow the Azure platform to monitor, manage, and update the managed domain.
+
+### Inbound security rules
+
+| Priority | Name | Port | Protocol | Source | Destination | Action |
+|----------|------|------|----------|--------|-------------|--------|
+| 301      | AllowPSRemoting | 5986| TCP | AzureActiveDirectoryDomainServices | Any | Allow |
+| 201      | AllowRD | 3389 | TCP | CorpNetSaw | Any | Deny<sup>1</sup> |
+| 65000    | AllVnetInBound | Any | Any | VirtualNetwork | VirtualNetwork | Allow |
+| 65001    | AllowAzureLoadBalancerInBound | Any | Any | AzureLoadBalancer | Any | Allow |
+| 65500    | DenyAllInBound | Any | Any | Any | Any | Deny |
+
+
+<sup>1</sup>Optional for debugging. Allow when required for advanced troubleshooting.
+
+> [!NOTE]
+> You may also have an additional rule that allows inbound traffic if you [configure secure LDAP][configure-ldaps]. This additional rule is required for the correct LDAPS communication.
+
+### Outbound security rules
+
+| Priority | Name | Port | Protocol | Source | Destination | Action |
+|----------|------|------|----------|--------|-------------|--------|
+| 65000    | AllVnetOutBound | Any | Any | VirtualNetwork | VirtualNetwork | Allow |
+| 65001    | AllowAzureLoadBalancerOutBound | Any | Any |  Any | Internet | Allow |
+| 65500    | DenyAllOutBound | Any | Any | Any | Any | Deny |
 
 >[!NOTE]
-> Azure AD Domain Services requires unrestricted outbound access from the virtual network. We recommend not to create any additional NSG rule that restricts outbound access for the virtual network.
+> Domain Services needs unrestricted outbound access from the virtual network. We don't recommend that you create any additional rules that restrict outbound access for the virtual network.
 
-## Add a rule to a Network Security Group using the Azure portal
-If you do not want to use PowerShell, you can manually add single rules to NSGs using the Azure portal. To create rules in your Network security group, complete the following steps:
+## Verify and edit existing security rules
 
-1. Navigate to the [Network security groups](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups) page in the Azure portal.
-2. From the table, choose the NSG associated with the subnet in which your managed domain is enabled.
-3. Under **Settings** in the left-hand panel, click either **Inbound security rules** or **Outbound security rules**.
-4. Create the rule by clicking **Add** and filling in the information. Click **OK**.
-5. Verify your rule has been created by locating it in the rules table.
+To verify the existing security rules and make sure the default ports are open, complete the following steps:
 
+1. In the [Microsoft Entra admin center](https://entra.microsoft.com), search for and select **Network security groups**.
+1. Choose the network security group associated with your managed domain, such as *AADDS-contoso.com-NSG*.
+1. On the **Overview** page, the existing inbound and outbound security rules are shown.
 
-## Need help?
-Contact the Azure Active Directory Domain Services product team to [share feedback or for support](contact-us.md).
+    Review the inbound and outbound rules and compare to the list of required rules in the previous section. If needed, select and then delete any custom rules that block required traffic. If any of the required rules are missing, add a rule in the next section.
+
+    After you add or delete rules to allow the required traffic, the managed domain's health automatically updates itself within two hours and removes the alert.
+
+### Add a security rule
+
+To add a missing security rule, complete the following steps:
+
+1. In the [Microsoft Entra admin center](https://entra.microsoft.com), search for and select **Network security groups**.
+1. Choose the network security group associated with your managed domain, such as *AADDS-contoso.com-NSG*.
+1. Under **Settings** in the left-hand panel, click *Inbound security rules* or *Outbound security rules* depending on which rule you need to add.
+1. Select **Add**, then create the required rule based on the port, protocol, direction, etc. When ready, select **OK**.
+
+It takes a few moments for the security rule to be added and show in the list.
+
+## Next steps
+
+If you still have issues, [open an Azure support request][azure-support] for additional troubleshooting assistance.
+
+<!-- INTERNAL LINKS -->
+[azure-support]: /azure/active-directory/fundamentals/how-to-get-support
+[configure-ldaps]: ./tutorial-configure-ldaps.md

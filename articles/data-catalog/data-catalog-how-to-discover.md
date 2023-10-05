@@ -1,14 +1,13 @@
 ---
 title: How to discover data sources in Azure Data Catalog
 description: This article highlights how to discover registered data assets with Azure Data Catalog, including searching and filtering and using the hit highlighting capabilities of the Azure Data Catalog portal.
-author: JasonWHowell
-ms.author: jasonh
 ms.service: data-catalog
-ms.topic: conceptual
-ms.date: 04/05/2019
+ms.topic: how-to
+ms.date: 12/14/2022
 ---
-
 # How to discover data sources in Azure Data Catalog
+
+[!INCLUDE [Microsoft Purview redirect](includes/catalog-to-purview-migration-flag.md)]
 
 ## Introduction
 
@@ -33,10 +32,10 @@ Although the default free text search is simple and intuitive, you can also use 
 | Basic search |Basic search that uses one or more search terms. Results are any assets that match any property with one or more of the terms specified. |`sales data` |
 | Property scoping |Return only data sources where the search term is matched with the specified property. |`name:finance` |
 | Boolean operators |Broaden or narrow a search by using Boolean operations. |`finance NOT corporate` |
-| Grouping with parenthesis |Use parentheses to group parts of the query to achieve logical isolation, especially in conjunction with Boolean operators. |`name:finance AND (tags:Q1 OR tags:Q2)` |
+| Grouping with parenthesis |Use parentheses to group parts of the query to achieve logical isolation, especially with Boolean operators. |`name:finance AND (tags:Q1 OR tags:Q2)` |
 | Comparison operators |Use comparisons other than equality for properties that have numeric and date data types. |`modifiedTime > "11/05/2014"` |
 
-For more information about Data Catalog search, see the [Azure Data Catalog](/rest/api/datacatalog/#search-syntax-reference) article.
+For more information about Data Catalog search, see the [Azure Data Catalog REST API](/rest/api/datacatalog/#search-syntax-reference) article.
 
 ## Hit highlighting
 
@@ -49,7 +48,7 @@ When you view search results, it may not always be obvious why a data asset is i
 
 In the default tile view, each tile displayed in the search results includes a **View search term matches** icon, so that you can quickly view the number of matches and their location, and to jump to them if you want.
 
- ![Hit highlighting and search matches in the Azure Data Catalog portal](./media/data-catalog-how-to-discover/search-matches.png)
+ :::image type="content" source="./media/data-catalog-how-to-business-glossary/01-portal-menu.png" alt-text="The View search term matches icon is selected in the tile, showing a drop menu of all matched locations.":::
 
 ## Summary
 

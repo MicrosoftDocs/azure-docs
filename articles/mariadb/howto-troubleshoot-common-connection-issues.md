@@ -1,15 +1,16 @@
 ---
-title: Troubleshoot connection issues to Azure Database for MariaDB | Microsoft Docs
-description: Learn how to troubleshoot connection issues to Azure Database for MariaDB.
-keywords: mariadb connection,connection string,connectivity issues,transient error,connection error
-author: jan-eng
-ms.author: janeng
+title: Troubleshoot connection issues - Azure Database for MariaDB
+description: Learn how to troubleshoot connection issues to Azure Database for MariaDB, including transient errors requiring retries, firewall issues, and outages.
 ms.service: mariadb
-ms.topic: conceptual
-ms.date: 11/09/2018
+author: SudheeshGH
+ms.author: sunaray
+ms.topic: troubleshooting
+ms.date: 06/24/2022
 ---
 
 # Troubleshoot connection issues to Azure Database for MariaDB
+
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
 
 Connection problems may be caused by a variety of things, including:
 
@@ -50,7 +51,7 @@ If the application persistently fails to connect to Azure Database for MariaDB, 
 1. Set up [firewall rules](howto-manage-firewall-portal.md) to allow the client IP address. For temporary testing purposes only, set up a firewall rule using 0.0.0.0 as the starting IP address and using 255.255.255.255 as the ending IP address. This will open the server to all IP addresses. If this resolves your connectivity issue, remove this rule and create a firewall rule for an appropriately limited IP address or address range.
 2. On all firewalls between the client and the internet, make sure that port 3306 is open for outbound connections.
 3. Verify your connection string and other connection settings. Review [How to connect applications to Azure Database for MariaDB](howto-connection-string.md).
-4. Check the service health in the dashboard. If you think there’s a regional outage, see [Overview of business continuity with Azure Database for MariaDB](concepts-business-continuity.md) for steps to recover to a new region.
+4. Check the service health in the dashboard. If you think there's a regional outage, see [Overview of business continuity with Azure Database for MariaDB](concepts-business-continuity.md) for steps to recover to a new region.
 
 ## Next steps
 

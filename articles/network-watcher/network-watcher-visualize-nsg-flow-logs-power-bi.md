@@ -1,20 +1,15 @@
 ---
-title: Visualizing Azure Network Security Group flow logs with Power BI | Microsoft Docs
-description: This page describes how to visualize NSG flow logs with Power BI.
+title: Visualizing Azure NSG flow logs - Power BI
+titleSuffix: Azure Network Watcher
+description: Learn how to use Power BI to visualize Network Security Group flow logs to allow you to view information about IP traffic in Azure Network Watcher.
 services: network-watcher
-documentationcenter: na
-author: mattreatMSFT
-manager: vitinnan
-editor: 
-
-ms.assetid: 1e4f95fa-f5f0-4e03-bc25-008fbfc4934c
+author: halkazwini
 ms.service: network-watcher
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload:  infrastructure-services
-ms.date: 02/22/2017
-ms.author: mareat
+ms.topic: how-to
+ms.workload: infrastructure-services
+ms.date: 06/23/2021
+ms.author: halkazwini
+ms.custom: engagement-fy23
 ---
 
 # Visualizing Network Security Group flow logs with Power BI
@@ -50,7 +45,7 @@ You must also have the Power BI Desktop client installed on your machine, and en
 
 ### Steps
 
-1. Download and open the following Power BI template in the Power BI Desktop Application [Network Watcher PowerBI flow logs template](https://aka.ms/networkwatcherpowerbiflowlogstemplate)
+1. Download and open the following Power BI template in the Power BI Desktop Application [Network Watcher PowerBI flow logs template](https://aka.ms/networkwatcherflowlogspowerbitemplate)
 1. Enter the required Query parameters
    1. **StorageAccountName** – Specifies to the name of the storage account containing the NSG flow logs that you would like to load and visualize.
    1. **NumberOfLogFiles** – Specifies the number of log files that you would like to download and visualize in Power BI. For example, if 50 is specified, the 50 latest log files. If we have 2 NSGs enabled and configured to send NSG flow logs to this account, then the past 25 hours of logs can be viewed.

@@ -1,0 +1,57 @@
+- name: Azure Import/Export documentation
+  href: ./index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What is Import/Export?
+    href: storage-import-export-service.md
+- name: Tutorials
+  items: 
+  - name: Import data to Blob storage 
+    href: storage-import-export-data-to-blobs.md
+  - name: Import data to Azure Files
+    href: storage-import-export-data-to-files.md
+  - name: Export data from Blob storage
+    href: storage-import-export-data-from-blobs.md
+- name: Concepts
+  items:
+  - name: Review requirements
+    href: storage-import-export-requirements.md
+  - name: FAQ
+    href: storage-import-export-service-faq.yml
+- name: How to
+  expanded: true
+  items:
+  - name: Use customer-managed keys
+    href: storage-import-export-encryption-key-portal.md
+  - name: Identify disks to use
+    href: storage-import-export-determine-drives-for-export.md
+  - name: Monitor
+    items:
+    - name: View job, drive status
+      href: storage-import-export-view-drive-status.md
+    - name: Review copy logs
+      href: storage-import-export-tool-reviewing-job-status-v1.md
+  - name: Troubleshoot
+    items:
+    - name: Fix common errors
+      href: storage-import-export-tool-troubleshooting-v1.md
+    - name: Repair an import job
+      href: storage-import-export-tool-repairing-an-import-job-v1.md
+    - name: Repair an export job
+      href: storage-import-export-tool-repairing-an-export-job-v1.md
+    - name: Contact Support
+      href: storage-import-export-contact-microsoft-support.md
+- name: Reference
+  items:
+  - name: REST API
+    href: https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/blob/master/MicrosoftAzureImportExportAPIMigrationGuide_20221206.pdf
+  - name: Azure PowerShell
+    href: /powershell/module/Az.ImportExport
+- name: Resources
+  items:
+  - name: Export data offline
+    href: /training/modules/export-data-with-azure-import-export
+  - name: Other offline transfer options
+    href: ../databox/index.yml
+   

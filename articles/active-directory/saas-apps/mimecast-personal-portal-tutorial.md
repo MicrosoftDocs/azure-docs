@@ -1,290 +1,235 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Mimecast Personal Portal | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Mimecast Personal Portal.
+title: 'Tutorial: Microsoft Entra SSO integration with Mimecast'
+description: Learn how to configure single sign-on between Microsoft Entra ID and Mimecast.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-
-ms.assetid: 345b22be-d87e-45a4-b4c0-70a67eaf9bfd
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/24/2018
+ms.date: 11/21/2022
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
-# Tutorial: Azure Active Directory integration with Mimecast Personal Portal
 
-In this tutorial, you learn how to integrate Mimecast Personal Portal with Azure Active Directory (Azure AD).
-Integrating Mimecast Personal Portal with Azure AD provides you with the following benefits:
+# Tutorial: Microsoft Entra SSO integration with Mimecast
 
-* You can control in Azure AD who has access to Mimecast Personal Portal.
-* You can enable your users to be automatically signed-in to Mimecast Personal Portal (Single Sign-On) with their Azure AD accounts.
-* You can manage your accounts in one central location - the Azure portal.
+In this tutorial, you'll learn how to integrate Mimecast with Microsoft Entra ID. When you integrate Mimecast with Microsoft Entra ID, you can:
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+* Control in Microsoft Entra ID who has access to Mimecast.
+* Enable your users to be automatically signed-in to Mimecast with their Microsoft Entra accounts.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
-To configure Azure AD integration with Mimecast Personal Portal, you need the following items:
+To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
-* Mimecast Personal Portal single sign-on enabled subscription
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* Mimecast single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment.
 
-* Mimecast Personal Portal supports **SP** initiated SSO
+* Mimecast supports **SP and IDP** initiated SSO.
+ 
+## Add Mimecast from the gallery
 
-## Adding Mimecast Personal Portal from the gallery
+To configure the integration of Mimecast into Microsoft Entra ID, you need to add Mimecast from the gallery to your list of managed SaaS apps.
 
-To configure the integration of Mimecast Personal Portal into Azure AD, you need to add Mimecast Personal Portal from the gallery to your list of managed SaaS apps.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type **Mimecast** in the search box.
+1. Select **Mimecast** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-**To add Mimecast Personal Portal from the gallery, perform the following steps:**
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
+<a name='configure-and-test-azure-ad-sso-for-mimecast'></a>
 
-	![The Azure Active Directory button](common/select-azuread.png)
+## Configure and test Microsoft Entra SSO for Mimecast
 
-2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
+Configure and test Microsoft Entra SSO with Mimecast using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in Mimecast.
 
-	![The Enterprise applications blade](common/enterprise-applications.png)
+To configure and test Microsoft Entra SSO with Mimecast, perform the following steps:
 
-3. To add new application, click **New application** button on the top of dialog.
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
+1. **[Configure Mimecast SSO](#configure-mimecast-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create Mimecast test user](#create-mimecast-test-user)** - to have a counterpart of B.Simon in Mimecast that is linked to the Microsoft Entra representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-	![The New application button](common/add-new-app.png)
+<a name='configure-azure-ad-sso'></a>
 
-4. In the search box, type **Mimecast Personal Portal**, select **Mimecast Personal Portal** from result panel then click **Add** button to add the application.
+## Configure Microsoft Entra SSO
 
-	 ![Mimecast Personal Portal in the results list](common/search-new-app.png)
+Follow these steps to enable Microsoft Entra SSO.
 
-## Configure and test Azure AD single sign-on
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Mimecast** > **Single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-In this section, you configure and test Azure AD single sign-on with Mimecast Personal Portal based on a test user called **Britta Simon**.
-For single sign-on to work, a link relationship between an Azure AD user and the related user in Mimecast Personal Portal needs to be established.
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-To configure and test Azure AD single sign-on with Mimecast Personal Portal, you need to complete the following building blocks:
+1. On the **Basic SAML Configuration** section,  if you wish to configure the application in IDP initiated mode, perform the following steps:
 
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Configure Mimecast Personal Portal Single Sign-On](#configure-mimecast-personal-portal-single-sign-on)** - to configure the Single Sign-On settings on application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create Mimecast Personal Portal test user](#create-mimecast-personal-portal-test-user)** - to have a counterpart of Britta Simon in Mimecast Personal Portal that is linked to the Azure AD representation of user.
-6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
-
-### Configure Azure AD single sign-on
-
-In this section, you enable Azure AD single sign-on in the Azure portal.
-
-To configure Azure AD single sign-on with Mimecast Personal Portal, perform the following steps:
-
-1. In the [Azure portal](https://portal.azure.com/), on the **Mimecast Personal Portal** application integration page, select **Single sign-on**.
-
-    ![Configure single sign-on link](common/select-sso.png)
-
-2. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
-
-    ![Single sign-on select mode](common/select-saml-option.png)
-
-3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
-
-	![Edit Basic SAML Configuration](common/edit-urls.png)
-
-4. On the **Basic SAML Configuration** section, perform the following steps:
-
-    ![Mimecast Personal Portal Domain and URLs single sign-on information](common/sp-identifier-reply.png)
-
-    a. In the **Sign-on URL** textbox, type a URL: 
-
-	| Region  |  Value | 
-	| --------------- | --------------- | 
-	| Europe          | `https://eu-api.mimecast.com/login/saml`|
-	| United States   | `https://us-api.mimecast.com/login/saml`|
-	| South Africa    | `https://za-api.mimecast.com/login/saml`|
-	| Australia       | `https://au-api.mimecast.com/login/saml`|
-	| Offshore        | `https://jer-api.mimecast.com/login/saml`|
-
-	b. In the **Identifier** textbox, type a URL using the following pattern:
+	a. In the **Identifier** textbox, type a URL using one of the following patterns:
 
     | Region  |  Value | 
 	| --------------- | --------------- |
 	| Europe          | `https://eu-api.mimecast.com/sso/<accountcode>`|
-	| United States   | `https://us-api.mimecast.com/sso/<accountcode>`|    
+	| United States   | `https://us-api.mimecast.com/sso/<accountcode>`|
 	| South Africa    | `https://za-api.mimecast.com/sso/<accountcode>`|
 	| Australia       | `https://au-api.mimecast.com/sso/<accountcode>`|
 	| Offshore        | `https://jer-api.mimecast.com/sso/<accountcode>`|
 
-	c. In the **Reply URL** textbox, type a URL: 
+	> [!NOTE]
+	> You will find the `accountcode` value in the Mimecast under **Account** > **Settings** > **Account Code**. Append the `accountcode` to the Identifier.
 
-	| Region  |  Value | 
-	| --------------- | --------------- | 
+	b. In the **Reply URL** textbox, type one of the following URLs:
+
+	| Region  |  Value |
+	| --------------- | --------------- |
 	| Europe          | `https://eu-api.mimecast.com/login/saml`|
 	| United States   | `https://us-api.mimecast.com/login/saml`|
 	| South Africa    | `https://za-api.mimecast.com/login/saml`|
 	| Australia       | `https://au-api.mimecast.com/login/saml`|
 	| Offshore        | `https://jer-api.mimecast.com/login/saml`|
 
-	> [!NOTE]
-	> The Identifier value is not real. Update the value with the actual Identifier. Contact [Mimecast Personal Portal Client support team](https://www.mimecast.com/customer-success/technical-support/) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+1. If you wish to configure the application in **SP** initiated mode:
 
-4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
+    In the **Sign-on URL** textbox, type one of the following URLs:
 
-	![The Certificate download link](common/certificatebase64.png)
+	| Region  |  Value |
+	| --------------- | --------------- |
+	| Europe          | `https://eu-api.mimecast.com/login/saml`|
+	| United States   | `https://us-api.mimecast.com/login/saml`|
+	| South Africa    | `https://za-api.mimecast.com/login/saml`|
+	| Australia       | `https://au-api.mimecast.com/login/saml`|
+	| Offshore        | `https://jer-api.mimecast.com/login/saml`|
 
-6. On the **Set up Mimecast Personal Portal** section, copy the appropriate URL(s) as per your requirement.
+1. Click **Save**.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
-	a. Login URL
+	![The Certificate download link](common/copy-metadataurl.png)
 
-	b. Azure Ad Identifier
+<a name='create-an-azure-ad-test-user'></a>
 
-	c. Logout URL
+### Create a Microsoft Entra test user
 
-### Configure Mimecast Personal Portal Single Sign-On
+In this section, you'll create a test user called B.Simon.
 
-1. In a different web browser window, log into your Mimecast Personal Portal as an administrator.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Select **Review + create**.
+1. Select **Create**.
 
-2. Go to **Services \> Applications**.
-   
-    ![Applications](./media/mimecast-personal-portal-tutorial/ic794998.png "Applications")
+<a name='assign-the-azure-ad-test-user'></a>
 
-3. Click **Authentication Profiles**.
-   
-    ![Authentication Profiles](./media/mimecast-personal-portal-tutorial/ic794999.png "Authentication Profiles")
+### Assign the Microsoft Entra test user
 
-4. Click **New Authentication Profile**.
-   
-    ![New Authentication Profile](./media/mimecast-personal-portal-tutorial/ic795000.png "New Authentication Profile")
+In this section, you'll enable B.Simon to use single sign-on by granting access to Mimecast .
 
-5. In the **Authentication Profile** section, perform the following steps:
-   
-    ![Authentication Profile](./media/mimecast-personal-portal-tutorial/ic795001.png "Authentication Profile")
-   
-    a. In the **Description** textbox, type a name for your configuration.
-   
-    b. Select **Enforce SAML Authentication for Mimecast Personal Portal**.
-   
-    c. As **Provider**, select **Azure Active Directory**.
-   
-    d. In **Issuer URL** textbox, paste the value of **Azure Ad Identifier**, which you have copied from Azure portal.
-   
-    e. In **Login URL** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
-   
-    f. In **Logout URL** textbox, paste the value of **Logout URL**, which you have copied from Azure portal.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Mimecast**.
+1. In the app's overview page, select **Users and groups**.
+1. Select **Add user/group**, then select **Users and groups** in the **Add Assignment** dialog.
+   1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+   1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+   1. In the **Add Assignment** dialog, click the **Assign** button.
 
-	g. Open your **base-64** encoded certificate in notepad downloaded from Azure portal, copy the content of it into your clipboard, and then paste it to the **Identity Provider Certificate (Metadata)** textbox.
+## Configure Mimecast SSO
 
-    h. Select **Allow Single Sign On**.
-   
-    i. Click **Save**.
+1. In a different web browser window, sign into Mimecast Administration Console.
 
-### Create an Azure AD test user 
+1. Navigate to **Administration** > **Services** > **Applications**.
 
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+    ![Screenshot shows Mimecast window with Applications selected.](./media/mimecast-personal-portal-tutorial/services.png)
 
-1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. Click **Authentication Profiles** tab.
+    
+    ![Screenshot shows the Application tab with Authentication Profiles selected.](./media/mimecast-personal-portal-tutorial/authentication-profiles.png)
 
-    ![The "Users and groups" and "All users" links](common/users.png)
+1. Click **New Authentication Profile** tab.
 
-2. Select **New user** at the top of the screen.
+	![Screenshot shows new Authentication Profile selected.](./media/mimecast-personal-portal-tutorial/new-authenticatio-profile.png)
 
-    ![New user Button](common/new-user.png)
+1. Provide a valid description in the **Description** textbox and select **Enforce SAML Authentication for Mimecast** checkbox.
 
-3. In the User properties, perform the following steps.
+    ![Screenshot shows New Authentication Profile selected.](./media/mimecast-personal-portal-tutorial/selecting-personal-portal.png)
 
-    ![The User dialog box](common/user-properties.png)
+1. On the **SAML Configuration for Mimecast** page, perform the following steps:
 
-    a. In the **Name** field enter **BrittaSimon**.
-  
-    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
-    For example, BrittaSimon@contoso.com
+    ![Screenshot shows where to select Enforce SAML Authentication for Administration Console.](./media/mimecast-personal-portal-tutorial/sso-settings.png)
 
-    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
+	a. For **Provider**, select **Microsoft Entra ID** from the Dropdown.
 
-    d. Click **Create**.
+	b. In the **Metadata URL** textbox, paste the **App Federation Metadata URL** value, which you copied previously.
 
-### Assign the Azure AD test user
+	c. Click **Import**. After importing the Metadata URL, the fields will be populated automatically, no need to perform any action on these fields.
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Mimecast Personal Portal.
+	d. Make sure you uncheck **Use Password protected Context** and **Use Integrated Authentication Context** checkboxes.
 
-1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Mimecast Personal Portal**.
+	e. Click **Save**.
 
-	![Enterprise applications blade](common/enterprise-applications.png)
+### Create Mimecast test user
 
-2. In the applications list, type and select **Mimecast Personal Portal**.
+1. In a different web browser window, sign into Mimecast Administration Console.
 
-	![The Mimecast Personal Portal link in the Applications list](common/all-applications.png)
+1. Navigate to **Administration** > **Directories** > **Internal Directories**.
 
-3. In the menu on the left, select **Users and groups**.
+    ![Screenshot shows the SAML Configuration for Mimecast where you can enter the values described.](./media/mimecast-personal-portal-tutorial/internal-directories.png)
 
-    ![The "Users and groups" link](common/users-groups-blade.png)
+1. Select on your domain, if the domain is mentioned below, otherwise please create a new domain by clicking on the **New Domain**.
 
-4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
+    ![Screenshot shows Mimecast window with Internal Directories selected.](./media/mimecast-personal-portal-tutorial/domain-name.png)
 
-    ![The Add Assignment pane](common/add-assign-user.png)
+1. Click **New Address** tab.
 
-5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
+    ![Screenshot shows the domain selected.](./media/mimecast-personal-portal-tutorial/new-address.png)
 
-6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
+1. Provide the required user information on the following page:
 
-7. In the **Add Assignment** dialog click the **Assign** button.
+    ![Screenshot shows the page where you can enter the values described.](./media/mimecast-personal-portal-tutorial/user-information.png)
 
-### Create Mimecast Personal Portal test user
+	a. In the **Email Address** textbox, enter the email address of the user like `B.Simon@yourdomainname.com`.
 
-In order to enable Azure AD users to log into Mimecast Personal Portal, they must be provisioned into Mimecast Personal Portal. In the case of Mimecast Personal Portal, provisioning is a manual task.
+	b. In the **Global Name** textbox, enter the **Full name** of the user.
 
-You need to register a domain before you can create users.
+	c. In the **Password** and **Confirm Password** textboxes, enter the password of the user.
 
-**To configure user provisioning, perform the following steps:**
+	d. Select **Force Change at Login** checkbox.
 
-1. Sign on to your **Mimecast Personal Portal** as administrator.
+	e. Click **Save**.
 
-2. Go to **Directories \> Internal**.
-   
-    ![Directories](./media/mimecast-personal-portal-tutorial/ic795003.png "Directories")
+	f. To assign roles to the user, click on **Role Edit** and assign the required role to user as per your organization requirement.
 
-3. Click **Register New Domain**.
-   
-    ![Register New Domain](./media/mimecast-personal-portal-tutorial/ic795004.png "Register New Domain")
+    ![Screenshot shows Address Settings where you can select Role Edit.](./media/mimecast-personal-portal-tutorial/assign-role.png)
 
-4. After your new domain has been created, click **New Address**.
-   
-    ![New Address](./media/mimecast-personal-portal-tutorial/ic795005.png "New Address")
 
-5. In the new address dialog, perform the following steps of a valid Azure AD account you want to provision:
-   
-    ![Save](./media/mimecast-personal-portal-tutorial/ic795006.png "Save")
-   
-    a. In the **Email Address** textbox, type **Email Address** of the user as **BrittaSimon\@contoso.com**.
-	
-	b. In the **Global Name** textbox, type the **username** as **BrittaSimon**.
+## Test SSO 
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
-	c. In the **Password**, and **Confirm Password** textboxes, type the **Password** of the user.
-   
-    b. Click **Save**.
+#### SP initiated:
 
->[!NOTE]
->You can use any other Mimecast Personal Portal user account creation tools or APIs provided by Mimecast Personal Portal to provision Azure AD user accounts.
+* Click on **Test this application**, this will redirect to Mimecast  Sign on URL where you can initiate the login flow.  
 
-### Test single sign-on 
+* Go to Mimecast  Sign-on URL directly and initiate the login flow from there.
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+#### IDP initiated:
 
-When you click the Mimecast Personal Portal tile in the Access Panel, you should be automatically signed in to the Mimecast Personal Portal for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Click on **Test this application**, and you should be automatically signed in to the Mimecast  for which you set up the SSO. 
 
-## Additional Resources
+You can also use Microsoft My Apps to test the application in any mode. When you click the Mimecast  tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Mimecast  for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+## Next steps
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+Once you configure Mimecast you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

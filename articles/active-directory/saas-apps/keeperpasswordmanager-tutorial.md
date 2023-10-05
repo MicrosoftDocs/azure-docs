@@ -1,203 +1,176 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Keeper Password Manager & Digital Vault | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Keeper Password Manager & Digital Vault.
+title: 'Tutorial: Microsoft Entra SSO integration with Keeper Password Manager'
+description: Learn how to configure single sign-on between Microsoft Entra ID and Keeper Password Manager.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-
-ms.assetid: e1a98f6a-2dae-4734-bdbf-4fba742a61d2
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/02/2019
+ms.date: 11/21/2022
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
-# Tutorial: Azure Active Directory integration with Keeper Password Manager & Digital Vault
+# Tutorial: Microsoft Entra SSO integration with Keeper Password Manager
 
-In this tutorial, you learn how to integrate Keeper Password Manager & Digital Vault with Azure Active Directory (Azure AD).
-Integrating Keeper Password Manager & Digital Vault with Azure AD provides you with the following benefits:
+In this tutorial, you'll learn how to integrate Keeper Password Manager with Microsoft Entra ID. When you integrate Keeper Password Manager with Microsoft Entra ID, you can:
 
-* You can control in Azure AD who has access to Keeper Password Manager & Digital Vault.
-* You can enable your users to be automatically signed-in to Keeper Password Manager & Digital Vault (Single Sign-On) with their Azure AD accounts.
-* You can manage your accounts in one central location - the Azure portal.
-
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+* Control in Microsoft Entra ID who has access to Keeper Password Manager.
+* Enable your users to be automatically signed-in to Keeper Password Manager with their Microsoft Entra accounts.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
-To configure Azure AD integration with Keeper Password Manager & Digital Vault, you need the following items:
+To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
-* Keeper Password Manager & Digital Vault single sign-on enabled subscription
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* Keeper Password Manager single sign-on (SSO) enabled subscription.
+
+> [!NOTE]
+> This integration is also available to use from Microsoft Entra US Government Cloud environment. You can find this application in the Microsoft Entra US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+In this tutorial, you configure and test Microsoft Entra single sign-on in a test environment.
 
-* Keeper Password Manager & Digital Vault supports **SP** initiated SSO
+* Keeper Password Manager supports SP-initiated SSO.
+* Keeper Password Manager supports [**Automated** user provisioning and deprovisioning](keeper-password-manager-digitalvault-provisioning-tutorial.md) (recommended).
+* Keeper Password Manager supports just-in-time user provisioning.
 
-* Keeper Password Manager & Digital Vault supports **Just In Time** user provisioning
+## Add Keeper Password Manager from the gallery
 
-## Adding Keeper Password Manager & Digital Vault from the gallery
+To configure the integration of Keeper Password Manager into Microsoft Entra ID, add the application from the gallery to your list of managed software as a service (SaaS) apps.
 
-To configure the integration of Keeper Password Manager & Digital Vault into Azure AD, you need to add Keeper Password Manager & Digital Vault from the gallery to your list of managed SaaS apps.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In **Add from the gallery**, type **Keeper Password Manager** in the search box.
+1. Select **Keeper Password Manager** from results panel, and then add the app. Wait a few seconds while the app is added to your tenant.
 
-**To add Keeper Password Manager & Digital Vault from the gallery, perform the following steps:**
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
+<a name='configure-and-test-azure-ad-sso-for-keeper-password-manager'></a>
 
-	![The Azure Active Directory button](common/select-azuread.png)
+## Configure and test Microsoft Entra SSO for Keeper Password Manager
 
-2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
+Configure and test Microsoft Entra SSO with Keeper Password Manager by using a test user called **B.Simon**. For SSO to work, you need to establish a linked relationship between a Microsoft Entra user and the related user in Keeper Password Manager.
 
-	![The Enterprise applications blade](common/enterprise-applications.png)
+To configure and test Microsoft Entra SSO with Keeper Password Manager:
 
-3. To add new application, click **New application** button on the top of dialog.
+1. [Configure Microsoft Entra SSO](#configure-azure-ad-sso) to enable your users to use this feature.
 
-	![The New application button](common/add-new-app.png)
+    1. [Create a Microsoft Entra test user](#create-an-azure-ad-test-user) to test Microsoft Entra single sign-on with Britta Simon.
+    1. [Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user) to enable Britta Simon to use Microsoft Entra single sign-on.
 
-4. In the search box, type **Keeper Password Manager & Digital Vault**, select **Keeper Password Manager & Digital Vault** from result panel then click **Add** button to add the application.
+1. [Configure Keeper Password Manager SSO](#configure-keeper-password-manager-sso) to configure the SSO settings on the application side.
+    1. [Create a Keeper Password Manager test user](#create-a-keeper-password-manager-test-user) to have a counterpart of Britta Simon in Keeper Password Manager linked to the Microsoft Entra representation of the user.
+1. [Test SSO](#test-sso) to verify whether the configuration works.
 
-	 ![Keeper Password Manager & Digital Vault in the results list](common/search-new-app.png)
+<a name='configure-azure-ad-sso'></a>
 
-## Configure and test Azure AD single sign-on
+## Configure Microsoft Entra SSO
 
-In this section, you configure and test Azure AD single sign-on with Keeper Password Manager & Digital Vault based on a test user called **Britta Simon**.
-For single sign-on to work, a link relationship between an Azure AD user and the related user in Keeper Password Manager & Digital Vault needs to be established.
+Follow these steps to enable Microsoft Entra SSO.
 
-To configure and test Azure AD single sign-on with Keeper Password Manager & Digital Vault, you need to complete the following building blocks:
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Keeper Password Manager** application integration page, find the **Manage** section. Select **single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, select the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **Configure Keeper Password Manager & Digital Vault Single Sign-On** - to configure the Single Sign-On settings on application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create Keeper Password Manager & Digital Vault test user](#create-keeper-password-manager--digital-vault-test-user)** - to have a counterpart of Britta Simon in Keeper Password Manager & Digital Vault that is linked to the Azure AD representation of user.
-6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+   ![Screenshot of Set up Single Sign-On with SAML, with pencil icon highlighted.](common/edit-urls.png)
 
-### Configure Azure AD single sign-on
+4. In the **Basic SAML Configuration** section, perform the following steps:
 
-In this section, you enable Azure AD single sign-on in the Azure portal.
+    a. For **Identifier (Entity ID)**, type a URL using one of the following patterns:
+    * For cloud SSO: `https://keepersecurity.com/api/rest/sso/saml/<CLOUD_INSTANCE_ID>`
+    * For on-premises SSO: `https://<KEEPER_FQDN>/sso-connect`
 
-To configure Azure AD single sign-on with Keeper Password Manager & Digital Vault, perform the following steps:
+    b. For **Reply URL**, type a URL using one of the following patterns:
+    * For cloud SSO: `https://keepersecurity.com/api/rest/sso/saml/sso/<CLOUD_INSTANCE_ID>`
+    * For on-premises SSO: `https://<KEEPER_FQDN>/sso-connect/saml/sso`
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Keeper Password Manager & Digital Vault** application integration page, select **Single sign-on**.
+    c. For **Sign on URL**, type a URL using one of the following patterns:
+    * For cloud SSO: `https://keepersecurity.com/api/rest/sso/ext_login/<CLOUD_INSTANCE_ID>`
+    * For on-premises SSO: `https://<KEEPER_FQDN>/sso-connect/saml/login`
 
-    ![Configure single sign-on link](common/select-sso.png)
-
-2. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
-
-    ![Single sign-on select mode](common/select-saml-option.png)
-
-3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
-
-	![Edit Basic SAML Configuration](common/edit-urls.png)
-
-4. On the **Basic SAML Configuration** section, perform the following steps:
-
-    ![Keeper Password Manager & Digital Vault Domain and URLs single sign-on information](common/sp-identifier-reply.png)
-
-	a. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://{SSO CONNECT SERVER}/sso-connect/saml/login`
-
-    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-    `https://{SSO CONNECT SERVER}/sso-connect`
-
-    c. In the **Reply URL** textbox, type a URL using the following pattern: `https://{SSO CONNECT SERVER}/sso-connect/saml/sso`
+    d. For **Sign out URL**, type a URL using one of the following patterns:
+    * For cloud SSO: `https://keepersecurity.com/api/rest/sso/saml/slo/<CLOUD_INSTANCE_ID>`
+    * There is no configuration for on-premises SSO.
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL, Identifier and Reply URL. Contact [Keeper Password Manager & Digital Vault Client support team](https://keepersecurity.com/contact.html) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values aren't real. Update these values with the actual Identifier,Reply URL and Sign on URL. To get these values, contact the [Keeper Password Manager Client support team](https://keepersecurity.com/contact.html). You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
-5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Fedderation Metadata XML** from the given options as per your requirement and save it on your computer.
+1. The Keeper Password Manager application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
-	![The Certificate download link](common/metadataxml.png)
+	![Screenshot of User Attributes & Claims.](common/default-attributes.png)
 
-6. On the **Set up Keeper Password Manager & Digital Vault** section, copy the appropriate URL(s) as per your requirement.
+1. In addition, the Keeper Password Manager application expects a few more attributes to be passed back in SAML response. These are shown in the following table. These attributes are also pre-populated, but you can review them per your requirements.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+	| Name | Source attribute|
+	| ------------| --------- |
+	| First | user.givenname |
+	| Last | user.surname |
+    | Email | user.mail |
 
-	a. Login URL
+1. On **Set up Single Sign-On with SAML**, in the **SAML Signing Certificate** section, select **Download**. This downloads **Federation Metadata XML** from the options per your requirement, and saves it on your computer.
 
-	b. Azure Ad Identifier
+	![Screenshot of SAML Signing Certificate with Download highlighted.](common/metadataxml.png)
 
-	c. Logout URL
+1. On **Set up Keeper Password Manager**, copy the appropriate URLs, per your requirement.
 
-### Configure Keeper Password Manager & Digital Vault Single Sign-On
+	![Screenshot of Set up Keeper Password Manager with URLs highlighted.](common/copy-configuration-urls.png)
 
-To configure single sign-on on **Keeper Password Manager & Digital Vault Configuration** side, follow the guidelines given at [Keeper Support Guide](https://keepersecurity.com/assets/pdf/KeeperSSOConnect_v11.pdf).
+<a name='create-an-azure-ad-test-user'></a>
 
-### Create an Azure AD test user 
+### Create a Microsoft Entra test user 
 
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+In this section, you create a test user in the Azure portal called `B.Simon`.
 
-1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Select **Review + create**.
+1. Select **Create**.
 
-    ![The "Users and groups" and "All users" links](common/users.png)
+<a name='assign-the-azure-ad-test-user'></a>
 
-2. Select **New user** at the top of the screen.
+### Assign the Microsoft Entra test user
 
-    ![New user Button](common/new-user.png)
+In this section, you enable B.Simon to use Azure single sign-on by granting access to Keeper Password Manager.
 
-3. In the User properties, perform the following steps.
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
+1. In the applications list, select **Keeper Password Manager**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+1. Select **Add user**. In **Add Assignment**, select **Users and groups**.
+1. In **Users and groups**, select **B.Simon** from the list of users. Then choose **Select** at the bottom of the screen.
+1. If you're expecting a role to be assigned to the users, you can select it from the **Select a role** list. If no role has been set up for this app, the **Default Access** role is selected.
+1. In **Add Assignment**, select **Assign**.
 
-    ![The User dialog box](common/user-properties.png)
+## Configure Keeper Password Manager SSO
 
-    a. In the **Name** field enter **BrittaSimon**.
-  
-    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
-    For example, BrittaSimon@contoso.com
+To configure SSO for the app, see the guidelines in the [Keeper support guide](https://docs.keeper.io/sso-connect-guide/).
 
-    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
+### Create a Keeper Password Manager test user
 
-    d. Click **Create**.
+To enable Microsoft Entra users to sign in to Keeper Password Manager, you must provision them. The application supports just-in-time user provisioning, and after authentication users are created in the application automatically. If you want to set up users manually, contact [Keeper support](https://keepersecurity.com/contact.html).
 
-### Assign the Azure AD test user
+> [!NOTE]
+> Keeper Password Manager also supports automatic user provisioning, you can find more details [here](./keeper-password-manager-digitalvault-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Keeper Password Manager & Digital Vault.
+## Test SSO
 
-1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Keeper Password Manager & Digital Vault**.
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
-	![Enterprise applications blade](common/enterprise-applications.png)
+* Click on **Test this application**, this will redirect to Keeper Password Manager Sign-on URL where you can initiate the login flow. 
 
-2. In the applications list, select **Keeper Password Manager & Digital Vault**.
+* Go to Keeper Password Manager Sign-on URL directly and initiate the login flow from there.
 
-	![The Keeper Password Manager & Digital Vault link in the Applications list](common/all-applications.png)
+* You can use Microsoft My Apps. When you click the Keeper Password Manager tile in the My Apps, this will redirect to Keeper Password Manager Sign-on URL. For more information, see [Microsoft Entra My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
-3. In the menu on the left, select **Users and groups**.
+## Next steps
 
-    ![The "Users and groups" link](common/users-groups-blade.png)
-
-4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
-
-    ![The Add Assignment pane](common/add-assign-user.png)
-
-5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
-
-6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
-
-7. In the **Add Assignment** dialog click the **Assign** button.
-
-### Create Keeper Password Manager & Digital Vault test user
-
-To enable Azure AD users to log in to Keeper Password Manager & Digital Vault, they must be provisioned into Keeper Password Manager & Digital Vault. Application supports Just in time user provisioning and after authentication users will be created in the application automatically. You can contact [Keeper Support](https://keepersecurity.com/contact.html), if you want to setup users manually.
-
-### Test single sign-on
-
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
-
-When you click the Keeper Password Manager & Digital Vault tile in the Access Panel, you should be automatically signed in to the Keeper Password Manager & Digital Vault for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
-
-## Additional Resources
-
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+After you configure Keeper Password Manager, you can enforce session control. This protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. For more information, see [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

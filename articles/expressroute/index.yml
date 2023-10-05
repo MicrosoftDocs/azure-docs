@@ -1,56 +1,161 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: ExpressRoute Documentation
+### YamlMime:Landing
+
+title: ExpressRoute documentation
+summary: Learn how to use ExpressRoute to set up a fast, private connection to Microsoft cloud services from your on-premises infrastructure or colocation facility.
+
 metadata:
-  document_id: 
-  title: ExpressRoute
-  meta.description: Learn how to use ExpressRoute. Tutorials, REST APIs and other documentation show you how to configure and manage an ExpressRoute circuit.
-  author: cherylmc
-  manager: jeconnoc
-  ms.service: ExpressRoute
-  ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.topic: landing-page
-  ms.date: 05/18/2018
-  ms.author: cherylmc
-abstract:
-  description:  Learn how to use ExpressRoute to set up a fast, private connection to Microsoft cloud services from your on-premises infrastructure or colocation facility. Tutorials, REST APIs, and other documentation help you configure and manage an ExpressRoute circuit.
-sections:
-- title: Step-by-Step Tutorials
-  items:
-  - type: paragraph
-    text: Learn how to configure and manage an ExpressRoute circuit.
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="/azure/expressroute/expressroute-howto-circuit-portal-resource-manager">Create and modify an ExpressRoute circuit</a>
-    - html: <a href="/azure/expressroute/expressroute-howto-routing-portal-resource-manager">Create and modify peering configuration</a>
-    - html: <a href="/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager">Link a virtual network to an ExpressRoute circuit</a>
-    - html: <a href="/azure/expressroute/how-to-routefilter-portal">Configure route filters for Microsoft peering</a>
-  
-- title: Free Pluralsight Video Training
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
-    items:
-    - title: Azure Administrator
-      href: https://go.microsoft.com/fwlink/?linkid=2012827
-      image: 
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://go.microsoft.com/fwlink/?linkid=2012827
-    - title: Azure Solution Architect
-      href: https://go.microsoft.com/fwlink/?linkid=2012824
-      image: 
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://go.microsoft.com/fwlink/?linkid=2012824
-- title: Reference
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Command-Line
-      html: <p><a href="/powershell/module/az.network/#expressroute">PowerShell</a></p><p><a href="/cli/azure/network/express-route">Azure CLI</a></p>
-    - title: REST
-      html: <p><a href="https://msdn.microsoft.com/library/azure/mt586720">REST API Reference</a></p><p><a href="https://msdn.microsoft.com/library/azure/dn606310">Classic REST API Reference</a></p>
+  title: ExpressRoute documentation 
+  description: Learn about ExpressRoute
+  services: expressroute
+  ms.service: expressroute 
+  ms.topic: landing-page 
+  author: duongau 
+  ms.author: duau 
+  ms.date: 12/22/2022
+  ms.custom: e2e-hybrid
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About ExpressRoute
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is ExpressRoute?
+            url: expressroute-introduction.md
+      - linkListType: concept
+        links:
+          - text: FAQ
+            url: expressroute-faqs.md
+      - linkListType: learn
+        links:
+          - text: Introduction to Azure ExpressRoute
+            url: /training/modules/intro-to-azure-expressroute
+          - text: Connect your on-premises network to the Microsoft global network using ExpressRoute
+            url: /training/modules/connect-on-premises-network-with-expressroute/   
+      - linkListType: reference
+        links:
+          - text: Pricing
+            url: https://azure.microsoft.com/en-us/pricing/details/expressroute/
+          - text: SLA agreement
+            url: https://azure.microsoft.com/en-us/support/legal/sla/
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Create and modify a circuit
+            url: expressroute-howto-circuit-portal-resource-manager.md
+          - text: Create and modify peering for a circuit
+            url: expressroute-howto-routing-portal-resource-manager.md
+          - text: Connect a VNet to a circuit
+            url: expressroute-howto-linkvnet-portal-resource-manager.md
+          - text: Configure route filters
+            url: how-to-routefilter-portal.md
+  # Card
+  - title: Planning
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Prerequisites and checklist
+            url: expressroute-prerequisites.md
+          - text: Workflows
+            url: expressroute-workflows.md
+          - text: Circuits and peerings
+            url: expressroute-circuit-peerings.md
+          - text: Routing requirements
+            url: expressroute-routing.md
+          - text: BFD over ExpressRoute
+            url: expressroute-bfd.md
+          - text: QOS requirements
+            url: expressroute-qos.md
+          - text: Providers organized by location
+            url: expressroute-locations-providers.md
+          - text: Locations organized by provider
+            url: expressroute-locations.md
+  # Card
+  - title: Design
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Connectivity models
+            url: expressroute-connectivity-models.md
+          - text: Design for high availability
+            url: designing-for-high-availability-with-expressroute.md
+          - text: Design for Disaster Recovery with private peering
+            url: designing-for-disaster-recovery-with-expressroute-privatepeering.md
+  # Card
+  - title: Learn about ExpressRoute architecture
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: Extend an on-premises network using ExpressRoute
+            url: /azure/architecture/reference-architectures/hybrid-networking/expressroute
+          - text: Connect an on-premises network to Azure using ExpressRoute
+            url: /azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover
+  # Card
+  - title: Encrypt traffic
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Configure site-to-site VPN over a Microsoft peering
+            url: site-to-site-vpn-over-microsoft-peering.md
+          - text: Configure IPsec transport mode for private peering
+            url: expressroute-howto-ipsec-transport-private-windows.md
+  # Card
+  - title: Monitoring
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Configure monitoring, metrics, and alerts
+            url: expressroute-monitoring-metrics-alerts.md
+          - text: Configure Network Performance Monitor
+            url: how-to-npm.md
+  # Card
+  - title: ExpressRoute Direct
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: What is ExpressRoute Direct?
+            url: expressroute-erdirect-about.md
+          - text: FastPath
+            url: expressroute-about-virtual-network-gateways.md#fastpath
+          - text: ExpressRoute Direct FAQ
+            url: expressroute-faqs.md#expressRouteDirect
+      - linkListType: how-to-guide
+        links:
+          - text: Configure ExpressRoute Direct
+            url: expressroute-howto-erdirect.md
+  # Card
+  - title: ExpressRoute Global Reach
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: What is Global Reach?
+            url: expressroute-global-reach.md
+          - text: Global Reach FAQ
+            url: expressroute-faqs.md#globalreach
+      - linkListType: how-to-guide
+        links:
+          - text: Configure Global Reach
+            url: expressroute-howto-set-global-reach.md
+  # Card
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure CLI
+            url: /cli/azure/network/express-route
+          - text: Azure PowerShell
+            url: /powershell/module/az.network#expressroute
+          - text: REST
+            url: /rest/api/expressroute
+      - linkListType: architecture
+        links:
+          - text: Reference Architecutre for Hybrid Networking
+            url: /azure/architecture/reference-architectures/hybrid-networking/expressroute
+          - text: Reference Architecture for Hybrid Networking with VPN Failover
+            url: /azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover

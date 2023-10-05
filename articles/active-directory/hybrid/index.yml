@@ -1,78 +1,122 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
+
 title: Hybrid identity documentation
+summary:  Microsoft’s identity solutions span on-premises and cloud-based capabilities, creating a single user identity for authentication and authorization to all resources, regardless of location. We call this hybrid identity.
+
 metadata:
-  document_id: 44409b3f-ab8c-053d-cdf4-5d7e823a275e
-  title: Hybrid identity documentation
-  description: Azure AD Connect will integrate your on-premises directories with Azure Active Directory. This allows you to provide a common identity for your users for Office 365, Azure, and SaaS applications integrated with Azure AD.
-  services: active-directory
   author: billmath
-  manager: daveba
-  ms.service: active-directory
-  ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.topic: landing-page
-  ms.date: 05/18/2018
+  description: Integrate your on-premises directories with Microsoft Entra ID. This allows you to provide a common identity for your users for Microsoft 365, Azure, and SaaS applications integrated with Microsoft Entra ID.
+  manager: amycolannino
   ms.author: billmath
-abstract:
-  description: Microsoft’s identity solutions span on-premises and cloud-based capabilities, creating a single user identity for authentication and authorization to all resources, regardless of location. We call this hybrid identity.</br></br></br>Azure AD Connect will integrate your on-premises directories with Azure Active Directory. This allows you to provide a common identity for your users for Office 365, Azure, and SaaS applications integrated with Azure AD. This topic will guide you through the planning, deployment, and operation steps. It is a collection of links to the topics related to this area. 
-  aside:
-    image:
-      alt: channel 9 video
-      height: 110
-      src: media/index/video2.png
-      width: 250  
-    title: Extend on-premises directories to the cloud (1:11:12)
-    href: https://channel9.msdn.com/Events/Ignite/2015/BRK3862/player
-    width: 250
+  ms.collection: na
+  ms.date: 05/01/2023
+  ms.service: active-directory
+  ms.subservice: hybrid
+  ms.topic: landing-page
+  services: active-directory
 
-sections:
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
+landingContent: 
+  # Card
+  - title: About Hybrid Identity
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is hybrid identity?
+            url: whatis-hybrid-identity.md
+          - text: What is provisioning?
+            url: what-is-provisioning.md  
+          - text: What is inter-directory provisioning?
+            url: what-is-inter-directory-provisioning.md  
+  # Card
+  - title: Getting started
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Common scenarios
+            url: common-scenarios.md
+          - text: Choose the right sync client
+            url: https://setup.microsoft.com/azure/add-or-sync-users-to-azure-ad
+          - text: Steps to start
+            url: get-started.md
+   # Card
+  - title: Manage your deployment
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Install your sync tool
+            url: install.md
+          - text: Configure synchronization
+            url: configure.md
+          - text: Configure account settings
+            url: accounts.md
+          - text: Migrate your sync tool
+            url: cloud-sync/migrate-azure-ad-connect-to-cloud-sync.md
+    # Card
+  - title: Manage users and groups
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Provision users on-demand
+            url: on-demand-provision.md
+          - text: Scheduling imports
+            url: connect/how-to-connect-sync-feature-scheduler.md
+          - text: Prevent accidental deletions
+            url: accidental-deletes.md
+    # Card
+  - title: Manage passwords
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: What is password hash sync?
+            url: connect/whatis-phs.md
+          - text: What is pass-through authentication?
+            url: connect/how-to-connect-pta.md
+          - text: What is federation?
+            url: connect/whatis-fed.md
+  # Card
+  - title: Manage single sign-on
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: What is single sign-on?
+            url: connect/how-to-connect-sso.md
+          - text: Get started
+            url: sso.md
+          - text: Single sign-on FAQ
+            url: connect/how-to-connect-sso-faq.yml
+  # Card
+  - title: Manage attributes
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Attribute mapping in cloud sync
+            url: cloud-sync/how-to-attribute-mapping.md
+          - text: Overview of the default configuration in  connect sync
+            url: connect/concept-azure-ad-connect-sync-default-configuration.md
+          - text: How to change the default configuration in  connect sync
+            url: connect/how-to-connect-sync-change-the-configuration.md
+          - text: Attributes synchronized to AD
+            url: connect/reference-connect-sync-attributes-synchronized.md
 
   
-    
-        
+  
+  
+  # Card
+  - title: Cloud sync reference
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: What is cloud sync?
+            url: cloud-sync/what-is-cloud-sync.md
+          - text: What is the provisioning agent?
+            url: cloud-sync/what-is-provisioning-agent.md
 
-
-   
-  - title: Step-by-step tutorials
-    items:
-    - type: list
-      style: cards
-      className: cardsM
-      columns: 3
-      items:
-        - href: /azure/active-directory/hybrid/tutorial-password-hash-sync
-          html: <p>Learn how to get started extending your identities to the cloud using password hash sync</p>
-          image:
-            alt: password hash sync
-            src: media/index/azuread2.png
-          title: Integrate a single AD forest using password hash sync (PHS)
-        - href: /azure/active-directory/hybrid/tutorial-passthrough-authentication
-          html: <p>Learn how to get started extending your identities to the cloud using pass-through authentication.</p>
-          image:
-            alt: pass-through authentication
-            src: media/index/manage2.png
-          title: Integrate a single AD forest using pass-through authentication (PTA)
-        - href: /azure/active-directory/hybrid/tutorial-federation 
-          html: <p>Find out how to federate Azure Active Directory (Azure AD) Connect with on-premises Active Directory Federation Services (AD FS) and Azure AD.</p>
-          image:
-            alt: federation
-            src: media/index/federate2.png
-          title: Integrate a single AD forest using federation
-
-  - title: How-to Guides
-    items:
-    
-    - type: paragraph
-      text: Learn how to accomplish various tasks for hybrid identity
-
-    - type: list
-      style: unordered
-      items:
-      - html: <a href="/azure/active-directory/hybrid/how-to-connect-install-custom">Install Azure AD Connect in your hybrid identity environment</a>
-      - html: <a href="/azure/active-directory/hybrid/how-to-connect-sso">Seamless single Sign-On with Azure AD Connect</a>
-      - html: <a href="/azure/active-directory/hybrid/how-to-connect-install-prerequisites">Azure AD Connect pre-requisites</a>
-      - html: <a href="/azure/active-directory/hybrid/reference-connect-version-history">Azure AD Connect version release history</a>
-      - html: <a href="/azure/active-directory/hybrid/how-to-connect-sync-feature-scheduler">Manage the Azure AD Connect Sync scheduler</a>      
-     
+  # Card
+  - title: Connect sync reference
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: What is connect sync?
+            url: connect/whatis-azure-ad-connect-v2.md

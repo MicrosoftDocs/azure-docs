@@ -1,20 +1,10 @@
 ---
-title: Exchange events between apps that use different protocols - Azure Event Hubs| Microsoft Docs
+title: Azure Event Hubs - Exchange events using different protocols
 description: This article shows how consumers and producers that use different protocols (AMQP, Apache Kafka, and HTTPS) can exchange events when using Azure Event Hubs. 
-services: event-hubs
-documentationcenter: ''
-author: basilhariri
-manager: 
-
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: article
-ms.custom: seodec18
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/06/2018
-ms.author: bahariri
-
+ms.date: 11/28/2022
+ms.devlang: csharp, java
+ms.custom: devx-track-csharp
 ---
 
 # Exchange events between consumers and producers that use different protocols: AMQP, Kafka, and HTTPS
@@ -42,11 +32,11 @@ final Properties properties = new Properties();
 // add other properties
 properties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, ByteArraySerializer.class.getName());
 
-final KafkaProducer<Long, byte[]> producer = new KafkaProducer<Long, byte[]>(properties);
+final KafkaProducer<byte[], byte[]> producer = new KafkaProducer<byte[], byte[]>(properties);
 
 final byte[] eventBody = new byte[] { 0x01, 0x02, 0x03, 0x04 };
-ProducerRecord<Long, byte[]> pr =
-    new ProducerRecord<Long, byte[]>(myTopic, myPartitionId, myTimeStamp, eventBody);
+ProducerRecord<byte[], byte[]> pr =
+    new ProducerRecord<byte[], byte[]>(myTopic, myPartitionId, myTimeStamp, eventBody);
 ```
 
 ### Kafka byte[] consumer
@@ -55,9 +45,9 @@ final Properties properties = new Properties();
 // add other properties
 properties.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, ByteArrayDeserializer.class.getName());
 
-final KafkaConsumer<Long, byte[]> consumer = new KafkaConsumer<Long, byte[]>(properties);
+final KafkaConsumer<byte[], byte[]> consumer = new KafkaConsumer<byte[], byte[]>(properties);
 
-ConsumerRecord<Long, byte[]> cr = /* receive event */
+ConsumerRecord<byte[], byte[]> cr = /* receive event */
 // cr.value() is a byte[] with values { 0x01, 0x02, 0x03, 0x04 }
 ```
 
@@ -136,6 +126,22 @@ For Kafka consumers that receive properties from AMQP or HTTPS producers, use th
 
 As a best practice, we recommend that you include a property in messages sent via AMQP or HTTPS. The Kafka consumer can use it to determine whether header values need AMQP deserialization. The value of the property is not important. It just needs a well-known name that the Kafka consumer can find in the list of headers and
 adjust its behavior accordingly.
+
+> [!NOTE]
+> The Event Hubs service natively converts some of the EventHubs specific [AmqpMessage properties](http://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-messaging-v1.0-os.html#type-properties) to [Kafka’s record headers](https://kafka.apache.org/32/javadoc/org/apache/kafka/common/header/Headers.html) as **strings**. Kafka message header is a list of &lt;key, value&gt; pairs where key is string and value is always a byte array. For these supported properties, the byte array will have an UTF8encoded string. 
+>
+> Here is the list of immutable properties that Event Hubs support in this conversion today. If you set values for user properties with the names in this list, you don’t need to deserialize at the Kafka consumer side.
+> 
+> - message-id
+> - user-id
+> - to
+> - reply-to
+> - content-type
+> - content-encoding
+> - creation-time
+
+
+
 
 ### AMQP to Kafka part 1: create and send an event in C# (.NET) with properties
 ```csharp
@@ -338,10 +344,10 @@ String myStringProperty = new String(rawbytes, StandardCharsets.UTF_8);
 ```
 
 ## Next steps
-In this article, you learned how to stream into Kafka-enabled Event Hubs without changing your protocol clients or running your own clusters. To learn more about Event Hubs and Event Hubs for Kafka, see the following articles:  
+In this article, you learned how to stream into Event Hubs without changing your protocol clients or running your own clusters. To learn more about Event Hubs and Event Hubs for Kafka, see the following articles:  
 
-* [Learn about Event Hubs](event-hubs-what-is-event-hubs.md)
-* [Learn about Event Hubs for Kafka](event-hubs-for-kafka-ecosystem-overview.md)
+* [Learn about Event Hubs](./event-hubs-about.md)
+* [Learn about Event Hubs for Kafka](azure-event-hubs-kafka-overview.md)
 * [Explore more samples on the Event Hubs for Kafka GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
-* Use [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) to [stream events from Kafka on premises to Kafka enabled Event Hubs on cloud.](event-hubs-kafka-mirror-maker-tutorial.md)
-* Learn how to stream into Kafka enabled Event Hubs using [native Kafka applications](event-hubs-quickstart-kafka-enabled-event-hubs.md), [Apache Flink](event-hubs-kafka-flink-tutorial.md), or [Akka Streams](event-hubs-kafka-akka-streams-tutorial.md)
+* Use [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) to [stream events from Kafka on premises to Event Hubs on cloud.](event-hubs-kafka-mirror-maker-tutorial.md)
+* Learn how to stream into Event Hubs using [native Kafka applications](event-hubs-quickstart-kafka-enabled-event-hubs.md), [Apache Flink](event-hubs-kafka-flink-tutorial.md), or [Akka Streams](event-hubs-kafka-akka-streams-tutorial.md)

@@ -1,58 +1,75 @@
 ---
-title: Azure Front Door Service - Routing rule matching monitoring | Microsoft Docs
-description: This article helps you understand how Azure Front Door Service matches which routing rule to use for an incoming request
+title: How requests get matched to a route configuration
+titleSuffix: Azure Front Door
+description: This article helps you understand how Azure Front Door matches incoming requests to a route configuration.
 services: front-door
-documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
-ms.author: sharadag
+ms.date: 06/01/2023
+ms.author: duau
+zone_pivot_groups: front-door-tiers
 ---
 
-# ​​How Front Door matches requests to a routing rule
+# How requests get matched to a route configuration
 
-After establishing a connection and doing an SSL handshake, when a request lands on a Front Door environment one of the first things that Front Door does is determining from all the configurations, which particular routing rule to match the request to and then taking the defined action. The following document explains how Front Door determines which Route configuration to use when processing an HTTP request.
+::: zone pivot="front-door-standard-premium"
+
+A *route* in Azure Front Door defines how traffic gets handled when the incoming request arrives at the Azure Front Door edge. Through the route settings, an association is defined between a domain and an origin group. By using advance features such as *Pattern to Match* and *Rule sets*, you can have granular control over traffic to your backend resources.
+
+> [!NOTE]
+> When you use the [Front Door rule sets](front-door-rules-engine.md), you can configure a rule to [override the origin group](front-door-rules-engine-actions.md#RouteConfigurationOverride) for a request. The origin group set by the rule set overrides the routing process described in this article.
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
+When a request arrives Azure Front Door (classic) edge, one of the first things that Front Door does is determine how to route the matching request to a backend resource and then take a defined action in the routing configuration. The following document explains how Front Door determines which route configuration to use when processing a request.
+
+::: zone-end
 
 ## Structure of a Front Door route configuration
-A Front Door routing rule configuration is composed of two major parts: a "left-hand side" and a "right-hand side". We match the incoming request to the left-hand side of the route while the right-hand side defines how we process the request.
+
+A Front Door routing rule is composed of two major parts, the "left-hand side" and the "right-hand side". Front Door matches the incoming request to the left-hand side of the route while the right-hand side defines how the request gets processed.
 
 ### Incoming match (left-hand side)
+
 The following properties determine whether the incoming request matches the routing rule (or left-hand side):
 
-* **HTTP Protocols** (HTTP/HTTPS)
-* **Hosts** (for example, www\.foo.com, \*.bar.com)
-* **Paths** (for example, /\*, /users/\*, /file.gif)
+* **HTTP Protocols** - HTTP or HTTPS
+* **Domain** - For example: www\.foo.com, \*.bar.com
+* **Paths** - For example: /\*, /users/\*, /file.gif
 
-These properties are expanded out internally so that every combination of Protocol/Host/Path is a potential match set.
+These properties are expanded out internally so that every combination of Protocol/Domain/Path is a potential match set.
 
-### Route data (right-hand side)
-The decision of how to process the request, depends on whether caching is enabled or not for the specific route. So, if we don't have a cached response for the request, we'll forward the request to the appropriate backend in the configured backend pool.
+### Routing decision (right-hand side)
+
+The decision of how to process the request depends on whether caching is enabled for the route. If a cached response isn't available, then the request is forwarded to the appropriate origin.
 
 ## Route matching
-This section will focus on how we match to a given Front Door routing rule. The basic concept is that we always match to the **most-specific match first** looking only at the "left-hand side".  We first match based on HTTP protocol, then Frontend host, then the Path.
+
+This section focuses on how Front Door matches to a routing rule. The basic concept is that Front Door always matches to the **most-specific request** looking only at the "left-hand side". Front Door first match based on protocol, then domain, and last the path.
 
 ### Frontend host matching
-When matching Frontend hosts, we use the logic as below:
 
-1. Look for any routing with an exact match on the host.
-2. If no exact frontend hosts match, reject the request and send a 400 Bad Request error.
+Azure Front Door uses the following logic to match frontend hosts:
 
-To explain this process further, let's look at an example configuration of Front Door routes (left-hand side only):
+1. Determine if there are any routes with an exact match on the frontend host.
+2. If there are no exact frontend hosts match, the request get rejected and a 400: Bad Request error gets sent.
+
+The following tables show three different routing rules with frontend host and paths:
 
 | Routing rule | Frontend hosts | Path |
-|-------|--------------------|-------|
+|--|--|--|
 | A | foo.contoso.com | /\* |
 | B | foo.contoso.com | /users/\* |
-| C | www\.fabrikam.com, foo.adventure-works.com  | /\*, /images/\* |
+| C | www\.fabrikam.com, foo.adventure-works.com | /\*, /images/\* |
 
-If the following incoming requests were sent to Front Door, they would match against the following routing rules from above:
+The following table shows the matching results for the above routing rules:
 
 | Incoming frontend host | Matched routing rule(s) |
-|---------------------|---------------|
+|--|--|
 | foo.contoso.com | A, B |
 | www\.fabrikam.com | C |
 | images.fabrikam.com | Error 400: Bad Request |
@@ -62,48 +79,62 @@ If the following incoming requests were sent to Front Door, they would match aga
 | www\.northwindtraders.com | Error 400: Bad Request |
 
 ### Path matching
-After determining the specific frontend host and filtering possible routing rules to just the routes with that frontend host, Front Door then filters the routing rules based on the request path. We use a similar logic as frontend hosts:
 
-1. Look for any routing rule with an exact match on the Path
-2. If no exact match Paths, look for routing rules with a wildcard Path that matches
-3. If no routing rules are found with a matching Path, then reject the request and return a 400: Bad Request error HTTP response.
+After Front Door determines the specific frontend host and filters for possible routing rules, Front Door then selects the routing rules based on the request path. A similar logic to frontend hosts is used to match the request path:
+
+1. Determine if there are any routing rules with an exact match to the request path.
+1. If there isn't an exact matching path, then Front Door looks for a routing rule with a wildcard path that matches.
+1. If there are no routing rules found with a matching path, then request gets rejected and a 400: Bad Request error gets set sent.
+
+::: zone pivot="front-door-standard-premium"
 
 >[!NOTE]
-> Any Paths without a wildcard are considered to be exact-match Paths. Even if the Path ends in a slash, it's still considered exact match.
+> * Any paths without a wildcard are considered to be exact-match paths. If a path ends in a `/`, this is considered an exact match.
 
-To explain further, let's look at another set of examples:
+::: zone-end
 
-| Routing rule | Frontend host    | Path     |
-|-------|---------|----------|
-| A     | www\.contoso.com | /        |
-| B     | www\.contoso.com | /\*      |
-| C     | www\.contoso.com | /ab      |
-| D     | www\.contoso.com | /abc     |
-| E     | www\.contoso.com | /abc/    |
-| F     | www\.contoso.com | /abc/\*  |
-| G     | www\.contoso.com | /abc/def |
-| H     | www\.contoso.com | /path/   |
+::: zone pivot="front-door-classic"
 
-Given that configuration, the following example matching table would result:
+>[!NOTE]
+> * Any paths without a wildcard are considered to be exact-match paths. If a path ends in a `/`, this is considered an exact match.
+> * Patterns to match paths are case insensitive, meaning paths with different casings are treated as duplicates. For example, you have the same host using the same protocol with paths `/FOO` and `/foo`. These paths are considered duplicates which is not allowed in the Patterns to match setting.
+> 
 
-| Incoming Request    | Matched Route |
-|---------------------|---------------|
-| www\.contoso.com/            | A             |
-| www\.contoso.com/a           | B             |
-| www\.contoso.com/ab          | C             |
-| www\.contoso.com/abc         | D             |
-| www\.contoso.com/abzzz       | B             |
-| www\.contoso.com/abc/        | E             |
-| www\.contoso.com/abc/d       | F             |
-| www\.contoso.com/abc/def     | G             |
-| www\.contoso.com/abc/defzzz  | F             |
-| www\.contoso.com/abc/def/ghi | F             |
-| www\.contoso.com/path        | B             |
-| www\.contoso.com/path/       | H             |
-| www\.contoso.com/path/zzz    | B             |
+::: zone-end
+
+The following table is a list of routing rules, frontend host and path combination:
+
+| Routing rule | Frontend host | Path |
+|--|--|--|
+| A | www\.contoso.com | / |
+| B | www\.contoso.com | /\* |
+| C | www\.contoso.com | /ab |
+| D | www\.contoso.com | /abc |
+| E | www\.contoso.com | /abc/ |
+| F | www\.contoso.com | /abc/\* |
+| G | www\.contoso.com | /abc/def |
+| H | www\.contoso.com | /path/ |
+
+The following table shows which routing rule the incoming request gets matched to when arriving at the Front Door edge:
+
+| Incoming Request | Matched Route |
+|--|--|
+| www\.contoso.com/ | A |
+| www\.contoso.com/a | B |
+| www\.contoso.com/ab | C |
+| www\.contoso.com/abc | D |
+| www\.contoso.com/abzzz | B |
+| www\.contoso.com/abc/ | E |
+| www\.contoso.com/abc/d | F |
+| www\.contoso.com/abc/def | G |
+| www\.contoso.com/abc/defzzz | F |
+| www\.contoso.com/abc/def/ghi | F |
+| www\.contoso.com/path | B |
+| www\.contoso.com/path/ | H |
+| www\.contoso.com/path/zzz | B |
 
 >[!WARNING]
-> </br> If there are no routing rules for an exact-match frontend host with a catch-all route Path (`/*`), then there will not be a match to any routing rule.
+> If there are no routing rules for an exact-match frontend host with a catch-all route Path (`/*`), then there will not be a match to any routing rule.
 >
 > Example configuration:
 >
@@ -118,9 +149,33 @@ Given that configuration, the following example matching table would result:
 > | profile.domain.com/other | None. Error 400: Bad Request |
 
 ### Routing decision
-Once we've matched to a single Front Door routing rule, we then need to choose how to process the request. If for the matched routing rule, Front Door has a cached response available then the same gets served back to the client. Otherwise, the next thing that gets evaluated is whether you have configured [URL Rewrite (custom forwarding path)](front-door-url-rewrite.md) for the matched routing rule or not. If there isn't a custom forwarding path defined, then the request gets forwarded to the appropriate backend in the configured backend pool as is. Else, the request path is updated as per the [custom forwarding path](front-door-url-rewrite.md) defined and then forward to the backend.
+
+Once Front Door has matched to a single routing rule, it then needs to choose how to process the request. If your Azure Front Door has a cached response available for the matched routing rule, then the request gets served back to the client.
+
+::: zone pivot="front-door-standard-premium"
+
+Lastly, Azure Front Door evaluates whether or not you have a [rule set](front-door-rules-engine.md) configured for the matched routing rule. If no rule set gets defined, then the request gets forwarded to the origin group without any changes. Otherwise, the rule sets get processed in the order configured. [Rule sets can override a route](front-door-rules-engine-actions.md#RouteConfigurationOverride) by forcing traffic to a specific origin group.
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
+If Front Door (classic) doesn't have a cached response for the matched routing rule, it evaluates whether [URL rewrite](front-door-url-rewrite.md) is configured for the matched routing rule. If there's no custom forwarding path, the request gets forwarded to the appropriate backend in the configured backend pool without changes. If a custom forwarding path has been defined, the request path gets updated as defined in [custom forwarding path](front-door-url-rewrite.md) and then gets forwarded to the backend.
+
+::: zone-end
 
 ## Next steps
 
-- Learn how to [create a Front Door](quickstart-create-front-door.md).
-- Learn [how Front Door works](front-door-routing-architecture.md).
+::: zone pivot="front-door-standard-premium"
+
+- Learn how to [create an Azure Front Door](standard-premium/create-front-door-portal.md).
+- Learn about [Azure Front Door routing architecture](front-door-routing-architecture.md).
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
+- Learn how to [create an Azure Front Door (classic)](quickstart-create-front-door.md).
+- Learn about [Azure Front Door routing architecture](front-door-routing-architecture.md).
+
+::: zone-end

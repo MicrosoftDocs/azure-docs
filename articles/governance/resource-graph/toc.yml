@@ -2,26 +2,79 @@
   href: index.yml
 - name: Overview
   items:
-  - name: Overview of Azure Resource Graph
+  - name: What is Azure Resource Graph?
     displayName: Resource Manager, query language, rbac, permissions
-    href: overview.md
+    href: ./overview.md
 - name: Quickstarts
   expanded: true
   items:
+  - name: Run your first query - Portal
+    displayName: portal, resource, graph, explorer
+    href: ./first-query-portal.md
   - name: Run your first query - Azure CLI
     displayName: extension, docker
-    href: first-query-azurecli.md
-  - name: Run your first query - PowerShell
+    href: ./first-query-azurecli.md
+  - name: Run your first query - Azure PowerShell
     displayName: module, docker, Az.ResourceGraph
-    href: first-query-powershell.md
+    href: ./first-query-powershell.md
+  - name: Run your first query - .NET
+    displayName: core, auth, dotnet
+    href: ./first-query-dotnet.md
+  - name: Run your first query - Go
+    displayName: package, sdk, golang
+    href: ./first-query-go.md
+  - name: Run your first query - Java
+    displayName: maven, zulu, mvn
+    href: ./first-query-java.md
+  - name: Run your first query - JavaScript
+    displayName: library, node, arm-resourcegraph
+    href: ./first-query-javascript.md
+  - name: Run your first query - Python
+    displayName: library, azure-mgmt, cli
+    href: ./first-query-python.md
+  - name: Run your first query - Ruby
+    displayName: gem, azure-mgmt
+    href: ./first-query-ruby.md
+  - name: Run your first query - REST
+    displayName: armclient, postman
+    href: ./first-query-rest-api.md
+  - name: Create a shared query - Azure CLI
+    displayName: extension, docker, queries
+    href: ./shared-query-azure-cli.md
+  - name: Create a shared query - Azure PowerShell
+    displayName: powershell, queries, Az.ResourceGraph
+    href: ./shared-query-azure-powershell.md
+  - name: Deploy a shared query - Bicep
+    displayName: ARM, Resource Manager, Template
+    href: ./shared-query-bicep.md
+  - name: Deploy a shared query - ARM template
+    displayName: resource manager, queries
+    href: ./shared-query-template.md
+  - name: Paginate query results with Azure PowerShell
+    displayName: queries, powershell, Az.ResourceGraph
+    href: ./paginate-powershell.md
+- name: Tutorials
+  items:
+  - name: Create and share a query in Azure portal
+    displayName: query, portal
+    href: ./tutorials/create-share-query.md
+  - name: Automate your queries with Azure Logic Apps
+    displayName: query, resource graph, logic app
+    href: ./tutorials/logic-app-calling-arg.md
 - name: Samples
   items:
-  - name: Starter queries
-    displayName: query language, data explorer, count, list, show
-    href: ./samples/starter.md
-  - name: Advanced queries
-    displayName: query language, data explorer, list, regex
-    href: ./samples/advanced.md
+  - name: Language examples
+    items:
+    - name: Starter queries
+      displayName: query language, data explorer, count, list, show
+      href: ./samples/starter.md
+    - name: Advanced queries
+      displayName: query language, data explorer, list, regex
+      href: ./samples/advanced.md
+  - name: Index by category
+    href: ./samples/samples-by-category.md
+  - name: Index by table
+    href: ./samples/samples-by-table.md
 - name: Concepts
   items:
   - name: Understanding the query language
@@ -33,44 +86,64 @@
   - name: Work with large data sets
     displayName: page, first, skip, token
     href: ./concepts/work-with-data.md
+  - name: Guidance for throttled requests
+    displayName: pagination, batching, throttling, parallel
+    href: ./concepts/guidance-for-throttled-requests.md
+  - name: Security
+    items:
+    - name: Security baseline for Azure Security Benchmark
+      href: /security/benchmark/azure/baselines/resource-graph-security-baseline?toc=/azure/governance/resource-graph/toc.json&bc=/azure/governance/resource-graph/breadcrumb/toc.json
 - name: How-to guides
   items:
   - name: Get resource changes
     displayName: resource, change, history, snapshot, details
     href: ./how-to/get-resource-changes.md
+- name: Troubleshoot
+  displayName: errors, violation
+  href: ./troubleshoot/general.md
 - name: Reference
   items:
-  - name: Azure CLI
-    href: /cli/azure/ext/resource-graph/graph
-  - name: Azure PowerShell
-    href: /powershell/module/az.resourcegraph/
-  - name: Azure SDK for .NET
-    href: /dotnet/api/Microsoft.Azure.Management.ResourceGraph
-  - name: Azure SDK for .NET (NuGet)
-    href: https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceGraph/
-  - name: Azure SDK for Go
-    href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/resourcegraph/mgmt/2019-04-01/resourcegraph
-  - name: Azure SDK for Java
-    href: /java/api/overview/azure/resourcegraph/management?view=azure-java-stable
-  - name: Azure SDK for Java (Maven)
-    href: https://search.maven.org/artifact/com.microsoft.azure.resourcegraph.v2019_04_01/azure-mgmt-resourcegraph/1.0.0-beta/jar
-  - name: Azure SDK for Node
-    href: /javascript/api/@azure/arm-resourcegraph
-  - name: Azure SDK for Python
-    href: /python/api/azure-mgmt-resourcegraph/azure.mgmt.resourcegraph
-  - name: Azure SDK for Ruby (Gem)
-    href: https://rubygems.org/gems/azure_mgmt_resourcegraph
-  - name: REST
-    href: /rest/api/azureresourcegraph/resources/resources
-  - name: OpenAPI
-    href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/stable/2019-04-01 
+  - name: Keyboard shortcuts
+    href: ./reference/keyboard-shortcuts.md
+  - name: CLI and SDK
+    items:
+    - name: Azure CLI
+      href: /cli/azure/graph
+    - name: Azure PowerShell
+      href: /powershell/module/az.resourcegraph/#resourcegraph
+    - name: Azure SDK for .NET
+      href: /dotnet/api/Microsoft.Azure.Management.ResourceGraph
+    - name: Azure SDK for .NET (NuGet)
+      href: https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceGraph/
+    - name: Azure SDK for Go
+      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/resourcegraph/mgmt/2021-03-01/resourcegraph
+    - name: Azure SDK for Java
+      href: /java/api/overview/azure/resourcegraph/management
+    - name: Azure SDK for Java (Maven)
+      href: https://search.maven.org/artifact/com.microsoft.azure.resourcegraph.v2019_04_01/azure-mgmt-resourcegraph/1.0.0/jar
+    - name: Azure SDK for JavaScript
+      href: /javascript/api/@azure/arm-resourcegraph
+    - name: Azure SDK for Python
+      href: /python/api/azure-mgmt-resourcegraph/azure.mgmt.resourcegraph
+    - name: Azure SDK for Ruby (Gem)
+      href: https://rubygems.org/gems/azure_mgmt_resourcegraph
+    - name: REST
+      href: /rest/api/azure-resourcegraph/
+    - name: OpenAPI
+      href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/stable/2021-03-01
+  - name: Resource Manager templates
+    href: /azure/templates/microsoft.resourcegraph/allversions
+  - name: Resource Graph tables and resource types
+    href: ./reference/supported-tables-resources.md
 - name: Resources
   items:
-  - name: Azure roadmap
-    href: https://azure.microsoft.com/roadmap/
+  - name: GitHub - Governance samples
+    href: https://github.com/Azure-Samples/Governance/tree/master/src/resource-graph
+  - name: Governance YouTube Channel
+    href: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
+  - name: Azure updates
+    href: https://azure.microsoft.com/updates/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: UserVoice
-    href: https://feedback.azure.com/forums/915958-azure-governance?category_id=345061
-  - name: Governance YouTube Channel
-    href: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
+    href: https://feedback.azure.com/d365community/forum/675ae472-f324-ec11-b6e6-000d3a4f0da0?c=9def8579-f324-ec11-b6e6-000d3a4f0da0

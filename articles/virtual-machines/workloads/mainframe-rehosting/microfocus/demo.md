@@ -1,10 +1,15 @@
 ---
 title: Set up Micro Focus CICS BankDemo for Micro Focus Enterprise Developer 4.0 on Azure Virtual Machines
 description: Run the Micro Focus BankDemo application on Azure Virtual Machines (VMs) to learn to use Micro Focus Enterprise Server and Enterprise Developer.
-author: sread
-ms.date: 04/02/2019
+author: swread
+ms.author: sread
+editor: swread
+manager: mamccrea 
+ms.date: 03/30/2020
 ms.topic: article
-ms.service: multiple
+ms.service: virtual-machines
+ms.subservice: mainframe-rehosting
+ms.custom: devx-track-dotnet
 ---
 
 # Set up Micro Focus CICS BankDemo for Micro Focus Enterprise Developer 4.0 on Azure
@@ -14,13 +19,16 @@ When you set up Micro Focus Enterprise Server 4.0 and Enterprise Developer 4.0 o
 CICs stands for Customer Information Control System, the transaction platform used by many of the online mainframe applications. The BankDemo application is great for learning how Enterprise Server and Enterprise Developer operate and how to manage and deploy an actual application complete with green screen
 terminals.
 
+> [!NOTE]
+> Coming soon: Instructions for setting up [Micro Focus Enterprise Server 5.0](https://techcommunity.microsoft.com/t5/azurecat/micro-focus-enterprise-server-5-0-quick-start-template-on-azure/ba-p/1160110) on Azure VMs.
+
 ## Prerequisites
 
 - A VM with [Enterprise Developer](set-up-micro-focus-azure.md). Keep in mind that Enterprise Developer has a complete instance of Enterprise Server on it for development and test purposes. This instance is the instance of Enterprise Server used for the demo.
 
 - [SQL Server 2017 Express edition](https://www.microsoft.com/sql-server/sql-server-editions-express). Download and install it on the Enterprise Developer VM. Enterprise Server requires a database for the management of CICS regions, and the BankDemo application also uses a SQL Server database called BANKDEMO. This demo assumes you are using SQL Server Express for both databases. When installing, select the basic installation.
 
-- [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) (SSMS). SSMS is used for managing the databases and running a T-SQL script. Download and install it on the Enterprise Developer VM.
+- [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). SSMS is used for managing the databases and running a T-SQL script. Download and install it on the Enterprise Developer VM.
 
 - [Visual Studio 2019](https://azure.microsoft.com/downloads/) with the latest service pack or [Visual Studio Community](https://visualstudio.microsoft.com/vs/community/), which you can download for free.
 
@@ -265,7 +273,7 @@ Congratulations! You are now running a CICS application in Azure using Micro Foc
 ## Next steps
 
 - [Run Enterprise Server in Docker containers on Azure](run-enterprise-server-container.md)
-- [Mainframe Migration - Portal](https://blogs.msdn.microsoft.com/azurecat/2018/11/16/mainframe-migration-to-azure-portal/)
-- [Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/linux/overview)
-- [Troubleshooting](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/)
+- [Mainframe Migration - Portal](/archive/blogs/azurecat/mainframe-migration-to-azure-portal)
+- [Virtual Machines](../../../linux/overview.md)
+- [Troubleshooting](/troubleshoot/azure/virtual-machines/welcome-virtual-machines)
 - [Demystifying mainframe to Azure migration](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/en-us/)

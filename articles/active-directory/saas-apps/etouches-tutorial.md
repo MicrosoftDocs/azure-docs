@@ -1,165 +1,155 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with etouches | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and etouches.
+title: 'Tutorial: Microsoft Entra single sign-on (SSO) integration with Aventri'
+description: Learn how to configure single sign-on between Microsoft Entra ID and Aventri.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 76cccaa8-859c-4c16-9d1d-8a6496fc7520
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/11/2019
+ms.date: 11/21/2022
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
-# Tutorial: Azure Active Directory integration with etouches
 
-In this tutorial, you learn how to integrate etouches with Azure Active Directory (Azure AD).
-Integrating etouches with Azure AD provides you with the following benefits:
+# Tutorial: Microsoft Entra single sign-on (SSO) integration with Aventri
 
-* You can control in Azure AD who has access to etouches.
-* You can enable your users to be automatically signed-in to etouches (Single Sign-On) with their Azure AD accounts.
-* You can manage your accounts in one central location - the Azure portal.
+In this tutorial, you'll learn how to integrate Aventri with Microsoft Entra ID. When you integrate Aventri with Microsoft Entra ID, you can:
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+* Control in Microsoft Entra ID who has access to Aventri.
+* Enable your users to be automatically signed-in to Aventri with their Microsoft Entra accounts.
+* Manage your accounts in one central location.
+
+To learn more about SaaS app integration with Microsoft Entra ID, see [What is application access and single sign-on with Microsoft Entra ID](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
-To configure Azure AD integration with etouches, you need the following items:
+To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
-* etouches single sign-on enabled subscription
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* Aventri single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment.
 
-* etouches supports **SP** initiated SSO
+* Aventri supports **SP** initiated SSO
+* Once you configure Aventri you can enforce Session Control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session Control extend from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).
 
-## Adding etouches from the gallery
 
-To configure the integration of etouches into Azure AD, you need to add etouches from the gallery to your list of managed SaaS apps.
+## Adding Aventri from the gallery
 
-**To add etouches from the gallery, perform the following steps:**
+To configure the integration of Aventri into Microsoft Entra ID, you need to add Aventri from the gallery to your list of managed SaaS apps.
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type **Aventri** in the search box.
+1. Select **Aventri** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-	![The Azure Active Directory button](common/select-azuread.png)
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
 
-	![The Enterprise applications blade](common/enterprise-applications.png)
+<a name='configure-and-test-azure-ad-single-sign-on-for-aventri'></a>
 
-3. To add new application, click **New application** button on the top of dialog.
+## Configure and test Microsoft Entra single sign-on for Aventri
 
-	![The New application button](common/add-new-app.png)
+Configure and test Microsoft Entra SSO with Aventri using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in Aventri.
 
-4. In the search box, type **etouches**, select **etouches** from result panel then click **Add** button to add the application.
+To configure and test Microsoft Entra SSO with Aventri, complete the following building blocks:
 
-	 ![etouches in the results list](common/search-new-app.png)
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
+1. **[Configure Aventri SSO](#configure-aventri-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create Aventri test user](#create-aventri-test-user)** - to have a counterpart of B.Simon in Aventri that is linked to the Microsoft Entra representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-## Configure and test Azure AD single sign-on
+<a name='configure-azure-ad-sso'></a>
 
-In this section, you configure and test Azure AD single sign-on with etouches based on a test user called **Britta Simon**.
-For single sign-on to work, a link relationship between an Azure AD user and the related user in etouches needs to be established.
+## Configure Microsoft Entra SSO
 
-To configure and test Azure AD single sign-on with etouches, you need to complete the following building blocks:
+Follow these steps to enable Microsoft Entra SSO.
 
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Configure etouches Single Sign-On](#configure-etouches-single-sign-on)** - to configure the Single Sign-On settings on application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create etouches test user](#create-etouches-test-user)** - to have a counterpart of Britta Simon in etouches that is linked to the Azure AD representation of user.
-6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Aventri** > **Single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
 
-### Configure Azure AD single sign-on
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-In this section, you enable Azure AD single sign-on in the Azure portal.
+1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-To configure Azure AD single sign-on with etouches, perform the following steps:
-
-1. In the [Azure portal](https://portal.azure.com/), on the **etouches** application integration page, select **Single sign-on**.
-
-    ![Configure single sign-on link](common/select-sso.png)
-
-2. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
-
-    ![Single sign-on select mode](common/select-saml-option.png)
-
-3. On the **Set-up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
-
-	![Edit Basic SAML Configuration](common/edit-urls.png)
-
-4. On the **Basic SAML Configuration** section, perform the following steps:
-
-    ![etouches Domain and URLs single sign-on information](common/sp-identifier.png)
-
-	a. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://www.eiseverywhere.com/saml/accounts/?sso&accountid=<ACCOUNTID>`
+    a. In the **Sign on URL** text box, type a URL using the following pattern:
+    `https://na-admin.eventscloud.com/saml/accounts/acs/<ACCOUNTID>`
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-    `https://www.eiseverywhere.com/<instance name>`
+    `https://na-admin.eventscloud.com/saml/accounts/sso/<ACCOUNTID>`
 
-	> [!NOTE] 
-	> These values are not real. You update the value with the actual Sign on URL and Identifier, which is explained later in the tutorial.
-	> 
+    > [!NOTE] 
+    > These values are not real. You update the value with the actual Sign on URL and Identifier, which is explained later in the tutorial.
 
-5. Your etouches application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click on **Edit** icon to add the attributes.
+1. Aventri application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
-	![image](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
-6. In addition to above, etouches application expects few more attributes to be passed back in SAML response. In the **User Claims** section on the **User Attributes** dialog, perform the following steps to add SAML token attribute as shown in the below table:
+1. In addition to above, Aventri application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirement.
 
-	| Name | Source Attribute|
-	| ------------------- | -------------------- |
-	| Email | user.mail | 
+    | Name | Source Attribute|
+    | ------------------- | -------------------- |
+    | Email | user.mail | 
 
-	a. Click **Add new claim** to open the **Manage user claims** dialog.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
-	![image](common/new-save-attribute.png)
+    ![The Certificate download link](common/metadataxml.png)
 
-	![image](common/new-attribute-details.png)
+1. On the **Set up Aventri** section, copy the appropriate URL(s) based on your requirement.
 
-	b. In the **Name** textbox, type the attribute name shown for that row.
+    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
-	c. Leave the **Namespace** blank.
+<a name='create-an-azure-ad-test-user'></a>
 
-	d. Select Source as **Attribute**.
+### Create a Microsoft Entra test user
 
-	e. From the **Source attribute** list, type the attribute value shown for that row.
+In this section, you'll create a test user called B.Simon.
 
-	f. Click **Ok**
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Select **Review + create**.
+1. Select **Create**.
 
-	g. Click **Save**.
+<a name='assign-the-azure-ad-test-user'></a>
 
-7. On the **Set-up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
+### Assign the Microsoft Entra test user
 
-	![The Certificate download link](common/metadataxml.png)
+In this section, you'll enable B.Simon to use single sign-on by granting access to Aventri.
 
-8. On the **Set up etouches** section, copy the appropriate URL(s) as per your requirement.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Aventri**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+   ![The "Users and groups" link](common/users-groups-blade.png)
 
-	a. Login URL
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 
-	b. Azure Ad Identifier
+    ![The Add User link](common/add-assign-user.png)
 
-	c. Logout URL
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
+1. In the **Add Assignment** dialog, click the **Assign** button.
 
-### Configure etouches Single Sign-On
+## Configure Aventri SSO
 
-1. To get SSO configured for your application, perform the following steps in the etouches application: 
+1. To get SSO configured for your application, perform the following steps in the Aventri application: 
 
-    ![etouches configuration](./media/etouches-tutorial/tutorial_etouches_06.png) 
+    ![Aventri configuration](./media/etouches-tutorial/aventri-tutorial-06.png) 
 
-    a. Sign in to **etouches** application using the Admin rights.
+    a. Sign in to **Aventri** application using the Admin rights.
    
     b. Go to the **SAML** Configuration.
 
@@ -173,76 +163,26 @@ To configure Azure AD single sign-on with etouches, perform the following steps:
 
     g. In the Username field, select the **emailaddress** as shown in the image below. 
 
-    h. Copy the **SP entity ID** value and paste it into the **Identifier**  textbox, which is in **Basic SAML Configuration** section on Azure portal.
+    h. Copy the **SP entity ID** value and paste it into the **Identifier**  textbox, which is in **Basic SAML Configuration** section.
 
-	i. Copy the **SSO URL / ACS** value and paste it into the **Sign-on URL** textbox, which is in **Basic SAML Configuration** section on Azure portal.
-   
-### Create an Azure AD test user 
+    i. Copy the **SSO URL / ACS** value and paste it into the **Sign-on URL** textbox, which is in **Basic SAML Configuration** section.
 
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+### Create Aventri test user
 
-1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
+In this section, you create a user called B.Simon in Aventri. Work with [Aventri Client support team](mailto:support@aventri.com) to add the users in the Aventri platform.
 
-    ![The "Users and groups" and "All users" links](common/users.png)
+## Test SSO 
 
-2. Select **New user** at the top of the screen.
+In this section, you test your Microsoft Entra single sign-on configuration using the Access Panel.
 
-    ![New user Button](common/new-user.png)
+When you click the Aventri tile in the Access Panel, you should be automatically signed in to the Aventri for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
-3. In the User properties, perform the following steps.
+## Additional resources
 
-    ![The User dialog box](common/user-properties.png)
+- [List of Tutorials on How to Integrate SaaS Apps with Microsoft Entra ID](./tutorial-list.md)
 
-    a. In the **Name** field, enter **BrittaSimon**.
-  
-    b. In the **User name** field, type **brittasimon\@yourcompanydomain.extension**  
-    For example, BrittaSimon@contoso.com
+- [What is application access and single sign-on with Microsoft Entra ID?](../manage-apps/what-is-single-sign-on.md)
 
-    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
+- [What is Conditional Access in Microsoft Entra ID?](../conditional-access/overview.md)
 
-    d. Click **Create**.
-
-### Assign the Azure AD test user
-
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to etouches.
-
-1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **etouches**.
-
-	![Enterprise applications blade](common/enterprise-applications.png)
-
-2. In the applications list, select **etouches**.
-
-	![The etouches link in the Applications list](common/all-applications.png)
-
-3. In the menu on the left, select **Users and groups**.
-
-    ![The "Users and groups" link](common/users-groups-blade.png)
-
-4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
-
-    ![The Add Assignment pane](common/add-assign-user.png)
-
-5. In the **Users and groups** dialog, select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
-
-6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog, select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
-
-7. In the **Add Assignment** dialog, click the **Assign** button.
-
-### Create etouches test user
-
-In this section, you create a user called Britta Simon in etouches. Work with [etouches Client support team](https://www.etouches.com/event-software/support/customer-support/) to add the users in the etouches platform.
-
-### Test single sign-on 
-
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
-
-When you click the etouches tile in the Access Panel, you should be automatically signed in to the etouches for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
-
-## Additional Resources
-
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [What is session control in Microsoft Defender for Cloud Apps?](/cloud-app-security/proxy-intro-aad)

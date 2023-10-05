@@ -1,0 +1,152 @@
+### YamlMime:Hub
+
+title: Azure Arc documentation
+summary: Simplify complex and distributed environments across on-premises, edge, and multicloud.
+# brand: aspnet | azure | dotnet | dynamics | m365 | ms-graph | office | power-bi | power-platform | sql | sql-server | vs | visual-studio | windows | xamarin
+brand: azure
+
+metadata:
+  title: Azure Arc
+  description: Learn how to deploy resources to complex and distributed environments across on-premises, edge and multicloud. Azure Arc enables deployment of Azure services anywhere and extends Azure management to any infrastructure.
+  ms.service: azure-arc
+  ms.topic: hub-page
+  ms.date: 11/08/2022
+  ms.custom: e2e-hybrid
+
+# highlightedContent section (optional)
+# Maximum of 8 items
+highlightedContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+  items:
+    # Card
+    - title: About Azure Arc
+      itemType: overview
+      url:  overview.md
+    # Card
+    - title: Azure Arc Jumpstart
+      itemType: sample
+      url: https://azurearcjumpstart.io/overview/
+      # Card
+    - title: Azure Arc-enabled servers
+      itemType: overview
+      url: ./servers/overview.md
+    # Card
+    - title: Azure Arc-enabled Kubernetes
+      itemType: overview
+      url: ./kubernetes/overview.md
+    # Card
+    - title: Azure Arc-enabled data services 
+      itemType: overview
+      url: ./data/overview.md
+    # Card
+    - title: Azure Arc-enabled SQL Server
+      itemType: overview
+      url: /sql/sql-server/azure-arc/overview
+
+conceptualContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+  # title: Get started # < 60 chars (optional)
+  # summary: # < 160 chars (optional)
+  items:
+    # Card
+    - title: Azure Arc-enabled servers
+      links:
+        - url: ./servers/learn/quick-enable-hybrid-vm.md
+          itemType: quickstart
+          text: Connect hybrid machines
+        - url: ./servers/security-overview.md
+          itemType: concept
+          text: Security overview
+        - url: ./servers/policy-reference.md
+          itemType: learn
+          text: Azure Policy definitions
+        - url: /sql/sql-server/azure-arc/overview
+          itemType: overview
+          text: Connect SQL Server
+      # footerLink (optional)
+      footerLink:
+        url: ./servers/index.yml
+        text: See more
+    # Card
+    - title: Azure Arc-enabled Kubernetes
+      links:
+        - url: ./kubernetes/quickstart-connect-cluster.md
+          itemType: quickstart
+          text: Connect a cluster to Azure Arc
+        - url: ../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json
+          itemType: tutorial
+          text: Use Azure Monitor Container Insights
+        - url: ./kubernetes/tutorial-use-gitops-flux2.md
+          itemType: how-to-guide
+          text: Apply configurations on clusters using GitOps
+        - url: ./kubernetes/tutorial-arc-enabled-open-service-mesh.md
+          itemType: tutorial
+          text: Azure Arc-enabled Open Service Mesh
+      # footerLink (optional)
+      footerLink:
+        url: ./kubernetes/index.yml
+        text: See more
+    # Card
+    - title: Azure Arc-enabled data services 
+      links:
+        - url: ./data/plan-azure-arc-data-services.md
+          itemType: get-started
+          text: Plan deployment
+        - url: ./data/install-client-tools.md
+          itemType: deploy
+          text: Install tools
+        - url: ./data/create-sql-managed-instance.md
+          itemType: how-to-guide
+          text: Create SQL Managed Instance
+        - url: ./data/create-postgresql-hyperscale-server-group.md
+          itemType: how-to-guide
+          text: Create PostgreSQL server
+      # footerLink (optional)
+      footerLink:
+        url: ./data/index.yml
+        text: See more
+    # Card
+    - title: Azure Arc-enabled SQL Server
+      links:
+        - url: /sql/sql-server/azure-arc/connect
+          itemType: deploy
+          text: Connect SQL Server to Azure Arc
+        - url: /sql/sql-server/azure-arc/assess
+          itemType: learn
+          text: Assess instance
+        - url: /sql/sql-server/azure-arc/configure-advanced-data-security
+          itemType: how-to-guide
+          text: Configure advanced data security
+    # Card
+    - title: Management services supporting Azure Arc
+      links:
+        - url: ../azure-monitor/overview.md
+          itemType: overview
+          text: Azure Monitor overview
+        - url: ../governance/policy/overview.md
+          itemType: overview
+          text: Azure Policy overview
+        - url: ../defender-for-cloud/defender-for-cloud-introduction.md
+          itemType: overview
+          text: Microsoft Defender for Cloud overview
+        - url: ../automation/automation-intro.md
+          itemType: overview
+          text: Azure Automation overview
+    # Card
+    - title: Azure Arc-enabled private clouds
+      links:
+        - url: ./resource-bridge/overview.md
+          itemType: overview
+          text: Azure Arc resource bridge (preview)
+        - url: ./vmware-vsphere/overview.md
+          itemType: overview
+          text: Azure Arc-enabled VMware vSphere (preview)
+        - url: ./system-center-virtual-machine-manager/overview.md
+          itemType: overview
+          text: Azure Arc-enabled System Center Virtual Machine Manager (preview)
+    # Card
+    - title: Application services
+      links:
+        - url: ../app-service/overview-arc-integration.md
+          itemType: overview
+          text: App Service, Functions, and Logic Apps on Azure Arc (preview)

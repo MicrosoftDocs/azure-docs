@@ -1,23 +1,16 @@
 ---
-title: Create your first Azure Service Fabric reliable service in Java | Microsoft Docs
-description: Introduction to creating a Microsoft Azure Service Fabric application with stateless and stateful services.
-services: service-fabric
-documentationcenter: java
-author: suhuruli
-manager: chackdan
-editor: ''
-
-ms.assetid: 7831886f-7ec4-4aef-95c5-b2469a5b7b5d
+title: Create your first reliable service in Java 
+description: Introduction to creating a Microsoft Azure Service Fabric application with stateless and stateful services in Java.
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
 ms.service: service-fabric
-ms.devlang: java
-ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/02/2017
-ms.author: suhuruli
-
+ms.custom: devx-track-extended-java
+services: service-fabric
+ms.date: 07/11/2022
 ---
-# Get started with Reliable Services
+
+# Get started with Reliable Services in Java
 > [!div class="op_single_selector"]
 > * [C# on Windows](service-fabric-reliable-services-quick-start.md)
 > * [Java on Linux](service-fabric-reliable-services-quick-start-java.md)
@@ -25,6 +18,8 @@ ms.author: suhuruli
 >
 
 This article explains the basics of Azure Service Fabric Reliable Services and walks you through creating and deploying a simple Reliable Service application written in Java. 
+
+[Check this page for a training video that shows you how to create a stateless Reliable service:](/shows/building-microservices-applications-on-azure-service-fabric/creating-a-stateless-reliable-service)
 
 ## Installation and setup
 Before you start, make sure you have the Service Fabric development environment set up on your machine.
@@ -195,7 +190,7 @@ protected CompletableFuture<?> runAsync(CancellationToken cancellationToken) {
 ReliableHashMap<String,Long> map = this.stateManager.<String, Long>getOrAddReliableHashMapAsync("myHashMap")
 ```
 
-[ReliableHashMap](https://docs.microsoft.com/java/api/microsoft.servicefabric.data.collections.reliablehashmap) is a dictionary implementation that you can use to reliably store state in the service. With Service Fabric and Reliable HashMaps, you can store data directly in your service without the need for an external persistent store. Reliable HashMaps make your data highly available. Service Fabric accomplishes this by creating and managing multiple *replicas* of your service for you. It also provides an API that abstracts away the complexities of managing those replicas and their state transitions.
+[ReliableHashMap](/java/api/microsoft.servicefabric.data.collections.reliablehashmap) is a dictionary implementation that you can use to reliably store state in the service. With Service Fabric and Reliable HashMaps, you can store data directly in your service without the need for an external persistent store. Reliable HashMaps make your data highly available. Service Fabric accomplishes this by creating and managing multiple *replicas* of your service for you. It also provides an API that abstracts away the complexities of managing those replicas and their state transitions.
 
 Reliable Collections can store any Java type, including your custom types, with a couple of caveats:
 
@@ -265,7 +260,7 @@ Parameters to these commands can be found in the generated manifests inside the 
 
 Once the application has been deployed, open a browser and navigate to
 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) at
-[http://localhost:19080/Explorer](http://localhost:19080/Explorer). Then, expand the **Applications** node and note
+`http://localhost:19080/Explorer`. Then, expand the **Applications** node and note
 that there is now an entry for your application type and another for the first instance of that type.
 
 > [!IMPORTANT]

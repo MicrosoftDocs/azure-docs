@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Search for images - Bing Image Search REST API and Python"
-titleSuffix: Azure Cognitive Services
+title: "Quickstart: Search for images using the Bing Image Search REST API and Python"
+titleSuffix: Azure AI services
 description: Use this quickstart to send image search requests to the Bing Image Search REST API using Python, and receive JSON responses.
 services: cognitive-services
 author: aahill
@@ -8,22 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 02/06/2019
+ms.date: 01/05/2022
 ms.author: aahi
-ms.custom: seodec2018
+ms.devlang: python
+ms.custom: seodec2018, devx-track-python, mode-api
 ---
 
 # Quickstart: Search for images using the Bing Image Search REST API and Python
 
-Use this quickstart to start sending search requests to the Bing Image Search API. This Python application sends a search query to the API, and displays the URL of the first image in the results. While this application is written in Python, the API is a RESTful web service compatible with most programming languages.
+[!INCLUDE [Bing move notice](../../bing-web-search/includes/bing-move-notice.md)]
 
-You can run this example as a Jupyter notebook on [MyBinder](https://mybinder.org) by clicking on the launch Binder badge:
-
-[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingImageSearchAPI.ipynb)
-
-
-The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingImageSearchv7.py) with additional error handling and annotations.
-
+Use this quickstart to learn how to send search requests to the Bing Image Search API. This Python application sends a search query to the API, and displays the URL of the first image in the results. Although this application is written in Python, the API is a RESTful web service compatible with most programming languages.
 
 ## Prerequisites
 
@@ -31,11 +26,9 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 * The [Python Imaging Library (PIL)](https://pillow.readthedocs.io/en/stable/index.html)
 * [matplotlib](https://matplotlib.org/) 
 
-[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
-
 ## Create and initialize the application
 
-1. Create a new Python file in your favorite IDE or editor, and import the following modules. Create a variable for your subscription key, search endpoint, and search term.
+1. Create a new Python file in your favorite IDE or editor, and import the following modules. Create a variable for your subscription key, search endpoint, and search term. For `search_url`, you can use the global endpoint in the following code, or use the [custom subdomain](../../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```python
     import requests
@@ -56,25 +49,28 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 
 ## Create and send a search request
 
-1. Create a dictionary for the search request's parameters. Add your search term to the `q` parameter. Use "public" for the `license` parameter to search for images in the public domain. Use "photo" for the `imageType` to search only for photos.
+1. Create a dictionary for the search request's parameters. Add your search term to the `q` parameter. Set the `license` parameter to `public` to search for images in the public domain. Set the `imageType` to `photo` to search only for photos.
 
     ```python
     params  = {"q": search_term, "license": "public", "imageType": "photo"}
     ```
 
-2. Use the `requests` library to call the Bing Image Search API. Add your header and parameters to the request, and return the response as a JSON object. 
+2. Use the `requests` library to call the Bing Image Search API. Add your header and parameters to the request, and return the response as a JSON object. Get the URLs to several thumbnail images from the response's `thumbnailUrl` field.
 
     ```python
     response = requests.get(search_url, headers=headers, params=params)
     response.raise_for_status()
     search_results = response.json()
+    thumbnail_urls = [img["thumbnailUrl"] for img in search_results["value"][:16]]
     ```
 
 ## View the response
 
-1. Create a new figure with four columns, and four rows using the matplotlib library. 
+1. Create a new figure with four columns and four rows by using the matplotlib library. 
 
 2. Iterate through the figure's rows and columns, and use the PIL library's `Image.open()` method to add an image thumbnail to each space. 
+
+3. Use `plt.show()` to draw the figure and display the images.
 
     ```python
     f, axes = plt.subplots(4, 4)
@@ -85,9 +81,9 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
             image = Image.open(BytesIO(image_data.content))        
             axes[i][j].imshow(image)
             axes[i][j].axis("off")
+    plt.show()
     ```
 
-3. Use `plt.show()` to draw the figure and display the images.
 
 ## Example JSON response
 
@@ -143,7 +139,6 @@ Responses from the Bing Image Search API are returned as JSON. This sample respo
 > [Bing Image Search single-page app tutorial](../tutorial-bing-image-search-single-page-app.md)
 
 * [What is the Bing Image Search API?](../overview.md)  
-* [Pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) for the Bing Search APIs. 
-* [Get a free Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
-* [Azure Cognitive Services Documentation](https://docs.microsoft.com/azure/cognitive-services)
-* [Bing Image Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
+* [Pricing details for the Bing Search APIs](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) 
+* [Azure AI services documentation](../../../ai-services/index.yml)
+* [Bing Image Search API reference](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

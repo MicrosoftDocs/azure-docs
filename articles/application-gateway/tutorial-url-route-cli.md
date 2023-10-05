@@ -2,37 +2,37 @@
 title: Route web traffic based on the URL - Azure CLI
 description: In this article, learn how to route web traffic based on the URL to specific scalable pools of servers using the Azure CLI.
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
-ms.topic: tutorial
-ms.date: 5/20/2019
-ms.author: victorh
-ms.custom: mvc
+ms.topic: how-to
+ms.date: 04/27/2023
+ms.author: greglin
+ms.custom: mvc, devx-track-azurecli, devx-track-linux
 #Customer intent: As an IT administrator, I want to use Azure CLI to set up routing of web traffic to specific pools of servers based on the URL that the customer uses, so I can ensure my customers have the most efficient route to the information they need.
 ---
+
 # Route web traffic based on the URL using the Azure CLI
 
-As an IT administrator managing web traffic, you want to help your customers or users get the information they need as quickly as possible. One way you can optimize their experience is by routing different kinds of web traffic to different server resources. This article shows you how to use the Azure CLI to set up and configure Application Gateway routing for different types of traffic from your application. The routing then directs the traffic to different server pools based on the URL.
+As an IT administrator managing web traffic, you want to help your customers and users get the information they need as quickly as possible. One way you can optimize their experience is by routing different kinds of web traffic to different server resources. This article shows you how to use the Azure CLI to set up and configure Application Gateway routing for different types of traffic from your application. The routing then directs the traffic to different server pools based on the URL.
 
 ![URL routing example](./media/tutorial-url-route-cli/scenario.png)
 
 In this article, you learn how to:
 
-> [!div class="checklist"]
-> * Create a resource group for the network resources you’ll need
-> * Create the network resources
-> * Create an application gateway for the traffic coming from your application
-> * Specify server pools and routing rules for the different types of traffic
-> * Create a scale set for each pool so the pool can automatically scale
-> * Run a test so you can verify that the different types of traffic go to the correct pool
+* Create a resource group for the network resources you need
+* Create the network resources
+* Create an application gateway for the traffic coming from your application
+* Specify server pools and routing rules for the different types of traffic
+* Create a scale set for each pool so the pool can automatically scale
+* Run a test so you can verify that the different types of traffic go to the correct pool
 
 If you prefer, you can complete this procedure using [Azure PowerShell](tutorial-url-route-powershell.md) or the [Azure portal](create-url-route-portal.md).
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
-If you choose to install and use the CLI locally, this article requires you to run the Azure CLI version 2.0.4 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+ - This tutorial requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a resource group
 
@@ -46,7 +46,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## Create network resources
 
-Create the virtual network named *myVNet* and the subnet named *myAGSubnet* using `az network vnet create`. Then add a subnet named *myBackendSubnet* that's needed by the backend servers using `az network vnet subnet create`. Create the public IP address named *myAGPublicIPAddress* using `az network public-ip create`.
+Create the virtual network named *myVNet* and the subnet named *myAGSubnet* using `az network vnet create`. Then add a subnet named *myBackendSubnet* needed by the backend servers using `az network vnet subnet create`. Create the public IP address named *myAGPublicIPAddress* using `az network public-ip create`.
 
 ```azurecli-interactive
 az network vnet create \
@@ -65,12 +65,14 @@ az network vnet subnet create \
 
 az network public-ip create \
   --resource-group myResourceGroupAG \
-  --name myAGPublicIPAddress
+  --name myAGPublicIPAddress \
+  --allocation-method Static \
+  --sku Standard
 ```
 
 ## Create the app gateway with a URL map
 
-Use `az network application-gateway create` to create an application gateway named *myAppGateway*. When you create an application gateway using the Azure CLI, you specify configuration information, such as capacity, sku, and HTTP settings. The application gateway is assigned to *myAGSubnet* and *myAGPublicIPAddress* that you previously created.
+Use `az network application-gateway create` to create an application gateway named *myAppGateway*. When you create an application gateway using the Azure CLI, you specify configuration information, such as capacity, sku, and HTTP settings. The application gateway is assigned to *myAGSubnet* and *myAGPublicIPAddress*.
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -80,12 +82,13 @@ az network application-gateway create \
   --vnet-name myVNet \
   --subnet myAGsubnet \
   --capacity 2 \
-  --sku Standard_Medium \
+  --sku Standard_v2 \
   --http-settings-cookie-based-affinity Disabled \
   --frontend-port 80 \
   --http-settings-port 80 \
   --http-settings-protocol Http \
-  --public-ip-address myAGPublicIPAddress
+  --public-ip-address myAGPublicIPAddress \
+  --priority 100
 ```
 
  It may take several minutes to create the application gateway. After the application gateway is created, you can see these new features:
@@ -94,7 +97,7 @@ az network application-gateway create \
 |Feature  |Description  |
 |---------|---------|
 |appGatewayBackendPool     |An application gateway must have at least one backend address pool.|
-|appGatewayBackendHttpSettings     |Specifies that port 80 and an HTTP protocol is used for communication.|
+|appGatewayBackendHttpSettings     |Specifies that port 80 and an HTTP protocol are used for communication.|
 |appGatewayHttpListener     |The default listener associated with appGatewayBackendPool|
 |appGatewayFrontendIP     |Assigns myAGPublicIPAddress to appGatewayHttpListener.|
 |rule1     |The default routing rule that is associated with appGatewayHttpListener.|
@@ -157,7 +160,8 @@ az network application-gateway url-path-map rule create \
   --resource-group myResourceGroupAG \
   --path-map-name myPathMap \
   --paths /video/* \
-  --address-pool videoBackendPool
+  --address-pool videoBackendPool \
+  --http-settings appGatewayBackendHttpSettings
 ```
 
 ### Add a routing rule
@@ -172,12 +176,13 @@ az network application-gateway rule create \
   --http-listener backendListener \
   --rule-type PathBasedRouting \
   --url-path-map myPathMap \
-  --address-pool appGatewayBackendPool
+  --address-pool appGatewayBackendPool \
+  --priority 200
 ```
 
-## Create VM scale sets
+## Create Virtual Machine Scale Sets
 
-In this article, you create three virtual machine scale sets that support the three backend pools you created. You create scale sets named *myvmss1*, *myvmss2*, and *myvmss3*. Each scale set contains two virtual machine instances where you install NGINX.
+In this article, you create three Virtual Machine Scale Sets that support the three backend pools you created. You create scale sets named *myvmss1*, *myvmss2*, and *myvmss3*. Each scale set contains two virtual machine instances where you install NGINX.
 
 ```azurecli-interactive
 for i in `seq 1 3`; do
@@ -200,7 +205,7 @@ for i in `seq 1 3`; do
   az vmss create \
     --name myvmss$i \
     --resource-group myResourceGroupAG \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --admin-username azureuser \
     --admin-password Azure123456! \
     --instance-count 2 \
@@ -241,11 +246,11 @@ az network public-ip show \
 
 ![Test base URL in application gateway](./media/tutorial-url-route-cli/application-gateway-nginx.png)
 
-Change the URL to http://&lt;ip-address&gt;:8080/images/test.html, substituting your IP address for &lt;ip-address&gt;, and you should see something like the following example:
+Change the URL to http://&lt;ip-address&gt;:8080/images/test.html, replacing your IP address for &lt;ip-address&gt;, and you should see something like the following example:
 
 ![Test images URL in application gateway](./media/tutorial-url-route-cli/application-gateway-nginx-images.png)
 
-Change the URL to http://&lt;ip-address&gt;:8080/video/test.html, substituting your IP address for &lt;ip-address&gt;, and you should see something like the following example.
+Change the URL to http://&lt;ip-address&gt;:8080/video/test.html, replacing your IP address for &lt;ip-address&gt;, and you should see something like the following example.
 
 ![Test video URL in application gateway](./media/tutorial-url-route-cli/application-gateway-nginx-video.png)
 
@@ -254,9 +259,9 @@ Change the URL to http://&lt;ip-address&gt;:8080/video/test.html, substituting y
 When they're no longer needed, remove the resource group, application gateway, and all related resources.
 
 ```azurecli-interactive
-az group delete --name myResourceGroupAG --location eastus
+az group delete --name myResourceGroupAG
 ```
 
 ## Next steps
 
-* [Create an application gateway with URL path-based redirection](./tutorial-url-redirect-cli.md)
+[Create an application gateway with URL path-based redirection](./tutorial-url-redirect-cli.md)

@@ -1,71 +1,95 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure Container Instances Documentation
+### YamlMime:Landing
+
+title: Azure Container Instances documentation # < 60 chars
+summary: Run Docker containers on-demand in a managed, serverless Azure environment. Azure Container Instances is a solution for any scenario that can operate in isolated containers, without orchestration. Run event-driven applications, quickly deploy from your container development pipelines, and run data processing and build jobs.   
+
 metadata:
-  title: Azure Container Instances Documentation - Tutorials | Microsoft Docs
-  description: Azure Container Instances offers the fastest and simplest way to run a container in Azure, without having to provision any virtual machines and without having to adopt a higher-level service.
-  services: container-instances
-  author: czeumault
-  manager: carolz
-  ms.service: container-instances
-  ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.topic: landing-page
-  ms.date: 07/26/2017
-  ms.author: carolz
-abstract:
-  description: Azure Container Instances offers the fastest and simplest way to run a container in Azure, without having to provision any virtual machines and without having to adopt a higher-level service. Learn how to create and manage container instances with our quickstarts, tutorials, and samples.<p>If you require a complete container orchestration solution, see the <a href="/azure/aks/">Azure Kubernetes Service (AKS) documentation</a>.</p>
-sections:
-- title: 5-Minute Quickstarts
-  items:
-  - type: paragraph
-    text: 'Learn how to deploy container images with Azure Container Instances.'
-  - type: list
-    style: icon48
-    items:
-    - image:
-        src: https://docs.microsoft.com/media/common/i_cligeneric.svg
-      text: Azure CLI
-      href: /azure/container-instances/container-instances-quickstart
-    - image:
-        src: https://docs.microsoft.com/media/common/i_portal.svg
-      text: Azure Portal
-      href: /azure/container-instances/container-instances-quickstart-portal
-    - image:
-        src: https://docs.microsoft.com/media/logos/logo_powershell.svg
-      text: Azure PowerShell
-      href: /azure/container-instances/container-instances-quickstart-powershell
-- title: Step-by-Step Tutorials
-  items:
-  - type: paragraph
-    text: Learn how to package code into a container image and run it in an Azure Container Instance.
-  - type: list
-    style: ordered
-    items:
-    - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Package an application into a container image</a>
-    - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-acr">Create an Azure Container Registry and upload the container image</a>
-    - html: <a href="/azure/container-instances/container-instances-tutorial-deploy-app">Deploy the container image to an Azure Container Instance</a>
-- title: Build your skills with Microsoft Learn
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
-    items:
-    - title: Run Docker containers with Azure Container Instances
-      href: /learn/modules/run-docker-with-azure-container-instances/
-      image: 
-        src: /learn/achievements/run-docker-with-azure-container-instances.svg
-  - type: paragraph
-    text: <a href="/learn/browse/?products=azure-container-instances">More interactive learning...</a>
-- title: Reference
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Command-Line
-      html: <p><a href="/cli/azure/container">Azure CLI</a></p><p><a href="/powershell/module/az.containerinstance">PowerShell</a></p>
-    - title: Languages
-      html: <p><a href="/dotnet/api/overview/azure/containerinstance">.NET</a></p><p><a href="/python/api/overview/azure/containerinstance">Python</a></p><p><a href="/java/api/overview/azure/containerinstance">Java</a></p><p><a href="/javascript/api/overview/azure/containerinstances">Node.js</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/container-instances">REST API Reference</a></p><p><a href="/azure/templates/microsoft.containerinstance/containergroups">Resource Manager template</a></p>
+  title: Azure Container Instances documentation - serverless containers, on demand
+  description: Azure Container Instances (ACI) allows you to run Docker containers in a managed, serverless cloud environment, without having to set up VMs, clusters, or orchestrators.
+  services: 
+  ms.service: container-instances 
+  ms.topic: landing-page 
+  ms.collection: collection
+  author: dlepow 
+  ms.author: danlep 
+  ms.date: 09/25/2019
+
+
+landingContent:
+  - title: About Azure Container Instances
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Container Instances?
+            url: container-instances-overview.md
+          - text: Container groups
+            url: container-instances-container-groups.md
+          - text: FAQ
+            url: container-instances-faq.yml  
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Deploy container instance - CLI 
+            url: container-instances-quickstart.md
+          - text: Deploy container instance - Portal
+            url: container-instances-quickstart-portal.md
+          - text: Deploy container instance - ARM template
+            url: container-instances-quickstart-template.md
+          - text: Deploy container instance - Docker CLI
+            url: quickstart-docker-cli.md
+      - linkListType: learn
+        links:
+          - text: Run Docker containers with Azure Container Instances
+            url: /training/modules/run-docker-with-azure-container-instances/
+  - title: Create multi-container groups
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Deploy container group - YAML 
+            url : container-instances-multi-container-yaml.md
+          - text: Deploy container group - ARM template
+            url: container-instances-multi-container-group.md 
+          - text: Deploy container group - Docker Compose
+            url: tutorial-docker-compose.md   
+  - title: Deployment scenarios
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Connect to a virtual network
+            url: container-instances-vnet.md
+          - text: Configure restart policy
+            url: container-instances-restart-policy.md
+          - text: Set environment variables
+            url: container-instances-environment-variables.md
+  - title: Manage container apps
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Stop and start containers
+            url: container-instances-stop-start.md
+          - text: Update running containers
+            url: container-instances-update.md
+          - text: Share data between containers
+            url: container-instances-volume-emptydir.md
+  - title: Integrate with Azure
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Deploy image from Azure Container Registry
+            url: container-instances-using-azure-container-registry.md
+          - text: Use managed identity
+            url: container-instances-managed-identity.md
+          - text: Mount an Azure file share
+            url: container-instances-volume-azure-files.md        
+  - title: Deploy confidential container groups
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Deploy a confidential container group - resource manager
+            url: container-instances-tutorial-deploy-confidential-containers-cce-arm.md
+          - text: Deploy a confidential container group - portal
+            url: container-instances-tutorial-deploy-confidential-container-default-portal.md
+
+
+                  

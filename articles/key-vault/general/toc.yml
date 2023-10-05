@@ -1,0 +1,229 @@
+- name: General
+  href: index.yml
+- name: Overview 
+  items:
+  - name: About Azure Key Vault
+    href: overview.md
+  - name: About keys, secrets, and certificates
+    href: about-keys-secrets-certificates.md
+- name: Documentation for keys, secrets, and certificates
+  items:
+  - name: Keys
+    href: ../keys/about-keys.md
+  - name: Secrets
+    href: ../secrets/about-secrets.md
+  - name: Certificates
+    href: ../certificates/about-certificates.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: CLI
+    href: quick-create-cli.md
+  - name: PowerShell
+    href: quick-create-powershell.md
+  - name: Portal
+    href: quick-create-portal.md
+
+- name: Tutorials 
+  items:
+  - name: Azure Virtual Machine
+    items:
+    - name: Use Azure Key Vault with a virtual machine in .NET
+      href: tutorial-net-virtual-machine.md
+    - name: Use Azure Key Vault with a virtual machine in Python
+      href: tutorial-python-virtual-machine.md
+    - name: Use Azure Key Vault with a virtual machine in JavaScript
+      href: tutorial-javascript-virtual-machine.md 
+      displayName: az keyvault create, az keyvault secret set, az vm create, az vm identity assign, az keyvault set-policy
+  - name: Azure App Service
+    items:
+    - name: Use Azure Key Vault with a Web App in .NET
+      href: tutorial-net-create-vault-azure-web-app.md
+  - name: Azure Kubernetes Service
+    items: 
+    - name: Integrate Azure Key Vault with Kubernetes
+      href: ../../aks/csi-secrets-store-driver.md
+  - name: Azure Databricks
+    items: 
+    - name: Access Azure Blob Storage using Azure Databricks and Azure Key Vault
+      href: integrate-databricks-blob-storage.md
+  
+
+- name: Samples
+  items:
+  - name: Key Vault Code Samples
+    href: /samples/browse/?expanded=azure&products=azure-key-vault
+  - name: Azure Resource Graph queries
+    href: ../resource-graph-samples.md
+
+- name: Concepts 
+  items:
+  - name: Basic concepts
+    href: basic-concepts.md
+  - name: Best practices
+    href: best-practices.md
+  - name: Security
+    items:
+    - name: Security features
+      href: security-features.md
+    - name: Key Vault authentication
+      href: authentication.md
+    - name: Security worlds and geographies
+      href: overview-security-worlds.md
+    - name: Network Security
+      href: network-security.md
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/key-vault-security-baseline?context=/azure/key-vault/general/context/context
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ../security-controls-policy.md?context=/azure/key-vault/general/context/context
+  - name: Azure Key Vault logging
+    href: logging.md
+  - name: Notifications
+    items:
+    - name: Monitor with Azure Event Grid
+      href: event-grid-overview.md
+  - name: Soft-delete
+    items:
+    - name: Azure Key Vault soft-delete
+      href: soft-delete-overview.md
+    - name: Soft-delete on by default
+      href: soft-delete-change.md
+  - name: Authentication, requests and responses
+    href: authentication-requests-and-responses.md
+  - name: Azure Key Vault throttling guidance
+    href: overview-throttling.md
+  - name: Azure Key Vault availability and redundancy
+    href: disaster-recovery-guidance.md
+  - name: Virtual network service endpoints for Azure Key Vault
+    href: overview-vnet-service-endpoints.md
+
+- name: How-to guides
+  items:
+  - name: Authorize access
+    items:
+    - name: RBAC vs. access policy (legacy)
+      href: rbac-access-policy.md
+    - name: Azure RBAC permission model
+      items:
+      - name: Use an Azure RBAC for managing access
+        href: rbac-guide.md
+      - name: Vault access policies to Azure RBAC migration guide
+        href: rbac-migration.md
+    - name: Assign an access policy (legacy)
+      href: assign-access-policy.md
+    - name: Troubleshoot access issues
+      href: troubleshooting-access-issues.md
+  - name: Develop
+    items:
+    - name: Azure Key Vault Developer's Guide
+      href: developers-guide.md
+    - name: Use Azure Resource Manager to deploy Key Vault
+      href: vault-create-template.md
+    - name: Use Key Vault Connected Service
+      href: vs-key-vault-add-connected-service.md
+  - name: Monitor and govern
+    items:
+    - name: Monitoring Key Vault
+      href: monitor-key-vault.md
+    - name: Event Grid Notifications
+      items:
+      - name: Receive notifications via Logic Apps 
+        href: event-grid-logicapps.md
+      - name: Receive notifications via Azure Automation
+        href: event-grid-tutorial.md
+    - name: Enable logging
+      href: howto-logging.md
+    - name: Monitoring Azure Key Vault
+      href: monitor-key-vault.md
+    - name: Configure alerts for Azure Key Vault
+      href: alert.md
+    - name: Recovery management with soft-delete and purge protection
+      href: key-vault-recovery.md
+    - name: Integrate Azure Key Vault with Azure Policy
+      href: azure-policy.md
+    - name: Troubleshoot issues with implementing Azure Key Vault with Azure Policy
+      href: troubleshoot-azure-policy-for-key-vault.md
+  - name: Secure
+    items:
+    - name: Configure key vault networking settings 
+      href: how-to-azure-key-vault-network-security.md
+    - name: Access Key Vault behind a firewall
+      href: access-behind-firewall.md
+    - name: Azure Private Link
+      items:
+      - name: Integrate with Azure Private Link Service
+        href: private-link-service.md
+      - name: Diagnose Private Links Configuration Issues
+        href: private-link-diagnostics.md
+  - name: Back up and restore objects
+    href: backup.md
+  - name: Move Key Vault
+    items: 
+    - name: Move Key Vault to Another Resource Group
+      href: move-resourcegroup.md
+    - name: Move Key Vault to Another Subscription
+      href: move-subscription.md
+    - name: Move Key Vault to Another Region
+      href: move-region.md
+- name: Reference
+  items:
+  - name: What's new
+    href: whats-new.md
+  - name: Monitoring Key Vault data reference
+    href: monitor-key-vault-reference.md
+  - name: Key management in Azure
+    href: ../../security/fundamentals/key-management.md
+  - name: Multitenancy and Azure Key Vault
+    href: /azure/architecture/guide/multitenant/service/key-vault
+  - name: Client libraries
+    href: client-libraries.md
+  - name: REST API error codes
+    href: rest-error-codes.md
+  - name: Common error codes
+    href: common-error-codes.md
+  - name: Common parameters and headers 
+    href: common-parameters-and-headers.md
+  - name: Key vault versions 
+    href: versions.md
+  - name: Azure PowerShell
+    href: /powershell/module/az.keyvault/#key_vault
+  - name: Azure CLI
+    href: /cli/azure/keyvault
+  - name: .NET
+    href: /dotnet/api/overview/azure/key-vault
+  - name: Java
+    href: /java/api/overview/azure/keyvault
+  - name: Node.js
+    href: /javascript/api/overview/azure/key-vault-index
+  - name: Python
+    href: /python/api/overview/azure/keyvault-keys-readme
+  - name: REST
+    href: /rest/api/keyvault
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.keyvault/allversions
+    displayName: ARM
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ../policy-reference.md?context=/azure/key-vault/general/context/context
+
+- name: Resources
+  items:
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/?products=azure-key-vault
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/key-vault/
+  - name: Region availability
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=key-vault
+  - name: Service Level Agreement (SLA)
+    href: https://azure.microsoft.com/support/legal/sla/key-vault/
+  - name: Service limits
+    href: ../general/service-limits.md
+  - name: Service status
+    href: https://azure.microsoft.com/status/
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?product=key-vault
+  - name: Blog
+    href: /archive/blogs/kv/
+  - name: Product Feedback
+    href: https://feedback.azure.com/d365community/forum/285c5ae0-f524-ec11-b6e6-000d3a4f0da0

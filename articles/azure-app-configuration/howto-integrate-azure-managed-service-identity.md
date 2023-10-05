@@ -1,32 +1,39 @@
 ---
-title: Integrate with Azure managed identities | Microsoft Docs
-description: Learn how to use Azure managed identities to authenticate with and gain access to Azure App Configuration
-services: azure-app-configuration
-documentationcenter: ''
-author: yegu-ms
-manager: balans
-editor: ''
-
-ms.assetid: 
+title: Use managed identities to access App Configuration
+titleSuffix: Azure App Configuration
+description: Authenticate to Azure App Configuration using managed identities
+author: maud-lv
+ms.author: malev
 ms.service: azure-app-configuration
-ms.workload: tbd
-ms.devlang: na
+ms.custom: devx-track-csharp, fasttrack-edit, subject-rbac-steps, devdivchpfy22
 ms.topic: conceptual
-ms.date: 02/24/2019
-ms.author: yegu
-
+ms.date: 07/11/2023
+zone_pivot_groups: appconfig-provider
 ---
-# Integrate with Azure managed identities
+# Use managed identities to access App Configuration
 
-Azure Active Directory [managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) help simplify secrets management for your cloud application. With a managed identity, you can set up your code to use the service principal that was created for the Azure compute service it runs on. You use a managed identity instead of a separate credential stored in Azure Key Vault or a local connection string. 
+Azure Active Directory [managed identities](../active-directory/managed-identities-azure-resources/overview.md) simplify secrets management for your cloud application. With a managed identity, your code can use the service principal created for the Azure service it runs on. You use a managed identity instead of a separate credential stored in Azure Key Vault or a local connection string.
 
-Azure App Configuration and its .NET Core, .NET, and Java Spring client libraries come with managed service identity (MSI) support built into them. Although you aren't required to use it, MSI eliminates the need for an access token that contains secrets. Your code has to know only the service endpoint for an app configuration store in order to access it. You can embed this URL in your code directly without the concern of exposing any secret.
+Azure App Configuration and its .NET, .NET Framework, and Java Spring client libraries have managed identity support built into them. Although you aren't required to use it, the managed identity eliminates the need for an access token that contains secrets. Your code can access the App Configuration store using only the service endpoint. You can embed this URL in your code directly without exposing any secret.
 
-This tutorial shows how you can take advantage of MSI to access App Configuration. It builds on the web app introduced in the quickstarts. Before you continue, finish [Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md) first.
+:::zone target="docs" pivot="framework-dotnet"
+
+This article shows how you can take advantage of the managed identity to access App Configuration. It builds on the web app introduced in the quickstarts. Before you continue, [Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md) first.
+
+:::zone-end
+
+:::zone target="docs" pivot="framework-spring"
+
+This article shows how you can take advantage of the managed identity to access App Configuration. It builds on the web app introduced in the quickstarts. Before you continue, [Create a Java Spring app with Azure App Configuration](./quickstart-java-spring-app.md) first.
+
+:::zone-end
+
+> [!IMPORTANT]
+> Managed identity can't be used to authenticate locally running applications. Your application must be deployed to an Azure service that supports Managed Identity. This article uses Azure App Service as an example. However, the same concept applies to any other Azure service that supports managed identity. For example, [Azure Kubernetes Service](../aks/use-azure-ad-pod-identity.md), [Azure Virtual Machine](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md), and [Azure Container Instances](../container-instances/container-instances-managed-identity.md). If your workload is hosted in one of those services, you can also leverage the service's managed identity support.
 
 You can use any code editor to do the steps in this tutorial. [Visual Studio Code](https://code.visualstudio.com/) is an excellent option available on the Windows, macOS, and Linux platforms.
 
-In this tutorial, you learn how to:
+In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Grant a managed identity access to App Configuration.
@@ -36,42 +43,78 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, you must have:
 
-* [.NET Core SDK](https://www.microsoft.com/net/download/windows).
-* [Azure Cloud Shell configured](https://docs.microsoft.com/azure/cloud-shell/quickstart).
+:::zone target="docs" pivot="framework-dotnet"
+
+* [.NET SDK](https://dotnet.microsoft.com/download).
+* [Azure Cloud Shell configured](../cloud-shell/quickstart.md).
+
+:::zone-end
+
+:::zone target="docs" pivot="framework-spring"
+
+* Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+* A supported [Java Development Kit (JDK)](/java/azure/jdk) with version 11.
+* [Apache Maven](https://maven.apache.org/download.cgi) version 3.0 or above.
+
+:::zone-end
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Add a managed identity
 
-To set up a managed identity in the portal, you first create an application as normal and then enable the feature.
+To set up a managed identity in the portal, you first create an application and then enable the feature.
 
-1. Create an app in the [Azure portal](https://portal.azure.com) as you normally do. Go to it in the portal.
+1. Access your App Services resource in the [Azure portal](https://portal.azure.com). If you don't have an existing App Services resource to use, create one.
 
-2. Scroll down to the **Settings** group in the left pane, and select **Identity**.
+1. Scroll down to the **Settings** group in the left pane, and select **Identity**.
 
-3. On the **System assigned** tab, switch **Status** to **On** and select **Save**.
+1. On the **System assigned** tab, switch **Status** to **On** and select **Save**.
 
-    ![Set managed identity in App Service](./media/set-managed-identity-app-service.png)
+1. When prompted, answer **Yes** to turn on the system-assigned managed identity.
+
+    :::image type="content" source="./media/add-managed-identity-app-service.png" alt-text="Screenshot of how to add a managed identity in App Service.":::
 
 ## Grant access to App Configuration
 
-1. In the [Azure portal](https://portal.azure.com), select **All resources** and select the app configuration store that you created in the quickstart.
+The following steps describe how to assign the App Configuration Data Reader role to App Service. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-2. Select **Access control (IAM)**.
+1. In the [Azure portal](https://portal.azure.com), select **All resources** and select the App Configuration store that you created in the [quickstart](../azure-app-configuration/quickstart-azure-functions-csharp.md).
 
-3. On the **Check access** tab, select **Add** in the **Add role assignment** card UI.
+1. Select **Access control (IAM)**.
 
-4. Under **Role**, select **Contributor**. Under **Assign access to**, select **App Service** under **System assigned managed identity**.
+1. Select **Add** > **Add role assignment**.
 
-5. Under **Subscription**, select your Azure subscription. Select the App Service resource for your app.
+    :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu.png" alt-text="Screenshot that shows the Access control (IAM) page with Add role assignment menu open.":::
 
-6. Select **Save**.
+   If you don't have permission to assign roles, then the **Add role assignment** option will be disabled. For more information, see [Azure built-in roles](../role-based-access-control/built-in-roles.md).
 
-    ![Add a managed identity](./media/add-managed-identity.png)
+1. On the **Role** tab, select the **App Configuration Data Reader** role and then select **Next**.
+
+    :::image type="content" source="../../includes/role-based-access-control/media/select-role-assignment-generic.png" alt-text="Screenshot that shows the Add role assignment page with Role tab selected.":::
+
+1. On the **Members** tab, select **Managed identity** and then select **Select members**.
+
+    :::image type="content" source="../../includes/role-based-access-control/media/add-members.png" alt-text="Screenshot that shows the Add role assignment page with Members tab selected.":::
+
+1. Select your Azure subscription, for Managed identity select **App Service**, then select your App Service name.
+
+    :::image type="content" source="../../includes/role-based-access-control/media/select-managed-identity-members.png" alt-text="Screenshot that shows the select managed identities page.":::
+
+1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
 ## Use a managed identity
 
-1. Open *appsettings.json*, and add the following script. Replace *\<service_endpoint>*, including the brackets, with the URL to your app configuration store:
+:::zone target="docs" pivot="framework-dotnet"
+
+1. Add a reference to the `Azure.Identity` package:
+
+    ```bash
+    dotnet add package Azure.Identity
+    ```
+
+1. Find the endpoint to your App Configuration store. This URL is listed on the **Access keys** tab for the store in the Azure portal.
+
+1. Open the *appsettings.json* file and add the following script. Replace *\<service_endpoint>*, including the brackets, with the URL to your App Configuration store.
 
     ```json
     "AppConfig": {
@@ -79,117 +122,97 @@ To set up a managed identity in the portal, you first create an application as n
     }
     ```
 
-2. Open *Program.cs*, and update the `CreateWebHostBuilder` method by replacing the `config.AddAzureAppConfiguration()` method.
+1. Open the *Program.cs* file and add a reference to the `Azure.Identity` and `Microsoft.Azure.Services.AppAuthentication` namespaces:
 
-    ```csharp
-    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-        WebHost.CreateDefaultBuilder(args)
-            .ConfigureAppConfiguration((hostingContext, config) =>
-            {
-                var settings = config.Build();
-                config.AddAzureAppConfiguration(options =>
-                    options.ConnectWithManagedIdentity(settings["AppConfig:Endpoint"]));
-            })
-            .UseStartup<Startup>();
+    ```csharp-interactive
+    using Azure.Identity;
     ```
 
-[!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
+1. To access values stored in App Configuration, update the `Builder` configuration to use the `AddAzureAppConfiguration()` method.
 
-[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
+    ### [.NET 6.0+](#tab/core6x)
 
-## Deploy from local Git
+    ```csharp
+    var builder = WebApplication.CreateBuilder(args);
 
-The easiest way to enable local Git deployment for your app with the Kudu build server is to use Azure Cloud Shell.
+    builder.Configuration.AddAzureAppConfiguration(options =>
+        options.Connect(
+            new Uri(builder.Configuration["AppConfig:Endpoint"]),
+            new ManagedIdentityCredential()));
+    ```
 
-### Configure a deployment user
+    ### [.NET Core 3.x](#tab/core3x)
 
-[!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user-no-h.md)]
+    ```csharp
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+            .ConfigureWebHostDefaults(webBuilder =>
+                webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
+                {
+                    var settings = config.Build();
+                    config.AddAzureAppConfiguration(options =>
+                        options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential()));
+                })
+                .UseStartup<Startup>());
+    ```
 
-### Enable local Git with Kudu
+    ---
 
-To enable local Git deployment for your app with the Kudu build server, run [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) in Cloud Shell.
+    > [!NOTE]
+    > If you want to use a **user-assigned managed identity**, be sure to specify the `clientId` when creating the [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential).
+    >```csharp
+    >new ManagedIdentityCredential("<your_clientId>")
+    >```
+    >As explained in the [Managed Identities for Azure resources FAQs](../active-directory/managed-identities-azure-resources/known-issues.md), there is a default way to resolve which managed identity is used. In this case, the Azure Identity library enforces you to specify the desired identity to avoid possible runtime issues in the future. For instance, if a new user-assigned managed identity is added or if the system-assigned managed identity is enabled. So, you will need to specify the `clientId` even if only one user-assigned managed identity is defined, and there is no system-assigned managed identity.
 
-```azurecli-interactive
-az webapp deployment source config-local-git --name <app_name> --resource-group <group_name>
+:::zone-end
+
+:::zone target="docs" pivot="framework-spring"
+
+1. Find the endpoint to your App Configuration store. This URL is listed on the **Overview** tab for the store in the Azure portal.
+
+1. Open `bootstrap.properties`, remove the connection-string property and replace it with endpoint for System Assigned Identity:
+
+```properties
+spring.cloud.azure.appconfiguration.stores[0].endpoint=<service_endpoint>
 ```
 
-To create a Git-enabled app instead, run [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) in Cloud Shell with the `--deployment-local-git` parameter.
+for User Assigned Identity:
 
-```azurecli-interactive
-az webapp create --name <app_name> --resource-group <group_name> --plan <plan_name> --deployment-local-git
+```properties
+spring.cloud.azure.appconfiguration.stores[0].endpoint=<service_endpoint>
+spring.cloud.azure.credential.managed-identity-enabled= true
+spring.cloud.azure.credential.client-id= <client_id>
 ```
 
-The `az webapp create` command gives you something similar to the following output:
+> [!NOTE]
+> For more information see [Spring Cloud Azure authentication](/azure/developer/java/spring-framework/authentication).
 
-```json
-Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git'
-{
-  "availabilityState": "Normal",
-  "clientAffinityEnabled": true,
-  "clientCertEnabled": false,
-  "cloningInfo": null,
-  "containerSize": 0,
-  "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<app_name>.azurewebsites.net",
-  "deploymentLocalGitUrl": "https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git",
-  "enabled": true,
-  < JSON data removed for brevity. >
-}
-```
+:::zone-end
 
-### Deploy your project
+## Deploy your application
 
-Back in the _local terminal window_, add an Azure remote to your local Git repository. Replace _\<url>_ with the URL of the Git remote that you got from [Enable Git for your app](#enable-local-git-with-kudu).
+:::zone target="docs" pivot="framework-dotnet"
 
-```bash
-git remote add azure <url>
-```
+You must deploy your app to an Azure service when you use managed identities. Managed identities can't be used for authentication of locally running apps. To deploy the .NET Core app that you created in the [Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md) quickstart and modified to use managed identities, follow the guidance in [Publish your web app](../app-service/quickstart-dotnetcore.md?pivots=development-environment-vs&tabs=netcore31#2-publish-your-web-app).
 
-Push to the Azure remote to deploy your app with the following command. When you're prompted for a password, enter the password you created in [Configure a deployment user](#configure-a-deployment-user). Don't use the password you use to sign in to the Azure portal.
+:::zone-end
 
-```bash
-git push azure master
-```
+:::zone target="docs" pivot="framework-spring"
 
-You might see runtime-specific automation in the output, such as MSBuild for ASP.NET, `npm install` for Node.js, and `pip install` for Python.
+Using managed identities requires you to deploy your app to an Azure service. Managed identities can't be used for authentication of locally running apps. To deploy the Spring app that you created in the [Create a Java Spring app with Azure App Configuration](./quickstart-java-spring-app.md) quickstart and modified to use managed identities, follow the guidance in [Publish your web app](../app-service/quickstart-java.md?tabs=javase&pivots=platform-linux).
 
-### Browse to the Azure web app
+:::zone-end
 
-Browse to your web app by using a browser to verify that the content is deployed.
-
-```bash
-http://<app_name>.azurewebsites.net
-```
-
-![App running in App Service](../app-service/media/app-service-web-tutorial-dotnetcore-sqldb/azure-app-in-browser.png)
-
-## Use managed identity in other languages
-
-App Configuration providers for .NET Framework and Java Spring also have built-in support for managed identity. In these cases, use your app configuration store's URL endpoint instead of its full connection string when you configure a provider. For example, for the .NET Framework console app created in the quickstart, specify the following settings in the *App.config* file:
-
-```xml
-    <configSections>
-        <section name="configBuilders" type="System.Configuration.ConfigurationBuildersSection, System.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" restartOnExternalChanges="false" requirePermission="false" />
-    </configSections>
-
-    <configBuilders>
-        <builders>
-            <add name="MyConfigStore" mode="Greedy" endpoint="${Endpoint}" type="Microsoft.Configuration.ConfigurationBuilders.AzureAppConfigurationBuilder, Microsoft.Configuration.ConfigurationBuilders.AzureAppConfiguration" />
-            <add name="Environment" mode="Greedy" type="Microsoft.Configuration.ConfigurationBuilders.EnvironmentConfigBuilder, Microsoft.Configuration.ConfigurationBuilders.Environment" />
-        </builders>
-    </configBuilders>
-
-    <appSettings configBuilders="Environment,MyConfigStore">
-        <add key="AppName" value="Console App Demo" />
-        <add key="Endpoint" value ="Set via an environment variable - for example, dev, test, staging, or production endpoint." />
-    </appSettings>
-```
+In addition to App Service, many other Azure services support managed identities. For more information, see [Services that support managed identities for Azure resources](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md).
 
 ## Clean up resources
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
 ## Next steps
+
+In this tutorial, you added an Azure managed identity to streamline access to App Configuration and improve credential management for your app. To learn more about how to use App Configuration, continue to the Azure CLI samples.
 
 > [!div class="nextstepaction"]
 > [CLI samples](./cli-samples.md)

@@ -1,61 +1,99 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure Automation User Documentation
+### YamlMime:Landing
+
+title: Azure Automation documentation
 metadata:
-  document_id: 
-  title: Azure Automation Documentation - Tutorials, API Reference
-  description: Learn how to use Azure automation
+  title: Azure Automation documentation
+  description: Learn how to use Automation to configure and automate operational tasks across a hybrid environment.
   services: automation
-  author: georgewallace
-  manager: carmonm
+  author: SnehaSudhirG
+  manager: evansma
   ms.service: automation
-  ms.tgt_pltfrm: na
   ms.topic: landing-page
-  ms.date: 12/13/2017
-  ms.author: gwallace
-abstract:
-  description: Learn how to use Automation to configure and automate operational tasks across a hybrid environment. Tutorials, API references, and other documentation show you how to automate processes, perform update management, deliver desired state configuration, track changes, and collect inventory.
-sections:
-- title: 5-Minute Quickstarts
-  items:
-  - type: paragraph
-    text: 'Learn how to automate and configure your Azure and hybrid environment using Automation:'
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: /azure/automation/media/index/automation.svg
-      text: Create an Automation account
-      href: "/azure/automation/automation-quickstart-create-account"
-    - image: 
-        src: /azure/automation/media/index/runbook.svg
-      text: Create a runbook
-      href: "/azure/automation/automation-quickstart-create-runbook"
-    - image: 
-        src: /azure/automation/media/index/dscconfig.svg
-      text: Create a DSC configuration
-      href: "/azure/automation/automation-quickstart-dsc-configuration"
-- title: Step-by-Step Tutorials
-  items:
-  - type: paragraph
-    text: 'Learn how to integrate, deploy, and manage your Azure and hybrid environments.'
-  - type: list
-    style: ordered
-    items:
-    - html: <a href="/azure/automation/automation-watchers-tutorial">Configure watcher tasks</a>
-    - html: <a href="/azure/automation/automation-tutorial-update-management">Manage updates on your VM</a>
-    - html: <a href="/azure/automation/automation-onboard-solutions">Onboard at scale</a>
-    - html: <a href="/azure/automation/automation-tutorial-installed-software">Identify software installed on a VM</a>
-    - html: <a href="/azure/automation/automation-tutorial-troubleshoot-changes">Troubleshoot changes on a VM</a>
-- title: Reference
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Command-Line
-      html: <p><a href="/powershell/module/azurerm.automation">PowerShell</a></p>
-    - title: Languages
-      html: <p><a href="/dotnet/api/microsoft.azure.management.automation">.NET</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/automation">Automation REST API</a></p>
+  ms.date: 08/30/2022
+  ms.author: sudhirsneha
+
+landingContent:
+
+  # Card (optional)
+  - title: Get started with Azure Automation
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Automation?
+            url: overview.md
+      - linkListType: get-started
+        links:
+          - text: Create an Automation account
+            url: quickstarts/create-azure-automation-account-portal.md
+      - linkListType: quickstart
+        links:
+          - text: Create a runbook
+            url: ./learn/powershell-runbook-managed-identity.md
+      - linkListType: deploy
+        links:
+          - text: Start/Stop VMs during off-hours
+            url: automation-solution-vm-management.md
+          - text: Change tracking and inventory using Azure Monitoring Agent (Preview)
+            url:  change-tracking/overview-monitoring-agent.md
+
+  - title: Manage Updates for VMs
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Update Management overview
+            url: update-management/overview.md
+      - linkListType: get-started
+        links:
+          - text: Manage updates for multiple VMs
+            url: update-management/manage-updates-for-vm.md
+  - title: Configure your VMs with Desired State Configuration
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: State Configuration overview
+            url: automation-dsc-overview.md
+      - linkListType: concept
+        links:
+          - text: PowerShell DSC
+            url: /powershell/dsc/overview
+      - linkListType: quickstart
+        links:
+          - text: Create a DSC Configuration from Group Policy
+            url: /powershell/dsc/quickstarts/gpo-quickstart
+      - linkListType: tutorial
+        links:
+          - text: Configure Servers and manage drift with State Configuration
+            url: tutorial-configure-servers-desired-state.md
+
+  - title: Work with Hybrid Environments
+    linkLists:
+      - linkListType: overview
+        links:
+         - text: Hybrid Runbook Worker Overview
+           url: automation-hybrid-runbook-worker.md
+      - linkListType: deploy
+        links:
+          - text: Deploy extension-based Windows or Linux Worker
+            url: extension-based-hybrid-runbook-worker-install.md
+          - text: Deploy Windows Hybrid Runbook Worker
+            url: automation-windows-hrw-install.md
+          - text: Deploy Linux Hybrid Runbook Worker
+            url: automation-linux-hrw-install.md
+          - text: Start runbooks on a Hybrid Runbook Worker
+            url: automation-hrw-run-runbooks.md
+
+  # Card
+  - title: Cross Service Automation
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Send an email from a Runbook using SendGrid
+            url: automation-send-email.md
+      - linkListType: get-started
+        links:
+          - text: Start a runbook from Azure alerts
+            url: automation-create-alert-triggered-runbook.md
+      - linkListType: deploy
+        links:
+          - text: Deploy a Resource Manager template in an Automation PowerShell runbook
+            url: automation-deploy-template-runbook.md

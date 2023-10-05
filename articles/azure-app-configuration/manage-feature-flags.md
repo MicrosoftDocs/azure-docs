@@ -1,10 +1,10 @@
 ---
-title: Tutorial for using Azure App Configuration to manage feature flags | Microsoft Docs
+title: "Tutorial: Use Azure App Configuration to manage feature flags"
+titleSuffix: Azure App Configuration
 description: In this tutorial, you learn how to manage feature flags separately from your application by using Azure App Configuration.
 services: azure-app-configuration
 documentationcenter: ''
-author: yegu-ms
-manager: maiye
+author: maud-lv
 editor: ''
 
 ms.assetid: 
@@ -12,9 +12,9 @@ ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 04/19/2019
-ms.author: yegu
-ms.custom: mvc
+ms.date: 04/05/2022
+ms.author: malev
+ms.custom: "devx-track-csharp, mvc"
 
 #Customer intent: I want to control feature availability in my app by using App Configuration.
 ---
@@ -35,43 +35,53 @@ The Feature Manager in the Azure portal for App Configuration provides a UI for 
 
 To add a new feature flag:
 
-1. Select **Feature Manager** > **+Add** to add a feature flag.
+1. Open an Azure App Configuration store and from the **Operations** menu, select **Feature Manager** > **+Add**.
+:::image type="content" source="media/add-feature-flag.png" alt-text="Screenshot of the Azure platform. Add a feature flag." lightbox="media/add-feature-flag-expanded.png":::
 
-    ![Feature flag list](./media/azure-app-configuration-feature-flags.png)
+1. Check the box **Enable feature flag** to make the new feature flag active as soon as the flag has been created.
 
-1. Enter a unique key name for the feature flag. You need this name to reference the flag in your code.
+1. Enter a **Feature flag name**. The feature flag name is the unique ID of the flag, and the name that should be used when referencing the flag in code.
 
-1. If you want, give the feature flag a description.
+1. You can edit the key for your feature flag. The default value for this key is the name of your feature flag. You can change the key to add a prefix, which can be used to find specific feature flags when loading the feature flags in your application. For example, using the application's name as prefix such as **appname:featureflagname**.
 
-1. Set the initial state of the feature flag. This state is usually *Off* or *On*. The *On* state changes to *Conditional* if you add a filter to the feature flag.
+1. Optionally select an existing label or create a new one, and enter a description for the new feature flag.
 
-    ![Feature flag creation](./media/azure-app-configuration-feature-flag-create.png)
+1. Leave the **Use feature filter** box unchecked and select **Apply** to create the feature flag. To learn more about feature filters, visit [Use feature filters to enable conditional feature flags](howto-feature-filters-aspnet-core.md) and [Enable staged rollout of features for targeted audiences](howto-targetingfilter-aspnet-core.md).
+:::image type="content" source="media/create-feature-flag.png" alt-text="Screenshot of the Azure platform. Feature flag creation form.":::
 
-1. When the state is *On*, select **+Add filter** to specify any additional conditions to qualify the state. Enter a built-in or custom filter key, and then select **+Add parameter** to associate one or more parameters with the filter. Built-in filters include:
+## Update feature flags
 
-    | Key | JSON parameters |
-    |---|---|
-    | Microsoft.Percentage | {"Value": 0-100 percent} |
-    | Microsoft.TimeWindow | {"Start": UTC time, "End": UTC time} |
+To update a feature flag:
 
-    ![Feature flag filter](./media/azure-app-configuration-feature-flag-filter.png)
+1. From the **Operations** menu, select **Feature Manager**.
 
-## Update feature flag states
+1. Move to the right end of the feature flag you want to modify, select the **More actions** ellipsis (**...**). From this menu, you can edit the flag, create a label, lock or delete the feature flag.
+:::image type="content" source="media/edit-feature-flag.png" alt-text="Screenshot of the Azure platform. Edit a feature flag." lightbox="media/edit-feature-flag-expanded.png":::
 
-To change a feature flag's state value:
+1. Select **Edit** and update the feature flag.
 
-1. Select **Feature Manager**.
-
-1. To the right of a feature flag you want to modify, select the ellipsis (**...**), and then select **Edit**.
-
-1. Set a new state for the feature flag.
+In the **Feature manager**, you can also change the state of a feature flag by checking or unchecking the **Enable Feature flag** checkbox.
 
 ## Access feature flags
 
-Feature flags created by the Feature Manager are stored and retrieved as regular key values. They're kept under a special namespace prefix `.appconfig.featureflag`. To view the underlying key values, use the Configuration Explorer. Your application can retrieve these values by using the App Configuration configuration providers, SDKs, command-line extensions, and REST APIs.
+In the **Operations** menu, select **Feature manager**. You can select **Edit Columns** to add or remove columns, and change the column order.
+create a label, lock or delete the feature flag.
+:::image type="content" source="media/edit-columns-feature-flag.png" alt-text="Screenshot of the Azure platform. Edit feature flag columns." lightbox="media/edit-columns-feature-flag-expanded.png":::
+
+Feature flags created with the Feature Manager are stored and retrieved as regular key-values. They're kept under a special namespace prefix `.appconfig.featureflag`.
+
+To view the underlying key-values:
+
+1. In the **Operations** menu, open the **Configuration explorer**.
+
+1. Select **Manage view** > **Settings**.
+
+1. Select **Include feature flags in the configuration explorer** and **Apply**.
+:::image type="content" source="media/include-feature-flag-configuration-explorer.png" alt-text="Screenshot of the Azure platform. Include feature flags in Configuration explorer." lightbox="media/include-feature-flag-configuration-explorer.png":::
+
+Your application can retrieve these values by using the App Configuration configuration providers, SDKs, command-line extensions, and REST APIs.
 
 ## Next steps
 
-In this tutorial, you learned how to manage feature flags and their states by using App Configuration. For more information about feature-management support in App Configuration and ASP.NET Core, see the following article:
-
-* [Use feature flags in an ASP.NET Core app](./use-feature-flags-dotnet-core.md)
+> [!div class="nextstepaction"]
+> [Enable staged rollout of features for targeted audiences](./howto-targetingfilter-aspnet-core.md)

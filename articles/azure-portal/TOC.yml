@@ -2,47 +2,89 @@
   href: index.yml
 - name: Overview
   items:
-  - name: About the Azure portal
+  - name: What is the Azure portal?
     href: azure-portal-overview.md
+  - name: Get started with Azure Quickstart Center
+    href: azure-portal-quickstart-center.md
   - name: Supported browsers and devices
-    href: azure-portal-supported-browsers-devices.md 
-- name: Concepts
-  items:  
-  - name: Create and share Azure dashboards
-    href: azure-portal-dashboards.md
-  - name: Share dashboards with role-based access control
-    href: azure-portal-dashboard-share-access.md
-  - name: Programmatically create Azure dashboards
-    href: azure-portal-dashboards-create-programmatically.md
+    href: azure-portal-supported-browsers-devices.md
+- name: Quickstarts
+  items:
+  - name: Create a VM in the portal
+    href: ../virtual-machines/windows/quick-create-portal.md?context=/azure/azure-portal/context/context
+  - name: Create a dashboard
+    items:
+    - name: Azure CLI
+      href: quickstart-portal-dashboard-azure-cli.md
+    - name: Azure PowerShell
+      href: quickstart-portal-dashboard-powershell.md
+    - name: Bicep
+      displayName: Resource Manager, ARM, template
+      href: quick-create-bicep.md
+    - name: ARM template
+      displayName: Resource Manager
+      href: quick-create-template.md
 - name: How-to guides
-  items:  
-  - name: Turn on high contrast or change theme
-    href: azure-portal-change-theme-high-contrast.md
+  items:
+  - name: Manage Azure portal settings and preferences
+    href: set-preferences.md
   - name: Add, remove, and sort favorites
     href: azure-portal-add-remove-sort-favorites.md
-  - name: Use a custom markdown tile
-    href: azure-portal-markdown-tile.md
-  - name: Export or delete user settings
-    href: azure-portal-export-delete-settings.md
+  - name: View and filter resource information
+    href: manage-filter-resource-views.md
+  - name: Find subscription and tenant IDs
+    href: get-subscription-tenant-id.md
+  - name: Create Azure dashboards
+    items:
+    - name: Create an Azure dashboard
+      href: azure-portal-dashboards.md
+    - name: Share an Azure dashboard
+      href: azure-portal-dashboard-share-access.md
+    - name: Use a custom markdown tile
+      href: azure-portal-markdown-tile.md
+    - name: Programmatically create an Azure dashboard
+      href: azure-portal-dashboards-create-programmatically.md
+      displayName: Azure CLI, az portal dashboard, az portal
+    - name: Recover a deleted dashboard
+      href: recover-shared-deleted-dashboard.md
   - name: Azure portal how-to video series
-    href: https://www.youtube.com/playlist?list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR
+    href: azure-portal-video-series.md
+  - name: Create and manage support requests
+    items:
+    - name: Create an Azure support request
+      href: supportability/how-to-create-azure-support-request.md
+    - name: Manage an Azure support request
+      href: supportability/how-to-manage-azure-support-request.md
+    - name: Capture a browser trace for troubleshooting
+      href: capture-browser-trace.md
 - name: Reference
   items:
   - name: Keyboard shortcuts
     href: azure-portal-keyboard-shortcuts.md
+  - name: Azure portal URLs
+    href: azure-portal-safelist-urls.md
   - name: Structure of Azure dashboards
     href: azure-portal-dashboards-structure.md
+  - name: Azure CLI
+    href: /cli/azure/portal
+  - name: Azure PowerShell
+    href: /powershell/module/az.portal
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
-  - name: Azure roadmap
+  - name: Azure updates
     href: https://azure.microsoft.com/updates/
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?products=azure-portal
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/?products=azure-portal
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Regional availability
-    href: https://azure.microsoft.com/regions/services/
+    href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-management-portal
-  - name: Azure Videos
+  - name: Azure videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=azure-portal&sort=newest
+  - name: Product feedback
+    href: https://feedback.azure.com/d365community/forum/a222eda7-2425-ec11-b6e6-000d3a4f09d0

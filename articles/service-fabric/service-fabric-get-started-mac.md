@@ -1,42 +1,36 @@
 ---
-title: Set up your development environment on Mac OS X to work with Azure Service Fabric| Microsoft Docs
-description: Install the runtime, SDK, and tools and create a local development cluster. After completing this setup, you'll be ready to build applications on Mac OS X.
-services: service-fabric
-documentationcenter: linux
-author: suhuruli
-manager: chackdan
-editor: ''
-
-ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
+title: Set up your dev environment on macOS
+description: Install the runtime, SDK, and tools and create a local development cluster. After completing this setup, you'll be ready to build applications on macOS.
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
 ms.service: service-fabric
-ms.devlang: linux
-ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 11/17/2017
-ms.author: suhuruli
+ms.custom: devx-track-dotnet
+services: service-fabric
+ms.date: 07/14/2022
 
+# Maintainer notes: Keep these documents in sync:
+# service-fabric-local-linux-cluster-windows.md
 ---
-# Set up your development environment on Mac OS X
+
+# Set up your development environment on macOS X
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started.md)
 > * [Linux](service-fabric-get-started-linux.md)
-> * [OSX](service-fabric-get-started-mac.md)
->
->  
+> * [macOS X](service-fabric-get-started-mac.md)
 
-You can build Azure Service Fabric applications to run on Linux clusters by using Mac OS X. This document covers how to set up your Mac for development.
+You can build Azure Service Fabric applications to run on Linux clusters by using macOS X. This document covers how to set up your Mac for development.
 
 ## Prerequisites
-Azure Service Fabric doesn't run natively on Mac OS X. To run a local Service Fabric cluster, a pre-configured Docker container image is provided. Before you get started, you need:
+Azure Service Fabric doesn't run natively on macOS X. To run a local Service Fabric cluster, a pre-configured Docker container image is provided. Before you get started, you'll need:
 
-* At least 4 GB of RAM.
-* The latest version of [Docker](https://www.docker.com/).
+* The system requirements for installing [Docker Desktop on Mac](https://docs.docker.com/docker-for-mac/install/)
+
+* To [install and run Docker Desktop on Mac](https://docs.docker.com/docker-for-mac/install/#install-and-run-docker-desktop-on-mac)
 
 >[!TIP]
 >
->To install Docker on your Mac, follow the steps in the [Docker documentation](https://docs.docker.com/docker-for-mac/install/#what-to-know-before-you-install). After installing, [verify your installation](https://docs.docker.com/docker-for-mac/#check-versions-of-docker-engine-compose-and-machine).
->
+>To install Docker on your Mac, follow the steps in the [Docker documentation](https://docs.docker.com/docker-for-mac/install/#what-to-know-before-you-install). After installing, you can use Docker Desktop to set preferences including [resource limits](https://docs.docker.com/docker-for-mac) and [disk utilization](https://docs.docker.com/docker-for-mac/space/).
 
 ## Create a local container and set up Service Fabric
 To set up a local Docker container and have a Service Fabric cluster running on it, perform the following steps:
@@ -53,38 +47,51 @@ To set up a local Docker container and have a Service Fabric cluster running on 
     
     >[!NOTE]
     >
-    >Modifying the daemon directly in Docker is reccommended because the location of the daemon.json file can vary from machine to machine. For example,
+    >Modifying the daemon directly in Docker is recommended because the location of the daemon.json file can vary from machine to machine. For example,
     > ~/Library/Containers/com.docker.docker/Data/database/com.docker.driver.amd64-linux/etc/docker/daemon.json.
     >
 
     >[!TIP]
     >We recommend increasing the resources allocated to Docker when testing large applications. This can be done by selecting the **Docker Icon**, then selecting **Advanced** to adjust the number of cores and memory.
 
-2. In a new directory create a file called `Dockerfile` to build your Service Fabric Image:
+2. Start the cluster.
 
-    ```Dockerfile
-    FROM microsoft/service-fabric-onebox
-    WORKDIR /home/ClusterDeployer
-    RUN ./setup.sh
-    #Generate the local
-    RUN locale-gen en_US.UTF-8
-    #Set environment variables
-    ENV LANG=en_US.UTF-8
-    ENV LANGUAGE=en_US:en
-    ENV LC_ALL=en_US.UTF-8
-    EXPOSE 19080 19000 80 443
-    #Start SSH before running the cluster
-    CMD /etc/init.d/ssh start && ./run.sh
+   **Latest:**
+   
+    ```bash
+    docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mcr.microsoft.com/service-fabric/onebox:latest
     ```
 
+   **Ubuntu 18.04 LTS:**
+   
+    ```bash
+    docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mcr.microsoft.com/service-fabric/onebox:u18
+    ```
+
+    >[!TIP]
+    > By default, this will pull the image with the latest version of Service Fabric. For particular revisions, please visit the [Service Fabric Onebox](https://hub.docker.com/_/microsoft-service-fabric-onebox) page on Docker Hub.
+
+
+
+3. Optional: Build your extended Service Fabric image.
+
+    In a new directory, create a file called `Dockerfile` to build your customized image:
+
     >[!NOTE]
-    >You can adapt this file to add additional programs or dependencies into your container.
+    >You can adapt the image above with a Dockerfile to add additional programs or dependencies into your container.
     >For example, adding `RUN apt-get install nodejs -y` will allow support for `nodejs` applications as guest executables.
+    ```Dockerfile
+    FROM mcr.microsoft.com/service-fabric/onebox:u18
+    RUN apt-get install nodejs -y
+    EXPOSE 19080 19000 80 443
+    WORKDIR /home/ClusterDeployer
+    CMD ["./ClusterDeployer.sh"]
+    ```
     
     >[!TIP]
-    > By default, this will pull the image with the latest version of Service Fabric. For particular revisions, please visit the [Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/) page
+    > By default, this will pull the image with the latest version of Service Fabric. For particular revisions, please visit the [Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/) page.
 
-3. To build your reusable image from the `Dockerfile` open a terminal and `cd` to the directly holding your `Dockerfile` then run:
+    To build your reusable image from the `Dockerfile`, open a terminal and `cd` to the directory holding your `Dockerfile` then run:
 
     ```bash 
     docker build -t mysfcluster .
@@ -93,7 +100,7 @@ To set up a local Docker container and have a Service Fabric cluster running on 
     >[!NOTE]
     >This operation will take some time but is only needed once.
 
-4. Now you can quickly start a local copy of Service Fabric, whenever you need it, by running:
+    Now you can quickly start a local copy of Service Fabric whenever you need it by running:
 
     ```bash 
     docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mysfcluster
@@ -104,18 +111,17 @@ To set up a local Docker container and have a Service Fabric cluster running on 
     >
     >If your application is listening on certain ports, the ports must be specified by using additional `-p` tags. For example, if your application is listening on port 8080, add the following `-p` tag:
     >
-    >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox microsoft/service-fabric-onebox`
+    >`docker run -itd -p 19000:19000 -p 19080:19080 -p 8080:8080 --name sfonebox mcr.microsoft.com/service-fabric/onebox:u18`
     >
 
-5. The cluster will take a moment to start. When it is running, you can view logs using the following command or jump to the dashboard to view the clusters health [http://localhost:19080](http://localhost:19080):
+4. The cluster will take a moment to start. When it is running, you can view logs using the following command or jump to the dashboard to view the clusters health: `http://localhost:19080`
 
     ```bash 
     docker logs sftestcluster
     ```
 
 
-
-6. To stop and cleanup the container, use the following command. However, we will be using this container in the next step.
+5. To stop and clean up the container, use the following command. However, we will be using this container in the next step.
 
     ```bash 
     docker rm -f sftestcluster
@@ -125,7 +131,8 @@ To set up a local Docker container and have a Service Fabric cluster running on 
  
  The following are known limitations of the local cluster running in a container for Mac's: 
  
- * DNS service does not run and is not supported [Issue #132](https://github.com/Microsoft/service-fabric/issues/132)
+ * DNS service does not run and is currently not supported within the container. [Issue #132](https://github.com/Microsoft/service-fabric/issues/132)
+ * Running container-based apps requires running SF on a Linux host. Nested container applications are currently not supported.
 
 ## Set up the Service Fabric CLI (sfctl) on your Mac
 
@@ -142,14 +149,14 @@ sfctl cluster select --endpoint http://localhost:19080
 
 Service Fabric provides scaffolding tools that help you to create a Service Fabric application from the terminal by using the Yeoman template generator. Use the following steps to ensure that the Service Fabric Yeoman template generator is working on your machine:
 
-1. Node.js and Node Package Manager (NPM) must be installed on your Mac. The software can be installed by using [HomeBrew](https://brew.sh/), as follows:
+1. Node.js and Node Package Manager must be installed on your Mac. The software can be installed by using [HomeBrew](https://brew.sh/), as follows:
 
     ```bash
     brew install node
     node -v
     npm -v
     ```
-2. Install the [Yeoman](https://yeoman.io/) template generator on your machine from NPM:
+2. Install the [Yeoman](https://yeoman.io/) template generator on your machine from Node Package Manager:
 
     ```bash
     npm install -g yo
@@ -171,8 +178,9 @@ Service Fabric provides scaffolding tools that help you to create a Service Fabr
     brew install gradle
     ```
 
-    >[!TIP]
-    > Be sure to verify you have the correct version of JDK installed. 
+    > [!IMPORTANT]
+    > Current versions of `brew cask install java` may install a more recent version of the JDK.
+    > Be sure to install JDK 8.
 
 ## Deploy your application on your Mac from the terminal
 
@@ -191,9 +199,9 @@ After you create and build your Service Fabric application, you can deploy your 
     bash install.sh
     ```
 
-## Set up .NET Core 2.0 development
+## Set up .NET Core 3.1 development
 
-Install the [.NET Core 2.0 SDK for Mac](https://www.microsoft.com/net/core#macos) to start [creating C# Service Fabric applications](service-fabric-create-your-first-linux-application-with-csharp.md). Packages for .NET Core 2.0 Service Fabric applications are hosted on NuGet.org, which is currently in preview.
+Install the [.NET Core 3.1 SDK for Mac](https://dotnet.microsoft.com/download?initial-os=macos) to start [creating C# Service Fabric applications](service-fabric-create-your-first-linux-application-with-csharp.md). Packages for .NET Core Service Fabric applications are hosted on NuGet.org.
 
 ## Install the Service Fabric plug-in for Eclipse on your Mac
 
@@ -202,7 +210,7 @@ Azure Service Fabric provides a plug-in for Eclipse Neon (or later) for the Java
 The last step is to instantiate the container with a path that is shared with your host. The plug-in requires this type of instantiation to work with the Docker container on your Mac. For example:
 
 ```bash
-docker run -itd -p 19080:19080 -v /Users/sayantan/work/workspaces/mySFWorkspace:/tmp/mySFWorkspace --name sfonebox microsoft/service-fabric-onebox
+docker run -itd -p 19080:19080 -v /Users/sayantan/work/workspaces/mySFWorkspace:/tmp/mySFWorkspace --name sfonebox mcr.microsoft.com/service-fabric/onebox:latest
 ```
 
 The attributes are defined as follows:

@@ -1,18 +1,13 @@
 ---
-title: 'Service-to-service authentication: .NET SDK with Azure Data Lake Storage Gen1 using Azure Active Directory | Microsoft Docs'
+title: .NET - Service-to-service authentication - Data Lake Storage Gen1
 description: Learn how to achieve service-to-service authentication with Azure Data Lake Storage Gen1 using Azure Active Directory using .NET SDK
-services: data-lake-store
-documentationcenter: ''
-author: twooley
-manager: cgronlun
-editor: cgronlun
 
+author: normesta
 ms.service: data-lake-store
-ms.devlang: na
-ms.topic: conceptual
+ms.custom: devx-track-dotnet
+ms.topic: how-to
 ms.date: 05/29/2018
-ms.author: twooley
-
+ms.author: normesta
 ---
 # Service-to-service authentication with Azure Data Lake Storage Gen1 using .NET SDK
 > [!div class="op_single_selector"]

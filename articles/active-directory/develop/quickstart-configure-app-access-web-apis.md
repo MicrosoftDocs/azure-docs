@@ -1,134 +1,151 @@
 ---
-title: Configure an application to access web APIs - Microsoft identity platform
-description: Learn how to configure an application registered with the Microsoft identity platform to include redirect URI(s), credentials, or permissions to access web APIs.
+title: "Quickstart: Configure an app to access a web API"
+description: In this quickstart, you configure an app registration representing a web API in the Microsoft identity platform to enable scoped resource access (permissions) to client applications.
 services: active-directory
-documentationcenter: ''
-author: rwike77
+author: cilwerner
 manager: CelesteDG
-editor: ''
-
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/08/2019
-ms.author: ryanwi
-ms.custom: aaddev
-ms.reviewer: aragra, lenalepa, sureshja
-#Customer intent: As an application developer, I need to know how to configure my application to add redirect URI(s), credentials, or permissions so I can access web APIs.
-ms.collection: M365-identity-device-management
+ms.date: 06/29/2023
+ms.author: cwerner
+ms.custom: aaddev, contperf-fy21q1, mode-api
+ms.reviewer: lenalepa, aragra, sureshja
+#Customer intent: As an application developer, I want to know how to configure my web API's app registration with permissions client applications can use to obtain scoped access to the API.
 ---
 
-# Quickstart: Configure a client application to access web APIs
+# Quickstart: Configure a client application to access a web API
 
-For a web/confidential client application to be able to participate in an authorization grant flow that requires authentication (and obtain an access token), it must establish secure credentials. The default authentication method supported by the Azure portal is client ID + secret key.
+In this quickstart, you provide a client app registered with the Microsoft identity platform with scoped, permissions-based access to your own web API. You also provide the client app access to Microsoft Graph.
 
-Additionally, before a client can access a web API exposed by a resource application (such as Microsoft Graph API), the consent framework ensures the client obtains the permission grant required based on the permissions requested. By default, all applications can choose permissions from the Microsoft Graph API. The [Graph API “Sign-in and read user profile” permission](https://developer.microsoft.com/graph/docs/concepts/permissions_reference#user-permissions) is selected by default. You can select from [two types of permissions](developer-glossary.md#permissions) for each desired web API:
-
-* **Application permissions** - Your client application needs to access the web API directly as itself (no user context). This type of permission requires administrator consent and is also not available for public (desktop and mobile) client applications.
-* **Delegated permissions** - Your client application needs to access the web API as the signed-in user, but with access limited by the selected permission. This type of permission can be granted by a user unless the permission requires administrator consent.
-
-  > [!NOTE]
-  > Adding a delegated permission to an application does not automatically grant consent to the users within the tenant. Users must still manually consent for the added delegated permissions at runtime, unless the administrator grants consent on behalf of all users.
-
-In this quickstart, we'll show you how to configure your app to:
-
-* [Add redirect URIs to your application](#add-redirect-uris-to-your-application)
-* [Add credentials to your web application](#add-credentials-to-your-web-application)
-* [Add permissions to access web APIs](#add-permissions-to-access-web-apis)
+By specifying a web API's scopes in your client app's registration, the client app can obtain an access token containing those scopes from the Microsoft identity platform. Within its code, the web API can then provide permission-based access to its resources based on the scopes found in the access token.
 
 ## Prerequisites
 
-To get started, make sure you complete these prerequisites:
+* An Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Completion of [Quickstart: Register an application](quickstart-register-app.md)
+* Completion of [Quickstart: Configure an application to expose a web API](quickstart-configure-app-expose-web-apis.md)
 
-* Learn about the supported [permissions and consent](v2-permissions-and-consent.md), which is important to understand when building applications that need to be used by other users or applications.
-* Have a tenant that has applications registered to it.
-  * If you don't have apps registered, [learn how to register applications with the Microsoft identity platform](quickstart-register-app.md).
+## Add permissions to access your web API
 
-## Sign in to the Azure portal and select the app
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-Before you can configure the app, follow these steps:
+Access to APIs require configuration of access scopes and roles. If you want to expose your resource application web APIs to client applications, configure access scopes and roles for the API. If you want a client application to access a web API, configure permissions to access the API in the app registration.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account or a personal Microsoft account.
-1. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the desired Azure AD tenant.
-1. In the left-hand navigation pane, select the **Azure Active Directory** service and then select **App registrations**.
-1. Find and select the application you want to configure. Once you've selected the app, you'll see the application's **Overview** or main registration page.
-1. Follow the steps to configure your application to access web APIs: 
-    * [Add redirect URIs to your application](#add-redirect-uris-to-your-application)
-    * [Add credentials to your web application](#add-credentials-to-your-web-application)
-    * [Add permissions to access web APIs](#add-permissions-to-access-web-apis)
+In the first scenario, you grant a client app access to your own web API, both of which you should have registered as part of the prerequisites. If you don't yet have both a client app and a web API registered, complete the steps in the two [Prerequisites](#prerequisites) articles.
 
-## Add redirect URI(s) to your application
+This diagram shows how the two app registrations relate to one another. In this section, you add permissions to the client app's registration.
 
-[![Add custom redirect URIs for web and public client apps](./media/quickstart-update-azure-ad-app-preview/authentication-redirect-uris-expanded.png)](./media/quickstart-update-azure-ad-app-preview/authentication-redirect-uris-expanded.png#lightbox)
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/diagram-01-app-permission-to-api-scopes.svg" alt-text="Line diagram showing a web API with exposed scopes on the right and a client app on the left with those scopes selected as permissions" border="false":::
 
-To add a redirect URI to your application:
+Once you've registered both your client app and web API and you've exposed the API by creating scopes, you can configure the client's permissions to the API by following these steps:
 
-1. From the app's **Overview** page, select the **Authentication** section.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant containing your client app's registration.
+1. Browse to **Identity** > **Applications** > **App registrations**, and then select your client application (*not* your web API).
+1. Select **API permissions** > **Add a permission** > **My APIs**.
+1. Select the web API you registered as part of the prerequisites.
 
-1. To add a custom redirect URI for web and public client applications, follow these steps:
+    **Delegated permissions** is selected by default. Delegated permissions are appropriate for client apps that access a web API as the signed-in user, and whose access should be restricted to the permissions you select in the next step. Leave **Delegated permissions** selected for this example.
 
-   1. Locate the **Redirect URI** section.
-   1. Select the type of application you're building, **Web** or **Public client (mobile & desktop)**.
-   1. Enter the Redirect URI for your application.
-      * For web applications, provide the base URL of your application. For example, `http://localhost:31544` might be the URL for a web application running on your local machine. Users would use this URL to sign into a web client application.
-      * For public applications, provide the URI used by Azure AD to return token responses. Enter a value specific to your application, for example https://MyFirstApp.
+    **Application permissions** are for service- or daemon-type applications that need to access a web API as themselves, without user interaction for sign-in or consent. Unless you've defined application roles for your web API, this option is disabled.
+1. Under **Select permissions**, expand the resource whose scopes you defined for your web API, and select the permissions the client app should have on behalf of the signed-in user.
 
-1. To choose from suggested Redirect URIs for public clients (mobile, desktop), follow these steps:
+    If you used the example scope names specified in the previous quickstart, you should see **Employees.Read.All** and **Employees.Write.All**.
+    Select **Employees.Read.All** or another permission you might have created when completing the prerequisites.
+1. Select **Add permissions** to complete the process.
 
-    1. Locate the Suggested **Redirect URIs for public clients (mobile, desktop)** section.
-    1. Select the appropriate Redirect URI(s) for your application using the checkboxes.
+After adding permissions to your API, you should see the selected permissions under **Configured permissions**. The following image shows the example *Employees.Read.All* delegated permission added to the client app's registration.
 
-## Add credentials to your web application
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-02-configured-permissions-pane.png" alt-text="Configured permissions pane in the Azure portal showing the newly added permission":::
 
-[![Add certificates and client secrets](./media/quickstart-update-azure-ad-app-preview/credentials-certificates-secrets-expanded.png)](./media/quickstart-update-azure-ad-app-preview/credentials-certificates-secrets-expanded.png#lightbox)
+You might also notice the *User.Read* permission for the Microsoft Graph API. This permission is added automatically when you register an app in the Azure portal.
 
-To add a credential to your web application:
+## Add permissions to access Microsoft Graph
 
-1. From the app's **Overview** page, select the **Certificates & secrets** section.
+In addition to accessing your own web API on behalf of the signed-in user, your application might also need to access or modify the user's (or other) data stored in Microsoft Graph. Or you might have service or daemon app that needs to access Microsoft Graph as itself, performing operations without any user interaction.
 
-1. To add a certificate, follow these steps:
+### Delegated permission to Microsoft Graph
 
-    1. Select **Upload certificate**.
-    1. Select the file you'd like to upload. It must be one of the following file types: .cer, .pem, .crt.
-    1. Select **Add**.
+Configure delegated permission to Microsoft Graph to enable your client application to perform operations on behalf of the logged-in user, for example reading their email or modifying their profile. By default, users of your client app are asked when they sign in to consent to the delegated permissions you've configured for it.
 
-1. To add a client secret, follow these steps:
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant containing your client app's registration.
+1. Browse to **Identity** > **Applications** > **App registrations**, and then select your client application.
+1. Select **API permissions** > **Add a permission** > **Microsoft Graph**
+1. Select **Delegated permissions**. Microsoft Graph exposes many permissions, with the most commonly used shown at the top of the list.
+1. Under **Select permissions**, select the following permissions:
 
-    1. Select **New client secret**.
-    1. Add a description for your client secret.
-    1. Select a duration.
-    1. Select **Add**.
+    | Permission       | Description                                         |
+    |------------------|-----------------------------------------------------|
+    | `email`          | View users' email address                           |
+    | `offline_access` | Maintain access to data you have given it access to |
+    | `openid`         | Sign users in                                       |
+    | `profile`        | View users' basic profile                           |
+1. Select **Add permissions** to complete the process.
 
-> [!NOTE]
-> After you save the configuration changes, the right-most column will contain the client secret value. **Be sure to copy the value** for use in your client application code as it's not accessible once you leave this page.
+Whenever you configure permissions, users of your app are asked at sign-in for their consent to allow your app to access the resource API on their behalf.
 
-## Add permissions to access web APIs
+As an admin, you can also grant consent on behalf of *all* users so they're not prompted to do so. Admin consent is discussed later in the [More on API permissions and admin consent](#more-on-api-permissions-and-admin-consent) section of this article.
 
-[![Add API permissions](./media/quickstart-update-azure-ad-app-preview/api-permissions-expanded.png)](./media/quickstart-update-azure-ad-app-preview/api-permissions-expanded.png#lightbox)
+### Application permission to Microsoft Graph
 
-To add permission(s) to access resource APIs from your client:
+Configure application permissions for an application that needs to authenticate as itself without user interaction or consent. Application permissions are typically used by background services or daemon apps that access an API in a "headless" manner, and by web APIs that access another (downstream) API.
 
-1. From the app's **Overview** page, select **API permissions**.
-1. Select the **Add a permission** button.
-1. By default, the view allows you to select from **Microsoft APIs**. Select the section of APIs that you're interested in:
-    * **Microsoft APIs** - Lets you select permissions for Microsoft APIs such as Microsoft Graph.
-    * **APIs my organization uses** - Lets you select permissions for APIs that have been exposed by your organization, or APIs that your organization has integrated with.
-    * **My APIs** - Lets you select permissions for APIs that you have exposed.
-1. Once you've selected the APIs, you'll see the **Request API Permissions** page. If the API exposes both delegated and application permissions, select which type of permission your application needs.
-1. When finished, select **Add permissions**. You will return to the **API permissions** page, where the permissions have been saved and added to the table.
+In the following steps, you grant permission to Microsoft Graph's *Files.Read.All* permission as an example.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant containing your client app's registration.
+1. Browse to **Identity** > **Applications** > **App registrations**, and then select your client application.
+1. Select **API permissions** > **Add a permission** > **Microsoft Graph** > **Application permissions**.
+1. All permissions exposed by Microsoft Graph are shown under **Select permissions**.
+1. Select the permission or permissions you want to grant your application. As an example, you might have a daemon app that scans files in your organization, alerting on a specific file type or name.
+
+    Under **Select permissions**, expand **Files**, and then select the *Files.Read.All* permission.
+1. Select **Add permissions**.
+
+Some permissions, like Microsoft Graph's *Files.Read.All* permission, require admin consent. You grant admin consent by selecting the **Grant admin consent** button, discussed later in the [Admin consent button](#admin-consent-button) section.
+
+### Configure client credentials
+
+Apps that use application permissions authenticate as themselves by using their own credentials, without requiring any user interaction. Before your application (or API) can access Microsoft Graph, your own web API, or another API by using application permissions, you must configure that client app's credentials.
+
+For more information about configuring an app's credentials, see the [Add credentials](quickstart-register-app.md#add-credentials) section of [Quickstart: Register an application with the Microsoft identity platform](quickstart-register-app.md).
+
+## More on API permissions and admin consent
+
+The **API permissions** pane of an app registration contains a [Configured permissions](#configured-permissions) table, and might also contain an [Other permissions granted](#other-permissions-granted) table. Both tables and the [Admin consent button](#admin-consent-button) are described in the following sections.
+
+### Configured permissions
+
+The **Configured permissions** table on the **API permissions** pane shows the list of permissions that your application requires for basic operation - the *required resource access* (RRA) list. Users, or their admins, will need to consent to these permissions before using your app. Other, optional permissions can be requested later at runtime (using dynamic consent).
+
+This is the minimum list of permissions people will have to consent to for your app. There could be more, but these will always be required. For security and to help users and admins feel more comfortable using your app, never ask for anything you don’t need.
+
+You can add or remove the permissions that appear in this table by using the steps outlined above or from [Other permissions granted](#other-permissions-granted) (described in the next section). As an admin, you can grant admin consent for the full set of an API's permissions that appear in the table, and revoke consent for individual permissions.
+
+### Other permissions granted
+
+You might also see a table titled **Other permissions granted for {your tenant}** on the **API permissions** pane. The **Other permissions granted for {your tenant}** table shows permissions granted tenant-wide for the tenant that haven't been explicitly configured on the application object. These permissions were dynamically requested and consented to by an admin, on behalf of all users. This section appears only if there is at least one permission that applies.
+
+You can add the full set of an API's permissions or individual permissions appearing this table to the **Configured permissions** table. As an admin, you can revoke admin consent for APIs or individual permissions in this section.
+
+### Admin consent button
+
+The **Grant admin consent for {your tenant}** button allows an admin to grant admin consent to the permissions configured for the application. When you select the button, a dialog is shown requesting that you confirm the consent action.
+
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-03-grant-admin-consent-button.png" alt-text="Grant admin consent button highlighted in the Configured permissions pane in the Azure portal":::
+
+After granting consent, the permissions that required admin consent are shown as having consent granted:
+
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-04-admin-consent-granted.png" alt-text="Configure permissions table in Azure portal showing admin consent granted for the Files.Read.All permission":::
+
+The **Grant admin consent** button is *disabled* if you aren't an admin or if no permissions have been configured for the application. If you have permissions that have been granted but not yet configured, the admin consent button prompts you to handle these permissions. You can add them to configured permissions or remove them.
 
 ## Next steps
 
-Learn about these other related app management quickstarts for apps:
+Advance to the next quickstart in the series to learn how to configure which account types can access your application. For example, you might want to limit access only to those users in your organization (single-tenant) or allow users in other Microsoft Entra tenants (multi-tenant) and those with personal Microsoft accounts (MSA).
 
-* [Register an application with the Microsoft identity platform](quickstart-register-app.md)
-* [Configure an application to expose web APIs](quickstart-configure-app-expose-web-apis.md)
-* [Modify the accounts supported by an application](quickstart-modify-supported-accounts.md)
-* [Remove an application registered with the Microsoft identity platform](quickstart-remove-app.md)
-
-To learn more about the two Azure AD objects that represent a registered application and the relationship between them, see [Application objects and service principal objects](app-objects-and-service-principals.md).
-
-To learn more about the branding guidelines you should use when developing applications with Azure Active Directory, see [Branding guidelines for applications](howto-add-branding-in-azure-ad-apps.md).
+> [!div class="nextstepaction"]
+> [Modify the accounts supported by an application](./howto-modify-supported-accounts.md)

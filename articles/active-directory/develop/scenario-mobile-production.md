@@ -1,46 +1,38 @@
 ---
-title: Mobile app that calls web APIs (move to production) - Microsoft identity platform
-description: Learn how to build a mobile app that calls web APIs (move to production)
+title: Prepare mobile app-calling web APIs for production
+description: Learn how to build a mobile app that calls web APIs. (Prepare apps for production.)
 services: active-directory
-documentationcenter: dev-center-name
-author: danieldobalian
+author: henrymbuguakiarie
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
-ms.author: jmprieur
-ms.reviwer: brandwe
+ms.author: henrymbugua
+ms.reviewer: jmprieur
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to know how to write a mobile app that calls web APIs by using the Microsoft identity platform for developers.
-ms.collection: M365-identity-device-management
 ---
 
-# Mobile app that calls web APIs - move to production
+# Prepare mobile apps for production
 
-This article provides details about how to improve the quality and reliability of your app before you move it to production.
+This article provides details about how to improve the quality and reliability of your mobile app before you move it to production.
 
-## Handling errors in mobile applications
+## Handle errors
 
-A number of error conditions can occur in your app at this point. The main scenarios to handle are silent failures and fallbacks to interaction. Other conditions that you should consider for production include no-network situations, service outages, requirements for admin consent, and other scenario-specific cases.
+As you prepare a mobile app for production, several error conditions can occur. The main cases you'll handle are silent failures and fallbacks to interaction. Other conditions that you should consider include no-network situations, service outages, requirements for admin consent, and other scenario-specific cases.
 
-Each MSAL library has sample code and wiki content that describes how to handle these conditions:
+For each Microsoft Authentication Library (MSAL) type, you can find sample code and wiki content that describes how to handle error conditions:
 
-- [MSAL Android Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-android)
-- [MSAL iOS Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-objc/wiki)
-- [MSAL.NET Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki)
+- [MSAL Android wiki](https://github.com/AzureAD/microsoft-authentication-library-for-android)
+- [MSAL iOS wiki](https://github.com/AzureAD/microsoft-authentication-library-for-objc/wiki)
+- [MSAL.NET wiki](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki)
 
-## Mitigating and investigating issues
 
-To diagnose issues in your app, it helps to collect data. For information about the kinds of data you can collect, see the MSAL platform wikis.
-
-- Users might ask for help when they encounter problems. A best practice is to capture and temporarily store logs and provide a location where users can upload them. MSAL provides logging extensions to capture detailed information about authentication.
-- If it's available, enable telemetry through MSAL to gather data about how users are signing in to your app.
+[!INCLUDE [Common steps to move to production](./includes/scenarios/scenarios-production.md)]
 
 ## Next steps
 
-[!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
+To try out additional samples, [Mobile public client applications](sample-v2-code.md#mobile).

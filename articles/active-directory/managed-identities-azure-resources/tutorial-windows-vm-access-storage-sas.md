@@ -1,28 +1,28 @@
 ---
-title: Use a Windows VM system-assigned managed identity to access Azure Storage using a SAS credential
+title: Tutorial`:` Use managed identity to access Azure Storage using SAS credential
 description: A tutorial that shows you how to use a Windows VM system-assigned managed identity to access Azure Storage, using a SAS credential instead of a storage account access key.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
-manager: daveba
+author: barclayn
+manager: amycolannino
 editor: daveba
 
 ms.service: active-directory
 ms.subservice: msi
-ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/24/2019
-ms.author: markvi
-ms.collection: M365-identity-device-management
+ms.date: 01/11/2022
+ms.author: barclayn
+ms.collection: M365-identity-device-management 
+ms.custom: devx-track-azurepowershell, subject-rbac-steps, devx-track-arm-template
 ---
 
 # Tutorial: Use a Windows VM system-assigned managed identity to access Azure Storage via a SAS credential
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-This tutorial shows you how to use a system-assigned identity for a Windows virtual machine (VM) to obtain a storage Shared Access Signature (SAS) credential. Specifically, a [Service SAS credential](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
+This tutorial shows you how to use a system-assigned identity for a Windows virtual machine (VM) to obtain a storage Shared Access Signature (SAS) credential. Specifically, a [Service SAS credential](../../storage/common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json#types-of-shared-access-signatures). 
 
 A Service SAS provides the ability to grant limited access to objects in a storage account, for limited time and a specific service (in our case, the blob service), without exposing an account access key. You can use a SAS credential as usual when doing storage operations, for example when using the Storage SDK. For this tutorial, we demonstrate uploading and downloading a blob using Azure Storage PowerShell. You will learn how to:
 
@@ -33,7 +33,11 @@ A Service SAS provides the ability to grant limited access to objects in a stora
 
 ## Prerequisites
 
-[!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
+- An understanding of Managed identities. If you're not familiar with the managed identities for Azure resources feature, see this [overview](overview.md). 
+- An Azure account, [sign up for a free account](https://azure.microsoft.com/free/).
+- "Owner" permissions at the appropriate scope (your subscription or resource group) to perform required resource creation and role management steps. If you need assistance with role assignment, see [Assign Azure roles to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md).
+- You also need a Windows Virtual machine that has system assigned managed identities enabled.
+  - If you need to create  a virtual machine for this tutorial, you can follow the article titled [Create a virtual machine with system-assigned identity enabled](./qs-configure-portal-windows-vm.md#system-assigned-managed-identity)
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
@@ -44,7 +48,7 @@ If you don't already have one, you will now create a storage account. You can al
 1. Click the **+/Create new service** button found on the upper left-hand corner of the Azure portal.
 2. Click **Storage**, then **Storage Account**, and a new "Create storage account" panel will display.
 3. Enter a name for the storage account, which you will use later.  
-4. **Deployment model** and **Account kind** should be set to "Resource manager" and "General purpose", respectively. 
+4. **Deployment model** and **Account kind** should be set to "Resource Manager" and "General purpose", respectively. 
 5. Ensure the **Subscription** and **Resource Group** match the ones you specified when you created your VM in the previous step.
 6. Click **Create**.
 
@@ -63,35 +67,39 @@ Later we will upload and download a file to the new storage account. Because fil
 
 ## Grant your VM's system-assigned managed identity access to use a storage SAS 
 
-Azure Storage does not natively support Azure AD authentication.  However, you can use a managed identity to retrieve a storage SAS from Resource Manager, then use the SAS to access storage.  In this step, you grant your VM's system-assigned managed identity access to your storage account SAS.   
+Azure Storage does not natively support Microsoft Entra authentication.  However, you can use a managed identity to retrieve a storage SAS from Resource Manager, then use the SAS to access storage.  In this step, you grant your VM's system-assigned managed identity access to your storage account SAS.   
 
 1. Navigate back to your newly created storage account.   
-2. Click the **Access control (IAM)** link in the left panel.  
-3. Click **+ Add role assignment** on top of the page to add a new role assignment for your VM
-4. Set **Role** to "Storage Account Contributor", on the right side of the page.  
-5. In the next dropdown, set **Assign access to** the resource "Virtual Machine".  
-6. Next, ensure the proper subscription is listed in **Subscription** dropdown, then set **Resource Group** to "All resource groups".  
-7. Finally, under **Select** choose your Windows Virtual Machine in the dropdown, then click **Save**. 
+1. Click **Access control (IAM)**.
+1. Click **Add** > **Add role assignment** to open the Add role assignment page.
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+    
+    | Setting | Value |
+    | --- | --- |
+    | Role | Storage Account Contributor |
+    | Assign access to | Managed identity |
+    | System-assigned | Virtual Machine |
+    | Select | &lt;your Windows virtual machine&gt; |
 
-    ![Alt image text](./media/msi-tutorial-linux-vm-access-storage/msi-storage-role-sas.png)
+    ![Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 ## Get an access token using the VM's identity and use it to call Azure Resource Manager 
 
-For the remainder of the tutorial, we will work from the VM we created earlier.
+For the remainder of the tutorial, we will work from your VM.
 
-You will need to use the Azure Resource Manager PowerShell cmdlets in this portion.  If you don’t have it installed, [download the latest version](https://docs.microsoft.com/powershell/azure/overview) before continuing.
+You will need to use the Azure Resource Manager PowerShell cmdlets in this portion.  If you don’t have it installed, [download the latest version](/powershell/azure/) before continuing.
 
 1. In the Azure portal, navigate to **Virtual Machines**, go to your Windows virtual machine, then from the **Overview** page click **Connect** at the top.
 2. Enter in your **Username** and **Password** for which you added when you created the Windows VM. 
-3. Now that you have created a **Remote Desktop Connection** with the virtual machine, open PowerShell in the remote session. 
-4. Using Powershell’s Invoke-WebRequest, make a request to the local managed identity for Azure resources endpoint to get an access token for Azure Resource Manager.
+3. Now that you have created a **Remote Desktop Connection** with the virtual machine.
+4. Open PowerShell in the remote session and use Invoke-WebRequest to get an Azure Resource Manager token from the local managed identity for Azure resources endpoint.
 
     ```powershell
        $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Method GET -Headers @{Metadata="true"}
     ```
     
     > [!NOTE]
-    > The value of the "resource" parameter must be an exact match for what is expected by Azure AD. When using the Azure Resource Manager resource ID, you must include the trailing slash on the URI.
+    > The value of the "resource" parameter must be an exact match for what is expected by Microsoft Entra ID. When using the Azure Resource Manager resource ID, you must include the trailing slash on the URI.
     
     Next, extract the "Content" element, which is stored as a JavaScript Object Notation (JSON) formatted string in the $response object. 
     
@@ -176,7 +184,7 @@ Context           : Microsoft.WindowsAzure.Commands.Storage.AzureStorageContext
 Name              : testblob
 ```
 
-You can also download the blob you just uploaded, using the `Get-AzStorageBlobContent` PowerShell cmdlet:
+You can also download the blob you uploaded, using the `Get-AzStorageBlobContent` PowerShell cmdlet:
 
 ```powershell
 Get-AzStorageBlobContent -Blob testblob -Container <CONTAINER-NAME> -Destination test2.txt -Context $ctx
@@ -201,6 +209,4 @@ Name              : testblob
 In this tutorial, you learned how to use a Windows VM's system-assigned managed identity to access Azure Storage using a SAS credential.  To learn more about Azure Storage SAS see:
 
 > [!div class="nextstepaction"]
->[Using shared access signatures (SAS)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
-
-
+>[Using shared access signatures (SAS)](../../storage/common/storage-sas-overview.md)

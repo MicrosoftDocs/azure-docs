@@ -1,13 +1,13 @@
-- name: Azure Storage Documentation
-  href: /azure/storage/
+- name: Azure Table storage documentation
+  href: ./index.yml
 - name: Overview
-  expanded: true
-  items: 
+  items:
   - name: Azure Table storage overview
     href: table-storage-overview.md
-  - name: Choose Table storage or Table API
-    href: /azure/cosmos-db/table-support
-    maintainContext: true   
+  - name: Choose Table storage or Azure Cosmos DB for Table
+    href: ../../cosmos-db/table-support.md
+    maintainContext: true
+  expanded: true
 - name: Quickstarts
   items:
   - name: Create a table in the Azure portal
@@ -15,77 +15,241 @@
 - name: Samples
   items:
   - name: .NET
-    href: /azure/cosmos-db/table-storage-how-to-use-dotnet
-    maintainContext: true  
+    href: ../../cosmos-db/tutorial-develop-table-dotnet.md
+    maintainContext: true
   - name: F#
-    href: https://docs.microsoft.com/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
+    href: /dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
     maintainContext: true
   - name: Java
-    href: /azure/cosmos-db/table-storage-how-to-use-java
-    maintainContext: true  
-  - name: Node.js
-    href: /azure/cosmos-db/table-storage-how-to-use-nodejs   
+    href: ../../cosmos-db/table-storage-how-to-use-java.md
     maintainContext: true
-  - name: C++ 
-    href: /azure/cosmos-db/table-storage-how-to-use-c-plus 
+  - name: Node.js
+    href: ../../cosmos-db/table-storage-how-to-use-nodejs.md
+    maintainContext: true
+  - name: C++
+    href: ../../cosmos-db/table-storage-how-to-use-c-plus.md
     maintainContext: true
   - name: PHP
-    href: /azure/cosmos-db/table-storage-how-to-use-php 
-    maintainContext: true 
+    href: ../../cosmos-db/table-storage-how-to-use-php.md
+    maintainContext: true
   - name: Python
-    href: /azure/cosmos-db/table-storage-how-to-use-python  
-    maintainContext: true 
+    href: ../../cosmos-db/table-storage-how-to-use-python.md
+    maintainContext: true
+  - name: Go
+    href: ../../cosmos-db/table-storage-how-to-use-go.md
+    maintainContext: true
   - name: Ruby
-    href: /azure/cosmos-db/table-storage-how-to-use-ruby  
+    href: ../../cosmos-db/table-storage-how-to-use-ruby.md
     maintainContext: true
   - name: PowerShell
-    href: /azure/storage/tables/table-storage-how-to-use-powershell       
+    href: ./table-storage-how-to-use-powershell.md
+    maintainContext: true
+  - name: Azure Resource Graph queries
+    href: ../common/resource-graph-samples.md
     maintainContext: true
 - name: Concepts
   items:
   - name: Storage accounts
-    href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+    href: ../common/storage-account-overview.md?toc=/azure/storage/tables/toc.json
+  - name: Authorization
+    href: ../common/authorize-data-access.md?toc=/azure/storage/tables/toc.json
     items:
-    - name: Manage a storage account
-      href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
-    - name: Upgrade a storage account
-      href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
-  - name: Design scalable and performant tables 
-    href: table-storage-design.md
+    - name: Authenticate and authorize with Azure AD
+      href: authorize-access-azure-active-directory.md
+    - name: Authorize with Shared Key
+      items:
+      - name: View and manage account keys
+        href: ../common/storage-account-keys-manage.md?toc=/azure/storage/tables/toc.json
+      - name: Configure connection strings
+        href: ../common/storage-configure-connection-string.md?toc=/azure/storage/tables/toc.json
+      - name: Use the Azure Storage REST API
+        href: ../common/storage-rest-api-auth.md?toc=/azure/storage/tables/toc.json
+    - name: Authorize with SAS
+      href: ../common/storage-sas-overview.md?toc=/azure/storage/tables/toc.json
+  - name: Security
+    items:
+    - name: Azure Storage encryption at rest
+      href: ../common/storage-service-encryption.md?toc=/azure/storage/tables/toc.json
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ../common/security-controls-policy.md?toc=/azure/storage/tables/toc.json
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/storage-security-baseline?toc=/azure/storage/tables/toc.json?toc=/azure/storage/tables/TOC.json
+  - name: Data redundancy
+    href: ../common/storage-redundancy.md?toc=/azure/storage/tables/toc.json
+  - name: Disaster recovery and failover
+    href: ../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/tables/toc.json
+  - name: Performance, scaling, and cost optimization
+    items:
+    - name: Performance and scalability checklist
+      href: storage-performance-checklist.md
+    - name: Design scalable and performant tables
+      href: table-storage-design.md
   - name: Guidelines for table design
     href: table-storage-design-guidelines.md
   - name: Design for querying
     href: table-storage-design-for-query.md
   - name: Design for data modification
     href: table-storage-design-for-modification.md
-  - name: Encrypting table data
-    href: table-storage-design-encrypt-data.md
   - name: Modeling relationships
     href: table-storage-design-modeling.md
   - name: Table design patterns
     href: table-storage-design-patterns.md
-- name: How-to guides
+  - name: Monitoring Table storage
+    href: monitor-table-storage.md
+- name: How-to
   items:
   - name: Create a storage account
     displayName: resource manager, resource manager template, template, ARM
-    href: /azure/storage/common/storage-quickstart-create-account  
-    maintainContext: true 
-  - name: How to use the storage emulator
-    href: /azure/storage/common/storage-use-emulator
+    href: ../common/storage-account-create.md?toc=/azure/storage/tables/toc.json
     maintainContext: true
+  - name: Upgrade a storage account
+    href: ../common/storage-account-upgrade.md?toc=/azure/storage/tables/toc.json
+  - name: Recover a deleted storage account
+    href: ../common/storage-account-recover.md?toc=/azure/storage/tables/toc.json
+  - name: Migrate a classic account to Azure Resource Manager
+    href: ../common/classic-account-migrate.md?toc=/azure/storage/tables/toc.json
+  - name: Get account configuration properties
+    href: ../common/storage-account-get-info.md?toc=/azure/storage/tables/toc.json
+  - name: Use the storage emulator (deprecated)
+    href: ../common/storage-use-emulator.md?toc=/azure/storage/tables/toc.json
+    maintainContext: true
+  - name: Authorize access to table data
+    items:
+    - name: Manage access rights with Azure RBAC
+      href: assign-azure-role-data-access.md
+    - name: View and manage account keys
+      href: ../common/storage-account-keys-manage.md?toc=/azure/storage/tables/toc.json
+    - name: Configure connection strings
+      href: ../common/storage-configure-connection-string.md?toc=/azure/storage/tables/toc.json
+  - name: Secure table data
+    items:
+    - name: Manage Azure Storage encryption
+      items:
+      - name: Create an account that supports customer-managed keys
+        href: ../common/account-encryption-key-create.md?toc=/azure/storage/tables/toc.json
+      - name: Check the encryption key model for the account
+        href: ../common/storage-encryption-key-model-get.md?toc=/azure/storage/tables/toc.json
+      - name: Configure customer-managed keys in Azure Key Vault
+        items:
+        - name: Configure customer-managed keys in the same tenant
+          items:
+          - name: Configure customer-managed keys for a new account
+            href: ../common/customer-managed-keys-configure-new-account.md?toc=/azure/storage/tables/toc.json
+          - name: Configure customer-managed keys for an existing account
+            href: ../common/customer-managed-keys-configure-existing-account.md?toc=/azure/storage/tables/toc.json
+        - name: Configure customer-managed keys in a different tenant
+          items:
+          - name: Configure customer-managed keys for a new account
+            href: ../common/customer-managed-keys-configure-cross-tenant-new-account.md?toc=/azure/storage/tables/toc.json
+          - name: Configure customer-managed keys for an existing account
+            href: ../common/customer-managed-keys-configure-cross-tenant-existing-account.md?toc=/azure/storage/tables/toc.json
+        - name: Configure customer-managed keys in a managed HSM
+          href: ../common/customer-managed-keys-configure-key-vault-hsm.md?toc=/azure/storage/tables/toc.json
+      - name: Enable infrastructure encryption for the account
+        href: ../common/infrastructure-encryption-enable.md?toc=/azure/storage/tables/toc.json
+    - name: Configure client-side encryption
+      items:
+      - name: .NET
+        href: /azure/storage/blobs/client-side-encryption?toc=%2Fazure%2Fstorage%2Ftables%2Ftoc.json&tabs=dotnet
+      - name: Java
+        href: /azure/storage/blobs/client-side-encryption?toc=%2Fazure%2Fstorage%2Ftables%2Ftoc.json&tabs=java
+      - name: Python
+        href: /azure/storage/blobs/client-side-encryption?toc=%2Fazure%2Fstorage%2Ftables%2Ftoc.json&tabs=python
+    - name: Configure network security
+      items:
+      - name: Configure firewalls and virtual networks
+        href: ../common/storage-network-security.md?toc=/azure/storage/tables/toc.json
+      - name: Require secure transfer
+        href: ../common/storage-require-secure-transfer.md?toc=/azure/storage/tables/toc.json
+      - name: Manage Transport Layer Security (TLS)
+        items:
+        - name: Enforce minimum TLS version for incoming requests
+          href: ../common/transport-layer-security-configure-minimum-version.md?toc=/azure/storage/tables/toc.json
+        - name: Configure TLS version for a client application
+          href: ../common/transport-layer-security-configure-client-version.md?toc=/azure/storage/tables/toc.json
+    - name: Enable threat protection with Microsoft Defender for Storage
+      href: ../common/azure-defender-storage-configure.md?toc=/azure/storage/tables/toc.json
+  - name: Manage data redundancy
+    items:
+    - name: Change how data is replicated
+      href: ../common/redundancy-migration.md?toc=/azure/storage/tables/toc.json
+    - name: Design highly available applications
+      items:
+      - name: .NET (v12 SDK)
+        href: ../common/geo-redundant-design.md?toc=/azure/storage/tables/toc.json
+      - name: .NET (v11 SDK)
+        href: ../common/geo-redundant-design-legacy.md?toc=/azure/storage/tables/toc.json
+  - name: Manage disaster recovery
+    items:
+    - name: Check the Last Sync Time property
+      href: ../common/last-sync-time-get.md?toc=/azure/storage/tables/toc.json
+    - name: Initiate account failover
+      href: ../common/storage-initiate-account-failover.md?toc=/azure/storage/tables/toc.json
   - name: Transfer data
-    items:  
-    - name: AzCopy (v10)
-      href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+    items:
     - name: AzCopy on Windows (v8)
-      href: ../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json 
+      href: /previous-versions/azure/storage/storage-use-azcopy
     - name: AzCopy on Linux (v8)
-      href: ../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json 
-  - name: Initiate an account failover
-    href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+      href: /previous-versions/azure/storage/storage-use-azcopy-linux
+  - name: Troubleshoot
+    items:
+    - name: Performance
+      href: /troubleshoot/azure/azure-storage/troubleshoot-storage-performance
+    - name: Availability
+      href: /troubleshoot/azure/azure-storage/troubleshoot-storage-availability
+    - name: Client errors
+      href: /troubleshoot/azure/azure-storage/troubleshoot-storage-client-application-errors
+    - name: Latency issues
+      href: /troubleshoot/azure/azure-storage/troubleshoot-latency-storage-analytics-logs
 - name: Resources
   items:
+  - name: Azure updates
+    href: https://azure.microsoft.com/updates/?product=storage
+  - name: Table storage on Microsoft Q&A
+    href: /answers/topics/azure-table-storage.html
+  - name: Table storage on Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-table-storage
+  - name: Pricing for Table storage
+    href: https://azure.microsoft.com/pricing/details/storage/tables/
+  - name: Azure pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+- name: Reference
+  items:
+  - name: APIs for data access
+    items:
+    - name: REST API
+      href: /rest/api/storageservices/table-service-rest-api
+    - name: .NET SDK
+      href: /dotnet/api/overview/azure/storage
+    - name: Java SDK
+      href: /java/api/overview/azure/storage
+    - name: Python SDK
+      href: /python/api/overview/azure/storage
+    - name: JavaScript SDK
+      href: /javascript/api/overview/azure/storage
+  - name: APIs for resource management
+    items:
+    - name: REST API
+      href: /rest/api/storagerp/
+    - name: .NET SDK
+      href: /dotnet/api/overview/azure/resourcemanager.storage-readme
+    - name: Java SDK
+      href: /java/api/overview/azure/storage/management
+    - name: Python SDK
+      href: /python/api/overview/azure/storage#management
+    - name: JavaScript SDK
+      href: /javascript/api/overview/azure/storage#management
+  - name: Monitoring Azure Table storage reference
+    href: monitor-table-storage-reference.md
+  - name: Scalability and performance targets
+    items:
+    - name: Table storage
+      href: scalability-targets.md
+    - name: Standard storage accounts
+      href: ../common/scalability-targets-standard-account.md?toc=/azure/storage/tables/toc.json
+    - name: Storage resource provider
+      href: ../common/scalability-targets-resource-provider.md?toc=/azure/storage/tables/toc.json
   - name: Table storage REST APIs
-    href: https://docs.microsoft.com/rest/api/storageservices/table-service-rest-api
-    maintainContext: true 
-
+    href: /rest/api/storageservices/table-service-rest-api
+    maintainContext: true

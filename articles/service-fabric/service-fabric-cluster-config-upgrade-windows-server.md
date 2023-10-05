@@ -1,22 +1,14 @@
 ---
-title: Upgrade the configuration of a standalone Azure Service Fabric cluster | Microsoft Docs
+title: Upgrade the configuration of a standalone cluster 
 description: Learn how to upgrade the configuration that runs a standalone Service Fabric cluster.
-services: service-fabric
-documentationcenter: .net
-author: dkkapur
-manager: chackdan
-editor: ''
-
-ms.assetid: 66296cc6-9524-4c6a-b0a6-57c253bdf67e
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
 ms.service: service-fabric
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/09/2018
-ms.author: dekapur
-
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Upgrade the configuration of a standalone cluster 
 
 For any modern system, the ability to upgrade is key to the long-term success of your product. An Azure Service Fabric cluster is a resource that you own. This article describes how to upgrade the configuration settings of your standalone Service Fabric cluster.
@@ -29,15 +21,15 @@ You can add, update, or remove settings in the `fabricSettings` section under th
 For example, the following JSON adds a new setting *MaxDiskQuotaInMB* to the *Diagnostics* section under `fabricSettings`:
 
 ```json
-      {
-        "name": "Diagnostics",
-        "parameters": [
-          {
-            "name": "MaxDiskQuotaInMB",
-            "value": "65536"
-          }
-        ]
-      }
+{
+  "name": "Diagnostics",
+  "parameters": [
+    {
+      "name": "MaxDiskQuotaInMB",
+      "value": "65536"
+    }
+  ]
+}
 ```
 
 After you've modified the settings in your ClusterConfig.json file, [test the cluster configuration](#test-the-cluster-configuration) and then [upgrade the cluster configuration](#upgrade-the-cluster-configuration) to apply the settings to your cluster. 
@@ -58,7 +50,7 @@ TestConfiguration.ps1 -ClusterConfigFilePath <Path to the new Configuration File
 Some configurations can't be upgraded, such as endpoints, cluster name, node IP, etc. The new cluster configuration JSON is tested against the old one and throws errors in the PowerShell window if there's an issue.
 
 ## Upgrade the cluster configuration
-To upgrade the cluster configuration upgrade, run [Start-ServiceFabricClusterConfigurationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade). The configuration upgrade is processed upgrade domain by upgrade domain.
+To upgrade the cluster configuration upgrade, run [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade). The configuration upgrade is processed upgrade domain by upgrade domain.
 
 ```powershell
 Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>
@@ -80,7 +72,7 @@ Four options are supported:
 
 ## Next steps
 * Learn how to customize some [Service Fabric cluster settings](service-fabric-cluster-fabric-settings.md).
-* Learn how to [scale your cluster in and out](service-fabric-cluster-scale-up-down.md).
+* Learn how to [scale your cluster in and out](service-fabric-cluster-scale-in-out.md).
 * Learn about [application upgrades](service-fabric-application-upgrade.md).
 
 <!--Image references-->

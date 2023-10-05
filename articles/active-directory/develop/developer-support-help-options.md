@@ -1,99 +1,101 @@
 ---
-title: Support and help options for Azure AD app developers | Microsoft Docs
-description: Know how to obtain help and support for development-related questions and problems when creating application that integrate with Microsoft identities (Azure Active Directory and Microsoft account)
+title: Support and help options for Microsoft identity platform developers
+description: Learn where to get help and find answers to your questions as you build identity and access management (IAM) solutions that integrate with Microsoft Entra ID and other components of the Microsoft identity platform.
 services: active-directory
-documentationcenter: dev-center-name
-author: rwike77
+author: davidmu1
 manager: CelesteDG
-
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/23/2019
-ms.author: ryanwi
-ms.reviewer: jmprieur, saeeda
-ms.custom: aaddev
-ms.collection: M365-identity-device-management
+ms.date: 05/31/2023
+ms.author: davidmu
+ms.custom: has-adal-ref
 ---
 
 # Support and help options for developers
 
-If you're just starting to integrate with Azure Active Directory (Azure AD), Microsoft identities, or Microsoft Graph API, or when you're implementing a new feature to your application, there are times when you need to obtain help from the community or understand the support options that you have as a developer. This article helps you to understand these options, including:
+If you need an answer to a question or help in solving a problem not covered in our documentation, it might be time to reach out to experts for help. Here are several suggestions for getting answers to your questions as you develop applications that integrate with the Microsoft identity platform.
 
-> [!div class="checklist"]
-> * How to search whether your question hasn't been answered by the community, or if an existing documentation for the feature you're trying to implement already exists
-> * In some cases, you just want to use our support tools to help you debug a specific problem
-> * If you can't find the answer that you need, you may want to ask a question on *Stack Overflow*
-> * If you find an issue with one of our authentication libraries, raise a *GitHub* issue
-> * Finally, if you need to talk to someone, you might want to open a support request
+## Create an Azure support request
 
-## Search
+<div class='icon is-large'>
+    <img alt='Azure support' src='./media/common/logo_azure.svg'>
+</div>
 
-If you have a development-related question, you may be able to find the answer in the documentation, [GitHub samples](https://github.com/azure-samples), or answers to [Stack Overflow](https://www.stackoverflow.com) questions.
+Explore the range of [Azure support options and choose the plan](https://azure.microsoft.com/support/plans) that best fits you. There are two options to create and manage support requests in the Microsoft Entra admin center:
 
-### Scoped search
+- If you already have an Azure Support Plan, [open a support request here](https://entra.microsoft.com/#view/Microsoft_Azure_Support/NewSupportRequestV3Blade/callerName/ActiveDirectory/issueType/technical).
 
-For faster results, scope your search to Stack Overflow, the documentation, and the code samples by using the following query in your favorite search engine:
+- If you're using Microsoft Entra ID for customers (preview), the support request feature is currently unavailable in customer tenants. However, you can use the **Give Feedback** link on the **New support request** page to provide feedback. Or, you can switch to your Microsoft Entra workforce tenant and [open a support request](https://entra.microsoft.com/#view/Microsoft_Azure_Support/NewSupportRequestV3Blade/callerName/ActiveDirectory/issueType/technical).
 
-```
-{Your Search Terms} (site:stackoverflow.com OR site:docs.microsoft.com OR site:github.com/azure-samples OR site:cloudidentity.com OR site:developer.microsoft.com/graph)
-```
+- If you're not an Azure customer, you can open a support request with [Microsoft Support for business](https://support.serviceshub.microsoft.com/supportforbusiness).
 
-Where *{Your Search Terms}* correspond to your search keywords.
+## Post a question to Microsoft Q&A
 
-## Use the development support tools
+<div class='icon is-large'>
+    <img alt='Microsoft Q&A' src='./media/common/question-mark-icon.png'>
+</div>
 
-| Tool  | Description  |
-|---------|---------|
-| [jwt.ms](https://jwt.ms) | Paste an ID or access token to decode the claims names and values. |
-| [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)| Tool that lets you make requests and see responses against the Microsoft Graph API. |
+Get answers to your identity app development questions directly from Microsoft engineers, Azure Most Valuable Professionals (MVPs), and members of our expert community.
 
-## Post a question to Stack Overflow
+[Microsoft Q&A](/answers/products/) is Azure's recommended source of community support.
 
-Stack Overflow is the preferred channel for development-related questions. Here, members of the developer community and Microsoft team members are directly involved in helping you to solve your problems.
+If you can't find an answer to your problem by searching Microsoft Q&A, submit a new question. Use one of following tags when you ask your [high-quality question](/answers/articles/24951/how-to-write-a-quality-question.html):
 
-If you can't find an answer to your question through search, submit a new question to Stack Overflow. Use one of the following tags when asking questions to help the community identify and answer your question more quickly:
-
-|Component/area  | Tags |
-|---------|---------|
-| ADAL library | [[adal]](https://stackoverflow.com/questions/tagged/adal) |
-| MSAL library     | [[msal]](https://stackoverflow.com/questions/tagged/msal) |
-| OWIN middleware  | [[azure-active-directory]](https://stackoverflow.com/questions/tagged/azure-active-directory) |
-| [Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)  | [[azure-ad-b2b]](https://stackoverflow.com/questions/tagged/azure-ad-b2b) |
-| [Azure B2C](https://azure.microsoft.com/services/active-directory-b2c/)  | [[azure-ad-b2c]](https://stackoverflow.com/questions/tagged/azure-ad-b2c) |
-| [Microsoft Graph API](https://developer.microsoft.com/graph/) | [[microsoft-graph]](https://stackoverflow.com/questions/tagged/microsoft-graph) |
-| Any other area related to authentication or authorization topics | [[azure-active-directory]](https://stackoverflow.com/questions/tagged/azure-active-directory) |
-
-The following posts from Stack Overflow contain tips on how to ask questions and how to add source code. Follow these guidelines to increase the chances for community members to assess and respond to your question quickly:
-
-* [How do I ask a good question](https://stackoverflow.com/help/how-to-ask)
-* [How to create a minimal, complete, and verifiable example](https://stackoverflow.com/help/mcve)
+| Component/area                                            | Tags                                                                                         |
+| ----------------------------------------------------------| ---------------------------------------------------------------------------------------------|
+| Microsoft Entra ID for customers / External Identities              | [Microsoft Entra ID for customers](https://aka.ms/microsoftentraexternalid)              |
+| Microsoft Entra B2B / External Identities                        | [Microsoft Entra External ID](/answers/tags/231/azure-active-directory-b2c)   |
+| Azure AD B2C                                              | [Microsoft Entra External ID](/answers/tags/231/azure-active-directory-b2c)   |
+| All other Microsoft Entra areas                    | [Microsoft Entra ID](/answers/tags/49/azure-active-directory)                             |
+| Azure RBAC                                                | [Azure Role-Based access control](/answers/tags/189/azure-rbac)                              |
+| Azure Key Vault                                           | [Azure Key Vault](/answers/tags/5/azure-key-vault)                                           |
+| Microsoft Security                                        | [Microsoft Defender for Cloud](/answers/tags/392/defender-for-cloud)                         |
+| Microsoft Sentinel                                        | [Microsoft Sentinel](/answers/tags/423/microsoft-sentinel)                                   |
+| Microsoft Entra Domain Services                                  | [Microsoft Entra Domain Services](/answers/tags/222/azure-active-directory-domain)    |
+| Azure Windows and Linux Virtual Machines                  | [Azure Virtual Machines](/answers/tags/94/azure-virtual-machines)                            |
 
 ## Create a GitHub issue
 
-If you find a bug or problem related to our libraries, raise an issue in our GitHub repositories. Because our libraries are open source, you can also submit a pull request.
+<div class='icon is-large'>
+    <img alt='GitHub-image' src='./media/common/github.svg'>
+</div>
 
-For a list of libraries and their GitHub repositories, see the following:
+If you need help with one of the Microsoft Authentication Libraries (MSAL), open an issue in its repository on GitHub.
 
-* [ADAL](active-directory-authentication-libraries.md) libraries and GitHub repositories
-* [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md), [MSAL.Android](https://github.com/AzureAD/microsoft-authentication-library-for-android), and [MSAL.obj_c](https://github.com/AzureAD/microsoft-authentication-library-for-objc) libraries and GitHub repositories
+<!-- docutune:disable -->
 
-## Open a support request
+| MSAL                   | GitHub issues URL                                                              |
+| ---------------------- | ------------------------------------------------------------------------------ |
+| MSAL for Android       | https://github.com/AzureAD/microsoft-authentication-library-for-android/issues |
+| MSAL Angular           | https://github.com/AzureAD/microsoft-authentication-library-for-js/issues      |
+| MSAL for iOS and macOS | https://github.com/AzureAD/microsoft-authentication-library-for-objc/issues    |
+| MSAL Java              | https://github.com/AzureAD/microsoft-authentication-library-for-java/issues    |
+| MSAL.js                | https://github.com/AzureAD/microsoft-authentication-library-for-js/issues      |
+| MSAL.NET               | https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues  |
+| MSAL Node              | https://github.com/AzureAD/microsoft-authentication-library-for-js/issues      |
+| MSAL Python            | https://github.com/AzureAD/microsoft-authentication-library-for-python/issues  |
+| MSAL React             | https://github.com/AzureAD/microsoft-authentication-library-for-js/issues      |
 
-If you need to talk to someone, you can open a support request. If you are an Azure customer, there are several support options available. To compare plans, see [this page](https://azure.microsoft.com/support/plans/). Developer support is also available for Azure customers. For information on how to purchase Developer support plans, see [this page](https://azure.microsoft.com/support/plans/developer/).
+<!-- docutune:enable -->
 
-* If you already have an Azure Support Plan, [open a support request here](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+## Stay informed of updates and new releases
 
-* If you are not an Azure customer, you can also open a support request with Microsoft via [our commercial support](https://support.microsoft.com/en-us/gp/contactus81?Audience=Commercial).
+<div class='icon is-large'>
+    <img alt='Stay informed' src='./media/common/i_blog.svg'>
+</div>
 
-You can also try a [virtual agent](https://support.microsoft.com/contactus/?ws=support) to obtain support or ask questions.
+- [Azure Updates](https://azure.microsoft.com/updates/?category=identity): Learn about important product updates, roadmap, and announcements.
 
-### Free chat support for a limited time
+- [What's new in docs](./whats-new-docs.md): Get to know what's new in the Microsoft identity platform documentation.
 
-You can also use our chat support, which is free for Microsoft Partners for a limited time. If your company is not a Microsoft Partner, you can enroll it for free and obtain other benefits by going [here](https://partners.microsoft.com/PartnerProgram/simplifiedenrollment.aspx).
+- [Microsoft Entra Blog](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/bg-p/Identity): Get news and information about Microsoft Entra ID.
 
-After enrolling your company, you can start the chat request [here](https://aka.ms/devchat).
+- [Tech Community](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity/): Share your experiences, engage, and learn from experts.
+
+## Share your product ideas
+
+Have an idea for improving the Microsoft identity platform? Browse and vote for ideas submitted by others or submit your own:
+
+https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789

@@ -1,46 +1,44 @@
 ---
-title: Protected web API - app code configuration | Azure
-description: Learn how to build a protected Web API and configure your application's code.
+title: Configure protected web API apps
+description: Learn how to build a protected web API and configure your application's code.
 services: active-directory
-documentationcenter: dev-center-name
-author: jmprieur
+author: cilwerner
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 05/07/2019
-ms.author: jmprieur
-ms.custom: aaddev 
-#Customer intent: As an application developer, I want to know how to write a protected Web API using the Microsoft identity platform for developers.
-ms.collection: M365-identity-device-management
+ms.date: 05/08/2023
+ms.author: cwerner
+ms.reviewer: jmprieur
+#Customer intent: As an application developer, I want to know how to write a protected web API using the Microsoft identity platform for developers.
 ---
 
-# Protected web API - code configuration
+# Protected web API: Code configuration
 
-To successfully configure the code for your protected web API, you need to understand what makes the APIs protected, what you need to configure the bearer token, and how to validate the token.
+To configure the code for your protected web API, understand:
 
-## What makes ASP.NET/ASP.NET Core APIs protected?
+- What defines APIs as protected.
+- How to configure a bearer token.
+- How to validate the token.
 
-Like in web Apps, the ASP.NET/ASP.NET core web APIs are "protected" because their controller actions are prefixed with the `[Authorize]` attribute. Therefore, the controller actions can only be called if the API is called with an identity that is authorized.
+## What defines ASP.NET and ASP.NET Core APIs as protected?
+
+Like web apps, ASP.NET and ASP.NET Core web APIs are protected because their controller actions are prefixed with the **[Authorize]** attribute. The controller actions can be called only if the API is called with an authorized identity.
 
 Consider the following questions:
 
-- How does the web API know the identity of the application that calls it (only an application can call a web API)?
-- If the application called the web API on behalf of a user, what is the user's identity?
+- Only an app can call a web API. How does the API know the identity of the app that calls it?
+- If the app calls the API on behalf of a user, what's the user's identity?
 
 ## Bearer token
 
-The information about the identity of the application, and about the user (unless the web app accepts service-to-service calls from a daemon application), is held in the bearer token that's set in the header when calling the application.
+The bearer token that's set in the header when the app is called holds information about the app identity. It also holds information about the user unless the web app accepts service-to-service calls from a daemon app.
 
-Here's a C# code example that shows a client calling the API after acquiring a token with MSAL.NET.
+Here's a C# code example that shows a client calling the API after it acquires a token with the Microsoft Authentication Library for .NET (MSAL.NET):
 
-```CSharp
-var scopes = new[] {$"api://.../access_as_user}";
+```csharp
+var scopes = new[] {$"api://.../access_as_user"};
 var result = await app.AcquireToken(scopes)
                       .ExecuteAsync();
 
@@ -52,29 +50,27 @@ HttpResponseMessage response = await _httpClient.GetAsync(apiUri);
 ```
 
 > [!IMPORTANT]
-> The bearer token was requested by a client application to the Microsoft identity platform endpoint **for the web API**. The web API is the only application that should verify the token and look at the claims it contains. The client applications should never look at the claims in the tokens (the web API could decide, in the future, that it demands that the token be encrypted and this will break the client application which can crack open the access tokens).
+> A client application requests the bearer token to the Microsoft identity platform *for the web API*. The API is the only application that should verify the token and view the claims it contains. Client apps should never try to inspect the claims in tokens.
+> 
+> In the future, the web API might require that the token be encrypted. This requirement would prevent access for client apps that can view access tokens.
 
 ## JwtBearer configuration
 
-This section covers what you need to configure the bearer token.
+This section describes how to configure a bearer token.
 
 ### Config file
+
+You need to specify the `TenantId` only if you want to accept access tokens from a single tenant (line-of-business app). Otherwise, it can be left as `common`. The different values can be:
+  - A GUID (Tenant ID = Directory ID)
+  - `common` can be any organization and personal accounts
+  - `organizations` can be any organization
+  - `consumers` are Microsoft personal accounts
 
 ```Json
 {
   "AzureAd": {
     "Instance": "https://login.microsoftonline.com/",
-    "ClientId": "[Client_id-of-web-api-eg-2ec40e65-ba09-4853-bcde-bcb60029e596]",
-    /*
-      You need specify the TenantId only if you want to accept access tokens from a single tenant
-     (line of business app)
-      Otherwise you can leave them set to common
-      This can be:
-      - A guid (Tenant ID = Directory ID)
-      - 'common' (Any organization and personal accounts)
-      - 'organizations' (any organization)
-      - 'consumers' (Microsoft personal accounts)
-    */
+    "ClientId": "Enter_the_Application_(client)_ID_here",
     "TenantId": "common"
   },
   "Logging": {
@@ -86,74 +82,192 @@ This section covers what you need to configure the bearer token.
 }
 ```
 
+#### Using a custom App ID URI for a web API
+
+If you've accepted the default App ID URI proposed by the Azure portal, you don't need to specify the audience (see [Application ID URI and scopes](scenario-protected-web-api-app-registration.md#scopes-and-the-application-id-uri)). Otherwise, add an `Audience` property whose value is the App ID URI for your web API. This typically starts with `api://`.
+
+```Json
+{
+  "AzureAd": {
+    "Instance": "https://login.microsoftonline.com/",
+    "ClientId": "Enter_the_Application_(client)_ID_here",
+    "TenantId": "common",
+    "Audience": "Enter_the_Application_ID_URI_here"
+  },
+}
+```
+
 ### Code initialization
 
-When the application is called on the controller action holding an `[Authorize]` attribute, ASP.NET/ASP.NET core looks at the bearer token in the Authorization header of the calling request and extracts the access token, which is then forwarded to the JwtBearer middleware, which calls the Microsoft Identity Model Extensions for .NET.
+When an app is called on a controller action that holds an **[Authorize]** attribute, ASP.NET and ASP.NET Core extract the access token from the Authorization header's bearer token. The access token is then forwarded to the JwtBearer middleware, which calls Microsoft IdentityModel Extensions for .NET.
 
-In ASP.NET Core, this middleware is initialized in the `Startup.cs` file.
+#### Microsoft.Identity.Web
 
-```CSharp
+# [ASP.NET Core](#tab/aspnetcore)
+
+Microsoft recommends you use the [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) NuGet package when developing a web API with ASP.NET Core.
+
+*Microsoft.Identity.Web* provides the glue between ASP.NET Core, the authentication middleware, and the [Microsoft Authentication Library (MSAL)](msal-overview.md) for .NET. It allows for a clearer, more robust developer experience and leverages the power of the Microsoft identity platform and Azure AD B2C.
+
+#### ASP.NET for .NET 6.0
+
+To create a new web API project that uses Microsoft.Identity.Web, use a project template in the .NET 6.0 CLI or Visual Studio.
+
+**Dotnet core CLI**
+
+```dotnetcli
+# Create new web API that uses Microsoft.Identity.Web
+dotnet new webapi --auth SingleOrg
+```
+
+**Visual Studio** - To create a web API project in Visual Studio, select **File** > **New** > **Project** > **ASP.NET Core Web API**.
+
+Both the .NET CLI and Visual Studio project templates create a *Program.cs* file that looks similar to this code snippet. Notice `Microsoft.Identity.Web` using directive and the lines containing authentication and authorization.
+
+```csharp
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-```
+using Microsoft.Identity.Web;
 
-The middleware is added to the web API by the following instruction:
+var builder = WebApplication.CreateBuilder(args);
 
-```CSharp
- services.AddAzureAdBearer(options => Configuration.Bind("AzureAd", options));
-```
+// Add services to the container.
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddMicrosoftIdentityWebApi(builder.Configuration.GetSection("AzureAd"));
 
- Currently, the ASP.NET Core templates create Azure AD v1.0 web APIs. However, you can easily change them to use the Microsoft identity platform endpoint by adding the following code in the `Startup.cs` file.
+builder.Services.AddControllers();
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
-```CSharp
-services.Configure<JwtBearerOptions>(AzureADDefaults.JwtBearerAuthenticationScheme, options =>
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
 {
-    // This is a Microsoft identity platform v2.0 web API
-    options.Authority += "/v2.0";
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
 
-    // The web API accepts as audiences are both the Client ID (options.Audience) and api://{ClientID}
-    options.TokenValidationParameters.ValidAudiences = new []
-    {
-     options.Audience,
-     $"api://{options.Audience}"
-    };
+app.UseHttpsRedirection();
 
-    // Instead of using the default validation (validating against a single tenant,
-    // as we do in line of business apps),
-    // we inject our own multi-tenant validation logic (which even accepts both V1 and V2 tokens)
-    options.TokenValidationParameters.IssuerValidator = AadIssuerValidator.ValidateAadIssuer;
-});
+app.UseAuthentication();
+app.UseAuthorization();
+
+app.MapControllers();
+
+app.Run();
 ```
+
+# [ASP.NET](#tab/aspnet)
+
+Microsoft recommends you use the [Microsoft.Identity.Web.OWIN](https://www.nuget.org/packages/Microsoft.Identity.Web.OWIN) NuGet package when developing a web API with ASP.NET.
+
+*Microsoft.Identity.Web.OWIN* provides the glue between ASP.NET, the ASP.NET authentication middleware, and the [Microsoft Authentication Library (MSAL)](msal-overview.md) for .NET. It allows for a clearer, more robust developer experience and leverages the power of the Microsoft identity platform and Azure AD B2C.
+
+It uses the same configuration file as ASP.NET Core (appsettings.json) and you need to make sure that this file is copied with the output of your project (property copy always in the file properties in Visual Studio or in the .csproj)
+
+*Microsoft.Identity.Web.OWIN* adds an extension methods to IAppBuilder named `AddMicrosoftIdentityWebApi`. These method takes as a parameter an instance of `OwinTokenAcquirerFactory` that you get calling `OwinTokenAcquirerFactory.GetDefaultInstance<OwinTokenAcquirerFactory>()` and that surfaces an instance of `IServiceCollection` to which you can add many services to call downstream APIs or configure the token cache.
+
+
+Here is some sample code for [Startup.Auth.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/tests/DevApps/aspnet-mvc/OwinWebApp/App_Start/Startup.Auth.cs). The full code is available from [tests/DevApps/aspnet-mvc/OwinWebApp](https://github.com/AzureAD/microsoft-identity-web/tree/master/tests/DevApps/aspnet-mvc/OwinWebApp)
+
+```CSharp
+using Microsoft.Owin.Security;
+using Microsoft.Owin.Security.Cookies;
+using Owin;
+using Microsoft.Identity.Web;
+using Microsoft.Identity.Web.TokenCacheProviders.InMemory;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Identity.Client;
+using Microsoft.Identity.Abstractions;
+using Microsoft.Identity.Web.OWIN;
+using System.Web.Services.Description;
+
+namespace OwinWebApp
+{
+    public partial class Startup
+    {
+        public void ConfigureAuth(IAppBuilder app)
+        {
+            app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
+            app.UseCookieAuthentication(new CookieAuthenticationOptions());
+
+            OwinTokenAcquirerFactory factory = TokenAcquirerFactory.GetDefaultInstance<OwinTokenAcquirerFactory>();
+
+            app.AddMicrosoftIdentityWebApp(factory);
+            factory.Services
+                .Configure<ConfidentialClientApplicationOptions>(options => { options.RedirectUri = "https://localhost:44386/"; })
+                .AddMicrosoftGraph()
+                .AddDownstreamApi("DownstreamAPI1", factory.Configuration.GetSection("DownstreamAPI"))
+                .AddInMemoryTokenCaches();
+            factory.Build();
+        }
+    }
+}
+```
+
+--
+
 
 ## Token validation
 
-The JwtBearer middleware, like the OpenID Connect middleware in web apps, is directed by the `TokenValidationParameters` to validate the token. The token is decrypted (if needed), the claims are extracted, and the signature is verified. Then, the token is validated by checking for the following data:
+In the preceding snippet, the JwtBearer middleware, like the OpenID Connect middleware in web apps, validates the token based on the value of `TokenValidationParameters`. The token is decrypted as needed, the claims are extracted, and the signature is verified. The middleware then validates the token by checking for this data:
 
-- It's targeted for the web API (audience)
-- It was issued for an application that is allowed to call the web API (sub)
-- It was issued by a trustable Security Token Server (STS) (issuer)
-- The token's lifetime is in range (expiry)
-- It wasn't tampered with (signature)
+- Audience: The token is targeted for the web API.
+- Sub: It was issued for an app that's allowed to call the web API.
+- Issuer: It was issued by a trusted security token service (STS).
+- Expiry: Its lifetime is in range.
+- Signature: It wasn't tampered with.
 
-There can also be special validations. For instance, it's possible to validate that signing keys (when embedded in a token) are trusted and that the token isn't being replayed. Finally, some protocols require specific validations.
+There can also be special validations. For example, it's possible to validate that signing keys, when embedded in a token, are trusted and that the token isn't being replayed. Finally, some protocols require specific validations.
 
 ### Validators
 
-The validation steps are captured into validators, which are all in the [Microsoft Identity Model Extension for .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) open-source library, in one source file: [Microsoft.IdentityModel.Tokens/Validators.cs](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/blob/master/src/Microsoft.IdentityModel.Tokens/Validators.cs)
+The validation steps are captured in validators, which are provided by the [Microsoft IdentityModel Extensions for .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) open-source library. The validators are defined in the library source file [Microsoft.IdentityModel.Tokens/Validators.cs](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/blob/master/src/Microsoft.IdentityModel.Tokens/Validators.cs).
 
-The validators are described in the following table:
+This table describes the validators:
 
 | Validator | Description |
 |---------|---------|
-| `ValidateAudience` | Ensures that the token is for the application that validates the token (for me). |
-| `ValidateIssuer` | Ensures that the token was issued by a trusted STS (from someone I trust). |
-| `ValidateIssuerSigningKey` | Ensures the application validating the token trusts the key that was used to sign the token (special case where the key is embedded in the token, usually not required). |
-| `ValidateLifetime` | Ensures that the token is still (or already) valid. Done by checking that the lifetime of the token (`notbefore`, `expires` claims) is in range. |
-| `ValidateSignature` | Ensures that the token hasn't been tampered. |
-| `ValidateTokenReplay` | Ensures the token isn't replayed (special case for some onetime use protocols). |
+| **ValidateAudience** | Ensures the token is for the application that validates the token for you. |
+| **ValidateIssuer** | Ensures the token was issued by a trusted STS, meaning it's from someone you trust. |
+| **ValidateIssuerSigningKey** | Ensures the application validating the token trusts the key that was used to sign the token. There's a special case where the key is embedded in the token. But this case doesn't usually arise. |
+| **ValidateLifetime** | Ensures the token is still or already valid. The validator checks if the lifetime of the token is in the range specified by the **notbefore** and **expires** claims. |
+| **ValidateSignature** | Ensures the token hasn't been tampered with. |
+| **ValidateTokenReplay** | Ensures the token isn't replayed. There's a special case for some onetime-use protocols. |
 
-The validators are all associated with properties of the `TokenValidationParameters` class, themselves initialized from the ASP.NET/ASP.NET Core configuration. In most cases, you won't have to change the parameters. There is one exception for applications that aren't single tenants (that is web apps that accept users from any organization or personal Microsoft accounts) -- in this case, the issuer must be validated.
+#### Customizing token validation
+
+The validators are associated with properties of the *TokenValidationParameters* class. The properties are initialized from the ASP.NET and ASP.NET Core configuration.
+
+In most cases, you don't need to change the parameters. Apps that aren't single tenants are exceptions. These web apps accept users from any organization or from personal Microsoft accounts. Issuers in this case must be validated. Microsoft.Identity.Web takes care of the issuer validation as well.
+
+In ASP.NET Core, if you want to customize the token validation parameters, use the following snippet in your *Startup.cs*:
+
+```c#
+services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+        .AddMicrosoftIdentityWebApi(Configuration);
+services.Configure<JwtBearerOptions>(JwtBearerDefaults.AuthenticationScheme, options =>
+{
+  options.TokenValidationParameters.ValidAudiences = new[] { /* list of valid audiences */};
+});
+```
+
+For ASP.NET MVC, the following code sample shows how to do custom token validation:
+
+https://github.com/azure-samples/active-directory-dotnet-webapi-manual-jwt-validation
+
+## Token validation in Azure Functions
+
+You can also validate incoming access tokens in Azure Functions. You can find examples of such validation in the following code samples on GitHub:
+
+- .NET: [Azure-Samples/ms-identity-dotnet-webapi-azurefunctions](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions)
+- Node.js: [Azure-Samples/ms-identity-nodejs-webapi-azurefunctions](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions)
+- Python: [Azure-Samples/ms-identity-python-webapi-azurefunctions)](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions)
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Move to production](scenario-protected-web-api-production.md)
+Move on to the next article in this scenario,
+[Verify scopes and app roles in your code](scenario-protected-web-api-verification-scope-app-roles.md).
+

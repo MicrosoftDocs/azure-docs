@@ -1,111 +1,90 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Kontiki | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Kontiki.
+title: 'Tutorial: Microsoft Entra SSO integration with Kontiki'
+description: Learn how to configure single sign-on between Microsoft Entra ID and Kontiki.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 8d5e5413-da4c-40d8-b1d0-f03ecfef030b
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/14/2019
+ms.date: 11/21/2022
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
-# Tutorial: Azure Active Directory integration with Kontiki
+# Tutorial: Microsoft Entra SSO integration with Kontiki
 
-In this tutorial, you learn how to integrate Kontiki with Azure Active Directory (Azure AD).
+In this tutorial, you'll learn how to integrate Kontiki with Microsoft Entra ID. When you integrate Kontiki with Microsoft Entra ID, you can:
 
-Integrating Kontiki with Azure AD gives you the following benefits:
-
-* You can use Azure AD to control who has access to Kontiki.
-* Users can be automatically signed in to Kontiki with their Azure AD accounts (single sign-on).
-* You can manage your accounts in one central location, the Azure portal.
-
-For more information about software as a service (SaaS) app integration with Azure AD, see [Single sign-on to applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+* Control in Microsoft Entra ID who has access to Kontiki.
+* Enable your users to be automatically signed-in to Kontiki with their Microsoft Entra accounts.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
-To configure Azure AD integration with Kontiki, you need the following items:
+To configure Microsoft Entra integration with Kontiki, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+* A Microsoft Entra subscription. If you don't have a Microsoft Entra subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 * A Kontiki subscription with single sign-on enabled.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD single sign-on in a test environment and integrate Kontiki with Azure AD.
+In this tutorial, you configure and test Microsoft Entra single sign-on in a test environment and integrate Kontiki with Microsoft Entra ID.
 
 Kontiki supports the following features:
 
-* **SP-initiated single sign-on**
-* **Just-in-time user provisioning**
+* **SP-initiated single sign-on**.
+* **Just-in-time user provisioning**.
+
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
 ## Add Kontiki in the Azure portal
 
-To integrate Kontiki with Azure AD, you must add Kontiki to your list of managed SaaS apps.
+To configure the integration of Kontiki into Microsoft Entra ID, you need to add Kontiki from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type **Kontiki** in the search box.
+1. Select **Kontiki** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-1. In the left menu, select **Azure Active Directory**.
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-	![The Azure Active Directory option](common/select-azuread.png)
+<a name='configure-and-test-azure-ad-sso-for-kontiki'></a>
 
-1. Select **Enterprise applications** > **All applications**.
+## Configure and test Microsoft Entra SSO for Kontiki
 
-	![The Enterprise applications pane](common/enterprise-applications.png)
+Configure and test Microsoft Entra SSO with Kontiki using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in Kontiki.
 
-1. To add an application, select **New application**.
+To configure and test Microsoft Entra SSO with Kontiki, perform the following steps:
 
-	![The New application option](common/add-new-app.png)
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
+1. **[Configure Kontiki SSO](#configure-kontiki-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create Kontiki test user](#create-kontiki-test-user)** - to have a counterpart of B.Simon in Kontiki that is linked to the Microsoft Entra representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-1. In the search box, enter **Kontiki**. In the search results, select **Kontiki**, and then select **Add**.
+<a name='configure-azure-ad-sso'></a>
 
-	![Kontiki in the results list](common/search-new-app.png)
+## Configure Microsoft Entra SSO
 
-## Configure and test Azure AD single sign-on
+Follow these steps to enable Microsoft Entra SSO.
 
-In this section, you configure and test Azure AD single sign-on with Kontiki based on a test user named **Britta Simon**. For single sign-on to work, you must establish a linked relationship between an Azure AD user and the related user in Kontiki.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Kontiki** > **Single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-To configure and test Azure AD single sign-on with Kontiki, you must complete the following building blocks:
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-| Task | Description |
-| --- | --- |
-| **[Configure Azure AD single sign-on](#configure-azure-ad-single-sign-on)** | Enables your users to use this feature. |
-| **[Configure Kontiki single sign-on](#configure-kontiki-single-sign-on)** | Configures the single sign-on settings in the application. |
-| **[Create an Azure AD test user](#create-an-azure-ad-test-user)** | Tests Azure AD single sign-on for a user named Britta Simon. |
-| **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** | Enables Britta Simon to use Azure AD single sign-on. |
-| **[Create a Kontiki test user](#create-a-kontiki-test-user)** | Creates a counterpart of Britta Simon in Kontiki that is linked to the Azure AD representation of the user. |
-| **[Test single sign-on](#test-single-sign-on)** | Verifies that the configuration works. |
+1. In the **Basic SAML Configuration** section, perform the following step:
 
-### Configure Azure AD single sign-on
-
-In this section, you configure Azure AD single sign-on with Kontiki in the Azure portal.
-
-1. In the [Azure portal](https://portal.azure.com/), in the **Kontiki** application integration pane, select **Single sign-on**.
-
-    ![Configure single sign-on option](common/select-sso.png)
-
-1. In the **Select a single sign-on method** pane, select **SAML** or **SAML/WS-Fed** mode to enable single sign-on.
-
-    ![Single sign-on select mode](common/select-saml-option.png)
-
-1. In the **Set up Single Sign-On with SAML** pane, select **Edit** (the pencil icon) to open the **Basic SAML Configuration** pane.
-
-	![Edit Basic SAML Configuration](common/edit-urls.png)
-
-1. In the **Basic SAML Configuration** pane, in the **Sign on URL** text box, enter a URL that has the following pattern: `https://<companyname>.mc.eval.kontiki.com`
-
-    ![Kontiki Domain and URLs single sign-on information](common/sp-signonurl.png)
+	In the **Sign on URL** text box, type a URL using the following pattern: 
+	`https://<companyname>.mc.eval.kontiki.com`
 
    	> [!NOTE]
-	> Contact the [Kontiki Client support team](https://customersupport.kontiki.com/enterprise/contactsupport.html) to get the correct value to use. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> Contact the [Kontiki Client support team](https://kollective.com/support/) to get the correct value to use. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. In the **Set up Single Sign-On with SAML** pane, in the **SAML Signing Certificate** section, select **Download** next to **Federation Metadata XML**. Select a download option based on your requirements. Save the certificate on your computer.
 
@@ -113,80 +92,56 @@ In this section, you configure Azure AD single sign-on with Kontiki in the Azure
 
 1. In the **Set up Kontiki** section, copy the following URLs based on your requirements:
 
-	* Login URL
-	* Azure AD Identifier
-	* Logout URL
-
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-### Configure Kontiki single sign-on
+<a name='create-an-azure-ad-test-user'></a>
 
-To configure single sign-on on the Kontiki side, send the downloaded Federation Metadata XML file and the relevant URLs that you copied from the Azure portal to the [Kontiki support team](https://customersupport.kontiki.com/enterprise/contactsupport.html). The Kontiki support team uses the information you send them to ensure that the SAML single sign-on connection is set properly on both sides.
+### Create a Microsoft Entra test user 
 
-### Create an Azure AD test user 
+In this section, you'll create a test user called B.Simon.
 
-In this section, you create a test user named Britta Simon in the Azure portal.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Select **Review + create**.
+1. Select **Create**.
 
-1. In the Azure portal, select **Azure Active Directory** > **Users** > **All users**.
+<a name='assign-the-azure-ad-test-user'></a>
 
-    ![The Users and All users options](common/users.png)
+### Assign the Microsoft Entra test user
 
-1. Select **New user**.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Kontiki.
 
-    ![The New user option](common/new-user.png)
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Kontiki**.
+1. In the app's overview page, select **Users and groups**.
+1. Select **Add user/group**, then select **Users and groups** in the **Add Assignment** dialog.
+   1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+   1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+   1. In the **Add Assignment** dialog, click the **Assign** button.
 
-1. In the **User** pane, complete the following steps:
+## Configure Kontiki SSO
 
-    1. In the **Name** box, enter **BrittaSimon**.
-  
-    1. In the **User name** box, enter **brittasimon\@\<your-company-domain>.\<extension>**. For example, **brittasimon\@contoso.com**.
+To configure single sign-on on the Kontiki side, send the downloaded Federation Metadata XML file and the relevant URLs that you copied to the [Kontiki support team](https://kollective.com/support/). The Kontiki support team uses the information you send them to ensure that the SAML single sign-on connection is set properly on both sides.
 
-    1. Select the **Show password** check box. Write down the value that's displayed in the **Password** box.
-
-    1. Select **Create**.
-
-	![The User pane](common/user-properties.png)
-
-### Assign the Azure AD test user
-
-In this section, you grant Britta Simon access to Kontiki so she can use Azure single sign-on.
-
-1. In the Azure portal, select **Enterprise applications** > **All applications** > **Kontiki**.
-
-	![The Enterprise applications pane](common/enterprise-applications.png)
-
-1. In the applications list, select **Kontiki**.
-
-	![Kontiki in the applications list](common/all-applications.png)
-
-1. In the menu, select **Users and groups**.
-
-    ![The Users and groups option](common/users-groups-blade.png)
-
-1. Select **Add user**. Then, in the **Add assignment** pane, select **Users and groups**.
-
-    ![The Add assignment pane](common/add-assign-user.png)
-
-1. In the **Users and groups** pane, select **Britta Simon** in the list of users. Choose **Select**.
-
-1. If you are expecting a role value in the SAML assertion, in the **Select role** pane, select the relevant role for the user from the list. Choose **Select**.
-
-1. In the **Add Assignment** pane, select **Assign**.
-
-### Create a Kontiki test user
+### Create Kontiki test user
 
 There's no action item for you to configure user provisioning in Kontiki. When an assigned user tries to sign in to Kontiki by using the My Apps portal, Kontiki checks whether the user exists. If no user account is found, Kontiki automatically creates the user account.
 
-### Test single sign-on
+## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration by using the My Apps portal.
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
-After you set up single sign-on, when you select **Kontiki** in the My Apps portal, you are automatically signed in to Kontiki. For more information about the My Apps portal, see [Access and use apps in the My Apps portal](../user-help/my-apps-portal-end-user-access.md).
+* Click on **Test this application**, this will redirect to Kontiki Sign-on URL where you can initiate the login flow. 
+
+* Go to Kontiki Sign-on URL directly and initiate the login flow from there.
+
+* You can use Microsoft My Apps. When you click the Kontiki tile in the My Apps, this will redirect to Kontiki Sign-on URL. For more information, see [Microsoft Entra My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
 ## Next steps
 
-To learn more, review these articles:
-
-- [List of tutorials for integrating SaaS apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-- [Single sign-on to applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+Once you configure Kontiki you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

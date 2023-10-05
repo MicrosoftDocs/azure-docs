@@ -1,44 +1,111 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Documentation for the Azure Blueprints service
+### YamlMime:Landing
+
+title: Azure Blueprints documentation
+summary: Simplify deployments by packaging artifacts, such as Azure Resource Manager templates, Azure role-based access control (Azure RBAC), and policies, in a single blueprint definition.
+
 metadata:
-  title: Azure Blueprints Documentation - Tutorials, API Reference
-  description: Azure Blueprints is a service in Azure, that you use to create, define, and deploy artifacts in your Azure environment.
-  author: DCtheGeek
-  manager: carmonm
+  title: Azure Blueprints documentation
+  description: Simplify deployments by packaging artifacts, such as Azure Resource Manager templates, Azure role-based access control (Azure RBAC), and policies, in a single blueprint definition.
   ms.service: blueprints
   ms.topic: landing-page
-  ms.date: 03/26/2019
-  ms.author: dacoulte
-abstract:
-  description: Azure Blueprints helps you deploy and update cloud environments in a repeatable manner using composable artifacts such as Azure Resource Manager templates to provision resources, role-based access controls, and policies.
-sections:
-- title: 5-Minute Quickstarts
-  items:
-  - type: paragraph
-    text: Learn how to create, assign, and manage blueprint definitions in Azure.
-  - type: list
-    style: icon48
-    items:
-    - image:
-        alt: Azure Portal
-        src: ./media/portal.svg
-      text: Azure Portal
-      href: create-blueprint-portal.md
-    - image:
-        alt: REST
-        src: ./media/rest.svg
-      text: REST
-      href: create-blueprint-rest-api.md
-- title: Reference
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Command-Line
-      html: <p><a href="/powershell/module/az.blueprint/#blueprint">Azure PowerShell</a></p>
-    - title: Languages
-      html: <p><a href="/dotnet/api/overview/azure/blueprints/management">Azure SDK for .NET</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/blueprints/">API Reference</a></p>
+  ms.collection: collection
+  author: mumian
+  ms.author: jgao
+  ms.date: 08/27/2020
+
+landingContent:
+  - title: About Azure Blueprints
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Blueprints?
+            url: ./overview.md
+          - text: Stages of deployment
+            url: ./concepts/deployment-stages.md
+          - text: Lifecycle of a blueprint
+            url: ./concepts/lifecycle.md
+      - linkListType: video
+        links:
+          - text: Azure Friday - Azure Blueprints Overview
+            url: /Shows/Azure-Friday/An-overview-of-Azure-Blueprints
+
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a new blueprint (Portal)
+            url: ./create-blueprint-portal.md
+          - text: Create a new blueprint (Azure CLI)
+            url: ./create-blueprint-azurecli.md
+          - text: Create a new blueprint (Azure PowerShell)
+            url: ./create-blueprint-powershell.md
+          - text: Create a new blueprint (REST)
+            url: ./create-blueprint-rest-api.md
+      - linkListType: tutorial
+        links:
+          - text: Use a blueprint sample
+            url: ./tutorials/create-from-sample.md
+      - linkListType: deploy
+        links:
+          - text: Index of blueprint samples
+            url: ./samples/index.md
+
+  - title: Customize blueprints
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Dynamic parameters
+            url: ./concepts/parameters.md
+          - text: Sequence artifacts
+            url: ./concepts/sequencing-order.md
+          - text: Lock deployed resources
+            url: ./concepts/resource-locking.md
+      - linkListType: tutorial
+        links:
+          - text: Protect new resources with locks
+            url: ./tutorials/protect-new-resources.md
+
+  - title: Evolve to 'at scale'
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Update existing blueprints
+            url: ./how-to/update-existing-assignments.md
+          - text: Manage assignments with PowerShell
+            url: ./how-to/manage-assignments-ps.md
+          - text: Import and export with PowerShell
+            url: ./how-to/import-export-ps.md
+          - text: Implement Blueprint Operators
+            url: ./how-to/configure-for-blueprint-operator.md
+          - text: Manage Blueprints as Code
+            url: https://github.com/Azure/azure-blueprints/blob/master/README.md
+
+  - title: Get involved
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Microsoft Q&A for Azure Blueprints
+            url: /answers/topics/azure-blueprints.html
+          - text: Azure Governance YouTube channel
+            url: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
+          - text: Request product feature
+            url: https://feedback.azure.com/d365community/forum/675ae472-f324-ec11-b6e6-000d3a4f0da0?c=775ae472-f324-ec11-b6e6-000d3a4f0da0
+          - text: Tech Community for Azure Governance
+            url: https://techcommunity.microsoft.com/t5/Azure-Governance/bd-p/AzureGovernance
+
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Blueprint specific functions
+            url: ./reference/blueprint-functions.md
+          - text: PowerShell module (PSGallery)
+            url: https://www.powershellgallery.com/packages/Az.Blueprint
+          - text: Azure CLI
+            url: /cli/azure/blueprint
+          - text: Azure PowerShell
+            url: /powershell/module/az.blueprint/#blueprint
+          - text: Azure SDK for .NET
+            url: /dotnet/api/microsoft.azure.management.blueprint
+          - text: REST
+            url: /rest/api/blueprints/

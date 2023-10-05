@@ -1,205 +1,160 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Qualtrics | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Qualtrics.
+title: 'Tutorial: Microsoft Entra integration with SAP Qualtrics'
+description: Learn how to configure single sign-on between Microsoft Entra ID and SAP Qualtrics.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 4df889ab-2685-4d15-a163-1ba26567eeda
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/27/2019
+ms.date: 11/21/2022
 ms.author: jeedes
-
 ---
-# Tutorial: Azure Active Directory integration with Qualtrics
 
-In this tutorial, you learn how to integrate Qualtrics with Azure Active Directory (Azure AD).
-Integrating Qualtrics with Azure AD provides you with the following benefits:
+# Tutorial: Microsoft Entra single sign-on (SSO) integration with SAP Qualtrics
 
-* You can control in Azure AD who has access to Qualtrics.
-* You can enable your users to be automatically signed-in to Qualtrics (Single Sign-On) with their Azure AD accounts.
-* You can manage your accounts in one central location - the Azure portal.
+In this tutorial, you'll learn how to integrate SAP Qualtrics with Microsoft Entra ID. When you integrate SAP Qualtrics with Microsoft Entra ID, you can:
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+* Control in Microsoft Entra ID who has access to SAP Qualtrics.
+* Enable your users to be automatically signed in to SAP Qualtrics with their Microsoft Entra accounts.
+* Manage your accounts in one central location: the Azure portal.
 
 ## Prerequisites
 
-To configure Azure AD integration with Qualtrics, you need the following items:
+To get started, you need:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
-* Qualtrics single sign-on enabled subscription
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A SAP Qualtrics subscription enabled for single sign-on (SSO).
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment.
 
-* Qualtrics supports **SP** initiated SSO
+* SAP Qualtrics supports **SP** and **IDP** initiated SSO.
+* SAP Qualtrics supports **Just In Time** user provisioning.
 
-* Qualtrics supports **Just In Time** user provisioning
+## Add SAP Qualtrics from the gallery
 
-## Adding Qualtrics from the gallery
+To configure the integration of SAP Qualtrics into Microsoft Entra ID, you need to add SAP Qualtrics from the gallery to your list of managed SaaS apps.
 
-To configure the integration of Qualtrics into Azure AD, you need to add Qualtrics from the gallery to your list of managed SaaS apps.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type **SAP Qualtrics** in the search box.
+1. Select **SAP Qualtrics** from results, and then add the app. Wait a few seconds while the app is added to your tenant.
 
-**To add Qualtrics from the gallery, perform the following steps:**
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
+<a name='configure-and-test-azure-ad-single-sign-on-for-sap-qualtrics'></a>
 
-	![The Azure Active Directory button](common/select-azuread.png)
+## Configure and test Microsoft Entra single sign-on for SAP Qualtrics
 
-2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
+Configure and test Microsoft Entra SSO with SAP Qualtrics, by using a test user called **B.Simon**. For SSO to work, you need to establish a linked relationship between a Microsoft Entra user and the related user in SAP Qualtrics.
 
-	![The Enterprise applications blade](common/enterprise-applications.png)
+To configure and test Microsoft Entra SSO with SAP Qualtrics, complete the following building blocks:
 
-3. To add new application, click **New application** button on the top of dialog.
+1. [Configure Microsoft Entra SSO](#configure-azure-ad-sso) to enable your users to use this feature.
+    1. [Create a Microsoft Entra test user](#create-an-azure-ad-test-user) to test Microsoft Entra single sign-on with B.Simon.
+    1. [Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user) to enable B.Simon to use Microsoft Entra single sign-on.
+1. [Configure SAP Qualtrics SSO](#configure-sap-qualtrics-sso) to configure the single sign-on settings on the application side.
+    1. [Create a SAP Qualtrics test user](#create-sap-qualtrics-test-user) to have a counterpart of B.Simon in SAP Qualtrics, linked to the Microsoft Entra representation of the user.
+1. [Test SSO](#test-sso) to verify whether the configuration works.
 
-	![The New application button](common/add-new-app.png)
+<a name='configure-azure-ad-sso'></a>
 
-4. In the search box, type **Qualtrics**, select **Qualtrics** from result panel then click **Add** button to add the application.
+## Configure Microsoft Entra SSO
 
-	 ![Qualtrics in the results list](common/search-new-app.png)
+Follow these steps to enable Microsoft Entra SSO.
 
-## Configure and test Azure AD single sign-on
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **SAP Qualtrics** application integration page, find the **Manage** section. Select **single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, select the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-In this section, you configure and test Azure AD single sign-on with Qualtrics based on a test user called **Britta Simon**.
-For single sign-on to work, a link relationship between an Azure AD user and the related user in Qualtrics needs to be established.
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-To configure and test Azure AD single sign-on with Qualtrics, you need to complete the following building blocks:
+1. On the **Set up single sign-on with SAML** page, if you want to configure the application in **IDP** initiated mode, enter the values for the following fields:
+    
+    a. In the **Identifier** text box, type a URL that uses the following pattern:
 
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Configure Qualtrics Single Sign-On](#configure-qualtrics-single-sign-on)** - to configure the Single Sign-On settings on application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create Qualtrics test user](#create-qualtrics-test-user)** - to have a counterpart of Britta Simon in Qualtrics that is linked to the Azure AD representation of user.
-6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+	`https://< DATACENTER >.qualtrics.com`
+   
+    b. In the **Reply URL** text box, type a URL that uses the following pattern:
 
-### Configure Azure AD single sign-on
+    `https://< DATACENTER >.qualtrics.com/login/v1/sso/saml2/default-sp`
 
-In this section, you enable Azure AD single sign-on in the Azure portal.
+    c. In the **Relay State** text box, type a URL that uses the following pattern:
 
-To configure Azure AD single sign-on with Qualtrics, perform the following steps:
+    `https://< brandID >.< DATACENTER >.qualtrics.com`
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Qualtrics** application integration page, select **Single sign-on**.
+1. Select **Set additional URLs**, and perform the following step if you want to configure the application in **SP** initiated mode:
 
-    ![Configure single sign-on link](common/select-sso.png)
+    In the **Sign-on URL** textbox, type a URL that uses the following pattern:
 
-2. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
+    `https://< brandID >.< DATACENTER >.qualtrics.com`
 
-    ![Single sign-on select mode](common/select-saml-option.png)
+    > [!NOTE]
+    > These values are not real. Update these values with the actual Sign-on URL, Identifier, Reply URL, and Relay State. To get these values, contact the [Qualtrics Client support team](https://www.qualtrics.com/support/). You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
-3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, select the copy icon to copy **App Federation Metadata Url** and save it on your computer.
 
-	![Edit Basic SAML Configuration](common/edit-urls.png)
+	![The Certificate download link](common/copy-metadataurl.png)
 
-4. On the **Basic SAML Configuration** section, perform the following steps:
+<a name='create-an-azure-ad-test-user'></a>
 
-    ![Qualtrics Domain and URLs single sign-on information](common/sp-identifier.png)
+### Create a Microsoft Entra test user
 
-	a. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://<companyname>.qualtrics.com`
+In this section, you create a test user called B.Simon.
 
-    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Select **Review + create**.
+1. Select **Create**.
 
-    | |
-	|--|
-	| `https://<companyname>.qualtrics.com/WRSAML/simplesaml/www/module.php/saml/sp/metadata.php/default-sp`|
-	| `https://<companyname>.co1.qualtrics.com/WRSAML/simplesaml/www/module.php/saml/sp/metadata.php/default-sp`|
-	| |
+<a name='assign-the-azure-ad-test-user'></a>
 
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Qualtrics Client support team](https://www.qualtrics.com/support/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+### Assign the Microsoft Entra test user
 
-5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
+In this section, you enable B.Simon to use Azure single sign-on by granting access to SAP Qualtrics.
 
-	![The Certificate download link](common/metadataxml.png)
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
+1. In the applications list, select **SAP Qualtrics**.
+1. In the app's overview page, find the **Manage** section, and select **Users and groups**.
+1. Select **Add user**. Then in the **Add Assignment** dialog box, select **Users and groups**.
+1. In the **Users and groups** dialog box, select **B.Simon** from the list of users. Then choose **Select** at the bottom of the screen.
+1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog box, select the appropriate role for the user from the list. Then choose **Select** at the bottom of the screen.
+1. In the **Add Assignment** dialog box, select **Assign**.
 
-6. On the **Set up Qualtrics** section, copy the appropriate URL(s) as per your requirement.
+## Configure SAP Qualtrics SSO
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+To configure single sign-on on the SAP Qualtrics side, send the copied **App Federation Metadata Url** to the [SAP Qualtrics support team](https://www.qualtrics.com/support/). The support team ensures that the SAML SSO connection is set properly on both sides.
 
-	a. Login URL
+### Create SAP Qualtrics test user
 
-	b. Azure AD Identifier
+SAP Qualtrics supports just-in-time user provisioning, which is enabled by default. There is no additional action for you to take. If a user doesn't already exist in SAP Qualtrics, a new one is created after authentication.
 
-	c. Logout URL
+## Test SSO 
 
-### Configure Qualtrics Single Sign-On
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
-To configure single sign-on on **Qualtrics** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Qualtrics support team](https://www.qualtrics.com/support/). They set this setting to have the SAML SSO connection set properly on both sides.
+#### SP initiated:
 
-### Create an Azure AD test user 
+* Click on **Test this application**, this will redirect to SAP Qualtrics Sign on URL where you can initiate the login flow.  
 
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+* Go to SAP Qualtrics Sign-on URL directly and initiate the login flow from there.
 
-1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
+#### IDP initiated:
 
-    ![The "Users and groups" and "All users" links](common/users.png)
+* Click on **Test this application**, and you should be automatically signed in to the SAP Qualtrics for which you set up the SSO.
 
-2. Select **New user** at the top of the screen.
+You can also use Microsoft My Apps to test the application in any mode. When you click the SAP Qualtrics tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the SAP Qualtrics for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
-    ![New user Button](common/new-user.png)
+## Next steps
 
-3. In the User properties, perform the following steps.
-
-    ![The User dialog box](common/user-properties.png)
-
-    a. In the **Name** field enter **BrittaSimon**.
-  
-    b. In the **User name** field type brittasimon@yourcompanydomain.extension. For example, BrittaSimon@contoso.com
-
-    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
-
-    d. Click **Create**.
-
-### Assign the Azure AD test user
-
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Qualtrics.
-
-1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Qualtrics**.
-
-	![Enterprise applications blade](common/enterprise-applications.png)
-
-2. In the applications list, select **Qualtrics**.
-
-	![The Qualtrics link in the Applications list](common/all-applications.png)
-
-3. In the menu on the left, select **Users and groups**.
-
-    ![The "Users and groups" link](common/users-groups-blade.png)
-
-4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
-
-    ![The Add Assignment pane](common/add-assign-user.png)
-
-5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
-
-6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
-
-7. In the **Add Assignment** dialog click the **Assign** button.
-
-### Create Qualtrics test user
-
-In this section, a user called Britta Simon is created in Qualtrics. Qualtrics supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Qualtrics, a new one is created after authentication.
-
-### Test single sign-on 
-
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
-
-When you click the Qualtrics tile in the Access Panel, you should be automatically signed in to the Qualtrics for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
-
-## Additional Resources
-
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+After you configure SAP Qualtrics, you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. For more information, see [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

@@ -1,21 +1,20 @@
 ---
-title: "Azure Cloud Services NetworkConfiguration Schema | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/07/2016"
-services: cloud-services
-ms.reviewer: ""
-ms.service: "cloud-services"
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "reference"
-ms.assetid: c1b94a9e-46e8-4a18-ac99-343c94b1d4bd
-caps.latest.revision: 28
-author: "jpconnock"
-ms.author: "jeconnoc"
-manager: "timlt"
+title: Azure Cloud Services (classic) NetworkConfiguration Schema | Microsoft Docs
+description: Learn about the child elements of the NetworkConfiguration element of the service configuration file, which specifies Virtual Network and DNS values.
+ms.topic: article
+ms.service: cloud-services
+ms.subservice: deployment-files
+ms.date: 02/21/2023
+author: hirenshah1
+ms.author: hirshah
+ms.reviewer: mimckitt
+ms.custom: compute-evergreen 
+
 ---
 
-# Azure Cloud Services Config NetworkConfiguration Schema
+# Azure Cloud Services (classic) Config NetworkConfiguration Schema
+
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 The `NetworkConfiguration` element of the service configuration file specifies Virtual Network and DNS values. These settings are optional for cloud services.
 
@@ -23,7 +22,7 @@ You can use the following resource to learn more about Virtual Networks and the 
 
 - [Cloud Service (classic) Configuration Schema](schema-cscfg-file.md)
 - [Cloud Service (classic) Definition Schema](schema-csdef-file.md)
-- [Create a Virtual Network (classic)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)
+- [Create a Virtual Network (classic)](/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal)
 
 ## NetworkConfiguration Element
 The following example shows the `NetworkConfiguration` element and its child elements.
@@ -44,7 +43,7 @@ The following example shows the `NetworkConfiguration` element and its child ele
         <DnsServer name="<server-name>" IPAddress="<server-address>" />
       </DnsServers>
     </Dns>
-    <VirtualNetworkSite name="<site-name>"/>
+    <VirtualNetworkSite name="Group <RG-VNet> <VNet-name>"/>
     <AddressAssignments>
       <InstanceAddress roleName="<role-name>">
         <Subnets>
@@ -52,7 +51,7 @@ The following example shows the `NetworkConfiguration` element and its child ele
         </Subnets>
       </InstanceAddress>
       <ReservedIPs>
-        <ReservedIP name="<reserved-ip-name>"/>
+        <ReservedIP name="GROUP <ResourceGroupNameOfReservedIP> <reserved-ip-name>"/>
       </ReservedIPs>
     </AddressAssignments>
   </NetworkConfiguration>

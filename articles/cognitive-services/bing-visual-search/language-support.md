@@ -1,24 +1,26 @@
 ---
 title: Language support - Bing Visual Search API
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: A list of natural languages, countries and regions that are supported by the Bing Visual Search API. The Bing Visual Search API supports more than three dozen countries/regions, many with more than one language.
 services: cognitive-services
-author: swhite-msft
+
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/25/2018
-ms.author: scottwhi
+
 ---
 # Language and region support for the Bing Visual Search API
+
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 Bing Visual Search API supports more than three dozen countries/regions, many with more than one language. Each request should include the user's country/region and language of choice. Knowing the user's market helps Bing return appropriate results. If you don't specify a country/region and language, Bing makes a best effort to determine the user's country/region and language. Because the results may contain links to Bing, knowing the country/region and language may provide a preferred localized Bing user experience if the user clicks the Bing links.
 
 To specify the country/region and language, set the `mkt` (market) query parameter to a code from the **Markets** table below. The market specifies both a country/region and language. If the user prefers to see display text in a different language, set `setLang` query parameter to the appropriate language code.
 
-Alternatively, you can specify the country/region using the `cc` query parameter. If you specify a country/region, you must also specify one or more language codes using the `Accept-Language` HTTP header. The supported languages vary by country/region; they are given for each country in the Markets table.
+Alternatively, you can specify the country/region using the `cc` query parameter. If you specify a country/region, you must also specify one or more language codes using the `Accept-Language` HTTP header. The supported languages vary by country/region; they are given for each country/region in the Markets table.
 
 
 
@@ -66,7 +68,7 @@ Alternatively, you can specify the country/region using the `cc` query parameter
 |Sweden|SE|
 |Switzerland|CH|
 |Taiwan|TW|
-|Turkey|TR|
+|Türkiye|TR|
 |United Kingdom|GB|
 |United States|US|
 
@@ -110,7 +112,7 @@ Alternatively, you can specify the country/region using the `cc` query parameter
 |Switzerland|French|fr-CH|
 |Switzerland|German|de-CH|
 |Taiwan|Traditional Chinese|zh-TW|
-|Turkey|Turkish|tr-TR|
+|Türkiye|Turkish|tr-TR|
 |United Kingdom|English|en-GB|
 |United States|English|en-US|
 |United States|Spanish|es-US|

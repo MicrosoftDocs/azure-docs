@@ -1,27 +1,19 @@
 ---
-title: Fix 502 bad gateway, 503 service unavailable errors - Azure App Service | Microsoft Docs
+title: Fix HTTP 502 and HTTP 503 errors
 description: Troubleshoot 502 bad gateway and 503 service unavailable errors in your app hosted in Azure App Service.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: ''
 tags: top-support-issue
 keywords: 502 bad gateway, 503 service unavailable, error 503, error 502
 
 ms.assetid: 51cd331a-a3fa-438f-90ef-385e755e50d5
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
-ms.author: cephalin
 ms.custom: seodec18
+ms.author: msangapu
+author: msangapu-msft
 
 ---
 # Troubleshoot HTTP errors of "502 bad gateway" and "503 service unavailable" in Azure App Service
-"502 bad gateway" and "503 service unavailable" are common errors in your app hosted in [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). This article helps you troubleshoot these errors.
+"502 bad gateway" and "503 service unavailable" are common errors in your app hosted in [Azure App Service](./overview.md). This article helps you troubleshoot these errors.
 
 If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/) and click on **Get Support**.
 
@@ -44,11 +36,11 @@ Troubleshooting can be divided into three distinct tasks, in sequential order:
 
 [App Service](overview.md) gives you various options at each step.
 
-<a name="observe" />
+<a name="observe"></a>
 
 ### 1. Observe and monitor application behavior
 #### Track Service health
-Microsoft Azure publicizes each time there is a service interruption or performance degradation. You can track the health of the service on the [Azure Portal](https://portal.azure.com/). For more information, see [Track service health](../monitoring-and-diagnostics/insights-service-health.md).
+Microsoft Azure publicizes each time there is a service interruption or performance degradation. You can track the health of the service on the [Azure Portal](https://portal.azure.com/). For more information, see [Track service health](../service-health/service-notifications.md).
 
 #### Monitor your app
 This option enables you to find out if your application is having any issues. In your app’s blade, click the **Requests and errors** tile. The **Metric** blade will show you all the metrics you can add.
@@ -66,9 +58,9 @@ Some of the metrics that you might want to monitor for your app are
 For more information, see:
 
 * [Monitor apps in Azure App Service](web-sites-monitor.md)
-* [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
+* [Receive alert notifications](../azure-monitor/alerts/alerts-overview.md)
 
-<a name="collect" />
+<a name="collect"></a>
 
 ### 2. Collect data
 #### Use the diagnostics tool
@@ -86,20 +78,20 @@ Some of the things that Kudu provides are:
 * environment settings for your application
 * log stream
 * diagnostic dump
-* debug console in which you can run Powershell cmdlets and basic DOS commands.
+* debug console in which you can run PowerShell cmdlets and basic DOS commands.
 
 Another useful feature of Kudu is that, in case your application is throwing first-chance exceptions, you can use Kudu and the SysInternals tool Procdump to create memory dumps. These memory dumps are snapshots of the process and can often help you troubleshoot more complicated issues with your app.
 
 For more information on features available in Kudu, see
 [Azure Websites online tools you should know about](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/).
 
-<a name="mitigate" />
+<a name="mitigate"></a>
 
 ### 3. Mitigate the issue
 #### Scale the app
 In Azure App Service, for increased performance and throughput,  you can adjust the scale at which you are running your application. Scaling up an app involves two related actions: changing your App Service plan to a higher pricing tier, and configuring certain settings after you have switched to the higher pricing tier.
 
-For more information on scaling, see [Scale an app in Azure App Service](web-sites-scale.md).
+For more information on scaling, see [Scale an app in Azure App Service](manage-scale-up.md).
 
 Additionally, you can choose to run your application on more than one instance . This not only provides you with more processing capability, but also gives you some amount of fault tolerance. If the process goes down on one instance, the other instance will still continue serving requests.
 
@@ -115,6 +107,5 @@ This is often the simplest way to recover from one-time issues. On the [Azure Po
 
  ![restart app to solve HTTP errors of 502 bad gateway and 503 service unavailable](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
 
-You can also manage your app using Azure Powershell. For more information, see
-[Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
-
+You can also manage your app using Azure PowerShell. For more information, see
+[Using Azure PowerShell with Azure Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md).

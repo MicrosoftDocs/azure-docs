@@ -1,0 +1,75 @@
+### YamlMime:Landing
+
+title: Device Update for IoT Hub documentation
+summary: Device Update for IoT Hub is a service that enables you to deploy over-the-air updates (OTA) to your IoT devices.
+
+metadata:
+  title: Device Update for IoT Hub documentation
+  description: Device Update for IoT Hub is a service that enables you to deploy over-the-air updates (OTA) to your IoT devices.
+  services: iot-hub
+  ms.service: iot-hub-device-update
+  ms.topic: landing-page
+  author: vimeht
+  ms.author: vimeht
+  
+  ms.date: 04/25/2022
+
+landingContent:
+  - title: About Device Update
+    linkLists:
+    - linkListType: overview
+      links:
+        - text: What is Device Update for IoT Hub?
+          url: understand-device-update.md
+        - text: Release notes and version history
+          url: device-update-changelog.md
+  - title: Get started
+    linkLists:
+    - linkListType: tutorial
+      links:
+        - text: Device update on a simulator
+          url: device-update-simulator.md
+        - text: Device update on Raspberry Pi
+          url: device-update-raspberry-pi.md
+        - text: Device update on Ubuntu Server 18.04 x64 Package agent
+          url: device-update-ubuntu-agent.md
+        - text: Device update for Azure RTOS
+          url: device-update-azure-real-time-operating-system.md
+  - title: Prep your devices with the agent
+    linkLists:
+    - linkListType: concept
+      links:
+      - text: Agent overview
+        url: device-update-agent-overview.md
+    - linkListType: how-to-guide
+      links:
+      - text: Create a device update account
+        url: create-device-update-account.md
+      - text: Provision the agent on your devices
+        url: device-update-agent-provisioning.md
+  - title: Create and import updates
+    linkLists:
+    - linkListType: concept
+      links:
+      - text: Import updates into the Device Update service
+        url: import-concepts.md
+    - linkListType: how-to-guide
+      links:
+      - text: Create an update
+        url: create-update.md
+      - text: Import an update
+        url: import-update.md
+  - title: Organize and update your devices
+    linkLists:
+    - linkListType: concept
+      links: 
+      - text: Device groups
+        url: device-update-groups.md
+      - text: Deployments
+        url: device-update-deployments.md
+    - linkListType: how-to-guide
+      links:
+      - text: Create device groups
+        url: create-update-group.md
+      - text: Deploy a device update
+        url: deploy-update.md

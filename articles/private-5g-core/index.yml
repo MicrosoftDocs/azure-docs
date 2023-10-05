@@ -1,0 +1,176 @@
+### YamlMime:Landing
+
+title: Azure Private 5G Core documentation
+summary: Learn how to securely deploy and manage private mobile networks for 5G Internet of Things (IoT) devices using Azure Private 5G Core.
+
+metadata:
+  title: Azure Private 5G Core documentation
+  description: Learn how to securely deploy and manage private mobile networks for 5G Internet of Things (IoT) devices using Azure Private 5G Core.
+  ms.service: private-5g-core
+  ms.topic: landing-page
+  author: robswain
+  ms.author: robswain
+  ms.date: 05/31/2023
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Azure Private 5G Core
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Private 5G Core?
+            url: private-5g-core-overview.md
+      - linkListType: concept
+        links:
+          - text: Key components of a private mobile network
+            url: key-components-of-a-private-mobile-network.md
+          - text: Private mobile network design requirements
+            url: private-mobile-network-design-requirements.md
+          - text: Statement of compliance
+            url: statement-of-compliance.md   
+      - linkListType: whats-new
+        links:
+          - text: What's new in Azure Private 5G Core?
+            url: whats-new.md
+      - linkListType: how-to-guide
+        links:
+          - text: How to open a support request 
+            url: open-support-request.md
+      - linkListType: concept
+        links:
+          - text: Support lifetime 
+            url: support-lifetime.md
+  # Card
+  - title: Training
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Azure Private 5G Core learning path
+            url: /training/paths/get-started-with-azure-private-5g-core/
+  # Card            
+  - title: Learn how to deploy a private mobile network
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Complete prerequisite tasks
+            url: complete-private-mobile-network-prerequisites.md
+          - text: Commission the AKS cluster
+            url: commission-cluster.md
+          - text: Collect the required information for a private mobile network
+            url: collect-required-information-for-private-mobile-network.md
+          - text: Deploy a private mobile network - Azure portal
+            url: how-to-guide-deploy-a-private-mobile-network-azure-portal.md
+          - text: Create and manage network slices - Azure portal
+            url: create-manage-network-slices.md
+          - text: Create a network slice - ARM template
+            url: create-slice-arm-template.md
+      - linkListType: quickstart
+        links:
+          - text: Deploy a private mobile network and site - ARM template
+            url: deploy-private-mobile-network-with-site-arm-template.md
+          - text: Deploy a private mobile network and site - command line
+            url: deploy-private-mobile-network-with-site-command-line.md
+          - text: Deploy a private mobile network and site - PowerShell
+            url: deploy-private-mobile-network-with-site-powershell.md
+  # Card
+  - title: Manage sites
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Collect the required information for a site
+            url: collect-required-information-for-a-site.md
+          - text: Create a site - Azure portal
+            url: create-a-site.md
+          - text: Create a site - ARM template
+            url: create-site-arm-template.md
+          - text: Create additional Packet Core instances for a site - Azure portal
+            url: create-additional-packet-core.md
+          - text: Modify a service plan
+            url: modify-service-plan.md
+          - text: Delete a site
+            url: delete-a-site.md
+          - text: Modify a packet core instance
+            url: modify-packet-core.md
+          - text: Upgrade a packet core instance - Azure portal
+            url: upgrade-packet-core-azure-portal.md
+          - text: Upgrade a packet core instance - ARM template
+            url: upgrade-packet-core-arm-template.md
+          - text: Reinstall a packet core instance
+            url: reinstall-packet-core.md
+  # Card                   
+  - title: Customize quality of service (QoS) and traffic control
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Policy control
+            url: policy-control.md
+      - linkListType: tutorial
+        links:
+          - text: Create an example policy control configuration set
+            url: tutorial-create-example-set-of-policy-control-configuration.md
+      - linkListType: how-to-guide
+        links:
+          - text: Collect the required information for a service
+            url: collect-required-information-for-service.md
+          - text: Configure a service - Azure portal
+            url: configure-service-azure-portal.md
+          - text: Collect the required information for a SIM policy
+            url: collect-required-information-for-sim-policy.md
+          - text: Configure a SIM policy - Azure portal
+            url: configure-sim-policy-azure-portal.md
+          - text: Configure a service and SIM policy - ARM template
+            url: configure-service-sim-policy-arm-template.md
+          - text: Configure UE to UE internal forwarding - Azure portal
+            url: configure-internal-forwarding.md
+  # Card
+  - title: Provision and manage SIMs
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Provision new SIMs - Azure portal
+            url: provision-sims-azure-portal.md
+          - text: Provision new SIMs - ARM template
+            url: provision-sims-arm-template.md
+          - text: Manage existing SIMs
+            url: manage-existing-sims.md
+          - text: Manage SIM groups
+            url: manage-sim-groups.md
+  # Card
+  - title: Monitor and diagnose your private mobile network
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Cloud monitoring with Azure Monitor platform metrics
+            url: monitor-private-5g-core-with-platform-metrics.md
+          - text: Local monitoring with distributed tracing
+            url: distributed-tracing.md
+          - text: Local monitoring with packet core dashboards
+            url: packet-core-dashboards.md
+          - text: Monitor AP5GC UE usage with Event Hubs (preview)
+            url: ue-usage-event-hub.md
+          - text: Monitor packet cores with alerts
+            url: monitor-private-5g-core-alerts.md
+      - linkListType: how-to-guide
+        links:
+          - text: Gather diagnostics
+            url: gather-diagnostics.md
+          - text: Export, upload and share traces for diagnostics
+            url: distributed-tracing-share-traces.md
+          - text: Perform data plane packet capture on a packet core instance
+            url: data-plane-packet-capture.md
+          - text: Use ping and traceroute on a packet core instance
+            url: ping-traceroute.md
+            
+  # Card
+  - title: Learn about Azure Private 5G Core architecture
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: Deploy private 5G networks on Azure
+            url: /azure/architecture/industries/telecommunications/deploy-private-mobile-network
+          - text: Build a private 5G network
+            url: /azure/architecture/industries/telecommunications/build-private-5g-network

@@ -1,99 +1,141 @@
 ---
-title: Keep track of data while hunting in Azure Sentinel Preview using hunting bookmarks | Microsoft Docs
-description: This article describes how to use the Azure Sentinel hunting bookmarks to keep track of data.
-services: sentinel
-documentationcenter: na
-author: rkarlin
-manager: rkarlin
-editor: ''
-
-ms.assetid: 320ccdad-8767-41f3-b083-0bc48f1eeb37
-ms.service: sentinel
-ms.devlang: na
-ms.topic: conceptual
-ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 2/28/2019
-ms.author: rkarlin
+title: Use hunting bookmarks for data investigations in Microsoft Sentinel
+description: This article describes how to use the Microsoft Sentinel hunting bookmarks to keep track of data.
+author: yelevin
+ms.author: yelevin
+ms.topic: how-to
+ms.custom: mvc, ignite-fall-2021
+ms.date: 11/09/2021
 ---
 
-# Keep track of data during hunting
+# Keep track of data during hunting with Microsoft Sentinel
 
-> [!IMPORTANT]
-> Azure Sentinel is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
- 
 Threat hunting typically requires reviewing mountains of log data looking for evidence of malicious behavior. During this process, investigators find events that they want to remember, revisit, and analyze as part of validating potential hypotheses and understanding the full story of a compromise.
-Hunting bookmarks help you do this, by preserving the queries you ran in Log Analytics, along with the query results that you deem relevant. You can also record your contextual observations and reference your findings by adding notes and tags. Bookmarked data is visible to you and your teammates for easy collaboration.   
 
-You can revisit your bookmarked data at any time on the **Bookmark** tab of the **Hunting** page. You can use filtering and search options to quickly find specific data for your current investigation. Alternatively, you can view your bookmarked data directly in the **HuntingBookmark** table in Log Analytics. This enables you to filter, summarize, and join bookmarked data with other data sources, making it easy to look for corroborating evidence.
+Hunting bookmarks in Microsoft Sentinel help you do this, by preserving the queries you ran in **Microsoft Sentinel - Logs**, along with the query results that you deem relevant. You can also record your contextual observations and reference your findings by adding notes and tags. Bookmarked data is visible to you and your teammates for easy collaboration.
 
-You can also visualize your bookmarked data, by clicking **Investigate**. This launches the investigation experience in which you can view, investigate, and visually communicate your findings using an interactive entity-graph diagram and timeline.
+Now you can identify and address gaps in MITRE ATT&CK technique coverage, across all hunting queries, by mapping your custom hunting queries to MITRE ATT&CK techniques.
 
+You can also investigate more types of entities while hunting with bookmarks, by mapping the full set of entity types and identifiers supported by Microsoft Sentinel Analytics in your custom queries. This enables you to use bookmarks to explore the entities returned in hunting query results using [entity pages](entities.md#entity-pages), [incidents](investigate-cases.md) and the [investigation graph](investigate-cases.md#use-the-investigation-graph-to-deep-dive). If a bookmark captures results from a hunting query, it automatically inherits the query's MITRE ATT&CK technique and entity mappings.
 
-## Run a Log Analytics query from Azure Sentinel
+If you find something that urgently needs to be addressed while hunting in your logs, you can easily create a bookmark and either promote it to an incident or add it to an existing incident. For more information about incidents, see [Investigate incidents with Microsoft Sentinel](investigate-cases.md).
 
-1. In the Azure Sentinel portal, click **Hunting** to run queries for suspicious and anomalous behavior.
+If you found something worth bookmarking, but that isn't immediately urgent, you can create a bookmark and then revisit your bookmarked data at any time on the **Bookmarks** tab of the **Hunting** pane. You can use filtering and search options to quickly find specific data for your current investigation.
 
-1. To run a hunting campaign, select one of the hunting queries and on the left, review the results. 
+You can visualize your bookmarked data by selecting **Investigate** from the bookmark details. This launches the investigation experience in which you can view, investigate, and visually communicate your findings using an interactive entity-graph diagram and timeline.
 
-1. Click **View query results** in the hunting query **Details** page to view the query results in Log Analytics. Here's an example of what you see if you ran a custom SSH bruteforce attack query.
-  
-   ![show results](./media/bookmarks/ssh-bruteforce-example.png)
+Alternatively, you can view your bookmarked data directly in the **HuntingBookmark** table in your Log Analytics workspace. For example:
+
+:::image type="content" source="media/bookmarks/bookmark-table.png" alt-text="Screenshot of viewing hunting bookmarks table." lightbox="media/bookmarks/bookmark-table.png":::
+
+Viewing bookmarks from the table enables you to filter, summarize, and join bookmarked data with other data sources, making it easy to look for corroborating evidence.
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)] 
 
 ## Add a bookmark
 
-1. In the Log Analytics query results list, expand the row containing the information that you find interesting.
+1. In the Azure portal, navigate to **Microsoft Sentinel** > **Threat management** > **Hunting** to run queries for suspicious and anomalous behavior.
 
-4. Select the ellipsis (...) at the end of the row, and select **Add hunting bookmarks**.
-5. On the right, in the **Details** page, update the name, and add tags, and notes to help you identify what was interesting about the item.
-6. Click **Save** to commit your changes. All bookmarked data is shared with other investigators, and is a first step toward a collaborative investigation experience.
+1. Select one of the hunting queries and on the right, in the hunting query details, select **Run Query**.
 
-   ![show results](./media/bookmarks/add-bookmark-la.png)
+1. Select **View query results**. For example:
 
- 
-> [!NOTE]
-> You can also use bookmarks with arbitrary Log Analytics queries launched from the Azure Sentinel Log Analytics Logs page, or queries created on the fly from the Log Analytics page and opened from the Hunting page. You will not be able to add a bookmark if you launch Log Analytics from outside of Azure Sentinel. 
+    :::image type="content" source="media/bookmarks/new-processes-observed-example.png" alt-text="Screenshot of viewing query results from Microsoft Sentinel hunting.":::
 
-## View and update bookmarks 
+    This action opens the query results in the **Logs** pane.
 
-1. In the Azure Sentinel portal, click **Hunting**. 
-2. Click the **Bookmarks** tab in the middle of the page to view the list of bookmarks.
-3. Use the search box or filter options to find a specific bookmark.
-4. Select individual bookmarks in the grid below to view the bookmark details in the right hand details pane.
-5. To update tags and notes, click on the editable text boxes and click **Save** to preserve your changes.
+1. From the log query results list, use the checkboxes to select one or more rows that contain the information you find interesting.
 
-   ![show results](./media/bookmarks/view-update-bookmarks.png)
+1. Select **Add bookmark**:
 
-## View bookmarked data in Log Analytics 
+    :::image type="content" source="media/bookmarks/add-hunting-bookmark.png" alt-text="Screenshot of adding hunting bookmark to query." lightbox="media/bookmarks/add-hunting-bookmark.png":::
 
-There are multiple options to viewing your bookmarked data in Log Analytics. 
+1. On the right, in the **Add bookmark** pane, optionally, update the bookmark name, add tags, and notes to help you identify what was interesting about the item.
 
-The easiest way to view bookmarked queries, results, or history is by selecting the desired bookmark in the **Bookmarks** table and use the links provided in the details pane. Options include: 
-- Click on **View query** to view the source query in Log Analytics.  
-- Click on **View bookmark history** to see all bookmark metadata including: who made the update, the updated values, and the time the update occurred. 
+1. Bookmarks can be optionally mapped to MITRE ATT&CK techniques or sub-techniques. MITRE ATT&CK mappings are inherited from mapped values in hunting queries, but you can also create them manually. Select the MITRE ATT&CK tactic associated with the desired technique from the drop-down menu in the **Tactics & Techniques** section of the **Add bookmark** pane. The menu will expand to show all the MITRE ATT&CK techniques, and you can select multiple techniques and sub-techniques in this menu.
 
-- You can also view the raw bookmark data for all bookmarks by clicking on **Bookmark logs** above the bookmark grid. This view will show the all your bookmarks in the hunting bookmark table with associated metadata. You can use KQL queries to filter down to the latest version of the specific bookmark you are looking for.  
+    :::image type="content" source="media/bookmarks/mitre-attack-mapping.png" alt-text="Screenshot of how to map Mitre Attack tactics and techniques to bookmarks.":::
 
+1. Now an expanded set of entities can be extracted from bookmarked query results for further investigation. In the **Entity mapping** section, use the drop-downs to select [entity types and identifiers](entities-reference.md). Then map the column in the query results containing the corresponding identifier. For example:
+
+    :::image type="content" source="media/bookmarks/map-entity-types-bookmark.png" alt-text="Screenshot to map entity types for hunting bookmarks.":::
+
+    To view the bookmark in the investigation graph, you must map at least one entity. Entity mappings to account, host, IP, and URL entity types you've previously created are supported, preserving backwards compatibility.
+
+1. Click **Save** to commit your changes and add the bookmark. All bookmarked data is shared with other analysts, and is a first step toward a collaborative investigation experience.
 
 > [!NOTE]
-> There can be significant delay (measured in minutes) between the creation of a bookmark and when it is displayed in the **HuntingBookmark** table. It is recommended to create your bookmarks first, then analyze them after the data is ingested. 
+> The log query results support bookmarks whenever this pane is opened from Microsoft Sentinel. For example, you select **General** > **Logs** from the navigation bar, select event links in the investigations graph, or select an alert ID from the full details of an incident. You can't create bookmarks when the **Logs** pane is opened from other locations, such as directly from Azure Monitor.
+
+## View and update bookmarks
+
+1. In the Azure portal, navigate to **Microsoft Sentinel** > **Threat management** > **Hunting**.
+
+2. Select the **Bookmarks** tab to view the list of bookmarks.
+
+3. To help you find a specific bookmark, use the search box or filter options.
+
+4. Select individual bookmarks and view the bookmark details in the right-hand details pane.
+
+5. Make your changes as needed, which are automatically saved.
+
+## Exploring bookmarks in the investigation graph
+
+1. In the Azure portal, navigate to **Microsoft Sentinel** > **Threat management** > **Hunting** > **Bookmarks** tab, and select the bookmark or bookmarks you want to investigate.
+
+2. In the bookmark details, ensure that at least one entity is mapped.
+
+3. Select **Investigate** to view the bookmark in the investigation graph.
+
+For instructions to use the investigation graph, see [Use the investigation graph to deep dive](investigate-cases.md#use-the-investigation-graph-to-deep-dive).
+
+## Add bookmarks to a new or existing incident
+
+1. In the Azure portal, navigate to **Microsoft Sentinel** > **Threat management** > **Hunting** > **Bookmarks** tab, and select the bookmark or bookmarks you want to add to an incident.
+
+2. Select **Incident actions** from the command bar:
+
+    :::image type="content" source="media/bookmarks/incident-actions.png" alt-text="Screenshot of adding bookmarks to incident.":::
+
+3. Select either **Create new incident** or **Add to existing incident**, as appropriate. Then:
+
+    - For a new incident: Optionally update the details for the incident, and then select **Create**.
+    - For adding a bookmark to an existing incident: Select one incident, and then select **Add**.
+
+To view the bookmark within the incident: Navigate to **Microsoft Sentinel** > **Threat management** > **Incidents** and select the incident with your bookmark. Select **View full details**, and then select the **Bookmarks** tab.
+
+> [!TIP]
+> As an alternative to the **Incident actions** option on the command bar, you can use the context menu (**...**) for one or more bookmarks to select options to **Create new incident**, **Add to existing incident**, and **Remove from incident**.
+
+## View bookmarked data in logs
+
+To view bookmarked queries, results, or their history, select the bookmark from the **Hunting** > **Bookmarks** tab, and use the links provided in the details pane:
+
+- **View source query** to view the source query in the **Logs** pane.
+
+- **View bookmark logs** to see all bookmark metadata, which includes who made the update, the updated values, and the time the update occurred.
+
+You can also view the raw bookmark data for all bookmarks by selecting **Bookmark Logs** from the command bar on the **Hunting** > **Bookmarks** tab:
+
+:::image type="content" source="media/bookmarks/bookmark-logs.png" alt-text="Screenshot of bookmark logs command.":::
+
+This view shows all your bookmarks with associated metadata. You can use [Kusto Query Language](/azure/data-explorer/kql-quick-reference) (KQL) queries to filter down to the latest version of the specific bookmark you are looking for.
+
+> [!NOTE]
+> There can be a significant delay (measured in minutes) between the time you create a bookmark and when it is displayed in the **Bookmarks** tab.
 
 ## Delete a bookmark
-If you want to delete a bookmark do the following: 
-1.	Open th **Hunting bookmark** tab. 
-2.	Select the target bookmark.
-3.	Select the ellipsis (...) at the end of the row and select **Delete bookmark**.
-	
-Deleting the bookmark removes the bookmark from the list in the **Bookmark** tab.  The Log Analytics “HuntingBookmark” table will continue to contain previous bookmark entries, but the latest entry will change the **SoftDelete** value to true, making it easy to filter out old bookmarks.  Deleting a bookmark does not remove any entities from the investigation experience that are associated with other bookmarks or alerts. 
 
+1. In the Azure portal, navigate to **Microsoft Sentinel** > **Threat management** > **Hunting** > **Bookmarks** tab, and select the bookmark or bookmarks you want to delete.
+
+2. Right-click your selections, and select the option to delete the number of bookmarks you have selected.
+
+Deleting the bookmark removes the bookmark from the list in the **Bookmark** tab. The **HuntingBookmark** table for your Log Analytics workspace will continue to contain previous bookmark entries, but the latest entry will change the **SoftDelete** value to true, making it easy to filter out old bookmarks. Deleting a bookmark does not remove any entities from the investigation experience that are associated with other bookmarks or alerts.
 
 ## Next steps
 
-In this article, you learned how to run a hunting investigation using bookmarks in Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
-
+In this article, you learned how to run a hunting investigation using bookmarks in Microsoft Sentinel. To learn more about Microsoft Sentinel, see the following articles:
 
 - [Proactively hunt for threats](hunting.md)
 - [Use notebooks to run automated hunting campaigns](notebooks.md)
+- [Threat hunting with Microsoft Sentinel (Learn module)](/training/modules/hunt-threats-sentinel/)

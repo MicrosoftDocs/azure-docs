@@ -1,0 +1,126 @@
+### YamlMime:Landing
+
+title: Azure Web PubSub service documentation
+summary: Azure Web PubSub service is an Azure-managed service that helps developers easily build web applications with real-time features and publish-subscribe pattern.
+
+metadata:
+  title: Azure Web PubSub service documentation
+  description: Build and scale real-time web app easily based on WebSocket supporting broad range of languages and frameworks.
+  ms.service: azure-web-pubsub
+  ms.topic: landing-page
+  author: yjin81
+  ms.author: yajin1
+  ms.date: 05/22/2022 
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Azure Web PubSub service
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Web PubSub service?
+            url: overview.md
+      - linkListType: concept
+        links:
+          - text: About hubs, groups, and connections
+            url: key-concepts.md
+          - text: Client protocols
+            url: concept-client-protocols.md
+          - text: Billing model
+            url: concept-billing-model.md
+          - text: Event handler
+            url: howto-develop-eventhandler.md    
+
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create from Azure portal
+            url: howto-develop-create-instance.md
+          - text: Create from Azure CLI
+            url: quickstart-cli-create.md
+      - linkListType: tutorial
+        links:
+          - text: Build a chat app 
+            url: tutorial-build-chat.md
+          - text: Build a notification app with Azure Functions
+            url: tutorial-serverless-notification.md
+          - text: Build a simple chatroom serverless application 
+            url: quickstart-serverless.md
+          - text: Client streaming using subprotocol
+            url: tutorial-subprotocol.md
+      - linkListType: learn
+        links:
+          - text: Introduction to Azure Web PubSub
+            url: /training/modules/introduction-to-azure-web-pubsub/
+          - text: Build your first real-time chat app
+            url: /training/modules/build-chat-app-web-pubsub/
+
+  # Card
+  - title: Live Demos
+    linkLists:       
+      - linkListType: sample
+        links:
+          - text: Whiteboard
+            url: https://azure.github.io/azure-webpubsub/demos/whiteboard
+          - text: Simple chat
+            url: https://azure.github.io/azure-webpubsub/demos/chat
+          - text: Code streaming
+            url: https://azure.github.io/azure-webpubsub/demos/code-streaming
+          - text: Score board
+            url: https://azure.github.io/azure-webpubsub/demos/scoreboard
+
+  # Card
+  - title: Common tasks
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Authentication and permissions
+            url: tutorial-permission.md
+      - linkListType: how-to-guide
+        links:
+          - text: Use private endpoints
+            url: howto-secure-private-endpoints.md
+          - text: Secure network access
+            url: howto-secure-network-access-control.md
+          - text: Audit compliance with Azure Policy
+            url: howto-monitor-azure-policy.md
+  
+  # Card
+  - title: Advanced usage
+    linkLists:       
+      - linkListType: concept
+        links:
+          - text: High availability
+            url: concept-disaster-recovery.md
+          - text: Performance consideration
+            url: concept-performance.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create reliable Websocket clients
+            url: howto-develop-reliable-clients.md
+          - text: Troubleshoot with resource logs
+            url: howto-troubleshoot-resource-logs.md
+          - text: Debug event handler locally
+            url: howto-local-debug-event-handler.md
+
+  # Card
+  - title: More resources
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Choose between Azure Web PubSub service and Azure SignalR service
+            url: ./resource-faq.md#how-do-i-choose-between-azure-signalr-service-and-azure-web-pubsub-service
+      - linkListType: reference
+        links:
+          - text: REST API
+            url: /rest/api/webpubsub/
+          - text: Azure CLI
+            url: /cli/azure/service-page/azure%20web%20pubsub?view=azure-cli-latest
+          - text: Azure Functions bindings
+            url: reference-functions-bindings.md

@@ -1,21 +1,20 @@
 ---
-title: Azure Desired State Configuration Extension Handler | Microsoft Docs
+title: Azure Desired State Configuration Extension Handler
 description: Upload and apply a PowerShell DSC configuration on an Azure VM using DSC Extension
-services: virtual-machines-windows 
-documentationcenter: ''
-author: bobbytreed 
-manager: carmonm 
-editor: ''
-ms.assetid: 
-ms.service: virtual-machines-windows 
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: windows
-ms.workload: 
-ms.date: 03/26/2018
+ms.service: virtual-machines
+ms.subservice: extensions
+author: bobbytreed
 ms.author: robreed
+ms.reviewer: erd
+ms.collection: windows
+ms.date: 11/28/2022
+
 ---
 # PowerShell DSC Extension
+
+> [!NOTE]
+> Before you enable the DSC extension, we would like you to know that a newer version of DSC is now generally available, managed by a feature of Azure Automange named [machine configuration](../../governance/machine-configuration/overview.md). The machine configuration feature combines features of the Desired State Configuration (DSC) extension handler, Azure Automation State Configuration, and the most commonly requested features from customer feedback. Machine configuration also includes hybrid machine support through [Arc-enabled servers](../../azure-arc/servers/overview.md).
 
 ## Overview
 
@@ -27,16 +26,16 @@ The PowerShell DSC Extension for Windows is published and supported by Microsoft
 
 The DSC Extension supports the following OS's
 
-Windows Server 2019, Windows Server 2016, Windows Server 2012R2, Windows Server 2012, Windows Server 2008 R2 SP1, Windows Client 7/8.1/10
+Windows Server 2022, Windows Server 2019, Windows Server 2016, Windows Server 2012R2, Windows Server 2012, Windows Server 2008 R2 SP1, Windows Client 7/8.1/10
 
 ### Internet connectivity
 
 The DSC extension for Windows requires that the target virtual machine is able to communicate with Azure
-and the location of the configuration package (.zip file) if it is stored in a location outside of Azure. 
+and the location of the configuration package (.zip file) if it is stored in a location outside of Azure.
 
 ## Extension schema
 
-The following JSON shows the schema for the settings portion of the DSC Extension in an Azure Resource Manager template. 
+The following JSON shows the schema for the settings portion of the DSC Extension in an Azure Resource Manager template.
 
 ```json
 {
@@ -50,7 +49,7 @@ The following JSON shows the schema for the settings portion of the DSC Extensio
     "typeHandlerVersion": "2.77",
     "autoUpgradeMinorVersion": true,
     "settings": {
-    	"wmfVersion": "latest",
+        "wmfVersion": "latest",
         "configuration": {
             "url": "http://validURLToConfigLocation",
             "script": "ConfigurationScript.ps1",
@@ -66,13 +65,13 @@ The following JSON shows the schema for the settings portion of the DSC Extensio
         "privacy": {
             "dataCollection": "enable"
         },
-    	"advancedOptions": {
-			"forcePullAndApply": false
-        	"downloadMappings": {
-            	"specificDependencyKey": "https://myCustomDependencyLocation"
-        	}
-    	} 
-	},
+        "advancedOptions": {
+            "forcePullAndApply": false,
+            "downloadMappings": {
+             "specificDependencyKey": "https://myCustomDependencyLocation"
+            }
+        }
+    },
     "protectedSettings": {
         "configurationArguments": {
             "parameterOfTypePSCredential1": {
@@ -84,9 +83,9 @@ The following JSON shows the schema for the settings portion of the DSC Extensio
                 "password": "PasswordValue2"
             }
         },
-    	"configurationUrlSasToken": "?g!bber1sht0k3n",
-    	"configurationDataUrlSasToken": "?dataAcC355T0k3N"
-	}
+        "configurationUrlSasToken": "?g!bber1sht0k3n",
+        "configurationDataUrlSasToken": "?dataAcC355T0k3N"
+    }
   }
 }
 ```
@@ -122,13 +121,12 @@ The following JSON shows the schema for the settings portion of the DSC Extensio
 | protectedSettings.configurationUrlSasToken | string | Specifies the SAS token to access the URL defined by configuration.url. This property will be encrypted. |
 | protectedSettings.configurationDataUrlSasToken | string | Specifies the SAS token to access the URL defined by configurationData.url. This property will be encrypted. |
 
-
 ## Template deployment
 
 Azure VM extensions can be deployed with Azure Resource Manager templates.
 Templates are ideal when deploying one or more virtual machines that require post deployment configuration.
 A sample Resource Manager template that includes the DSC extension for Windows can be found on the
-[Azure Quick Start Gallery](https://github.com/Azure/azure-quickstart-templates/blob/master/101-automation-configuration/nested/provisionServer.json#L91).
+[Azure Quick Start Gallery](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.automation/automation-configuration/nested/provisionServer.json#L91).
 
 ## Troubleshoot and support
 

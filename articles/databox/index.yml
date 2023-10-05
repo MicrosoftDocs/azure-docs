@@ -1,44 +1,109 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure Data Box Documentation - Offline Transfer 
+### YamlMime:Landing
+
+title: Azure Data Box documentation - Offline transfer # < 60 chars
+summary: Use the Azure Data Box devices for offline data transfer when you are limited by time, network, or cost. Depending on your data size, choose from Data Box Disk, Data Box, or Data Box Heavy.  # < 160 chars
+
 metadata:
-  title: Azure Data Box Documentation - Offline Transfer  
-  description:  Use the Data Box devices for offline data transfer to Azure when you are limited by time, network, or cost.
+  title: Azure Data Box Documentation - Offline Transfer
+  description: Explore Azure Data Box, a storage device for offline data migration to the cloud. Learn more about data transfer services using a secure proprietary storage device.
   services: databox
-  author: alkohli
-  manager: twooley
   ms.service: databox
   ms.subservice: pod
   ms.topic: landing-page
-  ms.date: 01/09/2019
-  ms.author: alkohli
-abstract:
-  description: The Azure Data Box family lets you transfer hundreds of terabytes of data to Azure in a quick, inexpensive, and reliable manner. Use the Data Box devices for offline data transfer when you are limited by time, network, or cost.<p>Depending on your data size, choose from Data Box Disk, Data Box, or Data Box Heavy<SUP>Preview</SUP>. For each device, transfer to Azure occurs in 4 easy steps – order, receive, copy data to device, and return device to Azure. In the Azure datacenter, data is uploaded and then erased.</p><p>Learn how to leverage Data Box for your offline data transfer with our quickstarts and tutorials.</p>
-sections:
-- title: Quickstart
-  items:
-  - type: list
-    style: icon48
-    items:    
-    - image:
-        src: https://docs.microsoft.com/media/common/i_quick-start.svg
-      text: Set up Data Box in the Azure portal
-      href: /azure/databox/data-box-quickstart-portal
-    - image:
-        src: https://docs.microsoft.com/media/common/i_quick-start.svg
-      text: Set up Data Box Disk in the Azure portal 
-      href: /azure/databox/data-box-disk-quickstart-portal
-    - image:
-        src: https://docs.microsoft.com/media/common/i_quick-start.svg
-      text: Sign up for Data Box Heavy<SUP>Preview</SUP>
-      href: /azure/databox/data-box-heavy-overview#sign-up
-- title: Tutorials
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: For Data Box
-      html: <p><a href="/azure/databox/data-box-deploy-ordered">Order Azure Data Box</a></p><p><a href="/azure/databox/data-box-deploy-set-up">Cable and connect Azure Data Box</a></p><p><a href="/azure/databox/data-box-deploy-copy-data">Copy data to Azure Data Box</a></p><p><a href="/azure/databox/data-box-deploy-picked-up">Return Azure Data Box and verify upload</a></p>
-    - title: For Data Box Disk
-      html: <p><a href="/azure/databox/data-box-disk-deploy-ordered">Order Azure Data Box Disk</a></p><p><a href="/azure/databox/data-box-disk-deploy-set-up">Unpack, connect, unlock Azure Data Box Disk</a></p><p><a href="/azure/databox/data-box-disk-deploy-copy-data">Copy data to Azure Data Box Disk</a></p><p><a href="/azure/databox/data-box-disk-deploy-picked-up">Return Azure Data Box Disk and verify upload</a></p>
+  ms.collection: collection
+  author: stevenmatthew
+  ms.author: shaas
+  ms.date: 08/16/2019
+  ms.custom: seo-azure-migrate
+  keywords: cloud data transfer, data migration to cloud, azure data box, data transfer service, data transfer services, azure data transfer 
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Data Box family
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Data Box?
+            url: data-box-overview.md
+          - text: What is Data Box Disk?
+            url: data-box-disk-overview.md
+          - text: What is Data Box Heavy?
+            url: data-box-heavy-overview.md
+      - linkListType: architecture
+        links:
+          - text: Choose Azure data transfer options
+            url: ../storage/common/storage-choose-data-transfer-solution.md
+
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Set up Data Box
+            url: data-box-quickstart-portal.md
+          - text: Set up Data Box Disk
+            url: data-box-disk-quickstart-portal.md
+          - text: Set up Data Box Heavy
+            url: data-box-heavy-quickstart-portal.md
+      - linkListType: learn
+        links:
+          - text: Import data offline with Data Box 
+            url: /training/modules/move-data-with-azure-data-box/
+
+  # Card
+  - title: View requirements
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: For Data Box
+            url: data-box-system-requirements.md
+          - text: For Data Box Disk
+            url: data-box-disk-system-requirements.md
+          - text: For Data Box Heavy
+            url: data-box-heavy-system-requirements.md
+
+  # Card
+  - title: Order, set up, copy, return
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Data Box
+            url: data-box-deploy-ordered.md
+          - text: Data Box Disk
+            url: data-box-disk-deploy-ordered.md
+          - text: Data Box Heavy
+            url: data-box-heavy-deploy-ordered.md
+
+  # Card
+  - title: Manage device
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Data Box in Azure
+            url: data-box-portal-admin.md
+          - text: Data Box Disk in Azure
+            url: data-box-portal-ui-admin.md
+          - text: Data Box Heavy in Azure
+            url: data-box-portal-admin.md
+
+  # Card
+  - title: Troubleshoot
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Data Box
+            url: data-box-troubleshoot.md
+          - text: Data Box Disk
+            url: data-box-disk-troubleshoot.md
+          - text: Data Box Heavy
+            url: data-box-troubleshoot.md
+          - text: Via Data Box FAQ
+            url: data-box-faq.yml
+          - text: Via Data Box Disk FAQ
+            url: data-box-disk-faq.yml
+          - text: Open Support ticket
+            url: data-box-disk-contact-microsoft-support.md

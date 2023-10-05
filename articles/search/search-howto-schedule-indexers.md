@@ -1,111 +1,128 @@
 ---
-title: How to schedule indexers - Azure Search
-description: Schedule Azure Search indexers to index content periodically or at specific times.
-
-ms.date: 05/31/2019
-author: RobDixon22
-manager: HeidiSteen
-ms.author: v-rodixo
-services: search
-ms.service: search
-ms.devlang: rest-api
-ms.topic: conceptual
-ms.custom: seodec2018
+title: Schedule indexer execution
+titleSuffix: Azure Cognitive Search
+description: Learn how to schedule Azure Cognitive Search indexers to index content at specific intervals, or at specific dates and times.
+author: HeidiSteen
+manager: nitinme
+ms.author: heidist
+ms.service: cognitive-search
+ms.custom: 
+ms.topic: how-to
+ms.date: 12/06/2022
 ---
 
-# How to schedule indexers for Azure Search
-An indexer normally runs once, immediately after it is created. You can run it again on demand using the portal, the REST API, or the .NET SDK. You can also configure an indexer to run periodically on a schedule.
+# Schedule an indexer in Azure Cognitive Search
 
-Some situations where indexer scheduling is useful:
+Indexers can be configured to run on a schedule when you set the "schedule" property. Some situations where indexer scheduling is useful include:
 
-* Source data will change over time, and you want the Azure Search indexers to automatically process the changed data.
-* The index will be populated from multiple data sources and you want to make sure the indexers run at different times to reduce conflicts.
-* The source data is very large and you want to spread the indexer processing over time. For more information about indexing large volumes of data, see [How to index large data sets in Azure Search](search-howto-large-index.md).
++ Source data is changing over time, and you want the indexer to automatically process the difference.
++ Source data is very large, and you need a recurring schedule to index all of the content.
++ An index is populated from multiple sources, using multiple indexers, and you want to stagger the jobs to reduce conflicts.
 
-The scheduler is a built-in feature of Azure Search. You can't use an external scheduler to control search indexers.
+When indexing can't complete within the [typical 2-hour processing window](search-howto-run-reset-indexers.md#indexer-execution), you can schedule the indexer to run on a 2-hour cadence to work through a large volume of data. As long as your data source supports [change detection logic](search-howto-create-indexers.md#change-detection-and-internal-state), indexers can automatically pick up where they left off on each run.
 
-## Define schedule properties
+Once an indexer is on a schedule, it remains on the schedule until you clear the interval or start time, or set "disabled" to true. Leaving the indexer on a schedule when there's nothing to process won't impact system performance. Checking for changed content is a relatively fast operation.
 
-An indexer schedule has two properties:
-* **Interval**, which defines the amount of time in between scheduled indexer executions. The smallest interval allowed is 5 minutes, and the largest is 24 hours.
-* **Start Time (UTC)**, which indicates the first time at which the indexer should be run.
+## Prerequisites
 
-You can specify a schedule when first creating the indexer, or by updating the indexer's properties later. Indexer schedules can be set using the [portal](#portal), the [REST API](#restApi), or the [.NET SDK](#dotNetSdk).
++ A valid indexer configured with a data source and index.
 
-Only one execution of an indexer can run at a time. If an indexer is already running when its next execution is scheduled, that execution is postponed until the next scheduled time.
++ [Change detection](search-howto-create-indexers.md#change-detection-and-internal-state) in the data source. Azure Storage and SharePoint have built-in change detection. Other data sources, such as [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) and [Azure Cosmos DB](search-howto-index-cosmosdb.md) must be enabled manually.
 
-Let’s consider an example to make this more concrete. Suppose we configure an indexer schedule with an **Interval** of hourly and a **Start Time** of June 1, 2019 at 8:00:00 AM UTC. Here’s what could happen when an indexer run takes longer than an hour:
+## Schedule definition
 
-* The first indexer execution starts at or around June 1, 2019 at 8:00 AM UTC. Assume this execution takes 20 minutes (or any time less than 1 hour).
-* The second execution starts at or around June 1, 2019 9:00 AM UTC. Suppose that this execution takes 70 minutes - more than an hour – and it will not complete until 10:10 AM UTC.
-* The third execution is scheduled to start at 10:00 AM UTC, but at that time the previous execution is still running. This scheduled execution is then skipped. The next execution of the indexer will not start until 11:00 AM UTC.
+A schedule is part of the indexer definition. If the "schedule" property is omitted, the indexer will only run on demand. The property has two parts.
 
-<a name="portal"></a>
+| Property | Description |
+|----------|-------------|
+| "interval" | (required) The amount of time between the start of two consecutive indexer executions. The smallest interval allowed is 5 minutes, and the longest is 1440 minutes (24 hours). It must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an [ISO 8601 duration](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) value). </br></br>The pattern for this is: `P(nD)(T(nH)(nM))`. </br></br>Examples: `PT15M` for every 15 minutes, `PT2H` for every two hours.|
+| "startTime" | (optional) Start time is specified in coordinated universal time (UTC). If omitted, the current time is used. This time can be in the past, in which case the first execution is scheduled as if the indexer has been running continuously since the original start time.|
 
-## Define a schedule in the portal
+The following example is a schedule that starts on January 1 at midnight and runs every two hours.
 
-The Import Data wizard in the portal lets you define the schedule for an indexer at creation time. The default Schedule setting is **Hourly**, which means the indexer runs once after it is created, and runs again every hour afterwards.
+```json
+{
+    "dataSourceName" : "hotels-ds",
+    "targetIndexName" : "hotels-idx",
+    "schedule" : { "interval" : "PT2H", "startTime" : "2022-01-01T00:00:00Z" }
+}
+```
 
-You can change the Schedule setting to **Once** if you don't want the indexer to run again automatically, or to **Daily** to run once per day. Set it to **Custom** if you want to specify a different interval or a specific future Start Time.
+## Configure a schedule
 
-When you set the schedule to **Custom**, fields appear to let you specify the **Interval** and the **Start Time (UTC)**. The shortest time interval allowed is 5 minutes, and the longest is 1440 minutes (24 hours).
+Schedules are specified in an indexer definition. To set up a schedule, you can use Azure portal, REST APIs, or an Azure SDK.
 
-   ![Setting indexer schedule in Import Data wizard](media/search-howto-schedule-indexers/schedule-import-data.png "Setting indexer schedule in Import Data wizard")
+### [**Azure portal**](#tab/portal)
 
-After an indexer has been created, you can change the schedule settings using the indexer's Edit panel. The Schedule fields are the same as in the Import Data wizard.
+1. Sign in to the [Azure portal](https://portal.azure.com) and open the search service page.
+1. On the **Overview** page, select the **Indexers** tab.
+1. Select an indexer.
+1. Select **Settings**.
+1. Scroll down to **Schedule**, and then choose Hourly, Daily, or Custom to set a specific date, time, or custom interval.
 
-   ![Setting the schedule in indexer Edit panel](media/search-howto-schedule-indexers/schedule-edit.png "Setting the schedule in indexer Edit panel")
+### [**REST**](#tab/rest)
 
-<a name="restApi"></a>
+1. Call [Create Indexer](/rest/api/searchservice/create-indexer) or [Update Indexer](/rest/api/searchservice/update-indexer).
 
-## Define a schedule using the REST API
+1. Set the schedule property in the body of the request:
 
-You can define the schedule for an indexer using the REST API. To do this, include the **schedule** property when creating or updating the indexer. The example below shows a PUT request to update an existing indexer:
-
-    PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2019-05-06
-    Content-Type: application/json
-    api-key: admin-key
-
+    ```http
+    PUT /indexers/<indexer-name>?api-version=2020-06-30
     {
         "dataSourceName" : "myazuresqldatasource",
-        "targetIndexName" : "target index name",
-        "schedule" : { "interval" : "PT10M", "startTime" : "2015-01-01T00:00:00Z" }
+        "targetIndexName" : "my-target-index-name",
+        "schedule" : { "interval" : "PT10M", "startTime" : "2021-01-01T00:00:00Z" }
     }
+    ```
 
-The **interval** parameter is required. The interval refers to the time between the start of two consecutive indexer executions. The smallest allowed interval is 5 minutes; the longest is one day. It must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an [ISO 8601 duration](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) value). The pattern for this is: `P(nD)(T(nH)(nM))`. Examples: `PT15M` for every 15 minutes, `PT2H` for every 2 hours.
+### [**.NET SDK**](#tab/csharp)
 
-The optional **startTime** indicates when scheduled executions should begin. If it is omitted, the current UTC time is used. This time can be in the past, in which case the first execution is scheduled as if the indexer has been running continuously since the original **startTime**.
+Call the [IndexingSchedule](/dotnet/api/azure.search.documents.indexes.models.indexingschedule) class when creating or updating an indexer using the [SearchIndexerClient](/dotnet/api/azure.search.documents.indexes.searchindexerclient). 
 
-You can also run an indexer on demand at any time using the Run Indexer call. For more information about running indexers and setting indexer schedules, see [Run Indexer](https://docs.microsoft.com/rest/api/searchservice/run-indexer), [Get Indexer](https://docs.microsoft.com/rest/api/searchservice/get-indexer), and [Update Indexer](https://docs.microsoft.com/rest/api/searchservice/update-indexer) in the REST API Reference.
+The IndexingSchedule constructor requires an interval parameter specified using a TimeSpan object. Recall that the smallest interval value allowed is 5 minutes, and the largest is 24 hours. The second StartTime parameter, specified as a DateTimeOffset object, is optional.
 
-<a name="dotNetSdk"></a>
+The following C# example creates an indexer, using a predefined data source and index, and sets its schedule to run once every day, starting now:
 
-## Define a schedule using the .NET SDK
+```csharp
+var schedule = new IndexingSchedule(TimeSpan.FromDays(1))
+{
+    StartTime = DateTimeOffset.Now
+};
 
-You can define the schedule for an indexer using the Azure Search .NET SDK. To do this, include the **schedule** property when creating or updating an Indexer.
+var indexer = new SearchIndexer("demo-idxr", dataSource.Name, searchIndex.Name)
+{
+    Description = "Demo data indexer",
+    Schedule = schedule
+};
 
-The following C# example creates an indexer, using a predefined data source and index, and sets its schedule to run once every day starting 30 minutes from now:
-
+await indexerClient.CreateOrUpdateIndexerAsync(indexer);
 ```
-    Indexer indexer = new Indexer(
-        name: "azure-sql-indexer",
-        dataSourceName: dataSource.Name,
-        targetIndexName: index.Name,
-        schedule: new IndexingSchedule(
-                        TimeSpan.FromDays(1), 
-                        new DateTimeOffset(DateTime.UtcNow.AddMinutes(30))
-                    )
-        );
-    await searchService.Indexers.CreateOrUpdateAsync(indexer);
-```
-If the **schedule** parameter is omitted, the indexer will only run once immediately after it is created.
 
-The **startTime** parameter can be set to a time in the past. In that case, the first execution is scheduled as if the indexer has been running continuously since the given **startTime**.
+---
 
-The schedule is defined using the [IndexingSchedule](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexingschedule?view=azure-dotnet) class. The **IndexingSchedule** constructor requires an **interval** parameter specified using a **TimeSpan** object. The smallest interval value allowed is 5 minutes, and the largest is 24 hours. The second **startTime** parameter, specified as a **DateTimeOffset** object, is optional.
+## Scheduling behavior
 
-The .NET SDK lets you control indexer operations using the [SearchServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient) class and its [Indexers](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.indexers) property, which implements methods from the **IIndexersOperations** interface. 
+For text-based indexing, the scheduler can kick off as many indexer jobs as the search service supports, which is determined by the number of search units. For example, if the service has three replicas and four partitions, you can generally have 12 indexer jobs in active execution, whether initiated on demand or on a schedule.
 
-You can run an indexer on demand at any time using one of the [Run](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.indexersoperationsextensions.run), [RunAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.indexersoperationsextensions.runasync), or [RunWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.iindexersoperations.runwithhttpmessagesasync) methods.
+Skills-based indexers run in a different [execution environment](search-howto-run-reset-indexers.md#indexer-execution). For this reason, the number of service units has no bearing on the number of skills-based indexer jobs you can run. Multiple skills-based indexers can run in parallel, but doing so depends on node availability within the execution environment.
 
-For more information about creating, updating, and running indexers, see [IIindexersOperations](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.iindexersoperations?view=azure-dotnet).
+Although multiple indexers can run simultaneously, a given indexer is single instance. You can't run two copies of the same indexer concurrently. If an indexer happens to still be running when its next scheduled execution is set to start, the pending execution is postponed until the next scheduled occurrence, allowing the current job to finish.
+
+Let’s consider an example to make this more concrete. Suppose we configure an indexer schedule with an interval of hourly and a start time of June 1, 2022 at 8:00:00 AM UTC. Here's what could happen when an indexer run takes longer than an hour:
+
++ The first indexer execution starts at or around June 1, 2022 at 8:00 AM UTC. Assume this execution takes 20 minutes (or any amount of time that's less than 1 hour).
+
++ The second execution starts at or around June 1, 2022 9:00 AM UTC. Suppose that this execution takes 70 minutes - more than an hour – and it will not complete until 10:10 AM UTC.
+
++ The third execution is scheduled to start at 10:00 AM UTC, but at that time the previous execution is still running. This scheduled execution is then skipped. The next execution of the indexer won't start until 11:00 AM UTC.
+
+> [!NOTE]
+> If an indexer is set to a certain schedule but repeatedly fails on the same document each time, the indexer will begin running on a less frequent interval (up to the maximum interval of at least once every 2 hours or 24 hours, depending on different implementation factors) until it successfully makes progress again. If you believe you have fixed whatever the underlying issue, you can [run the indexer manually](search-howto-run-reset-indexers.md), and if indexing succeeds, the indexer will return to its regular schedule.
+
+## Next steps
+
+For indexers that run on a schedule, you can monitor operations by retrieving status from the search service, or obtain detailed information by enabling resource logging.
+
++ [Monitor search indexer status](search-howto-monitor-indexers.md)
++ [Collect and analyze log data](monitor-azure-cognitive-search.md)
++ [Index large data sets](search-howto-large-index.md)

@@ -1,0 +1,83 @@
+### YamlMime:FAQ
+metadata:
+  title: Frequently asked questions
+  description: Answers to frequently asked questions about Microsoft Azure Attestation
+  services: attestation
+  author: msmbaldwin
+  ms.service: attestation
+  ms.topic: faq
+  ms.date: 07/20/2020
+  ms.author: mbaldwin
+title: Frequently asked questions for Microsoft Azure Attestation
+summary: |
+  This article provides answers to some of the most common questions about [Azure Attestation](overview.md).
+  
+  If your Azure issue is not addressed in this article, you can also submit an Azure support request on the [Azure support page](https://azure.microsoft.com/support/options/).
+  
+
+sections:
+  - name: Ignored
+    questions:
+      - question: |
+          What is Trusted Hardware Identity Management (THIM) and its role in enclave attestation
+        answer: |
+          Trusted Hardware Identity Management (THIM) fetches the Azure security baseline for the [Azure Confidential computing (ACC)](../confidential-computing/overview.md) nodes from Intel and caches the data. The cached information will be further used by Azure Attestation in validating Trusted Execution Environments (TEEs).  
+          
+          THIM is recommended for the following reasons:
+             - Offers high availability 
+             - Reduces dependencies on externally hosted services and internet connectivity.
+             - Periodically fetches the newer versions of Intel certificates, CRLs, Trusted Computing Base (TCB) information and Quoting Enclave identity of the ACC nodes from Intel. The service hence confirms the Azure security baseline to be referred by Azure Attestation while validating the TEEs, greatly reducing attestation failures due to invalidation or revocation of Intel certificates  
+          
+      - question: |
+          Is SGX attestation supported by Azure Attestation in non-Azure environments
+        answer: |
+          No. Azure Attestation depends on the security baseline stated by Trusted Hardware Identity Management (THIM) to validate the TEEs. THIM is currently designed to support only Azure Confidential computing nodes. 
+
+      - question: |
+          What validations does Azure Attestation perform for attesting SGX enclaves
+        answer: |
+          During SGX attestation process, Azure Attestation performs the following validations:
+          
+             - Validates if the trusted root of signed enclave quote belongs to Intel
+             - Validates if the TEE quote meets Azure security baseline as defined by Trusted Hardware Identity Management (THIM)
+             - If customer created an attestation provider and configured a custom policy, in addition to the above validations, Azure Attestation evaluates the TEE quote against the attestation policy. Using attestation policies, customers can define authorization rules for the TEE and also dictate issuance rules for generating the attestation token
+          
+      - question: |
+          How can a verifier obtain the collateral for SGX attestation supported by Azure Attestation
+        answer: |
+          In general, for the attestation models with Intel as the root of trust, attestation client talks to enclave APIs to fetch the enclave evidence. Enclave APIs internally call Intel PCK caching service to fetch Intel certificates of the node to be attested. The certificates are used to sign the enclave evidence thereby generating a remotely attestable collateral.  
+          
+          The same process can be implemented for Azure Attestation. However to leverage the benefits offered by Trusted Hardware Identity Management (THIM),  after installing ACC virtual machine, it is recommended to install [Azure DCAP library](https://www.nuget.org/packages/Microsoft.Azure.DCAP). Based on the agreement with Intel, when Azure DCAP library is installed, the requests for generating enclave evidence are redirected from Intel PCK caching service to THIM. Azure DCAP library is supported in Windows and Linux-based environments.
+          
+      - question: |
+          How to shift to Azure Attestation from other SGX attestation models
+        answer: |
+          - After installing Azure Confidential computing virtual machine, install Azure DCAP library ([Windows/](https://www.nuget.org/packages/Microsoft.Azure.DCAP/) [Linux](https://packages.microsoft.com/ubuntu/18.04/prod/pool/main/a/az-dcap-client/)) to leverage the benefits offered by Trusted Hardware Identity Management (THIM).
+          - Remote attestation client needs to be authored which can retrieve the enclave evidence and send requests to Azure Attestation. See [code samples](https://github.com/Azure-Samples/microsoft-azure-attestation) for reference 
+          - Attestation requests can be sent to the REST API endpoint of default providers or custom attestation providers 
+          - In [2018-09-01-preview](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/attestation/data-plane/Microsoft.Attestation/stable/2018-09-01-preview) API version, the client needs to send Azure AD access token along with the evidence to SGX attest API endpoint. The Azure AD access token is not a required parameter to perform SGX attestation in [2020-10-01](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/attestation/data-plane/Microsoft.Attestation/stable/2020-10-01) API version
+          
+      - question: |
+          How can the relying party verify the integrity of attestation token and confirm that Azure Attestation is running inside an enclave
+        answer: |
+          Attestation token generated by Azure Attestation is signed using a self-signed certificate. The signing certificates are exposed via an [OpenID metadata endpoint](/rest/api/attestation/metadataconfiguration/get). Relying party can retrieve the signing certificates from this endpoint and perform signature verification of the attestation token. The signing certificate also includes SGX quote of the TEE inside which Azure Attestation runs. If relying party also prefers to check if Azure Attestation is running inside a valid SGX enclave, the SGX quote can be retrieved from the signing certificate and locally validated. See [code samples](https://github.com/Azure-Samples/microsoft-azure-attestation/tree/master/sgx.attest.sample.oe.sdk) for more information
+          
+      - question: |
+          How long is an attestation token valid?
+        answer: |
+          Validity time of the attestation token is 8 hours. There is currently no provision to customize the value.
+          
+      - question: |
+          How to identify the certificate to be used for signature verification from the OpenID metadata endpoint
+        answer: |
+          Multiple certificates exposed in the OpenID metadata endpoint correspond to different use cases (e.g. SGX attestation) supported by Azure Attestation. As per the standards specified by [RFC 7515](https://tools.ietf.org/html/rfc7515), the certificate with key ID (kid) matching the *kid* parameter in the attestation token header is to be used for signature verification. If no matching **kid** is found, then it is expected to try all the certificates exposed by OpenID metadata endpoint.
+          
+      - question: |
+          Is it possible for the relying party to share secrets with the validated Trusted Execution Environments (TEEs)
+        answer: |
+          At the time of TEE evidence creation, code running inside the TEE can include arbitrary information in the evidence. For e.g. the TEE can create one or more asymmetric key pairs, serialize the public key components of these key pairs as JWKS JSON string and include the JWKS JSON string in the TEE evidence as RunTimeData { quote, JWKS JSON string }. Azure Attestation checks if SHA256 hash of the RuntimeData matches the lower 32 bytes of the quote's "report data" attribute. Post evaluating the TEE evidence, Azure Attestation generates JWT with the JWKS available as a claim named "keys" under the "x-ms-runtime" claim. The RunTimeData can be further used by relying party to establish secure channel and securely transmit data to the TEE.
+
+      - question: |
+          Where does Azure Attestation store customer data?
+        answer: |
+          Azure Attestation stores customer data at rest, during processing and replication for BCDR purposes within the geography the customer deploys the service instance in.

@@ -1,56 +1,104 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure AD Identity Governance documentation
-metadata:
-  document_id: 
-  title: Azure Active Directory Identity Governance documentation | Microsoft Docs
-  description: Learn about identity lifecycle governance, access lifecycle governance, and secure administration across employees and partners.
-  services: active-directory
-  author: rolyon
-  manager: mtillman
+### YamlMime:Landing
+
+title: Microsoft Entra ID Governance documentation
+summary: Microsoft Entra ID Governance helps you to protect, monitor, and audit access to critical assets while ensuring employee productivity.
+
+metadata: 
+  author: owinfreyatl
+  description: "Learn how to protect, monitor, and audit access to critical assets while ensuring employee productivity."
+  manager: amycolannino
+  ms.author: owinfrey
+  ms.date: 03/07/2023
   ms.service: active-directory
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: compliance
   ms.topic: landing-page
-  ms.date: 04/18/2019
-  ms.author: rolyon
-abstract:
-  description: Azure Active Directory (Azure AD) Identity Governance gives organizations the ability to govern the identity lifecycle, govern access lifecycle, and secure administration across employees and partners. 
-  aside:
-    image:
-      alt: 
-      height: 112
-      src: media/index/video-thumb-identity-governance.png
-      width: 200  
-    title: Govern access to your resources (1:17:24)
-    href: https://www.youtube.com/embed/aY7A0Br8u5M
-    width: 200
-sections:
-  - title: Identity Governance
-    items:
-    - type: list
-      style: unordered
-      items:
-      - html: <a href="/azure/active-directory/governance/identity-governance-overview">What is Identity Governance?</a>
-  - title: Entitlement management (Preview)
-    items:
-    - type: list
-      style: unordered
-      items:
-      - html: <a href="/azure/active-directory/governance/entitlement-management-overview">What is Azure AD entitlement management?</a>
-      - html: <a href="/azure/active-directory/governance/entitlement-management-access-package-first">Tutorial - Create your first access package</a>
-      - html: <a href="/azure/active-directory/governance/entitlement-management-access-package-edit">Edit and manage an existing access package</a>
-  - title: Access reviews
-    items:
-    - type: list
-      style: unordered
-      items:
-      - html: <a href="/azure/active-directory/governance/access-reviews-overview">What are Azure AD access reviews?</a>
-      - html: <a href="/azure/active-directory/governance/create-access-review">Create an access review of groups or apps</a>
-      - html: <a href="/azure/active-directory/governance/perform-access-review">Review access to group or apps</a>
-  - title: Terms of use
-    items:
-    - type: list
-      style: unordered
-      items:
-      - html: <a href="/azure/active-directory/conditional-access/terms-of-use">Require terms of use?</a>
+  services: active-directory
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent: 
+  # Card
+  - title: About ID Governance
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is ID Governance?
+            url: identity-governance-overview.md
+      - linkListType: video
+        links:
+          - text: Govern access to your resources
+            url: https://www.youtube.com/watch?v=bFfowdpApu4&list=PLQXpv_NQsPIBg3op2xONM9KgwlayFDue6
+      - linkListType: reference
+        links:
+          - text: Microsoft Entra ID Governance licensing fundamentals
+            url: licensing-fundamentals.md
+          - text: Identity Governance dashboard (Preview)
+            url: governance-dashboard.md            
+  
+  # Card
+  - title: Govern the lifecycle of access to groups, apps, and sites
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is entitlement management?
+            url: entitlement-management-overview.md
+      - linkListType: tutorial
+        links:
+          - text: Manage access to resources - Microsoft Entra
+            url: entitlement-management-access-package-first.md
+          - text: Manage access to resources - Microsoft Graph
+            url: /graph/tutorial-access-package-api?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
+      - linkListType: concept
+        links:
+          - text: Delegation and roles
+            url: entitlement-management-delegate.md
+  
+  # Card
+  - title: Recertify access to groups, apps, and privileged roles
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What are access reviews?
+            url: access-reviews-overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create an access review to ensure users do not retain excessive access
+            url: create-access-review.md
+          - text: Review access to group or apps
+            url: perform-access-review.md
+  
+  # Card
+  - title: Govern the lifecycle of users as they join, move within, and leave organizations
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What are Lifecycle Workflows?
+            url: what-are-lifecycle-workflows.md
+      - linkListType: tutorial
+        links:
+          - text: On-boarding users to your organization using Lifecycle workflows with the Microsoft Entra admin center
+            url: tutorial-onboard-custom-workflow-portal.md
+          - text: On-boarding users to your organization using Lifecycle workflows with Microsoft Graph
+            url: tutorial-onboard-custom-workflow-graph.md
+      - linkListType: concept
+        links:
+          - text: Understanding Lifecycle Workflows 
+            url: understanding-lifecycle-workflows.md
+          - text: Lifecycle Workflows built-in tasks
+            url: lifecycle-workflow-tasks.md  
+  
+  # Card
+  - title: Make users eligible for privileged roles
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Privileged Identity Management?
+            url: ../privileged-identity-management/pim-configure.md
+  
+  # Card
+  - title: Ensure users see disclaimers
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Require users to agree to a terms of use when using an app
+            url: ../conditional-access/terms-of-use.md

@@ -1,0 +1,82 @@
+### YamlMime:Landing
+
+title: Azure Arc-enabled data services # < 60 chars
+summary: Run Azure data services on-premises, at the edge, and in multicloud environments using Kubernetes on the infrastructure of your choice. # < 160 chars
+ 
+metadata:
+  title: Azure Arc-enabled data services
+  description: Run Azure data services on-premises, at the edge, and in multicloud environments using Kubernetes on the infrastructure of your choice.
+  ms.service: azure-arc
+  ms.subservice: azure-arc-data # Optional; Remove if no subservice is used.
+  ms.topic: landing-page
+  author: MikeRayMSFT
+  ms.author: mikeray
+  ms.date: 07/19/2023
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: About
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What are Azure Arc-enabled data services?
+            url: overview.md
+      - linkListType: concept
+        links:
+          - text: Connectivity modes & requirements
+            url: connectivity.md
+          - text: Storage configuration
+            url: storage-configuration.md
+
+  # Card (optional)
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Plan your deployment
+            url: plan-azure-arc-data-services.md
+          - text: Install client tools
+            url: install-client-tools.md
+          - text: Create - Directly connected
+            url: create-complete-managed-instance-directly-connected.md
+          - text: Create - Indirectly connected
+            url: create-complete-managed-instance-indirectly-connected.md
+  # Card (optional)
+  # Card (optional)
+  - title: Azure Arc-enabled SQL Managed Instance
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create
+            url: create-sql-managed-instance.md
+          - text: Connect
+            url: connect-managed-instance.md
+          - text: Migrate
+            url: migrate-to-managed-instance.md
+          - text: Restore
+            url: restore-adventureworks-sample-db.md
+ # Card
+  - title: Proof of concept
+    linkLists:
+     - linkListType: sample
+       links:
+          - text: Jumpstart
+            url: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/
+ # Card
+  - title: Azure Arc-enabled PostgreSQL (preview)
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create
+            url: create-postgresql-server.md
+          - text: Connect
+            url: get-connection-endpoints-and-connection-strings-postgresql-server.md
+          - text: Migrate
+            url: migrate-postgresql-data.md
+          - text: Restore
+            url: restore-adventureworks-sample-db-into-postgresql-server.md
+

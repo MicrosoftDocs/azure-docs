@@ -1,13 +1,12 @@
 ---
-title: Design Azure storage tables for data modification | Microsoft Docs
-description: Design tables for data modification in Azure table storage.
+title: Design Azure Table storage for data modification
+description: Design tables for data modification in Azure Table storage. Optimize insert, update, and delete operations. Ensure consistency in your stored entities.
 services: storage
-author: MarkMcGeeAtAquent
-ms.service: storage
+ms.service: azure-table-storage
+author: akashdubey-ms
+ms.author: akashdubey
 ms.topic: article
 ms.date: 04/23/2018
-ms.author: sngun
-ms.subservice: tables
 ---
 # Design for data modification
 This article focuses on the design considerations for optimizing inserts, updates, and deletes. In some cases, you will need to evaluate the trade-off between designs that optimize for querying against designs that optimize for data modification just as you do in designs for relational databases (although the techniques for managing the design trade-offs are different in a relational database). The section Table Design Patterns describes some detailed design patterns for the Table service and highlights some these trade-offs. In practice, you will find that many designs optimized for querying entities also work well for modifying entities.  

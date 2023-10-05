@@ -1,0 +1,38 @@
+items:
+- name: Apache Kafka on Confluent Cloud - Azure Native ISV Service Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Apache Kafka on Confluent Cloud - Azure Native ISV Service?
+    href: overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Azure portal
+    href: create.md
+  - name: Azure CLI
+    href: create-cli.md
+  - name: Azure PowerShell
+    href: create-powershell.md
+    displayName: Azure CLI, az confluent organization create, az confluent organization wait, az confluent organization list, az confluent organization show
+- name: How to
+  items:
+  - name: Add services
+    href: add-connectors.md
+  - name: Manage
+    href: manage.md
+    displayName: Azure CLI, az confluent organization delete
+  - name: Troubleshoot
+    items:
+    - name: Get support
+      href: get-support.md
+    - name: Fix common errors
+      href: troubleshoot.md
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/confluent
+  - name: Azure PowerShell
+    href: /powershell/module/az.confluent/#confluent
+  - name: REST API
+    href: /rest/api/confluent

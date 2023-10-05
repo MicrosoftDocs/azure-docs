@@ -1,0 +1,128 @@
+- name: Microsoft Entra Verified ID documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: Introduction to Microsoft Entra Verified ID
+    href: decentralized-identifier-overview.md
+  - name: What's new
+    href: whats-new.md
+- name: Tutorials
+  expanded: true
+  items:
+  - name: Set up the Verified ID service
+    href: verifiable-credentials-configure-tenant.md
+  - name: Issue a verifiable credential
+    href: verifiable-credentials-configure-issuer.md
+  - name: Verify a verifiable credential
+    href: verifiable-credentials-configure-verifier.md
+  - name: Using the Authenticator
+    href: using-authenticator.md
+  - name: Using the Wallet Library
+    href: using-wallet-library.md
+- name: Concepts
+  expanded: true
+  items:
+  - name: OpenID Connect protocol details
+    href: issuer-openid.md
+  - name: Plan and design 
+    items:
+    - name: Architecture planning overview
+      href: introduction-to-verifiable-credentials-architecture.md
+    - name: Plan your issuance solution
+      href: plan-issuance-solution.md
+    - name: Plan your verification solution
+      href: plan-verification-solution.md
+- name: How-to guides
+  expanded: true
+  items:
+  - name: How to customize your credentials
+    href: credential-design.md
+  - name: Create credentials using Quickstart
+    items:
+    - name: Directory based - Employee
+      href: how-to-use-quickstart-verifiedemployee.md
+    - name: Id token hint attestation
+      href: how-to-use-quickstart.md
+    - name: Id token attestation
+      href: how-to-use-quickstart-idtoken.md      
+    - name: Presentation attestation
+      href: how-to-use-quickstart-presentation.md
+    - name: Self issued attestation
+      href: how-to-use-quickstart-selfissued.md
+    - name: Multiple attestations
+      href: how-to-use-quickstart-multiple.md
+  - name: Use the Verified ID Network
+    href: how-use-vcnetwork.md
+  - name: Using the Request Service REST API
+    href: get-started-request-api.md
+  - name: Register decentralized ID
+    href: how-to-register-didwebsite.md
+  - name: Verify domain ownership
+    href: how-to-dnsbind.md
+  - name: Revoke a verifiable credential
+    href: how-to-issuer-revoke.md
+  - name: Opt out of Verified ID service
+    href: how-to-opt-out.md
+  - name: Partner gallery
+    items:
+    - name: IDV partners
+      items:
+      - name: IDV partner network
+        href: partner-gallery.md
+      - name: Au10tix
+        href: howto-verifiable-credentials-partner-au10tix.md
+      - name: LexisNexis
+        href: howto-verifiable-credentials-partner-lexisnexis.md
+      - name: Vu
+        href: partner-vu.md
+    - name: Services partners
+      href: services-partners.md
+- name: Samples
+  expanded: true
+  items:
+  - name: Sample Applications
+    href: https://github.com/Azure-Samples/active-directory-verifiable-credentials
+  - name: End to End Demo
+    href: https://woodgroveemployee.azurewebsites.net/
+- name: Architecture and Deployment
+  expanded: true
+  items:
+  - name: Remote onboarding
+    href: remote-onboarding-new-employees-id-verification.md
+  - name: LinkedIn employment verification
+    href: linkedin-employment-verification.md
+- name: Reference
+  expanded: true
+  items:
+  - name: Issuance API specification
+    href: issuance-request-api.md
+  - name: Presentation API specification
+    href: presentation-request-api.md
+  - name: Rules and Display definition model
+    href: rules-and-display-definitions-model.md
+  - name: Admin API specification
+    href: admin-api.md
+  - name: Verified ID Network API specification
+    href: vc-network-api.md
+  - name: Supported standards
+    href: verifiable-credentials-standards.md
+- name: Resources
+  expanded: true
+  items:
+  - name: FAQ
+    href: verifiable-credentials-faq.md
+  - name: How to create a developer account
+    href: how-to-create-a-free-developer-account.md
+  - name: Industry working group for all things Decentralized ID (DID)
+    href: https://identity.foundation
+  - name: Microsoft DID whitepaper
+    href: https://aka.ms/didwhitepaper
+  - name: DID marketing Overview
+    href: https://aka.ms/didexplained
+  - name: Decentralized identity blog
+    href: https://techcommunity.microsoft.com/t5/tag/decentralized%20identity/tg-p
+  - name: Video overview of decentralized identities
+    href: https://www.youtube.com/watch?v=Whc9Im-U0Wg
+
+  

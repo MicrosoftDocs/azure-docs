@@ -1,0 +1,125 @@
+### YamlMime:FAQ
+metadata:
+  title: Service Fabric managed clusters FAQ
+  description: Frequently asked questions about Service Fabric managed clusters, including capabilities, use cases, and common scenarios.
+  ms.topic: faq
+  ms.author: tomcassidy
+  author: tomvcassidy
+  ms.service: service-fabric
+  services: service-fabric
+  ms.date: 07/11/2022
+title: Service Fabric managed clusters frequently asked questions
+summary: Here are some frequently asked questions (FAQs) and answers for Service Fabric managed clusters.
+
+
+sections:
+  - name: General
+    questions:
+      - question: |
+          What are Service Fabric managed clusters?
+        answer: |
+          Service Fabric managed clusters are an evolution of the Service Fabric cluster resource model designed to make it easier to deploy and manage clusters. A Service Fabric managed cluster uses the Azure Resource Manager encapsulation model so that a user only needs to define and deploy a single cluster resource compared to the many independent resources that they must deploy today (Virtual Machine Scale Set, Load Balancer, IP, and more).
+
+      - question: |
+          What regions are supported?
+        answer: |
+          Service Fabric managed clusters are supported in all cloud regions.
+
+      - question: |
+          Can I do an in-place migration of my existing Service Fabric cluster to a managed cluster resource?
+        answer: |
+          No. You will need to create a new Service Fabric cluster resource to use the new Service Fabric managed cluster resource type.
+
+      - question: |
+          Is there an additional cost for Service Fabric managed clusters?
+        answer: |
+          No. There is no additional cost associated with a Service Fabric managed cluster beyond the cost of the underlying compute, storage, and networking resources that are required for the cluster.
+
+      - question: |
+          Is there a new SLA introduced by the Service Fabric managed cluster resource?
+        answer: |
+          The SLA doesn't change from the current Service Fabric resource model.
+
+      - question: |
+          What is the difference between a Basic, and Standard SKU cluster?
+        answer: |
+          Basic SKU clusters are intended to be used for testing and pre production environments with support for minimal configuration change. A Standard SKU cluster allows users to configure the cluster to specifically meet their needs. For more information, see [Service Fabric managed cluster SKUs](./overview-managed-cluster.md#service-fabric-managed-cluster-skus).
+      
+      - question: |
+          Where can I see planned features or suggest one?
+        answer: |
+          Please see our GitHub project for [managed clusters](https://github.com/microsoft/service-fabric/projects/17)      
+          
+  - name: Cluster Deployment and Management
+    questions:
+      - question: |
+          I run custom script extensions on my Virtual Machine Scale Set, can I continue to do that with a managed Service Fabric resource?
+        answer: |
+          Yes, you can specify VM extensions on managed cluster node types. For more information, see [Add a scale set extension to a Service Fabric managed cluster node type](./how-to-managed-cluster-vmss-extension.md).
+          
+      - question: |
+          I want to have an internal-only load balancer, is that possible?
+        answer: |
+          Yes, you can configure internal-only load balancer. See [Configure network settings for Service Fabric managed clusters](./how-to-managed-cluster-networking.md#byolb)
+      
+      - question: | 
+          Can I change the Azure AD tenant after initial deployment?
+        answer: |
+          No. At this time you would need to create a new Service Fabric managed cluster resource.
+
+      - question: |
+          I want to enable IPv6, is that possible?
+        answer: |
+          Yes, see [Configure network settings for Service Fabric managed clusters](./how-to-managed-cluster-networking.md#ipv6)
+
+      - question: |
+          I want to use an existing VNet for a Service Fabric managed cluster, can I do that?
+        answer: |
+          Yes, see [Configure network settings for Service Fabric managed clusters](./how-to-managed-cluster-networking.md#byolb)
+
+      - question: |
+          Can I autoscale my cluster?
+        answer: |
+          Yes, you can enable [autoscaling](./how-to-managed-cluster-autoscale.md)
+
+      - question: |
+          Can I deploy my cluster across availability zones?
+        answer: |
+          Yes, Service Fabric managed clusters which span availability zones are supported in Azure regions which support availability zones. For more information, see [Service Fabric managed clusters across availability zones](./how-to-managed-cluster-availability-zones.md).
+          
+      - question: |
+          Can I deploy stateless node types on a Service Fabric managed cluster? 
+        answer: |
+          Yes, Service Fabric managed clusters support stateless node types for any secondary node types. For more information, see [Service Fabric managed cluster stateless node types](./how-to-managed-cluster-stateless-node-type.md)
+          
+      - question: |
+          Can I select between automatic and manual upgrades for my cluster runtime?
+        answer: |
+          Yes, you can select between automatic and manual upgrades. For more information, see [cluster upgrades](./how-to-managed-cluster-upgrades.md).
+
+      - question: |
+          Can I set up maintenance control for my cluster?
+        answer: |
+          Yes, you can enable [maintenance control](./how-to-managed-cluster-maintenance-control.md)
+
+      - question: |
+          Why do I get 'Your connection isn't private' when connecting to Service Fabric Explorer (SFX) on a managed cluster?
+        answer: |
+          Connecting to a Service Fabric Explorer (SFX) endpoint on a managed cluster will result in a certificate error 'NET::ERR_CERT_AUTHORITY_INVALID' regardless of certificate being used or cluster configuration. This is because the cluster nodes are using the managed 'cluster' certificate when binding FabricGateway (19000) and FabricHttpGateway (19080) TCP ports and is by design.
+          
+
+  - name: Applications
+    questions:
+      - question: |
+          Is there a local development experience for Service Fabric managed clusters?
+        answer: |
+          The local development experience remains unchanged from existing Service Fabric clusters. For more information, see [Set up your development environment](./service-fabric-get-started.md) for more details on the local development experience.
+          
+      - question: |
+          Can I deploy my applications as an Azure Resource Manager resource?
+        answer: |
+          Yes. Support has been added to deploy applications as an Azure Resource Manager resource (in addition to deployment using PowerShell and CLI). To get started, see [Deploy a Service Fabric managed cluster application using ARM template](./how-to-managed-cluster-app-deployment-template.md).
+          
+      - question: |
+          Can I deploy applications with managed identities?
+        answer:  Yes, applications with managed identities can be deployed to a Service Fabric managed cluster. For more information see, [Configure and use applications with managed identity on a Service Fabric managed cluster](./how-to-managed-cluster-application-managed-identity.md).

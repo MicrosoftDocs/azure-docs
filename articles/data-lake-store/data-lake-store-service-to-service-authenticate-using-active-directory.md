@@ -1,18 +1,13 @@
 ---
-title: 'Service-to-service authentication: Azure Data Lake Storage Gen1 with Azure Active Directory | Microsoft Docs'
-description: Learn how to achieve service-to-service authentication with Azure Data Lake Storage Gen1 using Azure Active Directory
-services: data-lake-store
-documentationcenter: ''
-author: twooley
-manager: mtillman
-editor: cgronlun
+title: Service-to-service authentication - Data Lake Storage Gen1 - Azure
+description: Learn how to achieve service-to-service authentication with Azure Data Lake Storage Gen1 using Azure Active Directory.
 
+author: normesta
 ms.service: data-lake-store
-ms.devlang: na
-ms.topic: conceptual
+ms.custom: devx-track-extended-java
+ms.topic: how-to
 ms.date: 05/29/2018
-ms.author: twooley
-
+ms.author: normesta
 ---
 # Service-to-service authentication with Azure Data Lake Storage Gen1 using Azure Active Directory
 > [!div class="op_single_selector"]
@@ -44,9 +39,9 @@ While following the instructions at the preceding link, make sure you select **W
 ## Step 2: Get application ID, authentication key, and tenant ID
 When programmatically logging in, you need the ID for your application. If the application runs under its own credentials, you also need an authentication key.
 
-* For instructions on how to retrieve the application ID and authentication key (also called the client secret) for your application, see [Get application ID and authentication key](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
+* For instructions on how to retrieve the application ID and authentication key (also called the client secret) for your application, see [Get application ID and authentication key](../active-directory/develop/howto-create-service-principal-portal.md#sign-in-to-the-application).
 
-* For instructions on how to retrieve the tenant ID, see [Get tenant ID](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
+* For instructions on how to retrieve the tenant ID, see [Get tenant ID](../active-directory/develop/howto-create-service-principal-portal.md#sign-in-to-the-application).
 
 ## Step 3: Assign the Azure AD application to the Azure Data Lake Storage Gen1 account file or folder
 
@@ -66,12 +61,12 @@ When programmatically logging in, you need the ID for your application. If the a
     ![Add a group](./media/data-lake-store-authenticate-using-active-directory/adl.acl.3.png "Add a group")
 6. Click **Select Permissions**, select the permissions and whether you want to assign the permissions as a default ACL, access ACL, or both. Click **OK**.
    
-    ![Assign permissions to group](./media/data-lake-store-authenticate-using-active-directory/adl.acl.4.png "Assign permissions to group")
+    ![Screenshot of the Add Custom Access blade with the Select Permissions option called out and the Select Permissions blade with the OK option called out.](./media/data-lake-store-authenticate-using-active-directory/adl.acl.4.png "Assign permissions to group")
    
     For more information about permissions in Data Lake Storage Gen1, and Default/Access ACLs, see [Access Control in Data Lake Storage Gen1](data-lake-store-access-control.md).
-7. In the **Add Custom Access** blade, click **OK**. The newly added group, with the associated permissions, are listed in the **Access** blade.
+7. In the **Add Custom Access** blade, click **OK**. The newly added groups, with the associated permissions, are listed in the **Access** blade.
    
-    ![Assign permissions to group](./media/data-lake-store-authenticate-using-active-directory/adl.acl.5.png "Assign permissions to group")
+    ![Screenshot of the Access blade with the newly added group called out in the Custom Access section.](./media/data-lake-store-authenticate-using-active-directory/adl.acl.5.png "Assign permissions to group")
 
 > [!NOTE]
 > If you plan on restricting your Azure Active Directory application to a specific folder, you will also need to give that same Azure Active directory application **Execute** permission to the root to enable file creation access via the .NET SDK.
@@ -89,11 +84,11 @@ When programmatically logging in, you need the ID for your application. If the a
 
 3. From the top of the App registrations blade, click **Endpoints**.
 
-	![OAuth token endpoint](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint.png "OAuth token endpoint")
+	![Screenshot of Active Directory with the App registrations option and the Endpoints option called out.](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint.png "OAuth token endpoint")
 
 4. From the list of endpoints, copy the OAuth 2.0 token endpoint.
 
-	![OAuth token endpoint](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint-1.png "OAuth token endpoint")   
+	![Screenshot of the Endpoints blade with the O AUTH 2 point O TOKEN ENDPOINT copy icon called out.](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint-1.png "OAuth token endpoint")   
 
 ## Next steps
 In this article, you created an Azure AD web application and gathered the information you need in your client applications that you author using .NET SDK, Java, Python, REST API, etc. You can now proceed to the following articles that talk about how to use the Azure AD native application to first authenticate with Data Lake Storage Gen1 and then perform other operations on the store.
@@ -102,5 +97,3 @@ In this article, you created an Azure AD web application and gathered the inform
 * [Service-to-service authentication with Data Lake Storage Gen1 using .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md)
 * [Service-to-service authentication with Data Lake Storage Gen1 using Python](data-lake-store-service-to-service-authenticate-python.md)
 * [Service-to-service authentication with Data Lake Storage Gen1 using REST API](data-lake-store-service-to-service-authenticate-rest-api.md)
-
-

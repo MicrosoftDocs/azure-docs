@@ -1,66 +1,82 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
+
 title: Azure Time Series Insights Documentation
+summary: Learn how to run Azure IoT analytics in the cloud with fully managed event processing using quickstarts, tutorials, JavaScript samples, and REST API documentation. Analyze data from applications, sensors, devices, and more in real time.
+
 metadata:
   title: Azure Time Series Insights Documentation - Quickstarts, Tutorials, API Reference | Microsoft Docs
-  description: Learn how to run Azure IoT analytics in the cloud with fully managed event processing. Analyze data from applications, sensors, devices, and more in real time.
+  description: Learn how to run Azure IoT analytics in the cloud with fully managed event processing using quickstarts, tutorials, JavaScript samples, and REST API documentation.
   services: time-series-insights
-  author: anshan
-  manager: cshankar
   ms.service: time-series-insights
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: time-series-insights
   ms.topic: landing-page
-  ms.date: 06/03/2019
-  ms.author: anshan
-abstract:
-  description: Welcome to Azure Time Series Insights. Azure Time Series Insights provides powerful data exploration and telemetry tools to help you improve operational analysis. This documentation describes the service, how to start working with its many features, the client SDK, and the powerful Time Series Insights APIs. Information is presented for two versions, one that is already generally available (Time Series Insights GA) and a major service update that is in preview (Time Series Insights Preview).
-  aside:
-    image:
-      alt: A video introduction to Azure IoT Time Series Insights features.
-      height: 110
-      src: media/index/new-tsi-intro.png
-      width: 250
-    title: Time Series Insight for IoT apps. (13:31)
-    href: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Time-Series-Insights-e2e-solution-for-industrial-IoT-analytics
-    width: 250
-sections:
+  ms.collection: collection
+  author: shreyasharmamsft
+  ms.author: shresha
+  ms.date: 07/09/2020
 
-- title: 5-Minute Quickstarts
-  items:
-  - type: paragraph
-    text: Learn about Azure Time Series Insights by exploring quick samples that help you get started in minutes.
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: https://docs.microsoft.com/azure/time-series-insights/media/index/time-series-insights.svg
-      text: Explore Azure Time Series Insights GA
-      href: /azure/time-series-insights/time-series-quickstart
-  - html: <p><a href="/azure/time-series-insights/time-series-insights-update-quickstart">Explore Azure Time Series Insights Preview</a></p>
-    
-- title: Step-by-Step Tutorials
-  items:
-  - type: paragraph
-    text: Learn how to create Azure Time Series Insights environments, single-page web apps, and more through several step-by-step examples.
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Azure Time Series Insights GA
-      html: <p><a href="/azure/time-series-insights/tutorial-create-populate-tsi-environment">Create an Azure Time Series Insights environment</a></p> <p><a href="/azure/time-series-insights/tutorial-create-tsi-sample-spa">Create a single-page web app</a></p> <p><a href="/azure/time-series-insights/tutorial-explore-js-client-lib">Explore the JavaScript client library</a></p>
-    - title: Azure Time Series Insights Preview
-      html: <p><a href="/azure/time-series-insights/time-series-insights-update-create-environment">Set up an Azure Time Series Insights Preview environment</a></p>
+landingContent:
 
-- title: Reference
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Time Series Insights GA APIs
-      html: <p><a href="/rest/api/time-series-insights/ga">Data Access</a></p> <p><a href="/rest/api/time-series-insights/ga-query-api">Query API</a></p> <p><a href="/rest/api/time-series-insights/ga-query-syntax">Query Syntax</a></p>
-    - title: Time Series Insights Preview APIs
-      html: <p><a href="/rest/api/time-series-insights/preview-query">Query API</a></p> <p><a href="/rest/api/time-series-insights/preview-model">Model API</a></p> <p><a href="/rest/api/time-series-insights/preview-env">Environment API</a></p> <p><a href="/rest/api/time-series-insights/preview-tsx">Time Series Expression API</a></p>
-    - title: Client SDK
-      html: <p><a href="https://github.com/microsoft/tsiclient/blob/master/docs/API.md">JavaScript Client SDK</a></p>
+  - title: About Azure Time Series Insights
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Time Series Insights Gen2?
+            url: overview-what-is-tsi.md
+          - text: Use Cases
+            url: overview-use-cases.md
+          - text: Client SDK sample visualization
+            url: https://tsiclientsample.azurewebsites.net/
+      - linkListType: concept
+        links:
+          - text: Visualize data in Time Series Insights Explorer
+            url: concepts-ux-panels.md
+          - text: Time Series Model
+            url: concepts-model-overview.md
+      - linkListType: video
+        links:
+          - text: Analyzing Data using Time Series Insights Gen2
+            url: /Shows/Internet-of-Things-Show/Deep-Dive-Analyzing-IoT-data-using-Time-Series-Insights
+
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Explore Azure Time Series Insights Gen2
+            url: quickstart-explore-tsi.md
+      - linkListType: tutorial
+        links:
+          - text: Azure Time Series Insights Gen2 tutorial
+            url: tutorial-set-up-environment.md
+      - linkListType: deploy
+        links:
+          - text: Connect to Event Hubs
+            url: how-to-ingest-data-event-hub.md
+          - text: Connect to IoT Hub
+            url: how-to-ingest-data-iot-hub.md
+          - text: Plan your environment
+            url: how-to-plan-your-environment.md
+          - text: Data ingestion overview
+            url: concepts-ingestion-overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Provision and manage
+            url: ./how-to-provision-manage.md
+          - text: How to select a TSID
+            url: how-to-select-tsid.md
+          - text: Grant data access
+            url: ./concepts-access-policies.md
+          - text: Create Time Series Model
+            url: how-to-edit-your-model.md
+          - text: Query data
+            url: concepts-query-overview.md
+  - title: API Reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: REST APIs Overview
+            url: /rest/api/time-series-insights/
+          - text: Data Access Concepts Gen2
+            url: /rest/api/time-series-insights/reference-data-access-overview
+          - text: JavaScript Client SDK
+            url: https://github.com/microsoft/tsiclient/blob/master/docs/API.md

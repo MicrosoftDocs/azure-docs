@@ -1,0 +1,124 @@
+### YamlMime:Landing
+
+title: Azure Durable Functions documentation # <60 chars
+summary: Durable Functions is an extension of Azure Functions that lets you write stateful functions in a serverless compute environment. # < 160 chars
+
+metadata:
+  title: Azure Durable Functions documentation
+  description: Durable Functions is an extension of Azure Functions that lets you write stateful functions in a serverless compute environment.
+  ms.service: azure-functions 
+  ms.topic: landing-page
+  author: ggailey777 
+  ms.author: azfundocs 
+  ms.date: 10/04/2019 
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: About Durable Functions
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What are Durable Functions?
+            url: durable-functions-overview.md
+          - text: Compare serverless options
+            url: ../functions-compare-logic-apps-ms-flow-webjobs.md  
+      - linkListType: concept
+        links:
+          - text: Durable function types
+            url: durable-functions-types-features-overview.md
+      - linkListType: video
+        links:
+          - text: Break through serverless barriers
+            url: https://azure.microsoft.com/resources/videos/break-through-the-serverless-barriers-with-durable-functions/
+
+  # Card (optional)
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create durable functions (C#)
+            url: durable-functions-create-first-csharp.md
+          - text: Create your first function (JavaScript)
+            url: quickstart-js-vscode.md
+          - text: Create your first function (Python)
+            url: quickstart-python-vscode.md
+      - linkListType: learn
+        links:
+          - text: Create a long-running serverless workflow
+            url: /training/modules/create-long-running-serverless-workflow-with-durable-functions/
+      - linkListType: video
+        links:
+          - text: Watch how to get started
+            url: https://azure.microsoft.com/resources/videos/azure-friday-durable-functions-in-azure-functions/
+
+  # Card
+  - title: Key concepts
+    linkLists: 
+      - linkListType: concept
+        links:
+          - text: Orchestrations
+            url: durable-functions-orchestrations.md
+          - text: Stateful entities
+            url: durable-functions-entities.md
+          - text: HTTP features
+            url: durable-functions-http-features.md
+          - text: Task hubs
+            url: durable-functions-task-hubs.md
+          - text: Versioning
+            url: durable-functions-versioning.md
+      - linkListType: video
+        links:
+          - text: Serverless entities, orchestrations, and stateful functions
+            url: /Events/dotnetConf/NET-Conf-2019/B206
+          
+  # Card
+  - title: Application patterns
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Function chaining
+            url: durable-functions-sequence.md
+          - text: Async HTTP APIs
+            url: durable-functions-create-first-csharp.md
+          - text: Fan-out/fan-in
+            url: durable-functions-cloud-backup.md
+          - text: Monitors
+            url: durable-functions-monitor.md
+          - text: Human interaction
+            url: durable-functions-phone-verification.md
+          - text: Aggregator
+            url: durable-functions-entities.md
+
+  # Card
+  - title: Performance and monitoring
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Diagnostics
+            url: durable-functions-diagnostics.md  
+      - linkListType: concept
+        links:
+          - text: Monitor functions
+            url: ../functions-monitoring.md
+          - text: Networking considerations
+            url: ../functions-networking-options.md
+
+  # Card
+  - title: Samples
+    linkLists:
+      - linkListType: download
+        links:
+          - text: Durable Functions samples
+            url: /samples/browse/?products=azure-functions&term=durable
+          - text: Azure Serverless Community Library
+            url: https://www.serverlesslibrary.net/
+          - text: Azure Resource Manager templates
+            url: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Web&term=functions
+      - linkListType: how-to-guide
+        links:
+          - text: Azure CLI samples
+            url: ../functions-cli-samples.md

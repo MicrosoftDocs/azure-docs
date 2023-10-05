@@ -1,0 +1,68 @@
+### YamlMime:Landing
+
+title: Azure private multi-access edge compute documentation
+summary: The Azure private multi-access edge compute (MEC) solution enables operators and system integrators to deliver high performance, low-latency connectivity, and IoT applications at the enterprise edge.
+
+metadata:
+  title: Azure private multi-access edge compute documentation
+  description:  The Azure private multi-access edge compute (MEC) solution enables operators and system integrators to deliver high performance, low-latency connectivity, and IoT applications at the enterprise edge.
+  ms.service: private-multi-access-edge-compute-mec
+  ms.topic: landing-page
+  author: kumud
+  ms.author: KumudD
+  ms.date: 06/15/2021
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+
+  # Card
+  - title: About Azure private MEC
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure private MEC?
+            url: overview.md
+      - linkListType: concept
+        links:
+          - text: Partner solutions
+            url: partner-programs.md
+
+  # Card
+  - title: About Azure Private 5G Core
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: What is Azure Private 5G Core?
+            url: ../private-5g-core/private-5g-core-overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Deploy a private mobile network
+            url: ../private-5g-core/how-to-guide-deploy-a-private-mobile-network-azure-portal.md
+
+  # Card
+  - title: About Affirmed Private Network Service on Azure
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: What is Affirmed Private Network Service on Azure?
+            url: affirmed-private-network-service-overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Deploy Affirmed Private Network Service on Azure
+            url: deploy-affirmed-private-network-service-solution.md
+
+  # Card
+  - title: About Azure Network Function Manager
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Network Function Manager?
+            url: ../network-function-manager/overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Deploy a network function
+            url: ../network-function-manager/deploy-functions.md

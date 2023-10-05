@@ -1,28 +1,48 @@
 ---
 title: Bindings for Durable Functions - Azure
 description: How to use triggers and bindings for the Durable Functions extension for Azure Functions.
-services: functions
-author: ggailey777
-manager: jeconnoc
-keywords:
-ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
+ms.date: 03/22/2023
 ms.author: azfuncdf
+zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
 # Bindings for Durable Functions (Azure Functions)
 
-The [Durable Functions](durable-functions-overview.md) extension introduces two new trigger bindings that control the execution of orchestrator and activity functions. It also introduces an output binding that acts as a client for the Durable Functions runtime.
+The [Durable Functions](durable-functions-overview.md) extension introduces three trigger bindings that control the execution of orchestrator, entity, and activity functions. It also introduces an output binding that acts as a client for the Durable Functions runtime.
 
-## Orchestration triggers
+Make sure to choose your Durable Functions development language at the top of the article.
 
-The orchestration trigger enables you to author durable orchestrator functions. This trigger supports starting new orchestrator function instances and resuming existing orchestrator function instances that are "awaiting" a task.
+::: zone pivot="programming-language-python" 
 
-When you use the Visual Studio tools for Azure Functions, the orchestration trigger is configured using the [OrchestrationTriggerAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationTriggerAttribute.html) .NET attribute.
+> [!IMPORTANT]   
+> This article supports both Python v1 and Python v2 programming models for Durable Functions.  
 
-When you write orchestrator functions in scripting languages (for example, JavaScript or C# scripting), the orchestration trigger is defined by the following JSON object in the `bindings` array of the *function.json* file:
+## Python v2 programming model
+
+Durable Functions provides preview support of the new [Python v2 programming model](../functions-reference-python.md?pivots=python-mode-decorators). To use the v2 model, you must install the Durable Functions SDK, which is the PyPI package `azure-functions-durable`, version `1.2.2` or a later version. During the preview, you can provide feedback and suggestions in the [Durable Functions SDK for Python repo](https://github.com/Azure/azure-functions-durable-python/issues).
+
+Using [Extension Bundles](../functions-bindings-register.md#extension-bundles) isn't currently supported for the v2 model with Durable Functions. You'll instead need to manage your extensions manually as follows:
+
+1. Remove the `extensionBundle` section of your `host.json` file.
+ 
+1. Run the `func extensions install --package Microsoft.Azure.WebJobs.Extensions.DurableTask --version 2.9.1` command on your terminal. This installs the Durable Functions extension for your app, which allows you to use the v2 model preview. For more information, see [func extensions install](../functions-core-tools-reference.md#func-extensions-install).
+
+::: zone-end
+
+## Orchestration trigger
+
+The orchestration trigger enables you to author [durable orchestrator functions](durable-functions-types-features-overview.md#orchestrator-functions). This trigger executes when a new orchestration instance is scheduled and when an existing orchestration instance receives an event. Examples of events that can trigger orchestrator functions include durable timer expirations, activity function responses, and events raised by external clients.
+
+::: zone pivot="programming-language-csharp"
+When you author functions in .NET, the orchestration trigger is configured using the [OrchestrationTriggerAttribute](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.orchestrationtriggerattribute) .NET attribute. 
+::: zone-end  
+::: zone pivot="programming-language-java"   
+For Java, the `@DurableOrchestrationTrigger` annotation is used to configure the orchestration trigger.
+::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-powershell" 
+When you write orchestrator functions, the orchestration trigger is defined by the following JSON object in the `bindings` array of the *function.json* file:
 
 ```json
 {
@@ -33,48 +53,98 @@ When you write orchestrator functions in scripting languages (for example, JavaS
 }
 ```
 
-* `orchestration` is the name of the orchestration. This is the value that clients must use when they want to start new instances of this orchestrator function. This property is optional. If not specified, the name of the function is used.
+* `orchestration` is the name of the orchestration that clients must use when they want to start new instances of this orchestrator function. This property is optional. If not specified, the name of the function is used.
+::: zone-end
+::: zone pivot="programming-language-python"  
+Azure Functions supports two programming models for Python. The way that you define an orchestration trigger depends on your chosen programming model.
 
-Internally this trigger binding polls a series of queues in the default storage account for the function app. These queues are internal implementation details of the extension, which is why they are not explicitly configured in the binding properties.
+# [v2](#tab/python-v2)
+The Python v2 programming model lets you define an orchestration trigger using the `orchestration_trigger` decorator directly in your Python function code. 
+
+In the v2 model, the Durable Functions triggers and bindings are accessed from an instance of `DFApp`, which is a subclass of `FunctionApp` that additionally exports Durable Functions-specific decorators. 
+
+# [v1](#tab/python-v1)
+When you write orchestrator functions in the Python v1 programming model, the orchestration trigger is defined by the following JSON object in the `bindings` array of the *function.json* file:
+
+```json
+{
+    "name": "<Name of input parameter in function signature>",
+    "orchestration": "<Optional - name of the orchestration>",
+    "type": "orchestrationTrigger",
+    "direction": "in"
+}
+```
+
+* `orchestration` is the name of the orchestration that clients must use when they want to start new instances of this orchestrator function. This property is optional. If not specified, the name of the function is used.
+
+---
+
+::: zone-end    
+
+Internally, this trigger binding polls the configured durable store for new orchestration events, such as orchestration start events, durable timer expiration events, activity function response events, and external events raised by other functions.
 
 ### Trigger behavior
 
 Here are some notes about the orchestration trigger:
 
-* **Single-threading** - A single dispatcher thread is used for all orchestrator function execution on a single host instance. For this reason, it is important to ensure that orchestrator function code is efficient and doesn't perform any I/O. It is also important to ensure that this thread does not do any async work except when awaiting on Durable Functions-specific task types.
-* **Poison-message handling** - There is no poison message support in orchestration triggers.
+* **Single-threading** - A single dispatcher thread is used for all orchestrator function execution on a single host instance. For this reason, it's important to ensure that orchestrator function code is efficient and doesn't perform any I/O. It is also important to ensure that this thread does not do any async work except when awaiting on Durable Functions-specific task types.
+* **Poison-message handling** - There's no poison message support in orchestration triggers.
 * **Message visibility** - Orchestration trigger messages are dequeued and kept invisible for a configurable duration. The visibility of these messages is renewed automatically as long as the function app is running and healthy.
 * **Return values** - Return values are serialized to JSON and persisted to the orchestration history table in Azure Table storage. These return values can be queried by the orchestration client binding, described later.
 
 > [!WARNING]
-> Orchestrator functions should never use any input or output bindings other than the orchestration trigger binding. Doing so has the potential to cause problems with the Durable Task extension because those bindings may not obey the single-threading and I/O rules.
+> Orchestrator functions should never use any input or output bindings other than the orchestration trigger binding. Doing so has the potential to cause problems with the Durable Task extension because those bindings may not obey the single-threading and I/O rules. If you'd like to use other bindings, add them to an activity function called from your orchestrator function. For more information about coding constraints for orchestrator functions, see the [Orchestrator function code constraints](durable-functions-code-constraints.md) documentation.
 
+::: zone pivot="programming-language-javascript,programming-language-python"
 > [!WARNING]
-> JavaScript orchestrator functions should never be declared `async`.
+> Orchestrator functions should never be declared `async`.
+::: zone-end
 
-### Trigger usage (.NET)
+### Trigger usage
 
 The orchestration trigger binding supports both inputs and outputs. Here are some things to know about input and output handling:
 
-* **inputs** - .NET orchestration functions support only [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) as a parameter type. Deserialization of inputs directly in the function signature is not supported. Code must use the [GetInput\<T>](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetInput__1)(.NET) or `getInput` (JavaScript) method to fetch orchestrator function inputs. These inputs must be JSON-serializable types.
-* **outputs** - Orchestration triggers support output values as well as inputs. The return value of the function is used to assign the output value and must be JSON-serializable. If a .NET function returns `Task` or `void`, a `null` value will be saved as the output.
+* **inputs** - Orchestration triggers can be invoked with inputs, which are accessed through the context input object. All inputs must be JSON-serializable.
+* **outputs** - Orchestration triggers support output values as well as inputs. The return value of the function is used to assign the output value and must be JSON-serializable.
 
 ### Trigger sample
 
-The following is an example of what the simplest "Hello World" orchestrator function might look like:
+The following example code shows what the simplest "Hello World" orchestrator function might look like. Note that this example orchestrator doesn't actually schedule any tasks.
 
-#### C#
+::: zone pivot="programming-language-csharp"
+The specific attribute used to define the trigger depends on whether you are running your C# functions [in-process](../functions-dotnet-class-library.md) or in an [isolated worker process](../dotnet-isolated-process-guide.md).
+
+# [In-process](#tab/in-process)
 
 ```csharp
 [FunctionName("HelloWorld")]
-public static string Run([OrchestrationTrigger] DurableOrchestrationContext context)
+public static string Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     string name = context.GetInput<string>();
     return $"Hello {name}!";
 }
 ```
 
-#### JavaScript (Functions 2.x only)
+> [!NOTE]
+> The previous code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions Versions](durable-functions-versions.md) article.
+
+# [Isolated process](#tab/isolated-process)
+
+```csharp
+[Function("HelloWorld")]
+public static string Run([OrchestrationTrigger] TaskOrchestrationContext context, string name)
+{
+    return $"Hello {name}!";
+}
+```
+
+> [!NOTE]
+> In both Durable functions in-proc and in .NET-isolated, the orchestration input can be extracted via `context.GetInput<T>()`. However, .NET-isolated also supports the input being supplied as a parameter, as shown above. The input binding will bind to the first parameter which has no binding attribute on it and is not a well-known type already covered by other input bindings (ie: `FunctionContext`).
+
+---
+
+::: zone-end  
+::: zone pivot="programming-language-javascript" 
 
 ```javascript
 const df = require("durable-functions");
@@ -86,19 +156,64 @@ module.exports = df.orchestrator(function*(context) {
 ```
 
 > [!NOTE]
-> The `context` object in JavaScript does not represent the DurableOrchestrationContext, but the [function context as a whole.](../functions-reference-node.md#context-object). You can access orchestration methods via the `context` object's `df` property.
+> The `durable-functions` library takes care of calling the synchronous `context.done` method when the generator function exits.
+::: zone-end  
+::: zone pivot="programming-language-python" 
+# [v2](#tab/python-v2)
 
-> [!NOTE]
-> JavaScript orchestrators should use `return`. The `durable-functions` library takes care of calling the `context.done` method.
+```python
+import azure.functions as func
+import azure.durable_functions as df
 
+myApp = df.DFApp(http_auth_level=func.AuthLevel.ANONYMOUS)
+
+@myApp.orchestration_trigger(context_name="context")
+def my_orchestrator(context):
+    result = yield context.call_activity("Hello", "Tokyo")
+    return result
+```
+
+# [v1](#tab/python-v1)
+```python
+import azure.durable_functions as df
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    input = context.get_input()
+    return f"Hello {input['name']}!"
+
+main = df.Orchestrator.create(orchestrator_function)
+```
+::: zone-end  
+::: zone pivot="programming-language-powershell" 
+
+```powershell
+param($Context)
+
+$InputData = $Context.Input
+$InputData
+```
+::: zone-end  
+::: zone pivot="programming-language-java" 
+
+```java
+@FunctionName("HelloWorldOrchestration")
+public String helloWorldOrchestration(
+        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx) {
+    return String.format("Hello %s!", ctx.getInput(String.class));
+}
+```
+::: zone-end
+
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript"
 Most orchestrator functions call activity functions, so here is a "Hello World" example that demonstrates how to call an activity function:
-
-#### C#
+::: zone-end
+::: zone pivot="programming-language-csharp"
+# [In-process](#tab/in-process)
 
 ```csharp
 [FunctionName("HelloWorld")]
 public static async Task<string> Run(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     string name = context.GetInput<string>();
     string result = await context.CallActivityAsync<string>("SayHello", name);
@@ -106,7 +221,25 @@ public static async Task<string> Run(
 }
 ```
 
-#### JavaScript (Functions 2.x only)
+> [!NOTE]
+> The previous code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+
+# [Isolated process](#tab/isolated-process)
+
+```csharp
+[Function("HelloWorld")]
+public static async Task<string> Run(
+    [OrchestrationTrigger] TaskOrchestrationContext context, string name)
+{
+    string result = await context.CallActivityAsync<string>("SayHello", name);
+    return result;
+}
+```
+
+---
+
+::: zone-end  
+::: zone pivot="programming-language-javascript" 
 
 ```javascript
 const df = require("durable-functions");
@@ -117,14 +250,32 @@ module.exports = df.orchestrator(function*(context) {
     return result;
 });
 ```
+::: zone-end  
+::: zone pivot="programming-language-java" 
 
-## Activity triggers
+```java
+@FunctionName("HelloWorld")
+public String helloWorldOrchestration(
+        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx) {
+    String input = ctx.getInput(String.class);
+    String result = ctx.callActivity("SayHello", input, String.class).await();
+    return result;
+}
+```
+::: zone-end
 
-The activity trigger enables you to author functions that are called by orchestrator functions.
+## Activity trigger
 
-If you're using Visual Studio, the activity trigger is configured using the [ActivityTriggerAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.ActivityTriggerAttribute.html) .NET attribute.
+The activity trigger enables you to author functions that are called by orchestrator functions, known as [activity functions](durable-functions-types-features-overview.md#activity-functions).
 
-If you're using VS Code or the Azure portal for development, the activity trigger is defined by the following JSON object in the `bindings` array of *function.json*:
+::: zone pivot="programming-language-csharp"
+The activity trigger is configured using the [ActivityTriggerAttribute](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.activitytriggerattribute) .NET attribute. 
+::: zone-end  
+::: zone pivot="programming-language-java" 
+The activity trigger is configured using the `@DurableActivityTrigger` annotation.
+::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-powershell" 
+The activity trigger is defined by the following JSON object in the `bindings` array of *function.json*:
 
 ```json
 {
@@ -135,46 +286,67 @@ If you're using VS Code or the Azure portal for development, the activity trigge
 }
 ```
 
-* `activity` is the name of the activity. This is the value that orchestrator functions use to invoke this activity function. This property is optional. If not specified, the name of the function is used.
+* `activity` is the name of the activity. This value is the name that orchestrator functions use to invoke this activity function. This property is optional. If not specified, the name of the function is used.
+::: zone-end
+::: zone pivot="programming-language-python"  
+The way that you define an activity trigger depends on your chosen programming model.
 
-Internally this trigger binding polls a queue in the default storage account for the function app. This queue is an internal implementation detail of the extension, which is why it is not explicitly configured in the binding properties.
+# [v2](#tab/python-v2)
+Using the `activity_trigger` decorator directly in your Python function code. 
+
+# [v1](#tab/python-v1)
+The activity trigger is defined by the following JSON object in the `bindings` array of *function.json*:
+
+```json
+{
+    "name": "<Name of input parameter in function signature>",
+    "activity": "<Optional - name of the activity>",
+    "type": "activityTrigger",
+    "direction": "in"
+}
+```
+
+* `activity` is the name of the activity. This value is the name that orchestrator functions use to invoke this activity function. This property is optional. If not specified, the name of the function is used.
+
+---
+::: zone-end    
+
+Internally, this trigger binding polls the configured durable store for new activity execution events.
 
 ### Trigger behavior
 
 Here are some notes about the activity trigger:
 
 * **Threading** - Unlike the orchestration trigger, activity triggers don't have any restrictions around threading or I/O. They can be treated like regular functions.
-* **Poison-message handling** - There is no poison message support in activity triggers.
+* **Poison-message handling** - There's no poison message support in activity triggers.
 * **Message visibility** - Activity trigger messages are dequeued and kept invisible for a configurable duration. The visibility of these messages is renewed automatically as long as the function app is running and healthy.
-* **Return values** - Return values are serialized to JSON and persisted to the orchestration history table in Azure Table storage.
+* **Return values** - Return values are serialized to JSON and persisted to the configured durable store.
 
-> [!WARNING]
-> The storage backend for activity functions is an implementation detail and user code should not interact with these storage entities directly.
-
-### Trigger usage (.NET)
+### Trigger usage
 
 The activity trigger binding supports both inputs and outputs, just like the orchestration trigger. Here are some things to know about input and output handling:
 
-* **inputs** - .NET activity functions natively use [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) as a parameter type. Alternatively, an activity function can be declared with any parameter type that is JSON-serializable. When you use `DurableActivityContext`, you can call [GetInput\<T>](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html#Microsoft_Azure_WebJobs_DurableActivityContext_GetInput__1) to fetch and deserialize the activity function input.
-* **outputs** - Activity functions support output values as well as inputs. The return value of the function is used to assign the output value and must be JSON-serializable. If a .NET function returns `Task` or `void`, a `null` value will be saved as the output.
-* **metadata** - .NET activity functions can bind to a `string instanceId` parameter to get the instance ID of the parent orchestration.
+* **inputs** - Activity triggers can be invoked with inputs from an orchestrator function. All inputs must be JSON-serializable.
+* **outputs** - Activity functions support output values as well as inputs. The return value of the function is used to assign the output value and must be JSON-serializable.
+* **metadata** - .NET activity functions can bind to a `string instanceId` parameter to get the instance ID of the calling orchestration.
 
 ### Trigger sample
 
-The following is an example of what a simple "Hello World" activity function might look like:
+The following example code shows what a simple `SayHello` activity function might look like.
 
-#### C#
+::: zone pivot="programming-language-csharp"
+# [In-process](#tab/in-process)
 
 ```csharp
 [FunctionName("SayHello")]
-public static string SayHello([ActivityTrigger] DurableActivityContext helloContext)
+public static string SayHello([ActivityTrigger] IDurableActivityContext helloContext)
 {
     string name = helloContext.GetInput<string>();
     return $"Hello {name}!";
 }
 ```
 
-The default parameter type for the .NET `ActivityTriggerAttribute` binding is `DurableActivityContext`. However, .NET activity triggers also support binding directly to JSON-serializeable types (including primitive types), so the same function could be simplified as follows:
+The default parameter type for the .NET `ActivityTriggerAttribute` binding is [IDurableActivityContext](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableactivitycontext) (or [DurableActivityContext](/dotnet/api/microsoft.azure.webjobs.durableactivitycontext?view=azure-dotnet-legacy&preserve-view=true) for Durable Functions v1). However, .NET activity triggers also support binding directly to JSON-serializeable types (including primitive types), so the same function could be simplified as follows:
 
 ```csharp
 [FunctionName("SayHello")]
@@ -184,8 +356,22 @@ public static string SayHello([ActivityTrigger] string name)
 }
 ```
 
-#### JavaScript (Functions 2.x only)
+# [Isolated process](#tab/isolated-process)
 
+In the .NET-isolated worker, only serializable types representing your input are supported for the `[ActivityTrigger]`.
+
+```csharp
+[Function("SayHello")]
+public static string SayHello([ActivityTrigger] string name)
+{
+    return $"Hello {name}!";
+}
+```
+
+---
+
+::: zone-end  
+::: zone pivot="programming-language-javascript" 
 ```javascript
 module.exports = async function(context) {
     return `Hello ${context.bindings.name}!`;
@@ -200,47 +386,84 @@ module.exports = async function(context, name) {
 };
 ```
 
-### Passing multiple parameters
+::: zone-end  
+::: zone pivot="programming-language-python" 
 
-It is not possible to pass multiple parameters to an activity function directly. The recommendation in this case is to pass in an array of objects or to use [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) objects in .NET.
+# [v2](#tab/python-v2)
 
-The following sample is using new features of [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) added with [C# 7](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#tuples):
+```python
+import azure.functions as func
+import azure.durable_functions as df
 
-```csharp
-[FunctionName("GetCourseRecommendations")]
-public static async Task<dynamic> RunOrchestrator(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
-{
-    string major = "ComputerScience";
-    int universityYear = context.GetInput<int>();
+myApp = df.DFApp(http_auth_level=func.AuthLevel.ANONYMOUS)
 
-    dynamic courseRecommendations = await context.CallActivityAsync<dynamic>("CourseRecommendations", (major, universityYear));
-    return courseRecommendations;
+@myApp.activity_trigger(input_name="myInput")
+def my_activity(myInput: str):
+    return "Hello " + myInput
+```
+
+# [v1](#tab/python-v1)
+
+```python
+def main(name: str) -> str:
+    return f"Hello {name}!"
+```
+
+---
+
+::: zone-end  
+::: zone pivot="programming-language-powershell" 
+```powershell
+param($name)
+
+"Hello $name!"
+```
+::: zone-end  
+::: zone pivot="programming-language-java" 
+```java
+@FunctionName("SayHello")
+public String sayHello(@DurableActivityTrigger(name = "name") String name) {
+    return String.format("Hello %s!", name);
 }
+```
+::: zone-end
 
-[FunctionName("CourseRecommendations")]
-public static async Task<dynamic> Mapper([ActivityTrigger] DurableActivityContext inputs)
+### Using input and output bindings
+
+You can use regular input and output bindings in addition to the activity trigger binding. 
+
+::: zone pivot="programming-language-javascript" 
+For example, you can take the input to your activity binding, and send a message to an EventHub using the EventHub output binding:
+
+```json
 {
-    // parse input for student's major and year in university
-    (string Major, int UniversityYear) studentInfo = inputs.GetInput<(string, int)>();
-
-    // retrieve and return course recommendations by major and university year
-    return new {
-        major = studentInfo.Major,
-        universityYear = studentInfo.UniversityYear,
-        recommendedCourses = new []
-        {
-            "Introduction to .NET Programming",
-            "Introduction to Linux",
-            "Becoming an Entrepreneur"
-        }
-    };
+  "bindings": [
+    {
+      "name": "message",
+      "type": "activityTrigger",
+      "direction": "in"
+    },
+    {
+      "type": "eventHub",
+      "name": "outputEventHubMessage",
+      "connection": "EventhubConnectionSetting",
+      "eventHubName": "eh_messages",
+      "direction": "out"
+  }
+  ]
 }
 ```
 
+```javascript
+module.exports = async function (context) {
+    context.bindings.outputEventHubMessage = context.bindings.message;
+};
+```
+::: zone-end
+
 ## Orchestration client
 
-The orchestration client binding enables you to write functions which interact with orchestrator functions. For example, you can act on orchestration instances in the following ways:
+The orchestration client binding enables you to write functions that interact with orchestrator functions. These functions are often referred to as [client functions](durable-functions-types-features-overview.md#client-functions). For example, you can act on orchestration instances in the following ways:
 
 * Start them.
 * Query their status.
@@ -248,9 +471,39 @@ The orchestration client binding enables you to write functions which interact w
 * Send events to them while they're running.
 * Purge instance history.
 
-If you're using Visual Studio, you can bind to the orchestration client by using the [OrchestrationClientAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html) .NET attribute.
+::: zone pivot="programming-language-csharp"
+You can bind to the orchestration client by using the [DurableClientAttribute](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.durableclientattribute) attribute ([OrchestrationClientAttribute](/dotnet/api/microsoft.azure.webjobs.orchestrationclientattribute?view=azure-dotnet-legacy&preserve-view=true) in Durable Functions v1.x). 
+::: zone-end  
+::: zone pivot="programming-language-java" 
+You can bind to the orchestration client by using the `@DurableClientInput` annotation.
+::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-powershell" 
+The durable client trigger is defined by the following JSON object in the `bindings` array of *function.json*:
 
-If you're using scripting languages (e.g. *.csx* or *.js* files) for development, the orchestration trigger is defined by the following JSON object in the `bindings` array of *function.json*:
+```json
+{
+    "name": "<Name of input parameter in function signature>",
+    "taskHub": "<Optional - name of the task hub>",
+    "connectionName": "<Optional - name of the connection string app setting>",
+    "type": "orchestrationClient",
+    "direction": "in"
+}
+```
+
+* `taskHub` - Used in scenarios where multiple function apps share the same storage account but need to be isolated from each other. If not specified, the default value from `host.json` is used. This value must match the value used by the target orchestrator functions.
+* `connectionName` - The name of an app setting that contains a storage account connection string. The storage account represented by this connection string must be the same one used by the target orchestrator functions. If not specified, the default storage account connection string for the function app is used.
+
+> [!NOTE]
+> In most cases, we recommend that you omit these properties and rely on the default behavior.
+::: zone-end
+::: zone pivot="programming-language-python"  
+The way that you define a durable client trigger depends on your chosen programming model.
+
+# [v2](#tab/python-v2)
+Using the `durable_client_input` decorator directly in your Python function code. 
+
+# [v1](#tab/python-v1)
+The durable client trigger is defined by the following JSON object in the `bindings` array of *function.json*:
 
 ```json
 {
@@ -268,42 +521,60 @@ If you're using scripting languages (e.g. *.csx* or *.js* files) for development
 > [!NOTE]
 > In most cases, we recommend that you omit these properties and rely on the default behavior.
 
+---
+::: zone-end 
+
 ### Client usage
 
-In .NET functions, you typically bind to `DurableOrchestrationClient`, which gives you full access to all client APIs supported by Durable Functions. In JavaScript, the same APIs are exposed by the `DurableOrchestrationClient` object returned from `getClient`. APIs on the client object include:
+::: zone pivot="programming-language-csharp"
+You typically bind to [IDurableClient](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableclient) ([DurableOrchestrationClient](/dotnet/api/microsoft.azure.webjobs.durableorchestrationclient?view=azure-dotnet-legacy&preserve-view=true) in Durable Functions v1.x), which gives you full access to all orchestration client APIs supported by Durable Functions. 
+::: zone-end  
+::: zone pivot="programming-language-java" 
+You typically bind to the `DurableClientContext` class. 
+::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell" 
+You must use the language-specific SDK to get access to a client object.
+::: zone-end
 
-* [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_)
-* [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_)
-* [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_)
-* [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_)
-* [PurgeInstanceHistoryAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_PurgeInstanceHistoryAsync_) (currently .NET only)
+Here's an example queue-triggered function that starts a "HelloWorld" orchestration.
 
-Alternatively, .NET functions can bind to `IAsyncCollector<T>` where `T` is [StartOrchestrationArgs](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.StartOrchestrationArgs.html) or `JObject`.
+::: zone pivot="programming-language-csharp"
 
-See the [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) API documentation for additional details on these operations.
-
-> [!WARNING]
-> When developing locally in JavaScript, you will need to set the environment variable `WEBSITE_HOSTNAME` to `localhost:<port>`, ex. `localhost:7071` to use methods on `DurableOrchestrationClient`. For more information about this requirement, see the [GitHub issue](https://github.com/Azure/azure-functions-durable-js/issues/28).
-
-### Client sample (Visual Studio development)
-
-Here is an example queue-triggered function that starts a "HelloWorld" orchestration.
+# [In-process](#tab/in-process)
 
 ```csharp
 [FunctionName("QueueStart")]
 public static Task Run(
     [QueueTrigger("durable-function-trigger")] string input,
-    [OrchestrationClient] DurableOrchestrationClient starter)
+    [DurableClient] IDurableOrchestrationClient starter)
 {
     // Orchestration input comes from the queue message content.
     return starter.StartNewAsync("HelloWorld", input);
 }
 ```
 
-### Client sample (not Visual Studio)
+> [!NOTE]
+> The previous C# code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `OrchestrationClient` attribute instead of the `DurableClient` attribute, and you must use the `DurableOrchestrationClient` parameter type instead of `IDurableOrchestrationClient`. For more information about the differences between versions, see the [Durable Functions Versions](durable-functions-versions.md) article.
 
-If you're not using Visual Studio for development, you can create the following *function.json* file. This example shows how to configure a queue-triggered function that uses the durable orchestration client binding:
+# [Isolated process](#tab/isolated-process)
 
+```csharp
+[Function("QueueStart")]
+public static Task Run(
+    [QueueTrigger("durable-function-trigger")] string input,
+    [DurableClient] DurableTaskClient client)
+{
+    // Orchestration input comes from the queue message content.
+    return client.ScheduleNewOrchestrationInstanceAsync("HelloWorld", input);
+}
+```
+
+---
+
+::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-powershell" 
+
+**function.json**
 ```json
 {
   "bindings": [
@@ -315,32 +586,16 @@ If you're not using Visual Studio for development, you can create the following 
     },
     {
       "name": "starter",
-      "type": "orchestrationClient",
+      "type": "durableClient",
       "direction": "in"
     }
   ]
 }
 ```
 
-Following are language-specific samples that start new orchestrator function instances.
-
-#### C# Sample
-
-The following sample shows how to use the durable orchestration client binding to start a new function instance from a C# script function:
-
-```csharp
-#r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
-
-public static Task<string> Run(string input, DurableOrchestrationClient starter)
-{
-    return starter.StartNewAsync("HelloWorld", input);
-}
-```
-
-#### JavaScript Sample
-
-The following sample shows how to use the durable orchestration client binding to start a new function instance from a JavaScript function:
-
+::: zone-end
+::: zone pivot="programming-language-javascript"
+**index.js**
 ```javascript
 const df = require("durable-functions");
 
@@ -349,11 +604,247 @@ module.exports = async function (context) {
     return instanceId = await client.startNew("HelloWorld", undefined, context.bindings.input);
 };
 ```
+::: zone-end  
+::: zone pivot="programming-language-powershell" 
 
+**run.ps1**
+```powershell
+param([string] $input, $TriggerMetadata)
+
+$InstanceId = Start-DurableOrchestration -FunctionName $FunctionName -Input $input
+```
+::: zone-end  
+::: zone pivot="programming-language-python" 
+
+# [v2](#tab/python-v2)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+myApp = df.DFApp(http_auth_level=func.AuthLevel.ANONYMOUS)
+
+@myApp.route(route="orchestrators/{functionName}")
+@myApp.durable_client_input(client_name="client")
+async def durable_trigger(req: func.HttpRequest, client):
+    function_name = req.route_params.get('functionName')
+    instance_id = await client.start_new(function_name)
+    response = client.create_check_status_response(req, instance_id)
+    return response
+```
+
+# [v1](#tab/python-v1)
+
+**`function.json`**
+```json
+{
+  "bindings": [
+    {
+      "name": "input",
+      "type": "queueTrigger",
+      "queueName": "durable-function-trigger",
+      "direction": "in"
+    },
+    {
+      "name": "starter",
+      "type": "durableClient",
+      "direction": "in"
+    }
+  ]
+}
+```
+
+**`__init__.py`**
+```python
+import json
+import azure.functions as func
+import azure.durable_functions as df
+
+async def main(msg: func.QueueMessage, starter: str) -> None:
+    client = df.DurableOrchestrationClient(starter)
+    payload = msg.get_body().decode('utf-8')
+    instance_id = await client.start_new("HelloWorld", client_input=payload)
+```
+---
+
+::: zone-end 
+::: zone pivot="programming-language-powershell" 
+
+**function.json**
+```json
+{
+  "bindings": [
+    {
+      "name": "input",
+      "type": "queueTrigger",
+      "queueName": "durable-function-trigger",
+      "direction": "in"
+    },
+    {
+      "name": "starter",
+      "type": "durableClient",
+      "direction": "in"
+    }
+  ]
+}
+```
+
+**run.ps1**
+```powershell
+param([string]$InputData, $TriggerMetadata)
+
+$InstanceId = Start-DurableOrchestration -FunctionName 'HelloWorld' -Input $InputData
+```
+
+::: zone-end  
+::: zone pivot="programming-language-java" 
+
+```java
+@FunctionName("QueueStart")
+public void queueStart(
+        @QueueTrigger(name = "input", queueName = "durable-function-trigger", connection = "Storage") String input,
+        @DurableClientInput(name = "durableContext") DurableClientContext durableContext) {
+    // Orchestration input comes from the queue message content.
+    durableContext.getClient().scheduleNewOrchestrationInstance("HelloWorld", input);
+}
+```
+::: zone-end  
 More details on starting instances can be found in [Instance management](durable-functions-instance-management.md).
 
-<a name="host-json"></a>
+## Entity trigger
 
+Entity triggers allow you to author [entity functions](durable-functions-entities.md). This trigger supports processing events for a specific entity instance.
+
+> [!NOTE]
+> Entity triggers are available starting in Durable Functions 2.x.
+
+Internally, this trigger binding polls the configured durable store for new entity operations that need to be executed.
+
+::: zone pivot="programming-language-csharp"
+The entity trigger is configured using the [EntityTriggerAttribute](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.entitytriggerattribute) .NET attribute.
+
+> [!NOTE]
+> Entity triggers aren't yet supported for isolated worker process apps.
+::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-powershell" 
+The entity trigger is defined by the following JSON object in the `bindings` array of *function.json*:
+
+```json
+{
+    "name": "<Name of input parameter in function signature>",
+    "entityName": "<Optional - name of the entity>",
+    "type": "entityTrigger",
+    "direction": "in"
+}
+```
+
+By default, the name of an entity is the name of the function.
+::: zone-end 
+::: zone pivot="programming-language-java" 
+> [!NOTE]
+> Entity triggers aren't yet supported for Java.
+::: zone-end  
+::: zone pivot="programming-language-python"  
+The way that you define a entity trigger depends on your chosen programming model.
+
+# [v2](#tab/python-v2)
+Using the `entity_trigger` decorator directly in your Python function code. 
+
+# [v1](#tab/python-v1)
+The entity trigger is defined by the following JSON object in the `bindings` array of *function.json*:
+
+```json
+{
+    "name": "<Name of input parameter in function signature>",
+    "entityName": "<Optional - name of the entity>",
+    "type": "entityTrigger",
+    "direction": "in"
+}
+```
+
+By default, the name of an entity is the name of the function.
+
+---
+::: zone-end 
+
+### Trigger behavior
+
+Here are some notes about the entity trigger:
+
+* **Single-threaded**: A single dispatcher thread is used to process operations for a particular entity. If multiple messages are sent to a single entity concurrently, the operations will be processed one-at-a-time.
+* **Poison-message handling** - There's no poison message support in entity triggers.
+* **Message visibility** - Entity trigger messages are dequeued and kept invisible for a configurable duration. The visibility of these messages is renewed automatically as long as the function app is running and healthy.
+* **Return values** - Entity functions don't support return values. There are specific APIs that can be used to save state or pass values back to orchestrations.
+
+Any state changes made to an entity during its execution will be automatically persisted after execution has completed.
+
+For more information and examples on defining and interacting with entity triggers, see the [Durable Entities](durable-functions-entities.md) documentation.
+
+## Entity client
+
+The entity client binding enables you to asynchronously trigger [entity functions](#entity-trigger). These functions are sometimes referred to as [client functions](durable-functions-types-features-overview.md#client-functions).
+
+::: zone pivot="programming-language-csharp"
+You can bind to the entity client by using the [DurableClientAttribute](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.durableclientattribute) .NET attribute in .NET class library functions.
+
+> [!NOTE]
+> The `[DurableClientAttribute]` can also be used to bind to the [orchestration client](#orchestration-client).
+
+::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-powershell" 
+The entity client is defined by the following JSON object in the `bindings` array of *function.json*:
+
+```json
+{
+    "name": "<Name of input parameter in function signature>",
+    "taskHub": "<Optional - name of the task hub>",
+    "connectionName": "<Optional - name of the connection string app setting>",
+    "type": "durableClient",
+    "direction": "in"
+}
+```
+
+* `taskHub` - Used in scenarios where multiple function apps share the same storage account but need to be isolated from each other. If not specified, the default value from `host.json` is used. This value must match the value used by the target entity functions.
+* `connectionName` - The name of an app setting that contains a storage account connection string. The storage account represented by this connection string must be the same one used by the target entity functions. If not specified, the default storage account connection string for the function app is used.
+
+> [!NOTE]
+> In most cases, we recommend that you omit the optional properties and rely on the default behavior.
+::: zone-end  
+::: zone pivot="programming-language-python"  
+The way that you define a entity client depends on your chosen programming model.
+
+# [v2](#tab/python-v2)
+Using the `durable_client_input` decorator directly in your Python function code. 
+
+# [v1](#tab/python-v1)
+The entity client is defined by the following JSON object in the `bindings` array of *function.json*:
+
+```json
+{
+    "name": "<Name of input parameter in function signature>",
+    "taskHub": "<Optional - name of the task hub>",
+    "connectionName": "<Optional - name of the connection string app setting>",
+    "type": "durableClient",
+    "direction": "in"
+}
+```
+
+* `taskHub` - Used in scenarios where multiple function apps share the same storage account but need to be isolated from each other. If not specified, the default value from `host.json` is used. This value must match the value used by the target entity functions.
+* `connectionName` - The name of an app setting that contains a storage account connection string. The storage account represented by this connection string must be the same one used by the target entity functions. If not specified, the default storage account connection string for the function app is used.
+
+> [!NOTE]
+> In most cases, we recommend that you omit the optional properties and rely on the default behavior.
+
+---
+::: zone-end  
+::: zone pivot="programming-language-java" 
+> [!NOTE]
+> Entity clients aren't yet supported for Java.
+::: zone-end  
+
+For more information and examples on interacting with entities as a client, see the [Durable Entities](durable-functions-entities.md#access-entities) documentation.
+
+<a name="host-json"></a>
 ## host.json settings
 
 [!INCLUDE [durabletask](../../../includes/functions-host-json-durabletask.md)]
@@ -361,4 +852,4 @@ More details on starting instances can be found in [Instance management](durable
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about checkpointing and replay behaviors](durable-functions-checkpointing-and-replay.md)
+> [Built-in HTTP API reference for instance management](durable-functions-http-api.md)

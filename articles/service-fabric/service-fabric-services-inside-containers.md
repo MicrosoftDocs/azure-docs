@@ -1,21 +1,14 @@
 ---
 title: Containerize your Azure Service Fabric services on Windows
 description: Learn how to containerize your Service Fabric Reliable Services and Reliable Actors services on Windows.
-services: service-fabric
-documentationcenter: .net
-author: aljo-microsoft
-manager: anmolah
-editor: 'roroutra'
-
-ms.assetid: 0b41efb3-4063-4600-89f5-b077ea81fa3a
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
 ms.service: service-fabric
-ms.devlang: dotNet
-ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 5/23/2018
-ms.author: aljo, anmola
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Containerize your Service Fabric Reliable Services and Reliable Actors on Windows
 
 Service Fabric supports containerizing Service Fabric microservices (Reliable Services, and Reliable Actor based services). For more information, see [service fabric containers](service-fabric-containers-overview.md).
@@ -98,7 +91,7 @@ This document provides guidance to get your service running inside a Windows con
    </Policies>
    ```
 
-9. For configuring container isolation mode, see [Configure isolation mode]( https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers#configure-isolation-mode). Windows supports two isolation modes for containers: process and Hyper-V. The following snippets show how the isolation mode is specified in the application manifest file.
+9. For configuring container isolation mode, see [Configure isolation mode]( ./service-fabric-get-started-containers.md#configure-isolation-mode). Windows supports two isolation modes for containers: process and Hyper-V. The following snippets show how the isolation mode is specified in the application manifest file.
 
    ```xml
    <Policies>
@@ -114,6 +107,10 @@ This document provides guidance to get your service running inside a Windows con
    </ContainerHostPolicies>
    </Policies>
    ```
+
+> [!NOTE]
+> A Service Fabric cluster is single tenant by design and hosted applications are considered **trusted**. If you are considering hosting **untrusted container applications**, consider deploying them as [guest containers](service-fabric-containers-overview.md#service-fabric-support-for-containers) and please see [Hosting untrusted applications in a Service Fabric cluster](service-fabric-best-practices-security.md#hosting-untrusted-applications-in-a-service-fabric-cluster).
+>
 
 10. To test this application, you need to deploy it to a cluster that is running version 5.7 or higher. For runtime versions 6.1 or lower, you need to edit and update the cluster settings to enable this preview feature. Follow the steps in this [article](service-fabric-cluster-fabric-settings.md) to add the setting shown next.
     ```

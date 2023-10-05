@@ -1,17 +1,14 @@
 ---
-title: Move apps from BizTalk Services to Azure Logic Apps | Microsoft Docs
-description: Migrate from Azure BizTalk Services (MABS) to Azure Logic Apps
+title: Migrate apps from BizTalk Services to Azure Logic Apps
+description: How to move your apps and solutions from Microsoft Azure BizTalk Services (MABS) to Azure Logic Apps.
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: jonfancey
-ms.author: jonfan
-ms.reviewer: estfan, LADocs
-ms.topic: article
-ms.date: 05/30/2017
+ms.reviewer: estfan, azla
+ms.topic: how-to
+ms.date: 08/20/2022
 ---
 
-# Migrate from BizTalk Services to Azure Logic Apps
+# Migrate your apps and solutions from BizTalk Services to Azure Logic Apps
 
 Microsoft Azure BizTalk Services (MABS) is retiring. 
 To move your MABS integration solutions to 
@@ -60,7 +57,7 @@ BizTalk Services has several kinds of artifacts.
 
 BizTalk Services connectors help bridges send and receive data, 
 including two-way bridges that enable HTTP-based request/response interactions. 
-Logic Apps uses the same terminology and has 180+ connectors that serve the same 
+Logic Apps uses the same terminology and has hundreds of connectors that serve the same 
 purpose by connecting to a wide range of technologies and services. 
 For example, connectors are available for cloud SaaS and PaaS services, 
 such as OneDrive, Office365, Dynamics CRM, and more, 
@@ -69,7 +66,7 @@ which replaces the BizTalk Adapter Service for BizTalk Services.
 Sources in BizTalk Services are limited to FTP, SFTP, 
 and Service Bus Queue or Topic subscription.
 
-![](media/logic-apps-move-from-mabs/sources.png)
+![Diagram that shows the BizTalk Services flow.](media/logic-apps-move-from-mabs/sources.png)
 
 By default, each bridge has an HTTP endpoint, 
 which is configured with the Runtime Address 
@@ -84,7 +81,7 @@ A bridge can take data received from a connector,
 do some work with the data, and send the results to another system. 
 Logic Apps does the same by supporting the same pipeline-based 
 interaction patterns as BizTalk Services and also providing other integration patterns. 
-The [XML Request-Reply Bridge](https://msdn.microsoft.com/library/azure/hh689781.aspx) 
+The [XML Request-Reply Bridge](/previous-versions/azure/hh689781(v=azure.100)) 
 in BizTalk Services is known as a VETER pipeline, which consists of stages that 
 perform these tasks:
 
@@ -98,7 +95,7 @@ This image shows how processing is split between request and reply,
 which provides control over the request and the reply paths separately, 
 for example, by using different maps for each path:
 
-![](media/logic-apps-move-from-mabs/xml-request-reply.png)
+![Screenshot that shows how processing is split between request and reply.](media/logic-apps-move-from-mabs/xml-request-reply.png)
 
 Also, an XML One-Way bridge adds Decode and Encode stages 
 at the start and end of processing. 
@@ -144,7 +141,7 @@ or connector to send incoming messages or data.
 The ability to select from pre-configured endpoints 
 is possible using the routing filter option:
 
-![](media/logic-apps-move-from-mabs/route-filter.png)
+![Screenshot that shows the routing filter option.](media/logic-apps-move-from-mabs/route-filter.png)
 
 In BizTalk Services, if there are only two options, 
 using a *condition* is the best way for 
@@ -173,9 +170,9 @@ as well as XPath using the xpath workflow definition language expression.
 
 ### Run custom code
 
-BizTalk Services lets you [run custom code](https://msdn.microsoft.com/library/azure/dn232389.aspx) 
+BizTalk Services lets you [run custom code](/previous-versions/azure/dn232389(v=azure.100)) 
 that is uploaded in your own assemblies. This functionality is implemented by the 
-[IMessageInspector](https://msdn.microsoft.com/library/microsoft.biztalk.services.imessageinspector) interface. 
+[IMessageInspector]() interface. 
 Each stage in the bridge includes two properties (On Enter Inspector, and On Exit Inspector) 
 that provide the .NET type you created that implements this interface. 
 Custom code lets you perform more complex processing on data and lets you 
@@ -226,8 +223,7 @@ and then process these files in a logic app.
 ## Manage and monitor
 
 In BizTalk Services, a dedicated portal provided tracking capabilities to monitor and troubleshoot issues. 
-Logic Apps provides richer tracking and monitoring capabilities through the 
-[Azure portal](../logic-apps/logic-apps-monitor-your-logic-apps.md), 
+Logic Apps provides richer tracking and monitoring capabilities to [monitor logic apps in the Azure portal](../logic-apps/monitor-logic-apps.md), 
 and includes a mobile app for keeping an eye on things when you're on the move.
 
 ## High availability
@@ -245,6 +241,5 @@ which lets you synchronize B2B data across integration accounts in different reg
 
 ## Next steps
 
-* [What is Logic Apps?](../logic-apps/logic-apps-overview.md)
-* [Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md), or quickly get started using a [pre-built template](../logic-apps/logic-apps-create-logic-apps-from-templates.md)  
-* [View all the available connectors](../connectors/apis-list.md) that you can use in logic apps
+* [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+* [Quickstart: Create an example Consumption logic app workflow in multi-tenant Azure Logic Apps](quickstart-create-example-consumption-workflow.md), or quickly get started using a [pre-built template](../logic-apps/logic-apps-create-logic-apps-from-templates.md)

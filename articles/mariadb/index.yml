@@ -1,58 +1,124 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure Database for MariaDB Documentation
-metadata:
-  title: Azure MariaDB Documentation - Tutorials, API Reference
-  description: Azure Database for MariaDB is a relational database service in the Microsoft cloud built for developers based on the open-source MariaDB database engine.
-  author: ajlam
-  ms.author: andrela
+### YamlMime:Landing
+title:  Azure Database for MariaDB documentation
+summary: "Azure Database for MariaDB is a relational database service based on the open-source MariaDB Server engine.  It's a fully managed database as a service offering that can handle mission-critical workloads with predictable performance and dynamic scalability. Develop applications with Azure Database for MariaDB leveraging the open-source tools and platform of your choice. Learn how to use Azure Database for MariaDB with our quickstarts, tutorials, and samples."
+metadata: 
+  description: "Azure Database for MariaDB is a relational database service in the Microsoft cloud built for developers based on the open-source MariaDB database engine."
+  author: SudheeshGH
+  ms.author: sunaray
+  ms.date: 09/05/2019
   ms.service: mariadb
   ms.topic: landing-page
-  ms.date: 03/25/2019
-abstract:
-  description: Azure Database for MariaDB is a relational database service based on the open-source MariaDB Server engine.  It's a fully managed database as a service offering that can handle mission-critical workloads with predictable performance and dynamic scalability. Develop applications with Azure Database for MariaDB leveraging the open-source tools and platform of your choice. Learn how to use Azure Database for MariaDB with our quickstarts, tutorials, and samples.
-sections:
-- title: 5-Minute Quickstarts
-  items:
-  - type: paragraph
-    text: 'Learn how to create a MariaDB database on Azure using:'
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: /azure/virtual-machines/linux/media/index/portal.svg
-      text: Azure Portal
-      href: /azure/mariadb/quickstart-create-mariadb-server-database-using-azure-portal
-    - image: 
-        src: /azure/virtual-machines/linux/media/index/cli.svg
-      text: Azure CLI
-      href: /azure/mariadb/quickstart-create-mariadb-server-database-using-azure-cli
-- title: Step-by-Step Tutorials
-  items:
-  - type: paragraph
-    text: 'Learn how to design your database and develop apps:'
-  - type: list
-    style: unordered
-    items:
-    - html: Design a Database&#58; <a href="/azure/mariadb/tutorial-design-database-using-portal">Azure portal</a> | <a href="/azure/mariadb/tutorial-design-database-cli">Azure CLI</a>
-- title: Samples
-  items:
-  - type: paragraph
-    text: Find scripts to manage common tasks.
-  - type: list
-    style: unordered
-    className: spaced noBullet
-    items:
-    - html: <a href="/azure/mariadb/sample-scripts-azure-cli">Azure CLI</a>
-- title: Reference
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Command-Line
-      html: <p><a href="/cli/azure/mariadb">Azure CLI</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/mariadb/">REST API</a></p>
-    - title: Azure Resource Manager
-      html: <p><a href="/azure/templates/microsoft.dbformariadb/allversions">Resource Manager templates</a></p>
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent: 
+  # Card 1
+  - title: About Azure Database for MariaDB
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Database for MariaDB?
+            url: overview.md
+      - linkListType: whats-new
+        links:
+          - text: Check out our blog
+            url: https://techcommunity.microsoft.com/t5/Azure-Database-for-MariaDB/bg-p/ADforMariaDB 
+ # Card 2
+  - title: Create a server
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a server using the Azure Portal
+            url: quickstart-create-mariadb-server-database-using-azure-portal.md
+          - text: Create a server using Azure CLI
+            url: quickstart-create-mariadb-server-database-using-azure-cli.md
+      - linkListType: concept
+        links:
+          - text: Understand pricing tiers
+            url: concepts-pricing-tiers.md
+          - text: Understand limits
+            url: concepts-limits.md
+          - text: Understand supported MariaDB versions
+            url: concepts-supported-versions.md
+          - text: Configure server parameters
+            url: howto-server-parameters.md
+          - text: Plan for high availability
+            url: concepts-high-availability.md
+      - linkListType: tutorial
+        links:
+          - text: Design a Database using the Azure portal
+            url: tutorial-design-database-using-portal.md
+          - text: Design a Database using Azure CLI 
+            url: tutorial-design-database-cli.md
+# Card 3
+  - title: Back up and restore data
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Back up and restore
+            url: concepts-backup.md
+      - linkListType: how-to-guide
+        links:
+          - text: Restore a server using the Azure portal
+            url: howto-restore-server-portal.md
+          - text: Restore a server using Azure CLI
+            url: howto-restore-server-cli.md            
+# Card 4
+  - title: Connect to Azure Database for MariaDB
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Understand the firewall
+            url: concepts-firewall-rules.md         
+          - text: Understand SSL
+            url: concepts-ssl-connection-security.md
+          - text: Understand Virtual Networks
+            url: concepts-data-access-security-vnet.md          
+      - linkListType: how-to-guide
+        links:            
+          - text: Create firewall rules
+            url: howto-manage-firewall-portal.md
+          - text: Configure SSL connectivity
+            url: howto-configure-ssl.md
+          - text: Create users
+            url: howto-create-users.md
+          - text: Manage Virtual Networks
+            url: howto-manage-vnet-portal.md
+          - text: Troubleshoot connection issues
+            url: howto-troubleshoot-common-connection-issues.md
+      - linkListType: get-started
+        links:
+          - text: Connect using MySQL Workbench
+            url: connect-workbench.md
+          - text: Connection strings
+            url: howto-connection-string.md
+# Card 5
+  - title: Replicate data
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Understand data-in replication
+            url: concepts-data-in-replication.md
+          - text: Understand read replicas
+            url: concepts-read-replicas.md
+      - linkListType: how-to-guide
+        links:
+          - text: Configure data-in replication
+            url: howto-data-in-replication.md
+          - text: Create a read replica using the Azure portal
+            url: howto-read-replicas-portal.md
+# Card 6
+  - title: Code with programming APIs
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Azure CLI scripts for common tasks
+            url: ./sample-scripts-azure-cli.md
+      - linkListType: reference
+        links:
+          - text: Azure CLI developer reference
+            url: /cli/azure/mariadb/
+          - text: REST API developer reference
+            url: /rest/api/mariadb/
+          - text: Azure Resource Manager templates
+            url: /azure/templates/microsoft.dbformariadb/allversions

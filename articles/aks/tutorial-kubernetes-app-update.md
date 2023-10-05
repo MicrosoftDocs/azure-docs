@@ -1,15 +1,9 @@
 ---
 title: Kubernetes on Azure tutorial - Update an application
 description: In this Azure Kubernetes Service (AKS) tutorial, you learn how to update an existing application deployment to AKS with a new version of the application code.
-services: container-service
-author: tylermsft
-
-ms.service: container-service
 ms.topic: tutorial
-ms.date: 12/19/2018
-ms.author: twhitney
+ms.date: 05/23/2023
 ms.custom: mvc
-
 #Customer intent: As a developer, I want to learn how to update an existing application deployment in an Azure Kubernetes Service (AKS) cluster so that I can maintain the application lifecycle.
 ---
 
@@ -31,7 +25,15 @@ In previous tutorials, an application was packaged into a container image. This 
 
 An application repository was also cloned that includes the application source code, and a pre-created Docker Compose file used in this tutorial. Verify that you've created a clone of the repo, and have changed directories into the cloned directory. If you haven't completed these steps, and want to follow along, start with [Tutorial 1 – Create container images][aks-tutorial-prepare-app].
 
+### [Azure CLI](#tab/azure-cli)
+
 This tutorial requires that you're running the Azure CLI version 2.0.53 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+This tutorial requires that you're running Azure PowerShell version 5.9.0 or later. Run `Get-InstalledModule -Name Az` to find the version. If you need to install or upgrade, see [Install Azure PowerShell][azure-powershell-install].
+
+---
 
 ## Update an application
 
@@ -65,28 +67,49 @@ docker-compose up --build -d
 
 To verify that the updated container image shows your changes, open a local web browser to `http://localhost:8080`.
 
-![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-tutorials/vote-app-updated.png)
+:::image type="content" source="media/container-service-kubernetes-tutorials/vote-app-updated.png" alt-text="Screenshot showing an example of the updated container image Azure Voting App running locally opened in a local web browser":::
 
 The updated values provided in the *config_file.cfg* file are displayed in your running application.
 
 ## Tag and push the image
 
-To correctly use the updated image, tag the *azure-vote-front* image with the login server name of your ACR registry. Get the login server name with the [az acr list](/cli/azure/acr) command:
+### [Azure CLI](#tab/azure-cli)
+
+To correctly use the updated image, tag the *azure-vote-front* image with the login server name of your ACR registry. Get the login server name with the [az acr list][az-acr-list] command:
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
+### [Azure PowerShell](#tab/azure-powershell)
+
+To correctly use the updated image, tag the *azure-vote-front* image with the login server name of your ACR registry. Get the login server name with the [Get-AzContainerRegistry][get-azcontainerregistry] cmdlet:
+
+```azurepowershell
+(Get-AzContainerRegistry -ResourceGroupName myResourceGroup -Name <acrName>).LoginServer
+```
+
+---
+
 Use [docker tag][docker-tag] to tag the image. Replace `<acrLoginServer>` with your ACR login server name or public registry hostname, and update the image version to *:v2* as follows:
 
 ```console
-docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
+docker tag mcr.microsoft.com/azuredocs/azure-vote-front:v1 <acrLoginServer>/azure-vote-front:v2
 ```
 
 Now use [docker push][docker-push] to upload the image to your registry. Replace `<acrLoginServer>` with your ACR login server name.
 
+### [Azure CLI](#tab/azure-cli)
+
 > [!NOTE]
 > If you experience issues pushing to your ACR registry, make sure that you are still logged in. Run the [az acr login][az-acr-login] command using the name of your Azure Container Registry that you created in the [Create an Azure Container Registry](tutorial-kubernetes-prepare-acr.md#create-an-azure-container-registry) step. For example, `az acr login --name <azure container registry name>`.
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+> [!NOTE]
+> If you experience issues pushing to your ACR registry, make sure that you are still logged in. Run the [Connect-AzContainerRegistry][connect-azcontainerregistry] cmdlet using the name of your Azure Container Registry that you created in the [Create an Azure Container Registry](tutorial-kubernetes-prepare-acr.md#create-an-azure-container-registry) step. For example, `Connect-AzContainerRegistry -Name <azure container registry name>`.
+
+---
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:v2
@@ -144,9 +167,9 @@ To view the update application, first get the external IP address of the `azure-
 kubectl get service azure-vote-front
 ```
 
-Now open a local web browser to the IP address of your service:
+Now open a web browser to the IP address of your service:
 
-![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-tutorials/vote-app-updated-external.png)
+:::image type="content" source="media/container-service-kubernetes-tutorials/vote-app-updated-external.png" alt-text="Screenshot showing an example of the updated image Azure Voting App running in an AKS cluster opened in a local web browser.":::
 
 ## Next steps
 
@@ -173,5 +196,9 @@ Advance to the next tutorial to learn how to upgrade an AKS cluster to a new ver
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
 [aks-tutorial-upgrade]: ./tutorial-kubernetes-upgrade-cluster.md
-[az-acr-login]: /cli/azure/acr
+[az-acr-login]: /cli/azure/acr#az_acr_login
+[az-acr-list]: /cli/azure/acr#az_acr_list
 [azure-cli-install]: /cli/azure/install-azure-cli
+[azure-powershell-install]: /powershell/azure/install-az-ps
+[get-azcontainerregistry]: /powershell/module/az.containerregistry/get-azcontainerregistry
+[connect-azcontainerregistry]: /powershell/module/az.containerregistry/connect-azcontainerregistry

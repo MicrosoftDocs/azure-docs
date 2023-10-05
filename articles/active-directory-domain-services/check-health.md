@@ -1,81 +1,88 @@
 ---
-title: Azure AD Domain Services - Check the health of your managed domain | Microsoft Docs
-description: Check the health of your managed domain using the health page in the Azure portal.
+title: Check the health of Microsoft Entra Domain Services | Microsoft Docs
+description: Learn how to check the health of a Microsoft Entra Domain Services managed domain and understand status messages.
 services: active-directory-ds
-documentationcenter: ''
-author: MikeStephens-MS
-manager: daveba
-editor: curtand
+author: justinha
+manager: amycolannino
 
 ms.assetid: 8999eec3-f9da-40b3-997a-7a2587911e96
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 05/20/2019
-ms.author: mstephen
+ms.topic: how-to
+ms.date: 09/13/2023
+ms.author: justinha
 
 ---
-# Check the health of an Azure AD Domain Services managed domain
+# Check the health of a Microsoft Entra Domain Services managed domain
 
-## Overview of the health page
-Using the health page on your Azure portal, you are able to keep up-to-date on what is happening on your managed domain. This article walks through the elements of the health page.
+Microsoft Entra Domain Services runs some background tasks to keep the managed domain healthy and up-to-date. These tasks include taking backups, applying security updates, and synchronizing data from Microsoft Entra ID. If there are issues with the Domain Services managed domain, these tasks may not successfully complete. To review and resolve any issues, you can check the health status of a managed domain using the Microsoft Entra admin center.
 
-### How to view the health of your managed domain
-1. Navigate to the [Azure AD Domain Services page](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) in the Azure portal.
-2. Click on the domain you want to view the health of.
-3. In the left-hand navigation pane, click **Health**.
+This article shows you how to view the Domain Services health status and understand the information or alerts shown.
 
-The following picture illustrates a sample health page:
-![Example health page](./media/active-directory-domain-services-alerts/health-page.png)
+## View the health status
 
->[!NOTE]
-> Your managed domain's health is evaluated every hour. After making changes to your managed domain, wait until the next evaluation cycle to view your managed domain's updated health. The "Last evaluated" timestamp in the top right corner shows when the health of your managed domain was last evaluated.
->
+The health status for a managed domain is viewed using the Microsoft Entra admin center. Information on the last backup time and synchronization with Microsoft Entra ID can be seen, along with any alerts that indicate a problem with the managed domain's health. To view the health status for a managed domain, complete the following steps:
 
-### Status of your managed domain
-The status in the top right of your health page indicates the overall health of your managed domain. The status factors in all of the existing alerts on your domain. You can also view the status of your domain on the overview page of Azure AD Domain Services.
+1. Sign in to [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](/azure/active-directory/roles/permissions-reference#global-administrator). 
+1. Search for and select **Microsoft Entra Domain Services**.
+1. Select your managed domain, such as *aaddscontoso.com*.
+1. On the left-hand side of the Domain Services resource window, select **Health**. The following example screenshot shows a healthy managed domain and the status of the last backup and Azure AD synchronization:
+
+    ![Health page overview showing the Microsoft Entra Domain Services status](./media/check-health/health-page.png)
+
+The *Last evaluated* timestamp of the health page shows when the managed domain was last checked. The health of a managed domain is evaluated every hour. If you make any changes to a managed domain, wait until the next evaluation cycle to view the updated health status.
+
+The status in the top right indicates the overall health of the managed domain. The status factors all of the existing alerts on your domain. The following table details the available status indicators:
 
 | Status | Icon | Explanation |
 | --- | :----: | --- |
-| Running | <img src= "./media/active-directory-domain-services-alerts/running-icon.png" width = "15"> | Your managed domain is running smoothly and does not have any critical or warning alerts. This domain may have informational alerts. |
-| Needs attention (Warning) | <img src= "./media/active-directory-domain-services-alerts/warning-icon.png" width = "15"> | There are no critical alerts on your managed domain, but there are one or more warning alerts that need to be addressed. |
-| Needs attention (Critical) | <img src= "./media/active-directory-domain-services-alerts/critical-icon.png" width = "15"> | There are one or more critical alerts on your managed domain. You may also have warning and/or informational alerts. |
-| Deploying | <img src= "./media/active-directory-domain-services-alerts/deploying-icon.png" width = "15"> | Your domain is in the process of being deployed. |
+| Running | <img src= "./media/active-directory-domain-services-alerts/running-icon.png" width = "15" alt="Green check mark for running"> | The managed domain is running correctly and doesn't have any critical or warning alerts. The domain may have informational alerts. |
+| Needs attention (warning) | <img src= "./media/active-directory-domain-services-alerts/warning-icon.png" width = "15" alt="Yellow exclamation mark for warning"> | There are no critical alerts on the managed domain, but there are one or more warning alerts that should be addressed. |
+| Needs attention (critical) | <img src= "./media/active-directory-domain-services-alerts/critical-icon.png" width = "15" alt="Red exclamation mark for critical"> | There are one or more critical alerts on the managed domain that must be addressed. You may also have warning and / or informational alerts. |
+| Deploying | <img src= "./media/active-directory-domain-services-alerts/deploying-icon.png" width = "15" alt="Blue circular arrows for deploying"> | The managed domain is being deployed. |
 
-## Monitors
-Monitors are aspects of your managed domain that Azure AD Domain Services monitors on a regular basis. The best way to keep your monitors in a healthy state is to resolve any active alerts for your managed domain.
+## Understand monitors and alerts
 
-Azure AD Domain Services currently monitors the following:
- - Backup
- - Synchronization with Azure AD
+The health status for a managed domain show two types of information - *monitors*, and *alerts*. Monitors show the time that core background tasks were completed. Alerts provide information or suggestions to improve the stability of the managed domain.
 
-### The 'backup' monitor
-This monitors whether regular backups of your managed domain are being performed. The following table explains what to expect in the details column of the backup monitor:
+### Monitors
+
+Monitors are areas of a managed domain that are checked on a regular basis. If there are any active alerts for the managed domain, it may cause one of the monitors to report an issue. Domain Services currently has monitors for the following areas:
+
+* Backup
+* Synchronization with Microsoft Entra ID
+
+#### Backup monitor
+
+The backup monitor checks that automated regular backups of the managed domain successfully run. The following table details the available backup monitor status:
 
 | Detail value | Explanation |
 | --- | --- |
-|"Never backed up" | This state is normal for a newly created managed domain. Generally, the first backup is created 24 hours after your managed domain is provisioned. If your managed domain is not newly created or you see this state for an abnormal amount of time, [contact support](contact-us.md). |
-| Last backup was taken 1 to 14 days ago | In general, this value is expected for the backup monitor. |
-| Last backup was taken more than 14 days ago. | Any time longer than two weeks is an unusually long time since your last backup. Active critical alerts may prevent your managed domain from being backed up on a regular basis. First, resolve any active alerts for your managed domain, and then if the issue still persists, [contact support](contact-us.md). |
+| Never backed up | This state is normal for new managed domains. The first backup should be created 24 hours after the managed domain is deployed. If this status persists, [open an Azure support request][azure-support]. |
+| Last backup was taken 1 to 14 days ago | This time range is the expected status for the backup monitor. Automated regular backups should occur in this period. |
+| Last backup was taken more than 14 days ago. | A timespan longer than two weeks indicates there's an issue with the automated regular backups. Active critical alerts may prevent the managed domain from being backed up. Resolve any active alerts for the managed domain. If the backup monitor doesn't then update the status to report a recent backup, [open an Azure support request][azure-support]. |
 
+<a name='synchronization-with-azure-ad-monitor'></a>
 
-### The 'synchronization with Azure AD' monitor
-Microsoft monitors how often your managed domain is synchronized with Azure Active Directory. The number of objects (users & groups) and the number of changes made in your Azure AD directory since the last sync can both affect how long a synchronization period can take. If your managed domain was last synchronized over three days ago, [contact support](contact-us.md).
+#### Synchronization with Microsoft Entra ID monitor
 
-## Alerts
-Alerts are generated for issues on your managed domain that need to be addressed in order for Azure AD Domain Services to run. Each alert explains the issue and provides a resolution URL that outlines specific steps to resolve the issue. To view all alerts and their resolutions, visit the [Troubleshoot alerts](troubleshoot-alerts.md) article.
+A managed domain regularly synchronizes with Microsoft Entra ID. The number of users and group objects, and the number of changes made in the Microsoft Entra directory since the last sync, affects how long it takes to synchronize. If the managed domain was last synchronized over three days ago, check for and resolve any active alerts. If the synchronization monitor doesn't update the status to show a recent sync after you address any active alerts, [open an Azure support request][azure-support].
 
-### Alert severity
-Alerts are categorized into three different levels of severity: critical, warning, and informational.
+### Alerts
 
- * **Critical alerts** are issues that severely impact your managed domain. These alerts should be addressed immediately, as Microsoft cannot monitor, manage, patch, and synchronize your managed domain. 
- * **Warning alerts** notify you of issues that may impact your managed domain in the future. These alerts offer recommendations to secure your managed domain.
- * **Informational alerts** are notifications that are not negatively impacting your domain. Informational alerts are designed to keep you knowledgeable about what is happening in your domain and Azure AD Domain Services.
+Alerts are generated for issues in a managed domain that need to be addressed for the service to run correctly. Each alert explains the problem and gives a URL that outlines specific steps to resolve the issue. For more information on the possible alerts and their resolutions, see [Troubleshooting alerts](troubleshoot-alerts.md).
+
+Health status alerts are categorized into the following levels of severity:
+
+ * **Critical alerts** are issues that severely impact the managed domain. These alerts should be addressed immediately. The Azure platform can't monitor, manage, patch, and synchronize the managed domain until the issues are resolved.
+ * **Warning alerts** notify you of issues that may impact the managed domain operations if the problem persists. These alerts also offer recommendations to secure the managed domain.
+ * **Informational alerts** are notifications that don't negatively impact the managed domain. Informational alerts provide some insight as to what's happening in the managed domain.
 
 ## Next steps
-- [Resolve alerts on your managed domain](troubleshoot-alerts.md)
-- [Read more about Azure AD Domain Services](overview.md)
-- [Contact the product team](contact-us.md)
+
+For more information on alerts that are shown in the health status page, see [Resolve alerts on your managed domain][troubleshoot-alerts]
+
+<!-- INTERNAL LINKS -->
+[azure-support]: /azure/active-directory/fundamentals/how-to-get-support
+[troubleshoot-alerts]: troubleshoot-alerts.md

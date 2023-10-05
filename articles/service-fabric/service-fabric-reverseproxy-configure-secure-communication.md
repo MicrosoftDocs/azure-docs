@@ -1,32 +1,25 @@
 ---
-title: Azure Service Fabric reverse proxy secure communication | Microsoft Docs
-description: Configure reverse proxy to enable secure end-to-end communication.
-services: service-fabric
-documentationcenter: .net
-author: kavyako
-manager: vipulm
-
-ms.assetid:
+title: Azure Service Fabric reverse proxy secure communication 
+description: Configure reverse proxy to enable secure end-to-end communication in an Azure Service Fabric application.
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
 ms.service: service-fabric
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
-ms.date: 08/10/2017
-ms.author: kavyako
-
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Connect to a secure service with the reverse proxy
 
 This article explains how to establish secure connection between the reverse proxy and services, thus enabling an end to end secure channel. To learn more about reverse proxy, see [Reverse proxy in Azure Service Fabric](service-fabric-reverseproxy.md)
 
-Connecting to secure services is supported only when reverse proxy is configured to listen on HTTPS. This article assumes this is the case.
-Refer to [Setup reverse proxy in Azure Service Fabric](service-fabric-reverseproxy-setup.md) to configure the reverse proxy in Service Fabric.
+> [!IMPORTANT]
+> Connecting to secure services is supported only when reverse proxy is configured to listen on HTTPS. This article assumes this is the case. Refer to [Setup reverse proxy in Azure Service Fabric](service-fabric-reverseproxy-setup.md) to configure the reverse proxy in Service Fabric.
 
 ## Secure connection establishment between the reverse proxy and services 
 
 ### Reverse proxy authenticating to services:
-The reverse proxy identifies itself to services using its certificate. For Azure clusters the certificate is specified with ***reverseProxyCertificate*** property in the [**Microsoft.ServiceFabric/clusters**](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters) [Resource type section](../azure-resource-manager/resource-group-authoring-templates.md) of the Resource Manager template. For standalone clusters, the certificate is specified with either the ***ReverseProxyCertificate*** or the ***ReverseProxyCertificateCommonNames*** property in the **Security** section of ClusterConfig.json. To learn more, see [Enable reverse proxy on standalone clusters](service-fabric-reverseproxy-setup.md#enable-reverse-proxy-on-standalone-clusters). 
+The reverse proxy identifies itself to services using its certificate. For Azure clusters the certificate is specified with ***reverseProxyCertificate*** property in the [**Microsoft.ServiceFabric/clusters**](/azure/templates/microsoft.servicefabric/clusters) [Resource type section](../azure-resource-manager/templates/syntax.md) of the Resource Manager template. For standalone clusters, the certificate is specified with either the ***ReverseProxyCertificate*** or the ***ReverseProxyCertificateCommonNames*** property in the **Security** section of ClusterConfig.json. To learn more, see [Enable reverse proxy on standalone clusters](service-fabric-reverseproxy-setup.md#enable-reverse-proxy-on-standalone-clusters). 
 
 Services can implement the logic to verify the certificate presented by the reverse proxy. The services can specify the accepted client certificate details as configuration settings in the configuration package. This can be read at runtime and used to validate the certificate presented by the reverse proxy. Refer to [Manage application parameters](service-fabric-manage-multiple-environment-app-configuration.md) to add the configuration settings. 
 
@@ -82,7 +75,7 @@ Specify the **ApplicationCertificateValidationPolicy** with value **ServiceCommo
 
    To specify the list of service common name and issuer thumbprints, add a [**ApplicationGateway/Http/ServiceCommonNameAndIssuer**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttpservicecommonnameandissuer) section under **fabricSettings**, as shown below. Multiple certificate common name and issuer thumbprint pairs can be added in the **parameters** array. 
 
-   If the endpoint reverse proxy is connecting to presents a certificate who's common name and  issuer thumbprint matches any of the values specified here, SSL channel is established. 
+   If the endpoint reverse proxy is connecting to presents a certificate who's common name and issuer thumbprint matches any of the values specified here, a TLS channel is established.
    Upon failure to match the certificate details, reverse proxy fails the client's request with a 502 (Bad Gateway) status code. The HTTP status line will also contain the phrase "Invalid SSL Certificate." 
 
    ```json
@@ -149,7 +142,7 @@ Specify the **ApplicationCertificateValidationPolicy** with value **ServiceCerti
    }
    ```
 
-   If the thumbprint of the server certificate is listed in this config entry, reverse proxy succeeds the SSL connection. Otherwise, it terminates the connection and fails the client's request with a 502 (Bad Gateway). The HTTP status line will also contain the phrase "Invalid SSL Certificate."
+   If the thumbprint of the server certificate is listed in this config entry, reverse proxy succeeds the TLS connection. Otherwise, it terminates the connection and fails the client's request with a 502 (Bad Gateway). The HTTP status line will also contain the phrase "Invalid SSL Certificate."
 
 ## Endpoint selection logic when services expose secure as well as unsecured endpoints
 Service fabric supports configuring  multiple endpoints for a service. For more information, see [Specify resources in a service manifest](service-fabric-service-manifest-resources.md).
@@ -179,23 +172,23 @@ Reverse proxy selects one of the endpoints to forward the request based on the *
 > When operating in **SecureOnlyMode**, if a client has specified a **ListenerName** corresponding to an HTTP(unsecured) endpoint, reverse proxy fails the request with a 404 (Not Found) HTTP status code.
 
 ## Setting up client certificate authentication through the reverse proxy
-SSL termination happens at the reverse proxy and all the client certificate data is lost. For the services to perform client certificate authentication, specify the **ForwardClientCertificate** setting in the [**ApplicationGateway/Http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) section.
+TLS termination happens at the reverse proxy and all the client certificate data is lost. For the services to perform client certificate authentication, specify the **ForwardClientCertificate** setting in the [**ApplicationGateway/Http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) section.
 
-1. When **ForwardClientCertificate** is set to **false**, reverse proxy will not request the client certificate during its SSL handshake with the client.
+1. When **ForwardClientCertificate** is set to **false**, reverse proxy will not request the client certificate during its TLS handshake with the client.
 This is the default behavior.
 
-2. When **ForwardClientCertificate** is set to **true**, reverse proxy requests the client's certificate during its SSL handshake with the client.
+2. When **ForwardClientCertificate** is set to **true**, reverse proxy requests the client's certificate during its TLS handshake with the client.
 It will then forward the client certificate data in a custom HTTP header named **X-Client-Certificate**. The header value is the base64 encoded PEM format string of the client's certificate. The service can succeed/fail the request with appropriate status code after inspecting the certificate data.
-If the client does not present a certificate, reverse proxy forwards an empty header and let the service handle the case.
+If the client does not present a certificate, reverse proxy forwards an empty header and lets the service handle the case.
 
 > [!NOTE]
-> Reverse proxy is a mere forwarder. It will not perform any validation of the client's certificate.
+> Reverse proxy acts only as a forwarding service. It will not perform any validation of the client's certificate.
 
 
 ## Next steps
 * [Set up and configure reverse proxy on a cluster](service-fabric-reverseproxy-setup.md).
-* Refer to [Configure reverse proxy to connect to secure services](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample#configure-reverse-proxy-to-connect-to-secure-services) for Azure Resource Manager template samples to configure secure reverse proxy with the different service certificate validation options.
+* Refer to [Configure reverse proxy to connect to secure services](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Reverse-Proxy-Sample#configure-reverse-proxy-to-connect-to-secure-services)
 * See an example of HTTP communication between services in a [sample project on GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started).
 * [Remote procedure calls with Reliable Services remoting](service-fabric-reliable-services-communication-remoting.md)
-* [Web API that uses OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md)
+* [Web API that uses OWIN in Reliable Services](./service-fabric-reliable-services-communication-aspnetcore.md)
 * [Manage cluster certificates](service-fabric-cluster-security-update-certs-azure.md)

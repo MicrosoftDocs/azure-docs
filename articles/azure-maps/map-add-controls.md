@@ -1,77 +1,148 @@
 ---
-title: Add map controls in Azure Maps| Microsoft Docs
-description: How to add zoom control, pitch control, rotate control and a style picker to a map in Azure Maps.
-author: walsehgal
-ms.author: v-musehg
-ms.date: 10/08/2018
+title: Add controls to a map | Microsoft Azure Maps
+description: How to add zoom control, pitch control, rotate control and a style picker to a map in Microsoft Azure Maps.
+author: sinnypan
+ms.author: sipa
+ms.date: 05/15/2023
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
-manager: timlt
+ms.custom:
 ---
 
-# Add Map Controls to Azure Maps
+# Add controls to a map
 
-This article shows you how to add map controls to a map. You will also learn how to create a map with all controls and a [style picker](https://docs.microsoft.com/azure/azure-maps/choose-map-style).
+This article shows you how to add controls to a map, including how to create a map with all controls and a [style picker].
 
 ## Add zoom control
 
-<iframe height='500' scrolling='no' title='Adding a zoom control' src='//codepen.io/azuremaps/embed/WKOQyN/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/WKOQyN/'>Adding a zoom control</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+A zoom control adds buttons for zooming the map in and out. The following code sample creates an instance of the [ZoomControl] class, and adds it the bottom-right corner of the map.
 
-The first code block sets the subscription key and creates a Map object without pre-setting the style. See [create a map](./map-create.md) for instructions on how to create a map.
+```javascript
+//Construct a zoom control and add it to the map.
+map.controls.add(new atlas.control.ZoomControl(), {
+    position: 'bottom-right'
+});
+```
 
-Zoom control adds the ability to zoom in and out of the map. The second code block creates a Zoom Control object using the atlas [ZoomControl](/javascript/api/azure-maps-control/atlas.control.zoomcontrol) and adds it to the map using map's [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) method. The Zoom control is within the map **event listener** to ensure it loads after the map loads fully.
+<!----------------------------------------------------------
+<br/>
+> [!VIDEO //codepen.io/azuremaps/embed/WKOQyN/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
+---------------------------------------------------------->
 
 ## Add pitch control
 
-<iframe height='500' scrolling='no' title='Adding a pitch control' src='//codepen.io/azuremaps/embed/xJrwaP/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/xJrwaP/'>Adding a pitch control</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+A pitch control adds buttons for tilting the pitch to map relative to the horizon. The following code sample creates an instance of the [PitchControl] class. It adds the PitchControl to top-right corner of the map.
 
-The first code block sets the subscription key and creates a Map object without pre-setting the style. See [create a map](./map-create.md) for instructions on how to create a map.
+```javascript
+//Construct a pitch control and add it to the map.
+map.controls.add(new atlas.control.PitchControl(), {
+    position: 'top-right'
+});
+```
 
-Pitch control adds the ability to change the pitch of the map. The second block of code creates a Pitch Control object using the atlas [PitchControl](/javascript/api/azure-maps-control/atlas.control.pitchcontrol) and adds it to the map using map's [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) method. The Pitch control is within the map **event listener** to ensure it loads after the map loads fully.
+<!----------------------------------------------------------
+<br/>
+> [!VIDEO //codepen.io/azuremaps/embed/xJrwaP/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
+---------------------------------------------------------->
 
 ## Add compass control
 
-<iframe height='500' scrolling='no' title='Adding a rotate control' src='//codepen.io/azuremaps/embed/GBEoRb/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/GBEoRb/'>Adding a rotate control</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+A compass control adds a button for rotating the map. The following code sample creates an instance of the [CompassControl] class and adds it the bottom-left corner of the map.
 
-The first code block sets the subscription key and creates a Map object without pre-setting the style. See [create a map](./map-create.md) for instructions on how to create a map.
+```javascript
+//Construct a compass control and add it to the map.
+map.controls.add(new atlas.control.CompassControl(), {
+    position: 'bottom-left'
+});
+```
 
-The second block of code creates a Compass Control object using the atlas [Compass Control](/javascript/api/azure-maps-control/atlas.control.compasscontrol). It also adds the compass control to the map using map's [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) method. The Compass control is within the map **event listener** to ensure it loads after the map loads fully.
+<!----------------------------------------------------------
+<br/>
+> [!VIDEO //codepen.io/azuremaps/embed/GBEoRb/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
+---------------------------------------------------------->
 
 ## A Map with all controls
 
-<iframe height='500' scrolling='no' title='A map with all the controls' src='//codepen.io/azuremaps/embed/qyjbOM/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/qyjbOM/'>A map with all the controls</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+Multiple controls can be put into an array and added to the map all at once and positioned in the same area of the map to simplify development. The following code snippet adds the standard navigation controls to the map using this approach.
 
-The first code block sets the subscription key and creates a Map object without pre-setting the style. See [create a map](./map-create.md) for instructions on how to create a map.
+```javascript
+map.controls.add([
+    new atlas.control.ZoomControl(),
+    new atlas.control.CompassControl(),
+    new atlas.control.PitchControl(),
+    new atlas.control.StyleControl()
+], {
+    position: "top-right"
+});
+```
 
-The second code block creates a Compass Control object using the atlas [CompassControl](/javascript/api/azure-maps-control/atlas.control.compasscontrol) and adds it to the map using map's [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) method.
+The following image shows a map with the zoom, compass, pitch, and style picker controls in the top-right corner of the map. Notice how they automatically stack. The order of the control objects in the script dictates the order in which they appear on the map. To change the order of the controls on the map, you can change their order in the array.
 
-The third block of code creates a Zoom Control object using the atlas [ZoomControl](/javascript/api/azure-maps-control/atlas.control.zoomcontrol) and adds it to the map using map's [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) method.
+:::image type="content" source="./media/map-add-controls/map-with-all-controls.png" alt-text="Screenshot showing a map displaying zoom, compass, pitch and style controls.":::
 
-The fourth code block creates a Pitch Control object using the atlas [PitchControl](/javascript/api/azure-maps-control/atlas.control.pitchcontrol) and adds it to the map using map's [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) method.
+<!----------------------------------------------------------
+<br/>
+> [!VIDEO //codepen.io/azuremaps/embed/qyjbOM/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
+---------------------------------------------------------->
 
-The last block of code creates a Style Picker object by using the atlas [StyleControl](/javascript/api/azure-maps-control/atlas.control.stylecontrol) and adds it to the map using map's [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) method. All of the control objects are added within the map **event listener** to ensure that they load after the map loads fully.
+The style picker control is defined by the [StyleControl] class. For more information on using the style picker control, see [choose a map style].
 
-The order of the control objects in the script dictates the order in which they appear on the map. To change the order of the controls on the map, you can change their order in the script.
+## Customize controls
+
+The [Navigation Control Options] sample is a tool to test out the various options for customizing the controls. For the source code for this sample, see [Navigation Control Options source code].
+
+:::image type="content" source="./media/map-add-controls/map-navigation-control-options.png" alt-text="Screenshot showing the Map Navigation Control Options sample, which contains a map displaying zoom, compass, pitch and style controls and options on the left side of the screen that enable you to change the Control Position, Control Style, Zoom Delta, Pitch Delta, Compass Rotation Delta, Picker Styles, and Style Picker Layout properties.":::
+
+<!----------------------------------------------------------
+<br/>
+> [!VIDEO //codepen.io/azuremaps/embed/LwBZMx/?height=700&theme-id=0&default-tab=result]
+---------------------------------------------------------->
+
+If you want to create customized navigation controls, create a class that extends from the `atlas.Control` class or create an HTML element and position it above the map div. Have this UI control call the maps `setCamera` function to move the map.
 
 ## Next steps
 
 Learn more about the classes and methods used in this article:
 
 > [!div class="nextstepaction"]
-> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [CompassControl]
 
 > [!div class="nextstepaction"]
-> [Atlas](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas?view=azure-iot-typescript-latest)
+> [PitchControl]
+
+> [!div class="nextstepaction"]
+> [StyleControl]
+
+> [!div class="nextstepaction"]
+> [ZoomControl]
 
 See the following articles for full code:
 
 > [!div class="nextstepaction"]
-> [Add a pin](./map-add-pin.md)
+> [Add a pin]
 
 > [!div class="nextstepaction"]
-> [Add a popup](./map-add-popup.md)
+> [Add a popup]
+
+> [!div class="nextstepaction"]
+> [Add a line layer]
+
+> [!div class="nextstepaction"]
+> [Add a polygon layer]
+
+> [!div class="nextstepaction"]
+> [Add a bubble layer]
+
+[style picker]: choose-map-style.md
+[ZoomControl]: /javascript/api/azure-maps-control/atlas.control.zoomcontrol
+[PitchControl]: /javascript/api/azure-maps-control/atlas.control.pitchcontrol
+[CompassControl]: /javascript/api/azure-maps-control/atlas.control.compasscontrol
+[StyleControl]: /javascript/api/azure-maps-control/atlas.control.stylecontrol
+[Navigation Control Options]: https://samples.azuremaps.com/controls/map-navigation-control-options
+[Navigation Control Options source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Controls/Map%20Navigation%20Control%20Options/Map%20Navigation%20Control%20Options.html
+[choose a map style]: choose-map-style.md
+[Add a pin]: map-add-pin.md
+[Add a popup]: map-add-popup.md
+[Add a line layer]: map-add-line-layer.md
+[Add a polygon layer]: map-add-shape.md
+[Add a bubble layer]: map-add-bubble-layer.md

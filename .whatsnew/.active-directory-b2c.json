@@ -1,0 +1,24 @@
+{
+    "$schema": "https://whatsnewapi.azurewebsites.net/schema",
+    "docSetProductName": "Azure Active Directory business-to-customer (B2C)",
+    "rootDirectory": "articles/active-directory-b2c/",
+    "docLinkSettings": {
+        "linkFormat": "relative",
+        "relativeLinkPrefix": "/azure/active-directory-b2c"
+    },
+    "inclusionCriteria": {
+        "omitPullRequestTitles" : false,
+        "minAdditionsToFile" : 10,
+        "maxFilesChanged": 50,
+        "labels": [
+            "label:active-directory/svc",
+            "label:B2C/subsvc"
+        ]
+    },
+    "areas": [
+        {
+            "names": [ "."],
+            "heading": "Azure Active Directory business-to-customer (B2C)"
+        }
+    ]
+}

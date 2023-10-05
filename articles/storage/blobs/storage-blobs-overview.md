@@ -1,17 +1,17 @@
 ---
-title: Introduction to Blob storage - Object storage in Azure
+title: About Blob (object) storage
+titleSuffix: Azure Storage
 description: Azure Blob storage stores massive amounts of unstructured object data, such as text or binary data. Blob storage also supports Azure Data Lake Storage Gen2 for big data analytics.  
 services: storage
-author: tamram
+author: akashdubey-ms
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: overview
-ms.date: 11/19/2018
-ms.author: tamram
-ms.subservice: blobs
+ms.date: 11/04/2019
+ms.author: akashdubey
 ---
 
-# What is Azure Blob storage? 
+# What is Azure Blob storage?
 
 [!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
 

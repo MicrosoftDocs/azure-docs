@@ -1,22 +1,15 @@
 ---
-title: Create your first Azure Service Fabric app on Linux using C#| Microsoft Docs
+title: Create your first Azure Service Fabric app on Linux using C#
 description: Learn how to create and deploy a Service Fabric application using C# and .NET Core 2.0.
-services: service-fabric
-documentationcenter: csharp
-author: mani-ramaswamy
-manager: chackdan
-editor: ''
-
-ms.assetid: 5a96d21d-fa4a-4dc2-abe8-a830a3482fb1
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
 ms.service: service-fabric
-ms.devlang: csharp
-ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 04/11/2018
-ms.author: subramar
-
+ms.custom: devx-track-dotnet
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Create your first Azure Service Fabric application
 > [!div class="op_single_selector"]
 > * [Java - Linux (Preview)](service-fabric-create-your-first-linux-application-with-java.md)
@@ -97,7 +90,7 @@ Parameters to these commands can be found in the generated manifests inside the 
 
 Once the application has been deployed, open a browser and navigate to
 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) at
-[http://localhost:19080/Explorer](http://localhost:19080/Explorer). Then, expand the **Applications** node and note
+`http://localhost:19080/Explorer`. Then, expand the **Applications** node and note
 that there is now an entry for your application type and another for the first instance of that type.
 
 > [!IMPORTANT]

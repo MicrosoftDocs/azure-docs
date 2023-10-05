@@ -1,19 +1,21 @@
 ---
 title: Search for news with the Bing News Search API
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to send search queries for general news, trending topics, and headlines.
 services: cognitive-services
-author: swhite-msft
+
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-news-search
-ms.topic: overview
-ms.date: 01/11/2019
-ms.author: scottwhi
+ms.topic: conceptual
+ms.date: 12/18/2019
+
 ---
 
 # Search for news with the Bing News Search API
+
+[!INCLUDE [Bing move notice](../../bing-web-search/includes/bing-move-notice.md)]
 
 The Bing Image Search API makes it easy to integrate Bing's cognitive news searching capabilities into your applications.
 
@@ -23,7 +25,7 @@ While the Bing News Search API primarily finds and returns relevant news article
 
 If you provide a search box where the user enters their search term, use the [Bing Autosuggest API](../../bing-autosuggest/get-suggested-search-terms.md) to improve the experience. The API returns suggested query strings based on partial search terms as the user types.
 
-After the user enters their search term, URL encode it before setting the [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#query) query parameter. For example, if the user enters *sailing dinghies*, set `q` to `sailing+dinghies` or `sailing%20dinghies`.
+After the user enters their search term, URL encode it before setting the [q](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#query) query parameter. For example, if the user enters *sailing dinghies*, set `q` to `sailing+dinghies` or `sailing%20dinghies`.
 
 ## Get general news
 
@@ -41,13 +43,13 @@ Host: api.cognitive.microsoft.com
 
 If it's your first time calling any of the Bing APIs, don't include the client ID header. Only include the client ID if you've previously called a Bing API and Bing returned a client ID for the user and device combination.
 
-To get news from a specific domain, use the [site:](https://msdn.microsoft.com/library/ff795613.aspx) query operator.
+To get news from a specific domain, use the [site:](/previous-versions/bing/search/ff795613(v=msdn.10)) query operator.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us HTTP/1.1
 ```
 
-The following shows the response to the previous query. As part of the [Use and display requirements](../useanddisplayrequirements.md) for the Bing search APIs, you must display each news article in the order provided in the response. If the article has clustered articles, you should indicate that related articles exist and display them upon request.
+The following JSON sample shows the response to the previous query. As part of the [Use and display requirements](../../bing-web-search/use-display-requirements.md) for the Bing search APIs, you must display each news article in the order provided in the response. If the article has clustered articles, you should indicate that related articles exist and display them upon request.
 
 ```json
 {
@@ -95,15 +97,15 @@ The following shows the response to the previous query. As part of the [Use and 
 }
 ```
 
-The [news](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v5-reference#news) answer lists the news articles that Bing thought were relevant to the query. The `totalEstimatedMatches` field contains an estimate of the number of articles available to view. For information about paging through the articles, see [Paging News](../paging-news.md).
+The [news](/rest/api/cognitiveservices-bingsearch/bing-news-api-v5-reference#news) answer lists the news articles that Bing thought were relevant to the query. The `totalEstimatedMatches` field contains an estimate of the number of articles available to view. For information about paging through the articles, see [Paging News](../../bing-web-search/paging-search-results.md).
 
-Each [news article](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v5-reference#newsarticle) in the list includes the article's name, description, and URL to the article on the host's website. If the article contains an image, the object includes a thumbnail of the image. Use `name` and `url` to create a hyperlink that takes the user to the news article on the host's site. If the article includes an image, also make the image clickable using `url`. Be sure to use `provider` to attribute the article.
+Each [news article](/rest/api/cognitiveservices-bingsearch/bing-news-api-v5-reference#newsarticle) in the list includes the article's name, description, and URL to the article on the host's website. If the article contains an image, the object includes a thumbnail of the image. Use `name` and `url` to create a hyperlink that takes the user to the news article on the host's site. If the article includes an image, also make the image clickable using `url`. Be sure to use `provider` to attribute the article.
 
 If Bing can determine the category of news article, the article includes the `category` field.
 
 ## Get today's top news
 
-To get today's top news articles, you'd make the same request as getting general news except that you'd leave `q` unset.
+To get today's top news articles, you can send the same general news request as before, while leaving the `q` parameter unset.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=&mkt=en-us HTTP/1.1
@@ -115,7 +117,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-The response for getting top news is almost the same as getting general news. However, the `news` answer doesn't include the `totalEstimatedMatches` field because there's a set number of results. The number of top news articles may vary depending on the news cycle. Be sure to use `provider` to attribute the article.
+The response for getting top news is almost the same as the one for getting general news. However, the `news` answer doesn't include the `totalEstimatedMatches` field because there's a set number of results. The number of top news articles may vary depending on the news cycle. Be sure to use the `provider` field to attribute the article.
 
 ## Get news by category
 
@@ -131,7 +133,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-Use the [category](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#category) query parameter to specify the category of articles to get. For a list of possible news categories that you may specify, see [News Categories by Market](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news-categories-by-market).
+Use the [category](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#category) query parameter to specify the category of articles to get. For a list of possible news categories that you may specify, see [News Categories by Market](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news-categories-by-market).
 
 The response for getting news by category is almost the same as getting general news. However, the articles are all from the specified category.
 
@@ -149,11 +151,11 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-Do not include the [category](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#category) query parameter.
+Do not include the [category](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#category) query parameter.
 
 The response for getting headline news is the same as getting today's top news. If the article is a headline article, its `headline` field is set to **true**.
 
-By default, the response includes up to 12 headline articles. To change the number of headline articles to return, specify the [headlineCount](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#headlinecount) query parameter. The response also includes up to four non-headline articles per news category.
+By default, the response includes up to 12 headline articles. To change the number of headline articles to return, specify the [headlineCount](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#headlinecount) query parameter. The response also includes up to four non-headline articles per news category.
 
 The response counts clusters as one article. Because a cluster may have several articles, the response may include more than 12 headline articles and more than four non-headline articles per category.
 
@@ -175,7 +177,7 @@ Host: api.cognitive.microsoft.com
 > [!NOTE]
 > Trending Topics is available only in the en-US and zh-CN markets.
 
-The following JSON is the response to the preceding request. Each trending news article includes a related image, breaking news flag, and a URL to the Bing search results for the article. Use the URL in the `webSearchUrl` field to take the user to the Bing search results page. Or, use the query text to call the [Web Search API](../../bing-web-search/search-the-web.md) to display the results yourself.
+The following JSON is the response to the preceding request. Each trending news article includes a related image, breaking news flag, and a URL to the Bing search results for the article. Use the URL in the `webSearchUrl` field to take the user to the Bing search results page. Or, use the query text to call the [Web Search API](../../bing-web-search/overview.md) to display the results yourself.
 
 ```json
 {
@@ -219,7 +221,7 @@ The following JSON is the response to the preceding request. Each trending news 
 
 ## Getting related news
 
-If there are other articles that are related to a news article, the news article may include the [clusteredArticles](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle-clusteredarticles) field. The following shows an article with clustered articles.
+If there are other articles that are related to a news article, the news article may include the [clusteredArticles](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle-clusteredarticles) field. The following shows an article with clustered articles.
 
 ```json
     {
@@ -260,4 +262,4 @@ If there are other articles that are related to a news article, the news article
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [How to page through Bing News Search results](../paging-news.md)
+> [How to page through Bing News Search results](../../bing-web-search/paging-search-results.md)

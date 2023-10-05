@@ -1,11 +1,11 @@
 ---
-title: Submit a workflow using a BAM file input - Microsoft Genomics
-titleSuffix: Azure
-description: This article assumes you have the msgen client installed and have successfully run the sample data through the service.  
+title: Submit a workflow using BAM file input
+titleSuffix: Microsoft Genomics
+description: This article demonstrates how to submit a workflow to the Microsoft Genomics service if your input file is  a single BAM file.  
 services: genomics
-author: grhuynh
+author: vigunase
 manager: cgronlun
-ms.author: grhuynh
+ms.author: vigunase
 ms.service: genomics
 ms.topic: conceptual
 ms.date: 12/07/2017
@@ -78,4 +78,4 @@ output_storage_account_container: outputs
 Submit the `config.txt` file with this invocation: `msgen submit -f config.txt`
 
 ## Next steps
-In this article, you uploaded a BAM file into Azure Storage and submitted a workflow to the Microsoft Genomics service through the `msgen` python client. For additional information regarding workflow submission and other commands you can use with the Microsoft Genomics service, see our [FAQ](frequently-asked-questions-genomics.md). 
+In this article, you uploaded a BAM file into Azure Storage and submitted a workflow to the Microsoft Genomics service through the `msgen` Python client. For additional information regarding workflow submission and other commands you can use with the Microsoft Genomics service, see our [FAQ](frequently-asked-questions-genomics.yml). 

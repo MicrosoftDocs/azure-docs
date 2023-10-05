@@ -1,13 +1,11 @@
 ---
-title: Architecture for VMware/physical server disaster recovery to a secondary site with Azure Site Recovery | Microsoft Docs
+title: Architecture-VMware/physical disaster recovery to a secondary site with Azure Site Recovery
 description: This article provides an overview of components and architecture used during disaster recovery of on-premises VMware VMs or physical Windows/Linux servers to a secondary VMware site with Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
-services: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
-ms.author: raynew
+ms.date: 11/12/2019
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 
 # Architecture for VMware/physical server replication to a secondary on-premises site
@@ -27,15 +25,31 @@ This article describes the architecture and processes used when set up disaster 
 **VMware ESX/ESXi and vCenter server** |  VMs are hosted on ESX/ESXi hosts. Hosts are managed with a vCenter server | You need a VMware infrastructure to replicate VMware VMs.
 **VMs/physical servers** |  Unified Agent installed on VMware VMs and physical servers you want to replicate. | The agent acts as a communication provider between all of the components.
 
+## Set up outbound network connectivity
+
+For Site Recovery to work as expected, you need to modify outbound network connectivity to allow your environment to replicate.
+
+> [!NOTE]
+> Site Recovery doesn't support using an authentication proxy to control network connectivity.
+
+### Outbound connectivity for URLs
+
+If you're using a URL-based firewall proxy to control outbound connectivity, allow access to these URLs:
+
+| **Name**                  | **Commercial**                               | **Government**                                 | **Description** |
+| ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
+| Storage                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net` | Allows data to be written from the VM to the cache storage account in the source region. |
+| Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Provides authorization and authentication to Site Recovery service URLs. |
+| Replication               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Allows the VM to communicate with the Site Recovery service. |
+| Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Allows the VM to write Site Recovery monitoring and diagnostics data. |
+
 ## Replication process
 
 1. You set up the component servers in each site (configuration, process, master target), and install the Unified Agent on machines that you want to replicate.
 2. After initial replication, the agent on each machine sends delta replication changes to the process server.
 3. The process server optimizes the data, and transfers it to the master target server on the secondary site. The configuration server manages the replication process.
 
-**Figure 6: VMware to VMware replication**
-
-![VMware to VMware](./media/site-recovery-components/vmware-to-vmware.png)
+![Diagram showing replication of VMware VMs and physical servers  to a secondary datacenter](./media/site-recovery-components/vmware-to-vmware.png)
 
 
 

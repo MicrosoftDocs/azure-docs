@@ -1,64 +1,60 @@
 ---
-title: View audit history for Azure AD roles in PIM - Azure Active Directory | Microsoft Docs
-description: Learn how to view the audit history for Azure AD roles in Azure AD Privileged Identity Management (PIM).
+title: View audit log report for Microsoft Entra roles in Microsoft Entra PIM
+description: Learn how to view the audit log history for Microsoft Entra roles in Microsoft Entra Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: rolyon
-manager: mtillman
+author: barclayn
+manager: amycolannino
 editor: ''
-
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 02/14/2017
-ms.author: rolyon
+ms.date: 09/13/2023
+ms.author: barclayn
+ms.reviewer: shaunliu
 ms.custom: pim
 
 ms.collection: M365-identity-device-management
 ---
-# View audit history for Azure AD roles in PIM
-You can use the Azure Active Directory (Azure AD) Privileged Identity Management (PIM) audit history to see all the user assignments and activations within a given time period for all privileged roles. If you want to see the full audit history of activity in your tenant, including administrator, end user, and synchronization activity, you can use the [Azure Active Directory access and usage reports.](../reports-monitoring/overview-reports.md)
+# View audit history for Microsoft Entra roles in Privileged Identity Management
 
-## Navigate to audit history
-From the [Azure portal](https://portal.azure.com) dashboard, select the **Azure AD Privileged Identity Management** app. From there, access the audit history by clicking **Manage privileged roles** > **Audit history** in the PIM dashboard.
+You can use the Microsoft Entra Privileged Identity Management (PIM) audit history to see all role assignments and activations within the past 30 days for all privileged roles. If you want to retain audit data for longer than the default retention period, you can use Azure Monitor to route it to an Azure storage account. For more information, see [Archive Microsoft Entra ID logs to an Azure storage account](../reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md). If you want to see the full audit history of activity in your organization in Microsoft Entra ID including administrator, end user, and synchronization activity, you can use the [Microsoft Entra security and activity reports](../reports-monitoring/overview-reports.md).
 
-![Audit history](media/azure-ad-pim-approval-workflow/image021.png)
+Follow these steps to view the audit history for Microsoft Entra roles.
 
-> [!NOTE]
-> You can sort the data by Action, and look for “Activation Approved”
+## View resource audit history
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-## Audit history graph
-You can use the audit history to view the total activations, max activations per day, and average activations per day in a line graph.  You can also filter the data by role if there is more than one role in the audit history.
+Resource audit gives you a view of all activity associated with your Microsoft Entra roles.
 
-Use the **time**, **action**, and **role** buttons to sort the history.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-## Audit history list
-The columns in the audit history list are:
+1. Browse to **Identity governance** > **Privileged Identity Management** > **Microsoft Entra roles**.
 
-* **Requestor** - the user who requested the role activation or change.  If the value is "Azure System", check the Azure audit history for more information.
-* **User** - the user who is activating or assigned to a role.
-* **Role** - the role assigned or activated by the user.
-* **Action** - the actions taken by the requestor. This can include assignment, unassignment, activation, or deactivation.
-* **Time** - when the action occurred.
-* **Reasoning** - if any text was entered into the reason field during activation, it will show up here.
-* **Expiration** - only relevant for activation of roles.
+1. Select **Resource audit**.
 
-## Filter audit history
-You can filter the information that shows up in the audit history by clicking the **Filter** button.  The **Update chart parameters blade** will appear.
+1. Filter the history using a predefined date or custom range.
 
-After you set the filters, click **Update** to filter the data in the history.  If the data doesn't appear right away, refresh the page.
+    ![Microsoft Entra role audit list with filters](media/azure-pim-resource-rbac/rbac-resource-audit.png)
 
-### Change the date range
-Use the **Today**, **Past Week**, **Past Month**, or **Custom** buttons to change the time range of the audit history.
+## View my audit
 
-When you choose the **Custom** button, you will be given a **From** date field and a **To** date field to specify a range of dates for the history.  You can either enter the dates in MM/DD/YYYY format or click on the **calendar** icon and choose the date from a calendar.
+My audit enables you to view your personal role activity.
 
-### Change the roles included in the history
-Check or uncheck the **Role** checkbox next to each role to include or exclude it from the history.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+1. Browse to **Identity governance** > **Privileged Identity Management** > **Microsoft Entra roles**.
+
+1. Select the resource you want to view audit history for.
+
+1. Select **My audit**.
+
+1. Filter the history using a predefined date or custom range.
+
+    ![Audit list for the current user](media/azure-pim-resource-rbac/my-audit-time.png)
+
 ## Next steps
 
-- [View activity and audit history for Azure resource roles in PIM](azure-pim-resource-rbac.md)
+- [View activity and audit history for Azure resource roles in Privileged Identity Management](azure-pim-resource-rbac.md)

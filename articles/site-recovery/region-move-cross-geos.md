@@ -1,13 +1,12 @@
 ---
-title: Move Azure IaaS VMs between Azure Government and Public regions with the Azure Site Recovery service | Microsoft Docs
-description: Use Azure Site Recovery to move Azure IaaS VMs between Azure Government & Public regions.
-services: site-recovery
-author: rajani-janaki-ram
+title: Move Azure VMs between government and public regions with Azure Site Recovery 
+description: Use Azure Site Recovery to move Azure VMs between Azure Government and public regions.
+author: ankitaduttaMSFT
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/16/2019
-ms.author: rajanaki
-ms.custom: MVC
+ms.date: 01/30/2023
+ms.author: ankitadutta
+ms.custom: MVC, engagement-fy23
 ---
 # Move Azure VMs between Azure Government and Public regions 
 
@@ -27,7 +26,7 @@ This tutorial shows you how to move Azure VMs between Azure Government and Publi
 > * Discard the resources in the source region
 
 > [!IMPORTANT]
-> This tutorial shows you how to move Azure VMs between Azure Government and Public regions, or between regions pairs that are not supported by the regular disaster recovery solution for Azure VMs. In case, your source and target regions pairs are [supported](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support), please refer to this [document](azure-to-azure-tutorial-migrate.md) for the move. If your requirement is to improve availability by moving VMs in an availability set to zone pinned VMs in a different region, refer to the tutorial [here](move-azure-VMs-AVset-Azone.md).
+> This tutorial shows you how to move Azure VMs between Azure Government and Public regions, or between regions pairs that are not supported by the regular disaster recovery solution for Azure VMs. In case, your source and target regions pairs are [supported](./azure-to-azure-support-matrix.md#region-support), please refer to this [document](azure-to-azure-tutorial-migrate.md) for the move. If your requirement is to improve availability by moving VMs in an availability set to zone pinned VMs in a different region, refer to the tutorial [here](move-azure-VMs-AVset-Azone.md).
 
 > [!IMPORTANT]
 > It is not advisable to use this method to configure DR between unsupported region pairs as the pairs are defined keeping data latency in mind, which is critical for a DR scenario.
@@ -41,26 +40,25 @@ This tutorial shows you how to move Azure VMs between Azure Government and Publi
 - Make sure that the servers you want to replicate comply with [Azure VM requirements](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 - Prepare an account for automatic installation of the Mobility service on each server you want to replicate.
 
-- Note that after you failures to the target region in Azure, you cannot directly perform a fail back to the source region. You will have to set up replication again back to the target.
+- After you fail over to the target region in Azure, you cannot directly perform a fail back to the source region. You will have to set up replication again back to the target.
 
 ### Verify Azure account permissions
 
 Make sure your Azure account has permissions for replication of VMs to Azure.
 
 - Review the [permissions](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) you need to replicate machines to Azure.
-- Verify and modify [role-based access](../role-based-access-control/role-assignments-portal.md) permissions. 
+- Verify and modify [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md) permissions. 
 
 ### Set up an Azure network
 
-Set up a the target [Azure network](../virtual-network/quick-create-portal.md).
+Set up the target [Azure network](../virtual-network/quick-create-portal.md).
 
 - Azure VMs are placed in this network when they're created after failover.
 - The network should be in the same region as the Recovery Services vault
 
-
 ### Set up an Azure storage account
 
-Set up an [Azure storage account](../storage/common/storage-quickstart-create-account.md).
+Set up an [Azure storage account](../storage/common/storage-account-create.md).
 
 - Site Recovery replicates on-premises machines to Azure storage. Azure VMs are created from the storage after failover occurs.
 - The storage account must be in the same region as the Recovery Services vault.
@@ -75,7 +73,7 @@ The Mobility service must be installed on each server you want to replicate. Sit
 - You can use a domain or local account
 - For Windows VMs, if you're not using a domain account, disable Remote User Access control on the local machine. To do this, in the register under **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, add the DWORD entry **LocalAccountTokenFilterPolicy**, with a value of 1.
 - To add the registry entry to disable the setting from a CLI, type:
-        ``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
+  `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.`
 - For Linux, the account should be root on the source Linux server.
 
 
@@ -88,17 +86,17 @@ The Mobility service must be installed on each server you want to replicate. Sit
 3. Ensure that you create a target resource for every component identified in the source networking layout. This is important to ensure that, post cutting over to the target region, your VMs have all the functionality and features that you had in the source.
 
     > [!NOTE]
-    > Azure Site Recovery automatically discovers and creates a virtual network when you enable replication for the source VM, or you can also pre-create a network and assign to the VM in the user flow for enable replication. But for any other resources, as mentioned below, you need to manually create them in the target region.
+    > Azure Site Recovery automatically discovers and creates a virtual network when you enable replication for the source VM, or you can also pre-create a network and assign to the VM in the user flow for enable replication. But for any other resources, you need to manually create them in the target region.
 
      Please refer to the following documents to create the most commonly used network resources relevant for you, based on the source VM configuration.
 
-    - [Network Security Groups](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
-    - [Load balancers](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
-    - [Public IP](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+    - [Network Security Groups](../virtual-network/manage-network-security-group.md)
+    - [Load balancers](../load-balancer/index.yml)
+    - [Public IP](../virtual-network/ip-services/virtual-network-public-ip-address.md)
     
-    For any other networking components, refer to the networking [documentation.](https://docs.microsoft.com/azure/#pivot=products&panel=network) 
+    For any other networking components, refer to the networking [documentation](../index.yml?pivot=products&panel=network).
 
-4. Manually [create a non-production network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal) in the target region if you wish to test the configuration before you perform the final cut over to the target region. This will create minimal interference with the production and is recommended.
+4. Manually [create a non-production network](../virtual-network/quick-create-portal.md) in the target region if you wish to test the configuration before you perform the final cut over to the target region. This will create minimal interference with the production and is recommended.
 
 ## Copy data to the target region
 The below steps will guide you how to use Azure Site Recovery to copy data to the target region.
@@ -120,12 +118,12 @@ The below steps will guide you how to use Azure Site Recovery to copy data to th
 Set up the configuration server, register it in the vault, and discover VMs.
 
 1. Click **Site Recovery** > **Prepare Infrastructure** > **Source**.
-2. If you don’t have a configuration server, click **+Configuration server**.
+2. If you don't have a configuration server ready, you can use the **Add Configuration Server** option.
 3. In **Add Server**, check that **Configuration Server** appears in **Server type**.
 4. Download the Site Recovery Unified Setup installation file.
 5. Download the vault registration key. You need this when you run Unified Setup. The key is valid for five days after you generate it.
 
-   ![Set up source](./media/physical-azure-disaster-recovery/source-environment.png)
+   :::image type="content" source="./media/physical-azure-disaster-recovery/add-server.png" alt-text="Screenshot of add server page.":::
 
 
 ### Register the configuration server in the vault
@@ -133,17 +131,17 @@ Set up the configuration server, register it in the vault, and discover VMs.
 Do the following before you start: 
 
 #### Verify time accuracy
-On the configuration server machine, make sure that the system clock is synchronized with a [Time Server](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service). It should match. If it's 15 minutes in front or behind, setup might fail.
+On the configuration server machine, make sure that the system clock is synchronized with a [Time Server](/windows-server/networking/windows-time-service/windows-time-service-top). It should match. If it's 15 minutes in front or behind, setup might fail.
 
 #### Verify connectivity
 Make sure the machine can access these URLs based on your environment: 
 
 [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
 
-IP address-based firewall rules should allow communication to all of the Azure URLs that are listed above over HTTPS (443) port. To simplify and limit the IP Ranges, it is recommended that URL filtering be done.
+IP address-based firewall rules should allow communication to all of the Azure URLs that are listed above over HTTPS (443) port. To simplify and limit the IP Ranges, it is recommended that URL filtering is done.
 
-- **Commercial IPs** - Allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653), and the HTTPS (443) port. Allow IP address ranges for the Azure region of your subscription to support the AAD, Backup, Replication, and Storage URLs.  
-- **Government IPs** - Allow the [Azure Government Datacenter IP Ranges](https://www.microsoft.com/en-us/download/details.aspx?id=57063), and the HTTPS (443) port for all USGov Regions (Virginia, Texas, Arizona, and Iowa) to support AAD, Backup, Replication, and Storage URLs.  
+- **Commercial IPs** - Allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653), and the HTTPS (443) port. Allow IP address ranges for the Azure region of your subscription to support the Azure AD, Backup, Replication, and Storage URLs.  
+- **Government IPs** - Allow the [Azure Government Datacenter IP Ranges](https://www.microsoft.com/en-us/download/details.aspx?id=57063), and the HTTPS (443) port for all USGov Regions (Virginia, Texas, Arizona, and Iowa) to support Azure AD, Backup, Replication, and Storage URLs.  
 
 #### Run setup
 Run Unified Setup as a Local Administrator, to install the configuration server. The process server and the master target server are also installed by default on the configuration server.
@@ -157,10 +155,12 @@ After registration finishes, the configuration server is displayed on the **Sett
 Select and verify target resources.
 
 1. Click **Prepare infrastructure** > **Target**, and select the Azure subscription you want to use.
-2. Specify the target deployment model.
-3. Site Recovery checks that you have one or more compatible Azure storage accounts and networks.
+2. On the **Target settings** tab, do the following:
 
-   ![Target](./media/physical-azure-disaster-recovery/network-storage.png)
+    1. Under **Subscription**, select the Azure subscription you want to use.
+    2. Under **Post-failover deployment model**, specify the target deployment model.
+3. Site Recovery checks that you have one or more compatible Azure storage accounts and networks.
+    :::image type="content" source="./media/physical-azure-disaster-recovery/target-settings.png" alt-text="Screenshot of the target setting page.":::
 
 
 ### Create a replication policy
@@ -170,8 +170,8 @@ Select and verify target resources.
 3. In **RPO threshold**, specify the recovery point objective (RPO) limit. This value specifies how often data recovery points are created. An alert is generated if continuous replication exceeds this limit.
 4. In **Recovery point retention**, specify how long (in hours) the retention window is for each recovery point. Replicated VMs can be recovered to any point in a window. Up to 24 hours retention is supported for machines replicated to premium storage, and 72 hours for standard storage.
 5. In **App-consistent snapshot frequency**, specify how often (in minutes) recovery points containing application-consistent snapshots will be created. Click **OK** to create the policy.
+    :::image type="content" source="./media/physical-azure-disaster-recovery/create-policy.png" alt-text="Screenshot of replication policy page.":::
 
-    ![Replication policy](./media/physical-azure-disaster-recovery/replication-policy.png)
 
 
 The policy is automatically associated with the configuration server. By default, a matching policy is automatically created for failback. For example, if the replication policy is **rep-policy** then a failback policy **rep-policy-failback** is created. This policy isn't used until you initiate a failback from Azure.

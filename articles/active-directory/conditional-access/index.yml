@@ -1,58 +1,77 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure AD Conditional Access Documentation
+### YamlMime:Landing
+
+title: Microsoft Entra Conditional Access documentation
+summary: Learn how to configure and test Microsoft Entra Conditional Access
+
 metadata:
-  document_id: 
-  title: Azure Active Directory Conditional Access Documentation - Tutorials, quickstarts, concepts, references | Microsoft Docs
-  description: Learn how to configure and test Azure Active Directory conditional access.
+  title: Microsoft Entra Conditional Access documentation
+  description: Learn how to configure and test Microsoft Entra Conditional Access
   services: active-directory
-  ms.subservice: conditional-access
-  author: MicrosoftGuyJFlo
-  manager: daveba
   ms.service: active-directory
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: conditional-access
   ms.topic: landing-page
-  ms.date: 08/14/2018
+  author: MicrosoftGuyJFlo
   ms.author: joflore
-abstract:
-  description: "Learn how to master the balance between security and productivity by configuring Azure AD conditional access.
-With conditional access policies, you can factor how your cloud apps are accessed into your access decisions.
-For example, you can address in your access decisions the following questions:<ul><li>What is the user&#39;s network location?</li><li>Has the access attempt be initiated from a managed device?</li><li>From which client app has a connection attempt been initiated?</li><li>Has an access attempt been made from a risky sign-in?</li></ul>The following resources help you to quickly get started."
-  aside:
-    image:
-      alt: 
-      height: 110
-      src: ./media/index/video.png
-      width: 246  
-    title: Conditional access explained
-    href: https://www.youtube.com/watch?v=XruceejcCKQ
-    width: 246
-sections:
-- title: 5-minute quickstarts
-  items:
-  - type: paragraph
-    text: 'Learn how to configure conditional access policies for common access scenarios.'
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: ./media/index/i_security-management.png
-      text: Require MFA for specific apps
-      href: app-based-mfa.md
-    - image: 
-        src: ./media/index/i_security-management.png
-      text: Block access when a session risk is detected
-      href: app-sign-in-risk.md
-    - image: 
-        src: ./media/index/i_security-management.png
-      text: Require terms of use to be accepted 
-      href: require-tou.md
-- title: Step-by-Step Tutorials
-  items:
-  - type: paragraph
-    text: Learn how to migrate your classic conditional access policies.
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="/azure/active-directory/conditional-access/policy-migration-mfa">Migrate a classic policy that requires multi-factor authentication</a>
+  ms.date: 08/22/2022
+  ms.collection: M365-identity-device-management
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Conditional Access
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Conditional Access?
+            url: overview.md
+      - linkListType: concept
+        links:
+          - text: What are conditions?
+            url: concept-conditional-access-conditions.md
+          - text: How can I define locations?
+            url: location-condition.md
+          - text: What are controls?
+            url: controls.md
+          - text: Conditional Access service dependencies
+            url: service-dependencies.md
+
+  # Card
+  - title: Deploy Conditional Access
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Plan a Conditional Access deployment
+            url: plan-conditional-access.md
+      - linkListType: how-to-guide
+        links:
+          - text: Block legacy authentication
+            url: block-legacy-authentication.md
+          - text: Troubleshooting using the What If tool
+            url: troubleshoot-conditional-access-what-if.md
+
+  # Card
+  - title: Common Conditional Access policies
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Common Conditional Access policies
+            url: concept-conditional-access-policy-common.md
+      - linkListType: how-to-guide
+        links:
+          - text: Require MFA for administrators
+            url: howto-conditional-access-policy-admin-mfa.md
+          - text: Require MFA for Azure management
+            url: howto-conditional-access-policy-azure-management.md
+          - text: Block legacy authentication
+            url: howto-conditional-access-policy-block-legacy.md
+          - text: Risk-based Conditional Access (Requires Microsoft Entra ID P2)
+            url: howto-conditional-access-policy-risk.md
+          - text: Require trusted location for MFA registration
+            url: howto-conditional-access-policy-registration.md
+          - text: Block access by location
+            url: howto-conditional-access-policy-location.md
+          - text: Require compliant device
+            url: howto-conditional-access-policy-compliant-device.md

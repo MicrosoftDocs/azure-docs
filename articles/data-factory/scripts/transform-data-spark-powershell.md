@@ -1,18 +1,14 @@
 ---
-title: "PowerShell script- transform data in cloud using Data Factory | Microsoft Docs"
+title: Transform data in cloud using PowerShell
 description: "This PowerShell script transforms data in the cloud by running Spark program on an Azure HDInsight Spark cluster." 
-services: data-factory
-author: sharonlo101
-manager: craigg
-editor: ''
-
+author: dcstwh
+ms.author: weetok
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-
-ms.topic: article
-ms.date: 09/12/2017
-ms.author: shlo
+ms.subservice: tutorials
+ms.topic: conceptual
+ms.custom: seo-lt-2019, devx-track-azurepowershell
+ms.date: 02/08/2023
 ---
 
 # PowerShell script - transform data in cloud using Azure Data Factory
@@ -24,10 +20,10 @@ This sample PowerShell script creates a pipeline that transforms data in the clo
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ## Prerequisites
-* **Azure Storage account**. Create a python script and an input file, and upload them to the Azure storage. The output from the spark program is stored in this storage account. The on-demand Spark cluster uses the same storage account as its primary storage.  
+* **Azure Storage account**. Create a Python script and an input file, and upload them to the Azure storage. The output from the spark program is stored in this storage account. The on-demand Spark cluster uses the same storage account as its primary storage.  
 
-### Upload python script to your Blob Storage account
-1. Create a python file named **WordCount_Spark.py** with the following content: 
+### Upload Python script to your Blob Storage account
+1. Create a Python file named **WordCount_Spark.py** with the following content: 
 
     ```python
     import sys
@@ -40,7 +36,7 @@ This sample PowerShell script creates a pipeline that transforms data in the clo
             .builder\
             .appName("PythonWordCount")\
             .getOrCreate()
-    		
+            
         lines = spark.read.text("wasbs://adftutorial@<storageaccountname>.blob.core.windows.net/spark/inputfiles/minecraftstory.txt").rdd.map(lambda r: r[0])
         counts = lines.flatMap(lambda x: x.split(' ')) \
             .map(lambda x: (x, 1)) \
@@ -50,7 +46,7 @@ This sample PowerShell script creates a pipeline that transforms data in the clo
         spark.stop()
     
     if __name__ == "__main__":
-    	main()
+        main()
     ```
 2. Replace **&lt;storageAccountName&gt;** with the name of your Azure Storage account. Then, save the file. 
 3. In your Azure Blob Storage, create a container named **adftutorial** if it does not exist. 
@@ -100,6 +96,6 @@ This script uses the following commands:
 
 ## Next steps
 
-For more information on the Azure PowerShell, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/).
+For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/).
 
 Additional Azure Data Factory PowerShell script samples can be found in the [Azure Data Factory PowerShell samples](../samples-powershell.md).

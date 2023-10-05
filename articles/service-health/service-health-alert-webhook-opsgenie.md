@@ -1,17 +1,11 @@
 ---
-title: Configure Azure service health alerts with OpsGenie | Microsoft Docs
+title: Send Azure service health alerts with OpsGenie using webhooks
 description: Get personalized notifications about service health events to your OpsGenie instance.
-author: stephbaron
-ms.author: stbaron
 ms.topic: conceptual
-ms.service: service-health
-ms.workload: Supportability
-ms.topic: article
-ms.date: 11/14/2017
-
-
+ms.date: 06/10/2019
 ---
-# Configure service health alerts with OpsGenie
+   
+# Send Azure service health alerts with OpsGenie using webhooks
 
 This article shows you how to set up Azure service health alerts with OpsGenie using a webhook. By using [OpsGenie](https://www.opsgenie.com/)'s Azure Service Health Integration, you can forward Azure Service Health alerts to OpsGenie. OpsGenie can determine the right people to notify based on on-call schedules, using email, text messages (SMS), phone calls, iOS & Android push notifications, and escalating alerts until the alert is acknowledged or closed.
 
@@ -38,7 +32,7 @@ This article shows you how to set up Azure service health alerts with OpsGenie u
 
 ## Create an alert using OpsGenie in the Azure portal
 ### For a new action group:
-1. Follow steps 1 through 8 in [Create an alert on a service health notification for a new action group by using the Azure portal](../azure-monitor/platform/alerts-activity-log-service-notifications.md).
+1. Follow steps 1 through 8 in [Create an alert on a service health notification for a new action group by using the Azure portal](./alerts-activity-log-service-notifications-portal.md).
 
 1. Define in the list of **Actions**:
 
@@ -68,7 +62,7 @@ This article shows you how to set up Azure service health alerts with OpsGenie u
 1. Select **Save** when done to update the action group.
 
 ## Testing your webhook integration via an HTTP POST request
-1. Create the service health payload you want to send. You can find an example service health webhook payload at [Webhooks for Azure activity log alerts](../azure-monitor/platform/activity-log-alerts-webhook.md).
+1. Create the service health payload you want to send. You can find an example service health webhook payload at [Webhooks for Azure activity log alerts](../azure-monitor/alerts/activity-log-alerts-webhook.md).
 
 1. Create an HTTP POST request as follows:
 
@@ -85,6 +79,6 @@ This article shows you how to set up Azure service health alerts with OpsGenie u
 
 ## Next steps
 - Learn how to [configure webhook notifications for existing problem management systems](service-health-alert-webhook-guide.md).
-- Review the [activity log alert webhook schema](../azure-monitor/platform/activity-log-alerts-webhook.md). 
-- Learn about [service health notifications](../azure-monitor/platform/service-notifications.md).
-- Learn more about [action groups](../azure-monitor/platform/action-groups.md).
+- Review the [activity log alert webhook schema](../azure-monitor/alerts/activity-log-alerts-webhook.md). 
+- Learn about [service health notifications](./service-notifications.md).
+- Learn more about [action groups](../azure-monitor/alerts/action-groups.md).

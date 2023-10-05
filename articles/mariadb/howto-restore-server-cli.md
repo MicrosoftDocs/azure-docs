@@ -1,29 +1,29 @@
 ---
-title: How to backup and restore a server in Azure Database for MariaDB
+title: Backup and restore - Azure CLI - Azure Database for MariaDB
 description: Learn how to backup and restore a server in Azure Database for MariaDB by using the Azure CLI.
-author: rachel-msft
-ms.author: raagyema
 ms.service: mariadb
+author: SudheeshGH
+ms.author: sunaray
 ms.devlang: azurecli
-ms.topic: conceptual
-ms.date: 11/10/2018
+ms.topic: how-to
+ms.custom: devx-track-azurecli
+ms.date: 06/24/2022
 ---
 # How to back up and restore a server in Azure Database for MariaDB using the Azure CLI
 
-## Backup happens automatically
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
 
 Azure Database for MariaDB servers are backed up periodically to enable Restore features. Using this feature you may restore the server and all its databases to an earlier point-in-time, on a new server.
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## Prerequisites
 
-To complete this how-to guide, you need:
+- You need an [Azure Database for MariaDB server and database](quickstart-create-mariadb-server-database-using-azure-cli.md).
 
-- An [Azure Database for MariaDB server and database](quickstart-create-mariadb-server-database-using-azure-cli.md)
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-> [!IMPORTANT]
-> This how-to guide requires that you use Azure CLI version 2.0 or later. To confirm the version, at the Azure CLI command prompt, enter `az --version`. To install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
+- This how-to guide requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Set backup configuration
 
@@ -72,15 +72,17 @@ The `az mariadb server restore` command requires the following parameters:
 | restore-point-in-time | 2018-03-13T13:59:00Z | Select a point in time to restore to. This date and time must be within the source server's backup retention period. Use the ISO8601 date and time format. For example, you can use your own local time zone, such as `2018-03-13T05:59:00-08:00`. You can also use the UTC Zulu format, for example, `2018-03-13T13:59:00Z`. |
 | source-server | mydemoserver | The name or ID of the source server to restore from. |
 
-When you restore a server to an earlier point in time, a new server is created. The original server and its databases from the specified point in time are copied to the new server.
+WWhen you restore a server to an earlier point in time, a new server is created. The original server and its databases from the specified point in time are copied to the new server.
 
 The location and pricing tier values for the restored server remain the same as the original server.
 
-After the restore process finishes, locate the new server and verify that the data is restored as expected.
+After the restore process finishes, locate the new server and verify that the data is restored as expected. The new server has the same server admin login name and password that was valid for the existing server at the time the restore was initiated. The password can be changed from the new server's **Overview** page.
+
+The new server created during a restore does not have the VNet service endpoints that existed on the original server. These rules need to be set up separately for this new server. Firewall rules from the original server are restored.
 
 ## Geo restore
 
-If you configured your server for geographically redundant backups, a new server can be created from the backup of that existing server. This new server can be created in any region that Azure Database for MariaDB is available.  
+If you configured your server for geographically redundant backups, a new server can be created from the backup of that existing server. This new server can be created in any region that Azure Database for MariaDB is available.
 
 To create a server using a geo redundant backup, use the Azure CLI `az mariadb server georestore` command.
 
@@ -113,12 +115,14 @@ The `az mariadb server georestore` command requires the following parameters:
 |location | eastus | The location of the new server. |
 |sku-name| GP_Gen5_8 | This parameter sets the pricing tier, compute generation, and number of vCores of the new server. GP_Gen5_8 maps to a General Purpose, Gen 5 server with 8 vCores.|
 
->[!Important]
->When creating a new server by a geo restore, it inherits the same storage size and pricing tier as the source server. These values cannot be changed during creation. After the new server is created, its storage size can be scaled up.
+When creating a new server by a geo restore, it inherits the same storage size and pricing tier as the source server. These values cannot be changed during creation. After the new server is created, its storage size can be scaled up.
 
-After the restore process finishes, locate the new server and verify that the data is restored as expected.
+After the restore process finishes, locate the new server and verify that the data is restored as expected. The new server has the same server admin login name and password that was valid for the existing server at the time the restore was initiated. The password can be changed from the new server's **Overview** page.
+
+The new server created during a restore does not have the VNet service endpoints that existed on the original server. These rules need to be set up separately for this new server. Firewall rules from the original server are restored.
 
 ## Next steps
 
-- Learn more about the service's [backups](concepts-backup.md).
-- Learn more about [business continuity](concepts-business-continuity.md) options.
+- Learn more about the service's [backups](concepts-backup.md)
+- Learn about [replicas](concepts-read-replicas.md)
+- Learn more about [business continuity](concepts-business-continuity.md) options

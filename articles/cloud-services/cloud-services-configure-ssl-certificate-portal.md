@@ -1,42 +1,37 @@
 ---
-title: Configure SSL for a cloud service  | Microsoft Docs
-description: Learn how to specify an HTTPS endpoint for a web role and how to upload an SSL certificate to secure your application. These examples use the Azure portal.
-services: cloud-services
-documentationcenter: .net
-author: jpconnock
-manager: timlt
-editor: ''
-
-ms.assetid: 371ba204-48b6-41af-ab9f-ed1d64efe704
-ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
+title: Configure TLS for a cloud service  | Microsoft Docs
+description: Learn how to specify an HTTPS endpoint for a web role and how to upload a TLS/SSL certificate to secure your application. These examples use the Azure portal.
 ms.topic: article
-ms.date: 05/26/2017
-ms.author: jeconnoc
-
+ms.service: cloud-services
+ms.date: 02/21/2023
+author: hirenshah1
+ms.author: hirshah
+ms.reviewer: mimckitt
+ms.custom: compute-evergreen
 ---
-# Configuring SSL for an application in Azure
 
-Secure Socket Layer (SSL) encryption is the most commonly used method of securing data sent across the internet. This common task discusses how to specify an HTTPS endpoint for a web role and how to upload an SSL certificate to secure your application.
+# Configuring TLS for an application in Azure
+
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
+
+Transport Layer Security (TLS), previously known as Secure Socket Layer (SSL) encryption, is the most commonly used method of securing data sent across the internet. This common task discusses how to specify an HTTPS endpoint for a web role and how to upload a TLS/SSL certificate to secure your application.
 
 > [!NOTE]
-> The procedures in this task apply to Azure Cloud Services; for App Services, see [this](../app-service/app-service-web-tutorial-custom-ssl.md).
+> The procedures in this task apply to Azure Cloud Services; for App Services, see [this](../app-service/configure-ssl-bindings.md).
 >
 
 This task uses a production deployment. Information on using a staging deployment is provided at the end of this topic.
 
 Read [this](cloud-services-how-to-create-deploy-portal.md) first if you have not yet created a cloud service.
 
-## Step 1: Get an SSL certificate
-To configure SSL for an application, you first need to get an SSL certificate that has been signed by a Certificate Authority (CA), a trusted third party who issues certificates for this purpose. If you do not already have one, you need to obtain one from a company that sells SSL certificates.
+## Step 1: Get a TLS/SSL certificate
+To configure TLS for an application, you first need to get a TLS/SSL certificate that has been signed by a Certificate Authority (CA), a trusted third party who issues certificates for this purpose. If you do not already have one, you need to obtain one from a company that sells TLS/SSL certificates.
 
-The certificate must meet the following requirements for SSL certificates in Azure:
+The certificate must meet the following requirements for TLS/SSL certificates in Azure:
 
-* The certificate must contain a private key.
+* The certificate must contain a public key.
 * The certificate must be created for key exchange, exportable to a Personal Information Exchange (.pfx) file.
-* The certificate's subject name must match the domain used to access the cloud service. You cannot obtain an SSL certificate from a certificate authority (CA) for the cloudapp.net domain. You must acquire a custom domain name to use when access your service. When you request a certificate from a CA, the certificate's subject name must match the custom domain name used to access your application. For example, if your custom domain name is **contoso.com** you would request a certificate from your CA for ***.contoso.com** or **www\.contoso.com**.
+* The certificate's subject name must match the domain used to access the cloud service. You cannot obtain a TLS/SSL certificate from a certificate authority (CA) for the cloudapp.net domain. You must acquire a custom domain name to use when access your service. When you request a certificate from a CA, the certificate's subject name must match the custom domain name used to access your application. For example, if your custom domain name is **contoso.com** you would request a certificate from your CA for ***.contoso.com** or **www\.contoso.com**.
 * The certificate must use a minimum of 2048-bit encryption.
 
 For test purposes, you can [create](cloud-services-certs-create.md) and use a self-signed certificate. A self-signed certificate is not authenticated through a CA and can use the cloudapp.net domain as the website URL. For example, the following task uses a self-signed certificate in which the common name (CN) used in the certificate is **sslexample.cloudapp.net**.
@@ -48,12 +43,9 @@ Next, you must include information about the certificate in your service definit
 ## Step 2: Modify the service definition and configuration files
 Your application must be configured to use the certificate, and an HTTPS endpoint must be added. As a result, the service definition and service configuration files need to be updated.
 
-1. In your development environment, open the service definition file
-   (CSDEF), add a **Certificates** section within the **WebRole**
-   section, and include the following information about the
-   certificate (and intermediate certificates):
+1. In your development environment, open the service definition file (CSDEF), add a **Certificates** section within the **WebRole** section, and include the following information about the certificate (and intermediate certificates):
 
-   ```xml
+    ```xml
     <WebRole name="CertificateTesting" vmsize="Small">
     ...
         <Certificates>
@@ -89,7 +81,7 @@ Your application must be configured to use the certificate, and an HTTPS endpoin
 2. In your service definition file, add an **InputEndpoint** element
    within the **Endpoints** section to enable HTTPS:
 
-   ```xml
+    ```xml
     <WebRole name="CertificateTesting" vmsize="Small">
     ...
         <Endpoints>
@@ -104,7 +96,7 @@ Your application must be configured to use the certificate, and an HTTPS endpoin
    the **Sites** section. This element adds an HTTPS binding to map the
    endpoint to your site:
 
-   ```xml
+    ```xml
     <WebRole name="CertificateTesting" vmsize="Small">
     ...
         <Sites>
@@ -125,7 +117,7 @@ Your application must be configured to use the certificate, and an HTTPS endpoin
 value with that of your certificate. The following code sample provides
    details of the **Certificates** section, except for the thumbprint value.
 
-   ```xml
+    ```xml
     <Role name="Deployment">
     ...
         <Certificates>
@@ -183,7 +175,7 @@ connect to it using HTTPS.
    ![Site preview](media/cloud-services-configure-ssl-certificate-portal/show-site.png)
 
    > [!TIP]
-   > If you want to use SSL for a staging deployment instead of a production deployment, you'll first need to determine the URL used for the staging deployment. Once your cloud service has been deployed, the URL to the staging environment is determined by the **Deployment ID** GUID in this format: `https://deployment-id.cloudapp.net/`  
+   > If you want to use TLS for a staging deployment instead of a production deployment, you'll first need to determine the URL used for the staging deployment. Once your cloud service has been deployed, the URL to the staging environment is determined by the **Deployment ID** GUID in this format: `https://deployment-id.cloudapp.net/`  
    >
    > Create a certificate with the common name (CN) equal to the GUID-based URL (for example, **328187776e774ceda8fc57609d404462.cloudapp.net**). Use the portal to add the certificate to your staged cloud service. Then, add the certificate information to your CSDEF and CSCFG files, repackage your application, and update your staged deployment to use the new package.
    >

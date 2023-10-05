@@ -1,34 +1,25 @@
 ---
-title: High-density hosting using per-app scaling - Azure App Service | Microsoft Docs
-description: High-density hosting on Azure App Service
-author: btardif
-manager: erikre
-editor: ''
-services: app-service\web
-documentationcenter: ''
+title: Per-app scaling for high-density hosting
+description: Scale apps independently from the App Service plans and optimize the scaled-out instances in your plan.
+author: msangapu-msft
 
 ms.assetid: a903cb78-4927-47b0-8427-56412c4e3e64
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
-ms.devlang: multiple
 ms.topic: article
-ms.date: 05/13/2019
-ms.author: byvinyal
-ms.custom: seodec18
-
+ms.date: 06/29/2023
+ms.author: msangapu
+ms.custom: seodec18, devx-track-azurepowershell, devx-track-arm-template
 ---
 # High-density hosting on Azure App Service using per-app scaling
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-When using App Service, you can scale your apps by scaling the [App Service plan](overview-hosting-plans.md) they run on. When multiple apps are run in the same App Service plan, each scaled-out instance runs all the apps in the plan.
+When using App Service, you can scale your apps by scaling the [App Service plan](overview-hosting-plans.md) they run on. When multiple apps are running in the same App Service plan, each scaled-out instance runs all the apps in the plan.
 
 *Per-app scaling* can be enabled at the App Service plan level to allow for scaling an app independently from the
 App Service plan that hosts it. This way, an App Service plan can be scaled to 10 instances, but an app can be set to use only five.
 
 > [!NOTE]
-> Per-app scaling is available only for **Standard**, **Premium**, **Premium V2** and **Isolated** pricing tiers.
+> Per-app scaling is available only for **Standard**, **Premium**, **Premium V2**, **Premium V3**, and **Isolated** pricing tiers.
 >
 
 Apps are allocated to available App Service plan using a best effort approach for an even distribution across instances. While an even distribution is not guaranteed, the platform will make sure that two instances of the same app will not be hosted on the same App Service plan instance.
@@ -151,3 +142,4 @@ Follow these steps to configure high-density hosting for your apps:
 
 - [Azure App Service plans in-depth overview](overview-hosting-plans.md)
 - [Introduction to App Service Environment](environment/app-service-app-service-environment-intro.md)
+- [Tutorial: Run a load test to identify performance bottlenecks in a web app](../load-testing/tutorial-identify-bottlenecks-azure-portal.md)

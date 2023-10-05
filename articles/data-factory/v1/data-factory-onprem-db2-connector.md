@@ -1,21 +1,12 @@
 ---
-title: Move data from DB2 by using Azure Data Factory | Microsoft Docs
+title: Move data from DB2 by using Azure Data Factory 
 description: Learn how to move data from an on-premises DB2 database by using Azure Data Factory Copy Activity
-services: data-factory
-documentationcenter: ''
-author: linda33wj
-manager: craigg
-
-
-ms.assetid: c1644e17-4560-46bb-bf3c-b923126671f1
+author: jianleishen
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-
+ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/10/2018
-ms.author: jingwang
-
+ms.date: 04/12/2023
+ms.author: jianleishen
 robots: noindex
 ---
 # Move data from DB2 by using Azure Data Factory Copy Activity
@@ -62,7 +53,7 @@ The Data Factory DB2 connector supports the following IBM DB2 platforms and vers
 You can create a pipeline with a copy activity to move data from an on-premises DB2 data store by using different tools and APIs: 
 
 - The easiest way to create a pipeline is to use the Azure Data Factory Copy Wizard. For a quick walkthrough on creating a pipeline by using the Copy Wizard, see the [Tutorial: Create a pipeline by using the Copy Wizard](data-factory-copy-data-wizard-tutorial.md). 
-- You can also use tools to create a pipeline, including the Azure portal, Visual Studio, Azure PowerShell, an Azure Resource Manager template, the .NET API, and the REST API. For step-by-step instructions to create a pipeline with a copy activity, see the [Copy Activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
+- You can also use tools to create a pipeline, including Visual Studio, Azure PowerShell, an Azure Resource Manager template, the .NET API, and the REST API. For step-by-step instructions to create a pipeline with a copy activity, see the [Copy Activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
 
 Whether you use the tools or APIs, you perform the following steps to create a pipeline that moves data from a source data store to a sink data store:
 
@@ -110,7 +101,7 @@ For Copy Activity, when the source is of type **RelationalSource** (which includ
 > Schema and table names are case-sensitive. In the query statement, enclose property names by using "" (double quotes).
 
 ## JSON example: Copy data from DB2 to Azure Blob storage
-This example provides sample JSON definitions that you can use to create a pipeline by using the [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). The example shows you how to copy data from a DB2 database to Blob storage. However, data can be copied to [any supported data store sink type](data-factory-data-movement-activities.md#supported-data-stores-and-formats) by using Azure Data Factory Copy Activity.
+This example provides sample JSON definitions that you can use to create a pipeline by using the [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). The example shows you how to copy data from a DB2 database to Blob storage. However, data can be copied to [any supported data store sink type](data-factory-data-movement-activities.md#supported-data-stores-and-formats) by using Azure Data Factory Copy Activity.
 
 The sample has the following Data Factory entities:
 

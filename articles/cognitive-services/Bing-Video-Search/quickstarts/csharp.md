@@ -1,111 +1,142 @@
 ---
-title: "Quickstart: Search for videos using the Bing Video Search REST API and C#"
-titlesuffix: Azure Cognitive Services
-description: Use this quickstart to send video search requests to the Bing Video Search REST API using C#.
+title: "Quickstart: Search for videos using the REST API and C# - Bing Video Search"
+titleSuffix: Azure AI services
+description: "Use this quickstart to send video search requests to the Bing Video Search REST API using C#."
 services: cognitive-services
 author: aahill
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 01/31/2019
-ms.author: aahi
+ms.date: 10/22/2020
+ms.author: clschott
+ms.devlang: csharp
+ms.custom: devx-track-csharp, mode-api
 ---
 
 # Quickstart: Search for videos using the Bing Video Search REST API and C#
 
-Use this quickstart to make your first call to the Bing Video Search API and view a search result from the JSON response. This simple C# application sends an HTTP video search query to the API, and displays the response. While this application is written in C#, the API is a RESTful Web service compatible with most programming languages.
+[!INCLUDE [Bing move notice](../../bing-web-search/includes/bing-move-notice.md)]
+
+Use this quickstart to make your first call to the Bing Video Search API. This simple C# application sends an HTTP video search query to the API and displays the JSON response. Although this application is written in C#, the API is a RESTful Web service compatible with most programming languages.
 
 The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingVideoSearchv7.cs) with additional error handling, features, and code annotations.
 
 ## Prerequisites
-* Any edition of [Visual Studio 2017 or later](https://www.visualstudio.com/downloads/).
-* The [Json.NET](https://www.newtonsoft.com/json) framework, available as a NuGet package.
-* If you are using Linux/MacOS, this application can be run using [Mono](https://www.mono-project.com/).
+
+You’ll need to set up your machine to run .NET core. You can find the installation instructions on the [.NET Core Downloads](https://dotnet.microsoft.com/download)
+page. You can run this application on Windows, Linux, macOS, or in a Docker container. You’ll need to install your favorite code editor. The descriptions below
+use [Visual Studio Code](https://code.visualstudio.com/), which is an open source, cross platform editor. However, you can use whatever tools you are
+comfortable with.
 
 [!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)]
 
 ## Create and initialize a project
 
-1. Create a new console solution in Visual Studio. Then add the following namespaces into the main code file.
+The first step is to create a new application. Open a command prompt and create a new directory for your application. Make that the current directory. Enter the following command in a console window:
 
-    ```csharp
-    using System;
-    using System.Text;
-    using System.Net;
-    using System.IO;
-    using System.Collections.Generic;
-    ```
+```dotnetcli
+dotnet new console --name VideoSearchClient
+```
 
-2. Add variables for your subscription key, endpoint, and search term.
+You'll need to add the following `using` directive at the top of your Main method so that the C# compiler recognizes the Task and JSON types:
 
-    ```csharp
-    const string accessKey = "enter your key here";
-    const string uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/videos/search";
-    const string searchTerm = "kittens";
-    ```
+```csharp
+using System;
+using System.Net.Http;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+```
 
-### Create a struct to format the Bing Video Search API response
+Add variables for your subscription key, endpoint, and search term. For the `uriBase` value, you can use the global endpoint in the following code or use the [custom subdomain](../../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
-1. Define a `SearchResult` struct to contain the image search results, and JSON header information.
+```csharp
+// Replace the accessKey string value with your valid access key.
+const string _accessKey = "enter your key here";
 
-    ```csharp
-    struct SearchResult
-        {
-            public String jsonResult;
-            public Dictionary<String, String> relevantHeaders;
-        }
-    ```
+// Or use the custom subdomain endpoint displayed in the Azure portal for your resource.
+const string _uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/videos/search";
+
+const string _searchTerm = "kittens";
+```
+
+Next, update the Main method so we can use Async methods. Add the async modifier, and change the return type to Task.
+
+```csharp
+static async Task Main(string[] args)
+{
+    
+}
+```
+
+Now, you have a program that does nothing but does it asynchronously. Let's improve it.
+
+## Create a data structure to hold the Bing Video Search API response
+
+Define a `SearchResult` and `Video` class to contain the video search results. You can add more properties later when you need other fields from the JSON result.
+
+```cscharp
+class SearchResult
+{
+    [JsonPropertyName("totalEstimatedMatches")]
+    public int TotalEstimatedMatches { get; set; }
+
+    [JsonPropertyName("value")]
+    public List<Video> Videos { get; set; }
+}
+
+class Video
+{
+    [JsonPropertyName("name")]
+    public string Name { get; set; }
+
+    [JsonPropertyName("description")]
+    public string Description { get; set; }
+
+    [JsonPropertyName("thumbnailUrl")]
+    public string ThumbnailUrl { get; set; }
+
+    [JsonPropertyName("contentUrl")]
+    public string ContentUrl { get; set; }
+}
+```
 
 ## Create and handle a video search request
 
-Create a method named `BingVideoSearch` to perform the call to the API, and set the return type to the `SearchResult` struct created earlier. In the method, perform the following steps:
+We use `HttpClient` to perform the call to the API. First, we need to add the header `Ocp-Apim-Subscription-Key` and your access key. 
 
-1. Construct the URI for the search request. Note that the search term toSearch must be formatted before being appended to the string.
+```csharp
+using var client = new HttpClient();
+client.BaseAddress = new Uri(_uriBase);
+client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", _accessKey);
+```
 
-    ```csharp
-    
-    static SearchResult BingVideoSearch(string toSearch){
-    
-        var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(toSearch);
-    //...
-    ```
+Construct the URI for the search request. Format the search term `_searchTerm` before you append it to the string.
 
-2. Perform the web request by adding your key to the `Ocp-Acpim-Subscription-Key` header, and using a `HttpWebResponse` object to store the API response. Then use a `StreamReader` to get the JSON string.
-
-    ```csharp
-    //...
-    WebRequest request = HttpWebRequest.Create(uriQuery);
-    request.Headers["Ocp-Apim-Subscription-Key"] = accessKey;
-    HttpWebResponse response = (HttpWebResponse)request.GetResponseAsync().Result;
-    string json = new StreamReader(response.GetResponseStream()).ReadToEnd();
-    //...
-    ```
+```csharp
+var response = await client.GetAsync($"?q={Uri.EscapeDataString(_searchTerm)}");
+```
 
 ## Process the result
 
-1. Create the search result object, and extract the Bing HTTP headers. Then return the `searchResult` object. 
+When the response was successful, we can process the JSON data. We deserialize the JSON string into our `SearchResult` we had created earlier. Loop to the result (if any) and print the result to the console.
 
-    ```csharp
-    var searchResult = new SearchResult();
-    searchResult.jsonResult = json;
-    searchResult.relevantHeaders = new Dictionary<String, String>();
+```csharp
+if (response.IsSuccessStatusCode)
+{
+    var json = await response.Content.ReadAsStringAsync();
+    var result = JsonSerializer.Deserialize<SearchResult>(json);
 
-    // Extract Bing HTTP headers
-    foreach (String header in response.Headers)
+    foreach (var video in result.Videos)
     {
-        if (header.StartsWith("BingAPIs-") || header.StartsWith("X-MSEdge-"))
-            searchResult.relevantHeaders[header] = response.Headers[header];
+        Console.WriteLine($"Name: {video.Name}");
+        Console.WriteLine($"ContentUrl: {video.ContentUrl}");
+        Console.WriteLine();
     }
-    return searchResult;
-    ```
-
-2. You can then print the response.
-
-    ```csharp
-    Console.WriteLine(result.jsonResult);
-    ```
+}
+```
 
 ## Example JSON response 
 

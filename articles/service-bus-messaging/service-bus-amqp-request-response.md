@@ -1,21 +1,8 @@
 ---
-title: AMQP 1.0 in Azure Service Bus request-response-based operations | Microsoft Docs
-description: List of Microsoft Azure Service Bus request/response-based operations.
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-manager: timlt
-editor: spelluru
-
-ms.assetid: 
-ms.service: service-bus-messaging
-ms.devlang: na
+title: AMQP 1.0 request/response operations in Azure Service Bus
+description: This article defines the list of AMQP request/response-based operations in Microsoft Azure Service Bus.
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/23/2019
-ms.author: aschhab
-
+ms.date: 12/20/2022
 ---
 
 # AMQP 1.0 in Microsoft Azure Service Bus: request-response-based operations
@@ -25,11 +12,7 @@ This article defines the list of Microsoft Azure Service Bus request/response-ba
 For a detailed wire-level AMQP 1.0 protocol guide, which explains how Service Bus implements and builds on the OASIS AMQP technical specification, see the [AMQP 1.0 in Azure Service Bus and Event Hubs protocol guide][AMQP 1.0 protocol guide].  
   
 ## Concepts  
-  
-### Entity description  
-
-An entity description refers to either a Service Bus [QueueDescription class](/dotnet/api/microsoft.servicebus.messaging.queuedescription), [TopicDescription class](/dotnet/api/microsoft.servicebus.messaging.topicdescription), or [SubscriptionDescription class](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) object.  
-  
+    
 ### Brokered message  
 
 Represents a message in Service Bus, which is mapped to an AMQP message. The mapping is defined in the [Service Bus AMQP protocol guide](service-bus-amqp-protocol-guide.md).  
@@ -67,7 +50,7 @@ role: RECEIVER,
 ### Transfer a request message  
 
 Transfers a request message.  
-A transaction-state can be added optionally for operations which supports transaction.
+A transaction-state can be added optionally for operations that support transactions.
 
 ```
 requestLink.sendTransfer(
@@ -123,7 +106,7 @@ Service Bus entities must be addressed as follows:
   
 ### Message Renew Lock  
 
-Extends the lock of a message by the time specified in the entity description.  
+Extends the lock of a message by the lock duration set on the queue or subscription.  
   
 #### Request  
 
@@ -141,7 +124,7 @@ The request message must include the following application properties:
 |`lock-tokens`|array of uuid|Yes|Message lock tokens to renew.|  
 
 > [!NOTE]
-> Lock tokens are the `DeliveryTag` property on received messages. See the following example in the [.NET SDK](https://github.com/Azure/azure-service-bus-dotnet/blob/6f144e91310dcc7bd37aba4e8aebd535d13fa31a/src/Microsoft.Azure.ServiceBus/Amqp/AmqpMessageConverter.cs#L336) which retrieves these. The token may also appear in the 'DeliveryAnnotations' as 'x-opt-lock-token' however, this is not guaranteed and the `DeliveryTag` should be preferred. 
+> Lock token here refers to the `delivery-tag` property on the received AMQP message. If you received a deferred message and want to renew its lock, then use the property `lock-token` on the message instead of the `delivery-tag`. 
 > 
   
 #### Response  
@@ -270,19 +253,13 @@ The response message must include the following application properties:
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Yes|HTTP response code [RFC2616]<br /><br /> 200: OK – success, otherwise failed.|  
-|statusDescription|string|No|Description of the status.|  
-  
-The response message body must consist of an **amqp-value** section containing a map with the following entries:  
-  
-|Key|Value Type|Required|Value Contents|  
-|---------|----------------|--------------|--------------------|  
-|sequence-numbers|array of long|Yes|Sequence number of scheduled messages. Sequence number is used to cancel.|  
+|statusDescription|string|No|Description of the status.|   
   
 ## Session Operations  
   
 ### Session Renew Lock  
 
-Extends the lock of a message by the time specified in the entity description.  
+Extends the lock of a message by the lock duration set on the queue or subscription.  
   
 #### Request  
 
@@ -570,21 +547,22 @@ The response message includes the following properties:
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Yes|HTTP response code [RFC2616]<br /><br /> 200: OK – success, otherwise failed|  
-|rules| array of map|Yes|Array of rules. Each rule is represented by a map.|
+|rules| list of maps |Yes| List of rules. Each rule is represented by a map.|
 
-Each map entry in the array includes the following properties:
+Each map entry in the list includes the following properties:
 
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
-|rule-description|array of described objects|Yes|`com.microsoft:rule-description:list` with AMQP described code 0x0000013700000004| 
+|rule-description| described object |Yes|`com.microsoft:rule-description` with AMQP described code 0x0000013700000004| 
 
-`com.microsoft.rule-description:list` is an array of described objects. The array includes the following:
+`com.microsoft.rule-description` itself is a described list. It has the following properties:
 
 |Index|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
-| 0 | array of described objects | Yes | `filter` as specified below. |
-| 1 | array of described object | Yes | `ruleAction` as specified below. |
+| 0 | described list | Yes | `filter` as specified in the next table. |
+| 1 | described list | Yes | `ruleAction` as specified later in this section. |
 | 2 | string | Yes | name of the rule. |
+| 3 | timestamp | Yes | time stamp. |
 
 `filter` can be of either of the following types:
 
@@ -595,13 +573,14 @@ Each map entry in the array includes the following properties:
 | `com.microsoft:true-filter:list` | 0x000001370000007 | True filter representing 1=1 |
 | `com.microsoft:false-filter:list` | 0x000001370000008 | False filter representing 1=0 |
 
-`com.microsoft:sql-filter:list` is a described array which includes:
+`com.microsoft:sql-filter:list` is a described list, which includes:
 
 |Index|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
 | 0 | string | Yes | Sql Filter expression |
+| 1 | int | Yes | always 20. This integer is the compatibility level of the sql filter. It indicates the syntax version of the sql filter. | 
 
-`com.microsoft:correlation-filter:list` is a described array which includes:
+`com.microsoft:correlation-filter:list` is a described list, which includes:
 
 |Index (if exists)|Value Type|Value Contents|  
 |---------|----------------|--------------|
@@ -622,7 +601,13 @@ Each map entry in the array includes the following properties:
 | `com.microsoft:empty-rule-action:list` | 0x0000013700000005 | Empty Rule Action - No rule action present |
 | `com.microsoft:sql-rule-action:list` | 0x0000013700000006 | SQL Rule Action |
 
-`com.microsoft:sql-rule-action:list` is an array of described objects whose first entry is a string which contains the SQL rule action's expression.
+`com.microsoft:sql-rule-action:list` is a described list that has two elements.
+
+|Index|Value Type|Required|Value Contents|  
+|---------|----------------|--------------|--------------------|  
+| 0 | string | Yes | SQL rule action's expression |
+| 1 | int | Yes | always 20. This integer is the compatibility level of the sql filter. It indicates the syntax version of the sql filter. | 
+
 
 ## Deferred message operations  
   
@@ -637,7 +622,7 @@ The request message must include the following application properties:
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
 |operation|string|Yes|`com.microsoft:receive-by-sequence-number`|  
-|`com.microsoft:server-timeout`|uint|No|Operation server timeout in milliseconds.|  
+|`com.microsoft:server-timeout`|uint|No|Operation server timeout in milliseconds.|
   
 The request message body must consist of an **amqp-value** section containing a **map** with the following entries:  
   
@@ -710,4 +695,4 @@ To learn more about AMQP and Service Bus, visit the following links:
 
 [Service Bus AMQP overview]: service-bus-amqp-overview.md
 [AMQP 1.0 protocol guide]: service-bus-amqp-protocol-guide.md
-[AMQP in Service Bus for Windows Server]: https://docs.microsoft.com/previous-versions/service-bus-archive/dn282144(v=azure.100)
+[AMQP in Service Bus for Windows Server]: /previous-versions/service-bus-archive/dn282144(v=azure.100)

@@ -1,39 +1,36 @@
 ---
-title: Web app that calls web APIs (move to production) - Microsoft identity platform
-description: Learn how to build a web app that calls web APIs (move to production)
+title: Move to production a web app that calls web APIs
+description: Learn how to move to production a web app that calls web APIs.
 services: active-directory
-documentationcenter: dev-center-name
-author: jmprieur
+author: cilwerner
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
-ms.author: jmprieur
+ms.author: cwerner
+ms.reviewer: jmprieur
 ms.custom: aaddev 
-#Customer intent: As an application developer, I want to know how to write a Web app that calls Web APIs using the Microsoft identity platform for developers.
-ms.collection: M365-identity-device-management
+#Customer intent: As an application developer, I want to know how to write a web app that calls web APIs by using the Microsoft identity platform.
 ---
 
-# Web app that calls web APIs - move to production
+# A web app that calls web APIs: Move to production
 
-Now that you know how to acquire a token to call Web APIs, learn how to move to production.
+Now that you know how to acquire a token to call web APIs, here are some things to consider when moving your application to production.
 
-[!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
+[!INCLUDE [Common steps to move to production](./includes/scenarios/scenarios-production.md)]
 
 ## Next steps
 
-Learn more by trying out the full ASP.NET Core web app progressive tutorial, which shows:
+Learn more by trying out the full, progressive tutorial for ASP.NET Core web apps. The tutorial:
 
-- How to sign in users with multiple audiences, national clouds, or with social identities
-- Calls Microsoft Graph
-- Calls several Microsoft APIs
-- Handles incremental consent
-- Calls your own Web API
+- Shows how to sign users in to multiple audiences or to national clouds, or by using social identities.
+- Calls Microsoft Graph.
+- Calls several Microsoft APIs.
+- Handles incremental consent.
+- Calls your own web API.
 
 > [!div class="nextstepaction"]
 > [ASP.NET Core web app tutorial](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial#scope-of-this-tutorial)

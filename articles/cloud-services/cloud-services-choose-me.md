@@ -1,22 +1,19 @@
 ---
-title: What is Azure Cloud Services | Microsoft Docs
-description: 'Learn about what Azure Cloud Services is.'
-services: cloud-services
-documentationcenter: ''
-author: jpconnock
-manager: timlt
-
-ms.assetid: ed7ad348-6018-41bb-a27d-523accd90305
-ms.service: multiple
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
+title: What is Azure Cloud Services (classic) | Microsoft Docs
+description: Learn about what Azure Cloud Services is, specifically that it's designed to support applications that are scalable, reliable, and inexpensive to operate.
 ms.topic: article
-ms.date: 04/19/2017
-ms.author: jeconnoc
-
+ms.service: cloud-services
+ms.date: 02/21/2023
+author: hirenshah1
+ms.author: hirshah
+ms.reviewer: mimckitt
+ms.custom: compute-evergreen
 ---
-# Overview of Azure Cloud Services
+
+# Overview of Azure Cloud Services (classic)
+
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
+
 Azure Cloud Services is an example of a [platform as a service](https://azure.microsoft.com/overview/what-is-paas/) (PaaS). Like [Azure App Service](../app-service/overview.md), this technology is designed to support applications that are scalable, reliable, and inexpensive to operate. In the same way that App Service is hosted on virtual machines (VMs), so too is Azure Cloud Services. However, you have more control over the VMs. You can install your own software on VMs that use Azure Cloud Services, and you can access them remotely.
 
 ![Azure Cloud Services diagram](./media/cloud-services-choose-me/diagram.png)
@@ -50,6 +47,9 @@ The PaaS nature of Azure Cloud Services has other implications, too. One of the 
 * [Create a cloud service app in Node.js](cloud-services-nodejs-develop-deploy-app.md) 
 * [Create a cloud service app in PHP](../cloud-services-php-create-web-role.md) 
 * [Create a cloud service app in Python](cloud-services-python-ptvs.md)
+
+
+
 
 
 

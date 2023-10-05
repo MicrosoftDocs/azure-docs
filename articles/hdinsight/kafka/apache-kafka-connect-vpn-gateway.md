@@ -2,12 +2,9 @@
 title: Connect to Kafka using virtual networks - Azure HDInsight 
 description: Learn how to directly connect to Kafka on HDInsight through an Azure Virtual Network. Learn how to connect to Kafka from development clients using a VPN gateway, or from clients in your on-premises network by using a VPN gateway device.
 ms.service: hdinsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
-ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 05/28/2019
+ms.topic: how-to
+ms.custom: hdinsightactive, devx-track-python, devx-track-azurepowershell
+ms.date: 06/12/2023
 ---
 
 # Connect to Apache Kafka on HDInsight through an Azure Virtual Network
@@ -33,7 +30,7 @@ HDInsight does not allow direct connection to Kafka over the public internet. In
   4. Configure forwarding between the DNS server in each network.
   5. Create a Kafka on HDInsight cluster in the virtual network.
 
-     For more information, see the [Connect to Apache Kafka from an on-premises network](#on-premises) section. 
+     For more information, see the [Connect to Apache Kafka from an on-premises network](#on-premises) section.
 
 * Connect individual machines to the virtual network using a VPN gateway and VPN client. To enable this configuration, perform the following tasks:
 
@@ -51,7 +48,7 @@ HDInsight does not allow direct connection to Kafka over the public internet. In
      > * Each client must connect using a VPN software client.
      > * The VPN client does not pass name resolution requests to the virtual network, so you must use IP addressing to communicate with Kafka. IP communication requires additional configuration on the Kafka cluster.
 
-For more information on using HDInsight in a virtual network, see [Extend HDInsight by using Azure Virtual Networks](../hdinsight-extend-hadoop-virtual-network.md).
+For more information on using HDInsight in a virtual network, see [Plan a virtual network for Azure HDInsight clusters](../hdinsight-plan-virtual-network-deployment.md).
 
 ## <a id="on-premises"></a> Connect to Apache Kafka from an on-premises network
 
@@ -120,7 +117,7 @@ Use the steps in this section to create the following configuration:
     $vpnClientAddressPool = "172.16.201.0/24"
 
     # HDInsight settings
-    $HdiWorkerNodes = 4
+    $hdiWorkerNodes = 4
     $hdiVersion = "3.6"
     $hdiType = "Kafka"
     ```
@@ -243,15 +240,15 @@ By default, Apache Zookeeper returns the domain name of the Kafka brokers to cli
 
 2. To view information on Kafka, select __Kafka__ from the list on the left.
 
-    ![Service list with Kafka highlighted](./media/apache-kafka-connect-vpn-gateway/select-kafka-service.png)
+    :::image type="content" source="./media/apache-kafka-connect-vpn-gateway/select-kafka-service.png" alt-text="Service list with Kafka highlighted" border="true":::
 
 3. To view Kafka configuration, select __Configs__ from the top middle.
 
-    ![Configs links for Kafka](./media/apache-kafka-connect-vpn-gateway/select-kafka-config.png)
+    :::image type="content" source="./media/apache-kafka-connect-vpn-gateway/select-kafka-config1.png" alt-text="Apache Ambari services configuration" border="true":::
 
 4. To find the __kafka-env__ configuration, enter `kafka-env` in the __Filter__ field on the upper right.
 
-    ![Kafka configuration, for kafka-env](./media/apache-kafka-connect-vpn-gateway/search-for-kafka-env.png)
+    :::image type="content" source="./media/apache-kafka-connect-vpn-gateway/search-for-kafka-env.png" alt-text="Kafka configuration, for kafka-env" border="true":::
 
 5. To configure Kafka to advertise IP addresses, add the following text to the bottom of the __kafka-env-template__ field:
 
@@ -269,15 +266,15 @@ By default, Apache Zookeeper returns the domain name of the Kafka brokers to cli
 
 8. To save the configuration changes, use the __Save__ button. Enter a text message describing the changes. Select __OK__ once the changes have been saved.
 
-    ![Save configuration button](./media/apache-kafka-connect-vpn-gateway/save-button.png)
+    :::image type="content" source="./media/apache-kafka-connect-vpn-gateway/save-configuration-button.png" alt-text="Apache Ambari save configuration" border="true":::
 
 9. To prevent errors when restarting Kafka, use the __Service Actions__ button and select __Turn On Maintenance Mode__. Select OK to complete this operation.
 
-    ![Service actions, with turn on maintenance highlighted](./media/apache-kafka-connect-vpn-gateway/turn-on-maintenance-mode.png)
+    :::image type="content" source="./media/apache-kafka-connect-vpn-gateway/turn-on-maintenance-mode.png" alt-text="Service actions, with turn on maintenance highlighted" border="true":::
 
 10. To restart Kafka, use the __Restart__ button and select __Restart All Affected__. Confirm the restart, and then use the __OK__ button after the operation has completed.
 
-    ![Restart button with restart all affected highlighted](./media/apache-kafka-connect-vpn-gateway/restart-button.png)
+    :::image type="content" source="./media/apache-kafka-connect-vpn-gateway/restart-required-button.png" alt-text="Restart button with restart all affected highlighted" border="true":::
 
 11. To disable maintenance mode, use the __Service Actions__ button and select __Turn Off Maintenance Mode__. Select **OK** to complete this operation.
 
@@ -339,8 +336,8 @@ To validate connectivity to Kafka, use the following steps to create and run a P
    * If you have __enabled name resolution through a custom DNS server__, replace the `kafka_broker` entries with the FQDN of the worker nodes.
 
      > [!NOTE]
-     > This code sends the string `test message` to the topic `testtopic`. The default configuration of Kafka on HDInsight is to create the topic if it does not exist.
-
+     > This code sends the string `test message` to the topic `testtopic`. The default configuration of Kafka on HDInsight is not to create the topic if it does not exist. See [How to configure Apache Kafka on HDInsight to automatically create topics](./apache-kafka-auto-create-topics.md). Alternatively, you can create topics manually before producing messages.
+ 
 4. To retrieve the messages from Kafka, use the following Python code:
 
    ```python
@@ -363,7 +360,7 @@ To validate connectivity to Kafka, use the following steps to create and run a P
 
 ## Next steps
 
-For more information on using HDInsight with a virtual network, see the [Extend Azure HDInsight using an Azure Virtual Network](../hdinsight-extend-hadoop-virtual-network.md) document.
+For more information on using HDInsight with a virtual network, see the [Plan a virtual network deployment for Azure HDInsight clusters](../hdinsight-plan-virtual-network-deployment.md) document.
 
 For more information on creating an Azure Virtual Network with Point-to-Site VPN gateway, see the following documents:
 

@@ -1,28 +1,20 @@
 ---
-title: Upgrade the version of an Azure Service Fabric standalone cluster | Microsoft Docs
+title: Upgrade the version of a standalone cluster 
 description: Upgrade the Azure Service Fabric code that runs a standalone Service Fabric cluster.
-services: service-fabric
-documentationcenter: .net
-author: dkkapur
-manager: chackdan
-editor: ''
-
-ms.assetid: 66296cc6-9524-4c6a-b0a6-57c253bdf67e
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
 ms.service: service-fabric
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/09/2018
-ms.author: dekapur
-
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Upgrade the Service Fabric version that runs on your cluster 
 
 For any modern system, the ability to upgrade is key to the long-term success of your product. An Azure Service Fabric cluster is a resource that you own. This article describes how to upgrade the version of Service Fabric running on your standalone cluster.
 
 > [!NOTE]
-> Make sure that your cluster always runs a supported Service Fabric version. When Microsoft announces the release of a new version of Service Fabric, the previous version is marked for end of support after a minimum of 60 days from the date of the announcement. New releases are announced [on the Service Fabric team blog](https://blogs.msdn.microsoft.com/azureservicefabric/). The new release is available to choose at that point.
+> Make sure that your cluster always runs a supported Service Fabric version. When Microsoft announces the release of a new version of Service Fabric, the previous version is marked for end of support after a minimum of 60 days from the date of the announcement. New releases are announced [on the Service Fabric team blog](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric). The new release is available to choose at that point.
 >
 >
 
@@ -72,7 +64,7 @@ When you see the cluster health warning, upgrade the cluster:
 
     ![Get Service Fabric versions][getfabversions]
 3. Start a cluster upgrade to an available version by using the
-   [Start-ServiceFabricClusterUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterupgrade) Windows PowerShell command.
+   [Start-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/start-servicefabricclusterupgrade) Windows PowerShell command.
 
     ```powershell
     Start-ServiceFabricClusterUpgrade -Code -CodePackageVersion <codeversion#> -Monitored -FailureAction Rollback
@@ -87,7 +79,7 @@ When you see the cluster health warning, upgrade the cluster:
     Get-ServiceFabricClusterUpgrade
     ```
 
-    If the cluster health policies aren't met, the upgrade is rolled back. To specify custom health policies for the Start-ServiceFabricClusterUpgrade command, see the documentation for [Start-ServiceFabricClusterUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterupgrade).
+    If the cluster health policies aren't met, the upgrade is rolled back. To specify custom health policies for the Start-ServiceFabricClusterUpgrade command, see the documentation for [Start-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/start-servicefabricclusterupgrade).
 
     After you fix the issues that resulted in the rollback, initiate the upgrade again by following the same steps as previously described.
 
@@ -95,7 +87,7 @@ When you see the cluster health warning, upgrade the cluster:
 Use these steps to upgrade your cluster to a supported version if your cluster nodes don't have internet connectivity to the [Microsoft Download Center](https://download.microsoft.com).
 
 > [!NOTE]
-> If you're running a cluster that isn't connected to the internet, you have to monitor the [Service Fabric team blog](https://blogs.msdn.microsoft.com/azureservicefabric/) to learn about new releases. The system doesn't show a cluster health warning to alert you of new releases.  
+> If you're running a cluster that isn't connected to the internet, you have to monitor the [Service Fabric team blog](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) to learn about new releases. The system doesn't show a cluster health warning to alert you of new releases.  
 >
 >
 
@@ -110,7 +102,7 @@ Modify your cluster configuration to set the following property to *false* befor
 "fabricClusterAutoupgradeEnabled": false,
 ```
 
-For usage details, see the [Start-ServiceFabricClusterConfigurationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade) PowerShell command. Make sure to update 'clusterConfigurationVersion' in your JSON before you start the configuration upgrade.
+For usage details, see the [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade) PowerShell command. Make sure to update 'clusterConfigurationVersion' in your JSON before you start the configuration upgrade.
 
 ```powershell
     Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>
@@ -118,14 +110,14 @@ For usage details, see the [Start-ServiceFabricClusterConfigurationUpgrade](http
 
 ### Cluster upgrade workflow
 
-1. Run [Get-ServiceFabricClusterUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterupgrade) from one of the nodes in the cluster and note the *TargetCodeVersion*.
+1. Run [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade) from one of the nodes in the cluster and note the *TargetCodeVersion*.
 
 2. Run the following from an internet-connected machine to list all upgrade-compatible versions with the current version and download the corresponding package from the associated download links:
 
     ```powershell
     ###### Get list of all upgrade compatible packages  
     Get-ServiceFabricRuntimeUpgradeVersion -BaseVersion <TargetCodeVersion as noted in Step 1> 
-	```
+    ```
 
 3. Connect to the cluster from any machine that has administrator access to all the machines that are listed as nodes in the cluster. The machine that this script is run on doesn't have to be part of the cluster.
 
@@ -145,7 +137,7 @@ For usage details, see the [Start-ServiceFabricClusterConfigurationUpgrade](http
     Register-ServiceFabricClusterPackage -Code -CodePackagePath <name of the .cab file>
 
     ###### Here is a filled-out example
-    Register-ServiceFabricClusterPackage -Code -CodePackagePath .\MicrosoftAzureServiceFabric.5.3.301.9590.cab
+    Register-ServiceFabricClusterPackage -Code -CodePackagePath MicrosoftAzureServiceFabric.5.3.301.9590.cab
     ```
 6. Start a cluster upgrade to an available version.
 
@@ -161,14 +153,14 @@ For usage details, see the [Start-ServiceFabricClusterConfigurationUpgrade](http
     Get-ServiceFabricClusterUpgrade
     ```
 
-    If the cluster health policies aren't met, the upgrade is rolled back. To specify custom health policies for the Start-ServiceFabricClusterUpgrade command, see the documentation for [Start-ServiceFabricClusterUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterupgrade).
+    If the cluster health policies aren't met, the upgrade is rolled back. To specify custom health policies for the Start-ServiceFabricClusterUpgrade command, see the documentation for [Start-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/start-servicefabricclusterupgrade).
 
     After you fix the issues that resulted in the rollback, initiate the upgrade again by following the same steps as previously described.
 
 ## Next steps
 * [Upgrade the configuration of a standalone cluster](service-fabric-cluster-config-upgrade-windows-server.md)
 * Customize some [Service Fabric cluster settings](service-fabric-cluster-fabric-settings.md).
-* [Scale your cluster in and out](service-fabric-cluster-scale-up-down.md).
+* [Scale your cluster in and out](service-fabric-cluster-scale-in-out.md).
 
 <!--Image references-->
 [getfabversions]: ./media/service-fabric-cluster-upgrade-windows-server/getfabversions.PNG

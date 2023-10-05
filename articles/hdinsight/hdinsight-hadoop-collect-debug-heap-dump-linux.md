@@ -1,26 +1,19 @@
 ---
-title: Enable heap dumps for Apache Hadoop services on HDInsight - Azure 
+title: Enable heap dumps for Apache Hadoop services on HDInsight - Azure
 description: Enable heap dumps for Apache Hadoop services from Linux-based HDInsight clusters for debugging and analysis.
-author: hrasheed-msft
-ms.reviewer: jasonh
-
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/27/2018
-ms.author: hrasheed
-
+ms.custom: hdinsightactive
+ms.date: 09/19/2023
 ---
+
 # Enable heap dumps for Apache Hadoop services on Linux-based HDInsight
 
-[!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
+[!INCLUDE [heapdump-selector](includes/hdinsight-selector-heap-dump.md)]
 
-Heap dumps contain a snapshot of the application's memory, including the values of variables at the time the dump was created. So they are useful for diagnosing problems that occur at run-time.
+Heap dumps contain a snapshot of the application's memory, including the values of variables at the time the dump was created. So they're useful for diagnosing problems that occur at run-time.
 
-> [!IMPORTANT]  
-> The steps in this document only work with HDInsight clusters that use Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
-## <a name="whichServices"></a>Services
+## Services
 
 You can enable heap dumps for the following services:
 
@@ -32,11 +25,11 @@ You can enable heap dumps for the following services:
 
 You can also enable heap dumps for the map and reduce processes ran by HDInsight.
 
-## <a name="configuration"></a>Understanding heap dump configuration
+## Understanding heap dump configuration
 
 Heap dumps are enabled by passing options (sometimes known as opts, or parameters) to the JVM when a service is started. For most [Apache Hadoop](https://hadoop.apache.org/) services, you can modify the shell script used to start the service to pass these options.
 
-In each script, there is an export for **\*\_OPTS**, which contains the options passed to the JVM. For example, in the **hadoop-env.sh** script, the line that begins with `export HADOOP_NAMENODE_OPTS=` contains the options for the NameNode service.
+In each script, there's an export for **\*\_OPTS**, which contains the options passed to the JVM. For example, in the **hadoop-env.sh** script, the line that begins with `export HADOOP_NAMENODE_OPTS=` contains the options for the NameNode service.
 
 Map and reduce processes are slightly different, as these operations are a child process of the MapReduce service. Each map or reduce process runs in a child container, and there are two entries that contain the JVM options. Both contained in **mapred-site.xml**:
 
@@ -50,7 +43,7 @@ Map and reduce processes are slightly different, as these operations are a child
 
 The following option enables heap dumps when an OutOfMemoryError occurs:
 
-    -XX:+HeapDumpOnOutOfMemoryError
+`-XX:+HeapDumpOnOutOfMemoryError`
 
 The **+** indicates that this option is enabled. The default is disabled.
 
@@ -61,7 +54,7 @@ The **+** indicates that this option is enabled. The default is disabled.
 
 The default location for the dump file is the current working directory. You can control where the file is stored using the following option:
 
-    -XX:HeapDumpPath=/path
+`-XX:HeapDumpPath=/path`
 
 For example, using `-XX:HeapDumpPath=/tmp` causes the dumps to be stored in the /tmp directory.
 
@@ -69,7 +62,7 @@ For example, using `-XX:HeapDumpPath=/tmp` causes the dumps to be stored in the 
 
 You can also trigger a script when an **OutOfMemoryError** occurs. For example, triggering a notification so you know that the error has occurred. Use the following option to trigger a script on an __OutOfMemoryError__:
 
-    -XX:OnOutOfMemoryError=/path/to/script
+`-XX:OnOutOfMemoryError=/path/to/script`
 
 > [!NOTE]  
 > Since Apache Hadoop is a distributed system, any script used must be placed on all nodes in the cluster that the service runs on.
@@ -80,24 +73,19 @@ You can also trigger a script when an **OutOfMemoryError** occurs. For example, 
 
 To modify the configuration for a service, use the following steps:
 
-1. Open the Ambari web UI for your cluster. The URL is https://YOURCLUSTERNAME.azurehdinsight.net.
-
-    When prompted, authenticate to the site using the HTTP account name (default: admin) and password for your cluster.
-
-   > [!NOTE]  
-   > You may be prompted a second time by Ambari for the user name and password. If so, enter the same account name and password.
+1. From a web browser, navigate to `https://CLUSTERNAME.azurehdinsight.net`, where `CLUSTERNAME` is the name of your cluster.
 
 2. Using the list of on the left, select the service area you want to modify. For example, **HDFS**. In the center area, select the **Configs** tab.
 
-    ![Image of Ambari web with HDFS Configs tab selected](./media/hdinsight-hadoop-heap-dump-linux/serviceconfig.png)
+    :::image type="content" source="./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-service-config-tab.png" alt-text="Image of Ambari web with HDFS Configs tab selected":::
 
 3. Using the **Filter...** entry, enter **opts**. Only items containing this text are displayed.
 
-    ![Filtered list](./media/hdinsight-hadoop-heap-dump-linux/filter.png)
+    :::image type="content" source="./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdinsight-filter-list.png" alt-text="Apache Ambari config filtered list":::
 
 4. Find the **\*\_OPTS** entry for the service you want to enable heap dumps for, and add the options you wish to enable. In the following image, I've added `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/` to the **HADOOP\_NAMENODE\_OPTS** entry:
 
-    ![HADOOP_NAMENODE_OPTS with -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/](./media/hdinsight-hadoop-heap-dump-linux/opts.png)
+    :::image type="content" source="./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hadoop-namenode-opts.png" alt-text="Apache Ambari hadoop-namenode-opts":::
 
    > [!NOTE]  
    > When enabling heap dumps for the map or reduce child process, look for the fields named **mapreduce.admin.map.child.java.opts** and **mapreduce.admin.reduce.child.java.opts**.
@@ -106,18 +94,17 @@ To modify the configuration for a service, use the following steps:
 
 5. Once the changes have been applied, the **Restart required** icon appears beside one or more services.
 
-    ![restart required icon and restart button](./media/hdinsight-hadoop-heap-dump-linux/restartrequiredicon.png)
+    :::image type="content" source="./media/hdinsight-hadoop-collect-debug-heap-dump-linux/restart-required-icon.png" alt-text="restart required icon and restart button":::
 
 6. Select each service that needs a restart, and use the **Service Actions** button to **Turn On Maintenance Mode**. Maintenance mode prevents alerts from being generated from the service when you restart it.
 
-    ![Turn on maintenance mode menu](./media/hdinsight-hadoop-heap-dump-linux/maintenancemode.png)
+    :::image type="content" source="./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-maintenance-mode.png" alt-text="Turn on hdi maintenance mode menu":::
 
 7. Once you have enabled maintenance mode, use the **Restart** button for the service to **Restart All Effected**
 
-    ![Restart All Affected entry](./media/hdinsight-hadoop-heap-dump-linux/restartbutton.png)
+    :::image type="content" source="./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-restart-all-button.png" alt-text="Apache Ambari Restart All Affected entry":::
 
    > [!NOTE]  
    > The entries for the **Restart** button may be different for other services.
 
 8. Once the services have been restarted, use the **Service Actions** button to **Turn Off Maintenance Mode**. This Ambari to resume monitoring for alerts for the service.
-

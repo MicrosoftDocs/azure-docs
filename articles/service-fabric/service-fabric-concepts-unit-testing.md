@@ -1,28 +1,20 @@
 ---
-title: Unit testing stateful services in Azure Service Fabric | Microsoft Docs
+title: Unit testing stateful services in Azure Service Fabric 
 description: Learn about the concepts and practices of unit testing Service Fabric Stateful Services.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: vturecek
-
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 09/04/2018
-ms.author: atsenthi
-
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Unit testing stateful services in Service Fabric
 
 This article covers the concepts and practices of unit testing Service Fabric Stateful Services. Unit testing within Service Fabric deserves its own considerations due to the fact that the application code actively runs under multiple different contexts. This article describes the practices used to ensure application code is covered under each of the different contexts it can run.
 
 ## Unit testing and mocking
-Unit testing in the context of this article is automated testing that can be executed within the context of a test runner such as MSTest or NUnit. The unit tests within this article do not perform operations against a remote resource such as a database or RESTFul API. These remote resources should be mocked. Mocking in the context of this article will fake, record, and control the return values for remote resources.
+Unit testing in the context of this article is automated testing that can be executed within the context of a test runner such as MSTest or NUnit. The unit tests within this article do not perform operations against a remote resource such as a database or RESTful. These remote resources should be mocked. Mocking in the context of this article will fake, record, and control the return values for remote resources.
 
 ### Service Fabric considerations
 Unit testing a Service Fabric stateful service has several considerations. Firstly, the service code executes on multiple nodes but under different roles. Unit tests should evaluate the code under each role to achieve complete coverage. The different roles would be Primary, Active Secondary, Idle Secondary, and Unknown. The None role does not typically need any special coverage as Service Fabric considers this role to be void or null service. Secondly, each node will change its role at any given point. To achieve complete coverage, code execution path's should be tested with role changes occurring.
@@ -47,8 +39,8 @@ Additionally, having multiple instances allows the tests to switch the roles of 
 The State Manager should be treated as a remote resource and therefore mocked. When mocking the state manager, there needs to be some underlying in-memory storage for tracking what is saved to the state manager so that it can be read and verified. A simple way to achieve this is to create mock instances of each of the types of Reliable Collections. Within those mocks, use a data type that closely aligns with the operations performed against that collection. The following are some suggested data types for each reliable collection
 
 - IReliableDictionary<TKey, TValue> -> System.Collections.Concurrent.ConcurrentDictionary<TKey, TValue>
-- IReliableQueue<T> -> System.Collections.Generic.Queue<T>
-- IReliableConcurrentQueue<T> -> System.Collections.Concurrent.ConcurrentQueue<T>
+- IReliableQueue\<T> -> System.Collections.Generic.Queue\<T>
+- IReliableConcurrentQueue\<T> -> System.Collections.Concurrent.ConcurrentQueue\<T>
 
 #### Many State Manager Instances, single storage
 As mentioned before, the State Manager and Reliable Collections should be treated as a remote resource. Therefore, these resources should and will be mocked within the unit tests. However, when running multiple instances of a stateful service it will be a challenge to keep each mocked state manager in sync across different stateful service instances. When the stateful service is running on the cluster, the Service Fabric takes care of keeping each secondary replica's state manager consistent with the primary replica. Therefore, the tests should behave the same so that they can simulate role changes.

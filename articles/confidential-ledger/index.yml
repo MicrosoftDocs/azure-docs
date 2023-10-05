@@ -1,0 +1,75 @@
+### YamlMime:Landing
+
+title: Azure confidential ledger 
+summary: Learn how to use Azure confidential ledger 
+metadata:
+  title: Azure confidential ledger documentation
+  description: Learn how to use Azure confidential ledger 
+  services: confidential-ledger
+  ms.service: confidential-ledger
+  ms.topic: landing-page
+  author: msmbaldwin
+  ms.author: mbaldwin
+  ms.date: 04/15/2021
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Azure confidential ledger
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure confidential ledger?
+            url: overview.md
+
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: deploy
+        links:
+          - text: Azure portal quickstart
+            url: quickstart-portal.md
+          - text: CLI quickstart
+            url: quickstart-cli.md
+          - text: Python quickstart
+            url: quickstart-python.md
+          - text: ARM template quickstart
+            url: quickstart-template.md
+
+  # Card
+  - title: Concepts
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Architecture
+            url: architecture.md
+          - text: Authenticating ledger nodes
+            url: authenticate-ledger-nodes.md
+          - text: Write transaction receipts
+            url: write-transaction-receipts.md
+
+  # Card
+  - title: How-to-guides
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Authenticating ledger nodes
+            url: authenticate-ledger-nodes.md
+          - text: Create a client certificate
+            url: create-client-certificate.md
+          - text: Register the Azure confidential ledger resource provider
+            url: register-ledger-resource-provider.md
+          - text: Verify write transaction receipts
+            url: verify-write-transaction-receipts.md
+  # Card
+  - title: References
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Frequently asked questions
+            url: faq.yml
+
+

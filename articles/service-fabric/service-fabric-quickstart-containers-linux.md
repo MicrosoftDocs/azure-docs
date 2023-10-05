@@ -1,23 +1,14 @@
 ---
-title: Create a Linux container app on Service Fabric in Azure | Microsoft Docs
+title: Create a Linux container app on Service Fabric in Azure
 description: In this quickstart, you will build a Docker image with your application, push the image to a container registry, and then deploy your container to a Service Fabric cluster.
-services: service-fabric
-documentationcenter: linux
-author: aljo-microsoft
-manager: chackdan
-editor: ''
-
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: python
 ms.topic: quickstart
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 01/30/2019
-ms.author: aljo,suhuruli
-ms.custom: mvc
-
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Quickstart: Deploy Linux containers to Service Fabric
 
 Azure Service Fabric is a distributed systems platform for deploying and managing scalable and reliable microservices and containers.
@@ -32,7 +23,7 @@ To complete this quickstart:
 
 1. Create a [free Azure account](https://azure.microsoft.com/free/) before you begin if you don't have a subscription.
 
-2. Install the [Azure CLI](/cli/azure/install-azure-cli-apt?view=azure-cli-latest)
+2. Install the [Azure CLI](/cli/azure/install-azure-cli-apt)
 
 3. Install the [Service Fabric SDK and CLI](service-fabric-get-started-linux.md#installation-methods)
 
@@ -55,18 +46,23 @@ cd service-fabric-containers/Linux/container-tutorial/Voting
 
 To deploy the application to Azure, you need a Service Fabric cluster to run the application. The following commands create a five-node cluster in Azure.  The commands also create a self-signed certificate, adds it to a key vault and downloads the certificate locally. The new certificate is used to secure the cluster when it deploys and is used to authenticate clients.
 
+If you wish, you can modify the variable values to your preference. For example, westus instead of eastus for the location.
+
+> [!NOTE]
+> Key vault names should be universally unique, as they are accessed as https://{vault-name}.vault.azure.net.
+>
 ```azurecli
 #!/bin/bash
 
 # Variables
-ResourceGroupName="containertestcluster" 
-ClusterName="containertestcluster" 
-Location="eastus" 
-Password="q6D7nN%6ck@6" 
-Subject="containertestcluster.eastus.cloudapp.azure.com" 
-VaultName="containertestvault" 
-VmPassword="Mypa$$word!321"
-VmUserName="sfadminuser"
+ResourceGroupName='containertestcluster' 
+ClusterName='containertestcluster' 
+Location='eastus' 
+Password='q6D7nN%6ck@6' 
+Subject='containertestcluster.eastus.cloudapp.azure.com' 
+VaultName='containertestvault' 
+VmPassword='Mypa$$word!321'
+VmUserName='sfadminuser'
 
 # Login to Azure and set the subscription
 az login
@@ -77,9 +73,9 @@ az account set --subscription <mySubscriptionID>
 az group create --name $ResourceGroupName --location $Location 
 
 # Create secure five node Linux cluster. Creates a key vault in a resource group
-# and creates a certficate in the key vault. The certificate's subject name must match 
+# and creates a certificate in the key vault. The certificate's subject name must match 
 # the domain that you use to access the Service Fabric cluster.  The certificate is downloaded locally.
-az sf cluster create --resource-group $ResourceGroupName --location $Location --certificate-output-folder . --certificate-password $Password --certificate-subject-name $Subject --cluster-name $ClusterName --cluster-size 5 --os UbuntuServer1604 --vault-name $VaultName --vault-resource-group $ResourceGroupName --vm-password $VmPassword --vm-user-name $VmUserName
+az sf cluster create --resource-group $ResourceGroupName --location $Location --certificate-output-folder . --certificate-password $Password --certificate-subject-name $Subject --cluster-name $ClusterName --cluster-size 5 --os UbuntuServer1804 --vault-name $VaultName --vault-resource-group $ResourceGroupName --vm-password $VmPassword --vm-user-name $VmUserName
 ```
 
 > [!Note]
@@ -91,12 +87,12 @@ az sf cluster create --resource-group $ResourceGroupName --location $Location --
 Service Fabric provides several tools that you can use to manage a cluster and its applications:
 
 - Service Fabric Explorer, a browser-based tool.
-- Service Fabric Command Line Interface (CLI), which runs on top of Azure CLI. 
+- Service Fabric Command Line Interface (CLI), which runs on top of Azure CLI.
 - PowerShell commands.
 
 In this quickstart, you use the Service Fabric CLI and Service Fabric Explorer (a web based tool). To use Service Fabric Explorer, you need to import the certificate PFX file into the browser. By default, the PFX file has no password.
 
-Mozilla Firefox is the default browser in Ubuntu 16.04. To import the certificate into Firefox, click the menu button in the upper right corner of your browser, then click **Options**. On the **Preferences** page, use the search box to search for "certificates". Click **View Certificates**, select the **Your Certificates** tab, click **Import** and follow the prompts to import the certificate.
+Mozilla Firefox is the default browser in Ubuntu 18.04. To import the certificate into Firefox, click the menu button in the upper right corner of your browser, then click **Options**. On the **Preferences** page, use the search box to search for "certificates". Click **View Certificates**, select the **Your Certificates** tab, click **Import** and follow the prompts to import the certificate.
 
    ![Install certificate on Firefox](./media/service-fabric-quickstart-containers-linux/install-cert-firefox.png)
 
@@ -175,7 +171,7 @@ Use the uninstall script (uninstall.sh) provided in the template to delete the a
 
 The simplest way to delete the cluster and all the resources it consumes is to delete the resource group.
 
-Sign in to Azure and select the subscription ID with which you want to remove the cluster. You can find your subscription ID by logging in to the Azure portal. Delete the resource group and all the cluster resources using the [az group delete command](/cli/azure/group?view=azure-cli-latest).
+Sign in to Azure and select the subscription ID with which you want to remove the cluster. You can find your subscription ID by logging in to the Azure portal. Delete the resource group and all the cluster resources using the [az group delete command](/cli/azure/group).
 
 ```azurecli
 az login
@@ -185,16 +181,16 @@ az group delete --name $ResourceGroupName
 ```
 
 If you are finished working with your cluster, you can remove the certificate from your certificate store. For example:
-- On Windows: Use the [Certificates MMC snap-in](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in). Be sure to select **My user account** when adding the snap-in. Navigate to `Certificates - Current User\Personal\Certificates` and remove the certificate.
+- On Windows: Use the [Certificates MMC snap-in](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in). Be sure to select **My user account** when adding the snap-in. Navigate to `Certificates - Current User\Personal\Certificates` and remove the certificate.
 - On Mac: Use the Keychain app.
 - On Ubuntu: Follow the steps you used to view certificates and remove the certificate.
 
 ## Next steps
 
-In this quickstart, you've deployed a Linux container application to a Service Fabric cluster in Azure, performed fail-over on the application, and scaled the application in the cluster. To learn more about working with Linux containers in Service Fabric, continue to the tutorial for Linux container apps.
+In this quickstart, you've deployed a Linux container application to a Service Fabric cluster in Azure, performed fail-over on the application, and scaled the application in the cluster. To learn more about working with Linux containers in Service Fabric, continue to the tutorial for Linux container applications.
 
 > [!div class="nextstepaction"]
-> [Create a Linux container app](./service-fabric-tutorial-create-container-images.md)
+> [Create a Linux container application](./service-fabric-tutorial-create-container-images.md)
 
 [sfx]: ./media/service-fabric-quickstart-containers-linux/containersquickstartappinstance.png
 [quickstartpic]: ./media/service-fabric-quickstart-containers-linux/votingapp.png

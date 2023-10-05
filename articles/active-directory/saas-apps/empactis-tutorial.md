@@ -1,190 +1,135 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Empactis | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Empactis.
+title: 'Tutorial: Microsoft Entra SSO integration with Empactis'
+description: Learn how to configure single sign-on between Microsoft Entra ID and Empactis.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: ee18d76c-7a05-4b25-8e4f-e151b2268958
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/13/2019
+ms.date: 11/21/2022
 ms.author: jeedes
-
 ---
-# Tutorial: Azure Active Directory integration with Empactis
+# Tutorial: Microsoft Entra SSO integration with Empactis
 
-In this tutorial, you learn how to integrate Empactis with Azure Active Directory (Azure AD).
-Integrating Empactis with Azure AD provides you with the following benefits:
+In this tutorial, you'll learn how to integrate Empactis with Microsoft Entra ID. When you integrate Empactis with Microsoft Entra ID, you can:
 
-* You can control in Azure AD who has access to Empactis.
-* You can enable your users to be automatically signed-in to Empactis (Single Sign-On) with their Azure AD accounts.
-* You can manage your accounts in one central location - the Azure portal.
-
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+* Control in Microsoft Entra ID who has access to Empactis.
+* Enable your users to be automatically signed-in to Empactis with their Microsoft Entra accounts.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
-To configure Azure AD integration with Empactis, you need the following items:
+To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
-* Empactis single sign-on enabled subscription
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* Empactis single sign-on (SSO) enabled subscription.
+* Along with Cloud Application Administrator, Application Administrator can also add or manage applications in Microsoft Entra ID.
+For more information, see [Azure built-in roles](../roles/permissions-reference.md).
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+In this tutorial, you configure and test Microsoft Entra single sign-on in a test environment.
 
-* Empactis supports **IDP** initiated SSO
+* Empactis supports **IDP** initiated SSO.
 
-## Adding Empactis from the gallery
+## Add Empactis from the gallery
 
-To configure the integration of Empactis into Azure AD, you need to add Empactis from the gallery to your list of managed SaaS apps.
+To configure the integration of Empactis into Microsoft Entra ID, you need to add Empactis from the gallery to your list of managed SaaS apps.
 
-**To add Empactis from the gallery, perform the following steps:**
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type **Empactis** in the search box.
+1. Select **Empactis** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-	![The Azure Active Directory button](common/select-azuread.png)
+<a name='configure-and-test-azure-ad-sso-for-empactis'></a>
 
-2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
+## Configure and test Microsoft Entra SSO for Empactis
 
-	![The Enterprise applications blade](common/enterprise-applications.png)
+Configure and test Microsoft Entra SSO with Empactis using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in Empactis.
 
-3. To add new application, click **New application** button on the top of dialog.
+To configure and test Microsoft Entra SSO with Empactis, perform the following steps:
 
-	![The New application button](common/add-new-app.png)
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
+1. **[Configure Empactis SSO](#configure-empactis-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create Empactis test user](#create-empactis-test-user)** - to have a counterpart of B.Simon in Empactis that is linked to the Microsoft Entra representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-4. In the search box, type **Empactis**, select **Empactis** from result panel then click **Add** button to add the application.
+<a name='configure-azure-ad-sso'></a>
 
-	 ![Empactis in the results list](common/search-new-app.png)
+## Configure Microsoft Entra SSO
 
-## Configure and test Azure AD single sign-on
+Follow these steps to enable Microsoft Entra SSO.
 
-In this section, you configure and test Azure AD single sign-on with Empactis based on a test user called **Britta Simon**.
-For single sign-on to work, a link relationship between an Azure AD user and the related user in Empactis needs to be established.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Empactis** application integration page, find the **Manage** section and select **Single sign-on**.
+1. On the **Select a Single sign-on method** page, select **SAML**.
+1. On the **Set up Single Sign-On with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-To configure and test Azure AD single sign-on with Empactis, you need to complete the following building blocks:
+   ![Screenshot shows to edit Basic S A M L Configuration.](common/edit-urls.png "Basic Configuration")
 
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Configure Empactis Single Sign-On](#configure-empactis-single-sign-on)** - to configure the Single Sign-On settings on application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create Empactis test user](#create-empactis-test-user)** - to have a counterpart of Britta Simon in Empactis that is linked to the Azure AD representation of user.
-6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+1. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
 
-### Configure Azure AD single sign-on
+1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
-In this section, you enable Azure AD single sign-on in the Azure portal.
-
-To configure Azure AD single sign-on with Empactis, perform the following steps:
-
-1. In the [Azure portal](https://portal.azure.com/), on the **Empactis** application integration page, select **Single sign-on**.
-
-    ![Configure single sign-on link](common/select-sso.png)
-
-2. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
-
-    ![Single sign-on select mode](common/select-saml-option.png)
-
-3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
-
-	![Edit Basic SAML Configuration](common/edit-urls.png)
-
-4. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
-
-    ![Empactis Domain and URLs single sign-on information](common/preintegrated.png)
-
-5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
-
-	![The Certificate download link](common/certificatebase64.png)
+	![Screenshot shows the Certificate download link.](common/certificatebase64.png "Certificate")
 
 6. On the **Set up Empactis** section, copy the appropriate URL(s) as per your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+	![Screenshot shows to copy appropriate configuration U R L.](common/copy-configuration-urls.png "Configuration")
 
-	a. Login URL
+<a name='create-an-azure-ad-test-user'></a>
 
-	b. Azure AD Identifier
+### Create a Microsoft Entra test user 
 
-	c. Logout URL
+In this section, you'll create a test user called B.Simon.
 
-### Configure Empactis Single Sign-On
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Select **Review + create**.
+1. Select **Create**.
 
-To configure single sign-on on **Empactis** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Empactis support team](mailto:support@empactis.com). They set this setting to have the SAML SSO connection set properly on both sides.
+<a name='assign-the-azure-ad-test-user'></a>
 
-### Create an Azure AD test user 
+### Assign the Microsoft Entra test user
 
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Empactis.
 
-1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Empactis**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
+1. In the **Add Assignment** dialog, click the **Assign** button.
 
-    ![The "Users and groups" and "All users" links](common/users.png)
+## Configure Empactis SSO
 
-2. Select **New user** at the top of the screen.
-
-    ![New user Button](common/new-user.png)
-
-3. In the User properties, perform the following steps.
-
-    ![The User dialog box](common/user-properties.png)
-
-    a. In the **Name** field, enter **BrittaSimon**.
-  
-    b. In the **User name** field, type **brittasimon@yourcompanydomain.extension**  
-    For example, BrittaSimon@contoso.com
-
-    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
-
-    d. Click **Create**.
-
-### Assign the Azure AD test user
-
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Empactis.
-
-1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Empactis**.
-
-	![Enterprise applications blade](common/enterprise-applications.png)
-
-2. In the applications list, select **Empactis**.
-
-	![The Empactis link in the Applications list](common/all-applications.png)
-
-3. In the menu on the left, select **Users and groups**.
-
-    ![The "Users and groups" link](common/users-groups-blade.png)
-
-4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
-
-    ![The Add Assignment pane](common/add-assign-user.png)
-
-5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
-
-6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog, select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
-
-7. In the **Add Assignment** dialog, click the **Assign** button.
+To configure single sign-on on **Empactis** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from the application configuration to [Empactis support team](mailto:support@empactis.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Empactis test user
 
 In this section, you create a user called Britta Simon in Empactis. Work with [Empactis support team](mailto:support@empactis.com) to add the users in the Empactis platform. Users must be created and activated before you use single sign-on.
 
-### Test single sign-on 
+## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+In this section, you test your Microsoft Entra single sign-on configuration with following options.
 
-When you click the Empactis tile in the Access Panel, you should be automatically signed in to the Empactis for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Click on **Test this application**, and you should be automatically signed in to the Empactis for which you set up the SSO.
 
-## Additional Resources
+* You can use Microsoft My Apps. When you click the Empactis tile in the My Apps, you should be automatically signed in to the Empactis for which you set up the SSO. For more information, see [Microsoft Entra My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+## Next steps
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+Once you configure Empactis you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

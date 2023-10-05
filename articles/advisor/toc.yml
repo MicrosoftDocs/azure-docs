@@ -4,44 +4,94 @@
   items:
   - name: What is Azure Advisor?
     href: advisor-overview.md
-- name: Tutorials
+  - name: What's new?
+    href: advisor-release-notes.md
+- name: Quickstarts
   items:
   - name: Get started with Advisor
     href: advisor-get-started.md
+  - name: Configure alerts for new recommendations
+    items:
+    - name: Azure portal
+      href: advisor-alerts-portal.md
+    - name: Bicep
+      displayName: ARM, Resource Manager, Template
+      href: advisor-alerts-bicep.md
+    - name: ARM template
+      displayName: Resource Manager
+      href: advisor-alerts-arm.md
+- name: Concepts
+  items:
+  - name: Recommendations
+    items:
+    - name: Cost
+      href: advisor-reference-cost-recommendations.md
+    - name: Operational Excellence
+      href: advisor-reference-operational-excellence-recommendations.md
+    - name: Performance
+      href: advisor-reference-performance-recommendations.md
+    - name: Reliability
+      href: advisor-reference-reliability-recommendations.md    
+    - name: Security
+      href: ../defender-for-cloud/recommendations-reference.md
+    - name: Sovereign clouds
+      href: advisor-sovereign-clouds.md
+- name: Samples 
+  items:
+  - name: Azure Resource Graph queries
+    href: ./resource-graph-samples.md
 - name: How-to guides
   items:
-  - name: Improve availability of Azure application
-    href: advisor-high-availability-recommendations.md
-  - name: Make resources more secure
-    href: advisor-security-recommendations.md
-  - name: Improve performance of Azure applications
-    href: advisor-performance-recommendations.md
-  - name: Reduce service costs
+  - name: Optimize virtual machine spend by resizing or shutting down underutilized instances
     href: advisor-cost-recommendations.md
+  - name: Optimize your Azure costs using the cost optimization workbook 
+    href: advisor-cost-optimization-workbook.md
+  - name: Improve security
+    href: advisor-security-recommendations.md
+  - name: Improve reliability  
+    href: advisor-how-to-improve-reliability.md
+  - name: Plan migration of workloads impacted by services retirement
+    href: advisor-how-to-plan-migration-workloads-service-retirement.md
+  - name: Improve the performance of highly used VMs
+    href: advisor-how-to-performance-resize-high-usage-vm-recommendations.md
+  - name: Use tags to filter recommendations and score
+    href: advisor-tag-filtering.md
   - name: Configure recommendations
     href: view-recommendations.md
   - name: Permissions and blocked actions
     href: permissions.md
+  - name: Configure Alerts for recommendations
+    href: advisor-alerts-portal.md
+  - name: Configure recommendations summary
+    href: advisor-recommendations-digest.md
+  - name: Bulk remediation for recommendations
+    href: advisor-quick-fix.md
+  - name: Advisor data in Azure Resource Graph
+    href: advisor-azure-resource-graph.md
+  - name: Consume Advisor score 
+    href: azure-advisor-score.md
 - name: Reference
   items:
-  - name: Security Center
+  - name: Security baseline
+    href: /security/benchmark/azure/baselines/azure-advisor-security-baseline?toc=/azure/advisor/toc.json
+  - name: Defender for Cloud
     href: https://azure.microsoft.com/services/security-center/
-  - name: SQL DB Advisor
-    href: https://azure.microsoft.com/documentation/articles/sql-database-advisor/
+  - name: SQL Database Advisor
+    href: /azure/azure-sql/database/database-advisor-implement-performance-recommendations
   - name: App Service
-    href: https://docs.microsoft.com/azure/app-service/app-service-best-practices
+    href: ../app-service/app-service-best-practices.md
   - name: REST API
-    href: https://docs.microsoft.com/rest/api/advisor/
-  - name: CLI
-    href: https://docs.microsoft.com/cli/azure/advisor?view=azure-cli-latest
+    href: /rest/api/advisor/
+  - name: Azure CLI
+    href: /cli/azure/advisor
   - name: PowerShell
-    href: https://docs.microsoft.com/powershell/module/az.advisor/?view=azps-1.2.0
+    href: /powershell/module/az.advisor/
 - name: Resources
   items:
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/advisor
+    href: https://azure.microsoft.com/pricing/details/advisor/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Service updates
@@ -53,4 +103,4 @@
   - name: Stack Overflow
     href: https://stackoverflow.com/search?q=azure+advisor
   - name: Code samples
-    href: https://azure.microsoft.com/resources/samples/?service=advisor
+    href: /samples/browse/?products=azure   

@@ -1,20 +1,21 @@
 ---
-title: Connect Raspberry Pi to Azure IoT Hub using C | Microsoft Docs
+title: Connect Raspberry Pi to Azure IoT Hub using C
 description: Learn how to setup and connect Raspberry Pi to Azure IoT Hub for Raspberry Pi to send data to the Azure cloud platform
-author: wesmc7777
+author: kgremban
+
+ms.author: kgremban
 ms.service: iot-hub
-services: iot-hub
 ms.devlang: c
-ms.topic: conceptual
-ms.date: 02/14/2019
-ms.author: wesmc
+ms.topic: tutorial
+ms.date: 06/14/2021
+ms.custom: ['Role: Cloud Development']
 ---
 
 # Connect Raspberry Pi to Azure IoT Hub (C)
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
-In this tutorial, you begin by learning the basics of working with Raspberry Pi that's running Raspbian. You then learn how to seamlessly connect your devices to the cloud by using [Azure IoT Hub](about-iot-hub.md). For Windows 10 IoT Core samples, go to the [Windows Dev Center](https://www.windowsondevices.com/).
+In this tutorial, you begin by learning the basics of working with Raspberry Pi that's running Raspberry Pi OS. You then learn how to seamlessly connect your devices to the cloud by using [Azure IoT Hub](about-iot-hub.md). For Windows 10 IoT Core samples, go to the [Windows Dev Center](https://www.windowsondevices.com/).
 
 Don't have a kit yet? Try [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md). Or buy a new kit [here](https://azure.microsoft.com/develop/iot/starter-kits).
 
@@ -78,10 +79,6 @@ The following items are optional:
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### Retrieve connection string for IoT hub
-
-[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
-
 ## Register a new device in the IoT hub
 
 [!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
@@ -90,25 +87,25 @@ The following items are optional:
 
 Now set up the Raspberry Pi.
 
-### Install the Raspbian operating system for Pi
+### Install the Raspberry Pi OS
 
-Prepare the microSD card for installation of the Raspbian image.
+Prepare the microSD card for installation of the Raspberry Pi OS image.
 
-1. Download Raspbian.
+1. Download Raspberry Pi OS.
 
-   1. [Download Raspbian Stretch with Desktop](https://www.raspberrypi.org/downloads/raspbian/) (the .zip file).
+   1. [Download Raspberry Pi OS with Desktop](https://www.raspberrypi.org/software/) (the .zip file).
 
-   2. Extract the Raspbian image to a folder on your computer.
+   2. Extract the image to a folder on your computer.
 
-2. Install Raspbian to the microSD card.
+2. Install Raspberry Pi OS to the microSD card.
 
    1. [Download and install the Etcher SD card burner utility](https://etcher.io/).
 
-   2. Run Etcher and select the Raspbian image that you extracted in step 1.
+   2. Run Etcher and select the Raspberry Pi OS image that you extracted in step 1.
 
    3. Select the microSD card drive. Note that Etcher may have already selected the correct drive.
 
-   4. Click Flash to install Raspbian to the microSD card.
+   4. Click Flash to install Raspberry Pi OS to the microSD card.
 
    5. Remove the microSD card from your computer when installation is complete. It's safe to remove the microSD card directly because Etcher automatically ejects or unmounts the microSD card upon completion.
 
@@ -116,11 +113,11 @@ Prepare the microSD card for installation of the Raspbian image.
 
 ### Enable SSH and SPI
 
-1. Connect Pi to the monitor, keyboard and mouse, start Pi and then sign in to Raspbian by using `pi` as the user name and `raspberry` as the password.
+1. Connect Pi to the monitor, keyboard and mouse, start Pi and then sign in to Raspberry Pi OS by using `pi` as the user name and `raspberry` as the password.
  
 2. Click the Raspberry icon > **Preferences** > **Raspberry Pi Configuration**.
 
-   ![The Raspbian Preferences menu](./media/iot-hub-raspberry-pi-kit-c-get-started/1-raspbian-preferences-menu.png)
+   ![The Raspberry Pi OS Preferences menu](./media/iot-hub-raspberry-pi-kit-c-get-started/1-raspbian-preferences-menu.png)
 
 3. On the **Interfaces** tab, set **SPI** and **SSH** to **Enable**, and then click **OK**. If you don't have physical sensors and want to use simulated sensor data, this step is optional.
 
@@ -151,7 +148,7 @@ For sensor pins, use the following wiring:
 | SDI (Pin 23F)            | SPI0 MOSI (Pin 19)     | Green cable   |
 | CS (Pin 24F)             | SPI0 CS (Pin 24)       | Blue cable    |
 
-Click to view [Raspberry Pi 2 & 3 Pin mappings](https://developer.microsoft.com/windows/iot/docs/pinmappingsrpi) for your reference.
+Click to view [Raspberry Pi 2 & 3 Pin mappings](/windows/iot-core/learn-about-hardware/pinmappings/pinmappingsrpi) for your reference.
 
 After you've successfully connected BME280 to your Raspberry Pi, it should be like below image.
 
@@ -159,7 +156,7 @@ After you've successfully connected BME280 to your Raspberry Pi, it should be li
 
 ### Connect Pi to the network
 
-Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet cable to connect Pi to your wired network or follow the [instructions from the Raspberry Pi Foundation](https://www.raspberrypi.org/learning/software-guide/wifi/) to connect Pi to your wireless network. After your Pi has been successfully connected to the network, you need to take a note of the [IP address of your Pi](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-3-network-setup/finding-your-pis-ip-address).
+Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet cable to connect Pi to your wired network or follow the [instructions from the Raspberry Pi Foundation](https://www.raspberrypi.org/documentation/configuration/wireless/) to connect Pi to your wireless network. After your Pi has been successfully connected to the network, you need to take a note of the [IP address of your Pi](https://www.raspberrypi.org/documentation/remote-access/ip-address.md).
 
 ![Connected to wired network](./media/iot-hub-raspberry-pi-kit-c-get-started/5-power-on-pi.png)
 
@@ -187,11 +184,10 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
 1. Clone the sample application by running the following command:
 
    ```bash
-   sudo apt-get install git-core
    git clone https://github.com/Azure-Samples/iot-hub-c-raspberrypi-client-app.git
    ```
 
-2. Run setup script:
+2. A setup script is provided with the sample to prepare the development environment, and build the sample. Run setup script:
 
    ```bash
    cd ./iot-hub-c-raspberrypi-client-app
@@ -205,7 +201,7 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
 
 ### Build and run the sample application
 
-1. Build the sample application by running the following command:
+1. The setup script should have already built the sample. However, if you make changes and need to rebuild the sample application, run the following command:
 
    ```bash
    cmake . && make
@@ -229,9 +225,18 @@ You should see the following output that shows the sensor data and the messages 
 
 ## Read the messages received by your hub
 
-One way to monitor messages received by your IoT hub from your device is to use the Azure IoT Tools for Visual Studio Code. To learn more, see [Use Azure IoT Tools for Visual Studio Code to send and receive messages between your device and IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
+One way to monitor messages received by your IoT hub from your device is to use the Azure IoT Hub extension for Visual Studio Code. To learn more, see [Use the Azure IoT Hub extension for Visual Studio Code to send and receive messages between your device and IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
 
 For more ways to process data sent by your device, continue on to the next section.
+
+## Clean up resources
+
+You can use the resources created in this topic with other tutorials and quickstarts in this document set. If you plan to continue on to work with other quickstarts or with the tutorials, do not clean up the resources created in this topic. If you do not plan to continue, use the following steps to delete all resources created by this topic in the Azure portal.
+
+1. From the left-hand menu in the Azure portal, select **All resources** and then select the IoT Hub you created. 
+1. At the top of the IoT Hub overview pane, click **Delete**.
+1. Enter your hub name and click **Delete** again to confirm permanently deleting the IoT hub.
+
 
 ## Next steps
 

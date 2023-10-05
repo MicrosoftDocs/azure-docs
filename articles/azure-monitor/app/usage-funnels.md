@@ -1,54 +1,51 @@
 ---
-title: Azure Application Insights Funnels
-description: Learn how you can use Funnels to discover how customers are interacting with your application.
-services: application-insights
-documentationcenter: ''
-author: NumberByColors
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+title: Application Insights funnels
+description: Learn how you can use funnels to discover how customers are interacting with your application.
 ms.topic: conceptual
-ms.date: 07/17/2017
-ms.pm_owner: daviste;NumberByColors
-ms.reviewer: mbullwin
-ms.author: daviste
+ms.date: 11/15/2022
+ms.reviewer: mmcc
 ---
 
-# Discover how customers are using your application with Application Insights Funnels
+# Discover how customers are using your application with Application Insights funnels
 
-Understanding the customer experience is of the utmost importance to your business. If your application involves multiple stages, you need to know if most customers are progressing through the entire process, or if they are ending the process at some point. The progression through a series of steps in a web application is known as a *funnel*. You can use Azure Application Insights Funnels to gain insights into your users, and monitor step-by-step conversion rates. 
+Understanding the customer experience is of great importance to your business. If your application involves multiple stages, you need to know if customers are progressing through the entire process or ending the process at some point. The progression through a series of steps in a web application is known as a *funnel*. You can use Application Insights funnels to gain insights into your users and monitor step-by-step conversion rates.
 
 ## Create your funnel
-Before you create your funnel, decide on the question you want to answer. For example, you might want to know how many users are viewing the home page, viewing a customer profile, and creating a ticket. In this example, the owners of the Fabrikam Fiber company want to know the percentage of customers who successfully create a customer ticket.
+Before you create your funnel, decide on the question you want to answer. For example, you might want to know how many users view the home page, view a customer profile, and create a ticket.
 
-Here are the steps they take to create their funnel.
+To create a funnel:
 
-1. In the Application Insights Funnels tool, select **New**.
-1. From the **Time Range** drop-down menu, select **Last 90 days**. Select either **My funnels** or **Shared funnels**.
-1. From the **Step 1** drop-down list, select **Index**. 
-1. From the **Step 2** list, select **Customer**.
-1. From the **Step 3** list, select **Create**.
-1. Add a name to the funnel, and select **Save**.
+1. On the **Funnels** tab, select **Edit**.
+1. Choose your **Top Step**.
 
-The following screenshot shows an example of the kind of data the Funnels tool generates. The Fabrikam owners can see that during the last 90 days, 54.3 percent of their customers who visited the home page created a customer ticket. They can also see that 2,700 of their customers came to the index from the home page. This might indicate a refresh issue.
+     :::image type="content" source="./media/usage-funnels/funnel.png" alt-text="Screenshot that shows the Funnel tab and selecting steps on the Edit tab." lightbox="./media/usage-funnels/funnel.png":::
 
+1. To apply filters to the step, select **Add filters**. This option appears after you choose an item for the top step.
+1. Then choose your **Second Step** and so on.
 
-![Screenshot of Funnels tool with data](media/usage-funnels/funnel1.png)
+    > [!NOTE]
+    > Funnels are limited to a maximum of six steps.
+
+1. Select the **View** tab to see your funnel results.
+
+      :::image type="content" source="./media/usage-funnels/funnel-2.png" alt-text="Screenshot that shows the Funnels View tab that shows results from the top and second steps." lightbox="./media/usage-funnels/funnel-2.png":::
+
+1. To save your funnel to view at another time, select **Save** at the top. Use **Open** to open your saved funnels.
 
 ### Funnels features
-The preceding screenshot includes five highlighted areas. These are features of Funnels. The following list explains more about each corresponding area in the screenshot:
-1. If your app is sampled, you will see a sampling banner. Selecting the banner opens a context pane, explaining how to turn sampling off. 
-2. You can export your funnel to [Power BI](../../azure-monitor/app/export-power-bi.md ).
-3. Select a step to see more details on the right. 
-4. The historical conversion graph shows the conversion rates over the last 90 days. 
-5. Understand your users better by accessing the users tool. You can use filters in each step. 
+
+Funnels have the following features:
+
+- If your app is sampled, you'll see a sampling banner. Selecting the banner opens a context pane that explains how to turn off sampling.
+- Select a step to see more details on the right.
+- The historical conversion graph shows the conversion rates over the last 90 days.
+- Understand your users better by accessing the users tool. You can use filters in each step.
 
 ## Next steps
-  * [Usage overview](usage-overview.md)
-  * [Users, Sessions, and Events](usage-segmentation.md)
-  * [Retention](usage-retention.md)
-  * [Workbooks](../../azure-monitor/app/usage-workbooks.md)
-  * [Add user context](usage-send-user-context.md)
-  * [Export to Power BI](../../azure-monitor/app/export-power-bi.md )
 
+  * [Usage overview](usage-overview.md)
+  * [Users, sessions, and events](usage-segmentation.md)
+  * [Retention](usage-retention.md)
+  * [Workbooks](../visualize/workbooks-overview.md)
+  * [Add user context](./usage-overview.md)
+  * [Export to Power BI](../logs/log-powerbi.md) if you've [migrated to a workspace-based resource](convert-classic-resource.md)

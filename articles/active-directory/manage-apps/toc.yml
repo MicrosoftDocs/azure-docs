@@ -1,324 +1,320 @@
-  - name: Application Management Documentation
+  - name: Application management documentation
     href: index.yml
   - name: Overview
+    expanded: true
     items:
     - name: What is application management?
       href: what-is-application-management.md
-    - name: What is Application Proxy?
-      href: what-is-application-proxy.md
+    - name: What's new in docs?
+      href: whats-new-docs.md
   - name: Quickstarts
     expanded: true
     items:
-    - name: Add a gallery application - portal
+    - name: Add an application
       href: add-application-portal.md
-    - name: View tenant apps - portal
+    - name: Assign a user
+      href: add-application-portal-assign-users.md
+    - name: View applications
       href: view-applications-portal.md
   - name: Tutorials
     items:
-    - name: SaaS application Tutorials
-      href: https://docs.microsoft.com/azure/active-directory/saas-apps/
-    - name: Configure single sign-on - portal
-      href: configure-single-sign-on-portal.md
-    - name: Add an on-premises app - portal
-      href: application-proxy-add-on-premises-application.md    
-  - name: Concepts
+    - name: Manage access and security
+      href: tutorial-manage-access-security.md
+    - name: Govern and monitor
+      href: tutorial-govern-monitor.md
+    - name: Manage certificates
+      href: tutorial-manage-certificates-for-federated-single-sign-on.md 
+  - name: Samples
     items: 
-    - name: Plan a cloud app integration
-      items:
-      - name: What happens when you add an app
-        href: plan-an-application-integration.md
-      - name: Guidance for developers
-        href: developer-guidance-for-integrating-applications.md
-    - name: Plan an on-premises app integration
-      items:
-      - name: Application Proxy
-        href: application-proxy.md
-      - name: Plan an Application Proxy deployment
-        href: application-proxy-deployment-plan.md
-      - name: Connectors
-        href: application-proxy-connectors.md
-      - name: Connector groups
-        href: application-proxy-connector-groups.md
-      - name: Security
-        href: application-proxy-security.md
-      - name: Network topology
-        href: application-proxy-network-topology.md
-      - name: Comparison of remote access solutions
-        href: application-proxy-migration.md
-    - name: Provisioning users and groups
-      items:
-      - name: Automatic user provisioning
-        href: configure-automatic-user-provisioning-portal.md
-      - name: SaaS apps
-        href: user-provisioning.md
-      - name: SCIM-enabled apps
-        href: use-scim-to-provision-users-and-groups.md
-      - name: Customize application attributes
-        href: Customize-application-attributes.md
-      - name: Write expressions for attribute mappings
-        href: functions-for-customizing-application-data.md
-      - name: Scoping filters
-        href: define-conditional-rules-for-provisioning-user-accounts.md
-      - name: Report on automatic user provisioning
-        href: check-status-user-account-provisioning.md
-      - name: Troubleshoot user provisioning
-        href: application-provisioning-config-problem.md
+    - name: Overview of App Management samples
+      href: app-management-powershell-samples.md
+    - name: Export secrets and certs (app registrations)
+      href: ./scripts/powershell-export-all-app-registrations-secrets-and-certs.md
+    - name: Export secrets and certs (enterprise apps)
+      href: ./scripts/powershell-export-all-enterprise-apps-secrets-and-certs.md
+    - name: Export expiring secrets and certs (app registrations)
+      href: ./scripts/powershell-export-apps-with-expiring-secrets.md
+    - name: Export expiring secrets and certs (enterprise apps)
+      href: ./scripts/powershell-export-enterprise-apps-with-expiring-secrets.md
+    - name: Export secrets and certs expiring beyond required date
+      href: ./scripts/powershell-export-apps-with-secrets-beyond-required.md
+  - name: Concepts
+    expanded: true
+    items: 
+    - name: Application gallery
+      href: overview-application-gallery.md
+    - name: Request to publish applications
+      href: v2-howto-app-gallery-listing.md
+    - name: Application integration
+      href: plan-an-application-integration.md
+    - name: Application ownership
+      href: overview-assign-app-owners.md
+    - name: Application properties
+      href: application-properties.md
     - name: Application security
       items:
       - name: App access options
         href: what-is-access-management.md
       - name: Certificate signing options
         href: certificate-signing-options.md
-      - name: Manage certificates
-        href: manage-certificates-for-federated-single-sign-on.md
       - name: Tenant restrictions
         href: tenant-restrictions.md
-      - name: Configure SAML token encryption (Preview)
+      - name: Enforce signed SAML authentication requests
+        href: howto-enforce-signed-saml-authentication.md
+      - name: Configure SAML token encryption
         href: howto-saml-token-encryption.md
+      - name: End-user portals
+        href: end-user-experiences.md
+      - name: Cloud app visibility and control
+        href: cloud-app-security.md
+    - name: Home realm discovery policy
+      href: home-realm-discovery-policy.md
+    - name: My Apps overview
+      href: myapps-overview.md
     - name: Single sign-on
-      items: 
-      - name: What is single sign-on
+      items:
+      - name: What is single sign-on?
         href: what-is-single-sign-on.md
-      - name: Planning a single sign-on deployment
+      - name: Plan for deployment
         href: plan-sso-deployment.md
-    - name: End-user portals
-      href: end-user-experiences.md
+    - name: Consent and permissions
+      items:
+      - name: User and admin consent overview
+        href: user-admin-consent-overview.md
+      - name: Admin consent workflow overview
+        href: admin-consent-workflow-overview.md
+      - name: Manage and evaluate consent requests
+        href: manage-consent-requests.md
+      - name: Protect against consent phishing
+        href: protect-against-consent-phishing.md
+    - name: Migrate apps from ADFS
+      items:
+      - name: ADFS migration concepts
+        items:
+        - name: Migration process
+          href: migrate-adfs-apps-stages.md
+        - name: SAML-based single sign-on
+          href: migrate-adfs-saml-based-sso.md
+        - name: Represent ADFS security policies
+          href: migrate-adfs-represent-security-policies.md
+        - name: Use the ADFS application activity report
+          href: migrate-adfs-application-activity.md
+      - name: ADFS migration guidelines
+        items:
+        - name: Migration phases
+          href: migrate-adfs-apps-phases-overview.md
+        - name: Phase 1 - Discover and Scope
+          href: migrate-adfs-discover-scope-apps.md
+        - name: Phase 2 - Classify apps and plan pilot
+          href: migrate-adfs-classify-apps-plan-pilot.md
+        - name: Phase 3 - Plan migration and testing
+          href: migrate-adfs-plan-migration-test.md
+        - name: Phase 4 - Manage and gain insights
+          href: migrate-adfs-plan-management-insights.md
   - name: How-to guides
+    expanded: false
     items:
-    - name: Add a cloud app
+    - name: Integrate SaaS applications
+      href: ../saas-apps/tutorial-list.md
+    - name: Assign owners
+      href: assign-app-owners.md
+    - name: Configure properties
+      href: add-application-portal-configure.md
+    - name: Add enterprise app for multi-tenant app
+      href: create-service-principal-cross-tenant.md
+    - name: Manage access
       items:
-      - name: Choose app type
-        href: choose-application-type.md
-      - name: Change name or logo
-        href: change-name-or-logo-portal.md
-    - name: Integrate an on-premises app
-      items:
-      - name: Configure connectors
-        href: application-proxy-configure-connectors-with-proxy-servers.md
-      - name: Configure claims-aware apps
-        href: application-proxy-configure-for-claims-aware-applications.md
-      - name: Register connector - silent install
-        href: application-proxy-register-connector-powershell.md
-      - name: Give mobile and desktop apps access to on-premises APIs
-        href: application-proxy-secure-api-access.md 
-      - name: Configure mobile and desktop client apps
-        href: application-proxy-configure-native-client-application.md
-      - name: Configure custom home page
-        href: application-proxy-configure-custom-home-page.md
-      - name: Translate inline links
-        href: application-proxy-configure-hard-coded-link-translation.md
-      - name: Configure cookie settings
-        href: application-proxy-configure-cookie-settings.md
-      - name: Publish using wildcards
-        href: application-proxy-wildcard.md
-      - name: Remove personal data
-        href: application-proxy-remove-personal-data.md
-      - name: Configure custom domain
-        href: application-proxy-configure-custom-domain.md
-      - name: Publishing walkthroughs
+      - name: Manage consent and permissions
         items:
-        - name: Integrate with Cloud App Security
-          href: application-proxy-integrate-with-microsoft-cloud-application-security.md
-        - name: Integrate with Remote Desktop
-          href: application-proxy-integrate-with-remote-desktop-services.md
-        - name: Integrate with SharePoint
-          href: application-proxy-integrate-with-sharepoint-server.md
-        - name: Integrate with Teams
-          href: application-proxy-integrate-with-teams.md
-        - name: Integrate with Tableau
-          href: application-proxy-integrate-with-tableau.md
-        - name: Integrate with Qlik
-          href: application-proxy-qlik.md
-    - name: Configure single sign-on
-      items:
-      - name: Configure non-gallery apps
-        href: configure-single-sign-on-non-gallery-applications.md
-      - name: Configure federated - gallery apps
-        href: configure-federated-single-sign-on-gallery-applications.md
-      - name: Configure federated - non-gallery apps
-        href: configure-federated-single-sign-on-non-gallery-applications.md
-      - name: Configure password - gallery apps
-        href: configure-password-single-sign-on-gallery-applications.md
-      - name: Configure password - non-gallery apps
-        href: configure-password-single-sign-on-non-gallery-applications.md
-      - name: Single sign-on with Application Proxy
-        items:
-        - name: Kerberos constrained Delegation (KCD)
-          href: application-proxy-configure-single-sign-on-with-kcd.md
-        - name: Password vaulting
-          href: application-proxy-configure-single-sign-on-password-vaulting.md
-        - name: Headers
-          href: application-proxy-configure-single-sign-on-with-ping-access.md
-        - name: SAML SSO
-          href: application-proxy-configure-single-sign-on-on-premises-apps.md
-    - name: Configure user provisioning
-      items:
-      - name: How long provisioning takes
-        href: application-provisioning-when-will-provisioning-finish-specific-user.md
-      - name: Configure user provisioning - gallery app
-        href: application-provisioning-config-how-to.md
-      - name: Sync an attribute for mapping - gallery app
-        href: user-provisioning-sync-attributes-for-mapping.md
-    - name: Assign users and manage access to apps
-      items:
-      - name: Configure user consent
-        href: configure-user-consent.md
-      - name: Methods for assigning users and groups to an app
-        href: methods-for-assigning-users-and-groups.md
-      - name: Assign a user to an app
+        - name: Configure user consent
+          href: configure-user-consent.md
+        - name: Configure group owner consent
+          href: configure-user-consent-groups.md
+        - name: Configure risk-based step-up consent
+          href: configure-risk-based-step-up-consent.md
+        - name: Configure permission classifications
+          href: configure-permission-classifications.md
+        - name: Manage app consent policies
+          href: manage-app-consent-policies.md
+        - name: Manage app consent policies for group owner
+          href: manage-group-owner-consent-policies.md
+        - name: Configure admin consent workflow
+          href: configure-admin-consent-workflow.md
+        - name: Review admin consent requests
+          href: review-admin-consent-requests.md
+        - name: Grant tenant-wide admin consent
+          href: grant-admin-consent.md
+        - name: Grant consent on behalf of a single user
+          href: grant-consent-single-user.md
+        - name: Review permissions granted to apps
+          href: manage-application-permissions.md
+        - name: Restore revoked permissions
+          href: restore-permissions.md
+      - name: Manage user assignment
         href: assign-user-or-group-access-portal.md
-      - name: Use self-service app access
-        href: access-panel-manage-self-service-access.md
-      - name: Methods for removing a user's access to an app
-        href: methods-for-removing-user-access.md
-      - name: Remove user or group access
-        href: remove-user-or-group-access-portal.md
-      - name: Hide app from a user
-        href: hide-application-from-user-portal.md
-      - name: Disable user sign-on
+      - name: Assign custom security attributes
+        href: custom-security-attributes-apps.md
+      - name: Disable user sign-in
         href: disable-user-sign-in-portal.md
-      - name: Configure self-service app assignment
-        href: manage-self-service-access.md
-      - name: Home Realm Discovery
+      - name: Force auto-acceleration
         href: configure-authentication-for-federated-users-portal.md
-    - name: Migrate apps to Azure AD
+      - name: Prevent sign-in auto-acceleration
+        href: prevent-domain-hints-with-home-realm-discovery.md
+    - name: Manage My Apps
       items:
-      - name: Migration resources
-        href: migration-resources.md
-      - name: Migrate an ADFS app to Azure
-        href: migrate-adfs-apps-to-azure.md
+      - name: Create collections
+        href: access-panel-collections.md
+      - name: Enable self-service access
+        href: manage-self-service-access.md
+      - name: Hide an application
+        href: hide-application-from-user-portal.md
+    - name: Migrate applications
+      items:
+      - name: Migrate applications from Okta to Microsoft Entra ID 
+        items:
+        - name: Migrate applications from Okta to Microsoft Entra ID
+          href: migrate-applications-from-okta.md
+        - name: Migrate Okta sign on policies to Microsoft Entra Conditional Access
+          href: migrate-okta-sign-on-policies-conditional-access.md
+        - name: Migrate Okta sync provisioning to Microsoft Entra Connect based synchronization
+          href: migrate-okta-sync-provisioning.md
+        - name: Migrate Okta federation to Microsoft Entra ID managed authentication
+          href: migrate-okta-federation.md
+    - name: Secure legacy apps
+      items:
+      - name: Secure hybrid access with Microsoft Entra ID 
+        href: secure-hybrid-access.md
+      - name: Secure hybrid access partner integrations
+        href: secure-hybrid-access-integrations.md
+      - name: Cloudflare
+        items:
+        - name: Configure Cloudflare with Microsoft Entra ID
+          href: cloudflare-integration.md
+        - name: Configure Conditional Access policies in Cloudflare Access
+          href: cloudflare-conditional-access-policies.md
+      - name: Datawiza
+        items:
+        - name: Integrate Datawiza with Microsoft Entra ID
+          href: datawiza-configure-sha.md
+        - name: Guided configuration 
+          items: 
+          - name: Oracle JDE  
+            href: datawiza-sso-oracle-jde.md
+          - name: Oracle PeopleSoft  
+            href: datawiza-sso-oracle-peoplesoft.md
+          - name: Oracle EBS
+            href: datawiza-sso-mfa-oracle-ebs.md
+          - name: Outlook Web Access
+            href: datawiza-sso-mfa-to-owa.md
+      - name: F5
+        items:
+        - name: Deploy F5 BIG-IP in Azure
+          href: f5-bigip-deployment-guide.md
+        - name: F5 BIG-IP and Microsoft Entra integration
+          items:
+          - name: Integrate F5 BIG-IP with Microsoft Entra ID
+            href: f5-integration.md
+          - name: Easy Button guided configuration
+            items:
+            - name: Kerberos
+              href: f5-big-ip-kerberos-easy-button.md
+            - name: Headers
+              href: f5-big-ip-headers-easy-button.md
+            - name: Headers and LDAP
+              href: f5-big-ip-ldap-header-easybutton.md
+            - name: Oracle EBS
+              href: f5-big-ip-oracle-enterprise-business-suite-easy-button.md
+            - name: Oracle JDE
+              href: f5-big-ip-oracle-jde-easy-button.md
+            - name: Oracle PeopleSoft
+              href: f5-big-ip-oracle-peoplesoft-easy-button.md
+            - name: SAP ERP
+              href: f5-big-ip-sap-erp-easy-button.md
+          - name: Advanced configuration
+            items:
+              - name: Headers
+                href: f5-big-ip-header-advanced.md
+              - name: Kerberos
+                href: f5-big-ip-kerberos-advanced.md
+              - name: Form-based
+                href: f5-big-ip-forms-advanced.md 
+              - name: SSL-VPN
+                href: f5-passwordless-vpn.md  
+              - name: B2C
+                href: ../../active-directory-b2c/partner-f5.md?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
+      - name: Silverfort
+        href: silverfort-integration.md
+    - name: Single sign-on
+      items:
+      - name: Enable Single sign-on with SAML
+        href: add-application-portal-setup-sso.md
+      - name: Enable Linked single sign-on
+        href: configure-linked-sign-on.md
+      - name: Enable OpenID Connect based single sign-on
+        href: add-application-portal-setup-oidc-sso.md
+      - name: Enable Password based single sign-on
+        href: configure-password-single-sign-on-non-gallery-applications.md
     - name: Troubleshoot
       items:
-      - name: Troubleshoot adding apps
-        items:
-        - name: Common problems - gallery apps
-          href: adding-gallery-app-common-problems.md
-        - name: Common problems - non-gallery apps
-          href: adding-non-gallery-app-common-problems.md
-      - name: Troubleshoot user sign-in
-        items:
-        - name: Unexpected consent prompt
-          href: application-sign-in-unexpected-user-consent-prompt.md
-        - name: User consent error
-          href: application-sign-in-unexpected-user-consent-error.md
-        - name: Problems signing in from custom portal
-          href: application-sign-in-other-problem-deeplink.md
-        - name: Problems signing in from access panel
-          href: application-sign-in-other-problem-access-panel.md
-        - name: Error on application sign-in page
-          href: application-sign-in-problem-application-error.md
-        - name: Problem with password single sign-on - non-gallery app
-          href: application-sign-in-problem-password-sso-non-gallery.md
-        - name: Problem with password single sign-on - gallery app
-          href: application-sign-in-problem-password-sso-gallery.md
-        - name: Problem signing into a Microsoft app
-          href: application-sign-in-problem-first-party-microsoft.md
-        - name: Problem with federated single sign-on - non-gallery app
-          href: application-sign-in-problem-federated-sso-non-gallery.md
-        - name: Problem with federated single sign-on - gallery app
-          href: application-sign-in-problem-federated-sso-gallery.md
-        - name: Problem with custom-developed app
-          href: application-sign-in-problem-custom-dev.md
-      - name: Troubleshoot single sign-on
-        items:
-        - name: Configuring federated common problems - gallery apps
-          href: configure-federated-single-sign-on-gallery-applications-problems.md
-        - name: Configure federated common problems - non-gallery apps
-          href: configure-federated-single-sign-on-non-gallery-applications-problems.md
-        - name: Configure password common problems - gallery apps
-          href: configure-password-single-sign-on-gallery-applications-problems.md
-        - name: Configure password common problems - non-gallery apps
-          href: configure-password-single-sign-on-non-gallery-applications-problems.md
-      - name: Troubleshoot user provisioning
-        items:
-        - name: Taking hours - gallery app
-          href: application-provisioning-when-will-provisioning-finish.md
-        - name: Problem configuring user provisioning - gallery app
-          href: application-provisioning-config-problem.md
-        - name: Problem saving administrator credentials while configuring user provisioning gallery app
-          href: application-provisioning-config-problem-storage-limit.md
-        - name: Users are not provisioned - gallery app
-          href: application-provisioning-config-problem-no-users-provisioned.md
-        - name: Wrong users provisioned - gallery app
-          href: application-provisioning-config-problem-wrong-users-provisioned.md
-      - name: Troubleshoot app list and assignment
-        items:
-        - name: Manage the applications list for your tenant
-          href: application-types.md
-        - name: Unexpected user assigned
-          href: ways-users-get-assigned-to-applications.md
-      - name: Troubleshoot the access panel
-        items:
-        - name: Manage browser extension
-          href: manage-access-panel-browser-extension.md
-        - name: App not appearing
-          href: access-panel-troubleshoot-application-not-appearing.md
-        - name: Unexpected app appearing
-          href: access-panel-troubleshoot-unexpected-application.md
-        - name: Can't sign in
-          href: access-panel-troubleshoot-web-sign-in-problem.md
-        - name: Error installing browser extension
-          href: access-panel-extension-problem-installing.md
-        - name: Error using self-service app access
-          href: access-panel-troubleshoot-self-service-access.md
-      - name: Troubleshoot Application Proxy
-        items:
-        - name: Connector troubleshooting flowchart
-          href: application-proxy-debug-connectors.md
-        - name: Application troubleshooting flowchart
-          href: application-proxy-debug-apps.md
-        - name: Configuration errors
-          href: application-proxy-troubleshoot.md
-        - name: Problem displaying app page
-          href: application-proxy-page-appearance-broken-problem.md
-        - name: Application load is too long
-          href: application-proxy-page-load-speed-problem.md
-        - name: Links on application page not working
-          href: application-proxy-page-links-broken-problem.md
-        - name: What ports to open for my app
-          href: application-proxy-connectivity-ports-how-to.md
-        - name: No working connector in a connector group for my app
-          href: application-proxy-connectivity-no-working-connector.md
-        - name: Configure in admin portal
-          href: application-proxy-config-how-to.md
-        - name: Configure single sign-on to my app
-          href: application-proxy-config-sso-how-to.md
-        - name: Problem creating an app in admin portal
-          href: application-proxy-config-problem.md
-        - name: Configure Kerberos Constrained Delegation
-          href: application-proxy-back-end-kerberos-constrained-delegation-how-to.md
-        - name: Configure with PingAccess
-          href: application-proxy-back-end-ping-access-how-to.md
-        - name: Can't Access this Corporate Application error
-          href: application-proxy-sign-in-bad-gateway-timeout-error.md
-        - name: Problem installing the Application Proxy Agent Connector
-          href: application-proxy-connector-installation-problem.md
-        - name: Sign-in problem
-          href: application-sign-in-problem-on-premises-application-proxy.md
-        - name: CORS issues in Application Proxy
-          href: application-proxy-understand-cors-issues.md
+      - name: Troubleshoot password-based single sign-on
+        href: troubleshoot-password-based-sso.md
+      - name: Troubleshoot SAML-based single sign-on
+        href: troubleshoot-saml-based-sso.md
+      - name: Troubleshoot Microsoft Application Network sign-in
+        href: troubleshoot-app-publishing.md
+      - name: Debug SAML-based single sign-on
+        href: debug-saml-sso-issues.md
+      - name: Unexpected consent prompt
+        href: application-sign-in-unexpected-user-consent-prompt.md
+      - name: User consent error
+        href: application-sign-in-unexpected-user-consent-error.md
+      - name: Problems signing in from My Apps
+        href: application-sign-in-other-problem-access-panel.md
+      - name: Error on application sign-in page
+        href: application-sign-in-problem-application-error.md
+      - name: Problem signing into a Microsoft app
+        href: application-sign-in-problem-first-party-microsoft.md
+    - name: Delete and restore apps
+      items:
+      - name: Delete an enterprise application
+        href: delete-application-portal.md
+      - name: Restore an enterprise application
+        href: restore-application.md   
   - name: Reference
     items:
-    - name: Application Proxy version history
-      href: application-proxy-release-version-history.md
+    - name: Application API - Microsoft Graph
+      href: /graph/api/resources/application?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
+    - name: Service principals API - Microsoft Graph
+      href: /graph/api/resources/serviceprincipal?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
+    - name: Manage apps using Microsoft Graph
+      href: /graph/tutorial-applications-basics?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
+    - name: Deletion and recovery FAQ
+      href: delete-recover-faq.yml
+    - name: Admin consent workflow FAQ
+      href: admin-consent-workflow-faq.md
+    - name: App Management certificates FAQ
+      href: application-management-certs-faq.md
+    - name: Application list
+      href: application-list.md
+    - name: Reasons users are assigned to an app
+      href: ways-users-get-assigned-to-applications.md
+    - name: Methods of removing user access to an app
+      href: methods-for-removing-user-access.md
   - name: Resources
     items:
-    - name: Azure AD deployment plans
-      href: /azure/active-directory/fundamentals/active-directory-deployment-plans?context=azure/active-directory/manage-apps/context/manage-apps-context
-    - name: Azure feedback forum
-      href: https://feedback.azure.com/forums/169401-azure-active-directory
-    - name: Azure Roadmap
-      href: https://azure.microsoft.com/roadmap/?category=security-identity
-    - name: MSDN forum
-      href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD
-    - name: Pricing
-      href: https://azure.microsoft.com/pricing/details/active-directory
-    - name: Pricing calculator
-      href: https://azure.microsoft.com/pricing/calculator
-    - name: Service updates
-      href: https://azure.microsoft.com/updates/?product=active-directory
-    - name: Stack Overflow
-      href: https://stackoverflow.com/questions/tagged/azure-active-directory
-    - name: Videos
-      href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
-
+        - name: Video learning
+          href: app-management-videos.md
+        - name: Migration resources
+          href: migration-resources.md
+        - name: Support and help options for developers
+          href: ../develop/developer-support-help-options.md?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
+        - name: Azure feedback forum
+          href: https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789
+        - name: Microsoft Q&A question page
+          href: /answers/topics/azure-active-directory.html
+        - name: Pricing
+          href: https://azure.microsoft.com/pricing/details/active-directory/
+        - name: Service updates
+          href: https://azure.microsoft.com/updates/?product=active-directory
+        - name: Stack Overflow
+          href: https://stackoverflow.com/questions/tagged/azure-active-directory

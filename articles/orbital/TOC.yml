@@ -1,0 +1,58 @@
+items:
+- name: Azure Orbital - Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: Why use Azure Orbital Ground Station?
+    href: overview.md
+  - name: Get started with Azure Orbital Ground Station
+    href: get-started.md
+- name: Quickstart
+  items:
+  - name: Register a spacecraft
+    href: register-spacecraft.md
+  - name: Configure a contact profile
+    href: contact-profile.md
+  - name: Schedule a contact
+    href: schedule-contact.md
+    
+- name: Concepts
+  items:
+  - name: Spacecraft
+    href: spacecraft-object.md
+  - name: Contact
+    href: concepts-contact.md
+  - name: Contact profile
+    href: concepts-contact-profile.md
+    
+- name: How-to guides
+  items:
+  - name: Prepare network to send and receive data
+    href: prepare-network.md
+  - name: Integrate partner network ground stations
+    href: partner-network-integration.md 
+  - name: Configure the RF chain
+    href: modem-chain.md 
+  - name: Receive real-time telemetry
+    href: receive-real-time-telemetry.md
+  - name: Azure Resource Graph Queries
+    href: resource-graph-samples.md
+  - name: Update the spacecraft TLE
+    href: update-tle.md
+  - name: Cancel a contact
+    href: delete-contact.md
+    
+- name: Tutorials
+  items:
+  - name: Downlink data from NASA's Aqua public satellite
+    href: downlink-aqua.md 
+  - name: Process Aqua satellite data using NASA-provided tools
+    href: satellite-imagery-with-orbital-ground-station.md
+  - name: Understand virtual RF (vRF) through demodulation of Aqua using GNU Radio
+    href: virtual-rf-tutorial.md
+  - name: Geospatial reference architecture
+    href: geospatial-reference-architecture.md          
+  - name: Organize spaceborne geospatial data with STAC
+    href: organize-stac-data.md
+  - name: Process Synthetic Aperture Radar (SAR) data
+    href: sar-reference-architecture.md  

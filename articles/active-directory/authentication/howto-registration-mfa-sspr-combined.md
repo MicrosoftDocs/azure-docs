@@ -1,92 +1,68 @@
 ---
-title: Get started with combined registration for Azure AD SSPR and Multi-Factor Authentication (preview) - Azure Active Directory
-description: Enable combined Azure AD Multi-Factor Authentication and self-service password reset registration (preview)
+title: Enable combined security information registration
+description: Learn how to simplify the end-user experience with combined Microsoft Entra multifactor authentication and self-service password reset registration.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
-ms.date: 05/16/2019
+ms.topic: how-to
+ms.date: 09/14/2023
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.reviewer: sahenry, calebb
+ms.author: justinha
+author: justinha
+manager: amycolannino
+ms.reviewer: tilarso
 
 ms.collection: M365-identity-device-management
 ---
-# Enable combined security information registration (preview)
+# Enable combined security information registration in Microsoft Entra ID
 
-Before enabling the new experience, review the article [Combined security information registration (preview)](concept-registration-mfa-sspr-combined.md) to ensure you understand the functionality and effects of this feature.
+Before combined registration, users registered authentication methods for Microsoft Entra multifactor authentication and self-service password reset (SSPR) separately. Users were confused that similar methods were used for Microsoft Entra multifactor authentication and SSPR but they had to register for both features. Now, with combined registration, users can register once and get the benefits of both Microsoft Entra multifactor authentication and SSPR.
+
+To help you understand the functionality and effects of the new experience, see the [Combined security information registration concepts](concept-registration-mfa-sspr-combined.md).
 
 ![Combined security information registration enhanced experience](media/howto-registration-mfa-sspr-combined/combined-security-info-more-required.png)
 
-|     |
-| --- |
-| Combined security information registration for Azure Multi-Factor Authentication and Azure Active Directory (Azure AD) self-service password reset is a public preview feature of Azure AD. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
+## Conditional Access policies for combined registration
 
-## Enable combined registration
-
-Complete these steps to enable combined registration:
-
-1. Sign in to the Azure portal as a user administrator or global administrator.
-2. Go to **Azure Active Directory** > **User settings** > **Manage settings for access panel preview features**.
-3. Under **Users can use preview features for registering and managing security info - refresh**, choose to enable for a **Selected** group of users or for **All** users.
-
-   ![Enable the combined security info preview experience for All users](media/howto-registration-mfa-sspr-combined/combined-security-info-enable.png)
-
-> [!IMPORTANT]
-> Starting in March 2019, the phone call options won't be available to Multi-Factor Authentication and SSPR users in free/trial Azure AD tenants. SMS messages are not affected by this change. The phone call options will still be available to users in paid Azure AD tenants.
+To secure when and how users register for Microsoft Entra multifactor authentication and self-service password reset, you can use user actions in Conditional Access policy. This functionality may be enabled in organizations that want users to register for Microsoft Entra multifactor authentication and SSPR from a central location, such as a trusted network location during HR onboarding.
 
 > [!NOTE]
-> After you enable combined registration, users who register or confirm their phone number or mobile app through the new experience can use them for Multi-Factor Authentication and SSPR, if those methods are enabled in the Multi-Factor Authentication and SSPR policies. If you then disable this experience, users who go to the previous SSPR registration page at `https://aka.ms/ssprsetup` will be required to perform multi-factor authentication before they can access the page.
+> This policy applies only when a user accesses a combined registration page. This policy doesn't enforce MFA enrollment when a user accesses other applications.
+>
+> You can create an MFA registration policy by using [Azure Identity Protection - Configure MFA Policy](../identity-protection/howto-identity-protection-configure-mfa-policy.md).
 
-If you have configured the Site to Zone Assignment List in Internet Explorer, the following sites have to be in the same zone:
-
-* [https://login.microsoftonline.com](https://login.microsoftonline.com)
-* [https://mysignins.microsoft.com](https://mysignins.microsoft.com)
-* [https://account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com)
-
-## Conditional access policies for combined registration
-
-Securing when and how users register for Azure Multi-Factor Authentication and self-service password reset is now possible with user actions in conditional access policy. This preview feature is available to organizations who have enabled the [combined registration preview](../authentication/concept-registration-mfa-sspr-combined.md). This functionality may be enabled in organizations where they want users to register for Azure Multi-Factor Authentication and SSPR from a central location such as a trusted network location during HR onboarding. For more information about creating trusted locations in conditional access, see the article [What is the location condition in Azure Active Directory conditional access?](../conditional-access/location-condition.md#named-locations)
+For more information about creating trusted locations in Conditional Access, see [What is the location condition in Microsoft Entra Conditional Access?](../conditional-access/location-condition.md#named-locations)
 
 ### Create a policy to require registration from a trusted location
 
-The following policy applies to all selected users, who attempt to register using the combined registration experience, and blocks access unless they are connecting from a location marked as trusted network.
+Complete the following steps to create a policy that applies to all selected users that attempt to register using the combined registration experience, and blocks access unless they are connecting from a location marked as trusted network:
 
-![Create a CA policy to control security info registration](media/howto-registration-mfa-sspr-combined/conditional-access-register-security-info.png)
-
-1. In the **Azure portal**, browse to **Azure Active Directory** > **Conditional access**
-1. Select **New policy**
-1. In Name, Enter a Name for this policy. For example, **Combined Security Info Registration on Trusted Networks**
-1. Under **Assignments**, click **Users and groups**, and select the users and groups you want this policy to apply to
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Protection** > **Conditional Access**.
+1. Select **+ New policy**.
+1. Enter a name for this policy, such as *Combined Security Info Registration on Trusted Networks*.
+1. Under **Assignments**, select **Users**. Choose the users and groups you want this policy to apply to.
 
    > [!WARNING]
-   > Users must be enabled for the [combined registration preview](../authentication/howto-registration-mfa-sspr-combined.md).
+   > Users must be enabled for combined registration.
 
-1. Under **Cloud apps or actions**, select **User actions**, check **Register security information (preview)**
-1. Under **Conditions** > **Locations**
-   1. Configure **Yes**
-   1. Include **Any location**
-   1. Exclude **All trusted locations**
-   1. Click **Done** on the Locations blade
-   1. Click **Done** on the Conditions blade
-1. Under **Access controls** > **Grant**
-   1. Click **Block access**
-   1. Then click **Select**
-1. Set **Enable policy** to **On**
-1. Then click **Create**
+1. Under **Cloud apps or actions**, select **User actions**. Check **Register security information**, then select **Done**.
+
+    ![Create a Conditional Access policy to control security info registration](media/howto-registration-mfa-sspr-combined/require-registration-from-trusted-location.png)
+
+1. Under **Conditions** > **Locations**, configure the following options:
+   1. Configure **Yes**.
+   1. Include **Any location**.
+   1. Exclude **All trusted locations**.
+1. Under **Access controls** > **Grant**, choose **Block access**, then **Select**.
+1. Set **Enable policy** to **On**.
+1. To finalize the policy, select **Create**.
 
 ## Next steps
 
-[Available methods for Multi-Factor Authentication and SSPR](concept-authentication-methods.md)
+If you need help, see [troubleshoot combined security info registration](howto-registration-mfa-sspr-combined-troubleshoot.md) or learn [What is the location condition in Microsoft Entra Conditional Access?](../conditional-access/location-condition.md)
 
-[Configure self-service password reset](howto-sspr-deployment.md)
+Review how you can [enable self-service password reset](tutorial-enable-sspr.md) and [enable Microsoft Entra multifactor authentication](tutorial-enable-azure-mfa.md) in your tenant.
 
-[Configure Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
-
-[Troubleshooting combined security info registration](howto-registration-mfa-sspr-combined-troubleshoot.md)
-
-[What is the location condition in Azure Active Directory conditional access?](../conditional-access/location-condition.md)
+If needed, learn how to [force users to re-register authentication methods](howto-mfa-userdevicesettings.md#manage-user-authentication-options).

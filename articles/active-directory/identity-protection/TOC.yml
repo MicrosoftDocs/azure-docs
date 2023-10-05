@@ -1,75 +1,79 @@
-- name: Identity Protection Documentation
+- name: Microsoft Entra ID Protection Documentation
   href: index.yml
 - name: Overview
   items:
-  - name: What is Azure AD Identity Protection?
-    href: overview.md
-- name: 'Quickstarts'
-  items:
-  - name: Block access when a session risk is detected
-    href: quickstart-sign-in-risk-policy.md
-- name: 'Concepts'
+  - name: What is Microsoft Entra ID Protection?
+    href: overview-identity-protection.md
+- name: Concepts
   expanded: false
   items:
-  - name: What are vulnerabilities?
-    href: vulnerabilities.md
-  - name: What are notifications?
-    href: notifications.md
-  - name: What is your sign-in experience?
-    href: flows.md
-- name: 'How-to guides'
+  - name: Microsoft Entra ID Protection dashboard
+    href: id-protection-dashboard.md
+  - name: What are risks?
+    href: concept-identity-protection-risks.md
+  - name: Risk-based access control policies
+    href: concept-identity-protection-policies.md
+  - name: User sign-in experience
+    href: concept-identity-protection-user-experience.md
+  - name: Securing workload identities
+    href: concept-workload-identity-risk.md
+  - name: Microsoft Entra ID Protection and B2B users
+    href: concept-identity-protection-b2b.md
+- name: How-to guides
   expanded: true
   items:
-  - name: 'Identity Protection'
+  - name: Deploy Microsoft Entra ID Protection
+    href: how-to-deploy-identity-protection.md
+  - name: Configure notifications
+    href: howto-identity-protection-configure-notifications.md
+  - name: Policy configuration
     items:
-    - name: Enable Azure AD Identity Protection
-      href: enable.md
     - name: Configure the MFA registration policy
-      href: howto-mfa-policy.md
-    - name: Configure the sign-in risk policy
-      href: howto-sign-in-risk-policy.md
-    - name: Configure the user risk policy
-      href: howto-user-risk-policy.md
-    - name: Close active risk events
-      href: howto-close-active-risk-events.md
-    - name: Unblock users
-      href: howto-unblock-user.md
-    - name: Simulate risk events
-      href: playbook.md
-    - name: FAQs
-      href: faqs.md
-  - name: 'Identity Protection (Refreshed)'
-    items:
-    - name: Overview
-      href: overview-v2.md
-    - name: Security overview
-      href: security-overview.md
-    - name: Investigate risky users and sign-ins
-      href: howto-investigate-risky-users-signins.md
-    - name: Provide feedback on risk events
-      href: howto-provide-risk-event-feedback.md
+      href: howto-identity-protection-configure-mfa-policy.md
     - name: Configure risk policies
-      href: howto-configure-risk-policies.md
-    - name: Improve detection accuracy
-      href: howto-improve-detection-accuracy.md
-    - name: FAQs and known issues 
-      href: known-issues.md
-- name: 'Reference'
+      href: howto-identity-protection-configure-risk-policies.md
+  - name: Simulate risk detections
+    href: howto-identity-protection-simulate-risk.md
+  - name: Investigate and remediate
+    items:
+    - name: Investigate risk
+      href: howto-identity-protection-investigate-risk.md
+    - name: Remediate risk detections and unblock
+      href: howto-identity-protection-remediate-unblock.md
+    - name: Export risk data
+      href: howto-export-risk-data.md
+    - name: Use the Microsoft Graph PowerShell 
+      href: howto-identity-protection-graph-api.md
+  - name: Provide feedback on risk detections
+    href: howto-identity-protection-risk-feedback.md
+  - name: FAQs
+    href: troubleshooting-identity-protection-faq.yml
+- name: Reference
   items:
-  - name: Use the Microsoft Graph API
-    href: graph-get-started.md
-  - name: Risk events
-    href: risk-events-reference.md
+  - name: Security overview
+    href: concept-identity-protection-security-overview.md
+  - name: Microsoft Graph APIs
+    items: 
+    - name: riskDetection API
+      href: /graph/api/resources/riskdetection
+    - name: riskyUsers API
+      href: /graph/api/resources/riskyuser
+    - name: signIn API
+      href: /graph/api/resources/signin
+    - name: servicePrincipalRiskDetection API
+      href: /graph/api/resources/serviceprincipalriskdetection
+    - name: riskyServicePrincipal API
+      href: /graph/api/resources/riskyserviceprincipal
   - name: Glossary
-    href: glossary.md
-- name: 'Resources'
+    href: reference-identity-protection-glossary.md
+- name: Resources
   items:
   - name: Azure feedback forum
-    href: https://feedback.azure.com/forums/169401-azure-active-directory
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD
+    href: https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789
+  - name: Microsoft Q&A question page
+    href: /answers/topics/azure-active-directory.html
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/active-directory/
+    href: https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing
   - name: Service updates
     href: ../fundamentals/whats-new.md
   - name: Stack Overflow

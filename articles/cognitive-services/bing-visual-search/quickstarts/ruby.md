@@ -1,48 +1,53 @@
 ---
-title: "Quickstart: Get image insights using Bing Visual Search REST API and Ruby"
-titleSuffix: Azure Cognitive Services
-description: Learn how to upload an image to the Bing Visual Search API and get insights about it.
+title: "Quickstart: Get image insights using the REST API and Ruby - Bing Visual Search"
+titleSuffix: Azure AI services
+description: Learn how to upload an image using the Bing Visual Search API and Ruby, and then get insights about the image.
 services: cognitive-services
 author: aahill
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 4/02/2019
-ms.author: rosh
+ms.date: 05/22/2020
+ms.author: aahi
+ms.devlang: ruby
+ms.custom: mode-api
 ---
 
 # Quickstart: Get image insights using the Bing Visual Search REST API and Ruby
 
-This quickstart uses the Ruby programming language to call Bing Visual Search and display results. A POST request uploads an image to the API endpoint. The results include URLs and descriptive information about images similar to the uploaded image.
+[!INCLUDE [Bing move notice](../../bing-web-search/includes/bing-move-notice.md)]
+
+Use this quickstart to make your first call to the Bing Visual Search API using the Ruby programming language. A POST request uploads an image to the API endpoint. The results include URLs and descriptive information about images similar to the uploaded image.
 
 ## Prerequisites
 
-To run this quickstart:
+* Install [Ruby 2.4 or later](https://www.ruby-lang.org/en/downloads/).
+* Get a subscription key.
 
-* Install [Ruby 2.4 or later](https://www.ruby-lang.org/en/downloads/)
-* Get a subscription key:
-
-[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
+[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 ## Project and required modules
 
-Create a new Ruby project in your IDE or editor. Import `net/http`, `uri` , and `json` to handle the JSON text of results. The `base64` library is used to encode the file name string: 
+Create a new Ruby project in your IDE or editor. Import `net/http`, `uri` , and `json` to handle the JSON text of results. Import the `base64` library, which encodes the file name string. 
 
-```
+```ruby
 require 'net/https'
 require 'uri'
 require 'json'
 require 'base64'
-
 ```
 
 ## Define variables
 
-The following code assigns required variables. Confirm that the endpoint is correct and replace the `accessKey` value with a subscription key from your Azure account.  The `batchNumber` is a GUID required for leading and trailing boundaries of the POST data.  The `fileName` variable identifies the image file for the POST.  The `if` block tests for a valid subscription key.
+The following code declares the main function and assigns the required variables: 
 
-```
+1. Confirm that the endpoint is correct and replace the `accessKey` value with a valid subscription key from your Azure account. 
+2. For `batchNumber`, assign a GUID, which is required for the leading and trailing boundaries of the POST data. 
+3. For `fileName`, assign the image file to use for the POST. 
+4. Use an `if` block to test for a valid subscription key.
+
+```ruby
 accessKey = "ACCESS-KEY"
 uri  = "https://api.cognitive.microsoft.com"
 path = "/bing/v7.0/images/visualsearch"
@@ -59,40 +64,40 @@ end
 
 ## Form data for POST request
 
-The image data to POST is enclosed by leading and trailing boundaries. The following functions set the boundaries:
+1. Enclose the image data to POST by leading and trailing boundaries. The following functions set the boundaries:
 
-```
-def BuildFormDataStart(batNum, fileName)
-    startBoundary = "--batch_" + batNum
-    return startBoundary + "\r\n" + "Content-Disposition: form-data; name=\"image\"; filename=" + "\"" + fileName + "\"" + "\r\n\r\n"	
-end
+   ```ruby
+   def BuildFormDataStart(batNum, fileName)
+       startBoundary = "--batch_" + batNum
+       return startBoundary + "\r\n" + "Content-Disposition: form-data; name=\"image\"; filename=" + "\"" + fileName + "\"" + "\r\n\r\n"	
+   end
 
-def BuildFormDataEnd(batNum)
-    return "\r\n\r\n" + "--batch_" + batNum + "--" + "\r\n"
-end
-```
+   def BuildFormDataEnd(batNum)
+       return "\r\n\r\n" + "--batch_" + batNum + "--" + "\r\n"
+   end
+   ```
 
-Next, construct the endpoint URI and an array to contain the POST body.  Use the previous function to load the start boundary into the array. Read the image file into the array. Then, read the end boundary into the array:
+2. Construct the endpoint URI and an array to contain the POST body. Use the previous function to load the start boundary into the array. Read the image file into the array, and then read the end boundary into the array.
 
-```
-uri = URI(uri + path)
-print uri
-print "\r\n\r\n"
+   ```ruby
+   uri = URI(uri + path)
+   print uri
+   print "\r\n\r\n"
 
-post_body = []
+   post_body = []
 
-post_body << BuildFormDataStart(batchNumber, fileName)
+   post_body << BuildFormDataStart(batchNumber, fileName)
 
-post_body << File.read(fileName) #Base64.encode64(File.read(fileName))
+   post_body << File.read(fileName) #Base64.encode64(File.read(fileName))
 
-post_body << BuildFormDataEnd(batchNumber)
-```
+   post_body << BuildFormDataEnd(batchNumber)
+   ```
 
 ## Create the HTTP request
 
-Set the `Ocp-Apim-Subscription-Key` header.  Create the request. Then, assign the header and content type. Join the POST body created previously to the request:
+Set the `Ocp-Apim-Subscription-Key` header. Create the request, and then assign the header and content type. Join the POST body you created previously to the request.
 
-```
+```ruby
 header = {'Ocp-Apim-Subscription-Key': accessKey}
 request = Net::HTTP::Post.new(uri)  # , 'ImageKnowledge' => 'ImageKnowledge'
 
@@ -104,9 +109,9 @@ request.body = post_body.join
 
 ## Request and response
 
-Ruby sends the request and gets the response with the following line of code:
+Ruby sends the request and gets the response with the following code:
 
-```
+```ruby
 response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
    http.request(request)
 end
@@ -115,9 +120,9 @@ end
 
 ## Print the results
 
-Print the headers of the response, and use the JSON library to format output:
+Print the headers of the response, and use the JSON library to format the output:
 
-```
+```ruby
 puts "\nRelevant Headers:\n\n"
 response.each_header do |key, value|
     if key.start_with?("bingapis-") or key.start_with?("x-msedge-") then
@@ -130,11 +135,11 @@ puts JSON::pretty_generate(JSON(response.body))
 
 ```
 
-## Results
+## JSON response
 
 The following JSON is a segment of the output:
 
-```
+```JSON
 Relevant Headers:
 
 bingapis-traceid: 6E19E78D4FEC4A61AB4F85977EEDB8E6
@@ -280,5 +285,5 @@ JSON Response:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Bing Visual Search overview](../overview.md)
+> [What is the Bing Visual Search API?](../overview.md)
 > [Build a Visual Search single-page web app](../tutorial-bing-visual-search-single-page-app.md)

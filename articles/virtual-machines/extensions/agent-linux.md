@@ -1,350 +1,401 @@
 ---
-title: Azure Linux VM Agent Overview | Microsoft Docs
-description: Learn how to install and configure Linux Agent (waagent) to manage your virtual machine's interaction with Azure Fabric Controller.
-services: virtual-machines-linux
-documentationcenter: ''
-
-author: roiyz-msft
-manager: jeconnoc
-
-editor: ''
-tags: azure-service-management,azure-resource-manager
-
-ms.assetid: e41de979-6d56-40b0-8916-895bf215ded6
-ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: na
+title: Azure Linux VM Agent overview 
+description: Learn how to install and configure the Azure Linux VM Agent (waagent) to manage your virtual machine's interaction with the Azure fabric controller.
 ms.topic: article
-ms.date: 10/17/2016
-ms.author: roiyz
-ms.custom: H1Hack27Feb2017
+ms.service: virtual-machines
+ms.subservice: extensions
+ms.author: gabsta
+author: GabstaMSFT
+ms.custom: GGAL-freshness822, devx-track-linux
+ms.collection: linux
+ms.date: 03/28/2023
 ---
-# Understanding and using the Azure Linux Agent
+# Azure Linux VM Agent overview
 
-The Microsoft Azure Linux Agent (waagent) manages Linux & FreeBSD provisioning, and VM interaction with the Azure Fabric Controller. In addition to the Linux Agent providing provisioning functionality, Azure also provides the option of using cloud-init for some Linux OSes. The Linux Agent provides the following functionality for Linux and FreeBSD IaaS deployments:
+The Microsoft Azure Linux VM Agent (waagent) manages Linux and FreeBSD provisioning, along with virtual machine (VM) interaction with the Azure fabric controller. In addition to the Linux agent providing provisioning functionality, Azure provides the option of using cloud-init for some Linux operating systems.
 
-> [!NOTE]
-> For more information, see the [README](https://github.com/Azure/WALinuxAgent/blob/master/README.md).
-> 
-> 
+The Linux agent provides the following functionality for Linux and FreeBSD Azure Virtual Machines deployments. For more information, see the [Azure Linux VM Agent readme on GitHub](https://github.com/Azure/WALinuxAgent/blob/master/README.md).
 
-* **Image Provisioning**
-  
-  * Creation of a user account
-  * Configuring SSH authentication types
-  * Deployment of SSH public keys and key pairs
-  * Setting the host name
-  * Publishing the host name to the platform DNS
-  * Reporting SSH host key fingerprint to the platform
-  * Resource Disk Management
-  * Formatting and mounting the resource disk
-  * Configuring swap space
-* **Networking**
-  
-  * Manages routes to improve compatibility with platform DHCP servers
-  * Ensures the stability of the network interface name
-* **Kernel**
-  
-  * Configures virtual NUMA (disable for kernel <`2.6.37`)
-  * Consumes Hyper-V entropy for /dev/random
-  * Configures SCSI timeouts for the root device (which could be remote)
-* **Diagnostics**
-  
-  * Console redirection to the serial port
-* **SCVMM Deployments**
-  
-  * Detects and bootstraps the VMM agent for Linux when running in a System Center Virtual Machine Manager 2012 R2 environment
-* **VM Extension**
-  
-  * Inject component authored by Microsoft and Partners into Linux VM (IaaS) to enable software and configuration automation
-  * VM Extension reference implementation on [https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
+### Image provisioning
+
+- Creates a user account
+- Configures SSH authentication types
+- Deploys SSH public keys and key pairs
+- Sets the host name
+- Publishes the host name to the platform DNS
+- Reports the SSH host key fingerprint to the platform
+- Manages the resource disk
+- Formats and mounts the resource disk
+- Configures swap space
+
+### Networking
+
+- Manages routes to improve compatibility with platform DHCP servers
+- Ensures the stability of the network interface name
+
+### Kernel
+
+- Configures virtual NUMA (disabled for kernel 2.6.37)
+- Consumes Hyper-V entropy for */dev/random*
+- Configures SCSI timeouts for the root device, which can be remote
+
+### Diagnostics
+
+- Provides console redirection to the serial port
+
+### System Center Virtual Machine Manager deployments
+
+- Detects and bootstraps the Virtual Machine Manager agent for Linux when it's running in a System Center Virtual Machine Manager 2012 R2 environment
+
+### VM Extension
+
+- Injects components authored by Microsoft and partners into Linux VMs to enable software and configuration automation
+
+You can find a VM Extension reference implementation on [GitHub](https://github.com/Azure/azure-linux-extensions).
 
 ## Communication
-The information flow from the platform to the agent occurs via two channels:
 
-* A boot-time attached DVD for IaaS deployments. This DVD includes an OVF-compliant configuration file that includes all provisioning information other than the actual SSH keypairs.
-* A TCP endpoint exposing a REST API used to obtain deployment and topology configuration.
+Information flow from the platform to the agent occurs through two channels:
+
+- A boot-time attached DVD for VM deployments. This DVD includes an Open Virtualization Format (OVF)-compliant configuration file that contains all provisioning information other than the SSH key pairs.
+- A TCP endpoint that exposes a REST API that's used to get deployment and topology configuration.
 
 ## Requirements
-The following systems have been tested and are known to work with the Azure Linux Agent:
+
+Testing has confirmed that the following systems work with the Azure Linux VM Agent.
 
 > [!NOTE]
-> This list may differ from the official list of supported systems on the Microsoft Azure Platform, as described here:
-> [https://support.microsoft.com/kb/2805216](https://support.microsoft.com/kb/2805216)
-> 
-> 
+> This list might differ from the [endorsed Linux distributions on Azure](../linux/endorsed-distros.md).
 
-* CoreOS
-* CentOS 6.3+
-* Red Hat Enterprise Linux 6.7+
-* Debian 7.0+
-* Ubuntu 12.04+
-* openSUSE 12.3+
-* SLES 11 SP3+
-* Oracle Linux 6.4+
+| Distribution | x64 | ARM64 |
+|:-----|:-----:|:-----:|
+| Alma Linux | 9.x+ | 9.x+ |
+| CentOS | 7.x+,  8.x+ | 7.x+ |
+| Debian | 10+ | 11.x+ |
+| Flatcar Linux | 3374.2.x+ | 3374.2.x+ |
+| Azure Linux | 2.x | 2.x |
+| openSUSE | 12.3+ | *Not supported* |
+| Oracle Linux | 6.4+, 7.x+, 8.x+ | *Not supported* |
+| Red Hat Enterprise Linux | 6.7+, 7.x+,  8.x+ | 8.6+, 9.0+ |
+| Rocky Linux | 9.x+ | 9.x+ |
+| SLES | 12.x+, 15.x+ | 15.x SP4+ |
+| Ubuntu | 18.04+, 20.04+, 22.04+ | 20.04+, 22.04+ |
 
-Other Supported Systems:
+> [!IMPORTANT]
+> RHEL/Oracle Linux 6.10 is the only RHEL/OL 6 version with Extended Lifecycle Support available. [The extended maintenance ends on June 30, 2024](https://access.redhat.com/support/policy/updates/errata).
 
-* FreeBSD 10+ (Azure Linux Agent v2.0.10+)
+Other supported systems:
 
-The Linux agent depends on some system packages in order to function properly:
+- The Agent works on more systems than those listed in the documentation. However, we do not test or provide support for distros that are not on the endorsed list. In particular, FreeBSD is not endorsed. The customer can try FreeBSD 8 and if they  run into problems they can open an issue in our [GitHub repository](https://github.com/Azure/WALinuxAgent) and we may be able to help.
 
-* Python 2.6+
-* OpenSSL 1.0+
-* OpenSSH 5.3+
-* Filesystem utilities: sfdisk, fdisk, mkfs, parted
-* Password tools: chpasswd, sudo
-* Text processing tools: sed, grep
-* Network tools: ip-route
-* Kernel support for mounting UDF filesystems.
+The Linux agent depends on these system packages to function properly:
+
+- Python 2.6+
+- OpenSSL 1.0+
+- OpenSSH 5.3+
+- File system utilities: sfdisk, fdisk, mkfs, parted
+- Password tools: chpasswd, sudo
+- Text processing tools: sed, grep
+- Network tools: ip-route
+- Kernel support for mounting UDF file systems
+
+Ensure that your VM has access to IP address 168.63.129.16. For more information, see [What is IP address 168.63.129.16?](../../virtual-network/what-is-ip-address-168-63-129-16.md).
 
 ## Installation
-Installation using an RPM or a DEB package from your distribution's package repository is the preferred method of installing and upgrading the Azure Linux Agent. All the [endorsed distribution providers](../linux/endorsed-distros.md) integrate the Azure Linux agent package into their images and repositories.
 
-Refer to the documentation in the [Azure Linux Agent repo on GitHub](https://github.com/Azure/WALinuxAgent) for advanced installation options, such as installing from source or to custom locations or prefixes.
+The preferred method of installing and upgrading the Azure Linux VM Agent uses an RPM or a DEB package from your distribution's package repository. All the [endorsed distribution providers](../linux/endorsed-distros.md) integrate the Azure Linux VM Agent package into their images and repositories.
 
-## Command-Line Options
+For advanced installation options, such as installing from a source or to custom locations or prefixes, see [Microsoft Azure Linux VM Agent](https://github.com/Azure/WALinuxAgent).
+
+## Command-line options
+
 ### Flags
-* verbose: Increase verbosity of specified command
-* force: Skip interactive confirmation for some commands
+
+- `verbose`: Increases verbosity of the specified command.
+- `force`: Skips interactive confirmation for some commands.
 
 ### Commands
-* help: Lists the supported commands and flags.
-* deprovision: Attempt to clean the system and make it suitable for reprovisioning. The following operation deletes:
+
+- `help`: Lists the supported commands and flags.
+- `deprovision`: Attempts to clean the system and make it suitable for reprovisioning. The operation deletes:
+  - All SSH host keys, if `Provisioning.RegenerateSshHostKeyPair` is `y` in the configuration file.
+  - `Nameserver` configuration in */etc/resolv.conf*.
+  - The root password from */etc/shadow*, if `Provisioning.DeleteRootPassword` is `y` in the configuration file.
+  - Cached DHCP client leases.
   
-  * All SSH host keys (if Provisioning.RegenerateSshHostKeyPair is 'y' in the configuration file)
-  * Nameserver configuration in /etc/resolv.conf
-  * Root password from /etc/shadow (if Provisioning.DeleteRootPassword is 'y' in the configuration file)
-  * Cached DHCP client leases
-  * Resets host name to localhost.localdomain
+  The client resets the host name to `localhost.localdomain`.
 
-> [!WARNING]
-> Deprovisioning does not guarantee that the image is cleared of all sensitive information and suitable for redistribution.
-> 
-> 
+  > [!WARNING]
+  > Deprovisioning doesn't guarantee that the image is cleared of all sensitive information and suitable for redistribution.
 
-* deprovision+user: Performs everything in -deprovision (above) and also deletes the last provisioned user account (obtained from /var/lib/waagent) and associated data. This parameter is when de-provisioning an image that was previously provisioning on Azure so it may be captured and reused.
-* version: Displays the version of waagent
-* serialconsole: Configures GRUB to mark ttyS0 (the first serial port) as
-   the boot console. This ensures that kernel bootup logs are sent to the
-   serial port and made available for debugging.
-* daemon: Run waagent as a daemon to manage interaction with the platform. This argument is specified to waagent in the waagent init script.
-* start: Run waagent as a background process
+- `deprovision+user`: Performs everything in `deprovision` and deletes the last provisioned user account (obtained from */var/lib/waagent*) and associated data. Use this parameter when you deprovision an image that was previously provisioned on Azure so that it can be captured and reused.
+- `version`: Displays the version of waagent.
+- `serialconsole`: Configures GRUB to mark ttyS0, the first serial port, as the boot console. This option ensures that kernel boot logs are sent to the serial port and made available for debugging.
+- `daemon`: Runs waagent as a daemon to manage interaction with the platform. This argument is specified to waagent in the waagent *init* script.
+- `start`: Runs waagent as a background process.
 
 ## Configuration
-A configuration file (/etc/waagent.conf) controls the actions of waagent. 
-The following shows a sample configuration file:
 
-    ```
-    Provisioning.Enabled=y
-    Provisioning.DeleteRootPassword=n
-    Provisioning.RegenerateSshHostKeyPair=y
-    Provisioning.SshHostKeyPairType=rsa
-    Provisioning.MonitorHostName=y
-    Provisioning.DecodeCustomData=n
-    Provisioning.ExecuteCustomData=n
-    Provisioning.AllowResetSysUser=n
-    Provisioning.PasswordCryptId=6
-    Provisioning.PasswordCryptSaltLength=10
-    ResourceDisk.Format=y
-    ResourceDisk.Filesystem=ext4
-    ResourceDisk.MountPoint=/mnt/resource
-    ResourceDisk.MountOptions=None
-    ResourceDisk.EnableSwap=n
-    ResourceDisk.SwapSizeMB=0
-    LBProbeResponder=y
-    Logs.Verbose=n
-    OS.RootDeviceScsiTimeout=300
-    OS.OpensslPath=None
-    HttpProxy.Host=None
-    HttpProxy.Port=None
-    AutoUpdate.Enabled=y
-    ```
+The */etc/waagent.conf* configuration file controls the actions of waagent. Here's an example of a configuration file:
 
-The following various configuration options are described. Configuration options are of three types; Boolean, String, or Integer. The Boolean configuration options can be specified as "y" or "n". The special keyword "None" may be used for some string type configuration entries as the following details:
-
-**Provisioning.Enabled:**  
+```config
+Provisioning.Enabled=y
+Provisioning.DeleteRootPassword=n
+Provisioning.RegenerateSshHostKeyPair=y
+Provisioning.SshHostKeyPairType=rsa
+Provisioning.MonitorHostName=y
+Provisioning.DecodeCustomData=n
+Provisioning.ExecuteCustomData=n
+Provisioning.AllowResetSysUser=n
+Provisioning.PasswordCryptId=6
+Provisioning.PasswordCryptSaltLength=10
+ResourceDisk.Format=y
+ResourceDisk.Filesystem=ext4
+ResourceDisk.MountPoint=/mnt/resource
+ResourceDisk.MountOptions=None
+ResourceDisk.EnableSwap=n
+ResourceDisk.SwapSizeMB=0
+LBProbeResponder=y
+Logs.Verbose=n
+OS.RootDeviceScsiTimeout=300
+OS.OpensslPath=None
+HttpProxy.Host=None
+HttpProxy.Port=None
+AutoUpdate.Enabled=y
 ```
+
+Configuration options are of three types: `Boolean`, `String`, or `Integer`. You can specify the `Boolean` configuration options as `y` or `n`. The special keyword `None` might be used for some string type configuration entries.
+
+### Provisioning.Enabled
+
+```txt
 Type: Boolean  
 Default: y
 ```
-This allows the user to enable or disable the provisioning functionality in the agent. Valid values are "y" or "n". If provisioning is disabled, SSH host and user keys in the image are preserved and any configuration specified in the Azure provisioning API is ignored.
+
+This option allows the user to enable or disable the provisioning functionality in the agent. Valid values are `y` and `n`. If provisioning is disabled, SSH host and user keys in the image are preserved and configuration in the Azure provisioning API is ignored.
 
 > [!NOTE]
-> The `Provisioning.Enabled` parameter defaults to "n" on Ubuntu Cloud Images that use cloud-init for provisioning.
-> 
-> 
+> The `Provisioning.Enabled` parameter defaults to `n` on Ubuntu Cloud Images that use cloud-init for provisioning.
 
-**Provisioning.DeleteRootPassword:**  
-```
+### Provisioning.DeleteRootPassword
+
+```txt
 Type: Boolean  
 Default: n
 ```
-If set, the root password in the /etc/shadow file is erased during the provisioning process.
 
-**Provisioning.RegenerateSshHostKeyPair:**  
-```
+If the value is `y`, the agent erases the root password in the */etc/shadow* file during the provisioning process.
+
+### Provisioning.RegenerateSshHostKeyPair
+
+```txt
 Type: Boolean  
 Default: y
 ```
-If set, all SSH host key pairs (ecdsa, dsa, and rsa) are deleted during the provisioning process from /etc/ssh/. And a single fresh key pair is generated.
 
-The encryption type for the fresh key pair is configurable by the Provisioning.SshHostKeyPairType entry. Some distributions re-create SSH key pairs for any missing encryption types when the SSH daemon is restarted (for example, upon a reboot).
+If the value is `y`, the agent deletes all SSH host key pairs from */etc/ssh/* during the provisioning process, including ECDSA, DSA, and RSA. The agent generates a single fresh key pair.
 
-**Provisioning.SshHostKeyPairType:**  
-```
+Configure the encryption type for the fresh key pair by using the `Provisioning.SshHostKeyPairType` entry. Some distributions re-create SSH key pairs for any missing encryption types when the SSH daemon is restarted--for example, after a reboot.
+
+### Provisioning.SshHostKeyPairType
+
+```txt
 Type: String  
 Default: rsa
 ```
-This can be set to an encryption algorithm type that is supported by the SSH daemon on the virtual machine. The typically supported values are "rsa", "dsa" and "ecdsa". "putty.exe" on Windows does not support "ecdsa". So, if you intend to use putty.exe on Windows to connect to a Linux deployment, use "rsa" or "dsa".
 
-**Provisioning.MonitorHostName:**  
-```
+You can set this option to an encryption algorithm type that the SSH daemon supports on the VM. The typically supported values are `rsa`, `dsa`, and `ecdsa`. The *putty.exe* file on Windows doesn't support `ecdsa`. If you intend to use *putty.exe* on Windows to connect to a Linux deployment, use `rsa` or `dsa`.
+
+### Provisioning.MonitorHostName
+
+```txt
 Type: Boolean  
 Default: y
 ```
-If set, waagent monitors the Linux virtual machine for hostname changes (as returned by the "hostname" command) and automatically update the networking configuration in the image to reflect the change. In order to push the name change to the DNS servers, networking is restarted in the virtual machine. This results in brief loss of Internet connectivity.
 
-**Provisioning.DecodeCustomData**  
-```
+If the value is `y`, waagent monitors the Linux VM for a host name change, as returned by the `hostname` command. Waagent then automatically updates the networking configuration in the image to reflect the change. To push the name change to the DNS servers, networking restarts on the VM. This restart results in brief loss of internet connectivity.
+
+### Provisioning.DecodeCustomData
+
+```txt
 Type: Boolean  
 Default: n
 ```
-If set, waagent decodes CustomData from Base64.
 
-**Provisioning.ExecuteCustomData**  
-```
+If the value is `y`, waagent decodes `CustomData` from Base64.
+
+### Provisioning.ExecuteCustomData
+
+```txt
 Type: Boolean  
 Default: n
 ```
-If set, waagent executes CustomData after provisioning.
 
-**Provisioning.AllowResetSysUser**
-```
+If the value is `y`, waagent runs `CustomData` after provisioning.
+
+### Provisioning.AllowResetSysUser
+
+```txt
 Type: Boolean
 Default: n
 ```
-This option allows the password for the sys user to be reset; default is disabled.
 
-**Provisioning.PasswordCryptId**  
-```
+This option allows the password for the system user to be reset. It's disabled by default.
+
+### Provisioning.PasswordCryptId
+
+```txt
 Type: String  
 Default: 6
 ```
-Algorithm used by crypt when generating password hash.  
- 1 - MD5  
- 2a - Blowfish  
- 5 - SHA-256  
- 6 - SHA-512  
 
-**Provisioning.PasswordCryptSaltLength**  
-```
+This option specifies the algorithm that `crypt` uses when it's generating a password hash. Valid values are:
+
+- `1`: MD5  
+- `2a`: Blowfish  
+- `5`: SHA-256  
+- `6`: SHA-512  
+
+### Provisioning.PasswordCryptSaltLength
+
+```txt
 Type: String  
 Default: 10
 ```
-Length of random salt used when generating password hash.
 
-**ResourceDisk.Format:**  
-```
+This option specifies the length of random salt used in generating a password hash.
+
+### ResourceDisk.Format
+
+```txt
 Type: Boolean  
 Default: y
 ```
-If set, the resource disk provided by the platform is formatted and mounted by waagent if the filesystem type requested by the user in "ResourceDisk.Filesystem" is anything other than "ntfs". A single partition of type Linux (83) is made available on the disk. This partition is not formatted if it can be successfully mounted.
 
-**ResourceDisk.Filesystem:**  
-```
+If the value is `y`, waagent formats and mounts the resource disk that the platform provides, unless the file system type that the user requested in `ResourceDisk.Filesystem` is `ntfs`. The agent makes a single Linux partition (ID 83) available on the disk. This partition isn't formatted if it can be successfully mounted.
+
+### ResourceDisk.Filesystem
+
+```txt
 Type: String  
 Default: ext4
 ```
-This specifies the filesystem type for the resource disk. Supported values vary by Linux distribution. If the string is X, then mkfs.X should be present on the Linux image. SLES 11 images should typically use 'ext3'. FreeBSD images should use 'ufs2' here.
 
-**ResourceDisk.MountPoint:**  
-```
+This option specifies the file system type for the resource disk. Supported values vary by Linux distribution. If the string is `X`, then `mkfs.X` should be present on the Linux image.
+
+### ResourceDisk.MountPoint
+
+```txt
 Type: String  
 Default: /mnt/resource 
 ```
-This specifies the path at which the resource disk is mounted. The resource disk is a *temporary* disk, and might be emptied when the VM is deprovisioned.
 
-**ResourceDisk.MountOptions**  
-```
+This option specifies the path at which the resource disk is mounted. The resource disk is a *temporary* disk and might be emptied when the VM is deprovisioned.
+
+### ResourceDisk.MountOptions
+
+```txt
 Type: String  
 Default: None
 ```
-Specifies disk mount options to be passed to the mount -o command. This is a comma-separated list of values, ex. 'nodev,nosuid'. See mount(8) for details.
 
-**ResourceDisk.EnableSwap:**  
-```
+This option specifies disk mount options to be passed to the `mount -o` command. The value is a comma-separated list of values, for example, `nodev,nosuid`. For more information, see the `mount(8)` manual page.
+
+### ResourceDisk.EnableSwap
+
+```txt
 Type: Boolean  
 Default: n
 ```
-If set, a swap file (/swapfile) is created on the resource disk and added to the system swap space.
 
-**ResourceDisk.SwapSizeMB:**  
-```
+If you set this option, the agent creates a swap file (*/swapfile*) on the resource disk and adds it to the system swap space.
+
+### ResourceDisk.SwapSizeMB
+
+```txt
 Type: Integer  
 Default: 0
 ```
-The size of the swap file in megabytes.
 
-**Logs.Verbose:**  
-```
+This option specifies the size of the swap file in megabytes.
+
+### Logs.Verbose
+
+```txt
 Type: Boolean  
 Default: n
 ```
-If set, log verbosity is boosted. Waagent logs to /var/log/waagent.log and utilizes the system logrotate functionality to rotate logs.
 
-**OS.EnableRDMA**  
-```
+If you set this option, log verbosity is boosted. Waagent logs to */var/log/waagent.log* and uses the system `logrotate` functionality to rotate logs.
+
+### OS.EnableRDMA
+
+```txt
 Type: Boolean  
 Default: n
 ```
-If set, the agent attempts to install and then load an RDMA kernel driver that matches the version of the firmware on the underlying hardware.
 
-**OS.RootDeviceScsiTimeout:**  
-```
+If you set this option, the agent attempts to install and then load an RDMA kernel driver that matches the version of the firmware on the underlying hardware.
+
+### OS.RootDeviceScsiTimeout
+
+```txt
 Type: Integer  
 Default: 300
 ```
-This setting configures the SCSI timeout in seconds on the OS disk and data drives. If not set, the system defaults are used.
 
-**OS.OpensslPath:**  
-```
+This option configures the SCSI timeout in seconds on the OS disk and data drives. If it's not set, the system defaults are used.
+
+### OS.OpensslPath
+
+```txt
 Type: String  
 Default: None
 ```
-This setting can be used to specify an alternate path for the openssl binary to use for cryptographic operations.
 
-**HttpProxy.Host, HttpProxy.Port**  
-```
+You can use this option to specify an alternate path for the *openssl* binary to use for cryptographic operations.
+
+### HttpProxy.Host, HttpProxy.Port
+
+```txt
 Type: String  
 Default: None
 ```
-If set, the agent uses this proxy server to access the internet. 
 
-**AutoUpdate.Enabled**
-```
+If you set this option, the agent uses this proxy server to access the internet.
+
+### AutoUpdate.Enabled
+
+```txt
 Type: Boolean
 Default: y
 ```
-Enable or disable auto-update for goal state processing; default is enabled.
 
+Enable or disable autoupdate for goal state processing. The default value is `y`.
 
+## Automatic log collection in the Azure Linux Guest Agent
+
+As of version 2.7+, the Azure Linux Guest Agent has a feature to automatically collect some logs and upload them. This feature currently requires `systemd`. It uses a new `systemd` slice called `azure-walinuxagent-logcollector.slice` to manage resources while it performs the collection.
+
+The purpose is to facilitate offline analysis. The agent produces a *.zip* file of some diagnostics logs before uploading them to the VM's host. Engineering teams and support professionals can retrieve the file to investigate issues for the VM owner. For technical information on the files that the Azure Linux Guest Agent collects, see the *azurelinuxagent/common/logcollector_manifests.py* file in the [agent's GitHub repository](https://github.com/Azure/WALinuxAgent).
+
+You can disable this option by editing */etc/waagent.conf*. Update `Logs.Collect` to `n`.
 
 ## Ubuntu Cloud Images
-Ubuntu Cloud Images utilize [cloud-init](https://launchpad.net/ubuntu/+source/cloud-init) to perform many configuration tasks that would otherwise be managed by the Azure Linux Agent. The following differences apply:
 
-* **Provisioning.Enabled** defaults to "n" on Ubuntu Cloud Images that use cloud-init to perform provisioning tasks.
-* The following configuration parameters have no effect on Ubuntu Cloud Images that use cloud-init to manage the resource disk and swap space:
+Ubuntu Cloud Images use [cloud-init](https://launchpad.net/ubuntu/+source/cloud-init) to do many configuration tasks that the Azure Linux VM Agent would otherwise manage. The following differences apply:
+
+- `Provisioning.Enabled` defaults to `n` on Ubuntu Cloud Images that use cloud-init to perform provisioning tasks.
+- The following configuration parameters have no effect on Ubuntu Cloud Images that use cloud-init to manage the resource disk and swap space:
   
-  * **ResourceDisk.Format**
-  * **ResourceDisk.Filesystem**
-  * **ResourceDisk.MountPoint**
-  * **ResourceDisk.EnableSwap**
-  * **ResourceDisk.SwapSizeMB**
+  - `ResourceDisk.Format`
+  - `ResourceDisk.Filesystem`
+  - `ResourceDisk.MountPoint`
+  - `ResourceDisk.EnableSwap`
+  - `ResourceDisk.SwapSizeMB`
 
-* For more information, see the following resources to configure the resource disk mount point and swap space on Ubuntu Cloud Images during provisioning:
+To configure the resource disk mount point and swap space on Ubuntu Cloud Images during provisioning, see the following resources:
   
-  * [Ubuntu Wiki: Configure Swap Partitions](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
-  * [Injecting Custom Data into an Azure Virtual Machine](../windows/classic/inject-custom-data.md)
-
+- [Ubuntu wiki: AzureSwapPartitions](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
+- [Deploy applications to a Windows virtual machine in Azure with the Custom Script Extension](../windows/tutorial-automate-vm-deployment.md)

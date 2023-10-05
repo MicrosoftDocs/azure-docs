@@ -1,27 +1,28 @@
 ---
-title: Mount a secret volume in Azure Container Instances
+title: Mount secret volume to container group
 description: Learn how to mount a secret volume to store sensitive information for access by your container instances
-services: container-instances
-author: dlepow
-
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
 ms.service: container-instances
-ms.topic: article
-ms.date: 07/19/2018
-ms.author: danlep
+ms.custom: devx-track-azurecli
+services: container-instances
+ms.date: 06/17/2022
 ---
 
 # Mount a secret volume in Azure Container Instances
 
 Use a *secret* volume to supply sensitive information to the containers in a container group. The *secret* volume stores your secrets in files within the volume, accessible by the containers in the container group. By storing secrets in a *secret* volume, you can avoid adding sensitive data like SSH keys or database credentials to your application code.
 
-All *secret* volumes are backed by [tmpfs][tmpfs], a RAM-backed filesystem; their contents are never written to non-volatile storage.
+* Once deployed with secrets in a container group, a secret volume is *read-only*.
+* All secret volumes are backed by [tmpfs][tmpfs], a RAM-backed filesystem; their contents are never written to non-volatile storage.
 
 > [!NOTE]
-> *Secret* volumes are currently restricted to Linux containers. Learn how to pass secure environment variables for both Windows and Linux containers in [Set environment variables](container-instances-environment-variables.md). While we're working to bring all features to Windows containers, you can find current platform differences in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md).
+> *Secret* volumes are currently restricted to Linux containers. Learn how to pass secure environment variables for both Windows and Linux containers in [Set environment variables](container-instances-environment-variables.md). While we're working to bring all features to Windows containers, you can find current platform differences in the [overview](container-instances-overview.md#linux-and-windows-containers).
 
 ## Mount secret volume - Azure CLI
 
-To deploy a container with one or more secrets by using the Azure CLI, include the `--secrets` and `--secrets-mount-path` parameters in the [az container create][az-container-create] command. This example mounts a *secret* volume consisting of two secrets, "mysecret1" and "mysecret2," at `/mnt/secrets`:
+To deploy a container with one or more secrets by using the Azure CLI, include the `--secrets` and `--secrets-mount-path` parameters in the [az container create][az-container-create] command. This example mounts a *secret* volume consisting of two files containing secrets, "mysecret1" and "mysecret2," at `/mnt/secrets`:
 
 ```azurecli-interactive
 az container create \
@@ -34,9 +35,14 @@ az container create \
 
 The following [az container exec][az-container-exec] output shows opening a shell in the running container, listing the files within the secret volume, then displaying their contents:
 
-```console
-$ az container exec --resource-group myResourceGroup --name secret-volume-demo --exec-command "/bin/sh"
-/usr/src/app # ls -1 /mnt/secrets
+```azurecli
+az container exec \
+  --resource-group myResourceGroup \
+  --name secret-volume-demo --exec-command "/bin/sh"
+```
+
+```output
+/usr/src/app # ls /mnt/secrets
 mysecret1
 mysecret2
 /usr/src/app # cat /mnt/secrets/mysecret1
@@ -53,10 +59,10 @@ You can also deploy container groups with the Azure CLI and a [YAML template](co
 
 When you deploy with a YAML template, the secret values must be **Base64-encoded** in the template. However, the secret values appear in plaintext within the files in the container.
 
-The following YAML template defines a container group with one container that mounts a *secret* volume at `/mnt/secrets`. The secret volume has two secrets, "mysecret1" and "mysecret2."
+The following YAML template defines a container group with one container that mounts a *secret* volume at `/mnt/secrets`. The secret volume has two files containing secrets, "mysecret1" and "mysecret2."
 
 ```yaml
-apiVersion: '2018-06-01'
+apiVersion: '2019-12-01'
 location: eastus
 name: secret-volume-demo
 properties:
@@ -88,7 +94,9 @@ To deploy with the YAML template, save the preceding YAML to a file named `deplo
 
 ```azurecli-interactive
 # Deploy with YAML template
-az container create --resource-group myResourceGroup --file deploy-aci.yaml
+az container create \
+  --resource-group myResourceGroup \
+  --file deploy-aci.yaml
 ```
 
 ## Mount secret volume - Resource Manager
@@ -102,13 +110,15 @@ Next, for each container in the container group in which you'd like to mount the
 The following Resource Manager template defines a container group with one container that mounts a *secret* volume at `/mnt/secrets`. The secret volume has two secrets, "mysecret1" and "mysecret2."
 
 <!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-secret.json -->
-[!code-json[volume-secret](~/azure-docs-json-samples/container-instances/aci-deploy-volume-secret.json)]
+[!code-json[volume-secret](~/resourcemanager-templates/container-instances/aci-deploy-volume-secret.json)]
 
-To deploy with the Resource Manager template, save the preceding JSON to a file named `deploy-aci.json`, then execute the [az group deployment create][az-group-deployment-create] command with the `--template-file` parameter:
+To deploy with the Resource Manager template, save the preceding JSON to a file named `deploy-aci.json`, then execute the [az deployment group create][az-deployment-group-create] command with the `--template-file` parameter:
 
 ```azurecli-interactive
 # Deploy with Resource Manager template
-az group deployment create --resource-group myResourceGroup --template-file deploy-aci.json
+az deployment group create \
+  --resource-group myResourceGroup \
+  --template-file deploy-aci.json
 ```
 
 ## Next steps
@@ -129,6 +139,6 @@ Another method for providing sensitive information to containers (including Wind
 [tmpfs]: https://wikipedia.org/wiki/Tmpfs
 
 <!-- LINKS - Internal -->
-[az-container-create]: /cli/azure/container#az-container-create
-[az-container-exec]: /cli/azure/container#az-container-exec
-[az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
+[az-container-create]: /cli/azure/container#az_container_create
+[az-container-exec]: /cli/azure/container#az_container_exec
+[az-deployment-group-create]: /cli/azure/deployment/group#az_deployment_group_create

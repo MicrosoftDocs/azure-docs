@@ -1,141 +1,121 @@
 ---
-title: Create and manage trading partner agreements - Azure Logic Apps
-description: Create and manage agreements between trading partners by using Azure Logic Apps and Enterprise Integration Pack
+title: Define agreements between partners in workflows
+description: Add agreements between partners in your integration account for workflows in Azure Logic Apps using the Enterprise Integration Pack.
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
-ms.topic: article
-ms.assetid: 447ffb8e-3e91-4403-872b-2f496495899d
-ms.date: 04/05/2019
+ms.reviewer: estfan, azla
+ms.topic: how-to
+ms.date: 08/23/2022
 ---
 
-# Create and manage trading partner agreements by using Azure Logic Apps and Enterprise Integration Pack
+# Add agreements between partners in integration accounts for workflows in Azure Logic Apps
 
-A [trading partner](../logic-apps/logic-apps-enterprise-integration-partners.md) 
-*agreement* helps organizations and businesses communicate seamlessly with each 
-other by defining the specific industry-standard protocol to use when exchanging 
-business-to-business (B2B) messages. Agreements provide common benefits, for example:
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
+
+After you add partners to your integration account, specify how partners exchange messages by defining [*agreements*](logic-apps-enterprise-integration-agreements.md) in your integration account. Agreements help organizations communicate seamlessly with each other by defining the specific industry-standard protocol for exchanging messages and by providing the following shared benefits:
 
 * Enable organizations to exchange information by using a well-known format.
-* Improve efficiency when conducting B2B transactions.
-* Are easy to create, manage, and use for building enterprise integration solutions.
 
-This article shows how to create an AS2, EDIFACT, or X12 agreement that you can use 
-when building enterprise integration solutions for B2B scenarios by using the 
-[Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md) 
-and [Azure Logic Apps](../logic-apps/logic-apps-overview.md). After you create 
-an agreement, you can then use the AS2, EDIFACT, or X12 connectors for exchanging 
-B2B messages.
+* Improve efficiency when conducting business-to-business (B2B) transactions.
+
+* Make creating, managing, and using agreements easy for building enterprise integration solutions.
+
+An agreement requires a *host partner*, which is always your organization, and a *guest partner*, which is the organization that exchanges messages with your organization. The guest partner can be another company, or even a department in your own organization. Using this agreement, you specify how to handle inbound and outbound messages from the host partner's perspective.
+
+This article shows how to create and manage an agreement, which you can then use to exchange B2B messages with another partner by using the AS2, X12, EDIFACT, or RosettaNet operations.
+
+If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overview.md)? For more information about B2B enterprise integration, review [B2B enterprise integration workflows with Azure Logic Apps and Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md).
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription yet, 
-[sign up for a free Azure account](https://azure.microsoft.com/free/).
+* An Azure account and subscription. If you don't have a subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 
-for storing your agreement and other B2B artifacts. This integration 
-account must be associated with your Azure subscription.
+* An [integration account resource](logic-apps-enterprise-integration-create-integration-account.md) where you define and store artifacts, such as trading partners, agreements, certificates, and so on, for use in your enterprise integration and B2B workflows. This resource has to meet the following requirements:
 
-* At least two [trading partners](../logic-apps/logic-apps-enterprise-integration-partners.md) 
-that you've already created in your integration account. 
-An agreement requires both a host partner and a guest partner. 
-Both partners must use the same "business identity" qualifier 
-as the agreement you want to create, such as AS2, X12, or EDIFACT.
+  * Is associated with the same Azure subscription as your logic app resource.
 
-* Optional: The logic app where you want to use your agreement 
-and a trigger that starts your logic app's workflow. To just 
-create your integration account and B2B artifacts, you don't need a logic app. 
-However, before your logic app can use the B2B artifacts 
-in your integration account, you must link your integration 
-account to your logic app. If you're new to logic apps, review 
-[What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) and 
-[Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+  * Exists in the same location or Azure region as your logic app resource.
 
-## Create agreements
+  * If you're using the [**Logic App (Consumption)** resource type](logic-apps-overview.md#resource-environment-differences), your integration account requires a [link to your logic app resource](logic-apps-enterprise-integration-create-integration-account.md#link-account) before you can use artifacts in your workflow.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-On the main Azure menu, select **All services**. 
-In the search box, enter "integration" as your filter. 
-From the results, select this resource: **Integration accounts**
+  * If you're using the [**Logic App (Standard)** resource type](logic-apps-overview.md#resource-environment-differences), your integration account doesn't need a link to your logic app resource but is still required to store other artifacts, such as partners, agreements, and certificates, along with using the [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), and [EDIFACT](logic-apps-enterprise-integration-edifact.md) operations. Your integration account still has to meet other requirements, such as using the same Azure subscription and existing in the same location as your logic app resource.
 
-   ![Find your integration account](./media/logic-apps-enterprise-integration-agreements/find-integration-accounts.png)
+  > [!NOTE]
+  > Currently, only the **Logic App (Consumption)** resource type supports [RosettaNet](logic-apps-enterprise-integration-rosettanet.md) operations. 
+  > The **Logic App (Standard)** resource type doesn't include [RosettaNet](logic-apps-enterprise-integration-rosettanet.md) operations.
 
-1. Under **Integration accounts**, select the integration 
-account where you want to create the agreement.
+* At least two [trading partners](logic-apps-enterprise-integration-partners.md) in your integration account. An agreement requires a host partner and a guest partner. Also, an agreement requires that both partners use the same or compatible *business identity* qualifier that's appropriate for an AS2, X12, EDIFACT, or RosettaNet agreement.
 
-   ![Select the integration account where to create the agreement](./media/logic-apps-enterprise-integration-agreements/select-integration-account.png)
+* Optionally, the logic app resource and workflow where you want to use the agreement to exchange messages. The workflow requires any trigger that starts your logic app's workflow.
 
-1. In the right-hand pane, under **Components**, 
-choose the **Agreements** tile.
+If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overview.md) and [Create an example Consumption logic app workflow](quickstart-create-example-consumption-workflow.md).
 
-   ![Choose "Agreements"](./media/logic-apps-enterprise-integration-agreements/agreement-1.png)
+## Add an agreement
 
-1. Under **Agreements**, choose **Add**. 
-In the **Add** pane, provide information 
-about your agreement, for example:
+1. In the [Azure portal](https://portal.azure.com) search box, enter `integration accounts`, and select **Integration accounts**.
 
-   ![Choose "Add"](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)
+1. Under **Integration accounts**, select the integration account where you want to add your partners.
+
+1. On the integration account menu, under **Settings**, select **Agreements**.
+
+1. On the **Agreements** pane, select **Add**.
+
+1. On the **Add** pane, provide the following information about the agreement:
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
    | **Name** | Yes | <*agreement-name*> | The name for your agreement |
-   | **Agreement type** | Yes | **AS2**, **X12**, or **EDIFACT** | The protocol type for your agreement. When you create your agreement file, the content in that file must match the agreement type. | |  
-   | **Host Partner** | Yes | <*host-partner-name*> | The host partner represents the organization that specifies the agreement |
+   | **Agreement type** | Yes | **AS2**, **X12**, **EDIFACT**, or **RosettaNet** | The protocol type for your agreement. When you create your agreement file, the content in that file must match the agreement type. |
+   | **Host Partner** | Yes | <*host-partner-name*> | The host partner represents your organization |
    | **Host Identity** | Yes | <*host-partner-identifier*> | The host partner's identifier |
-   | **Guest Partner** | Yes | <*guest-partner-name*> | The guest partner represents the organization that's doing business with the host partner |
+   | **Guest Partner** | Yes | <*guest-partner-name*> | The guest partner represents the organization that communicates with your organization |
    | **Guest Identity** | Yes | <*guest-partner-identifier*> | The guest partner's identifier |
-   | **Receive Settings** | Varies | Varies | These properties specify how to handle all incoming messages received by the agreement. For more information, see the respective agreement type: <p>- [AS2 message settings](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [EDIFACT message settings](logic-apps-enterprise-integration-edifact.md) <br>- [X12 message settings](logic-apps-enterprise-integration-x12.md) |
-   | **Send Settings** | Varies | Varies | These properties specify how to handle all outgoing messages sent by the agreement. For more information, see the respective agreement type: <p>- [AS2 message settings](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [EDIFACT message settings](logic-apps-enterprise-integration-edifact.md) <br>- [X12 message settings](logic-apps-enterprise-integration-x12.md) |
+   | **Receive Settings** | Varies | Varies | These properties specify how the host partner receives inbound messages from the guest partner in the agreement. For more information, review the respective agreement type: <p>- [AS2 message settings](logic-apps-enterprise-integration-as2-message-settings.md) <br>- [EDIFACT message settings](logic-apps-enterprise-integration-edifact.md) <br>- [X12 message settings](logic-apps-enterprise-integration-x12.md) |
+   | **Send Settings** | Varies | Varies | These properties specify how the host partner sends outbound messages to the guest partner in the agreement. For more information, review the respective agreement type: <p>- [AS2 message settings](logic-apps-enterprise-integration-as2-message-settings.md) <br>- [EDIFACT message settings](logic-apps-enterprise-integration-edifact.md) <br>- [X12 message settings](logic-apps-enterprise-integration-x12.md) |
+   | **RosettaNet PIP references** | Varies | Varies | This pane specifies information about one or more Partner Interface Processes (PIP) to use RosettaNet messages. For more information, review [Exchange RosettaNet messages](logic-apps-enterprise-integration-rosettanet.md). |
    |||||
 
-1. When you're done creating your agreement, on the **Add** page, 
-choose **OK**, and return to your integration account.
+   > [!IMPORTANT]
+   > The resolution for an agreement depends on matching the following items that are defined in the partner and inbound message:
+   >
+   > * The sender's qualifier and identifier
+   > * The receiver's qualifier and identifier
+   >
+   > If these values change for your partner, make sure that you update the agreement too.
 
-   The **Agreements** list now shows your new agreement.
+1. When you're done, select **OK**.
 
-## Edit agreements
+   Your agreement now appears on the **Agreements** list.
 
-1. In the [Azure portal](https://portal.azure.com), 
-on the main Azure menu, select **All services**.
+## Edit an agreement
 
-1. In the search box, enter "integration" as your filter. 
-From the results, select this resource: **Integration accounts**
+1. In the [Azure portal](https://portal.azure.com) search box, enter `integration accounts`, and select **Integration accounts**.
 
-1. Under **Integration accounts**, select the integration 
-account that has the agreement you want to edit.
+1. Under **Integration accounts**, select the integration account where you want to add your partners.
 
-1. In the right-hand pane, under **Components**, 
-choose the **Agreements** tile.
+1. On the integration account menu, under **Settings**, select **Agreements**.
 
-1. Under **Agreements**, select your agreement, 
-and choose **Edit**.
+1. On the **Agreements** pane, select your agreement, select **Edit**, and make your changes.
 
-1. Make and then save your changes.
+1. When you're done, select **OK**.
 
-## Delete agreements
+## Delete an agreement
 
-1. In the [Azure portal](https://portal.azure.com), 
-on the main Azure menu, select **All services**.
+1. In the [Azure portal](https://portal.azure.com) search box, enter `integration accounts`, and select **Integration accounts**.
 
-1. In the search box, enter "integration" as your filter. 
-From the results, select this resource: **Integration accounts**
+1. Under **Integration accounts**, select the integration account where you want to add your partners.
 
-1. Under **Integration accounts**, select the integration 
-account that has the agreement you want to delete.
+1. On the integration account menu, under **Settings**, select **Agreements**.
 
-1. In the right-hand pane, under **Components**, 
-choose the **Agreements** tile.
+1. On the **Agreements** pane, select the agreement to delete, and then select **Delete**.
 
-1. Under **Agreements**, select your agreement, 
-and choose **Delete**.
-
-1. Confirm that you want to delete the selected agreement.
+1. To confirm that you want to delete the agreement, select **Yes**.
 
 ## Next steps
 
 * [Exchange AS2 messages](logic-apps-enterprise-integration-as2.md)
 * [Exchange EDIFACT messages](logic-apps-enterprise-integration-edifact.md)
 * [Exchange X12 messages](logic-apps-enterprise-integration-x12.md)
+* [Exchange RosettaNet messages](logic-apps-enterprise-integration-rosettanet.md)

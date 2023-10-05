@@ -2,20 +2,19 @@
 title: Supportability and retirement policy guide for Azure Guest OS | Microsoft Docs
 description: Provides information about what Microsoft will support as regards to the Azure Guest OS used by Cloud Services.
 services: cloud-services
+ms.subservice: auto-os-updates
 documentationcenter: na
 author: raiye
 manager: timlt
 editor: ''
-
 ms.assetid: 919dd781-4dc6-4e50-bda8-9632966c5458
 ms.service: cloud-services
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 9/20/2017
+ms.date: 02/21/2023
 ms.author: raiye
-
+ms.custom: compute-evergreen
 ---
 # Azure Guest OS supportability and retirement policy
 The information on this page relates to the Azure Guest operating system ([Guest OS](cloud-services-guestos-update-matrix.md)) for Cloud Services worker and web roles (PaaS). It does not apply to Virtual Machines (IaaS).

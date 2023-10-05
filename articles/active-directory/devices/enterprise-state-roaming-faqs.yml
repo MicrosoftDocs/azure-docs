@@ -1,0 +1,122 @@
+### YamlMime:FAQ
+metadata:
+  title: Enterprise State Roaming FAQ
+  description: Frequently asked questions about ESR
+  
+  services: active-directory
+  ms.service: active-directory
+  ms.subservice: devices
+  ms.topic: faq
+  ms.date: 11/17/2022
+  ms.author: joflore
+  author: MicrosoftGuyJFlo
+  manager: amycolannino
+  ms.reviewer: guovivian, nahafez
+  ms.collection: M365-identity-device-management
+title: Settings and data roaming FAQ for administrators
+summary: This article answers some questions IT administrators might have about settings and app data sync.
+
+
+sections:
+  - name: Ignored
+    questions:
+      - question: |
+          What account is used for settings sync?
+        answer: |
+          In Windows 8.1, settings sync always used consumer Microsoft accounts. Enterprise users had the ability to connect a Microsoft account to their Active Directory domain account to gain access to settings sync. In Windows 10 and newer, this connected Microsoft account functionality is being replaced with a primary/secondary account framework.
+          
+          The primary account is defined as the account used to sign in to Windows. This can be a Microsoft account, a Microsoft Entra account, an on-premises Active Directory account, or a local account. In addition to the primary account, Windows 10 and newer users can add one or more secondary cloud accounts to their device. A secondary account is generally a Microsoft account, a Microsoft Entra account, or some other account such as Gmail or Facebook. These secondary accounts provide access to additional services such as single sign-on and the Windows Store, but they aren't capable of powering settings sync.
+          
+          Data is never mixed between the different user accounts on the device. There are two rules for settings sync:
+          
+          * Windows settings will always roam with the primary account.
+          * App data will be tagged with the account used to acquire the app. Only apps tagged with the primary account will sync. App ownership tagging is determined when an app is side-loaded through the Windows Store or mobile device management (MDM).
+          
+          If an application owner can't be identified, it will roam with the primary account. If a device is upgraded from Windows 8 or Windows 8.1 to Windows 10 and newer, all the apps will be tagged as acquired by the Microsoft account. This is because most users acquire apps through the Windows Store, and there was no Windows Store support for Microsoft Entra accounts prior to Windows 10. If an app is installed via an offline license, the app will be tagged using the primary account on the device.
+          
+          > [!NOTE]
+          > Windows 10 or newer devices that are enterprise-owned and are connected to Azure AD can no longer connect their Microsoft accounts to a domain account. The ability to connect a Microsoft account to a domain account and have all the user's data sync to the Microsoft account (that is, the Microsoft account roaming via the connected Microsoft account and Active Directory functionality) is removed from Windows 10 and newer devices that are joined to a connected Active Directory or Microsoft Entra environment.
+          
+      - question: |
+          How do I upgrade from Microsoft account settings sync in Windows 8 to Microsoft Entra settings sync in Windows 10 or newer?
+        answer: |
+          If you're joined to the Active Directory domain running Windows 8.1 with a connected Microsoft account, you'll sync settings through your Microsoft account. After upgrading to Windows 10 and newer, you'll continue to sync user settings via Microsoft account as long as you're a domain-joined user, and the Active Directory domain doesn't connect with Microsoft Entra ID.
+          
+          If the on-premises Active Directory domain does connect with Azure AD, your device will attempt to sync settings using the connected Azure AD account. If the Microsoft Entra administrator doesn't enable Enterprise State Roaming, your connected Microsoft Entra account will stop syncing settings. If you're running Windows 10 and newer and you sign in with a Microsoft Entra identity, you'll start syncing windows settings as soon as your administrator enables settings sync via Microsoft Entra ID.
+          
+          If you stored any personal data on your corporate device, you should know Windows OS and application data will begin syncing to Azure AD. This has the following implications:
+          
+          * Your personal Microsoft account settings will drift apart from the settings on your work or school Azure AD accounts. This is because the Microsoft account and Microsoft Entra settings sync are now using separate accounts.
+          * Personal data such as Wi-Fi passwords, web credentials, and Internet Explorer favorites that were previously synced via a connected Microsoft account will be synced via Azure AD.
+          
+      - question: |
+          How do Microsoft account and Microsoft Entra Enterprise State Roaming interoperability work?
+        answer: |
+          In the November 2015 or later releases of Windows 10, Enterprise State Roaming is only supported for a single account at a time. If you sign in to Windows by using a work or school Microsoft Entra account, all data will sync via Microsoft Entra ID. If you sign in to Windows by using a personal Microsoft account, all data will sync via the Microsoft account. Universal app data will roam using only the primary sign-in account on the device, and it will roam only if the app's license is owned by the primary account. Universal app data for the apps owned by any secondary accounts won't be synced.
+
+      - question: |
+          Do settings sync for Microsoft Entra accounts from multiple tenants?
+        answer: |
+          When multiple Microsoft Entra accounts from different Microsoft Entra tenants are on the same device, you must update the device's registry to communicate with the Azure Rights Management service for each Microsoft Entra tenant.  
+          
+          1. Find the GUID for each Microsoft Entra tenant. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com), browse to **Identity** > **Overview** > **Properties** > **Tenant ID**.
+          2. After you have the GUID, you'll need to add the registry key
+             **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<tenant ID GUID>**.
+             From the **tenant ID GUID** key, create a new Multi-String value (REG-MULTI-SZ) named **AllowedRMSServerUrls**. For its data, specify the licensing distribution point URLs of the other Azure tenants that the device accesses.
+          3. You can find the licensing distribution point URLs by running the **Get-AadrmConfiguration** cmdlet from the AADRM module. If the values for the **LicensingIntranetDistributionPointUrl** and **LicensingExtranetDistributionPointUrl** are different, specify both values. If the values are the same, specify the value just once.
+          
+      - question: |
+          What are the roaming settings options for existing Windows desktop applications?
+        answer: |
+          Roaming only works for Universal Windows apps. There are two options available for enabling roaming on an existing Windows desktop application:
+          
+          * The [Desktop Bridge](/windows/msix/desktop/source-code-overview) helps you bring your existing Windows desktop apps to the Universal Windows Platform. From here, minimal code changes will be required to take advantage of Microsoft Entra app data roaming. The Desktop Bridge provides your apps with an app identity, which is needed to enable app data roaming for existing desktop apps.
+          * [User Experience Virtualization (UE-V)](/previous-versions//dn458947(v=vs.85)) helps you create a custom settings template for existing Windows desktop apps and enable roaming for Win32 apps. This option doesn't require the app developer to change code of the app. UE-V is limited to on-premises Active Directory roaming for customers who have purchased the Microsoft Desktop Optimization Pack.
+          
+          Administrators can configure UE-V to roam Windows desktop app data by changing roaming of Windows OS settings and Universal app data through [UE-V group policies](/microsoft-desktop-optimization-pack/uev-v2/configuring-ue-v-2x-with-group-policy-objects-both-uevv2), including:
+          
+          * Roam Windows settings group policy
+          * Don't synchronize Windows Apps group policy
+          * Internet Explorer roaming in the applications section
+          
+      - question: |
+          Can I store synced settings and data on-premises?
+        answer: |
+          Enterprise State Roaming stores all synced data in the Microsoft cloud. UE-V offers an on-premises roaming solution.
+
+      - question: |
+          How is the data secured?
+        answer: |
+          Prior to Nov 2022 all user data was secured using [Azure Rights Management](/azure/information-protection/what-is-information-protection).
+
+          Starting in November 2022, Microsoft no longer uses Azure Rights Management for all data encryption. Microsoft is committed to safeguarding customer data. Certain sensitive data such as passwords will be encrypted client side with keys derived from the Microsoft Entra tenant to ensure an extra layer of security. All user data (including non-sensitive data) will be encrypted in transit and at rest in the cloud. For a list of sensitive and non-sensitive data items roamed, see [Windows roaming settings reference](enterprise-state-roaming-windows-settings-reference.md).
+          
+      - question: |
+          Can I manage sync for a specific app or setting?
+        answer: |
+          In Windows 10 or newer, administrators can disable sync for all settings sync groups on a managed device with MDM or Group Policy.
+
+      - question: |
+          How can I enable or disable roaming?
+        answer: |
+          In the **Settings** app, go to **Accounts** > **Sync your settings**. From this page, you can see which account is being used to roam settings, and you can enable or disable individual groups of settings to be roamed.
+
+      - question: |
+          What is Microsoft's recommendation for enabling roaming in Windows 10 or newer?
+        answer: |
+          Microsoft has a few different settings roaming solutions available, including UE-V and Enterprise State Roaming.  If your organization isn't ready or comfortable with moving data to the cloud, then we recommend that you use UE-V as your primary roaming technology. If your organization requires roaming support for existing Windows desktop applications but is eager to move to the cloud, we recommend that you use both Enterprise State Roaming and UE-V. Although UE-V and Enterprise State Roaming are similar technologies, they aren't mutually exclusive. They complement each other to help ensure that your organization provides the roaming services that your users need.  
+          
+          When using both Enterprise State Roaming and UE-V, Enterprise State Roaming is the primary roaming agent on the device. UE-V is being used to supplement Win32 applications.
+          
+          * Enterprise State Roaming is the primary roaming agent on the device. UE-V is being used to supplement the “Win32 gap.”
+          * UE-V roaming for Windows settings and modern UWP app data should be disabled when using the UE-V group policies. These settings are already covered by Enterprise State Roaming.
+          
+      - question: |
+          How does Enterprise State Roaming support virtual desktop infrastructure (VDI)?
+        answer: |
+          Enterprise State Roaming is supported on Windows 10 or newer client SKUs, but not on server SKUs. If a client VM is hosted on a hypervisor machine and you remotely sign in to the virtual machine, your data will roam. If multiple users share the same OS and users remotely sign in to a server for a full desktop experience, roaming might not work. The latter session-based scenario isn't officially supported.
+         
+additionalContent: |
+
+  ## Next steps 
+  For an overview, see [enterprise state roaming overview](./enterprise-state-roaming-enable.md)

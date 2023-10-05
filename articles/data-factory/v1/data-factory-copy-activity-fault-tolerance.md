@@ -1,20 +1,12 @@
 ---
-title: Add fault tolerance in Azure Data Factory Copy Activity by skipping incompatible rows | Microsoft Docs
+title: Add fault tolerance in Azure Data Factory Copy Activity by skipping incompatible rows 
 description: Learn how to add fault tolerance in Azure Data Factory Copy Activity by skipping incompatible rows during copy
-services: data-factory
-documentationcenter: ''
-author: linda33wj
-manager: craigg
-
-
+author: jianleishen
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-
+ms.subservice: v1
 ms.topic: conceptual
-ms.date: 03/27/2018
-ms.author: jingwang
-
+ms.date: 04/12/2023
+ms.author: jianleishen
 robots: noindex
 ---
 # Add fault tolerance in Copy Activity by skipping incompatible rows
@@ -47,7 +39,7 @@ Copy Activity supports three scenarios for detecting, skipping, and logging inco
     For example: Copy data from a SQL server to a SQL database. A primary key is defined in the sink SQL database, but no such primary key is defined in the source SQL server. The duplicated rows that exist in the source cannot be copied to the sink. Copy Activity copies only the first row of the source data into the sink. The subsequent source rows that contain the duplicated primary key value are detected as incompatible and are skipped.
 
 >[!NOTE]
->This feature doesn't apply when copy activity is configured to invoke external data loading mechanism including [Azure SQL Data Warehouse PolyBase](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) or [Amazon Redshift Unload](data-factory-amazon-redshift-connector.md#use-unload-to-copy-data-from-amazon-redshift). For loading data into SQL Data Warehouse using PolyBase, use PolyBase's native fault tolerance support by specifying "[polyBaseSettings](data-factory-azure-sql-data-warehouse-connector.md#sqldwsink)" in copy activity.
+>This feature doesn't apply when copy activity is configured to invoke external data loading mechanism including [Azure Synapse Analytics PolyBase](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-synapse-analytics) or [Amazon Redshift Unload](data-factory-amazon-redshift-connector.md#use-unload-to-copy-data-from-amazon-redshift). For loading data into Azure Synapse Analytics using PolyBase, use PolyBase's native fault tolerance support by specifying "[polyBaseSettings](data-factory-azure-sql-data-warehouse-connector.md#sqldwsink)" in copy activity.
 
 ## Configuration
 The following example provides a JSON definition to configure skipping the incompatible rows in Copy Activity:
@@ -78,7 +70,7 @@ The following example provides a JSON definition to configure skipping the incom
 ## Monitoring
 After the copy activity run completes, you can see the number of skipped rows in the monitoring section:
 
-![Monitor skipped incompatible rows](./media/data-factory-copy-activity-fault-tolerance/skip-incompatible-rows-monitoring.png)
+:::image type="content" source="./media/data-factory-copy-activity-fault-tolerance/skip-incompatible-rows-monitoring.png" alt-text="Monitor skipped incompatible rows":::
 
 If you configure to log the incompatible rows, you can find the log file at this path: `https://[your-blob-account].blob.core.windows.net/[path-if-configured]/[copy-activity-run-id]/[auto-generated-GUID].csv` In the log file, you can see the rows that were skipped and the root cause of the incompatibility.
 

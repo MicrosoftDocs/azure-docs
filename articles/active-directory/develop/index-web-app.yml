@@ -1,0 +1,83 @@
+### YamlMime:Landing
+
+title: Web application documentation
+summary: >
+  Learn how to sign in users and access web APIs in server-based web apps with
+  our quickstarts, tutorials, and in-depth how-to guides.
+
+metadata:
+  author: Dickson-Mwendia
+  ms.author: dmwendia
+  ms.date: 09/21/2023
+  ms.service: active-directory
+  ms.subservice: develop
+  ms.topic: landing-page
+
+landingContent:
+
+## ROW 1 ################################################### ROW 1 ##
+  - title: "Get started fast"
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: ASP.NET
+            url: quickstart-web-app-aspnet-sign-in.md
+          - text: ASP.NET Core
+            url: quickstart-web-app-aspnet-core-sign-in.md
+          - text: Java
+            url: quickstart-web-app-java-sign-in.md
+          - text: Node.js with MSAL
+            url: quickstart-web-app-nodejs-msal-sign-in.md
+          - text: Python
+            url: quickstart-web-app-python-sign-in.md
+  - title: "Learn by building"
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: ASP.NET
+            url: ./web-app-tutorial-01-register-application.md
+          - text: Blazor Server
+            url: tutorial-blazor-server.md
+          - text: Node.js with Express
+            url: tutorial-v2-nodejs-webapp-msal.md
+          - text: Spring
+            url: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
+  - title: "Web apps in depth"
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Web app that signs in users
+            url: scenario-web-app-sign-user-overview.md
+          - text: Web app that calls a web API
+            url: scenario-web-app-call-api-overview.md
+  - title: "Scenarios in depth"
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Secure web app accesses storage and Microsoft Graph
+            url: multi-service-web-app-overview.md          
+## ROW  ################################################### ROW 2 ##
+  # - title: $CARD_TITLE
+  #   linkLists:
+  #     - linkListType: get-started
+  #       links:
+  #         - text: $ARTICLE_TITLE
+  #           url: index.yml
+  #         - text: $ARTICLE_TITLE
+  #           url: index.yml
+  # - title: $CARD_TITLE
+  #   linkLists:
+  #   - linkListType: get-started
+  #     links:
+  #         - text: $ARTICLE_TITLE
+  #           url: index.yml
+  #         - text: $ARTICLE_TITLE
+  #           url: index.yml
+  # - title: $CARD_TITLE
+  #   linkLists:
+  #     - linkListType: get-started
+  #       links:
+  #         - text: $ARTICLE_TITLE
+  #           url: index.yml
+  #         - text: $ARTICLE_TITLE
+  #           url: index.yml

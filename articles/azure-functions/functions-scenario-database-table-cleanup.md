@@ -1,42 +1,36 @@
 ---
-title: Use Azure Functions to perform a database clean up task | Microsoft Docs
+title: Use Azure Functions to perform a database clean up task 
 description: Use Azure Functions to schedule a task that connects to Azure SQL Database to periodically clean up rows.
-services: functions
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
-
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
-ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 10/28/2018
-ms.author: glenga
+ms.custom: devx-track-csharp
+ms.date: 01/30/2023
+ms.devlang: csharp
 ---
 
 # Use Azure Functions to connect to an Azure SQL Database
 
-This article shows you how to use Azure Functions to create a scheduled job that connects to an Azure SQL Database instance. The function code cleans up rows in a table in the database. The new C# function is created based on a pre-defined timer trigger template in Visual Studio 2019. To support this scenario, you must also set a database connection string as an app setting in the function app. This scenario uses a bulk operation against the database. 
+This article shows you how to use Azure Functions to create a scheduled job that connects to an Azure SQL Database or Azure SQL Managed Instance. The function code cleans up rows in a table in the database. The new C# function is created based on a pre-defined timer trigger template in Visual Studio 2019. To support this scenario, you must also set a database connection string as an app setting in the function app. For Azure SQL Managed Instance you need to [enable public endpoint](/azure/azure-sql/managed-instance/public-endpoint-configure) to be able to connect from Azure Functions. This scenario uses a bulk operation against the database. 
 
 If this is your first experience working with C# Functions, you should read the [Azure Functions C# developer reference](functions-dotnet-class-library.md).
 
 ## Prerequisites
 
-+ Complete the steps in the article [Create your first function using Visual Studio](functions-create-your-first-function-visual-studio.md) to create a local function app that targets the version 2.x runtime. You must also have published your project to a function app in Azure.
++ Complete the steps in the article [Create your first function using Visual Studio](functions-create-your-first-function-visual-studio.md) to create a local function app that targets version 2.x or a later version of the runtime. You must also have published your project to a function app in Azure.
 
-+ This article demonstrates a Transact-SQL command that executes a bulk cleanup operation in the **SalesOrderHeader** table in the AdventureWorksLT sample database. To create the AdventureWorksLT sample database, complete the steps in the article [Create an Azure SQL database in the Azure portal](../sql-database/sql-database-get-started-portal.md).
++ This article demonstrates a Transact-SQL command that executes a bulk cleanup operation in the **SalesOrderHeader** table in the AdventureWorksLT sample database. To create the AdventureWorksLT sample database, complete the steps in the article [Create a database in Azure SQL Database using the Azure portal](/azure/azure-sql/database/single-database-create-quickstart).
 
-+ You must add a [server-level firewall rule](../sql-database/sql-database-get-started-portal-firewall.md) for the public IP address of the computer you use for this quickstart. This rule is required to be able access the SQL database instance from your local computer.  
++ You must add a [server-level firewall rule](/azure/azure-sql/database/firewall-create-server-level-portal-quickstart) for the public IP address of the computer you use for this quickstart. This rule is required to be able access the SQL Database instance from your local computer.  
 
 ## Get connection information
 
-You need to get the connection string for the database you created when you completed [Create an Azure SQL database in the Azure portal](../sql-database/sql-database-get-started-portal.md).
+You need to get the connection string for the database you created when you completed [Create a database in Azure SQL Database using the Azure portal](/azure/azure-sql/database/single-database-create-quickstart).
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Select **SQL Databases** from the left-hand menu, and select your database on the **SQL databases** page.
 
-1. Select **Connection strings** under **Settings** and copy the complete **ADO.NET** connection string.
+1. Select **Connection strings** under **Settings** and copy the complete **ADO.NET** connection string. For Azure SQL Managed Instance copy connection string for public endpoint.
 
     ![Copy the ADO.NET connection string.](./media/functions-scenario-database-table-cleanup/adonet-connection-string.png)
 
@@ -46,9 +40,15 @@ A function app hosts the execution of your functions in Azure. As a best securit
 
 You must have previously published your app to Azure. If you haven't already done so, [Publish your function app to Azure](functions-develop-vs.md#publish-to-azure).
 
-1. In Solution Explorer, right-click the function app project and choose **Publish** > **Manage application settings...**. Select **Add setting**, in **New app setting name**, type `sqldb_connection`, and select **OK**.
+1. In Solution Explorer, right-click the function app project and choose **Publish**.
 
-    ![Application settings for the function app.](./media/functions-scenario-database-table-cleanup/functions-app-service-add-setting.png)
+1. On the **Publish** page, select the ellipses (`...`) in the **Hosting** area, and choose **Manage Azure App Service settings**. 
+
+    ![Manage App Service settings for the function app.](./media/functions-scenario-database-table-cleanup/publish-new-resource.png)
+
+1. In **Application Settings** select **Add setting**, in **New app setting name** type `sqldb_connection`, and select **OK**.
+
+    ![Add an app setting for the function app.](./media/functions-scenario-database-table-cleanup/functions-app-service-add-setting.png)
 
 1. In the new **sqldb_connection** setting, paste the connection string you copied in the previous section into the **Local** field and replace `{your_username}` and `{your_password}` placeholders with real values. Select **Insert value from local** to copy the updated value into the **Remote** field, and then select **OK**.
 
@@ -58,15 +58,15 @@ You must have previously published your app to Azure. If you haven't already don
 
 ## Add the SqlClient package to the project
 
-You need to add the NuGet package that contains the SqlClient library. This data access library is needed to connect to a SQL database.
+You need to add the NuGet package that contains the SqlClient library. This data access library is needed to connect to SQL Database.
 
-1. Open your local function app project in Visual Studio 2019.
+1. Open your local function app project in Visual Studio 2022.
 
 1. In Solution Explorer, right-click the function app project and choose **Manage NuGet Packages**.
 
-1. On the **Browse** tab, search for ```System.Data.SqlClient``` and, when found, select it.
+1. On the **Browse** tab, search for ```Microsoft.Data.SqlClient``` and, when found, select it.
 
-1. In the **System.Data.SqlClient** page, select version `4.5.1` and then click **Install**.
+1. In the **Microsoft.Data.SqlClient** page, select version `5.1.0` and then click **Install**.
 
 1. When the install completes, review the changes and then click **OK** to close the **Preview** window.
 
@@ -80,12 +80,12 @@ Now, you can add the C# function code that connects to your SQL Database.
 
 1. With the **Azure Functions** template selected, name the new item something like `DatabaseCleanup.cs` and select **Add**.
 
-1. In the **New Azure function** dialog box, choose **Timer trigger** and then **OK**. This dialog creates a code file for the timer triggered function.
+1. In the **New Azure function** dialog box, choose **Timer trigger** and then **Add**. This dialog creates a code file for the timer triggered function.
 
 1. Open the new code file and add the following using statements at the top of the file:
 
     ```cs
-    using System.Data.SqlClient;
+    using Microsoft.Data.SqlClient;
     using System.Threading.Tasks;
     ```
 
@@ -123,7 +123,10 @@ Now, you can add the C# function code that connects to your SQL Database.
 
     On the first execution, you should update 32 rows of data. Following runs update no data rows, unless you make changes to the SalesOrderHeader table data so that more rows are selected by the `UPDATE` statement.
 
-If you plan to [publish this function](functions-develop-vs.md#publish-to-azure), remember to change the `TimerTrigger` attribute to a more reasonable [cron schedule](functions-bindings-timer.md#cron-expressions) than every 15 seconds.
+If you plan to [publish this function](functions-develop-vs.md#publish-to-azure), remember to change the `TimerTrigger` attribute to a more reasonable [cron schedule](functions-bindings-timer.md#ncrontab-expressions) than every 15 seconds. You also need to make sure that your function app can access the Azure SQL Database or Azure SQL Managed Instance. For more information, see one of the following links based on your type of Azure SQL: 
+
++ [Azure SQL Database](/azure/azure-sql/database/firewall-configure#connections-from-inside-azure.)
++ [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/connect-application-instance#connect-azure-app-service)
 
 ## Next steps
 

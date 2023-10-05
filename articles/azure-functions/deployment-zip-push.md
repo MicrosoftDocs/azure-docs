@@ -1,26 +1,21 @@
 ---
-title: Zip push deployment for Azure Functions | Microsoft Docs
+title: Zip push deployment for Azure Functions 
 description: Use the .zip file deployment facilities of the Kudu deployment service to publish your Azure Functions.
-services: functions
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
 
-ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
+ms.custom: devx-track-azurecli
 ms.date: 08/12/2018
-ms.author: glenga
-
 ---
 
 # Zip deployment for Azure Functions
 
-This article describes how to deploy your function app project files to Azure from a .zip (compressed) file. You learn how to do a push deployment, both by using Azure CLI and by using the REST APIs. [Azure Functions Core Tools](functions-run-local.md) also uses these deployment APIs when publishing a local project to Azure.
+This article describes how to deploy your function app project files to Azure from a .zip (compressed) file. You learn how to do a push deployment, both by using Azure CLI and by using the REST APIs. [Azure Functions Core Tools](functions-run-local.md) also uses these deployment APIs when publishing a local project to Azure. 
+
+Zip deployment is also an easy way to run your functions from the deployment package. To learn more, see [Run your functions from a package file in Azure](run-functions-from-deployment-package.md).
 
 Azure Functions has the full range of continuous deployment and integration options that are provided by Azure App Service. For more information, see [Continuous deployment for Azure Functions](functions-continuous-deployment.md).
 
-To speed development, you may find it easier to deploy your function app project files directly from a .zip file. The .zip deployment API takes the contents of a .zip file and extracts the contents into the `wwwroot` folder of your function app. This .zip file deployment uses the same Kudu service that powers continuous integration-based deployments, including:
+To speed up development, you may find it easier to deploy your function app project files directly from a .zip file. The .zip deployment API takes the contents of a .zip file and extracts the contents into the `wwwroot` folder of your function app. This .zip file deployment uses the same Kudu service that powers continuous integration-based deployments, including:
 
 + Deletion of files that were left over from earlier deployments.
 + Deployment customization, including running deployment scripts.
@@ -40,40 +35,16 @@ The .zip file that you use for push deployment must contain all of the files nee
 
 A function app includes all of the files and folders in the `wwwroot` directory. A .zip file deployment includes the contents of the `wwwroot` directory, but not the directory itself. When deploying a C# class library project, you must include the compiled library files and dependencies in a `bin` subfolder in your .zip package.
 
-## Download your function app files
-
-When you are developing on a local computer, it's easy to create a .zip file of the function app project folder on your development computer.
-
-However, you might have created your functions by using the editor in the Azure portal. You can download an existing function app project in one of these ways:
-
-+ **From the Azure portal:**
-
-  1. Sign in to the [Azure portal](https://portal.azure.com), and then go to your function app.
-
-  2. On the **Overview** tab, select **Download app content**. Select your download options, and then select **Download**.
-
-      ![Download the function app project](./media/deployment-zip-push/download-project.png)
-
-     The downloaded .zip file is in the correct format to be republished to your function app by using .zip push deployment. The portal download can also add the files needed to open your function app directly in Visual Studio.
-
-+ **Using REST APIs:**
-
-    Use the following deployment GET API to download the files from your `<function_app>` project: 
-
-        https://<function_app>.scm.azurewebsites.net/api/zip/site/wwwroot/
-
-    Including `/site/wwwroot/` makes sure your zip file includes only the function app project files and not the entire site. If you are not already signed in to Azure, you will be asked to do so.  
-
-You can also download a .zip file from a GitHub repository. When you download a GitHub repository as a .zip file, GitHub adds an extra folder level for the branch. This extra folder level means that you can't deploy the .zip file directly as you downloaded it from GitHub. If you're using a GitHub repository to maintain your function app, you should use [continuous integration](functions-continuous-deployment.md) to deploy your app.  
+When you are developing on a local computer, you can manually create a .zip file of the function app project folder using built-in .zip compression functionality or third-party tools.
 
 ## <a name="cli"></a>Deploy by using Azure CLI
 
 You can use Azure CLI to trigger a push deployment. Push deploy a .zip file to your function app by using the [az functionapp deployment source config-zip](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip) command. To use this command, you must use Azure CLI version 2.0.21 or later. To see what Azure CLI version you are using, use the `az --version` command.
 
-In the following command, replace the `<zip_file_path>` placeholder with the path to the location of your .zip file. Also, replace `<app_name>` with the unique name of your function app. 
+In the following command, replace the `<zip_file_path>` placeholder with the path to the location of your .zip file. Also, replace `<app_name>` with the unique name of your function app and replace `<resource_group>` with the name of your resource group.
 
 ```azurecli-interactive
-az functionapp deployment source config-zip  -g myResourceGroup -n \
+az functionapp deployment source config-zip -g <resource_group> -n \
 <app_name> --src <zip_file_path>
 ```
 
@@ -91,9 +62,35 @@ Zip deployment integrates with this feature, which you can enable by setting the
 
 [!INCLUDE [app-service-deploy-zip-push-custom](../../includes/app-service-deploy-zip-push-custom.md)]
 
+## Download your function app files
+
+If you created your functions by using the editor in the Azure portal, you can download your existing function app project as a .zip file in one of these ways:
+
++ **From the Azure portal:**
+
+  1. Sign in to the [Azure portal](https://portal.azure.com), and then go to your function app.
+
+  2. On the **Overview** tab, select **Download app content**. Select your download options, and then select **Download**.
+
+      ![Download the function app project](./media/deployment-zip-push/download-project.png)
+
+     The downloaded .zip file is in the correct format to be republished to your function app by using .zip push deployment. The portal download can also add the files needed to open your function app directly in Visual Studio.
+
++ **Using REST APIs:**
+
+    Use the following deployment GET API to download the files from your `<function_app>` project: 
+
+    ```http
+    https://<function_app>.scm.azurewebsites.net/api/zip/site/wwwroot/
+    ```
+
+    Including `/site/wwwroot/` makes sure your zip file includes only the function app project files and not the entire site. If you are not already signed in to Azure, you will be asked to do so.  
+
+You can also download a .zip file from a GitHub repository. When you download a GitHub repository as a .zip file, GitHub adds an extra folder level for the branch. This extra folder level means that you can't deploy the .zip file directly as you downloaded it from GitHub. If you're using a GitHub repository to maintain your function app, you should use [continuous integration](functions-continuous-deployment.md) to deploy your app.  
+
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Continuous deployment for Azure Functions](functions-continuous-deployment.md)
+> [Run your functions from a package file in Azure](run-functions-from-deployment-package.md)
 
 [.zip push deployment reference topic]: https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file

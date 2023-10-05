@@ -1,15 +1,16 @@
 ---
-title: Troubleshooting Azure Application Gateway Session Affinity Issues
+title: Troubleshoot session affinity issues
+titleSuffix: Azure Application Gateway
 description: This article provides information on how to troubleshoot session affinity issues in Azure Application Gateway
 services: application-gateway
-author: abshamsft
+author: greg-lindsay
 ms.service: application-gateway
-ms.topic: article
-ms.date: 02/22/2019
-ms.author: absha
+ms.topic: troubleshooting
+ms.date: 01/24/2022
+ms.author: greglin
 ---
 
-# Troubleshoot Azure Application Gateway Session Affinity Issues
+# Troubleshoot Azure Application Gateway session affinity issues
 
 Learn how to diagnose and resolve session affinity issues with Azure Application Gateway.
 
@@ -18,7 +19,10 @@ Learn how to diagnose and resolve session affinity issues with Azure Application
 
 ## Overview
 
-The cookie-based session affinity feature is useful when you want to keep a user session on the same server. By using gateway-managed cookies, the Application Gateway can direct subsequent traffic from a user session to the same server for processing. This is important in cases where session state is saved locally on the server for a user session.
+The cookie-based session affinity feature is useful to keep a user session on the same server. By using gateway-managed cookies, the Application Gateway can direct subsequent traffic from a user session to the same server for processing. This is important in cases where session state is saved locally on the server for a user session. Session affinity is also known as sticky sessions.
+
+> [!NOTE]
+> Application Gateway v1 issues a cookie called ARRAffinity, which is used to direct traffic to the same backend pool member.  In Application Gateway v2, this cookie has been renamed to ApplicationGatewayAffinity.  For the purposes of this document, ApplicationGatewayAffinity will be used as an example, ARRAffinity can be substituted in where applicable for Application Gateway v1 instances.
 
 ## Possible problem causes
 
@@ -26,7 +30,7 @@ The problem in maintaining cookie-based session affinity may happen due to the f
 
 - “Cookie-based Affinity” setting is not enabled
 - Your application cannot handle cookie-based affinity
-- Application is using cookie-based affinity but requests still bouncing between back-end servers
+- Application is using cookie-based affinity but requests still bouncing between backend servers
 
 ### Check whether the "Cookie-based Affinity” setting is enabled
 
@@ -38,17 +42,17 @@ Sometimes the session affinity issues might occur when you forget to enable “C
 
 3. Select **HTTP settings** tab under **SETTINGS**.
 
-   ![troubleshoot-session-affinity-issues-1](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-1.png)
+   ![Screenshot shows SETTINGS with H T T P settings selected.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-1.png)
 
-4. Click **appGatewayBackendHttpSettings** on the right side to check whether you have selected **Enabled** for Cookie based affinity.
+4. Select the HTTP setting, and on the **Add HTTP setting** page, check if **Cookie based affinity** is enabled.
 
-   ![troubleshoot-session-affinity-issues-2](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-2.jpg)
+   ![Screenshot shows the gateway settings for an app gateway, including whether Cookie based affinity is selected.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-2.png)
 
 
 
 You can also check the value of the “**CookieBasedAffinity**” is set to *Enabled*under "**backendHttpSettingsCollection**" by using one of the following methods:
 
-- Run [Get-AzApplicationGatewayBackendHttpSetting](https://docs.microsoft.com/powershell/module/az.network/get-azapplicationgatewaybackendhttpsetting) in PowerShell
+- Run [Get-AzApplicationGatewayBackendHttpSetting](/powershell/module/az.network/get-azapplicationgatewaybackendhttpsetting) in PowerShell
 - Look through the JSON file by using the Azure Resource Manager template
 
 ```
@@ -65,23 +69,23 @@ The application gateway can only perform session-based affinity by using a cooki
 
 If the application cannot handle cookie-based affinity, you must use an external or internal azure load balancer or another third-party solution.
 
-### Application is using cookie-based affinity but requests still bouncing between back-end servers
+### Application is using cookie-based affinity but requests still bouncing between backend servers
 
 #### Symptom
 
-You have enabled the Cookie-based Affinity setting, when you access the Application Gateway by using a short name URL in Internet Explorer, for example: [http://website](http://website/) , the request is still bouncing between back-end servers.
+You have enabled the Cookie-based Affinity setting, when you access the Application Gateway by using a short name URL in Internet Explorer, for example: `http://website` , the request is still bouncing between backend servers.
 
 To identify this issue, follow the instructions:
 
 1. Take a web debugger trace on the “Client” which is connecting to the application behind the Application Gateway(We are using Fiddler in this example).
     **Tip** If you don't know how to use the Fiddler, check the option "**I want to collect network traffic and analyze it using web debugger**" at the bottom.
 
-2. Check and analyze the session logs, to determine whether the cookies provided by the client have the ARRAffinity details. If you don't find the ARRAffinity details, such as "**ARRAffinity=** *ARRAffinityValue*" within the cookie set, that means the client is not replying with the ARRA cookie, which is provided by the Application Gateway.
+2. Check and analyze the session logs, to determine whether the cookies provided by the client have the ApplicationGatewayAffinity details. If you don't find the ApplicationGatewayAffinity details, such as "**ApplicationGatewayAffinity=** *ApplicationGatewayAffinityValue*" within the cookie set, that means the client is not replying with the ApplicationGatewayAffinity cookie, which is provided by the Application Gateway.
     For example:
 
-    ![troubleshoot-session-affinity-issues-3](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-3.png)
+    ![Screenshot shows a session log with a single entry highlighted.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-3.png)
 
-    ![troubleshoot-session-affinity-issues-4](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-4.png)
+    ![Screenshot shows request headers for H T T P, including cookie information.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-4.png)
 
 The application continues to try to set the cookie on each request until it gets reply.
 
@@ -91,7 +95,7 @@ This issue occurs because Internet Explorer and other browsers may not store or 
 
 #### Resolution
 
-To fix this issue, you should access the Application Gateway by using a FQDN. For example, use [http://website.com](https://website.com/) or [http://appgw.website.com](http://appgw.website.com/) .
+To fix this issue, you should access the Application Gateway by using a FQDN. For example, use [http://website.com](https://website.com/) or [http://appgw.website.com](http://website.com/) .
 
 ## Additional logs to troubleshoot
 
@@ -101,53 +105,24 @@ You can collect additional logs and analyze them to troubleshoot the issues rela
 
 To collect the Application Gateway logs, follow the instructions:
 
-Enable logging through the Azure portal
+Enable logging using the Azure portal.
 
-1. In the [Azure portal](https://portal.azure.com/), find your resource and then click **Diagnostic logs**.
+1. In the [Azure portal](https://portal.azure.com/), find your resource and then select **Diagnostic setting**.
 
-   For Application Gateway, three logs are available: Access log, Performance log, Firewall log
+   For Application Gateway, three logs are available: Access log, Performance log, and Firewall log.
 
-2. To start to collect data, click **Turn on diagnostics**.
+2. To start to collect data, select **Add diagnostic setting**.
 
-   ![troubleshoot-session-affinity-issues-5](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-5.png)
+   ![Screenshot shows an application gateway with Diagnostics settings selected.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-5.png)
 
-3. The **Diagnostics settings** blade provides the settings for the diagnostic logs. In this example, Log Analytics stores the logs. Click **Configure** under **Log Analytics** to set your workspace. You can also use event hubs and a storage account to save the diagnostic logs.
+3. The **Diagnostic setting** page provides the settings for the diagnostic logs. In this example, Log Analytics stores the logs. You can also use event hubs and a storage account to save the diagnostic logs.
 
-   ![troubleshoot-session-affinity-issues-6](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-6.png)
+   ![Screenshot shows the Diagnostics settings pane with Log Analytics Configure selected.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-6.png)
 
-4. Confirm the settings and then click **Save**.
+4. Confirm the settings and then select **Save**.
 
-   ![troubleshoot-session-affinity-issues-7](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-7.png)
 
-#### View and analyze the Application Gateway access logs
 
-1. In the Azure portal under the Application Gateway resource view, select **Diagnostics logs** in the **MONITORING** section .
-
-   ![troubleshoot-session-affinity-issues-8](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-8.png)
-
-2. On the right side, select “**ApplicationGatewayAccessLog**“ in the drop-down list under **Log categories.**  
-
-   ![troubleshoot-session-affinity-issues-9](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-9.png)
-
-3. In the Application Gateway Access Log list, click the log you want to analyze and export, and then export the JSON file.
-
-4. Convert the JSON file that you exported in step 3 to CSV file and view them in Excel, Power BI, or any other data-visualization tool.
-
-5. Check the following data:
-
-- **ClientIP**– This is the client IP address from the connecting client.
-- **ClientPort** - This is the source port from the connecting client for the request.
-- **RequestQuery** – This indicates the destination server that the request is received.
-- **Server-Routed**: Back-end pool instance that the request is received.
-- **X-AzureApplicationGateway-LOG-ID**: Correlation ID used for the request. It can be used to troubleshoot traffic issues on the back-end servers. For example: X-AzureApplicationGateway-CACHE-HIT=0&SERVER-ROUTED=10.0.2.4.
-
-  - **SERVER-STATUS**: HTTP response code that Application Gateway received from the back end.
-
-  ![troubleshoot-session-affinity-issues-11](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-11.png)
-
-If you see two items are coming from the same ClientIP and Client Port, and they are sent to the same back-end server, that means the Application Gateway configured correctly.
-
-If you see two items are coming from the same ClientIP and Client Port, and they are sent to the different back-end servers, that means the request is bouncing between backend servers, select “**Application is using cookie-based affinity but requests still bouncing between back-end servers**” at the bottom to troubleshoot it.
 
 ### Use web debugger to capture and analyze the HTTP or HTTPS traffics
 
@@ -155,45 +130,45 @@ Web debugging tools like Fiddler, can help you debug web applications by capturi
 
 Use the web debugger of your choice. In this sample we will use Fiddler to capture and analyze http or https traffics, follow the instructions:
 
-1. Download the Fiddler tool at <https://www.telerik.com/download/fiddler>.
+1. Download [Fiddler](https://www.telerik.com/download/fiddler).
 
     > [!NOTE]
     > Choose Fiddler4 if the capturing computer has .NET 4 installed. Otherwise, choose Fiddler2.
 
 2. Right click the setup executable, and run as administrator to install.
 
-    ![troubleshoot-session-affinity-issues-12](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-12.png)
+    ![Screenshot shows the Fiddler setup program with a contextual menu with Run as administrator selected.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-12.png)
 
 3. When you open Fiddler, it should automatically start capturing traffic (notice the Capturing at lower-left-hand corner). Press F12 to start or stop traffic capture.
 
-    ![troubleshoot-session-affinity-issues-13](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-13.png)
+    ![Screenshot shows the Fiddler Web Debugger with the Capturing indicator highlighted.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-13.png)
 
 4. Most likely, you will be interested in decrypted HTTPS traffic, and you can enable HTTPS decryption by selecting **Tools** > **Fiddler Options**, and check the box " **Decrypt HTTPS traffic**".
 
-    ![troubleshoot-session-affinity-issues-14](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-14.png)
+    ![Screenshot shows Options in Fiddler with H T T P selected and Decrypt HTTPS traffic selected.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-14.png)
 
 5. You can remove previous unrelated sessions before reproducing the issue by clicking  **X** (icon) > **Remove All** as follow screenshot: 
 
-    ![troubleshoot-session-affinity-issues-15](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-15.png)
+    ![Screenshot shows the X icon selected, which displays the Remove all option.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-15.png)
 
 6. Once you have reproduced the issue, save the file for review by selecting **File** > **Save** > **All Sessions..**. 
 
-    ![troubleshoot-session-affinity-issues-16](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-16.png)
+    ![Screenshot shows the File Save All Sessions option selected.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-16.png)
 
 7. Check and analyze the session logs to determine what the issue is.
 
     For examples:
 
-- **Example A:** You find a session log that the request is sent from the client, and it goes to the public IP address of the Application Gateway, click this log to view the details.  On the right side, data in the bottom box is what the Application Gateway is returning to the client. Select the “RAW” tab and determine whether the client is receiving a "**Set-Cookie: ARRAffinity=** *ARRAffinityValue*." If there's no cookie, session affinity isn't set, or the Application Gateway isn't applying cookie back to the client.
+- **Example A:** You find a session log that the request is sent from the client, and it goes to the public IP address of the Application Gateway, click this log to view the details.  On the right side, data in the bottom box is what the Application Gateway is returning to the client. Select the “RAW” tab and determine whether the client is receiving a "**Set-Cookie: ApplicationGatewayAffinity=** *ApplicationGatewayAffinityValue*." If there's no cookie, session affinity isn't set, or the Application Gateway isn't applying cookie back to the client.
 
    > [!NOTE]
-   > This ARRAffinity value is the cookie-id, that the Application Gateway sets for the client to be sent to a particular back-end server.
+   > This ApplicationGatewayAffinity value is the cookie-id, that the Application Gateway sets for the client to be sent to a particular backend server.
 
-   ![troubleshoot-session-affinity-issues-17](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-17.png)
+   ![Screenshot shows an example of details of a log entry with the Set-Cookie value highlighted.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-17.png)
 
-- **Example B:** The next session log followed by the previous one is the client responding back to the Application Gateway, which has set the ARRAAFFINITY. If the ARRAffinity cookie-id matches, the packet should be sent to the same back-end server that was used previously. Check the next several lines of http communication to see whether the client's ARRAffinity cookie is changing.
+- **Example B:** The next session log followed by the previous one is the client responding back to the Application Gateway, which has set the ApplicationGatewayAffinity. If the ApplicationGatewayAffinity cookie-id matches, the packet should be sent to the same backend server that was used previously. Check the next several lines of http communication to see whether the client's ApplicationGatewayAffinity cookie is changing.
 
-   ![troubleshoot-session-affinity-issues-18](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-18.png)
+   ![Screenshot shows an example of details of a log entry with a cookie highlighted.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-18.png)
 
 > [!NOTE]
 > For the same communication session, the cookie should not to change. Check the top box on the right side, select "Cookies" tab to see whether the client is using the cookie and sending it back to the Application Gateway. If not, the client browser isn't keeping and using the cookie for conversations. Sometimes, the client might lie.

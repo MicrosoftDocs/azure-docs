@@ -1,16 +1,17 @@
 ﻿---
-title: Batch process EDI messages as a group or collection - Azure Logic Apps | Microsoft Docs
-description: Send EDI messages for batch processing in logic apps
+title: Batch process EDI messages as a group
+description: Send and receive EDI messages as batches, groups, or collections by using batch processing in Azure Logic Apps.
 services: logic-apps
-ms.service: logic-apps
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: estfan, LADocs
-ms.topic: article
+ms.reviewer: estfan, azla
+ms.topic: how-to
 ms.date: 08/19/2018
 ---
 
-# Send EDI messages in batches to trading partners with Azure Logic Apps
+# Exchange EDI messages as batches or groups between trading partners in Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 In business to business (B2B) scenarios, 
 partners often exchange messages in groups or *batches*. 
@@ -44,7 +45,7 @@ by using the specified X12 agreement or partner identities.
   you can later select the batch destination when 
   you create the batch sender.
 
-* A ["batch sender"](#sender) logic app, 
+* A ["batch sender"](#sender) logic app workflow, 
 which sends the messages to the previously created batch receiver. 
 
 Make sure your batch receiver and batch sender share the 
@@ -60,8 +61,7 @@ To follow this example, you need these items:
 [start with a free Azure account](https://azure.microsoft.com/free/). 
 Or, [sign up for a Pay-As-You-Go subscription](https://azure.microsoft.com/pricing/purchase-options/).
 
-* Basic knowledge about 
-[how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Basic knowledge about how to create logic app workflows. For more information, see [Create an example Consumption logic app workflow in multi-tenant Azure Logic Apps](quickstart-create-example-consumption-workflow.md).
 
 * An existing [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 
 that's associated with your Azure subscription and is linked to your logic apps
@@ -74,7 +74,7 @@ qualifier as a business identity in the partner's properties.
 in your integration account
 
 * To use Visual Studio rather than the Azure portal, make sure you 
-[set up Visual Studio for working with Logic Apps](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
+[set up Visual Studio for working with Azure Logic Apps](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
 <a name="receiver"></a>
 
@@ -168,7 +168,7 @@ Otherwise, you can't select the batch receiver when you create the batch sender.
 To make sure your batch receiver works as expected, 
 you can add an HTTP action for testing purposes, 
 and send a batched message to the 
-[Request Bin service](https://requestbin.fullcontact.com/). 
+[Request Bin service](https://requestbin.com/). 
 
 1. Under the X12 encode action, choose **New step**. 
 

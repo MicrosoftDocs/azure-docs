@@ -1,48 +1,91 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure portal documentation 
+### YamlMime:Landing
+
+title: Azure portal documentation
+summary: The Azure portal is a web-based, unified console that provides an alternative to command-line tools. You can manage your Azure subscription with the Azure portal. Build, manage, and monitor everything from simple web apps to complex cloud deployments. Create custom dashboards for an organized view of resources and configure accessibility options for the best experience.
+
 metadata:
-    description: Learn how to use the Azure portal and create custom dashboards.
-    services: azure portal
-    documentationcenter: ''
-    author: kfollis
-    manager: mtillman
-    editor: ''
-    ms.assetid: 3e12c488-9c8c-4d0d-9b07-e018dec42fc6
-    ms.service: azure-portal
-    ms.devlang: na
-    ms.topic: landing-page
-    ms.tgt_pltfrm: na
-    ms.workload: na
-    ms.date: 10/08/2018
-    ms.author: kfollis
+  title: Azure portal documentation
+  description: Learn how to manage your Azure subscriptions and resources using the Azure portal web-based console. The Azure portal is an alternative to using command-line tools.
+  services: Azure portal
+  ms.topic: landing-page
+  ms.service: azure-portal
+  ms.collection: collection
+  ms.date: 03/27/2023
 
-abstract:
-  description: The Azure portal is web-based unified console that allows you to build, manage, and monitor everything from simple web apps to complex cloud applications. It includes a customizable dashboard and accessibility options.
- 
-sections:
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
-  - items:
-    - type: list
-      style: cards
-      className: cardsM
-      columns: 3
-      items:
-        - href: /azure/azure-preview-portal-supported-browsers-devices
-          html: <p>Run the Azure portal on all modern desktop, tablet devices, and browsers.</p>
-          title: Supported browsers and devices
-        - href: /azure/azure-portal/azure-portal-change-theme-high-contrast
-          html: <p>Change the contrast or color scheme in the Azure portal.</p>
-          title: Turn on high contrast
-        - href: /azure/azure-portal/azure-portal-keyboard-shortcuts
-          html: <p>Learn about the keyboard shortcuts that work throughout the Azure portal.</p>
-          title: Keyboard shortcuts
-        - href: /azure/azure-portal/azure-portal-dashboards
-          html: <p>Create multiple dashboards and share them with others who have access to your Azure subscriptions.</p>
-          title: Create and share Azure dashboards
-        - href: /azure/azure-portal/azure-portal-dashboard-share-access
-          html: <p>Publish and share a dashboard with other users in your organization.</p>
-          title: Share dashboards by using RBAC
-        - href: /azure/azure-portal/azure-portal-dashboards-create-programmatically
-          html: <p>Programmatically create and publish dashboards for your organization</p>
-          title: Programmatically create Azure dashboards
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: About the Azure portal
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is the Azure portal?
+            url: azure-portal-overview.md
+          - text: Onboard with Azure Quickstart Center
+            url: azure-portal-quickstart-center.md
+          - text: Supported browsers and devices
+            url: azure-portal-supported-browsers-devices.md
+
+  # Card 
+  - title: Get started
+    linkLists: 
+      - linkListType: quickstart
+        links:
+          - text: Create a VM in the portal
+            url: ../virtual-machines/windows/quick-create-portal.md?toc=/azure/azure-portal/toc.json&bc=/azure/azure-portal/breadcrumb/toc.json
+      - linkListType: learn
+        links:
+          - text: Module - Manage services with the Azure portal
+            url: /training/modules/tour-azure-portal/
+      - linkListType: how-to-guide
+        links:
+          - text: Azure portal how-to video series
+            url: azure-portal-video-series.md
+
+  # Card
+  - title: Customize the Azure portal
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Manage Azure portal settings and preferences
+            url: set-preferences.md
+          - text: View and filter resource information
+            url: manage-filter-resource-views.md
+          - text: Create a dashboard
+            url: azure-portal-dashboards.md
+          - text: Add, remove, and sort favorites
+            url: azure-portal-add-remove-sort-favorites.md
+
+  # Card
+  - title: Manage access to the Azure portal
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Safelist the Azure portal URLs
+            url: azure-portal-safelist-urls.md
+          - text: Azure role-based access control for dashboards
+            url: azure-portal-dashboard-share-access.md
+           
+  # Card
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure CLI
+            url: /cli/azure/portal
+          - text: Azure PowerShell
+            url: /powershell/module/az.portal
+
+
+  # Card
+  - title: Create and manage support requests
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Create an Azure support request
+            url: supportability/how-to-create-azure-support-request.md
+          - text: Manage an Azure support request
+            url: supportability/how-to-manage-azure-support-request.md

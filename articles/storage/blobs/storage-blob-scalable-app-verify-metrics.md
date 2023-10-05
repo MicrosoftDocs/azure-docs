@@ -1,16 +1,11 @@
 ---
-title: Verify throughput and latency metrics for a storage account in the Azure portal | Microsoft Docs 
+title: Verify throughput and latency metrics for a storage account in the Azure portal 
 description: Learn how to verify throughput and latency metrics for a storage account in the portal.
-services: storage
 author: roygara
-
-ms.service: storage
-ms.devlang: dotnet
+ms.service: azure-blob-storage
 ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
-ms.custom: mvc
-ms.subservice: blobs
 ---
 
 # Verify throughput and latency metrics for a storage account
@@ -20,20 +15,20 @@ This tutorial is part four and the final part of a series. In the previous tutor
 In part four of the series, you learn how to:
 
 > [!div class="checklist"]
-> * Configure charts in the Azure portal
-> * Verify throughput and latency metrics
+> - Configure charts in the Azure portal
+> - Verify throughput and latency metrics
 
-[Azure storage metrics](../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) uses Azure monitor to provide a unified view into the performance and availability of your storage account.
+[Azure storage metrics](./monitor-blob-storage.md?toc=/azure/storage/blobs/toc.json) uses Azure monitor to provide a unified view into the performance and availability of your storage account.
 
 ## Configure metrics
 
-Navigate to **Metrics (preview)** under **SETTINGS** in your storage account.
+Navigate to **Metrics** under **SETTINGS** in your storage account.
 
 Choose Blob from the **SUB SERVICE** drop-down.
 
 Under **METRIC**, select one of the metrics found in the following table:
 
-The following metrics give you an idea of the latency and throughput of the application. The metrics you configure in the portal are in 1-minute averages. If a transaction finished in the middle of a minute that minute data is halfed for the average. In the application, the upload and download operations were timed and provided you output of the actual amount of time it took to upload and download the files. This information can be used in conjunction with the portal metrics to fully understand throughput.
+The following metrics give you an idea of the latency and throughput of the application. The metrics you configure in the portal are in 1-minute averages. If a transaction finished in the middle of a minute that minute data is halved for the average. In the application, the upload and download operations were timed and provided you output of the actual amount of time it took to upload and download the files. This information can be used in conjunction with the portal metrics to fully understand throughput.
 
 |Metric|Definition|
 |---|---|
@@ -51,7 +46,7 @@ Charts can have more than one metric assigned to them, but assigning more than o
 
 ## Dimensions
 
-[Dimensions](../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#metrics-dimensions) are used to look deeper into the charts and get more detailed information. Different metrics have different dimensions. One dimension that is available is the **API name** dimension. This dimension breaks out the chart into each separate API call. The first image below shows an example chart of total transactions for a storage account. The second image shows the same chart but with the API name dimension selected. As you can see, each transaction is listed giving more details into how many calls were made by API name.
+[Dimensions](./monitor-blob-storage-reference.md?toc=/azure/storage/blobs/toc.json#metrics-dimensions) are used to look deeper into the charts and get more detailed information. Different metrics have different dimensions. One dimension that is available is the **API name** dimension. This dimension breaks out the chart into each separate API call. The first image below shows an example chart of total transactions for a storage account. The second image shows the same chart but with the API name dimension selected. As you can see, each transaction is listed giving more details into how many calls were made by API name.
 
 ![Storage account metrics - transactions without a dimension](./media/storage-blob-scalable-app-verify-metrics/transactionsnodimensions.png)
 
@@ -66,8 +61,8 @@ When no longer needed, delete the resource group, virtual machine, and all relat
 In part four of the series, you learned about viewing metrics for the example solution, such as how to:
 
 > [!div class="checklist"]
-> * Configure charts in the Azure portal
-> * Verify throughput and latency metrics
+> - Configure charts in the Azure portal
+> - Verify throughput and latency metrics
 
 Follow this link to see pre-built storage samples.
 

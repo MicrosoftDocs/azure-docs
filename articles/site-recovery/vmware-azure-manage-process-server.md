@@ -1,12 +1,12 @@
 ---
-title: Manage a process server used for disaster recovery of VMware VMs and physical servers to Azure with Azure Site Recovery | Microsoft Docs
-description: This article describes manage a process server set up for disaster recovery of VMware VMs and physical servers to Azure using Azure Site Recovery.
-author: Rajeswari-Mamilla
-manager: rochakm
+title: Manage a process server for VMware VMs/physical server disaster recovery in Azure Site Recovery
+description: This article describes manage a process server for disaster recovery of VMware VMs/physical servers using Azure Site Recovery.
+author: ankitaduttaMSFT
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 04/28/2019
-ms.author: ramamill
+ms.author: ankitadutta
+ms.date: 05/27/2021
 
 ---
 
@@ -37,11 +37,11 @@ Balance the load by moving VMs between two process servers, as follows:
 2. Click on the configuration server with which the process servers are registered.
 3. Click on the process server for which you want to load balance traffic.
 
-    ![LoadBalance](media/vmware-azure-manage-process-server/LoadBalance.png)
+    ![Screenshot shows a Process Server for which you can load balance traffic.](media/vmware-azure-manage-process-server/LoadBalance.png)
 
 4. Click **Load balance**, select the target process server to which you want to move machines. Then click **OK**
 
-    ![LoadPS](media/vmware-azure-manage-process-server/LoadPS.PNG)
+    ![Screenshot shows the Load balance pane with Select target process server selected.](media/vmware-azure-manage-process-server/LoadPS.PNG)
 
 2. Click **Select machines**, and choose the machines you want to move from the current to the target process server. Details of average data change are displayed against each virtual machine. Then click **OK**. 
 3. In the vault, monitor the progress of the job under  **Monitoring** > **Site Recovery jobs**.
@@ -57,13 +57,26 @@ Move the entire workload handled by a process server to a different process serv
 3. Click on the process server from which you want to switch the workload.
 4. Click on **Switch**, select the target process server to which you want to move the workload. Then click **OK**
 
-    ![Switch](media/vmware-azure-manage-process-server/Switch.PNG)
+    ![Screenshot shows the Select target process server pane.](media/vmware-azure-manage-process-server/Switch.PNG)
 
 5. In the vault, monitor the progress of the job under  **Monitoring** > **Site Recovery jobs**.
 
 It will take around 15 minutes for changes to be reflected in the portal. For a quicker effect, [refresh the configuration server](vmware-azure-manage-configuration-server.md#refresh-configuration-server).
 
+## Register a master target server
 
+Master target server resides on configuration server and scale-out process servers. It must be registered with configuration server. In case there is a failure in this registration, it can impact the health of protected items. To register master target server with configuration server, login to the specific configuration server/scale-out process server on which the registration is required. Navigate to folder **%PROGRAMDATA%\ASR\Agent**, and run the following on administrator command prompt.
+
+   ```
+   cmd
+   cdpcli.exe --registermt
+
+   net stop obengine
+
+   net start obengine
+
+   exit
+   ```
 
 ## Reregister a process server
 

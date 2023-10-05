@@ -1,20 +1,18 @@
 ---
-title: Plan capacity for Hyper-V disaster recovery with Azure Site Recovery | Microsoft Docs
+title: Plan capacity for Hyper-V disaster recovery with Azure Site Recovery
 description: Use this article to estimate capacity when setting up disaster recovery with the Azure Site Recovery service.
-author: rayne-wiselman
-manager: carmonm
 services: site-recovery
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 12/27/2018
-ms.author: raynew
+ms.date: 11/12/2019
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 
 ---
 
 # Plan capacity for Hyper-V VM disaster recovery 
 
-A new enhanced version of [Azure Site Recovery Deployment Planner for Hyper-V to Azure deployment](site-recovery-hyper-v-deployment-planner.md) is now available. It replaces the old tool. Use the new tool for your deployment planning.
-The tool provides the following guidelines:
+The[Azure Site Recovery Deployment Planner] (site-recovery-hyper-v-deployment-planner.md) for Hyper-V to Azure deployment provides the following:
 
 * VM eligibility assessment, based on the number of disks, disk size, IOPS, churn, and a few VM characteristics
 * Network bandwidth need versus RPO assessment
@@ -36,21 +34,21 @@ You can run the tool in two modes:
 ## Before you start
 
 * Gather information about your environment, including VMs, disks per VM, storage per disk.
-* Identify your daily change (churn) rate for replicated data. Download the [Hyper-V capacity planning tool](https://www.microsoft.com/download/details.aspx?id=39057) to get the change rate. [Learn more](site-recovery-capacity-planning-for-hyper-v-replication.md) about this tool. We recommend that you run this tool over a week to capture averages.
+* Identify your daily change (churn) rate for replicated data. Download the [Hyper-V capacity planning tool](https://www.microsoft.com/download/details.aspx?id=39057) to get the change rate. [Learn more](./hyper-v-deployment-planner-overview.md) about this tool. We recommend that you run this tool over a week to capture averages.
 
 
 ## Run the Quick Planner
-1. Download and open [Site Recovery Capacity Planner](https://aka.ms/asr-capacity-planner-excel). You need to run macros. When you're prompted, make selections to enable editing and content.
+1. Download and open [Site Recovery Capacity Planner](/samples/browse/?redirectedfrom=TechNet-Gallery). You need to run macros. When you're prompted, make selections to enable editing and content.
 
 2. In the **Select a planner type** list box, select **Quick Planner**.
 
-   ![Get started](./media/site-recovery-capacity-planner/getting-started.png)
+   ![Screenshot of the Select a planner type option, with Quick Planner selected.](./media/site-recovery-capacity-planner/getting-started.png)
 
 3. On the **Capacity Planner** worksheet, enter the required information. Fill in all the fields circled in red in the following screenshot:
 
    a. In **Select your scenario**, choose **Hyper-V to Azure** or **VMware/Physical to Azure**.
 
-   b. In **Average daily data change rate (%)**, enter the information you gather by using the [Hyper-V capacity planning tool](site-recovery-capacity-planning-for-hyper-v-replication.md) or [Site Recovery Deployment Planner](./site-recovery-deployment-planner.md).
+   b. In **Average daily data change rate (%)**, enter the information you gather by using the [Hyper-V capacity planning tool](./hyper-v-deployment-planner-overview.md) or [Site Recovery Deployment Planner](./site-recovery-deployment-planner.md).
 
    c. The **Compression** setting isn't used when you replicate Hyper-V VMs to Azure. For compression, use a third-party appliance, such as Riverbed.
 
@@ -58,7 +56,7 @@ You can run the tool in two modes:
 
    e. In **Number of hours in which initial replication for the batch of virtual machines should complete** and **Number of virtual machines per initial replication batch**, enter settings that are used to compute initial replication requirements. When Site Recovery is deployed, the entire initial data set is uploaded.
 
-   ![Inputs](./media/site-recovery-capacity-planner/inputs.png)
+   ![Screenshot of the Capacity Planner worksheet, showing the required input information.](./media/site-recovery-capacity-planner/inputs.png)
 
 4. After you enter the values for the source environment, the displayed output includes:
 
@@ -74,15 +72,15 @@ You can run the tool in two modes:
    * **Number of additional Process Servers required**: Shows whether additional process servers are required, in addition to the process server that's running on the configuration server by default.
    * **100% additional storage on the Source**: Shows whether additional storage is required in the source location.
 
-      ![Output](./media/site-recovery-capacity-planner/output.png)
+      ![Screenshot of the displayed output based on the input provided.](./media/site-recovery-capacity-planner/output.png)
 
 ## Run the Detailed Planner
 
-1. Download and open [Site Recovery Capacity Planner](https://aka.ms/asr-capacity-planner-excel). You need to run macros. When you're prompted, make selections to enable editing and content.
+1. Download and open [Site Recovery Capacity Planner](/samples/browse/?redirectedfrom=TechNet-Gallery). You need to run macros. When you're prompted, make selections to enable editing and content.
 
 2. In **Select a planner type**, select **Detailed Planner** from the list box.
 
-   ![Getting started guide](./media/site-recovery-capacity-planner/getting-started-2.png)
+   ![Screenshot of the Select a planner type option, with Detailed Planner selected.](./media/site-recovery-capacity-planner/getting-started-2.png)
 
 3. On the **Workload Qualification** worksheet, enter the required information. You must fill in all the marked fields.
 
@@ -102,7 +100,7 @@ You can run the tool in two modes:
 
    h. In **Mapping Azure VM size**, enter the Azure VM size that you want to map. If you don't want to do this manually, select **Compute IaaS VMs**. If you input a manual setting and then select **Compute IaaS VMs**, the manual setting might be overwritten. The compute process automatically identifies the best match on Azure VM size.
 
-   ![Workload Qualification worksheet](./media/site-recovery-capacity-planner/workload-qualification.png)
+   ![Screenshot of the Workload Qualification worksheet, showing the required input information.](./media/site-recovery-capacity-planner/workload-qualification.png)
 
 4. If you select **Compute IaaS VMs**, here's what it does:
 
@@ -114,12 +112,12 @@ You can run the tool in two modes:
 
 Columns AA to AE are output and provide information for each VM.
 
-![Output columns AA to AE](./media/site-recovery-capacity-planner/workload-qualification-2.png)
+![Screenshot showing output columns AA to AE.](./media/site-recovery-capacity-planner/workload-qualification-2.png)
 
 ### Example
 As an example, for six VMs with the values shown in the table, the tool calculates and assigns the best Azure VM match and the Azure storage requirements.
 
-![Workload Qualification assignments](./media/site-recovery-capacity-planner/workload-qualification-3.png)
+![Screenshot showing Workload Qualification assignments.](./media/site-recovery-capacity-planner/workload-qualification-3.png)
 
 * In the example output, note the following:
 
@@ -141,7 +139,7 @@ After all the information is entered, select **Submit data to the planner tool**
 
 2. If you want to make changes, you need to modify the **Workload Qualification** worksheet. Then select **Submit data to the planner tool** again.
 
-   ![Capacity Planner](./media/site-recovery-capacity-planner/capacity-planner.png)
+   ![Screenshot showing the modified inputs and resulting outputs in the Capacity Planner worksheet.](./media/site-recovery-capacity-planner/capacity-planner.png)
 
 ## Next steps
-[Learn how to run](site-recovery-capacity-planning-for-hyper-v-replication.md) the capacity planning tool.
+[Learn how to run](./hyper-v-deployment-planner-overview.md) the capacity planning tool.

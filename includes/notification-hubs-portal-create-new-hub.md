@@ -2,36 +2,48 @@
  title: include file
  description: include file
  services: notification-hubs
- author: jwargo
+ author: sethmanheim
  ms.service: notification-hubs
  ms.topic: include
- ms.date: 01/17/2019
- ms.author: jowargo
+ ms.date: 08/22/2023
+ ms.author: sethm
  ms.custom: include file
 ---
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select **All services** on the left menu, and select **Notification Hubs** in the **Mobile** section. Select star (`*`) next to the service name to add it to the **FAVORITES** section on the left menu. After **Notification Hubs** is added to **FAVORITES**, select it on the left menu. 
 
-      ![Azure portal - select Notification Hubs](./media/notification-hubs-portal-create-new-hub/all-services-select-notification-hubs.png)
-3. On the **Notification Hubs** page, select **Add** on the toolbar. 
+1. Select **All services** on the left menu.
+    ![A screenshot showing select All Services for an existing namespace.](../articles/notification-hubs/media/create-notification-hub-portal/select-all-services.png)
 
-      ![Notification Hubs - Add toolbar button](./media/notification-hubs-portal-create-new-hub/add-toolbar-button.png)
-4. On the **Notification Hub** page, do the following steps: 
-    1. Specify a **name** for the notification **hub**.  
-    2. Specify a **name** for the **namespace**. A namespace contains one or more hubs. 
-    3. Select a **location** in which you want to create the notification hub. 
-    4. Select an existing resource group or enter a name for the new **resource group**.
-    5. Select **Create**. 
+1. Type **Notification Hubs** in the **Filter services** text box. Select the star icon next to the service name to add the service to the **FAVORITES** section on the left menu. Select **Notification Hubs**.
 
-        ![Azure portal - set notification hub properties](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-settings.png)
-4. Select **Notifications** (Bell icon), and select **Go to resource**. You can also refresh the list in the **Notification Hubs** page, and select your notification hub. 
+      ![A screenshot showing how to filter for notification hubs.](../articles/notification-hubs/media/create-notification-hub-portal/select-notification-hubs.png)
 
-      ![Azure portal - notifications -> Go to resource](./media/notification-hubs-portal-create-new-hub/go-to-notification-hub.png)
-5. Select **Access Policies** from the list. Note the two connection strings that are available to you. You need them to handle push notifications later.
+1. On the **Notification Hubs** page, select **Create** on the toolbar.
 
-      >[!IMPORTANT]
-      >Do **NOT** use the DefaultFullSharedAccessSignature in your application. This is meant to be used in your back-end only.
-      >
+      ![A screenshot showing how to create a new notification hub.](../articles/notification-hubs/media/create-notification-hub-portal/create-toolbar-button.png)
 
-      ![Azure portal - notification hub connection strings](./media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings-portal.png)
+1. In the **Basics** tab on the **Notification Hub** page, do the following steps:
+
+    1. In **Subscription**, select the name of the Azure subscription you want to use, and then select an existing resource group, or create a new one.  
+
+    1. Enter a unique name for the new namespace in **Namespace Details**. 
+
+    1. A namespace contains one or more notification hubs, so type a name for the hub in **Notification Hub Details**.
+
+    1. Select a value from the **Location** drop-down list box. This value specifies the location in which you want to create the hub.
+
+       :::image type="content" source="../articles/notification-hubs/media/create-notification-hub-portal/notification-hub-details.png" alt-text="Screenshot showing notification hub details." lightbox="../articles/notification-hubs/media/create-notification-hub-portal/notification-hub-details.png":::
+
+    1. Review the [**Availability Zones**](../articles/notification-hubs/notification-hubs-high-availability.md#zone-redundant-resiliency) option. If you chose a region that has availability zones, the check box is selected by default. Availability Zones is a paid feature, so an additional fee is added to your tier.
+
+       > [!NOTE]
+       > The Availability Zones feature is currently in public preview. Availability Zones are available for an additional cost; however, you will not be charged while the feature is in preview. For more information, see [High availability for Azure Notification Hubs](../articles/notification-hubs/notification-hubs-high-availability.md).
+
+    1. Choose a **Disaster recovery** option: **None**, **Paired recovery region**, or **Flexible recovery region**. If you choose **Paired recovery region**, the failover region is displayed. If you select **Flexible recovery region**, use the drop-down to choose from a list of recovery regions. 
+
+       :::image type="content" source="../articles/notification-hubs/media/create-notification-hub-portal/availability-zones.png" alt-text="Screenshot showing availability zone details." lightbox="../articles/notification-hubs/media/create-notification-hub-portal/availability-zones.png":::
+
+    1. Select **Create**.
+
+1. When the deployment is complete select **Go to resource**. 

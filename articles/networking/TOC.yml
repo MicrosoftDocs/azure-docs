@@ -1,27 +1,31 @@
 - name: Overview
   items:
   - name: About Azure networking
-    href: networking-overview.md
+    href: fundamentals/networking-overview.md
   - name: Architecture
     items:
+    - name: Azure for network engineers
+      href: azure-for-network-engineers.md
     - name: Virtual Datacenters
       href: /azure/architecture/vdc/networking-virtual-datacenter
     - name: Asymmetric routing with multiple network paths
       href: ../expressroute/expressroute-asymmetric-routing.md?toc=%2fazure%2fnetworking%2ftoc.json
     - name: Secure network designs
-      href: ../best-practices-network-security.md?toc=%2fazure%2fnetworking%2ftoc.json
+      href: /azure/cloud-adoption-framework/reference/networking-vdc?toc=%2fazure%2fnetworking%2ftoc.json
     - name: Hub-spoke topology
-      href: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke
+      href: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke
     - name: Network security best practices
-      href: ../security/azure-security-network-security-best-practices.md?toc=%2fazure%2fnetworking%2ftoc.json
+      href: ../security/fundamentals/network-best-practices.md?toc=%2fazure%2fnetworking%2ftoc.json
     - name: Highly available network virtual appliances
-      href: https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha 
+      href: /azure/architecture/reference-architectures/dmz/nva-ha
     - name: Combine load balancing methods
       href: ../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fnetworking%2ftoc.json
     - name: Disaster recovery using Azure DNS and Traffic Manager
       href: disaster-recovery-dns-traffic-manager.md
   - name: Plan and design
     items:
+    - name: Support for working remotely
+      href: working-remotely-support.md
     - name: Virtual networks
       href: ../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=%2fazure%2fnetworking%2ftoc.json
     - name: Cross-premises connectivity - VPN
@@ -31,17 +35,27 @@
     - name: Backend connectivity interoperability
       items:
       - name: Preface and Test Setup
-        href: connectivty-interoperability-preface.md?toc=%2fazure%2fnetworking%2ftoc.json
+        href: connectivity-interoperability-preface.md
       - name: Test Setup Configuration
-        href: connectivty-interoperability-configuration.md?toc=%2fazure%2fnetworking%2ftoc.json
+        href: connectivity-interoperability-configuration.md
       - name: Control Plane Analysis
-        href: connectivty-interoperability-control-plane.md?toc=%2fazure%2fnetworking%2ftoc.json
+        href: connectivity-interoperability-control-plane.md
       - name: Data Plane Analysis
-        href: connectivty-interoperability-data-plane.md?toc=%2fazure%2fnetworking%2ftoc.json
+        href: connectivity-interoperability-data-plane.md
   - name: Concepts
     items:
     - name: Microsoft global network
       href: microsoft-global-network.md
+      items:
+      - name: Azure network latency
+        href: azure-network-latency.md
+      - name: Internet routing preference in Azure
+        href: ../virtual-network/ip-services/routing-preference-overview.md
+    - name: Security
+      items:
+      - name: Security controls by Azure Policy
+        displayName: regulatory, compliance, standards, domains
+        href: ./security-controls-policy.md
     - name: Virtual networks
       href: ../virtual-network/virtual-networks-overview.md?toc=%2fazure%2fnetworking%2ftoc.json
     - name: Network load balancing
@@ -56,6 +70,8 @@
       href: ../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json
     - name: Connect on-premises - dedicated
       href: ../expressroute/expressroute-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: NVA accelerated connections
+      href: nva-accelerated-connections.md
 - name: Quickstart
   items:
   - name: Create your first virtual network
@@ -65,31 +81,35 @@
   - name: Internet connectivity
     items:
     - name: Network load balance public servers
-      href: ../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
+      href: ../load-balancer/quickstart-load-balancer-standard-public-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
     - name: Application load balance public servers
       href: ../application-gateway/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
     - name: Protect web applications
-      href: ../application-gateway/application-gateway-web-application-firewall-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
+      href: ../web-application-firewall/ag/application-gateway-web-application-firewall-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
     - name: Distribute traffic across locations
       href: ../traffic-manager/traffic-manager-configure-geographic-routing-method.md?toc=%2fazure%2fnetworking%2ftoc.json
   - name: Internal connectivity
     items:
     - name: Network load balance private servers
-      href: ../load-balancer/load-balancer-get-started-ilb-arm-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
+      href: ../load-balancer/quickstart-load-balancer-standard-internal-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
     - name: Application load balance private servers
       href: ../application-gateway/application-gateway-ilb-arm.md?toc=%2fazure%2fnetworking%2ftoc.json
     - name: Connect virtual networks (same location)
-      href: ../virtual-network/virtual-networks-create-vnetpeering-arm-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
+      href: ../virtual-network/tutorial-connect-virtual-networks-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
     - name: Connect virtual networks (different locations)
       href: ../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
   - name: Cross-premises connectivity
     items:
     - name: Create a S2S VPN connection (IPsec/IKE)
-      href: ../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
+      href: ../vpn-gateway/tutorial-site-to-site-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
     - name: Create a P2S VPN connection (SSTP with certificates)
       href: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
     - name: Create a dedicated private connection (ExpressRoute)
       href: ../expressroute/expressroute-howto-circuit-portal-resource-manager.md?toc=%2fazure%2fnetworking%2ftoc.json
+  - name: Public cloud connectivity
+    items:
+    - name: Connect Azure to public clouds
+      href: ../expressroute/expressroute-connect-azure-to-public-cloud.md?toc=%2fazure%2fnetworking%2ftoc.json
   - name: Management
     items:
     - name: Network monitoring overview
@@ -97,35 +117,38 @@
     - name: Check resource usage against Azure limits
       href: check-usage-against-limits.md
     - name: View network topology
-      href: ../network-watcher/network-watcher-topology-powershell.md?toc=%2fazure%2fnetworking%2ftoc.json
-  - name: Sample scripts
+      href: ../network-watcher/view-network-topology.md?toc=%2fazure%2fnetworking%2ftoc.json
+  - name: Security
     items:
-    - name: Azure CLI
-      href: cli-samples.md
-    - name: Azure PowerShell
-      href: powershell-samples.md
+    - name: Create a Zero Trust network for web applications
+      href: create-zero-trust-network-web-apps.md
   - name: Tutorials
     items:
     - name: Load balance VMs
-      href: ../virtual-machines/linux/tutorial-load-balancer.md?toc=%2fazure%2fnetworking%2ftoc.json
+      href: ../load-balancer/quickstart-load-balancer-standard-public-portal.md
     - name: Connect a computer to a virtual network
       href: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
 - name: Reference
   items:
   - name: Azure CLI
-    href: https://docs.microsoft.com/cli/azure/network
+    href: /cli/azure/network
   - name: Azure PowerShell
-    href: https://docs.microsoft.com/powershell/module/az.network/
-  - name: .Net
-    href: https://docs.microsoft.com/dotnet/api/microsoft.azure.management.network?view=azuremgmtnetwork-9.1.0-preview
+    href: /powershell/module/az.network/
+  - name: .NET
+    href: /dotnet/api/microsoft.azure.management.network
   - name: Node.js
     href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
   - name: REST
-    href: https://msdn.microsoft.com/library/mt163658.aspx
+    href: /rest/api/virtual-network/
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Author templates
-    href: /azure/azure-resource-manager/resource-group-authoring-templates?toc=%2fazure%2fnetworking%2ftoc.json
+    href: ../azure-resource-manager/templates/syntax.md?toc=%2fazure%2fnetworking%2ftoc.json
+  - name: Providers
+    href: networking-partners-msp.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Community templates
@@ -142,3 +165,7 @@
     href: https://stackoverflow.com/questions/tagged/azure-virtual-network
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=virtual-network
+- name: Troubleshooting
+  items:
+  - name: Troubleshoot Microsoft.Network Failed provisioning state
+    href: troubleshoot-failed-state.md

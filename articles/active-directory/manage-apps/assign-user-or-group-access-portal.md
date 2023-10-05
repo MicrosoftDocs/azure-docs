@@ -1,96 +1,97 @@
 ---
-title: Assign a user or group to an enterprise app in Azure Active Directory | Microsoft Docs
-description: How to select an enterprise app to assign a user or group to it in Azure Active Directory
+title: Manage users and groups assignment to an application
+description: Learn how to assign and unassign users, and groups, for an app using Microsoft Entra ID for identity management.
 services: active-directory
-author: msmimart
+author: omondiatieno
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 04/11/2019
-ms.author: mimart
-ms.reviewer: luleon
-ms.collection: M365-identity-device-management
+ms.topic: how-to
+ms.date: 11/22/2022
+ms.author: jomondi
+ms.reviewer: ergreenl
+ms.custom: contperf-fy22q2, contperf-fy22q3, enterprise-apps, has-azure-ad-ps-ref
+zone_pivot_groups: enterprise-apps-all
+#customer intent: As an admin, I want to manage user assignment for an app in Microsoft Entra ID using PowerShell
 ---
 
-# Assign a user or group to an enterprise app in Azure Active Directory
-To assign a user or group to an enterprise app, you must have the appropriate permissions to manage the enterprise app, and you must be global admin for the directory.
+# Manage users and groups assignment to an application
 
-> [!NOTE]
-> For licensing requirements for the features discussed in this article, see the [Azure Active Directory pricing page](https://azure.microsoft.com/pricing/details/active-directory).
+This article shows you how to assign users and groups to an enterprise application in Microsoft Entra ID using PowerShell. When you assign a user to an application, the application appears in the user's [My Apps](https://myapps.microsoft.com/) portal for easy access. If the application exposes app roles, you can also assign a specific app role to the user.
 
-> [!NOTE]
-> For Microsoft Applications (such as Office 365 apps), use PowerShell to assign users to an enterprise app.
+When you assign a group to an application, only users in the group will have access. The assignment doesn't cascade to nested groups.
 
+Group-based assignment requires Microsoft Entra ID P1 or P2 edition. Group-based assignment is supported for Security groups and Microsoft 365 groups whose `SecurityEnabled` setting is set to `True` only. Nested group memberships aren't currently supported. For more licensing requirements for the features discussed in this article, see the [Microsoft Entra pricing page](https://azure.microsoft.com/pricing/details/active-directory). 
 
-## Assign a user to an app - portal
-1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
-1. Select **All services**, enter Azure Active Directory in the text box, and then select **Enter**.
-1. Select **Enterprise applications**.
-1. On the **Enterprise applications - All applications** pane, you see a list of the apps you can manage. Select an app.
-1. On the ***appname*** pane (that is, the pane with the name of the selected app in the title), select **Users & Groups**.
-1. On the ***appname*** **- User and groups** pane, select **Add user**.
-1. On the **Add Assignment** pane, select **Users and groups**.
+For greater control, certain types of enterprise applications can be configured to require user assignment. For more information on requiring user assignment for an app, see [Manage access to an application](what-is-access-management.md#requiring-user-assignment-for-an-app).
 
-    ![Assign a user or group to the app](./media/assign-user-or-group-access-portal/assign-users.png)
-1. On the **Users and groups** pane, select one or more users or groups from the list and then choose the **Select** button at the bottom of the pane.
-1. On the **Add Assignment** pane, select **Role**. Then, on the **Select Role** pane, select a role to apply to the selected users or groups, then select **OK** at the bottom of the pane.
-1. On the **Add Assignment** pane, select the **Assign** button at the bottom of the pane. The assigned users or groups have the permissions defined by the selected role for this enterprise app.
+## Prerequisites
 
-## Allow all users to access an app - portal
-To allow all users to access an application:
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
-1. Select **All services**, enter Azure Active Directory in the text box, and then select **Enter**.
-1. Select **Enterprise applications**.
-1. On the **Enterprise applications** pane, select **All applications**. This lists the apps you can manage.
-1. On the **Enterprise applications - All applications** pane, select an app.
-1. On the ***appname*** pane, select **Properties**.
-1. On the ***appname* - Properties** pane, set the **User assignment required?** setting to **No**. 
+To assign users to an enterprise application, you need:
 
-The **User assignment required?** option:
+- A Microsoft Entra account with an active subscription. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
+- Microsoft Entra ID P1 or P2 for group-based assignment. For more licensing requirements for the features discussed in this article, see the [Microsoft Entra pricing page](https://azure.microsoft.com/pricing/details/active-directory).
 
-- Doesn't affect whether or not an application appears on the application access panel. To show the application on the access panel, you need to assign an appropriate user or group to the application.
-- Only functions with the cloud applications that are configured for SAML single sign-on, and on-premises applications configured with Application Proxy. See [Single sign-on for applications](what-is-single-sign-on.md).
-- Requires that users consent to an application. An admin can grant consent for all users.  See [Configure the way end-users consent to an application](configure-user-consent.md).
+## Assign users, and groups, to an application
+ 
+:::zone pivot="portal"
 
+To assign a user or group account to an enterprise application:
 
-## Assign a user to an app - PowerShell
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
+1. Enter the name of the existing application in the search box, and then select the application from the search results.
+1. Select **Users and groups**, and then select **Add user/group**.
+
+    :::image type="content" source="media/add-application-portal-assign-users/assign-user.png" alt-text="Assign user account to an application in your Microsoft Entra tenant.":::
+
+1. On the **Add Assignment** pane, select **None Selected** under **Users and groups**.
+1. Search for and select the user or group that you want to assign to the application. For example, `contosouser1@contoso.com` or `contosoteam1@contoso.com`.
+1. Select **Select**.
+1. On the **Add Assignment** pane, select **Assign** at the bottom of the pane.
+
+## Unassign users, and groups, from an application
+
+1. Follow the steps on the [Assign users, and groups, to an application](#assign-users-and-groups-to-an-application) section to navigate to the **Users and groups** pane.
+1. Search for and select the user or group that you want to unassign from the application.
+1. Select **Remove** to unassign the user or group from the application.
+
+:::zone-end
+
+:::zone pivot="aad-powershell"
 
 1. Open an elevated Windows PowerShell command prompt.
-
-	>[!NOTE] 
-	> You need to install the AzureAD module (use the command `Install-Module -Name AzureAD`). If prompted to install a NuGet module or the new Azure Active Directory V2 PowerShell module, type Y and press ENTER.
-
-1. Run `Connect-AzureAD` and sign in with a Global Admin user account.
+1. Run `Connect-AzureAD` and sign in as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Use the following script to assign a user and role to an application:
 
     ```powershell
     # Assign the values to the variables
-    $username = "<You user's UPN>"
+    $username = "<Your user's UPN>"
     $app_name = "<Your App's display name>"
     $app_role_name = "<App role display name>"
-    
+
     # Get the user to assign, and the service principal for the app to assign to
     $user = Get-AzureADUser -ObjectId "$username"
     $sp = Get-AzureADServicePrincipal -Filter "displayName eq '$app_name'"
     $appRole = $sp.AppRoles | Where-Object { $_.DisplayName -eq $app_role_name }
-    
+
     # Assign the user to the app role
     New-AzureADUserAppRoleAssignment -ObjectId $user.ObjectId -PrincipalId $user.ObjectId -ResourceId $sp.ObjectId -Id $appRole.Id
-    ``` 	
+    ```
 
-For more information about how to assign a user to an application role visit the documentation for [New-AzureADUserAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0)
+To assign a group to an enterprise app, you must replace `Get-AzureADUser` with `Get-AzureADGroup` and replace `New-AzureADUserAppRoleAssignment` with `New-AzureADGroupAppRoleAssignment`.
 
-To assign a group to an enterprise app, you need to replace `Get-AzureADUser` with `Get-AzureADGroup`.
+For more information about how to assign a group to an application role, see the documentation for [New-AzureADGroupAppRoleAssignment](/powershell/module/azuread/new-azureadgroupapproleassignment).
 
 ### Example
 
-This example assigns the user Britta Simon to the [Microsoft Workplace Analytics](https://products.office.com/business/workplace-analytics) application using PowerShell.
+This example assigns the user Britta Simon to the Microsoft Workplace Analytics application using PowerShell.
 
-1. In PowerShell, assign the corresponding values to the variables $username, $app_name and $app_role_name. 
+1. In PowerShell, assign the corresponding values to the variables $username, $app_name and $app_role_name.
 
     ```powershell
     # Assign the values to the variables
@@ -105,13 +106,11 @@ This example assigns the user Britta Simon to the [Microsoft Workplace Analytics
     $user = Get-AzureADUser -ObjectId "$username"
     $sp = Get-AzureADServicePrincipal -Filter "displayName eq '$app_name'"
     ```
-		
-1. Run the command `$sp.AppRoles` to display the roles available for the Workplace Analytics application. In this example, we want to assign Britta Simon the Analyst (Limited access) Role.
-	
-	![Workplace Analytics Role](./media/assign-user-or-group-access-portal/workplace-analytics-role.png)
 
+1. Run the command `$sp.AppRoles` to display the roles available for the Workplace Analytics application. In this example, we want to assign Britta Simon the Analyst (Limited access) Role.
+   ![Shows the roles available to a user using Workplace Analytics Role](./media/assign-user-or-group-access-portal/workplace-analytics-role.png)
 1. Assign the role name to the `$app_role_name` variable.
-		
+
     ```powershell
     # Assign the values to the variables
     $app_role_name = "Analyst (Limited access)"
@@ -125,8 +124,182 @@ This example assigns the user Britta Simon to the [Microsoft Workplace Analytics
     New-AzureADUserAppRoleAssignment -ObjectId $user.ObjectId -PrincipalId $user.ObjectId -ResourceId $sp.ObjectId -Id $appRole.Id
     ```
 
+## Unassign users, and groups, from an application
+
+1. Open an elevated Windows PowerShell command prompt.
+1. Run `Connect-AzureAD` and sign in as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Use the following script to remove a user and role from an application.
+
+    ```powershell
+    # Store the proper parameters
+    $user = get-azureaduser -ObjectId <objectId>
+    $spo = Get-AzureADServicePrincipal -ObjectId <objectId>
+
+    #Get the ID of role assignment 
+    $assignments = Get-AzureADServiceAppRoleAssignment -ObjectId $spo.ObjectId | Where {$_.PrincipalDisplayName -eq $user.DisplayName}
+
+    #if you run the following, it will show you what is assigned what
+    $assignments | Select *
+
+    #To remove the App role assignment run the following command.
+    Remove-AzureADServiceAppRoleAssignment -ObjectId $spo.ObjectId -AppRoleAssignmentId $assignments[assignment number].ObjectId
+    ```
+
+## Remove all users who are assigned to the application
+
+Use the following script to remove all users and groups assigned to the application.
+
+```powershell
+#Retrieve the service principal object ID.
+$app_name = "<Your App's display name>"
+$sp = Get-AzureADServicePrincipal -Filter "displayName eq '$app_name'"
+$sp.ObjectId
+
+# Get Service Principal using objectId
+$sp = Get-AzureADServicePrincipal -ObjectId "<ServicePrincipal objectID>"
+
+# Get Azure AD App role assignments using objectId of the Service Principal
+$assignments = Get-AzureADServiceAppRoleAssignment -ObjectId $sp.ObjectId -All $true
+
+# Remove all users and groups assigned to the application
+$assignments | ForEach-Object {
+    if ($_.PrincipalType -eq "User") {
+        Remove-AzureADUserAppRoleAssignment -ObjectId $_.PrincipalId -AppRoleAssignmentId $_.ObjectId
+    } elseif ($_.PrincipalType -eq "Group") {
+        Remove-AzureADGroupAppRoleAssignment -ObjectId $_.PrincipalId -AppRoleAssignmentId $_.ObjectId
+    }
+}
+```
+:::zone-end
+
+:::zone pivot="ms-powershell"
+
+1. Open an elevated Windows PowerShell command prompt.
+1. Run `Connect-MgGraph -Scopes "Application.ReadWrite.All", "Directory.ReadWrite.All", "AppRoleAssignment.ReadWrite.All"` and sign in as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Use the following script to assign a user and role to an application:
+
+```powershell    
+# Assign the values to the variables
+
+$userId = "<Your user's ID>"
+$app_name = "<Your App's display name>"
+$app_role_name = "<App role display name>"
+$sp = Get-MgServicePrincipal -Filter "displayName eq '$app_name'"
+
+# Get the user to assign, and the service principal for the app to assign to
+
+$params = @{
+    "PrincipalId" =$userId
+    "ResourceId" =$sp.Id
+    "AppRoleId" =($sp.AppRoles | Where-Object { $_.DisplayName -eq $app_role_name }).Id
+    }
+
+# Assign the user to the app role
+
+New-MgUserAppRoleAssignment -UserId $userId -BodyParameter $params |
+    Format-List Id, AppRoleId, CreationTime, PrincipalDisplayName,
+    PrincipalId, PrincipalType, ResourceDisplayName, ResourceId
+```
+
+## Unassign users, and groups, from an application
+
+1. Open an elevated Windows PowerShell command prompt.
+1. Run `Connect-MgGraph -Scopes "Application.ReadWrite.All", "Directory.ReadWrite.All", "AppRoleAssignment.ReadWrite.All"` and sign in as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). Use the following script to remove a user and role from an application.
+```powershell
+# Get the user and the service principal
+
+$user = Get-MgUser -UserId <userid>
+$spo = Get-MgServicePrincipal -ServicePrincipalId <ServicePrincipalId>
+
+# Get the Id of the role assignment
+
+$assignments = Get-MgServicePrincipalAppRoleAssignedTo -ServicePrincipalId $spo.Id | Where {$_.PrincipalDisplayName -eq $user.DisplayName}
+
+# if you run the following, it will show you the list of users assigned to the application
+
+$assignments | Select *
+
+# To remove the App role assignment run the following command.
+
+Remove-MgServicePrincipalAppRoleAssignedTo -AppRoleAssignmentId  '<AppRoleAssignment-id>' -ServicePrincipalId $spo.Id
+```
+
+## Remove all users and groups assigned to the application
+
+Use the following script to remove all users and groups assigned to the application.
+
+```powershell
+$assignments | ForEach-Object {
+    if ($_.PrincipalType -in ("user", "Group")) {
+        Remove-MgServicePrincipalAppRoleAssignedTo -ServicePrincipalId $Sp.Id -AppRoleAssignmentId $_.Id  }
+}
+```
+
+:::zone-end
+
+:::zone pivot="ms-graph"
+
+1. To assign users and groups to an application, sign in to [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+
+    You'll need to consent to the following permissions: 
+
+    `Application.ReadWrite.All`, `Directory.ReadWrite.All`, `AppRoleAssignment.ReadWrite.All`.
+
+    To grant an app role assignment, you need three identifiers:
+
+    - `principalId`: The ID of the user or group to which you're assigning the app role.
+    - `resourceId`: The ID of the resource servicePrincipal that has defined the app role.
+    - `appRoleId`: The ID of the appRole (defined on the resource service principal) to assign to a user or group.
+
+1. Get the enterprise application. Filter by DisplayName.
+
+    ```http
+    GET https://graph.microsoft.com/v1.0/servicePrincipals?$filter=displayName eq '{appDisplayName}'
+    ```
+    Record the following values from the response body:
+
+    - Object ID of the enterprise application
+    - appRoleId that you'll assign to the user. If the application doesn't expose any roles, the user will be assigned the default access role.
+
+1. Get the user by filtering by the user's principal name. Record the object ID of the user.
+
+    ```http
+    GET https://graph.microsoft.com/v1.0/users/{userPrincipalName}
+    ```
+1. Assign the user to the application.
+    ```http
+    POST https://graph.microsoft.com/v1.0/servicePrincipals/{resource-servicePrincipal-id}/appRoleAssignedTo
+
+    {
+    "principalId": "33ad69f9-da99-4bed-acd0-3f24235cb296",
+    "resourceId": "9028d19c-26a9-4809-8e3f-20ff73e2d75e",
+    "appRoleId": "ef7437e6-4f94-4a0a-a110-a439eb2aa8f7"
+    }
+    ```
+    In the example, both the resource-servicePrincipal-id and resourceId represent the enterprise application.
+
+## Unassign users, and groups, from an application
+
+To unassign user and groups from the application, run the following query.
+
+1. Get the enterprise application. Filter by displayName.
+
+    ```http
+    GET https://graph.microsoft.com/v1.0/servicePrincipals?$filter=displayName eq '{appDisplayName}'
+    ```
+1. Get the list of appRoleAssignments for the application.
+
+    ```http
+    GET https://graph.microsoft.com/v1.0/servicePrincipals/{id}/appRoleAssignedTo
+    ```
+1. Remove the appRoleAssignments by specifying the appRoleAssignment ID.
+
+    ```http
+    DELETE https://graph.microsoft.com/v1.0/servicePrincipals/{resource-servicePrincipal-id}/appRoleAssignedTo/{appRoleAssignment-id}
+    ```
+:::zone-end
+
 ## Next steps
-* [See all of my groups](../fundamentals/active-directory-groups-view-azure-portal.md)
-* [Remove a user or group assignment from an enterprise app](remove-user-or-group-access-portal.md)
-* [Disable user sign-ins for an enterprise app](disable-user-sign-in-portal.md)
-* [Change the name or logo of an enterprise app](change-name-or-logo-portal.md)
+
+- [Assign custom security attributes](custom-security-attributes-apps.md)
+- [Disable user sign-in](disable-user-sign-in-portal.md).

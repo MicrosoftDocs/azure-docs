@@ -1,31 +1,22 @@
 ---
 title: Virtual machines in an Azure Resource Manager template | Microsoft Azure
 description: Learn more about how the virtual machine resource is defined in an Azure Resource Manager template.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: f63ab5cc-45b8-43aa-a4e7-69dc42adbb99
-ms.service: virtual-machines-windows
-ms.workload: na
-ms.tgt_pltfrm: vm-windows
-ms.devlang: na
-ms.topic: article
-ms.date: 01/03/2019
-ms.author: cynthn
-
+ms.service: virtual-machines
+ms.workload: infrastructure
+ms.custom: devx-track-arm-template, devx-track-linux
+ms.topic: how-to
+ms.date: 04/11/2023
+ms.author: cynthn 
 ---
 
 # Virtual machines in an Azure Resource Manager template
 
-This article describes aspects of an Azure Resource Manager template that apply to virtual machines. This article doesn’t describe a complete template for creating a virtual machine; for that you need resource definitions for storage accounts, network interfaces, public IP addresses, and virtual networks. For more information about how these resources can be defined together, see the [Resource Manager template walkthrough](../../azure-resource-manager/resource-manager-template-walkthrough.md).
+**Applies to:** :heavy_check_mark: Windows VMs
 
-There are many [templates in the gallery](https://azure.microsoft.com/documentation/templates/?term=VM) that include the VM resource. Not all elements that can be included in a template are described here.
+This article describes aspects of an Azure Resource Manager template that apply to virtual machines. This article doesn't describe a complete template for creating a virtual machine; for that you need resource definitions for storage accounts, network interfaces, public IP addresses, and virtual networks. For more information about how these resources can be defined together, see the [Resource Manager template walkthrough](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+There are many [templates in the gallery](https://azure.microsoft.com/resources/templates/?term=VM) that include the VM resource. Not all elements that can be included in a template are described here.
 
 This example shows a typical resource section of a template for creating a specified number of VMs:
 
@@ -37,7 +28,7 @@ This example shows a typical resource section of a template for creating a speci
     "name": "[concat('myVM', copyindex())]", 
     "location": "[resourceGroup().location]",
     "copy": {
-      "name": "virtualMachineLoop",	
+      "name": "virtualMachineLoop",  
       "count": "[parameters('numberOfInstances')]"
     },
     "dependsOn": [
@@ -142,9 +133,9 @@ This example shows a typical resource section of a template for creating a speci
     ]
   } 
 ]
-``` 
+```
 
-> [!NOTE] 
+> [!NOTE]
 >This example relies on a storage account that was previously created. You could create the storage account by deploying it from the template. The example also relies on a network interface and its dependent resources that would be defined in the template. These resources are not shown in the example.
 >
 >
@@ -153,7 +144,7 @@ This example shows a typical resource section of a template for creating a speci
 
 When you deploy resources using a template, you have to specify a version of the API to use. The example shows the virtual machine resource using this apiVersion element:
 
-```
+```json
 "apiVersion": "2016-04-30-preview",
 ```
 
@@ -161,16 +152,15 @@ The version of the API you specify in your template affects which properties you
 
 Use these opportunities for getting the latest API versions:
 
-- REST API - [List all resource providers](https://docs.microsoft.com/rest/api/resources/providers)
-- PowerShell - [Get-AzResourceProvider](https://docs.microsoft.com/powershell/module/az.resources/get-azresourceprovider)
-- Azure CLI - [az provider show](https://docs.microsoft.com/cli/azure/provider)
-
+- REST API - [List all resource providers](/rest/api/resources/providers)
+- PowerShell - [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider)
+- Azure CLI - [az provider show](/cli/azure/provider)
 
 ## Parameters and variables
 
-[Parameters](../../resource-group-authoring-templates.md) make it easy for you to specify values for the template when you run it. This parameters section is used in the example:
+[Parameters](../../azure-resource-manager/templates/syntax.md) make it easy for you to specify values for the template when you run it. This parameters section is used in the example:
 
-```        
+```json
 "parameters": {
   "adminUsername": { "type": "string" },
   "adminPassword": { "type": "securestring" },
@@ -180,9 +170,9 @@ Use these opportunities for getting the latest API versions:
 
 When you deploy the example template, you enter values for the name and password of the administrator account on each VM and the number of VMs to create. You have the option of specifying parameter values in a separate file that's managed with the template, or providing values when prompted.
 
-[Variables](../../resource-group-authoring-templates.md) make it easy for you to set up values in the template that are used repeatedly throughout it or that can change over time. This variables section is used in the example:
+[Variables](../../azure-resource-manager/templates/syntax.md) make it easy for you to set up values in the template that are used repeatedly throughout it or that can change over time. This variables section is used in the example:
 
-```
+```json
 "variables": { 
   "storageName": "mystore1",
   "accountid": "[concat('/subscriptions/', subscription().subscriptionId, 
@@ -213,22 +203,22 @@ When you deploy the example template, you enter values for the name and password
 }, 
 ```
 
-When you deploy the example template, variable values are used for the name and identifier of the previously created storage account. Variables are also used to provide the settings for the diagnostic extension. Use the [best practices for creating Azure Resource Manager templates](../../resource-manager-template-best-practices.md) to help you decide how you want to structure the parameters and variables in your template.
+When you deploy the example template, variable values are used for the name and identifier of the previously created storage account. Variables are also used to provide the settings for the diagnostic extension. Use the [best practices for creating Azure Resource Manager templates](../../azure-resource-manager/templates/best-practices.md) to help you decide how you want to structure the parameters and variables in your template.
 
 ## Resource loops
 
 When you need more than one virtual machine for your application, you can use a copy element in a template. This optional element loops through creating the number of VMs that you specified as a parameter:
 
-```
+```json
 "copy": {
-  "name": "virtualMachineLoop",	
+  "name": "virtualMachineLoop",  
   "count": "[parameters('numberOfInstances')]"
 },
 ```
 
 Also, notice in the example that the loop index is used when specifying some of the values for the resource. For example, if you entered an instance count of three, the names of the operating system disks are myOSDisk1, myOSDisk2, and myOSDisk3:
 
-```
+```json
 "osDisk": { 
   "name": "[concat('myOSDisk', copyindex())]",
   "caching": "ReadWrite", 
@@ -236,14 +226,14 @@ Also, notice in the example that the loop index is used when specifying some of 
 }
 ```
 
-> [!NOTE] 
+> [!NOTE]
 >This example uses managed disks for the virtual machines.
 >
 >
 
-Keep in mind that creating a loop for one resource in the template may require you to use the loop when creating or accessing other resources. For example, multiple VMs can’t use the same network interface, so if your template loops through creating three VMs it must also loop through creating three network interfaces. When assigning a network interface to a VM, the loop index is used to identify it:
+Keep in mind that creating a loop for one resource in the template may require you to use the loop when creating or accessing other resources. For example, multiple VMs can't use the same network interface, so if your template loops through creating three VMs it must also loop through creating three network interfaces. When assigning a network interface to a VM, the loop index is used to identify it:
 
-```
+```json
 "networkInterfaces": [ { 
   "id": "[resourceId('Microsoft.Network/networkInterfaces',
     concat('myNIC', copyindex()))]" 
@@ -252,9 +242,9 @@ Keep in mind that creating a loop for one resource in the template may require y
 
 ## Dependencies
 
-Most resources depend on other resources to work correctly. Virtual machines must be associated with a virtual network and to do that it needs a network interface. The [dependsOn](../../resource-group-define-dependencies.md) element is used to make sure that the network interface is ready to be used before the VMs are created:
+Most resources depend on other resources to work correctly. Virtual machines must be associated with a virtual network and to do that it needs a network interface. The [dependsOn](../../azure-resource-manager/templates/resource-dependency.md) element is used to make sure that the network interface is ready to be used before the VMs are created:
 
-```
+```json
 "dependsOn": [
   "[concat('Microsoft.Network/networkInterfaces/', 'myNIC', copyindex())]" 
 ],
@@ -264,7 +254,7 @@ Resource Manager deploys in parallel any resources that aren't dependent on anot
 
 How do you know if a dependency is required? Look at the values you set in the template. If an element in the virtual machine resource definition points to another resource that is deployed in the same template, you need a dependency. For example, your example virtual machine defines a network profile:
 
-```
+```json
 "networkProfile": { 
   "networkInterfaces": [ { 
     "id": "[resourceId('Microsoft.Network/networkInterfaces',
@@ -278,22 +268,22 @@ To set this property, the network interface must exist. Therefore, you need a de
 ## Profiles
 
 Several profile elements are used when defining a virtual machine resource. Some are required and some are optional. For example, the hardwareProfile, osProfile, storageProfile, and networkProfile elements are required, but the diagnosticsProfile is optional. These profiles define settings such as:
-   
-- [size](sizes.md)
-- [name](/azure/architecture/best-practices/naming-conventions) and credentials
+
+- [size](../sizes.md)
+- [name](/azure/architecture/best-practices/resource-naming) and credentials
 - disk and [operating system settings](cli-ps-findimage.md)
-- [network interface](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md) 
+- [network interface](/previous-versions/azure/virtual-network/virtual-network-deploy-multinic-classic-ps) 
 - boot diagnostics
 
 ## Disks and images
-   
-In Azure, vhd files can represent [disks or images](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). When the operating system in a vhd file is specialized to be a specific VM, it's referred to as a disk. When the operating system in a vhd file is generalized to be used to create many VMs, it's referred to as an image.   
-    
+
+In Azure, vhd files can represent [disks or images](../managed-disks-overview.md). When the operating system in a vhd file is specialized to be a specific VM, it's referred to as a disk. When the operating system in a vhd file is generalized to be used to create many VMs, it's referred to as an image.   
+
 ### Create new virtual machines and new disks from a platform image
 
 When you create a VM, you must decide what operating system to use. The imageReference element is used to define the operating system of a new VM. The example shows a definition for a Windows Server operating system:
 
-```
+```json
 "imageReference": { 
   "publisher": "MicrosoftWindowsServer", 
   "offer": "WindowsServer", 
@@ -304,18 +294,21 @@ When you create a VM, you must decide what operating system to use. The imageRef
 
 If you want to create a Linux operating system, you might use this definition:
 
-```
+```json
 "imageReference": {
   "publisher": "Canonical",
   "offer": "UbuntuServer",
-  "sku": "14.04.2-LTS",
+  "sku": "20.04.2-LTS",
   "version": "latest"
 },
 ```
 
+> [!NOTE]
+> Modify `publisher`, `offer`, `sku` and `version` values accordingly.
+
 Configuration settings for the operating system disk are assigned with the osDisk element. The example defines a new managed disk with the caching mode set to **ReadWrite** and that the disk is being created from a [platform image](cli-ps-findimage.md):
 
-```
+```json
 "osDisk": { 
   "name": "[concat('myOSDisk', copyindex())]",
   "caching": "ReadWrite", 
@@ -327,7 +320,7 @@ Configuration settings for the operating system disk are assigned with the osDis
 
 If you want to create virtual machines from existing disks, remove the imageReference and the osProfile elements and define these disk settings:
 
-```
+```json
 "osDisk": { 
   "osType": "Windows",
   "managedDisk": { 
@@ -342,7 +335,7 @@ If you want to create virtual machines from existing disks, remove the imageRefe
 
 If you want to create a virtual machine from a managed image, change the imageReference element and define these disk settings:
 
-```
+```json
 "storageProfile": { 
   "imageReference": {
     "id": "[resourceId('Microsoft.Compute/images', 'myImage')]"
@@ -358,9 +351,9 @@ If you want to create a virtual machine from a managed image, change the imageRe
 
 ### Attach data disks
 
-You can optionally add data disks to the VMs. The [number of disks](sizes.md) depends on the size of operating system disk that you use. With the size of the VMs set to Standard_DS1_v2, the maximum number of data disks that could be added to the them is two. In the example, one managed data disk is being added to each VM:
+You can optionally add data disks to the VMs. The [number of disks](../sizes.md) depends on the size of operating system disk that you use. With the size of the VMs set to Standard_DS1_v2, the maximum number of data disks that could be added to the them is two. In the example, one managed data disk is being added to each VM:
 
-```
+```json
 "dataDisks": [
   {
     "name": "[concat('myDataDisk', copyindex())]",
@@ -374,9 +367,9 @@ You can optionally add data disks to the VMs. The [number of disks](sizes.md) de
 
 ## Extensions
 
-Although [extensions](extensions-features.md) are a separate resource, they're closely tied to VMs. Extensions can be added as a child resource of the VM or as a separate resource. The example shows the [Diagnostics Extension](extensions-diagnostics-template.md) being added to the VMs:
+Although [extensions](../extensions/features-windows.md) are a separate resource, they're closely tied to VMs. Extensions can be added as a child resource of the VM or as a separate resource. The example shows the [Diagnostics Extension](../extensions/diagnostics-template.md) being added to the VMs:
 
-```
+```json
 { 
   "name": "Microsoft.Insights.VMDiagnosticsSettings", 
   "type": "extensions", 
@@ -409,9 +402,9 @@ Although [extensions](extensions-features.md) are a separate resource, they're c
 
 This extension resource uses the storageName variable and the diagnostic variables to provide values. If you want to change the data that is collected by this extension, you can add more performance counters to the wadperfcounters variable. You could also choose to put the diagnostics data into a different storage account than where the VM disks are stored.
 
-There are many extensions that you can install on a VM, but the most useful is probably the [Custom Script Extension](extensions-customscript.md). In the example, a PowerShell script named start.ps1 runs on each VM when it first starts:
+There are many extensions that you can install on a VM, but the most useful is probably the [Custom Script Extension](../extensions/custom-script-windows.md). In the example, a PowerShell script named start.ps1 runs on each VM when it first starts:
 
-```
+```json
 {
   "name": "MyCustomScriptExtension",
   "type": "extensions",
@@ -451,12 +444,12 @@ When you deploy a template, Azure tracks the resources that you deployed as a gr
 If you're curious about the status of resources in the deployment, view the resource group in the Azure portal:
 
 ![Get deployment information](./media/template-description/virtual-machines-deployment-info.png)
-    
-It’s not a problem to use the same template to create resources or to update existing resources. When you use commands to deploy templates, you have the opportunity to say which [mode](../../resource-group-template-deploy.md) you want to use. The mode can be set to either **Complete** or **Incremental**. The default is to do incremental updates. Be careful when using the **Complete** mode because you may accidentally delete resources. When you set the mode to **Complete**, Resource Manager deletes any resources in the resource group that aren't in the template.
+
+It's not a problem to use the same template to create resources or to update existing resources. When you use commands to deploy templates, you have the opportunity to say which [mode](../../azure-resource-manager/templates/deploy-powershell.md) you want to use. The mode can be set to either **Complete** or **Incremental**. The default is to do incremental updates. Be careful when using the **Complete** mode because you may accidentally delete resources. When you set the mode to **Complete**, Resource Manager deletes any resources in the resource group that aren't in the template.
 
 ## Next Steps
 
-- Create your own template using [Authoring Azure Resource Manager templates](../../resource-group-authoring-templates.md).
+- Create your own template using [Authoring Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md).
 - Deploy the template that you created using [Create a Windows virtual machine with a Resource Manager template](ps-template.md).
-- Learn how to manage the VMs that you created by reviewing [Create and manage Windows VMs with the Azure PowerShell module](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Learn how to manage the VMs that you created by reviewing [Create and manage Windows VMs with the Azure PowerShell module](tutorial-manage-vm.md).
 - For the JSON syntax and properties of resource types in templates, see [Azure Resource Manager template reference](/azure/templates/).

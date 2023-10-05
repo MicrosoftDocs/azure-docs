@@ -1,15 +1,9 @@
 ---
 title: Manually run a non HTTP-triggered Azure Functions
 description: Use an HTTP request to run a non-HTTP triggered Azure Functions
-services: functions
-keywords: 
-author: craigshoemaker
-manager: jeconnoc
 
-ms.service: azure-functions
-ms.topic: tutorial
-ms.date: 12/12/2018
-ms.author: cshoe
+ms.topic: article
+ms.date: 04/23/2023
 ---
 
 # Manually run a non HTTP-triggered function
@@ -18,11 +12,11 @@ This article demonstrates how to manually run a non HTTP-triggered function via 
 
 In some contexts, you may need to run "on-demand" an Azure Function that is indirectly triggered.  Examples of indirect triggers include [functions on a schedule](./functions-create-scheduled-function.md) or functions that run as the result of [another resource's action](./functions-create-storage-blob-triggered-function.md). 
 
-[Postman](https://www.getpostman.com/) is used in the following example, but you may use [cURL](https://curl.haxx.se/), [Fiddler](https://www.telerik.com/fiddler) or any other like tool to send HTTP requests.
+[Postman](https://www.getpostman.com/) is used in the following example, but you can use [cURL](https://curl.haxx.se/), [Fiddler](https://www.telerik.com/fiddler) or any other like tool to send HTTP requests.
 
 ## Define the request location
 
-To run a non HTTP-triggered function, you need to a way to send a request to Azure to run the function. The URL used to make this request takes a specific form.
+To run a non HTTP-triggered function, you need a way to send a request to Azure to run the function. The URL used to make this request takes a specific form.
 
 ![Define the request location: host name + folder path + function name](./media/functions-manually-run-non-http/azure-functions-admin-url-anatomy.png)
 
@@ -37,43 +31,51 @@ You use this request location in Postman along with the function's master key in
 
 ## Get the function's master key
 
-Navigate to your function in the Azure portal and click on **Manage** and find the **Host Keys** section. Click on the **Copy** button in the *_master* row to copy the master key to your clipboard.
+1. Navigate to your function app in the [Azure portal](https://portal.azure.com), select **App Keys**, and then the `_master` key. 
 
-![Copy master key from Function Management screen](./media/functions-manually-run-non-http/azure-portal-functions-master-key.png)
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key.png" alt-text="Locate the master key to copy." border="true":::
 
-After copying the master key, click on the function name to return to the code file window. Next, click on the **Logs** tab. You'll see messages from the function logged here when you manually run the function from Postman.
+1. In the **Edit key** section, copy the key value to your clipboard, and then select **OK**.
+
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-copy.png" alt-text="Copy the master key to the clipboard." border="true":::
+
+1. After copying the *_master* key, select **Code + Test**, and then select **Logs**. You'll see messages from the function logged here when you manually run the function from Postman.
+
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-function-log.png" alt-text="Screenshot that shows the 'Code + Test' page with a message from the logs displayed." border="true":::
 
 > [!CAUTION]  
-> Due to the elevated permissions in your function app granted by the master key, you should not share this key with third parties or distribute it in an application.
+> Due to the elevated permissions in your function app granted by the master key, you should not share this key with third parties or distribute it in an application. The key should only be sent to an HTTPS endpoint.
 
 ## Call the function
 
 Open Postman and follow these steps:
 
 1. Enter the **request location in the URL text box**.
-2. Ensure the HTTP method is set to **POST**.
-3. **Click** on the **Headers** tab.
-4. Enter **x-functions-key** as the first **key** and paste the master key (from the clipboard) into the **value** box.
-5. Enter **Content-Type** as the second **key** and enter **application/json** as the **value**.
+1. Ensure the HTTP method is set to **POST**.
+1. Select the **Headers** tab.
+1. Type **x-functions-key** as the first key and paste the master key (from the clipboard) as the value.
+1. Type **Content-Type** as the second key and type **application/json** as the value.
 
-    ![Postman headers settings](./media/functions-manually-run-non-http/functions-manually-run-non-http-headers.png)
+    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-headers.png" alt-text="Postman headers settings." border="true":::
 
-6. **Click** on the **Body** tab.
-7. Enter **{ "input": "test" }** as the body for the request.
+1. Select the **Body** tab.
+1. Type **{ "input": "test" }** as the body for the request.
 
-    ![Postman body settings](./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png)
+    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png" alt-text="Postman body settings." border="true":::
 
-8. Click **Send**.
+   > [!NOTE]
+   > If you don't want to pass data into the function, you must still pass an empty dictionary `{}` as the body of the POST request.
 
-    ![Sending a request with Postman](./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png)
+1. Select **Send**.
+        
+    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png" alt-text="Send a request with Postman." border="true":::
 
-Postman then reports a status of **202 Accepted**.
+    Postman then reports a status of **202 Accepted**.
 
-Next, return to your function in the Azure portal. Locate the *Logs* window and you'll see messages coming from the manual call to the function.
+1. Next, return to your function in the Azure portal. Review the logs and you'll see messages coming from the manual call to the function.
 
-![Function log results from manual call](./media/functions-manually-run-non-http/azure-portal-function-log.png)
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-logs.png" alt-text="View the logs to see the master key test results." border="true":::
 
 ## Next steps
 
-- [Strategies for testing your code in Azure Functions](./functions-test-a-function.md)
-- [Azure Function Event Grid Trigger Local Debugging](./functions-debug-event-grid-trigger-local.md)
+- [Event Grid local testing with viewer web app](./event-grid-how-tos.md#local-testing-with-viewer-web-app)

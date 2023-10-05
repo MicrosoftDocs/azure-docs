@@ -1,11 +1,13 @@
-﻿---
-author: sptramer
-ms.topic: include
-ms.date: 01/30/2019
-ms.service: azure-powershell
-
-ms.author: sttramer
 ---
-This sample requires Azure PowerShell. Run `Get-Module -ListAvailable Az` to see if it's installed. If you need to install, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). 
+ms.topic: include
+ms.custom: devx-track-azurepowershell
+ms.date: 10/24/2022
+author: mikefrobbins
+ms.author: mirobb
+ms.manager: jasongroce
+---
 
-Run `Connect-AzAccount` to create a connection with Azure. 
+This sample requires Azure PowerShell Az 1.0 or later. Run `Get-Module -ListAvailable Az` to see which versions are installed.
+If you need to install, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell).
+
+Run [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) to sign in to Azure.

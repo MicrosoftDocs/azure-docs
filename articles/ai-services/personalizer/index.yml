@@ -1,0 +1,138 @@
+### YamlMime:Landing
+
+title: Personalizer documentation
+summary: Learn how to use Personalizer to allow your application to choose the best experience to show to your users, learning from their real-time behavior.
+
+metadata:
+  ms.topic: landing-page
+  ms.date: 07/06/2022
+  ms.author: jacodel
+  author: jcodella
+  ms.service: azure-ai-personalizer
+  services: cognitive-services
+  title: Personalizer documentation
+  titleSuffix: Azure AI services
+  description:  Azure AI Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+landingContent:
+  - title: About Personalizer
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Personalizer?
+            url: what-is-personalizer.md
+      - linkListType: whats-new
+        links:
+          - text: What's new
+            url: whats-new.md
+      - linkListType: concept
+        links:
+          - text: How Personalizer works
+            url: how-personalizer-works.md
+          - text: Where you can use Personalizer?
+            url: where-can-you-use-personalizer.md
+          - text: Ethics and responsible use
+            url: responsible-guidance-integration.md
+  - title: Create and use Personalizer loop
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Choosing features and actions to personalize
+            url: concepts-features.md
+          - text: How to calculate a reward
+            url: concept-rewards.md
+      - linkListType: tutorial
+        links:
+          - text: Use Personalizer in a .NET web app
+            url: tutorial-use-personalizer-web-app.md
+          - text: Use Personalizer with an Azure Notebooks file
+            url: tutorial-use-azure-notebook-generate-loop-data.md
+      - linkListType: how-to-guide
+        links:
+          - text: How to create and configure Personalizer
+            url: how-to-settings.md
+      - linkListType: quickstart
+        links:
+          - text: Using SDK
+            url: ./quickstart-personalizer-sdk.md
+      - linkListType: quickstart
+        links:
+          - text: Use multi-slot Personalization
+            url: ./how-to-multi-slot.md
+      - linkListType: quickstart
+        links:
+          - text: Use local inference
+            url: ./how-to-thick-client.md
+
+  - title: Developing with Personalizer
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Develop Personalizer loop with .NET
+            url: ./quickstart-personalizer-sdk.md?pivots=programming-language-csharp
+          - text: NuGet package
+            url: https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Personalizer/0.8.0-preview
+          - text: NuGet reference documentation
+            url: /dotnet/api/microsoft.azure.cognitiveservices.personalizer?view=azure-dotnet-preview&preserve-view=true
+      - linkListType: get-started
+        links:
+          - text: Develop Personalizer loop with Node.js
+            url: ./quickstart-personalizer-sdk.md?pivots=programming-language-javascript
+          - text: NPM package
+            url: https://www.npmjs.com/package/@azure/cognitiveservices-personalizer/v/1.0.0
+      - linkListType: get-started
+        links:
+          - text: Develop Personalizer loop with Python
+            url: ./quickstart-personalizer-sdk.md?pivots=programming-language-python
+          - text: Pypi package
+            url: https://pypi.org/project/azure-cognitiveservices-personalizer/
+      - linkListType: get-started
+        links:
+        - text: Code Samples
+          url: https://github.com/Azure-Samples/cognitive-services-personalizer-samples
+        - text: REST API (1.0)
+          url: https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank
+        - text: REST APIs (v1.1 Preview)
+          url: https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api-v1-1-preview-3/operations/Rank
+  - title: About Reinforcement learning
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Reinforcement learning?
+            url: concepts-reinforcement-learning.md
+      - linkListType: concept
+        links:
+          - text: Exploration
+            url: concepts-exploration.md
+          - text: Features, action, and context
+            url: concepts-features.md
+          - text: Active and inactive events
+            url: concept-active-learning.md
+          - text: Rewards
+            url: concept-rewards.md
+  - title: Evaluate and improve service
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Use Apprentice mode
+            url: how-to-learning-behavior.md
+          - text: Improve loop with offline evaluations
+            url: concepts-offline-evaluation.md
+          - text: Active and inactive events
+            url: concept-active-learning.md
+          - text: Scalability and performance
+            url: concepts-scalability-performance.md
+      - linkListType: how-to-guide
+        links:
+          - text: Analyze success with offline evaluation
+            url: how-to-offline-evaluation.md
+
+  - title: Help and feedback
+    linkLists:
+    - linkListType: reference
+      links:
+      - text: Support and help options
+        url: ../cognitive-services-support-options.md?context=/azure/ai-services/personalizer/context/context
+      - text: Troubleshooting
+        url: frequently-asked-questions.yml

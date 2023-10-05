@@ -1,28 +1,19 @@
-﻿---
-title: Azure PowerShell Script Sample - Create a web app and deploy code from GitHub | Microsoft Docs
-description: Azure PowerShell Script Sample - Create a web app and deploy code from GitHub
-services: app-service\web
-documentationcenter: 
-author: cephalin
-manager: erikre
-editor: 
+---
+title: 'PowerShell: Deploy code from GitHub'
+description: Learn how to use Azure PowerShell to automate deployment and management of App Service. This sample shows how to deploy code from GitHub.
 tags: azure-service-management
 
 ms.assetid: 0f9c8bc5-3789-4eb3-8deb-ae6e2200795a
-ms.service: app-service-web
-ms.workload: web
-ms.devlang: na
 ms.topic: sample
 ms.date: 03/20/2017
-ms.author: cephalin
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 ---
 
 # Create a web app and deploy code from GitHub
 
 This sample script creates a web app in App Service with its related resources, and then deploys your web app code from a public GitHub repository (without continuous deployment). For GitHub deployment with continuous deployment, see [Create a web app with continuous deployment from GitHub](powershell-continuous-deployment-github.md).
 
-If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](/powershell/azure/overview), and then run `Connect-AzAccount` to create a connection with Azure. Also, you need a link to GitHub repository that contains the web app code.
+If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](/powershell/azure/), and then run `Connect-AzAccount` to create a connection with Azure. Also, you need a link to GitHub repository that contains the web app code.
 
 ## Sample script
 
@@ -51,6 +42,6 @@ This script uses the following commands. Each command in the table links to comm
 
 ## Next steps
 
-For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).
+For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/).
 
-Additional Azure Powershell samples for Azure App Service Web Apps can be found in the [Azure PowerShell samples](../samples-powershell.md).
+Additional Azure PowerShell samples for Azure App Service Web Apps can be found in the [Azure PowerShell samples](../samples-powershell.md).

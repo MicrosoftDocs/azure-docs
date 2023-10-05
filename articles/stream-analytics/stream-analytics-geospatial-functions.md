@@ -1,18 +1,16 @@
 ---
 title: Introduction to Azure Stream Analytics geospatial functions
 description: This article describes geospatial functions that are used in Azure Stream Analytics jobs.
-services: stream-analytics
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
 ms.service: stream-analytics
+author: enkrumah
+ms.author: ebnkruma
 ms.topic: conceptual
 ms.date: 12/06/2018
 ---
 
 # Introduction to Stream Analytics geospatial functions
 
-Geospatial functions in Azure Stream Analytics enable real-time analytics on streaming geospatial data. With just a few lines of code, you can develop a production grade solution for complex scenarios. 
+Geospatial functions in Azure Stream Analytics enable real-time analytics on streaming geospatial data. With just a few lines of code, you can develop a production grade solution for complex scenarios. These functions support all WKT types and GeoJSON Point, Polygon, and LineString.
 
 Examples of scenarios that can benefit from geospatial functions include:
 
@@ -49,7 +47,7 @@ FROM input
 
  {"type" : "LineString", "coordinates" : [ [20.2321, -87.33], [10.0, 10.0], [10.5, 10.5] ]}
 
-To learn more, visit the [CreateLineString](https://msdn.microsoft.com/azure/stream-analytics/reference/createlinestring) reference.
+To learn more, visit the [CreateLineString](/stream-analytics-query/createlinestring) reference.
 
 ## CreatePoint
 
@@ -76,7 +74,7 @@ FROM input
   
  {"type" : "Point", "coordinates" : [20.2321, -87.33]}  
 
-To learn more, visit the [CreatePoint](https://msdn.microsoft.com/azure/stream-analytics/reference/createpoint) reference.
+To learn more, visit the [CreatePoint](/stream-analytics-query/createpoint) reference.
 
 ## CreatePolygon
 
@@ -103,11 +101,11 @@ FROM input
  
  {"type" : "Polygon", "coordinates" : [[ [20.2321, -87.33], [10.0, 10.0], [10.5, 10.5], [20.2321, -87.33] ]]}
 
-To learn more, visit the [CreatePolygon](https://msdn.microsoft.com/azure/stream-analytics/reference/createpolygon) reference.
+To learn more, visit the [CreatePolygon](/stream-analytics-query/createpolygon) reference.
 
 
 ## ST_DISTANCE
-The `ST_DISTANCE` function returns the distance between two points in meters. 
+The `ST_DISTANCE` function returns the distance between two geometries in meters. 
 
 The following query uses `ST_DISTANCE` to generate an event when a gas station is less than 10 km from the car.
 
@@ -117,10 +115,10 @@ FROM Cars c
 JOIN Station s ON ST_DISTANCE(c.Location, s.Location) < 10 * 1000
 ```
 
-To learn more, visit the [ST_DISTANCE](https://msdn.microsoft.com/azure/stream-analytics/reference/st-distance) reference.
+To learn more, visit the [ST_DISTANCE](/stream-analytics-query/st-distance) reference.
 
 ## ST_OVERLAPS
-The `ST_OVERLAPS` function compares two polygons. If the polygons overlap, the function returns a 1. The function returns 0 if the polygons don't overlap. 
+The `ST_OVERLAPS` function compares two geometries. If the geometries overlap, the function returns a 1. The function returns 0 if the geometries don't overlap. 
 
 The following query uses `ST_OVERLAPS` to generate an event when a building is within a possible flooding zone.
 
@@ -138,10 +136,10 @@ FROM Cars c, Storm s
 JOIN Storm s ON ST_OVERLAPS(c.Location, s.Course)
 ```
 
-To learn more, visit the [ST_OVERLAPS](https://msdn.microsoft.com/azure/stream-analytics/reference/st-overlaps) reference.
+To learn more, visit the [ST_OVERLAPS](/stream-analytics-query/st-overlaps) reference.
 
 ## ST_INTERSECTS
-The `ST_INTERSECTS` function compares two LineString. If the LineString intersect, then the function returns 1. The function returns 0 if the LineString don't intersect.
+The `ST_INTERSECTS` function compares two geometries. If the geometries intersect, then the function returns 1. The function returns 0 if the geometries don't intersect each other.
 
 The following example query uses `ST_INTERSECTS` to determine if a paved road intersects a dirt road.
 
@@ -155,8 +153,8 @@ FROM input
   
 |datacenterArea|stormArea|  
 |--------------------|---------------|  
-|{“type”:”LineString”, “coordinates”: [ [-10.0, 0.0], [0.0, 0.0], [10.0, 0.0] ]}|{“type”:”LineString”, “coordinates”: [ [0.0, 10.0], [0.0, 0.0], [0.0, -10.0] ]}|  
-|{“type”:”LineString”, “coordinates”: [ [-10.0, 0.0], [0.0, 0.0], [10.0, 0.0] ]}|{“type”:”LineString”, “coordinates”: [ [-10.0, 10.0], [0.0, 10.0], [10.0, 10.0] ]}|  
+|{"type":"LineString", "coordinates": [ [-10.0, 0.0], [0.0, 0.0], [10.0, 0.0] ]}|{"type":"LineString", "coordinates": [ [0.0, 10.0], [0.0, 0.0], [0.0, -10.0] ]}|  
+|{"type":"LineString", "coordinates": [ [-10.0, 0.0], [0.0, 0.0], [10.0, 0.0] ]}|{"type":"LineString", "coordinates": [ [-10.0, 10.0], [0.0, 10.0], [10.0, 10.0] ]}|  
   
 ### Output example  
 
@@ -164,10 +162,10 @@ FROM input
   
  0  
 
-To learn more, visit the [ST_INTERSECTS](https://msdn.microsoft.com/azure/stream-analytics/reference/st-intersects) reference.
+To learn more, visit the [ST_INTERSECTS](/stream-analytics-query/st-intersects) reference.
 
 ## ST_WITHIN
-The `ST_WITHIN` function determines whether a point or polygon is within a polygon. If the polygon contains the point or polygon, the function will return 1. The function will return 0 if the point or polygon isn't located within the declared polygon.
+The `ST_WITHIN` function determines whether a geometry is within another geometry. If the first is contained in the last, the function will return 1. The function will return 0 if the first geometry isn't located within the last one.
 
 The following example query uses `ST_WITHIN` to determine whether the delivery destination point is within the given warehouse polygon.
 
@@ -181,8 +179,8 @@ FROM input
   
 |deliveryDestination|warehouse|  
 |-------------------------|---------------|  
-|{“type”:”Point”, “coordinates”: [76.6, 10.1]}|{“type”:”Polygon”, “coordinates”: [ [0.0, 0.0], [10.0, 0.0], [10.0, 10.0], [0.0, 10.0], [0.0, 0.0] ]}|  
-|{“type”:”Point”, “coordinates”: [15.0, 15.0]}|{“type”:”Polygon”, “coordinates”: [ [10.0, 10.0], [20.0, 10.0], [20.0, 20.0], [10.0, 20.0], [10.0, 10.0] ]}|  
+|{"type":"Point", "coordinates": [76.6, 10.1]}|{"type":"Polygon", "coordinates": [ [0.0, 0.0], [10.0, 0.0], [10.0, 10.0], [0.0, 10.0], [0.0, 0.0] ]}|  
+|{"type":"Point", "coordinates": [15.0, 15.0]}|{"type":"Polygon", "coordinates": [ [10.0, 10.0], [20.0, 10.0], [20.0, 20.0], [10.0, 20.0], [10.0, 10.0] ]}|  
   
 ### Output example  
 
@@ -190,12 +188,12 @@ FROM input
   
  1  
 
-To learn more, visit the [ST_WITHIN](https://msdn.microsoft.com/azure/stream-analytics/reference/st-within) reference.
+To learn more, visit the [ST_WITHIN](/stream-analytics-query/st-within) reference.
 
 ## Next steps
 
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
 * [Get started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure Stream Analytics Query Language Reference](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure Stream Analytics Management REST API Reference](/rest/api/streamanalytics/)

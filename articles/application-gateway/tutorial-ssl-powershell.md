@@ -1,38 +1,36 @@
 ---
-title: Create an application gateway with SSL termination - Azure PowerShell
-description: Learn how to create an application gateway and add a certificate for SSL termination using Azure PowerShell.
+title: TLS termination using PowerShell
+titleSuffix: Azure Application Gateway
+description: Learn how to create an application gateway and add a certificate for TLS termination using Azure PowerShell.
 services: application-gateway
-author: vhorne
-tags: azure-resource-manager
-
+author: greg-lindsay
 ms.service: application-gateway
-ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 7/13/2018
-ms.author: victorh
-ms.custom: mvc
+ms.topic: how-to
+ms.date: 11/14/2019
+ms.author: greglin
+ms.custom: mvc, devx-track-azurepowershell
 ---
-# Create an application gateway with SSL termination using Azure PowerShell
 
-You can use Azure PowerShell to create an [application gateway](overview.md) with a certificate for [SSL termination](ssl-overview.md) that uses a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) for backend servers. In this example, the scale set contains two virtual machine instances that are added to the default backend pool of the application gateway. 
+# Create an application gateway with TLS termination using Azure PowerShell
 
-In this tutorial, you learn how to:
+You can use Azure PowerShell to create an [application gateway](overview.md) with a certificate for [TLS/SSL termination](ssl-overview.md) that uses a [virtual machine scale set](../virtual-machine-scale-sets/overview.md) for backend servers. In this example, the scale set contains two virtual machine instances that are added to the default backend pool of the application gateway. 
 
-> [!div class="checklist"]
-> * Create a self-signed certificate
-> * Set up a network
-> * Create an application gateway with the certificate
-> * Create a virtual machine scale set with the default backend pool
+In this article, you learn how to:
+
+* Create a self-signed certificate
+* Set up a network
+* Create an application gateway with the certificate
+* Create a virtual machine scale set with the default backend pool
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-This tutorial requires the Azure PowerShell module version 1.0.0 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Login-AzAccount` to create a connection with Azure.
+This article requires the Azure PowerShell module version 1.0.0 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Login-AzAccount` to create a connection with Azure.
 
 ## Create a self-signed certificate
 
-For production use, you should import a valid certificate signed by trusted provider. For this tutorial, you create a self-signed certificate using [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate). You can use [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) with the Thumbprint that was returned to export a pfx file from the certificate.
+For production use, you should import a valid certificate signed by trusted provider. For this article, you create a self-signed certificate using [New-SelfSignedCertificate](/powershell/module/pki/new-selfsignedcertificate). You can use [Export-PfxCertificate](/powershell/module/pki/export-pfxcertificate) with the Thumbprint that was returned to export a pfx file from the certificate.
 
 ```powershell
 New-SelfSignedCertificate `
@@ -93,7 +91,8 @@ $pip = New-AzPublicIpAddress `
   -ResourceGroupName myResourceGroupAG `
   -Location eastus `
   -Name myAGPublicIPAddress `
-  -AllocationMethod Dynamic
+  -AllocationMethod Static `
+  -Sku Standard
 ```
 
 ## Create an application gateway
@@ -167,7 +166,8 @@ $frontendRule = New-AzApplicationGatewayRequestRoutingRule `
   -RuleType Basic `
   -HttpListener $defaultlistener `
   -BackendAddressPool $defaultPool `
-  -BackendHttpSettings $poolSettings
+  -BackendHttpSettings $poolSettings `
+  -priority 100
 ```
 
 ### Create the application gateway with the certificate
@@ -178,8 +178,8 @@ Now that you created the necessary supporting resources, specify parameters for 
 
 ```azurepowershell-interactive
 $sku = New-AzApplicationGatewaySku `
-  -Name Standard_Medium `
-  -Tier Standard `
+  -Name Standard_v2 `
+  -Tier Standard_v2 `
   -Capacity 2
 
 $appgw = New-AzApplicationGateway `
@@ -294,13 +294,4 @@ Remove-AzResourceGroup -Name myResourceGroupAG
 
 ## Next steps
 
-In this tutorial, you learned how to:
-
-> [!div class="checklist"]
-> * Create a self-signed certificate
-> * Set up a network
-> * Create an application gateway with the certificate
-> * Create a virtual machine scale set with the default backend pool
-
-> [!div class="nextstepaction"]
-> [Create an application gateway that hosts multiple web sites](./tutorial-multiple-sites-powershell.md)
+[Create an application gateway that hosts multiple web sites](./tutorial-multiple-sites-powershell.md)

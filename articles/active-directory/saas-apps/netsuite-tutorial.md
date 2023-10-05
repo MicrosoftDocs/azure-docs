@@ -1,330 +1,247 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with NetSuite | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and NetSuite.
+title: 'Tutorial: Microsoft Entra single sign-on (SSO) integration with NetSuite'
+description: Learn how to configure single sign-on between Microsoft Entra ID and NetSuite.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-
-ms.assetid: dafa0864-aef2-4f5e-9eac-770504688ef4
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/17/2018
+ms.date: 08/08/2023
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
-# Tutorial: Azure Active Directory integration with NetSuite
 
-In this tutorial, you learn how to integrate NetSuite with Azure Active Directory (Azure AD).
-Integrating NetSuite with Azure AD provides you with the following benefits:
+# Tutorial: Integrate Microsoft Entra single sign-on (SSO) with NetSuite
 
-* You can control in Azure AD who has access to NetSuite.
-* You can enable your users to be automatically signed-in to NetSuite (Single Sign-On) with their Azure AD accounts.
-* You can manage your accounts in one central location - the Azure portal.
+In this tutorial, you'll learn how to integrate NetSuite with Microsoft Entra ID. When you integrate NetSuite with Microsoft Entra ID, you can:
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+* Control in Microsoft Entra ID who has access to NetSuite.
+* Enable your users to be automatically signed in to NetSuite with their Microsoft Entra accounts.
+* Manage your accounts in one central location, the Azure portal.
 
 ## Prerequisites
 
-To configure Azure AD integration with NetSuite, you need the following items:
+To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
-* NetSuite single sign-on enabled subscription
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A NetSuite single sign-on (SSO)-enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment. 
 
-* NetSuite supports **IDP** initiated SSO
-* NetSuite supports **Just In Time** user provisioning
-* NetSuite supports [Automated user provisioning](NetSuite-provisioning-tutorial.md)
+NetSuite supports:
 
-## Adding NetSuite from the gallery
+* IDP-initiated SSO.
+* JIT (just-in-time) user provisioning.
 
-To configure the integration of NetSuite into Azure AD, you need to add NetSuite from the gallery to your list of managed SaaS apps.
+> [!NOTE]
+> Because the identifier of this application is a fixed string value, only one instance can be configured in one tenant.
 
-**To add NetSuite from the gallery, perform the following steps:**
+## Add NetSuite from the gallery
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
+To configure the integration of NetSuite into Microsoft Entra ID, add NetSuite from the gallery to your list of managed SaaS apps by doing the following:
 
-	![The Azure Active Directory button](common/select-azuread.png)
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type **NetSuite** in the search box.
+1. In the results pane, select **NetSuite**, and then add the app. Wait a few seconds while the app is added to your tenant.
 
-2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-	![The Enterprise applications blade](common/enterprise-applications.png)
+<a name='configure-and-test-azure-ad-sso-for-netsuite'></a>
 
-3. To add new application, click **New application** button on the top of dialog.
+## Configure and test Microsoft Entra SSO for NetSuite
 
-	![The New application button](common/add-new-app.png)
+Configure and test Microsoft Entra SSO with NetSuite by using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in NetSuite.
 
-4. In the search box, type **NetSuite**, select **NetSuite** from result panel then click **Add** button to add the application.
+To configure and test Microsoft Entra SSO with NetSuite, perform the following steps:
 
-	 ![NetSuite in the results list](common/search-new-app.png)
+1. [Configure Microsoft Entra SSO](#configure-azure-ad-sso) to enable your users to use this feature.
+    * [Create a Microsoft Entra test user](#create-an-azure-ad-test-user) to test Microsoft Entra single sign-on with user B.Simon.  
+    * [Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user) to enable user B.Simon to use Microsoft Entra single sign-on.
+1. [Configure NetSuite SSO](#configure-netsuite-sso) to configure the single sign-on settings on the application side.
+    * [Create the NetSuite test user](#create-the-netsuite-test-user) to have a counterpart of user B.Simon in NetSuite that's linked to the Microsoft Entra representation of the user.
+1. [Test SSO](#test-sso) to verify that the configuration works.
 
-## Configure and test Azure AD single sign-on
+<a name='configure-azure-ad-sso'></a>
 
-In this section, you configure and test Azure AD single sign-on with NetSuite based on a test user called **Britta Simon**.
-For single sign-on to work, a link relationship between an Azure AD user and the related user in NetSuite needs to be established.
+## Configure Microsoft Entra SSO
 
-To configure and test Azure AD single sign-on with NetSuite, you need to complete the following building blocks:
+To enable Microsoft Entra SSO in the Azure portal, do the following:
 
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Configure NetSuite Single Sign-On](#configure-netsuite-single-sign-on)** - to configure the Single Sign-On settings on application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create NetSuite test user](#create-netsuite-test-user)** - to have a counterpart of Britta Simon in NetSuite that is linked to the Azure AD representation of user.
-6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **NetSuite** application integration page, look for the **Manage** section, and then select **Single sign-on**.
+1. In the **Select a single sign-on method** pane, select **SAML**.
+1. In the **Set up Single Sign-On with SAML** pane, select the **Edit** ("pencil") icon next to **Basic SAML Configuration**.
 
-### Configure Azure AD single sign-on
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-In this section, you enable Azure AD single sign-on in the Azure portal.
+1. In the **Basic SAML Configuration** section, in the **Reply URL** text box, type the URL:
+`https://system.netsuite.com/saml2/acs`
 
-To configure Azure AD single sign-on with NetSuite, perform the following steps:
+1. NetSuite application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **NetSuite** application integration page, select **Single sign-on**.
+	![image](common/default-attributes.png)
 
-    ![Configure single sign-on link](common/select-sso.png)
+1. In addition to above, NetSuite application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
 
-2. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
-
-    ![Single sign-on select mode](common/select-saml-option.png)
-
-3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
-
-	![Edit Basic SAML Configuration](common/edit-urls.png)
-
-4. On the **Basic SAML Configuration** section, perform the following steps:
-
-    ![NetSuite Domain and URLs single sign-on information](common/idp-reply.png)
-
-    In the **Reply URL** textbox, type a URL using the following pattern:
-
-    `https://<tenant-name>.NetSuite.com/saml2/acs`
-
-	`https://<tenant-name>.na1.NetSuite.com/saml2/acs`
-
-	`https://<tenant-name>.na2.NetSuite.com/saml2/acs`
-
-	`https://<tenant-name>.sandbox.NetSuite.com/saml2/acs`
-
-	`https://<tenant-name>.na1.sandbox.NetSuite.com/saml2/acs`
-
-	`https://<tenant-name>.na2.sandbox.NetSuite.com/saml2/acs`
-
-	> [!NOTE]
-	> The value is not real. Update the value with the actual Reply URL. Contact [NetSuite Client support team](http://www.netsuite.com/portal/services/support-services/suitesupport.shtml) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
-
-5. NetSuite application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
-
-	![image](common/edit-attribute.png)
-
-6. In the **User Claims** section on the **User Attributes** dialog, edit the claims by using **Edit icon** or add the claims by using **Add new claim** to configure SAML token attribute as shown in the image above and perform the following steps:
-    
-	| Name | Source Attribute | 
+	| Name | Source attribute |
 	| ---------------| --------------- |
 	| account  | `account id` |
 
-	a. Click **Add new claim** to open the **Manage user claims** dialog.
+	> [!NOTE]
+	> The value of the account attribute is not real. You'll update this value, as explained later in this tutorial.
 
-	![image](common/new-save-attribute.png)
+1. On the Set up single sign-on with SAML page, in the SAML Signing Certificate section, find Federation Metadata XML and select Download to download the certificate and save it on your computer.
 
-	![image](common/new-attribute-details.png)
+	![The certificate Download link](common/metadataxml.png)
 
-	b. In the **Name** textbox, type the attribute name shown for that row.
-
-	c. Leave the **Namespace** blank.
-
-	d. Select Source as **Attribute**.
-
-	e. From the **Source attribute** list, type the attribute value shown for that row.
-
-	f. Click **Ok**
-
-	g. Click **Save**.
-
-	>[!NOTE]
-	>The value of account attribute is not real. You will update this value, which is explained later in the tutorial.
-
-4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Metadata XML** from the given options as per your requirement and save it on your computer.
-
-	![The Certificate download link](common/metadataxml.png)
-
-6. On the **Set up NetSuite** section, copy the appropriate URL(s) as per your requirement.
+1. In the **Set up NetSuite** section, copy the appropriate URL or URLs, depending on your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-	a. Login URL
+<a name='create-an-azure-ad-test-user'></a>
 
-	b. Azure Ad Identifier
+### Create a Microsoft Entra test user
 
-	c. Logout URL
+In this section, you create a test user called B.Simon.
 
-### Configure NetSuite Single Sign-On
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Select **Review + create**.
+1. Select **Create**.
 
-1. Open a new tab in your browser, and sign into your NetSuite company site as an administrator.
+<a name='assign-the-azure-ad-test-user'></a>
 
-2. In the toolbar at the top of the page, click **Setup**, then navigate to **Company** and click **Enable Features**.
+### Assign the Microsoft Entra test user
 
-    ![Configure Single Sign-On](./media/NetSuite-tutorial/ns-setupsaml.png)
+In this section, you enable user B.Simon to use Azure single sign-on by granting access to NetSuite.
 
-3. In the toolbar at the middle of the page, click **SuiteCloud**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **NetSuite**.
+1. In the overview pane, look for the **Manage** section, and then select the **Users and groups** link.
+1. Select **Add user** and then, in the **Add Assignment** pane, select **Users and groups**.
+1. In the **Users and groups** pane, in the **Users** drop-down list, select **B.Simon**, and then select the **Select** button at the bottom of the screen.
+1. If you're expecting any role value in the SAML assertion, do the following:
 
-    ![Configure Single Sign-On](./media/NetSuite-tutorial/ns-suitecloud.png)
+   a. In the **Select Role** pane, in the drop-down list, select the appropriate role for the user.  
+   b. At the bottom of the screen, select the **Select** button.
+1. In the **Add Assignment** pane, select the **Assign** button.
 
-4. Under **Manage Authentication** section, select **SAML SINGLE SIGN-ON** to enable the SAML SINGLE SIGN-ON option in NetSuite.
+## Configure NetSuite SSO
 
-    ![Configure Single Sign-On](./media/NetSuite-tutorial/ns-ticksaml.png)
+1. Open a new tab in your browser, and sign in to your NetSuite company site as an administrator.
 
-5. In the toolbar at the top of the page, click **Setup**.
+2. In the top navigation bar, select **Setup**, and then select **Company** > **Enable Features**.
 
-    ![Configure Single Sign-On](./media/NetSuite-tutorial/ns-setup.png)
+    ![Screenshot shows Enable Features selected from Company.](./media/NetSuite-tutorial/ns-setupsaml.png)
 
-6. From the **SETUP TASKS** list, click **Integration**.
+3. In the toolbar at the middle of the page, select **SuiteCloud**.
 
-	![Configure Single Sign-On](./media/NetSuite-tutorial/ns-integration.png)
+    ![Screenshot shows SuiteCloud selected.](./media/NetSuite-tutorial/ns-suitecloud.png)
 
-7. In the **MANAGE AUTHENTICATION** section, click **SAML Single Sign-on**.
+4. Under **Manage Authentication**, select the **SAML Single Sign-on** check box to enable the SAML single sign-on option in NetSuite.
 
-    ![Configure Single Sign-On](./media/NetSuite-tutorial/ns-saml.png)
+    ![Screenshot shows Manage Authentication where you can select SAML Single Sign-on.](./media/NetSuite-tutorial/ns-ticksaml.png)
 
-8. On the **SAML Setup** page, under **NetSuite Configuration** section perform the following steps:
+5. In the top navigation bar, select **Setup**.
 
-    ![Configure Single Sign-On](./media/NetSuite-tutorial/ns-saml-setup.png)
+    ![Screenshot shows Setup selected from the NETSUITE navigation bar.](./media/NetSuite-tutorial/ns-setup.png)
+
+6. In the **Setup Tasks** list, select **Integration**.
+
+	![Screenshot shows Integration selected from SETUP TASKS.](./media/NetSuite-tutorial/ns-integration.png)
+
+7. Under **Manage Authentication**, select **SAML Single Sign-on**.
+
+    ![Screenshot show SAML Single Sign-on selected from the Integration item in SETUP TASKS.](./media/NetSuite-tutorial/ns-saml.png)
+
+8. In the **SAML Setup** pane, under **NetSuite Configuration**, do the following:
+
+    ![Screenshot shows SAML Setup where you can enter the values described.](./media/NetSuite-tutorial/ns-saml-setup.png)
   
-    a. Select **PRIMARY AUTHENTICATION METHOD**.
+    a. Select the **Primary Authentication Method** check box.
 
-    b. For the field labeled **SAMLV2 IDENTITY PROVIDER METADATA**, select **UPLOAD IDP METADATA FILE**. Then click **Browse** to upload the metadata file that you downloaded from Azure portal.
+    b. Under **SAMLV2 Identity Provider Metadata**, select **Upload IDP Metadata File**, and then select **Browse** to upload the metadata file that you downloaded.
 
-    c. Click **Submit**.
+    c. Select **Submit**.
 
-9. In NetSuite, click **Setup** then navigate to **Company** and click **Company Information** from the top navigation menu.
+9. In the NetSuite top navigation bar, select **Setup**, and then select **Company** > **Company Information**.
 
-	![Configure Single Sign-On](./media/NetSuite-tutorial/ns-com.png)
+	![Screenshot shows Company Information selected from Company.](./media/NetSuite-tutorial/ns-com.png)
 
-	![Configure Single Sign-On](./media/NetSuite-tutorial/ns-account-id.png)
+	![Screenshot shows the pane where you can enter the values described.](./media/NetSuite-tutorial/ns-account-id.png)
 
-    b. In the **Company Information** Page on the right column copy the **ACCOUNT ID**.
+    b. In the **Company Information** pane, in the right column, copy the **Account ID** value.
 
-    c. Paste the **Account ID** which you have copied from NetSuite account it into the **Attribute Value** field in Azure AD. 
+    c. Paste the **Account ID** that you copied from the NetSuite account into the **Attribute Value** box in Microsoft Entra ID.
 
-10. Before users can perform single sign-on into NetSuite, they must first be assigned the appropriate permissions in NetSuite. Follow the instructions below to assign these permissions.
+    ![Screenshot shows to add the account id value](./media/netsuite-tutorial/attribute-value.png)
 
-    a. On the top navigation menu, click **Setup**.
+10. Before users can perform single sign-on into NetSuite, they must first be assigned the appropriate permissions in NetSuite. To assign these permissions, do the following:
 
-    ![Configure Single Sign-On](./media/NetSuite-tutorial/ns-setup.png)
+    a. In the top navigation bar, select **Setup**.
 
-    b. On the left navigation menu, select **Users/Roles**, then click **Manage Roles**.
+    ![Screenshot shows Setup selected from the NETSUITE navigation bar.](./media/NetSuite-tutorial/ns-setup.png)
 
-    ![Configure Single Sign-On](./media/NetSuite-tutorial/ns-manage-roles.png)
+    b. In the left pane, select **Users/Roles**, then select **Manage Roles**.
 
-    c. Click **New Role**.
+    ![Screenshot shows the Manage Roles pane where you can select New Role.](./media/NetSuite-tutorial/ns-manage-roles.png)
 
-    d. Type in a **Name** for your new role.
+    c. Select **New Role**.
 
-    ![Configure Single Sign-On](./media/NetSuite-tutorial/ns-new-role.png)
+    d. Enter a **Name** for the new role.
 
-    e. Click **Save**.
+    ![Screenshot shows the Setup Manager where you can enter a name for the role.](./media/NetSuite-tutorial/ns-new-role.png)
 
-    f. In the menu on the top, click **Permissions**. Then click **Setup**.
+    e. Select **Save**.
 
-    ![Configure Single Sign-On](./media/NetSuite-tutorial/ns-sso.png)
+    f. In the top navigation bar, select **Permissions**. Then select **Setup**.
 
-    g. Select **SAML Single Sign-on**, and then click **Add**.
+    ![Screenshot shows the Setup tab where you can enter the values described.](./media/NetSuite-tutorial/ns-sso.png)
 
-    h. Click **Save**.
+    g. Select **SAML Single Sign-on**, and then select **Add**.
 
-    i. On the top navigation menu, click **Setup**, then click **Setup Manager**.
+    h. Select **Save**.
 
-    ![Configure Single Sign-On](./media/NetSuite-tutorial/ns-setup.png)
+    i. In the top navigation bar, select **Setup**, and then select **Setup Manager**.
 
-    j. On the left navigation menu, select **Users/Roles**, then click **Manage Users**.
+    ![Screenshot shows Setup selected from the NETSUITE navigation bar.](./media/NetSuite-tutorial/ns-setup.png)
 
-    ![Configure Single Sign-On](./media/NetSuite-tutorial/ns-manage-users.png)
+    j. In the left pane, select **Users/Roles**, and then select **Manage Users**.
 
-    k. Select a test user. Then click **Edit** and then navigate to **Access** tab.
+    ![Screenshot shows the Manage Users pane where you can select Suite Demo Team.](./media/NetSuite-tutorial/ns-manage-users.png)
 
-    ![Configure Single Sign-On](./media/NetSuite-tutorial/ns-edit-user.png)
+    k. Select a test user, select **Edit**, and then select the **Access** tab.
 
-    l. On the Roles dialog, assign the appropriate role that you have created.
+    ![Screenshot shows the Manage Users pane where you can select Edit.](./media/NetSuite-tutorial/ns-edit-user.png)
 
-    ![Configure Single Sign-On](./media/NetSuite-tutorial/ns-add-role.png)
+    l. In the **Roles** pane, assign the appropriate role that you have created.
 
-    m. Click **Save**.
+    ![Screenshot shows Administrator selected from Employee.](./media/NetSuite-tutorial/ns-add-role.png)
 
-### Create an Azure AD test user 
+    m. Select **Save**.
 
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+### Create the NetSuite test user
 
-1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
+In this section, a user called B.Simon is created in NetSuite. NetSuite supports just-in-time user provisioning, which is enabled by default. There's no action item for you in this section. If a user doesn't already exist in NetSuite, a new one is created after authentication.
 
-    ![The "Users and groups" and "All users" links](common/users.png)
+## Test SSO
 
-2. Select **New user** at the top of the screen.
+In this section, you test your Microsoft Entra single sign-on configuration with following options.
 
-    ![New user Button](common/new-user.png)
+- Click on **Test this application**, and you should be automatically signed in to the NetSuite for which you set up the SSO
 
-3. In the User properties, perform the following steps.
+- You can use Microsoft My Apps. When you click the NetSuite tile in the My Apps, you should be automatically signed in to the NetSuite for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
-    ![The User dialog box](common/user-properties.png)
+## Next steps
 
-    a. In the **Name** field enter **BrittaSimon**.
-  
-    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
-    For example, BrittaSimon@contoso.com
-
-    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
-
-    d. Click **Create**.
-
-### Assign the Azure AD test user
-
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to NetSuite.
-
-1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **NetSuite**.
-
-	![Enterprise applications blade](common/enterprise-applications.png)
-
-2. In the applications list, type and select **NetSuite**.
-
-	![The NetSuite link in the Applications list](common/all-applications.png)
-
-3. In the menu on the left, select **Users and groups**.
-
-    ![The "Users and groups" link](common/users-groups-blade.png)
-
-4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
-
-    ![The Add Assignment pane](common/add-assign-user.png)
-
-5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
-
-6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
-
-7. In the **Add Assignment** dialog click the **Assign** button.
-
-### Create NetSuite test user
-
-In this section, a user called Britta Simon is created in NetSuite. NetSuite supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in NetSuite, a new one is created after authentication.
-
-### Test single sign-on 
-
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
-
-When you click the NetSuite tile in the Access Panel, you should be automatically signed in to the NetSuite for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
-
-## Additional Resources
-
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
-- [Configure User Provisioning](NetSuite-provisioning-tutorial.md)
-
+Once you configure the NetSuite you can enforce session controls, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session controls extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

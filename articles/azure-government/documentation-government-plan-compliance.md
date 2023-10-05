@@ -1,48 +1,85 @@
 ---
-title: Azure Government Compliance | Microsoft Docs
-description: Provides and overview of the available compliance services for Azure Government
-services: azure-government
-cloud: gov
-documentationcenter: ''
-author: jomolesk
-manager: zakramer
-
-ms.assetid: 1d2e0938-482f-4f43-bdf6-0a5da2e9a185
+title: Azure Government compliance
+description: Provides an overview of the available compliance assurances for Azure Government
 ms.service: azure-government
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 08/15/2018
-ms.author: jomolesk
-
+ms.author: stevevi
+author: stevevi
+ms.custom: references_regions
+recommendations: false
+ms.date: 04/02/2023
 ---
+
 # Azure Government compliance
 
-## Azure Security and Compliance Blueprint
+Microsoft Azure Government meets demanding US government compliance requirements that mandate formal assessments and authorizations, including:
 
-Azure Security and Compliance Blueprints include guidance documents and automation templates to help customers deploy cloud-based architectures that offer solutions to scenarios that have accreditation or compliance requirements. Azure Security and Compliance Blueprints for government are designed to facilitate the secure and compliant use of Azure for government agencies and third-party providers building on behalf of government. Azure Government has received a FedRAMP Provisional Authority to Operate (P-ATO) and DoD Provisional Authorization (PA). These authorizations reduce the scope of customer-responsibility security controls in Azure-based systems. Inheriting security control implementations from Azure Government allows customers to focus on control implementations specific to their IaaS, PaaS, or SaaS environments built in Azure. Azure Security and Compliance Blueprint are available on the [Service Trust Portal](https://aka.ms/azureblueprint). 
+- [Federal Risk and Authorization Management Program](https://www.fedramp.gov/) (FedRAMP)
+- Department of Defense (DoD) Cloud Computing [Security Requirements Guide](https://public.cyber.mil/dccs/dccs-documents/) (SRG) Impact Level (IL) 2, 4, and 5
 
-## Azure Security and Compliance Blueprint Customer Responsibility Matrix
+Azure Government maintains the following authorizations that pertain to Azure Government regions US Gov Arizona, US Gov Texas, and US Gov Virginia:
 
-The Azure Security and Compliance Blueprint Customer Responsibility Matrix (CRM) is designed to aid Azure Government customers implementing and documenting system-specific security controls implemented within Azure. The CRM lists all [NIST SP 800-53](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r4.pdf) security control requirements for FedRAMP and DISA baselines that include a customer implementation requirement. This includes controls with a shared responsibility between Azure and Azure customers and controls that must be fully implemented by Azure customers. Where appropriate, controls are delineated at a control sub-requirement granularity to provide specific guidance.
+- [FedRAMP High](/azure/compliance/offerings/offering-fedramp) Provisional Authorization to Operate (P-ATO) issued by the FedRAMP Joint Authorization Board (JAB)
+- [DoD IL2](/azure/compliance/offerings/offering-dod-il2) Provisional Authorization (PA) issued by the Defense Information Systems Agency (DISA)
+- [DoD IL4](/azure/compliance/offerings/offering-dod-il4) PA issued by DISA
+- [DoD IL5](/azure/compliance/offerings/offering-dod-il5) PA issued by DISA
 
-The CRM is available as Microsoft Excel workbook for the FedRAMP Moderate and High baselines, the DISA Cloud Computing SRG L4 and L5 baselines, and the NIST Cybersecurity Framework (CSF). The CRM is available for download from the [Service Trust Portal](https://aka.ms/azureblueprint).
+For links to extra Azure Government compliance assurances, see [Azure compliance](../compliance/index.yml). For example, Azure Government can help you meet your compliance obligations with many US government requirements, including:
 
-## Azure Security and Compliance Blueprint System Security Plan template
+- [Criminal Justice Information Services (CJIS)](/azure/compliance/offerings/offering-cjis)
+- [Internal Revenue Service (IRS) Publication 1075](/azure/compliance/offerings/offering-irs-1075)
+- [Defense Federal Acquisition Regulation Supplement (DFARS)](/azure/compliance/offerings/offering-dfars)
+- [International Traffic in Arms Regulations (ITAR)](/azure/compliance/offerings/offering-itar)
+- [Export Administration Regulations (EAR)](/azure/compliance/offerings/offering-ear)
+- [Federal Information Processing Standard (FIPS) 140](/azure/compliance/offerings/offering-fips-140-2)
+- [National Institute of Standards and Technology (NIST) 800-171](/azure/compliance/offerings/offering-nist-800-171)
+- [National Defense Authorization Act (NDAA) Section 889 and Section 1634](/azure/compliance/offerings/offering-ndaa-section-889)
+- [North American Electric Reliability Corporation (NERC) Critical Infrastructure Protection (CIP) standards](/azure/compliance/offerings/offering-nerc)
+- [Health Insurance Portability and Accountability Act of 1996 (HIPAA)](/azure/compliance/offerings/offering-hipaa-us)
+- [Electronic Prescriptions for Controlled Substances (EPCS)](/azure/compliance/offerings/offering-epcs-us)
+- And many more US government, global, and industry standards
 
-The Azure Security and Compliance Blueprint System Security Plan (SSP) template is designed for use in developing an SSP that documents both customer security control implementations and controls inherited from Azure. Controls which include a customer responsibility contain guidance on documenting control implementation with a thorough and compliant response. Azure inheritance sections document how security controls are implemented by Azure on behalf of the customer.
+For current Azure Government regions and available services, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true).
 
-The SSP is available for the FedRAMP Moderate and High baselines, and the DISA Cloud Computing SRG L4 and L5 baselines. The SSP is available for download from the [Service Trust Portal](https://aka.ms/azureblueprint).
+> [!NOTE]
+>
+> - Some Azure services deployed in Azure Government regions (US Gov Arizona, US Gov Texas, and US Gov Virginia) require extra configuration to meet DoD IL5 compute and storage isolation requirements, as explained in **[Isolation guidelines for Impact Level 5 workloads](./documentation-government-impact-level-5.md).**
+> - For DoD IL5 PA compliance scope in Azure Government DoD regions (US DoD Central and US DoD East), see **[Azure Government DoD regions IL5 audit scope](./documentation-government-overview-dod.md#us-dod-regions-il5-audit-scope).**
 
-## General Data Protection Regulation (GDPR) Data Subject Requests (DSRs) on Azure Government
+## Services in audit scope
 
-Azure tenant administrators can use the [User Privacy blade](https://portal.azure.us/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) in the Azure portal to export and/or delete personal data generated during a customer's use of Azure Government services. For more information about Data Subject Requests, see [Data Subject Requests for the GDPR](https://docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-azure).
+For a detailed list of Azure, Dynamics 365, Microsoft 365, and Power Platform services in FedRAMP and DoD compliance audit scope, see:
+
+- [Azure public services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-public-services-by-audit-scope)
+- [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope)
+
+## Audit documentation
+
+For information on how to access Azure and Azure Government audit reports and related documentation, see [Azure compliance offerings audit documentation](/azure/compliance/offerings/#audit-documentation).
+
+## Azure Policy regulatory compliance built-in initiatives
+
+For extra customer assistance, Microsoft provides Azure Policy regulatory compliance built-in initiatives, which map to **compliance domains** and **controls** in key US government standards, including:
+
+- [FedRAMP High](../governance/policy/samples/gov-fedramp-high.md)
+- [DoD IL4](../governance/policy/samples/gov-dod-impact-level-4.md)
+- [DoD IL5](../governance/policy/samples/gov-dod-impact-level-5.md)
+- And others
+
+For more regulatory compliance built-in initiatives that pertain to Azure Government, see [Azure Policy samples](../governance/policy/samples/index.md#regulatory-compliance).
+
+Regulatory compliance in Azure Policy provides built-in initiative definitions to view a list of the controls and compliance domains based on responsibility – customer, Microsoft, or shared. For Microsoft-responsible controls, we provide extra audit result details based on third-party attestations and our control implementation details to achieve that compliance. Each control is associated with one or more Azure Policy definitions. These policies may help you [assess compliance](../governance/policy/how-to/get-compliance-data.md) with the control; however, compliance in Azure Policy is only a partial view of your overall compliance status. Azure Policy helps to enforce organizational standards and assess compliance at scale. Through its compliance dashboard, it provides an aggregated view to evaluate the overall state of the environment, with the ability to drill down to more granular status.
 
 ## Next steps
 
-For inquiries related to Azure Security and Compliance Blueprints, FedRAMP, DoD, or Agency ATO processes, or other compliance assistance; or to provide feedback, email [azureblueprint@microsoft.com](mailto:azureblueprint@microsoft.com).
-
-Visit the [Azure Security and Compliance Blueprint page](https://aka.ms/azureblueprint) on the Service Trust Portal.
-
-[Microsoft Azure Government Blog](https://blogs.msdn.microsoft.com/azuregov/)
+- [Azure compliance](../compliance/index.yml)
+- [Azure and other Microsoft services compliance offerings](/azure/compliance/offerings/)
+- [Azure Policy overview](../governance/policy/overview.md)
+- [Azure Policy regulatory compliance built-in initiatives](../governance/policy/samples/index.md#regulatory-compliance)
+- [Azure Government overview](./documentation-government-welcome.md)
+- [Azure Government security](./documentation-government-plan-security.md)
+- [Compare Azure Government and global Azure](./compare-azure-government-global-azure.md)
+- [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope)
+- [Azure Government isolation guidelines for Impact Level 5 workloads](./documentation-government-impact-level-5.md)
+- [Azure Government DoD overview](./documentation-government-overview-dod.md)

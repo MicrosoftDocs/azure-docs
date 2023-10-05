@@ -1,0 +1,262 @@
+### YamlMime:Hub 
+
+title: Azure networking documentation 
+summary: Learn about the various Azure networking services available that provide connectivity to your resources in Azure, deliver and protect applications, and help secure your network. 
+brand: azure ## Used for color theming of icons and hero area 
+
+metadata: 
+  title: Azure networking documentation
+  description: Azure networking services provide connectivity to your resources in Azure, deliver and protect applications, and help secure your network. 
+  ms.service: virtual-network
+  ms.topic: hub-page
+  ms.collection:
+  author: asudbring
+  ms.author: allensu
+  manager: kumudD
+  ms.date: 09/08/2021
+
+highlightedContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new 
+  items: 
+    - title: Azure Networking services overview 
+      itemType: overview
+      url: fundamentals/networking-overview.md
+    - title: What's new in Azure Networking? 
+      itemType: whats-new 
+      url: https://azure.microsoft.com/updates/?category=networking
+    - title: Azure network security
+      itemType: overview
+      url: ./security/index.yml
+    - title: Hub-spoke network topology in Azure
+      itemType: architecture
+      url: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke
+    - title: Azure Networking blogs
+      itemType: concept
+      url: https://azure.microsoft.com/blog/topics/networking/
+    - title: Azure Networking Solutions
+      itemType: deploy
+      url: https://mslabs.cloudguides.com/en-us/guides/Azure%20Networking%20Solutions
+    
+
+# additionalContent section (optional)
+# Card with links style
+additionalContent:
+  # Supports up to 4 sections
+  sections:
+    - title: Connectivity services  # < 60 chars (optional)
+      items:
+        # Card
+        - title: Virtual network
+          links:
+            - text: What is Azure Virtual Network?
+              url: ../virtual-network/virtual-networks-overview.md
+            - text: Create a virtual network
+              url: ../virtual-network/quick-create-portal.md
+            - text: See more
+              url: ../virtual-network/index.yml
+        # Card
+        - title: Connect on-premises to Azure - VPN encryption
+          links:
+            - text: What is Azure VPN Gateway?
+              url: ../vpn-gateway/vpn-gateway-about-vpngateways.md
+            - text: Site-to-site connections
+              url: ../vpn-gateway/tutorial-site-to-site-portal.md
+            - text: Point-to-site connections
+              url: ../vpn-gateway/point-to-site-about.md
+            - text: See more
+              url: ../vpn-gateway/index.yml   
+        # Card
+        - title: Connect on-premises to Azure - private connection
+          links:
+            - text: What is Azure ExpressRoute?
+              url: ../expressroute/expressroute-introduction.md
+            - text: Create and modify an ExpressRoute circuit 
+              url: ../expressroute/expressroute-howto-circuit-portal-resource-manager.md
+            - text: See more
+              url: ../expressroute/index.yml
+        
+        # Card
+        - title: Unified hub and spoke networking
+          links:
+            - text: What is Azure Virtual WAN?
+              url: ../virtual-wan/virtual-wan-about.md
+            - text: Global transit network architecture - Azure Virtual WAN
+              url: ../virtual-wan/virtual-wan-global-transit-network-architecture.md
+            - text: See more
+              url: ../virtual-wan/index.yml
+        
+        # Card
+        - title: DNS
+          links:
+            - text: What is Azure DNS?
+              url: ../dns/dns-overview.md
+            - text: Host your domain and subdomain
+              url: ../dns/dns-delegate-domain-azure-dns.md
+            - text: See more
+              url: ../dns/index.yml
+        
+        # Card
+        - title: Route between NVA and virtual network
+          links:
+            - text: What is Azure Route server?
+              url: ../route-server/overview.md
+            - text: Create and configure Route Server
+              url: ../route-server/quickstart-configure-route-server-portal.md
+            - text: See more
+              url: ../route-server/index.yml
+        
+        # Card
+        - title: Provide outbound connectivity to a virtual network
+          links:
+            - text: What is Azure Virtual Network NAT?
+              url: ../virtual-network/nat-gateway/nat-overview.md
+            - text: Create and configure NAT gateway resource
+              url: ../virtual-network/nat-gateway/quickstart-create-nat-gateway-portal.md
+            - text: See more
+              url: ../virtual-network/nat-gateway/index.yml
+
+        # Card
+        - title: Manage virtual network connectivity and security rules
+          links:
+            - text: What is Azure Virtual Network Manager?
+              url: ../virtual-network-manager/overview.md
+            - text: Create a mesh network topology
+              url: ../virtual-network-manager/create-virtual-network-manager-portal.md
+            - text: See more
+              url: ../virtual-network-manager/index.yml
+
+    - title: Application delivery services  # < 60 chars (optional)
+      items:
+        # Card
+        - title: Network load balancer
+          links:
+            - text: What is Azure Load Balancer?
+              url: ../load-balancer/load-balancer-overview.md
+            - text: Load balance internet traffic to VMs
+              url: ../load-balancer/quickstart-load-balancer-standard-public-portal.md
+            - text: See more
+              url: ../load-balancer/index.yml
+        
+        # Card
+        - title: Web application load balancer
+          links:
+            - text: What is Azure Application Gateway?
+              url: ../application-gateway/overview.md
+            - text: Direct web traffic using the portal
+              url: ../application-gateway/quick-create-portal.md
+            - text: See more
+              url: ../application-gateway/index.yml
+       
+        # Card
+        - title: DNS-based load balancer 
+          links:
+            - text: What is Azure Traffic Manager?
+              url: ../traffic-manager/traffic-manager-overview.md
+            - text: Route traffic for low latency
+              url: ../traffic-manager/traffic-manager-routing-methods.md
+            - text: See more
+              url: ../traffic-manager/index.yml 
+
+        # Card
+        - title: Secure cloud CDN and global load balancer
+          links:
+            - text: What is Azure Front Door Service?
+              url: ../frontdoor/front-door-overview.md
+            - text:  Create an Azure Front Door profile
+              url: ../frontdoor/create-front-door-portal.md
+            - text: See more
+              url: ../frontdoor/index.yml
+
+        # Card
+        - title: Content delivery network
+          links:
+            - text: What is Azure Content Delivery Network?
+              url: ../cdn/cdn-overview.md
+            - text:  Create a CDN profile and endpoint
+              url: ../cdn/cdn-create-new-endpoint.md
+            - text: See more
+              url: ../cdn/index.yml 
+    - title: Security services  # < 60 chars (optional)
+      items:
+        # Card
+        - title: Network firewall
+          links:
+            - text: What is Azure Firewall?
+              url: ../firewall/overview.md
+            - text: Deploy and configure Azure Firewall
+              url: ../firewall/tutorial-firewall-deploy-portal.md
+            - text: See more
+              url: ../firewall/index.yml
+        
+        # Card
+        - title: DDoS protection
+          links:
+            - text: What is Azure DDoS Protection?
+              url: ../ddos-protection/ddos-protection-overview.md
+            - text: Create DDoS Network Protection
+              url: ../ddos-protection/manage-ddos-protection.md
+            - text: Create DDoS IP Protection
+              url: ../ddos-protection/manage-ddos-protection-powershell-ip.md
+            - text: See more
+              url: ../ddos-protection/index.yml
+
+        # Card
+        - title: Web application firewall
+          links:
+            - text: What is Azure web application firewall?
+              url: ../web-application-firewall/overview.md
+            - text: WAF on Azure Application Gateway
+              url: ../web-application-firewall/ag/ag-overview.md
+            - text: WAF on Azure Front Door Service
+              url: ../web-application-firewall/afds/afds-overview.md  
+            - text: See more
+              url: ../web-application-firewall/index.yml
+       
+        # Card
+        - title: Private access to a service
+          links:
+            - text: What is Azure Private Link?
+              url: ../private-link/private-link-overview.md
+            - text: What is Azure private endpoint?
+              url: ../private-link/private-endpoint-overview.md
+            - text: See more
+              url: ../private-link/index.yml
+
+        # Card
+        - title: Secure access to Azure VMs
+          links:
+            - text: What is Azure Bastion?
+              url: ../bastion/bastion-overview.md
+            - text:  Create an Azure Bastion host
+              url: ../bastion/tutorial-create-host-portal.md
+            - text: See more
+              url: ../bastion/index.yml
+
+        # Card
+        - title: Network security management
+          links:
+            - text: What is Azure Firewall Manager?
+              url: ../firewall-manager/overview.md
+            - text: Secure your virtual WAN using Azure Firewall Manager
+              url: ../firewall-manager/secure-cloud-network.md
+            - text: See more
+              url: ../firewall-manager/index.yml
+    - title: Monitoring services # < 60 chars (optional)
+      items:
+        # Card
+        - title: Monitor and repair network health
+          links:
+            - text: What is Network Watcher?
+              url: ../network-watcher/network-watcher-monitoring-overview.md
+            - text: Diagnose VM traffic filter problem
+              url: ../network-watcher/diagnose-vm-network-traffic-filtering-problem.md
+            - text: See more
+              url: ../network-watcher/index.yml
+        - title: Get network health insights
+          links:
+            - text: What is Azure Monitor?
+              url: ../network-watcher/network-watcher-monitoring-overview.md
+            - text: What is Azure Monitor Network Insights?
+              url: ../network-watcher/network-insights-overview.md
+            - text: See more
+              url: ../azure-monitor/index.yml

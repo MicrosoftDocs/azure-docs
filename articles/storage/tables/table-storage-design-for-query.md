@@ -1,13 +1,12 @@
 ---
-title: Design Azure storage tables for queries | Microsoft Docs
-description: Design tables for queries in Azure table storage.
+title: Design Azure Table storage for queries
+description: Design tables for queries in Azure Table storage. Choose an appropriate partition key, optimize queries, and sort data for the Table service.
 services: storage
-author: MarkMcGeeAtAquent
-ms.service: storage
+author: akashdubey-ms
+ms.author: akashdubey
+ms.service: azure-table-storage
 ms.topic: article
-ms.date: 04/23/2018
-ms.author: sngun
-ms.subservice: tables
+ms.date: 05/19/2023
 ---
 # Design for querying
 Table service solutions may be read intensive, write intensive, or a mix of the two. This article focuses on the things to bear in mind when you are designing your Table service to support read operations efficiently. Typically, a design that supports read operations efficiently is also efficient for write operations. However, there are additional considerations to bear in mind when designing to support write operations, discussed in the article [Design for data modification](table-storage-design-for-modification.md).
@@ -32,13 +31,13 @@ The following examples assume the table service is storing employee entities wit
 | *Column name* | *Data type* |
 | --- | --- |
 | **PartitionKey** (Department Name) |String |
-| **RowKey** (Employee Id) |String |
+| **RowKey** (Employee ID) |String |
 | **FirstName** |String |
 | **LastName** |String |
 | **Age** |Integer |
 | **EmailAddress** |String |
 
-The article [Azure Table storage overview](table-storage-overview.md) describes some of the key features of the Azure Table service that have a direct influence on designing for query. These result in the following general guidelines for designing Table service queries. Note that the filter syntax used in the examples below is from the Table service REST API, for more information see [Query Entities](https://docs.microsoft.com/rest/api/storageservices/Query-Entities).  
+The article [Azure Table storage overview](table-storage-overview.md) describes some of the key features of the Azure Table service that have a direct influence on designing for query. These result in the following general guidelines for designing Table service queries. Note that the filter syntax used in the examples below is from the Table service REST API, for more information see [Query Entities](/rest/api/storageservices/Query-Entities).  
 
 * A ***Point Query*** is the most efficient lookup to use and is recommended to be used for high-volume lookups or lookups requiring lowest latency. Such a query can use the indexes to locate an individual entity very efficiently by specifying both the **PartitionKey** and **RowKey** values. For example:
   $filter=(PartitionKey eq 'Sales') and (RowKey eq '2')  
@@ -64,7 +63,7 @@ For examples of client-side code that can handle multiple entity types stored in
 * [Work with heterogeneous entity types](table-storage-design-patterns.md#working-with-heterogeneous-entity-types)  
 
 ## Choosing an appropriate PartitionKey
-Your choice of **PartitionKey** should balance the need to enable the use of EGTs (to ensure consistency) against the requirement to distribute your entities across multiple partitions (to ensure a scalable solution).  
+Your choice of **PartitionKey** should balance the need to enable the use of entity group transactions (to ensure consistency) against the requirement to distribute your entities across multiple partitions (to ensure a scalable solution).  
 
 At one extreme, you could store all your entities in a single partition, but this may limit the scalability of your solution and would prevent the table service from being able to load-balance requests. At the other extreme, you could store one entity per partition, which would be highly scalable and which enables the table service to load-balance requests, but which would prevent you from using entity group transactions.  
 
@@ -80,14 +79,14 @@ There are additional considerations in your choice of **PartitionKey** that rela
 ## Optimizing queries for the Table service
 The Table service automatically indexes your entities using the **PartitionKey** and **RowKey** values in a single clustered index, hence the reason that point queries are the most efficient to use. However, there are no indexes other than that on the clustered index on the **PartitionKey** and **RowKey**.
 
-Many designs must meet requirements to enable lookup of entities based on multiple criteria. For example, locating employee entities based on email, employee id, or last name. The patterns described in [Table Design Patterns](table-storage-design-patterns.md) address these types of requirement and describe ways of working around the fact that the Table service does not provide secondary indexes:  
+Many designs must meet requirements to enable lookup of entities based on multiple criteria. For example, locating employee entities based on email, employee ID, or last name. The patterns described in [Table Design Patterns](table-storage-design-patterns.md) address these types of requirement and describe ways of working around the fact that the Table service does not provide secondary indexes:  
 
 * [Intra-partition secondary index pattern](table-storage-design-patterns.md#intra-partition-secondary-index-pattern) - Store multiple copies of each entity using different **RowKey** values (in the same partition) to enable fast and efficient lookups and alternate sort orders by using different **RowKey** values.  
 * [Inter-partition secondary index pattern](table-storage-design-patterns.md#inter-partition-secondary-index-pattern) - Store multiple copies of each entity using different **RowKey** values in separate partitions or in separate tables to enable fast and efficient lookups and alternate sort orders by using different **RowKey** values.  
 * [Index Entities Pattern](table-storage-design-patterns.md#index-entities-pattern) - Maintain index entities to enable efficient searches that return lists of entities.  
 
 ## Sorting data in the Table service
-The Table service returns entities sorted in ascending order based on **PartitionKey** and then by **RowKey**. These keys are string values and to ensure that numeric values sort correctly, you should convert them to a fixed length and pad them with zeroes. For example, if the employee id value you use as the **RowKey** is an integer value, you should convert employee id **123** to **00000123**.  
+The Table service returns entities sorted in ascending order based on **PartitionKey** and then by **RowKey**. These keys are string values and to ensure that numeric values sort correctly, you should convert them to a fixed length and pad them with zeroes. For example, if the employee ID value you use as the **RowKey** is an integer value, you should convert employee ID **123** to **00000123**.  
 
 Many applications have requirements to use data sorted in different orders: for example, sorting employees by name, or by joining date. The following patterns address how to alternate sort orders for your entities:  
 

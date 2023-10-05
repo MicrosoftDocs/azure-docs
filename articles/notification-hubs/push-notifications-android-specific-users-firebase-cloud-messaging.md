@@ -1,11 +1,11 @@
 ---
-title: Push notifications to specific Android application users using Azure Notification Hubs | Microsoft Docs
-description: Learn how to send push notifications to specific users by using Azure Notification Hubs.
+title: Send push notifications to specific Android apps using Azure Notification Hubs
+description: Learn how to send push notifications to specific Android apps by using Azure Notification Hubs.
 documentationcenter: android
 services: notification-hubs
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 
 ms.assetid: ae0e17a8-9d2b-496e-afd2-baa151370c25
 ms.service: notification-hubs
@@ -13,12 +13,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: tutorial
-ms.custom: mvc
-ms.date: 05/01/2019
-ms.author: jowargo
+ms.custom: mvc, devx-track-java, devx-track-dotnet
+ms.date: 09/11/2019
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 09/11/2019
 ---
 
-# Tutorial: Push notification to specific Android application users by using Azure Notification Hubs
+# Tutorial: Send push notifications to specific Android apps using Azure Notification Hubs
 
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
@@ -145,7 +147,7 @@ The next step is to update the Android application created in the [Tutorial: Pus
 
     Your `main_activity.xml` graphical layout should now look like the following image:
 
-    ![][A1]
+    ![Screenshot of an emulator displaying what the main activity X M L graphical layout will look like.][A1]
 3. Create a new class named `RegisterClient` in the same package as your `MainActivity` class. Use the code below for the new class file.
 
     ```java
@@ -272,7 +274,7 @@ The next step is to update the Android application created in the [Tutorial: Pus
         super.onCreate(savedInstanceState);
 
         mainActivity = this;
-        MyHandler.createChannelAndHandleNotifications(getApplicationContext());
+        FirebaseService.createChannelAndHandleNotifications(getApplicationContext());
         fcm = FirebaseInstanceId.getInstance();
         registerClient = new RegisterClient(this, BACKEND_ENDPOINT);
         setContentView(R.layout.activity_main);
@@ -466,7 +468,14 @@ The next step is to update the Android application created in the [Tutorial: Pus
     ```java
     useLibrary 'org.apache.http.legacy'
     ```
-13. Build the project.
+13. If your app is targeting API level 28 (Android 9.0) or above, include the following declaration within the `<application>` element of `AndroidManifest.xml`.
+
+    ```xml
+    <uses-library
+        android:name="org.apache.http.legacy"
+        android:required="false" />
+    ```
+14. Build the project.
 
 ## Test the app
 
@@ -474,7 +483,7 @@ The next step is to update the Android application created in the [Tutorial: Pus
 2. In the Android app, enter a username and password. They must both be the same string value and they must not contain spaces or special characters.
 3. In the Android app, click **Sign in**. Wait for a toast message that states **Signed in and registered**. It enables the **Send Notification** button.
 
-    ![][A2]
+    ![Screenshot of an emulator showing what the Notification Hubs Notify Users app looks like after logging in.][A2]
 4. Click the toggle buttons to enable all platforms where you ran the app and registered a user.
 5. Enter the user's name that receives the notification message. That user must be registered for notifications on the target devices.
 6. Enter a message for the user to receive as a push notification message.

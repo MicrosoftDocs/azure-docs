@@ -1,25 +1,20 @@
 ---
-title: Text Merge cognitive search skill - Azure Search
-description: Merge text from a collection of fields into one consolidated field. Use this cognitive skill in an Azure Search enrichment pipeline.
-services: search
-manager: pablocas
-author: luiscabrer
-
-ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
-ms.author: luisca
-ms.custom: seodec2018
+title: Text Merge cognitive skill
+titleSuffix: Azure Cognitive Search
+description: Merge text from a collection of fields into one consolidated field. Use this cognitive skill in an AI enrichment pipeline in Azure Cognitive Search.
+author: LiamCavanagh
+ms.author: liamca
+ms.service: cognitive-search
+ms.topic: reference
+ms.date: 04/20/2023
 ---
 
-#	 Text Merge cognitive skill
+#	Text Merge cognitive skill
 
-The **Text Merge** skill consolidates text from a collection of fields into a single field. 
+The **Text Merge** skill consolidates text from an array of strings into a single field. 
 
 > [!NOTE]
-> This skill is not bound to a Cognitive Services API and you are not charged for using it. You should still [attach a Cognitive Services resource](cognitive-search-attach-cognitive-services.md), however, to override the **Free** resource option that limits you to a small number of daily enrichments per day.
+> This skill isn't bound to Azure AI services. It is non-billable and has no Azure AI services key requirement.
 
 ## @odata.type  
 Microsoft.Skills.Text.MergeSkill
@@ -30,8 +25,21 @@ Parameters are case-sensitive.
 
 | Parameter name	 | Description |
 |--------------------|-------------|
-| insertPreTag	| String to be included before every insertion. The default value is `" "`. To omit the space, set the value to `""`.  |
-| insertPostTag	| String to be included after every insertion. The default value is `" "`. To omit the space, set the value to `""`.  |
+| `insertPreTag`	| String to be included before every insertion. The default value is `" "`. To omit the space, set the value to `""`.  |
+| `insertPostTag`	| String to be included after every insertion. The default value is `" "`. To omit the space, set the value to `""`.  |
+
+## Skill inputs
+| Input name | Description |
+|------------|-------------|
+| `itemsToInsert` | Array of strings to be merged. |
+| `text`          | (optional) Main text body to be inserted into. If `text` is not provided, elements of `itemsToInsert` will be concatencated. |
+| `offsets`       | (optional) Array of positions within `text` where `itemsToInsert` should be inserted. If provided, the number of elements of `text` must equal the number of elements of `textToInsert`. Otherwise all items will be appended at the end of `text`. |
+
+## Skill outputs
+| Output name | Description |
+|-------------|-------------|
+| `mergedText`    | The resulting merged text. |
+| `mergedOffsets` | Array of positions within `mergedText` where elements of `itemsToInsert` were inserted. |
 
 
 ##	Sample input
@@ -46,7 +54,7 @@ A JSON document providing usable input for this skill could be:
       {
         "text": "The brown fox jumps over the dog",
         "itemsToInsert": ["quick", "lazy"],
-        "offsets": [3, 28],
+        "offsets": [3, 28]
       }
     }
   ]
@@ -74,7 +82,7 @@ This example shows the output of the previous input, assuming that the *insertPr
 
 A common scenario for using Text Merge is to merge the textual representation of images (text from an OCR skill, or the caption of an image)  into the content field of a document. 
 
-The following example skillset uses the OCR skill to extract text from images embedded in the document. Next, it creates a *merged_text* field to contain both original and OCRed text from each image. You can learn more about the OCR skill [here](https://docs.microsoft.com/azure/search/cognitive-search-skill-ocr).
+The following example skillset uses the OCR skill to extract text from images embedded in the document. Next, it creates a *merged_text* field to contain both original and OCRed text from each image. You can learn more about the OCR skill [here](./cognitive-search-skill-ocr.md).
 
 ```json
 {
@@ -107,18 +115,22 @@ The following example skillset uses the OCR skill to extract text from images em
       "insertPostTag": " ",
       "inputs": [
         {
-          "name":"text", "source": "/document/content"
+          "name":"text", 
+          "source": "/document/content"
         },
         {
-          "name": "itemsToInsert", "source": "/document/normalized_images/*/text"
+          "name": "itemsToInsert", 
+          "source": "/document/normalized_images/*/text"
         },
         {
-          "name":"offsets", "source": "/document/normalized_images/*/contentOffset" 
+          "name":"offsets", 
+          "source": "/document/normalized_images/*/contentOffset" 
         }
       ],
       "outputs": [
         {
-          "name": "mergedText", "targetName" : "merged_text"
+          "name": "mergedText", 
+          "targetName" : "merged_text"
         }
       ]
     }
@@ -141,6 +153,6 @@ The example above assumes that a normalized-images field exists. To get normaliz
 
 ## See also
 
-+ [Predefined skills](cognitive-search-predefined-skills.md)
++ [Built-in skills](cognitive-search-predefined-skills.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
-+ [Create Indexer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [Create Indexer (REST)](/rest/api/searchservice/create-indexer)

@@ -1,36 +1,30 @@
 ---
-title: Create an application gateway with external traffic redirection - Azure CLI | Microsoft Docs
-description: Learn how to create an application gateway that redirects internal web traffic to the appropriate pool using the Azure CLI.
+title: External traffic redirection using CLI - Azure Application Gateway
+description: Learn how to create an application gateway that redirects external web traffic to the appropriate pool using the Azure CLI.
 services: application-gateway
-author: vhorne
-manager: jpconnock
-editor: tysonn
-
+author: greg-lindsay
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 01/24/2018
-ms.author: victorh
-
+ms.custom: devx-track-azurecli
+ms.topic: how-to
+ms.date: 09/24/2020
+ms.author: greglin
 ---
+
 # Create an application gateway with external redirection using the Azure CLI
 
 You can use the Azure CLI to configure [web traffic redirection](multiple-site-overview.md) when you create an [application gateway](overview.md). In this tutorial, you configure a listener and rule that redirects web traffic that arrives at the application gateway to an external site.
 
 In this article, you learn how to:
 
-> [!div class="checklist"]
-> * Set up the network
-> * Create a listener and redirection rule
-> * Create an application gateway
+* Set up the network
+* Create a listener and redirection rule
+* Create an application gateway
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+ - This tutorial requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a resource group
 
@@ -89,7 +83,7 @@ It may take several minutes for the application gateway to be created. After the
 
 ### Add the redirection configuration
 
-Add the redirection configuration that sends traffic from *www.consoto.org* to the listener for *www.contoso.com* to the application gateway using [az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config).
+Add the redirection configuration that sends traffic from *www\.consoto.org* to the listener for *www\.contoso.com* to the application gateway using [az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -133,8 +127,4 @@ You should see *bing.com* appear in your browser.
 
 ## Next steps
 
-In this tutorial, you learned how to:
-
-> * Set up the network
-> * Create a listener and redirection rule
-> * Create an application gateway
+- [Create an application gateway with internal redirection using the Azure CLI](redirect-internal-site-cli.md)

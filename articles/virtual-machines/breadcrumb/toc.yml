@@ -1,0 +1,10 @@
+items:
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Virtual Machines
+    tocHref: /azure/
+    topicHref: /azure/virtual-machines/index
+  - name: Virtual Machines
+    tocHref: /azure/reliability

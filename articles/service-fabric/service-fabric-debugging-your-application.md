@@ -1,23 +1,14 @@
 ---
-title: Debug your application in Visual Studio | Microsoft Docs
+title: Debug your application in Visual Studio 
 description: Improve the reliability and performance of your services by developing and debugging them in Visual Studio on a local development cluster.
-services: service-fabric
-documentationcenter: .net
-author: vturecek
-manager: chackdan
-editor: ''
-
-ms.assetid: cb888532-bcdb-4e47-95e4-bfbb1f644da4
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
 ms.service: service-fabric
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.custom: vs-azure
-ms.workload: azure-vs
-ms.date: 11/02/2017
-ms.author: vturecek
-
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Debug your Service Fabric application by using Visual Studio
 > [!div class="op_single_selector"]
 > * [Visual Studio/CSharp](service-fabric-debugging-your-application.md) 
@@ -26,12 +17,16 @@ ms.author: vturecek
 
 
 ## Debug a local Service Fabric application
-You can save time and money by deploying and debugging your Azure Service Fabric application in a local computer development cluster. Visual Studio 2019 or 2015 can deploy the application to the local cluster and automatically connect the debugger to all instances of your application. Visual Studio's must be run as Administrator to connect the debugger.
+
+> [!IMPORTANT]
+> Remote debugging is not supported on VS 2022
+
+You can save time and money by deploying and debugging your Azure Service Fabric application in a local computer development cluster. Visual Studio 2019 or 2015 can deploy the application to the local cluster and automatically connect the debugger to all instances of your application. Visual Studio must be run as Administrator to connect the debugger.
 
 1. Start a local development cluster by following the steps in [Setting up your Service Fabric development environment](service-fabric-get-started.md).
 2. Press **F5** or click **Debug** > **Start Debugging**.
    
-    ![Start debugging an application][startdebugging]
+    ![Screenshot that shows the Debug menu.][startdebugging]
 3. Set breakpoints in your code and step through the application by clicking commands in the **Debug** menu.
    
    > [!NOTE]
@@ -58,6 +53,13 @@ You can save time and money by deploying and debugging your Azure Service Fabric
    
     ![Start debugging an application][breakpoint]
 
+
+### Running a script as part of debugging
+In certain scenarios you might need to run a script as part of starting a debugging session (e.g. when not using Default Services).
+
+In Visual Studio, you can add a file called **Start-Service.ps1** in the **Scripts** folder of the Service Fabric Application project (.sfproj). This script will be invoked after the application has been created in the local cluster.
+
+
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
 ## Debug a remote Service Fabric application
@@ -65,14 +67,10 @@ If your Service Fabric applications are running on a Service Fabric cluster in A
 
 > [!NOTE]
 > The feature requires [Service Fabric SDK 2.0](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015) and [Azure SDK for .NET 2.9](https://azure.microsoft.com/downloads/).    
-> 
-> 
 
 <!-- -->
 > [!WARNING]
 > Remote debugging is meant for dev/test scenarios and not to be used in production environments, because of the impact on the running applications.
-> 
-> 
 
 1. Navigate to your cluster in **Cloud Explorer**. Right-click and choose **Enable Debugging**
    
@@ -117,8 +115,6 @@ You're also able to stream traces directly from a remote cluster node to Visual 
 > [!WARNING]
 > Streaming traces is meant for dev/test scenarios and not to be used in production environments, because of the impact on the running applications.
 > In a production scenario, you should rely on forwarding events using Azure Diagnostics.
-> 
-> 
 
 1. Navigate to your cluster in **Cloud Explorer**. Right-click and choose **Enable Streaming Traces**
    

@@ -1,26 +1,23 @@
 ---
-title: Azure PowerShell script sample - Calculate the total billing size of a blob container | Microsoft Docs
+title: Azure PowerShell script sample - Calculate the total billing size of a blob container
 description: Calculate the total size of a container in Azure Blob storage for billing purposes.
 services: storage
-documentationcenter: na
-author: fhryo-msft
-manager: cbrooks
-editor: tysonn
+author: stevenmatthew
 
-ms.assetid:
-ms.custom: mvc
-ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
+ms.service: azure-storage
 ms.devlang: powershell
+ms.custom: devx-track-azurepowershell
 ms.topic: sample
-ms.date: 11/07/2017
-ms.author: fryu
+ms.date: 01/19/2023
+ms.author: shaas
 ---
 
 # Calculate the total billing size of a blob container
 
 This script calculates the size of a container in Azure Blob storage for the purpose of estimating billing costs. The script totals the size of the blobs in the container.
+
+> [!IMPORTANT]
+> The sample script provided in this article may not accurately calculate the billing size for blob snapshots.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
@@ -46,6 +43,7 @@ For-Each Signed Identifier[512 bytes]
 ```
 
 Following is the breakdown:
+
 * 48 bytes of overhead for each container includes the Last Modified Time, Permissions, Public Settings, and some system metadata.
 
 * The container name is stored as Unicode, so take the number of characters and multiply by two.
@@ -122,6 +120,6 @@ Following is the breakdown:
 
 - For more information about Azure Storage billing, see [Understanding Windows Azure Storage Billing](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/).
 
-- For more information about the Azure PowerShell module, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azure/overview).
+- For more information about the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/).
 
 - You can find additional Storage PowerShell script samples in [PowerShell samples for Azure Storage](../blobs/storage-samples-blobs-powershell.md).

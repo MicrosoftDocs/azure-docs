@@ -2,24 +2,25 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What is Azure AD PIM?
+  - name: What is Microsoft Entra PIM?
     href: pim-configure.md
 - name: Concepts
   items:
   - name: License requirements
     href: subscription-requirements.md
-  - name: Roles you cannot manage
+  - name: PIM for Groups
+    href: concept-pim-for-groups.md
+  - name: Roles you can't manage with PIM 
     href: pim-roles.md
-  - name: Secure privileged access
-    href: ../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
-  - name: MFA and PIM
-    href: pim-how-to-require-mfa.md
+  - name: Secure privileged access in Microsoft Entra ID
+    href: ../roles/security-planning.md?toc=/azure/active-directory/privileged-identity-management/toc.json
+
   - name: Overview dashboards
     href: pim-resource-roles-overview-dashboards.md
   - name: Email notifications
     href: pim-email-notifications.md
-  - name: Microsoft Graph APIs
-    href: pim-apis.md
+  - name: PIM API concepts
+    href: pim-apis.md  
 - name: How-to guides
   expanded: true
   items:
@@ -27,67 +28,103 @@
     href: pim-deployment-plan.md
   - name: Start using PIM
     href: pim-getting-started.md
-  - name: Configure PIM
+  - name: Bring under management
     items:
-    - name: Security wizard
-      href: pim-security-wizard.md
-    - name: Discover Azure resources
+    - name: Azure resources
       href: pim-resource-roles-discover-resources.md
-    - name: Grant access to others to manage PIM
-      href: pim-how-to-give-access-to-pim.md
-    - name: Elevate access to manage all subscriptions
-      href: ../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
-  - name: Activate my roles
+    - name: Groups
+      href: groups-discover-groups.md
+  - name: Assign
     items:
-    - name: Activate my Azure AD roles
-      href: pim-how-to-activate-role.md
-    - name: Activate my Azure resource roles
-      href: pim-resource-roles-activate-your-roles.md
-  - name: Manage Azure AD roles
-    items:
-    - name: Assign roles
+    - name: Microsoft Entra roles
       href: pim-how-to-add-role-to-user.md
-    - name: Approve requests
-      href: azure-ad-pim-approval-workflow.md
-    - name: Configure role settings
-      href: pim-how-to-change-default-settings.md
-    - name: Configure alerts
-      href: pim-how-to-configure-security-alerts.md
-    - name: View audit history
-      href: pim-how-to-use-audit-log.md
-  - name: Manage Azure resource roles
-    items:
-    - name: Assign roles
+    - name: Azure roles
       href: pim-resource-roles-assign-roles.md
-    - name: Invite external users
-      href: pim-resource-roles-external-users.md
-    - name: Approve requests
-      href: pim-resource-roles-approval-workflow.md
-    - name: Extend or renew roles
-      href: pim-resource-roles-renew-extend.md
-    - name: Configure role settings
-      href: pim-resource-roles-configure-role-settings.md
-    - name: Configure alerts
-      href: pim-resource-roles-configure-alerts.md
-    - name: View activity and audit history
-      href: azure-pim-resource-rbac.md
-    - name: Use custom roles
-      href: pim-resource-roles-custom-role-policy.md
-  - name: Access reviews
+    - name: Groups
+      href: groups-assign-member-owner.md
+  - name: Activate
     items:
-    - name: Azure AD roles
+    - name: Microsoft Entra roles
+      href: pim-how-to-activate-role.md
+    - name: Azure roles
+      href: pim-resource-roles-activate-your-roles.md
+    - name: Groups
+      href: groups-activate-roles.md 
+  - name: Approve
+    items:
+    - name: Microsoft Entra roles
+      href: pim-approval-workflow.md
+    - name: Azure roles
+      href: pim-resource-roles-approval-workflow.md
+    - name: Groups
+      href: groups-approval-workflow.md
+  - name: Extend or renew
+    items:
+    - name: Microsoft Entra roles
+      href: pim-how-to-renew-extend.md
+    - name: Azure roles
+      href: pim-resource-roles-renew-extend.md
+    - name: Groups
+      href: groups-renew-extend.md
+  - name: Set role settings
+    items:
+    - name: Microsoft Entra roles
+      href: pim-how-to-change-default-settings.md
+    - name: Microsoft Entra roles - Microsoft Graph
+      items:
+      - name: Rules in PIM
+        href: /graph/identity-governance-pim-rules-overview?toc=/azure/active-directory/privileged-identity-management/toc.json&bc=/azure/active-directory/privileged-identity-management/breadcrumb/toc.json
+      - name: Customize and update rules
+        href: /graph/identity-governance-pim-rules-overview?toc=/azure/active-directory/privileged-identity-management/toc.json&bc=/azure/active-directory/privileged-identity-management/breadcrumb/toc.json
+    - name: Azure roles
+      href: pim-resource-roles-configure-role-settings.md
+    - name: Groups
+      href: groups-role-settings.md
+  - name: Set up alerts
+    items:
+    - name: Microsoft Entra roles
+      href: pim-how-to-configure-security-alerts.md
+    - name: Microsoft Entra roles - Microsoft Graph
+      href: /graph/how-to-pim-alerts?toc=/azure/active-directory/privileged-identity-management/toc.json&bc=/azure/active-directory/privileged-identity-management/breadcrumb/toc.json
+    - name: Azure roles
+      href: pim-resource-roles-configure-alerts.md
+  - name: Audits 
+    items:
+    - name: Microsoft Entra roles
+      href: pim-how-to-use-audit-log.md
+    - name: Azure roles
+      href: azure-pim-resource-rbac.md
+    - name: Groups
+      href: groups-audit.md
+  - name: Review access
+    items:
+    - name: Microsoft Entra roles and Azure resource roles
       items:
       - name: Create an access review
-        href: pim-how-to-start-security-review.md
-      - name: Review access
-        href: pim-how-to-perform-security-review.md
+        href: pim-create-roles-and-resource-roles-review.md
+      - name: Perform an access review
+        href: pim-perform-roles-and-resource-roles-review.md
       - name: Complete an access review
-        href: pim-how-to-complete-review.md
-    - name: Azure resource roles
-      items:
-      - name: Create an access review
-        href: pim-resource-roles-start-access-review.md
-      - name: Review access
-        href: pim-resource-roles-perform-access-review.md
-      - name: Complete an access review
-        href: pim-resource-roles-complete-access-review.md
+        href: pim-complete-roles-and-resource-roles-review.md
+      - name: Review access to privileged roles - Microsoft Graph
+        href: /graph/tutorial-accessreviews-roleassignments?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
+  - name: Discovery & Insights for Microsoft Entra roles
+    href: pim-security-wizard.md
+  - name: Elevate access to manage Azure subscriptions
+    href: ../../role-based-access-control/elevate-access-global-admin.md?toc=/azure/active-directory/privileged-identity-management/toc.json
+  - name: Troubleshoot resource access denied
+    href: pim-troubleshoot.md
+- name: Reference
+  items:
+  - name: Microsoft Graph API  
+    href: /graph/api/resources/privilegedidentitymanagementv3-overview
+  - name: Microsoft Entra CLI    
+    href: /cli/azure/ad
+  - name:  Azure AD PowerShell for Graph
+    href: /powershell/azure/active-directory/install-adv2
+  - name: PowerShell examples for Microsoft Entra roles
+    href: /powershell/microsoftgraph/tutorial-pim
+  - name: Microsoft Entra service limits
+    href: ../enterprise-users/directory-service-limits-restrictions.md
+  - name: PowerShell Migration 
+    href: pim-powershell-migration.md

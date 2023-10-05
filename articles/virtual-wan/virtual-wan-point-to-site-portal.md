@@ -1,224 +1,123 @@
 ---
-title: 'Use Azure Virtual WAN to create a Point-to-Site connection to Azure | Microsoft Docs'
-description: In this tutorial, learn how to use Azure Virtual WAN to create a Point-to-Site VPN connection to Azure.
-services: virtual-wan
-author: anzaman
 
+title: 'Tutorial: Create a User VPN connection to Azure using Azure Virtual WAN'
+description: In this tutorial, learn how to use Azure Virtual WAN to create a User VPN (point-to-site) connection to Azure.
+services: virtual-wan
+author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 02/27/2019
-ms.author: alzam
-Customer intent: As someone with a networking background, I want to connect remote users to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
----
-# Tutorial: Create a Point-to-Site connection using Azure Virtual WAN (Preview)
+ms.date: 08/09/2023
+ms.author: cherylmc
 
-This tutorial shows you how to use Virtual WAN to connect to your resources in Azure over an IPsec/IKE (IKEv2) or OpenVPN VPN connection. This type of connection requires a client to be configured on the client computer. For more information about Virtual WAN, see the [Virtual WAN Overview](virtual-wan-about.md).
+---
+# Tutorial: Create a P2S User VPN connection using Azure Virtual WAN
+
+This tutorial shows you how to use Virtual WAN to connect to your resources in Azure. In this tutorial, you create a point-to-site User VPN connection over OpenVPN or IPsec/IKE (IKEv2) using the Azure portal. This type of connection requires the native VPN client to be configured on each connecting client computer.
+
+* This article applies to certificate and RADIUS authentication. For Azure AD authentication, see [Configure a User VPN connection - Azure Active Directory authentication](virtual-wan-point-to-site-azure-ad.md).
+* For more information about Virtual WAN, see the [Virtual WAN Overview](virtual-wan-about.md).
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a WAN
-> * Create a P2S configuration
-> * Create a hub
-> * Apply P2S configuration to a hub
-> * Connect a VNet to a hub
-> * Download and apply the VPN client configuration
+> * Create a virtual WAN
+> * Create the User VPN configuration
+> * Create the virtual hub and gateway
+> * Generate client configuration files
+> * Configure VPN clients
+> * Connect to a VNet
 > * View your virtual WAN
-> * View resource health
-> * Monitor a connection
+> * Modify settings
 
-> [!IMPORTANT]
-> This public preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
->
+:::image type="content" source="./media/virtual-wan-about/virtualwanp2s.png" alt-text="Virtual WAN diagram.":::
 
-## Before you begin
+## Prerequisites
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [Before beginning](../../includes/virtual-wan-before-include.md)]
 
-[!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
+## <a name="wan"></a>Create a virtual WAN
 
-## <a name="register"></a>Register this feature
+[!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-create-vwan-include.md)]
 
-Click the **TryIt** to register this feature easily using Azure Cloud Shell. If you would rather run PowerShell locally, make sure you have the latest version and sign in using the **Connect-AzAccount** and **Select-AzSubscription** commands.
+## <a name="p2sconfig"></a>Create a User VPN configuration
 
->[!NOTE]
->If you don't register this feature, you will not be able to use it, or to see it in the portal.
->
->
+The User VPN (P2S) configuration defines the parameters for remote clients to connect. You create User VPN configurations before you create the P2S gateway in the hub. You can create multiple User VPN configurations. When you create the P2S gateway, you select the User VPN configuration that you want to use.
 
-After clicking **TryIt** to open the Azure Cloud Shell, copy and paste the following commands:
+The instructions you follow depend on the authentication method you want to use. For this exercise, we select **OpenVpn and IKEv2** and certificate authentication. However, other configurations are available. Each authentication method has specific requirements.
 
-```azurepowershell-interactive
-Register-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2SCortexAccess
-```
- 
-```azurepowershell-interactive
-Register-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
-```
+* **Azure certificates:** For this configuration, certificates are required. You need to either generate or obtain certificates. A client certificate is required for each client. Additionally, the root certificate information (public key) needs to be uploaded. For more information about the required certificates, see [Generate and export certificates](certificates-point-to-site.md).
 
-```azurepowershell-interactive
-Get-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2SCortexAccess
-```
+* **Radius-based authentication:** Obtain the Radius server IP, Radius server secret, and certificate information.
 
-```azurepowershell-interactive
-Get-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
-```
+* **Azure Active Directory authentication:** See [Configure a User VPN connection - Azure Active Directory authentication](virtual-wan-point-to-site-azure-ad.md).
 
-Once the feature shows as registered, register the subscription to Microsoft.Network namespace.
+### Configuration steps
 
-```azurepowershell-interactive
-Register-AzResourceProvider -ProviderNamespace Microsoft.Network
-```
+[!INCLUDE [Create P2S configuration](../../includes/virtual-wan-p2s-configuration-include.md)]
 
-## <a name="vnet"></a>1. Create a virtual network
+## <a name="hub"></a>Create a virtual hub and gateway
 
-[!INCLUDE [Create a virtual network](../../includes/virtual-wan-tutorial-vnet-include.md)]
+### Basics page
 
-## <a name="openvwan"></a>2. Create a virtual WAN
+[!INCLUDE [Create hub basics page](../../includes/virtual-wan-hub-basics.md)]
 
-From a browser, navigate to the [Azure portal (Preview)](https://aka.ms/azurevirtualwanpreviewfeatures) and sign in with your Azure account.
+### Point to site page
 
-[!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-vwan-include.md)]
+[!INCLUDE [Point to site page](../../includes/virtual-wan-p2s-gateway-include.md)]
 
-## <a name="hub"></a>3. Create a hub
+[!INCLUDE [Point to site page](../../includes/virtual-wan-hub-router-provisioning-warning.md)]
 
-> [!NOTE]
-> Don't select the setting "Include point-to-site gateway"" in this step.
->
+## <a name="download"></a>Generate client configuration files
 
-[!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-hub-include.md)]
+When you connect to VNet using User VPN (P2S), you can use the VPN client that is natively installed on the operating system from which you're connecting. All of the necessary configuration settings for the VPN clients are contained in a VPN client configuration zip file. The settings in the zip file help you easily configure the VPN clients. The VPN client configuration files that you generate are specific to the User VPN configuration for your gateway. In this section, you generate and download the files used to configure your VPN clients.
 
-## <a name="site"></a>4. Create a P2S configuration
+There are two different types of configuration profiles that you can download: global and hub. The global profile is a WAN-level configuration profile. When you download the WAN-level configuration profile, you get a built-in Traffic Manager-based User VPN profile. When you use a global profile, if for some reason a hub is unavailable, the built-in traffic management provided by the service ensures connectivity (via a different hub) to Azure resources for point-to-site users. For more information, or to download a hub-level profile VPN client configuration package, see [Global and hub profiles](global-hub-profile.md).
 
-A P2S configuration defines the parameters for connecting remote clients.
+[!INCLUDE [Download profile](../../includes/virtual-wan-p2s-download-profile-include.md)]
 
-1. Navigate to **All resources**.
-2. Click the virtual WAN that you created.
-3. Under **Virtual WAN architecture**, click **Point-to-site configurations**.
-4. Click **+Add point-to-site config** at the top of the page to open the **Create new point-to-site configuration** page.
-5. On the **Create new point-to-site configuration** page, fill in the following fields:
+## <a name="configure-client"></a>Configure VPN clients
 
-   *  **Configuration name** - This is the name by which you want to refer to your configuration.
-   *  **Tunnel type** - The protocol to use for the tunnel.
-   *  **Address pool** - This is the IP address pool that the clients will be assigned Is from.
-   *  **Root Certificate Name** - A descriptive name for the certificate.
-   *  **Root Certificate Data** - Base-64 encoded X.509 certificate data.
+Use the downloaded profile package to configure the native VPN client on your computer. The procedure for each operating system is different. Follow the instructions that apply to your system.
+Once you have finished configuring your client, you can connect.
 
-6. Click **Create** to create the configuration.
+[!INCLUDE [Configure clients](../../includes/virtual-wan-p2s-configure-clients-include.md)]
 
-## <a name="hub"></a>5. Edit hub assignment
+## <a name="connect-vnet"></a>Connect VNet to hub
 
-1. On the page for your virtual WAN, click **Hubs**.
-2. Select the hub that you want to assign the point-to-site configuration to.
-3. Click **"..."** and pick **Edit virtual hub**
-4. Check **Include point-to-site gateway**.
-5. From the dropdown, select the **Gateway scale units**.
-6. From the dropdown, select the **Point-to-site configuration** that you created.
-7. Configure the **Address pool** for the clients.
-8. Click **Confirm**. The operation can take up to 30 minutes to complete.
+In this section, you create a connection between your virtual hub and your VNet. For this tutorial, you don't need to configure the routing settings.
 
-## <a name="vnet"></a>6. Connect your VNet to a hub
+[!INCLUDE [Connect virtual network](../../includes/virtual-wan-connect-vnet-hub-include.md)]
 
-In this step, you create the peering connection between your hub and a VNet. Repeat these steps for each VNet that you want to connect.
+## <a name="viewwan"></a>Point to site sessions dashboard
 
-1. On the page for your virtual WAN, click **Virtual network connections**.
-2. On the virtual network connection page, click **+Add connection**.
-3. On the **Add connection** page, fill in the following fields:
+To view your active point to site sessions, click on **Point-to-site Sessions**. This will show you all active point to site users that are connected to your User VPN gateway.
+  :::image type="content" source="../../includes/media/virtual-wan-p2s-sessions-dashboard/point-to-site-sessions-button.png" alt-text="Screenshot shows point to site blade in Virtual WAN." lightbox="../../includes/media/virtual-wan-p2s-sessions-dashboard/point-to-site-sessions-button.png":::
 
-    * **Connection name** - Name your connection.
-    * **Hubs** - Select the hub you want to associate with this connection.
-    * **Subscription** - Verify the subscription.
-    * **Virtual network** - Select the virtual network you want to connect to this hub. The virtual network cannot have an already existing virtual network gateway.
-4. Click **OK** to add the connection.
+## Modify settings
 
-## <a name="device"></a>7. Download VPN profile
+### <a name="address-pool"></a>Modify client address pool
 
-Use the VPN profile to configure your clients.
+[!INCLUDE [Modify client address pool](../../includes/virtual-wan-client-address-pool-include.md)]
 
-1. On the page for your virtual WAN, click **Hubs**.
-2. Select the hub that you want to download the profile for.
-3. Click **"..."** and pick **Download profile**. 
-4. Once the file has finished creating, you can click the link to download it.
-4. Use the profile file to configure the point-to-site clients.
+### <a name="dns"></a>Modify DNS servers
 
-## <a name="device"></a>8. Configure point-to-site clients
-Use the downloaded profile to configure the remote access clients. The procedure for each operating system is different, please follow the correct instructions below:
+1. Navigate to your **Virtual HUB -> User VPN (Point to site)**.
 
-### Microsoft Windows
-#### OpenVPN
+1. Click the value next to **Custom DNS Servers** to open the **Edit User VPN gateway** page.
 
-1.	Download and install the OpenVPN client from the official website.
-2.	Download the VPN profile for the gateway. This can be done from the Point-to-site configurations tab in Azure portal, or New-AzVpnClientConfiguration in PowerShell.
-3.	Unzip the profile. Open the vpnconfig.ovpn configuration file from the OpenVPN folder in notepad.
-4.	Fill in the P2S client certificate section with the P2S client certificate public key in base64. In a PEM formatted certificate, you can simply open the .cer file and copy over the base64 key between the certificate headers. See here how to export a certificate to get the encoded public key.
-5.	Fill in the private key section with the P2S client certificate private key in base64. See here how to extract private key.
-6.	Do not change any other fields. Use the filled in configuration in client input to connect to the VPN.
-7.	Copy the vpnconfig.ovpn file to C:\Program Files\OpenVPN\config folder.
-8.	Right-click the OpenVPN icon in the system tray and click connect.
+1. On the **Edit User VPN gateway** page, edit the **Custom DNS Servers** field. Enter the DNS server IP addresses in the **Custom DNS Servers** text boxes. You can specify up to five DNS Servers.
 
-#### IKEv2
+1. Click **Edit** at the bottom of the page to validate your settings.
 
-1. Select the VPN client configuration files that correspond to the architecture of the Windows computer. For a 64-bit processor architecture, choose the 'VpnClientSetupAmd64' installer package. For a 32-bit processor architecture, choose the 'VpnClientSetupX86' installer package.
-2. Double-click the package to install it. If you see a SmartScreen popup, click More info, then Run anyway.
-3. On the client computer, navigate to Network Settings and click VPN. The VPN connection shows the name of the virtual network that it connects to.
-4. Before you attempt to connect, verify that you have installed a client certificate on the client computer. A client certificate is required for authentication when using the native Azure certificate authentication type. For more information about generating certificates, see Generate Certificates. For information about how to install a client certificate, see Install a client certificate.
+1. Click **Confirm** to save your settings. Any changes on this page could take up to 30 minutes to complete.
 
-### Mac (OS X)
-#### OpenVPN
+## <a name="cleanup"></a>Clean up resources
 
-1.	Download and install an OpenVPN client, such as TunnelBlik from https://tunnelblick.net/downloads.html 
-2.	Download the VPN profile for the gateway. This can be done from the Point-to-site configuration tab in Azure portal, or New-AzVpnClientConfiguration in PowerShell.
-3.	Unzip the profile. Open the vpnconfig.ovpn configuration file from the OpenVPN folder in notepad.
-4.	Fill in the P2S client certificate section with the P2S client certificate public key in base64. In a PEM formatted certificate, you can simply open the .cer file and copy over the base64 key between the certificate headers. See here how to export a certificate to get the encoded public key.
-5.	Fill in the private key section with the P2S client certificate private key in base64. See here how to extract private key.
-6.	Do not change any other fields. Use the filled in configuration in client input to connect to the VPN.
-7.	Double-click the profile file to create the profile in tunnelblik
-8.	Launch Tunnelblik from the applications folder
-9.	Click on the Tunneblik icon in the system tray and pick connect
+When you no longer need the resources that you created, delete them. Some of the Virtual WAN resources must be deleted in a certain order due to dependencies. Deleting can take about 30 minutes to complete.
 
-#### IKEv2
-
-Azure does not provide mobileconfig file for native Azure certificate authentication. You have to manually configure the native IKEv2 VPN client on every Mac that will connect to Azure. The Generic folder has all the information that you need to configure it. If you don't see the Generic folder in your download, it's likely that IKEv2 was not selected as a tunnel type. Once IKEv2 is selected, generate the zip file again to retrieve the Generic folder. The Generic folder contains the following files:
-
-- VpnSettings.xml, which contains important settings like server address and tunnel type.
-- VpnServerRoot.cer, which contains the root certificate required to validate the Azure VPN Gateway during P2S connection setup.
-
-## <a name="viewwan"></a>9. View your virtual WAN
-
-1. Navigate to the virtual WAN.
-2. On the Overview page, each point on the map represents a hub. Hover over any point to view the hub health summary.
-3. In the Hubs and connections section, you can view hub status, site, region, VPN connection status, and bytes in and out.
-
-## <a name="viewhealth"></a>10. View your resource health
-
-1. Navigate to your WAN.
-2. On your WAN page, in the **SUPPORT + Troubleshooting** section, click **Health** and view your resource.
-
-## <a name="connectmon"></a>11. Monitor a connection
-
-Create a connection to monitor communication between an Azure VM and a remote site. For information about how to set up a connection monitor, see [Monitor network communication](~/articles/network-watcher/connection-monitor.md). The source field is the VM IP in Azure, and the destination IP is the Site IP.
-
-## <a name="cleanup"></a>12. Clean up resources
-
-When you no longer need these resources, you can use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) to remove the resource group and all of the resources it contains. Replace "myResourceGroup" with the name of your resource group and run the following PowerShell command:
-
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name myResourceGroup -Force
-```
+[!INCLUDE [Delete resources](../../includes/virtual-wan-resource-cleanup.md)]
 
 ## Next steps
 
-In this tutorial, you learned how to:
-
-> [!div class="checklist"]
-> * Create a WAN
-> * Create a site
-> * Create a hub
-> * Connect a hub to a site
-> * Connect a VNet to a hub
-> * Download and apply the VPN device configuration
-> * View your virtual WAN
-> * View resource health
-> * Monitor a connection
-
-To learn more about Virtual WAN, see the [Virtual WAN Overview](virtual-wan-about.md) page.
+> [!div class="nextstepaction"]
+> * [Manage secure access to resources in spoke VNets](manage-secure-access-resources-spoke-p2s.md)

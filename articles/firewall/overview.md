@@ -1,84 +1,92 @@
 ---
 title: What is Azure Firewall?
-description: Learn about Azure Firewall features.
+description: Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources.
 author: vhorne
+ms.author: victorh
 ms.service: firewall
 services: firewall
 ms.topic: overview
-ms.custom: mvc
-ms.date: 6/5/2019
-ms.author: victorh
-Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
+ms.custom: mvc, contperf-fy21q1, references_regions
+ms.date: 11/07/2022
+
+# Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
 ---
+
 # What is Azure Firewall?
 
-Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. It's a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability. 
+Azure Firewall is a cloud-native and intelligent network firewall security service that provides the best of breed threat protection for your cloud workloads running in Azure. It's a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability. It provides both east-west and north-south traffic inspection. To learn what's east-west and north-south traffic, see [East-west and north-south traffic](/azure/architecture/framework/security/design-network-flow#east-west-and-north-south-traffic).
 
-![Firewall overview](media/overview/firewall-threat.png)
+Azure Firewall is offered in three SKUs: Standard, Premium, and Basic.
 
-You can centrally create, enforce, and log application and network connectivity policies across subscriptions and virtual networks. Azure Firewall uses a static public IP address for your virtual network resources allowing outside firewalls to identify traffic originating from your virtual network.  The service is fully integrated with Azure Monitor for logging and analytics.
 
-## Features
+## Azure Firewall Standard
 
-Azure Firewall offers the following features:
+   Azure Firewall Standard provides L3-L7 filtering and threat intelligence feeds directly from Microsoft Cyber Security. Threat intelligence-based filtering can alert and deny traffic from/to known malicious IP addresses and domains that are updated in real time to protect against new and emerging attacks.
 
-### Built-in high availability
+   ![Firewall Standard overview](media/overview/firewall-standard.png)
 
-High availability is built in, so no additional load balancers are required and there's nothing you need to configure.
+To learn about Firewall Standard features, see [Azure Firewall Standard features](features.md).
 
-### Unrestricted cloud scalability
 
-Azure Firewall can scale up as much as you need  to accommodate changing network traffic flows, so you don't need to budget for your peak traffic.
+## Azure Firewall Premium
 
-### Application FQDN filtering rules
+   Azure Firewall Premium provides advanced capabilities include signature based IDPS to allow rapid detection of attacks by looking for specific patterns. These patterns can include byte sequences in network traffic or known malicious instruction sequences used by malware. There are more than 67,000 signatures in over 50 categories that are updated in real time to protect against new and emerging exploits. The exploit categories include malware, phishing, coin mining, and Trojan attacks.
 
-You can limit outbound HTTP/S traffic to a specified list of fully qualified domain names (FQDN) including wild cards. This feature doesn't require SSL termination.
+   ![Firewall Premium overview](media/overview/firewall-premium.png)
 
-### Network traffic filtering rules
 
-You can centrally create *allow* or *deny* network filtering rules by source and destination IP address, port, and protocol. Azure Firewall is fully stateful, so it can distinguish legitimate packets for different types of connections. Rules are enforced and logged across multiple subscriptions and virtual networks.
+To learn about Firewall Premium features, see [Azure Firewall Premium features](premium-features.md).
 
-### FQDN tags
+## Azure Firewall Basic
 
-FQDN tags make it easy for you to allow well known Azure service network traffic through your firewall. For example, say you want to allow Windows Update network traffic through your firewall. You create an application rule and include the Windows Update tag. Now network traffic from Windows Update can flow through your firewall.
+Azure Firewall Basic is intended for small and medium size (SMB) customers to secure their Azure cloud. 
+environments. It provides the essential protection SMB customers need at an affordable price point.
 
-### Service tags
+:::image type="content" source="media/overview/firewall-basic-diagram.png" alt-text="Diagram showing Firewall Basic.":::
 
-A service tag represents a group of IP address prefixes to help minimize complexity for security rule creation. You can't create your own service tag, nor specify which IP addresses are included within a tag. Microsoft manages the address prefixes encompassed by the service tag, and automatically updates the service tag as addresses change.
+Azure Firewall Basic is like Firewall Standard, but has the following main limitations:
 
-### Threat intelligence
+- Supports Threat Intel *alert mode* only
+- Fixed scale unit to run the service on two virtual machine backend instances
+- Recommended for environments with an estimated throughput of 250 Mbps
 
-Threat intelligence-based filtering can be enabled for your firewall to alert and deny traffic from/to known malicious IP addresses and domains. The IP addresses and domains are sourced from the Microsoft Threat Intelligence feed.
+To learn more about Azure Firewall Basic, see [Azure Firewall Basic features](basic-features.md).
 
-### Outbound SNAT support
+## Feature comparison
 
-All outbound virtual network traffic IP addresses are translated to the Azure Firewall public IP (Source Network Address Translation). You can identify and allow traffic originating from your virtual network to remote Internet destinations.
+To compare the all Firewall SKU features, see [Choose the right Azure Firewall SKU to meet your needs](choose-firewall-sku.md).
 
-### Inbound DNAT support
+## Azure Firewall Manager
 
-Inbound network traffic to your firewall public IP address is translated (Destination Network Address Translation) and filtered to the private IP addresses on your virtual networks.
+You can use Azure Firewall Manager to centrally manage Azure Firewalls across multiple subscriptions. Firewall Manager uses firewall policy to apply a common set of network/application rules and configuration to the firewalls in your tenant.
+ 
+Firewall Manager supports firewalls in both VNet and Virtual WANs (Secure Virtual Hub) environments. Secure Virtual Hubs use the Virtual WAN route automation solution to simplify routing traffic to the firewall with just a few steps.
 
-### Azure Monitor logging
+To learn more about Azure Firewall Manager, see [Azure Firewall Manager](../firewall-manager/overview.md).
 
-All events are integrated with Azure Monitor, allowing you to archive logs to a storage account, stream events to your Event Hub, or send them to Azure Monitor logs.
+## Pricing and SLA
+
+For Azure Firewall pricing information, see [Azure Firewall pricing](https://azure.microsoft.com/pricing/details/azure-firewall/).
+
+For Azure Firewall SLA information, see [Azure Firewall SLA](https://azure.microsoft.com/support/legal/sla/azure-firewall/).
+
+## Supported regions
+
+For the supported regions for Azure Firewall, see [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-firewall).
+
+## What's new
+
+To learn what's new with Azure Firewall, see [Azure updates](https://azure.microsoft.com/updates/?category=networking&query=Azure%20Firewall).
+
 
 ## Known issues
 
-Azure Firewall has the following known issues:
+For Azure Firewall known issues, see [Azure Firewall known issues](firewall-known-issues.md)
 
-|Issue  |Description  |Mitigation  |
-|---------|---------|---------|
-|Conflict with Azure Security Center (ASC) Just-in-Time (JIT) feature|If a virtual machine is accessed using JIT, and is in a subnet with a user-defined route that points to Azure Firewall as a default gateway, ASC JIT doesn’t work. This is a result of asymmetric routing – a packet comes in via the virtual machine public IP (JIT opened the access), but the return path is via the firewall, which drops the packet because there's no established session on the firewall.|To work around this issue, place the JIT virtual machines on a separate subnet that doesn’t have a user-defined route to the firewall.|
-Network filtering rules for non-TCP/UDP protocols (for example ICMP) don't work for Internet bound traffic|Network filtering rules for non-TCP/UDP protocols don’t work with SNAT to your public IP address. Non-TCP/UDP protocols are supported between spoke subnets and VNets.|Azure Firewall uses the Standard Load Balancer, [which doesn't support SNAT for IP protocols today](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview#limitations). We're exploring options to support this scenario in a future release.|
-|Missing PowerShell and CLI support for ICMP|Azure PowerShell and CLI don’t support ICMP as a valid protocol in network rules.|It's still possible to use ICMP as a protocol via the portal and the REST API. We're working to add ICMP in PowerShell and CLI soon.|
-|FQDN tags require a protocol: port to be set|Application rules with FQDN tags require port: protocol definition.|You can use **https** as the port: protocol value. We're working to make this field optional when FQDN tags are used.|
-|Moving a firewall to a different resource group or subscription isn't supported|Moving a firewall to a different resource group or subscription isn't supported.|Supporting this functionality is on our road map. To move a firewall to a different resource group or subscription, you must delete the current instance and recreate it in the new resource group or subscription.|
-|Port range in network and application rules|Ports are limited to 64,000 as high ports are reserved for management and health probes. |We're working to relax this limitation.|
-|Threat intelligence alerts may get masked|Network rules with destination 80/443 for outbound filtering masks threat intelligence alerts when configured to alert only mode.|Create outbound filtering for 80/443 using application rules. Or, change the threat intelligence mode to **Alert and Deny**.|
-|Azure Firewall uses Azure DNS only for name resolution|Azure Firewall resolves FQDNs using Azure DNS only. A custom DNS server isn't supported. There's no impact on DNS resolution on other subnets.|We're working to relax this limitation.|
-|Azure Firewall SNAT/DNAT doesn't work for private IP destinations|Azure Firewall SNAT/DNAT support is limited to Internet egress/ingress. SNAT/DNAT doesn't currently work for private IP destinations. For example, spoke to spoke.|This is on the road map for a future update.
 ## Next steps
 
+- [Quickstart: Create an Azure Firewall and a firewall policy - ARM template](../firewall-manager/quick-firewall-policy.md)
+- [Quickstart: Deploy Azure Firewall with Availability Zones - ARM template](deploy-template.md)
 - [Tutorial: Deploy and configure Azure Firewall using the Azure portal](tutorial-firewall-deploy-portal.md)
-- [Deploy Azure Firewall using a template](deploy-template.md)
-- [Create an Azure Firewall test environment](scripts/sample-create-firewall-test.md)
+- [Learn module: Introduction to Azure Firewall](/training/modules/introduction-azure-firewall/)
+- [Learn more about Azure network security](../networking/security/index.yml)

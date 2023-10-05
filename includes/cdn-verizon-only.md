@@ -3,7 +3,7 @@ title: include file
 description: include file
 services: cdn
 author: SyntaxC4
-ms.service: cdn
+ms.service: azure-cdn
 ms.topic: include
 ms.date: 04/13/2018
 ms.author: cfowler

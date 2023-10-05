@@ -1,12 +1,12 @@
 ---
-title: Choose a real-time analytics and streaming processing technology on Azure
+title: Choose a real-time and stream processing solution on Azure
 description: Learn about how to choose the right real-time analytics and streaming processing technology to build your application on Azure.
-author: zhongc
-ms.author: zhongc
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
+ms.custom: event-tier1-build-2022
 ms.topic: conceptual
-ms.date: 05/15/2019
+ms.date: 05/10/2022
 ---
 
 # Choose a real-time analytics and streaming processing technology on Azure
@@ -23,7 +23,7 @@ Azure Stream Analytics is the recommended service for stream analytics on Azure.
 * [Event Sourcing pattern](/azure/architecture/patterns/event-sourcing)
 * [IoT Edge](stream-analytics-edge.md)
 
-Adding an Azure Stream Analytics job to your application is the fastest way to get streaming analytics up and running in Azure, using the SQL language you already know. Azure Stream Analytics is a job service, so you don't have to spend time managing clusters, and you don't have to worry about downtime with a 99.9% SLA at the job level. Billing is also done at the job level making startup costs low (one Streaming Unit), but scalable (up to 192 Streaming Units). It's much more cost effective to run a few Stream Analytics jobs than it is to run and maintain a cluster.
+Adding an Azure Stream Analytics job to your application is the fastest way to get streaming analytics up and running in Azure, using the SQL language you already know. Azure Stream Analytics is a job service, so you don't have to spend time managing clusters, and you don't have to worry about downtime with a 99.9% SLA at the job level. Billing is also done at the job level making startup costs low (one Streaming Unit), but scalable (up to 396 Streaming Units). It's much more cost effective to run a few Stream Analytics jobs than it is to run and maintain a cluster.
 
 Azure Stream Analytics has a rich out-of-the-box experience. You can immediately take advantage of the following features without any additional setup:
 
@@ -36,10 +36,6 @@ Azure Stream Analytics has a rich out-of-the-box experience. You can immediately
 * Under 100-ms end-to-end latency from input arriving at Event Hubs, to output landing in Event Hubs, including the network delay from and to Event Hubs, at sustained high throughput
 
 ## When to use other technologies
-
-### You need to input from or output to Kafka
-
-Azure Stream Analytics doesn't have an Apache Kafka input or output adapter. If you have events landing in or need to send to Kafka and you don't have a requirement to run your own Kafka cluster, you can continue to use Stream Analytics by sending events to Event Hubs using the Event Hubs Kafka API without changing the event sender. If you do need to run your own Kafka cluster, you can use Spark Structured Streaming, which is fully supported on [Azure Databricks](../azure-databricks/index.yml), or Storm on [Azure HDInsight](../hdinsight/storm/apache-storm-tutorial-get-started-linux.md).
 
 ### You want to write UDFs, UDAs, and custom deserializers in a language other than JavaScript or C#
 
@@ -54,4 +50,4 @@ Azure Stream Analytics is Microsoft's proprietary technology and is only availab
 * [Create a Stream Analytics job by using the Azure portal](stream-analytics-quick-create-portal.md)
 * [Create a Stream Analytics job by using Azure PowerShell](stream-analytics-quick-create-powershell.md)
 * [Create a Stream Analytics job by using Visual Studio](stream-analytics-quick-create-vs.md)
-* [Create a Stream Analytics job by using Visual Studio Code](quick-create-vs-code.md)
+* [Create a Stream Analytics job by using Visual Studio Code](quick-create-visual-studio-code.md)

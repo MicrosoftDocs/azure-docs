@@ -1,30 +1,26 @@
 ---
-title: 'Data Transformation: Process & transform data | Microsoft Docs'
-description: Learn how to transform data or process data in Azure Data Factory using Hadoop, Machine Learning, or Azure Data Lake Analytics.
-services: data-factory
-documentationcenter: ''
-author: sharonlo101
-manager: craigg
-
-
-ms.assetid: 39786731-1e4b-40a4-81b7-d06e127427aa
+title: 'Data Transformation: Process & transform data '
+description: Learn how to transform data or process data in Azure Data Factory using Hadoop, ML Studio (classic), or Azure Data Lake Analytics.
+author: dcstwh
+ms.author: weetok
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-
+ms.subservice: v1
+ms.custom: devx-track-dotnet
 ms.topic: conceptual
-ms.date: 01/10/2018
-ms.author: shlo
-
-robots: noindex
+ms.date: 04/12/2023
 ---
-# Transform data in Azure Data Factory
+
+# Transform data in Azure Data Factory version 1
+
+[!INCLUDE[ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)] 
+
 > [!div class="op_single_selector"]
 > * [Hive](data-factory-hive-activity.md)  
 > * [Pig](data-factory-pig-activity.md)  
 > * [MapReduce](data-factory-map-reduce.md)  
 > * [Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
-> * [Machine Learning](data-factory-azure-ml-batch-execution-activity.md) 
+> * [ML Studio (classic)](data-factory-azure-ml-batch-execution-activity.md) 
 > * [Stored Procedure](data-factory-stored-proc-activity.md)
 > * [Data Lake Analytics U-SQL](data-factory-usql-activity.md)
 > * [.NET custom](data-factory-use-custom-activities.md)
@@ -57,15 +53,18 @@ The HDInsight Streaming Activity in a Data Factory pipeline executes Hadoop Stre
 ## HDInsight Spark Activity
 The HDInsight Spark activity in a Data Factory pipeline executes Spark programs on your own HDInsight cluster. For details, see [Invoke Spark programs from Azure Data Factory](data-factory-spark.md). 
 
-## Machine Learning activities
-Azure Data Factory enables you to easily create pipelines that use a published Azure Machine Learning web service for predictive analytics. Using the [Batch Execution Activity](data-factory-azure-ml-batch-execution-activity.md#invoking-a-web-service-using-batch-execution-activity) in an Azure Data Factory pipeline, you can invoke a Machine Learning web service to make predictions on the data in batch.
+## ML Studio (classic) activities
 
-Over time, the predictive models in the Machine Learning scoring experiments need to be retrained using new input datasets. After you are done with retraining, you want to update the scoring web service with the retrained Machine Learning model. You can use the [Update Resource Activity](data-factory-azure-ml-batch-execution-activity.md#updating-models-using-update-resource-activity) to update the web service with the newly trained model.  
+[!INCLUDE[ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)] 
 
-See [Use Machine Learning activities](data-factory-azure-ml-batch-execution-activity.md) for details about these Machine Learning activities. 
+Azure Data Factory enables you to easily create pipelines that use a published ML Studio (classic) web service for predictive analytics. Using the [Batch Execution Activity](data-factory-azure-ml-batch-execution-activity.md#invoking-a-web-service-using-batch-execution-activity) in an Azure Data Factory pipeline, you can invoke a Studio (classic) web service to make predictions on the data in batch.
+
+Over time, the predictive models in the Studio (classic) scoring experiments need to be retrained using new input datasets. After you are done with retraining, you want to update the scoring web service with the retrained machine learning model. You can use the [Update Resource Activity](data-factory-azure-ml-batch-execution-activity.md#updating-models-using-update-resource-activity) to update the web service with the newly trained model.  
+
+See [Use ML Studio (classic) activities](data-factory-azure-ml-batch-execution-activity.md) for details about these Studio (classic) activities. 
 
 ## Stored procedure activity
-You can use the SQL Server Stored Procedure activity in a Data Factory pipeline to invoke a stored procedure in one of the following data stores: Azure SQL Database, Azure SQL Data Warehouse, SQL Server Database in your enterprise or an Azure VM. See [Stored Procedure Activity](data-factory-stored-proc-activity.md) article for details.  
+You can use the SQL Server Stored Procedure activity in a Data Factory pipeline to invoke a stored procedure in one of the following data stores: Azure SQL Database, Azure Synapse Analytics, SQL Server Database in your enterprise or an Azure VM. See [Stored Procedure Activity](data-factory-stored-proc-activity.md) article for details.  
 
 ## Data Lake Analytics U-SQL activity
 Data Lake Analytics U-SQL Activity runs a U-SQL script on an Azure Data Lake Analytics cluster. See [Data Analytics U-SQL Activity](data-factory-usql-activity.md) article for details. 
@@ -73,7 +72,7 @@ Data Lake Analytics U-SQL Activity runs a U-SQL script on an Azure Data Lake Ana
 ## .NET custom activity
 If you need to transform data in a way that is not supported by Data Factory, you can create a custom activity with your own data processing logic and use the activity in the pipeline. You can configure the custom .NET activity to run using either an Azure Batch service or an Azure HDInsight cluster. See [Use custom activities](data-factory-use-custom-activities.md) article for details. 
 
-You can create a custom activity to run R scripts on your HDInsight cluster with R installed. See [Run R Script using Azure Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample). 
+You can create a custom activity to run R scripts on your HDInsight cluster with R installed. See [Run R Script using Azure Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample). 
 
 ## Compute environments
 You create a linked service for the compute environment and then use the linked service when defining a transformation activity. There are two types of compute environments supported by Data Factory. 
@@ -92,8 +91,7 @@ Azure Data Factory supports the following data transformation activities and the
 | [Pig](data-factory-pig-activity.md) |HDInsight [Hadoop] |
 | [MapReduce](data-factory-map-reduce.md) |HDInsight [Hadoop] |
 | [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) |HDInsight [Hadoop] |
-| [Machine Learning activities: Batch Execution and Update Resource](data-factory-azure-ml-batch-execution-activity.md) |Azure VM |
-| [Stored Procedure](data-factory-stored-proc-activity.md) |Azure SQL, Azure SQL Data Warehouse, or SQL Server |
+| [ML Studio (classic) activities: Batch Execution and Update Resource](data-factory-azure-ml-batch-execution-activity.md) |Azure VM |
+| [Stored Procedure](data-factory-stored-proc-activity.md) |Azure SQL, Azure Synapse Analytics, or SQL Server |
 | [Data Lake Analytics U-SQL](data-factory-usql-activity.md) |Azure Data Lake Analytics |
 | [DotNet](data-factory-use-custom-activities.md) |HDInsight [Hadoop] or Azure Batch |
-

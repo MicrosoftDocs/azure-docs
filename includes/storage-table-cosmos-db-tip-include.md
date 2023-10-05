@@ -1,10 +1,10 @@
 ---
 author: tamram
-ms.service: storage
+ms.service: azure-storage
 ms.topic: include
-ms.date: 10/26/2018
+ms.date: 05/27/2021
 ms.author: tamram
 ---
+
 > [!TIP]
-> The content in this article applies to the original Azure Table storage. However, there is now a premium offering for table storage, the Azure Cosmos DB Table API that offers throughput-optimized tables, global distribution, and automatic secondary indexes. There are some feature [differences between Table API in Azure Cosmos DB and Azure table storage](../articles/cosmos-db/faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior), to learn more and try out the premium experience, please check out [Azure Cosmos DB Table API](https://aka.ms/premiumtables). 
->
+> The content in this article applies to the original Azure Table storage. However, the same concepts apply to the newer Azure Cosmos DB for Table, which offers higher performance and availability, global distribution, and automatic secondary indexes. It is also available in a consumption-based [serverless](../articles/cosmos-db/serverless.md) mode. There are some [feature differences](../articles/cosmos-db/table/introduction.md) between Table API in Azure Cosmos DB and Azure Table storage. For more information, see [Azure Cosmos DB for Table](../articles/cosmos-db/table-introduction.md). For ease of development, we now provide a unified [Azure Tables SDK](https://devblogs.microsoft.com/azure-sdk/announcing-the-new-azure-data-tables-libraries/) that can be used to target both Azure Table storage and Azure Cosmos DB for Table.

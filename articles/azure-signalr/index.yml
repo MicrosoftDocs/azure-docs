@@ -1,79 +1,150 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure SignalR Service Documentation
+### YamlMime:Landing
+
+title: Azure SignalR Service documentation
+summary: Azure SignalR Service is an Azure-managed service that helps developers easily build web applications with real-time features.
+
 metadata:
-  document_id: 44409b3f-ab8c-053d-cdf4-5d7e823a275f
-  title: Azure SignalR Service Documentation - Tutorials, API Reference
-  meta.description: Azure SignalR Service is an Azure managed service that helps developers easily build web applications with real-time features. This service is based on ASP.NET Core SignalR which is an open source library that simplifies adding real-time web functionality to applications.
-  services: azure-signalr
-  author: v-chmccl
-  manager: wesmc
+  title: Azure SignalR Service documentation
+  description: Build and scale real-time web app easily in serverless or server mode. Based on WebSocket supporting broad range of languages and frameworks.
   ms.service: signalr
-  ms.tgt_pltfrm: na
   ms.topic: landing-page
-  ms.date: 09/12/2018
-  ms.author: wesmc
-abstract:
-  description: Azure SignalR Service is an Azure managed service that helps developers easily build web applications with real-time features.
-sections:
-- title: 5-Minute Quickstarts
-  items:
-  - type: paragraph
-    text: 'Learn how to develop your first web application using Azure SignalR Service for real-time communications:'
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: https://docs.microsoft.com/media/logos/logo_NETcore.svg
-      text: ASP.NET Core
-      href: /azure/azure-signalr/signalr-quickstart-dotnet-core
-    - image: 
-        src: https://docs.microsoft.com/media/logos/logo_js.svg
-      text: JavaScript
-      href: /azure/azure-signalr/signalr-quickstart-azure-functions-javascript
-    - image: 
-        src: https://docs.microsoft.com/media/logos/logo_Csharp.svg
-      text: C#
-      href: /azure/azure-signalr/signalr-quickstart-azure-functions-csharp
-    - image: 
-        src: https://docs.microsoft.com/azure/media/index/logo_java.svg
-      text: Java
-      href: /azure/azure-signalr/signalr-quickstart-azure-functions-java
-    - image: 
-        src: https://docs.microsoft.com/media/logos/logo_REST.svg
-      text: REST API
-      href: /azure/azure-signalr/signalr-quickstart-rest-api
-- title: Step-by-step tutorials
-  items:
-  - type: paragraph
-    text: Learn how to build Azure SignalR Service applications
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="/azure/azure-signalr/signalr-authenticate-oauth">Integrate Azure SignalR Service with ASP.NET Core Identity</a>
-    - html: <a href="/azure/azure-signalr/signalr-tutorial-authenticate-azure-functions">Build a Serverless Real-time App with Authentication</a>
-- title: Samples
-  items:
-  - type: list
-    style: unordered
-    className: spaced noBullet
-    items:
-    - html: <a href="https://github.com/aspnet/AzureSignalR-samples">Azure SignalR Code Samples</a>
-    - html: <a href="/azure/azure-signalr/signalr-cli-samples">Azure CLI</a>
-- title: Reference
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Command-Line
-      html: <p><a href="signalr-reference-cli.md">Azure CLI</a></p>
-    - title: Languages 
-      html: >
-        <p><a href="https://docs.microsoft.com/aspnet/core">ASP.NET Core server SDK</a></p>
-        <p><a href="/azure/azure-functions/functions-bindings-signalr-service">Azure Functions bindings</a></p>
-        <p><a href="https://docs.microsoft.com/aspnet/core/signalr/javascript-client">JavaScript client</a></p>
-        <p><a href="https://docs.microsoft.com/aspnet/core/signalr/dotnet-client">.NET Standard client</a></p>
-        <p><a href="https://github.com/aspnet/SignalR/tree/release/2.2/clients/java/signalr">Java client</a></p>
-    - title: REST
-      html: <p><a href="https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md">REST API</a></p>
+  author: vicancy
+  ms.author: lianwei
+  ms.date: 05/22/2022
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+  # Card
+  - title: About Azure SignalR Service
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure SignalR Service?
+            url: signalr-overview.md
+      - linkListType: concept
+        links:
+          - text: Service mode
+            url: concept-service-mode.md
+          - text: Messages and connections
+            url: signalr-concept-messages-and-connections.md
+          - text: Service internals
+            url: signalr-concept-internals.md
+          - text: Azure SignalR service FAQ
+            url: signalr-resource-faq.yml
+
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: ASP.NET Core - C#
+            url: signalr-quickstart-dotnet-core.md
+          - text: ASP.NET - C#
+            url: signalr-quickstart-dotnet.md
+          - text: Azure Functions - JavaScript
+            url: signalr-quickstart-azure-functions-javascript.md
+          - text: Azure Functions - C#
+            url: signalr-quickstart-azure-functions-csharp.md
+          - text: Azure Functions - Java
+            url: signalr-quickstart-azure-functions-java.md
+          - text: Azure Functions - Python
+            url: signalr-quickstart-azure-functions-python.md
+          - text: Broadcast real-time messages from console app
+            url: signalr-quickstart-rest-api.md
+      - linkListType: deploy
+        links:
+          - text: Azure SignalR Service deployment - ARM template
+            url: signalr-quickstart-azure-signalr-service-arm-template.md
+
+  # Card
+  - title: Build Azure SignalR Service apps
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Integrate Azure SignalR Service with ASP.NET Core Identity
+            url: signalr-concept-authenticate-oauth.md
+          - text: Build a Serverless Real-time App with Authentication
+            url: signalr-tutorial-authenticate-azure-functions.md
+          - text: Build a Blazor server chat app
+            url: signalr-tutorial-build-blazor-server-chat-app.md
+      - linkListType: sample
+        links:
+          - text: Azure SignalR Code Samples
+            url: https://github.com/aspnet/AzureSignalR-samples
+  
+  # Card
+  - title: High availability
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Performance consideration
+            url: signalr-concept-performance.md
+      - linkListType: how-to-guide
+        links:
+          - text: Resiliency and disaster recovery
+            url: signalr-concept-disaster-recovery.md
+          - text: Autoscale
+            url: signalr-howto-scale-autoscale.md
+          - text: Server graceful shutdown
+            url: server-graceful-shutdown.md
+          - text: Availability Zones
+            url: availability-zones.md
+
+  # Card
+  - title: Serverless
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Serverless scenarios
+            url: signalr-concept-azure-functions.md
+      - linkListType: how-to-guide
+        links:
+          - text: Develop and configure with Azure Functions
+            url: signalr-concept-serverless-development-config.md
+          - text: Upstream endpoints
+            url: concept-upstream.md
+      - linkListType: reference
+        links:
+          - text: Azure Functions bindings
+            url: ../azure-functions/functions-bindings-signalr-service.md
+
+  # Card
+  - title: Common tasks
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Metrics
+            url: concept-metrics.md
+      - linkListType: how-to-guide
+        links:
+          - text: Use private endpoints
+            url: howto-private-endpoints.md
+          - text: Manage network acess
+            url: howto-network-access-control.md
+          - text: Custom domain
+            url: howto-custom-domain.md
+          - text: Managed identites
+            url: howto-use-managed-identity.md
+          - text: Availability Zones
+            url: availability-zones.md
+
+  # Card
+  - title: More resources
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Choose between Azure SignalR service and Azure Web PubSub service
+            url: signalr-resource-faq.yml#how-do-i-choose-between-azure-signalr-service-and-azure-web-pubsub-service-
+      - linkListType: how-to-guide
+        links:
+          - text: Troubleshooting guide
+            url: signalr-howto-troubleshoot-guide.md
+      - linkListType: reference
+        links:
+          - text: REST API
+            url: /rest/api/signalr/
+          - text: Azure CLI
+            url: /cli/azure/signalr?view=azure-cli-latest
+          - text: ASP.NET Core SignalR
+            url: /aspnet/core/signalr/introduction

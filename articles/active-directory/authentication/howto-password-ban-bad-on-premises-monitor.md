@@ -1,22 +1,24 @@
 ---
-title: Monitoring and logging in Azure AD Password Protection - Azure Active Directory
-description: Understand Azure AD Password Protection monitoring and logging
+title: Monitor on-premises Microsoft Entra Password Protection
+description: Learn how to monitor and review logs for Microsoft Entra Password Protection for an on-premises Active Directory Domain Services environment
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
-ms.date: 02/01/2019
+ms.topic: how-to
+ms.date: 01/29/2023
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
-manager: daveba
+ms.author: justinha
+author: justinha
+manager: amycolannino
 ms.reviewer: jsimmons
-ms.collection: M365-identity-device-management
----
-# Azure AD Password Protection monitoring and logging
 
-After the deployment of Azure AD Password Protection, monitoring and reporting are essential tasks. This article goes into detail to help you understand various monitoring techniques, including where each service logs information and how to report on the use of Azure AD Password Protection.
+ms.collection: M365-identity-device-management 
+ms.custom:
+---
+# Monitor and review logs for on-premises Microsoft Entra Password Protection environments
+
+After the deployment of Microsoft Entra Password Protection, monitoring and reporting are essential tasks. This article goes into detail to help you understand various monitoring techniques, including where each service logs information and how to report on the use of Microsoft Entra Password Protection.
 
 Monitoring and reporting are done either by event log messages or by running PowerShell cmdlets. The DC agent and proxy services both log event log messages. All PowerShell cmdlets described below are only available on the proxy server (see the AzureADPasswordProtection PowerShell module). The DC agent software does not install a PowerShell module.
 
@@ -59,17 +61,21 @@ Discrete events to capture these situations are logged, based around the followi
 
 The key password-validation-related events are as follows:
 
-|   |Password change |Password set|
+| Event |Password change |Password set|
 | --- | :---: | :---: |
 |Pass |10014 |10015|
 |Fail (due to customer password policy)| 10016, 30002| 10017, 30003|
 |Fail (due to Microsoft password policy)| 10016, 30004| 10017, 30005|
 |Fail (due to combined Microsoft and customer password policies)| 10016, 30026| 10017, 30027|
+|Fail (due to user name)| 10016, 30021| 10017, 30022|
 |Audit-only Pass (would have failed customer password policy)| 10024, 30008| 10025, 30007|
 |Audit-only Pass (would have failed Microsoft password policy)| 10024, 30010| 10025, 30009|
 |Audit-only Pass (would have failed combined Microsoft and customer password policies)| 10024, 30028| 10025, 30029|
+|Audit-only Pass (would have failed due to user name)| 10016, 30024| 10017, 30023|
 
 The cases in the table above that refer to "combined policies" are referring to situations where a user's password was found to contain at least one token from both the Microsoft banned password list and the customer banned password list.
+
+The cases in the table above that refer to "user name" are referring to situations where a user's password was found to contain either the user's account name and/or one of the user's friendly names. Either scenario will cause the user's password to be rejected when the policy is set to Enforce, or passed if the policy is in Audit mode.
 
 When a pair of events is logged together, both events are explicitly associated by having the same CorrelationId.
 
@@ -90,11 +96,14 @@ PasswordChangeErrors            : 0
 PasswordSetErrors               : 1
 ```
 
-The scope of the cmdlet’s reporting may be influenced using one of the –Forest, -Domain, or –DomainController parameters. Not specifying a parameter implies –Forest.
+The scope of the cmdlet's reporting may be influenced using one of the –Forest, -Domain, or –DomainController parameters. Not specifying a parameter implies –Forest.
 
-The `Get-AzureADPasswordProtectionSummaryReport` cmdlet works by querying the DC agent admin event log, and then counting the total number of events that correspond to each displayed outcome category. The following table contains the mappings between each outcome and its corresponding event id:
+> [!NOTE]
+> If you only install the DC agent on one DC, the Get-AzureADPasswordProtectionSummaryReport will read events only from that DC. To get events from multiple DCs, you'll need the DC agent installed on each DC.
 
-|Get-AzureADPasswordProtectionSummaryReport property |Corresponding event id|
+The `Get-AzureADPasswordProtectionSummaryReport` cmdlet works by querying the DC agent admin event log, and then counting the total number of events that correspond to each displayed outcome category. The following table contains the mappings between each outcome and its corresponding event ID:
+
+|Get-AzureADPasswordProtectionSummaryReport property |Corresponding event ID|
 | :---: | :---: |
 |PasswordChangesValidated |10014|
 |PasswordSetsValidated |10015|
@@ -113,38 +122,57 @@ Note that the `Get-AzureADPasswordProtectionSummaryReport` cmdlet is shipped in 
 > This cmdlet works by opening a PowerShell session to each domain controller. In order to succeed, PowerShell remote session support must be enabled on each domain controller, and the client must have sufficient privileges. For more information on PowerShell remote session requirements, run 'Get-Help about_Remote_Troubleshooting' in a PowerShell window.
 
 > [!NOTE]
-> This cmdlet works by remotely querying each DC agent service’s Admin event log. If the event logs contain large numbers of events, the cmdlet may take a long time to complete. In addition, bulk network queries of large data sets may impact domain controller performance. Therefore, this cmdlet should be used carefully in production environments.
+> This cmdlet works by remotely querying each DC agent service's Admin event log. If the event logs contain large numbers of events, the cmdlet may take a long time to complete. In addition, bulk network queries of large data sets may impact domain controller performance. Therefore, this cmdlet should be used carefully in production environments.
 
-### Sample event log message for Event ID 10014 (successful password change)
+### Sample event log messages
+
+#### Event ID 10014 (Successful password change)
 
 ```text
 The changed password for the specified user was validated as compliant with the current Azure password policy.
 
- UserName: BPL_02885102771
- FullName:
+UserName: SomeUser
+FullName: Some User
 ```
 
-### Sample event log message for Event ID 10017 and 30003 (failed password set)
-
-10017:
+#### Event ID 10017 (Failed password change):
 
 ```text
 The reset password for the specified user was rejected because it did not comply with the current Azure password policy. Please see the correlated event log message for more details.
 
- UserName: BPL_03283841185
- FullName:
+UserName: SomeUser
+FullName: Some User
 ```
 
-30003:
+#### Event ID 30003 (Failed password change):
 
 ```text
 The reset password for the specified user was rejected because it matched at least one of the tokens present in the per-tenant banned password list of the current Azure password policy.
 
- UserName: BPL_03283841185
- FullName:
+UserName: SomeUser
+FullName: Some User
 ```
 
-### Sample event log message for Event ID 30001 (password accepted due to no policy available)
+#### Event ID 10024 (Password accepted due to policy in audit only mode)
+
+``` text
+The changed password for the specified user would normally have been rejected because it did not comply with the current Azure password policy. The current Azure password policy is con-figured for audit-only mode so the password was accepted. Please see the correlated event log message for more details. 
+ 
+UserName: SomeUser
+FullName: Some User
+```
+
+#### Event ID 30008 (Password accepted due to policy in audit only mode)
+
+``` text
+The changed password for the specified user would normally have been rejected because it matches at least one of the tokens present in the per-tenant banned password list of the current Azure password policy. The current Azure password policy is configured for audit-only mode so the password was accepted. 
+
+UserName: SomeUser
+FullName: Some User
+
+```
+
+#### Event ID 30001 (Password accepted due to no policy available)
 
 ```text
 The password for the specified user was accepted because an Azure password policy is not available yet
@@ -171,7 +199,7 @@ This condition may be caused by one or more of the following reasons:%n
    Resolution steps: ensure network connectivity exists to the domain.
 ```
 
-### Sample event log message for Event ID 30006 (new policy being enforced)
+#### Event ID 30006 (New policy being enforced)
 
 ```text
 The service is now enforcing the following Azure password policy.
@@ -183,13 +211,14 @@ The service is now enforcing the following Azure password policy.
  Enforce tenant policy: 1
 ```
 
-### Sample event log message for Event ID 30019 (Azure AD Password Protection is disabled)
+<a name='event-id-30019-azure-ad-password-protection-is-disabled'></a>
+
+#### Event ID 30019 (Microsoft Entra Password Protection is disabled)
 
 ```text
 The most recently obtained Azure password policy was configured to be disabled. All passwords submitted for validation from this point on will automatically be considered compliant with no processing performed.
 
 No further events will be logged until the policy is changed.%n
-
 ```
 
 ## DC Agent Operational log
@@ -229,7 +258,7 @@ Text logging is disabled by default. A restart of the DC agent service is requir
 
 ## DC agent performance monitoring
 
-The DC agent service software installs a performance counter object named **Azure AD Password Protection**. The following perf counters are currently available:
+The DC agent service software installs a performance counter object named **Microsoft Entra Password Protection**. The following perf counters are currently available:
 
 |Perf counter name | Description|
 | --- | --- |
@@ -238,7 +267,7 @@ The DC agent service software installs a performance counter object named **Azur
 |Passwords rejected |This counter displays the total number of passwords that were rejected since last restart.|
 |Password filter requests in progress |This counter displays the number of password filter requests currently in progress.|
 |Peak password filter requests |This counter displays the peak number of concurrent password filter requests since the last restart.|
-|Password filter request errors |This counter displays the total number of password filter requests that failed due to an error since last restart. Errors can occur when the Azure AD Password Protection DC agent service is not running.|
+|Password filter request errors |This counter displays the total number of password filter requests that failed due to an error since last restart. Errors can occur when the Microsoft Entra Password Protection DC agent service is not running.|
 |Password filter requests/sec |This counter displays the rate at which passwords are being processed.|
 |Password filter request processing time |This counter displays the average time required to process a password filter request.|
 |Peak password filter request processing time |This counter displays the peak password filter request processing time since the last restart.|
@@ -261,11 +290,32 @@ HeartbeatUTC          : 2/16/2018 8:35:02 AM
 
 The various properties are updated by each DC agent service on an approximate hourly basis. The data is still subject to Active Directory replication latency.
 
-The scope of the cmdlet’s query may be influenced using either the –Forest or –Domain parameters.
+The scope of the cmdlet's query may be influenced using either the –Forest or –Domain parameters.
 
-If the HeartbeatUTC value gets stale, this may be a symptom that the Azure AD Password Protection DC Agent on that domain controller is not running, or has been uninstalled, or the machine was demoted and is no longer a domain controller.
+If the HeartbeatUTC value gets stale, this may be a symptom that the Microsoft Entra Password Protection DC Agent on that domain controller is not running, or has been uninstalled, or the machine was demoted and is no longer a domain controller.
 
-If the PasswordPolicyDateUTC value gets stale, this may be a symptom that the Azure AD Password Protection DC Agent on that machine has is not working properly.
+If the PasswordPolicyDateUTC value gets stale, this may be a symptom that the Microsoft Entra Password Protection DC Agent on that machine is not working properly.
+
+## DC agent newer version available
+
+The DC agent service will log a 30034 warning event to the Operational log upon detecting that a newer version of the DC agent software is available, for example:
+
+```text
+An update for Azure AD Password Protection DC Agent is available.
+
+If autoupgrade is enabled, this message may be ignored.
+
+If autoupgrade is disabled, refer to the following link for the latest version available:
+
+https://aka.ms/AzureADPasswordProtectionAgentSoftwareVersions
+
+Current version: 1.2.116.0
+```
+
+The event above does not specify the version of the newer software. You should go to the link in the event message for that information.
+
+> [!NOTE]
+> Despite the references to "autoupgrade" in the above event message, the DC agent software does not currently support this feature.
 
 ## Proxy service event logging
 
@@ -310,7 +360,7 @@ Text logging is disabled by default. A restart of the Proxy service is required 
 
 PowerShell cmdlets that result in a state change (for example, Register-AzureADPasswordProtectionProxy) will normally log an outcome event to the Operational log.
 
-In addition, most of the Azure AD Password Protection PowerShell cmdlets will write to a text log located under:
+In addition, most of the Microsoft Entra Password Protection PowerShell cmdlets will write to a text log located under:
 
 `%ProgramFiles%\Azure AD Password Protection Proxy\Logs`
 
@@ -318,7 +368,7 @@ If a cmdlet error occurs and the cause and\or solution is not readily apparent, 
 
 ## Proxy discovery
 
-The `Get-AzureADPasswordProtectionProxy` cmdlet may be used to display basic information about the various Azure AD Password Protection Proxy services running in a domain or forest. This information is retrieved from the serviceConnectionPoint object(s) registered by the running Proxy service(s).
+The `Get-AzureADPasswordProtectionProxy` cmdlet may be used to display basic information about the various Microsoft Entra Password Protection Proxy services running in a domain or forest. This information is retrieved from the serviceConnectionPoint object(s) registered by the running Proxy service(s).
 
 An example output of this cmdlet is as follows:
 
@@ -332,12 +382,33 @@ HeartbeatUTC          : 12/25/2018 6:35:02 AM
 
 The various properties are updated by each Proxy service on an approximate hourly basis. The data is still subject to Active Directory replication latency.
 
-The scope of the cmdlet’s query may be influenced using either the –Forest or –Domain parameters.
+The scope of the cmdlet's query may be influenced using either the –Forest or –Domain parameters.
 
-If the HeartbeatUTC value gets stale, this may be a symptom that the Azure AD Password Protection Proxy on that machine is not running or has been uninstalled.
+If the HeartbeatUTC value gets stale, this may be a symptom that the Microsoft Entra Password Protection Proxy on that machine is not running or has been uninstalled.
+
+## Proxy agent newer version available
+
+The Proxy service will log a 20002 warning event to the Operational log upon detecting that a newer version of the proxy software is available, for example:
+
+```text
+An update for Azure AD Password Protection Proxy is available.
+
+If autoupgrade is enabled, this message may be ignored.
+
+If autoupgrade is disabled, refer to the following link for the latest version available:
+
+https://aka.ms/AzureADPasswordProtectionAgentSoftwareVersions
+
+Current version: 1.2.116.0
+.
+```
+
+The event above does not specify the version of the newer software. You should go to the link in the event message for that information.
+
+This event will be emitted even if the Proxy agent is configured with autoupgrade enabled.
 
 ## Next steps
 
-[Troubleshooting for Azure AD Password Protection](howto-password-ban-bad-on-premises-troubleshoot.md)
+[Troubleshooting for Microsoft Entra Password Protection](howto-password-ban-bad-on-premises-troubleshoot.md)
 
 For more information on the global and custom banned password lists, see the article [Ban bad passwords](concept-password-ban-bad.md)

@@ -6,7 +6,7 @@
     href: overview.md
     expanded: true
   - name: Compare the Bing Search APIs
-    href: ../Bing-Web-Search/bing-api-comparison.md
+    href: ../bing-web-search/bing-api-comparison.md
 - name: Quickstarts
   items:
   - name: REST APIs
@@ -27,14 +27,8 @@
       href: quickstarts/ruby.md
   - name: SDKs
     items:
-    - name: C#
-      href: web-search-sdk-quickstart.md
-    - name: Java
-      href: web-sdk-java-quickstart.md
-    - name: Node.js
-      href: web-search-sdk-node-quickstart.md
-    - name: Python
-      href: web-sdk-python-quickstart.md
+    - name: Bing Web Search client libraries
+      href: ./quickstarts/client-libraries.md
 - name: Tutorials
   items:
   - name: Build a single-page web app
@@ -54,7 +48,7 @@
   - name: Handle hit highlighting
     href: hit-highlighting.md
   - name: Page through results
-    href: paging-webpages.md
+    href: paging-search-results.md
   - name: Resize and crop thumbnails
     href: resize-and-crop-thumbnails.md
   - name: Upgrade from v5 to v7
@@ -70,23 +64,23 @@
 - name: Reference
   items:
   - name: Bing Web Search API v7
-    href: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference
+    href: /rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference
   - name: Bing Web Search API v5
-    href: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v5-reference
+    href: /rest/api/cognitiveservices-bingsearch/bing-web-api-v5-reference
   - name: Azure CLI
-    href: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
+    href: /cli/azure/cognitiveservices#az_cognitiveservices_list
   - name: Azure PowerShell
-    href: https://aka.ms/azure-powershell-cognitiveservices
+    href: /powershell/module/azurerm.cognitiveservices/
   - name: SDKs
     items:
     - name: .NET
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingwebsearchapi?view=azure-dotnet
+      href: /dotnet/api/overview/azure/cognitiveservices/bing-web-search-api-readme
     - name: Java
-      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/websearch?view=azure-java-stable
-    - name: Python 
-      href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/websearch?view=azure-python
-    - name: Node.js 
-      href: https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/websearch?view=azure-node-latest
+      href: /java/api/overview/azure/cognitiveservices/client/bingwebsearchapi
+    - name: Python
+      href: /python/api/azure-cognitiveservices-search-websearch/
+    - name: Node.js
+      href: /javascript/api/@azure/cognitiveservices-websearch/
     - name: Go
       href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/websearch
   - name: Use and display requirements
@@ -94,14 +88,14 @@
 - name: Resources
   items:
   - name: Get API key
-    href: https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api
+    href: https://azure.microsoft.com/free/cognitive-services
   - name: Bing Web Search endpoint
     href: web-search-endpoints.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/search-api/web/
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/
-  - name: Language and region support
+  - name: Language support
     href: language-support.md
   - name: Analytics for Bing Web Search API
     href: bing-web-stats.md
@@ -109,11 +103,7 @@
     href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
   - name: Support
     items:
-    - name: User Voice Forum
-      href: https://cognitive.uservoice.com/forums/555907-bing-web-search-api
     - name: Stack Overflow
       href: https://stackoverflow.com/search?q=bing+web+search
-    - name: Knowledge Base
-      href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/

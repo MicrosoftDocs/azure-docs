@@ -1,163 +1,173 @@
 ---
-title: Synonyms for query expansion over a search index - Azure Search
-description: Create a synonym map to expand the scope of a search query on an Azure Search index. Scope is broadened to include equivalent terms you provide in a list.
-author: brjohnstmsft
-services: search
-ms.service: search
-ms.devlang: rest-api
+title: Synonyms for query expansion over a search index
+titleSuffix: Azure Cognitive Search
+description: Create a synonym map to expand the scope of a search query on an Azure Cognitive Search index. Scope is broadened to include equivalent terms you provide in a list.
+
+manager: nitinme
+author: HeidiSteen
+ms.author: heidist
+ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/02/2019
-manager: jlembicz
-ms.author: brjohnst
-ms.custom: seodec2018
+ms.date: 09/12/2022
 ---
-# Synonyms in Azure Search
+# Synonyms in Azure Cognitive Search
 
-Synonyms in search engines associate equivalent terms that implicitly expand the scope of a query, without the user having to actually provide the term. For example, given the term "dog" and synonym associations of "canine" and "puppy", any documents containing "dog", "canine" or "puppy" will fall within the scope of the query.
-
-In Azure Search, synonym expansion is done at query time. You can add synonym maps to a service with no disruption to existing operations. You can add a  **synonymMaps** property to a field definition without having to rebuild the index.
+Within a search service, synonym maps are a global resource that associate equivalent terms, expanding the scope of a query without the user having to actually provide the term. For example, assuming "dog", "canine", and "puppy" are mapped synonyms, a query on "canine" will match on a document containing "dog".
 
 ## Create synonyms
 
-There is no portal support for creating synonyms but you can use the REST API or .NET SDK. To get started with REST, we recommend [using Postman](search-fiddler.md) and formulation of requests using this API: [Create Synonym Maps](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). For C# developers, you can get started with [Add Synonyms in Azure Searching using C#](search-synonyms-tutorial-sdk.md).
+A synonym map is an asset that can be created once and used by many indexes. The [service tier](search-limits-quotas-capacity.md#synonym-limits) determines how many synonym maps you can create, ranging from three synonym maps for Free and Basic tiers, up to 20 for the Standard tiers. 
 
-Optionally, if you are using [customer-managed keys](search-security-manage-encryption-keys.md) for service-side encryption-at-rest, you can apply that protection to the contents of your synonym map.
+You might create multiple synonym maps for different languages, such as English and French versions, or lexicons if your content includes technical or obscure terminology. Although you can create multiple synonym maps in your search service, within an index, a field definition can only have one synonym map assignment.
 
-## Use synonyms
+A synonym map consists of name, format, and rules that function as synonym map entries. The only format that is supported is `solr`, and the `solr` format determines rule construction.
 
-In Azure Search, synonym support is based on synonym maps that you define and upload to your service. These maps constitute an independent resource (like indexes or data sources), and can be used by any searchable field in any index in your search service.
-
-Synonym maps and indexes are maintained independently. Once you define a synonym map and upload it to your service, you can enable the synonym feature on a field by adding a new property called **synonymMaps** in the field definition. Creating, updating, and deleting a synonym map is always a whole-document operation, meaning that you cannot create, update or delete parts of the synonym map incrementally. Updating even a single entry requires a reload.
-
-Incorporating synonyms into your search application is a two-step process:
-
-1.	Add a synonym map to your search service through the APIs below.  
-
-2.	Configure a searchable field to use the synonym map in the index definition.
-
-### SynonymMaps Resource APIs
-
-#### Add or update a synonym map under your service, using POST or PUT.
-
-Synonym maps are uploaded to the service via POST or PUT. Each rule must be delimited by the new line character ('\n'). You can define up to 5,000 rules per synonym map in a free service and 10,000 rules in all other SKUs. Each rule can have up to 20 expansions.
-
-Synonym maps must be in the Apache Solr format which is explained below. If you have an existing synonym dictionary in a different format and want to use it directly, please let us know on [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
-
-You can create a new synonym map using HTTP POST, as in the following example:
-
-	POST https://[servicename].search.windows.net/synonymmaps?api-version=2019-05-06
-	api-key: [admin key]
-
-	{
-	   "name":"mysynonymmap",
-	   "format":"solr",
-	   "synonyms": "
-	      USA, United States, United States of America\n
-	      Washington, Wash., WA => WA\n"
-	}
-
-Alternatively, you can use PUT and specify the synonym map name on the URI. If the synonym map does not exist, it will be created.
-
-	PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2019-05-06
-	api-key: [admin key]
-
-    {
-       "format":"solr",
-       "synonyms": "
-	      USA, United States, United States of America\n
-	      Washington, Wash., WA => WA\n"
-    }
-
-##### Apache Solr synonym format
-
-The Solr format supports equivalent and explicit synonym mappings. Mapping rules adhere to the open-source synonym filter specification of Apache Solr, described in this document: [SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter). Below is a sample rule for equivalent synonyms.
-```
-USA, United States, United States of America
+```http
+POST /synonymmaps?api-version=2020-06-30
+{
+    "name": "geo-synonyms",
+    "format": "solr",
+    "synonyms": "
+        USA, United States, United States of America\n
+        Washington, Wash., WA => WA\n"
+}
 ```
 
-With the rule above, a search query "USA" will expand to "USA" OR "United States" OR "United States of America".
+To create a synonym map, do so programmatically (the portal doesn't support synonym map definitions):
 
-Explicit mapping is denoted by an arrow "=>". When specified, a term sequence of a search query that matches the left-hand side of "=>" will be replaced with the alternatives on the right-hand side. Given the rule below, search queries "Washington", "Wash." or "WA" will all be rewritten to "WA". Explicit mapping only applies in the direction specified and does not rewrite the query "WA" to "Washington" in this case.
++ [Create Synonym Map (REST API)](/rest/api/searchservice/create-synonym-map). This reference is the most descriptive.
++ [SynonymMap class (.NET)](/dotnet/api/azure.search.documents.indexes.models.synonymmap) and [Add Synonyms using C#](search-synonyms-tutorial-sdk.md)
++ [SynonymMap class (Python)](/python/api/azure-search-documents/azure.search.documents.indexes.models.synonymmap)
++ [SynonymMap interface (JavaScript)](/javascript/api/@azure/search-documents/synonymmap)
++ [SynonymMap class (Java)](/java/api/com.azure.search.documents.indexes.models.synonymmap)
+
+## Define rules
+
+Mapping rules adhere to the open-source synonym filter specification of Apache Solr, described in this document: [SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter). The `solr` format supports two kinds of rules:
+
++ equivalency (where terms are equal substitutes in the query)
+
++ explicit mappings (where terms are mapped to one explicit term prior to querying)
+
+Each rule must be delimited by the new line character (`\n`). You can define up to 5,000 rules per synonym map in a free service and 20,000 rules per map in other tiers. Each rule can have up to 20 expansions (or items in a rule). For more information, see [Synonym limits](search-limits-quotas-capacity.md#synonym-limits).
+
+Query parsers will lower-case any upper or mixed case terms, but if you want to preserve special characters in the string, such as a comma or dash, add the appropriate escape characters when creating the synonym map.
+
+### Equivalency rules
+
+Rules for equivalent terms are comma-delimited within the same rule. In the first example, a query on `USA` will expand to `USA` OR `"United States"` OR `"United States of America"`. Notice that if you want to match on a phrase, the query itself must be a quote-enclosed phrase query.
+
+In the equivalence case, a query for `dog` will expand the query to also include `puppy` and `canine`.
+
+```json
+{
+"format": "solr",
+"synonyms": "
+    USA, United States, United States of America\n
+    dog, puppy, canine\n
+    coffee, latte, cup of joe, java\n"
+}
 ```
-Washington, Wash., WA => WA
+
+### Explicit mapping
+
+Rules for an explicit mapping are denoted by an arrow `=>`. When specified, a term sequence of a search query that matches the left-hand side of `=>` will be replaced with the alternatives on the right-hand side at query time.
+
+In the explicit case, a query for `Washington`, `Wash.` or `WA` will be rewritten as `WA`, and the query engine will only look for matches on the term `WA`. Explicit mapping only applies in the direction specified, and doesn't rewrite the query `WA` to `Washington` in this case.
+
+```json
+{
+"format": "solr",
+"synonyms": "
+    Washington, Wash., WA => WA\n
+    California, Calif., CA => CA\n"
+}
 ```
 
-#### List synonym maps under your service.
+### Escaping special characters
 
-	GET https://[servicename].search.windows.net/synonymmaps?api-version=2019-05-06
-	api-key: [admin key]
+In full text search, synonyms are analyzed during query processing just like any other query term, which means that rules around reserved and special characters apply to the terms in your synonym map. The list of characters that requires escaping varies between the simple syntax and full syntax:
 
-#### Get a synonym map under your service.
++ [simple syntax](query-simple-syntax.md)  `+ | " ( ) ' \`
++ [full syntax](query-lucene-syntax.md) `+ - & | ! ( ) { } [ ] ^ " ~ * ? : \ /`
 
-	GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2019-05-06
-	api-key: [admin key]
+Recall that if you need to preserve characters that would otherwise be discarded by the default analyzer during indexing, you should substitute an analyzer that preserves them. Some choices include Microsoft natural [language analyzers](index-add-language-analyzers.md), which preserves hyphenated words, or a custom analyzer for more complex patterns. For more information, see [Partial terms, patterns, and special characters](search-query-partial-matching.md).
 
-#### Delete a synonyms map under your service.
+The following example shows an example of how to escape a character with a backslash:
 
-	DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2019-05-06
-	api-key: [admin key]
+```json
+{
+"format": "solr",
+"synonyms": "WA\, USA, WA, Washington\n"
+}
+```
 
-### Configure a searchable field to use the synonym map in the index definition.
+Since the backslash is itself a special character in other languages like JSON and C#, you'll probably need to double-escape it. For example, the JSON sent to the REST API for the above synonym map would look like this:
 
-A new field property **synonymMaps** can be used to specify a synonym map to use for a searchable field. Synonym maps are service level resources and can be referenced by any field of an index under the service.
+```json
+{
+"format":"solr",
+"synonyms": "WA\\, USA, WA, Washington"
+}
+```
 
-	POST https://[servicename].search.windows.net/indexes?api-version=2019-05-06
-	api-key: [admin key]
+## Upload and manage synonym maps
 
-	{
-	   "name":"myindex",
-	   "fields":[
-	      {
-	         "name":"id",
-	         "type":"Edm.String",
-	         "key":true
-	      },
-	      {
-	         "name":"name",
-	         "type":"Edm.String",
-	         "searchable":true,
-	         "analyzer":"en.lucene",
-	         "synonymMaps":[
-	            "mysynonymmap"
-	         ]
-	      },
-	      {
-	         "name":"name_jp",
-	         "type":"Edm.String",
-	         "searchable":true,
-	         "analyzer":"ja.microsoft",
-	         "synonymMaps":[
-	            "japanesesynonymmap"
-	         ]
-	      }
-	   ]
-	}
+As mentioned previously, you can create or update a synonym map without disrupting query and indexing workloads. A synonym map is a standalone object (like indexes or data sources), and as long as no field is using it, updates won't cause indexing or queries to fail. However, once you add a synonym map to a field definition, if you then delete a synonym map, any query that includes the fields in question will fail with a 404 error.
 
-**synonymMaps** can be specified for searchable fields of the type 'Edm.String' or 'Collection(Edm.String)'.
+Creating, updating, and deleting a synonym map is always a whole-document operation, meaning that you can't update or delete parts of the synonym map incrementally. Updating even a single rule requires a reload.
 
-> [!NOTE]
-> You can only have one synonym map per field. If you want to use multiple synonym maps, please let us know on [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
+## Assign synonyms to fields
 
-## Impact of synonyms on other search features
+After uploading a synonym map, you can enable the synonyms on fields of the type `Edm.String` or `Collection(Edm.String)`, on fields having `"searchable":true`. As noted, a field definition can use only one synonym map.
 
-The synonyms feature rewrites the original query with synonyms with the OR operator. For this reason, hit highlighting and scoring profiles treat the original term and synonyms as equivalent.
+```http
+POST /indexes?api-version=2020-06-30
+{
+    "name":"hotels-sample-index",
+    "fields":[
+        {
+            "name":"description",
+            "type":"Edm.String",
+            "searchable":true,
+            "synonymMaps":[
+            "en-synonyms"
+            ]
+        },
+        {
+            "name":"description_fr",
+            "type":"Edm.String",
+            "searchable":true,
+            "analyzer":"fr.microsoft",
+            "synonymMaps":[
+            "fr-synonyms"
+            ]
+        }
+    ]
+}
+```
 
-Synonym feature applies to search queries and does not apply to filters or facets. Similarly, suggestions are based only on the original term; synonym matches do not appear in the response.
+## Query on equivalent or mapped fields
 
-Synonym expansions do not apply to wildcard search terms; prefix, fuzzy, and regex terms aren't expanded.
+Adding synonyms doesn't impose new requirements on query construction. You can issue term and phrase queries just as you did before the addition of synonyms. The only difference is that if a query term exists in the synonym map, the query engine will either expand or rewrite the term or phrase, depending on the rule.
+
+## How synonyms are used during query execution
+
+Synonyms are a query expansion technique that supplements the contents of an index with equivalent terms, but only for fields that have a synonym assignment. If a field-scoped query *excludes* a synonym-enabled field, you won't see matches from the synonym map.
+
+For synonym-enabled fields, synonyms are subject to the same text analysis as the associated field. For example, if a field is analyzed using the standard Lucene analyzer, synonym terms will also be subject to the standard Lucene analyzer at query time. If you want to preserve punctuation, such as periods or dashes, in the synonym term, apply a content-preserving analyzer on the field.
+
+Internally, the synonyms feature rewrites the original query with synonyms with the OR operator. For this reason, hit highlighting and scoring profiles treat the original term and synonyms as equivalent.
+
+Synonyms apply to free-form text queries only and aren't supported for filters, facets, autocomplete, or suggestions. Autocomplete and suggestions are based only on the original term; synonym matches don't appear in the response.
+
+Synonym expansions don't apply to wildcard search terms; prefix, fuzzy, and regex terms aren't expanded.
 
 If you need to do a single query that applies synonym expansion and wildcard, regex, or fuzzy searches, you can combine the queries using the OR syntax. For example, to combine synonyms with wildcards for simple query syntax, the term would be `<query> | <query>*`.
 
-## Tips for building a synonym map
-
-- A concise, well-designed synonym map is more efficient than an exhaustive list of possible matches. Excessively large or complex dictionaries take longer to parse and affect the query latency if the query expands to many synonyms. Rather than guess at which terms might be used, you can get the actual terms via a [search traffic analysis report](search-traffic-analytics.md).
-
-- As both a preliminary and validation exercise, enable and then use this report to precisely determine which terms will benefit from a synonym match, and then continue to use it as validation that your synonym map is producing a better outcome. In the predefined report, the tiles "Most common search queries" and "Zero-result search queries" will give you the necessary information.
-
-- You can create multiple synonym maps for your search application (for example, by language if your application supports a multi-lingual customer base). Currently, a field can only use one of them. You can update a field's synonymMaps property at any time.
+If you have an existing index in a development (non-production) environment, experiment with a small dictionary to see how the addition of synonyms changes the search experience, including impact on scoring profiles, hit highlighting, and suggestions.
 
 ## Next steps
 
-- If you have an existing index in a development (non-production) environment, experiment with a small dictionary to see how the addition of synonyms changes the search experience, including impact on scoring profiles, hit highlighting, and suggestions.
-
-- [Enable search traffic analytics](search-traffic-analytics.md) and use the predefined Power BI report to learn which terms are used the most, and which ones return zero documents. Armed with these insights, revise the dictionary to include synonyms for unproductive queries that should be resolving to documents in your index.
+> [!div class="nextstepaction"]
+> [Create a synonym map (REST API)](/rest/api/searchservice/create-synonym-map)

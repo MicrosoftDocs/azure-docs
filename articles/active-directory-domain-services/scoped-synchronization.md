@@ -1,206 +1,100 @@
 ---
-title: 'Azure Active Directory Domain Services: Scoped synchronization | Microsoft Docs'
-description: Configure scoped synchronization from Azure AD to your managed domains
+title: Scoped synchronization for Microsoft Entra Domain Services | Microsoft Docs
+description: Learn how to use the Microsoft Entra admin center to configure scoped synchronization from Microsoft Entra ID to a Microsoft Entra Domain Services managed domain
 services: active-directory-ds
-documentationcenter: ''
-author: MikeStephens-MS
-manager: daveba
-editor: curtand
+author: justinha
+manager: amycolannino
 
 ms.assetid: 9389cf0f-0036-4b17-95da-80838edd2225
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/20/2019
-ms.author: mstephen
-
+ms.topic: how-to
+ms.date: 09/21/2023
+ms.author: justinha 
 ---
-# Configure scoped synchronization from Azure AD to your managed domain
-This article shows you how to configure only specific user accounts to be synchronized from your Azure AD directory to your Azure AD Domain Services managed domain.
+# Configure scoped synchronization from Microsoft Entra ID to Microsoft Entra Domain Services using the Microsoft Entra admin center
 
+To provide authentication services, Microsoft Entra Domain Services synchronizes users and groups from Microsoft Entra ID. In a hybrid environment, users and groups from an on-premises Active Directory Domain Services (AD DS) environment can be first synchronized to Microsoft Entra ID using Microsoft Entra Connect, and then synchronized to a Domain Services managed domain.
 
-## Group-based scoped synchronization
-By default, all users and groups within your Azure AD directory are synchronized to your managed domain. If only a few users use the managed domain, you may synchronize only those user accounts. Group-based scoped synchronization enables you to do so. When configured, only user accounts belonging to the groups you've specified are synchronized to the managed domain.
+By default, all users and groups from a Microsoft Entra directory are synchronized to a managed domain. If only some users need to use Domain Services, you can instead choose to synchronize only groups of users. You can filter synchronization for groups on-premises, cloud only, or both. 
 
-The following table helps you determine how to use scoped synchronization:
+This article shows you how to configure scoped synchronization and then change or disable the set of scoped users using the Microsoft Entra admin center. You can also [complete these steps using PowerShell][scoped-sync-powershell].
 
-| **Current state** | **Desired state** | **Required configuration** |
-| --- | --- | --- |
-| Your existing managed domain is configured to synchronize all user accounts and groups. | You want to synchronize only user accounts belonging to specific groups to your managed domain. | [Delete the existing managed domain](delete-aadds.md). Then, follow instructions in this article to re-create it with scoped synchronization configured. |
-| You don't have an existing managed domain. | You want to create a new managed domain and synchronize only user accounts belonging to specific groups. | Follow instructions in this article to create a new managed domain with scoped synchronization configured. |
-| Your existing managed domain is configured to synchronize only accounts belonging to specific groups. | You want to modify the list of groups whose users should be synchronized to the manage domain. | Follow the instructions in this article to modify scoped synchronization. |
+:::image type="content" border="true" source="./media/scoped-synchronization/filter.png" alt-text="Screenshot of group filter option.":::
 
-> [!WARNING]
-> **Changing the scope of synchronization causes your managed domain to go through resynchronization.**
-> 
->  * When you change the synchronization scope for a managed domain, a full resynchronization occurs.
->  * Objects which are no longer required in the managed domain are deleted. New objects are created in the managed domain.
->  * Resynchronization may take a long time to complete, depending on the number of objects (users, groups, and group memberships) in your managed domain and your Azure AD directory. For large directories with many hundreds of thousands of objects, resynchronization may take a few days.
+## Before you begin
 
+To complete this article, you need the following resources and privileges:
 
-## Create a new managed domain and enable group-based scoped synchronization using Azure portal
+* An active Azure subscription.
+    * If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* A Microsoft Entra tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
+    * If needed, [create a Microsoft Entra tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
+* A Microsoft Entra Domain Services managed domain enabled and configured in your Microsoft Entra tenant.
+    * If needed, complete the tutorial to [create and configure a Microsoft Entra Domain Services managed domain][tutorial-create-instance].
+* You need [Application Administrator](/azure/active-directory/roles/permissions-reference#application-administrator) and [Groups Administrator](/azure/active-directory/roles/permissions-reference#groups-administrator) Microsoft Entra roles in your tenant to change the Domain Services synchronization scope.
 
-1. Follow the [Getting Started guide](create-instance.md) to create a managed domain.
-2. Choose **scoped** during the synchronization style selection in the Azure AD Domain Services creation wizard.
+## Scoped synchronization overview
 
-## Create a new managed domain and enable group-based scoped synchronization using PowerShell
-Use PowerShell to complete this set of steps. Refer to the instructions to [enable Azure Active Directory Domain Services using PowerShell](powershell-create-instance.md). A couple of steps in this article are modified slightly to configure scoped synchronization.
+By default, all users and groups from a Microsoft Entra directory are synchronized to a managed domain. You can scope synchronization to only user accounts that were created in Microsoft Entra ID, or synchronize all users.  
 
-Complete the following steps to configure group-based scoped synchronization to your managed domain:
+If only a few groups of users need to access the managed domain, you can select **Filter by group entitlement** to synchronize only those groups. This scoped synchronization is only group-based. When you configure group-based scoped synchronization, only the user accounts that belong to the groups you specify are synchronized to the managed domain. Nested groups aren't synchronized; only the groups you specify get synchronized.
 
-1. Complete the following tasks:
-   * [Task 1: Install the required PowerShell modules](powershell-create-instance.md#task-1-install-the-required-powershell-modules).
-   * [Task 2: Create the required service principal in your Azure AD directory](powershell-create-instance.md#task-2-create-the-required-service-principal-in-your-azure-ad-directory).
-   * [Task 3: Create and configure the 'AAD DC Administrators' group]powershell-create-instance.md#task-3-create-and-configure-the-aad-dc-administrators-group).
-   * [Task 4: Register the Azure AD Domain Services resource provider](powershell-create-instance.md#task-4-register-the-azure-ad-domain-services-resource-provider).
-   * [Task 5: Create a resource group](powershell-create-instance.md#task-5-create-a-resource-group).
-   * [Task 6: Create and configure the virtual network](powershell-create-instance.md#task-6-create-and-configure-the-virtual-network).
+You can change the synchronization scope before or after you create the managed domain. The scope of synchronization is defined by a service principal with the application identifier 2565bd9d-da50-47d4-8b85-4c97f669dc36. To prevent scope loss, don't delete or change the service principal. If it is accidentally deleted, the synchronization scope can't be recovered. 
 
-2. Select the groups you want to sync and provide the display name of the groups you want synchronized to your managed domain.
+Keep in mind the following caveats if you change the synchronization scope:
 
-3. Save the [script in the following section](scoped-synchronization.md#script-to-select-groups-to-synchronize-to-the-managed-domain-select-groupstosyncps1) to a file called ```Select-GroupsToSync.ps1```. Execute the script like below:
+- A full synchronization occurs.
+- Objects that are no longer required in the managed domain are deleted. New objects are created in the managed domain.
 
-   ```powershell
-   .\Select-GroupsToSync.ps1 -groupsToAdd @("AAD DC Administrators", "GroupName1", "GroupName2")
-   ```
+To learn more about the synchronization process, see [Understand synchronization in Microsoft Entra Domain Services][concepts-sync].
 
-   > [!WARNING]
-   > **Do not forget to include the 'AAD DC Administrators' group.**
-   >
-   > You must include the 'AAD DC Administrators' group in the list of groups configured for scoped synchronization. If you do not include this group, the managed domain will be unusable.
-   >
+## Enable scoped synchronization
 
-4. Now, create the managed domain and enable group-based scoped synchronization for the managed domain. Include the property ```"filteredSync" = "Enabled"``` in the ```Properties``` parameter. For instance, see the following script fragment, copied from [Task 7: Provision the Azure AD Domain Services managed domain](powershell-create-instance.md#task-7-provision-the-azure-ad-domain-services-managed-domain).
+To enable scoped synchronization in the Microsoft Entra admin center, complete the following steps:
 
-   ```powershell
-   $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
-   $ManagedDomainName = "contoso100.com"
-   $ResourceGroupName = "ContosoAaddsRg"
-   $VnetName = "DomainServicesVNet_WUS"
-   $AzureLocation = "westus"
+1. In the [Microsoft Entra admin center](https://entra.microsoft.com), search for and select **Microsoft Entra Domain Services**. Choose your managed domain, such as *aaddscontoso.com*.
+1. Select **Synchronization** from the menu on the left-hand side.
+1. For *Synchronization scope*, select **All** or **Cloud Only**.
+1. To filter synchronization for selected groups, click **Show selected groups**, choose whether to synchronize cloud-only groups, on-premises groups, or both. For example, the following screenshot shows how to synchronize only three groups that were created in Microsoft Entra ID. Only users who belong to those groups will have their accounts synchronized to Domain Services.  
 
-   # Enable Azure AD Domain Services for the directory.
-   New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
-   -Location $AzureLocation `
-   -Properties @{"DomainName"=$ManagedDomainName; "filteredSync" = "Enabled"; `
-    "SubnetId"="/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"} `
-   -ApiVersion 2017-06-01 -Force -Verbose
-   ```
+   :::image type="content"  source="media/scoped-synchronization/cloud-only-groups.png" alt-text="Screenshot that shows filter by cloud-only groups." :::
 
-   > [!TIP]
-   > Do not forget to include ```"filteredSync" = "Enabled"``` in the ```-Properties``` parameter, so scoped synchronization is enabled for the managed domain.
+1. To add groups, click **Add groups**, then search for and choose the groups to add.
+1. When all changes are made, select **Save synchronization scope**.
 
+Changing the scope of synchronization causes the managed domain to resynchronize all data. Objects that are no longer required in the managed domain are deleted, and resynchronization may take some time to complete.
 
-## Script to select groups to synchronize to the managed domain (Select-GroupsToSync.ps1)
-Save the following script to a file (```Select-GroupsToSync.ps1```). This script configures Azure AD Domain Services to synchronize selected groups to the managed domain. All user accounts belonging to the specified groups will be synchronized to the managed domain.
+## Modify scoped synchronization
 
-```powershell
-param (
-    [Parameter(Position = 0)]
-    [String[]]$groupsToAdd
-)
+To modify the list of groups whose users should be synchronized to the managed domain, complete the following steps:
 
-Connect-AzureAD
-$sp = Get-AzureADServicePrincipal -Filter "AppId eq '2565bd9d-da50-47d4-8b85-4c97f669dc36'"
-$role = $sp.AppRoles | where-object -FilterScript {$_.DisplayName -eq "User"}
+1. In the [Microsoft Entra admin center](https://entra.microsoft.com), search for and select **Microsoft Entra Domain Services**. Choose your managed domain, such as *aaddscontoso.com*.
+1. Select **Synchronization** from the menu on the left-hand side.
+1. To add a group, choose **+ Add groups** at the top, then choose the groups to add.
+1. To remove a group from the synchronization scope, select it from the list of currently synchronized groups and choose **Remove groups**.
+1. When all changes are made, select **Save synchronization scope**.
 
-Write-Output "`n****************************************************************************"
+Changing the scope of synchronization causes the managed domain to resynchronize all data. Objects that are no longer required in the managed domain are deleted, and resynchronization may take some time to complete.
 
-Write-Output "Total group-assignments need to be added: $($groupsToAdd.Count)"
-$newGroupIds = New-Object 'System.Collections.Generic.HashSet[string]'
-foreach ($groupName in $groupsToAdd)
-{
-    try
-    {
-        $group = Get-AzureADGroup -Filter "DisplayName eq '$groupName'"
-        $newGroupIds.Add($group.ObjectId)
+## Disable scoped synchronization
 
-        Write-Output "Group-Name: $groupName, Id: $($group.ObjectId)"
-    }
-    catch
-    {
-        Write-Error "Failed to find group: $groupName. Exception: $($_.Exception)."
-    }
-}
+To disable group-based scoped synchronization for a managed domain, complete the following steps:
 
-Write-Output "****************************************************************************`n"
-Write-Output "`n****************************************************************************"
+1. In the [Microsoft Entra admin center](https://entra.microsoft.com), search for and select **Microsoft Entra Domain Services**. Choose your managed domain, such as *aaddscontoso.com*.
+1. Select **Synchronization** from the menu on the left-hand side.
+1. Clear the check box for **Show selected groups**, and click **Save synchronization scope**.
 
-$currentAssignments = Get-AzureADServiceAppRoleAssignment -ObjectId $sp.ObjectId
-Write-Output "Total current group-assignments: $($currentAssignments.Count), SP-ObjectId: $($sp.ObjectId)"
-
-$currAssignedObjectIds = New-Object 'System.Collections.Generic.HashSet[string]'
-foreach ($assignment in $currentAssignments)
-{
-    Write-Output "Assignment-ObjectId: $($assignment.PrincipalId)"
-
-    if ($newGroupIds.Contains($assignment.PrincipalId) -eq $false)
-    {
-        Write-Output "This assignment is not needed anymore. Removing it! Assignment-ObjectId: $($assignment.PrincipalId)"
-        Remove-AzureADServiceAppRoleAssignment -ObjectId $sp.ObjectId -AppRoleAssignmentId $assignment.ObjectId
-    }
-    else
-    {
-        $currAssignedObjectIds.Add($assignment.PrincipalId)
-    }
-}
-
-Write-Output "****************************************************************************`n"
-Write-Output "`n****************************************************************************"
-
-foreach ($id in $newGroupIds)
-{
-    try
-    {
-        if ($currAssignedObjectIds.Contains($id) -eq $false)
-        {
-            Write-Output "Adding new group-assignment. Role-Id: $($role.Id), Group-Object-Id: $id, ResourceId: $($sp.ObjectId)"
-            New-AzureADGroupAppRoleAssignment -Id $role.Id -ObjectId $id -PrincipalId $id -ResourceId $sp.ObjectId
-        }
-        else
-        {
-            Write-Output "Group-ObjectId: $id is already assigned."
-        }
-    }
-    catch
-    {
-        Write-Error "Exception occurred assigning Object-ID: $id. Exception: $($_.Exception)."
-    }
-}
-
-Write-Output "****************************************************************************`n"
-```
-
-
-## Modify group-based scoped synchronization
-To modify the list of groups whose users should be synchronized to your managed domain, re-run the [PowerShell script](scoped-synchronization.md#script-to-select-groups-to-synchronize-to-the-managed-domain-select-groupstosyncps1) and specify the new list of groups. Remember to always specify the 'AAD DC Administrators' group in this list.
-
-> [!WARNING]
-> **Do not forget to include the 'AAD DC Administrators' group.**
->
-> You must include the 'AAD DC Administrators' group in the list of groups configured for scoped synchronization. If you do not include this group, the managed domain will be unusable.
->
-
-
-## Disable group-based scoped synchronization
-Use the following PowerShell script to disable group-based scoped synchronization for your managed domain:
-
-```powershell
-// Login to your Azure AD tenant
-Login-AzAccount
-
-// Retrieve the Azure AD Domain Services resource.
-$DomainServicesResource = Get-AzResource -ResourceType "Microsoft.AAD/DomainServices"
-
-// Disable group-based scoped synchronization.
-$disableScopedSync = @{"filteredSync" = "Disabled"}
-
-Set-AzResource -Id $DomainServicesResource.ResourceId -Properties $disableScopedSync
-```
+Changing the scope of synchronization causes the managed domain to resynchronize all data. Objects that are no longer required in the managed domain are deleted, and resynchronization may take some time to complete.
 
 ## Next steps
-* [Understand synchronization in Azure AD Domain Services](synchronization.md)
-* [Enable Azure Active Directory Domain Services using PowerShell](powershell-create-instance.md)
+
+To learn more about the synchronization process, see [Understand synchronization in Microsoft Entra Domain Services][concepts-sync].
+
+<!-- INTERNAL LINKS -->
+[scoped-sync-powershell]: powershell-scoped-synchronization.md
+[concepts-sync]: synchronization.md
+[tutorial-create-instance]: tutorial-create-instance.md
+[create-azure-ad-tenant]: /azure/active-directory/fundamentals/sign-up-organization
+[associate-azure-ad-tenant]: /azure/active-directory/fundamentals/how-subscriptions-associated-directory

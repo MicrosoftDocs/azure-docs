@@ -1,322 +1,227 @@
 ---
-title: OData expression syntax for filters and order-by clauses - Azure Search
-description: Filter and order-by expression OData syntax for Azure Search queries.
-ms.date: 05/02/2019
-services: search
-ms.service: search
+title: OData language overview
+titleSuffix: Azure Cognitive Search
+description: OData language overview for filters, select, and order-by for Azure Cognitive Search queries.
+
+author: bevloh
+ms.author: beloh
+ms.service: cognitive-search
 ms.topic: conceptual
-author: "Brjohnstmsft"
-ms.author: "brjohnst"
-ms.manager: cgronlun
-translation.priority.mt:
-  - "de-de"
-  - "es-es"
-  - "fr-fr"
-  - "it-it"
-  - "ja-jp"
-  - "ko-kr"
-  - "pt-br"
-  - "ru-ru"
-  - "zh-cn"
-  - "zh-tw"
+ms.date: 08/08/2023
+
 ---
-# OData expression syntax for filters and order-by clauses in Azure Search
 
-Azure Search supports a subset of the OData expression syntax for **$filter** and **$orderby** expressions. Filter expressions are evaluated during query parsing, constraining search to specific fields or adding match criteria used during index scans. Order-by expressions are applied as a post-processing step over a result set. Both filters and order-by expressions are included in a query request, adhering to an OData syntax independent of the [simple](query-simple-syntax.md) or [full](query-lucene-syntax.md) query syntax used in a **search** parameter. This article provides the reference documentation for OData expressions used in filters and sort expressions.
+# OData language overview for `$filter`, `$orderby`, and `$select` in Azure Cognitive Search
 
-## Filter syntax
+This article provides an overview of the OData expression language used in $filter, $order-by, and $select expressions in Azure Cognitive Search. The language is presented "bottom-up" starting with the most basic elements. The OData expressions that you can construct in a query request range from simple to highly complex, but they all share common elements. Shared elements include:
 
-A **$filter** expression can execute standalone as a fully expressed query, or refine a query that has additional parameters. The following examples illustrate a few key scenarios. In the first example, the filter is the substance of the query.
++ **Field paths**, which refer to specific fields of your index.
++ **Constants**, which are literal values of a certain data type.
 
+Once you understand these common concepts, you can continue with the top-level syntax for each expression:
 
-```POST
-POST /indexes/hotels/docs/search?api-version=2019-05-06
-    {
-      "filter": "(baseRate ge 60 and baseRate lt 300) or hotelName eq 'Fancy Stay'"
-    }
-```
++ [**$filter**](search-query-odata-filter.md) expressions are evaluated during query parsing, constraining search to specific fields or adding match criteria used during index scans. 
++ [**$orderby**](search-query-odata-orderby.md) expressions are applied as a post-processing step over a result set to sort the documents that are returned. 
++ [**$select**](search-query-odata-select.md) expressions determine which document fields are included in the result set. 
 
-Another common use case is filters combined faceting, where the filter reduces the query surface area based on a user-driven facet navigation selection:
+The syntax of these expressions is distinct from the [simple](query-simple-syntax.md) or [full](query-lucene-syntax.md) query syntax used in the **search** parameter, although there's some overlap in the syntax for referencing fields.
 
-```POST
-POST /indexes/hotels/docs/search?api-version=2019-05-06
-    {
-      "search": "test",
-      "facets": [ "tags", "baseRate,values:80|150|220" ],
-      "filter": "rating eq 3 and category eq 'Motel'"
-    }
-```
+> [!NOTE]
+> Terminology in Azure Cognitive Search differs from the [OData standard](https://www.odata.org/documentation/) in a few ways. What we call a **field** in Azure Cognitive Search is called a **property** in OData, and similarly for **field path** versus **property path**. An **index** containing **documents** in Azure Cognitive Search is referred to more generally in OData as an **entity set** containing **entities**. The Azure Cognitive Search terminology is used throughout this reference.
 
-### Filter operators  
+## Field paths
 
-- Logical operators (and, or, not).  
+The following EBNF ([Extended Backus-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) defines the grammar of field paths.
 
-- Comparison expressions (`eq, ne, gt, lt, ge, le`). String comparisons are case-sensitive.  
-
-- Constants of the supported [Entity Data Model](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model) (EDM) types (see [Supported data types &#40;Azure Search&#41;](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) for a list of supported types). Constants of collection types are not supported.  
-
-- References to field names. Only `filterable` fields can be used in filter expressions.  
-
-- `any` with no parameters. This tests whether a field of type `Collection(Edm.String)` contains any elements.  
-
-- `any` and `all` with limited lambda expression support. 
-	
-  -   `any/all` are supported on fields of type `Collection(Edm.String)`. 
-	
-  -   `any` can only be used with simple equality expressions or with a `search.in` function. Simple expressions consist of a comparison between a single field and a literal value, e.g. `Title eq 'Magna Carta'`.
-	
-  -   `all` can only be used with simple inequality expressions or with a `not search.in`.   
-
-- Geospatial functions `geo.distance` and `geo.intersects`. The `geo.distance` function returns the distance in kilometers between two points, one being a field and one being a constant passed as part of the filter. The `geo.intersects` function returns true if a given point is within a given polygon, where the point is a field and the polygon is specified as a constant passed as part of the filter.  
-
-  The polygon is a two-dimensional surface stored as a sequence of points defining a bounding ring (see the example below). The polygon needs to be closed, meaning the first and last point sets must be the same. [Points in a polygon must be in counterclockwise order](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
-
-  `geo.distance` returns distance in kilometers in Azure Search. This differs from other services that support OData geospatial operations, which typically return distances in meters.  
-
-  > [!NOTE]  
-  >  When using geo.distance in a filter, you must compare the distance returned by the function with a constant using `lt`, `le`, `gt`, or `ge`. The operators `eq` and `ne` are not supported when comparing distances. For example, this is a correct usage of geo.distance: `$filter=geo.distance(location, geography'POINT(-122.131577 47.678581)') le 5`.  
-
-- The `search.in` function tests whether a given string field is equal to one of a given list of values. It can also be used in any or all to compare a single value of a string collection field with a given list of values. Equality between the field and each value in the list is determined in a case-sensitive fashion, the same way as for the `eq` operator. Therefore an expression like `search.in(myfield, 'a, b, c')` is equivalent to `myfield eq 'a' or myfield eq 'b' or myfield eq 'c'`, except that `search.in` will yield much better performance. 
-
-   The first parameter to the `search.in` function is the string field reference (or a range variable over a string collection field in the case where `search.in` is used inside an `any` or `all` expression). 
-  
-   The second parameter is a string containing the list of values, separated by spaces and/or commas. 
-  
-   The third parameter is a string where each character of the string, or subset of this string is treated as a separator when parsing the list of values in the second parameter. If you need to use separators other than spaces and commas because your values include those characters, you can specify an optional third parameter to `search.in`. 
-
-  > [!NOTE]   
-  > Some scenarios require comparing a field against a large number of constant values. For example, implementing security trimming with filters might require comparing the document ID field against a list of IDs to which the requesting user is granted read access. In scenarios like this we highly recommend using the `search.in` function instead of a more complicated disjunction of equality expressions. For example, use `search.in(Id, '123, 456, ...')` instead of `Id eq 123 or Id eq 456 or ....`. 
-  >
-  > If you use `search.in`, you can expect sub-second response time when the second parameter contains a list of hundreds or thousands of values. Note that there is no explicit limit on the number of items you can pass to `search.in`, although you are still limited by the maximum request size. However, the latency will grow as the number of values grows.
-
-- The `search.ismatch` function evaluates search query as a part of a filter expression. The documents that match the search query will be returned in the result set. The following overloads of this function are available:
-  - `search.ismatch(search)`
-  - `search.ismatch(search, searchFields)`
-  - `search.ismatch(search, searchFields, queryType, searchMode)`
-
-  where: 
-  
-  - `search`: the search query (in either [simple](query-simple-syntax.md) or [full](query-lucene-syntax.md) query syntax). 
-  - `queryType`: "simple" or "full", defaults to "simple". Specifies what query language was used in the `search` parameter.
-  - `searchFields`: comma-separated list of searchable fields to search in, defaults to all searchable fields in the index.    
-  - `searchMode`: "any" or "all", defaults to "any". Indicates whether any or all of the search terms must be matched in order to count the document as a match.
-
-  All the above parameters are equivalent to the corresponding [search request parameters](https://docs.microsoft.com/rest/api/searchservice/search-documents).
-
-- The `search.ismatchscoring` function, like the `search.ismatch` function, returns true for documents that matched the search query passed as a parameter. The difference between them is that the relevance score of documents matching the `search.ismatchscoring` query will contribute to the overall document score, while in the case of `search.ismatch`, the document score won't be changed. The following overloads of this function are available with parameters identical to those of `search.ismatch`:
-  - `search.ismatchscoring(search)`
-  - `search.ismatchscoring(search, searchFields)`
-  - `search.ismatchscoring(search, searchFields, queryType, searchMode)`
-
-  The `search.ismatch` and `search.ismatchscoring` functions are fully orthogonal with each other and the rest of the filter algebra. This means both functions can be used in the same filter expression. 
-
-### Geospatial queries and polygons spanning the 180th meridian  
- For many geospatial query libraries formulating a query that includes the 180th meridian (near the dateline) is either off-limits or requires a workaround, such as splitting the polygon into two, one on either side of the meridian.  
-
- In Azure Search, geospatial queries that include 180-degree longitude will work as expected if the query shape is rectangular and your coordinates align to a grid layout along longitude and latitude (for example, `geo.intersects(location, geography'POLYGON((179 65,179 66,-179 66,-179 65,179 65))'`). Otherwise, for non-rectangular or unaligned shapes, consider the split polygon approach.  
-
-<a name="bkmk_limits"></a>
-
-## Filter size limitations 
-
- There are limits to the size and complexity of filter expressions that you can send to Azure Search. The limits are based roughly on the number of clauses in your filter expression. A good rule of thumb is that if you have hundreds of clauses, you are at risk of running into the limit. We recommend designing your application in such a way that it does not generate filters of unbounded size.  
-
-
-## Filter examples  
-
- Find all hotels with a base rate less than $200 that are rated at or above 4:  
+<!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
 ```
-$filter=baseRate lt 200.0 and rating ge 4
+field_path ::= identifier('/'identifier)*
+
+identifier ::= [a-zA-Z_][a-zA-Z_0-9]*
 ```
 
- Find all hotels other than "Roach Motel" that have been renovated since 2010:  
+An interactive syntax diagram is also available:
 
-```
-$filter=hotelName ne 'Roach Motel' and lastRenovationDate ge 2010-01-01T00:00:00Z
-```
+> [!div class="nextstepaction"]
+> [OData syntax diagram for Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/#field_path)
 
- Find all hotels with a base rate less than $200 that have been renovated since 2010, with a datetime literal that includes time zone information for Pacific Standard Time:  
+> [!NOTE]
+> See [OData expression syntax reference for Azure Cognitive Search](search-query-odata-syntax-reference.md) for the complete EBNF.
 
-```
-$filter=baseRate lt 200 and lastRenovationDate ge 2010-01-01T00:00:00-08:00
-```
+A field path is composed of one or more **identifiers** separated by slashes. Each identifier is a sequence of characters that must start with an ASCII letter or underscore, and contain only ASCII letters, digits, or underscores. The letters can be upper- or lower-case.
 
- Find all hotels that have parking included and do not allow smoking:  
+An identifier can refer either to the name of a field, or to a **range variable** in the context of a [collection expression](search-query-odata-collection-operators.md) (`any` or `all`) in a filter. A range variable is like a loop variable that represents the current element of the collection. For complex collections, that variable represents an object, which is why you can use field paths to refer to subfields of the variable. This is analogous to dot notation in many programming languages.
 
-```
-$filter=parkingIncluded and not smokingAllowed
-```
+Examples of field paths are shown in the following table:
 
- \- OR -  
+| Field path | Description |
+| --- | --- |
+| `HotelName` | Refers to a top-level field of the index |
+| `Address/City` | Refers to the `City` subfield of a complex field in the index; `Address` is of type `Edm.ComplexType` in this example |
+| `Rooms/Type` | Refers to the `Type` subfield of a complex collection field in the index; `Rooms` is of type `Collection(Edm.ComplexType)` in this example |
+| `Stores/Address/Country` | Refers to the `Country` subfield of the `Address` subfield of a complex collection field in the index; `Stores` is of type `Collection(Edm.ComplexType)` and `Address` is of type `Edm.ComplexType` in this example |
+| `room/Type` | Refers to the `Type` subfield of the `room` range variable, for example in the filter expression `Rooms/any(room: room/Type eq 'deluxe')` |
+| `store/Address/Country` | Refers to the `Country` subfield of the `Address` subfield of the `store` range variable, for example in the filter expression `Stores/any(store: store/Address/Country eq 'Canada')` |
 
-```
-$filter=parkingIncluded eq true and smokingAllowed eq false
-```
+The meaning of a field path differs depending on the context. In filters, a field path refers to the value of a *single instance* of a field in the current document. In other contexts, such as **$orderby**, **$select**, or in [fielded search in the full Lucene syntax](query-lucene-syntax.md#bkmk_fields), a field path refers to the field itself. This difference has some consequences for how you use field paths in filters.
 
- Find all hotels that are Luxury or include parking and have a rating of 5:  
+Consider the field path `Address/City`. In a filter, this refers to a single city for the current document, like "San Francisco". In contrast, `Rooms/Type` refers to the `Type` subfield for many rooms (like "standard" for the first room, "deluxe" for the second room, and so on). Since `Rooms/Type` doesn't refer to a *single instance* of the subfield `Type`, it can't be used directly in a filter. Instead, to filter on room type, you would use a [lambda expression](search-query-odata-collection-operators.md) with a range variable, like this:
 
-```
-$filter=(category eq 'Luxury' or parkingIncluded eq true) and rating eq 5
-```
-
- Find all hotels with the tag "wifi" (where each hotel has tags stored in a Collection(Edm.String) field):  
-
-```
-$filter=tags/any(t: t eq 'wifi')
+```odata
+Rooms/any(room: room/Type eq 'deluxe')
 ```
 
- Find all hotels without the tag "motel":  
+In this example, the range variable `room` appears in the `room/Type` field path. That way, `room/Type` refers to the type of the current room in the current document. This is a single instance of the `Type` subfield, so it can be used directly in the filter.
+
+### Using field paths
+
+Field paths are used in many parameters of the [Azure Cognitive Search REST APIs](/rest/api/searchservice/). The following table lists all the places where they can be used, plus any restrictions on their usage:
+
+| API | Parameter name | Restrictions |
+| --- | --- | --- |
+| [Create](/rest/api/searchservice/create-index) or [Update](/rest/api/searchservice/update-index) Index | `suggesters/sourceFields` | None |
+| [Create](/rest/api/searchservice/create-index) or [Update](/rest/api/searchservice/update-index) Index | `scoringProfiles/text/weights` | Can only refer to **searchable** fields |
+| [Create](/rest/api/searchservice/create-index) or [Update](/rest/api/searchservice/update-index) Index | `scoringProfiles/functions/fieldName` | Can only refer to **filterable** fields |
+| [Search](/rest/api/searchservice/search-documents) | `search` when `queryType` is `full` | Can only refer to **searchable** fields |
+| [Search](/rest/api/searchservice/search-documents) | `facet` | Can only refer to **facetable** fields |
+| [Search](/rest/api/searchservice/search-documents) | `highlight` | Can only refer to **searchable** fields |
+| [Search](/rest/api/searchservice/search-documents) | `searchFields` | Can only refer to **searchable** fields |
+| [Suggest](/rest/api/searchservice/suggestions) and [Autocomplete](/rest/api/searchservice/autocomplete) | `searchFields` | Can only refer to fields that are part of a [suggester](index-add-suggesters.md) |
+| [Search](/rest/api/searchservice/search-documents), [Suggest](/rest/api/searchservice/suggestions), and [Autocomplete](/rest/api/searchservice/autocomplete) | `$filter` | Can only refer to **filterable** fields |
+| [Search](/rest/api/searchservice/search-documents) and [Suggest](/rest/api/searchservice/suggestions) | `$orderby` | Can only refer to **sortable** fields |
+| [Search](/rest/api/searchservice/search-documents), [Suggest](/rest/api/searchservice/suggestions), and [Lookup](/rest/api/searchservice/lookup-document) | `$select` | Can only refer to **retrievable** fields |
+
+## Constants
+
+Constants in OData are literal values of a given [Entity Data Model](/dotnet/framework/data/adonet/entity-data-model) (EDM) type. See [Supported data types](/rest/api/searchservice/supported-data-types) for a list of supported types in Azure Cognitive Search. Constants of collection types aren't supported.
+
+The following table shows examples of constants for each of the data types supported by Azure Cognitive Search:
+
+| Data type | Example constants |
+| --- | --- |
+| `Edm.Boolean` | `true`, `false` |
+| `Edm.DateTimeOffset` | `2019-05-06T12:30:05.451Z` |
+| `Edm.Double` | `3.14159`, `-1.2e7`, `NaN`, `INF`, `-INF` |
+| `Edm.GeographyPoint` | `geography'POINT(-122.131577 47.678581)'` |
+| `Edm.GeographyPolygon` | `geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))'` |
+| `Edm.Int32` | `123`, `-456` |
+| `Edm.Int64` | `283032927235` |
+| `Edm.String` | `'hello'` |
+
+### Escaping special characters in string constants
+
+String constants in OData are delimited by single quotes. If you need to construct a query with a string constant that might itself contain single quotes, you can escape the embedded quotes by doubling them.
+
+For example, a phrase with an unformatted apostrophe like "Alice's car" would be represented in OData as the string constant `'Alice''s car'`.
+
+> [!IMPORTANT]
+> When constructing filters programmatically, it's important to remember to escape string constants that come from user input. This is to mitigate the possibility of [injection attacks](https://wikipedia.org/wiki/SQL_injection), especially when using filters to implement [security trimming](search-security-trimming-for-azure-search.md).
+
+### Constants syntax
+
+The following EBNF ([Extended Backus-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) defines the grammar for most of the constants shown in the above table. The grammar for geo-spatial types can be found in [OData geo-spatial functions in Azure Cognitive Search](search-query-odata-geo-spatial-functions.md).
+
+<!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
 ```
-$filter=tags/all(t: t ne 'motel')
+constant ::=
+    string_literal
+    | date_time_offset_literal
+    | integer_literal
+    | float_literal
+    | boolean_literal
+    | 'null'
+
+string_literal ::= "'"([^'] | "''")*"'"
+
+date_time_offset_literal ::= date_part'T'time_part time_zone
+
+date_part ::= year'-'month'-'day
+
+time_part ::= hour':'minute(':'second('.'fractional_seconds)?)?
+
+zero_to_fifty_nine ::= [0-5]digit
+
+digit ::= [0-9]
+
+year ::= digit digit digit digit
+
+month ::= '0'[1-9] | '1'[0-2]
+
+day ::= '0'[1-9] | [1-2]digit | '3'[0-1]
+
+hour ::= [0-1]digit | '2'[0-3]
+
+minute ::= zero_to_fifty_nine
+
+second ::= zero_to_fifty_nine
+
+fractional_seconds ::= integer_literal
+
+time_zone ::= 'Z' | sign hour':'minute
+
+sign ::= '+' | '-'
+
+/* In practice integer literals are limited in length to the precision of
+the corresponding EDM data type. */
+integer_literal ::= digit+
+
+float_literal ::=
+    sign? whole_part fractional_part? exponent?
+    | 'NaN'
+    | '-INF'
+    | 'INF'
+
+whole_part ::= integer_literal
+
+fractional_part ::= '.'integer_literal
+
+exponent ::= 'e' sign? integer_literal
+
+boolean_literal ::= 'true' | 'false'
 ```
 
- Find all hotels with any tags:  
+An interactive syntax diagram is also available:
+
+> [!div class="nextstepaction"]
+> [OData syntax diagram for Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/#constant)
+
+> [!NOTE]
+> See [OData expression syntax reference for Azure Cognitive Search](search-query-odata-syntax-reference.md) for the complete EBNF.
+
+## Building expressions from field paths and constants
+
+Field paths and constants are the most basic part of an OData expression, but they're already full expressions themselves. In fact, the **$select** parameter in Azure Cognitive Search is nothing but a comma-separated list of field paths, and **$orderby** isn't much more complicated than **$select**. If you happen to have a field of type `Edm.Boolean` in your index, you can even write a filter that is nothing but the path of that field. The constants `true` and `false` are likewise valid filters.
+
+However, most of the time you'll need more complex expressions that refer to more than one field and constant. These expressions are built in different ways depending on the parameter.
+
+The following EBNF ([Extended Backus-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) defines the grammar for the **$filter**, **$orderby**, and **$select** parameters. These are built up from simpler expressions that refer to field paths and constants:
+
+<!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
 ```
-$filter=tags/any()
+filter_expression ::= boolean_expression
+
+order_by_expression ::= order_by_clause(',' order_by_clause)*
+
+select_expression ::= '*' | field_path(',' field_path)*
 ```
 
-Find all hotels that don't have tags:  
+An interactive syntax diagram is also available:
 
-```
-$filter=not tags/any()
-```
+> [!div class="nextstepaction"]
+> [OData syntax diagram for Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/#filter_expression)
 
+> [!NOTE]
+> See [OData expression syntax reference for Azure Cognitive Search](search-query-odata-syntax-reference.md) for the complete EBNF.
 
- Find all hotels within 10 kilometers of a given reference point (where location is a field of type Edm.GeographyPoint):  
+## Next steps
 
-```
-$filter=geo.distance(location, geography'POINT(-122.131577 47.678581)') le 10
-```
+The **$orderby** and **$select** parameters are both comma-separated lists of simpler expressions. The **$filter** parameter is a Boolean expression that is composed of simpler subexpressions. These subexpressions are combined using logical operators such as [`and`, `or`, and `not`](search-query-odata-logical-operators.md), comparison operators such as [`eq`, `lt`, `gt`, and so on](search-query-odata-comparison-operators.md), and collection operators such as [`any` and `all`](search-query-odata-collection-operators.md).
 
- Find all hotels within a given viewport described as a polygon (where location is a field of type Edm.GeographyPoint). Note that the polygon is closed (the first and last point sets must be the same) and [the points must be listed in counterclockwise order](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
+The **$filter**, **$orderby**, and **$select** parameters are explored in more detail in the following articles:
 
-```
-$filter=geo.intersects(location, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))')
-```
-
- Find all hotels that either have no value in "description" field, or that value is explicitly set to null:  
-
-```
-$filter=description eq null
-```
-
-Find all hotels with name equal to either 'Roach motel' or 'Budget hotel'). Phrases contain spaces, which is a default delimiter. You can specicfy an alternative delimiter in single quotes as the third string parameter:  
-
-```
-$filter=search.in(name, 'Roach motel,Budget hotel', ',')
-```
-
-Find all hotels with name equal to either Roach motel' or 'Budget hotel' separated by '|'):  
-
-```
-$filter=search.in(name, 'Roach motel|Budget hotel', '|')
-```
-
-Find all hotels with the tag 'wifi' or 'pool':  
-
-```
-$filter=tags/any(t: search.in(t, 'wifi, pool'))
-```
-
-Find a match on phrases within a collection, such as 'heated towel racks' or 'hairdryer included' in tags. 
-
-```
-$filter=tags/any(t: search.in(t, 'heated towel racks,hairdryer included', ','))
-```
-
-Find all hotels without the tag 'motel' nor 'cabin':  
-
-```
-$filter=tags/all(t: not search.in(t, 'motel, cabin'))
-```
-
-Find documents with the word "waterfront". This filter query is identical to a [search request](https://docs.microsoft.com/rest/api/searchservice/search-documents) with `search=waterfront`.
-
-```
-$filter=search.ismatchscoring('waterfront')
-```
-
-Find documents with the word "hostel" and rating greater or equal to 4, or documents with the word "motel" and rating equal to 5. Note, this request could not be expressed without the `search.ismatchscoring` function.
-
-```
-$filter=search.ismatchscoring('hostel') and rating ge 4 or search.ismatchscoring('motel') and rating eq 5
-```
-
-Find documents without the word "luxury".
-
-```
-$filter=not search.ismatch('luxury') 
-```
-
-Find documents with the phrase "ocean view" or rating equal to 5. The `search.ismatchscoring` query will be executed only against fields `hotelName` and `description`.
-Note, documents that matched only the second clause of the disjunction will be returned too - hotels with rating equal to 5. To make it clear those documents didn’t match any of the scored parts of the expression, they will be returned with score equal to zero.
-
-```
-$filter=search.ismatchscoring('"ocean view"', 'description,hotelName') or rating eq 5
-```
-
-Find documents where the terms "hotel" and "airport" are within 5 words from each other in the description of the hotel, and where smoking is not allowed. This query uses the [full Lucene query language](query-lucene-syntax.md).
-
-```
-$filter=search.ismatch('"hotel airport"~5', 'description', 'full', 'any') and not smokingAllowed 
-```
-
-## Order-by syntax
-
-The **$orderby** parameter accepts a comma-separated list of up to 32 expressions of the form `sort-criteria [asc|desc]`. The sort criteria can either be the name of a `sortable` field or a call to either the `geo.distance` or the `search.score` functions. You can use either `asc` or `desc` to explicitly specify the sort order. The default order is ascending.
-
-If multiple documents have the same sort criteria and `search.score` function is not used (for example, if you sort by a numeric `rating` field and three documents all have a rating of 4), ties will be broken by document score in descending order. When document scores are the same (for example, when there is no full-text search query specified in the request), then the relative ordering of the tied documents is indeterminate.
- 
-You can specify multiple sort criteria. The order of expressions determines the final sort order. For example, to sort descending by score, followed by rating, the syntax would be `$orderby=search.score() desc,rating desc`.
-
-The syntax for `geo.distance` in **$orderby** is the same as it is in **$filter**. When using `geo.distance` in **$orderby**, the field to which it applies must be of type `Edm.GeographyPoint` and it must also be `sortable`.  
-
-The syntax for `search.score` in **$orderby** is `search.score()`. The function `search.score` does not take any parameters.  
- 
-
-## Order-by examples
-
-Sort hotels ascending by base rate:
-
-```
-$orderby=baseRate asc
-```
-
-Sort hotels descending by rating, then ascending by base rate (remember that ascending is the default):
-
-```
-$orderby=rating desc,baseRate
-```
-
-Sort hotels descending by rating, then ascending by distance from the given co-ordinates:
-
-```
-$orderby=rating desc,geo.distance(location, geography'POINT(-122.131577 47.678581)') asc
-```
-
-Sort hotels in descending order by search.score and rating, and then in ascending order by distance from the given coordinates so that
-between two hotels with identical ratings, the closest one is listed first:
-
-```
-$orderby=search.score() desc,rating desc,geo.distance(location, geography'POINT(-122.131577 47.678581)') asc
-```
-<a name="bkmk_unsupported"></a>
-
-## Unsupported OData syntax
-
--   Arithmetic expressions  
-
--   Functions (except the distance and intersects geospatial functions)  
-
--   `any/all` with arbitrary lambda expressions  
-
-## See also  
-
-+ [Faceted navigation in Azure Search](search-faceted-navigation.md) 
-+ [Filters in Azure Search](search-filters.md) 
-+ [Search Documents &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) 
-+ [Lucene query syntax](query-lucene-syntax.md)
-+ [Simple query syntax in Azure Search](query-simple-syntax.md)   
++ [OData $filter syntax in Azure Cognitive Search](search-query-odata-filter.md)
++ [OData $orderby syntax in Azure Cognitive Search](search-query-odata-orderby.md)
++ [OData $select syntax in Azure Cognitive Search](search-query-odata-select.md)

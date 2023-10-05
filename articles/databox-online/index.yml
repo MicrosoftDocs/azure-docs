@@ -1,39 +1,140 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title:  Azure Data Box documentation - Online transfer 
+### YamlMime:Landing
+
+title: Azure Stack Edge documentation  # < 60 chars
+summary: Use Azure Stack Edge devices to deliver Azure capabilities such as compute, storage, networking, and hardware-accelerated machine learning to any edge location. # < 160 chars
+
 metadata:
-  title:  Data Box Gateway, Data Box Edge Documentation for over the network data transfer to Azure  
-  description: Use the Data Box Edge and Data Box Gateway for over the network high performance data transfers to Azure in a quick, inexpensive, and reliable manner.
+  title: Azure Stack Edge documentation
+  description: Azure Stack Edge Documentation for high-performance over-the-network data transfer to Azure.
   services: databox
-  author: alkohli
-  manager: twooley
   ms.service: databox
   ms.subservice: edge
   ms.topic: landing-page
-  ms.date: 03/25/2019
+  ms.collection: collection
+  author: alkohli
   ms.author: alkohli
-abstract:
-  description: The Azure Data Box family lets you transfer hundreds of terabytes of data to Azure in a quick, inexpensive, and reliable manner. Use the Data Box Edge and Data Box Gateway devices for over-the-network high performance data transfers.<p>Choose Data Box Gateway to send data for cloud archival, disaster recovery, or to process data at cloud scale.  Use Data Box Edge to filter, analyze, and transform your data as it moves to Azure.</p><p>Learn how to leverage Data Box Gateway and Data Box Edge for network-based transfer with our tutorials.</p>
-sections:
-- title: Tutorials
-  items:
-  - type: paragraph
-    text: <b>For Data Box Gateway</b>
-  - type: list
-    style: ordered
-    items:
-    - html: <a href="data-box-gateway-deploy-prep">Prepare to deploy Azure Data Box Gateway</a>
-    - html: <a href="data-box-gateway-deploy-provision-hyperv">Provision Azure Data Box Gateway in Hyper-V</a>
-    - html: <a href="data-box-gateway-deploy-provision-vmware">Provision Azure Data Box Gateway in VMware</a>
-    - html: <a href="data-box-gateway-deploy-connect-setup-activate">Connect, set up, activate Azure Data Box Gateway</a>
-    - html: <a href="data-box-gateway-deploy-add-shares">Transfer data with Azure Data Box Gateway</a>
-  - type: paragraph
-    text: <b>For Data Box Edge</b>
-  - type: list
-    style: ordered
-    items:
-    - html: <a href="data-box-edge-deploy-prep">Prepare to deploy Azure Data Box Edge</a>
-    - html: <a href="data-box-edge-deploy-install">Install Azure Data Box Edge</a>
-    - html: <a href="data-box-edge-deploy-connect-setup-activate">Connect, set up, activate Azure Data Box Edge</a>
-    - html: <a href="data-box-edge-deploy-add-shares">Transfer data with Azure Data Box Edge</a>
-    - html: <a href="data-box-edge-deploy-configure-compute">Transform data with Azure Data Box Edge</a>
+  ms.date: 02/09/2022
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Azure Stack Edge
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Stack Edge Pro 2?
+            url: azure-stack-edge-pro-2-overview.md
+          - text: What is Azure Stack Edge Pro GPU?
+            url: azure-stack-edge-gpu-overview.md
+          - text: What is Azure Stack Edge Pro R?
+            url: azure-stack-edge-pro-r-overview.md
+          - text: What is Azure Stack Edge Mini R?
+            url: azure-stack-edge-mini-r-overview.md  
+      - linkListType: architecture
+        links:
+          - text: Choose Azure data transfer options
+            url: ../storage/common/storage-choose-data-transfer-solution.md
+          - text: Use network or offline transfer
+            url: ../storage/common/storage-solution-large-dataset-low-network.md#offline-transfer-or-network-transfer
+      - linkListType: whats-new
+        links:
+          - text: 2205 release notes for Azure Stack Edge Pro GPU
+            url: azure-stack-edge-gpu-2205-release-notes.md
+          - text: 2101 release notes for Azure Stack Edge Pro FPGA
+            url: azure-stack-edge-2101-release-notes.md
+
+
+  # Card
+  - title: "Requirements and limits"
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Azure Stack Edge Pro 2 requirements
+            url: azure-stack-edge-pro-2-system-requirements.md
+          - text: Azure Stack Edge Pro GPU requirements
+            url: azure-stack-edge-gpu-system-requirements.md
+          - text: Azure Stack Edge Pro R requirements
+            url: azure-stack-edge-pro-r-system-requirements.md
+          - text: Azure Stack Edge Mini R requirements
+            url: azure-stack-edge-mini-r-system-requirements.md
+          - text: Azure Stack Edge Pro 2 limits
+            url: azure-stack-edge-pro-2-limits.md           
+          - text: Azure Stack Edge Pro GPU limits
+            url: azure-stack-edge-limits.md
+          - text: Azure Stack Edge Pro R limits
+            url: azure-stack-edge-pro-r-limits.md
+          - text: Azure Stack Edge Mini R limits
+            url: azure-stack-edge-mini-r-limits.md
+
+  # Card
+  - title: "Deploy devices"
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: View Azure Stack Edge Pro 2 checklist
+            url: azure-stack-edge-pro-2-deploy-checklist.md
+          - text: View Azure Stack Edge Pro GPU checklist
+            url: azure-stack-edge-gpu-deploy-checklist.md    
+          - text: Deploy Azure Stack Edge Pro 2
+            url: azure-stack-edge-pro-2-deploy-prep.md     
+          - text: Deploy Azure Stack Edge Pro GPU
+            url: azure-stack-edge-gpu-deploy-prep.md
+          - text: Deploy Azure Stack Edge Pro R
+            url: azure-stack-edge-pro-r-deploy-prep.md
+          - text: Deploy Azure Stack Edge Mini R
+            url: azure-stack-edge-mini-r-deploy-prep.md 
+
+  # Card
+  - title: Manage 
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Edge shares
+            url: azure-stack-edge-gpu-manage-shares.md
+          - text: Edge compute
+            url: azure-stack-edge-manage-compute.md
+          - text: Edge storage accounts
+            url: azure-stack-edge-gpu-manage-storage-accounts.md
+
+  # Card
+  - title: "Deploy workloads"
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: GPU module via Marketplace
+            url: azure-stack-edge-gpu-deploy-sample-module-marketplace.md
+          - text: VMs via Azure portal
+            url: azure-stack-edge-gpu-deploy-virtual-machine-portal.md 
+          - text: VMs via Templates
+            url: azure-stack-edge-gpu-deploy-virtual-machine-templates.md
+          - text: IoT Edge module via Azure portal
+            url: azure-stack-edge-gpu-deploy-compute-module-simple.md
+          - text: Kubernetes via IoT Edge
+            url: azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md
+          - text: Kubernetes via kubectl
+            url: azure-stack-edge-gpu-deploy-stateless-application-kubernetes.md
+          - text: Kubernetes via Azure Arc
+            url: azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md
+
+
+
+  # Card
+  - title: Troubleshoot
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Azure Stack Edge Pro GPU ordering issues
+            url: azure-stack-edge-troubleshoot-ordering.md
+          - text: Azure Stack Edge Pro GPU device issues
+            url: azure-stack-edge-gpu-troubleshoot.md
+          - text: Azure Stack Edge Pro GPU activation issues
+            url: azure-stack-edge-gpu-troubleshoot-activation.md
+          - text: Edge compute errors
+            url: azure-stack-edge-gpu-connect-powershell-interface.md#debug-kubernetes-issues-related-to-iot-edge            
+          - text: Return Azure Stack Edge Pro GPU
+            url: azure-stack-edge-return-device.md
+          - text: Open Support ticket
+            url: azure-stack-edge-contact-microsoft-support.md

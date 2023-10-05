@@ -1,15 +1,14 @@
 ---
-title: 'Microsoft Genomics:Troubleshooting Guide | Microsoft Docs'
-titleSuffix: Azure
-description: Learn more about troubleshooting strategies
+title: Troubleshooting Guide
+titleSuffix: Microsoft Genomics
+description: Learn about troubleshooting strategies for using Microsoft Genomics, including error messages and how to resolve them.
 keywords: troubleshooting, error, debugging
-services: microsoft-genomics
-author: ruchir
-editor: jasonwhowell
-ms.author: ruchir
+services: genomics
+author: vigunase
+ms.author: vigunase
 ms.service: genomics
 ms.workload: genomics
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 10/29/2018
 
 ---
@@ -17,7 +16,7 @@ ms.date: 10/29/2018
 
 Here are a few troubleshooting tips for some of the common issues that you might face when using the Microsoft Genomics service, MSGEN.
 
- For FAQ, not related to troubleshooting, see [Common questions](frequently-asked-questions-genomics.md).
+ For FAQ, not related to troubleshooting, see [Common questions](frequently-asked-questions-genomics.yml).
 ## Step 1: Locate error codes associated with the workflow
 
 You can locate the error messages associated with the workflow by:
@@ -28,7 +27,7 @@ You can locate the error messages associated with the workflow by:
 ### 1. Using the command line `msgen status`
 
 ```bash
-msgen status -u URL -k KEY -w ID 
+msgen status -u URL -k KEY -w ID
 ```
 
 
@@ -40,23 +39,23 @@ There are three required arguments:
 * KEY - the access key for your Genomics account
     * To find your URL and KEY, go to Azure portal and open your Microsoft Genomics account page. Under the **Management** heading, choose **Access keys**. There, you find both the API URL and your access keys.
 
-  
+
 * ID - the workflow ID
-    * To  find your workflow ID type in `msgen list` command. Assuming your config file  contains the URL and your access keys, and is located is in the same location as your msgen exe, the command will look  like this: 
-        
+    * To  find your workflow ID type in `msgen list` command. Assuming your config file  contains the URL and your access keys, and is located is in the same location as your msgen exe, the command will look  like this:
+
         ```bash
         msgen list -f "config.txt"
         ```
         Output from this command will look like this :
-        
+
         ```bash
-        	Microsoft Genomics command-line client v0.7.4
+            Microsoft Genomics command-line client v0.7.4
                 Copyright (c) 2018 Microsoft. All rights reserved.
-                
+
                 Workflow List
                 -------------
                 Total Count  : 1
-                
+
                 Workflow ID     : 10001
                 Status          : Completed successfully
                 Message         :
@@ -69,8 +68,8 @@ There are three required arguments:
         ```
 
   > [!NOTE]
-  >  Alternatively you can include the path to the config file instead of directly entering the URL and KEY. 
-  If you include these arguments in the command line as well as the config file, the command-line arguments will take precedence.  
+  >  Alternatively you can include the path to the config file instead of directly entering the URL and KEY.
+  If you include these arguments in the command line as well as the config file, the command-line arguments will take precedence.
 
 For workflow ID 1001, and config.txt file placed in the same path as the msgen executable, the command will look like this:
 
@@ -78,7 +77,7 @@ For workflow ID 1001, and config.txt file placed in the same path as the msgen e
 msgen status -w 1001 -f "config.txt"
 ```
 
-### 2.  Examine the contents of standardoutput.txt 
+### 2.  Examine the contents of standardoutput.txt
 Locate the output container for the workflow in question. MSGEN creates a,   `[workflowfilename].logs.zip` folder after every workflow execution. Unzip the folder to view its contents:
 
 * outputFileList.txt - a list of the output files produced during the workflow
@@ -91,7 +90,7 @@ For troubleshooting, examine the contents of standardoutput.txt and note any err
 
 ## Step 2: Try recommended steps for common errors
 
-This section briefly highlights common errors output by Microsoft Genomics service (msgen) and the strategies you can use to resolve them. 
+This section briefly highlights common errors output by Microsoft Genomics service (msgen) and the strategies you can use to resolve them.
 
 The Microsoft Genomics service (msgen) can throw the following two kinds of errors:
 
@@ -104,7 +103,7 @@ An Internal service error is not user actionable. You may resubmit the workflow 
 
 | Error message                                                                                                                            | Recommended troubleshooting steps                                                                                                                                   |
 |------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| An internal error occurred. Try resubmitting the workflow. If you see this error again, contact Microsoft Genomics support for assistance | Submit the workflow again. Contact Microsoft Genomics support for assistance if the issue persists by creating a support [ticket](file-support-ticket-genomics.md ). |
+| An internal error occurred. Try resubmitting the workflow. If you see this error again, contact Microsoft Genomics support for assistance | Submit the workflow again. Contact Microsoft Genomics support for assistance if the issue persists by creating a support [ticket](file-support-ticket-genomics.md). |
 
 ### 2. Input errors
 
@@ -139,4 +138,4 @@ If you continue to have job failures, or if you have any other questions, contac
 
 ## Next steps
 
-In this article, you learned how to troubleshoot and resolve common issues with the Microsoft Genomics service. For more information and more general FAQ, see [Common questions](frequently-asked-questions-genomics.md). 
+In this article, you learned how to troubleshoot and resolve common issues with the Microsoft Genomics service. For more information and more general FAQ, see [Common questions](frequently-asked-questions-genomics.yml).

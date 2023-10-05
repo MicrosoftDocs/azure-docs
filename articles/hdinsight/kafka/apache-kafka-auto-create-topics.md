@@ -1,52 +1,49 @@
 ---
-title: Enable automatic topic creation in Apache Kafka - Azure HDInsight 
-description: Learn how to configure Apache Kafka on HDInsight to automatically create topics. You can configure Kafka by setting auto.create.topics.enable to true through Ambari or during cluster creation through PowerShell or Resource Manager templates.
-author: hrasheed-msft
-ms.author: hrasheed
+title: Enable automatic topic creation in Apache Kafka - Azure HDInsight
+description: Learn how to configure Apache Kafka on HDInsight to automatically create topics. You can configure Kafka by setting `auto.create.topics.enable` to true through Ambari. Or during cluster creation through PowerShell or Resource Manager templates.
 ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 04/18/2018
+ms.topic: how-to
+ms.custom: hdinsightactive,seoapr2020
+ms.date: 06/22/2023
 ---
+
 # How to configure Apache Kafka on HDInsight to automatically create topics
 
-By default, [Apache Kafka](https://kafka.apache.org/) on HDInsight does not enable automatic topic creation. You can enable auto topic creation for existing clusters using [Apache Ambari](https://ambari.apache.org/). You can also enable auto topic creation when creating a new Kafka cluster using an Azure Resource Manager template.
+By default, Apache Kafka on HDInsight doesn't enable automatic topic creation. You can enable auto topic creation for existing clusters using Apache Ambari. You can also enable auto topic creation when creating a new Kafka cluster using an Azure Resource Manager template.
 
 ## Apache Ambari Web UI
 
 To enable automatic topic creation on an existing cluster through the Ambari Web UI, use the following steps:
 
-1. From the [Azure portal](https://portal.azure.com), select the Kafka cluster.
+1. From the [Azure portal](https://portal.azure.com), select your Kafka cluster.
 
-2. From the __Cluster overview__, select __Cluster dashboard__. 
+1. From **Cluster dashboards**, select **Ambari home**.
 
-    ![Image of the portal with cluster dashboard selected](./media/apache-kafka-auto-create-topics/kafka-cluster-overview.png)
+    :::image type="content" source="./media/apache-kafka-auto-create-topics/azure-portal-cluster-dashboard-ambari.png" alt-text="Image of the portal with cluster dashboard selected" border="true":::
 
-3. Then select __HDInsight cluster dashboard__. When prompted, authenticate using the login (admin) credentials for the cluster.
+    When prompted, authenticate using the login (admin) credentials for the cluster. Instead, you can connect to Amabri directly from `https://CLUSTERNAME.azurehdinsight.net/` where `CLUSTERNAME` is the name of your Kafka cluster.
 
-    ![Image of the HDInsight cluster dashboard entry](./media/apache-kafka-auto-create-topics/hdinsight-cluster-dashboard.png)
+1. Select the Kafka service from the list on the left of the page.
 
-3. Select the Kafka service from the list on the left of the page.
+    :::image type="content" source="./media/apache-kafka-auto-create-topics/hdinsight-service-list.png" alt-text="Apache Ambari service list tab" border="true":::
 
-    ![Service list](./media/apache-kafka-auto-create-topics/service-list.png)
+1. Select Configs in the middle of the page.
 
-4. Select Configs in the middle of the page.
+    :::image type="content" source="./media/apache-kafka-auto-create-topics/hdinsight-service-config.png" alt-text="Apache Ambari service configs tab" border="true":::
 
-    ![Service config tab](./media/apache-kafka-auto-create-topics/service-config.png)
+1. In the Filter field, enter a value of `auto.create`.
 
-5. In the Filter field, enter a value of `auto.create`. 
+    :::image type="content" source="./media/apache-kafka-auto-create-topics/hdinsight-filter-field.png" alt-text="Apache Ambari search filter field" border="true":::
 
-    ![Image of the filter field](./media/apache-kafka-auto-create-topics/filter.png)
+    This setting filters the list of properties and displays the `auto.create.topics.enable` setting.
 
-    This filters the list of properties and displays the `auto.create.topics.enable` setting.
+1. Change the value of `auto.create.topics.enable` to `true`, and then select **Save**. Add a note, and then select **Save** again.
 
-6. Change the value of `auto.create.topics.enable` to `true`, and then select Save. Add a note, and then select Save again.
+    :::image type="content" source="./media/apache-kafka-auto-create-topics/auto-create-topics-enable.png" alt-text="Image of the auto.create.topics.enable entry" border="true":::
 
-    ![Image of the auto.create.topics.enable entry](./media/apache-kafka-auto-create-topics/auto-create-topics-enable.png)
+1. Select the Kafka service, select __Restart__, and then select __Restart all affected__. When prompted, select __Confirm restart all__.
 
-7. Select the Kafka service, select __Restart__, and then select __Restart all affected__. When prompted, select __Confirm restart all__.
-
-    ![Image of restart selection](./media/apache-kafka-auto-create-topics/restart-all-affected.png)
+    :::image type="content" source="./media/apache-kafka-auto-create-topics/restart-all-affected.png" alt-text="`Apache Ambari restart all affected`" border="true":::
 
 > [!NOTE]  
 > You can also set Ambari values through the Ambari REST API. This is generally more difficult, as you have to make multiple REST calls to retrieve the current configuration, modify it, etc. For more information, see the [Manage HDInsight clusters using the Apache Ambari REST API](../hdinsight-hadoop-manage-ambari-rest-api.md) document.
@@ -59,13 +56,14 @@ When creating a Kafka cluster using an Azure Resource Manager template, you can 
 "clusterDefinition": {
     "kind": "kafka",
     "configurations": {
-    "gateway": {
-        "restAuthCredential.isEnabled": true,
-        "restAuthCredential.username": "[parameters('clusterLoginUserName')]",
-        "restAuthCredential.password": "[parameters('clusterLoginPassword')]"
-    },
-    "kafka-broker": {
-        "auto.create.topics.enable": "true"
+        "gateway": {
+            "restAuthCredential.isEnabled": true,
+            "restAuthCredential.username": "[parameters('clusterLoginUserName')]",
+            "restAuthCredential.password": "[parameters('clusterLoginPassword')]"
+        },
+        "kafka-broker": {
+            "auto.create.topics.enable": "true"
+        }
     }
 }
 ```

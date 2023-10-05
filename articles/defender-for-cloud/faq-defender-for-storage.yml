@@ -1,0 +1,71 @@
+### YamlMime:FAQ
+metadata:
+  title: Common questions - Defender for Storage
+  description: Get answers to frequently asked questions about Microsoft Defender for Storage.
+  ms.topic: faq
+  ms.service: defender-for-cloud
+  author: dcurwin
+  ms.author: dacurwin
+  ms.date: 06/20/2023
+title: Common questions about Defender for Storage
+summary: Get answers to common questions about Microsoft Defender for Storage.
+
+
+sections:
+  - name: Ignored
+    questions:
+      - question: |
+          Is it possible to enable Defender for Storage on a resource level?
+        answer: |
+          Yes, it's possible to enable Defender for Storage at the resource level and set up Malware Scanning and Sensitivity Scanning accordingly. Keep in mind that enabling it at the subscription level is the recommended approach, as it will automatically protect all new storage accounts.
+
+
+      - question: |
+          Can I exclude certain storage accounts from protection?
+        answer: |
+          Yes, you can exclude storage accounts from protection.
+
+
+      - question: |
+          How long does it take for subscription-level enablement to take effect?
+        answer: |
+          Enabling Defender for Storage at the subscription level may take up to 24 hours to be fully enabled across all storage accounts.
+
+
+      - question: |
+          Is there a difference in features between the new and Defender for Storage (classic)?
+        answer: |
+          Yes, there's a difference in the capabilities of the two plans. New and future security capabilities will only be available in the new Defender for Storage plan. If you want to access these new capabilities, you need to enable the new plan.
+
+
+      - question: |
+          Will the Defender for Storage (classic) continue to be supported?
+        answer: |
+          The Defender for Storage (classic) will still continue to be supported for three years after the release of the new Defender for Storage to general availability (GA).
+
+
+      - question: |
+          Can I switch back to the Defender for Storage (classic)?
+        answer: |
+          Yes, you can use the REST API to return to the Defender for Storage (classic) plan.
+
+          If you want to switch back to the Defender for Storage (classic) plan, you need to do two things. First, disable the new Defender for Storage plan that is enabled now. Second, check if there are any policies that can re-enable the new plan and turn them off too. The two Azure built-in policies enabling the new plan are **Configure Microsoft Defender for Storage to be enabled** and **Configure basic Microsoft Defender for Storage to be enabled (Activity Monitoring only).**
+
+
+      - question: |
+          How can I calculate the cost of each plan?
+        answer: |
+          To estimate the cost of Defender for Storage, we've provided a pricing estimation workbook and a PowerShell script that you can run in your environment. You can also check out the Defender for Cloud [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/) for more information.
+
+
+      - question: |
+          How does Defender for Storage monitor Storage accounts?
+        answer: |
+          Defender for storage uses Azure Event Grid to monitor the storage account activity. This is result in creation of an Azure Event Grid System topic with the name \<StorageAccountName\>-\<Guid\> in the same resource group as the storage account. It will also create an Event Grid Subscription resource named  StorageAntimalwareSubscription.
+
+
+additionalContent: |
+
+  ## Next steps
+  
+  [Learn more about Defender for Storage](./defender-for-storage-introduction.md)

@@ -1,29 +1,25 @@
 ---
-title: Migrate on-premises Apache Hadoop clusters to Azure HDInsight - motivation and benefits
+title: 'Benefits: Migrate on-premises Apache Hadoop to Azure HDInsight'
 description: Learn the motivation and benefits for migrating on-premises Hadoop clusters to Azure HDInsight.
-author: hrasheed-msft
-ms.reviewer: ashishth
 ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 10/25/2018
-ms.author: hrasheed
+ms.custom: ignite-2022
+ms.topic: how-to
+ms.date: 11/30/2022
 ---
+
 # Migrate on-premises Apache Hadoop clusters to Azure HDInsight - motivation and benefits
 
 This article is the first in a series on best-practices for migrating on-premises Apache Hadoop eco-system deployments to Azure HDInsight. This series of articles is for people who are responsible for the design, deployment, and migration of Apache Hadoop solutions in Azure HDInsight. The roles that may benefit from these articles include cloud architects, Hadoop administrators, and DevOps engineers. Software developers, data engineers, and data scientists should also benefit from the explanation of how different types of clusters work in the cloud.
 
 ## Why to migrate to Azure HDInsight
 
-Azure HDInsight is a cloud distribution of the Hadoop components from the [Hortonworks Data Platform(HDP)](https://hortonworks.com/products/data-center/hdp/). Azure HDInsight makes it easy, fast, and cost-effective to process massive amounts of data. HDInsight includes the most popular open-source frameworks such as:
+Azure HDInsight is a cloud distribution of Hadoop components. Azure HDInsight makes it easy, fast, and cost-effective to process massive amounts of data. HDInsight includes the most popular open-source frameworks such as:
 
 - Apache Hadoop
 - Apache Spark
 - Apache Hive with LLAP
 - Apache Kafka
-- Apache Storm
 - Apache HBase
-- R
 
 ## Azure HDInsight advantages over on-premises Hadoop
 
@@ -37,9 +33,9 @@ Azure HDInsight is a cloud distribution of the Hadoop components from the [Hort
 
 - **Global availability** - HDInsight is available in more [regions](https://azure.microsoft.com/regions/services/) than any other big data analytics offering. Azure HDInsight is also available in Azure Government, China, and Germany, which allows you to meet your enterprise needs in key sovereign areas.
 
-- **Secure and compliant** - HDInsight enables you to protect your enterprise data assets with [Azure Virtual Network](../hdinsight-extend-hadoop-virtual-network.md), [encryption](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md), and integration with [Azure Active Directory](../domain-joined/apache-domain-joined-introduction.md). HDInsight also meets the most popular industry and government [compliance standards](https://azure.microsoft.com/overview/trusted-cloud).
+- **Secure and compliant** - HDInsight enables you to protect your enterprise data assets with [Azure Virtual Network](../hdinsight-plan-virtual-network-deployment.md), [encryption](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md), and integration with [Azure Active Directory](../domain-joined/hdinsight-security-overview.md). HDInsight also meets the most popular industry and government [compliance standards](https://azure.microsoft.com/overview/trusted-cloud).
 
-- **Simplified version management** - Azure HDInsight manages the version of Hadoop eco-system components and keeps them up-to-date. Software updates are usually a complex process for on-premises deployments.
+- **Simplified version management** - Azure HDInsight manages the version of Hadoop eco-system components and keeps them up to date. Software updates are usually a complex process for on-premises deployments.
 
 - **Smaller clusters optimized for specific workloads with fewer dependencies between components** - A typical on-premises Hadoop setup uses a single cluster that serves many purposes. With Azure HDInsight, workload-specific clusters can be created. Creating clusters for specific workloads removes the complexity of maintaining a single cluster with growing complexity.
 
@@ -79,26 +75,25 @@ This section provides template questionnaires to help gather important informati
 - Project details
 - Azure requirements
 
-### On-Premises deployment questionnaire
+### On-premises deployment questionnaire
 
 | **Question** | **Example** | **Answer** |
 |---|---|---|
 |**Topic**: **Environment**|||
-|Cluster Distribution type|Hortonworks, Cloudera, MapR| |
 |Cluster Distribution version|HDP 2.6.5, CDH 5.7|
 |Big Data eco-system components|HDFS, Yarn, Hive, LLAP, Impala, Kudu, HBase, Spark, MapReduce, Kafka, Zookeeper, Solr, Sqoop, Oozie, Ranger, Atlas, Falcon, Zeppelin, R|
-|Cluster types|Hadoop, Spark, Confluent Kafka, Storm, Solr|
+|Cluster types|Hadoop, Spark, Confluent Kafka, Solr|
 |Number of clusters|4|
-|Number of Master Nodes|2|
-|Number of Worker Nodes|100|
-|Number of Edge Nodes| 5|
+|Number of master nodes|2|
+|Number of worker nodes|100|
+|Number of edge nodes| 5|
 |Total Disk space|100 TB|
 |Master Node configuration|m/y, cpu, disk, etc.|
 |Data Nodes configuration|m/y, cpu, disk, etc.|
 |Edge Nodes configuration|m/y, cpu, disk, etc.|
 |HDFS Encryption?|Yes|
 |High Availability|HDFS HA, Metastore HA|
-|Disaster Recovery / Back up|Backup cluster?|  
+|Disaster Recovery / Backup|Backup cluster?|  
 |Systems that are dependent on Cluster|SQL Server, Teradata, Power BI, MongoDB|
 |Third-party integrations|Tableau, GridGain, Qubole, Informatica, Splunk|
 |**Topic**: **Security**|||
@@ -122,7 +117,6 @@ This section provides template questionnaires to help gather important informati
 |Spark batch jobs|50 jobs -- every 15 minutes||
 |Spark Streaming jobs|5 jobs -- every 3 minutes||
 |Structured Streaming jobs|5 jobs -- every minute||
-|ML Model training jobs|2 jobs -- once in a week||
 |Programming Languages|Python, Scala, Java||
 |Scripting|Shell, Python||
 |**Topic**: **Data**|||
@@ -132,10 +126,10 @@ This section provides template questionnaires to help gather important informati
 |Data destinations|HDFS, RDBMS, Kafka, MPP ||
 |**Topic**: **Meta data**|||
 |Hive DB type|Mysql, Postgres||
-|No. of Hive metastores|2||
-|No. of Hive tables|100||
-|No. of Ranger policies|20||
-|No. of Oozie workflows|100||
+|Number of Hive metastores|2||
+|Number of Hive tables|100||
+|Number of Ranger policies|20||
+|Number of Oozie workflows|100||
 |**Topic**: **Scale**|||
 |Data volume including Replication|100 TB||
 |Daily ingestion volume|50 GB||
@@ -147,24 +141,24 @@ This section provides template questionnaires to help gather important informati
 |Disk space used|75%||
 |Average Network % used|25%
 |**Topic**: **Staff**|||
-|No. of Administrators|2||
-|No. of Developers|10||
-|No. of end users|100||
+|Number of Administrators|2||
+|Number of Developers|10||
+|Number of end users|100||
 |Skills|Hadoop, Spark||
-|No. of available resources for Migration efforts|2||
+|Number of available resources for Migration efforts|2||
 |**Topic**: **Limitations**|||
 |Current limitations|Latency is high||
 |Current challenges|Concurrency issue||
 
 ### Azure requirements questionnaire
 
-|**Topic**: **Infrastructure** |||
-|---|---|---|
 |**Question**|**Example**|**Answer**|
+|---|---|---|
+|**Topic**: **Infrastructure** |||
 | Preferred Region|US East||
 |VNet preferred?|Yes||
 |HA / DR Needed?|Yes||
-|Integration with other cloud services?|ADF, CosmosDB||
+|Integration with other cloud services?|ADF, Azure Cosmos DB||
 |**Topic**:   **Data Movement**  |||
 |Initial load preference|DistCp, Data box, ADF, WANDisco||
 |Data transfer delta|DistCp, AzCopy||
@@ -175,12 +169,12 @@ This section provides template questionnaires to help gather important informati
 |Private and protected data pipeline?|Yes||
 |Domain Joined cluster (ESP)?|     Yes||
 |On-Premises AD Sync to Cloud?|     Yes||
-|No. of AD users to sync?|          100||
+|Number of AD users to sync?|          100||
 |Ok to sync passwords to cloud?|    Yes||
 |Cloud only Users?|                 Yes||
 |MFA needed?|                       No|| 
 |Data authorization requirements?|  Yes||
-|Role-Based Access Control?|        Yes||
+|Role-based access control?|        Yes||
 |Auditing needed?|                  Yes||
 |Data encryption at rest?|          Yes||
 |Data encryption in transit?|       Yes||
@@ -193,7 +187,6 @@ This section provides template questionnaires to help gather important informati
 |Share metastores between different clusters?|Yes||
 |Deconstruct workloads?|Replace Hive jobs with Spark jobs||
 |Use ADF for data orchestration?|No||
-|HDInsight vs Hortonworks Data Platform on IaaS?|HDInsight||
 
 ## Next steps
 

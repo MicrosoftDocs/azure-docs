@@ -1,24 +1,16 @@
 ---
-title: Create a standalone Azure Service Fabric cluster | Microsoft Docs
+title: Create a standalone Azure Service Fabric cluster 
 description: Create an Azure Service Fabric cluster on any machine (physical or virtual) running Windows Server, whether it's on-premises or in any cloud.
-services: service-fabric
-documentationcenter: .net
-author: dkkapur
-manager: chackdan
-editor: ''
-
-ms.assetid: 31349169-de19-4be6-8742-ca20ac41eb9e
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
 ms.service: service-fabric
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 2/21/2019
-ms.author: dekapur
-
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Create a standalone cluster running on Windows Server
-You can use Azure Service Fabric to create Service Fabric clusters on any virtual machines or computers running Windows Server. This means you can deploy and run Service Fabric applications in any environment that contains a set of interconnected Windows Server computers, be it on premises or with any cloud provider. Service Fabric provides a setup package to create Service Fabric clusters called the standalone Windows Server package.
+You can use Azure Service Fabric to create Service Fabric clusters on any virtual machines or computers running Windows Server. This means you can deploy and run Service Fabric applications in any environment that contains a set of interconnected Windows Server computers, be it on premises or with any cloud provider. Service Fabric provides a setup package to create Service Fabric clusters called the standalone Windows Server package. Traditional Service Fabric clusters on Azure are available as a managed service, while standalone Service Fabric clusters are self-service. For more on the differences, see [Comparing Azure and standalone Service Fabric clusters](./service-fabric-deploy-anywhere.md).
 
 This article walks you through the steps for creating a Service Fabric standalone cluster.
 
@@ -30,10 +22,10 @@ This article walks you through the steps for creating a Service Fabric standalon
 <a id="getsupport"></a>
 
 ## Get support for the Service Fabric for Windows Server package
-* Ask the community about the Service Fabric standalone package for Windows Server in the [Azure Service Fabric forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureServiceFabric?).
-* Open a ticket for [Professional Support for Service Fabric](https://support.microsoft.com/oas/default.aspx?prid=16146).  Learn more about Professional Support from Microsoft [here](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
+* Ask the community about the Service Fabric standalone package for Windows Server in the [Microsoft Q&A question page for Azure Service Fabric](/answers/topics/azure-service-fabric.html).
+* Open a ticket for [Professional Support for Service Fabric](https://support.microsoft.com/oas/default.aspx?prid=16146).  
 * You can also get support for this package as a part of [Microsoft Premier Support](https://support.microsoft.com/en-us/premier).
-* For more details, please see [Azure Service Fabric support options](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).
+* For more details, please see [Azure Service Fabric support options](./service-fabric-support.md).
 * To collect logs for support purposes, run the [Service Fabric Standalone Log collector](service-fabric-cluster-standalone-package-contents.md).
 
 <a id="downloadpackage"></a>
@@ -124,7 +116,7 @@ The runtime package can be downloaded separately, from another machine connected
 *.\ClusterConfig.json* and *.\MicrosoftAzureServiceFabric.cab* are the paths to the cluster configuration and the runtime .cab file respectively.
 
 ### Step 2: Connect to the cluster
-Connect to the cluster to verify the cluster is running and available. The ServiceFabric PowerShell module is installed with the runtime.  You can connect to the cluster from one of the cluster nodes or from a remote computer with the Service Fabric runtime.  The [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet establishes a connection to the cluster.
+Connect to the cluster to verify the cluster is running and available. The ServiceFabric PowerShell module is installed with the runtime.  You can connect to the cluster from one of the cluster nodes or from a remote computer with the Service Fabric runtime.  The [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) cmdlet establishes a connection to the cluster.
 
 To connect to an unsecure cluster, run the following PowerShell command:
 
@@ -134,10 +126,10 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <*IPAddressofaMachine*>:<Client
 
 For example:
 ```powershell
-Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.2345:19000
+Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.234:19000
 ```
 
-See [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md) for other examples of connecting to a cluster. After connecting to the cluster, use the [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) cmdlet to display a list of nodes in the cluster and status information for each node. **HealthState** should be *OK* for each node.
+See [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md) for other examples of connecting to a cluster. After connecting to the cluster, use the [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode) cmdlet to display a list of nodes in the cluster and status information for each node. **HealthState** should be *OK* for each node.
 
 ```powershell
 PS C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer> Get-ServiceFabricNode |Format-Table
@@ -150,7 +142,7 @@ NodeDeactivationInfo NodeName IpAddressOrFQDN NodeType  CodeVersion  ConfigVersi
 ```
 
 ### Step 3: Visualize the cluster using Service Fabric explorer
-[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) is a good tool for visualizing your cluster and managing applications.  Service Fabric Explorer is a service that runs in the cluster, which you access using a browser by navigating to [http://localhost:19080/Explorer](http://localhost:19080/Explorer).
+[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) is a good tool for visualizing your cluster and managing applications.  Service Fabric Explorer is a service that runs in the cluster, which you access using a browser by navigating to `http://localhost:19080/Explorer`.
 
 The cluster dashboard provides an overview of your cluster, including a summary of application and node health. The node view shows the physical layout of the cluster. For a given node, you can inspect which applications have code deployed on that node.
 
@@ -178,9 +170,9 @@ This script can be run on any machine that has administrator access to all the m
 <a id="telemetry"></a>
 
 ## Telemetry data collected and how to opt out of it
-As a default, the product collects telemetry on the Service Fabric usage to improve the product. The Best Practice Analyzer that runs as a part of the setup checks for connectivity to [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1). If it is not reachable, the setup fails unless you opt out of telemetry.
+As a default, the product collects telemetry on the Service Fabric usage to improve the product. If it is not reachable, the setup fails unless you opt out of telemetry.
 
-1. The telemetry pipeline tries to upload the following data to [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1) once every day. It is a best-effort upload and has no impact on the cluster functionality. The telemetry is only sent from the node that runs the failover manager primary. No other nodes send out telemetry.
+1. It is a best-effort upload and has no impact on the cluster functionality. The telemetry is only sent from the node that runs the failover manager primary. No other nodes send out telemetry.
 2. The telemetry consists of the following:
 
 * Number of services
@@ -222,7 +214,7 @@ None.
 * [Configuration settings for standalone Windows cluster](service-fabric-cluster-manifest.md)
 * [Add or remove nodes to a standalone Service Fabric cluster](service-fabric-cluster-windows-server-add-remove-nodes.md)
 * [Upgrade a standalone Service Fabric cluster version](service-fabric-cluster-upgrade-windows-server.md)
-* [Create a standalone Service Fabric cluster with Azure VMs running Windows](service-fabric-cluster-creation-with-windows-azure-vms.md)
+* [Create a standalone Service Fabric cluster with Azure VMs running Windows](./service-fabric-cluster-creation-via-arm.md)
 * [Secure a standalone cluster on Windows using Windows security](service-fabric-windows-cluster-windows-security.md)
 * [Secure a standalone cluster on Windows using X509 certificates](service-fabric-windows-cluster-x509-security.md)
 

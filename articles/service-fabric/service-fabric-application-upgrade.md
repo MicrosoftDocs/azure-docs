@@ -1,24 +1,31 @@
 ---
-title: Service Fabric application upgrade | Microsoft Docs
+title: Service Fabric application upgrade 
 description: This article provides an introduction to upgrading a Service Fabric application, including choosing upgrade modes and performing health checks.
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: chackdan
-editor: ''
-
-ms.assetid: 803c9c63-373a-4d6a-8ef2-ea97e16e88dd
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 2/23/2018
-ms.author: subramar
-
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Service Fabric application upgrade
-An Azure Service Fabric application is a collection of services. During an upgrade, Service Fabric compares the new [application manifest](service-fabric-application-and-service-manifests.md) with the previous version and determines which services in the application require updates. Service Fabric compares the version numbers in the service manifests with the version numbers in the previous version. If a service has not changed, that service is not upgraded.
+An Azure Service Fabric application is a collection of services. During an upgrade, Service Fabric compares the new [application manifest](service-fabric-application-and-service-manifests.md) with the previous version and determines which services in the application require updates. Service Fabric compares the version in the service manifests with the version in the previous version. If the service version has not changed, that service will not be upgraded.
+
+> [!NOTE]
+> [ApplicationParameter](/dotnet/api/system.fabric.description.applicationdescription.applicationparameters#System_Fabric_Description_ApplicationDescription_ApplicationParameters)s are not preserved across an application upgrade. In order to preserve current application parameters, the user should get the parameters first and pass them into the upgrade API call like below:
+```powershell
+$myApplication = Get-ServiceFabricApplication -ApplicationName fabric:/myApplication
+$appParamCollection = $myApplication.ApplicationParameters
+
+$applicationParameterMap = @{}
+foreach ($pair in $appParamCollection)
+{
+    $applicationParameterMap.Add($pair.Name, $pair.Value);
+}
+
+Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/myApplication -ApplicationTypeVersion 2.0.0 -ApplicationParameter $applicationParameterMap -Monitored -FailureAction Rollback
+```
 
 ## Rolling upgrades overview
 In a rolling application upgrade, the upgrade is performed in stages. At each stage, the upgrade is applied to a subset of nodes in the cluster, called an update domain. As a result, the application remains available throughout the upgrade. During the upgrade, the cluster may contain a mix of the old and new versions.
@@ -44,7 +51,7 @@ The mode that we recommend for application upgrade is the monitored mode, which 
 Unmonitored manual mode needs manual intervention after every upgrade on an update domain, to kick off the upgrade on the next update domain. No Service Fabric health checks are performed. The administrator performs the health or status checks before starting the upgrade in the next update domain.
 
 ## Upgrade default services
-Some default service parameters defined in the [application manifest](service-fabric-application-and-service-manifests.md) can also be upgraded as part of an application upgrade. Only the service parameters that support being changed through [Update-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps) can be changed as part of an upgrade. The behavior of changing default services during application upgrade is as follows:
+Some default service parameters defined in the [application manifest](service-fabric-application-and-service-manifests.md) can also be upgraded as part of an application upgrade. Only the service parameters that support being changed through [Update-ServiceFabricService](/powershell/module/servicefabric/update-servicefabricservice) can be changed as part of an upgrade. The behavior of changing default services during application upgrade is as follows:
 
 1. Default services in the new application manifest that do not already exist in the cluster are created.
 2. Default services that exist in both the previous and new application manifests are updated. The parameters of the default service in the new application manifest overwrite the parameters of the existing service. The application upgrade will rollback automatically if updating a default service fails.

@@ -1,17 +1,18 @@
 ---
 title: How to view related data assets in Azure Data Catalog
 description: This article explains how to view related data assets of a selected data asset in Azure Data Catalog.
-services: data-catalog
-author: JasonWHowell
-ms.author: jasonh
 ms.service: data-catalog
-ms.topic: conceptual
-ms.date: 01/18/2018
+ms.topic: how-to
+ms.date: 12/15/2022
 ---
-# How to view related data assets in Azure Data Catalog?
-Azure Data Catalog allows you to view data assets related to a selected data asset and view relationships between them. 
+# How to view related data assets in Azure Data Catalog
 
-## Supported data sources 
+[!INCLUDE [Microsoft Purview redirect](includes/catalog-to-purview-migration-flag.md)]
+
+Azure Data Catalog allows you to view data assets that are related to a selected data asset, and see the relationships between them. 
+
+## Supported data sources
+
 When you register data assets from the following data sources, Azure Data Catalog automatically registers metadata about join relationships between the selected data assets. 
 
 - SQL Server
@@ -20,12 +21,13 @@ When you register data assets from the following data sources, Azure Data Catalo
 - Oracle
 
 > [!NOTE]
-> For Data Catalog to import relationship between two data assets, you must register both the assets at the same time. If you had added one of them separately, add it again and the other data asset to import relationship between them.
+> For Data Catalog to import relationship between two data assets, you must register both the assets at the same time. If you had added one of them separately, add it again with the other data asset to import relationship between them.
 
 ## View related data assets
+
 To view data assets that are related to a selected dataset, use the **Relationships** tab as shown in the following image: 
 
-![Azure Data Catalog - View related data assets](media/data-catalog-how-to-view-related-data-assets/relationships-tab.png)
+:::image type="content" source="media/data-catalog-how-to-view-related-data-assets/relationships-tab.png" alt-text="Selected data asset window with the fifth, relationship highlighted, as well as the relational arrows between the data assets.":::
 
 In this example, there are two relationships for the selected **ProductSubcategory** data asset: 
 
@@ -35,11 +37,12 @@ In this example, there are two relationships for the selected **ProductSubcatego
 > [!NOTE]
 > Notice the direction of the arrow in the relationships tree view.  
 
-To see more details such as the fully qualified name of the column, move the mouse over and you see a popup similar to the following image: 
+To see more details such as the fully qualified name of the column, hover over the data asset and you see a popup similar to the following image: 
 
-![Azure Data Catalog - Relationship popup](media/data-catalog-how-to-view-related-data-assets/relationship-popup.png)
+:::image type="content" source="media/data-catalog-how-to-view-related-data-assets/relationship-popup.png" alt-text="Pop up appears over data asset that shows additional details when hovering over the data asset.":::
 
 To include relationships between assets that have already been registered, re-register those assets.
 
 ## Next steps
+
 - [How to manage data assets](data-catalog-how-to-manage.md)

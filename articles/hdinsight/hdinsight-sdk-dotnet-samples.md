@@ -1,13 +1,12 @@
 ---
 title: 'Azure HDInsight: .NET samples'
 description: Find C# .NET examples on GitHub for common tasks using the HDInsight SDK for .NET.
-author: hrasheed-msft
 ms.service: hdinsight
+ms.custom: devx-track-dotnet
 ms.topic: sample
-ms.date: 04/15/2019
-ms.author: hrasheed
-
+ms.date: 08/30/2022
 ---
+
 # Azure HDInsight: .NET samples
 
 > [!div class="op_single_selector"]
@@ -23,11 +22,11 @@ This article provides:
 
 You can [activate Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio): Your Visual Studio subscription gives you credits every month that you can use for paid Azure services.
 
-## Prerequisites
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- [Azure HDInsight SDK for .NET](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight#sdk-installation)
+## Prerequisite
+
+[Azure HDInsight SDK for .NET](/dotnet/api/overview/azure/hdinsight#sdk-installation)
 
 ## Cluster management - creation
 
@@ -38,6 +37,6 @@ You can [activate Visual Studio subscriber benefits](https://azure.microsoft.com
 
 You can get these samples for .NET by cloning the [hdinsight-dotnet-sdk-samples](https://github.com/Azure-Samples/hdinsight-dotnet-sdk-samples) GitHub repository.
 
-[!INCLUDE [hdinsight-sdk-additional-functionality](../../includes/hdinsight-sdk-additional-functionality.md)]
+[!INCLUDE [hdinsight-sdk-additional-functionality](includes/hdinsight-sdk-additional-functionality.md)]
 
-Code snippets for this additional SDK functionality can be found in the [HDInsight SDK for .NET reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet).
+Code snippets for this additional SDK functionality can be found in the [HDInsight SDK for .NET reference documentation](/dotnet/api/overview/azure/hdinsight).

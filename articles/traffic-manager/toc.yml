@@ -1,15 +1,26 @@
-- name: Traffic Manager Documentation
+- name: Traffic Manager documentation
   href: index.yml
 - name: Overview
   items:
   - name: What is Traffic Manager?
     href: traffic-manager-overview.md
-- name: Quickstart
+- name: Quickstarts
   items:
-  - name: Create a Traffic Manager profile - portal
+  - name: Create a Traffic Manager profile - Portal
     href: quickstart-create-traffic-manager-profile.md
   - name: Create a Traffic Manager profile - PowerShell
     href: quickstart-create-traffic-manager-profile-powershell.md
+  - name: Create a Traffic Manager profile - Azure CLI
+    href: quickstart-create-traffic-manager-profile-cli.md
+  - name: Create a Traffic Manager profile - Bicep
+    displayName: ARM , Resource Manager, Template
+    href: quickstart-create-traffic-manager-profile-bicep.md
+  - name: Create a Traffic Manager profile - ARM Template
+    displayName: Resource Manager
+    href: quickstart-create-traffic-manager-profile-template.md
+  - name: Create a Traffic Manager profile - Terraform
+    href: quickstart-create-traffic-manager-profile-terraform.md
+  expanded: true
 - name: Tutorials
   items:
   - name: Route traffic for low latency
@@ -26,12 +37,6 @@
     href: tutorial-traffic-manager-subnet-routing.md
   - name: Alias records for Traffic Manager
     href: ../dns/tutorial-alias-tm.md?toc=%2fazure%2ftraffic-manager%2ftoc.json
-- name: Samples
-  items:
-  - name: Azure CLl
-    href: cli-samples.md
-  - name: Azure PowerShell
-    href: powershell-samples.md
 - name: Concepts
   items:
   - name: Routing methods
@@ -39,6 +44,10 @@
     items:
     - name: Country/Region hierarchy used by Traffic Manager
       href: traffic-manager-geographic-regions.md
+  - name: Security
+    items:
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/traffic-manager-security-baseline?toc=/azure/traffic-manager/toc.json
   - name: Nested Traffic Manager profiles
     href: traffic-manager-nested-profiles.md
   - name: Endpoint types
@@ -52,25 +61,31 @@
   - name: Metrics and alerts
     href: traffic-manager-metrics-alerts.md
   - name: Disaster recovery using Azure DNS and Traffic Manager
-    href: ../networking/disaster-recovery-dns-traffic-manager.md  
+    href: ../networking/disaster-recovery-dns-traffic-manager.md
   - name: How Traffic Manager works
     href: traffic-manager-how-it-works.md
   - name: FAQs
     href: traffic-manager-FAQs.md
-- name: How To
+- name: How-to guides
   items:
   - name: Configure performance routing in Traffic Manager
     href: traffic-manager-configure-performance-routing-method.md
   - name: Configure multivalue routing in Traffic Manager
-    href: traffic-manager-configure-multivalue-routing-method.md
+    items: 
+    - name: Portal
+      href: traffic-manager-configure-multivalue-routing-method.md
+    - name: ARM template
+      href: configure-multivalue-routing-method-template.md
   - name: Configure subnet routing in Traffic Manager
-    href: traffic-manager-configure-subnet-routing-method.md 
+    href: traffic-manager-configure-subnet-routing-method.md
   - name: Send Real User Measurements to Traffic Manager
     items:
     - name: Using Visual Studio SDK
       href: traffic-manager-create-rum-visual-studio.md
     - name: Using web pages
       href: traffic-manager-create-rum-web-pages.md
+  - name: Add an endpoint to an existing profile - ARM Template
+    href: how-to-add-endpoint-existing-profile-template.md
   - name: Manage endpoints
     href: traffic-manager-manage-endpoints.md
   - name: Manage profiles
@@ -81,12 +96,18 @@
     href: traffic-manager-load-balancing-azure.md
   - name: Measure Traffic Manager performance
     href: traffic-manager-performance-considerations.md
-  - name: Enable diagnostic logs
+  - name: Enable resource logs
     href: traffic-manager-diagnostic-logs.md
   - name: Use Azure PowerShell to manage Traffic Manager
     href: traffic-manager-powershell-arm.md
   - name: Point your Internet domain to Traffic Manager
     href: traffic-manager-point-internet-domain.md
+  - name: Subnet override
+    items:
+    - name: Configure subnet override - Azure CLI
+      href: traffic-manager-subnet-override-cli.md
+    - name: Configure subnet override - PowerShell
+      href: traffic-manager-subnet-override-powershell.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot degraded state on Azure Traffic Manager
@@ -101,38 +122,28 @@
     href: /cli/azure/network/traffic-manager
   - name: Java
     href: /java/api/com.microsoft.azure.management.trafficmanager
-  - name: Node.js
-    href: https://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/
   - name: Ruby
     href: https://www.rubydoc.info/gems/azure_mgmt_traffic_manager
   - name: Python
-    href: http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-trafficmanager.html
+    href: https://azure.github.io/azure-sdk-for-python/trafficmanager.html
   - name: REST
-    href: https://msdn.microsoft.com/library/mt163667.aspx
+    href: /rest/api/trafficmanager/
   - name: Resource Manager template
     href: /azure/templates/microsoft.network/trafficmanagerprofiles
-- name: Related
-  items:
-  - name: Application Gateway
-    href: /azure/application-gateway/
-  - name: Load Balancer
-    href: /azure/load-balancer/
-  - name: Azure DNS
-    href: /azure/dns/
 - name: Resources
   items:
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Blog
     href: https://azure.microsoft.com/blog/topics/networking/
-  - name: MSDN Forum
-    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork
+  - name: Microsoft Q&A question page
+    href: /answers/topics/azure-virtual-network.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/traffic-manager/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Service Limits
-    href: ../azure-subscription-service-limits.md#traffic-manager-limits
+    href: ../azure-resource-manager/management/azure-subscription-service-limits.md#traffic-manager-limits
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=traffic-manager
   - name: SLA

@@ -1,0 +1,92 @@
+### YamlMime:Landing
+title: Azure Arc-enabled Kubernetes
+summary: Learn how to manage Kubernetes clusters with Azure Arc
+
+metadata:
+  title: Azure Arc-enabled Kubernetes
+  description: Learn about how to manage on-premises machines in Azure
+  ms.service: azure-arc
+  ms.topic: landing-page
+  ms.date: 03/02/2021
+
+landingContent:
+  - title: About Azure Arc-enabled Kubernetes
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Arc-enabled Kubernetes?
+            url: overview.md
+          - text: Azure Arc Validation Program
+            url: validation-program.md
+      - linkListType: concept
+        links:
+          - text: Agent overview
+            url: conceptual-agent-overview.md
+          - text: Cluster extensions
+            url: conceptual-extensions.md
+          - text: Custom locations
+            url: conceptual-custom-locations.md
+          - text: Configurations and GitOps (Flux v2)
+            url: conceptual-gitops-flux2.md
+          - text: Frequently Asked Questions
+            url: faq.md
+
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Connect a cluster to Azure Arc
+            url: quickstart-connect-cluster.md
+      - linkListType: learn
+        links:
+          - text: Module - Intro to Azure Arc-enabled Kubernetes
+            url: /training/modules/intro-to-arc-enabled-kubernetes
+
+  - title: Deploy configurations using GitOps
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Deploy configurations using GitOps (Flux v2)
+            url: tutorial-use-gitops-flux2.md
+          - text: Implement CI/CD with GitOps (Flux v2)
+            url: tutorial-gitops-flux2-ci-cd.md
+ 
+  - title: Proof of concept
+    linkLists:
+     - linkListType: sample
+       links:
+          - text: Jumpstart for Azure Arc-enabled Kubernetes
+            url: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/
+  
+  - title: Manage your cluster
+    linkLists:
+      - linkListType: how-to-guide
+        links:  
+          - text: Monitor using Azure Monitor for containers
+            url: ../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json
+          - text: Enforce threat protection using Microsoft Defender for Cloud
+            url: ../../defender-for-cloud/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json
+          - text: In-cluster policy enforcements using Azure Policy
+            url: ../../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json
+          - text: Deploy Azure Arc-enabled Open Service Mesh
+            url: tutorial-arc-enabled-open-service-mesh.md
+          - text: Access secrets from Azure Key Vault
+            url: tutorial-akv-secrets-provider.md
+  
+  - title: Reference architecture
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: Manage deployments and configurations for hybrid Kubernetes clusters
+            url: /azure/architecture/hybrid/arc-hybrid-kubernetes
+          - text: Azure Arc landing zone accelerator for hybrid and multicloud
+            url: https://aka.ms/ArcLZAcceleratorReady
+
+  - title: API reference
+    linkLists:
+      - linkListType: reference
+        links:
+         - text: Azure CLI
+           url: /cli/azure/connectedk8s
+         - text: Azure PowerShell
+           url: /powershell/module/az.connectedkubernetes#connected-kubernetes

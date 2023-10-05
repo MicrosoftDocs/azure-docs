@@ -1,19 +1,21 @@
 ---
 title: Using the Bing Spell Check API
-titlesuffix: Azure Cognitive Services
-description: Learn about the Bing Spell Check modes, settings, and other information relating to the API.
+titleSuffix: Azure AI services
+description: Learn about the Bing Spell Check modes, settings, and other information related to the API.
 services: cognitive-services
 author: aahill
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: aahi
 ---
 
 # Using the Bing Spell Check API
+
+[!INCLUDE [Bing move notice](../../bing-web-search/includes/bing-move-notice.md)]
 
 Use this article to learn about using the Bing Spell Check API to perform contextual grammar and spell checking. While most spell-checkers rely on dictionary-based rule sets, the Bing spell-checker leverages machine learning and statistical machine translation to provide accurate and contextual corrections. 
 
@@ -40,14 +42,14 @@ The default mode is `Proof`. The `Proof` spelling mode provides the most compreh
 
 ## Market setting
 
-A [market code](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference#market-codes) should be specified with the `mkt` query parameter in your request. The API will otherwise use a default market based on the request's IP address.
+A [market code](/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference#market-codes) should be specified with the `mkt` query parameter in your request. The API will otherwise use a default market based on the request's IP address.
 
 
 ## HTTP POST and GET support
 
 The API supports either HTTP POST or HTTP GET. Which you use depends on the length of text you plan to proof. If the strings are always less than 1,500 characters, you'd use a GET. But if you want to support strings up to 10,000 characters, you'd use POST. The text string may include any valid UTF-8 character.
 
-The following example shows a POST request to check the spelling and grammar of a text string. The example includes the [mode](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference#mode) query parameter for completeness (it could have been left out since `mode` defaults to Proof). The [text](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference#text) query parameter contains the string to be proofed.
+The following example shows a POST request to check the spelling and grammar of a text string. The example includes the [mode](/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference#mode) query parameter for completeness (it could have been left out since `mode` defaults to Proof). The [text](/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference#text) query parameter contains the string to be proofed.
   
 ```  
 POST https://api.cognitive.microsoft.com/bing/v7.0/spellcheck?mode=proof&mkt=en-us HTTP/1.1  
@@ -64,7 +66,7 @@ text=when+its+your+turn+turn,+john,+come+runing
 
 If you use HTTP GET, you'd include the `text` query parameter in the URL's query string
   
-The following shows the response to the previous request. The response contains a [SpellCheck](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference#spellcheck) object. 
+The following shows the response to the previous request. The response contains a [SpellCheck](/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference#spellcheck) object. 
   
 ```json
 {  
@@ -108,7 +110,7 @@ The following shows the response to the previous request. The response contains 
 }  
 ```  
   
-The [flaggedTokens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference#flaggedtokens) field lists the spelling and grammar errors that the API found in the [text](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference#text) string. The `token` field contains the word to be replaced. You'd use the zero-based offset in the `offset` field to find the token in the `text` string. You'd then replace the word at that location with the word in the `suggestion` field. 
+The [flaggedTokens](/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference#flaggedtokens) field lists the spelling and grammar errors that the API found in the [text](/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference#text) string. The `token` field contains the word to be replaced. You'd use the zero-based offset in the `offset` field to find the token in the `text` string. You'd then replace the word at that location with the word in the `suggestion` field. 
 
 If the `type` field is RepeatedToken, you'd still replace the token with `suggestion` but you'd also likely need to remove the trailing space.
 
@@ -119,4 +121,4 @@ If the `type` field is RepeatedToken, you'd still replace the token with `sugges
 ## Next steps
 
 - [What is the Bing Spell Check API?](../overview.md)
-- [Bing Spell Check API v7 Reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
+- [Bing Spell Check API v7 Reference](/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

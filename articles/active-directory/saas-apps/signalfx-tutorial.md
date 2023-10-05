@@ -1,260 +1,165 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with SignalFx | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and SignalFx.
+title: 'Tutorial: Microsoft Entra single sign-on (SSO) integration with SignalFx'
+description: Learn how to configure single sign-on between Microsoft Entra ID and SignalFx.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 6d5ab4b0-29bc-4b20-8536-d64db7530f32
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/25/2019
+ms.date: 11/21/2022
 ms.author: jeedes
-
 ---
-# Tutorial: Azure Active Directory integration with SignalFx
 
-In this tutorial, you learn how to integrate SignalFx with Azure Active Directory (Azure AD).
-Integrating SignalFx with Azure AD provides you with the following benefits:
+# Tutorial: Microsoft Entra single sign-on (SSO) integration with SignalFx
 
-* You can control in Azure AD who has access to SignalFx.
-* You can enable your users to be automatically signed-in to SignalFx (Single Sign-On) with their Azure AD accounts.
-* You can manage your accounts in one central location - the Azure portal.
+In this tutorial, you will learn how to integrate SignalFx with Microsoft Entra ID. When you integrate SignalFx with Microsoft Entra ID, you can:
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+* Control from Microsoft Entra ID who has access to SignalFx.
+* Enable your users to be automatically signed-in to SignalFx with their Microsoft Entra accounts.
+* Manage your accounts in one location (the Azure portal).
 
 ## Prerequisites
 
-To configure Azure AD integration with SignalFx, you need the following items:
+To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/)
-* SignalFx single sign-on enabled subscription
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* SignalFx single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+In this tutorial, you will configure and test Microsoft Entra SSO in a test environment.
 
-* SignalFx supports **IDP** initiated SSO
-* SignalFx supports **Just In Time** user provisioning
+* SignalFx supports **IDP** initiated SSO.
+* SignalFx supports **Just In Time** user provisioning.
 
-## Adding SignalFx from the gallery
+## Step 1: Add the SignalFx application in Azure
 
-To configure the integration of SignalFx into Azure AD, you need to add SignalFx from the gallery to your list of managed SaaS apps.
+Use these instructions to add the SignalFx application to your list of managed SaaS apps.
 
-**To add SignalFx from the gallery, perform the following steps:**
+1. Log into the Azure portal.
+1. On the left-side navigation window, select **Microsoft Entra ID**.
+1. Select **Enterprise applications**, and then select **All applications**.
+1. Select **New application**.
+1. In the **Add from the gallery** section, in the search box, enter and select **SignalFx**.
+     * You may need to wait a few minutes for the application to be added to your tenant.
+1. Leave the Azure portal open, and then open a new web tab.    
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
+## Step 2: Begin SignalFx SSO configuration
 
-	![The Azure Active Directory button](common/select-azuread.png)
+Use these instructions to begin the configuration process for the SignalFx SSO.
 
-2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
+1. In the newly opened tab, access and log into the SignalFx UI. 
+1. In the top menu, click **Integrations**. 
+1. In the search field, enter and select **Microsoft Entra ID**.
+1. Click **Create New Integration**.
+1. In **Name**, enter an easily recognizable name that your users will understand.
+1. Mark **Show on login page**.
+    * This feature will display a customized button in the login page that your users can click on. 
+    * The information you entered in **Name** will appear on the button. As a result, enter a **Name** that your users will recognize. 
+    * This option will only function if you use a custom subdomain for the SignalFx application, such as **yourcompanyname.signalfx.com**. To obtain a custom subdomain, contact SignalFx support. 
+1. Copy the **Integration ID**. You will need this information in a later step. 
+1. Leave the SignalFx UI open. 
 
-	![The Enterprise applications blade](common/enterprise-applications.png)
+<a name='step-3-configure-azure-ad-sso'></a>
 
-3. To add new application, click **New application** button on the top of dialog.
+## Step 3: Configure Microsoft Entra SSO
 
-	![The New application button](common/add-new-app.png)
+Use these instructions to enable Microsoft Entra SSO.
 
-4. In the search box, type **SignalFx**, select **SignalFx** from result panel then click **Add** button to add the application.
+1. Return to the Azure portal, and on the **SignalFx** application integration page, locate the **Manage** section, and then select **Single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-	 ![SignalFx in the results list](common/search-new-app.png)
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-## Configure and test Azure AD single sign-on
+1. On the **Set up single sign-on with SAML** page, perform the following steps: 
 
-In this section, you configure and test Azure AD single sign-on with SignalFx based on a test user called **Britta Simon**.
-For single sign-on to work, a link relationship between an Azure AD user and the related user in SignalFx needs to be established.
+    a. In **Identifier**, enter the following URL `https://api.<realm>.signalfx.com/v1/saml/metadata` and replace `<realm>` with your SignalFx realm. 
 
-To configure and test Azure AD single sign-on with SignalFx, you need to complete the following building blocks:
+    b. In **Reply URL**, enter the following URL `https://api.<realm>.signalfx.com/v1/saml/acs/<integration ID>` and replace `<realm>` with your SignalFx realm, as well as `<integration ID>` with the **Integration ID** you copied earlier from the SignalFx UI.
 
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Configure SignalFx Single Sign-On](#configure-signalfx-single-sign-on)** - to configure the Single Sign-On settings on application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create SignalFx test user](#create-signalfx-test-user)** - to have a counterpart of Britta Simon in SignalFx that is linked to the Azure AD representation of user.
-6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+1. SignalFx application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. 
+    
+1. Review and verify that the following claims map to the source attributes that are populated in the Active Directory. 
 
-### Configure Azure AD single sign-on
+    | Name |  Source Attribute|
+    | ------------------- | -------------------- |
+    | User.FirstName  | user.givenname |
+    | User.email  | user.mail |
+    | PersonImmutableID       | user.userprincipalname    |
+    | User.LastName       | user.surname    |
 
-In this section, you enable Azure AD single sign-on in the Azure portal.
+    > [!NOTE]
+    > This process requires that your Active Directory is configured with at least one verified custom domain, as well as has access to the email accounts in this domain. If you are unsure or need assistance with this configuration, please contact SignalFx support.  
 
-To configure Azure AD single sign-on with SignalFx, perform the following steps:
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)**, and then select **Download**. Download the certificate, and save it on your computer. Then, copy the **App Federation Metadata Url** value; you will need this information in a later step in the SignalFx UI. 
 
-1. In the [Azure portal](https://portal.azure.com/), on the **SignalFx** application integration page, select **Single sign-on**.
+    ![The Certificate download link](common/certificatebase64.png)
 
-    ![Configure single sign-on link](common/select-sso.png)
+1. On the **Set up SignalFx** section, copy the **Microsoft Entra Identifier** value. You will need this information in a later step in the SignalFx UI. 
 
-2. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
+<a name='step-4-create-an-azure-ad-test-user'></a>
 
-    ![Single sign-on select mode](common/select-saml-option.png)
+## Step 4: Create a Microsoft Entra test user
 
-3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
+In this section, you'll create a test user called B.Simon.
 
-	![Edit Basic SAML Configuration](common/edit-urls.png)
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Select **Review + create**.
+1. Select **Create**.
 
-4. On the **Set up Single Sign-On with SAML** page, perform the following steps:
+<a name='step-5-assign-the-azure-ad-test-user'></a>
 
-    ![SignalFx Domain and URLs single sign-on information](common/idp-intiated.png)
+## Step 5: Assign the Microsoft Entra test user
 
-    a. In the **Identifier** text box, type a URL:
-    `https://api.signalfx.com/v1/saml/metadata`
+In this section, you'll enable B.Simon to use single sign-on by granting access to SignalFx.
 
-    b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://api.signalfx.com/v1/saml/acs/<integration ID>`
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **SignalFx**.
+1. In the app's overview page, select **Users and groups**.
+1. Select **Add user/group**, then select **Users and groups** in the **Add Assignment** dialog.
+   1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+   1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+   1. In the **Add Assignment** dialog, click the **Assign** button.
 
-	> [!NOTE]
-	> The preceding value is not real value. You update the value with the actual Reply URL, which is explained later in the tutorial.
+## Step 6: Complete the SignalFx SSO configuration 
 
-5. SignalFx application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
+1. Open the previous tab, and return to the SignalFx UI to view the current Microsoft Entra integration page. 
+1. Next to **Certificate (Base64)**, click **Upload File**, and then locate the **Base64 encoded certificate** file that you previously downloaded previously.
+1. Next to **Microsoft Entra Identifier**, paste the **Microsoft Entra Identifier** value that you copied earlier. 
+1. Next to **Federation Metadata URL**, paste the **App Federation Metadata Url** value that you copied earlier. 
+1. Click **Save**.
 
-	![image](common/edit-attribute.png)
+## Step 7: Test SSO
 
-6. In the **User Claims** section on the **User Attributes** dialog, edit the claims by using **Edit icon** or add the claims by using **Add new claim** to configure SAML token attribute as shown in the image above and perform the following steps: 
+Review the following information regarding how to test SSO, as well as expectations for logging into SignalFx for the first time. 
 
-	| Name |  Source Attribute|
-	| ------------------- | -------------------- |
-	| User.FirstName 	 | user.givenname |
-	| User.email 		  | user.mail |
-	| PersonImmutableID       | user.userprincipalname    |
-	| User.LastName       | user.surname    |
+### Test logins
 
-	a. Click **Add new claim** to open the **Manage user claims** dialog.
+* To test the login, you should use a private / incognito window, or you can log out. If not, cookies for the user who configured the application will interfere and prevent a successful login with the test user.
 
-	![image](common/new-save-attribute.png)
+* When a new test user logs in for the first time, Azure will force a password change. When this occurs, the SSO login process will not be completed; the test user will be directed to the Azure portal. To troubleshoot, the test user should change their password, and navigate to the SignalFx login page or to the MyApps and try again.
+    * When you click the SignalFx tile in the MyApps, you should be automatically logged into the SignalFx. 
+        * For more information about the MyApps, see [Introduction to the MyApps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
-	![image](common/new-attribute-details.png)
+* SignalFx application can be accessed from the MyApps or via a custom login page assigned to the organization. The test user should test the integration starting from either of these location.
+    * The test user can use the credentials created earlier in this process for **b.simon\@contoso.com**.
 
-	b. In the **Name** textbox, type the attribute name shown for that row.
+### First-time logins
 
-	c. Leave the **Namespace** blank.
+* When a user logs into SignalFx from the SAML SSO for the first time, the user will receive a SignalFx email with a link. The user must click the link for authentication purposes. This email validation will only take place for first-time users. 
 
-	d. Select Source as **Attribute**.
+* SignalFx supports **Just In Time** user creation, which means that if a user does not exist in SignalFx, then the user's account will be created upon first login attempt.
 
-	e. From the **Source attribute** list, type the attribute value shown for that row.
+## Next steps
 
-	f. Click **Ok**
-
-	g. Click **Save**.
-
-7. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
-
-	![The Certificate download link](common/certificatebase64.png)
-
-8. On the **Set up SignalFx** section, copy the appropriate URL(s) as per your requirement.
-
-	![Copy configuration URLs](common/copy-configuration-urls.png)
-
-	a. Login URL
-
-	b. Azure AD Identifier
-
-	c. Logout URL
-
-### Configure SignalFx Single Sign-On
-
-1. Sign in to your SignalFx company site as administrator.
-
-1. In SignalFx, on the top click **Integrations** to open the Integrations page.
-
-	![SignalFx Integration](./media/signalfx-tutorial/tutorial_signalfx_intg.png)
-
-1. Click on **Azure Active Directory** tile under **Login Services** section.
-
-	![SignalFx saml](./media/signalfx-tutorial/tutorial_signalfx_saml.png)
-
-1. Click on **NEW INTEGRATION** and under the **INSTALL** tab perform the following steps:
-
-	![SignalFx samlintgpage](./media/signalfx-tutorial/tutorial_signalfx_azure.png)
-
-	a. In the **Name** textbox type, a new integration name, like **OurOrgName SAML SSO**.
-
-	b. Copy the **Integration ID** value and append to the **Reply URL** in the place of `<integration ID>` in the **Reply URL** textbox of **Basic SAML Configuration** section in Azure portal.
-
-	c. Click on **Upload File** to upload the **Base64 encoded certificate** downloaded from Azure portal in the **Certificate** textbox.
-
-	d. In the **Issuer URL** textbox, paste the value of **Azure AD Identifier**, which you have copied from the Azure portal.
-
-	e. In the **Metadata URL** textbox, paste the **Login URL** which you have copied from the Azure portal.
-
-	f. Click **Save**.
-
-### Create an Azure AD test user
-
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
-
-1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
-
-    ![The "Users and groups" and "All users" links](common/users.png)
-
-2. Select **New user** at the top of the screen.
-
-    ![New user Button](common/new-user.png)
-
-3. In the User properties, perform the following steps.
-
-    ![The User dialog box](common/user-properties.png)
-
-    a. In the **Name** field enter **BrittaSimon**.
-  
-    b. In the **User name** field type `brittasimon@yourcompanydomain.extension`  
-    For example, BrittaSimon@contoso.com
-
-    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
-
-    d. Click **Create**.
-
-### Assign the Azure AD test user
-
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to SignalFx.
-
-1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **SignalFx**.
-
-	![Enterprise applications blade](common/enterprise-applications.png)
-
-2. In the applications list, select **SignalFx**.
-
-	![The SignalFx link in the Applications list](common/all-applications.png)
-
-3. In the menu on the left, select **Users and groups**.
-
-    ![The "Users and groups" link](common/users-groups-blade.png)
-
-4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
-
-    ![The Add Assignment pane](common/add-assign-user.png)
-
-5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
-
-6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
-
-7. In the **Add Assignment** dialog click the **Assign** button.
-
-### Create SignalFx test user
-
-The objective of this section is to create a user called Britta Simon in SignalFx. SignalFx supports just-in-time provisioning, which is by default enabled. There is no action item for you in this section. A new user is created during an attempt to access SignalFx if it doesn't exist yet.
-
-When a user signs in to SignalFx from the SAML SSO for the first time, [SignalFx support team](mailto:kmazzola@signalfx.com) sends them an email containing a link that they must click through to authenticate. This will only happen the first time the user signs in; subsequent login attempts will not require email validation.
-
-> [!Note]
-> If you need to create a user manually, contact [SignalFx support team](mailto:kmazzola@signalfx.com)
-
-### Test single sign-on
-
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
-
-When you click the SignalFx tile in the Access Panel, you should be automatically signed in to the SignalFx for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
-
-## Additional Resources
-
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+Once you configure SignalFx you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

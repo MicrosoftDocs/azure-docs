@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Perform a news search with Node.js - Bing News Search REST API"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Use this quickstart to send a request to the Bing News Search REST API using Node.js, and receive a JSON response.
 services: cognitive-services
 author: aahill
@@ -8,38 +8,39 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 1/10/2019
+ms.date: 05/22/2020
 ms.author: aahi
-ms.custom: seodec2018
+ms.devlang: javascript
+ms.custom: seodec2018, devx-track-js, mode-api
 ---
 # Quickstart: Perform a news search using Node.js and the Bing News Search REST API
 
-Use this quickstart to make your first call to the Bing Image Search API and receive a JSON response. This simple JavaScript application sends a search query to the API and displays the raw results.
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
-While this application is written in JavaScript and runs in Node.js, the API is a RESTful Web service compatible most programming languages.
+Use this quickstart to make your first call to the Bing News Search API. This simple JavaScript application sends a search query to the API and displays the JSON response.
+
+Although this application is written in JavaScript and runs in Node.js, the API is a RESTful Web service compatible with most programming languages.
 
 The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingNewsSearchv7.js).
 
 ## Prerequisites
 
 * The latest version of [Node.js](https://nodejs.org/en/download/).
-
-* The [JavaScript Request Library](https://github.com/request/request)
+* The [JavaScript Request Library](https://github.com/request/request).
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
-See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
-
 ## Create and initialize the application
 
-1. Create a new JavaScript file in your favorite IDE or editor, and set the strictness and https requirements.
+1. Create a new JavaScript file in your favorite IDE or editor, and set the strictness and HTTPS requirements.
 
     ```javascript
     'use strict';
     let https = require('https');
     ```
 
-2. Create variables for the API endpoint, image API search path, your subscription key, and search term.
+2. Create variables for the API endpoint, news API search path, your subscription key, and search term. You can use the global endpoint in the following code, or use the [custom subdomain](../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource. 
+
     ```javascript
     let subscriptionKey = 'enter key here';
     let host = 'api.cognitive.microsoft.com';
@@ -49,38 +50,42 @@ See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.
 
 ## Handle and parse the response
 
-1. define a function named `response_handler` that takes an HTTP call, `response`, as a parameter. within this function, perform the following steps:
+1. Define a function named `response_handler` that takes an HTTP call, `response`, as a parameter. 
 
-    1. Define a variable to contain the body of the JSON response.  
-        ```javascript
-        let response_handler = function (response) {
-            let body = '';
-        };
-        ```
+   Add code to this function in the steps that follow.
 
-    2. Store the body of the response when the **data** flag is called
-        ```javascript
-        response.on('data', function (d) {
-            body += d;
-        });
-        ```
+2. Define a variable to contain the body of the JSON response.  
 
-    3. When an **end** flag is signaled, the JSON and headers can be viewed.
+    ```javascript
+    let response_handler = function (response) {
+        let body = '';
+    };
+    ```
 
-        ```javascript
-        response.on('end', function () {
-            console.log('\nRelevant Headers:\n');
-            for (var header in response.headers)
-                // header keys are lower-cased by Node.js
-                if (header.startsWith("bingapis-") || header.startsWith("x-msedge-"))
-                     console.log(header + ": " + response.headers[header]);
-            body = JSON.stringify(JSON.parse(body), null, '  ');
-            console.log('\nJSON Response:\n');
-            console.log(body);
-         });
-        ```
+3. Store the body of the response when the `data` flag is called.
 
-## JSON Response
+    ```javascript
+    response.on('data', function (d) {
+        body += d;
+    });
+    ```
+
+3. When an `end` flag is signaled, the JSON and headers can be viewed.
+
+    ```javascript
+    response.on('end', function () {
+        console.log('\nRelevant Headers:\n');
+        for (var header in response.headers)
+            // header keys are lower-cased by Node.js
+            if (header.startsWith("bingapis-") || header.startsWith("x-msedge-"))
+                 console.log(header + ": " + response.headers[header]);
+        body = JSON.stringify(JSON.parse(body), null, '  ');
+        console.log('\nJSON Response:\n');
+        console.log(body);
+     });
+    ```
+
+## Example JSON response
 
 A successful response is returned in JSON, as shown in the following example: 
 

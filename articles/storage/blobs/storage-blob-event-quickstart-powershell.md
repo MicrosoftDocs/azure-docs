@@ -1,21 +1,18 @@
 ---
-title: Send Azure Blob storage events to web endpoint - Powershell | Microsoft Docs
-description: Use Azure Event Grid to subscribe to Blob storage events. 
-services: storage,event-grid 
+title: Send Azure Blob storage events to web endpoint - PowerShell
+description: Use Azure Event Grid to subscribe to Blob storage events, trigger an event, and view the result. Use Azure PowerShell to route storage events to a web endpoint.
 author: normesta
-
 ms.author: normesta
 ms.reviewer: dastanfo
 ms.date: 08/23/2018
 ms.topic: article
-ms.service: storage
-ms.subservice: blobs
-ms.custom: seodec18
+ms.service: azure-blob-storage
+ms.custom: devx-track-azurepowershell
 ---
 
 # Quickstart: Route storage events to web endpoint with PowerShell
 
-Azure Event Grid is an eventing service for the cloud. In this article, you use Azure PowerShell to subscribe to Blob storage events, trigger an event, and view the result. 
+Azure Event Grid is an eventing service for the cloud. In this article, you use Azure PowerShell to subscribe to Blob storage events, trigger an event, and view the result.
 
 Typically, you send events to an endpoint that processes the event data and takes actions. However, to simplify this article, you send the events to a web app that collects and displays the messages.
 
@@ -27,7 +24,7 @@ When you're finished, you see that the event data has been sent to the web app.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-This article requires that you're running the latest version of Azure PowerShell. If you need to install or upgrade, see [Install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
+This article requires that you're running the latest version of Azure PowerShell. If you need to install or upgrade, see [Install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 ## Sign in to Azure
 
@@ -49,7 +46,7 @@ Event Grid topics are Azure resources, and must be placed in an Azure resource g
 
 Create a resource group with the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command.
 
-The following example creates a resource group named **gridResourceGroup** in the **westus2** location.  
+The following example creates a resource group named **gridResourceGroup** in the **westus2** location.
 
 ```powershell
 $resourceGroup = "gridResourceGroup"
@@ -60,7 +57,7 @@ New-AzResourceGroup -Name $resourceGroup -Location $location
 
 Blob storage events are available in general-purpose v2 storage accounts and Blob storage accounts. **General-purpose v2** storage accounts  support all features for all storage services, including Blobs, Files, Queues, and Tables. A **Blob storage account** is a specialized storage account for storing your unstructured data as blobs (objects) in Azure Storage. Blob storage accounts are like general-purpose storage accounts and share all the great durability, availability, scalability, and performance features that you use today including 100% API consistency for block blobs and append blobs. For more information, see [Azure storage account overview](../common/storage-account-overview.md).
 
-Create a Blob storage account with LRS replication using [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount), then retrieve the storage account context that defines the storage account to be used. When acting on a storage account, you reference the context instead of repeatedly providing the credentials. This example creates a storage account called **gridstorage** with locally redundant storage (LRS). 
+Create a Blob storage account with LRS replication using [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount), then retrieve the storage account context that defines the storage account to be used. When acting on a storage account, you reference the context instead of repeatedly providing the credentials. This example creates a storage account called `gridstorage` with locally redundant storage (LRS).
 
 > [!NOTE]
 > Storage account names are in a global name space so you need to append some random characters to the name provided in this script.
@@ -72,14 +69,15 @@ $storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Location $location `
   -SkuName Standard_LRS `
   -Kind BlobStorage `
-  -AccessTier Hot
+  -AccessTier Hot `
+  -AllowBlobPublicAccess $false  
 
 $ctx = $storageAccount.Context
 ```
 
 ## Create a message endpoint
 
-Before subscribing to the topic, let's create the endpoint for the event message. Typically, the endpoint takes actions based on the event data. To simplify this quickstart, you deploy a [pre-built web app](https://github.com/Azure-Samples/azure-event-grid-viewer) that displays the event messages. The deployed solution includes an App Service plan, an App Service web app, and source code from GitHub.
+Before subscribing to the topic, let's create the endpoint for the event message. Typically, the endpoint takes actions based on the event data. To simplify this quickstart, you deploy a [prebuilt web app](https://github.com/Azure-Samples/azure-event-grid-viewer) that displays the event messages. The deployed solution includes an App Service plan, an App Service web app, and source code from GitHub.
 
 Replace `<your-site-name>` with a unique name for your web app. The web app name must be unique because it's part of the DNS entry.
 
@@ -97,7 +95,7 @@ The deployment may take a few minutes to complete. After the deployment has succ
 
 You should see the site with no messages currently displayed.
 
-[!INCLUDE [event-grid-register-provider-powershell.md](../../../includes/event-grid-register-provider-powershell.md)]
+[!INCLUDE [register-provider-powershell.md](../../event-grid/includes/register-provider-powershell.md)]
 
 ## Subscribe to your storage account
 
@@ -160,6 +158,7 @@ You've triggered the event, and Event Grid sent the message to the endpoint you 
 ```
 
 ## Clean up resources
+
 If you plan to continue working with this storage account and event subscription, don't clean up the resources created in this article. If you don't plan to continue, use the following command to delete the resources you created in this article.
 
 ```powershell

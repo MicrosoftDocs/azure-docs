@@ -1,0 +1,91 @@
+### YamlMime:Landing
+
+title: Azure Static Web Apps documentation
+summary: Azure Static Web Apps allows you to build modern web applications that automatically publish to the web as your code changes.
+
+metadata:
+  title: Azure Static Web Apps documentation
+  description: Azure Static Web Apps allows you to build modern web applications that automatically publish to the web as your code changes.
+  ms.topic: landing-page
+  ms.service: static-web-apps
+  author: craigshoemaker
+  ms.author: cshoe
+  ms.date: 11/19/2021
+
+landingContent:
+  - title: About Static Web Apps
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Static Web Apps?
+            url: overview.md        
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Deploy an app with no front-end framework
+            url: ./getting-started.md?tabs=vanilla-javascript
+          - text: Deploy an Angular app
+            url: ./getting-started.md?tabs=angular
+          - text: Deploy a React app
+            url: ./getting-started.md?tabs=react
+          - text: Deploy a Vue app
+            url: ./getting-started.md?tabs=vue
+          - text: Deploy a Blazor app
+            url: ./getting-started.md?tabs=blazor
+      - linkListType: learn
+        links:
+          - text: Publish an Angular, React, Svelte, or Vue JavaScript app
+            url: /training/modules/publish-app-service-static-web-app-api
+          - text: Publish an API
+            url: /training/modules/publish-static-web-app-api-preview-url
+          - text: Create and deploy a Gatsby app 
+            url: /training/modules/create-deploy-static-webapp-gatsby-app-service
+          - text: Publish a Blazor WebAssembly app and .NET API
+            url: /training/modules/publish-app-service-static-web-app-api-dotnet
+      - linkListType: video
+        links:
+          - text: Build and deploy a static web app
+            url: /Shows/Docs-Azure/Building-and-Deploying-a-Static-Web-App/
+  - title: Build and deploy
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Blazor
+            url: deploy-blazor.md
+          - text: Gatsby
+            url: publish-gatsby.md
+          - text: Jekyll
+            url: publish-jekyll.md
+          - text: Hugo
+            url: publish-hugo.md
+          - text: Next.js Static HTML Export
+            url: deploy-nextjs-static-export.md
+          - text: Hybrid Next.js (preview)
+            url: deploy-nextjs-hybrid.md
+          - text: Nuxt.js
+            url: deploy-nuxtjs.md
+          - text: VuePress
+            url: publish-vuepress.md
+  - title: Key concepts
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Configuration
+            url: configuration-overview.md
+          - text: Serverless API endpoints
+            url: apis-overview.md
+          - text: Staging environments
+            url: review-publish-pull-requests.md
+          - text: Authentication and authorization
+            url: authentication-authorization.md
+          - text: Build configuration with GitHub Actions
+            url: build-configuration.md?tabs=github-actions
+          - text: Build configuration with Azure DevOps
+            url: build-configuration.md?tabs=azure-devops
+  - title: Infrastructure as code
+    linkLists:
+     - linkListType: tutorial
+       links:
+         - text: Create an Azure Static Web App using an ARM template 
+           url: publish-azure-resource-manager.md  

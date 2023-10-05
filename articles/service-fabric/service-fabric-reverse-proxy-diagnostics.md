@@ -1,21 +1,14 @@
 ---
-title: Azure Service Fabric reverse proxy diagnostics | Microsoft Docs
-description: Learn how to monitor and diagnose request processing at the reverse proxy.
-services: service-fabric
-documentationcenter: .net
-author: kavyako
-manager: vipulm
-
-ms.assetid:
+title: Azure Service Fabric reverse proxy diagnostics 
+description: Learn how to monitor and diagnose request processing at the reverse proxy for an Azure Service Fabric application.
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
 ms.service: service-fabric
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
-ms.date: 08/08/2017
-ms.author: kavyako
-
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Monitor and diagnose request processing at the reverse proxy
 
 Starting with the 5.7 release of Service Fabric, reverse proxy events are available for collection. 
@@ -197,5 +190,5 @@ Here are some examples on how to interpret the common failure logs that one can 
 ## Next steps
 * [Event aggregation and collection using Windows Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md) for enabling log collection in Azure clusters.
 * To view Service Fabric events in Visual Studio, see [Monitor and diagnose locally](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
-* Refer to [Configure reverse proxy to connect to secure services](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample#configure-reverse-proxy-to-connect-to-secure-services) for Azure Resource Manager template samples to configure secure reverse proxy with the different service certificate validation options.
+* Refer to [Configure reverse proxy to connect to secure services](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Reverse-Proxy-Sample#configure-reverse-proxy-to-connect-to-secure-services) for Azure Resource Manager template samples to configure secure reverse proxy with the different service certificate validation options.
 * Read [Service Fabric reverse proxy](service-fabric-reverseproxy.md) to learn more.

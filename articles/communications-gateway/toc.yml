@@ -1,0 +1,73 @@
+items:
+- name: 'Azure Communications Gateway documentation'
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What is Azure Communications Gateway?
+    href: overview.md
+  - name: What's new?
+    href: whats-new.md
+  - name: Get started
+    href: get-started.md
+- name: Planning
+  items:
+  - name: Your network and Communications Gateway
+    href: role-in-network.md
+  - name: Onboarding and Included Benefits
+    href: onboarding.md
+  - name: Reliability
+    href: reliability-communications-gateway.md
+  - name: Security
+    items:
+    - name: Overview of security
+      href: security.md
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/azure-communications-gateway-security-baseline?toc=/azure/communications-gateway/toc.json&bc=/azure/communications-gateway/breadcrumb/toc.json
+  - name: Plan and manage costs
+    href: plan-and-manage-costs.md
+  - name: Limits, quotas and restrictions
+    href: limits.md
+- name: Deployment
+  items:
+  - name: Prepare for deployment
+    href: prepare-to-deploy.md
+  - name: Deploy Azure Communications Gateway
+    href: deploy.md
+- name: Integration with Operator Connect and Teams Phone Mobile
+  items:
+  - name: Overview of interoperability
+    href: interoperability-operator-connect.md
+  - name: Setup
+    items:
+    - name: Connect
+      href: connect-operator-connect.md
+    - name: Prepare for live traffic
+      href: prepare-for-live-traffic-operator-connect.md
+  - name: Mobile Control Point
+    href: mobile-control-point.md
+  - name: Emergency calling
+    href: emergency-calling-operator-connect.md
+  - name: Use the Number Management Portal
+    href: manage-enterprise-operator-connect.md
+- name: Maintenance
+  items:
+  - name: Set up user roles
+    href: provision-user-roles.md
+  - name: Monitoring
+    items:
+    - name: Overview of monitoring
+      href: monitor-azure-communications-gateway.md
+    - name: Monitoring data reference
+      href: monitoring-azure-communications-gateway-data-reference.md
+  - name: Get support or request changes
+    href: request-changes.md
+- name: Resources
+  items:
+  - name: Azure Communications Gateway product page
+    href: https://azure.microsoft.com/products/communications-gateway
+  - name: Overview of Operator Connect
+    href: https://cloudpartners.transform.microsoft.com/practices/microsoft-365-for-operators/connect
+  - name: Overview of Teams Phone Mobile
+    href: https://cloudpartners.transform.microsoft.com/practices/microsoft-365-for-operators/teams-phone-mobile
+

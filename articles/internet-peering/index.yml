@@ -1,0 +1,88 @@
+### YamlMime:Landing
+
+title: Internet Peering documentation
+summary: Learn about Internet peering with Microsoft global network.
+
+metadata:
+  title: Internet peering documentation
+  titleSuffix: Azure
+  description: Learn about peering with Microsoft.
+  services: internet-peering
+  ms.service: internet-peering
+  ms.topic: landing-page
+  author: halkazwini
+  ms.author: halkazwini
+  ms.date: 01/23/2023
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Internet peering
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: About Internet peering
+            url: overview.md
+          - text: Internet peering vs. Peering Service
+            url: overview-peering-service.md
+      - linkListType: concept
+        links:
+          - text: Peering policy
+            url: policy.md
+          - text: Prerequisites to set up peering with Microsoft
+            url: prerequisites.md
+          - text: Internet peering FAQs
+            url: faqs.md
+
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Associate peer ASN to Azure subscription using the portal
+            url: howto-subscription-association-portal.md
+
+  # Card
+  - title: Exchange peering
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Exchange peering walkthrough
+            url: walkthrough-exchange-all.md
+          - text: Create or modify an Exchange peering using the portal
+            url: howto-exchange-portal.md
+          - text: Convert a legacy Exchange peering to Azure resource using the portal
+            url: howto-legacy-exchange-portal.md
+          - text: Create or Modify an Exchange peering with route server using the portal
+            url: how-to-exchange-route-server-portal.md
+
+  # Card
+  - title: Direct peering
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Direct peering walkthrough
+            url: walkthrough-direct-all.md
+          - text: Create or modify a Direct peering using the portal
+            url: howto-direct-portal.md
+          - text: Convert a legacy Direct peering to Azure resource using the portal
+            url: howto-legacy-direct-portal.md
+        
+  # Card
+  - title: Peering Service
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Peering Service FAQ
+            url: faqs.md#peering-service
+      - linkListType: how-to-guide
+        links:
+          - text: Peering Service partner walkthrough
+            url: walkthrough-peering-service-all.md
+          - text: Enable Peering Service on a Direct peering using the portal
+            url: howto-peering-service-portal.md
+            
+            

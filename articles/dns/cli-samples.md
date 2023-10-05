@@ -1,29 +1,22 @@
 ---
-title: Azure CLI samples for Traffic Manager| Microsoft Docs
-description: Azure CLI samples for Traffic Manager
-services: traffic-manager
-documentationcenter: traffic-manager
-author: vhorne
-manager: jeconnoc
-editor: tysonn
-tags:
-ms.assetid:
-ms.service: traffic-manager
-ms.devlang: na
+title: Azure CLI samples for DNS - Azure DNS
+description: With this sample, use Azure CLI to create DNS zones and records in Azure DNS.
+services: dns
+author: greg-lindsay
+ms.service: dns
 ms.topic: sample
-ms.tgt_pltfrm:
-ms.workload: infrastructure
-ms.date: 04/30/2018
-ms.author: victorh
+ms.date: 09/27/2022
+ms.author: greglin 
+ms.custom: devx-track-azurecli
 
 ---
-# Azure CLI samples for Traffic Manager
+# Azure CLI examples for Azure DNS
 
-The following table includes link to bash script for Traffic Manager built using the Azure CLI.
+The following table includes links to Azure CLI examples for Azure DNS.
 
-| | |
+| Article | Description |
 |-|-|
-| [Create a DNS zone and record](./scripts/traffic-manager-cli-create-dns-zone-record.md) | Creates a DNS zone and record for a domain name. |
+| [Create a DNS zone and record](./scripts/dns-cli-create-dns-zone-record.md) | Creates a DNS zone and record for a domain name. |
 | | |
 
 

@@ -1,0 +1,221 @@
+### YamlMime:FAQ
+metadata:
+  title: FAQ - Azure Synapse Analytics
+  description: FAQ for Azure Synapse Analytics
+  author: saveenr
+  ms.service: synapse-analytics
+  ms.topic: faq
+  ms.subservice: overview
+  ms.custom: event-tier1-build-2022, ignite-2022
+  ms.date: 11/16/2022
+  ms.author: saveenr
+  ms.reviewer: sngun, wiassaf
+title: Azure Synapse Analytics frequently asked questions
+summary: In this guide, you'll find the most frequently asked questions for Azure Synapse Analytics.
+
+
+sections:
+  - name: General
+    questions:
+      - question: |
+          How can I use RBAC roles to secure my workspace?
+        answer: |
+          Azure Synapse introduces a number of roles and scopes to assign them on that will simplify securing your workspace.
+          
+          Synapse RBAC roles:
+          * Synapse Administrator
+          * Synapse SQL Administrator
+          * Synapse Spark Administrator
+          * Synapse Contributor
+          * Synapse Artifact Publisher
+          * Synapse Artifact User
+          * Synapse Compute Operator
+          * Synapse Credential User
+          * Synapse Linked Data Manager
+          * Synapse User
+          
+          To secure your Synapse workspace, assign the RBAC Roles to these RBAC scopes:
+          * Workspaces
+          * Spark pools
+          * Integration runtimes
+          * Linked services
+          * Credentials
+          
+          Additionally, with dedicated SQL pools you have all the same security features that you know and love.
+          
+      - question: |
+          How do I control dedicated SQL pools, serverless SQL pools, and serverless Spark pools?
+        answer: |
+          As a starting point, Azure Synapse works with the built-in cost analysis and cost alerts available at the Azure subscription level.
+          
+          - Dedicated SQL pools - you have direct visibility into the cost and control over the cost, because you create and specify the sizes of dedicated SQL pools. You can further control your which users can create or scale dedicated SQL pools with Azure RBAC roles.
+          
+          - Serverless SQL pools - you have monitoring and cost management controls that let you cap spending at a daily, weekly, and monthly level. [See Cost management for serverless SQL pool](./sql/data-processed.md) for more information. 
+          
+          - Serverless Spark pools - you can restrict who can create Spark pools with Synapse RBAC roles.  
+
+      - question: |
+          Will Synapse workspace support folder organization of objects and granularity at GA?
+        answer: |
+          Synapse workspaces supports user-defined folders.
+
+      - question: |
+          Can I link more than one Power BI workspace to a single Azure Synapse Workspace?
+        answer: |
+          Yes, as of June 10, 2021, Synapse Studio now allows you to add more than one Power BI workspace to a single Azure Synapse Workspace. 
+
+      - question: |
+          Is Azure Synapse Link to Azure Cosmos DB generally available?
+        answer: |
+          Azure Synapse Analytics currently supports Azure Synapse Link from Azure Cosmos DB to Synapse Apache Spark and serverless SQL pool. Azure Synapse Link for Apache Spark is GA. Synapse Link for serverless SQL pool is in preview. For more information, see [Azure Synapse Link for Azure Cosmos DB](../cosmos-db/synapse-link.md).
+
+      - question: |
+          Is Azure Synapse Link for SQL generally available?
+        answer: |
+          Azure Synapse Link for SQL is generally available for both SQL Server 2022 and Azure SQL Database. For more information, see [What is Azure Synapse Link for SQL?](synapse-link/sql-synapse-link-overview.md).
+
+      - question: |
+          Does Azure Synapse workspace Support CI/CD? 
+        answer: |
+          Yes! All Pipeline artifacts, notebooks, SQL scripts, and Spark job definitions will reside in Git. All pool definitions will be stored in Git as Azure Resource Manager (ARM) templates. Dedicated SQL pool objects (schemas, tables, views, etcetera.) will be managed with database projects with CI/CD support. For more information, check out this [CI and CD Guide](./cicd/continuous-integration-delivery.md).
+
+      - question: |
+          What are the functional differences between dedicated SQL pools and serverless pools?
+        answer: |
+          Capabilities and requirements are different between the two types of pools. Differences include database objects, query language capabilities, security, tools, data access, and data format. For detailed comparison of SQL pools and serverless pools, please visit [Pools Comparison](./sql/overview-features.md). For best practices when using either type of pool, please view [Best Practices for Dedicated SQL Pool](./sql/best-practices-dedicated-sql-pool.md) and [Best Practices for Serverless SQL Pool](./sql/best-practices-serverless-sql-pool.md).
+
+      - question: |
+          What are Delta tables, and why should I use them?
+        answer: |
+          Lakehouse is based on open direct-access data formats, such as Apache Parquet. It has first-class support for machine learning and data science. A Delta table is a view of data that is contained in a Delta Lake, which supports most options provided by Apache Spark DataFrame read and write APIs. Lakehouses can help with major challenges with data warehouses, like data staleness, reliability, total cost of ownership, and data lock-in. On Delta tables, optimizations like auto compaction and adaptive query plans are available. For a detailed guide to Delta Lake, please visit [Delta Lake Guide](https://github.com/Azure-Samples/Synapse/blob/main/Notebooks/Scala/Hitchikers%20Guide%20to%20Delta%20Lake%20-%20Scala.ipynb).
+
+      - question: |
+          What is Auto Compaction?
+        answer: |
+          Auto Compaction is one of two complementary features of Auto Optimize for Delta tables. After a write to a table succeeds, Auto Compaction can further compact files for partitions that have the most number of small files. Opting in to Auto Compaction is recommended for streaming use cases where adding minutes of latency is acceptable and when you don't have regular OPTIMIZE calls on your table. For more information on Auto Optimize and Auto Compaction, check out this [Auto Optimize Guide](/azure/databricks/optimizations/auto-optimize).
+
+  - name: Pipelines
+    questions:
+      - question: |
+          How do I ensure I know what credential is being used to run a pipeline? 
+        answer: |
+          Each activity in a Synapse Pipeline is executed using the credential specified inside the linked service.
+
+      - question: |
+          Are SSIS IRs supported in Synapse Integrate?
+        answer: |
+          Not at this time. 
+          
+      - question: |
+          How are Azure Data Factory pipelines and Azure Synapse pipelines different?
+        answer: |
+          Some examples of differences are support for global parameters, monitoring of Spark Jobs for Data Flow, and Integration Runtime sharing. For more information, check out this doc for [Data Integration - Synapse vs ADF](./data-integration/concepts-data-factory-differences.md). 
+
+      - question: |
+          How do I migrate existing pipelines from Azure Data Factory to an Azure Synapse workspace?
+        answer: |
+          At this time, you must manually recreate your Azure Data Factory pipelines and related artifacts by exporting the JSON from the original pipeline and importing it into your Synapse workspace.
+
+      - question: |
+          How do I use an Apache Spark Job Definition?
+        answer: |
+          Check out this [Quick Start Guide](./quickstart-transform-data-using-spark-job-definition.md).
+
+      - question: |
+          Can I call notebooks from ADF pipelines?
+        answer: |
+          There are two options for this use case. One option is to keep pipelines in ADF, and you will have to wrap in a web activity. For more information on this option, please view this [Web Activity Guide](../data-factory/control-flow-web-activity.md). The other option is to migrate the pipelines to Synapse. For more information on the second option, check out this [Migration Code Sample](https://github.com/Azure-Samples/Synapse/tree/main/Pipelines/ImportADFtoSynapse).
+ 
+  - name: Apache Spark
+    questions:
+      - question: |
+          What is the difference between Apache Spark for Synapse and Apache Spark?
+        answer: |
+          Apache Spark for Synapse is Apache Spark with added support for integrations with other services (Azure AD, AzureML, etc.) and additional libraries (mssparktuils, Hummingbird) and pre-tuned performance configurations.
+          
+          Any workload that is currently running on Apache Spark will run on Apache Spark for Azure Synapse without change. 
+          
+      - question: |
+          What versions of Spark are available?
+        answer: |
+          As of September 2023, Azure Synapse Apache Spark fully supports Spark 3.3. For a full list of core components and currently supported versions see [Apache Spark version support](./spark/apache-spark-version-support.md).
+          
+      - question: |
+          Is there an equivalent of DButils in Azure Synapse Spark?
+        answer: |
+          Yes, Azure Synapse Apache Spark provides the **mssparkutils** library. For full documentation of the utility see [Introduction to Microsoft Spark utilities](./spark/microsoft-spark-utilities.md).
+          
+      - question: |
+          How do I set session parameters in Apache Spark?
+        answer: |
+          To set session parameters, use %%configure magic available. A session restart is required for the parameters to take effect. 
+
+      - question: |
+          How do I set cluster level parameters in a serverless Spark pool?
+        answer: |
+          To set cluster level parameters, you can provide a spark.conf file for the Spark pool. This pool will then honor the parameters past in the config file. 
+
+      - question: |
+          Can I run a multi-user Spark Cluster in Azure Synapse Analytics?
+        answer: |
+          Azure Synapse provides purpose-built engines for specific use cases. Apache Spark for Synapse is designed as a job service and not a cluster model. 
+          There are two scenarios where people ask for a multi-user cluster model.
+          
+          **Scenario #1: Many users accessing a cluster for serving data for BI purposes.**
+          
+          The easiest way of accomplishing this task is to cook the data with Spark and then take advantage of the serving capabilities of Synapse SQL to that they can connect Power BI to those datasets.
+          
+          **Scenario #2: Having multiple developers on a single cluster to save money.**
+           
+          To satisfy this scenario, you should give each developer a serverless Spark pool that is set to use a small number of Spark resources. Since serverless Spark pools don't cost anything, until they are actively used minimizes the cost when there are multiple developers. The pools share metadata (Spark tables) so they can easily work with each other.
+          
+      - question: |
+          How do I include, manage, and install libraries?
+        answer: |
+           You can install external packages via a requirements.txt file while creating the Spark pool, from the synapse workspace, or from the Azure portal. See [Manage libraries for Apache Spark in Azure Synapse Analytics](./spark/apache-spark-azure-portal-add-libraries.md).
+       
+      - question: |
+          What tools are available to me on Synapse Spark?
+        answer: |
+           MSSparkUtils on Synapse Spark offers a variety of utilities to enhance your experience and to make integration with other tools and services easier. Work with file systems, get environment variables, chain notebooks together, and work with secrets with minimal manual steps. For full documentation, please visit [Microsoft Spark Utilities](./spark/microsoft-spark-utilities.md?pivots=programming-language-csharp).
+      
+  - name: Dedicated SQL Pools
+    questions:
+        
+      - question: |
+          What is the difference between dedicated SQL pools (SQL DW) and dedicated SQL pools in Azure Synapse workspaces?
+        answer: |
+          Dedicated SQL pools (formerly SQL DW) are an Azure Platform-as-a-Service (PaaS) enterprise data warehousing platform. You can query existing dedicated SQL pools (formerly SQL DW) and also create new dedicated SQL pools in your Azure Synapse workspace. Not all features of the dedicated SQL pool in Azure Synapse workspaces apply to a standalone dedicated SQL pool (formerly SQL DW), and vice versa. For more information, see [What's the difference between Azure Synapse dedicated SQL pools (formerly SQL DW) and dedicated SQL pools in an Azure Synapse Analytics workspace?](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/msft-docs-what-s-the-difference-between-synapse-formerly-sql-dw/ba-p/3597772). To enable Azure Synapse workspace features for an existing dedicated SQL pool (formerly SQL DW), refer to [How to enable a workspace for your dedicated SQL pool (formerly SQL DW)](sql-data-warehouse/workspace-connected-create.md). 
+
+      - question: |
+          What are the functional differences between dedicated SQL pools and serverless pools?
+        answer: |
+          You can find a full list of differences in [T-SQL feature differences in Synapse SQL](./sql/overview-features.md).
+          
+      - question: |
+          Now that Azure Synapse is GA, how do I move my dedicated SQL pools that were previously standalone into Azure Synapse? 
+        answer: |
+          There is no “move” or “migration” necessary. You can choose to enable new workspace features on your existing pools. If you do, there are no breaking changes, instead you'll be able to use new features such as Synapse Studio, Spark, and serverless SQL pools. Not all features of the dedicated SQL pool in Azure Synapse workspaces apply to dedicated SQL pool (formerly SQL DW), and vice versa. To enable workspace features for an existing dedicated SQL pool (formerly SQL DW) refer to [How to enable a workspace for your dedicated SQL pool (formerly SQL DW)](./sql-data-warehouse/workspace-connected-create.md).
+          
+      - question: |
+          What is the default deployment of dedicated SQL pools now? 
+        answer: |
+          By Default, all new dedicated SQL pools will be deployed to a workspace; however, if you need to you can still create a dedicated SQL pool (formerly SQL DW) in a standalone form factor. 
+
+  - name: Network security
+    questions:
+      - question: |
+          How do I secure access to my Azure Synapse workspace? 
+        answer: |
+          With or without a [managed virtual network](./security/synapse-workspace-managed-vnet.md), you can connect to your workspace from public networks. For more information, see [Connectivity Settings](./security/connectivity-settings.md). Access from public networks can be controlled by enabling the [public network access feature](./security/connectivity-settings.md#public-network-access) or the [workspace firewall](./security/synapse-workspace-ip-firewall.md). Alternatively, you can connect to your workspace using a [managed private endpoint](./security/synapse-workspace-managed-private-endpoints.md) and [Private Link](/azure/azure-sql/database/private-endpoint-overview). Synapse workspaces without the [Azure Synapse Analytics Managed Virtual Network](./security/synapse-workspace-managed-vnet.md) do not have the ability to connect via managed private endpoints.
+          
+
+
+additionalContent: |
+
+  ## Next steps
+     * [Get started with Azure Synapse Analytics](get-started.md)
+     * [Create a workspace](quickstart-create-workspace.md)
+     * [Use serverless SQL pool](quickstart-sql-on-demand.md)
+     * [Azure Synapse Analytics known issues](known-issues.md)
+     * [What's New in Azure Synapse Analytics](whats-new.md)

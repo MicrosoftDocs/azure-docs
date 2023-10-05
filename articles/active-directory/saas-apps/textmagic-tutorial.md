@@ -1,243 +1,176 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with TextMagic | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and TextMagic.
+title: 'Tutorial: Microsoft Entra single sign-on (SSO) integration with TextMagic'
+description: Learn how to configure single sign-on between Microsoft Entra ID and TextMagic.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 3e5b49d2-7096-46bc-a9ce-90e09177ba28
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/07/2019
+ms.date: 11/21/2022
 ms.author: jeedes
-
 ---
-# Tutorial: Azure Active Directory integration with TextMagic
 
-In this tutorial, you learn how to integrate TextMagic with Azure Active Directory (Azure AD).
-Integrating TextMagic with Azure AD provides you with the following benefits:
+# Tutorial: Microsoft Entra single sign-on (SSO) integration with TextMagic
 
-* You can control in Azure AD who has access to TextMagic.
-* You can enable your users to be automatically signed-in to TextMagic (Single Sign-On) with their Azure AD accounts.
-* You can manage your accounts in one central location - the Azure portal.
+In this tutorial, you'll learn how to integrate TextMagic with Microsoft Entra ID. When you integrate TextMagic with Microsoft Entra ID, you can:
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+* Control in Microsoft Entra ID who has access to TextMagic.
+* Enable your users to be automatically signed-in to TextMagic with their Microsoft Entra accounts.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
-To configure Azure AD integration with TextMagic, you need the following items:
+To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
-* TextMagic single sign-on enabled subscription
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* TextMagic single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment.
 
-* TextMagic supports **IDP** initiated SSO
-* TextMagic supports **Just In Time** user provisioning
+* TextMagic supports **IDP** initiated SSO.
 
-## Adding TextMagic from the gallery
+* TextMagic supports **Just In Time** user provisioning.
 
-To configure the integration of TextMagic into Azure AD, you need to add TextMagic from the gallery to your list of managed SaaS apps.
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
-**To add TextMagic from the gallery, perform the following steps:**
+## Add TextMagic from the gallery
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
+To configure the integration of TextMagic into Microsoft Entra ID, you need to add TextMagic from the gallery to your list of managed SaaS apps.
 
-	![The Azure Active Directory button](common/select-azuread.png)
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type **TextMagic** in the search box.
+1. Select **TextMagic** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-	![The Enterprise applications blade](common/enterprise-applications.png)
+<a name='configure-and-test-azure-ad-sso-for-textmagic'></a>
 
-3. To add new application, click **New application** button on the top of dialog.
+## Configure and test Microsoft Entra SSO for TextMagic
 
-	![The New application button](common/add-new-app.png)
+Configure and test Microsoft Entra SSO with TextMagic using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in TextMagic.
 
-4. In the search box, type **TextMagic**, select **TextMagic** from result panel then click **Add** button to add the application.
+To configure and test Microsoft Entra SSO with TextMagic, perform the following steps:
 
-	 ![TextMagic in the results list](common/search-new-app.png)
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
+1. **[Configure TextMagic SSO](#configure-textmagic-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create TextMagic test user](#create-textmagic-test-user)** - to have a counterpart of B.Simon in TextMagic that is linked to the Microsoft Entra representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-## Configure and test Azure AD single sign-on
+<a name='configure-azure-ad-sso'></a>
 
-In this section, you configure and test Azure AD single sign-on with TextMagic based on a test user called **Britta Simon**.
-For single sign-on to work, a link relationship between an Azure AD user and the related user in TextMagic needs to be established.
+## Configure Microsoft Entra SSO
 
-To configure and test Azure AD single sign-on with TextMagic, you need to complete the following building blocks:
+Follow these steps to enable Microsoft Entra SSO.
 
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Configure TextMagic Single Sign-On](#configure-textmagic-single-sign-on)** - to configure the Single Sign-On settings on application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create TextMagic test user](#create-textmagic-test-user)** - to have a counterpart of Britta Simon in TextMagic that is linked to the Azure AD representation of user.
-6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **TextMagic** > **Single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-### Configure Azure AD single sign-on
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-In this section, you enable Azure AD single sign-on in the Azure portal.
+1. On the **Basic SAML Configuration** section, perform the following step:
 
-To configure Azure AD single sign-on with TextMagic, perform the following steps:
-
-1. In the [Azure portal](https://portal.azure.com/), on the **TextMagic** application integration page, select **Single sign-on**.
-
-    ![Configure single sign-on link](common/select-sso.png)
-
-2. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
-
-    ![Single sign-on select mode](common/select-saml-option.png)
-
-3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
-
-	![Edit Basic SAML Configuration](common/edit-urls.png)
-
-4. On the **Basic SAML Configuration** section, perform the following steps:
-
-    ![TextMagic Domain and URLs single sign-on information](common/idp-identifier.png)
-
-    In the **Identifier** text box, type a URL:
+    In the **Identifier** text box, type the URL:
     `https://my.textmagic.com/saml/metadata`
 
-5. Your TextMagic application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **nameidentifier** is mapped with **user.userprincipalname**. TextMagic application expects **nameidentifier** to be mapped with **user.mail**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
+5. TextMagic application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **nameidentifier** is mapped with **user.userprincipalname**. TextMagic application expects **nameidentifier** to be mapped with **user.mail**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
 
 	![image](common/edit-attribute.png)
 
-6. In addition to above, TextMagic application expects few more attributes to be passed back in SAML response. In the **User Claims** section on the **User Attributes** dialog, perform the following steps to add SAML token attribute as shown in the below table:
+1. In addition to above, TextMagic application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirement.
 
 	| Name |   Source Attribute| Namespace  |
 	| --------------- | --------------- | --------------- |
-	| company | user.companyname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-	| firstName 			  | user.givenname |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-	| lastName 			  | user.surname |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-	| phone 			  | user.telephonenumber |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-	| | |
+	| company | user.companyname | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+	| firstName | user.givenname |  https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+	| lastName | user.surname |  https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+	| phone | user.telephonenumber |  https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
 
-	a. Click **Add new claim** to open the **Manage user claims** dialog.
-
-	![image](common/new-save-attribute.png)
-
-	![image](common/new-attribute-details.png)
-
-	b. In the **Name** textbox, type the attribute name shown for that row.
-
-	c. In the **Namespace** textbox, type the namespace value shown for that row.
-
-	d. Select Source as **Attribute**.
-
-	e. From the **Source attribute** list, type the attribute value shown for that row.
-
-	f. Click **Ok**
-
-	g. Click **Save**.
-
-7. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
 	![The Certificate download link](common/certificatebase64.png)
 
-8. On the **Set up TextMagic** section, copy the appropriate URL(s) as per your requirement.
+1. On the **Set up TextMagic** section, copy the appropriate URL(s) based on your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-	a. Login URL
+<a name='create-an-azure-ad-test-user'></a>
 
-	b. Azure AD Identifier
+### Create a Microsoft Entra test user
 
-	c. Logout URL
+In this section, you'll create a test user called B.Simon.
 
-### Configure TextMagic Single Sign-On
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Select **Review + create**.
+1. Select **Create**.
 
-1. In a different web browser window, log in to your TextMagic company site as an administrator.
+<a name='assign-the-azure-ad-test-user'></a>
 
-2. Select **Account settings** under the username.
+### Assign the Microsoft Entra test user
 
-	![TextMagic Configuration](./media/textmagic-tutorial/config1.png)
+In this section, you'll enable B.Simon to use single sign-on by granting access to TextMagic.
 
-3. Click on the **Single Sign-On (SSO)** tab and fill in the following fields:  
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **TextMagic**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
+1. In the **Add Assignment** dialog, click the **Assign** button.
 
-	![TextMagic Configuration](./media/textmagic-tutorial/config2.png)
+## Configure TextMagic SSO
 
-	a. In **Identity provider Entity ID:** textbox, paste the value of **Azure AD Identifier**, which you have copied from Azure portal.
 
-	b. In **Identity provider SSO URL:** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
 
-	c. In **Identity provider SLO URL:** textbox, paste the value of **Logout URL**, which you have copied from Azure portal.
 
-	d. Open your **base-64 encoded certificate** in notepad downloaded from Azure portal, copy the content of it into your clipboard, and then paste it to the **Public x509 certificate:** textbox.
+1. In a different web browser window, sign in to your TextMagic company site as an administrator
+
+4. Select **Account settings** under the username.
+
+	![Screenshot shows Account settings selected from the user.](./media/textmagic-tutorial/account.png)
+
+5. Click on the **Single Sign-On (SSO)** tab and fill in the following fields:  
+
+	![Screenshot shows the Single Sign-On tab where you can enter the values described.](./media/textmagic-tutorial/settings.png)
+
+	a. In **Identity provider Entity ID:** textbox, paste the value of **Microsoft Entra Identifier**.
+
+	b. In **Identity provider SSO URL:** textbox, paste the value of **Login URL**.
+
+	c. In **Identity provider SLO URL:** textbox, paste the value of **Logout URL**.
+
+	d. Open your **base-64 encoded certificate** in notepad downloaded from Azure portal, copy the content of it into your clipboard, and then paste it to the **Public x509 certificate:** textbox.
 
 	e. Click **Save**.
 
-### Create an Azure AD test user
-
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
-
-1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
-
-    ![The "Users and groups" and "All users" links](common/users.png)
-
-2. Select **New user** at the top of the screen.
-
-    ![New user Button](common/new-user.png)
-
-3. In the User properties, perform the following steps.
-
-    ![The User dialog box](common/user-properties.png)
-
-    a. In the **Name** field enter **BrittaSimon**.
-  
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**. For example, BrittaSimon@contoso.com
-
-    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
-
-    d. Click **Create**.
-
-### Assign the Azure AD test user
-
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to TextMagic.
-
-1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **TextMagic**.
-
-	![Enterprise applications blade](common/enterprise-applications.png)
-
-2. In the applications list, select **TextMagic**.
-
-	![The TextMagic link in the Applications list](common/all-applications.png)
-
-3. In the menu on the left, select **Users and groups**.
-
-    ![The "Users and groups" link](common/users-groups-blade.png)
-
-4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
-
-    ![The Add Assignment pane](common/add-assign-user.png)
-
-5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
-
-6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
-
-7. In the **Add Assignment** dialog click the **Assign** button.
-
 ### Create TextMagic test user
 
-Application supports **Just in time user provisioning** and after authentication users will be created in the application automatically. You need to fill in the information once at the first login to activate the sub-account into the system.
-There is no action item for you in this section.
+In this section, a user called B.Simon is created in TextMagic. TextMagic supports just-in-time user provisioning, which is enabled by default. There's no action item for you in this section. If a user doesn't already exist in TextMagic, a new one is created after authentication.
 
-### Test single sign-on
+## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+In this section, you test your Microsoft Entra single sign-on configuration with following options.
 
-When you click the TextMagic tile in the Access Panel, you should be automatically signed in to the TextMagic for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Click on **Test this application**, and you should be automatically signed in to the TextMagic for which you set up the SSO.
 
-## Additional Resources
+* You can use Microsoft My Apps. When you click the TextMagic tile in the My Apps, you should be automatically signed in to the TextMagic for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+## Next steps
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+Once you configure TextMagic you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

@@ -1,398 +1,334 @@
 ---
-author: julianparismorgan
-manager: vriveras
+author: pamistel
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
 
-ms.date: 05/14/2019
+ms.date: 01/01/2022
 ms.topic: include
-ms.author: pmorgan
+ms.author: pamistel
 ms.service: azure-spatial-anchors
 ---
-## Putting everything together
-
-Here is how the complete `AzureSpatialAnchorsScript` class file should look like, after all
-the different elements have been put together. You can use it as a reference to
-compare against your own file, and spot if you may have any differences left.
 
 ```csharp
 using Microsoft.Azure.SpatialAnchors;
+using Microsoft.Azure.SpatialAnchors.Unity;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.XR.WSA;
-using UnityEngine.XR.WSA.Input;
+using UnityEngine.XR;
 
+
+[RequireComponent(typeof(SpatialAnchorManager))]
 public class AzureSpatialAnchorsScript : MonoBehaviour
 {
     /// <summary>
-    /// Set this string to the Spatial Anchors account id provided in the Spatial Anchors resource.
+    /// Used to distinguish short taps and long taps
     /// </summary>
-    protected string SpatialAnchorsAccountId = "Set me";
+    private float[] _tappingTimer = { 0, 0 };
 
     /// <summary>
-    /// Set this string to the Spatial Anchors account key provided in the Spatial Anchors resource.
+    /// Main interface to anything Spatial Anchors related
     /// </summary>
-    protected string SpatialAnchorsAccountKey = "Set me";
+    private SpatialAnchorManager _spatialAnchorManager = null;
 
     /// <summary>
-    /// Our queue of actions that will be executed on the main thread.
+    /// Used to keep track of all GameObjects that represent a found or created anchor
     /// </summary>
-    private readonly Queue<Action> dispatchQueue = new Queue<Action>();
+    private List<GameObject> _foundOrCreatedAnchorGameObjects = new List<GameObject>();
 
     /// <summary>
-    /// Use the recognizer to detect air taps.
+    /// Used to keep track of all the created Anchor IDs
     /// </summary>
-    private GestureRecognizer recognizer;
+    private List<String> _createdAnchorIDs = new List<String>();
 
-    protected CloudSpatialAnchorSession cloudSpatialAnchorSession;
-
-    /// <summary>
-    /// The CloudSpatialAnchor that we either 1) placed and are saving or 2) just located.
-    /// </summary>
-    protected CloudSpatialAnchor currentCloudAnchor;
-
-    /// <summary>
-    /// True if we are 1) creating + saving an anchor or 2) looking for an anchor.
-    /// </summary>
-    protected bool tapExecuted = false;
-
-    /// <summary>
-    /// The ID of the CloudSpatialAnchor that was saved. Use it to find the CloudSpatialAnchor
-    /// </summary>
-    protected string cloudSpatialAnchorId = "";
-
-    /// <summary>
-    /// The sphere rendered to show the position of the CloudSpatialAnchor.
-    /// </summary>
-    protected GameObject sphere;
-    protected Material sphereMaterial;
-
-    /// <summary>
-    /// Indicate if we are ready to save an anchor. We can save an anchor when value is greater than 1.
-    /// </summary>
-    protected float recommendedForCreate = 0;
-
+    // <Start>
     // Start is called before the first frame update
     void Start()
     {
-        recognizer = new GestureRecognizer();
-
-        recognizer.StartCapturingGestures();
-
-        recognizer.SetRecognizableGestures(GestureSettings.Tap);
-
-        recognizer.Tapped += HandleTap;
-
-        InitializeSession();
+        _spatialAnchorManager = GetComponent<SpatialAnchorManager>();
+        _spatialAnchorManager.LogDebug += (sender, args) => Debug.Log($"ASA - Debug: {args.Message}");
+        _spatialAnchorManager.Error += (sender, args) => Debug.LogError($"ASA - Error: {args.ErrorMessage}");
+        _spatialAnchorManager.AnchorLocated += SpatialAnchorManager_AnchorLocated;
     }
+    // </Start>
 
+    // <Update>
     // Update is called once per frame
     void Update()
     {
-        lock (dispatchQueue)
+
+        //Check for any air taps from either hand
+        for (int i = 0; i < 2; i++)
         {
-            if (dispatchQueue.Count > 0)
+            InputDevice device = InputDevices.GetDeviceAtXRNode((i == 0) ? XRNode.RightHand : XRNode.LeftHand);
+            if (device.TryGetFeatureValue(CommonUsages.primaryButton, out bool isTapping))
             {
-                dispatchQueue.Dequeue()();
-            }
-        }
-    }
-
-    /// <summary>
-    /// Queues the specified <see cref="Action"/> on update.
-    /// </summary>
-    /// <param name="updateAction">The update action.</param>
-    protected void QueueOnUpdate(Action updateAction)
-    {
-        lock (dispatchQueue)
-        {
-            dispatchQueue.Enqueue(updateAction);
-        }
-    }
-
-    /// <summary>
-    /// Cleans up objects.
-    /// </summary>
-    public void CleanupObjects()
-    {
-        if (sphere != null)
-        {
-            Destroy(sphere);
-            sphere = null;
-        }
-
-        if (sphereMaterial != null)
-        {
-            Destroy(sphereMaterial);
-            sphereMaterial = null;
-        }
-
-        currentCloudAnchor = null;
-    }
-
-    /// <summary>
-    /// Cleans up objects and stops the CloudSpatialAnchorSessions.
-    /// </summary>
-    public void ResetSession(Action completionRoutine = null)
-    {
-        Debug.Log("ASA Info: Resetting the session.");
-
-        if (cloudSpatialAnchorSession.GetActiveWatchers().Count > 0)
-        {
-            Debug.LogError("ASA Error: We are resetting the session with active watchers, which is unexpected.");
-        }
-
-        CleanupObjects();
-
-        this.cloudSpatialAnchorSession.Reset();
-
-        lock (this.dispatchQueue)
-        {
-            this.dispatchQueue.Enqueue(() =>
-            {
-                if (cloudSpatialAnchorSession != null)
+                if (!isTapping)
                 {
-                    cloudSpatialAnchorSession.Stop();
-                    cloudSpatialAnchorSession.Dispose();
-                    Debug.Log("ASA Info: Session was reset.");
-                    completionRoutine?.Invoke();
-                }
-                else
-                {
-                    Debug.LogError("ASA Error: cloudSpatialAnchorSession was null, which is unexpected.");
-                }
-            });
-        }
-    }
-
-    /// <summary>
-    /// Initializes a new CloudSpatialAnchorSessions.
-    /// </summary>
-    void InitializeSession()
-    {
-        Debug.Log("ASA Info: Initializing a CloudSpatialAnchorSession.");
-
-        if (string.IsNullOrEmpty(SpatialAnchorsAccountId))
-        {
-            Debug.LogError("No account id set.");
-            return;
-        }
-
-        if (string.IsNullOrEmpty(SpatialAnchorsAccountKey))
-        {
-            Debug.LogError("No account key set.");
-            return;
-        }
-
-        cloudSpatialAnchorSession = new CloudSpatialAnchorSession();
-
-        cloudSpatialAnchorSession.Configuration.AccountId = SpatialAnchorsAccountId.Trim();
-        cloudSpatialAnchorSession.Configuration.AccountKey = SpatialAnchorsAccountKey.Trim();
-
-        cloudSpatialAnchorSession.LogLevel = SessionLogLevel.All;
-
-        cloudSpatialAnchorSession.Error += CloudSpatialAnchorSession_Error;
-        cloudSpatialAnchorSession.OnLogDebug += CloudSpatialAnchorSession_OnLogDebug;
-        cloudSpatialAnchorSession.SessionUpdated += CloudSpatialAnchorSession_SessionUpdated;
-        cloudSpatialAnchorSession.AnchorLocated += CloudSpatialAnchorSession_AnchorLocated;
-        cloudSpatialAnchorSession.LocateAnchorsCompleted += CloudSpatialAnchorSession_LocateAnchorsCompleted;
-
-        cloudSpatialAnchorSession.Start();
-
-        Debug.Log("ASA Info: Session was initialized.");
-    }
-
-    private void CloudSpatialAnchorSession_Error(object sender, SessionErrorEventArgs args)
-    {
-        Debug.LogError("ASA Error: " + args.ErrorMessage );
-    }
-
-    private void CloudSpatialAnchorSession_OnLogDebug(object sender, OnLogDebugEventArgs args)
-    {
-        Debug.Log("ASA Log: " + args.Message);
-        System.Diagnostics.Debug.WriteLine("ASA Log: " + args.Message);
-    }
-
-    private void CloudSpatialAnchorSession_SessionUpdated(object sender, SessionUpdatedEventArgs args)
-    {
-        Debug.Log("ASA Log: recommendedForCreate: " + args.Status.RecommendedForCreateProgress);
-        recommendedForCreate = args.Status.RecommendedForCreateProgress;
-    }
-
-    private void CloudSpatialAnchorSession_AnchorLocated(object sender, AnchorLocatedEventArgs args)
-    {
-        switch (args.Status)
-        {
-            case LocateAnchorStatus.Located:
-                Debug.Log("ASA Info: Anchor located! Identifier: " + args.Identifier);
-                QueueOnUpdate(() =>
-                {
-                    // Create a green sphere.
-                    GameObject spherePrimitive = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                    sphere = GameObject.Instantiate(spherePrimitive, Vector3.zero, Quaternion.identity);
-                    sphere.transform.localScale = new Vector3(0.25F, 0.25F, 0.25F);
-                    sphere.AddComponent<WorldAnchor>();
-                    sphereMaterial = sphere.GetComponent<MeshRenderer>().material;
-                    sphereMaterial.color = Color.green;
-
-                    // Get the WorldAnchor from the CloudSpatialAnchor and use it to position the sphere.
-                    sphere.GetComponent<UnityEngine.XR.WSA.WorldAnchor>().SetNativeSpatialAnchorPtr(args.Anchor.LocalAnchor);
-
-                    // Clean up state so that we can start over and create a new anchor.
-                    cloudSpatialAnchorId = "";
-                    tapExecuted = false;
-                });
-                break;
-            case LocateAnchorStatus.AlreadyTracked:
-                Debug.Log("ASA Info: Anchor already tracked. Identifier: " + args.Identifier);
-                break;
-            case LocateAnchorStatus.NotLocated:
-                Debug.Log("ASA Info: Anchor not located. Identifier: " + args.Identifier);
-                break;
-            case LocateAnchorStatus.NotLocatedAnchorDoesNotExist:
-                Debug.LogError("ASA Error: Anchor not located does not exist. Identifier: " + args.Identifier);
-                break;
-        }
-    }
-
-    private void CloudSpatialAnchorSession_LocateAnchorsCompleted(object sender, LocateAnchorsCompletedEventArgs args)
-    {
-        Debug.Log("ASA Info: Locate anchors completed. Watcher identifier: " + args.Watcher.Identifier);
-    }
-
-    /// <summary>
-    /// Called by GestureRecognizer when a tap is detected.
-    /// </summary>
-    /// <param name="tapEvent">The tap.</param>    
-    public void HandleTap(TappedEventArgs tapEvent)
-    {
-        if (tapExecuted)
-        {
-            return;
-        }
-        tapExecuted = true;
-
-        // We have saved an anchor, so we will now look for it.
-        if (!String.IsNullOrEmpty(cloudSpatialAnchorId))
-        {
-            Debug.Log("ASA Info: We will look for a placed anchor.");
-            tapExecuted = true;
-
-            ResetSession(() =>
-            {
-                InitializeSession();
-
-                // Create a Watcher to look for the anchor we created.
-                AnchorLocateCriteria criteria = new AnchorLocateCriteria();
-                criteria.Identifiers = new string[] { cloudSpatialAnchorId };
-                cloudSpatialAnchorSession.CreateWatcher(criteria);
-
-                Debug.Log("ASA Info: Watcher created. Number of active watchers: " + cloudSpatialAnchorSession.GetActiveWatchers().Count);
-            });
-            return;
-        }
-
-        Debug.Log("ASA Info: We will create a new anchor.");
-
-        // Clean up any anchors that have been placed.
-        CleanupObjects();
-
-        // Construct a Ray using forward direction of the HoloLens.
-        Ray GazeRay = new Ray(tapEvent.headPose.position, tapEvent.headPose.forward);
-
-        // Raycast to get the hit point in the real world.
-        RaycastHit hitInfo;
-        Physics.Raycast(GazeRay, out hitInfo, float.MaxValue);
-
-        this.CreateAndSaveSphere(hitInfo.point);
-    }
-
-    /// <summary>
-    /// Creates a sphere at the hit point, and then saves a CloudSpatialAnchor there.
-    /// </summary>
-    /// <param name="hitPoint">The hit point.</param>
-    protected virtual void CreateAndSaveSphere(Vector3 hitPoint)
-    {
-        // Create a white sphere.
-        sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-        sphere.transform.position = hitPoint;
-        sphere.transform.localScale = new Vector3(0.25F, 0.25F, 0.25F);
-        sphere.AddComponent<WorldAnchor>();
-        sphereMaterial = sphere.GetComponent<MeshRenderer>().material;
-        sphereMaterial.color = Color.white;
-        Debug.Log("ASA Info: Created a local anchor.");
-
-        // Create the CloudSpatialAnchor.
-        currentCloudAnchor = new CloudSpatialAnchor();
-
-        // Set the LocalAnchor property of the CloudSpatialAnchor to the WorldAnchor component of our white sphere.
-        WorldAnchor worldAnchor = sphere.GetComponent<WorldAnchor>();
-        if (worldAnchor == null)
-        {
-            throw new Exception("ASA Error: Couldn't get the local anchor pointer.");
-        }
-
-        // Save the CloudSpatialAnchor to the cloud.
-        currentCloudAnchor.LocalAnchor = worldAnchor.GetNativeSpatialAnchorPtr();
-        Task.Run(async () =>
-        {
-            // Wait for enough data about the environment.
-            while (recommendedForCreate < 1.0F)
-            {
-                await Task.Delay(330);
-            }
-
-            bool success = false;
-            try
-            {
-                QueueOnUpdate(() =>
-                {
-                    // We are about to save the CloudSpatialAnchor to the Azure Spatial Anchors, turn it yellow.
-                    sphereMaterial.color = Color.yellow;
-                });
-
-                await cloudSpatialAnchorSession.CreateAnchorAsync(currentCloudAnchor);
-                success = currentCloudAnchor != null;
-
-                if (success)
-                {
-                    // Allow the user to tap again to clear state and look for the anchor.
-                    tapExecuted = false;
-
-                    // Record the identifier to locate.
-                    cloudSpatialAnchorId = currentCloudAnchor.Identifier;
-
-                    QueueOnUpdate(() =>
+                    //Stopped Tapping or wasn't tapping
+                    if (0f < _tappingTimer[i] && _tappingTimer[i] < 1f)
                     {
-                        // Turn the sphere blue.
-                        sphereMaterial.color = Color.blue;
-                    });
-
-                    Debug.Log("ASA Info: Saved anchor to Azure Spatial Anchors! Identifier: " + cloudSpatialAnchorId);
+                        //User has been tapping for less than 1 sec. Get hand position and call ShortTap
+                        if (device.TryGetFeatureValue(CommonUsages.devicePosition, out Vector3 handPosition))
+                        {
+                            ShortTap(handPosition);
+                        }
+                    }
+                    _tappingTimer[i] = 0;
                 }
                 else
                 {
-                    sphereMaterial.color = Color.red;
-                    Debug.LogError("ASA Error: Failed to save, but no exception was thrown.");
+                    _tappingTimer[i] += Time.deltaTime;
+                    if (_tappingTimer[i] >= 2f)
+                    {
+                        //User has been air tapping for at least 2sec. Get hand position and call LongTap
+                        if (device.TryGetFeatureValue(CommonUsages.devicePosition, out Vector3 handPosition))
+                        {
+                            LongTap();
+                        }
+                        _tappingTimer[i] = -float.MaxValue; // reset the timer, to avoid retriggering if user is still holding tap
+                    }
                 }
             }
-            catch (Exception ex)
-            {
-                QueueOnUpdate(() =>
-                {
-                    sphereMaterial.color = Color.red;
-                });
-                Debug.LogError("ASA Error: " + ex.Message);
-            }
-        });
+
+        }
     }
+    // </Update>
+
+
+    // <ShortTap>
+    /// <summary>
+    /// Called when a user is air tapping for a short time 
+    /// </summary>
+    /// <param name="handPosition">Location where tap was registered</param>
+    private async void ShortTap(Vector3 handPosition)
+    {
+        await _spatialAnchorManager.StartSessionAsync();
+        if (!IsAnchorNearby(handPosition, out GameObject anchorGameObject))
+        {
+            //No Anchor Nearby, start session and create an anchor
+            await CreateAnchor(handPosition);
+        }
+        else
+        {
+            //Delete nearby Anchor
+            DeleteAnchor(anchorGameObject);
+        }
+    }
+    // </ShortTap>
+
+    // <LongTap>
+    /// <summary>
+    /// Called when a user is air tapping for a long time (>=2 sec)
+    /// </summary>
+    private async void LongTap()
+    {
+        if (_spatialAnchorManager.IsSessionStarted)
+        {
+            // Stop Session and remove all GameObjects. This does not delete the Anchors in the cloud
+            _spatialAnchorManager.DestroySession();
+            RemoveAllAnchorGameObjects();
+            Debug.Log("ASA - Stopped Session and removed all Anchor Objects");
+        }
+        else
+        {
+            //Start session and search for all Anchors previously created
+            await _spatialAnchorManager.StartSessionAsync();
+            LocateAnchor();
+        }
+    }
+    // </LongTap>
+
+    // <RemoveAllAnchorGameObjects>
+    /// <summary>
+    /// Destroys all Anchor GameObjects
+    /// </summary>
+    private void RemoveAllAnchorGameObjects()
+    {
+        foreach (var anchorGameObject in _foundOrCreatedAnchorGameObjects)
+        {
+            Destroy(anchorGameObject);
+        }
+        _foundOrCreatedAnchorGameObjects.Clear();
+    }
+    // </RemoveAllAnchorGameObjects>
+
+    // <IsAnchorNearby>
+    /// <summary>
+    /// Returns true if an Anchor GameObject is within 15cm of the received reference position
+    /// </summary>
+    /// <param name="position">Reference position</param>
+    /// <param name="anchorGameObject">Anchor GameObject within 15cm of received position. Not necessarily the nearest to this position. If no AnchorObject is within 15cm, this value will be null</param>
+    /// <returns>True if a Anchor GameObject is within 15cm</returns>
+    private bool IsAnchorNearby(Vector3 position, out GameObject anchorGameObject)
+    {
+        anchorGameObject = null;
+
+        if (_foundOrCreatedAnchorGameObjects.Count <= 0)
+        {
+            return false;
+        }
+
+        //Iterate over existing anchor gameobjects to find the nearest
+        var (distance, closestObject) = _foundOrCreatedAnchorGameObjects.Aggregate(
+            new Tuple<float, GameObject>(Mathf.Infinity, null),
+            (minPair, gameobject) =>
+            {
+                Vector3 gameObjectPosition = gameobject.transform.position;
+                float distance = (position - gameObjectPosition).magnitude;
+                return distance < minPair.Item1 ? new Tuple<float, GameObject>(distance, gameobject) : minPair;
+            });
+
+        if (distance <= 0.15f)
+        {
+            //Found an anchor within 15cm
+            anchorGameObject = closestObject;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    // </IsAnchorNearby>
+  
+    // <CreateAnchor>
+    /// <summary>
+    /// Creates an Azure Spatial Anchor at the given position rotated towards the user
+    /// </summary>
+    /// <param name="position">Position where Azure Spatial Anchor will be created</param>
+    /// <returns>Async Task</returns>
+    private async Task CreateAnchor(Vector3 position)
+    {
+        //Create Anchor GameObject. We will use ASA to save the position and the rotation of this GameObject.
+        if (!InputDevices.GetDeviceAtXRNode(XRNode.Head).TryGetFeatureValue(CommonUsages.devicePosition, out Vector3 headPosition))
+        {
+            headPosition = Vector3.zero;
+        }
+
+        Quaternion orientationTowardsHead = Quaternion.LookRotation(position - headPosition, Vector3.up);
+
+        GameObject anchorGameObject = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        anchorGameObject.GetComponent<MeshRenderer>().material.shader = Shader.Find("Legacy Shaders/Diffuse");
+        anchorGameObject.transform.position = position;
+        anchorGameObject.transform.rotation = orientationTowardsHead;
+        anchorGameObject.transform.localScale = Vector3.one * 0.1f;
+
+        //Add and configure ASA components
+        CloudNativeAnchor cloudNativeAnchor = anchorGameObject.AddComponent<CloudNativeAnchor>();
+        await cloudNativeAnchor.NativeToCloud();
+        CloudSpatialAnchor cloudSpatialAnchor = cloudNativeAnchor.CloudAnchor;
+        cloudSpatialAnchor.Expiration = DateTimeOffset.Now.AddDays(3);
+
+        //Collect Environment Data
+        while (!_spatialAnchorManager.IsReadyForCreate)
+        {
+            float createProgress = _spatialAnchorManager.SessionStatus.RecommendedForCreateProgress;
+            Debug.Log($"ASA - Move your device to capture more environment data: {createProgress:0%}");
+        }
+
+        Debug.Log($"ASA - Saving cloud anchor... ");
+
+        try
+        {
+            // Now that the cloud spatial anchor has been prepared, we can try the actual save here.
+            await _spatialAnchorManager.CreateAnchorAsync(cloudSpatialAnchor);
+
+            bool saveSucceeded = cloudSpatialAnchor != null;
+            if (!saveSucceeded)
+            {
+                Debug.LogError("ASA - Failed to save, but no exception was thrown.");
+                return;
+            }
+
+            Debug.Log($"ASA - Saved cloud anchor with ID: {cloudSpatialAnchor.Identifier}");
+            _foundOrCreatedAnchorGameObjects.Add(anchorGameObject);
+            _createdAnchorIDs.Add(cloudSpatialAnchor.Identifier);
+            anchorGameObject.GetComponent<MeshRenderer>().material.color = Color.green;
+        }
+        catch (Exception exception)
+        {
+            Debug.Log("ASA - Failed to save anchor: " + exception.ToString());
+            Debug.LogException(exception);
+        }
+    }
+    // </CreateAnchor>
+
+    // <LocateAnchor>
+    /// <summary>
+    /// Looking for anchors with ID in _createdAnchorIDs
+    /// </summary>
+    private void LocateAnchor()
+    {
+        if (_createdAnchorIDs.Count > 0)
+        {
+            //Create watcher to look for all stored anchor IDs
+            Debug.Log($"ASA - Creating watcher to look for {_createdAnchorIDs.Count} spatial anchors");
+            AnchorLocateCriteria anchorLocateCriteria = new AnchorLocateCriteria();
+            anchorLocateCriteria.Identifiers = _createdAnchorIDs.ToArray();
+            _spatialAnchorManager.Session.CreateWatcher(anchorLocateCriteria);
+            Debug.Log($"ASA - Watcher created!");
+        }
+    }
+    // </LocateAnchor>
+
+    // <SpatialAnchorManagerAnchorLocated>
+    /// <summary>
+    /// Callback when an anchor is located
+    /// </summary>
+    /// <param name="sender">Callback sender</param>
+    /// <param name="args">Callback AnchorLocatedEventArgs</param>
+    private void SpatialAnchorManager_AnchorLocated(object sender, AnchorLocatedEventArgs args)
+    {
+        Debug.Log($"ASA - Anchor recognized as a possible anchor {args.Identifier} {args.Status}");
+
+        if (args.Status == LocateAnchorStatus.Located)
+        {
+            //Creating and adjusting GameObjects have to run on the main thread. We are using the UnityDispatcher to make sure this happens.
+            UnityDispatcher.InvokeOnAppThread(() =>
+            {
+                // Read out Cloud Anchor values
+                CloudSpatialAnchor cloudSpatialAnchor = args.Anchor;
+
+                //Create GameObject
+                GameObject anchorGameObject = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                anchorGameObject.transform.localScale = Vector3.one * 0.1f;
+                anchorGameObject.GetComponent<MeshRenderer>().material.shader = Shader.Find("Legacy Shaders/Diffuse");
+                anchorGameObject.GetComponent<MeshRenderer>().material.color = Color.blue;
+
+                // Link to Cloud Anchor
+                anchorGameObject.AddComponent<CloudNativeAnchor>().CloudToNative(cloudSpatialAnchor);
+                _foundOrCreatedAnchorGameObjects.Add(anchorGameObject);
+            });
+        }
+    }
+    // </SpatialAnchorManagerAnchorLocated>
+
+    // <DeleteAnchor>
+    /// <summary>
+    /// Deleting Cloud Anchor attached to the given GameObject and deleting the GameObject
+    /// </summary>
+    /// <param name="anchorGameObject">Anchor GameObject that is to be deleted</param>
+    private async void DeleteAnchor(GameObject anchorGameObject)
+    {
+        CloudNativeAnchor cloudNativeAnchor = anchorGameObject.GetComponent<CloudNativeAnchor>();
+        CloudSpatialAnchor cloudSpatialAnchor = cloudNativeAnchor.CloudAnchor;
+
+        Debug.Log($"ASA - Deleting cloud anchor: {cloudSpatialAnchor.Identifier}");
+
+        //Request Deletion of Cloud Anchor
+        await _spatialAnchorManager.DeleteAnchorAsync(cloudSpatialAnchor);
+
+        //Remove local references
+        _createdAnchorIDs.Remove(cloudSpatialAnchor.Identifier);
+        _foundOrCreatedAnchorGameObjects.Remove(anchorGameObject);
+        Destroy(anchorGameObject);
+
+        Debug.Log($"ASA - Cloud anchor deleted!");
+    }
+    // </DeleteAnchor>
+
 }
 ```
-
-## Next steps
-
-In this tutorial, you've learn more about how to use Azure Spatial Anchors in a new Unity HoloLens app. To learn more about how to use Azure Spatial Anchors in a new Android app, continue to the next tutorial.
-
-> [!div class="nextstepaction"]
-> [Starting a new Android app](/azure/spatial-anchors/tutorials/tutorial-new-android-app)

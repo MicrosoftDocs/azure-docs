@@ -1,23 +1,20 @@
 ---
-title: Restrict network access to PaaS resources - Azure CLI | Microsoft Docs
+title: Restrict network access to PaaS resources - Azure CLI
 description: In this article, you learn how to limit and restrict network access to Azure resources, such as Azure Storage and Azure SQL Database, with virtual network service endpoints using the Azure CLI.
 services: virtual-network
 documentationcenter: virtual-network
-author: KumudD
-manager: twooley
-editor: ''
+author: asudbring
+manager: mtillman
 tags: azure-resource-manager
-Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
-
-ms.assetid: 
+# Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure-services
 ms.date: 03/14/2018
-ms.author: kumud
-ms.custom: 
+ms.author: allensu
+ms.custom: devx-track-azurecli
 ---
 
 # Restrict network access to PaaS resources with virtual network service endpoints using the Azure CLI
@@ -31,11 +28,11 @@ Virtual network service endpoints enable you to limit network access to some Azu
 * Confirm access to a resource from a subnet
 * Confirm access is denied to a resource from a subnet and the internet
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.28 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli). 
+- This article requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a virtual network
 
@@ -116,7 +113,7 @@ az network nsg rule create \
   --destination-port-range "*"
 ```
 
-Each network security group contains several [default security rules](security-overview.md#default-security-rules). The rule that follows overrides a default security rule that allows outbound access to all public IP addresses. The `destination-address-prefix "Internet"` option denies outbound access to all public IP addresses. The previous rule overrides this rule, due to its higher priority, which allows access to the public IP addresses of Azure Storage.
+Each network security group contains several [default security rules](./network-security-groups-overview.md#default-security-rules). The rule that follows overrides a default security rule that allows outbound access to all public IP addresses. The `destination-address-prefix "Internet"` option denies outbound access to all public IP addresses. The previous rule overrides this rule, due to its higher priority, which allows access to the public IP addresses of Azure Storage.
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -229,7 +226,7 @@ Create a VM in the *Public* subnet with [az vm create](/cli/azure/vm). If SSH ke
 az vm create \
   --resource-group myResourceGroup \
   --name myVmPublic \
-  --image UbuntuLTS \
+  --image Ubuntu2204 \
   --vnet-name myVirtualNetwork \
   --subnet Public \
   --generate-ssh-keys
@@ -258,7 +255,7 @@ Take note of the **publicIpAddress** in the returned output. This address is use
 az vm create \
   --resource-group myResourceGroup \
   --name myVmPrivate \
-  --image UbuntuLTS \
+  --image Ubuntu2204 \
   --vnet-name myVirtualNetwork \
   --subnet Private \
   --generate-ssh-keys
@@ -322,7 +319,7 @@ Access is denied, and you receive a `mount error(13): Permission denied` error, 
 
 Exit the SSH session to the *myVmPublic* VM.
 
-From your computer, attempt to view the shares in your storage account with [az storage share list](/cli/azure/storage/share?view=azure-cli-latest). Replace `<account-name>` and `<account-key>` with the storage account name and key from [Create a storage account](#create-a-storage-account):
+From your computer, attempt to view the shares in your storage account with [az storage share list](/cli/azure/storage/share). Replace `<account-name>` and `<account-key>` with the storage account name and key from [Create a storage account](#create-a-storage-account):
 
 ```azurecli-interactive
 az storage share list \

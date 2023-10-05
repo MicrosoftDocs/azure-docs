@@ -1,131 +1,238 @@
 ---
-title: Manage access to Azure resources for external users using RBAC | Microsoft Docs
-description: Learn how to manage access to Azure resources for users external to an organization using role-based access control (RBAC).
+title: Assign Azure roles to external guest users using the Azure portal - Azure RBAC
+description: Learn how to grant access to Azure resources for users external to an organization using the Azure portal and Azure role-based access control (Azure RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: mtillman
-editor: ''
-
-ms.assetid:
+manager: amycolannino
 ms.service: role-based-access-control
 ms.devlang:
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm:
 ms.workload: identity
-ms.date: 03/20/2018
+ms.date: 06/07/2023
 ms.author: rolyon
-ms.reviewer: skwan
-ms.custom: it-pro
+ms.custom: it-pro,subject-rbac-steps
 
 ---
-# Manage access to Azure resources for external users using RBAC
+# Assign Azure roles to external guest users using the Azure portal
 
-Role-based access control (RBAC) allows better security management for large organizations and for SMBs working with external collaborators, vendors, or freelancers that need access to specific resources in your environment but not necessarily to the entire infrastructure or any billing-related scopes. RBAC allows the flexibility of owning one Azure subscription managed by the administrator account (service administrator role at a subscription level) and have multiple users invited to work under the same subscription but without any administrative rights for it.
+[Azure role-based access control (Azure RBAC)](overview.md) allows better security management for large organizations and for small and medium-sized businesses working with external collaborators, vendors, or freelancers that need access to specific resources in your environment, but not necessarily to the entire infrastructure or any billing-related scopes. You can use the capabilities in [Azure Active Directory B2B](../active-directory/external-identities/what-is-b2b.md) to collaborate with external guest users and you can use Azure RBAC to grant just the permissions that guest users need in your environment.
 
-> [!NOTE]
-> Office 365 subscriptions or Azure Active Directory licenses (for example: Access to Azure Active Directory) provisioned from the Microsoft 365 admin center don't qualify for using RBAC.
+## Prerequisites
 
-## Assign RBAC roles at the subscription scope
+To assign Azure roles or remove role assignments, you must have:
 
-There are two common examples when RBAC is used (but not limited to):
+- `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [User Access Administrator](built-in-roles.md#user-access-administrator) or [Owner](built-in-roles.md#owner)
 
-* Having external users from the organizations (not part of the admin user's Azure Active Directory tenant) invited to manage certain resources or the whole subscription
-* Working with users inside the organization (they are part of the user's Azure Active Directory tenant) but part of different teams or groups that need granular access either to the whole subscription or to certain resource groups or resource scopes in the environment
+## When would you invite guest users?
 
-## Grant access at a subscription level for a user outside of Azure Active Directory
+Here are a couple example scenarios when you might invite guest users to your organization and grant permissions:
 
-RBAC roles can be granted only by **Owners** of the subscription. Therefore, the administrator must be logged in as a user that has this role pre-assigned or has created the Azure subscription.
+- Allow an external self-employed vendor that only has an email account to access your Azure resources for a project.
+- Allow an external partner to manage certain resources or an entire subscription.
+- Allow support engineers not in your organization (such as Microsoft support) to temporarily access your Azure resource to troubleshoot issues.
 
-From the Azure portal, after you sign in as admin, select “Subscriptions” and chose the desired one.
-![subscription blade in Azure portal](./media/role-assignments-external-users/0.png)
-By default, if the admin user has purchased the Azure subscription, the user will show up as **Account Admin**, this being the subscription role. For more information about the Azure subscription roles, see [Add or change Azure subscription administrators](../billing/billing-add-change-azure-subscription-administrator.md).
+## Permission differences between member users and guest users
 
-In this example, the user "alflanigan@outlook.com" is the **Owner** of the "Free Trial" subscription in the AAD tenant "Default tenant Azure". Since this user is the creator of the Azure subscription with the initial Microsoft Account “Outlook” (Microsoft Account = Outlook, Live etc.) the default domain name for all other users added in this tenant will be **"\@alflaniganuoutlook.onmicrosoft.com"**. By design, the syntax of the new domain is formed by putting together the username and domain name of the user who created the tenant and adding the extension **".onmicrosoft.com"**.
-Furthermore, users can sign in with a custom domain name in the tenant after adding and verifying it for the new tenant. For more information on how to verify a custom domain name in an Azure Active Directory tenant, see [Add a custom domain name to your directory](../active-directory/fundamentals/add-custom-domain.md).
+Native members of a directory (member users) have different permissions than users invited from another directory as a B2B collaboration guest (guest users). For example, members user can read almost all directory information while guest users have restricted directory permissions. For more information about member users and guest users, see [What are the default user permissions in Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md).
 
-In this example, the "Default tenant Azure" directory contains only users with the domain name "\@alflanigan.onmicrosoft.com".
+## Add a guest user to your directory
 
-After selecting the subscription, the admin user must click **Access Control (IAM)** and then **Add a new role**.
+Follow these steps to add a guest user to your directory using the Azure Active Directory page.
 
-![access control IAM feature in Azure portal](./media/role-assignments-external-users/1.png)
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-![add new user in access control IAM feature in Azure portal](./media/role-assignments-external-users/2.png)
+1. Make sure your organization's external collaboration settings are configured such that you're allowed to invite guests. For more information, see [Configure external collaboration settings](../active-directory/external-identities/external-collaboration-settings-configure.md).
 
-The next step is to select the role to be assigned and the user whom the RBAC role will be assigned to. In the **Role** dropdown menu, the admin user sees only the built-in RBAC roles that are available in Azure. For more detailed explanations of each role and their assignable scopes, see [Built-in roles for Azure resources](built-in-roles.md).
+1. Click **Azure Active Directory** > **Users** > **New guest user**.
 
-The admin user then needs to add the email address of the external user. The expected behavior is for the external user to not show up in the existing tenant. After the external user has been invited, they will be visible under **Subscriptions > Access Control (IAM)** with all the current users that are currently assigned an RBAC role at the Subscription scope.
+    ![Screenshot of New guest user feature in Azure portal.](./media/role-assignments-external-users/invite-guest-user.png)
 
-![add permissions to new RBAC role](./media/role-assignments-external-users/3.png)
+1. Follow the steps to add a new guest user. For more information, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../active-directory/external-identities/add-users-administrator.md#add-guest-users-to-the-directory).
 
-![list of RBAC roles at subscription level](./media/role-assignments-external-users/4.png)
+After you add a guest user to the directory, you can either send the guest user a direct link to a shared app, or the guest user can click the accept invitation link in the invitation email.
 
-The user "chessercarlton@gmail.com" has been invited to be an **Owner** for the “Free Trial” subscription. After sending the invitation, the external user will receive an email confirmation with an activation link.
-![email invitation for RBAC role](./media/role-assignments-external-users/5.png)
+![Screenshot of guest user invite email.](./media/role-assignments-external-users/invite-email.png)
 
-Being external to the organization, the new user does not have any existing attributes in the "Default tenant Azure" directory. They will be created after the external user has given consent to be recorded in the directory that is associated with the subscription they have been assigned a role to.
+For the guest user to be able to access your directory, they must complete the invitation process.
 
-![email invitation message for RBAC role](./media/role-assignments-external-users/6.png)
+![Screenshot of guest user invite review permissions.](./media/role-assignments-external-users/invite-review-permissions.png)
 
-The external user shows in the Azure Active Directory tenant from now on as external user and this can be viewed in the Azure portal.
+For more information about the invitation process, see [Azure Active Directory B2B collaboration invitation redemption](../active-directory/external-identities/redemption-experience.md).
 
-![users blade azure active-directory Azure portal](./media/role-assignments-external-users/7.png)
+## Assign a role to a guest user
 
-In the **Users** view, the external users can be recognized by the different icon type in the Azure portal.
+In Azure RBAC, to grant access, you assign a role. To assign a role to a guest user, you follow [same steps](role-assignments-portal.md) as you would for a member user, group, service principal, or managed identity. Follow these steps assign a role to a guest user at different scopes.
 
-However, granting **Owner** or **Contributor** access to an external user at the **Subscription** scope, does not allow the access to the admin user's directory, unless the **Global Admin** allows it. In the user proprieties,  the **User Type**, which has two common parameters, **Member** and **Guest** can be identified. A member is a user that is registered in the directory while a guest is a user invited to the directory from an external source. For more information, see [How do Azure Active Directory admins add B2B collaboration users](../active-directory/active-directory-b2b-admin-add-users.md).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-> [!NOTE]
-> Make sure that after entering the credentials in the portal, the external user selects the correct directory to sign in to. The same user can have access to multiple directories and can select either one of  them by clicking the username in the top right-hand side in the Azure portal and then choose the appropriate directory from the dropdown list.
+1. In the Search box at the top, search for the scope you want to grant access to. For example, search for **Management groups**, **Subscriptions**, **Resource groups**, or a specific resource.
 
-While being a guest in the directory, the external user can manage all resources for the Azure subscription, but can't access the directory.
+1. Click the specific resource for that scope.
 
-![access restricted to azure active-directory Azure portal](./media/role-assignments-external-users/9.png)
+1. Click **Access control (IAM)**.
 
-Azure Active Directory and an Azure subscription don't have a child-parent relation like other Azure resources (for example: virtual machines, virtual networks, web apps, storage etc.) have with an Azure subscription. All the latter is created, managed, and billed under an Azure subscription while an Azure subscription is used to manage the access to an Azure directory. For more information, see [How an Azure subscription is related to Azure AD](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
+    The following shows an example of the Access control (IAM) page for a resource group.
 
-From all the built-in RBAC roles, **Owner** and **Contributor** offer full management access to all resources in the environment, the difference being that a Contributor can't create and delete new RBAC roles. The other built-in roles like **Virtual Machine Contributor** offer full management access only to the resources indicated by the name, regardless of the **Resource Group** they are being created into.
+    ![Screenshot of Access control (IAM) page for a resource group.](./media/shared/rg-access-control.png)
 
-Assigning the built-in RBAC role of **Virtual Machine Contributor** at a subscription level, means that the user assigned the role:
+1. Click the **Role assignments** tab to view the role assignments at this scope.
 
-* Can view all virtual machines regardless their deployment date and the resource groups they are part of
-* Has full management access to the virtual machines in the subscription
-* Can't view any other resource types in the subscription
-* Can't operate any changes from a billing perspective
+1. Click **Add** > **Add role assignment**.
 
-## Assign a built-in RBAC role to an external user
+    If you don't have permissions to assign roles, the Add role assignment option will be disabled.
 
-For a different scenario in this test, the external user "alflanigan@gmail.com" is added as a **Virtual Machine Contributor**.
+    ![Screenshot of Add > Add role assignment menu.](./media/shared/add-role-assignment-menu.png)
 
-![virtual machine contributor built-in role](./media/role-assignments-external-users/11.png)
+    The Add role assignment page opens.
 
-The normal behavior for this external user with this built-in role is to see and manage only virtual machines and their adjacent Resource Manager only resources necessary while deploying. By design, these limited roles offer access only to their correspondent resources created in the Azure portal.
+1. On the **Role** tab, select a role such as **Virtual Machine Contributor**.
 
-![virtual machine contributor role overview in Azure portal](./media/role-assignments-external-users/12.png)
+   ![Screenshot of Add role assignment page with Roles tab.](./media/shared/roles.png)
 
-## Grant access at a subscription level for a user in the same directory
+1. On the **Members** tab, select **User, group, or service principal**.
 
-The process flow is identical to adding an external user, both from the admin perspective granting the RBAC role as well as the user being granted access to the role. The difference here is that the invited user will not receive any email invitations as all the resource scopes within the subscription will be available in the dashboard after signing in.
+   ![Screenshot of Add role assignment page with Members tab.](./media/shared/members.png)
 
-## Assign RBAC roles at the resource group scope
+1. Click **Select members**.
 
-Assigning an RBAC role at a **Resource Group** scope has an identical process for assigning the role at the subscription level, for both types of users - either external or internal (part of the same directory). The users that are assigned the RBAC role is to see in their environment only the resource group they have been assigned access from the **Resource Groups** icon in the Azure portal.
+1. Find and select the guest user. If you don't see the user in the list, you can type in the **Select** box to search the directory for display name or email address.
 
-## Assign RBAC roles at the resource scope
+    You can type in the **Select** box to search the directory for display name or email address.
 
-Assigning an RBAC role at a resource scope in Azure has an identical process for assigning the role at the subscription level or at the resource group level, following the same workflow for both scenarios. Again, the users that are assigned the RBAC role can see only the items that they have been assigned access to, either in the **All Resources** tab or directly in their dashboard.
+    ![Screenshot of Select members pane.](./media/role-assignments-external-users/select-members.png)
 
-An important aspect for RBAC both at resource group scope or resource scope is for the users to make sure to sign in to the correct directory.
+1. Click **Select** to add the guest user to the Members list.
 
-![directory login in Azure portal](./media/role-assignments-external-users/13.png)
+1. On the **Review + assign** tab, click **Review + assign**.
 
-## Assign RBAC roles for an Azure Active Directory group
+    After a few moments, the guest user is assigned the role at the selected scope.
 
-All the scenarios using RBAC at the three different scopes in Azure offer the privilege of managing, deploying, and administering various resources as an assigned user without the need of managing a personal subscription. Regardless the RBAC role is assigned for a subscription, resource group, or resource scope, all the resources created further on by the assigned users are billed under the one Azure subscription where the users have access to. This way, the users who have billing administrator permissions for that entire Azure subscription has a complete overview on the consumption, regardless who is managing the resources.
+    ![Screenshot of role assignment for Virtual Machine Contributor.](./media/role-assignments-external-users/access-control-role-assignments.png)
 
-For larger organizations, RBAC roles can be applied in the same way for Azure Active Directory groups considering the perspective that the admin user wants to grant the granular access for teams or entire departments, not individually for each user, thus considering it as an extremely time and management efficient option. To illustrate this example, the **Contributor** role has been added to one of the groups in the tenant at the subscription level.
+## Assign a role to a guest user not yet in your directory
 
-![add RBAC role for AAD groups](./media/role-assignments-external-users/14.png)
+To assign a role to a guest user, you follow [same steps](role-assignments-portal.md) as you would for a member user, group, service principal, or managed identity.
 
-These groups are security groups, which are provisioned and managed only within Azure Active Directory.
+If the guest user is not yet in your directory, you can invite the user directly from the Select members pane.
 
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. In the Search box at the top, search for the scope you want to grant access to. For example, search for **Management groups**, **Subscriptions**, **Resource groups**, or a specific resource.
+
+1. Click the specific resource for that scope.
+
+1. Click **Access control (IAM)**.
+
+1. Click **Add** > **Add role assignment**.
+
+    If you don't have permissions to assign roles, the Add role assignment option will be disabled.
+
+    ![Screenshot of Add > Add role assignment menu.](./media/shared/add-role-assignment-menu.png)
+
+    The Add role assignment page opens.
+
+1. On the **Role** tab, select a role such as **Virtual Machine Contributor**.
+
+1. On the **Members** tab, select **User, group, or service principal**.
+
+   ![Screenshot of Add role assignment page with Members tab.](./media/shared/members.png)
+
+1. Click **Select members**.
+
+1. In the **Select** box, type the email address of the person you want to invite and select that person.
+
+    ![Screenshot of Invite guest user in Select members pane.](./media/role-assignments-external-users/select-members-new-guest.png)
+
+1. Click **Select** to add the guest user to the Members list.
+
+1. On the **Review + assign** tab, click **Review + assign** to add the guest user to your directory, assign the role, and send an invite.
+
+    After a few moments, you'll see a notification of the role assignment and information about the invite.
+
+    ![Screenshot of role assignment and invited user notification.](./media/role-assignments-external-users/invited-user-notification.png)
+
+1. To manually invite the guest user, right-click and copy the invitation link in the notification. Don't click the invitation link because it starts the invitation process.
+
+    The invitation link will have the following format:
+
+    `https://login.microsoftonline.com/redeem?rd=https%3a%2f%2finvitations.microsoft.com%2fredeem%2f%3ftenant%3d0000...`
+
+1. Send the invitation link to the guest user to complete the invitation process.
+
+    For more information about the invitation process, see [Azure Active Directory B2B collaboration invitation redemption](../active-directory/external-identities/redemption-experience.md).
+
+## Remove a guest user from your directory
+
+Before you remove a guest user from a directory, you should first remove any role assignments for that guest user. Follow these steps to remove a guest user from a directory.
+
+1. Open **Access control (IAM)** at a scope, such as management group, subscription, resource group, or resource, where the guest user has a role assignment.
+
+1. Click the **Role assignments** tab to view all the role assignments.
+
+1. In the list of role assignments, add a check mark next to the guest user with the role assignment you want to remove.
+
+   ![Screenshot of selected role assignment to remove.](./media/role-assignments-external-users/remove-role-assignment-select.png)
+
+1. Click **Remove**.
+
+   ![Screenshot of Remove role assignment message.](./media/shared/remove-role-assignment.png)
+
+1. In the remove role assignment message that appears, click **Yes**.
+
+1. Click the **Classic administrators** tab.
+
+1. If the guest user has a Co-Administrator assignment, add a check mark next to the guest user and click **Remove**.
+
+1. In the left navigation bar, click **Azure Active Directory** > **Users**.
+
+1. Click the guest user you want to remove.
+
+1. Click **Delete**.
+
+   ![Screenshot of deleting guest user.](./media/role-assignments-external-users/delete-guest-user.png)
+
+1. In the delete message that appears, click **Yes**.
+
+## Troubleshoot
+
+### Guest user cannot browse the directory
+
+Guest users have restricted directory permissions. For example, guest users cannot browse the directory and cannot search for groups or applications. For more information, see [What are the default user permissions in Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md).
+
+![Screenshot of guest user cannot browse users in a directory.](./media/role-assignments-external-users/directory-no-users.png)
+
+If a guest user needs additional privileges in the directory, you can assign an Azure AD role to the guest user. If you really want a guest user to have full read access to your directory, you can add the guest user to the [Directory Readers](../active-directory/roles/permissions-reference.md#directory-readers) role in Azure AD. For more information, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../active-directory/external-identities/add-users-administrator.md).
+
+![Screenshot of assigning Directory Readers role.](./media/role-assignments-external-users/directory-roles.png)
+
+### Guest user cannot browse users, groups, or service principals to assign roles
+
+Guest users have restricted directory permissions. Even if a guest user is an [Owner](built-in-roles.md#owner) at a scope, if they try to assign a role to grant someone else access, they cannot browse the list of users, groups, or service principals.
+
+![Screenshot of guest user cannot browse security principals to assign roles.](./media/role-assignments-external-users/directory-no-browse.png)
+
+If the guest user knows someone's exact sign-in name in the directory, they can grant access. If you really want a guest user to have full read access to your directory, you can add the guest user to the [Directory Readers](../active-directory/roles/permissions-reference.md#directory-readers) role in Azure AD. For more information, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../active-directory/external-identities/add-users-administrator.md).
+
+### Guest user cannot register applications or create service principals
+
+Guest users have restricted directory permissions. If a guest user needs to be able to register applications or create service principals, you can add the guest user to the [Application Developer](../active-directory/roles/permissions-reference.md#application-developer) role in Azure AD. For more information, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../active-directory/external-identities/add-users-administrator.md).
+
+![Screenshot of guest user cannot register applications.](./media/role-assignments-external-users/directory-access-denied.png)
+
+### Guest user does not see the new directory
+
+If a guest user has been granted access to a directory, but they do not see the new directory listed in the Azure portal when they try to switch in their **Directories** page, make sure the guest user has completed the invitation process. For more information about the invitation process, see [Azure Active Directory B2B collaboration invitation redemption](../active-directory/external-identities/redemption-experience.md).
+
+### Guest user does not see resources
+
+If a guest user has been granted access to a directory, but they do not see the resources they have been granted access to in the Azure portal, make sure the guest user has selected the correct directory. A guest user might have access to multiple directories. To switch directories, in the upper left, click **Settings** > **Directories**, and then click the appropriate directory.
+
+![Screenshot of Portal setting Directories section in Azure portal.](./media/role-assignments-external-users/directory-switch.png)
+
+## Next steps
+
+- [Add Azure Active Directory B2B collaboration users in the Azure portal](../active-directory/external-identities/add-users-administrator.md)
+- [Properties of an Azure Active Directory B2B collaboration user](../active-directory/external-identities/user-properties.md)
+- [The elements of the B2B collaboration invitation email - Azure Active Directory](../active-directory/external-identities/invitation-email-elements.md)

@@ -1,21 +1,20 @@
 ---
-title: "Azure Cloud Services Def. WorkerRole Schema | Microsoft Docs"
-services: cloud-services
-ms.custom: ""
-ms.date: "04/14/2015"
-ms.reviewer: ""
-ms.service: "cloud-services"
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "reference"
-ms.assetid: 41cd46bc-c479-43fa-96e5-d6c83e4e6d89
-caps.latest.revision: 55
-author: "jpconnock"
-ms.author: "jeconnoc"
-manager: "timlt"
+title: Azure Cloud Services (classic) Def. WorkerRole Schema | Microsoft Docs
+description: The Azure worker role is used for generalized development and may perform background processing for a web role. Learn about the Azure worker role schema.
+ms.topic: article
+ms.service: cloud-services
+ms.subservice: deployment-files
+ms.date: 02/21/2023
+author: hirenshah1
+ms.author: hirshah
+ms.reviewer: mimckitt
+ms.custom: compute-evergreen
 ---
 
-# Azure Cloud Services Definition WorkerRole Schema
+# Azure Cloud Services (classic) Definition WorkerRole Schema
+
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
+
 The Azure worker role is a role that is useful for generalized development, and may perform background processing for a web role.
 
 The default extension for the service definition file is .csdef.
@@ -59,10 +58,10 @@ The basic format of the service definition file containing a worker role is as f
       </Environment>
       <EntryPoint>
          <NetFxEntryPoint assemblyName="<name-of-assembly-containing-entrypoint>" targetFrameworkVersion="<.net-framework-version>"/>
-         <ProgramEntryPoint commandLine="<application>" setReadyOnProcessStart="[true|false]" "/>
+         <ProgramEntryPoint commandLine="<application>" setReadyOnProcessStart="[true|false]"/>
       </EntryPoint>
     </Runtime>
-    <Startup priority="<for-internal-use-only>”>
+    <Startup priority="<for-internal-use-only>">
       <Task commandLine="" executionContext="[limited|elevated]" taskType="[simple|foreground|background]">
         <Environment>
          <Variable name="<variable-name>" value="<variable-value>">
@@ -413,3 +412,6 @@ The following table describes the attributes of the `SourceDirectory` element.
 
 ## See Also
 [Cloud Service (classic) Definition Schema](schema-csdef-file.md)
+
+
+

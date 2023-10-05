@@ -1,0 +1,1479 @@
+{
+    "redirections": [
+    {
+        "source_path_from_root": "/articles/postgresql/howto-database-threat-protection-portal.md",
+        "redirect_url": "/azure/security-center/enable-azure-defender",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-compute-unit-and-storage.md",
+        "redirect_url": "/azure/postgresql/concepts-pricing-tiers",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-service-tiers.md",
+        "redirect_url": "/azure/postgresql/concepts-pricing-tiers",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-hyperscale-scaling.md",
+        "redirect_url": "/azure/postgresql/howto-hyperscale-scale-grow",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/hyperscale-preview-features.md",
+        "redirect_url": "/azure/postgresql/hyperscale-product-updates",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-hyperscale-app-type.md",
+        "redirect_url": "/azure/postgresql/hyperscale/concepts-app-type",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-hyperscale-audit.md",
+        "redirect_url": "/azure/postgresql/hyperscale/concepts-audit",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-hyperscale-backup.md",
+        "redirect_url": "/azure/postgresql/hyperscale/concepts-backup",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-hyperscale-choose-distribution-column.md",
+        "redirect_url": "/azure/postgresql/hyperscale/concepts-choose-distribution-column",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-hyperscale-colocation.md",
+        "redirect_url": "/azure/postgresql/hyperscale/concepts-colocation",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-hyperscale-columnar.md",
+        "redirect_url": "/azure/postgresql/hyperscale/concepts-columnar",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-hyperscale-configuration-options.md",
+        "redirect_url": "/azure/postgresql/hyperscale/concepts-configuration-options",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-hyperscale-connection-pool.md",
+        "redirect_url": "/azure/postgresql/hyperscale/concepts-connection-pool",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-hyperscale-distributed-data.md",
+        "redirect_url": "/azure/postgresql/hyperscale/concepts-distributed-data",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-hyperscale-extensions.md",
+        "redirect_url": "/azure/postgresql/hyperscale/concepts-extensions",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-hyperscale-firewall-rules.md",
+        "redirect_url": "/azure/postgresql/hyperscale/concepts-firewall-rules",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-hyperscale-high-availability.md",
+        "redirect_url": "/azure/postgresql/hyperscale/concepts-high-availability",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-hyperscale-limits.md",
+        "redirect_url": "/azure/postgresql/hyperscale/concepts-limits",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-hyperscale-maintenance.md",
+        "redirect_url": "/azure/postgresql/hyperscale/concepts-maintenance",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-hyperscale-monitoring.md",
+        "redirect_url": "/azure/postgresql/hyperscale/concepts-monitoring",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-hyperscale-nodes.md",
+        "redirect_url": "/azure/postgresql/hyperscale/concepts-nodes",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-hyperscale-private-access.md",
+        "redirect_url": "/azure/postgresql/hyperscale/concepts-private-access",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-hyperscale-read-replicas.md",
+        "redirect_url": "/azure/postgresql/hyperscale/concepts-read-replicas",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-hyperscale-reserved-pricing.md",
+        "redirect_url": "/azure/postgresql/hyperscale/concepts-reserved-pricing",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-hyperscale-security-overview.md",
+        "redirect_url": "/azure/postgresql/hyperscale/concepts-security-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-hyperscale-ssl-connection-security.md",
+        "redirect_url": "/azure/postgresql/hyperscale/concepts-ssl-connection-security",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-hyperscale-tiers.md",
+        "redirect_url": "/azure/postgresql/hyperscale/concepts-tiers",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-hyperscale-versions.md",
+        "redirect_url": "/azure/postgresql/hyperscale/concepts-versions",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-hyperscale-alert-on-metric.md",
+        "redirect_url": "/azure/postgresql/hyperscale/howto-alert-on-metric",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-hyperscale-compute-quota.md",
+        "redirect_url": "/azure/postgresql/hyperscale/howto-compute-quota",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-hyperscale-create-users.md",
+        "redirect_url": "/azure/postgresql/hyperscale/howto-create-users",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-hyperscale-high-availability.md",
+        "redirect_url": "/azure/postgresql/hyperscale/howto-high-availability",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-hyperscale-logging.md",
+        "redirect_url": "/azure/postgresql/hyperscale/howto-logging",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-hyperscale-maintenance.md",
+        "redirect_url": "/azure/postgresql/hyperscale/howto-maintenance",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-hyperscale-manage-firewall-using-portal.md",
+        "redirect_url": "/azure/postgresql/hyperscale/howto-manage-firewall-using-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-hyperscale-modify-distributed-tables.md",
+        "redirect_url": "/azure/postgresql/hyperscale/howto-modify-distributed-tables",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-hyperscale-monitoring.md",
+        "redirect_url": "/azure/postgresql/hyperscale/howto-monitoring",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-hyperscale-private-access.md",
+        "redirect_url": "/azure/postgresql/hyperscale/howto-private-access",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-hyperscale-read-replicas-portal.md",
+        "redirect_url": "/azure/postgresql/hyperscale/howto-read-replicas-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-hyperscale-restart.md",
+        "redirect_url": "/azure/postgresql/hyperscale/howto-restart",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-hyperscale-restore-portal.md",
+        "redirect_url": "/azure/postgresql/hyperscale/howto-restore-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-hyperscale-scale-grow.md",
+        "redirect_url": "/azure/postgresql/hyperscale/howto-scale-grow",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-hyperscale-scale-initial.md",
+        "redirect_url": "/azure/postgresql/hyperscale/howto-scale-initial",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-hyperscale-scale-rebalance.md",
+        "redirect_url": "/azure/postgresql/hyperscale/howto-scale-rebalance",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-hyperscale-table-size.md",
+        "redirect_url": "/azure/postgresql/hyperscale/howto-table-size",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-hyperscale-troubleshoot-common-connection-issues.md",
+        "redirect_url": "/azure/postgresql/hyperscale/howto-troubleshoot-common-connection-issues",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-hyperscale-troubleshoot-read-only.md",
+        "redirect_url": "/azure/postgresql/hyperscale/howto-troubleshoot-read-only",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-hyperscale-upgrade.md",
+        "redirect_url": "/azure/postgresql/hyperscale/howto-upgrade",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-hyperscale-useful-diagnostic-queries.md",
+        "redirect_url": "/azure/postgresql/hyperscale/howto-useful-diagnostic-queries",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/hyperscale-overview.md",
+        "redirect_url": "/azure/postgresql/hyperscale/overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/hyperscale-product-updates.md",
+        "redirect_url": "/azure/postgresql/hyperscale/product-updates",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/quickstart-create-hyperscale-basic-tier.md",
+        "redirect_url": "/azure/postgresql/hyperscale/quickstart-create-basic-tier",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/quickstart-create-hyperscale-portal.md",
+        "redirect_url": "/azure/postgresql/hyperscale/quickstart-create-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/reference-hyperscale-functions.md",
+        "redirect_url": "/azure/postgresql/hyperscale/reference-functions",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/reference-hyperscale-metadata.md",
+        "redirect_url": "/azure/postgresql/hyperscale/reference-metadata",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/reference-hyperscale-parameters.md",
+        "redirect_url": "/azure/postgresql/hyperscale/reference-parameters",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/tutorial-design-database-hyperscale-multi-tenant.md",
+        "redirect_url": "/azure/postgresql/hyperscale/tutorial-design-database-multi-tenant",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/tutorial-design-database-hyperscale-realtime.md",
+        "redirect_url": "/azure/postgresql/hyperscale/tutorial-design-database-realtime",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/tutorial-hyperscale-private-access.md",
+        "redirect_url": "/azure/postgresql/hyperscale/tutorial-private-access",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/tutorial-hyperscale-server-group.md",
+        "redirect_url": "/azure/postgresql/hyperscale/tutorial-server-group",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/tutorial-hyperscale-shard.md",
+        "redirect_url": "/azure/postgresql/hyperscale/tutorial-shard",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/hyperscale/concepts-tiers.md",
+        "redirect_url": "/azure/postgresql/hyperscale/concepts-server-group",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/hyperscale/quickstart-create-basic-tier.md",
+        "redirect_url": "/azure/postgresql/hyperscale/quickstart-create-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/hyperscale/tutorial-server-group.md",
+        "redirect_url": "/azure/postgresql/hyperscale/quickstart-create-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/hyperscale/concepts-app-type.md",
+        "redirect_url": "/azure/postgresql/hyperscale/howto-app-type",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/hyperscale/concepts-choose-distribution-column.md",
+        "redirect_url": "/azure/postgresql/hyperscale/howto-choose-distribution-column",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/hyperscale/concepts-ssl-connection-security.md",
+        "redirect_url": "/azure/postgresql/hyperscale/howto-ssl-connection-security",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/hyperscale/concepts-limits.md",
+        "redirect_url": "/azure/postgresql/hyperscale/reference-limits",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/hyperscale/concepts-versions.md",
+        "redirect_url": "/azure/postgresql/hyperscale/reference-versions",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/hyperscale/concepts-extensions.md",
+        "redirect_url": "/azure/postgresql/hyperscale/reference-extensions",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/hyperscale/concepts-reserved-pricing.md",
+        "redirect_url": "/azure/postgresql/hyperscale/resources-pricing",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/hyperscale/concepts-configuration-options.md",
+        "redirect_url": "/azure/postgresql/hyperscale/resources-compute",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/hyperscale/index.yml",
+        "redirect_url": "/azure/postgresql/hyperscale/overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/hyperscale/howto-app-stacks-csharp.md",
+        "redirect_url": "/azure/postgresql/hyperscale/quickstart-app-stacks-csharp",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/hyperscale/howto-app-stacks-java.md",
+        "redirect_url": "/azure/postgresql/hyperscale/quickstart-app-stacks-java",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/hyperscale/howto-app-stacks-nodejs.md",
+        "redirect_url": "/azure/postgresql/hyperscale/quickstart-app-stacks-nodejs",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/hyperscale/howto-app-stacks-overview.md",
+        "redirect_url": "/azure/postgresql/hyperscale/quickstart-app-stacks-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/hyperscale/howto-app-stacks-python.md",
+        "redirect_url": "/azure/postgresql/hyperscale/quickstart-app-stacks-python",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/hyperscale/howto-app-stacks-ruby.md",
+        "redirect_url": "/azure/postgresql/hyperscale/quickstart-app-stacks-ruby",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/hyperscale/howto-build-scalable-apps-classify.md",
+        "redirect_url": "/azure/postgresql/hyperscale/quickstart-build-scalable-apps-classify",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/hyperscale/howto-build-scalable-apps-concepts.md",
+        "redirect_url": "/azure/postgresql/hyperscale/quickstart-build-scalable-apps-concepts",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/hyperscale/howto-build-scalable-apps-model-high-throughput.md",
+        "redirect_url": "/azure/postgresql/hyperscale/quickstart-build-scalable-apps-model-high-throughput",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/hyperscale/howto-build-scalable-apps-model-multi-tenant.md",
+        "redirect_url": "/azure/postgresql/hyperscale/quickstart-build-scalable-apps-model-multi-tenant",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/hyperscale/howto-build-scalable-apps-model-real-time.md",
+        "redirect_url": "/azure/postgresql/hyperscale/quickstart-build-scalable-apps-model-real-time",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/hyperscale/howto-build-scalable-apps-overview.md",
+        "redirect_url": "/azure/postgresql/hyperscale/quickstart-build-scalable-apps-overview",
+        "redirect_document_id": false
+    },
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/concepts-audit.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/concepts-audit",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/concepts-backup.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/concepts-backup",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/concepts-colocation.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/concepts-colocation",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/concepts-columnar.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/concepts-columnar",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/concepts-connection-pool.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/concepts-connection-pool",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/concepts-distributed-data.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/concepts-distributed-data",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/concepts-firewall-rules.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/concepts-firewall-rules",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/concepts-high-availability.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/concepts-high-availability",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/concepts-maintenance.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/concepts-maintenance",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/concepts-monitoring.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/concepts-monitoring",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/concepts-nodes.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/concepts-nodes",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/concepts-private-access.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/concepts-private-access",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/concepts-read-replicas.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/concepts-read-replicas",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/concepts-row-level-security.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/concepts-row-level-security",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/concepts-security-overview.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/concepts-security-overview",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/concepts-server-group.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/concepts-cluster",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/concepts-upgrade.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/concepts-upgrade",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/howto-alert-on-metric.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/howto-alert-on-metric",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/howto-app-type.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/howto-app-type",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/howto-choose-distribution-column.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/howto-choose-distribution-column",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/howto-compute-quota.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/howto-compute-quota",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/howto-connect.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/howto-connect",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/howto-create-users.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/howto-create-users",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/howto-high-availability.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/howto-high-availability",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/howto-ingest-azure-data-factory.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/howto-ingest-azure-data-factory",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/howto-ingest-azure-stream-analytics.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/howto-ingest-azure-stream-analytics",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/howto-logging.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/howto-logging",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/howto-maintenance.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/howto-maintenance",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/howto-manage-firewall-using-portal.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/howto-manage-firewall-using-portal",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/howto-modify-distributed-tables.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/howto-modify-distributed-tables",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/howto-monitoring.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/howto-monitoring",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/howto-private-access.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/howto-private-access",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/howto-read-replicas-portal.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/howto-read-replicas-portal",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/howto-restart.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/howto-restart",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/howto-restore-portal.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/howto-restore-portal",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/howto-scale-grow.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/howto-scale-grow",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/howto-scale-initial.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/howto-scale-initial",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/howto-scale-rebalance.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/howto-scale-rebalance",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/howto-ssl-connection-security.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/howto-ssl-connection-security",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/howto-table-size.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/howto-table-size",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/howto-troubleshoot-common-connection-issues.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/howto-troubleshoot-common-connection-issues",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/howto-troubleshoot-read-only.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/howto-troubleshoot-read-only",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/howto-upgrade.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/howto-upgrade",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/howto-useful-diagnostic-queries.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/howto-useful-diagnostic-queries",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/overview.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/overview",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/product-updates.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/product-updates",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/quickstart-app-stacks-csharp.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/quickstart-app-stacks-csharp",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/quickstart-app-stacks-java.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/quickstart-app-stacks-java",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/quickstart-app-stacks-nodejs.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/quickstart-app-stacks-nodejs",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/quickstart-app-stacks-overview.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/quickstart-app-stacks-overview",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/quickstart-app-stacks-python.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/quickstart-app-stacks-python",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/quickstart-app-stacks-ruby.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/quickstart-app-stacks-ruby",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/quickstart-build-scalable-apps-classify.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/quickstart-build-scalable-apps-classify",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/quickstart-build-scalable-apps-concepts.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/quickstart-build-scalable-apps-concepts",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/quickstart-build-scalable-apps-model-high-throughput.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/quickstart-build-scalable-apps-model-high-throughput",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/quickstart-build-scalable-apps-model-multi-tenant.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/quickstart-build-scalable-apps-model-multi-tenant",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/quickstart-build-scalable-apps-model-real-time.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/quickstart-build-scalable-apps-model-real-time",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/quickstart-build-scalable-apps-overview.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/quickstart-build-scalable-apps-overview",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/quickstart-connect-psql.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/quickstart-connect-psql",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/quickstart-create-portal.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/quickstart-create-portal",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/quickstart-distribute-tables.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/quickstart-distribute-tables",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/quickstart-run-queries.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/quickstart-run-queries",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/reference-extensions.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/reference-extensions",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/reference-functions.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/reference-functions",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/reference-limits.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/reference-limits",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/reference-metadata.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/reference-metadata",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/reference-overview.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/reference-overview",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/reference-parameters.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/reference-parameters",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/reference-versions.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/reference-versions",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/resources-compute.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/resources-compute",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/resources-pricing.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/resources-pricing",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/resources-regions.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/resources-regions",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/tutorial-design-database-multi-tenant.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/tutorial-design-database-multi-tenant",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/tutorial-design-database-realtime.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/tutorial-design-database-realtime",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/tutorial-private-access.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/tutorial-private-access",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/tutorial-shard.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/tutorial-shard",
+		"redirect_document_id": true
+	},
+	{
+		"source_path_from_root": "/articles/postgresql/hyperscale/concepts-performance-tuning.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/concepts-performance-tuning",
+		"redirect_document_id": true
+	},
+    {
+        "source_path_from_root": "/articles/postgresql/policy-samples.md",
+        "redirect_url": "/azure/postgresql/policy-reference",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-data-access-and-security-threat-protection.md",
+        "redirect_url": "/azure/security-center/defender-for-databases-usage",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/tutorial-monitor-and-tune.md",
+        "redirect_url": "/azure/postgresql/single-server/tutorial-monitor-and-tune",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/application-best-practices.md",
+        "redirect_url": "/azure/postgresql/single-server/application-best-practices",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concept-reserved-pricing.md",
+        "redirect_url": "/azure/postgresql/single-server/concept-reserved-pricing",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-aad-authentication.md",
+        "redirect_url": "/azure/postgresql/single-server/concepts-azure-ad-authentication",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-aks.md",
+        "redirect_url": "/azure/postgresql/single-server/concepts-aks",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-audit.md",
+        "redirect_url": "/azure/postgresql/single-server/concepts-audit",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-azure-advisor-recommendations.md",
+        "redirect_url": "/azure/postgresql/single-server/concepts-azure-advisor-recommendations",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-backup.md",
+        "redirect_url": "/azure/postgresql/single-server/concepts-backup",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-business-continuity.md",
+        "redirect_url": "/azure/postgresql/single-server/concepts-business-continuity",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-certificate-rotation.md",
+        "redirect_url": "/azure/postgresql/single-server/concepts-certificate-rotation",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-connection-libraries.md",
+        "redirect_url": "/azure/postgresql/single-server/concepts-connection-libraries",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-connectivity.md",
+        "redirect_url": "/azure/postgresql/single-server/concepts-connectivity",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-connectivity-architecture.md",
+        "redirect_url": "/azure/postgresql/single-server/concepts-connectivity-architecture",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-data-access-and-security-private-link.md",
+        "redirect_url": "/azure/postgresql/single-server/concepts-data-access-and-security-private-link",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-data-access-and-security-vnet.md",
+        "redirect_url": "/azure/postgresql/single-server/concepts-data-access-and-security-vnet",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-data-encryption-postgresql.md",
+        "redirect_url": "/azure/postgresql/single-server/concepts-data-encryption-postgresql",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-extensions.md",
+        "redirect_url": "/azure/postgresql/single-server/concepts-extensions",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-firewall-rules.md",
+        "redirect_url": "/azure/postgresql/single-server/concepts-firewall-rules",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-high-availability.md",
+        "redirect_url": "/azure/postgresql/single-server/concepts-high-availability",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-infrastructure-double-encryption.md",
+        "redirect_url": "/azure/postgresql/single-server/concepts-infrastructure-double-encryption",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-known-issues-limitations.md",
+        "redirect_url": "/azure/postgresql/single-server/concepts-known-issues-limitations",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-limits.md",
+        "redirect_url": "/azure/postgresql/single-server/concepts-limits",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-logical.md",
+        "redirect_url": "/azure/postgresql/single-server/concepts-logical",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-monitoring.md",
+        "redirect_url": "/azure/postgresql/single-server/concepts-monitoring",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-performance-recommendations.md",
+        "redirect_url": "/azure/postgresql/single-server/concepts-performance-recommendations",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-planned-maintenance-notification.md",
+        "redirect_url": "/azure/postgresql/single-server/concepts-planned-maintenance-notification",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-pricing-tiers.md",
+        "redirect_url": "/azure/postgresql/single-server/concepts-pricing-tiers",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-query-performance-insight.md",
+        "redirect_url": "/azure/postgresql/single-server/concepts-query-performance-insight",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-query-store.md",
+        "redirect_url": "/azure/postgresql/single-server/concepts-query-store",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-query-store-best-practices.md",
+        "redirect_url": "/azure/postgresql/single-server/concepts-query-store-best-practices",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-query-store-scenarios.md",
+        "redirect_url": "/azure/postgresql/single-server/concepts-query-store-scenarios",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-read-replicas.md",
+        "redirect_url": "/azure/postgresql/single-server/concepts-read-replicas",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-security.md",
+        "redirect_url": "/azure/postgresql/single-server/concepts-security",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-server-logs.md",
+        "redirect_url": "/azure/postgresql/single-server/concepts-server-logs",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-servers.md",
+        "redirect_url": "/azure/postgresql/single-server/concepts-servers",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-ssl-connection-security.md",
+        "redirect_url": "/azure/postgresql/single-server/concepts-ssl-connection-security",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-supported-versions.md",
+        "redirect_url": "/azure/postgresql/single-server/concepts-supported-versions",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-version-policy.md",
+        "redirect_url": "/azure/postgresql/single-server/concepts-version-policy",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/connect-csharp.md",
+        "redirect_url": "/azure/postgresql/single-server/connect-csharp",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/connect-go.md",
+        "redirect_url": "/azure/postgresql/single-server/connect-go",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/connect-java.md",
+        "redirect_url": "/azure/postgresql/single-server/connect-java",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/connect-nodejs.md",
+        "redirect_url": "/azure/postgresql/single-server/connect-nodejs",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/connect-php.md",
+        "redirect_url": "/azure/postgresql/single-server/connect-php",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/connect-python.md",
+        "redirect_url": "/azure/postgresql/single-server/connect-python",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/connect-ruby.md",
+        "redirect_url": "/azure/postgresql/single-server/connect-ruby",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/connect-rust.md",
+        "redirect_url": "/azure/postgresql/single-server/connect-rust",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-alert-on-metric.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-alert-on-metric",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-auto-grow-storage-cli.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-auto-grow-storage-cli",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-auto-grow-storage-portal.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-auto-grow-storage-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-auto-grow-storage-powershell.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-auto-grow-storage-powershell",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-configure-privatelink-cli.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-configure-privatelink-cli",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-configure-privatelink-portal.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-configure-privatelink-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-configure-server-logs-in-portal.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-configure-server-logs-in-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-configure-server-logs-using-cli.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-configure-server-logs-using-cli",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-configure-server-parameters-using-cli.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-configure-server-parameters-using-cli",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-configure-server-parameters-using-portal.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-configure-server-parameters-using-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-configure-server-parameters-using-powershell.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-configure-server-parameters-using-powershell",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-configure-sign-in-aad-authentication.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-configure-sign-in-azure-ad-authentication",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-connection-string-powershell.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-connection-string-powershell",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/how-to-connect-query-guide.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-connect-query-guide",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-connect-with-managed-identity.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-connect-with-managed-identity",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-create-manage-server-portal.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-create-manage-server-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-create-users.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-create-users",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-data-encryption-cli.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-data-encryption-cli",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-data-encryption-portal.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-data-encryption-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-data-encryption-troubleshoot.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-data-encryption-troubleshoot",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-data-encryption-validation.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-data-encryption-validation",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-deny-public-network-access.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-deny-public-network-access",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/how-to-deploy-github-action.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-deploy-github-action",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-double-encryption.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-double-encryption",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-manage-firewall-using-portal.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-manage-firewall-using-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/how-to-manage-server-cli.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-manage-server-cli",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-manage-vnet-using-cli.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-manage-vnet-using-cli",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-manage-vnet-using-portal.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-manage-vnet-using-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-migrate-from-oracle.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-migrate-from-oracle",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/single-server/how-to-migrate-from-oracle.md",
+        "redirect_url": "/azure/postgresql/migrate/how-to-migrate-from-oracle",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-migrate-online.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-migrate-online",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/single-server/how-to-migrate-online.md",
+        "redirect_url": "/azure/postgresql/migrate/how-to-migrate-online",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-migrate-using-dump-and-restore.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-migrate-using-dump-and-restore",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/single-server/how-to-migrate-using-dump-and-restore.md",
+        "redirect_url": "/azure/postgresql/migrate/how-to-migrate-using-dump-and-restore",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-migrate-using-export-and-import.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-migrate-using-export-and-import",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/single-server/how-to-migrate-using-export-and-import.md",
+        "redirect_url": "/azure/postgresql/migrate/how-to-migrate-using-export-and-import",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/how-to-migrate-single-to-flex-portal.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-migrate-single-to-flexible-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/single-server/how-to-migrate-single-to-flex-portal.md",
+        "redirect_url": "/azure/postgresql/migrate/how-to-migrate-single-to-flexible-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/how-to-migrate-single-to-flex-cli.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-migrate-single-to-flexible-cli",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/single-server/how-to-migrate-single-to-flex-cli.md",
+        "redirect_url": "/azure/postgresql/migrate/how-to-migrate-single-to-flexible-cli",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/single-server/concepts-single-to-flexible.md",
+        "redirect_url": "/azure/postgresql/migrate/concepts-single-to-flexible",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-move-regions-portal.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-move-regions-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-optimize-autovacuum.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-optimize-autovacuum",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-optimize-bulk-inserts.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-optimize-bulk-inserts",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-optimize-query-stats-collection.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-optimize-query-stats-collection",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-optimize-query-time-with-toast-table-storage-strategy.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-optimize-query-time-with-toast-table-storage-strategy",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-read-replicas-cli.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-read-replicas-cli",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-read-replicas-portal.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-read-replicas-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-read-replicas-powershell.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-read-replicas-powershell",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-restart-server-cli.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-restart-server-cli",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-restart-server-portal.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-restart-server-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-restart-server-powershell.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-restart-server-powershell",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-restore-dropped-server.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-restore-dropped-server",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-restore-server-cli.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-restore-server-cli",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-restore-server-portal.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-restore-server-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-restore-server-powershell.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-restore-server-powershell",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-tls-configurations.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-tls-configurations",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-troubleshoot-common-connection-issues.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-troubleshoot-common-connection-issues",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/how-to-upgrade-using-dump-and-restore.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-upgrade-using-dump-and-restore",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/overview.md",
+        "redirect_url": "/azure/postgresql/single-server/overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/overview-postgres-choose-server-options.md",
+        "redirect_url": "/azure/postgresql/single-server/overview-postgres-choose-server-options",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/overview-single-server.md",
+        "redirect_url": "/azure/postgresql/single-server/overview-single-server",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/partners-migration-postgresql.md",
+        "redirect_url": "/azure/postgresql/single-server/partners-migration-postgresql",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/policy-reference.md",
+        "redirect_url": "/azure/postgresql/single-server/policy-reference",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/quickstart-create-postgresql-server-database-using-arm-template.md",
+        "redirect_url": "/azure/postgresql/single-server/quickstart-create-postgresql-server-database-using-arm-template",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/quickstart-create-postgresql-server-database-using-azure-powershell.md",
+        "redirect_url": "/azure/postgresql/single-server/quickstart-create-postgresql-server-database-using-azure-powershell",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/quickstart-create-server-database-azure-cli.md",
+        "redirect_url": "/azure/postgresql/single-server/quickstart-create-server-database-azure-cli",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/quickstart-create-server-database-portal.md",
+        "redirect_url": "/azure/postgresql/single-server/quickstart-create-server-database-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/quickstart-create-server-up-azure-cli.md",
+        "redirect_url": "/azure/postgresql/single-server/quickstart-create-server-up-azure-cli",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/sample-scripts-azure-cli.md",
+        "redirect_url": "/azure/postgresql/single-server/sample-scripts-azure-cli",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/security-controls-policy.md",
+        "redirect_url": "/azure/postgresql/single-server/security-controls-policy",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/tutorial-design-database-using-azure-cli.md",
+        "redirect_url": "/azure/postgresql/single-server/tutorial-design-database-using-azure-cli",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/tutorial-design-database-using-azure-portal.md",
+        "redirect_url": "/azure/postgresql/single-server/tutorial-design-database-using-azure-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/tutorial-design-database-using-powershell.md",
+        "redirect_url": "/azure/postgresql/single-server/tutorial-design-database-using-powershell",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/quickstart-create-postgresql-server-database-using-bicep.md",
+        "redirect_url": "/azure/postgresql/single-server/quickstart-create-postgresql-server-database-using-bicep",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/how-to-setup-aad-app-portal.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-setup-azure-ad-app-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-single-to-flexible.md",
+        "redirect_url": "/azure/postgresql/single-server/concepts-single-to-flexible",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/dms/tutorial-oracle-azure-postgresql-online.md",
+        "redirect_url": "/azure/postgresql/howto-migrate-from-oracle",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/dms/known-issues-oracle-azure-postgresql-online.md",
+        "redirect_url": "/azure/postgresql/howto-migrate-from-oracle",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/migrate/how-to-set-up-azure-ad-app-portal.md",
+        "redirect_url": "/azure/postgresql/migrate/concepts-single-to-flexible",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/flexible-server/application-best-practices.md",
+        "redirect_url": "/azure/postgresql/flexible-server/overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/single-server/overview-postgres-choose-server-options.md",
+        "redirect_url": "/azure/postgresql/flexible-server/overview-postgres-choose-server-options",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/single-server/partners-migration-postgresql.md",
+        "redirect_url": "/azure/postgresql/migrate/partners-migration-postgresql",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/single-server/index.yml",
+        "redirect_url": "/azure/postgresql/index",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/flexible-server/index.yml",
+        "redirect_url": "/azure/postgresql/index",
+        "redirect_document_id": false
+    }
+    ]
+}

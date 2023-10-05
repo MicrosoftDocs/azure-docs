@@ -1,27 +1,27 @@
 ---
-title: Search Categories in Azure Maps | Microsoft Docs
-description: Learn about search categories in Azure Maps 
+title: Search Categories
+titleSuffix: Microsoft Azure Maps
+description: Learn which search categories are supported in Azure Maps. View all supported category codes and the types of points of interest that each one represents.
 author: sataneja
 ms.author: sataneja
 ms.date: 05/14/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: 
 ---
 
 
 
 # Azure Maps supported categories
 
-When doing a [category search](https://docs.microsoft.com/rest/api/maps/search/getsearchpoicategory) for points of interest, there are over a hundred supported categories. Below is a list of the category codes for supported category names. Category codes are generated for top level categories. All sub categories share same category code. Please note that this category list is subject to change with new data releases.
+When doing a [category search] for points of interest, there are over a hundred supported categories. The following list contains the category codes for supported category names. Category codes are generated for top-level categories. All sub categories share same category code. This category list is subject to change with new data releases.
 
 <br/>
 
 | **Category code** | **Categories matching code** |
 | --- | --- |
 | ACCESS\_GATEWAY | airline access, security gate, station access, access gateway |
-| ADMINISTRATIVE\_DIVISION | province, fourth-order administrative division, first-order administrative division, historical third-order administrative division, seat of a fourth-order administrative division, seat of a second-order administrative division, dependent political entity, populated place, seat of a third-order administrative division, populated places, second-order administrative division, seat of a first-order administrative division, administrative division, populated locality, historical region, historical site, historical populated place, Israeli settlement, historical fourth-order administrative division, fifth-order administrative division, historical first-order administrative division, third-order administrative division, historical political entity, historical administrative division, seat of government of a political entity, historical second-order administrative division, capital of a political entity |
+| ADMINISTRATIVE\_DIVISION | province, fourth-order administrative division, first-order administrative division, historical third-order administrative division, seat of a fourth-order administrative division, seat of a second-order administrative division, dependent political entity, populated place, seat of a third-order administrative division, populated places, second-order administrative division, seat of a first-order administrative division, administrative division, populated locality, historical region, historical site, historical populated place, Israeli settlement, historical fourth-order administrative division, fifth-order administrative division, historical first-order administrative division, third-order administrative division, historical political entity, historical administrative division, seat of government of a political entity, historical second-order administrative division, capital/major city of a political entity |
 | ADVENTURE\_SPORTS\_VENUE | adventure sports venue |
 | AGRICULTURE | horticulture, primary producer, agriculture, farm, farm village, farmstead, homestead, grazing area, common, aquaculture facility, farms, fishing area, dairy, field(s) |
 | AIRPORT | private authority, military authority, heliport, closed, medium airport, large airport, small airport, airfield, seaplane base, public authority, balloon port, airport |
@@ -60,11 +60,11 @@ When doing a [category search](https://docs.microsoft.com/rest/api/maps/search/g
 | FUEL\_FACILITIES | fuel facilities |
 | GEOGRAPHIC\_FEATURE | bay, cove, pan, locale, ridge, mineral/hot springs, well, reservoir, marsh/swamp/vlei, quarry, river crossing, valley, mountain peak, reef, dune, lagoon, plain/flat, rapids, cape, plateau, oasis, harbor, cave, rocks, geographic feature, promontory(-ies), islands, headland, pier, crater lake, cliff(s), hill, desert, portage, glacier(s), gully, geyser, coral reef(s), gap, gulf, jetty, ghat, hole, crater lakes, gas field, islet, crater(s), cove(s), grassland, gravel area, fracture zone, heath, gorge(s), island, headwaters, hanging valley, hills, hot spring(s), furrow, anabranch |
 | GOLF\_COURSE | golf course |
-| GOVERNMENT\_OFFICE | order 5 area, order 8 area, order 9 area, order 2 area, order 7 area, order 3 area, supra national, order 4 area, order 6 area, government office, diplomatic facility, united states government establishment, local government office, customs house, customs post |
+| GOVERNMENT\_OFFICE | order 5 area, order 8 area, order 9 area, order 2 area, order 7 area, order 3 area, supra national, order 4 area, order 6 area, government office, diplomatic facility, United States government establishment, local government office, customs house, customs post |
 | HEALTH\_CARE\_SERVICE | blood bank, personal service, personal care facility, ambulance unit, health care service, leprosarium, sanatorium, hospital, medical center, clinic |
 | HELIPAD\_HELICOPTER\_LANDING | helipad/helicopter landing |
 | HOLIDAY\_RENTAL | bungalow, cottage, chalet, villa, apartment, holiday rental |
-| HOSPITAL\_POLYCLINIC | special, hospital of Chinese medicine, hospital for women children, general, hospital/polyclinic |
+| HOSPITAL\_POLYCLINIC | special, hospital of Chinese medicine, hospital for women, children, general, hospital/polyclinic |
 | HOTEL\_MOTEL | cabins lodges, bed breakfast guest houses, hotel, rest camps, motel, resort, hostel, hotel/motel, resthouse, hammock(s), guest house |
 | ICE\_SKATING\_RINK | ice skating rink |
 | IMPORTANT\_TOURIST\_ATTRACTION | building, observatory, arch, tunnel, statue, tower, bridge, planetarium, mausoleum/grave, monument, water hole, natural attraction, important tourist attraction, promenade, pyramids, pagoda, castle, palace, hermitage, pyramid, fort, gate, country house, dam, lighthouse, grave |
@@ -127,3 +127,5 @@ When doing a [category search](https://docs.microsoft.com/rest/api/maps/search/g
 | WELFARE\_ORGANIZATION | welfare organization |
 | WINERY | winery |
 | ZOOS\_ARBORETA\_BOTANICAL\_GARDEN | wildlife park, aquatic zoo marine park, arboreta botanical gardens, zoo, zoos, arboreta botanical garden |
+
+[category search]: /rest/api/maps/search/getsearchpoicategory

@@ -1,0 +1,24 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/container-apps/secure-app.md",
+            "redirect_url": "/azure/container-apps/manage-secrets",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/container-apps/monitor.md",
+            "redirect_url": "/azure/container-apps/logging",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/container-apps/ingress.md",
+            "redirect_url": "/azure/container-apps/ingress-overview",
+            "redirect_document_id": false
+        },
+        {
+			"source_path_from_root": "/articles/container-apps/disaster-recovery.md",
+			"redirect_url": "/azure/reliability/reliability-azure-container-apps",
+			"redirect_document_id": false
+        }
+    ]
+}

@@ -1,142 +1,162 @@
 ---
-title: Initialize client applications (Microsoft Authentication Library for JavaScript) | Azure
+title: Initialize MSAL.js client apps
 description: Learn about initializing client applications using the Microsoft Authentication Library for JavaScript (MSAL.js).
 services: active-directory
-documentationcenter: dev-center-name
-author: rwike77
+author: OwenRichards1
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/12/2019
-ms.author: nacanuma
+ms.date: 01/16/2023
+ms.author: owenrichards
 ms.reviewer: saeeda
-ms.custom: aaddev
-#Customer intent: As an application developer, I want to learn about initializing client applications so I can decide if this platform meets my application development needs and requirements.
-ms.collection: M365-identity-device-management
+ms.custom: aaddev, devx-track-js, engagement-fy23
+# Customer intent: As an application developer, I want to learn about initializing a client application in MSAL.js to enable support for authentication and authorization in a JavaScript single-page application (SPA).
 ---
 
 # Initialize client applications using MSAL.js
-This article describes initializing Microsoft Authentication Library for JavaScript (MSAL.js) with an instance of a user-agent application. The user-agent application is a form of public client application in which the client code is executed in a user-agent such as a web browser. These clients do not store secrets, since the browser context is openly accessible. To learn more about the client application types and application configuration options, read the [overview](msal-client-applications.md).
+
+This article describes initializing the Microsoft Authentication Library for JavaScript (MSAL.js) with an instance of a user-agent application.
+
+The user-agent application is a form of public client application in which the client code is executed in a user-agent such as a web browser. Clients such as these don't store secrets because the browser context is openly accessible.
+
+To learn more about the client application types and application configuration options, see [Public and confidential client apps in MSAL](msal-client-applications.md).
 
 ## Prerequisites
-Before initializing an application, you first need to [register it with the Azure portal](scenario-spa-app-registration.md) so that your app can be integrated with the Microsoft identity platform. After registration, you may need the following information (which can be found in the Azure portal):
 
-- The client ID (a string representing a GUID for your application)
-- The identity provider URL (named the instance) and the sign-in audience for your application. These two parameters are collectively known as the authority.
-- The tenant ID if you are writing a line-of-business application solely for your organization (also named single-tenant application).
-- For web apps, you'll have to also set the redirectUri where the identity provider will return to your application with the security tokens.
+Before initializing an application, you first need to [register it in the Microsoft Entra admin center](scenario-spa-app-registration.md), establishing a trust relationship between your application and the Microsoft identity platform.
 
-## Initializing applications
+After registering your app, you'll need some or all of the following values that can be found in the Microsoft Entra admin center.
 
-You can use MSAL.js as follows in a plain JavaScript/Typescript application. Initialize MSAL authentication context by instantiating `UserAgentApplication` with a configuration object. The minimum required config to initialize MSAL.js is the clientID of your application which you should get from the application registration portal.
+| Value                   | Required | Description                                                                                                                                                                |
+| :---------------------- | :------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Application (client) ID | Required | A GUID that uniquely identifies your application within the Microsoft identity platform.                                                                                   |
+| Authority               | Optional | The identity provider URL (the _instance_) and the _sign-in audience_ for your application. The instance and sign-in audience, when concatenated, make up the _authority_. |
+| Directory (tenant) ID   | Optional | Specify Directory (tenant) ID if you're building a line-of-business application solely for your organization, often referred to as a _single-tenant application_.          |
+| Redirect URI            | Optional | If you're building a web app, the `redirectUri` specifies where the identity provider (the Microsoft identity platform) should return the security tokens it has issued.   |
 
-For authentication methods with redirect flows (`loginRedirect` and `acquireTokenRedirect`), you will need to explicitly register a callback for success or error through `handleRedirectCallback()` method. This is needed since redirect flows do not return promises as the methods with a pop-up experience do.
+## Initialize MSAL.js 2.x apps
+
+Initialize the MSAL.js authentication context by instantiating a [PublicClientApplication][msal-js-publicclientapplication] with a [Configuration][msal-js-configuration] object. The minimum required configuration property is the `clientID` of the application, shown as **Application (client) ID** on the **Overview** page of the app registration in the Microsoft Entra admin center.
+
+Here's an example configuration object and instantiation of a `PublicClientApplication`:
+
+```javascript
+const msalConfig = {
+  auth: {
+    clientId: "Enter_the_Application_Id_Here",
+    authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here",
+    knownAuthorities: [],
+    redirectUri: "https://localhost:{port}/redirect",
+    postLogoutRedirectUri: "https://localhost:{port}/redirect",
+    navigateToLoginRequestUrl: true,
+  },
+  cache: {
+    cacheLocation: "sessionStorage",
+    storeAuthStateInCookie: false,
+  },
+  system: {
+    loggerOptions: {
+      loggerCallback: (
+        level: LogLevel,
+        message: string,
+        containsPii: boolean
+      ): void => {
+        if (containsPii) {
+          return;
+        }
+        switch (level) {
+          case LogLevel.Error:
+            console.error(message);
+            return;
+          case LogLevel.Info:
+            console.info(message);
+            return;
+          case LogLevel.Verbose:
+            console.debug(message);
+            return;
+          case LogLevel.Warning:
+            console.warn(message);
+            return;
+        }
+      },
+      piiLoggingEnabled: false,
+    },
+    windowHashTimeout: 60000,
+    iframeHashTimeout: 6000,
+    loadFrameTimeout: 0,
+  },
+};
+
+// Create an instance of PublicClientApplication
+const msalInstance = new PublicClientApplication(msalConfig);
+
+// Handle the redirect flows
+msalInstance
+  .handleRedirectPromise()
+  .then((tokenResponse) => {
+    // Handle redirect response
+  })
+  .catch((error) => {
+    // Handle redirect error
+  });
+```
+
+### `handleRedirectPromise`
+
+Invoke [handleRedirectPromise][msal-js-handleredirectpromise] when the application uses redirect flows. When using redirect flows, `handleRedirectPromise` should be run on every page load.
+
+Three outcomes are possible from the promise:
+
+- `.then` is invoked and `tokenResponse` is truthy: The application is returning from a redirect operation that was successful.
+- `.then` is invoked and `tokenResponse` is falsy (`null`): The application isn't returning from a redirect operation.
+- `.catch` is invoked: The application is returning from a redirect operation and there was an error.
+
+## Initialize MSAL.js 1.x apps
+
+Initialize the MSAL 1.x authentication context by instantiating a UserAgentApplication with a configuration object. The minimum required configuration property is the `clientID` of your application, shown as **Application (client) ID** on the **Overview** page of the app registration in the Microsoft Entra admin center.
+
+For authentication methods with redirect flows (loginRedirect and acquireTokenRedirect) in MSAL.js 1.2.x or earlier, you must explicitly register a callback for success or error through the `handleRedirectCallback()` method. Explicitly registering the callback is required in MSAL.js 1.2.x and earlier because redirect flows don't return promises like the methods with a pop-up experience do. Registering the callback is _optional_ in MSAL.js version 1.3.x and later.
 
 ```javascript
 // Configuration object constructed
-const config = {
-    auth: {
-        clientId: “abcd-ef12-gh34-ikkl-ashdjhlhsdg”
-    }
-}
+const msalConfig = {
+  auth: {
+    clientId: "Enter_the_Application_Id_Here",
+  },
+};
 
-// create UserAgentApplication instance
-const myMSALObj = new UserAgentApplication(config);
+// Create UserAgentApplication instance
+const msalInstance = new UserAgentApplication(msalConfig);
 
 function authCallback(error, response) {
-    //handle redirect response
+  // Handle redirect response
 }
 
-// (optional when using redirect methods) register redirect call back for Success or Error
-myMSALObj.handleRedirectCallback(authCallback);
+// Register a redirect callback for Success or Error (when using redirect methods)
+// **REQUIRED** in MSAL.js 1.2.x and earlier
+// **OPTIONAL** in MSAL.js 1.3.x and later
+msalInstance.handleRedirectCallback(authCallback);
 ```
 
-MSAL.js is designed to have a single instance and configuration of the `UserAgentApplication` to represent a single authentication context. Multiple instances are not recommended as they cause conflicting cache entries and behavior in the browser.
+## Single instance and configuration
 
-## Configuration options
+Both MSAL.js 1.x and 2.x are designed to have a single instance and configuration of the `UserAgentApplication` or `PublicClientApplication`, respectively, to represent a single authentication context.
 
-MSAL.js has a configuration object shown below that provides a grouping of configurable options available for creating an instance of `UserAgentApplication`.
+Multiple instances of `UserAgentApplication` or `PublicClientApplication` aren't recommended as they can cause conflicting cache entries and behavior in the browser.
 
-```javascript
-type storage = "localStorage" | "sessionStorage";
+## Next steps
 
-// Protocol Support
-export type AuthOptions = {
-    clientId: string;
-    authority?: string;
-    validateAuthority?: boolean;
-    redirectUri?: string | (() => string);
-    postLogoutRedirectUri?: string | (() => string);
-    navigateToLoginRequestUrl?: boolean;
-};
+The MSAL.js 2.x code sample on GitHub demonstrates instantiation of a [PublicClientApplication][msal-js-publicclientapplication] with a [Configuration][msal-js-configuration] object:
 
-// Cache Support
-export type CacheOptions = {
-    cacheLocation?: CacheLocation;
-    storeAuthStateInCookie?: boolean;
-};
+[Azure-Samples/ms-identity-javascript-v2](https://github.com/Azure-Samples/ms-identity-javascript-v2)
 
-// Library support
-export type SystemOptions = {
-    logger?: Logger;
-    loadFrameTimeout?: number;
-    tokenRenewalOffsetSeconds?: number;
-};
+<!-- LINKS - External -->
 
-// Developer App Environment Support
-export type FrameworkOptions = {
-    isAngular?: boolean;
-    unprotectedResources?: Array<string>;
-    protectedResourceMap?: Map<string, Array<string>>;
-};
-
-// Configuration Object
-export type Configuration = {
-    auth: AuthOptions,
-    cache?: CacheOptions,
-    system?: SystemOptions,
-    framework?: FrameworkOptions
-};
-```
-
-Below is the total set of configurable options that are supported currently in the config object:
-
-- **clientID**: Required. The clientID of your application, you should get this from the application registration portal.
-
-- **authority**: Optional. A URL indicating a directory that MSAL can request tokens from. Default value is: `https://login.microsoftonline.com/common`.
-    * In Azure AD, it is of the form https://&lt;instance&gt;/&lt;audience&gt;, where &lt;instance&gt; is the identity provider domain (for example, `https://login.microsoftonline.com`) and &lt;audience&gt; is an identifier representing the sign-in audience. This can be the following values:
-        * `https://login.microsoftonline.com/<tenant>`- tenant is a domain associated to the tenant, such as contoso.onmicrosoft.com, or the GUID representing the `TenantID` property of the directory used only to sign in users of a specific organization.
-        * `https://login.microsoftonline.com/common`- Used to sign in users with work and school accounts or a Microsoft personal account.
-        * `https://login.microsoftonline.com/organizations/`- Used to sign in users with work and school accounts.
-        * `https://login.microsoftonline.com/consumers/` - Used to sign in users with only personal Microsoft account (live).
-    * In Azure AD B2C, it is of the form `https://<instance>/tfp/<tenant>/<policyName>/`, where instance is the Azure AD B2C domain, tenant is the name of the Azure AD B2C tenant, policyName is the name of the B2C policy to apply.
-
-
-- **validateAuthority**: Optional.  Validate the issuer of tokens. Default is `true`. For B2C applications, since the authority value is known and can be different per policy, the authority validation will not work and has to be set to `false`.
-
-- **redirectUri**: Optional.  The redirect URI of your app, where authentication responses can be sent and received by your app. It must exactly match one of the redirect URIs you registered in the portal, except that it must be URL encoded. Defaults to `window.location.href`.
-
-- **postLogoutRedirectUri**: Optional.  Redirects the user to `postLogoutRedirectUri` after sign out. The default is `redirectUri`.
-
-- **navigateToLoginRequestUrl**: Optional. Ability to turn off default navigation to start page after login. Default is true. This is used only for redirect flows.
-
-- **cacheLocation**: Optional.  Sets browser storage to either `localStorage` or `sessionStorage`. The default is `sessionStorage`.
-
-- **storeAuthStateInCookie**: Optional.  This flag was introduced in MSAL.js v0.2.2 as a fix for the [authentication loop issues](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#1-issues-due-to-security-zones) on Microsoft Internet Explorer and Microsoft Edge. Enable the flag `storeAuthStateInCookie` to true to take advantage of this fix. When this is enabled, MSAL.js will store the auth request state required for validation of the auth flows in the browser cookies. By default this flag is set to `false`.
-
-- **logger**: Optional.  A Logger object with a callback instance that can be provided by the developer to consume and publish logs in a custom manner. For details on passing logger object, see [logging with msal.js](msal-logging.md).
-
-- **loadFrameTimeout**: Optional.  The number of milliseconds of inactivity before a token renewal response from Azure AD should be considered timed out. Default is 6 seconds.
-
-- **tokenRenewalOffsetSeconds**: Optional. The number of milliseconds which sets the window of offset needed to renew the token before expiry. Default is 300 milliseconds.
-
-These are only applicable to be passed down from the MSAL Angular wrapper library:
-- **unprotectedResources**: Optional.  Array of URIs that are unprotected resources. MSAL will not attach a token to outgoing requests that have these URI. Defaults to `null`.
-
-- **protectedResourceMap**: Optional.  This is mapping of resources to scopes used by MSAL for automatically attaching access tokens in web API calls. A single access token is obtained for the resource. So you can map a specific resource path as follows: {"https://graph.microsoft.com/v1.0/me", ["user.read"]}, or the app URL of the resource as: {"https://graph.microsoft.com/", ["user.read", "mail.send"]}. This is required for CORS calls. Defaults to `null`.
+[msal-browser]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-browser/
+[msal-core]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-core/
+[msal-js-configuration]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/classes/_azure_msal_browser.PublicClientApplication.html#constructor
+[msal-js-handleredirectpromise]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/classes/_azure_msal_node.PublicClientApplication.html#handleredirectpromise 
+[msal-js-publicclientapplication]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/classes/_azure_msal_node.PublicClientApplication.html

@@ -1,15 +1,15 @@
 ---
-title: Business continuity - Microsoft Genomics | Microsoft Docs
-titleSuffix: Azure
-description: This overview describes the capabilities that Microsoft Genomics provides for business continuity and disaster recovery. Learn about options for recovering from disruptive events, such as an Azure region outage, that could cause data loss. 
+title: Overview of business continuity
+titleSuffix: Microsoft Genomics
+description: This overview describes the capabilities that Microsoft Genomics provides for business continuity and disaster recovery. 
 keywords: business continuity, disaster recovery
 
 services: genomics
-author: grhuynh
+author: vigunase
 manager: cgronlun
-ms.author: grhuynh
+ms.author: vigunase
 ms.service: genomics
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/06/2018
 
 ---
@@ -26,7 +26,7 @@ Although rare, an Azure data center can have an outage, which could cause a busi
 
 
 ### Manually failover Microsoft Genomics workflows to another region
-In the case of a regional data center outage, you may elect to submit Microsoft Genomics workflows in a secondary region, based on your individual data sovereignty and business continuity requirements. To manually failover Microsoft Genomics workflows, you would use a different region-specific. Genomics account and submit the job with appropriate region-specific Genomics and storage account credentials.
+If a regional data center outage occurs, you may choose to submit Microsoft Genomics workflows in a secondary region, based on your individual data sovereignty and business continuity requirements. To manually failover Microsoft Genomics workflows, you would use a different region-specific. Genomics account and submit the job with appropriate region-specific Genomics and storage account credentials.
 
 Specifically, you will need to:
 * Create a Genomics account in the secondary region, using the Azure portal. 
@@ -39,7 +39,7 @@ When the original region is restored, the Microsoft Genomics service does not mi
 If you are concerned about faster recovery in the case of a data center outage, there are a few steps you can take to reduce the time it takes for you to manually resubmit your Microsoft Genomics workflows to a secondary region:
 
 * Identify an appropriate secondary region and pro-actively create a Genomics account in that region
-* Duplicate your data in the primary and secondary region so that your data is immediately available in the secondary region. This could be done manually or using the [geo-redundant storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy) feature available in Azure storage. 
+* Duplicate your data in the primary and secondary region so that your data is immediately available in the secondary region. This could be done manually or using the [geo-redundant storage](../storage/common/storage-redundancy.md) feature available in Azure storage. 
 
 ## Next steps
-In this article, you learned about your options for business continuity and disaster recovery when using the Microsoft Genomics service. For more information about business continuity and disaster recovery within Azure in general, see [Azure resiliency technical guidance.](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region) 
+In this article, you learned about your options for business continuity and disaster recovery when using the Microsoft Genomics service. For more information about business continuity and disaster recovery within Azure in general, see [Azure resiliency technical guidance.](/azure/architecture/resiliency/recovery-loss-azure-region)

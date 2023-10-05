@@ -1,35 +1,47 @@
 ---
-title: Push Docker image to private Azure container registry
-description: Push and pull Docker images to a private container registry in Azure using the Docker CLI
-services: container-registry
-author: dlepow
-manager: jeconnoc
-
-ms.service: container-registry
+title: Push & pull container image
+description: Push and pull Docker images to your private container registry in Azure using the Docker CLI
 ms.topic: article
-ms.date: 01/23/2019
-ms.author: danlep
-ms.custom: "seodec18, H1Hack27Feb2017"
+ms.date: 10/11/2022
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.custom: seodec18, H1Hack27Feb2017
 ---
 
-# Push your first image to a private Docker container registry using the Docker CLI
+# Push your first image to your Azure container registry using the Docker CLI
 
-An Azure container registry stores and manages private [Docker](https://hub.docker.com) container images, similar to the way [Docker Hub](https://hub.docker.com/) stores public Docker images. You can use the [Docker command-line interface](https://docs.docker.com/engine/reference/commandline/cli/) (Docker CLI) for [login](https://docs.docker.com/engine/reference/commandline/login/), [push](https://docs.docker.com/engine/reference/commandline/push/), [pull](https://docs.docker.com/engine/reference/commandline/pull/), and other operations on your container registry.
+An Azure container registry stores and manages private container images and other artifacts, similar to the way [Docker Hub](https://hub.docker.com/) stores public Docker container images. You can use the [Docker command-line interface](https://docs.docker.com/engine/reference/commandline/cli/) (Docker CLI) for [login](https://docs.docker.com/engine/reference/commandline/login/), [push](https://docs.docker.com/engine/reference/commandline/push/), [pull](https://docs.docker.com/engine/reference/commandline/pull/), and other container image operations on your container registry.
 
-In the following steps, you download an official [Nginx image](https://store.docker.com/images/nginx) from the public Docker Hub registry, tag it for your private Azure container registry, push it to your registry, and then pull it from the registry.
+In the following steps, you download a public [Nginx image](https://store.docker.com/images/nginx), tag it for your private Azure container registry, push it to your registry, and then pull it from the registry.
 
 ## Prerequisites
 
-* **Azure container registry** - Create a container registry in your Azure subscription. For example, use the [Azure portal](container-registry-get-started-portal.md) or the [Azure CLI](container-registry-get-started-azure-cli.md).
+* **Azure container registry** - Create a container registry in your Azure subscription. For example, use the [Azure portal](container-registry-get-started-portal.md), the [Azure CLI](container-registry-get-started-azure-cli.md), or [Azure PowerShell](container-registry-get-started-powershell.md).
 * **Docker CLI** - You must also have Docker installed locally. Docker provides packages that easily configure Docker on any [macOS][docker-mac], [Windows][docker-windows], or [Linux][docker-linux] system.
 
 ## Log in to a registry
 
-There are [several ways to authenticate](container-registry-authentication.md) to your private container registry. The recommended method when working in a command line is with the Azure CLI command [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login). For example, to log in to a registry named *myregistry*:
+There are [several ways to authenticate](container-registry-authentication.md) to your private container registry.
+
+### [Azure CLI](#tab/azure-cli)
+
+The recommended method when working in a command line is with the Azure CLI command [az acr login](/cli/azure/acr#az-acr-login). For example, to access a registry named `myregistry`, sign in the Azure CLI and then authenticate to your registry:
 
 ```azurecli
+az login
 az acr login --name myregistry
 ```
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+The recommended method when working in PowerShell is with the Azure PowerShell cmdlet [Connect-AzContainerRegistry](/powershell/module/az.containerregistry/connect-azcontainerregistry). For example, to log in to a registry named *myregistry*, log into Azure and then authenticate to your registry:
+
+```azurepowershell
+Connect-AzAccount
+Connect-AzContainerRegistry -Name myregistry
+```
+
+---
 
 You can also log in with [docker login](https://docs.docker.com/engine/reference/commandline/login/). For example, you might have [assigned a service principal](container-registry-authentication.md#service-principal) to your registry for an automation scenario. When you run the following command, interactively provide the service principal appID (username) and password when prompted. For best practices to manage login credentials, see the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command reference:
 
@@ -38,13 +50,15 @@ docker login myregistry.azurecr.io
 ```
 
 Both commands return `Login Succeeded` once completed.
+> [!NOTE]
+>* You might want to use Visual Studio Code with Docker extension for a faster and more convenient login.
 
 > [!TIP]
 > Always specify the fully qualified registry name (all lowercase) when you use `docker login` and when you tag images for pushing to your registry. In the examples in this article, the fully qualified name is *myregistry.azurecr.io*.
 
-## Pull the official Nginx image
+## Pull a public Nginx image
 
-First, pull the public Nginx image to your local computer.
+First, pull a public Nginx image to your local computer. This example pulls the [official Nginx image](https://hub.docker.com/_/nginx/).
 
 ```
 docker pull nginx
@@ -52,7 +66,7 @@ docker pull nginx
 
 ## Run the container locally
 
-Execute following [docker run](https://docs.docker.com/engine/reference/run/) command to start a local instance of the Nginx container interactively (`-it`) on port 8080. The `--rm` argument specifies that the container should be removed when you stop it.
+Execute the following [docker run](https://docs.docker.com/engine/reference/run/) command to start a local instance of the Nginx container interactively (`-it`) on port 8080. The `--rm` argument specifies that the container should be removed when you stop it.
 
 ```
 docker run -it --rm -p 8080:80 nginx
@@ -112,11 +126,34 @@ If you no longer need the Nginx image, you can delete it locally with the [docke
 docker rmi myregistry.azurecr.io/samples/nginx
 ```
 
+### [Azure CLI](#tab/azure-cli)
+
 To remove images from your Azure container registry, you can use the Azure CLI command [az acr repository delete](/cli/azure/acr/repository#az-acr-repository-delete). For example, the following command deletes the manifest referenced by the `samples/nginx:latest` tag, any unique layer data, and all other tags referencing the manifest.
 
 ```azurecli
 az acr repository delete --name myregistry --image samples/nginx:latest
 ```
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+The [Az.ContainerRegistry](/powershell/module/az.containerregistry) Azure PowerShell module contains multiple commands for removing images from your container instance. [Remove-AzContainerRegistryRepository](/powershell/module/az.containerregistry/remove-azcontainerregistryrepository) removes all images in a particular namespace such as `samples:nginx`, while [Remove-AzContainerRegistryManifest](/powershell/module/az.containerregistry/remove-azcontainerregistrymanifest) removes a specific tag or manifest.
+
+In the following example, you use the `Remove-AzContainerRegistryRepository` cmdlet to remove all images in the `samples:nginx` namespace.
+
+```azurepowershell
+Remove-AzContainerRegistryRepository -RegistryName myregistry -Name samples/nginx
+```
+
+In the following example, you use the `Remove-AzContainerRegistryManifest` cmdlet to delete the manifest referenced by the `samples/nginx:latest` tag, any unique layer data, and all other tags referencing the manifest.
+
+```azurepowershell
+Remove-AzContainerRegistryManifest -RegistryName myregistry -RepositoryName samples/nginx -Tag latest
+```
+
+---
+## Recommendations
+
+Here you can find more information on the [authentication options](../container-registry/container-registry-authentication.md).
 
 ## Next steps
 

@@ -1,10 +1,10 @@
 ---
-title: Azure PowerShell script sample - Route traffic for high availability of applications | Microsoft Docs
+title: Route traffic for HA of applications - Azure PowerShell - Traffic Manager
 description: Azure PowerShell script sample - Route traffic for high availability of applications
 services: traffic-manager
 documentationcenter: traffic-manager
-author: KumudD
-manager: jeconnoc
+author: greg-lindsay
+manager: kumud
 editor: 
 tags: azure-infrastructure
 
@@ -14,8 +14,9 @@ ms.devlang: powershell
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: traffic-manager
-ms.date: 04/26/2018
-ms.author: kumud
+ms.date: 04/27/2023
+ms.author: greglin 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Route traffic for high availability of applications using Azure PowerShell
@@ -56,6 +57,6 @@ This script uses the following commands to create a resource group, web app, tra
 
 ## Next steps
 
-For more information on the Azure PowerShell, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azure/overview).
+For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/).
 
 Additional networking PowerShell script samples can be found in the [Azure Networking Overview documentation](../powershell-samples.md?toc=%2fazure%2fnetworking%2ftoc.json).

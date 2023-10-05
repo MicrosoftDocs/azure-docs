@@ -1,19 +1,12 @@
 ---
-title:  Azure Monitor Resource Group Insights | Microsoft Docs
-description: Understand the health and performance of your distributed applications and services at the Resource Group level with Azure Monitor
-services: azure-monitor
-author: NumberByColors
-manager: carmonm
-ms.service: azure-monitor
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+title: Azure Monitor Resource Group insights | Microsoft Docs
+description: Understand the health and performance of your distributed applications and services at the Resource Group level with Resource Group insights feature of Azure Monitor.
 ms.topic: conceptual
 ms.date: 09/19/2018
-ms.reviewer: mbullwin
-ms.author: daviste
+ms.reviewer: daviste
 ---
 
-# Monitor resource groups with Azure Monitor (preview)
+# Monitor Azure Monitor Resource Group insights
 
 Modern applications are often complex and highly distributed with many discrete parts working together to deliver a service. Recognizing this complexity, Azure Monitor provides monitoring insights for resource groups. This makes it easy to triage and diagnose any problems your individual resources encounter, while offering context as to the health and performance of the resource group&mdash;and your application&mdash;as a whole.
 
@@ -43,12 +36,12 @@ By default, the resources are grouped by app layer and resource type. **App laye
 
 The resource group insights page provides several other tools scoped to help you diagnose issues
 
-   |         |          |
+   | Tool | Description |
    | ---------------- |:-----|
-   | [**Alerts**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)      |  View, create, and manage your alerts. |
-   | [**Metrics**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) | Visualize and explore your metric based data.    |
-   | [**Activity logs**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) | Subscription level events that have occurred in Azure.  |
-   | [**Application map**](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) | Navigate your distributed application's topology to identify performance bottlenecks or failure hotspots. |
+   | [**Alerts**](../alerts/alerts-overview.md)      |  View, create, and manage your alerts. |
+   | [**Metrics**](../data-platform.md) | Visualize and explore your metric based data.    |
+   | [**Activity logs**](../essentials/platform-logs-overview.md) | Subscription level events that have occurred in Azure.  |
+   | [**Application map**](../app/app-map.md) | Navigate your distributed application's topology to identify performance bottlenecks or failure hotspots. |
 
 ## Failures and performance
 
@@ -108,14 +101,14 @@ In this case, if you select edit you will see that this set of visualizations is
 
 ### Enabling access to alerts
 
-To see alerts in Azure Monitor for Resource Groups, someone with an Owner or Contributor role for this subscription needs to open Azure Monitor for Resource Groups for any resource group in the subscription. This will enable anyone with read access to see alerts in Azure Monitor for Resource Groups for all of the resource groups in the subscription. If you have an Owner or Contributor role, refresh this page in a few minutes.
+To see alerts in Resource Group insights, someone with an Owner or Contributor role for this subscription needs to open Resource Group insights for any resource group in the subscription. This will enable anyone with read access to see alerts in Resource Group insights for all of the resource groups in the subscription. If you have an Owner or Contributor role, refresh this page in a few minutes.
 
-Azure Monitor for Resource Groups relies on the Azure Monitor Alerts Management system to retrieve alert status. Alerts Management isn't configured for every resource group and subscription by default, and it can only be enabled by someone with an Owner or Contributor role. It can be enabled either by:
-* Opening Azure Monitor for Resource Groups for any resource group in the subscription.
+Resource Group insights relies on the Azure Monitor Alerts Management system to retrieve alert status. Alerts Management isn't configured for every resource group and subscription by default, and it can only be enabled by someone with an Owner or Contributor role. It can be enabled either by:
+* Opening Resource Group insights for any resource group in the subscription.
 * Or by going to the subscription, clicking **Resource Providers**, then clicking **Register for Alerts.Management**.
 
 ## Next steps
 
-- [Azure Monitor Workbooks](https://docs.microsoft.com/azure/application-insights/app-insights-usage-workbooks)
-- [Azure Resource Health](https://docs.microsoft.com/azure/service-health/resource-health-overview)
-- [Azure Monitor Alerts](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)
+- [Azure Monitor Workbooks](../visualize/workbooks-overview.md)
+- [Azure Resource Health](../../service-health/resource-health-overview.md)
+- [Azure Monitor Alerts](../alerts/alerts-overview.md)

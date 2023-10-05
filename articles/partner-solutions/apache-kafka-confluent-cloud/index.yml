@@ -1,0 +1,58 @@
+### YamlMime:Landing
+
+title: Apache Kafka on Confluent Cloud - Azure Native ISV Service
+summary: Enables using Apache Kafka as a service.
+
+metadata:
+  title: Confluent Cloud with Azure documentation
+  description: Confluent Cloud integrates with Azure to offer Apache Kafka as a service.
+  ms.service: partner-services
+  ms.subservice: confluent
+  ms.topic: landing-page
+  ms.collection: na
+  author: flang-msft
+  ms.author: franlanglois
+  ms.date: 03/25/2022
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+  # Card (optional)
+  - title: About Apache Kafka on Confluent Cloud - Azure Native ISV Service
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Apache Kafka on Confluent Cloud - Azure Native ISV Service?
+            url: overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Manage the Confluent Cloud resource
+            url: manage.md
+
+  # Card
+  - title: Create Confluent resource
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Get started with Apache Kafka on Confluent Cloud - Azure portal
+            url: create.md
+          - text: Get started with Apache Kafka on Confluent Cloud - Azure CLI
+            url: create-cli.md
+      - linkListType: how-to-guide
+        links:
+          - text: Add connectors for Confluent Cloud
+            url: add-connectors.md
+          - text: Troubleshooting Apache Kafka on Confluent Cloud solutions
+            url: troubleshoot.md
+
+  # Card
+  - title: Explore reference content
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure CLI
+            url: /cli/azure/confluent
+          - text: Azure PowerShell
+            url: /powershell/module/az.confluent/#confluent
+          - text: REST API
+            url: /rest/api/confluent

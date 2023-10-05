@@ -1,0 +1,204 @@
+- name: Azure Managed Applications documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: About managed applications
+    href: overview.md
+    displayName: overview
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Publish managed app definition
+    href: publish-service-catalog-app.md
+    displayName: definition, service catalog
+  - name: Publish definition with bring your own storage
+    href: publish-service-catalog-bring-your-own-storage.md
+    displayName: bring your own storage, BYOS, definition, bicep, service catalog
+  - name: Publish managed app definition - Bicep
+    href: publish-bicep-definition.md
+    displayName: service catalog, bicep
+  - name: Deploy service catalog managed app
+    href: deploy-service-catalog-quickstart.md
+    displayName: service catalog, deploy
+  - name: Deploy service catalog managed app - Bicep
+    href: deploy-bicep-definition.md
+    displayName: service catalog, bicep
+  - name: Deploy Azure Marketplace managed app
+    href: deploy-marketplace-app-quickstart.md
+    displayName: Marketplace, deploy
+- name: Tutorials
+  items:
+  - name: Create managed application with custom provider
+    href: tutorial-create-managed-app-with-custom-provider.md
+    displayName: custom provider
+- name: Samples
+  items:
+  - name: Managed application solutions
+    href: sample-projects.md
+    displayName: samples, solution
+- name: Concepts
+  items:
+  - name: View definition artifact
+    href: concepts-view-definition.md
+  - name: Azure Policy for associations
+    href: concepts-built-in-policy.md
+  - name: Security
+    items:
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/managed-applications-security-baseline?toc=/azure/azure-resource-manager/managed-applications/toc.json
+- name: How-to guides
+  items:
+  - name: Publishers
+    items:
+    - name: Create portal interface
+      href: create-uidefinition-overview.md
+      displayName: portal, user interface, UI
+    - name: Test portal interface
+      href: test-createuidefinition.md
+      displayName: test, portal, user interface, UI
+    - name: Create an Azure application offer
+      href: ../../marketplace/azure-app-offer-setup.md?toc=%2fazure%2fazure-resource-manager%2fmanaged-applications%2ftoc.json
+      displayName: marketplace
+    - name: Request just-in-time access
+      href: request-just-in-time-access.md
+      displayName: JIT
+    - name: Use existing virtual network
+      href: existing-vnet-integration.md
+      displayName: vnet
+    - name: Update managed resources
+      href: update-managed-resources.md
+      displayName: mrg
+    - name: Use secret from Key Vault
+      href: key-vault-access.md
+    - name: Deploy with managed identity
+      href: publish-managed-identity.md
+    - name: Create storage with customer-managed key
+      href: create-storage-customer-managed-key.md
+      displayName: managed identity, cmk, cmek, encryption, bicep
+    - name: Deploy with notifications
+      href: publish-notifications.md
+  - name: Consumers
+    items:
+    - name: Monitor managed application
+      href: monitor-managed-application-portal.md
+    - name: Approve just-in-time access
+      href: approve-just-in-time-access.md
+      displayName: JIT
+- name: Reference
+  items:
+  - name: Application artifacts
+    items:
+    - name: User interface elements
+      href: reference-createuidefinition-artifact.md
+    - name: Deployment template
+      href: reference-main-template-artifact.md
+    - name: View definition
+      href: reference-view-definition-artifact.md
+  - name: Azure CLI
+    href: /cli/azure/managedapp
+  - name: Azure PowerShell
+    href: /powershell/module/az.resources/
+  - name: REST
+    href: /rest/api/managedapplications/
+  - name: User interface functions
+    items:
+    - name: All functions
+      href: create-uidefinition-functions.md
+    - name: Collection functions
+      href: create-ui-definition-collection-functions.md
+    - name: Conversion functions
+      href: create-ui-definition-conversion-functions.md
+    - name: Date functions
+      href: create-ui-definition-date-functions.md
+    - name: Logical functions
+      href: create-ui-definition-logical-functions.md
+    - name: Math functions
+      href: create-ui-definition-math-functions.md
+    - name: Referencing functions
+      href: create-ui-definition-referencing-functions.md
+    - name: String functions
+      href: create-ui-definition-string-functions.md
+  - name: User interface elements
+    href: create-uidefinition-elements.md
+    items:
+    - name: Common
+      items:
+      - name: CheckBox
+        href: microsoft-common-checkbox.md
+      - name: DropDown
+        href: microsoft-common-dropdown.md
+      - name: EditableGrid
+        href: microsoft-common-editablegrid.md
+      - name: FileUpload
+        href: microsoft-common-fileupload.md
+      - name: InfoBox
+        href: microsoft-common-infobox.md
+      - name: OptionsGroup (radio button)
+        href: microsoft-common-optionsgroup.md
+      - name: PasswordBox
+        href: microsoft-common-passwordbox.md
+      - name: Section
+        href: microsoft-common-section.md
+      - name: ServicePrincipalSelector
+        href: microsoft-common-serviceprincipalselector.md
+      - name: Slider
+        href: microsoft-common-slider.md
+      - name: TagsByResource
+        href: microsoft-common-tagsbyresource.md
+      - name: TextBlock
+        href: microsoft-common-textblock.md
+      - name: TextBox
+        href: microsoft-common-textbox.md
+    - name: Compute
+      items:
+      - name: CredentialsCombo
+        href: microsoft-compute-credentialscombo.md
+      - name: SizeSelector
+        href: microsoft-compute-sizeselector.md
+      - name: UserNameTextBox
+        href: microsoft-compute-usernametextbox.md
+    - name: Key Vault
+      items:
+      - name: KeyVaultCertificateSelector
+        href: microsoft-keyvault-keyvaultcertificateselector.md
+    - name: Managed identity
+      items:
+      - name: IdentitySelector
+        href: microsoft-managedidentity-identityselector.md
+    - name: Network
+      items:
+      - name: PublicIPAddressCombo
+        href: microsoft-network-publicipaddresscombo.md
+      - name: VirtualNetworkCombo
+        href: microsoft-network-virtualnetworkcombo.md
+    - name: Solutions
+      items:
+      - name: ArmApiControl
+        href: microsoft-solutions-armapicontrol.md
+      - name: ResourceSelector
+        href: microsoft-solutions-resourceselector.md
+    - name: Storage
+      items:
+      - name: MultiStorageAccountCombo
+        href: microsoft-storage-multistorageaccountcombo.md
+      - name: StorageAccountSelector
+        href: microsoft-storage-storageaccountselector.md
+      - name: StorageBlobSelector
+        href: microsoft-storage-storageblobselector.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/managed-applications/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Resource Manager template best practices
+    href: https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md
+  - name: Microsoft Q&A
+    href: /answers/topics/azure-managed-applications.html
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-managed-app

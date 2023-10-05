@@ -1,131 +1,127 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with AnswerHub | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and AnswerHub.
+title: 'Tutorial: Microsoft Entra SSO integration with AnswerHub'
+description: Learn how to configure single sign-on between Microsoft Entra ID and AnswerHub.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 818b91d7-01df-4b36-9706-f167c710a73c
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/17/2019
+ms.date: 11/21/2022
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
-# Tutorial: Azure Active Directory integration with AnswerHub
+# Tutorial: Microsoft Entra SSO integration with AnswerHub
 
-In this tutorial, you learn how to integrate AnswerHub with Azure Active Directory (Azure AD).
-Integrating AnswerHub with Azure AD provides these benefits:
+In this tutorial, you'll learn how to integrate AnswerHub with Microsoft Entra ID. When you integrate AnswerHub with Microsoft Entra ID, you can:
 
-* You can use Azure AD to control who has access to AnswerHub.
-* You can let your users automatically sign in to AnswerHub with their Azure AD accounts (single sign-on).
-* You can manage your accounts from a central location: the Azure portal.
-
-To learn more about SaaS app integration with Azure AD, see [Single sign-on to applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+* Control in Microsoft Entra ID who has access to AnswerHub.
+* Enable your users to be automatically signed-in to AnswerHub with their Microsoft Entra accounts.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
-To configure Azure AD integration with AnswerHub, you need the following:
+To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can begin a [one-month trial](https://azure.microsoft.com/pricing/free-trial/).
-* An AnswerHub subscription that has single sign-on enabled.
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* AnswerHub single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+In this tutorial, you configure and test Microsoft Entra single sign-on in a test environment.
 
 * AnswerHub supports SP-initiated SSO.
 
 ## Add AnswerHub from the gallery
 
-To set up the integration of AnswerHub into Azure AD, you need to add AnswerHub from the gallery to your managed SaaS apps.
+To configure the integration of AnswerHub into Microsoft Entra ID, you need to add AnswerHub from the gallery to your list of managed SaaS apps.
 
-**To add AnswerHub from the gallery:**
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type **AnswerHub** in the search box.
+1. Select **AnswerHub** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-1. In the [Azure portal](https://portal.azure.com), in the left pane, select **Azure Active Directory**.
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-	![Azure Active Directory button](common/select-azuread.png)
+<a name='set-up-and-test-azure-ad-sso-for-answerhub'></a>
 
-2. Go to **Enterprise Applications**, and then select **All Applications**.
+## Set up and test Microsoft Entra SSO for AnswerHub
 
-	![Enterprise Applications blade](common/enterprise-applications.png)
+Configure and test Microsoft Entra SSO with AnswerHub using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in AnswerHub.
 
-3. To add an application, select **New application** at the top of the window.
+To configure and test Microsoft Entra SSO with AnswerHub, perform the following steps:
 
-	![New application button](common/add-new-app.png)
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
+1. **[Configure AnswerHub SSO](#configure-answerhub-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create AnswerHub test user](#create-answerhub-test-user)** - to have a counterpart of B.Simon in AnswerHub that is linked to the Microsoft Entra representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-4. In the search box, enter **AnswerHub**. Select **AnswerHub** in the results list, and then select **Add**.
+<a name='configure-azure-ad-sso'></a>
 
-	 ![AnswerHub in the results list](common/search-new-app.png)
+## Configure Microsoft Entra SSO
 
-## Set up and test Azure AD single sign-on
+Follow these steps to enable Microsoft Entra SSO.
 
-In this section, you configure and test Azure AD single sign-on with AnswerHub by using a test user named Britta Simon.
-For single sign-on, you need to establish a link between an Azure AD user and the corresponding user in AnswerHub.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **AnswerHub** > **Single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-To configure and test Azure AD single sign-on with AnswerHub, you need to complete these tasks:
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. [Configure Azure AD single sign-on](#configure-azure-ad-single-sign-on) to enable your users to use the feature.
-2. [Configure AnswerHub single sign-on](#configure-answerhub-single-sign-on) to set up the single sign-on settings on the application side.
-3. [Create an Azure AD test user](#create-an-azure-ad-test-user) named Britta Simon.
-4. [Assign the Azure AD test user](#assign-the-azure-ad-test-user) to enable Britta Simon to use Azure AD single sign-on.
-5. Create an AnswerHub test user that corresponds to and is linked to the Azure AD test user.
-6. [Test single sign-on](#test-single-sign-on) to verify that the configuration works.
+1. In the **Basic SAML Configuration** section, complete the following steps:
 
-### Configure Azure AD single sign-on
-
-In this section, you set up Azure AD single sign-on in the Azure portal.
-
-**To configure Azure AD single sign-on with AnswerHub:**
-
-1. In the [Azure portal](https://portal.azure.com/), on the **AnswerHub** application integration page, select **Single sign-on**.
-
-    ![Single sign-on button](common/select-sso.png)
-
-2. In the **Select a Single sign-on method** dialog box, select **SAML/WS-Fed** mode to enable single sign-on.
-
-    ![Single sign-on select method dialog box](common/select-saml-option.png)
-
-3. On the **Set up Single Sign-On with SAML** page, select the edit icon to open the **Basic SAML Configuration** dialog box.
-
-	![Set up Single Sign-On with SAML page](common/edit-urls.png)
-
-4. In the **Basic SAML Configuration** section, complete the following steps:
-
-    ![Basic SAML Configuration section](common/sp-identifier.png)
-
-	a. In the **Sign on URL** box, enter a URL that has this pattern:
+    a. In the **Identifier (Entity ID)** box, enter a URL that has this pattern:
+    `https://<company>.answerhub.com`
+    
+    b. In the **Sign on URL** box, enter a URL that has this pattern:
     `https://<company>.answerhub.com`
 
-    b. In the **Identifier (Entity ID)** box, enter a URL that has this pattern:
-    `https://<company>.answerhub.com`
+    > [!NOTE]
+    > These values aren't real. Update these values with the actual Identifier and Sign on URL. Contact the [AnswerHub support team](mailto:success@answerhub.com) to get the values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
-	> [!NOTE]
-	> These values aren't real. Update these values with the actual sign-on URL and identifier. Contact the [AnswerHub support team](mailto:success@answerhub.com) to get the values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select the **Download** link next to **Certificate (Base64)**, per your requirements, and save the certificate on your computer.
 
-5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select the **Download** link next to **Certificate (Base64)**, per your requirements, and save the certificate on your computer.
+    ![Certificate download link](common/certificatebase64.png)
 
-	![Certificate download link](common/certificatebase64.png)
+1. In the **Set up AnswerHub** section, copy the appropriate URL or URLs, based on your requirements.
 
-6. In the **Set up AnswerHub** section, copy the appropriate URL or URLs, based on your requirements.
+    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+<a name='create-an-azure-ad-test-user'></a>
 
-   You can copy these URLs:
-    - Login URL
+### Create a Microsoft Entra test user
 
-	- Azure AD Identifier
+In this section, you'll create a test user called B.Simon.
 
-	- Logout URL
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Select **Review + create**.
+1. Select **Create**.
 
-### Configure AnswerHub single sign-on
+<a name='assign-the-azure-ad-test-user'></a>
+
+### Assign the Microsoft Entra test user
+
+In this section, you'll enable B.Simon to use single sign-on by granting access to AnswerHub.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **AnswerHub**.
+1. In the app's overview page, select **Users and groups**.
+1. Select **Add user/group**, then select **Users and groups** in the **Add Assignment** dialog.
+   1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+   1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+   1. In the **Add Assignment** dialog, click the **Assign** button.
+
+## Configure AnswerHub SSO
 
 In this section, you set up single sign-on for AnswerHub.  
 
@@ -142,86 +138,29 @@ In this section, you set up single sign-on for AnswerHub.
 
 4. On the **IDP Config** tab, complete these steps:
 
-    ![Users & Groups tab](./media/answerhub-tutorial/ic785172.png "SAML Setup")  
-  
-    a. In the **IDP Login URL** box, paste the **Login URL** that you copied from the Azure portal.
-  
-    b. In the **IDP Logout URL** box, paste the **Logout URL** that you copied from the Azure portal.
+    ![Screenshot shows AnswerHub page with the Users & Groups tab selected.](./media/answerhub-tutorial/admin.png "SAML Setup")  
+
+    a. In the **IDP Login URL** box, paste the **Login URL** that you copied.
+
+    b. In the **IDP Logout URL** box, paste the **Logout URL** that you copied.
 
     c. In the **IDP Name Identifier Format** box, enter the **Identifier** value selected in the **User Attributes** section on the Azure portal.
-  
+
     d. Select **Keys and Certificates**.
 
 5. In the **Keys and Certificates** section, complete these steps:
 
-    ![Keys and Certificates section](./media/answerhub-tutorial/ic785173.png "Keys and Certificates")  
+    ![Keys and Certificates section](./media/answerhub-tutorial/users.png "Keys and Certificates")  
 
-    a. Open the Base64-encoded certificate that you downloaded from the Azure portal in Notepad, copy its contents, and then paste the contents into the **IDP Public Key (x509 Format)** box.
-  
+    a. Open the Base64-encoded certificate that you downloaded in Notepad, copy its contents, and then paste the contents into the **IDP Public Key (x509 Format)** box.
+
     b. Select **Save**.
 
 6. On the **IDP Config** tab, select **Save** again.
 
-### Create an Azure AD test user
+### Create AnswerHub test user
 
-In this section, you create a test user named Britta Simon in the Azure portal.
-
-**To create an Azure AD test user:**
-
-1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
-
-    ![Select Azure Active Directory, Users, All users](common/users.png)
-
-2. Select **New user** at the top of the screen.
-
-    ![New user button](common/new-user.png)
-
-3. In the user properties, complete these steps.
-
-    ![User properties](common/user-properties.png)
-
-    a. In the **Name** box, enter **BrittaSimon**.
-  
-    b. In the **User name** box, enter **brittasimon\@<yourcompanydomain.extension>**.  
-    For example, BrittaSimon@contoso.com.
-
-    c. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-
-    d. Select **Create**.
-
-### Assign the Azure AD test user
-
-In this section, you set up Britta Simon to use Azure AD single sign-on by granting her access to AnswerHub.
-
-**To assign the Azure AD test user:**
-
-1. In the Azure portal, select **Enterprise applications**, select **All applications**, and then select **AnswerHub**.
-
-	![Enterprise applications blade](common/enterprise-applications.png)
-
-2. In the list of applications, select **AnswerHub**.
-
-	![Applications list](common/all-applications.png)
-
-3. In the menu on the left, select **Users and groups**.
-
-    ![Select Users and groups](common/users-groups-blade.png)
-
-4. Select **Add user**, and then select **Users and groups** in the **Add Assignment** dialog box.
-
-    ![Add Assignment pane](common/add-assign-user.png)
-
-5. In the **Users and groups** dialog box, select **Britta Simon** in the **Users** list, and then select the **Select** button at the bottom of the screen.
-
-6. If you're expecting a role value in the SAML assertion, in the **Select Role** dialog box, select the appropriate role for the user from the list. 
-
-7. Select the **Select** button at the bottom of the screen.
-
-8. In the **Add Assignment** dialog box, select **Assign**.
-
-### Create an AnswerHub test user
-
-To enable Azure AD users to sign in to AnswerHub, you need to add them in AnswerHub. In AnswerHub, this task is done manually.
+To enable Microsoft Entra users to sign in to AnswerHub, you need to add them in AnswerHub. In AnswerHub, this task is done manually.
 
 **To set up a user account:**
 
@@ -233,24 +172,23 @@ To enable Azure AD users to sign in to AnswerHub, you need to add them in Answer
 
 4. In the left pane, in the **Manage Users** section, select **Create or import users**, and then select **Users & Groups**.
 
-   ![Users & Groups tab](./media/answerhub-tutorial/ic785175.png "Users & Groups")
+    ![Screenshot shows AnswerHub page with the Users & Groups tab selected and the Create or import users link called out.](./media/answerhub-tutorial/groups.png "Users & Groups")
 
-5. In the appropriate boxes, enter the **Email address**, **Username**, and **Password** of a valid Azure AD account that you want to add, and then select **Save**.
+5. In the appropriate boxes, enter the **Email address**, **Username**, and **Password** of a valid Microsoft Entra account that you want to add, and then select **Save**.
 
 > [!NOTE]
-> You can use any other user account creation tool or API provided by AnswerHub to set up Azure AD user accounts.
+> You can use any other user account creation tool or API provided by AnswerHub to set up Microsoft Entra user accounts.
 
-### Test single sign-on
+## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration by using the access panel.
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
-When you select the AnswerHub tile in the access panel, you should be automatically signed in to the AnswerHub for which you set up SSO. For more information about the access panel, see [Introduction to the access panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Click on **Test this application**, this will redirect to AnswerHub Sign-on URL where you can initiate the login flow. 
 
-## Additional resources
+* Go to AnswerHub Sign-on URL directly and initiate the login flow from there.
 
-- [Tutorials for integrating SaaS apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+* You can use Microsoft My Apps. When you click the AnswerHub tile in the My Apps, this will redirect to AnswerHub Sign-on URL. For more information, see [Microsoft Entra My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+## Next steps
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+Once you configure AnswerHub you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

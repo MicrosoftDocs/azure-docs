@@ -1,96 +1,280 @@
 ---
-title: 'Azure Backup: Monitor Azure Backup protected workloads'
-description: Monitor Azure Backup workloads using Azure portal
-services: backup
-author: pvrk
-manager: shivamg
-keywords: Azure Backup; Alerts;
-ms.service: backup
+title: Monitor Azure Backup protected workloads
+description: In this article, learn about the monitoring and notification capabilities for Azure Backup workloads using the Azure portal.
 ms.topic: conceptual
-ms.date: 03/05/2019
-ms.author: pullabhk
+ms.date: 09/14/2022
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
+ms.service: backup
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Monitoring Azure Backup workloads
 
-Azure Backup provides multiple backup solutions based on the backup requirement and infrastructure topology (On-premises vs Azure). Any backup user or admin should see what is going on across all solutions and expected to be notified in important scenarios. This article details the monitoring and notification capabilities provided by Azure Backup service.
+Azure Backup provides multiple backup solutions based on the backup requirement and infrastructure topology (On-premises vs Azure). Any backup user or admin should see what's going on across all solutions and can expect to be notified in important scenarios. This article details the monitoring and notification capabilities provided by Azure Backup service.
 
-## Backup Jobs in Recovery Services vault
+[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
 
-Azure Backup provides in-built monitoring and alerting capabilities for workloads being protected by Azure Backup. In the Recovery Services vault settings, the **Monitoring** section provides in-built jobs and alerts.
+## Backup Items in Recovery Services vault
 
-![RS vault inbuilt monitoring](media/backup-azure-monitoring-laworkspace/rs-vault-inbuiltmonitoring.png)
+You can monitor all your backup items via a Recovery Services vault. Navigating to the **Backup Instances** section in **Backup center** opens a view that provides a detailed list of all backup items of the given workload type, with information on the last backup status for each item, latest restore point available, and so on.
 
-Jobs are generated when operations such as configuring backup, backup, restore, delete backup, and so on, are performed.
+:::image type="content" source="./media/backup-azure-monitoring-laworkspace/backup-center-instances-inline.png" alt-text="Screenshot showing to view Recovery Services vault backup items." lightbox="./media/backup-azure-monitoring-laworkspace/backup-center-instances-expanded.png":::
+
+>[!NOTE]
+>For items backed-up to Azure using DPM, the list will show all the data sources protected (both disk and online) using the DPM server. If the protection is stopped for the datasource with backup data retained, the datasource will be still listed in the portal. You can go to the details of the data source to see if the recovery points are present in disk, online or both. Also, datasources for which the online protection is stopped but data is retained,  billing for the online recovery points continue until the data is completely deleted.
+>
+> The DPM version must be DPM 1807 (5.1.378.0) or DPM 2019 ( version 10.19.58.0 or above), for the backup items to be visible in the Recovery Services vault portal.
+>
+>For DPM, MABS and MARS, the Backup Item (VM name, cluster name, host name, volume or folder name) and Protection Group cannot include '<', '>', '%', '&', ':', '\', '?', '/', '#' or any control characters.
+
+## Backup Jobs in Backup center
+
+Azure Backup provides in-built monitoring and alerting capabilities for workloads being protected by Azure Backup. Navigating to the **Backup Jobs** pane in **Backup center** allows you to view the recent backup and restore jobs across your vaults.
+
+:::image type="content" source="./media/backup-azure-monitoring-laworkspace/backup-center-jobs-inline.png" alt-text="Screenshot showing the Recovery Services vault built-in monitoring." lightbox="./media/backup-azure-monitoring-laworkspace/backup-center-jobs-expanded.png":::
+
+Jobs are generated when operations such as configuring backup, back up, restore, delete backup, and so on, are performed.
 
 Jobs from the following Azure Backup solutions are shown here:
 
-  - Azure VM backup
-  - Azure File backup
-  - Azure workload backup such as SQL
-  - Azure Backup agent (MAB)
+- Azure VM backup
+- Azure File backup
+- Azure workload back up such as SQL and SAP HANA
+- Microsoft Azure Recovery Services (MARS) agent
 
-Jobs from System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup Server (MABS) are NOT displayed.
+Jobs from System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup Server (MABS) aren't displayed.
 
 > [!NOTE]
-> Azure workloads such as SQL backups within Azure VMs have huge number of backup jobs. For example, log backups can run for every 15 minutes. Hence, for such DB workloads, only user triggered operations are displayed. Scheduled backup operations are NOT displayed.
+>- Azure workloads such as SQL and SAP HANA backups within Azure VMs have huge number of backup jobs. For example, log backups can run for every 15 minutes. So for such DB workloads, only user triggered operations are displayed. Scheduled backup operations aren't displayed.
+>- In Backup center you can view jobs for upto last 14 days. If you want to view jobs for a large duration, you can go to the individual Recovery Services vaults and select the **Backup Jobs** tab. For jobs older than 6 months, we recommend you to use Log Analytics and/or [Backup Reports](configure-reports.md) to reliably and efficiently query older jobs.
 
-## Backup Alerts in Recovery Services vault
+## Azure Monitor alerts for Azure Backup
 
-Alerts are primarily scenarios where users are notified so that they can take relevant action. The **Backup Alerts** section shows alerts generated by Azure Backup service. These alerts are defined by the service and user cannot custom create any alerts.
+Azure Backup also provides alerts via Azure Monitor that enables you to have a consistent experience for alert management across different Azure services, including Azure Backup. With Azure Monitor alerts, you can route alerts to any notification channel supported by Azure Monitor, such as email, ITSM, Webhook, Logic App, and so on.
+
+Currently, Azure Backup provides two main types of built-in alerts:
+
+* **Security Alerts**: For scenarios, such as deletion of backup data, or disabling of soft-delete functionality for vault, security alerts (of severity Sev 0) are fired, and displayed in the Azure portal or consumed via other clients (PowerShell, CLI, and REST API). Security alerts are generated by default and can't be turned off. However, you can control the scenarios for which the notifications (for example, emails) should be fired. For more information on how to configure notifications, see [Action rules](../azure-monitor/alerts/alerts-action-rules.md).
+* **Job Failure Alerts**: For scenarios, such as backup failure and restore failure, Azure Backup provides built-in alerts via Azure Monitor (of Severity Sev 1). Unlike security alerts, you can choose to turn off Azure Monitor alerts for job failure scenarios. For example, you've already configured custom alert rules for job failures via Log Analytics, and don't need built-in alerts to be fired for every job failure. By default, alerts for job failures are turned on. For more information, see the [section on turning on alerts for these scenarios](#turning-on-azure-monitor-alerts-for-job-failure-scenarios).
+
+The following table summarizes the different backup alerts currently available via Azure Monitor and the supported workload/vault types:
+
+| **Alert Category** | **Alert Name** | **Supported workload types / vault types** | **Description** | 
+| ------------------ | -------------  | ------------------------------------------ | -------- |
+| Security | Delete Backup Data | - Microsoft Azure Virtual Machine <br><br> - SQL in Azure VM (non-AG scenarios) <br><br> - SAP HANA in Azure VM <br><br> - Azure Backup Agent <br><br> - DPM <br><br> - Azure Backup Server <br><br> - Azure Database for PostgreSQL Server <br><br> - Azure Blobs <br><br> - Azure Managed Disks  | This alert is fired when you stop backup and deletes backup data. <br><br> **Note** <br> If you disable the soft-delete feature for the vault, Delete Backup Data alert isn't received. |
+| Security | Upcoming Purge | - Azure Virtual Machine <br><br> - SQL in Azure VM <br><br> - SAP HANA in Azure VM | For all workloads that support soft-delete, this alert is fired when the backup data for an item is 2 days away from being permanently purged by the Azure Backup service. | 
+| Security | Purge Complete | - Azure Virtual Machine <br><br> - SQL in Azure VM <br><br> - SAP HANA in Azure VM | Delete Backup Data |
+| Security | Soft Delete Disabled for Vault | Recovery Services vaults | This alert is fired when the soft-deleted backup data for an item has been permanently deleted by the Azure Backup service. | 
+| Security | Modify Policy with Shorter Retention | - Azure Virtual Machine <br><br> - SQL in Azure VM <br><br> - SAP HANA in Azure VM <br><br> - Azure Files | This alert is fired when a backup policy is modified to use lesser retention. | 
+| Security | Modify Protection with Shorter Retention | - Azure Virtual Machine <br><br> - SQL in Azure VM <br><br> - SAP HANA in Azure VM <br><br> - Azure Files | This alert is fired when a backup instance is assigned to a different policy with lesser retention. | 
+| Security | MUA Disabled | Recovery Services vaults | This alert is fired when a user disables MUA functionality for vault. | 
+| Security | Disable hybrid security features | Recovery Services vaults | This alert is fired when hybrid security settings are disabled for a vault. | 
+| Jobs | Backup Failure | - Azure Virtual Machine <br><br> - SQL in Azure VM <br><br> - SAP HANA in Azure VM <br><br> - Azure Backup Agent <br><br> - Azure Files <br><br> - Azure Database for PostgreSQL Server <br><br> - Azure Managed Disks | This alert is fired when a backup job failure has occurred. By default, alerts for backup  failures are turned on. For more information, see the [section on turning on alerts for this scenario](#turning-on-azure-monitor-alerts-for-job-failure-scenarios). | 
+| Jobs | Restore Failure | - Azure Virtual Machine <br><br> - SQL in Azure VM (non-AG scenarios) <br><br> - SAP HANA in Azure VM <br><br> - Azure Backup Agent <br><br> - Azure Files <br><br> - Azure Database for PostgreSQL Server <br><br> - Azure Blobs <br><br> - Azure Managed Disks | This alert is fired when a restore job failure has occurred. By default, alerts for restore failures are turned on. For more information, see the [section on turning on alerts for this scenario](#turning-on-azure-monitor-alerts-for-job-failure-scenarios). |
+| Jobs | Unsupported backup type | - SQL in Azure VM <br><br> - SAP HANA in Azure VM | This alert is fired when the current settings for a database don't support certain backup types present in the policy. By default, alerts for unsupported backup type scenario are turned on. For more information, see the [section on turning on alerts for this scenario](#turning-on-azure-monitor-alerts-for-job-failure-scenarios). |
+| Jobs | Workload extension unhealthy | - SQL in Azure VM <br><br> - SAP HANA in Azure VM | This alert is fired when the Azure Backup workload extension for database backups is in an unhealthy state that might prevent future backups from succeeding. By default, alerts for workload extension unhealthy scenario are turned on. For more information, see the [section on turning on alerts for this scenario](#turning-on-azure-monitor-alerts-for-job-failure-scenarios). |
+ 
+> [!NOTE]
+>- For Azure VM backup, backup failure alerts are not sent in scenarios where the underlying VM is deleted, or another backup job is already in progress (leading to failure of the other backup job). This is because these are scenarios where backup is expected to fail by design and hence alerts are not generated in these 2 cases.
+
+### Turning on Azure Monitor alerts for job failure scenarios
+
+To opt in to Azure Monitor alerts for backup failure and restore failure scenarios, follow these steps:
+
+**Choose a vault type**:
+
+# [Recovery Services vaults](#tab/recovery-services-vaults)
+
+Built-in Azure Monitor alerts are generated for job failures by default. If you want to turn off alerts for these scenarios, you can edit the monitoring settings property of the vault accordingly.
+
+To manage monitoring settings for a Backup vault, follow these steps:
+
+1. Go to the vault and select **Properties**.
+
+1. Locate the **Monitoring Settings** vault property and select **Update**.
+
+   :::image type="content" source="./media/backup-azure-monitoring-laworkspace/recovery-services-vault-monitoring-settings.png" alt-text="Screenshot showing how to update monitoring settings in Recovery Services vault.":::
+
+1. In the context pane, select the appropriate options to enable/disable built-in Azure Monitor alerts for job failures depending on your requirement.
+
+	:::image type="content" source="./media/backup-azure-monitoring-laworkspace/recovery-services-vault-job-failure-alert-setting.png" alt-text="Screenshot showing options to enable or disable built-in Azure Monitoring alerts.":::
+
+1. We also recommend you to select the checkbox **Use only Azure Monitor alerts**.
+
+   By selecting this option, you're consenting to receive backup alerts only via Azure Monitor and you'll stop receiving alerts from the older classic alerts solution. [Review the key differences between classic alerts and built-in Azure Monitor alerts](./move-to-azure-monitor-alerts.md).
+
+	:::image type="content" source="./media/backup-azure-monitoring-laworkspace/recovery-services-vault-opt-out-classic-alerts.png" alt-text="Screenshot showing the option to enable receiving backup alerts.":::
+
+1. Select **Update** to save the setting for the vault.
+
+# [Backup vaults](#tab/backup-vaults)
+
+For Backup vaults, you no longer need to use a feature flag to opt in to alerts for job failure scenarios. Built-in Azure Monitor alerts are generated for job failures by default. If you want to turn off alerts for these scenarios, you can edit the monitoring settings property of the vault accordingly.
+
+To manage monitoring settings for a Backup vault, follow these steps:
+
+1. Go to the vault and select **Properties**.
+
+1. Locate the **Monitoring Settings** vault property and select **Update**.
+
+   :::image type="content" source="media/backup-azure-monitoring-laworkspace/monitoring-settings-backup-vault.png" alt-text="Screenshot for monitoring settings in backup vault.":::
+
+1. In the context pane, select the appropriate options to enable/disable built-in Azure Monitor alerts for job failures depending on your requirement.
+
+1. Select **Update** to save the setting for the vault.
+
+    :::image type="content" source="media/backup-azure-monitoring-laworkspace/job-failure-alert-setting-inline.png" alt-text="Screenshot for updating Azure Monitor alert settings in backup vault." lightbox="media/backup-azure-monitoring-laworkspace/job-failure-alert-setting-expanded.png":::
+
+---
+
+### Viewing fired alerts in the Azure portal 
+
+Once an alert is fired for a vault, you can go to **Backup center** to view the alert in the Azure portal. On the **Overview** tab, you can see a summary of active alerts split by severity. There are two types of alerts displayed:
+
+* **Datasource Alerts**: Alerts that are tied to a specific datasource being backed-up (for example, back up or restore failure for a VM, deleting backup data for a database, and so on) appear under the **Datasource Alerts** section.
+* **Global Alerts**: Alerts that aren't tied to a specific datasource (for example, disabling soft-delete functionality for a vault) appear under the **Global Alerts** section.
+
+Each of the above types of alerts is further split into **Security** and **Configured** alerts. Currently, Security alerts include the scenarios of deleting backup data, or disabling soft-delete for vault (for the applicable workloads as detailed in the above section). Configured alerts include backup failure and restore failure, because these alerts are fired only when alerts aren't disabled for these scenarios.
+
+:::image type="content" source="media/backup-azure-monitoring-laworkspace/backup-center-azure-monitor-alerts.png" alt-text="Screenshot for viewing alerts in Backup center.":::
+
+Selecting any number (or the **Alerts** menu item) opens a list of all active alerts fired with the relevant filters applied. You can filter on a range of properties, such as subscription, resource group, vault, severity, state, and so on. You can select any alert to view more details about the alert, such as the affected datasource, alert description and recommended action, and so on.
+
+:::image type="content" source="media/backup-azure-monitoring-laworkspace/backup-center-alert-details.png" alt-text="Screenshot for viewing details of the alert.":::
+
+You can change the state of an alert to **Acknowledged** or **Closed** by selecting on **Change Alert State**.
+
+:::image type="content" source="media/backup-azure-monitoring-laworkspace/backup-center-change-alert-state.png" alt-text="Screenshot for changing state of the alert."::: 
+
+> [!NOTE]
+> - In Backup center, only alerts for Azure-based workloads currently appear. To view alerts for on-premises resources, go to the Recovery Services vault and select the **Alerts** menu item.
+> - Only Azure Monitor alerts appear in Backup center. Alerts raised by the older alerting solution (accessed via the [Backup Alerts](#backup-alerts-in-recovery-services-vault) tab in Recovery Services vault) don't appear in Backup center. For more information about Azure Monitor alerts, see [Overview of alerts in Azure](../azure-monitor/alerts/alerts-overview.md).
+> - Currently, for blob restore alerts, alerts appear under datasource alerts only if you select both the dimensions - *datasourceId* and *datasourceType* while creating the alert rule. If any dimensions aren't selected, the alerts appear under global alerts.
+
+### Configuring notifications for alerts
+
+To configure notifications for Azure Monitor alerts, create an [alert processing rule](../azure-monitor/alerts/alerts-action-rules.md). To create an alert processing rule (earlier called *action rule*) to send email notifications to a given email address, follow these steps. Also, follow these steps to route these alerts to other notification channels, such as ITSM, webhook, logic app, and so on.
+
+1. Go to **Backup center** in the Azure portal.
+
+1. Select **Alerts** from the menu and select **Alert processing rules**.
+
+   :::image type="content" source="./media/backup-azure-monitoring-laworkspace/backup-center-manage-alert-processing-rules-inline.png" alt-text="Screenshot for Manage Actions in Backup center." lightbox="./media/backup-azure-monitoring-laworkspace/backup-center-manage-alert-processing-rules-expanded.png":::
+
+1. Select **Create**.
+
+   :::image type="content" source="./media/backup-azure-monitoring-laworkspace/backup-center-create-alert-processing-rule.png" alt-text="Screenshot for creating a new action rule.":::
+
+1. Select the scope for which the alert processing rule should be applied.
+
+   You can apply the rule for all resources within a subscription. Optionally, you can also apply filters on the alerts; for example, to only generate notifications for alerts of a certain severity.
+
+   :::image type="content" source="./media/backup-azure-monitoring-laworkspace/alert-processing-rule-scope-inline.png" alt-text="Screenshot for setting the action rule scope." lightbox="./media/backup-azure-monitoring-laworkspace/alert-processing-rule-scope-expanded.png":::
+
+1. Under **Rule Settings**, create an action group (or use an existing one).
+
+   An action group is the destination to which the notification for an alert should be sent. For example, an email address.
+ 
+   :::image type="content" source="media/backup-azure-monitoring-laworkspace/create-action-group.png" alt-text="Screenshot for creating a new action group.":::
+
+1. On the **Basics** tab, select the name of the action group, the subscription, and resource group under which it should be created.
+
+    :::image type="content" source="media/backup-azure-monitoring-laworkspace/azure-monitor-action-groups-basic.png" alt-text="Screenshot for basic properties of action group."::: 
+
+1. On the **Notifications** tab, select **Email/SMS message/Push/Voice** and enter the recipient email ID.
+
+    :::image type="content" source="media/backup-azure-monitoring-laworkspace/azure-monitor-email.png" alt-text="Screenshot for setting notification properties."::: 
+
+1. Select **Review+Create** -> **Create** to deploy the action group.
+
+1. Save the action rule.
+
+[Learn more](../azure-monitor/alerts/alerts-action-rules.md) about Action Rules in Azure Monitor.
+
+
+## Backup alerts in Recovery Services vault
+
+> [!IMPORTANT]
+> This section describes an older alerting solution (referred to as classic alerts). We recommend you to switch to using Azure Monitor based alerts as it offers multiple benefits. For more information on how to switch, see [Switch Azure Monitor Based alerts](./move-to-azure-monitor-alerts.md).
+
+Alerts are primarily the scenarios where you're notified to take relevant action. The **Backup Alerts** section shows alerts that the Azure Backup service generates. These alerts are defined by the service and you can't custom create any alerts.
 
 ### Alert scenarios
-The following scenarios are defined by service as alertable scenarios.
 
-  - Backup/Restore failures
-  - Backup succeeded with warnings for Azure Backup Agent (MAB)
-  - Stop protection with retain data/Stop protection with delete data
+The following scenarios are defined by service as alert-able scenarios:
 
-### Exceptions when an alert is not raised
-There are few exceptions when an alert is not raised on a failure, they are:
+- Backup/Restore failures
+- Backup succeeded with warnings for Microsoft Azure Recovery Services (MARS) agent
+- Stop protection with delete data
+- Soft-delete functionality disabled for vault
+- [Unsupported backup type for database workloads](./backup-sql-server-azure-troubleshoot.md#backup-type-unsupported)
+- Workload extension health issues for database backup
 
-  - User explicitly canceled the running job
-  - The job fails because another backup job is in progress (nothing to act on here since we just have to wait for the previous job to finish)
-  - The VM backup job fails because the backed-up Azure VM no longer exists
+### Alerts from the various Azure Backup solutions
 
-The above exceptions are designed from the understanding that the result of these operations (primarily user triggered) shows up immediately on portal/PS/CLI clients. Hence, the user is immediately aware and doesn't need a notification.
+The following are alerts from Azure Backup solutions are:
 
-### Alerts from the following Azure Backup solutions are shown here:
-
-  - Azure VM backups
-  - Azure File backups
-  - Azure workload backups such as SQL
-  - Azure Backup agent (MAB)
+- Azure VM backups
+- Azure File backups
+- Azure workload backups such as SQL, SAP HANA
+- Microsoft Azure Recovery Services (MARS) agent
 
 > [!NOTE]
-> Alerts from System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup Server (MABS) are NOT displayed here.
+>- Alerts from System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup Server (MABS) aren't displayed here.
+>- Stop protection with delete data alerts are currently not sent for Azure Files backup.
+>- Stop protection with delete data alert is only generated if sot-delete functionality is enabled for the vault, that is, if soft-delete feature is disabled for a vault, then a single alert is sent to notify you that soft-delete has been disabled. Subsequent deletion of the backup data of any item doesn't raise an alert.
+
+### Consolidated alerts
+
+For Azure workload backup solutions, such as SQL and SAP HANA, log backups can be generated frequently (up to every 15 minutes according to the policy). So, you might encounter frequent log backup failures (up to every 15 minutes). In this scenario, the end user will be overwhelmed if an alert is raised for each failure occurrence.
+
+So, an alert is sent for the first occurrence, and if the later failures are because of the same root cause, then further alerts aren't generated. The first alert is updated with the failure count. But if you've inactivated the alert, the next occurrence will trigger another alert and this will be treated as the first alert for that occurrence. This is how Azure Backup performs alert consolidation for SQL and SAP HANA backups.
+
+On-demand backup jobs aren't consolidated.
+
+### Exceptions when an alert isn't raised
+
+There are a few exceptions when an alert isn't raised on a failure. They are:
+
+- You've explicitly canceled the running job.
+- The job fails because another backup job is in progress (no actions to be taken as we've to wait for the previous job to finish).
+- The VM backup job fails because the backed-up Azure VM no longer exists.
+- [Consolidated Alerts](#consolidated-alerts)
+
+The exceptions above are designed from the understanding that the result of these operations (primarily user triggered) shows up immediately on portal/PS/CLI clients. So, you're immediately aware and doesn't need a notification.
 
 ### Alert types
-Based on alert severity, alerts can be defined in three types:
 
-  - **Critical**: In principle, any backup or recovery failure (scheduled or user triggered) would lead to generation of an alert and would be shown as a Critical alert and also destructive operations such as delete backup.
-  - **Warning**: If the backup operation succeeds but with few warnings, they are listed as Warning alerts.
-  - **Informational**: As of today, no informational alert is generated by Azure Backup service.
+Based on alert severity, you can define three types of alerts:
 
-## Notification for Backup Alerts
+- **Critical**: In principle, any backup or recovery failure (scheduled or user triggered) would lead to generation of an alert and would be shown as a *Critical* alert. The alert is also generated for destructive operations, such as delete backup.
+- **Warning**: If the backup operation succeeds, but with few warnings, they're listed as *Warning* alerts. Warning alerts are currently available only for Azure Backup Agent backups.
+- **Informational**: Currently, no informational alerts are generated by the Azure Backup service.
 
-> [!NOTE]
-> Configuration of notification can be done only through Azure Portal. PS/CLI/REST API/Azure Resource Manager Template support is not supported.
-
-Once an alert is raised, users are notified. Azure Backup provides an inbuilt notification mechanism via e-mail. One can specify individual email addresses or distribution lists to be notified when an alert is generated. You can also choose whether to get notified for each individual alert or to group them in an hourly digest and then get notified.
-
-![RS Vault inbuilt email notification](media/backup-azure-monitoring-laworkspace/rs-vault-inbuiltnotification.png)
-
-When notification is configured, you will receive a welcome or introductory email. This confirms that Azure Backup can send emails to these addresses when an alert is raised.<br>
-
-If the frequency was set to an hourly digest and an alert was raised and resolved within an hour, it will not be a part of the upcoming hourly digest.
+## Notification for backup alerts
 
 > [!NOTE]
->
-> * If a destructive operation such as **stop protection with delete data** is performed, an alert is raised and an email is sent to subscription owners, admins, and co-admins even if notifications are NOT configured for the Recover Service vault.
-> * To configure notification for successful jobs use [Log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace).
+> Configuration of notification can be done only through the Azure portal. PS/CLI/REST API/Azure Resource Manager Template client is currently not supported.
+
+Once an alert is raised, you're notified. Azure Backup provides a built-in notification mechanism via email. You can specify individual email addresses or distribution lists to be notified when an alert is generated. You can also choose if you need to receive notified for each individual alert or to group them in an hourly digest and then get notified.
+
+:::image type="content" source="./media/backup-azure-monitoring-laworkspace/recovery-services-vault-built-in-notification-inline.png" alt-text="Screenshot of the Recovery Services vault built-in email notification." lightbox="./media/backup-azure-monitoring-laworkspace/recovery-services-vault-built-in-notification-expanded.png":::
+
+When notification is configured, you'll receive a welcome or introductory email. This confirms that Azure Backup can send emails to these addresses when an alert is raised.
+
+If the frequency was set to an hourly digest, and an alert was raised and resolved within an hour, it won't be a part of the upcoming hourly digest.
+
+> [!NOTE]
+>- If a destructive operation, such as **stop protection with delete data** is performed, an alert is raised and an email is sent to subscription owners, admins, and co-admins even if notifications aren't configured for the Recovery Services vault.
+>- To configure notification for successful jobs, use [Log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace).
+
+## Inactivating alerts
+
+To inactivate/resolve an active alert, you can select the list item corresponding to the alert you wish to inactivate. This opens up a screen that shows detailed information about the alert, with an **Inactivate** button at the top. Selecting this button will change the status of the alert to **Inactive**. You may also inactivate an alert by right-clicking the list item corresponding to that alert and selecting **Inactivate**.
+
+:::image type="content" source="./media/backup-azure-monitoring-laworkspace/vault-alert-inactivate.png" alt-text="Screenshot showing how to inactivate alerts via Backup center.":::
 
 ## Next steps
 
-[Monitor Azure backup workloads using Azure Monitor](backup-azure-monitoring-use-azuremonitor.md)
+[Monitor Azure Backup workloads using Azure Monitor](backup-azure-monitoring-use-azuremonitor.md)

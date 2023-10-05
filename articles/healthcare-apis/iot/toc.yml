@@ -1,0 +1,91 @@
+items:
+- name: MedTech service documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+    - name: What is the MedTech service?
+      href: overview.md
+    - name: Device data processing stages overview
+      href: overview-of-device-data-processing-stages.md
+    - name: Samples overview
+      href: overview-of-samples.md
+- name: Quickstarts
+  expanded: false
+  items:
+    - name: Get started with the MedTech service
+      href: get-started.md
+    - name: Deploy the MedTech service
+      expanded: false
+      items:
+        - name: Choose a deployment method
+          href: deploy-choose-method.md
+        - name: ARM template
+          href: deploy-arm-template.md
+        - name: Azure PowerShell or the Azure CLI
+          href: deploy-json-powershell-cli.md
+        - name: Bicep
+          href: deploy-bicep-powershell-cli.md
+        - name: Azure portal
+          href: deploy-manual-portal.md
+- name: Tutorials
+  expanded: false
+  items:
+  - name: Receive device messages through Azure IoT Hub
+    href: device-messages-through-iot-hub.md 
+- name: How-tos
+  expanded: false
+  items:
+  - name: Map
+    expanded: false
+    items:
+    - name: Use the Mapping debugger
+      href: how-to-use-mapping-debugger.md
+    - name: Device
+      expanded: false
+      items:
+      - name: Overview of device mapping
+        href: overview-of-device-mapping.md
+      - name: Use CalculatedContent templates
+        href: how-to-use-calculatedcontent-templates.md
+      - name: Use IotJsonPathContent templates
+        href: how-to-use-iotjsonpathcontent-templates.md
+      - name: Use custom functions
+        href: how-to-use-custom-functions.md 
+    - name: Destination
+      expanded: false
+      items:
+      - name: Overview of the FHIR destination mapping
+        href: overview-of-fhir-destination-mapping.md    
+  - name: Monitor
+    expanded: false
+    items:
+    - name: Use the monitoring and health checks tabs
+      href: how-to-use-monitoring-and-health-checks-tabs.md
+    - name: Configure metrics
+      href: how-to-configure-metrics.md
+    - name: Enable diagnostic settings
+      href: how-to-enable-diagnostic-settings.md
+  - name: Troubleshoot
+    expanded: false
+    items:
+    - name: Deployment errors
+      href: troubleshoot-errors-deployment.md
+    - name: Service log errors
+      href: troubleshoot-errors-logs.md
+- name: Concepts
+  expanded: false
+  items:
+  - name: MedTech service and Azure Machine Learning Service
+    href: concepts-machine-learning.md
+  - name: MedTech service and Microsoft Power BI
+    href: concepts-power-bi.md
+  - name: MedTech service and Microsoft Teams notifications
+    href: concepts-teams.md
+- name: Resources
+  expanded: false
+  items:
+  - name: FAQ - MedTech service
+    href: frequently-asked-questions.md
+  - name: Open-source projects
+    href: git-projects.md

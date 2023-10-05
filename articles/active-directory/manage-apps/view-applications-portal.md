@@ -1,89 +1,81 @@
 ---
-title: View tenant applications - Azure Active Directory | Microsoft Docs
-description: Use the Azure portal to view the applications in your Azure Active Directory (Azure AD) tenant.
+title: 'Quickstart: View enterprise applications'
+description: View the enterprise applications that are registered to use your Microsoft Entra tenant.
 services: active-directory
-documentationcenter: ''
-author: msmimart
+author: omondiatieno
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/09/2019
-ms.author: mimart
-ms.reviewer: arvinh
-ms.custom: it-pro
-
-ms.collection: M365-identity-device-management
+ms.date: 03/23/2023
+ms.author: jomondi
+ms.reviewer: alamaral
+ms.custom: mode-other, enterprise-apps
+#Customer intent: As an administrator of a Microsoft Entra tenant, I want to search for and view the enterprise applications in the tenant.
 ---
 
-# View your Azure Active Directory tenant applications
+# Quickstart: View enterprise applications
 
-This quickstart uses the Azure portal to view the applications in your Azure Active Directory (Azure AD) tenant.
+In this quickstart, you learn how to use the Microsoft Entra admin center to search for and view the enterprise applications that are already configured in your Microsoft Entra tenant.
 
-## Before you begin
+It's recommended that you use a nonproduction environment to test the steps in this quickstart.
 
-To see results, you need to have at least one application in your Azure AD tenant. To add an application, see the [Add an application](add-application-portal.md) quickstart.
+## Prerequisites
 
-Sign in to the [Azure portal](https://portal.azure.com) as a global admin for your Azure AD tenant, a cloud application admin, or an application admin.
+To view applications that have been registered in your Microsoft Entra tenant, you need:
 
-## Find the list of tenant applications
+- A Microsoft Entra user account. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- One of the following roles: Global Administrator, Cloud Application Administrator, or owner of the service principal.
+- Completion of the steps in [Quickstart: Add an enterprise application](add-application-portal.md).
 
-Your Azure AD tenant applications are viewable in the **Enterprise apps** section of the Azure portal.
+## View a list of applications
 
-To find your tenant applications:
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, select **Azure Active Directory**. 
+To view the enterprise applications registered in your tenant:
 
-1. In the **Azure Active Directory** pane, select **Enterprise applications**. 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
+    :::image type="content" source="media/view-applications-portal/view-enterprise-applications.png" alt-text="View the registered applications in your Microsoft Entra tenant.":::
+1. To view more applications, select **Load more** at the bottom of the list. If there are many applications in your tenant, it might be easier to search for a particular application instead of scrolling through the list.
 
-1. From the **Application Type** drop-down menu, select **All Applications**, and choose **Apply**. A random sample of your tenant applications appears.
-   
-1. To view more applications, select **Load more** at the bottom of the list. Depending on the number of applications in your tenant, it might be easier to [search for a particular application](#search-for-a-tenant-application), instead of scrolling through the list.
-
-## Select viewing options
-
-Select options according to what you're looking for.
-
-1. You can view the applications by **Application Type**, **Application Status**, and **Application visibility**. 
-
-1. Under **Application Type**, choose one of these options:
-
-    - **Enterprise Applications** shows non-Microsoft applications.
-    - **Microsoft Applications** shows Microsoft applications.
-    - **All Applications** shows both non-Microsoft and Microsoft applications.
-
-1. Under **Application Status**, choose **Any**, **Disabled**, or **Enabled**. The **Any** option includes both disabled and enabled applications.
-
-1. Under **Application Visibility**, choose **Any**, or **Hidden**. The **Hidden** option shows applications that are in the tenant, but aren't visible to users.
-
-1. After choosing the options you want, select **Apply**.
- 
-
-## Search for a tenant application
+## Search for an application
 
 To search for a particular application:
 
-1. In the **Application Type** menu, select **All applications**, and choose **Apply**.
+1. Select the **Application Type** filter option. Select **All applications** from the **Application Type** drop-down menu, and choose **Apply**.
+1. Enter the name of the application you want to find. If the application has been added to your Microsoft Entra tenant, it appears in the search results. For example, you can search for the **Azure AD SAML Toolkit 1** application that is used in the previous quickstarts. 
+1. Try entering the first few letters of an application name.
 
-1. Enter the name of the application you want to find. If the application has been added to your Azure AD tenant, it appears in the search results. This example shows that GitHub hasn't been added to the tenant applications.
+## Select viewing options
 
-    ![Search for an application](media/view-applications-portal/search-for-tenant-application.png)
+Select options according to what you're looking for:
 
-1. Try entering the first few letters of an application name. This example shows all the applications that start with **Sales**.
+1. The default filters are **Application Type** and **Application ID starts with**, and **Application visibility**. 
+1. Under **Application Type**, choose one of these options:
+    - **Enterprise Applications** shows non-Microsoft applications.
+    - **Microsoft Applications** shows Microsoft applications.
+    - **Managed Identities** shows applications that are used to authenticate to services that support Microsoft Entra authentication.
+    - **All Applications** shows both non-Microsoft and Microsoft applications.
+1. Under **Application ID starts with**, enter the first few digits of the application ID if you know the application ID.
+1. Under **Application Visibility**, choose **Any**, or **Hidden**. The **Hidden** option shows applications that are in the tenant, but aren't visible to users.
+1. After choosing the options you want, select **Apply**.
+1. Select **Add filters** to add more options for filtering the search results. The other options include:
+   - **Application Visibility**
+   - **Created on**
+   - **Assignment required**
+   - **Is App Proxy**
+   - **Owner**
+1. To remove any of the filter options already added, select the **X** icon next to the filter option.
 
-    ![Search with a prefix](media/view-applications-portal/search-by-prefix.png)
+
+## Clean up resources
+
+If you created a test application named **Azure AD SAML Toolkit 1** that was used throughout the quickstarts, you can consider deleting it now to clean up your tenant. For more information, see [Delete an application](delete-application-portal.md).
 
 ## Next steps
 
-In this quickstart, you learned how to view the applications in your Azure AD tenant. You learned how to filter the list of applications by application type, status, and visibility. You also learned how to search for a particular application.
-
-Now that you've found the application you were looking for, you can continue to [Add more applications to your tenant](add-application-portal.md). Or, you can select the application to view or edit properties and configuration options. For example, you could configure single sign-on. 
-
+Learn how to delete an enterprise application.
 > [!div class="nextstepaction"]
-> [Configure single sign-on](configure-single-sign-on-portal.md)
-
-
+> [Delete an application](delete-application-portal.md)

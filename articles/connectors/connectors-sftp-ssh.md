@@ -1,26 +1,26 @@
 ---
-title: Connect to SFTP server with SSH - Azure Logic Apps | Microsoft Docs
-description: Automate tasks that monitor, create, manage, send, and receive files for an SFTP server by using SSH and Azure Logic Apps
+title: Connect to an SFTP server from workflows
+description: Connect to your SFTP file server from workflows using Azure Logic Apps.
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: divswa, LADocs
-ms.topic: article
-tags: connectors
-ms.date: 01/15/2019
+ms.reviewer: estfan, azla
+ms.topic: how-to
+ms.date: 08/01/2023
 ---
 
-# Monitor, create, and manage SFTP files by using SSH and Azure Logic Apps
+# Connect to an SFTP file server from workflows in Azure Logic Apps
 
-To automate tasks that monitor, create, send, and receive files on a 
-[Secure File Transfer Protocol (SFTP)](https://www.ssh.com/ssh/sftp/) 
-server by using the [Secure Shell (SSH)](https://www.ssh.com/ssh/protocol/) 
-protocol, you can build and automate integration workflows by using 
-Azure Logic Apps and the SFTP-SSH connector. SFTP is a network protocol 
-that provides file access, file transfer, and file management over 
-any reliable data stream. Here are some example tasks you can automate: 
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
+
+This how-to guide shows how to access your [SSH File Transfer Protocol (SFTP)](https://www.ssh.com/ssh/sftp/) server from a workflow in Azure Logic Apps. SFTP is a network protocol that provides file access, file transfer, and file management over any reliable data stream and uses the [Secure Shell (SSH)](https://www.ssh.com/ssh/protocol/) protocol.
+
+In Consumption logic app workflows, you can use the **SFTP-SSH** *managed* connector, while in Standard logic app workflows, you can use the **SFTP** built-in connector or the **SFTP-SSH** managed connector. You can use these connector operations to create automated workflows that run when triggered by events in your SFTP server or in other systems and run actions to manage files on your SFTP server. Both the managed and built-in connectors use the SSH protocol.
+
+> [!NOTE]
+>
+> The [**SFTP** *managed* connector](/connectors/sftp/) has been deprecated, so this connector's operations no longer appear in the workflow designer.
+
+For example, your workflow can start with an SFTP trigger that monitors and responds to events on your SFTP server. The trigger makes the outputs available to subsequent actions in your workflow. Your workflow can run SFTP actions that get, create, and manage files through your SFTP server account. The following list includes more example tasks:
 
 * Monitor when files are added or changed.
 * Get, create, copy, rename, update, list, and delete files.
@@ -28,258 +28,166 @@ any reliable data stream. Here are some example tasks you can automate:
 * Get file content and metadata.
 * Extract archives to folders.
 
-You can use triggers that monitor events on your SFTP server 
-and make output available to other actions. You can use 
-actions that perform various tasks on your SFTP server. 
-You can also have other actions in your logic app use the 
-output from SFTP actions. For example, if you regularly 
-retrieve files from your SFTP server, you can send email 
-alerts about those files and their content by using the 
-Office 365 Outlook connector or Outlook.com connector.
-If you're new to logic apps, review 
-[What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+The following steps use the Azure portal, but with the appropriate Azure Logic Apps extension, you can also use the following tools to create and edit logic app workflows:
 
-## Limits
+* Consumption logic app workflows: [Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) or [Visual Studio Code](../logic-apps/quickstart-create-logic-apps-visual-studio-code.md)
 
-* SFTP-SSH actions can read or write files that are *1 GB or smaller* 
-by managing data as *15 MB pieces*, not 1 GB pieces.
+* Standard logic app workflows: [Visual Studio Code](../logic-apps/create-single-tenant-workflows-visual-studio-code.md)
 
-* For files *larger than 1 GB*, actions can use 
-[message chunking](../logic-apps/logic-apps-handle-large-messages.md). 
-Currently, SFTP-SSH triggers don't support chunking.
+## Connector technical reference
 
-For more differences, review [Compare SFTP-SSH versus SFTP](#comparison) 
-later in the next section.
+The SFTP connector has different versions, based on [logic app type and host environment](../logic-apps/logic-apps-overview.md#resource-environment-differences).
 
-<a name="comparison"></a>
+| Logic app type (plan) | Environment | Connector version |
+|------------------------|-------------|-------------------|
+| **Consumption** | Multi-tenant Azure Logic Apps | Managed connector, which appears in the designer under the **Standard** label. For more information, review the following documentation: <br><br>- [SFTP-SSH managed connector reference](/connectors/sftpwithssh/) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
+| **Consumption** | Integration service environment (ISE) | Managed connector, which appears in the designer under the **Standard** label, and the ISE version, which appears in the designer with the **ISE** label and has different message limits than the managed connector. For more information, review the following documentation: <br><br>- [SFTP-SSH managed connector reference](/connectors/sftpwithssh/) <br>- [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
+| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector, which appears in the connector gallery under **Runtime** > **Shared**, and the built-in connector, which appears in the connector gallery under **Runtime** > **In-App** and is [service provider-based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in connector can directly connect to an SFTP server and access Azure virtual networks by using a connection string without an on-premises data gateway. For more information, review the following documentation: <br><br>- [SFTP-SSH managed connector reference](/connectors/sftpwithssh/) <br>- [SFTP built-in connector reference](/azure/logic-apps/connectors/built-in/reference/sftp/) <br><br>- [Managed connectors in Azure Logic Apps](managed.md) <br>- [Built-in connectors in Azure Logic Apps](built-in.md) |
 
-## Compare SFTP-SSH versus SFTP
+## General limitations
 
-Here are other key differences between the SFTP-SSH connector and the 
-SFTP connector where the SFTP-SSH connector has these capabilities:
+* Before you use the SFTP-SSH managed connector, review the known issues and limitations in the [SFTP-SSH managed connector reference](/connectors/sftpwithssh/).
 
-* Uses the [SSH.NET library](https://github.com/sshnet/SSH.NET), 
-which is an open-source Secure Shell (SSH) library that supports .NET.
+* Before you use the SFTP built-in connector, review the known issues and limitations in the [SFTP built-in connector reference](/azure/logic-apps/connectors/built-in/reference/sftp/).
 
-  > [!NOTE]
-  >
-  > The SFTP-SSH connector supports *only* these private keys, 
-  > formats, algorithms, and fingerprints:
-  >
-  > * **Private key formats**: RSA (Rivest Shamir Adleman) and 
-  > DSA (Digital Signature Algorithm) keys in both OpenSSH and ssh.com formats
-  > * **Encryption algorithms**: DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, 
-  > AES-128-CBC, AES-192-CBC, and AES-256-CBC
-  > * **Fingerprint**: MD5
+<a name="known-issues"></a>
 
-* Actions can read or write files *up to 1 GB* compared to 
-the SFTP connector, but handles data in 15 MB pieces, 
-not 1 GB pieces. For files larger than 1 GB, actions 
-can also use [message chunking](../logic-apps/logic-apps-handle-large-messages.md). 
-Currently, SFTP-SSH triggers don't support chunking.
+## Known issues
 
-* Provides the **Create folder** action, which creates 
-a folder at the specified path on the SFTP server.
+[!INCLUDE [Managed connector trigger "Split On" setting issue](../../includes/connectors-managed-trigger-split-on.md)]
 
-* Provides the **Rename file** action, 
-which renames a file on the SFTP server.
+## Chunking
 
-* Caches the connection to SFTP server *for up to 1 hour*, which improves 
-performance and reduces the number of attempts at connecting to the server. 
-To set the duration for this caching behavior, edit the 
-<a href="https://man.openbsd.org/sshd_config#ClientAliveInterval" target="_blank">**ClientAliveInterval**</a> 
-property in the SSH configuration on your SFTP server.
+For more information about how the SFTP-SSH managed connector can handle large files exceeding default size limits, see [SFTP-SSH managed connector reference - Chunking](/connectors/sftpwithssh/#chunking).
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Your SFTP server address and account credentials, 
-which let your logic app access your SFTP account. 
-You also need access to an SSH private key and the 
-SSH private key password. 
+* Connection and authentication information to access your SFTP server, such as the server address, account credentials, access to an SSH private key, and the SSH private key password. For more information, see [SFTP-SSH managed connector reference - Authentication and permissions](/connectors/sftpwithssh/#authentication-and-permissions).
 
   > [!IMPORTANT]
   >
-  > The SFTP-SSH connector supports *only* these private 
-  > key formats, algorithms, and fingerprints:
-  > 
-  > * **Private key formats**: RSA (Rivest Shamir Adleman) and 
-  > DSA (Digital Signature Algorithm) keys in both OpenSSH and ssh.com formats
-  > * **Encryption algorithms**: DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, 
-  > AES-128-CBC, AES-192-CBC, and AES-256-CBC
-  > * **Fingerprint**: MD5
-  >
-  > When you're creating your logic app, after you add 
-  > the SFTP-SSH trigger or action you want, you'll need 
-  > to provide connection information for your SFTP server. 
-  > If you're using an SSH private key, make sure you 
-  > ***copy*** the key from your SSH private key file, 
-  > and ***paste*** that key into the connection details, 
-  > ***Don't manually enter or edit the key***, 
-  > which might cause the connection to fail. 
-  > For more information, see the later steps in this article.
+  > When you create your connection and enter your SSH private key in the **SSH private key** property, make sure to 
+  > [follow the steps for providing the complete and correct value for this property](/connectors/sftpwithssh/#authentication-and-permissions). 
+  > Otherwise, a non-valid key causes the connection to fail.
 
-* Basic knowledge about 
-[how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* The logic app workflow where you want to access your SFTP account. To start with an SFTP-SSH trigger, you have to start with a blank workflow. To use an SFTP-SSH action, start your workflow with another trigger, such as the **Recurrence** trigger.
 
-* The logic app where you want to access your SFTP account. 
-To start with an SFTP-SSH trigger, 
-[create a blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
-To use an SFTP-SSH action, start your logic app with another trigger, 
-for example, the **Recurrence** trigger.
+<a name="add-sftp-trigger"></a>
 
-## Connect to SFTP with SSH
+## Add an SFTP trigger
 
-[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
+### [Consumption](#tab/consumption)
 
-1. Sign in to the [Azure portal](https://portal.azure.com), 
-and open your logic app in Logic App Designer, if not open already.
+1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app with blank workflow in the designer.
 
-1. For blank logic apps, in the search box, 
-enter "sftp ssh" as your filter. Under the triggers list, 
-select the trigger you want. 
+1. In the designer, [follow these general steps to add the SFTP-SSH trigger that you want](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=consumption#add-trigger).
 
-   -or-
+1. If prompted, provide the necessary [connection information](/connectors/sftpwithssh/#creating-a-connection). When you're done, select **Create**.
 
-   For existing logic apps, under the last step where 
-   you want to add an action, choose **New step**. 
-   In the search box, enter "sftp ssh" as your filter. 
-   Under the actions list, select the action you want.
+1. After the trigger information box appears, provide the necessary details for your selected trigger. For more information, see  [SFTP-SSH managed connector triggers reference](/connectors/sftpwithssh/#triggers).
 
-   To add an action between steps, 
-   move your pointer over the arrow between steps. 
-   Choose the plus sign (**+**) that appears, 
-   and then select **Add an action**.
+1. When you're done, save your workflow. On the designer toolbar, select **Save**.
 
-1. Provide the necessary details for your connection.
+### [Standard](#tab/standard)
 
-   > [!IMPORTANT] 
-   >
-   > When you enter your SSH private key in the 
-   > **SSH private key** property, follow these 
-   > additional steps, which help make sure you provide 
-   > the complete and correct value for this property. 
-   > An invalid key causes the connection to fail.
-   
-   Although you can use any text editor, here are sample 
-   steps that show how to correctly copy and paste your key 
-   by using Notepad.exe as an example.
-    
-   1. Open your SSH private key file in a text editor. 
-   These steps use Notepad as the example.
+<a name="built-in-connector-trigger"></a>
 
-   1. On Notepad's **Edit** menu, select **Select All**.
+#### Built-in connector trigger
 
-   1. Select **Edit** > **Copy**.
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app with blank workflow in the designer.
 
-   1. In the SFTP-SSH trigger or action you added, 
-   paste the *complete* key you copied into the 
-   **SSH private key** property, which supports multiple lines. 
-  ***Make sure you paste*** the key. ***Don't manually 
-  enter or edit the key***.
+1. In the designer, [follow these general steps to add the SFTP-SSH built-in trigger that you want](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
 
-1. When you're done entering the connection details, 
-choose **Create**.
+1. If prompted, provide the necessary [connection information](/azure/logic-apps/connectors/built-in/reference/sftp/#authentication). When you're done, select **Create**.
 
-1. Now provide the necessary details for your selected trigger 
-or action and continue building your logic app's workflow.
+1. After the trigger information box appears, provide the necessary details for your selected trigger. For more information, see [SFTP built-in connector triggers reference](/azure/logic-apps/connectors/built-in/reference/sftp/#triggers).
 
-## Trigger limits
+1. When you're done, save your workflow. On the designer toolbar, select **Save**.
 
-The SFTP-SSH triggers work by polling the SFTP file system 
-and looking for any file that was changed since the last poll. 
-Some tools let you preserve the timestamp when the files change. 
-In these cases, you have to disable this feature so your trigger 
-can work. Here are some common settings:
+<a name="managed-connector-trigger"></a>
 
-| SFTP client | Action | 
-|-------------|--------| 
-| Winscp | Go to **Options** > **Preferences** > **Transfer** > **Edit** > **Preserve timestamp** > **Disable** |
-| FileZilla | Go to **Transfer** > **Preserve timestamps of transferred files** > **Disable** | 
-||| 
+#### Managed connector trigger
 
-When a trigger finds a new file, the trigger checks that the new file is complete, 
-and not partially written. For example, a file might have changes in progress when 
-the trigger checks the file server. To avoid returning a partially written file, 
-the trigger notes the timestamp for the file that has recent changes, but doesn't 
-immediately return that file. The trigger returns the file only when polling the 
-server again. Sometimes, this behavior might cause a delay that is up to twice 
-the trigger's polling interval. 
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app with blank workflow in the designer.
 
-When requesting file content, triggers don't get files 
-larger than 15 MB. To get files larger than 15 MB, 
-follow this pattern: 
+1. In the designer, [follow these general steps to add the SFTP-SSH managed trigger that you want](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
 
-* Use a trigger that returns file properties, 
-such as **When a file is added or modified (properties only)**.
+1. If prompted, provide the necessary [connection information](/connectors/sftpwithssh/#creating-a-connection). When you're done, select **Create**.
 
-* Follow the trigger with an action that reads the complete file, 
-such as **Get file content using path**, and have the action use 
-[message chunking](../logic-apps/logic-apps-handle-large-messages.md).
+1. After the trigger information box appears, provide the necessary details for your selected trigger. For more information, see  [SFTP-SSH managed connector triggers reference](/connectors/sftpwithssh/#triggers).
 
-## Examples
+1. When you're done, save your workflow. On the designer toolbar, select **Save**.
 
-<a name="file-added-modified"></a>
+---
 
-### SFTP - SSH trigger: When a file is added or modified
+When you save your workflow, this step automatically publishes your updates to your deployed logic app, which is live in Azure. With only a trigger, your workflow just checks the FTP server based on your specified schedule. You have to [add an action](#add-sftp-action) that responds to the trigger and does something with the trigger outputs.
 
-This trigger starts a logic app workflow when a file is added 
-or changed on an SFTP server. For example, you can add a condition 
-that checks the file's content and gets the content 
-based on whether the content meets a specified condition. 
-You can then add an action that gets the file's content, 
-and puts that content in a folder on the SFTP server. 
+For example, the trigger named **When a file is added or modified** starts a workflow when a file is added or changed on an SFTP server. As a subsequent action, you can add a condition that checks whether the file content meets your specified criteria. If the content meets the condition, use the action named **Get file content** to get the file content, and then use another action to put that file content into a different folder on the SFTP server.
 
-**Enterprise example**: You can use this trigger to monitor 
-an SFTP folder for new files that represent customer orders. 
-You can then use an SFTP action such as **Get file content** 
-so you get the order's contents for further processing 
-and store that order in an orders database.
+<a name="add-sftp-action"></a>
 
-When requesting file content, triggers don't get files 
-larger than 15 MB. To get files larger than 15 MB, 
-follow this pattern: 
+## Add an SFTP action
 
-* Use a trigger that returns file properties, 
-such as **When a file is added or modified (properties only)**.
+Before you can use an SFTP action, your workflow must already start with a trigger, which can be any kind that you choose. For example, you can use the generic **Recurrence** built-in trigger to start your workflow on specific schedule.
 
-* Follow the trigger with an action that reads the complete file, 
-such as **Get file content using path**, and have the action use 
-[message chunking](../logic-apps/logic-apps-handle-large-messages.md).
+### [Consumption](#tab/consumption)
 
-<a name="get-content"></a>
+1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app with workflow in the designer.
 
-### SFTP - SSH action: Get content using path
+1. In the designer, [follow these general steps to add the SFTP-SSH action that you want](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
-This action gets the content from a file on an SFTP server. 
-So for example, you can add the trigger from the previous 
-example and a condition that the file's content must meet. 
-If the condition is true, the action that gets the content can run. 
+1. If prompted, provide the necessary [connection information](/connectors/sftpwithssh/#creating-a-connection). When you're done, select **Create**.
 
-When requesting file content, triggers don't get files 
-larger than 15 MB. To get files larger than 15 MB, 
-follow this pattern: 
+1. After the action information box appears, provide the necessary details for your selected action. For more information, see [SFTP-SSH managed connector actions reference](/connectors/sftpwithssh/#actions).
 
-* Use a trigger that returns file properties, 
-such as **When a file is added or modified (properties only)**.
+1. When you're done, save your workflow. On the designer toolbar, select **Save**.
 
-* Follow the trigger with an action that reads the complete file, 
-such as **Get file content using path**, and have the action use 
-[message chunking](../logic-apps/logic-apps-handle-large-messages.md).
+### [Standard](#tab/standard)
 
-## Connector reference
+<a name="built-in-connector-action"></a>
 
-For technical details about triggers, actions, and limits, which are 
-described by the connector's OpenAPI (formerly Swagger) description, 
-review the connector's [reference page](/connectors/sftpconnector/).
+#### Built-in connector action
 
-## Get support
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app with workflow in the designer.
 
-* For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](https://aka.ms/logicapps-wish).
+1. In the designer, [follow these general steps to add the SFTP-SSH built-in action that you want](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
+
+1. If prompted, provide the necessary [connection information](/connectors/sftpwithssh/#creating-a-connection). When you're done, select **Create**.
+
+1. After the action information box appears, provide the necessary details for your selected action. For more information, see [SFTP built-in connector actions reference](/azure/logic-apps/connectors/built-in/reference/sftp/#actions).
+
+1. When you're done, save your workflow. On the designer toolbar, select **Save**.
+
+<a name="managed-connector-action"></a>
+
+#### Managed connector action
+
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app with workflow in the designer.
+
+1. In the designer, [follow these general steps to add the SFTP-SSH managed action that you want](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
+
+1. If prompted, provide the necessary [connection information](/connectors/sftpwithssh/#creating-a-connection). When you're done, select **Create**.
+
+1. After the action information box appears, provide the necessary details for your selected action. For more information, see [SFTP-SSH managed connector actions reference](/connectors/sftpwithssh/#actions).
+
+1. When you're done, save your workflow. On the designer toolbar, select **Save**.
+
+---
+
+For example, the action named **Get file content using path** gets the content from a file on an SFTP server by specifying the file path. You can use the trigger from the previous example and a condition that the file content must meet. If the condition is true, a subsequent action can get the content.
+
+---
+
+## Troubleshooting
+
+For more information, see the following documentation: 
+
+- [SFTP-SSH managed connector reference - Troubleshooting](/connectors/sftpwithssh/#troubleshooting)
+- [SFTP built-in connector reference - Troubleshooting](/azure/logic-apps/connectors/built-in/reference/sftp#troubleshooting)
 
 ## Next steps
 
-* Learn about other [Logic Apps connectors](../connectors/apis-list.md)
+* [Managed connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
+* [Built-in connectors for Azure Logic Apps](../connectors/built-in.md)

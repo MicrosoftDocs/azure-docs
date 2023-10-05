@@ -1,0 +1,205 @@
+### YamlMime:FAQ
+metadata:
+  title: Frequently asked questions for Azure Red Hat OpenShift
+  description: Here are answers to common questions about Microsoft Azure Red Hat OpenShift
+  author: johnmarco
+  ms.author: johnmarc
+  ms.service: azure-redhat-openshift
+  ms.topic: faq
+  ms.date: 06/04/2023
+title: Azure Red Hat OpenShift FAQ
+summary: This article answers frequently asked questions (FAQs) about Microsoft Azure Red Hat OpenShift.
+
+sections:
+  - name: Installation and upgrade
+    questions:
+      - question: Where can I find information about pricing and service level agreements?
+        answer: |
+          For pricing information, see [Azure Red Hat OpenShift pricing](https://azure.microsoft.com/en-us/pricing/details/openshift/).
+
+          For Service Level Agreement (SLA) information, see [Service Level Agreements for online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
+
+      - question: Which Azure regions are supported?
+        answer: |
+          For a list of supported regions for Azure Red Hat OpenShift 4.x, see [Available regions](https://azure.microsoft.com/global-infrastructure/services/?products=openshift&regions=all).
+          
+      - question: What virtual machine sizes can I use?
+        answer: |
+          For a list of supported virtual machine sizes for Azure Red Hat OpenShift 4, see [Supported resources for Azure Red Hat OpenShift 4](support-policies-v4.md).
+          
+      - question: What is the maximum number of pods in an Azure Red Hat OpenShift cluster?  What is the maximum number of pods per node in Azure Red Hat OpenShift?
+        answer: |
+          The actual number of supported pods depends on an application’s memory, CPU, and storage requirements.
+          
+          Azure Red Hat OpenShift 4.x has a 250 pod-per-node limit and a 60 compute node limit. These limits cap the maximum number of pods supported in a cluster to 250&times;60 = 15,000. If the cluster is created using User Defined Routing (UDR) and runs version 4.11 or higher, the limits are 120 compute nodes and 30,000 pods.
+          
+      - question: Can a cluster have compute nodes across multiple Azure regions?
+        answer: No. All nodes in an Azure Red Hat OpenShift cluster must originate in the same Azure region.
+
+      - question: Can a cluster be deployed across multiple availability zones?
+        answer: |
+          Yes. A cluster can be deployed across multiple availability zones automatically if your cluster is deployed to an Azure region that supports availability zones. For more information, see [Availability zones](../availability-zones/az-overview.md#availability-zones).
+          
+      - question: Are control plane nodes abstracted away as they are with Azure Kubernetes Service (AKS)?
+        answer: No. All resources, including the cluster control plane nodes, run in your customer subscription. These types of resources are put in a read-only resource group.
+
+      - question: Does the cluster reside in a customer subscription? 
+        answer: The Azure Managed Application lives in a locked Resource Group with the customer subscription. Customers can view objects in that resource group but not modify them.
+
+      - question: Is there any element in Azure Red Hat OpenShift shared with other customers? Or is everything independent?
+        answer: Each Azure Red Hat OpenShift cluster is dedicated to a given customer and lives within the customer's subscription. 
+
+      - question: Are infrastructure nodes available?
+        answer: |
+          Yes, ARO allows you to use infrastructure machine sets to create machines that only host infrastructure components, such as the default router, the integrated container registry, and the components for cluster metrics and monitoring. See [Deploy infrastructure nodes in an ARO cluster](howto-infrastructure-nodes.md) to learn more.
+          
+          ## How do I handle cluster upgrades?
+          
+          For information on upgrades, maintenance, and supported versions, see the [support lifecycle guide](support-lifecycle.md).
+          
+      - question: How will the host operating system and OpenShift software be updated?
+        answer: The host operating systems and OpenShift software are updated as Azure Red Hat OpenShift consumes minor release versions and patches from upstream OpenShift Container Platform.
+
+      - question: What’s the process to reboot the updated node?
+        answer: Nodes are rebooted as a part of an upgrade.
+
+  - name: Cluster operations
+    questions:
+      - question: Can I use Prometheus to monitor my applications?
+        answer: |
+          Prometheus comes pre-installed and configured for Azure Red Hat OpenShift 4.x clusters. Read more about [cluster monitoring](https://docs.openshift.com/container-platform/4.6/operators/operator_sdk/osdk-monitoring-prometheus.html).
+                    
+      - question: Can I use Prometheus to monitor metrics related to cluster health and capacity?
+        answer: |
+          In Azure Red Hat OpenShift 4.x: Yes.
+          
+      - question: Can logs of underlying VMs be streamed out to a customer log analysis system?
+        answer: Logs from underlying VMs are handled by the managed service and aren't exposed to customers.
+
+      - question: How can a customer get access to metrics like CPU/memory at the node level to take action to scale, debug issues, etc.? I can’t seem to run kubectl top on an Azure Red Hat OpenShift cluster.
+        answer: |
+          For Azure Red Hat OpenShift 4.x clusters, the OpenShift web console contains all metrics at the node level. For more information, see the Red Hat documentation on [viewing cluster information](https://docs.openshift.com/container-platform/4.6/web_console/using-dashboard-to-get-cluster-information.html).
+          
+      - question: If we scale up the deployment, how do Azure fault domains map into pod placement to ensure all pods for a service don't get knocked out by a failure in a single fault domain?
+        answer: |
+          There are by default five fault domains when using Virtual Machine Scale Sets in Azure. Each virtual machine instance in a scale set will get placed into one of these fault domains. This ensures that applications deployed to the compute nodes in a cluster will get placed in separate fault domains.
+          
+          For more information, see [Choosing the right number of fault domains for Virtual Machine Scale Set](../virtual-machine-scale-sets/virtual-machine-scale-sets-manage-fault-domains.md).
+          
+      - question: Is there a way to manage pod placement?
+        answer: |
+          Customers have the ability to get nodes and view labels as the customer-admin. This will provide a way to target any VM in the scale set.
+          
+          Caution must be used when using specific labels:
+          
+          - Hostname must not be used. Hostname gets rotated often with upgrades and updates and is guaranteed to change.
+          - If the customer has a request for specific labels or a deployment strategy, this could be accomplished. However, it would require engineering efforts, and it isn't supported today.
+          
+          For more information, see [Controlling pod placement](https://docs.openshift.com/container-platform/4.6/nodes/scheduling/nodes-scheduler-about.html).
+          
+      - question: Is the image registry available externally so I can use tools such as Jenkins?
+        answer: |
+          For 4.x clusters, you need to expose a secure registry and configure authentication. For more information, see the following Red Hat documentation:
+          
+          - [Exposing a registry](https://docs.openshift.com/container-platform/4.6/registry/securing-exposing-registry.html)
+          - [Accessing the registry](https://docs.openshift.com/container-platform/4.6/registry/accessing-the-registry.html)
+          
+      - question: Can I move/migrate my cluster between Azure tenants?
+        answer: Moving your ARO cluster between tenants is currently unsupported.
+
+      - question: Can I move my ARO clusters from the current Azure subscription to another?
+        answer: Moving your ARO cluster and its associated resources between subscriptions isn't supported.
+
+      - question: Can I move my ARO clusters or ARO infrastructure resources to other resource groups or rename them?
+        answer: Moving or renaming your ARO cluster and its associated resources isn't supported.
+
+  - name: Networking
+    questions:
+      - question: Can I deploy a cluster into an existing virtual network?
+        answer: |
+          In 4.x clusters, you can deploy a cluster into an existing VNet.
+          
+      - question: Is cross-namespace networking supported?
+        answer: Customer and individual project admins can customize cross-namespace networking (including denying it) on a per-project basis using `NetworkPolicy` objects.
+
+      - question: I'm trying to peer into a virtual network in a different subscription but getting Failed to get VNet CIDR error.
+        answer: |
+          In the subscription that has the virtual network, make sure to register `Microsoft.ContainerService` provider with the following command: `az provider register -n Microsoft.ContainerService --wait`
+          
+      - question: Can we specify IP ranges for deployment on the private VNet, avoiding clashes with other corporate VNets once peered?
+        answer: |
+          In 4.x clusters, you can specify your own IP ranges.
+                    
+      - question: Is the Software Defined Network module configurable?
+        answer: The Software Defined Network is `openshift-ovs-networkpolicy` and isn't configurable.
+
+      - question: What Azure Load balancer is used by Azure Red Hat OpenShift?  Is it Standard or Basic and is it configurable?
+        answer: Azure Red Hat OpenShift uses Standard Azure Load Balancer, and it isn't configurable.
+
+  - name: Permissions
+    questions:
+      - question: Can an admin manage users and quotas?
+        answer: Yes. An Azure Red Hat OpenShift administrator can manage users and quotas in addition to accessing all user created projects.
+
+      - question: Can I restrict a cluster to only certain Azure AD users?
+        answer: |
+          Yes. You can restrict which Azure AD users can sign in to a cluster by configuring the Azure AD Application. For details, see [How to: Restrict your app to a set of users](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md).
+          
+      - question: Can I restrict users from creating projects?
+        answer: |
+          Yes. Sign in to your cluster as an administrator and execute this command:
+          
+          ```
+          oc adm policy \
+              remove-cluster-role-from-group self-provisioner \
+              system:authenticated:oauth
+          ```
+          
+          For more information, see the OpenShift documentation on disabling self-provisioning for your cluster version:
+          
+          - [Disabling self-provisioning in 4.6 clusters](https://docs.openshift.com/container-platform/4.6/applications/projects/configuring-project-creation.html#disabling-project-self-provisioning_configuring-project-creation)
+          
+      - question: Which UNIX rights (in IaaS) are available for Masters/Infra/App Nodes?
+        answer: |
+          Node access is available through the cluster-admin role. For more information, see [Kubernetes RBAC overview](https://docs.openshift.com/container-platform/4.6/authentication/using-rbac.html).
+          
+      - question: Which OCP rights do we have? Cluster-admin? Project-admin?
+        answer: |
+          The cluster-admin role is available. For more information, see [Kubernetes RBAC overview](https://docs.openshift.com/container-platform/4.6/authentication/using-rbac.html).
+          
+      - question: Which identity providers are available?
+        answer: |
+          You configure your own identity provider. For more information, see the Red Hat documentation on [configuring identity providers](https://docs.openshift.com/container-platform/4.6/authentication/identity_providers/configuring-ldap-identity-provider.html).
+          
+  - name: Storage
+    questions:
+      - question: Is data on my cluster encrypted?
+        answer: |
+          By default, data is encrypted at rest. The Azure Storage platform automatically encrypts your data before persisting it, and decrypts the data before retrieval. For more information, see [Azure Storage Service Encryption for data at rest](../storage/common/storage-service-encryption.md).
+
+      - question: How are my storage accounts secured?
+        answer: |
+          Storage accounts are set to private access only. 
+
+          Storage accounts are encrypted (new clusters only). Existing clusters need to be re-created. 
+
+          Storage accounts are created with general-purpose v2 for new clusters. 
+
+          General-purpose v2 storage accounts support the latest Azure Storage features and incorporate all the functionality of general-purpose v1 and Blob storage accounts. 
+
+          Storage accounts access is limited with firewall rules via Azure network security groups (NSGs), which filter network traffic to and from your storage accounts. For more information, see [Azure network security groups overview](../virtual-network/network-security-groups-overview.md). 
+
+          Transport Layer Security (TLS) protocol version 1.2 provides secure communications, data privacy, and data integrity.     
+
+      - question: Is data stored in etcd encrypted on Azure Red Hat OpenShift?
+        answer: |
+          Data isn't encrypted by default, but you do have the option to enable encryption. For more information, see the guide on [encrypting etcd](https://docs.openshift.com/container-platform/4.6/security/encrypting-etcd.html).
+                    
+      - question: Can we choose any persistent storage solution, like OCS? 
+        answer: |
+          Azure Disk (Premium_LRS) is configured as the default storage class. For additional storage providers, and for configuration details (including Azure File), see the Red Hat documentation on [persistent storage](https://docs.openshift.com/container-platform/4.6/storage/understanding-persistent-storage.html).
+          
+          ## Does ARO store any customer data outside of the cluster's region?
+          
+          No. All data created in an ARO cluster is maintained within the cluster's region.
+          

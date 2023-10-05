@@ -1,309 +1,274 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with ADP | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and ADP.
+title: 'Tutorial: Microsoft Entra SSO integration with ADP'
+description: Learn how to configure single sign-on between Microsoft Entra ID and ADP.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-
-ms.assetid: 7be5331b-0481-48f7-9d6b-619dfec657e1
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/04/2019
+ms.date: 03/07/2023
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
-# Tutorial: Azure Active Directory integration with ADP
 
-In this tutorial, you learn how to integrate ADP with Azure Active Directory (Azure AD).
-Integrating ADP with Azure AD provides you with the following benefits:
+# Tutorial: Microsoft Entra SSO integration with ADP
 
-* You can control in Azure AD who has access to ADP.
-* You can enable your users to be automatically signed-in to ADP (Single Sign-On) with their Azure AD accounts.
-* You can manage your accounts in one central location - the Azure portal.
+In this tutorial, you'll learn how to integrate ADP with Microsoft Entra ID. When you integrate ADP with Microsoft Entra ID, you can:
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+* Control in Microsoft Entra ID who has access to ADP.
+* Enable your users to be automatically signed-in to ADP with their Microsoft Entra accounts.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
-To configure Azure AD integration with ADP, you need the following items:
+To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
-* ADP single sign-on enabled subscription
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* ADP single sign-on (SSO) enabled subscription.
+
+> [!NOTE]
+> This integration is also available to use from Microsoft Entra US Government Cloud environment. You can find this application in the Microsoft Entra US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment.
 
-* ADP supports **IDP** initiated SSO
+* ADP supports **IDP** initiated SSO.
 
-## Adding ADP from the gallery
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
-To configure the integration of ADP into Azure AD, you need to add ADP from the gallery to your list of managed SaaS apps.
+## Add ADP from the gallery
 
-**To add ADP from the gallery, perform the following steps:**
+To configure the integration of ADP into Microsoft Entra ID, you need to add ADP from the gallery to your list of managed SaaS apps.
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type **ADP** in the search box.
+1. Select **ADP** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-	![The Azure Active Directory button](common/select-azuread.png)
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
+<a name='configure-and-test-azure-ad-sso-for-adp'></a>
 
-	![The Enterprise applications blade](common/enterprise-applications.png)
+## Configure and test Microsoft Entra SSO for ADP
 
-3. To add new application, click **New application** button on the top of dialog.
+Configure and test Microsoft Entra SSO with ADP using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in ADP.
 
-	![The New application button](common/add-new-app.png)
+To configure and test Microsoft Entra SSO with ADP, perform the following steps:
 
-4. In the search box, type **ADP**, select **ADP** from result panel then click **Add** button to add the application.
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
+2. **[Configure ADP SSO](#configure-adp-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create ADP test user](#create-adp-test-user)** - to have a counterpart of B.Simon in ADP that is linked to the Microsoft Entra representation of user.
+3. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-	 ![ADP in the results list](common/search-new-app.png)
+<a name='configure-azure-ad-sso'></a>
 
-## Configure and test Azure AD single sign-on
+## Configure Microsoft Entra SSO
 
-In this section, you configure and test Azure AD single sign-on with ADP based on a test user called **Britta Simon**.
-For single sign-on to work, a link relationship between an Azure AD user and the related user in ADP needs to be established.
+Follow these steps to enable Microsoft Entra SSO.
 
-To configure and test Azure AD single sign-on with ADP, you need to complete the following building blocks:
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **ADP** application integration page, click on **Properties tab** and perform the following steps: 
 
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Configure ADP Single Sign-On](#configure-adp-single-sign-on)** - to configure the Single Sign-On settings on application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create ADP test user](#create-adp-test-user)** - to have a counterpart of Britta Simon in ADP that is linked to the Azure AD representation of user.
-6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+    ![Single sign-on properties](./media/adpfederatedsso-tutorial/properties.png)
 
-### Configure Azure AD single sign-on
+    a. Set the **Enabled for users to sign-in** field value to **Yes**.
 
-In this section, you enable Azure AD single sign-on in the Azure portal.
+    b. Copy the **User access URL** and you have to paste it in **Configure Sign-on URL section**, which is explained later in the tutorial.
 
-To configure Azure AD single sign-on with ADP, perform the following steps:
+    c. Set the **User assignment required** field value to **Yes**.
 
-1. In the Azure portal, on the **ADP** application integration page, click on **Properties tab** and perform the following steps: 
+    d. Set the **Visible to users** field value to **No**.
 
-	![Single sign-on properties](./media/adpfederatedsso-tutorial/tutorial_adp_prop.png)
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **ADP** application integration page, find the **Manage** section and select **Single sign-on**.
+1. On the **Select a Single sign-on method** page, select **SAML**.
+1. On the **Set up Single Sign-On with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-	a. Set the **Enabled for users to sign-in** field value to **Yes**.
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-	b. Copy the **User access URL** and you have to paste it in **Configure Sign-on URL section**, which is explained later in the tutorial.
+1. On the **Basic SAML Configuration** section, perform the following steps:
 
-	c. Set the **User assignment required** field value to **Yes**.
-
-	d. Set the **Visible to users** field value to **No**.
-
-2. In the [Azure portal](https://portal.azure.com/), on the **ADP** application integration page, select **Single sign-on**.
-
-    ![Configure single sign-on link](common/select-sso.png)
-
-3. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
-
-    ![Single sign-on select mode](common/select-saml-option.png)
-
-4. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
-
-	![Edit Basic SAML Configuration](common/edit-urls.png)
-
-5. On the **Basic SAML Configuration** section, perform the following steps:
-
-    ![ADP Domain and URLs single sign-on information](common/idp-identifier.png)
-
-    In the **Identifier (Entity ID)** text box, type a URL:
+    In the **Identifier (Entity ID)** text box, type the URL:
     `https://fed.adp.com`
 
-6. ADP application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog. The claim name will always be **"PersonImmutableID"** and the value of which we shown that to map with **employeeid**. 
+1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
-	The user mapping from Azure AD to ADP will be done on the **employeeid** but you can map this to a different value based on your application settings. So please work with [ADP support team](https://www.adp.com/contact-us/overview.aspx) first to use the correct identifier of a user and map that value with the **"PersonImmutableID"** claim.
+    ![The Certificate download link](common/metadataxml.png)
 
-	![image](common/edit-attribute.png)
+1. On the **Set up ADP** section, copy the appropriate URL(s) based on your requirement.
 
-7. In the **User Claims** section on the **User Attributes** dialog, edit the claims by using **Edit icon** or add the claims by using **Add new claim** to configure SAML token attribute as shown in the image above and perform the following steps:
-    
-	| Name | Source Attribute | 
-	| ---------------| --------------- |
-	| PersonImmutableID  | user.employeeid |
+    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
-	a. Click **Add new claim** to open the **Manage user claims** dialog.
+<a name='create-an-azure-ad-test-user'></a>
 
-	![image](common/new-save-attribute.png)
+### Create a Microsoft Entra test user
 
-	![image](common/new-attribute-details.png)
+In this section, you'll create a test user called B.Simon.
 
-	b. In the **Name** textbox, type the attribute name shown for that row.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Select **Review + create**.
+1. Select **Create**.
 
-	c. Leave the **Namespace** blank.
+<a name='assign-the-azure-ad-test-user'></a>
 
-	d. Select Source as **Attribute**.
+### Assign the Microsoft Entra test user
 
-	e. From the **Source attribute** list, type the attribute value shown for that row.
+In this section, you'll enable B.Simon to use single sign-on by granting access to ADP.
 
-	f. Click **Ok**
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **ADP**.
+1. In the app's overview page, select **Users and groups**.
+1. Select **Add user/group**, then select **Users and groups** in the **Add Assignment** dialog.
+   1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+   1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+   1. In the **Add Assignment** dialog, click the **Assign** button.
 
-	g. Click **Save**.
+## Configure ADP SSO
 
-	> [!NOTE] 
-	> Before you can configure the SAML assertion, you need to contact your [ADP  support team](https://www.adp.com/contact-us/overview.aspx) and request the value of the unique user identifier attribute for your tenant. You need this value to configure the custom claim for your application. 
 
-8. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
-	![The Certificate download link](common/metadataxml.png)
 
-### Configure ADP Single Sign-On
+1. In a different web browser window, sign in to your up ADP company site as an administrator
 
-To configure single sign-on on **ADP** side, you need to upload the downloaded **Metadata XML** on the [ADP website](https://adpfedsso.adp.com/public/login/index.fcc).
+1. Click **Federation Setup** and go to **Identity Provider** then, select the **Microsoft Azure**.
 
-> [!NOTE]  
-> This process may take a few days.
+	![Screenshot for identity provider.](./media/adpfederatedsso-tutorial/microsoft-azure.png)
+
+1. In the **Services Selection**, select all applicable service(s) for connection, and then click **Next**.
+
+    ![Screenshot for services selection.](./media/adpfederatedsso-tutorial/services.png)
+
+1. In the **Configure** section, click on the **Next**.
+
+1. In the **Upload Metadata**, click **Browse** to upload the metadata XML file which you have downloaded and click **UPLOAD**.
+
+    ![Screenshot for uploading metadata.](./media/adpfederatedsso-tutorial/metadata.png)
 
 ### Configure your ADP service(s) for federated access
 
->[!Important]
+> [!Important]
 > Your employees who require federated access to your ADP services must be assigned to the ADP service app and subsequently, users must be reassigned to the specific ADP service.
 Upon receipt of confirmation from your ADP representative, configure your ADP service(s) and assign/manage users to control user access to the specific ADP service.
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type **ADP** in the search box.
+1. Select **ADP** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-	![The Azure Active Directory button](common/select-azuread.png)
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
+1. Select the **ADP** application integration page, click on **Properties tab** and perform the following steps:  
 
-	![The Enterprise applications blade](common/enterprise-applications.png)
+    ![Single sign-on linked properties tab](./media/adpfederatedsso-tutorial/application.png)
 
-3. To add new application, click **New application** button on the top of dialog.
+    1. Set the **Enabled for users to sign-in** field value to **Yes**.
 
-	![The New application button](common/add-new-app.png)
+    1. Set the **User assignment required** field value to **Yes**.
 
-4. In the search box, type **ADP**, select **ADP** from result panel then click **Add** button to add the application.
+    1. Set the **Visible to users** field value to **Yes**.
 
-	 ![ADP in the results list](common/search-new-app.png)
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **ADP** application integration page, find the **Manage** section and select **Single sign-on**.
 
-5. In the Azure portal, on your **ADP** application integration page, click on **Properties tab** and perform the following steps:  
+1. On the **Select a Single sign-on method** dialog, select **Mode** as **Linked**. to link your application to **ADP**.
 
-	![Single sign-on linked properties](./media/adpfederatedsso-tutorial/tutorial_adp_linkedproperties.png)
+    ![Single sign-on linked](./media/adpfederatedsso-tutorial/linked.png)
 
-	a.	Set the **Enabled for users to sign-in** field value to **Yes**.
+1. Navigate to the **Configure Sign-on URL** section, perform the following steps:
 
-	b.	Set the **User assignment required** field value to **Yes**.
+    ![Configure Single sign-on](./media/adpfederatedsso-tutorial/users.png)
 
-	c.	Set the **Visible to users** field value to **Yes**.
+    1. Paste the **User access URL**, which you have copied from above **properties tab** (from the main ADP app).
 
-6. In the [Azure portal](https://portal.azure.com/), on the **ADP** application integration page, select **Single sign-on**.
+    1. Following are the 5 apps that support different **Relay State URLs**. You have to append the appropriate **Relay State URL** value for particular application manually to the **User access URL**.
 
-    ![Configure single sign-on link](common/select-sso.png)
+        * **ADP Workforce Now**
 
-7. On the **Select a Single sign-on method** dialog, select **Mode** as	**Linked**. to link your application to **ADP**.
+            `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?WFN`
 
-    ![Single sign-on linked](./media/adpfederatedsso-tutorial/tutorial_adp_linked.png)
+        * **ADP Workforce Now Enhanced Time**
 
-8. Navigate to the **Configure Sign-on URL** section, perform the following steps:
+            `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?EETDC2`
 
-    ![Single sign-on prop](./media/adpfederatedsso-tutorial/tutorial_adp_linkedsignon.png)
+        * **ADP Vantage HCM**
 
-    a. Paste the **User access URL**, which you have copied from above **properties tab** (from the main ADP app).
-                                                             
-	b. Following are the 5 apps that support different **Relay State URLs**. You have to append the appropriate **Relay State URL** value for particular application manually to the **User access URL**.
-	
-	* **ADP Workforce Now**
-		
-	 	`<User access URL>?relaystate=https://fed.adp.com/saml/fedlanding.html?WFN`
+            `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?ADPVANTAGE`
 
-	* **ADP Workforce Now Enhanced Time**
-		
-	 	`<User access URL>?relaystate=https://fed.adp.com/saml/fedlanding.html?EETDC2`
-	
-	* **ADP Vantage HCM**
-		
-	 	`<User access URL>?relaystate=https://fed.adp.com/saml/fedlanding.html?ADPVANTAGE`
+        * **ADP Enterprise HR**
 
-	* **ADP Enterprise HR**
+            `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?PORTAL`
 
-	 	`<User access URL>?relaystate=https://fed.adp.com/saml/fedlanding.html?PORTAL`
+        * **MyADP**
 
-	* **MyADP**
+            `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?REDBOX`
 
-	 	`<User access URL>?relaystate=https://fed.adp.com/saml/fedlanding.html?REDBOX`
+1. **Save** your changes.
 
-9. **Save** your changes.
+1. Upon receipt of confirmation from your ADP representative, begin test with one or two users.
 
-10. Upon receipt of confirmation from your ADP representative, begin test with one or two users.
+    1. Assign few users to the ADP service App to test federated access.
 
-	a. Assign few users to the ADP service App to test federated access.
+    1. Test is successful when users access the ADP service app on the gallery and can access their ADP service.
 
-    b. Test is successful when users access the ADP service app on the gallery and can access their ADP service.
- 
-11. On confirmation of a successful test, assign the federated ADP service to individual users or user groups, which is explained later in the tutorial and roll it out to your employees.
- 
-### Create an Azure AD test user 
+1. On confirmation of a successful test, assign the federated ADP service to individual users or user groups, which is explained later in the tutorial and roll it out to your employees.
 
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+### Configure ADP to support multiple instances in the same tenant
 
-1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. Go to **Basic SAML Configuration** section and enter any instance specific URL in the **Identifier (Entity ID)** textbox. 
 
-    ![The "Users and groups" and "All users" links](common/users.png)
+    > [!NOTE]
+    > Please note that this can be any random value which you feel relevant for your instance.
 
-2. Select **New user** at the top of the screen.
+    ![Screenshot shows how to configure another test instance value.](./media/adpfederatedsso-tutorial/append.png "Test")
 
-    ![New user Button](common/new-user.png)
+1. To support multiple instances in the same tenant, please follow the below steps:
 
-3. In the User properties, perform the following steps.
+    ![Screenshot shows how to configure audience claim value.](./media/adpfederatedsso-tutorial/audience.png "Claim")
 
-    ![The User dialog box](common/user-properties.png)
+    1. Navigate to **Attributes & Claims** section > **Advanced settings** > **Advanced SAML claims options** and click **Edit**.
 
-    a. In the **Name** field enter **BrittaSimon**.
-  
-    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
-    For example, BrittaSimon@contoso.com
+    1. Enable **Append application ID to issuer** checkbox.
 
-    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
+    1. Enable **Override audience claim** checkbox.
 
-    d. Click **Create**.
+    1. In the **Audience claim value** textbox, enter `https://fed.adp.com` and click **Save**.
 
-### Assign the Azure AD test user
+1. Navigate to **Properties** tab under Manage section and copy **Application ID**.
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to ADP.
+    ![Screenshot shows how to copy application value from properties tab.](./media/adpfederatedsso-tutorial/app.png "Tab")
 
-1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **ADP**.
+1. Download and open the **Federation Metadata XML** file and edit the **entityID** value by adding **Application ID** manually at the end.
 
-	![Enterprise applications blade](common/enterprise-applications.png)
-
-2. In the applications list, type and select **ADP**.
-
-	![The ADP link in the Applications list](common/all-applications.png)
-
-3. In the menu on the left, select **Users and groups**.
-
-    ![The "Users and groups" link](common/users-groups-blade.png)
-
-4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
-
-    ![The Add Assignment pane](common/add-assign-user.png)
-
-5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
-
-6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
-
-7. In the **Add Assignment** dialog click the **Assign** button.
+    ![Screenshot shows how to add the application value in the federation file.](./media/adpfederatedsso-tutorial/federation.png "File")
+    
+1. **Save** the xml file and use in the ADP side.
 
 ### Create ADP test user
 
-The objective of this section is to create a user called Britta Simon in ADP. Work with [ADP support team](https://www.adp.com/contact-us/overview.aspx) to add the users in the ADP account. 
+The objective of this section is to create a user called B.Simon in ADP. Work with [ADP support team](https://www.adp.com/contact-us/overview.aspx) to add the users in the ADP account. 
 
-### Test single sign-on 
+## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+In this section, you test your Microsoft Entra single sign-on configuration with following options.
 
-When you click the ADP tile in the Access Panel, you should be automatically signed in to the ADP for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Click on **Test this application**, and you should be automatically signed in to the ADP for which you set up the SSO.
 
-## Additional Resources
+* You can use Microsoft My Apps. When you click the ADP tile in the My Apps, you should be automatically signed in to the ADP for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+## Next steps
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+Once you configure ADP you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

@@ -1,129 +1,111 @@
 ---
-title: Use SSH keys with Windows for Linux VMs | Microsoft Docs
-description: Learn how to generate and use SSH keys on a Windows computer to connect to a Linux virtual machine on Azure.
-services: virtual-machines-linux
-documentationcenter: ''
-author: cynthn
-manager: jeconnoc
-editor: ''
-tags: azure-service-management,azure-resource-manager
-
-ms.assetid: 2cacda3b-7949-4036-bd5d-837e8b09a9c8
-ms.service: virtual-machines-linux
+title: Use SSH keys to connect to Linux VMs
+description: Learn how to generate and use SSH keys from a Windows computer to connect to a Linux virtual machine on Azure.
+author: mattmcinnes
+ms.service: virtual-machines
+ms.collection: linux
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: na
-ms.topic: article
-ms.date: 11/26/2018
-ms.author: cynthn
-
+ms.date: 12/13/2021
+ms.topic: how-to
+ms.author: mattmcinnes
+ms.custom: devx-track-azurecli
+ms.devlang: azurecli
+ms.reviewer: jamesser
 ---
 # How to use SSH keys with Windows on Azure
 
-This article describes ways to generate and use *secure shell* (SSH) keys on a Windows computer to create and connect to a Linux virtual machine (VM) in Azure. To use SSH keys from a Linux or macOS client, see the [quick](mac-create-ssh-keys.md) or [detailed](create-ssh-keys-detailed.md) guidance.
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
-[!INCLUDE [virtual-machines-common-ssh-overview](../../../includes/virtual-machines-common-ssh-overview.md)]
+This article is for Windows users who want to [create](#create-an-ssh-key-pair) and use *secure shell* (SSH) keys to [connect](#connect-to-your-vm) to Linux virtual machines (VMs) in Azure. You can also [generate and store SSH keys in the Azure portal](../ssh-keys-portal.md) to use when creating VMs in the portal.
+
+
+To use SSH keys from a Linux or macOS client, see the [quick steps](mac-create-ssh-keys.md). For a more detailed overview of SSH, see [Detailed steps: Create and manage SSH keys for authentication to a Linux VM in Azure](create-ssh-keys-detailed.md).
+
+## Overview of SSH and keys
+
+[SSH](https://www.ssh.com/ssh/) is an encrypted connection protocol that allows secure sign-ins over unsecured connections. SSH is the default connection protocol for Linux VMs hosted in Azure. Although SSH itself provides an encrypted connection, using passwords with SSH still leaves the VM vulnerable to brute-force attacks. We recommend connecting to a VM over SSH using a public-private key pair, also known as *SSH keys*.
+
+The public-private key pair is like the lock on your front door. The lock is exposed to the **public**, anyone with the right key can open the door. The key is **private**, and only given to people you trust because it can be used to unlock the door.
+
+- The *public key* is placed on your Linux VM when you create the VM.
+
+- The *private key* remains on your local system. Protect this private key. Don't share it.
+
+When you connect to your Linux VM, the VM tests the SSH client to make sure it has the correct private key. If the client has the private key, it's granted access to the VM.
+
+Depending on your organization's security policies, you can reuse a single key pair to access multiple Azure VMs and services. You don't need a separate pair of keys for each VM.
+
+Your public key can be shared with anyone, but only you (or your local security infrastructure) should have access to your private key.
 
 [!INCLUDE [virtual-machines-common-ssh-support](../../../includes/virtual-machines-common-ssh-support.md)]
 
-## Windows packages and SSH clients
-You connect to and manage Linux VMs in Azure using an *SSH client*. Computers running Linux or macOS usually have a suite of SSH commands to generate and manage SSH keys and to make SSH connections. 
+## SSH clients
 
-Windows computers do not always have comparable SSH commands installed. Recent versions of Windows 10 provide [OpenSSH client commands](https://blogs.msdn.microsoft.com/commandline/2018/03/07/windows10v1803/) to create and manage SSH keys and make SSH connections from a command prompt. Recent Windows 10 versions also include the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/about) to run and access utilities such as an SSH client natively within a Bash shell. 
+Recent versions of Windows 10 include [OpenSSH client commands](https://blogs.msdn.microsoft.com/commandline/2018/03/07/windows10v1803/) to create and use SSH keys and make SSH connections from PowerShell or a command prompt.
 
-Other common Windows SSH clients you can install locally are included in the following packages:
+You can also use Bash in the [Azure Cloud Shell](../../cloud-shell/overview.md) to connect to your VM. You can use Cloud Shell in a [web browser](https://shell.azure.com/bash), from the [Azure portal](https://portal.azure.com), or as a terminal in Visual Studio Code using the [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account).
 
-* [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/)
-* [Git For Windows](https://git-for-windows.github.io/)
-* [MobaXterm](https://mobaxterm.mobatek.net/)
-* [Cygwin](https://cygwin.com/)
-
-You can also use the SSH utilities available in Bash in the [Azure Cloud Shell](../../cloud-shell/overview.md). 
-
-* Access Cloud Shell in your web browser at [https://shell.azure.com](https://shell.azure.com) or in the [Azure portal](https://portal.azure.com). 
-* Access Cloud Shell as a terminal from within Visual Studio Code by installing the [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account).
+You can also install the [Windows Subsystem for Linux](/windows/wsl/about) to connect to your VM over SSH and use other native Linux tools within a Bash shell.
 
 ## Create an SSH key pair
-The following sections describe two options to create an SSH key pair on Windows. You can use a shell command (`ssh-keygen`) or a GUI tool (PuTTYgen).
 
-### Create SSH keys with ssh-keygen
+The easiest way to create and manage your SSH keys is to [use the portal to create and store them](../ssh-keys-portal.md) for reuse.
 
-If you run a command shell on Windows that supports SSH client tools (or you use Azure Cloud Shell), create an SSH key pair using the `ssh-keygen` command. Type the following command, and answer the prompts. If an SSH key pair exists in the chosen location, those files are overwritten. 
+You can also create key pairs with the [Azure CLI](/cli/azure) with the [az sshkey create](/cli/azure/sshkey#az-sshkey-create) command, as described in [Generate and store SSH keys](../ssh-keys-azure-cli.md).
 
-```bash
-ssh-keygen -t rsa -b 2048
+To create an SSH key pair on your local computer using the `ssh-keygen` command from PowerShell or a command prompt, type the following command:
+
+```powershell
+ssh-keygen -m PEM -t rsa -b 2048
 ```
 
-For more background and information, see the [quick](mac-create-ssh-keys.md) or [detailed](create-ssh-keys-detailed.md) steps to create SSH keys using `ssh-keygen`.
+Enter a filename, or use the default shown in parenthesis (for example `C:\Users\username/.ssh/id_rsa`).  Enter a passphrase for the file, or leave the passphrase blank if you don't want to use a passphrase.
 
-### Create SSH keys with PuTTYgen
+## Create a VM using your key
 
-If you prefer to use a GUI-based tool to create SSH keys, you can use the PuTTYgen key generator, included with the [PuTTY download package](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). 
+To create a Linux VM that uses SSH keys for authentication, provide your SSH public key when creating the VM.
 
-To create an SSH RSA key pair with PuTTYgen:
+Using the Azure CLI, you specify the path and filename for the public key using `az vm create` and the `--ssh-key-value` parameter.
 
-1. Start PuTTYgen.
+```azurecli
+az vm create \
+   --resource-group myResourceGroup \
+   --name myVM \
+   --image Ubuntu2204\
+   --admin-username azureuser \
+   --ssh-key-value ~/.ssh/id_rsa.pub
+```
 
-2. Click **Generate**. By default PuTTYgen generates a 2048-bit SSH-2 RSA key.
+With PowerShell, use `New-AzVM` and add the SSH key to the VM configuration using`. For an example, see [Quickstart: Create a Linux virtual machine in Azure with PowerShell](quick-create-powershell.md).
 
-4. Move the mouse around in the blank area to provide randomness for the key.
-
-5. After the public key is generated, optionally enter and confirm a passphrase. You will be prompted for the passphrase when you authenticate to the VM with your private SSH key. Without a passphrase, if someone obtains your private key, they can sign in to any VM or service that uses that key. We recommend you create a passphrase. However, if you forget the passphrase, there is no way to recover it.
-
-6. The public key is displayed at the top of the window. You can copy this entire public key and then paste it into the Azure portal or an Azure Resource Manager template when you create a Linux VM. You can also select **Save public key** to save a copy to your computer:
-
-    ![Save PuTTY public key file](./media/ssh-from-windows/save-public-key.png)
-
-7. Optionally, to save the private key in PuTTy private key format (.ppk file), select **Save private key**. You will need the .ppk file later to use PuTTY to make an SSH connection to the VM.
-
-    ![Save PuTTY private key file](./media/ssh-from-windows/save-ppk-file.png)
-
-    If you want to save the private key in the OpenSSH format, the private key format used by many SSH clients, select **Conversions** > **Export OpenSSH key**.
-
-## Provide an SSH public key when deploying a VM
-
-To create a Linux VM that uses SSH keys for authentication, provide your SSH public key when creating the VM using the Azure portal or other methods.
-
-The following example shows how you would copy and paste this public key into the Azure portal when you create a Linux VM. The public key is typically then stored in the ~/.ssh/authorized_key directory on your new VM.
-
-   ![Use public key when you create a VM in the Azure portal](./media/ssh-from-windows/use-public-key-azure-portal.png)
+If you do many deployments using the portal, you might want to upload your public key to Azure, where it can be easily selected when creating a VM from the portal. For more information, see [Upload an SSH key](../ssh-keys-portal.md#upload-an-ssh-key).
 
 
 ## Connect to your VM
 
-One way to make an SSH connection to your Linux VM from Windows is to use an SSH client. This is the preferred method if you have an SSH client installed on your Windows system, or if you use the SSH tools in Bash in Azure Cloud Shell. If you prefer a GUI-based tool, you can connect with PuTTY.  
-
-### Use an SSH client
-With the public key deployed on your Azure VM, and the private key on your local system, SSH to your VM using the IP address or DNS name of your VM. Replace *azureuser* and *myvm.westus.cloudapp.azure.com* in the following command with the administrator user name and the fully qualified domain name (or IP address):
+With the public key deployed on your Azure VM, and the private key on your local system, SSH to your VM using the IP address or DNS name of your VM. Replace *azureuser* and *10.111.12.123* in the following command with the administrator user name, the IP address (or fully qualified domain name), and the path to your private key:
 
 ```bash
-ssh azureuser@myvm.westus.cloudapp.azure.com
+ssh -i ~/.ssh/id_rsa azureuser@10.111.12.123
 ```
 
-If you configured a passphrase when you created your key pair, enter the passphrase when prompted during the sign-in process.
+If you've never connected to this VM before you'll be asked to verify the hosts fingerprint. It's tempting to accept the fingerprint presented, however, this exposes you to a possible person in the middle attack. You should always validate the hosts fingerprint. You only need to do this on the first time you connect from a client. To obtain the host fingerprint via the portal, use the Run Command with the following command: `ssh-keygen -lf /etc/ssh/ssh_host_ecdsa_key.pub | awk '{print $2}'`.
+
+:::image type="content" source="media/ssh-from-windows/run-command-validate-host-fingerprint.png" alt-text="Screenshot showing using the Run Command to validate the host fingerprint.":::
+
+To run the command using CLI, use the [`az vm run-command invoke` command](/cli/azure/vm/run-command).
+
+If you configured a passphrase when you created your key pair, enter the passphrase when prompted.
 
 If the VM is using the just-in-time access policy, you need to request access before you can connect to the VM. For more information about the just-in-time policy, see [Manage virtual machine access using the just in time policy](../../security-center/security-center-just-in-time.md).
 
-### Connect with PuTTY
-
-If you installed the [PuTTY download package](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) and previously generated a PuTTY private key (.ppk) file, you can connect to a Linux VM with PuTTY.
-
-1. Start PuTTy.
-
-2. Fill in the host name or IP address of your VM from the Azure portal:
-
-    ![Open new PuTTY connection](./media/ssh-from-windows/putty-new-connection.png)
-
-3. Select the **Connection** > **SSH** > **Auth** category. Browse to and select your PuTTY private key (.ppk file):
-
-    ![Select your PuTTY private key for authentication](./media/ssh-from-windows/putty-auth-dialog.png)
-
-4. Click **Open** to connect to your VM.
 
 ## Next steps
 
-* For detailed steps, options, and advanced examples of working with SSH keys, see [Detailed steps to create SSH key pairs](create-ssh-keys-detailed.md).
+- For information about SSH keys in the Azure portal to use when creating VMs, see [Generate and store SSH keys in the Azure portal](../ssh-keys-portal.md).
 
-* You can also use PowerShell in Azure Cloud Shell to generate SSH keys and make SSH connections to Linux VMs. See the [PowerShell quickstart](../../cloud-shell/quickstart-powershell.md#ssh).
+- For information about SSH keys in the Azure CLI to use when creating VMs, see [Generate and store SSH keys with the Azure CLI](../ssh-keys-azure-cli.md).
 
-* If you have difficulty using SSH to connect to your Linux VMs, see [Troubleshoot SSH connections to an Azure Linux VM](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+- For detailed steps, options, and advanced examples of working with SSH keys, see [Detailed steps to create SSH key pairs](create-ssh-keys-detailed.md).
+
+- If you have difficulty using SSH to connect to your Linux VMs, see [Troubleshoot SSH connections to an Azure Linux VM](/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

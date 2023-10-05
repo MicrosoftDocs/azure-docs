@@ -1,0 +1,140 @@
+- name: Azure Lighthouse documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Azure Lighthouse?
+    displayName: management at scale, service providers
+    href: overview.md
+- name: Samples
+  items:
+  - name: Index
+    displayName: template, sample
+    href: ./samples/index.md
+- name: Concepts
+  items:
+  - name: Architecture
+    displayName: delegation, projection, resource, registration
+    href: ./concepts/architecture.md
+  - name: Cross-tenant management experiences
+    displayName: scenarios, supported, enhanced, services, limitations, current
+    href: ./concepts/cross-tenant-management-experience.md
+  - name: Tenants, roles, and users
+    displayName: Azure AD, Azure Active Directory
+    href: ./concepts/tenants-users-roles.md
+  - name: Managed Service offers in Azure Marketplace
+    displayName: azure marketplace, marketplace, managed service, private, plan
+    href: ./concepts/managed-services-offers.md
+  - name: Cloud Solution Provider program
+    displayName: csp, aobo, partner
+    href: ./concepts/cloud-solution-provider.md
+  - name: Enterprise scenarios
+    displayName: corporation, IT, consolidate
+    href: ./concepts/enterprise.md
+  - name: ISV scenarios
+    displayName: independent, software, vendor, saas
+    href: ./concepts/isv-scenarios.md
+  - name: Azure Lighthouse and Azure managed applications 
+    displayName: managed apps, ama
+    href: ./concepts/managed-applications.md
+  - name: Security
+    items:
+    - name: Recommended security practices
+      displayName: mfa, authentication, secure, group
+      href: ./concepts/recommended-security-practices.md
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/lighthouse-security-baseline?toc=/azure/lighthouse/toc.json
+- name: How-to guides
+  items:
+  - name: Customer actions
+    items:
+    - name: View and manage service providers 
+      displayName: customer, update, visibility, control
+      href: ./how-to/view-manage-service-providers.md
+    - name: Monitor service provider activity
+      displayName: monitor, log, customer, visibility, transparency, control
+      href: ./how-to/view-service-provider-activity.md
+  - name: Onboarding and delegation management
+    items:
+    - name: Onboard customers
+      displayName: ARM, template, delegation, authorization, resource management
+      href: ./how-to/onboard-customer.md
+    - name: Publish Managed Service offers to Azure Marketplace 
+      displayName: managed services, azure marketplace, publish, marketplace
+      href: ./how-to/publish-managed-services-offers.md
+    - name: Create eligible authorizations
+      displayName: jit, pim, elevate, elevation, just-in-time
+      href: ./how-to/create-eligible-authorizations.md
+    - name: Update delegations
+      displayName: upgrade
+      href: ./how-to/update-delegation.md
+    - name: Remove access to delegations
+      displayName: delete, undelegate
+      href: ./how-to/remove-delegation.md
+    - name: Monitor delegation changes
+      displayName: activity log
+      href: ./how-to/monitor-delegation-changes.md
+    - name: Onboard subscriptions in a management group
+      displayName: mg, policy, logic app
+      href: ./how-to/onboard-management-group.md
+  - name: View and manage customers 
+    displayName: my customers
+    href: ./how-to/view-manage-customers.md
+  - name: Link your partner ID
+    displayName: partner earned credit, pec, mpn
+    href: ./how-to/partner-earned-credit.md
+  - name: Azure service integration
+    items:
+    - name: Azure Arc integration
+      displayName: server, kubernetes, hybrid, infrastructure
+      href: ./how-to/manage-hybrid-infrastructure-arc.md
+    - name: Azure Migrate integration
+      displayName: migration, project, on-prem
+      href: ./how-to/migration-at-scale.md
+    - name: Azure Monitor integration
+      displayName: log, analytics, analyze, activity
+      href: ./how-to/monitor-at-scale.md
+    - name: Azure Policy integration
+      items:
+      - name: Deploy a policy at scale
+        displayName: storage
+        href: ./how-to/policy-at-scale.md
+      - name: Deploy a policy that can be remediated
+        displayName: deployIfNotExists, modify, managed identities, managed identity
+        href: ./how-to/deploy-policy-remediation.md
+    - name: Microsoft Sentinel integration
+      href: ./how-to/manage-sentinel-workspaces.md
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/managedservices
+  - name: Azure PowerShell
+    href: /powershell/module/az.managedservices#managed_services
+  - name: Azure SDK for .NET
+    href: /dotnet/api/Microsoft.Azure.Management.ManagedServices
+  - name: Azure SDK for .NET (NuGet)
+    href: https://www.nuget.org/packages/Microsoft.Azure.Management.ManagedServices/
+  - name: Azure SDK for Python
+    href: /python/api/azure-mgmt-managedservices
+  - name: REST
+    href: /rest/api/managedservices/
+  - name: OpenAPI
+    href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/stable/2019-09-01
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./samples/policy-reference.md
+  - name: Terraform
+    href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/lighthouse_assignment
+  - name: Ansible
+    href: https://docs.ansible.com/ansible/latest/collections/azure/azcollection/index.html#plugins-in-azure-azcollection
+- name: Resources
+  items:
+  - name: Microsoft Q&A for Azure Lighthouse
+    href: /answers/topics/azure-lighthouse.html
+  - name: Azure updates
+    href: https://azure.microsoft.com/updates/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Regional availability
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=azure-lighthouse&regions=all
+  - name: Product feedback
+    href: https://feedback.azure.com/d365community/forum/cd8dfdcb-f824-ec11-b6e6-000d3a4f0da0

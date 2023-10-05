@@ -1,62 +1,62 @@
 ---
-title: Azure AD SSPR data requirements - Azure Active Directory
-description: Data requirements for Azure AD self-service password reset and how to satisfy them
+title: Prepopulate contact information for self-service password reset
+description: Learn how to prepopulate contact information for users of Microsoft Entra self-service password reset (SSPR) so they can use the feature without completing a registration process.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
-ms.date: 07/11/2018
+ms.topic: how-to
+ms.date: 09/21/2023
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.reviewer: sahenry
+ms.author: justinha
+author: justinha
+manager: amycolannino
+ms.reviewer: tilarso
 
-ms.collection: M365-identity-device-management
+ms.collection: M365-identity-device-management 
+ms.custom: has-azure-ad-ps-ref
 ---
-# Deploy password reset without requiring end-user registration
+# Prepopulate user authentication contact information for Microsoft Entra self-service password reset (SSPR)
 
-To deploy Azure Active Directory (Azure AD) self-service password reset (SSPR), authentication data needs to be present. Some organizations have their users enter their authentication data themselves. But many organizations prefer to synchronize with data that already exists in Active Directory. The synced data is made available to Azure AD and SSPR without requiring user interaction if you:
+To use Microsoft Entra self-service password reset (SSPR), authentication information for a user must be present. Most organizations have users register their authentication data themselves while collecting information for MFA. Some organizations prefer to bootstrap this process through synchronization of authentication data that already exists in Active Directory Domain Services (AD DS). This synchronized data is made available to Microsoft Entra ID and SSPR without requiring user interaction. When users need to change or reset their password, they can do so even if they haven't previously registered their contact information.
 
-* Properly format the data in your on-premises directory.
-* Configure [Azure AD Connect by using the express settings](../hybrid/how-to-connect-install-express.md).
+You can prepopulate authentication contact information if you meet the following requirements:
 
-To work properly, phone numbers must be in the format *+CountryCode PhoneNumber*, for example, +1 4255551234.
+* You have properly formatted the data in your on-premises directory.
+* You have configured [Microsoft Entra Connect](../hybrid/connect/how-to-connect-install-express.md) for your Microsoft Entra tenant.
+
+Phone numbers must be in the format *+CountryCode PhoneNumber*, such  as *+1 4251234567*.
 
 > [!NOTE]
-> There needs to be a space between the country code and the phone number.
+> There must be a space between the country code and the phone number.
 >
-> Password reset does not support phone extensions. Even in the +1 4255551234X12345 format, extensions are removed before the call is placed.
+> Password reset doesn't support phone extensions. Even in the *+1 4251234567X12345* format, extensions are removed before the call is placed.
 
 ## Fields populated
 
-If you use the default settings in Azure AD Connect, the following mappings are made:
+If you use the default settings in Microsoft Entra Connect, the following mappings are made to populate authentication contact information for SSPR:
 
-| On-premises Active Directory | Azure AD |
-| --- | --- |
-| telephoneNumber | Office phone |
-| mobile | Mobile phone |
+| On-premises Active Directory | Microsoft Entra ID     |
+|------------------------------|--------------|
+| telephoneNumber              | Office phone |
+| mobile                       | Mobile phone |
 
-Once a user verifies their mobile phone number, the Phone field under Authentication contact info in Azure AD will also be populated with that number.
+After a user verifies their mobile phone number, the *Phone* field under **Authentication contact info** in Microsoft Entra ID is also populated with that number.
 
 ## Authentication contact info
 
-A Global Administrator can manually set the Authentication contact info for a user as displayed in the following screenshot.
+On the **Authentication methods** page for a Microsoft Entra user in the Microsoft Entra admin center, a Global Administrator can manually set the authentication contact information. You can review existing methods under the *Usable authentication methods* section, or **+Add authentication methods**, as shown in the following example screenshot:
 
-![Authentication contact info on a user in Azure AD][Contact]
+:::image type="content" source="media/howto-sspr-authenticationdata/user-authentication-contact-info.png" alt-text="Screenshot of how to manage authentication methods":::
 
-If the Phone field is populated and Mobile phone is enabled in the SSPR policy, the user will see that number on the password reset registration page and during the password reset workflow.
+The following considerations apply for this authentication contact info:
 
-The Alternate phone field is not used for password reset.
-
-If the Email field is populated and Email is enabled in the SSPR policy, the user will see that email on the password reset registration page and during the password reset workflow.
-
-If the Alternate email field is populated and Email is enabled in the SSPR policy, the user will **not** see that email on the password reset registration page, but they will see it during the password reset workflow.
+* If the *Phone* field is populated and *Mobile phone* is enabled in the SSPR policy, the user sees that number on the password reset registration page and during the password reset workflow.
+* If the *Email* field is populated and *Email* is enabled in the SSPR policy, the user sees that email on the password reset registration page and during the password reset workflow.
 
 ## Security questions and answers
 
-The security questions and answers are stored securely in your Azure AD tenant and are only accessible to users via the [SSPR registration portal](https://aka.ms/ssprsetup). Administrators can't see, set, or modify the contents of another users' questions and answers.
+The security questions and answers are stored securely in your Microsoft Entra tenant and are only accessible to users via My Security-Info's [Combined registration experience](https://aka.ms/mfasetup). Administrators can't see, set, or modify the contents of another users' questions and answers.
 
 ## What happens when a user registers
 
@@ -66,102 +66,63 @@ When a user registers, the registration page sets the following fields:
 * **Authentication Email**
 * **Security Questions and Answers**
 
-If you have provided a value for **Mobile phone** or **Alternate email**, users can immediately use those values to reset their passwords, even if they haven't registered for the service. In addition, users see those values when they register for the first time, and they can modify them if they want to. After they register successfully, these values will be persisted in the **Authentication Phone** and **Authentication Email** fields, respectively.
+If you provided a value for *Mobile phone* or *Alternate email*, users can immediately use those values to reset their passwords, even if they haven't registered for the service.
+
+Users also see those values when they register for the first time, and can modify them if they want to. After they successfully register, these values are persisted in the *Authentication Phone* and *Authentication Email* fields, respectively.
 
 ## Set and read the authentication data through PowerShell
 
 The following fields can be set through PowerShell:
 
-* **Alternate email**
-* **Mobile phone**
-* **Office phone**: Can only be set if you're not synchronizing with an on-premises directory
+* *Alternate email*
+* *Mobile phone*
+* *Office phone*
+    * Can only be set if you're not synchronizing with an on-premises directory.
 
-### Use PowerShell version 1
+You can use [Microsoft Graph PowerShell](/powershell/microsoftgraph/overview) to interact with Microsoft Entra ID, or use the [Microsoft Graph REST API for managing authentication methods](/graph/api/resources/authenticationmethods-overview).
 
-To get started, you need to [download and install the Azure AD PowerShell module](https://msdn.microsoft.com/library/azure/jj151815.aspx#bkmk_installmodule). After you have it installed, you can use the steps that follow to configure each field.
+### Use Microsoft Graph PowerShell
 
-#### Set the authentication data with PowerShell version 1
+To get started, [download and install the Microsoft Graph PowerShell module](/powershell/microsoftgraph/overview).
+
+To quickly install from recent versions of PowerShell that support `Install-Module`, run the following commands. The first line checks to see if the module is already installed:
 
 ```PowerShell
-Connect-MsolService
-
-Set-MsolUser -UserPrincipalName user@domain.com -AlternateEmailAddresses @("email@domain.com")
-Set-MsolUser -UserPrincipalName user@domain.com -MobilePhone "+1 1234567890"
-Set-MsolUser -UserPrincipalName user@domain.com -PhoneNumber "+1 1234567890"
-
-Set-MsolUser -UserPrincipalName user@domain.com -AlternateEmailAddresses @("email@domain.com") -MobilePhone "+1 1234567890" -PhoneNumber "+1 1234567890"
+Get-Module Microsoft.Graph
+Install-Module Microsoft.Graph
+Select-MgProfile -Name "beta"
+Connect-MgGraph -Scopes "User.ReadWrite.All"
 ```
 
-#### Read the authentication data with PowerShell version 1
+After the module is installed, use the following steps to configure each field.
+
+#### Set the authentication data with Microsoft Graph PowerShell
 
 ```PowerShell
-Connect-MsolService
+Connect-MgGraph -Scopes "User.ReadWrite.All"
 
-Get-MsolUser -UserPrincipalName user@domain.com | select AlternateEmailAddresses
-Get-MsolUser -UserPrincipalName user@domain.com | select MobilePhone
-Get-MsolUser -UserPrincipalName user@domain.com | select PhoneNumber
+Update-MgUser -UserId 'user@domain.com' -otherMails @("emails@domain.com")
+Update-MgUser -UserId 'user@domain.com' -mobilePhone "+1 4251234567"
+Update-MgUser -UserId 'user@domain.com' -businessPhones "+1 4252345678"
 
-Get-MsolUser | select DisplayName,UserPrincipalName,AlternateEmailAddresses,MobilePhone,PhoneNumber | Format-Table
+Update-MgUser -UserId 'user@domain.com' -otherMails @("emails@domain.com") -mobilePhone "+1 4251234567" -businessPhones "+1 4252345678"
 ```
 
-#### Read the Authentication Phone and Authentication Email options
-
-To read the **Authentication Phone** and **Authentication Email** when you use PowerShell version 1, use the following commands:
+#### Read the authentication data with Microsoft Graph PowerShell
 
 ```PowerShell
-Connect-MsolService
-Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthenticationUserDetails | select PhoneNumber
-Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthenticationUserDetails | select Email
-```
+Connect-MgGraph -Scopes "User.Read.All"
 
-### Use PowerShell version 2
+Get-MgUser -UserId 'user@domain.com' | select otherMails
+Get-MgUser -UserId 'user@domain.com' | select mobilePhone
+Get-MgUser -UserId 'user@domain.com' | select businessPhones
 
-To get started, you need to [download and install the Azure AD version 2 PowerShell module](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0). After you have it installed, you can use the steps that follow to configure each field.
-
-To quickly install from recent versions of PowerShell that support Install-Module, run the following commands. (The first line checks to see if the module is already installed.)
-
-```PowerShell
-Get-Module AzureADPreview
-Install-Module AzureADPreview
-Connect-AzureAD
-```
-
-#### Set the authentication data with PowerShell version 2
-
-```PowerShell
-Connect-AzureAD
-
-Set-AzureADUser -ObjectId user@domain.com -OtherMails @("email@domain.com")
-Set-AzureADUser -ObjectId user@domain.com -Mobile "+1 2345678901"
-Set-AzureADUser -ObjectId user@domain.com -TelephoneNumber "+1 1234567890"
-
-Set-AzureADUser -ObjectId user@domain.com -OtherMails @("emails@domain.com") -Mobile "+1 1234567890" -TelephoneNumber "+1 1234567890"
-```
-
-#### Read the authentication data with PowerShell version 2
-
-```PowerShell
-Connect-AzureAD
-
-Get-AzureADUser -ObjectID user@domain.com | select otherMails
-Get-AzureADUser -ObjectID user@domain.com | select Mobile
-Get-AzureADUser -ObjectID user@domain.com | select TelephoneNumber
-
-Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,TelephoneNumber | Format-Table
+Get-MgUser -UserId 'user@domain.com' | Select businessPhones, mobilePhone, otherMails | Format-Table
 ```
 
 ## Next steps
 
-* [How do I complete a successful rollout of SSPR?](howto-sspr-deployment.md)
-* [Reset or change your password](../user-help/active-directory-passwords-update-your-own-password.md)
-* [Register for self-service password reset](../user-help/active-directory-passwords-reset-register.md)
-* [Do you have a licensing question?](concept-sspr-licensing.md)
-* [What authentication methods are available to users?](concept-sspr-howitworks.md#authentication-methods)
-* [What are the policy options with SSPR?](concept-sspr-policy.md)
-* [What is password writeback and why do I care about it?](howto-sspr-writeback.md)
-* [How do I report on activity in SSPR?](howto-sspr-reporting.md)
-* [What are all of the options in SSPR and what do they mean?](concept-sspr-howitworks.md)
-* [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)
-* [I have a question that was not covered somewhere else](active-directory-passwords-faq.md)
+Once authentication contact information is prepopulated for users, complete the following tutorial to enable self-service password reset:
 
-[Contact]: ./media/howto-sspr-authenticationdata/user-authentication-contact-info.png "Global administrators can modify a user's authentication contact info"
+> [!div class="nextstepaction"]
+> [Enable Microsoft Entra self-service password reset](tutorial-enable-sspr.md)

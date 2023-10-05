@@ -1,28 +1,27 @@
 ---
-title: Overview of IPv6 for Azure Load Balancer
-titlesuffix: Azure Load Balancer
-description: Understanding IPv6 support for Azure Load Balancer and load-balanced VMs.
+title: Overview of IPv6 - Azure Load Balancer
+description: With this learning path, get started with IPv6 support for Azure Load Balancer and load-balanced VMs.
 services: load-balancer
-documentationcenter: na
-author: KumudD
+author: mbender-ms
 keywords: ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile, iot
 ms.service: load-balancer
-ms.devlang: na
-ms.topic: article
-ms.custom: seodec18
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 08/24/2018
-ms.author: kumud
+ms.date: 05/03/2023
+ms.author: mbender
+ms.custom: template-concept, seodec18, engagement-fy23
 ---
 
 # Overview of IPv6 for Azure Load Balancer
 
 
 >[!NOTE] 
->Azure Load Balancer supports two different types: Basic and Standard. This article discusses Basic Load Balancer. For more information about Standard Load Balancer, see [Standard Load Balancer overview](load-balancer-standard-overview.md).
+>This content has been superseded by [IPv6 for Azure VNet Overview](../virtual-network/ip-services/ipv6-overview.md). Azure recommends new IPv6 deployments use the new IPv6 for Azure Virtual Networks features.
 
-Internet-facing load balancers can be deployed with an IPv6 address. In addition to IPv4 connectivity, this enables the following capabilities:
+>[!NOTE]
+>Azure Load Balancer supports two different types: Basic and Standard. This article discusses Basic Load Balancer. For more information about Standard Load Balancer, see [Standard Load Balancer overview](./load-balancer-overview.md).
+
+Basic SKU Internet-facing load balancers can be deployed with an IPv6 address. In addition to IPv4 connectivity, this enables the following capabilities:
 
 * Native end-to-end IPv6 connectivity between public Internet clients and Azure Virtual Machines (VMs) through the load balancer.
 * Native end-to-end IPv6 outbound connectivity between VMs and public Internet IPv6-enabled clients.
@@ -61,19 +60,17 @@ Details
 Limitations
 
 * You cannot add IPv6 load balancing rules in the Azure portal. The rules can only be created through the template, CLI, PowerShell.
-* You may not upgrade existing VMs to use IPv6 addresses. You must deploy new VMs.
 * A single IPv6 address can be assigned to a single network interface in each VM.
-* The public IPv6 addresses cannot be assigned to a VM. They can only be assigned to a load balancer.
 * You cannot configure the reverse DNS lookup for your public IPv6 addresses.
 * The VMs with the IPv6 addresses cannot be members of an Azure Cloud Service. They can be connected to an Azure Virtual Network (VNet) and communicate with each other over their IPv4 addresses.
 * Private IPv6 addresses can be deployed on individual VMs in a resource group but cannot be deployed into a resource group via Scale Sets.
 * Azure VMs cannot connect over IPv6 to other VMs, other Azure services, or on-premises devices. They can only communicate with the Azure load balancer over IPv6. However, they can communicate with these other resources using IPv4.
 * Network Security Group (NSG) protection for IPv4 is supported in dual-stack (IPv4+IPv6) deployments. NSGs do not apply to the IPv6 endpoints.
 * The IPv6 endpoint on the VM is not exposed directly to the internet. It is behind a load balancer. Only the ports specified in the load balancer rules are accessible over IPv6.
-* Changing the IdleTimeout parameter for IPv6 is **currently not supported**. The default is four minutes.
 * Changing the loadDistributionMethod parameter for IPv6 is **currently not supported**.
-* Reserved IPv6 IPs (where IPAllocationMethod = static) are **currently not supported**.
+* IPv6 for Basic Load Balancer is locked to a **Dynamic** SKU.  IPv6 for a Standard Load Balancer is locked to a **Static** SKU.
 * NAT64 (translation of IPv6 to IPv4) is not supported.
+* Attaching a secondary NIC that refers to an IPv6 subnet to a back-end pool is **not supported** for Basic Load Balancer.
 
 ## Next steps
 

@@ -1,56 +1,75 @@
 ---
-title: Azure Multi-Factor Authentication - How it works - Azure Active Directory
-description: Azure Multi-Factor Authentication helps safeguard access to data and applications while meeting user demand for a simple sign-in process.
+title: Microsoft Entra multifactor authentication overview
+description: Learn how Microsoft Entra multifactor authentication helps safeguard access to data and applications while meeting user demand for a simple sign-in process.
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/03/2018
+ms.date: 03/13/2023
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
-manager: daveba
+ms.author: justinha
+author: justinha
+manager: amycolannino
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
 ---
-# How it works: Azure Multi-Factor Authentication
+# How it works: Microsoft Entra multifactor authentication
 
-The security of two-step verification lies in its layered approach. Compromising multiple authentication factors presents a significant challenge for attackers. Even if an attacker manages to learn the user's password, it is useless without also having possession of the additional authentication method. It works by requiring two or more of the following authentication methods:
+Multifactor authentication is a process in which users are prompted during the sign-in process for an additional form of identification, such as a code on their cellphone or  a fingerprint scan.
 
-* Something you know (typically a password)
-* Something you have (a trusted device that is not easily duplicated, like a phone)
-* Something you are (biometrics)
+If you only use a password to authenticate a user, it leaves an insecure vector for attack. If the password is weak or has been exposed elsewhere, an attacker could be using it to gain access. When you require a second form of authentication, security is increased because this additional factor isn't something that's easy for an attacker to obtain or duplicate.
 
-<center>
+![Conceptual image of the various forms of multifactor authentication.](./media/concept-mfa-howitworks/methods.png)
 
-![Conceptual authentication methods image](./media/concept-mfa-howitworks/methods.png)</center>
+Microsoft Entra multifactor authentication works by requiring two or more of the following authentication methods:
 
-Azure Multi-Factor Authentication (MFA) helps safeguard access to data and applications while maintaining simplicity for users. It provides additional security by requiring a second form of authentication and delivers strong authentication via a range of easy to use [authentication methods](concept-authentication-methods.md). Users may or may not be challenged for MFA based on configuration decisions that an administrator makes.
+* Something you know, typically a password.
+* Something you have, such as a trusted device that's not easily duplicated, like a phone or hardware key.
+* Something you are - biometrics like a fingerprint or face scan.
 
-## How to get Multi-Factor Authentication?
+Microsoft Entra multifactor authentication can also further secure password reset. When users register themselves for Microsoft Entra multifactor authentication, they can also register for self-service password reset in one step. Administrators can choose forms of secondary authentication and configure challenges for MFA based on configuration decisions. 
 
-Multi-Factor Authentication comes as part of the following offerings:
+You don't need to change apps and services to use Microsoft Entra multifactor authentication. The verification prompts are part of the Microsoft Entra sign-in, which automatically requests and processes the MFA challenge when needed. 
 
-* **Azure Active Directory Premium** or **Microsoft 365 Business** - Full featured use of Azure Multi-Factor Authentication using Conditional Access policies to require multi-factor authentication.
+>[!NOTE]
+>The prompt language is determined by browser locale settings. If you use custom greetings but don’t have one for the language identified in the browser locale, English is used by default. Network Policy Server (NPS) will always use English by default, regardless of custom greetings. English is also used by default if the browser locale can't be identified. 
 
-* **Azure AD Free**, **Azure AD Basic**, or standalone **Office 365** licenses - Use pre-created [Conditional Access baseline protection policies](../conditional-access/concept-baseline-protection.md) to require multi-factor authentication for your users and administrators.
+![MFA sign-in screen.](media/concept-mfa-howitworks/sign-in-screen.png)
 
-* **Azure Active Directory Global Administrators** - A subset of Azure Multi-Factor Authentication capabilities are available as a means to protect global administrator accounts.
+## Available verification methods
 
-> [!NOTE]
-> New customers may no longer purchase Azure Multi-Factor Authentication as a standalone offering effective September 1st, 2018. Multi-factor authentication will continue to be an available feature in Azure AD Premium licenses.
+When users sign in to an application or service and receive an MFA prompt, they can choose from one of their registered forms of additional verification. Users can access [My Profile](https://myprofile.microsoft.com) to edit or add verification methods.
 
-## Supportability
+The following additional forms of verification can be used with Microsoft Entra multifactor authentication:
 
-Since most users are accustomed to using only passwords to authenticate, it is important that your organization communicates to all users regarding this process. Awareness can reduce the likelihood that users call your help desk for minor issues related to MFA. However, there are some scenarios where temporarily disabling MFA is necessary. Use the following guidelines to understand how to handle those scenarios:
+* Microsoft Authenticator 
+* Authenticator Lite (in Outlook)
+* Windows Hello for Business
+* FIDO2 security key
+* OATH hardware token (preview)
+* OATH software token
+* SMS
+* Voice call
 
-* Train your support staff to handle scenarios where the user can't sign in because they do not have access to their authentication methods or they are not working correctly.
-   * Using conditional access policies for Azure MFA Service, your support staff can add a user to a group that is excluded from a policy requiring MFA.
-* Consider using Conditional Access named locations as a way to minimize two-step verification prompts. With this functionality, administrators can bypass two-step verification for users that are signing in from a secure trusted network location such as a network segment used for new user onboarding.
-* Deploy [Azure AD Identity Protection](../active-directory-identityprotection.md) and trigger two-step verification based on risk events.
+<a name='how-to-enable-and-use-azure-ad-multi-factor-authentication'></a>
+
+## How to enable and use Microsoft Entra multifactor authentication
+
+You can use [security defaults](../fundamentals/security-defaults.md) in Microsoft Entra tenants to quickly enable Microsoft Authenticator for all users. You can enable Microsoft Entra multifactor authentication to prompt users and groups for additional verification during sign-in. 
+
+For more granular controls, you can use [Conditional Access](../conditional-access/overview.md) policies to define events or applications that require MFA. These policies can allow regular sign-in when the user is on the corporate network or a registered device but prompt for additional verification factors when the user is remote or on a personal device.
+
+![Diagram that shows how Conditional Access works to secure the sign-in process.](media/tutorial-enable-azure-mfa/conditional-access-overview.png)
 
 ## Next steps
 
-- [Step-by-step Azure Multi-Factor Authentication deployment](howto-mfa-getstarted.md)
+To learn about licensing, see [Features and licenses for Microsoft Entra multifactor authentication](concept-mfa-licensing.md).
+
+To learn more about different authentication and validation methods, see [Authentication methods in Microsoft Entra ID](concept-authentication-methods.md).
+
+To see MFA in action, enable Microsoft Entra multifactor authentication for a set of test users in the following tutorial:
+
+> [!div class="nextstepaction"]
+> [Enable Microsoft Entra multifactor authentication](./tutorial-enable-azure-mfa.md)

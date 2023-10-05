@@ -1,78 +1,87 @@
 ---
-title: Create an Azure Active Directory tenant | Microsoft Docs
-description: Learn how to create an Azure AD tenant to use for registering and building applications.
+title: "Quickstart: Create a Microsoft Entra tenant"
+description: In this quickstart, you learn how to create a Microsoft Entra tenant for use in developing applications that use the Microsoft identity platform for authentication and authorization.
 services: active-directory
-documentationcenter: ''
-author: rwike77
+author: OwenRichards1
 manager: CelesteDG
-
-ms.assetid: 1f4b24eb-ab4d-4baa-a717-2a0e5b8d27cd
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 02/05/2019
+ms.date: 07/11/2023
 ms.author: ryanwi
 ms.reviewer: jmprieur
-ms.custom: aaddev
-#Customer intent: As an application developer, I need to create an Microsoft identity environment so I can use it to register applications.
-ms.collection: M365-identity-device-management
+ms.custom: aaddev, identityplatformtop40, fasttrack-edit, mode-other
+#Customer intent: As an application developer, I need to create a Microsoft identity environment so I can use it to register applications.
 ---
 
-# Quickstart: Set up a dev environment
+# Quickstart: Set up a tenant
 
-The Microsoft identity platform allows developers to build apps targeting a wide variety of custom Microsoft 365 environments and identities. To get started using Microsoft identity platform, you will need access to an environment, also called an Azure AD tenant, that can register and manage apps, have access to Microsoft 365 data, and deploy custom Conditional Access and tenant restrictions.
+To build apps that use the Microsoft identity platform for identity and access management, you need access to a Microsoft Entra *tenant*. It's in the Microsoft Entra tenant that you register and manage your apps, configure their access to data in Microsoft 365 and other web APIs, and enable features like Conditional Access.
 
-A tenant is a representation of an organization. It's a dedicated instance of Azure AD that an organization or app developer receives when the organization or app developer creates a relationship with Microsoft-- like signing up for Azure, Microsoft Intune, or Microsoft 365.
+A tenant represents an organization. It's a dedicated instance of Microsoft Entra ID that an organization or app developer receives at the beginning of a relationship with Microsoft. That relationship could start with signing up for Azure, Microsoft Intune, or Microsoft 365, for example.
 
-Each Azure AD tenant is distinct and separate from other Azure AD tenants and has its own representation of work and school identities, consumer identities (if it's an Azure AD B2C tenant), and app registrations. An app registration inside of your tenant can allow authentications from accounts only within your tenant or all tenants.
+Each Microsoft Entra tenant is distinct and separate from other Microsoft Entra tenants. It has its own representation of work and school identities, consumer identities (if it's an Azure AD B2C tenant), and app registrations. An app registration inside your tenant can allow authentications only from accounts within your tenant or all tenants.
 
-## Determining environment type
+## Prerequisites
 
-There are two types of environments you can create. Deciding which you need is based solely on the types of users your app will authenticate.
+An Azure account that has an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Work and school (Azure AD accounts) or Microsoft accounts (such as outlook.com and live.com)
-* Social and local accounts (Azure AD B2C)
+## Determining the environment type
 
-The quickstart is broken into two scenarios depending on the type of app you want to build. If you need more help targeting an identity type, take a look at [about Microsoft identity platform](about-microsoft-identity-platform.md)
+You can create two types of environments. The environment depends solely on the types of users your app will authenticate. 
+
+This quickstart addresses two scenarios for the type of app you want to build:
+
+* Work and school accounts (Microsoft Entra ID) or Microsoft accounts (such as Outlook.com and Live.com)
+* Social and local (Azure AD B2C) accounts
 
 ## Work and school accounts, or personal Microsoft accounts
 
-### Use an existing tenant
+To build an environment for either work and school accounts or personal Microsoft accounts (MSA), you can use an existing Microsoft Entra tenant or create a new one.
+<a name='use-an-existing-azure-ad-tenant'></a>
 
-Many developers already have tenants through services or subscriptions that are tied to Azure AD tenants such as Microsoft 365 or Azure subscriptions.
+### Use an existing Microsoft Entra tenant
 
-1. To check the tenant, sign in to the [Azure portal](https://portal.azure.com) with the account you want to use to manage your application.
-1. Check the upper right corner. If you have a tenant, you'll automatically be logged in and can see the tenant name directly under your account name.
-   * Hover over your account name on the upper right-hand side of the Azure portal to see your name, email, directory / tenant ID (a GUID), and your domain.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+Many developers already have tenants through services or subscriptions that are tied to Microsoft Entra tenants, such as Microsoft 365 or Azure subscriptions.
+
+To check the tenant:
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Tenant Creator](../roles/permissions-reference.md#tenant-creator).
+1. Check the upper-right corner. If you have a tenant, you'll automatically be signed in. You see the tenant name directly under your account name.
+   * Hover over your account name to see your name, email address, directory or tenant ID (a GUID), and domain.
    * If your account is associated with multiple tenants, you can select your account name to open a menu where you can switch between tenants. Each tenant has its own tenant ID.
 
 > [!TIP]
-> If you need to find the tenant ID, you can:
-> * Hover over your account name to get the directory / tenant ID, or
-> * Select **Azure Active Directory > Properties > Directory ID** in the Azure portal
+> To find the tenant ID, you can:
+> * Hover over your account name to get the directory or tenant ID.
+> * Select **Identity** > **Overview** and look for **Tenant ID**.
 
-If you don't have an existing tenant associated with your account, you'll see a GUID under your account name and you won't be able to perform actions like registering apps until you follow the steps of the next section.
+If you don't have a tenant associated with your account, you'll see a GUID under your account name. You won't be able to do actions like registering apps until you create a Microsoft Entra tenant.
 
-### Create a new Azure AD tenant
+<a name='create-a-new-azure-ad-tenant'></a>
 
-If you don't already have an Azure AD tenant or want to create a new one for development, follow the [directory creation experience](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory). You will have to provide the following info to create your new tenant:
+### Create a new Microsoft Entra tenant
 
+If you don't already have a Microsoft Entra tenant or if you want to create a new one for development, see [Create a new tenant in Microsoft Entra ID](../fundamentals/create-new-tenant.md). If you want to create a tenant for app testing, see [build a test environment](test-setup-environment.md).
+
+You'll provide the following information to create your new tenant:
+
+- **Tenant type** - Choose between a Microsoft Entra tenant and an Azure AD B2C tenant
 - **Organization name**
-- **Initial domain** - this will be part of *.onmicrosoft.com. You can customize the domain more later.
+- **Initial domain** - Initial domain `<domainname>.onmicrosoft.com` can't be edited or deleted. You can add a customized domain name later.
 - **Country or region**
 
 > [!NOTE]
-> When naming your tenant, use alphanumeric characters. Special characters are not allowed. The name must not exceed 256 characters.
+> When naming your tenant, use alphanumeric characters. Special characters aren't allowed. The name must not exceed 256 characters.
 
 ## Social and local accounts
 
-To begin building apps that sign in social and local accounts, you'll need to create an Azure AD B2C tenant. To begin, follow [creating an Azure AD B2C tenant](../../active-directory-b2c/tutorial-create-tenant.md).
+To begin building external facing applications that sign in social and local accounts, create an Azure AD B2C tenant. To begin, see [Create an Azure AD B2C tenant](../../active-directory-b2c/tutorial-create-tenant.md).
 
 ## Next steps
 
-* Try a coding quickstart and begin authenticating users. 
-* For more in-depth code samples, check out the **Tutorials** section of the documentation.
-* Want to deploy your app to the cloud? Check out [deploying containers to Azure](https://docs.microsoft.com/azure/index#pivot=products&panel=containers). 
+> [!div class="nextstepaction"]
+> [Register an app](quickstart-register-app.md)

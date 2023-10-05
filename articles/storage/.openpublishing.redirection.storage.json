@@ -1,0 +1,2204 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/storage/queues/storage-c-plus-plus-how-to-use-queues.md",
+            "redirect_url": "/previous-versions/azure/storage/queues/storage-c-plus-plus-how-to-use-queues",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/queues/storage-dotnet-how-to-use-queues.md",
+            "redirect_url": "/azure/storage/queues/storage-quickstart-queues-dotnet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/queues/storage-java-how-to-use-queue-storage.md",
+            "redirect_url": "/azure/storage/queues/storage-quickstart-queues-java",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/queues/storage-nodejs-how-to-use-queues.md",
+            "redirect_url": "/azure/storage/queues/storage-quickstart-queues-nodejs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/queues/storage-python-how-to-use-queue-storage.md",
+            "redirect_url": "/azure/storage/queues/storage-quickstart-queues-python",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cloud-services-extended-support/role-startup-failure.md",
+            "redirect_url": "/troubleshoot/azure/cloud-services/role-startup-failure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security-center/security-center-enable-encryption-for-storage-account.md",
+            "redirect_url": "/azure/storage/common/storage-service-encryption",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/fundamentals/storage-overview.md",
+            "redirect_url": "/azure/storage/common/storage-security-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/automation-manage-storage.md",
+            "redirect_url": "/azure/storage/common/storage-manage-with-automation",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/blob-inventory-faq.md",
+            "redirect_url": "/azure/storage/blobs/storage-blob-faq#multiple-inventory-file-output",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/anonymous-read-access-client.md",
+            "redirect_url": "/azure/storage/blobs/anonymous-read-access-prevent",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/authorize-active-directory-powershell.md",
+            "redirect_url": "/azure/storage/blobs/authorize-data-operations-powershell",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/authorize-blob-access-portal.md",
+            "redirect_url": "articles/storage/blobs/authorize-data-operations-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/data-lake-storage-data-scenarios.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-best-practices",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/data-lake-storage-evaluation.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-upgrade",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/data-lake-storage-handle-data-using-databricks.md",
+            "redirect_url": "/azure/azure-databricks/databricks-extract-load-sql-data-warehouse",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/data-lake-storage-how-to-set-permissions-storage-explorer.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-explorer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/data-lake-storage-integrate-with-azure-services.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-supported-azure-services",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/data-lake-storage-integrate-with-other-services.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-data-scenarios",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/data-lake-storage-performance-tuning-guidance.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-best-practices",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/data-lake-storage-performance-tuning-hive.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-best-practices",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/data-lake-storage-performance-tuning-mapreduce.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-best-practices",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/data-lake-storage-performance-tuning-spark.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-best-practices",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/data-lake-storage-performance-tuning-storm.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-best-practices",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-use-azcopy-troubleshoot.md",
+            "redirect_url": "/troubleshoot/azure/azure-storage/storage-use-azcopy-troubleshoot",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-explorer-troubleshooting.md",
+            "redirect_url": "/troubleshoot/azure/azure-storage/storage-explorer-troubleshooting",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/troubleshoot-storage-performance.md",
+            "redirect_url": "/troubleshoot/azure/azure-storage/troubleshoot-storage-performance",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/troubleshoot-storage-availability.md",
+            "redirect_url": "/troubleshoot/azure/azure-storage/troubleshoot-storage-availability",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/troubleshoot-storage-client-application-errors.md",
+            "redirect_url": "/troubleshoot/azure/azure-storage/troubleshoot-storage-client-application-errors",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-monitoring-diagnosing-troubleshooting.md",
+            "redirect_url": "/troubleshoot/azure/azure-storage/storage-monitoring-diagnosing-troubleshooting",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/troubleshoot-latency-storage-analytics-logs.md",
+            "redirect_url": "/troubleshoot/azure/azure-storage/troubleshoot-latency-storage-analytics-logs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/data-lake-storage-quickstart-create-account.md",
+            "redirect_url": "/azure/storage/common/storage-account-create",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/data-lake-storage-quickstart-create-databricks-account.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-use-databricks-spark",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/data-lake-storage-supported-blob-storage-features.md",
+            "redirect_url": "/azure/storage/blobs/storage-feature-support-in-storage-accounts",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/data-lake-storage-upgrade.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-migrate-gen1-to-gen2",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/data-lake-storage-use-power-bi.md",
+            "redirect_url": "/power-query/connectors/datalakestorage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/data-lake-store-integrate-with-azure-services.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-integrate-with-azure-services",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/manage-access-tier.md",
+            "redirect_url": "/azure/storage/blobs/access-tiers-online-manage",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/recursive-access-control-lists.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-access-control#set-access-control-lists",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/reference.md",
+            "redirect_url": "/azure/storage/blobs/storage-blobs-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/soft-delete-enable.md",
+            "redirect_url": "/azure/storage/blobs/soft-delete-blob-enable",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/soft-delete-overview.md",
+            "redirect_url": "/azure/storage/blobs/soft-delete-blob-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-account-options.md",
+            "redirect_url": "/azure/storage/common/storage-account-options",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-blob-create-account-block-blob.md",
+            "redirect_url": "/azure/storage/common/storage-account-create",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-blob-immutability-policies-manage.md",
+            "redirect_url": "/azure/storage/blobs/immutable-policy-configure-version-scope",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-blob-immutable-storage.md",
+            "redirect_url": "/azure/storage/blobs/immutable-storage-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/Storage-blob-performance-tiers.md",
+            "redirect_url": "/azure/storage/common/storage-account-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-blob-rehydration.md",
+            "redirect_url": "/azure/storage/blobs/archive-rehydrate-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-blob-service-sas-create-dotnet.md",
+            "redirect_url": "/azure/storage/blobs/sas-service-create",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/sas-service-create.md",
+            "redirect_url": "/azure/storage/blobs/sas-service-create-dotnet",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-blob-snapshots.md",
+            "redirect_url": "/azure/storage/blobs/snapshots-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-blob-soft-delete.md",
+            "redirect_url": "/azure/storage/blobs/soft-delete-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-blob-static-website-custom-domain.md",
+            "redirect_url": "/azure/storage/blobs/static-website-content-delivery-network",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-blob-storage-tiers.md",
+            "redirect_url": "/azure/storage/blobs/access-tiers-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-c-plus-plus-how-to-use-blobs.md",
+            "redirect_url": "/azure/storage/blobs/quickstart-blobs-c-plus-plus",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-data-lake-storage-access-control.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-access-control",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-data-lake-storage-best-practices.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-best-practices",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-dotnet-how-to-use-blobs.md",
+            "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-dotnet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-dotnet-shared-access-signature-part-2.md",
+            "redirect_url": "/azure/storage/common/storage-dotnet-shared-access-signature-part-1",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-how-to-use-blobs-cli.md",
+            "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-how-to-use-blobs-powershell.md",
+            "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-https-custom-domain-cdn.md",
+            "redirect_url": "/azure/storage/blobs/storage-custom-domain-name#enable-https",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-ios-how-to-use-blob-storage.md",
+            "redirect_url": "/previous-versions/azure/storage/blobs/storage-ios-how-to-use-blob-storage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-java-how-to-use-blob-storage.md",
+            "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-java",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-lifecycle-management-concepts.md",
+            "redirect_url": "/azure/storage/blobs/lifecycle-management-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-manage-access-to-resources.md",
+            "redirect_url": "/azure/storage/blobs/anonymous-read-access-configure",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-monitor-troubleshoot-storage-application.md",
+            "redirect_url": "/azure/storage/blobs/blob-upload-function-trigger",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-nodejs-how-to-use-blob-storage.md",
+            "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-nodejs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-php-how-to-use-blobs.md",
+            "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-php",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-properties-metadata.md",
+            "redirect_url": "/azure/storage/blobs/storage-blob-container-properties-metadata",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-python-how-to-use-blob-storage.md",
+            "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-python",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-quickstart-blobs-dotnet-legacy.md",
+            "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-dotnet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-quickstart-blobs-java-legacy.md",
+            "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-java",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-quickstart-blobs-java-v10.md",
+            "redirect_url": "https://github.com/azure/azure-storage-java",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-quickstart-blobs-javascript-client-libraries-legacy.md",
+            "redirect_url": "/azure/storage/blobs/quickstart-blobs-javascript-browser",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-quickstart-blobs-javascript-client-libraries-v10.md",
+            "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-javascript-client-libraries-legacy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-quickstart-blobs-javascript-client-libraries.md",
+            "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-javascript-client-libraries-legacy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-quickstart-blobs-nodejs-legacy.md",
+            "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-nodejs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-quickstart-blobs-nodejs-v10.md",
+            "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-nodejs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-quickstart-blobs-php.md",
+            "redirect_url": "/previous-versions/azure/storage/blobs/storage-quickstart-blobs-php",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-quickstart-blobs-python-legacy.md",
+            "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-python",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-quickstart-blobs-ruby.md",
+            "redirect_url": "/previous-versions/azure/storage/blobs/storage-quickstart-blobs-ruby",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-quickstart-blobs-storage-explorer.md",
+            "redirect_url": "/azure/storage/blobs/quickstart-storage-explorer",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-quickstart-blobs-xamarin.md",
+            "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-dotnet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-ruby-how-to-use-blob-storage.md",
+            "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-ruby",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-secure-access-application.md",
+            "redirect_url": "/azure/storage/blobs/blob-upload-function-trigger",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-simulate-failure-ragrs-account-app.md",
+            "redirect_url": "/azure/storage/blobs/simulate-primary-region-failure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-unstructured-search.md",
+            "redirect_url": "/azure/search/search-howto-indexing-azure-blob-storage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-upload-process-images.md",
+            "redirect_url": "/azure/storage/blobs/blob-upload-function-trigger",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-xamarin-blob-storage.md",
+            "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-xamarin",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/authorize-active-directory-cli.md",
+            "redirect_url": "/azure/storage/common/authorize-data-operations-cli",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/authorize-active-directory-powershell.md",
+            "redirect_url": "/azure/storage/blobs/authorize-active-directory-powershell",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/authorize-data-operations-cli.md",
+            "redirect_url": "/azure/storage/blobs/authorize-data-operations-cli",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/customer-managed-keys-configure-key-vault.md",
+            "redirect_url": "/azure/storage/common/customer-managed-keys-configure-existing-account",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/encryption-customer-managed-keys.md",
+            "redirect_url": "/azure/storage/common/customer-managed-keys-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/encryption-customer-provided-keys.md",
+            "redirect_url": "/azure/storage/blobs/encryption-customer-provided-keys",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/identity-library-acquire-token.md",
+            "redirect_url": "/azure/storage/blobs/authorize-access-azure-active-directory",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/manage-account-default-access-tier.md",
+            "redirect_url": "/azure/storage/blobs/access-tiers-online-manage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/monitor-storage-reference.md",
+            "redirect_url": "/azure/storage/blobs/monitor-blob-storage-reference",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/monitor-storage.md",
+            "redirect_url": "/azure/storage/blobs/monitor-blob-storage",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/policy-samples.md",
+            "redirect_url": "/azure/storage/common/policy-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-access-blobs-queues-portal.md",
+            "redirect_url": "articles/storage/blobs/authorize-blob-access-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-account-container-recovery.md",
+            "redirect_url": "/azure/storage/common/storage-redundancy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-account-manage.md",
+            "redirect_url": "/azure/storage/common/storage-account-keys-manage",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-account-options.md",
+            "redirect_url": "/azure/storage/common/storage-account-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-advanced-threat-protection.md",
+            "redirect_url": "/azure/storage/common/azure-defender-storage-configure",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-auth-aad-msi.md",
+            "redirect_url": "/azure/storage/blobs/authorize-managed-identity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-account-migrate-classic.md",
+            "redirect_url": "/azure/storage/common/classic-account-migrate",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/authorize-managed-identity.md",
+            "redirect_url": "/azure/storage/blobs/authorize-access-azure-active-directory",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/queues/authorize-managed-identity.md",
+            "redirect_url": "/azure/storage/queues/authorize-access-azure-active-directory",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/tables/authorize-managed-identity.md",
+            "redirect_url": "/azure/storage/tables/authorize-access-azure-active-directory",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-auth-aad-app.md",
+            "redirect_url": "/azure/storage/blobs/authorize-access-azure-active-directory",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-auth-aad-rbac-cli.md",
+            "redirect_url": "/azure/storage/blobs/assign-azure-role-data-access",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-auth-aad-rbac-portal.md",
+            "redirect_url": "/azure/storage/blobs/assign-azure-role-data-access",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-auth-aad-rbac-powershell.md",
+            "redirect_url": "/azure/storage/blobs/assign-azure-role-data-access",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-auth-aad-rbac.md",
+            "redirect_url": "/azure/storage/common/storage-auth-aad-rbac-portal",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-auth-aad-script.md",
+            "redirect_url": "/azure/storage/common/authorize-active-directory-powershell",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-auth-aad.md",
+            "redirect_url": "/azure/storage/blobs/authorize-access-azure-active-directory",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-auth-abac-attributes.md",
+            "redirect_url": "/azure/storage/blobs/storage-auth-abac-attributes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-auth-abac-cli.md",
+            "redirect_url": "/azure/storage/blobs/storage-auth-abac-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-auth-abac-examples.md",
+            "redirect_url": "/azure/storage/blobs/storage-auth-abac-examples",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-auth-abac-portal.md",
+            "redirect_url": "/azure/storage/blobs/storage-auth-abac-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-auth-abac-powershell.md",
+            "redirect_url": "/azure/storage/blobs/storage-auth-abac-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-auth-abac-security.md",
+            "redirect_url": "/azure/storage/blobs/storage-auth-abac-security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-auth-abac.md",
+            "redirect_url": "/azure/storage/blobs/storage-auth-abac",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-auth.md",
+            "redirect_url": "/azure/storage/common/authorize-data-access",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-azure-cli-nodejs.md",
+            "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-azure-cli.md",
+            "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-cli",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-client-side-encryption-java.md",
+            "redirect_url": "/azure/storage/blobs/client-side-encryption",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-client-side-encryption-python.md",
+            "redirect_url": "/azure/storage/blobs/client-side-encryption",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-client-side-encryption.md",
+            "redirect_url": "/azure/storage/blobs/client-side-encryption",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-concurrency.md",
+            "redirect_url": "/azure/storage/blobs/concurrency-manage",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-cors-support.md",
+            "redirect_url": "/azure/storage/common/storage-account-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-create-storage-account.md",
+            "redirect_url": "/azure/storage/common/storage-quickstart-create-account",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-data-lake-storage-security-guide.md",
+            "redirect_url": "/azure/storage/common/storage-security-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-decide-blobs-files-disks.md",
+            "redirect_url": "/azure/storage/common/storage-introduction",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-designing-ha-apps-with-ragrs.md",
+            "redirect_url": "/azure/storage/common/geo-redundant-design",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-dotnet-shared-access-signature-part-1.md",
+            "redirect_url": "/azure/storage/common/storage-sas-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-e2e-troubleshooting.md",
+            "redirect_url": "/previous-versions/azure/storage/common/storage-e2e-troubleshooting",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-encryption-keys-cli.md",
+            "redirect_url": "/azure/storage/common/customer-managed-keys-configure-key-vault",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-encryption-keys-portal.md",
+            "redirect_url": "/azure/storage/common/customer-managed-keys-configure-key-vault",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-encryption-keys-powershell.md",
+            "redirect_url": "/azure/storage/common/customer-managed-keys-configure-key-vault",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-import-export-backing-up-drive-manifests.md",
+            "redirect_url": "/previous-versions/azure/storage/common/storage-import-export-backing-up-drive-manifests",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-import-export-cancelling-and-deleting-jobs.md",
+            "redirect_url": "/previous-versions/azure/storage/common/storage-import-export-cancelling-and-deleting-jobs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-import-export-contact-microsoft-support.md",
+            "redirect_url": "/azure/import-export/storage-import-export-contact-microsoft-support",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-import-export-creating-an-export-job.md",
+            "redirect_url": "/previous-versions/azure/storage/common/storage-import-export-creating-an-export-job",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-import-export-creating-an-import-job.md",
+            "redirect_url": "/previous-versions/azure/storage/common/storage-import-export-creating-an-import-job",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-import-export-data-from-blobs.md",
+            "redirect_url": "/azure/import-export/storage-import-export-data-from-blobs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-import-export-data-to-blobs.md",
+            "redirect_url": "/azure/import-export/storage-import-export-data-to-blobs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-import-export-data-to-files.md",
+            "redirect_url": "/azure/import-export/storage-import-export-data-to-files",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-import-export-diagnostics-and-error-recovery.md",
+            "redirect_url": "/previous-versions/azure/storage/common/storage-import-export-diagnostics-and-error-recovery",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-import-export-encryption-key-portal.md",
+            "redirect_url": "/azure/import-export/storage-import-export-encryption-key-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-import-export-enumerating-jobs.md",
+            "redirect_url": "/previous-versions/azure/storage/common/storage-import-export-enumerating-jobs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-import-export-file-format-log.md",
+            "redirect_url": "/previous-versions/azure/storage/common/storage-import-export-file-format-log",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-import-export-file-format-manifest.md",
+            "redirect_url": "/previous-versions/azure/storage/common/storage-import-export-file-format-manifest",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-import-export-file-format-metadata-and-properties.md",
+            "redirect_url": "/previous-versions/azure/storage/common/storage-import-export-file-format-metadata-and-properties",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-import-export-requirements.md",
+            "redirect_url": "/azure/import-export/storage-import-export-requirements",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-import-export-retrieving-state-info-for-a-job.md",
+            "redirect_url": "/previous-versions/azure/storage/common/storage-import-export-retrieving-state-info-for-a-job",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-import-export-service-faq.md",
+            "redirect_url": "/azure/import-export/storage-import-export-service-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-import-export-service.md",
+            "redirect_url": "/azure/import-export/storage-import-export-service",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-import-export-tool-preparing-hard-drives-import-v1.md",
+            "redirect_url": "/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import-v1",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-import-export-tool-preparing-hard-drives-import.md",
+            "redirect_url": "/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-import-export-tool-previewing-drive-usage-export-v1.md",
+            "redirect_url": "/previous-versions/azure/storage/common/storage-import-export-tool-previewing-drive-usage-export-v1",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-import-export-tool-quick-reference-v1.md",
+            "redirect_url": "/previous-versions/azure/storage/common/storage-import-export-tool-quick-reference-v1",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-import-export-tool-quick-reference.md",
+            "redirect_url": "/previous-versions/azure/storage/common/storage-import-export-tool-quick-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-import-export-tool-repairing-an-export-job-v1.md",
+            "redirect_url": "/azure/import-export/storage-import-export-tool-repairing-an-export-job-v1",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-import-export-tool-repairing-an-import-job-v1.md",
+            "redirect_url": "/azure/import-export/storage-import-export-tool-repairing-an-import-job-v1",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-import-export-tool-reviewing-job-status-v1.md",
+            "redirect_url": "/azure/import-export/storage-import-export-tool-reviewing-job-status-v1",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md",
+            "redirect_url": "/previous-versions/azure/storage/common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md",
+            "redirect_url": "/previous-versions/azure/storage/common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-import-export-tool-setting-properties-metadata-import-v1.md",
+            "redirect_url": "/previous-versions/azure/storage/common/storage-import-export-tool-setting-properties-metadata-import-v1",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-import-export-tool-setting-properties-metadata-import.md",
+            "redirect_url": "/previous-versions/azure/storage/common/storage-import-export-tool-setting-properties-metadata-import",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-import-export-tool-setup-v1.md",
+            "redirect_url": "/azure/import-export/storage-import-export-tool-setup-v1",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-import-export-view-drive-status.md",
+            "redirect_url": "/azure/import-export/storage-import-export-view-drive-status",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-java-hudson-continuous-integration-solution.md",
+            "redirect_url": "/azure/storage/blobs/storage-blobs-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-java-jenkins-continuous-integration-solution.md",
+            "redirect_url": "/azure/jenkins/storage-java-jenkins-continuous-integration-solution",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-lifecycle-management-concepts.md",
+            "redirect_url": "/azure/storage/blobs/storage-lifecycle-management-concepts",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-lifecycle-managment-concepts.md",
+            "redirect_url": "/azure/storage/common/storage-lifecycle-management-concepts",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-manage-with-automation.md",
+            "redirect_url": "/azure/storage/blobs/storage-blobs-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-metrics-in-azure-monitor.md",
+            "redirect_url": "/azure/storage/common/monitor-storage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-migration-faq.md",
+            "redirect_url": "/azure/storage/common/storage-choose-data-transfer-solution",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-monitor-storage-account.md",
+            "redirect_url": "/azure/storage/common/manage-storage-analytics-logs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-moving-data.md",
+            "redirect_url": "/azure/storage/common/storage-choose-data-transfer-solution",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-performance-checklist.md",
+            "redirect_url": "/azure/storage/blobs/storage-performance-checklist",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-powershell-guide-full.md",
+            "redirect_url": "/powershell/module/az.storage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-quickstart-create-account.md",
+            "redirect_url": "/azure/storage/common/storage-account-create",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-quickstart-create-storage-account-cli.md",
+            "redirect_url": "/azure/storage/common/storage-quickstart-create-account?tabs=azure-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-quickstart-create-storage-account-powershell.md",
+            "redirect_url": "/azure/storage/common/storage-quickstart-create-account?tabs=powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-redundancy-grs.md",
+            "redirect_url": "/azure/storage/common/storage-redundancy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-redundancy-gzrs.md",
+            "redirect_url": "/azure/storage/common/storage-redundancy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-redundancy-lrs.md",
+            "redirect_url": "/azure/storage/common/storage-redundancy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-redundancy-zrs.md",
+            "redirect_url": "/azure/storage/common/storage-redundancy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-ref-azcopy-load-avere-cloud-file-system.md",
+            "redirect_url": "/azure/storage/common/storage-ref-azcopy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-ref-azcopy-load.md",
+            "redirect_url": "/azure/storage/common/storage-ref-azcopy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md",
+            "redirect_url": "/azure/storage/blobs/storage-troubleshoot-vhds",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-scalability-targets.md",
+            "redirect_url": "/azure/storage/common/scalability-targets-standard-account",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-security-attributes.md",
+            "redirect_url": "/azure/storage/common/security-baseline",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-security-controls.md",
+            "redirect_url": "/azure/storage/common/security-baseline",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-security-guide.md",
+            "redirect_url": "/azure/storage/blobs/security-recommendations",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-security-tls.md",
+            "redirect_url": "/azure/storage/common/transport-layer-security-configure-minimum-version",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-service-encryption-customer-managed-keys.md",
+            "redirect_url": "/azure/storage/common/storage-encryption-keys-portal",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-use-azcopy-blobs.md",
+            "redirect_url": "/azure/storage/common/storage-use-azcopy-v10#transfer-data",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-use-azcopy-linux.md",
+            "redirect_url": "/azure/storage/common/storage-use-azcopy-v10",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-use-azcopy.md",
+            "redirect_url": "/azure/storage/common/storage-use-azcopy-v10",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/data-lake-storage/abfs-driver.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-abfs-driver",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/data-lake-storage/compatible-oss-other-applications.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-compatible-oss-other-applications",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/data-lake-storage/data-scenarios.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-data-scenarios",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/data-lake-storage/evaluation.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-evaluation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/data-lake-storage/handle-data-using-databricks.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-handle-data-using-databricks",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/data-lake-storage/index.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/data-lake-storage/introduction-abfs-uri.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-introduction-abfs-uri",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/data-lake-storage/introduction.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/data-lake-storage/known-issues.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-known-issues",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/data-lake-storage/namespace.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-namespace",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/data-lake-storage/performance-tuning-guidance.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-performance-tuning-guidance",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/data-lake-storage/performance-tuning-hive.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-performance-tuning-hive",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/data-lake-storage/performance-tuning-mapreduce.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-performance-mapreduce",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/data-lake-storage/performance-tuning-spark.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-performance-tuning-spark",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/data-lake-storage/performance-tuning-storm.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-performance-tuning-storm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/data-lake-storage/quickstart-create-account.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-quickstart-create-account",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-quickstart-create-connect-hdi-cluster",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/data-lake-storage/quickstart-create-databricks-account.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-quickstart-create-databricks-account",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/data-lake-storage/tutorial-extract-transform-load-hive.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-tutorial-extract-transform-load-hive",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/data-lake-storage/use-distcp.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-tutorial-use-distcp",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/data-lake-storage/use-hdfs-data-lake-storage.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-use-hdfs-data-lake-storage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/data-lake-storage/use-hdi-cluster.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-use-hdi-cluster",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/data-lake-storage/using-databricks-spark.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-use-databricks-spark",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/elastic-san/elastic-san-connect.md",
+            "redirect_url": "/azure/storage/elastic-san/elastic-san-connect-windows",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/file-sync/file-sync-offline-data-transfer.md",
+            "redirect_url": "/azure/storage/file-sync/file-sync-server-endpoint-create",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/file-sync/file-sync-server-endpoint.md",
+            "redirect_url": "/azure/storage/file-sync/file-sync-server-endpoint-create",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/reference.md",
+            "redirect_url": "/azure/storage/files/storage-files-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-files-active-directory-domain-services-enable.md",
+            "redirect_url": "/azure/storage/files/storage-files-identity-auth-active-directory-enable",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-files-active-directory-enable.md",
+            "redirect_url": "/azure/storage/files/storage-files-identity-auth-active-directory-domain-service-enable",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-files-compare-protocols.md",
+            "redirect_url": "/azure/storage/files/files-nfs-protocol",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-files-deployment-guide.md",
+            "redirect_url": "/azure/storage/files/storage-how-to-create-file-share",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-files-enable-smb-multichannel.md",
+            "redirect_url": "/azure/storage/files/files-smb-protocol#smb-multichannel",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-files-how-to-create-large-file-share.md",
+            "redirect_url": "/azure/storage/files/storage-how-to-create-file-share",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-files-how-to-create-nfs-shares.md",
+            "redirect_url": "/azure/storage/files/storage-files-quick-create-use-linux",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-files-release-notes.md",
+            "redirect_url": "/azure/storage/file-sync/file-sync-release-notes",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-how-to-create-premium-fileshare.md",
+            "redirect_url": "/azure/storage/files/storage-how-to-create-file-share",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-how-to-recover-deleted-account.md",
+            "redirect_url": "/azure/storage/common/storage-account-create",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-how-to-use-files-cli.md",
+            "redirect_url": "/azure/storage/files/storage-how-to-use-files-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-how-to-use-files-powershell.md",
+            "redirect_url": "/azure/storage/files/storage-how-to-use-files-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-how-to-use-files-storage-explorer.md",
+            "redirect_url": "/azure/vs-azure-tools-storage-explorer-files",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-sync-choose-cloud-tiering-policies.md",
+            "redirect_url": "/azure/storage/file-sync/file-sync-choose-cloud-tiering-policies",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-sync-cloud-tiering-overview.md",
+            "redirect_url": "/azure/storage/file-sync/file-sync-cloud-tiering-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-sync-cloud-tiering-policy.md",
+            "redirect_url": "/azure/storage/file-sync/file-sync-cloud-tiering-policy",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-sync-cloud-tiering.md",
+            "redirect_url": "/azure/storage/files/storage-sync-cloud-tiering-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-sync-files-deployment-guide.md",
+            "redirect_url": "/azure/storage/file-sync/file-sync-deployment-guide",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-sync-files-extend-servers.md",
+            "redirect_url": "/azure/storage/file-sync/file-sync-extend-servers",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-sync-files-firewall-and-proxy.md",
+            "redirect_url": "/azure/storage/file-sync/file-sync-firewall-and-proxy",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-sync-files-monitoring.md",
+            "redirect_url": "/azure/storage/file-sync/file-sync-monitoring",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-sync-files-networking-endpoints.md",
+            "redirect_url": "/azure/storage/file-sync/file-sync-networking-endpoints",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-sync-files-networking-overview.md",
+            "redirect_url": "/azure/storage/file-sync/file-sync-networking-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-sync-files-planning.md",
+            "redirect_url": "/azure/storage/file-sync/file-sync-planning",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-sync-files-server-endpoint.md",
+            "redirect_url": "/azure/storage/file-sync/file-sync-server-endpoint",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-sync-files-server-registration.md",
+            "redirect_url": "/azure/storage/file-sync/file-sync-server-registration",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-sync-files-troubleshoot.md",
+            "redirect_url": "/troubleshoot/azure/azure-storage/file-sync-troubleshoot",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-sync-how-to-manage-tiered-files.md",
+            "redirect_url": "/azure/storage/file-sync/file-sync-how-to-manage-tiered-files",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-sync-monitor-cloud-tiering.md",
+            "redirect_url": "/azure/storage/file-sync/file-sync-monitor-cloud-tiering",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-sync-offline-data-transfer.md",
+            "redirect_url": "/azure/storage/file-sync/file-sync-offline-data-transfer",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-sync-resource-move.md",
+            "redirect_url": "/azure/storage/file-sync/file-sync-resource-move",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-troubleshoot-cannot-delete-files-azure-file-share.md",
+            "redirect_url": "/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#unable-to-modify-moverename-or-delete-a-file-or-directory",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/queues/authorize-active-directory-powershell.md",
+            "redirect_url": "/azure/storage/queues/authorize-data-operations-powershell",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/queues/authorize-queue-access-portal.md",
+            "redirect_url": "articles/storage/queues/authorize-data-operations-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/queues/reference.md",
+            "redirect_url": "/azure/storage/queues/storage-queues-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/queues/storage-quickstart-queues-dotnet-legacy.md",
+            "redirect_url": "/azure/storage/queues/storage-quickstart-queues-dotnet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/scripts/storage-common-transfer-between-storage-accounts.md",
+            "redirect_url": "/previous-versions/azure/storage/storage-common-transfer-between-storage-accounts",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-analytics.md",
+            "redirect_url": "/azure/storage/common/storage-analytics",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-azure-cli-nodejs.md",
+            "redirect_url": "/azure/storage/common/storage-azure-cli-nodejs",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-azure-cli.md",
+            "redirect_url": "/azure/storage/common/storage-azure-cli",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-backup-and-disaster-recovery-for-azure-iaas-disks.md",
+            "redirect_url": "/azure/storage/common/storage-backup-and-disaster-recovery-for-azure-iaas-disks",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-blob-snapshots.md",
+            "redirect_url": "/azure/storage/blobs/storage-blob-snapshots",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-blob-storage-tiers.md",
+            "redirect_url": "/azure/storage/blobs/storage-blob-storage-tiers",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-c-plus-plus-enumeration.md",
+            "redirect_url": "/azure/storage/common/storage-c-plus-plus-enumeration",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-c-plus-plus-how-to-use-blobs.md",
+            "redirect_url": "/azure/storage/blobs/storage-c-plus-plus-how-to-use-blobs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-c-plus-plus-how-to-use-files.md",
+            "redirect_url": "/azure/storage/files/storage-c-plus-plus-how-to-use-files",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-c-plus-plus-how-to-use-queues.md",
+            "redirect_url": "/previous-versions/azure/storage/queues/storage-c-plus-plus-how-to-use-queues",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-cannot-delete-storage-account-container-vhd.md",
+            "redirect_url": "/azure/storage/storage-resource-manager-cannot-delete-storage-account-container-vhd",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-client-side-encryption-java.md",
+            "redirect_url": "/azure/storage/common/storage-client-side-encryption-java",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-client-side-encryption-python.md",
+            "redirect_url": "/azure/storage/common/storage-client-side-encryption-python",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-client-side-encryption.md",
+            "redirect_url": "/azure/storage/common/storage-client-side-encryption",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-concurrency.md",
+            "redirect_url": "/azure/storage/common/storage-concurrency",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-configure-connection-string.md",
+            "redirect_url": "/azure/storage/common/storage-configure-connection-string",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-cors-support.md",
+            "redirect_url": "/azure/storage/common/storage-cors-support",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-create-storage-account-classic-portal.md",
+            "redirect_url": "/azure/storage/common/storage-create-storage-account",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-create-storage-account.md",
+            "redirect_url": "/azure/storage/common/storage-create-storage-account",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-custom-domain-name.md",
+            "redirect_url": "/azure/storage/blobs/storage-custom-domain-name",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-designing-ha-apps-with-ragrs.md",
+            "redirect_url": "/azure/storage/common/storage-designing-ha-apps-with-ragrs",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-disaster-recovery-guidance.md",
+            "redirect_url": "/azure/storage/common/storage-disaster-recovery-guidance",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-dotnet-how-to-use-blobs.md",
+            "redirect_url": "/azure/storage/blobs/storage-dotnet-how-to-use-blobs",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-dotnet-how-to-use-files.md",
+            "redirect_url": "/azure/storage/files/storage-dotnet-how-to-use-files",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-dotnet-how-to-use-queues.md",
+            "redirect_url": "/azure/storage/queues/storage-quickstart-queues-dotnet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-dotnet-shared-access-signature-part-1.md",
+            "redirect_url": "/azure/storage/common/storage-dotnet-shared-access-signature-part-1",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-dotnet-shared-access-signature-part-2.md",
+            "redirect_url": "/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-e2e-troubleshooting-classic-portal.md",
+            "redirect_url": "/azure/storage/common/storage-e2e-troubleshooting",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-e2e-troubleshooting.md",
+            "redirect_url": "/azure/storage/common/storage-e2e-troubleshooting",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-enable-and-view-metrics-classic-portal.md",
+            "redirect_url": "/azure/storage/common/storage-enable-and-view-metrics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-enable-and-view-metrics.md",
+            "redirect_url": "/azure/storage/common/storage-enable-and-view-metrics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-encrypt-decrypt-blobs-key-vault.md",
+            "redirect_url": "/azure/storage/blobs/storage-encrypt-decrypt-blobs-key-vault",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-explorer-troubleshooting.md",
+            "redirect_url": "/azure/storage/common/storage-explorer-troubleshooting",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-explorers.md",
+            "redirect_url": "/azure/storage/common/storage-explorers",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-file-how-to-create-file-share.md",
+            "redirect_url": "/azure/storage/files/storage-how-to-create-file-share",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-file-how-to-use-files-mac.md",
+            "redirect_url": "/azure/storage/files/storage-how-to-use-files-mac",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-file-how-to-use-files-portal.md",
+            "redirect_url": "/azure/storage/files/storage-how-to-use-files-portal",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-file-how-to-use-files-powershell.md",
+            "redirect_url": "/azure/storage/files/storage-how-to-use-files-powershell",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-file-how-to-use-files-windows.md",
+            "redirect_url": "/azure/storage/files/storage-how-to-use-files-windows",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-files-faq.md",
+            "redirect_url": "/azure/storage/files/storage-files-faq",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-files-introduction.md",
+            "redirect_url": "/azure/storage/files/storage-files-introduction",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-how-to-use-files-linux.md",
+            "redirect_url": "/azure/storage/files/storage-how-to-use-files-linux",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-https-custom-domain-cdn.md",
+            "redirect_url": "/azure/storage/blobs/storage-https-custom-domain-cdn",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-import-export-backing-up-drive-manifests.md",
+            "redirect_url": "/azure/storage/common/storage-import-export-backing-up-drive-manifests",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-import-export-cancelling-and-deleting-jobs.md",
+            "redirect_url": "/azure/storage/common/storage-import-export-cancelling-and-deleting-jobs",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-import-export-creating-an-export-job.md",
+            "redirect_url": "/azure/storage/common/storage-import-export-creating-an-export-job",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-import-export-creating-an-import-job.md",
+            "redirect_url": "/azure/storage/common/storage-import-export-creating-an-import-job",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-import-export-diagnostics-and-error-recovery.md",
+            "redirect_url": "/azure/storage/common/storage-import-export-diagnostics-and-error-recovery",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-import-export-enumerating-jobs.md",
+            "redirect_url": "/azure/storage/common/storage-import-export-enumerating-jobs",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-import-export-file-format-log.md",
+            "redirect_url": "/azure/storage/common/storage-import-export-file-format-log",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-import-export-file-format-manifest.md",
+            "redirect_url": "/azure/storage/common/storage-import-export-file-format-manifest",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-import-export-file-format-metadata-and-properties.md",
+            "redirect_url": "/azure/storage/common/storage-import-export-file-format-metadata-and-properties",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-import-export-service.md",
+            "redirect_url": "/azure/storage/common/storage-import-export-service",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-import-export-tool-how-to-v1.md",
+            "redirect_url": "/azure/storage/common/storage-import-export-service",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-import-export-tool-how-to.md",
+            "redirect_url": "/azure/storage/common/storage-import-export-service",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-import-export-tool-preparing-hard-drives-import-v1.md",
+            "redirect_url": "/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import-v1",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-import-export-tool-preparing-hard-drives-import.md",
+            "redirect_url": "/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-import-export-tool-previewing-drive-usage-export-v1.md",
+            "redirect_url": "/azure/storage/common/storage-import-export-tool-previewing-drive-usage-export-v1",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-import-export-tool-quick-reference-v1.md",
+            "redirect_url": "/azure/storage/common/storage-import-export-tool-quick-reference-v1",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-import-export-tool-quick-reference.md",
+            "redirect_url": "/azure/storage/common/storage-import-export-tool-quick-reference",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-import-export-tool-repairing-an-export-job-v1.md",
+            "redirect_url": "/azure/storage/common/storage-import-export-tool-repairing-an-export-job-v1",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-import-export-tool-repairing-an-import-job-v1.md",
+            "redirect_url": "/azure/storage/common/storage-import-export-tool-repairing-an-import-job-v1",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-import-export-tool-reviewing-job-status-v1.md",
+            "redirect_url": "/azure/storage/common/storage-import-export-tool-reviewing-job-status-v1",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md",
+            "redirect_url": "/azure/storage/common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md",
+            "redirect_url": "/azure/storage/common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-import-export-tool-setting-properties-metadata-import-v1.md",
+            "redirect_url": "/azure/storage/common/storage-import-export-tool-setting-properties-metadata-import-v1",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-import-export-tool-setting-properties-metadata-import.md",
+            "redirect_url": "/azure/storage/common/storage-import-export-tool-setting-properties-metadata-import",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-import-export-tool-setup-v1.md",
+            "redirect_url": "/azure/storage/common/storage-import-export-tool-setup-v1",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-import-export-tool-setup.md",
+            "redirect_url": "/azure/storage/common/storage-import-export-tool-setup-v1",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-import-export-tool-troubleshooting-v1.md",
+            "redirect_url": "/azure/storage/common/storage-import-export-service",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-import-export-using-the-rest-api.md",
+            "redirect_url": "/azure/storage/common/storage-import-export-service",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-ios-how-to-use-blob-storage.md",
+            "redirect_url": "/azure/storage/blobs/storage-ios-how-to-use-blob-storage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-java-how-to-use-blob-storage.md",
+            "redirect_url": "/azure/storage/blobs/storage-java-how-to-use-blob-storage",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-java-how-to-use-file-storage.md",
+            "redirect_url": "/azure/storage/files/storage-java-how-to-use-file-storage",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-java-how-to-use-queue-storage.md",
+            "redirect_url": "/azure/storage/queues/storage-quickstart-queues-java",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-java-hudson-continuous-integration-solution.md",
+            "redirect_url": "/azure/storage/common/storage-java-hudson-continuous-integration-solution",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-java-jenkins-continuous-integration-solution.md",
+            "redirect_url": "/azure/jenkins/storage-java-jenkins-continuous-integration-solution",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-java-use-blob-storage-on-premises-app.md",
+            "redirect_url": "/azure/storage/blobs/storage-java-how-to-use-blob-storage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-manage-access-to-resources.md",
+            "redirect_url": "/azure/storage/blobs/storage-manage-access-to-resources",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-migrate-to-premium-storage-using-azure-site-recovery.md",
+            "redirect_url": "/azure/storage/common/storage-migrate-to-premium-storage-using-azure-site-recovery",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-migration-to-premium-storage.md",
+            "redirect_url": "/azure/storage/common/storage-migration-to-premium-storage",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-monitor-storage-account.md",
+            "redirect_url": "/azure/storage/common/storage-monitor-storage-account",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-monitoring-diagnosing-troubleshooting-classic-portal.md",
+            "redirect_url": "/azure/storage/common/storage-monitoring-diagnosing-troubleshooting",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-monitoring-diagnosing-troubleshooting.md",
+            "redirect_url": "/azure/storage/common/storage-monitoring-diagnosing-troubleshooting",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-moving-data.md",
+            "redirect_url": "/azure/storage/common/storage-moving-data",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-nodejs-how-to-use-blob-storage.md",
+            "redirect_url": "/azure/storage/blobs/storage-nodejs-how-to-use-blob-storage",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-nodejs-how-to-use-queues.md",
+            "redirect_url": "/azure/storage/queues/storage-quickstart-queues-nodejs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-performance-checklist.md",
+            "redirect_url": "/azure/storage/common/storage-performance-checklist",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-php-how-to-use-blobs.md",
+            "redirect_url": "/azure/storage/blobs/storage-php-how-to-use-blobs",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-php-how-to-use-queues.md",
+            "redirect_url": "/azure/storage/queues/storage-php-how-to-use-queues",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-powershell-guide-full.md",
+            "redirect_url": "/azure/storage/common/storage-powershell-guide-full",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-premium-storage-performance.md",
+            "redirect_url": "/azure/storage/common/storage-premium-storage-performance",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-premium-storage.md",
+            "redirect_url": "/azure/storage/common/storage-premium-storage",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-properties-metadata.md",
+            "redirect_url": "/azure/storage/blobs/storage-properties-metadata",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-python-how-to-use-blob-storage.md",
+            "redirect_url": "/azure/storage/blobs/storage-python-how-to-use-blob-storage",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-python-how-to-use-file-storage.md",
+            "redirect_url": "/azure/storage/files/storage-python-how-to-use-file-storage",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-python-how-to-use-queue-storage.md",
+            "redirect_url": "/azure/storage/queues/storage-quickstart-queues-python",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-redundancy.md",
+            "redirect_url": "/azure/storage/common/storage-redundancy",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-require-secure-transfer.md",
+            "redirect_url": "/azure/storage/common/storage-require-secure-transfer",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-resource-manager-cannot-delete-storage-account-container-vhd.md",
+            "redirect_url": "/azure/storage/common/storage-resource-manager-cannot-delete-storage-account-container-vhd",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-ruby-how-to-use-blob-storage.md",
+            "redirect_url": "/azure/storage/blobs/storage-ruby-how-to-use-blob-storage",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-ruby-how-to-use-queue-storage.md",
+            "redirect_url": "/azure/storage/queues/storage-ruby-how-to-use-queue-storage",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-samples-dotnet.md",
+            "redirect_url": "/azure/storage/common/storage-samples-dotnet",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-samples-java.md",
+            "redirect_url": "/azure/storage/common/storage-samples-java",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-samples.md",
+            "redirect_url": "/azure/storage/common/storage-samples",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-scalability-targets.md",
+            "redirect_url": "/azure/storage/common/storage-scalability-targets",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-security-attributes.md",
+            "redirect_url": "/azure/storage/common/storage-security-controls",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-security-guide.md",
+            "redirect_url": "/azure/storage/common/storage-security-guide",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-service-encryption-customer-managed-keys.md",
+            "redirect_url": "/azure/storage/common/storage-service-encryption-customer-managed-keys",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-service-encryption.md",
+            "redirect_url": "/azure/storage/common/storage-service-encryption",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-standard-storage.md",
+            "redirect_url": "/azure/storage/common/storage-standard-storage",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-troubleshoot-file-connection-problems.md",
+            "redirect_url": "/azure/storage/files/storage-troubleshoot-windows-file-connection-problems",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-troubleshoot-linux-file-connection-problems.md",
+            "redirect_url": "/azure/storage/files/storage-troubleshoot-linux-file-connection-problems",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-troubleshoot-windows-file-connection-problems.md",
+            "redirect_url": "/azure/storage/files/storage-troubleshoot-windows-file-connection-problems",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-use-azcopy-linux.md",
+            "redirect_url": "/azure/storage/common/storage-use-azcopy-linux",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-use-azcopy.md",
+            "redirect_url": "/azure/storage/common/storage-use-azcopy",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-use-data-movement-library.md",
+            "redirect_url": "/azure/storage/common/storage-use-data-movement-library",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-use-emulator.md",
+            "redirect_url": "/azure/storage/common/storage-use-emulator",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-use-store-apps.md",
+            "redirect_url": "/azure/storage/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/storage-xamarin-blob-storage.md",
+            "redirect_url": "/azure/storage/blobs/storage-xamarin-blob-storage",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/vs-storage-aspnet-getting-started-blobs.md",
+            "redirect_url": "/azure/visual-studio/vs-storage-aspnet-getting-started-blobs",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/vs-storage-aspnet-getting-started-queues.md",
+            "redirect_url": "/azure/visual-studio/vs-storage-aspnet-getting-started-queues",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/vs-storage-aspnet-getting-started-tables.md",
+            "redirect_url": "/azure/visual-studio/vs-storage-aspnet-getting-started-tables",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/vs-storage-aspnet-what-happened.md",
+            "redirect_url": "/azure/visual-studio/vs-storage-aspnet-what-happened",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/vs-storage-aspnet5-getting-started-blobs.md",
+            "redirect_url": "/azure/visual-studio/vs-storage-aspnet5-getting-started-blobs",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/vs-storage-aspnet5-getting-started-queues.md",
+            "redirect_url": "/azure/visual-studio/vs-storage-aspnet5-getting-started-queues",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/vs-storage-aspnet5-getting-started-tables.md",
+            "redirect_url": "/azure/visual-studio/vs-storage-aspnet5-getting-started-tables",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/vs-storage-aspnet5-what-happened.md",
+            "redirect_url": "/azure/visual-studio/vs-storage-aspnet5-what-happened",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/vs-storage-cloud-services-getting-started-blobs.md",
+            "redirect_url": "/azure/visual-studio/vs-storage-cloud-services-getting-started-blobs",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/vs-storage-cloud-services-getting-started-queues.md",
+            "redirect_url": "/azure/visual-studio/vs-storage-cloud-services-getting-started-queues",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/vs-storage-cloud-services-getting-started-tables.md",
+            "redirect_url": "/azure/visual-studio/vs-storage-cloud-services-getting-started-tables",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/vs-storage-cloud-services-what-happened.md",
+            "redirect_url": "/azure/visual-studio/vs-storage-cloud-services-what-happened",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/vs-storage-webjobs-getting-started-blobs.md",
+            "redirect_url": "/azure/visual-studio/vs-storage-webjobs-getting-started-blobs",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/vs-storage-webjobs-getting-started-queues.md",
+            "redirect_url": "/azure/visual-studio/vs-storage-webjobs-getting-started-queues",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/vs-storage-webjobs-getting-started-tables.md",
+            "redirect_url": "/azure/visual-studio/vs-storage-webjobs-getting-started-tables",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/vs-storage-webjobs-what-happened.md",
+            "redirect_url": "/azure/visual-studio/vs-storage-webjobs-what-happened",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storsimple/storsimple-5000-7000-afs-migration.md",
+            "redirect_url": "/azure/storage/files/storage-files-migration-storsimple-8000",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/linux/troubleshoot-vhds.md",
+            "redirect_url": "/azure/storage/blobs/storage-troubleshoot-vhds",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/virtual-machines-windows-sizes.md",
+            "redirect_url": "/azure/virtual-machines/acu",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/mount-azure-file-storage.md",
+            "redirect_url": "/azure/storage/files/storage-files-quick-create-use-windows",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/troubleshoot-vhds.md",
+            "redirect_url": "/azure/storage/blobs/storage-troubleshoot-vhds",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/visual-studio/vs-storage-aspnet-core-getting-started-blobs.md",
+            "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-dotnet-legacy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/visual-studio/vs-storage-aspnet-getting-started-blobs.md",
+            "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-dotnet-legacy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/visual-studio/vs-storage-aspnet-getting-started-queues.md",
+            "redirect_url": "/azure/storage/queues/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/visual-studio/vs-storage-aspnet-getting-started-tables.md",
+            "redirect_url": "/azure/storage/tables/table-storage-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/visual-studio/vs-storage-aspnet5-getting-started-blobs.md",
+            "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-dotnet-legacy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/visual-studio/vs-storage-aspnet5-getting-started-queues.md",
+            "redirect_url": "/azure/storage/queues/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/visual-studio/vs-storage-aspnet5-getting-started-tables.md",
+            "redirect_url": "/azure/storage/tables/table-storage-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/visual-studio/vs-storage-webjobs-getting-started-blobs.md",
+            "redirect_url": "/azure/storage/blobs/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/visual-studio/vs-storage-webjobs-getting-started-queues.md",
+            "redirect_url": "/azure/storage/queues/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/visual-studio/vs-storage-webjobs-getting-started-tables.md",
+            "redirect_url": "/azure/storage/tables/table-storage-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vs-azure-tools-storage-emulator-using.md",
+            "redirect_url": "/azure/storage/common/storage-use-emulator",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-troubleshoot-windows-file-connection-problems.md",
+            "redirect_url": "/troubleshoot/azure/azure-storage/files-troubleshoot",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-troubleshoot-linux-file-connection-problems.md",
+            "redirect_url": "/troubleshoot/azure/azure-storage/files-troubleshoot",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-troubleshooting-files-performance.md",
+            "redirect_url": "/troubleshoot/azure/azure-storage/files-troubleshoot-performance",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-troubleshooting-files-nfs.md",
+            "redirect_url": "/troubleshoot/azure/azure-storage/files-troubleshoot-linux-nfs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/files-troubleshoot.md",
+            "redirect_url": "/troubleshoot/azure/azure-storage/files-troubleshoot",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/files-troubleshoot-create-alerts.md",
+            "redirect_url": "/troubleshoot/azure/azure-storage/files-troubleshoot-create-alerts",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/files-troubleshoot-smb-connectivity.md",
+            "redirect_url": "/troubleshoot/azure/azure-storage/files-troubleshoot-smb-connectivity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/files-troubleshoot-smb-authentication.md",
+            "redirect_url": "/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/files-troubleshoot-performance.md",
+            "redirect_url": "/troubleshoot/azure/azure-storage/files-troubleshoot-performance",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/files-troubleshoot-linux-smb.md",
+            "redirect_url": "/troubleshoot/azure/azure-storage/files-troubleshoot-linux-smb",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/files-troubleshoot-linux-nfs.md",
+            "redirect_url": "/troubleshoot/azure/azure-storage/files-troubleshoot-linux-nfs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/file-sync/file-sync-troubleshoot.md",
+            "redirect_url": "/troubleshoot/azure/azure-storage/file-sync-troubleshoot",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/file-sync/file-sync-troubleshoot-installation.md",
+            "redirect_url": "/troubleshoot/azure/azure-storage/file-sync-troubleshoot-installation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/file-sync/file-sync-troubleshoot-cloud-tiering.md",
+            "redirect_url": "/troubleshoot/azure/azure-storage/file-sync-troubleshoot-cloud-tiering",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/file-sync/file-sync-troubleshoot-sync-group-management.md",
+            "redirect_url": "/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-group-management",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/file-sync/file-sync-troubleshoot-sync-errors.md",
+            "redirect_url": "/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-files-identity-auth-azure-active-directory-enable.md",
+            "redirect_url": "/azure/storage/files/storage-files-identity-auth-hybrid-identities-enable",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-files-identity-auth-active-directory-domain-service-enable.md",
+            "redirect_url": "/azure/storage/files/storage-files-identity-auth-domain-services-enable",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-files-smb-multichannel-performance.md",
+            "redirect_url": "/azure/storage/files/smb-performance",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/nfs-nconnect-performance.md",
+            "redirect_url": "/azure/storage/files/nfs-performance",
+            "redirect_document_id": true
+        }                
+    ]
+}

@@ -1,52 +1,49 @@
 ---
-title: Migrate from Java SDK to Maven - Update old Azure Service Fabric Java Applications to use Maven | Microsoft Docs
-description: Update the older Java applications which used to use the Service Fabric Java SDK, to fetch Service Fabric Java dependencies from Maven. After completing this setup, your older Java applications would be able to build .
-services: service-fabric
-documentationcenter: java
-author: rapatchi
-manager: chackdan
-editor: ''
-
-ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
+title: Migrate from Java SDK to Maven
+description: Update the older Java applications which used to use the Service Fabric Java SDK, to fetch Service Fabric Java dependencies from Maven. After completing this setup, your older Java applications would be able to build.
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
 ms.service: service-fabric
-ms.devlang: java
-ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 08/23/2017
-ms.author: rapatchi
-
+ms.custom: devx-track-extended-java
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Update your previous Java Service Fabric application to fetch Java libraries from Maven
-We have recently moved Service Fabric Java binaries from the Service Fabric Java SDK to Maven hosting. Now you can use **mavencentral** to fetch the latest Service Fabric Java dependencies. This quick-start helps you update your existing Java applications, which you earlier created to be used with Service Fabric Java SDK, using either Yeoman template or Eclipse, to be compatible with the Maven based build.
+Service Fabric Java binaries have moved from the Service Fabric Java SDK to Maven hosting. You can use **mavencentral** to fetch the latest Service Fabric Java dependencies. This guide will help you update existing Java applications created for the Service Fabric Java SDK using either Yeoman template or Eclipse to be compatible with the Maven-based build.
 
 ## Prerequisites
-1. First you need to uninstall the existing Java SDK.
+
+1. First, uninstall the existing Java SDK.
 
    ```bash
    sudo dpkg -r servicefabricsdkjava
    ```
+
 2. Install the latest Service Fabric CLI following the steps mentioned [here](service-fabric-cli.md).
 
-3. To build and work on the Service Fabric Java applications, you need to ensure that you have JDK 1.8 and Gradle installed. If not yet installed, you can run the following to install JDK 1.8 (openjdk-8-jdk) and Gradle -
+3. To build and work on the Service Fabric Java applications, ensure that you have JDK 1.8 and Gradle installed. If not yet installed, you can run the following to install JDK 1.8 (openjdk-8-jdk) and Gradle -
 
    ```bash
    sudo apt-get install openjdk-8-jdk-headless
    sudo apt-get install gradle
    ```
+
 4. Update the install/uninstall scripts of your application to use the new Service Fabric CLI following the steps mentioned [here](service-fabric-application-lifecycle-sfctl.md). You can refer to our getting-started [examples](https://github.com/Azure-Samples/service-fabric-java-getting-started) for reference.
 
->[!TIP]
+> [!TIP]
 > After uninstalling the Service Fabric Java SDK, Yeoman will not work. Follow the Prerequisites mentioned [here](service-fabric-create-your-first-linux-application-with-java.md) to have Service Fabric Yeoman Java template generator up and working.
 
 ## Service Fabric Java libraries on Maven
+
 Service Fabric Java libraries have been hosted in Maven. You can add the dependencies in the ``pom.xml`` or ``build.gradle`` of your projects to use Service Fabric Java libraries from **mavenCentral**.
 
 ### Actors
 
 Service Fabric Reliable Actor support for your application.
 
-  ```XML
+  ```xml
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
       <artifactId>sf-actors</artifactId>
@@ -67,7 +64,7 @@ Service Fabric Reliable Actor support for your application.
 
 Service Fabric Stateless Service support for your application.
 
-  ```XML
+  ```xml
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
       <artifactId>sf-services</artifactId>
@@ -85,11 +82,12 @@ Service Fabric Stateless Service support for your application.
   ```
 
 ### Others
+
 #### Transport
 
 Transport layer support for Service Fabric Java application. You do not need to explicitly add this dependency to your Reliable Actor or Service applications, unless you program at the transport layer.
 
-  ```XML
+  ```xml
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
       <artifactId>sf-transport</artifactId>
@@ -110,7 +108,7 @@ Transport layer support for Service Fabric Java application. You do not need to 
 
 System level support for Service Fabric, which talks to native Service Fabric runtime. You do not need to explicitly add this dependency to your Reliable Actor or Service applications. This gets fetched automatically from Maven, when you include the other dependencies above.
 
-  ```XML
+  ```xml
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
       <artifactId>sf</artifactId>
@@ -127,11 +125,11 @@ System level support for Service Fabric, which talks to native Service Fabric ru
   }
   ```
 
-
 ## Migrating Service Fabric Stateless Service
 
 To be able to build your existing Service Fabric stateless Java service using Service Fabric dependencies fetched from Maven, you need to update the ``build.gradle`` file inside the Service. Previously it used to be like as follows -
-```
+
+```gradle
 dependencies {
     compile fileTree(dir: '/opt/microsoft/sdk/servicefabric/java/packages/lib', include: ['*.jar'])
     compile project(':Interface')
@@ -163,8 +161,10 @@ task copyDeps <<{
     }
 }
 ```
+
 Now, to fetch the dependencies from Maven, the **updated** ``build.gradle`` would have the corresponding parts as follows -
-```
+
+```gradle
 repositories {
         mavenCentral()
 }
@@ -216,11 +216,13 @@ task copyDeps <<{
     }
 }
 ```
+
 In general, to get an overall idea about how the build script would look like for a Service Fabric stateless Java service, you can refer to any sample from our getting-started examples. Here is the [build.gradle](https://github.com/Azure-Samples/service-fabric-java-getting-started/blob/master/reliable-services-actor-sample/build.gradle) for the EchoServer sample.
 
 ## Migrating Service Fabric Actor Service
 
 To be able to build your existing Service Fabric Actor Java application using Service Fabric dependencies fetched from Maven, you need to update the ``build.gradle`` file inside the interface package and in the Service package. If you have a TestClient package, you need to update that as well. So, for your actor ``Myactor``, the following would be the places where you need to update -
+
 ```
 ./Myactor/build.gradle
 ./MyactorInterface/build.gradle
@@ -230,15 +232,18 @@ To be able to build your existing Service Fabric Actor Java application using Se
 #### Updating build script for the interface project
 
 Previously it used to be like as follows -
-```
+
+```gradle
 dependencies {
     compile fileTree(dir: '/opt/microsoft/sdk/servicefabric/java/packages/lib', include: ['*.jar'])
 }
 .
 .
 ```
+
 Now, to fetch the dependencies from Maven, the **updated** ``build.gradle`` would have the corresponding parts as follows -
-```
+
+```gradle
 repositories {
     mavenCentral()
 }
@@ -271,7 +276,8 @@ compileJava.dependsOn(explodeDeps)
 #### Updating build script for the actor project
 
 Previously it used to be like as follows -
-```
+
+```gradle
 dependencies {
     compile fileTree(dir: '/opt/microsoft/sdk/servicefabric/java/packages/lib', include: ['*.jar'])
     compile project(':MyactorInterface')
@@ -309,8 +315,10 @@ task copyDeps<< {
     }
 }
 ```
+
 Now, to fetch the dependencies from Maven, the **updated** ``build.gradle`` would have the corresponding parts as follows -
-```
+
+```gradle
 repositories {
     mavenCentral()
 }
@@ -370,23 +378,24 @@ task copyDeps<< {
 #### Updating build script for the test client project
 
 Changes here are similar to the changes discussed in previous section, that is, the actor project. Previously the Gradle script used to be like as follows -
-```
+
+```gradle
 dependencies {
     compile fileTree(dir: '/opt/microsoft/sdk/servicefabric/java/packages/lib', include: ['*.jar'])
-	  compile project(':MyactorInterface')
+    compile project(':MyactorInterface')
 }
 .
 .
 .
 jar
 {
-	manifest {
+    manifest {
     attributes(
-		'Main-Class': 'reliableactor.test.MyactorTestClient',
-		"Class-Path": configurations.compile.collect { 'lib/' + it.getName() }.join(' '))
-	}
-	baseName "myactor-test"
-  destinationDir = file('out/lib')
+        'Main-Class': 'reliableactor.test.MyactorTestClient',
+        "Class-Path": configurations.compile.collect { 'lib/' + it.getName() }.join(' '))
+    }
+    baseName "myactor-test"
+    destinationDir = file('out/lib')
 }
 .
 .
@@ -409,8 +418,10 @@ task copyDeps<< {
         }
 }
 ```
+
 Now, to fetch the dependencies from Maven, the **updated** ``build.gradle`` would have the corresponding parts as follows -
-```
+
+```gradle
 repositories {
     mavenCentral()
 }

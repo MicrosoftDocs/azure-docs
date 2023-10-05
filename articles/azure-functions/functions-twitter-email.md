@@ -1,90 +1,121 @@
 ---
 title: Create a function that integrates with Azure Logic Apps
-description: Create a function that integrates with Azure Logic Apps and Azure Cognitive Services to categorize tweet sentiment and send notifications when sentiment is poor.
-services: functions, logic-apps, cognitive-services
-keywords: workflow, cloud apps, cloud services, business processes, system integration, enterprise application integration, EAI
-author: craigshoemaker
-manager: jeconnoc
-
+description: Create a function integrate with Azure Logic Apps and Azure AI services. The resulting workflow categorizes tweet sentiments sends email notifications.
 ms.assetid: 60495cc5-1638-4bf0-8174-52786d227734
-ms.service: azure-functions
 ms.topic: tutorial
-ms.date: 11/06/2018
-ms.author: cshoe
-ms.custom: mvc, cc996988-fb4f-47
+ms.date: 04/10/2021
+ms.devlang: csharp
+ms.custom: "devx-track-csharp, mvc, cc996988-fb4f-47"
 ---
 
-# Create a function that integrates with Azure Logic Apps
+# Tutorial: Create a function to integrate with Azure Logic Apps
 
-Azure Functions integrates with Azure Logic Apps in the Logic Apps Designer. This integration lets you use the computing power of Functions in orchestrations with other Azure and third-party services. 
+Azure Functions integrates with Azure Logic Apps in the Logic Apps Designer. This integration allows you use the computing power of Functions in orchestrations with other Azure and third-party services.
 
-This tutorial shows you how to use Functions with Logic Apps and Cognitive Services on Azure to run sentiment analysis from Twitter posts. An HTTP triggered function categorizes tweets as green, yellow, or red based on the sentiment score. An email is sent when poor sentiment is detected. 
+This tutorial shows you how to create a workflow to analyze Twitter activity. As tweets are evaluated, the workflow sends notifications when positive sentiments are detected.
 
-![image first two steps of app in Logic App Designer](media/functions-twitter-email/00-logic-app-overview.png)
-
-In this tutorial, you learn how to:
+In this tutorial, you learn to:
 
 > [!div class="checklist"]
-> * Create a Cognitive Services API Resource.
+> * Create an Azure AI services API Resource.
 > * Create a function that categorizes tweet sentiment.
 > * Create a logic app that connects to Twitter.
-> * Add sentiment detection to the logic app. 
+> * Add sentiment detection to the logic app.
 > * Connect the logic app to the function.
 > * Send an email based on the response from the function.
 
 ## Prerequisites
 
-+ An active [Twitter](https://twitter.com/) account. 
-+ An [Outlook.com](https://outlook.com/) account (for sending notifications).
-+ This article uses as its starting point the resources created in [Create your first function from the Azure portal](functions-create-first-azure-function.md).  
-If you haven't already done so, complete these steps now to create your function app.
+* An active [Twitter](https://twitter.com/) account.
+* An [Outlook.com](https://outlook.com/) account (for sending notifications).
 
-## Create a Cognitive Services resource
+> [!NOTE]
+> If you want to use the Gmail connector, only G-Suite business accounts can use this connector without restrictions in logic apps. If you have a Gmail consumer account, you can use the Gmail connector with only specific Google-approved apps and services, or you can [create a Google client app to use for authentication in your Gmail connector](/connectors/gmail/#authentication-and-bring-your-own-application). <br><br>For more information, see [Data security and privacy policies for Google connectors in Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
-The Cognitive Services APIs are available in Azure as individual resources. Use the Text Analytics API to detect the sentiment of the tweets being monitored.
+## Create Text Analytics resource
+
+The Azure AI services APIs are available in Azure as individual resources. Use the Text Analytics API to detect the sentiment of posted tweets.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-2. Click **Create a resource** in the upper left-hand corner of the Azure portal.
+1. Select **Create a resource** in the upper left-hand corner of the Azure portal.
 
-3. Click **AI + Machine Learning** > **Text Analytics**. Then, use the settings as specified in the table to create the resource.
+1. Under _Categories_, select **AI + Machine Learning**
 
-    ![Create Cognitive resource page](media/functions-twitter-email/01-create-text-analytics.png)
+1. Under _Text Analytics_, select **Create**.
 
-    | Setting      |  Suggested value   | Description                                        |
-    | --- | --- | --- |
-    | **Name** | MyCognitiveServicesAccnt | Choose a unique account name. |
-    | **Location** | West US | Use the location nearest you. |
-    | **Pricing tier** | F0 | Start with the lowest tier. If you run out of calls, scale to a higher tier.|
-    | **Resource group** | myResourceGroup | Use the same resource group for all services in this tutorial.|
+1. Enter the following values in the _Create Text Analytics_ screen.
 
-4. Click **Create** to create your resource. 
+    | Setting | Value | Remarks |
+    | ------- | ----- | ------- |
+    | Subscription | Your Azure subscription name | |
+    | Resource group | Create a new resource group named **tweet-sentiment-tutorial** | Later, you delete this resource group to remove all the resources created during this tutorial. |
+    | Region | Select the region closest to you | |
+    | Name | **TweetSentimentApp** | |
+    | Pricing tier | Select **Free F0** | |
 
-5. Click on **Overview** and copy the value of the **Endpoint** to a text editor. This value is used when creating a connection to the Cognitive Services API.
+1. Select **Review + create**.
 
-    ![Cognitive Services Settings](media/functions-twitter-email/02-cognitive-services.png)
+1. Select **Create**.
 
-6. In the left navigation column, click **Keys**, and then copy the value of **Key 1** and set it aside in a text editor. You use the key to connect the logic app to your Cognitive Services API. 
- 
-    ![Cognitive Services Keys](media/functions-twitter-email/03-cognitive-serviecs-keys.png)
+1. Once the deployment is complete, select **Go to Resource**.
+
+## Get Text Analytics settings
+
+With the Text Analytics resource created, you'll copy a few settings and set them aside for later use.
+
+1. Select **Keys and Endpoint**.
+
+1. Copy **Key 1** by clicking on the icon at the end of the input box.
+
+1. Paste the value into a text editor.
+
+1. Copy the **Endpoint** by clicking on the icon at the end of the input box.
+
+1. Paste the value into a text editor.
 
 ## Create the function app
 
-Functions provides a great way to offload processing tasks in a logic apps workflow. This tutorial uses an HTTP triggered function to process tweet sentiment scores from Cognitive Services and return a category value.  
+1. From the top search box, search for and select **Function app**.
 
-[!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
+1. Select **Create**.
 
-## Create an HTTP triggered function  
+1. Enter the following values.
 
-1. Expand your function app and click the **+** button next to **Functions**. If this is the first function in your function app, select **In-portal**.
+    | Setting | Suggested Value | Remarks |
+    | ------- | ----- | ------- |
+    | Subscription | Your Azure subscription name | |
+    | Resource group | **tweet-sentiment-tutorial** | Use the same resource group name throughout this tutorial. |
+    | Function App name | **TweetSentimentAPI** + a unique suffix | Function application names are globally unique. Valid characters are `a-z` (case insensitive), `0-9`, and `-`. |
+    | Publish | **Code** | |
+    | Runtime stack | **.NET** | The function code provided for you is in C#. |
+    | Version | Select the latest version number | |
+    | Region | Select the region closest to you | |
 
-    ![Functions quickstart page in the Azure portal](media/functions-twitter-email/05-function-app-create-portal.png)
+1. Select **Review + create**.
 
-2. Next, select **Webhook + API** and click **Create**. 
+1. Select **Create**.
 
-    ![Choose the HTTP trigger](./media/functions-twitter-email/06-function-webhook.png)
+1. Once the deployment is complete, select **Go to Resource**.
 
-3. Replace the contents of the `run.csx` file with the following code, then click **Save**:
+## Create an HTTP-triggered function  
+
+1. From the left menu of the _Functions_ window, select **Functions**.
+
+1. Select **Add** from the top menu and enter the following values.
+
+    | Setting | Value | Remarks |
+    | ------- | ----- | ------- |
+    | Development environment | **Develop in portal** | |
+    | Template | **HTTP Trigger** | |
+    | New Function | **TweetSentimentFunction** | This is the name of your function. |
+    | Authorization level | **Function** | |
+
+1. Select the **Add** button.
+
+1. Select the **Code + Test** button.
+
+1. Paste the following code in the code editor window.
 
     ```csharp
     #r "Newtonsoft.Json"
@@ -98,205 +129,224 @@ Functions provides a great way to offload processing tasks in a logic apps workf
     
     public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
     {
-        string category = "GREEN";
     
-        string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-        log.LogInformation(string.Format("The sentiment score received is '{0}'.", requestBody));
+        string requestBody = String.Empty;
+        using (StreamReader streamReader =  new  StreamReader(req.Body))
+        {
+            requestBody = await streamReader.ReadToEndAsync();
+        }
     
-        double score = Convert.ToDouble(requestBody);
+        dynamic score = JsonConvert.DeserializeObject(requestBody);
+        string value = "Positive";
     
         if(score < .3)
         {
-            category = "RED";
+            value = "Negative";
         }
         else if (score < .6) 
         {
-            category = "YELLOW";
+            value = "Neutral";
         }
     
         return requestBody != null
-            ? (ActionResult)new OkObjectResult(category)
-            : new BadRequestObjectResult("Please pass a value on the query string or in the request body");
+            ? (ActionResult)new OkObjectResult(value)
+           : new BadRequestObjectResult("Pass a sentiment score in the request body.");
     }
     ```
-    This function code returns a color category based on the sentiment score received in the request. 
 
-4. To test the function, click **Test** at the far right to expand the Test tab. Type a value of `0.2` for the **Request body**, and then click **Run**. A value of **RED** is returned in the body of the response. 
+    A sentiment score is passed into the function, which returns a category name for the value.
 
-    ![Test the function in the Azure portal](./media/functions-twitter-email/07-function-test.png)
+1. Select the **Save** button on the toolbar to save your changes.
 
-Now you have a function that categorizes sentiment scores. Next, you create a logic app that integrates your function with your Twitter and Cognitive Services API. 
+    > [!NOTE]
+    > To test the function, select **Test/Run** from the top menu. On the _Input_ tab, enter a value of `0.9` in the _Body_ input box, and then select **Run**. Verify that a value of _Positive_ is returned in the _HTTP response content_ box in the _Output_ section.
 
-## Create a logic app   
+Next, create a logic app that integrates with Azure Functions, Twitter, and the Azure AI services API.
 
-1. In the Azure portal, click the **New** button found on the upper left-hand corner of the Azure portal.
+## Create a logic app
 
-2. Click **Web** > **Logic App**.
- 
-3. Then, type a value for **Name** like `TweetSentiment`, and use the settings as specified in the table.
+1. From the top search box, search for and select **Logic Apps**.
 
-    ![Create logic app in the Azure portal](./media/functions-twitter-email/08-logic-app-create.png)
+1. Select **Add**.
 
-    | Setting      |  Suggested value   | Description                                        |
-    | ----------------- | ------------ | ------------- |
-    | **Name** | TweetSentiment | Choose an appropriate name for your app. |
-    | **Resource group** | myResourceGroup | Choose the same existing resource group as before. |
-    | **Location** | East US | Choose a location close to you. |    
+1. Select **Consumption** and enter the following values.
 
-4. Once you have entered the proper settings values, click **Create** to create your logic app. 
+    | Setting | Suggested Value |
+    | ------- | --------------- |
+    | Subscription | Your Azure subscription name |
+    | Resource group | **tweet-sentiment-tutorial** |
+    | Logic app name | **TweetSentimentApp** |
+    | Region | Select the region closest to you, preferably the same region you selected in previous steps. |
 
-5. After the app is created, click your new logic app pinned to the dashboard. Then in the Logic Apps Designer, scroll down and click the **Blank Logic App** template. 
+    Accept default values for all other settings.
 
-    ![Blank Logic Apps template](media/functions-twitter-email/09-logic-app-create-blank.png)
+1. Select **Review + create**.
 
-You can now use the Logic Apps Designer to add services and triggers to your app.
+1. Select **Create**.
+
+1. Once the deployment is complete, select **Go to Resource**.
+
+1. Select the **Blank Logic App** button.
+
+    :::image type="content" source="media/functions-twitter-email/blank-logic-app-button.png" alt-text="Blank Logic App button":::
+
+1. Select the **Save** button on the toolbar to save your progress.
+
+You can now use the Logic Apps Designer to add services and triggers to your application.
 
 ## Connect to Twitter
 
-First, create a connection to your Twitter account. The logic app polls for tweets, which trigger the app to run.
+Create a connection to Twitter so your app can poll for new tweets.
 
-1. In the designer, click the **Twitter** service, and click the **When a new tweet is posted** trigger. Sign in to your Twitter account and authorize Logic Apps to use your account.
+1. Search for **Twitter** in the top search box.
 
-2. Use the Twitter trigger settings as specified in the table. 
+1. Select the **Twitter** icon.
 
-    ![Twitter connector settings](media/functions-twitter-email/10-tweet-settings.png)
+1. Select the **When a new tweet is posted** trigger.
 
-    | Setting      |  Suggested value   | Description                                        |
-    | ----------------- | ------------ | ------------- |
-    | **Search text** | #Azure | Use a hashtag that is popular enough to generate new tweets in the chosen interval. When using the Free tier and your hashtag is too popular, you can quickly use up the transaction quota in your Cognitive Services API. |
-    | **Interval** | 15 | The time elapsed between Twitter requests, in frequency units. |
-    | **Frequency** | Minute | The frequency unit used for polling Twitter.  |
+1. Enter the following values to set up the connection.
 
-3.  Click  **Save** to connect to your Twitter account. 
+    | Setting |  Value |
+    | ------- | ---------------- |
+    | Connection name | **MyTwitterConnection** |
+    | Authentication Type | **Use default shared application** |
 
-Now your app is connected to Twitter. Next, you connect to text analytics to detect the sentiment of collected tweets.
+1. Select **Sign in**.
 
-## Add sentiment detection
+1. Follow the prompts in the pop-up window to complete signing in to Twitter.
 
-1. Click **New Step**, and then **Add an action**.
+1. Next, enter the following values in the _When a new tweet is posted_ box.
 
-2. In **Choose an action**, type **Text Analytics**, and then click the **Detect sentiment** action.
-    
-    ![New Step, and then Add an action](media/functions-twitter-email/11-detect-sentiment.png)
+    | Setting | Value |
+    | ------- | ----- |
+    | Search text | **#my-twitter-tutorial** |
+    | How often do you want to check for items? | **1** in the textbox, and <br> **Hour** in the dropdown. You may enter different values but be sure to review the current [limitations](/connectors/twitterconnector/#limits) of the Twitter connector.  |
 
-3. Type a connection name such as `MyCognitiveServicesConnection`, paste the key for your Cognitive Services API and the Cognitive Services endpoint you set aside in a text editor, and click **Create**.
+1. Select the **Save** button on the toolbar to save your progress.
 
-    ![New Step, and then Add an action](media/functions-twitter-email/12-connection-settings.png)
+Next, connect to text analytics to detect the sentiment of collected tweets.
 
-4. Next, enter **Tweet Text** in the text box and then click on **New Step**.
+## Add Text Analytics sentiment detection
 
-    ![Define text to analyze](media/functions-twitter-email/13-analyze-tweet-text.png)
+1. Select **New step**.
 
-Now that sentiment detection is configured, you can add a connection to your function that consumes the sentiment score output.
+1. Search for **Text Analytics** in the search box.
 
-## Connect sentiment output to your function
+1. Select the **Text Analytics** icon.
 
-1. In the Logic Apps Designer, click **New step** > **Add an action**, filter on **Azure Functions** and click **Choose an Azure function**.
+1. Select **Detect Sentiment** and enter the following values.
 
-    ![Detect Sentiment](media/functions-twitter-email/14-azure-functions.png)
-  
-4. Select the function app you created earlier.
+    | Setting | Value |
+    | ------- | ----- |
+    | Connection name | **TextAnalyticsConnection** |
+    | Account Key | Paste in the Text Analytics account key you set aside earlier. |
+    | Site URL | Paste in the Text Analytics endpoint you set aside earlier. |
 
-    ![Select function](media/functions-twitter-email/15-select-function.png)
+1. Select **Create**.
 
-5. Select the function you created for this tutorial.
+1. Click inside the _Add new parameter_ box, and check the box next to **documents** that appears in the pop-up.
 
-    ![Select function](media/functions-twitter-email/16-select-function.png)
+1. Click inside the _documents Id - 1_ textbox to open the dynamic content pop-up.
 
-4. In **Request Body**, click **Score** and then **Save**.
+1. In the _dynamic content_ search box, search for **id**, and click on **Tweet id**.
 
-    ![Score](media/functions-twitter-email/17-function-input-score.png)
+1. Click inside the _documents Text - 1_ textbox to open the dynamic content pop-up.
 
-Now, your function is triggered when a sentiment score is sent from the logic app. A color-coded category is returned to the logic app by the function. Next, you add an email notification that is sent when a sentiment value of **RED** is returned from the function. 
+1. In the _dynamic content_ search box, search for **text**, and click on **Tweet text**.
+
+1. In **Choose an action**, type **Text Analytics**, and then click the **Detect sentiment** action.
+
+1. Select the **Save** button on the toolbar to save your progress.
+
+The _Detect Sentiment_ box should look like the following screenshot.
+
+:::image type="content" source="media/functions-twitter-email/detect-sentiment.png" alt-text="Detect Sentiment settings":::
+
+## Connect sentiment output to function endpoint
+
+1. Select **New step**.
+
+1. Search for **Azure Functions** in the search box.
+
+1. Select the **Azure Functions** icon.
+
+1. Search for your function name in the search box. If you followed the guidance above, your function name begins with **TweetSentimentAPI**.
+
+1. Select the function icon.
+
+1. Select the **TweetSentimentFunction** item.
+
+1. Click inside the _Request Body_ box, and select the _Detect Sentiment_ **score** item from the pop-up window.
+
+1. Select the **Save** button on the toolbar to save your progress.
+
+## Add conditional step
+
+1. Select the **Add an action** button.
+
+1. Click inside the _Control_ box, and search for and select **Control** in the pop-up window.
+
+1. Select **Condition**.
+
+1. Click inside the _Choose a value_ box, and select the _TweetSentimentFunction_ **Body** item from the pop-up window.
+
+1. Enter **Positive** in the _Choose a value_ box.
+
+1. Select the **Save** button on the toolbar to save your progress.
 
 ## Add email notifications
 
-The last part of the workflow is to trigger an email when the sentiment is scored as _RED_. This topic uses an Outlook.com connector. You can perform similar steps to use a Gmail or Office 365 Outlook connector.   
+1. Under the _True_ box, select the **Add an action** button.
 
-1. In the Logic Apps Designer, click **New step** > **Add a condition**. 
+1. Search for and select **Office 365 Outlook** in the text box.
 
-    ![Add a condition to the logic app.](media/functions-twitter-email/18-add-condition.png)
+1. Search for **send** and select **Send an email** in the text box.
 
-2. Click **Choose a value**, then click **Body**. Select **is equal to**, click **Choose a value** and type `RED`, and click **Save**. 
+1. Select the **Sign in** button.
 
-    ![Choose an action for the condition.](media/functions-twitter-email/19-condition-settings.png)    
+1. Follow the prompts in the pop-up window to complete signing in to Office 365 Outlook.
 
-3. In **IF TRUE**, click **Add an action**, search for `outlook.com`, click **Send an email**, and sign in to your Outlook.com account.
+1. Enter your email address in the _To_ box.
 
-    ![Configure the email for the send an email action.](media/functions-twitter-email/20-add-outlook.png)
+1. Click inside the _Subject_ box and click on the **Body** item under _TweetSentimentFunction_. If the _Body_ item isn't shown in the list, click the **See more** link to expand the options list.
 
-    > [!NOTE]
-    > If you don't have an Outlook.com account, you can choose another connector, such as Gmail or Office 365 Outlook
+1. After the _Body_ item in the _Subject_, enter the text **Tweet from:**.
 
-4. In the **Send an email** action, use the email settings as specified in the table. 
+1. After the _Tweet from:_ text, click on the box again and select **User name** from the _When a new tweet is posted_ options list.
 
-    ![Configure the email for the send an email action.](media/functions-twitter-email/21-configure-email.png)
-    
-| Setting      |  Suggested value   | Description  |
-| ----------------- | ------------ | ------------- |
-| **To** | Type your email address | The email address that receives the notification. |
-| **Subject** | Negative tweet sentiment detected  | The subject line of the email notification.  |
-| **Body** | Tweet text, Location | Click the **Tweet text** and **Location** parameters. |
+1. Click inside the _Body_ box and select **Tweet text** under the _When a new tweet is posted_ options list. If the _Tweet text_ item isn't shown in the list, click the **See more** link to expand the options list.
 
-1. Click **Save**.
+1. Select the **Save** button on the toolbar to save your progress.
 
-Now that the workflow is complete, you can enable the logic app and see the function at work.
+The email box should now look like this screenshot.
 
-## Test the workflow
+:::image type="content" source="media/functions-twitter-email/email-notification.png" alt-text="Email notification":::
 
-1. In the Logic App Designer, click **Run** to start the app.
+## Run the workflow
 
-2. In the left column, click **Overview** to see the status of the logic app. 
- 
-    ![Logic app execution status](media/functions-twitter-email/22-execution-history.png)
+1. From your Twitter account, tweet the following text: **I'm enjoying #my-twitter-tutorial**.
 
-3. (Optional) Click one of the runs to see details of the execution.
+1. Return to the Logic Apps Designer and select the **Run** button.
 
-4. Go to your function, view the logs, and verify that sentiment values were received and processed.
- 
-    ![View function logs](media/functions-twitter-email/sent.png)
+1. Check your email for a message from the workflow.
 
-5. When a potentially negative sentiment is detected, you receive an email. If you haven't received an email, you can change the function code to return RED every time:
+## Clean up resources
 
-    ```csharp
-    return (ActionResult)new OkObjectResult("RED");
-    ```
+To clean up all the Azure services and accounts created during this tutorial, delete the resource group.
 
-    After you have verified email notifications, change back to the original code:
+1. Search for **Resource groups** in the top search box.
 
-    ```csharp
-    return requestBody != null
-        ? (ActionResult)new OkObjectResult(category)
-        : new BadRequestObjectResult("Please pass a value on the query string or in the request body");
-    ```
+1. Select the **tweet-sentiment-tutorial**.
 
-    > [!IMPORTANT]
-    > After you have completed this tutorial, you should disable the logic app. By disabling the app, you avoid being charged for executions and using up the transactions in your Cognitive Services API.
+1. Select **Delete resource group**
 
-Now you have seen how easy it is to integrate Functions into a Logic Apps workflow.
+1. Enter **tweet-sentiment-tutorial** in the text box.
 
-## Disable the logic app
+1. Select the **Delete** button.
 
-To disable the logic app, click **Overview** and then click **Disable** at the top of the screen. Disabling the app stops it from running and incurring charges without deleting the app.
-
-![Function logs](media/functions-twitter-email/disable-logic-app.png)
+Optionally, you may want to return to your Twitter account and delete any test tweets from your feed.
 
 ## Next steps
 
-In this tutorial, you learned how to:
-
-> [!div class="checklist"]
-> * Create a Cognitive Services API Resource.
-> * Create a function that categorizes tweet sentiment.
-> * Create a logic app that connects to Twitter.
-> * Add sentiment detection to the logic app. 
-> * Connect the logic app to the function.
-> * Send an email based on the response from the function.
-
-Advance to the next tutorial to learn how to create a serverless API for your function.
-
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Create a serverless API using Azure Functions](functions-create-serverless-api.md)
-
-To learn more about Logic Apps, see [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
-

@@ -1,100 +1,168 @@
 ---
-title: Bash in Azure Cloud Shell Quickstart | Microsoft Docs
-description: Quickstart for Bash in Cloud Shell
-services: 
-documentationcenter: ''
-author: maertendMSFT
-manager: timlt
-tags: azure-resource-manager
- 
-ms.assetid: 
-ms.service: azure
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: na
+description: Learn how to start using Azure Cloud Shell.
+ms.contributor: jahelmic
+ms.date: 03/06/2023
 ms.topic: article
-ms.date: 03/12/2018
-ms.author: damaerte
+tags: azure-resource-manager
+title: Quickstart for Azure Cloud Shell
 ---
+# Quickstart for Azure Cloud Shell
 
-# Quickstart for Bash in Azure Cloud Shell
-
-This document details how to use Bash in Azure Cloud Shell in the [Azure portal](https://ms.portal.azure.com/).
-
-> [!NOTE]
-> A [PowerShell in Azure Cloud Shell](quickstart-powershell.md) Quickstart is also available.
+This document details how to use Bash and PowerShell in Azure Cloud Shell from the
+[Azure portal][03].
 
 ## Start Cloud Shell
-1. Launch **Cloud Shell** from the top navigation of the Azure portal. <br>
-![](media/quickstart/shell-icon.png)
 
-2. Select a subscription to create a storage account and Microsoft Azure Files share.
-3. Select "Create storage"
+1. Launch **Cloud Shell** from the top navigation of the Azure portal.
 
-> [!TIP]
-> You are automatically authenticated for Azure CLI in every session.
+   ![Screenshot showing how to start Azure Cloud Shell in the Azure portal.][06]
 
-### Select the Bash environment
-Check that the environment drop-down from the left-hand side of shell window says `Bash`. <br>
-![](media/quickstart/env-selector.png)
+   The first time you start Cloud Shell you're prompted to create an Azure Storage account for the
+   Azure file share.
+
+   ![Screenshot showing the create storage prompt.][05]
+
+1. Select the **Subscription** used to create the storage account and file share.
+1. Select **Create storage**.
+
+### Select your shell environment
+
+Cloud Shell allows you to select either **Bash** or **PowerShell** for your command-line experience.
+
+![Screenshot showing the shell selector.][04]
+
+### Registering your subscription with Azure Cloud Shell
+
+Azure Cloud Shell needs access to manage resources. Access is provided through namespaces that must
+be registered to your subscription. Use the following commands to register the
+**Microsoft.CloudShell** namespace in your subscription:
+
+<!-- markdownlint-disable MD023 -->
+<!-- markdownlint-disable MD024 -->
+<!-- markdownlint-disable MD051 -->
+#### [Azure CLI](#tab/azurecli)
+
+```azurecli-interactive
+az account set --subscription <Subscription Name or Id>
+az provider register --namespace Microsoft.CloudShell
+```
+
+#### [Azure PowerShell](#tab/powershell)
+
+```azurepowershell-interactive
+Select-AzSubscription -SubscriptionId <SubscriptionId>
+Register-AzResourceProvider -ProviderNamespace Microsoft.CloudShell
+```
+<!-- markdownlint-enable MD023 -->
+<!-- markdownlint-enable MD024 -->
+<!-- markdownlint-enable MD051 -->
+
+---
+
+> [!NOTE]
+> You only need to register the namespace once per subscription.
 
 ### Set your subscription
+
 1. List subscriptions you have access to.
+
+<!-- markdownlint-disable MD023 -->
+<!-- markdownlint-disable MD024 -->
+<!-- markdownlint-disable MD051 -->
+   #### [Azure CLI](#tab/azurecli)
+
    ```azurecli-interactive
    az account list
    ```
 
-2. Set your preferred subscription: <br>
-```azurecli-interactive
-az account set --subscription 'my-subscription-name'
-```
+   #### [Azure PowerShell](#tab/powershell)
+
+   ```azurepowershell-interactive
+   Get-AzSubscription
+   ```
+<!-- markdownlint-enable MD023 -->
+<!-- markdownlint-enable MD024 -->
+<!-- markdownlint-enable MD051 -->
+
+   ---
+
+1. Set your preferred subscription:
+
+<!-- markdownlint-disable MD023 -->
+<!-- markdownlint-disable MD024 -->
+<!-- markdownlint-disable MD051 -->
+   #### [Azure CLI](#tab/azurecli)
+
+   ```azurecli-interactive
+   az account set --subscription 'my-subscription-name'
+   ```
+
+   #### [Azure PowerShell](#tab/powershell)
+
+   ```azurepowershell-interactive
+   Set-AzContext -Subscription <SubscriptionId>
+   ```
+<!-- markdownlint-enable MD023 -->
+<!-- markdownlint-enable MD024 -->
+<!-- markdownlint-enable MD051 -->
+
+   ---
 
 > [!TIP]
-> Your subscription will be remembered for future sessions using `/home/<user>/.azure/azureProfile.json`.
+> Your subscription is remembered for future sessions using `/home/<user>/.azure/azureProfile.json`.
 
-### Create a resource group
-Create a new resource group in WestUS named "MyRG".
+### Get a list of Azure commands
+
+<!-- markdownlint-disable MD023 -->
+<!-- markdownlint-disable MD024-->
+<!-- markdownlint-disable MD051 -->
+#### [Azure CLI](#tab/azurecli)
+
+Run the following command to see a list of all Azure CLI commands.
+
 ```azurecli-interactive
-az group create --location westus --name MyRG
+az
 ```
 
-### Create a Linux VM
-Create an Ubuntu VM in your new resource group. The Azure CLI will create SSH keys and set up the VM with them. <br>
+Run the following command to get a list of Azure CLI commands that apply to WebApps:
 
 ```azurecli-interactive
-az vm create -n myVM -g MyRG --image UbuntuLTS --generate-ssh-keys
+az webapp --help
 ```
 
-> [!NOTE]
-> Using `--generate-ssh-keys` instructs Azure CLI to create and set up public and private keys in your VM and `$Home` directory. By default keys are placed in Cloud Shell at `/home/<user>/.ssh/id_rsa` and `/home/<user>/.ssh/id_rsa.pub`. Your `.ssh` folder is persisted in your attached file share's 5-GB image used to persist `$Home`.
+#### [Azure PowerShell](#tab/powershell)
 
-Your username on this VM will be your username used in Cloud Shell ($User@Azure:).
+Run the following command to see a list of all Azure PowerShell cmdlets.
 
-### SSH into your Linux VM
-1. Search for your VM name in the Azure portal search bar.
-2. Click "Connect" to get your VM name and public IP address. <br>
-   ![](media/quickstart/sshcmd-copy.png)
+```azurepowershell-interactive
+Get-Command -Module Az.*
+```
 
-3. SSH into your VM with the `ssh` cmd.
-   ```
-   ssh username@ipaddress
-   ```
+Under `Azure` drive, the `Get-AzCommand` lists context-specific Azure commands.
 
-Upon establishing the SSH connection, you should see the Ubuntu welcome prompt. <br>
-![](media/quickstart/ubuntu-welcome.png)
+Run the following commands to get a list the Azure PowerShell commands that apply to WebApps.
 
-## Cleaning up 
-1. Exit your ssh session.
-   ```azurecli-interactive
-   exit
-   ```
+```azurepowershell-interactive
+cd 'Azure:/My Subscription/WebApps'
+Get-AzCommand
+```
+<!-- markdownlint-enable MD023 -->
+<!-- markdownlint-enable MD024 -->
+<!-- markdownlint-enable MD051 -->
 
-2. Delete your resource group and any resources within it.
-   ```azurecli-interactive
-   az group delete -n MyRG
-   ```
+---
 
 ## Next steps
-[Learn about persisting files for Bash in Cloud Shell](persisting-shell-storage.md) <br>
-[Learn about Azure CLI](https://docs.microsoft.com/cli/azure/) <br>
-[Learn about Azure Files storage](../storage/files/storage-files-introduction.md) <br>
+
+- [Learn about persisting files in Cloud Shell][07]
+- [Learn about Azure CLI][02]
+- [Learn about Azure Files storage][01]
+
+<!-- link references -->
+[01]: ../storage/files/storage-files-introduction.md
+[02]: /cli/azure/
+[03]: https://portal.azure.com/
+[04]: media/quickstart/choose-shell.png
+[05]: media/quickstart/create-storage.png
+[06]: media/quickstart/shell-icon.png
+[07]: persisting-shell-storage.md

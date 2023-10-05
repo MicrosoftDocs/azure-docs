@@ -1,116 +1,135 @@
 ---
-title: HTTP APIs in Durable Functions - Azure
+title: HTTP APIs in Durable Functions - Azure Functions
 description: Learn how to implement HTTP APIs in the Durable Functions extension for Azure Functions.
-services: functions
 author: cgillum
-manager: jeconnoc
-keywords:
-ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 05/11/2021
 ms.author: azfuncdf
 ---
 
-# HTTP APIs in Durable Functions (Azure Functions)
+# HTTP API reference
 
-The Durable Task extension exposes a set of HTTP APIs that can be used to perform the following tasks:
+The Durable Functions extension exposes a set of built-in HTTP APIs that can be used to perform management tasks on [orchestrations](durable-functions-types-features-overview.md#orchestrator-functions), [entities](durable-functions-types-features-overview.md#entity-functions), and [task hubs](durable-functions-task-hubs.md). These HTTP APIs are extensibility webhooks that are authorized by the Azure Functions host but handled directly by the Durable Functions extension.
 
-* Fetch the status of an orchestration instance.
-* Send an event to a waiting orchestration instance.
-* Terminate a running orchestration instance.
+The base URL for the APIs mentioned in this article is the same as the base URL for your function app. When developing locally using the [Azure Functions Core Tools](../functions-run-local.md), the base URL is typically `http://localhost:7071`. In the Azure Functions hosted service, the base URL is typically `https://{appName}.azurewebsites.net`. Custom hostnames are also supported if configured on your App Service app.
 
-Each of these HTTP APIs is a webhook operation that is handled directly by the Durable Task extension. They are not specific to any function in the function app.
-
-> [!NOTE]
-> These operations can also be invoked directly using the instance management APIs on the [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) class. For more information, see [Instance Management](durable-functions-instance-management.md).
-
-## HTTP API URL discovery
-
-The [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html)  class exposes a [CreateCheckStatusResponse](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateCheckStatusResponse_) API that can be used to generate an HTTP response payload containing links to all the supported operations. Here is an example HTTP-trigger function that demonstrates how to use this API:
-
-### C#
-
-[!code-csharp[Main](~/samples-durable-functions/samples/csx/HttpStart/run.csx)]
-
-### JavaScript (Functions 2.x only)
-
-[!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/index.js)]
-
-These example functions produce the following JSON response data. The data type of all fields is `string`.
-
-| Field                   |Description                           |
-|-------------------------|--------------------------------------|
-| **`id`**                |The ID of the orchestration instance. |
-| **`statusQueryGetUri`** |The status URL of the orchestration instance. |
-| **`sendEventPostUri`**  |The "raise event" URL of the orchestration instance. |
-| **`terminatePostUri`**  |The "terminate" URL of the orchestration instance. |
-| **`rewindPostUri`**     |The "rewind" URL of the orchestration instance. |
-
-Here is an example response:
-
-```http
-HTTP/1.1 202 Accepted
-Content-Length: 923
-Content-Type: application/json; charset=utf-8
-Location: https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX
-
-{
-    "id":"34ce9a28a6834d8492ce6a295f1a80e2",
-    "statusQueryGetUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
-    "sendEventPostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
-    "terminatePostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
-    "rewindPostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/rewind?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX"
-}
-```
-
-> [!NOTE]
-> The format of the webhook URLs may differ depending on which version of the Azure Functions host you are running. The above example is for the Azure Functions 2.x host.
-
-## Async operation tracking
-
-The HTTP response mentioned previously is designed to help implement long-running HTTP async APIs with Durable Functions. This is sometimes referred to as the *Polling Consumer Pattern*. The client/server flow works as follows:
-
-1. The client issues an HTTP request to start a long running process, such as an orchestrator function.
-2. The target HTTP trigger returns an HTTP 202 response with a `Location` header with the `statusQueryGetUri` value.
-3. The client polls the URL in the `Location` header. It continues to see HTTP 202 responses with a `Location` header.
-4. When the instance completes (or fails), the endpoint in the `Location` header returns HTTP 200.
-
-This protocol allows coordinating long-running processes with external clients or services that support polling an HTTP endpoint and following the `Location` header. The fundamental pieces are already built into the Durable Functions HTTP APIs.
-
-> [!NOTE]
-> By default, all HTTP-based actions provided by [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) support the standard asynchronous operation pattern. This capability makes it possible to embed a long-running durable function as part of a Logic Apps workflow. More details on Logic Apps support for asynchronous HTTP patterns can be found in the [Azure Logic Apps workflow actions and triggers documentation](../../logic-apps/logic-apps-workflow-actions-triggers.md#asynchronous-patterns).
-
-## HTTP API reference
-
-All HTTP APIs implemented by the extension take the following parameters. The data type of all parameters is `string`.
+All HTTP APIs implemented by the extension require the following parameters. The data type of all parameters is `string`.
 
 | Parameter        | Parameter Type  | Description |
 |------------------|-----------------|-------------|
 | **`taskHub`**    | Query string    | The name of the [task hub](durable-functions-task-hubs.md). If not specified, the current function app's task hub name is assumed. |
-| **`connection`** | Query string    | The **name** of the connection string for the storage account. If not specified, the default connection string for the function app is assumed. |
+| **`connection`** | Query string    | The **name** of the connection app setting for the backend storage provider. If not specified, the default connection configuration for the function app is assumed. |
 | **`systemKey`**  | Query string    | The authorization key required to invoke the API. |
 
-`systemKey` is an authorization key auto-generated by the Azure Functions host. It specifically grants access to the Durable Task extension APIs and can be managed the same way as [other authorization keys](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API). The simplest way to discover the `systemKey` value is by using the `CreateCheckStatusResponse` API mentioned previously.
+`systemKey` is an authorization key autogenerated by the Azure Functions host. It specifically grants access to the Durable Task extension APIs and can be managed the same way as [other Azure Functions access keys](../security-concepts.md#function-access-keys). You can generate URLs that contain the correct `taskHub`, `connection`, and `systemKey` query string values using [orchestration client binding](durable-functions-bindings.md#orchestration-client) APIs, such as the `CreateCheckStatusResponse` and `CreateHttpManagementPayload` APIs in .NET, the `createCheckStatusResponse` and `createHttpManagementPayload` APIs in JavaScript, etc.
 
 The next few sections cover the specific HTTP APIs supported by the extension and provide examples of how they can be used.
 
-### Get instance status
+## Start orchestration
+
+Starts executing a new instance of the specified orchestrator function.
+
+### Request
+
+For version 1.x of the Functions runtime, the request is formatted as follows (multiple lines are shown for clarity):
+
+```http
+POST /admin/extensions/DurableTaskExtension/orchestrators/{functionName}/{instanceId?}
+     ?taskHub={taskHub}
+     &connection={connectionName}
+     &code={systemKey}
+```
+
+In version 2.x of the Functions runtime, the URL format has all the same parameters but with a slightly different prefix:
+
+```http
+POST /runtime/webhooks/durabletask/orchestrators/{functionName}/{instanceId?}
+     ?taskHub={taskHub}
+     &connection={connectionName}
+     &code={systemKey}
+```
+
+Request parameters for this API include the default set mentioned previously as well as the following unique parameters:
+
+| Field              | Parameter type  | Description |
+|--------------------|-----------------|-------------|
+| **`functionName`** | URL             | The name of the orchestrator function to start. |
+| **`instanceId`**   | URL             | Optional parameter. The ID of the orchestration instance. If not specified, the orchestrator function will start with a random instance ID. |
+| **`{content}`**    | Request content | Optional. The JSON-formatted orchestrator function input. |
+
+### Response
+
+Several possible status code values can be returned.
+
+* **HTTP 202 (Accepted)**: The specified orchestrator function was scheduled to start running. The `Location` response header contains a URL for polling the orchestration status.
+* **HTTP 400 (Bad request)**: The specified orchestrator function doesn't exist, the specified instance ID was not valid, or request content was not valid JSON.
+
+The following is an example request that starts a `RestartVMs` orchestrator function and includes  JSON object payload:
+
+```http
+POST /runtime/webhooks/durabletask/orchestrators/RestartVMs?code=XXX
+Content-Type: application/json
+Content-Length: 83
+
+{
+    "resourceGroup": "myRG",
+    "subscriptionId": "111deb5d-09df-4604-992e-a968345530a9"
+}
+```
+
+The response payload for the **HTTP 202** cases is a JSON object with the following fields:
+
+| Field                       | Description                          |
+|-----------------------------|--------------------------------------|
+| **`id`**                    |The ID of the orchestration instance. |
+| **`statusQueryGetUri`**     |The status URL of the orchestration instance. |
+| **`sendEventPostUri`**      |The "raise event" URL of the orchestration instance. |
+| **`terminatePostUri`**      |The "terminate" URL of the orchestration instance. |
+| **`purgeHistoryDeleteUri`** |The "purge history" URL of the orchestration instance. |
+| **`rewindPostUri`**         |(preview) The "rewind" URL of the orchestration instance. |
+| **`suspendPostUri`**        |The "suspend" URL of the orchestration instance. |
+| **`resumePostUri`**         |The "resume" URL of the orchestration instance. |
+
+The data type of all fields is `string`.
+
+Here is an example response payload for an orchestration instance with `abc123` as its ID (formatted for readability):
+
+```http
+{
+    "id": "abc123",
+    "purgeHistoryDeleteUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/abc123?code=XXX",
+    "sendEventPostUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/abc123/raiseEvent/{eventName}?code=XXX",
+    "statusQueryGetUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/abc123?code=XXX",
+    "terminatePostUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/abc123/terminate?reason={text}&code=XXX",
+    "suspendPostUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/abc123/suspend?reason={text}&code=XXX",
+    "resumePostUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/abc123/resume?reason={text}&code=XXX"
+}
+```
+
+The HTTP response is intended to be compatible with the *Polling Consumer Pattern*. It also includes the following notable response headers:
+
+* **Location**: The URL of the status endpoint. This URL contains the same value as the `statusQueryGetUri` field.
+* **Retry-After**: The number of seconds to wait between polling operations. The default value is `10`.
+
+For more information on the asynchronous HTTP polling pattern, see the [HTTP async operation tracking](durable-functions-http-features.md#async-operation-tracking) documentation.
+
+## Get instance status
 
 Gets the status of a specified orchestration instance.
 
-#### Request
+### Request
 
 For version 1.x of the Functions runtime, the request is formatted as follows (multiple lines are shown for clarity):
 
 ```http
 GET /admin/extensions/DurableTaskExtension/instances/{instanceId}
-    ?taskHub={taskHub
+    ?taskHub={taskHub}
     &connection={connectionName}
     &code={systemKey}
     &showHistory=[true|false]
     &showHistoryOutput=[true|false]
     &showInput=[true|false]
+    &returnInternalServerErrorOnFailure=[true|false]
 ```
 
 In version 2.x of the Functions runtime, the URL format has all the same parameters but with a slightly different prefix:
@@ -123,6 +142,7 @@ GET /runtime/webhooks/durabletask/instances/{instanceId}
     &showHistory=[true|false]
     &showHistoryOutput=[true|false]
     &showInput=[true|false]
+    &returnInternalServerErrorOnFailure=[true|false]
 ```
 
 Request parameters for this API include the default set mentioned previously as well as the following unique parameters:
@@ -135,23 +155,24 @@ Request parameters for this API include the default set mentioned previously as 
 | **`showHistoryOutput`** | Query string    | Optional parameter. If set to `true`, the function outputs will be included in the orchestration execution history.|
 | **`createdTimeFrom`**   | Query string    | Optional parameter. When specified, filters the list of returned instances that were created at or after the given ISO8601 timestamp.|
 | **`createdTimeTo`**     | Query string    | Optional parameter. When specified, filters the list of returned instances that were created at or before the given ISO8601 timestamp.|
-| **`runtimeStatus`**     | Query string    | Optional parameter. When specified, filters the list of returned instances based on their runtime status. To see the list of possible runtime status values, see the [Querying instances](durable-functions-instance-management.md) topic. |
+| **`runtimeStatus`**     | Query string    | Optional parameter. When specified, filters the list of returned instances based on their runtime status. To see the list of possible runtime status values, see the [Querying instances](durable-functions-instance-management.md) article. |
+| **`returnInternalServerErrorOnFailure`**  | Query string    | Optional parameter. If set to `true`, this API will return an HTTP 500 response instead of a 200 if the instance is in a failure state. This parameter is intended for automated status polling scenarios. |
 
-#### Response
+### Response
 
 Several possible status code values can be returned.
 
-* **HTTP 200 (OK)**: The specified instance is in a completed state.
+* **HTTP 200 (OK)**: The specified instance is in a completed or failed state.
 * **HTTP 202 (Accepted)**: The specified instance is in progress.
 * **HTTP 400 (Bad Request)**: The specified instance failed or was terminated.
 * **HTTP 404 (Not Found)**: The specified instance doesn't exist or has not started running.
-* **HTTP 500 (Internal Server Error)**: The specified instance failed with an unhandled exception.
+* **HTTP 500 (Internal Server Error)**: Returned only when the `returnInternalServerErrorOnFailure` is set to `true` and the specified instance failed with an unhandled exception.
 
 The response payload for the **HTTP 200** and **HTTP 202** cases is a JSON object with the following fields:
 
 | Field                 | Data type | Description |
 |-----------------------|-----------|-------------|
-| **`runtimeStatus`**   | string    | The runtime status of the instance. Values include *Running*, *Pending*, *Failed*, *Canceled*, *Terminated*, *Completed*. |
+| **`runtimeStatus`**   | string    | The runtime status of the instance. Values include *Running*, *Pending*, *Failed*, *Canceled*, *Terminated*, *Completed*, *Suspended*. |
 | **`input`**           | JSON      | The JSON data used to initialize the instance. This field is `null` if the `showInput` query string parameter is set to `false`.|
 | **`customStatus`**    | JSON      | The JSON data used for custom orchestration status. This field is `null` if not set. |
 | **`output`**          | JSON      | The JSON output of the instance. This field is `null` if the instance is not in a completed state. |
@@ -216,14 +237,11 @@ Here is an example response payload including the orchestration execution histor
 
 The **HTTP 202** response also includes a **Location** response header that references the same URL as the `statusQueryGetUri` field mentioned previously.
 
-### Get all instances status
+## Get all instances status
 
 You can also query the status of all instances by removing the `instanceId` from the 'Get instance status' request. In this case, the basic parameters are the same as the 'Get instance status'. Query string parameters for filtering are also supported.
 
-One thing to remember is that `connection` and `code` are optional. If you have anonymous auth on the function then code isn't required.
-If you don't want to use a different storage connection string other than defined in the AzureWebJobsStorage app setting, then you can safely ignore the connection query string parameter.
-
-#### Request
+### Request
 
 For version 1.x of the Functions runtime, the request is formatted as follows (multiple lines are shown for clarity):
 
@@ -235,6 +253,7 @@ GET /admin/extensions/DurableTaskExtension/instances
     &createdTimeFrom={timestamp}
     &createdTimeTo={timestamp}
     &runtimeStatus={runtimeStatus1,runtimeStatus2,...}
+    &instanceIdPrefix={prefix}
     &showInput=[true|false]
     &top={integer}
 ```
@@ -249,6 +268,7 @@ GET /runtime/webhooks/durableTask/instances?
     &createdTimeFrom={timestamp}
     &createdTimeTo={timestamp}
     &runtimeStatus={runtimeStatus1,runtimeStatus2,...}
+    &instanceIdPrefix={prefix}
     &showInput=[true|false]
     &top={integer}
 ```
@@ -257,16 +277,15 @@ Request parameters for this API include the default set mentioned previously as 
 
 | Field                   | Parameter type  | Description |
 |-------------------------|-----------------|-------------|
-| **`instanceId`**        | URL             | The ID of the orchestration instance. |
 | **`showInput`**         | Query string    | Optional parameter. If set to `false`, the function input will not be included in the response payload.|
-| **`showHistory`**       | Query string    | Optional parameter. If set to `true`, the orchestration execution history will be included in the response payload.|
 | **`showHistoryOutput`** | Query string    | Optional parameter. If set to `true`, the function outputs will be included in the orchestration execution history.|
 | **`createdTimeFrom`**   | Query string    | Optional parameter. When specified, filters the list of returned instances that were created at or after the given ISO8601 timestamp.|
 | **`createdTimeTo`**     | Query string    | Optional parameter. When specified, filters the list of returned instances that were created at or before the given ISO8601 timestamp.|
-| **`runtimeStatus`**     | Query string    | Optional parameter. When specified, filters the list of returned instances based on their runtime status. To see the list of possible runtime status values, see the [Querying instances](durable-functions-instance-management.md) topic. |
+| **`runtimeStatus`**     | Query string    | Optional parameter. When specified, filters the list of returned instances based on their runtime status. To see the list of possible runtime status values, see the [Querying instances](durable-functions-instance-management.md) article. |
+| **`instanceIdPrefix`**  | Query string    | Optional parameter. When specified, filters the list of returned instances to include only instances whose instance ID starts with the specified prefix string.  Available starting with [version 2.7.2](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask/2.7.2) of the extension. |
 | **`top`**               | Query string    | Optional parameter. When specified, limits the number of instances returned by the query. |
 
-#### Response
+### Response
 
 Here is an example of response payloads including the orchestration status (formatted for readability):
 
@@ -320,18 +339,20 @@ Here is an example of response payloads including the orchestration status (form
 ```
 
 > [!NOTE]
-> This operation can be very expensive in terms of Azure Storage I/O if there are a lot of rows in the Instances table. More details on Instance table can be found in the [Performance and scale in Durable Functions (Azure Functions)](durable-functions-perf-and-scale.md#instances-table) documentation.
->
+> This operation can be very expensive in terms of Azure Storage I/O if you are using the [default Azure Storage provider](durable-functions-storage-providers.md#azure-storage) and if there are a lot of rows in the Instances table. More details on Instance table can be found in the [Azure Storage provider](durable-functions-azure-storage-provider.md#instances-table) documentation.
 
 If more results exist, a continuation token is returned in the response header.  The name of the header is `x-ms-continuation-token`.
 
+> [!CAUTION]
+> The query result may return fewer items than the limit specified by `top`. When receiving results, you should therefore *always* check to see if there is a continuation token.
+
 If you set continuation token value in the next request header, you can get the next page of results. This name of the request header is also `x-ms-continuation-token`.
 
-### Purge single instance history
+## Purge single instance history
 
 Deletes the history and related artifacts for a specified orchestration instance.
 
-#### Request
+### Request
 
 For version 1.x of the Functions runtime, the request is formatted as follows (multiple lines are shown for clarity):
 
@@ -357,7 +378,7 @@ Request parameters for this API include the default set mentioned previously as 
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | The ID of the orchestration instance. |
 
-#### Response
+### Response
 
 The following HTTP status code values can be returned.
 
@@ -378,11 +399,11 @@ Here is an example response payload (formatted for readability):
 }
 ```
 
-### Purge multiple instance history
+## Purge multiple instance histories
 
 You can also delete the history and related artifacts for multiple instances within a task hub by removing the `{instanceId}` from the 'Purge single instance history' request. To selectively purge instance history, use the same filters described in the 'Get all instances status' request.
 
-#### Request
+### Request
 
 For version 1.x of the Functions runtime, the request is formatted as follows (multiple lines are shown for clarity):
 
@@ -414,12 +435,12 @@ Request parameters for this API include the default set mentioned previously as 
 |-----------------------|-----------------|-------------|
 | **`createdTimeFrom`** | Query string    | Filters the list of purged instances that were created at or after the given ISO8601 timestamp.|
 | **`createdTimeTo`**   | Query string    | Optional parameter. When specified, filters the list of purged instances that were created at or before the given ISO8601 timestamp.|
-| **`runtimeStatus`**   | Query string    | Optional parameter. When specified, filters the list of purged instances based on their runtime status. To see the list of possible runtime status values, see the [Querying instances](durable-functions-instance-management.md) topic. |
+| **`runtimeStatus`**   | Query string    | Optional parameter. When specified, filters the list of purged instances based on their runtime status. To see the list of possible runtime status values, see the [Querying instances](durable-functions-instance-management.md) article. |
 
 > [!NOTE]
-> This operation can be very expensive in terms of Azure Storage I/O if there are a lot of rows in the Instances and/or History tables. More details on these tables can be found in the [Performance and scale in Durable Functions (Azure Functions)](durable-functions-perf-and-scale.md#instances-table) documentation.
+> This operation can be very expensive in terms of Azure Storage I/O if you are using the [default Azure Storage provider](durable-functions-storage-providers.md#azure-storage) and if there are many rows in the Instances and/or History tables. More details on these tables can be found in the [Performance and scale in Durable Functions (Azure Functions)](durable-functions-azure-storage-provider.md#instances-table) documentation.
 
-#### Response
+### Response
 
 The following HTTP status code values can be returned.
 
@@ -440,11 +461,11 @@ Here is an example response payload (formatted for readability):
 }
 ```
 
-### Raise event
+## Raise event
 
 Sends an event notification message to a running orchestration instance.
 
-#### Request
+### Request
 
 For version 1.x of the Functions runtime, the request is formatted as follows (multiple lines are shown for clarity):
 
@@ -472,7 +493,7 @@ Request parameters for this API include the default set mentioned previously as 
 | **`eventName`**   | URL             | The name of the event that the target orchestration instance is waiting on. |
 | **`{content}`**   | Request content | The JSON-formatted event payload. |
 
-#### Response
+### Response
 
 Several possible status code values can be returned.
 
@@ -493,11 +514,11 @@ Content-Length: 6
 
 The responses for this API do not contain any content.
 
-### Terminate instance
+## Terminate instance
 
 Terminates a running orchestration instance.
 
-#### Request
+### Request
 
 For version 1.x of the Functions runtime, the request is formatted as follows (multiple lines are shown for clarity):
 
@@ -526,7 +547,7 @@ Request parameters for this API include the default set mentioned previously as 
 | **`instanceId`**  | URL             | The ID of the orchestration instance. |
 | **`reason`**      | Query string    | Optional. The reason for terminating the orchestration instance. |
 
-#### Response
+### Response
 
 Several possible status code values can be returned.
 
@@ -539,6 +560,64 @@ Here is an example request that terminates a running instance and specifies a re
 ```
 POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/terminate?reason=buggy&taskHub=DurableFunctionsHub&connection=Storage&code=XXX
 ```
+
+The responses for this API do not contain any content.
+
+## Suspend instance (preview)
+
+Suspends a running orchestration instance.
+
+### Request
+
+In version 2.x of the Functions runtime, the request is formatted as follows (multiple lines are shown for clarity):
+
+```http
+POST /runtime/webhooks/durabletask/instances/{instanceId}/suspend
+    ?reason={text}
+    &taskHub={taskHub}
+    &connection={connectionName}
+    &code={systemKey}
+```
+
+| Field             | Parameter Type  | Description |
+|-------------------|-----------------|-------------|
+| **`instanceId`**  | URL             | The ID of the orchestration instance. |
+| **`reason`**      | Query string    | Optional. The reason for suspending the orchestration instance. |
+
+Several possible status code values can be returned.
+
+* **HTTP 202 (Accepted)**: The suspend request was accepted for processing.
+* **HTTP 404 (Not Found)**: The specified instance was not found.
+* **HTTP 410 (Gone)**: The specified instance has completed, failed, or terminated.
+
+The responses for this API do not contain any content.
+
+## Resume instance (preview)
+
+Resumes a suspended orchestration instance.
+
+### Request
+
+In version 2.x of the Functions runtime, the request is formatted as follows (multiple lines are shown for clarity):
+
+```http
+POST /runtime/webhooks/durabletask/instances/{instanceId}/resume
+    ?reason={text}
+    &taskHub={taskHub}
+    &connection={connectionName}
+    &code={systemKey}
+```
+
+| Field             | Parameter Type  | Description |
+|-------------------|-----------------|-------------|
+| **`instanceId`**  | URL             | The ID of the orchestration instance. |
+| **`reason`**      | Query string    | Optional. The reason for resuming the orchestration instance. |
+
+Several possible status code values can be returned.
+
+* **HTTP 202 (Accepted)**: The resume request was accepted for processing.
+* **HTTP 404 (Not Found)**: The specified instance was not found.
+* **HTTP 410 (Gone)**: The specified instance has completed, failed, or terminated.
 
 The responses for this API do not contain any content.
 
@@ -591,7 +670,190 @@ POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7
 
 The responses for this API do not contain any content.
 
+## Signal entity
+
+Sends a one-way operation message to a [Durable Entity](durable-functions-types-features-overview.md#entity-functions). If the entity doesn't exist, it will be created automatically.
+
+> [!NOTE]
+> Durable entities are available starting in Durable Functions 2.0.
+
+### Request
+
+The HTTP request is formatted as follows (multiple lines are shown for clarity):
+
+```http
+POST /runtime/webhooks/durabletask/entities/{entityName}/{entityKey}
+    ?taskHub={taskHub}
+    &connection={connectionName}
+    &code={systemKey}
+    &op={operationName}
+```
+
+Request parameters for this API include the default set mentioned previously as well as the following unique parameters:
+
+| Field             | Parameter type  | Description |
+|-------------------|-----------------|-------------|
+| **`entityName`**  | URL             | The name (type) of the entity. |
+| **`entityKey`**   | URL             | The key (unique ID) of the entity. |
+| **`op`**          | Query string    | Optional. The name of the user-defined operation to invoke. |
+| **`{content}`**   | Request content | The JSON-formatted event payload. |
+
+Here is an example request that sends a user-defined "Add" message to a `Counter` entity named `steps`. The content of the message is the value `5`. If the entity does not already exist, it will be created by this request:
+
+```http
+POST /runtime/webhooks/durabletask/entities/Counter/steps?op=Add
+Content-Type: application/json
+
+5
+```
+
+> [!NOTE]
+> By default with [class-based entities in .NET](durable-functions-dotnet-entities.md#defining-entity-classes), specifying the `op` value of `delete` will delete the state of an entity. If the entity defines an operation named `delete`, however, that user-defined operation will be invoked instead.
+
+### Response
+
+This operation has several possible responses:
+
+* **HTTP 202 (Accepted)**: The signal operation was accepted for asynchronous processing.
+* **HTTP 400 (Bad request)**: The request content was not of type `application/json`, was not valid JSON, or had an invalid `entityKey` value.
+* **HTTP 404 (Not Found)**: The specified `entityName` was not found.
+
+A successful HTTP request does not contain any content in the response. A failed HTTP request may contain JSON-formatted error information in the response content.
+
+## Get entity
+
+Gets the state of the specified entity.
+
+### Request
+
+The HTTP request is formatted as follows (multiple lines are shown for clarity):
+
+```http
+GET /runtime/webhooks/durabletask/entities/{entityName}/{entityKey}
+    ?taskHub={taskHub}
+    &connection={connectionName}
+    &code={systemKey}
+```
+
+### Response
+
+This operation has two possible responses:
+
+* **HTTP 200 (OK)**: The specified entity exists.
+* **HTTP 404 (Not Found)**: The specified entity was not found.
+
+A successful response contains the JSON-serialized state of the entity as its content.
+
+### Example
+The following example HTTP request gets the state of an existing `Counter` entity named `steps`:
+
+```http
+GET /runtime/webhooks/durabletask/entities/Counter/steps
+```
+
+If the `Counter` entity simply contained a number of steps saved in a `currentValue` field, the response content might look like the following (formatted for readability):
+
+```json
+{
+    "currentValue": 5
+}
+```
+
+## List entities
+
+You can query for multiple entities by the entity name or by the last operation date.
+
+### Request
+
+The HTTP request is formatted as follows (multiple lines are shown for clarity):
+
+```http
+GET /runtime/webhooks/durabletask/entities/{entityName}
+    ?taskHub={taskHub}
+    &connection={connectionName}
+    &code={systemKey}
+    &lastOperationTimeFrom={timestamp}
+    &lastOperationTimeTo={timestamp}
+    &fetchState=[true|false]
+    &top={integer}
+```
+
+Request parameters for this API include the default set mentioned previously as well as the following unique parameters:
+
+| Field                       | Parameter type  | Description |
+|-----------------------------|-----------------|-------------|
+| **`entityName`**            | URL             | Optional. When specified, filters the list of returned entities by their entity name (case-insensitive). |
+| **`fetchState`**            | Query string    | Optional parameter. If set to `true`, the entity state will be included in the response payload. |
+| **`lastOperationTimeFrom`** | Query string    | Optional parameter. When specified, filters the list of returned entities that processed operations after the given ISO8601 timestamp. |
+| **`lastOperationTimeTo`**   | Query string    | Optional parameter. When specified, filters the list of returned entities that processed operations  before the given ISO8601 timestamp. |
+| **`top`**                   | Query string    | Optional parameter. When specified, limits the number of entities returned by the query. |
+
+
+### Response
+
+A successful HTTP 200 response contains a JSON-serialized array of entities and optionally the state of each entity.
+
+By default the operation returns the first 100 entities that match the query criteria. The caller can specify a query string parameter value for `top` to return a different maximum number of results. If more results exist beyond what is returned, a continuation token is also returned in the response header. The name of the header is `x-ms-continuation-token`.
+
+If you set continuation token value in the next request header, you can get the next page of results. This name of the request header is also `x-ms-continuation-token`.
+
+### Example - list all entities
+
+The following example HTTP request lists all entities in the task hub:
+
+```http
+GET /runtime/webhooks/durabletask/entities
+```
+
+The response JSON may look like the following (formatted for readability):
+
+```json
+[
+    {
+        "entityId": { "key": "cats", "name": "counter" },
+        "lastOperationTime": "2019-12-18T21:45:44.6326361Z",
+    },
+    {
+        "entityId": { "key": "dogs", "name": "counter" },
+        "lastOperationTime": "2019-12-18T21:46:01.9477382Z"
+    },
+    {
+        "entityId": { "key": "mice", "name": "counter" },
+        "lastOperationTime": "2019-12-18T21:46:15.4626159Z"
+    },
+    {
+        "entityId": { "key": "radio", "name": "device" },
+        "lastOperationTime": "2019-12-18T21:46:18.2616154Z"
+    },
+]
+```
+
+### Example - filtering the list of entities
+
+The following example HTTP request lists just the first two entities of type `counter` and also fetches their state:
+
+```http
+GET /runtime/webhooks/durabletask/entities/counter?top=2&fetchState=true
+```
+
+The response JSON may look like the following (formatted for readability):
+
+```json
+[
+    {
+        "entityId": { "key": "cats", "name": "counter" },
+        "lastOperationTime": "2019-12-18T21:45:44.6326361Z",
+        "state": { "value": 9 }
+    },
+    {
+        "entityId": { "key": "dogs", "name": "counter" },
+        "lastOperationTime": "2019-12-18T21:46:01.9477382Z",
+        "state": { "value": 10 }
+    }
+]
+```
+
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn how to handle errors](durable-functions-error-handling.md)
+> [Learn how to use Application Insights to monitor your durable functions](durable-functions-diagnostics.md)

@@ -1,22 +1,14 @@
 ---
-title: Azure Service Fabric application model | Microsoft Docs
-description: How to model and describe applications and services in Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: mani-ramaswamy
-
-ms.assetid: 17a99380-5ed8-4ed9-b884-e9b827431b02
-ms.service: service-fabric
-ms.devlang: dotnet
+title: Azure Service Fabric application model
+description: How to model and describe applications and services in Azure Service Fabric using application and service manifest files.
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 2/23/2018
-ms.author: atsenthi
-
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Model an application in Service Fabric
 This article provides an overview of the Azure Service Fabric application model and how to define an application and service via manifest files.
 
@@ -29,7 +21,7 @@ An application type is a categorization of an application and consists of a bund
 
 Classes (or "types") of applications and services are described through XML files (application manifests and service manifests).  The manifests describe applications and services and are the templates against which applications can be instantiated from the cluster's image store.  Manifests are covered in detail in [Application and service manifests](service-fabric-application-and-service-manifests.md). The schema definition for the ServiceManifest.xml and ApplicationManifest.xml file is installed with the Service Fabric SDK and tools to *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*. The XML schema is documented in [ServiceFabricServiceModel.xsd schema documentation](service-fabric-service-model-schema.md).
 
-The code for different application instances run as separate processes even when hosted by the same Service Fabric node. Furthermore, the lifecycle of each application instance can be managed (for example, upgraded) independently. The following diagram shows how application types are composed of service types, which in turn are composed of code, configuration, and data packages. To simplify the diagram, only the code/config/data packages for `ServiceType4` are shown, though each service type would include some or all those package types.
+The code for different application instances runs as separate processes even when hosted by the same Service Fabric node. Furthermore, the lifecycle of each application instance can be managed (for example, upgraded) independently. The following diagram shows how application types are composed of service types, which in turn are composed of code, configuration, and data packages. To simplify the diagram, only the code/config/data packages for `ServiceType4` are shown, though each service type would include some or all those package types.
 
 ![Service Fabric application types and service types][cluster-imagestore-apptypes]
 

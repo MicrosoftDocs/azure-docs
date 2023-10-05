@@ -1,6 +1,6 @@
 ---
 title: Language support - Bing Custom Search API
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: A list of supported languages and regions for the Bing Custom Search API.
 services: cognitive-services
 author: aahill
@@ -15,13 +15,15 @@ ms.author: aahi
 
 # Language and region support for the Bing Custom Search API
 
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
+
 The Bing Custom Search API supports more than three dozen countries/regions, many with more than one language.
 
-Although it's optional, the request should specify the [mkt](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#mkt) query parameter, which identifies the market where you want the results to come from. For a list of optional query parameters, see [Query Parameters](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters)
+Although it's optional, the request should specify the [mkt](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#mkt) query parameter, which identifies the market where you want the results to come from. For a list of optional query parameters, see [Query Parameters](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters)
 
 You can specify a country/region using the `cc` query parameter. If you specify a country/region, you must also specify one or more language codes using the `Accept-Language` header. The supported languages vary by country/region; they are given for each country/region in the **Markets** table.
 
-The `Accept-Language` header and the `setLang` query parameter are mutually exclusive—do not specify both. For details, see [Accept-Language](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#acceptlanguage).
+The `Accept-Language` header and the `setLang` query parameter are mutually exclusive—do not specify both. For details, see [Accept-Language](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#acceptlanguage).
 
 ## Countries/Regions
 
@@ -60,7 +62,7 @@ The `Accept-Language` header and the `setLang` query parameter are mutually excl
 |Sweden|SE|
 |Switzerland|CH|
 |Taiwan|TW|
-|Turkey|TR|
+|Türkiye|TR|
 |United Kingdom|GB|
 |United States|US|
 
@@ -82,7 +84,7 @@ The `Accept-Language` header and the `setLang` query parameter are mutually excl
 |Finland|Finnish|fi-FI|
 |France|French|fr-FR|
 |Germany|German|de-DE|
-|Hong Kong, SAR|Traditional Chinese|zh-HK|
+|Hong Kong SAR|Traditional Chinese|zh-HK|
 |India|English|en-IN|
 |Indonesia|English|en-ID|
 |Italy|Italian|it-IT|
@@ -105,7 +107,7 @@ The `Accept-Language` header and the `setLang` query parameter are mutually excl
 |Switzerland|French|fr-CH|
 |Switzerland|German|de-CH|
 |Taiwan|Traditional Chinese|zh-TW|
-|Turkey|Turkish|tr-TR|
+|Türkiye|Turkish|tr-TR|
 |United Kingdom|English|en-GB|
 |United States|English|en-US|
 |United States|Spanish|es-US|

@@ -1,0 +1,132 @@
+### YamlMime:FAQ
+metadata:
+  title: Azure Virtual Desktop MSIX app attach FAQ - Azure
+  description: Frequently asked questions about MSIX app attach for Azure Virtual Desktop.
+  services: virtual-desktop
+  author: Heidilohr
+  
+  ms.service: virtual-desktop
+  ms.topic: faq
+  ms.date: 06/19/2023
+  ms.author: helohr
+  manager: femila
+title: MSIX app attach FAQ
+summary: This article answers frequently asked questions about MSIX app attach for Azure Virtual Desktop.
+
+
+sections:
+  - name: Ignored
+    questions:
+      - question: |
+          What's the difference between MSIX and MSIX app attach?
+        answer: |
+          MSIX is a packaging format for apps, while MSIX app attach is the feature that delivers MSIX packages to your deployment.
+
+      - question: |
+          Does MSIX app attach use FSLogix?
+        answer: |
+          MSIX app attach doesn't use FSLogix. However, MSIX app attach and FSLogix are designed to work together to provide a seamless user experience.
+
+      - question: |
+          Can I use the MSIX app attach outside of Azure Virtual Desktop?
+        answer: |
+          The APIs that power MSIX app attach are available for Windows 11 and Windows 10 Enterprise. These APIs can be used outside of Azure Virtual Desktop. However, there's no management plane for MSIX app attach outside of Azure Virtual Desktop.
+
+      - question: |
+          How do I get an MSIX package?
+        answer: |
+          Your software vendor will give you an MSIX package. You can also convert non-MSIX packages to MSIX. Learn more at [How to move your existing installers to MSIX](/windows/msix/packaging-tool/create-an-msix-overview#how-to-move-your-existing-installers-to-msix).
+          
+      - question: |
+          Which operating systems support MSIX app attach?
+        answer: |
+          Windows 11, Windows 10 Enterprise, and Windows 10 Enterprise Multi-session, version 2004 or later.
+
+      - question: |
+          Is MSIX app attach currently generally available?
+        answer: |
+          MSIX app attach is part of Windows 11, Windows 10 Enterprise, and Windows 10 Enterprise Multi-session, version 2004 or later. Both operating systems are currently generally available. 
+
+      - question: |
+          Can I use MSIX app attach outside of Azure Virtual Desktop?
+        answer: |
+          MSIX and MSIX app attach APIs are part of Windows 11, Windows 10 Enterprise, and Windows 10 Enterprise Multi-session, version 2004 and later. We currently don't provide management software for MSIX app attach outside of Azure Virtual Desktop.
+
+      - question: |
+          Can I run two versions of the same application at the same time?
+        answer: |
+          For two versions of the same MSIX applications to run simultaneously, the MSIX package family defined in the appxmanifest.xml file must be different for each app.
+
+      - question: |
+          Should I disable auto-update when using MSIX app attach?
+        answer: |
+          Yes. MSIX app attach doesn't support auto-update for MSIX applications.
+
+      - question: |
+          How do permissions work with MSIX app attach?
+        answer: |
+          All virtual machines (VMs) in a host pool that uses MSIX app attach must have read permissions on the file share where the MSIX images are stored. If it also uses Azure Files, they'll need to be granted both role-based access control (RBAC) and New Technology File System (NTFS) permissions.
+
+      - question: |
+          How many users can use an MSIX image handle?
+        answer: |
+          MSIX app attach mounts MSIX images on a per-machine basis, not a per-user basis. The number of users who can use an MSIX image handle is based on the size of the machine's file system and throughput of the network. Also, Azure Files has a limit of 2,000 open handles per file. 
+
+      - question: |
+          Can I use Azure Active Directory Domain Services (Azure AD DS) with MSIX app attach?
+        answer: |
+          MSIX app attach doesn't currently support Azure AD DS. Because Azure AD DS computer objects aren't synchronized to Azure Active Directory (Azure AD), the administrator can't provide the required role-based access control (RBAC) permissions for Azure Files.
+
+      - question: |
+          Can I use MSIX app attach for HTTP or HTTPs?
+        answer: |
+          Using MSIX app attach over HTTP or HTTPs is currently not supported.
+
+      - question: |
+          Can I restage the same MSIX application?
+        answer: |
+          Yes. You can restage applications you've already restaged, and this shouldn't cause any errors.
+
+      - question: |
+          Does MSIX app attach support self-signed certificates?
+        answer: |
+          Yes. You need to install the self-signed certificate on all the session host VMs where MSIX app attach is used to host the self-signed application. Learn how to create a self-signed certificate at [Create a certificate for package signing](/windows/msix/package/create-certificate-package-signing).
+          
+      - question: |
+          What applications can I repackage to MSIX?
+        answer: |
+          Each application uses different features of the OS, programming languages, and frameworks. To repackage your application, follow the directions in [How to move your existing installers to MSIX](/windows/msix/packaging-tool/create-an-msix-overview#how-to-move-your-existing-installers-to-msix). You can find a list of the things you need in order to repackage an application at [Prepare to package a desktop application](/windows/msix/desktop/desktop-to-uwp-prepare). 
+          
+          Certain applications can't be application layered, which means they can't be repackaged into an MSIX file. Here's a list of the applications that can't be repackaged:
+          
+          - Drivers 
+          - Active-X or Silverlight
+          - VPN clients
+          - Antivirus programs
+
+      - question: |
+          How many MSIX applications can I add to each session host?
+        answer: |
+          Each session host has different limits based on their CPU, memory, and OS. Going over these limits can affect application performance and overall user experience. However, MSIX app attach itself has no limit on how many applications it can use.
+
+      - question: |
+          How many .VHD or .VHDX files can I mount on a host pool?
+        answer: |
+          MSIX app attach itself doesn't have a limit to the number of files you can mount. However, the host pool itself can be limited by the following factors:
+
+          - The ability of the OS to handle mounted volumes.
+          - The maximum number of open files your storage solution or file system can hold.
+          - The host pool's session host memory and CPU utilization.
+
+          In other words, the host pool's limits would be the same as if you're installing and running the apps locally.          
+
+      - question: |
+          Should I timestamp my MSIX packages?
+        answer: |
+          Check the [MSIX packaging overview](/windows/msix/package/signing-package-overview#timestamping) to see Microsoft's recommendations for using timestamps.
+      
+additionalContent: |
+
+  ## Next steps
+  
+  If you want to learn more about MSIX app attach, check out our [overview](what-is-app-attach.md). Otherwise, get started with [Set up app attach](app-attach.md).

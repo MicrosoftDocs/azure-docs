@@ -1,215 +1,63 @@
 ---
-title: Function types and features in the Durable Functions extension of Azure Functions
+title: Function types in Azure Durable Functions
 description: Learn about the types of functions and roles that support function-to-function communication in a Durable Functions orchestration in Azure Functions.
-services: functions
-author: jeffhollan
-manager: jeconnoc
-keywords:
-ms.service: azure-functions
-ms.devlang: multiple
+author: cgillum
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/22/2019
 ms.author: azfuncdf
 #Customer intent: As a developer, I want to understand the core concepts and patterns that Azure Durable Functions supports, so I can learn how to use this technology to solve my application development challenges.
 ---
 
-# Durable Functions types and features (Azure Functions)
+# Durable Functions types and features
 
-Durable Functions is an extension of [Azure Functions](../functions-overview.md). You can use Durable Functions for stateful orchestration of function execution. A durable function is a solution that's made up of different Azure functions. Functions can play different roles in a durable function orchestration. 
+Durable Functions is an extension of [Azure Functions](../functions-overview.md). You can use Durable Functions for stateful orchestration of function execution. A durable function app is a solution that's made up of different Azure functions. Functions can play different roles in a durable function orchestration. 
 
-This article gives you an overview of the types of functions you can use in a Durable Functions orchestration. The article includes some common patterns you can use to connect functions. Learn how Durable Functions can help you solve your app development challenges.
+There are currently four durable function types in Azure Functions: activity, orchestrator, entity, and client. The rest of this section goes into more details about the types of functions involved in an orchestration.
 
-![An image that shows the types of durable functions][1]  
+## Orchestrator functions
 
-## Types of durable functions
+Orchestrator functions describe how actions are executed and the order in which actions are executed. Orchestrator functions describe the orchestration in code (C# or JavaScript) as shown in [Durable Functions application patterns](durable-functions-overview.md#application-patterns). An orchestration can have many different types of actions, including [activity functions](#activity-functions), [sub-orchestrations](durable-functions-orchestrations.md#sub-orchestrations), [waiting for external events](durable-functions-orchestrations.md#external-events), [HTTP](durable-functions-http-features.md), and [timers](durable-functions-orchestrations.md#durable-timers). Orchestrator functions can also interact with [entity functions](#entity-functions).
 
-You can use three durable function types in Azure Functions: activity, orchestrator, and client.
+> [!NOTE]
+> Orchestrator functions are written using ordinary code, but there are strict requirements on how to write the code. Specifically, orchestrator function code must be *deterministic*. Failing to follow these determinism requirements can cause orchestrator functions to fail to run correctly. Detailed information on these requirements and how to work around them can be found in the [code constraints](durable-functions-code-constraints.md) topic.
 
-### Activity functions
+For more detailed information on orchestrator functions and their features, see the [Durable orchestrations](durable-functions-orchestrations.md) article.
 
-Activity functions are the basic unit of work in a durable function orchestration. Activity functions are the functions and tasks that are orchestrated in the process. For example, you might create a durable function to process an order. The tasks involve checking the inventory, charging the customer, and creating a shipment. Each task would be an activity function. 
+## Activity functions
 
-Activity functions aren't restricted in the type of work you can do in them. You can write an activity function in any [language that Durable Functions support](durable-functions-overview.md#language-support). The durable task framework guarantees that each called activity function will be executed at least once during an orchestration.
+Activity functions are the basic unit of work in a durable function orchestration. Activity functions are the functions and tasks that are orchestrated in the process. For example, you might create an orchestrator function to process an order. The tasks involve checking the inventory, charging the customer, and creating a shipment. Each task would be a separate activity function. These activity functions may be executed serially, in parallel, or some combination of both.
 
-Use an [activity trigger](durable-functions-bindings.md#activity-triggers) to trigger an activity function. .NET functions receive a [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) as a parameter. You can also bind the trigger to any other object to pass in inputs to the function. In JavaScript, you can access an input via the `<activity trigger binding name>` property on the [`context.bindings` object](../functions-reference-node.md#bindings).
+Unlike orchestrator functions, activity functions aren't restricted in the type of work you can do in them. Activity functions are frequently used to make network calls or run CPU intensive operations. An activity function can also return data back to the orchestrator function. The Durable Task Framework guarantees that each called activity function will be executed *at least once* during an orchestration's execution.
 
-Your activity function can also return values to the orchestrator. If you send or return a large number of values from an activity function, you can use [tuples or arrays](durable-functions-bindings.md#passing-multiple-parameters). You can trigger an activity function only from an orchestration instance. Although an activity function and another function (like an HTTP-triggered function) might share some code, each function can have only one trigger.
+> [!NOTE]
+> Because activity functions only guarantee *at least once* execution, we recommend you make your activity function logic *idempotent* whenever possible.
 
-For more information and for examples, see [Activity functions](durable-functions-bindings.md#activity-triggers).
+Use an [activity trigger](durable-functions-bindings.md#activity-trigger) to define an activity function. .NET functions receive a `DurableActivityContext` as a parameter. You can also bind the trigger to any other JSON-serializeable object to pass in inputs to the function. In JavaScript, you can access an input via the `<activity trigger binding name>` property on the [`context.bindings` object](../functions-reference-node.md#bindings). Activity functions can only have a single value passed to them. To pass multiple values, you must use tuples, arrays, or complex types.
 
-### Orchestrator functions
+> [!NOTE]
+> You can trigger an activity function only from an orchestrator function.
 
-Orchestrator functions describe how actions are executed and the order in which actions are executed. Orchestrator functions describe the orchestration in code (C# or JavaScript) as shown in [Durable Functions patterns and technical concepts](durable-functions-concepts.md). An orchestration can have many different types of actions, including [activity functions](#activity-functions), [sub-orchestrations](#sub-orchestrations), [waiting for external events](#external-events), and [timers](#durable-timers). 
+## Entity functions
 
-An orchestrator function must be triggered by an [orchestration trigger](durable-functions-bindings.md#orchestration-triggers).
+Entity functions define operations for reading and updating small pieces of state. We often refer to these stateful entities as *durable entities*. Like orchestrator functions, entity functions are functions with a special trigger type, *entity trigger*. They can also be invoked from client functions or from orchestrator functions. Unlike orchestrator functions, entity functions do not have any specific code constraints. Entity functions also manage state explicitly rather than implicitly representing state via control flow.
 
-An orchestrator is started by an [orchestrator client](#client-functions). You can trigger the orchestrator from any source (HTTP, queue, event stream). Each instance of an orchestration has an instance identifier. The instance identifier can be autogenerated (recommended) or user-generated. You can use the instance identifier to [manage instances](durable-functions-instance-management.md) of the orchestration.
+> [!NOTE]
+> Entity functions and related functionality is only available in Durable Functions 2.0 and above.
 
-For more information and for examples, see [Orchestration triggers](durable-functions-bindings.md#orchestration-triggers).
+For more information about entity functions, see the [Durable Entities](durable-functions-entities.md) article.
 
-### Client functions
+## Client functions
 
-Client functions are the triggered functions that create new instances of an orchestration. Client functions are the entry point for creating an instance of a Durable Functions orchestration. You can trigger a client function from any source (HTTP, queue, event stream). You can write a client function in any language that the app supports. 
+Orchestrator functions are triggered by an [orchestration trigger binding](durable-functions-bindings.md#orchestration-trigger) and entity functions are triggered by an [entity trigger binding](durable-functions-bindings.md#entity-trigger). Both of these triggers work by reacting to messages that are enqueued into a [task hub](durable-functions-task-hubs.md). The primary way to deliver these messages is by using an [orchestrator client binding](durable-functions-bindings.md#orchestration-client) or an [entity client binding](durable-functions-bindings.md#entity-client) from within a *client function*. Any non-orchestrator function can be a *client function*. For example, You can trigger the orchestrator from an HTTP-triggered function, an Azure Event Hub triggered function, etc. What makes a function a *client function* is its use of the durable client output binding.
 
-Client functions also have an [orchestration client](durable-functions-bindings.md#orchestration-client) binding. A client function can use the orchestration client binding to create and manage durable orchestrations. 
+> [!NOTE]
+> Unlike other function types, orchestrator and entity functions cannot be triggered directly using the buttons in the Azure Portal. If you want to test an orchestrator or entity function in the Azure Portal, you must instead run a *client function* that starts an orchestrator or entity function as part of its implementation. For the simplest testing experience, a *manual trigger* function is recommended.
 
-The most basic example of a client function is an HTTP-triggered function that starts an orchestrator function, and then returns a check status response. For an example, see [HTTP API URL discovery](durable-functions-http-api.md#http-api-url-discovery).
-
-For more information and for examples, see [Orchestration client](durable-functions-bindings.md#orchestration-client).
-
-## Features and patterns
-
-The next sections describe the features and patterns of Durable Functions types.
-
-### Sub-orchestrations
-
-Orchestrator functions can call activity functions, but they can also call other orchestrator functions. For example, you can build a larger orchestration out of a library of orchestrator functions. Or, you can run multiple instances of an orchestrator function in parallel.
-
-For more information and for examples, see [Sub-orchestrations](durable-functions-sub-orchestrations.md).
-
-### Durable timers
-
-[Durable Functions](durable-functions-overview.md) provides *durable timers* that you can use in orchestrator functions to implement delays or to set up timeouts on async actions. Use durable timers in orchestrator functions instead of `Thread.Sleep` and `Task.Delay` (C#) or `setTimeout()` and `setInterval()` (JavaScript).
-
-For more information and for examples, see [Durable timers](durable-functions-timers.md).
-
-### External events
-
-Orchestrator functions can wait for external events to update an orchestration instance. This Durable Functions feature often is useful for handling a human interaction or other external callbacks.
-
-For more information and for examples, see [External events](durable-functions-external-events.md).
-
-### Error handling
-
-Use code to implement Durable Functions orchestrations. You can use the error-handling features of the programming language. Patterns like `try`/`catch` work in your orchestration. 
-
-Durable Functions also come with built-in retry policies. An action can delay and retry activities automatically when an exception occurs. You can use retries to handle transient exceptions without abandoning the orchestration.
-
-For more information and for examples, see [Error handling](durable-functions-error-handling.md).
-
-### Cross-function app communication
-
-Although a durable orchestration runs in the context of a single function app, you can use patterns to coordinate orchestrations across many function apps. Cross-app communication might occur over HTTP, but using the durable framework for each activity means you can still maintain a durable process across two apps.
-
-The following examples demonstrate cross-function app orchestration in C# and JavaScript. In each example, one activity starts the external orchestration. Another activity retrieves and returns the status. The orchestrator waits for the status to be `Complete` before it continues.
-
-Here are some examples of cross-function app orchestration:
-
-#### C#
-
-```csharp
-[FunctionName("OrchestratorA")]
-public static async Task RunRemoteOrchestrator(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
-{
-    // Do some work...
-
-    // Call a remote orchestration.
-    string statusUrl = await context.CallActivityAsync<string>(
-        "StartRemoteOrchestration", "OrchestratorB");
-
-    // Wait for the remote orchestration to complete.
-    while (true)
-    {
-        bool isComplete = await context.CallActivityAsync<bool>("CheckIsComplete", statusUrl);
-        if (isComplete)
-        {
-            break;
-        }
-
-        await context.CreateTimer(context.CurrentUtcDateTime.AddMinutes(1), CancellationToken.None);
-    }
-
-    // B is done. Now, go do more work...
-}
-
-[FunctionName("StartRemoteOrchestration")]
-public static async Task<string> StartRemoteOrchestration([ActivityTrigger] string orchestratorName)
-{
-    using (var response = await HttpClient.PostAsync(
-        $"https://appB.azurewebsites.net/orchestrations/{orchestratorName}",
-        new StringContent("")))
-    {
-        string statusUrl = await response.Content.ReadAsAsync<string>();
-        return statusUrl;
-    }
-}
-
-[FunctionName("CheckIsComplete")]
-public static async Task<bool> CheckIsComplete([ActivityTrigger] string statusUrl)
-{
-    using (var response = await HttpClient.GetAsync(statusUrl))
-    {
-        // 200 = Complete, 202 = Running
-        return response.StatusCode == HttpStatusCode.OK;
-    }
-}
-```
-
-#### JavaScript (Functions 2.x only)
-
-```javascript
-const df = require("durable-functions");
-const moment = require("moment");
-
-module.exports = df.orchestrator(function*(context) {
-    // Do some work...
-
-    // Call a remote orchestration.
-    const statusUrl = yield context.df.callActivity("StartRemoteOrchestration", "OrchestratorB");
-
-    // Wait for the remote orchestration to complete.
-    while (true) {
-        const isComplete = yield context.df.callActivity("CheckIsComplete", statusUrl);
-        if (isComplete) {
-            break;
-        }
-
-        const waitTime = moment(context.df.currentUtcDateTime).add(1, "m").toDate();
-        yield context.df.createTimer(waitTime);
-    }
-
-    // B is done. Now, go do more work...
-});
-```
-
-```javascript
-const request = require("request-promise-native");
-
-module.exports = async function(context, orchestratorName) {
-    const options = {
-        method: "POST",
-        uri: `https://appB.azurewebsites.net/orchestrations/${orchestratorName}`,
-        body: ""
-    };
-
-    const statusUrl = await request(options);
-    return statusUrl;
-};
-```
-
-```javascript
-const request = require("request-promise-native");
-
-module.exports = async function(context, statusUrl) {
-    const options = {
-        method: "GET",
-        uri: statusUrl,
-        resolveWithFullResponse: true,
-    };
-
-    const response = await request(options);
-    // 200 = Complete, 202 = Running
-    return response.statusCode === 200;
-};
-```
+In addition to triggering orchestrator or entity functions, the *durable client* binding can be used to interact with running orchestrations and entities. For example, orchestrations can be queried, terminated, and can have events raised to them. For more information on managing orchestrations and entities, see the [Instance management](durable-functions-instance-management.md) article.
 
 ## Next steps
 
-To get started, create your first durable function in [C#](durable-functions-create-first-csharp.md) or [JavaScript](quickstart-js-vscode.md).
+To get started, create your first durable function in [C#](durable-functions-create-first-csharp.md), [JavaScript](quickstart-js-vscode.md), [Python](quickstart-python-vscode.md), [PowerShell](quickstart-powershell-vscode.md), or [Java](quickstart-java.md).
 
 > [!div class="nextstepaction"]
-> [Read more about Durable Functions](durable-functions-bindings.md)
-
-<!-- Media references -->
-[1]: media/durable-functions-types-features-overview/durable-concepts.png
+> [Read more about Durable Functions orchestrations](durable-functions-orchestrations.md)

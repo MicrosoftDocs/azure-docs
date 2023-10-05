@@ -1,20 +1,19 @@
 ---
 title: Monitor Azure Analysis Services server metrics | Microsoft Docs
-description: Learn how to monitor Analysis Services server metrics an in Azure portal.
+description: Learn how Analysis Services use Azure Metrics Explorer, a free tool in the portal, to help you monitor the performance and health of your servers.
 author: minewiskan
-manager: kfile
-ms.service: azure-analysis-services
+ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 03/04/2020
 ms.author: owend
 ms.reviewer: minewiskan
 
 ---
 # Monitor server metrics
 
-Analysis Services provides metrics to help you monitor the performance and health of your servers. For example, monitor memory and CPU usage, number of client connections, and query resource consumption. Analysis Services uses the same monitoring framework as most other Azure services. To learn more, see [Metrics in Microsoft Azure](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
+Analysis Services provides metrics in Azure Metrics Explorer, a free tool in the portal, to help you monitor the performance and health of your servers. For example, monitor memory and CPU usage, number of client connections, and query resource consumption. Analysis Services uses the same monitoring framework as most other Azure services. To learn more, see [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md).
 
-To perform more in-depth diagnostics, track performance, and identify trends across multiple service resources in a resource group or subscription, use [Azure Monitor](https://azure.microsoft.com/services/monitor/). Azure Monitor (service) may result in a billable service.
+To perform more in-depth diagnostics, track performance, and identify trends across multiple service resources in a resource group or subscription, use [Azure Monitor](../azure-monitor/overview.md). Azure Monitor (service) may result in a billable service.
 
 
 ## To monitor metrics for an Analysis Services server
@@ -23,7 +22,7 @@ To perform more in-depth diagnostics, track performance, and identify trends acr
 
     ![Monitor in Azure portal](./media/analysis-services-monitor/aas-monitor-portal.png)
 
-2. In **Available metrics**, select the metrics to include in your chart. 
+2. In **Metric**, select the metrics to include in your chart. 
 
     ![Monitor chart](./media/analysis-services-monitor/aas-monitor-chart.png)
 
@@ -50,6 +49,10 @@ Use this table to determine which metrics are best for your monitoring scenario.
 |MemoryLimitLow|Memory: Memory Limit Low|Bytes|Average|Low memory limit, from configuration file.|
 |MemoryLimitVertiPaq|Memory: Memory Limit VertiPaq|Bytes|Average|In-memory limit, from configuration file.|
 |MemoryUsage|Memory: Memory Usage|Bytes|Average|Memory usage of the server process as used in calculating cleaner memory price. Equal to counter Process\PrivateBytes plus the size of memory-mapped data, ignoring any memory, which was mapped or allocated by the in-memory analytics engine (VertiPaq) in excess of the engine Memory Limit.|
+|private_bytes_metric|Private Bytes |Bytes|Average|The total amount of memory the Analysis Services engine process and Mashup container processes have allocated, not including memory shared with other processes.|
+|virtual_bytes_metric|Virtual Bytes |Bytes|Average|The current size of the virtual address space that Analysis Services engine process and Mashup container processes are using.|
+|mashup_engine_private_bytes_metric|M Engine Private Bytes |Bytes|Average|The total amount of memory Mashup container processes have allocated, not including memory shared with other processes.|
+|mashup_engine_virtual_bytes_metric|M Engine Virtual Bytes |Bytes|Average|The current size of the virtual address space Mashup container processes are using.|
 |Quota|Memory: Quota|Bytes|Average|Current memory quota, in bytes. Memory quota is also known as a memory grant or memory reservation.|
 |QuotaBlocked|Memory: Quota Blocked|Count|Average|Current number of quota requests that are blocked until other memory quotas are freed.|
 |VertiPaqNonpaged|Memory: VertiPaq Nonpaged|Bytes|Average|Bytes of memory locked in the working set for use by the in-memory engine.|
@@ -60,7 +63,7 @@ Use this table to determine which metrics are best for your monitoring scenario.
 |RowsWrittenPerSec|Processing: Rows written per sec|CountPerSecond|Average|Rate of rows written during processing.|
 |qpu_metric|QPU|Count|Average|QPU. Range 0-100 for S1, 0-200 for S2 and 0-400 for S4|
 |QueryPoolBusyThreads|Query Pool Busy Threads|Count|Average|Number of busy threads in the query thread pool.|
-|SuccessfullConnectionsPerSec|Successful Connections Per Sec|CountPerSecond|Average|Rate of successful connection completions.|
+|SuccessfulConnectionsPerSec|Successful Connections Per Sec|CountPerSecond|Average|Rate of successful connection completions.|
 |CommandPoolBusyThreads|Threads: Command pool busy threads|Count|Average|Number of busy threads in the command thread pool.|
 |CommandPoolIdleThreads|Threads: Command pool idle threads|Count|Average|Number of idle threads in the command thread pool.|
 |LongParsingBusyThreads|Threads: Long parsing busy threads|Count|Average|Number of busy threads in the long parsing thread pool.|
@@ -80,6 +83,6 @@ Use this table to determine which metrics are best for your monitoring scenario.
 |TotalConnectionRequests|Total Connection Requests|Count|Average|Total connection requests. |
 
 ## Next steps
-[Monitoring in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md)   
-[Metrics in Microsoft Azure](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)   
+[Azure Monitor overview](../azure-monitor/overview.md)      
+[Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md)      
 [Metrics in Azure Monitor REST API](/rest/api/monitor/metrics)

@@ -1,44 +1,41 @@
 ---
-title: About migration of on-premises machines and Azure VMs Azure Site Recovery | Microsoft Docs
-description: This article describes how to migrate on-premises and Azure IaaS VMs to Azure using the Azure Site Recovery service.
+title: Compare Azure Migrate and Site Recovery for migration to Azure
+description: Summarizes the advantages of using Azure Migrate for migration, instead of Site Recovery.
 services: site-recovery
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
-ms.author: raynew
-
+ms.date: 12/12/2022
+ms.author: ankitadutta
+author: ankitaduttaMSFT
+ms.custom: engagement-fy23
 ---
-# About migration
 
-Read this article for a quick overview of how the [Azure Site Recovery](site-recovery-overview.md) service helps you to migrate machines. 
+# Migrating to Azure
 
-Here's what you can migrate using Site Recovery:
-
-- **Migrate from on-premises to Azure**: Migrate on-premises Hyper-V VMs, VMware VMs, and physical servers to Azure. After the migration, workloads running on the on-premises machines will be running on Azure VMs. 
-- **Migrate within Azure**: Migrate Azure VMs between Azure regions. 
-- **Migrate AWS**: Migrate AWS Windows instances to Azure IaaS VMs. 
+For migration, we recommend that you use the Azure Migrate service to migrate VMs and servers to Azure, rather than the Azure Site Recovery service. [Learn more](../migrate/migrate-services-overview.md) about Azure Migrate.
 
 
-## What do we mean by migration?
+## Why use Azure Migrate?
 
-In addition to using Site Recovery for disaster recovery of on-premises and Azure VMs, you can use the Site Recovery service to migrate them. What's the difference?
+Using Azure Migrate for migration provides a number of advantages:
+ 
+ 
+- Azure Migrate provides a centralized hub for discovery, assessment, and migration to Azure.
+- Using Azure Migrate provides interoperability and future extensibility with Azure Migrate tools, other Azure services, and third-party tools.
+- The Migration and modernization tool is purpose-built for server migration to Azure. It's optimized for migration. You don't need to learn about concepts and scenarios that aren't directly relevant to migration. 
+- There are no tool usage charges for migration for 180 days, from the time replication is started for a VM. This gives you time to complete migration. You only pay for the storage and network resources used in replication, and for compute charges consumed during test migrations.
+- Azure Migrate supports all migration scenarios supported by Site Recovery. In addition, for VMware VMs, Azure Migrate provides an agentless migration option.
+- We're prioritizing new migration features for the Migration and modernization tool only. These features aren't targeted for Site Recovery.
 
-- For disaster recovery, you replicate machines on a regular basis to Azure. When an outage occurs, you fail the machines over from the primary site to the secondary Azure site, and access them from there. When the primary site is available again, you fail back from Azure.
-- For migration, you replicate on-premises machines to Azure, or Azure VMs to a secondary region. Then you fail the VM over from the primary site to the secondary, and complete the migration process. There's no failback involved.  
+## When to use Site Recovery?
 
+Site Recovery should be used:
 
-## Migration scenarios
+- For disaster recovery of on-premises machines to Azure.
+- For disaster recovery of Azure VMs, between Azure regions.
 
-**Scenario** | **Details**
---- | ---
-**Migrate from on-premises to Azure** | You can migrate on-premises VMware VMs, Hyper-V VMs, and physical servers to Azure. To do this, you complete almost the same steps as you would for full disaster recovery. You simply don't fail machines back from Azure to the on-premises site.
-**Migrate between Azure regions** | You can migrate Azure VMs from one Azure region to another. After the migration is complete, you can configure disaster recovery for the Azure VMs now in the secondary region to which you migrated.
-**Migrate AWS to Azure** | You can migrate AWS instances to Azure VMs. Site Recovery treats AWS instances as physical servers for migration purposes. 
+Although we recommend using Azure Migrate to migrate on-premises servers to Azure, if you've already started your migration journey with Site Recovery, you can continue using it to complete your migration.  
 
 ## Next steps
 
-- [Migrate on-premises machines to Azure](migrate-tutorial-on-premises-azure.md)
-- [Migrate VMs from one Azure region to another](azure-to-azure-tutorial-migrate.md)
-- [Migrate AWS to Azure](migrate-tutorial-aws-azure.md)
+> [Review common questions](../migrate/resources-faq.md) about Azure Migrate.

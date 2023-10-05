@@ -1,28 +1,41 @@
 ---
 title: include file
 description: include file
-services: container-service
-author: dlepow
-
-ms.service: container-service
+author: mgoedtel
+ms.service: azure-kubernetes-service
 ms.topic: include
-ms.date: 10/11/2018
-ms.author: danlep
+ms.date: 04/13/2023
+ms.author: magoedte
 ms.custom: include file
 ---
 
-| Resource | Default limit |
-| --- | :--- |
-| Maximum clusters per subscription | 100 |
-| Maximum nodes per cluster | 100 |
-| Maximum pods per node: [Basic networking][basic-networking] with Kubenet | 110 |
-| Maximum pods per node: [Advanced networking][advanced-networking] with Azure Container Networking Interface | Azure CLI deployment: 30<sup>1</sup><br />Azure Resource Manager template: 30<sup>1</sup><br />Portal deployment: 30 |
+| Resource                                                                                                           | Limit                                                                                                                                                                                                       |
+| ------------------------------------------------------------------------------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Maximum clusters per subscription                                                                                  | 5000 <br />Note: spread clusters across different regions to account for Azure API throttling limits                               |
+| Maximum nodes per cluster with Virtual Machine Scale Sets and [Standard Load Balancer SKU][standard-load-balancer] | 5000 across all [node-pools][node-pool] (default limit: 1000)  <br />Note: Running more than a 1000 nodes per cluster requires increasing the default node limit quota. [Contact support][Contact Support] for assistance.|
+|Maximum nodes per node pool (Virtual Machine Scale Sets node pools)                                                 | 1000                                 |
+| Maximum node pools per cluster                                                                                     | 100                                                                                  |
+| Maximum pods per node: with [Kubenet][Kubenet] networking plug-in                                          | Maximum: 250 <br /> Azure CLI default: 110 <br /> Azure Resource Manager template default: 110 <br /> Azure portal deployment default: 30          |
+| Maximum pods per node: with [Azure Container Networking Interface][Azure CNI]                                      | Maximum: 250 <br /> Default: 30                                                      |
+| Open Service Mesh (OSM) AKS addon                                                                          | Kubernetes Cluster Version: AKS Supported Versions<br />OSM controllers per cluster: 1<br />Pods per OSM controller: 1600<br />Kubernetes service accounts managed by OSM: 160 |
+|Maximum load-balanced kubernetes services per cluster  with [Standard Load Balancer SKU][standard-load-balancer]      |300                                   |
+| Maximum nodes per cluster with Virtual Machine Availability Sets and Basic Load Balancer SKU                       | 100                                                                                                                                                                                                         |
 
-<sup>1</sup>When you deploy an Azure Kubernetes Service (AKS) cluster with the Azure CLI or a Resource Manager template, this value is configurable up to 250 pods per node. You can't configure maximum pods per node after you've already deployed an AKS cluster, or if you deploy a cluster by using the Azure portal.<br />
+
+
+| Kubernetes Control Plane tier | Limit |  
+| -------------- | :--------------------------------------------- |
+| Standard tier      | Automatically scales Kubernetes API server based on load. Larger control plane component limits and API server/etc instances.    |
+| Free tier      | Limited resources with [inflight requests limit](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/) of 50 mutating and 100 read-only calls. Recommended node limit of 10 nodes per cluster. Best for experimenting, learning, and simple testing. **Not advised for production/critical workloads**.  |
 
 <!-- LINKS - Internal -->
-[basic-networking]: ../articles/aks/concepts-network.md#kubenet-basic-networking
-[advanced-networking]: ../articles/aks/concepts-network.md#azure-cni-advanced-networking
+
+[Kubenet]: ../articles/aks/concepts-network.md#kubenet-basic-networking
+[Azure CNI]: ../articles/aks/concepts-network.md#azure-cni-advanced-networking
+[standard-load-balancer]: ../articles/load-balancer/load-balancer-overview.md
+[node-pool]: ../articles/aks/create-node-pools.md
+[Contact Support]: https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/%7B%0D%0A%09%22subId%22%3A+%22%22%2C%0D%0A%09%22pesId%22%3A+%225a3a423f-8667-9095-1770-0a554a934512%22%2C%0D%0A%09%22supportTopicId%22%3A+%2280ea0df7-5108-8e37-2b0e-9737517f0b96%22%2C%0D%0A%09%22contextInfo%22%3A+%22AksLabelDeprecationMarch22%22%2C%0D%0A%09%22caller%22%3A+%22Microsoft_Azure_ContainerService+%2B+AksLabelDeprecationMarch22%22%2C%0D%0A%09%22severity%22%3A+%223%22%0D%0A%7D
 
 <!-- LINKS - External -->
-[azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
+
+[azure-support]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest

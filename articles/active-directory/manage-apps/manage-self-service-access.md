@@ -1,91 +1,82 @@
 ---
-title: How to configure self-service application assignment | Microsoft Docs
-description: Enable self-service application access to allow users to find their own applications
+title: How to enable self-service application assignment
+description: Enable self-service application access to allow users to find their own applications from their My Apps portal
 services: active-directory
-documentationcenter: ''
-author: msmimart
+author: omondiatieno
 manager: CelesteDG
-
-ms.assetid: 
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/02/2018
-ms.author: mimart
-
+ms.topic: how-to
+ms.date: 03/29/2023
+ms.author: jomondi
 ms.collection: M365-identity-device-management
+ms.reviewer: ergreenl
+ms.custom: enterprise-apps
+
+#customer intent: As an admin, I want to enable self-service application access so that users can self-discover applications from their My Apps portal.
 ---
 
-# How to configure self-service application assignment
+# Enable self-service application assignment
 
-Before your users can self-discover applications from their access panel, you need to enable **Self-service application access** to any applications that you wish to allow users to self-discover and request access to.
+In this article, you learn how to enable self-service application access using the Microsoft Entra admin center.
 
-This feature is a great way for you to save time and money as an IT group, and is highly recommended as part of a modern applications deployment with Azure Active Directory.
+Before your users can self-discover applications from the [My Apps portal](./myapps-overview.md), you need to enable **Self-service application access** for the applications. This functionality is available for applications that were added from the Microsoft Entra Gallery, [Microsoft Entra application proxy](../app-proxy/application-proxy.md), or were added using [user or admin consent](../develop/application-consent-experience.md).
 
 Using this feature, you can:
 
--   Let users self-discover applications from the [Application Access Panel](https://myapps.microsoft.com/) without bothering the IT group.
+- Let users self-discover applications from the My Apps portal without bothering the IT group.
 
--   Add those users to a pre-configured group so you can see who has requested access, remove access, and manage the roles assigned to them.
+- Add those users to a pre-configured group so you can see who has requested access, remove access, and manage the roles assigned to them.
 
--   Optionally allow a business approver to approve application access requests so the IT group doesn’t have to.
+- Optionally allow a business approver to approve application access requests so the IT group doesn’t have to.
 
--   Optionally configure up to 10 individuals who may approve access to this application.
+- Optionally configure up to 10 individuals who may approve access to this application.
 
--   Optionally allow a business approver to set the passwords those users can use to sign in to the application, right from the business approver’s [Application Access Panel](https://myapps.microsoft.com/).
+- Optionally allow a business approver to set the passwords those users can use to sign in to the application, right from the business approver’s My Apps portal
 
--   Optionally automatically assign self-service assigned users to an application role directly.
+- Optionally automatically assign self-service assigned users to an application role directly.
+
+## Prerequisites
+
+To enable self-service application access, you need:
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- One of the following roles: Global Administrator, Cloud Application Administrator, or Application Administrator.
+- A Microsoft Entra ID P1 or P2 (P1 or P2) license is required for users to request to join a self-service app and for owners to approve or deny requests. Without a Microsoft Entra ID P1 or P2 license, users can't add self-service apps.
 
 ## Enable self-service application access to allow users to find their own applications
 
-Self-service application access is a great way to allow users to self-discover applications, optionally allow the business group to approve access to those applications. You can allow the business group to manage the credentials assigned to those users for Password Single-Sign On Applications right from their access panels.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+Self-service application access is a great way to allow users to self-discover applications, and optionally allow the business group to approve access to those applications. For password single-sign on applications, you can also allow the business group to manage the credentials assigned to those users from their own My Apps portal.
 
 To enable self-service application access to an application, follow the steps below:
 
-1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
-
-2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left hand navigation menu.
-
-3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
-
-4.  click **Enterprise Applications** from the Azure Active Directory left hand navigation menu.
-
-5.  click **All Applications** to view a list of all your applications.
-
-    * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
-
-6.  Select the application you want to enable Self-service access to from the list.
-
-7.  Once the application loads, click **Self-service** from the application’s left hand navigation menu.
-
-8.  To enable Self-service application access for this application, turn the **Allow users to request access to this application?** toggle to **Yes.**
-
-9.  Next, to select the group to which users who request access to this application should be added, click the selector next to the label **To which group should assigned users be added?** and select a group.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
+1. Enter the name of the existing application in the search box, and then select the application from the search results.
+1. In the left navigation menu, select **Self-service**.
+    > [!NOTE]
+    > The **Self-service** menu item isn't available if the corresponding app registration's setting for public client flows is enabled. To access this setting, the app registration needs to exist in your tenant. Locate the app registration, select **Authentication** in the left navigation, then locate **Allow public client flows**.
+1. To enable Self-service application access for this application, set **Allow users to request access to this application?** to **Yes.**
+1. Next to **To which group should assigned users be added?**, select **Select group**. Choose a group, and then select **Select**. When a user's request is approved, they'll be added to this group. When viewing this group's membership, you'll be able to see who has been granted access to the application through self-service access.
   
     > [!NOTE]
-    > Groups synchronized from on-premises are not supported to be used for the group to which users who request access to this application should be added.
-  
-10. **Optional:** If you wish to require a business approval before users are allowed access, set the **Require approval before granting access to this application?** toggle to **Yes**.
+    > This setting doesn't support groups synchronized from on-premises.
 
-11. **Optional: For applications using password single-sign on only,** if you wish to allow those business approvers to specify the passwords that are sent to this application for approved users, set the **Allow approvers to set user’s passwords for this application?** toggle to **Yes**.
+1. **Optional:** To require business approval before users are allowed access, set **Require approval before granting access to this application?** to **Yes**.
+1. **Optional:** Next to **Who is allowed to approve access to this application?** Select **Select approvers** to specify the business approvers who are allowed to approve access to this application. Select up to 10 individual business approvers, and then select **Select**.
 
-12. **Optional:** To specify the business approvers who are allowed to approve access to this application, click the selector next to the label **Who is allowed to approve access to this application?** to select up to 10 individual business approvers.
+    >[!NOTE]
+    >Groups are not supported. You can select up to 10 individual business approvers. If you specify multiple approvers, any single approver can approve an access request.
 
-     > [!NOTE]
-     > Groups are not supported.
-     >
-     >
+1. **Optional:** Next to **To which role should users be assigned in this application?**, select **Select Role** to assign self-service approved users to a role. Choose the role to which these users should be assigned, and then select **Select**. This option is for applications that expose roles.
 
-13. **Optional:** **For applications which expose roles**, if you wish to assign self-service approved users to a role, click the selector next to the **To which role should users be assigned in this application?** to select the role to which these users should be assigned.
+1. Select the **Save** button at the top of the pane to finish.
 
-14. Click the **Save** button at the top of the blade to finish.
-
-Once you complete Self-service application configuration, users can navigate to their [Application Access Panel](https://myapps.microsoft.com/) and click the **+Add** button to find the apps to which you have enabled Self-service access. Business approvers also see a notification in their [Application Access Panel](https://myapps.microsoft.com/). You can enable an email notifying them when a user has requested access to an application that requires their approval. 
-
-These approvals support single approval workflows only, meaning that if you specify multiple approvers, any single approver may approver access to the application.
+Once you complete self-service application configuration, users can navigate to their My Apps portal, and select **Request new apps** to find the apps that are enabled with self-service access. Business approvers also see a notification in their My Apps portal. You can enable an email notifying them when a user has requested access to an application that requires their approval.
 
 ## Next steps
-[Setting up Azure Active Directory for self-service group management](../users-groups-roles/groups-self-service-management.md)
+
+[Setting up Microsoft Entra ID for self-service group management](../enterprise-users/groups-self-service-management.md)

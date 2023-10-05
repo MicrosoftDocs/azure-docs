@@ -1,11 +1,11 @@
 ---
 title: FQDN tags overview for Azure Firewall
-description: Learn about the FQDN tags in Azure Firewall
+description: An FQDN tag represents a group of fully qualified domain names (FQDNs) associated with well known Microsoft services.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 4/23/2019
+ms.date: 06/30/2020
 ms.author: victorh
 ---
 
@@ -19,21 +19,26 @@ You can't create your own FQDN tags, nor can you specify which FQDNs are include
 
 <!--- screenshot of application rule with a FQDN tag.-->
 
-The following table shows the current FQDN tags you can use. Microsoft maintains these tags and you can expect additional tags to be added periodically.
+The following table shows the current FQDN tags you can use. Microsoft maintains these tags and you can expect more tags to be added periodically.
 
 ## Current FQDN tags
 
 |FQDN tag  |Description  |
 |---------|---------|
-|Windows Update     |Allow outbound access to Microsoft Update as described in [How to Configure a Firewall for Software Updates](https://technet.microsoft.com/library/bb693717.aspx).|
-|Windows Diagnostics|Allow outbound access to all [Windows Diagnostics endpoints](https://docs.microsoft.com/windows/privacy/configure-windows-diagnostic-data-in-your-organization#endpoints).|
-|Microsoft Active Protection Service (MAPS)|Allow outbound access to [MAPS](https://cloudblogs.microsoft.com/enterprisemobility/2016/05/31/important-changes-to-microsoft-active-protection-service-maps-endpoint/).|
-|App Service Environment (ASE)|Allows outbound access to ASE platform traffic. This tag doesn’t cover customer-specific Storage and SQL endpoints created by ASE. These should be enabled via [Service Endpoints](../virtual-network/tutorial-restrict-network-access-to-resources.md) or added manually.<br><br>For more information about integrating Azure Firewall with ASE, see [Locking down an App Service Environment](../app-service/environment/firewall-integration.md#configuring-azure-firewall-with-your-ase).|
-|Azure Backup|Allows outbound access to the Azure Backup services.|
-|Azure HDInsight<br>(Preview)|Allows outbound access for HDInsight platform traffic. This tag doesn’t cover customer-specific Storage or SQL traffic from HDInsight. Enable these using [Service Endpoints](../virtual-network/tutorial-restrict-network-access-to-resources.md) or add them manually.|
+|WindowsUpdate     |Allow outbound access to Microsoft Update as described in [How to Configure a Firewall for Software Updates](/mem/configmgr/sum/get-started/install-a-software-update-point).|
+|WindowsDiagnostics|Allow outbound access to all [Windows Diagnostics endpoints](/windows/privacy/configure-windows-diagnostic-data-in-your-organization#endpoints).|
+|MicrosoftActiveProtectionService (MAPS)|Allow outbound access to [MAPS](https://cloudblogs.microsoft.com/enterprisemobility/2016/05/31/important-changes-to-microsoft-active-protection-service-maps-endpoint/).|
+|AppServiceEnvironment (ASE)|Allows outbound access to ASE platform traffic. This tag doesn’t cover customer-specific Storage and SQL endpoints created by ASE. These should be enabled via [Service Endpoints](../virtual-network/tutorial-restrict-network-access-to-resources.md) or added manually.<br><br>For more information about integrating Azure Firewall with ASE, see [Locking down an App Service Environment](../app-service/environment/firewall-integration.md#configuring-azure-firewall-with-your-ase).|
+|AzureBackup|Allows outbound access to the Azure Backup services.|
+|AzureHDInsight|Allows outbound access for HDInsight platform traffic. This tag doesn’t cover customer-specific Storage or SQL traffic from HDInsight. Enable these using [Service Endpoints](../virtual-network/tutorial-restrict-network-access-to-resources.md) or add them manually.|
+|WindowsVirtualDesktop|Allows outbound Azure Virtual Desktop (formerly Windows Virtual Desktop) platform traffic. This tag doesn’t cover deployment-specific Storage and Service Bus endpoints created by Azure Virtual Desktop. Additionally, DNS and KMS network rules are required. For more information about integrating Azure Firewall with Azure Virtual Desktop, see [Use Azure Firewall to protect Azure Virtual Desktop deployments](protect-azure-virtual-desktop.md).|
+|AzureKubernetesService (AKS)|Allows outbound access to AKS. For more information, see [Use Azure Firewall to protect Azure Kubernetes Service (AKS) Deployments](protect-azure-kubernetes-service.md).|
+|Office365<br><br>For example: Office365.Skype.Optimize|Several Office 365 tags are available to allow outbound access by Office 365 product and category. For more information, see [Use Azure Firewall to protect Office 365](protect-office-365.md).|
+|Windows365|Allows outbound communication to Windows 365, excluding network endpoints for Microsoft Intune. To allow outbound communication to port 5671, create a separated network rule. For more information, see Windows 365 [Network requirements](/windows-365/enterprise/requirements-network).|
+|MicrosoftIntune|Allow access to [Microsoft Intune](/mem/intune/fundamentals/intune-endpoints) for managed devices. 
 
 > [!NOTE]
-> When selecting FQDN Tag in an application rule, the protocol:port field must be set to **https**.
+> When you select **FQDN Tag** in an application rule, the protocol:port field must be set to **https**.
 
 ## Next steps
 

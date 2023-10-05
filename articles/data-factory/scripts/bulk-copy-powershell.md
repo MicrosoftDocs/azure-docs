@@ -1,23 +1,18 @@
 ---
-title: "PowerShell script: Copy data in bulk by using Azure Data Factory | Microsoft Docs"
+title: Copy data in bulk using PowerShell
 description: This PowerShell script shows how to use Azure Data Factory to copy data from a source data store to a destination data store in bulk. 
-services: data-factory
-author: linda33wj
-manager: craigg
-editor: ''
-
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-
+ms.subservice: data-movement
 ms.topic: article
-ms.date: 10/31/2017
-ms.author: jingwang
+ms.custom: seo-lt-2019, devx-track-azurepowershell
+ms.date: 02/08/2023
 ---
 
 # PowerShell script - copy multiple tables in bulk by using Azure Data Factory
 
-This sample PowerShell script copies data from multiple tables in an Azure SQL database to an Azure SQL data warehouse.
+This sample PowerShell script copies data from multiple tables in Azure SQL Database to Azure Synapse Analytics.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -30,7 +25,7 @@ See [tutorial: bulk copy](../tutorial-bulk-copy.md#prerequisites) for the prereq
 > [!IMPORTANT]
 > This script creates JSON files that define Data Factory entities (linked service, dataset, and pipeline) on your hard drive in the c:\ folder.
 
-[!code-powershell[main](../../../powershell_scripts/data-factory/bulk-copy-from-sql-databse-to-sql-data-warehouse/bulk-copy-from-sql-database-to-sql-data-warehouse.ps1 "Bulk copy from Azure SQL Database => Azure SQL Data Warehouse")]
+[!code-powershell[main](../../../powershell_scripts/data-factory/bulk-copy-from-sql-databse-to-sql-data-warehouse/bulk-copy-from-sql-database-to-sql-data-warehouse.ps1 "Bulk copy from Azure SQL Database => Azure Synapse Analytics")]
 
 ## Clean up deployment
 
@@ -63,6 +58,6 @@ This script uses the following commands:
 
 ## Next steps
 
-For more information on the Azure PowerShell, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/).
+For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/).
 
 Additional Azure Data Factory PowerShell script samples can be found in the [Azure Data Factory PowerShell scripts](../samples-powershell.md).

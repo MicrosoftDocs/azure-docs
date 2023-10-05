@@ -1,12 +1,12 @@
 ---
-title: Set up disaster recovery for a multi-tier SharePoint application using Azure Site Recovery | Microsoft Docs
+title: Disaster recovery for a multi-tier SharePoint app using Azure Site Recovery 
 description: This article describes how to set up disaster recovery for a multi-tier SharePoint application using Azure Site Recovery capabilities.
-author: sujayt
+author: ankitaduttaMSFT
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
-ms.author: sutalasi
+ms.date: 6/27/2019
+ms.author: ankitadutta
 
 ---
 # Set up disaster recovery for a multi-tier SharePoint application for disaster recovery using Azure Site Recovery
@@ -26,15 +26,12 @@ This article describes in detail how to protect a SharePoint application using [
 
 You can watch the below video about recovering a multi-tier application to Azure.
 
-> [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/Disaster-Recovery-of-load-balanced-multi-tier-applications-using-Azure-Site-Recovery/player]
-
-
 ## Prerequisites
 
 Before you start, make sure you understand the following:
 
-1. [Replicating a virtual machine to Azure](site-recovery-vmware-to-azure.md)
-2. How to [design a recovery network](site-recovery-network-design.md)
+1. [Replicating a virtual machine to Azure](./vmware-azure-tutorial.md)
+2. How to [design a recovery network](./concepts-on-premises-to-azure-networking.md)
 3. [Doing a test failover to Azure](site-recovery-test-failover-to-azure.md)
 4. [Doing a failover to Azure](site-recovery-failover.md)
 5. How to [replicate a domain controller](site-recovery-active-directory.md)
@@ -42,7 +39,7 @@ Before you start, make sure you understand the following:
 
 ## SharePoint architecture
 
-SharePoint can be deployed on one or more servers using tiered topologies and server roles to implement a farm design that meets specific goals and objectives. A typical large, high-demand SharePoint server farm that supports a high number of concurrent users and a large number of content items use service grouping as part of their scalability strategy. This approach involves running services on dedicated servers, grouping these services together, and then scaling out the servers as a group. The following topology illustrates the service and server grouping for a three tier SharePoint server farm. Please refer to SharePoint documentation and product line architectures for detailed guidance on different SharePoint topologies. You can find more details about SharePoint 2013 deployment in [this document](https://technet.microsoft.com/library/cc303422.aspx).
+SharePoint can be deployed on one or more servers using tiered topologies and server roles to implement a farm design that meets specific goals and objectives. A typical large, high-demand SharePoint server farm that supports a high number of concurrent users and a large number of content items use service grouping as part of their scalability strategy. This approach involves running services on dedicated servers, grouping these services together, and then scaling out the servers as a group. The following topology illustrates the service and server grouping for a three tier SharePoint server farm. Please refer to SharePoint documentation and product line architectures for detailed guidance on different SharePoint topologies. You can find more details about SharePoint 2013 deployment in [this document](/SharePoint/sharepoint-server).
 
 
 
@@ -51,7 +48,7 @@ SharePoint can be deployed on one or more servers using tiered topologies and se
 
 ## Site Recovery support
 
-For creating this article, VMware virtual machines with Windows Server 2012 R2 Enterprise were used. SharePoint 2013 Enterprise edition and SQL server 2014 Enterprise edition were used. As Site Recovery replication is application agnostic, the recommendations provided here are expected to hold on for following scenarios as well.
+Site Recovery is application-agnostic and should work with any version of SharePoint running on a supported machine. For creating this article, VMware virtual machines with Windows Server 2012 R2 Enterprise were used. SharePoint 2013 Enterprise edition and SQL server 2014 Enterprise edition were used.
 
 ### Source and target
 
@@ -62,13 +59,6 @@ For creating this article, VMware virtual machines with Windows Server 2012 R2 E
 **Physical server** | Yes | Yes
 **Azure** | NA | Yes
 
-### SharePoint Versions
-The following SharePoint server versions are supported.
-
-* SharePoint server 2013 Standard
-* SharePoint server 2013 Enterprise
-* SharePoint server 2016 Standard
-* SharePoint server 2016 Enterprise
 
 ### Things to keep in mind
 
@@ -76,7 +66,7 @@ If you are using a shared disk-based cluster as any tier in your application the
 
 ## Replicating virtual machines
 
-Follow [this guidance](site-recovery-vmware-to-azure.md) to start replicating the virtual machine to Azure.
+Follow [this guidance](./vmware-azure-tutorial.md) to start replicating the virtual machine to Azure.
 
 * Once the replication is complete, make sure you go to each virtual machine of each tier and select same availability set in 'Replicated item > Settings > Properties > Compute and Network'. For example, if your web tier has 3 VMs, ensure all the 3 VMs are configured to be part of same availability set in Azure.
 
@@ -84,7 +74,7 @@ Follow [this guidance](site-recovery-vmware-to-azure.md) to start replicating th
 
 * For guidance on protecting Active Directory and DNS, refer to [Protect Active Directory and DNS](site-recovery-active-directory.md) document.
 
-* For guidance on protecting database tier running on SQL server, refer to [Protect SQL Server](site-recovery-active-directory.md) document.
+* For guidance on protecting database tier running on SQL server, refer to [Protect SQL Server](site-recovery-sql.md) document.
 
 ## Networking configuration
 
@@ -101,7 +91,7 @@ Follow [this guidance](site-recovery-vmware-to-azure.md) to start replicating th
 
 ### DNS and Traffic Routing
 
-For internet facing sites, [create a Traffic Manager profile of 'Priority' type](../traffic-manager/traffic-manager-create-profile.md) in the Azure subscription. And then configure your DNS and Traffic Manager profile in the following manner.
+For internet facing sites, [create a Traffic Manager profile of 'Priority' type](../traffic-manager/quickstart-create-traffic-manager-profile.md) in the Azure subscription. And then configure your DNS and Traffic Manager profile in the following manner.
 
 
 | **Where**	| **Source** | **Target**|
@@ -165,7 +155,7 @@ You can deploy the most commonly used Azure Site Recovery scripts into your Auto
 	* This method assumes that a backup of the Search Service Application was performed before the catastrophic event and that the backup is available at the DR site.
 	* This can easily be achieved by scheduling the backup (for example, once daily) and using a copy procedure to place the backup at the DR site. Copy procedures could include scripted programs such as AzCopy (Azure Copy) or setting up DFSR (Distributed File Services Replication).
 	* Now that the SharePoint farm is running, navigate the Central Administration, 'Backup and Restore' and select Restore. The restore interrogates the backup location specified (you may need to update the value). Select the Search Service Application backup you would like to restore.
-	* Search is restored. Keep in mind that the restore expects to find the same topology (same number of servers) and same hard drive letters assigned to those servers. For more information, see ['Restore Search service application in SharePoint 2013'](https://technet.microsoft.com/library/ee748654.aspx) document.
+	* Search is restored. Keep in mind that the restore expects to find the same topology (same number of servers) and same hard drive letters assigned to those servers. For more information, see ['Restore Search service application in SharePoint 2013'](/SharePoint/administration/restore-a-search-service-application) document.
 
 
 6. For starting with a new Search service application, follow below steps.
@@ -191,7 +181,7 @@ Follow [this guidance](site-recovery-test-failover-to-azure.md) to do a test fai
 
 For guidance on doing test failover for AD and DNS, refer to [Test failover considerations for AD and DNS](site-recovery-active-directory.md#test-failover-considerations) document.
 
-For guidance on doing test failover for SQL Always ON availability groups, refer to [Doing Test failover for SQL Server Always On](site-recovery-sql.md#steps-to-do-a-test-failover) document.
+For guidance on doing test failover for SQL Always ON availability groups, refer to [Performing Application DR with Azure Site Recovery and doing Test failover](site-recovery-sql.md#disaster-recovery-of-an-application) document.
 
 ## Doing a failover
 Follow [this guidance](site-recovery-failover.md) for doing a failover.

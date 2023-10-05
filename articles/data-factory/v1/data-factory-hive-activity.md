@@ -1,23 +1,15 @@
 ---
-title: Transform data using Hive Activity - Azure | Microsoft Docs
-description: Learn how you can use the Hive Activity in an Azure data factory to run Hive queries on an on-demand/your own HDInsight cluster.
-services: data-factory
-documentationcenter: ''
-author: sharonlo101
-manager: craigg
-
-
-ms.assetid: 80083218-743e-4da8-bdd2-60d1c77b1227
+title: Transform data using Hive Activity - Azure 
+description: Learn how you can use the Hive Activity in Azure Data Factory v1 to run Hive queries on an on-demand/your own HDInsight cluster.
+author: dcstwh
+ms.author: weetok
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-
+ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/10/2018
-ms.author: shlo
-
-robots: noindex
+ms.date: 04/12/2023
 ---
+
 # Transform data using Hive Activity in Azure Data Factory 
 > [!div class="op_single_selector" title1="Transformation Activities"]
 > * [Hive Activity](data-factory-hive-activity.md) 
@@ -25,8 +17,8 @@ robots: noindex
 > * [MapReduce Activity](data-factory-map-reduce.md)
 > * [Hadoop Streaming Activity](data-factory-hadoop-streaming-activity.md)
 > * [Spark Activity](data-factory-spark.md)
-> * [Machine Learning Batch Execution Activity](data-factory-azure-ml-batch-execution-activity.md)
-> * [Machine Learning Update Resource Activity](data-factory-azure-ml-update-resource-activity.md)
+> * [ML Studio (classic) Batch Execution Activity](data-factory-azure-ml-batch-execution-activity.md)
+> * [ML Studio (classic) Update Resource Activity](data-factory-azure-ml-update-resource-activity.md)
 > * [Stored Procedure Activity](data-factory-stored-proc-activity.md)
 > * [Data Lake Analytics U-SQL Activity](data-factory-usql-activity.md)
 > * [.NET Custom Activity](data-factory-use-custom-activities.md)
@@ -80,13 +72,13 @@ The HDInsight Hive activity in a Data Factory [pipeline](data-factory-create-pip
 | outputs |Outputs produced by the Hive activity |Yes |
 | linkedServiceName |Reference to the HDInsight cluster registered as a linked service in Data Factory |Yes |
 | script |Specify the Hive script inline |No |
-| script path |Store the Hive script in an Azure blob storage and provide the path to the file. Use 'script' or 'scriptPath' property. Both cannot be used together. The file name is case-sensitive. |No |
+| scriptPath |Store the Hive script in an Azure blob storage and provide the path to the file. Use 'script' or 'scriptPath' property. Both cannot be used together. The file name is case-sensitive. |No |
 | defines |Specify parameters as key/value pairs for referencing within the Hive script using 'hiveconf' |No |
 
 ## Example
 Let’s consider an example of game logs analytics where you want to identify the time spent by users playing games launched by your company. 
 
-The following log is a sample game log, which is comma (`,`) separated and contains the following fields – ProfileID, SessionStart, Duration, SrcIPAddress, and GameType.
+The following log is a sample game log, which is comma (`,`) separated and contains the following fields - ProfileID, SessionStart, Duration, SrcIPAddress, and GameType.
 
 ```
 1809,2014-05-04 12:04:25.3470000,14,221.117.223.75,CaptureFlag
@@ -136,38 +128,39 @@ To execute this Hive script in a Data Factory pipeline, you need to do the follo
    > 
 5. Create a pipeline with the HDInsightHive activity. The activity processes/transforms the data.
 
-	```JSON   
-	{	
-		"name": "HiveActivitySamplePipeline",
-	   	"properties": {
-		"activities": [
-			{
-				"name": "HiveActivitySample",
-				"type": "HDInsightHive",
-				"inputs": [
-				{
-					"name": "HiveSampleIn"
-				}
-				],
-	         	"outputs": [
-	           	{
-	            	"name": "HiveSampleOut"
-	           	}
-	         	],
-	         	"linkedServiceName": "HDInsightLinkedService",
-	         	"typeproperties": {
-	           		"scriptPath": "adfwalkthrough\\scripts\\samplehive.hql",
-	           		"scriptLinkedService": "StorageLinkedService"
-         		},
-            	"scheduler": {
-					"frequency": "Hour",
-	               	"interval": 1
-	         	}
-	       	}
-			]
-		}
-	}
-    ```
+  ```json
+  {
+    "name": "HiveActivitySamplePipeline",
+       "properties": {
+    "activities": [
+      {
+        "name": "HiveActivitySample",
+        "type": "HDInsightHive",
+        "inputs": [
+        {
+          "name": "HiveSampleIn"
+        }
+        ],
+             "outputs": [
+               {
+                "name": "HiveSampleOut"
+               }
+             ],
+             "linkedServiceName": "HDInsightLinkedService",
+             "typeproperties": {
+                 "scriptPath": "adfwalkthrough\\scripts\\samplehive.hql",
+                 "scriptLinkedService": "StorageLinkedService"
+             },
+              "scheduler": {
+          "frequency": "Hour",
+                   "interval": 1
+             }
+           }
+      ]
+    }
+  }
+  ```
+
 6. Deploy the pipeline. See [Creating pipelines](data-factory-create-pipelines.md) article for details. 
 7. Monitor the pipeline using the data factory monitoring and management views. See [Monitoring and manage Data Factory pipelines](data-factory-monitor-manage-pipelines.md) article for details. 
 
@@ -178,7 +171,7 @@ To use parameterized Hive script, do the following
 
 * Define the parameters in **defines**.
 
-	```JSON  
+  ```JSON  
     {
         "name": "HiveActivitySamplePipeline",
           "properties": {
@@ -245,5 +238,5 @@ To use parameterized Hive script, do the following
 * [MapReduce Activity](data-factory-map-reduce.md)
 * [Hadoop Streaming Activity](data-factory-hadoop-streaming-activity.md)
 * [Invoke Spark programs](data-factory-spark.md)
-* [Invoke R scripts](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
+* [Invoke R scripts](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample)
 

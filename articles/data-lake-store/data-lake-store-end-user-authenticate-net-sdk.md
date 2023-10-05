@@ -1,18 +1,13 @@
 ---
-title: 'End-user authentication: .NET SDK with Azure Data Lake Storage Gen1 using Azure Active Directory | Microsoft Docs'
+title: End-user authentication - .NET with Data Lake Storage Gen1 - Azure
 description: Learn how to achieve end-user authentication with Azure Data Lake Storage Gen1 using Azure Active Directory with .NET SDK
-services: data-lake-store
-documentationcenter: ''
-author: twooley
-manager: cgronlun
-editor: cgronlun
 
+author: normesta
 ms.service: data-lake-store
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 05/29/2018
-ms.author: twooley
-
+ms.topic: how-to
+ms.date: 09/22/2022
+ms.author: normesta
+ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 # End-user authentication with Azure Data Lake Storage Gen1 using .NET SDK
 > [!div class="op_single_selector"]
@@ -70,7 +65,7 @@ In this article, you learn about how to use the .NET SDK to do end-user authenti
 ## End-user authentication
 Add this snippet in your .NET client application. Replace the placeholder values with the values retrieved from an Azure AD native application (listed as prerequisite). This snippet lets you authenticate your application **interactively** with Data Lake Storage Gen1, which means you are prompted to enter your Azure credentials.
 
-For ease of use, the following snippet uses default values for client ID and redirect URI that are valid for any Azure subscription. In the following snippet, you only need to provide the value for your tenant ID. You can retrieve the Tenant ID using the instructions provided at [Get the tenant ID](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
+For ease of use, the following snippet uses default values for client ID and redirect URI that are valid for any Azure subscription. In the following snippet, you only need to provide the value for your tenant ID. You can retrieve the Tenant ID using the instructions provided at [Get the tenant ID](../active-directory/develop/howto-create-service-principal-portal.md#sign-in-to-the-application).
     
 - Replace the Main() function with the following code:
 
@@ -79,7 +74,7 @@ For ease of use, the following snippet uses default values for client ID and red
     {
         //User login via interactive popup
         string TENANT = "<AAD-directory-domain>";
-        string CLIENTID = "1950a258-227b-4e31-a9cf-717495945fc2";
+        string CLIENTID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
         System.Uri ARM_TOKEN_AUDIENCE = new System.Uri(@"https://management.core.windows.net/");
         System.Uri ADL_TOKEN_AUDIENCE = new System.Uri(@"https://datalake.azure.net/");
         string MY_DOCUMENTS = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments);
@@ -102,4 +97,3 @@ In this article, you learned how to use end-user authentication to authenticate 
 
 * [Account management operations on Data Lake Storage Gen1 using .NET SDK](data-lake-store-get-started-net-sdk.md)
 * [Data operations on Data Lake Storage Gen1 using .NET SDK](data-lake-store-data-operations-net-sdk.md)
-

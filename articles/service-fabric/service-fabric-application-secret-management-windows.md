@@ -1,22 +1,14 @@
 ---
-title: Set up an encryption certificate and encrypt secrets on Azure Service Fabric Windows clusters | Microsoft Docs
+title: Set up an encryption cert on Windows clusters
 description: Learn how to set up an encryption certificate and encrypt secrets on Windows clusters.
-services: service-fabric
-documentationcenter: .net
-author: vturecek
-manager: chackdan
-editor: ''
-
-ms.assetid: 94a67e45-7094-4fbd-9c88-51f4fc3c523a
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
 ms.service: service-fabric
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 01/04/2019
-ms.author: vturecek
-
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Set up an encryption certificate and encrypt secrets on Windows clusters
 This article shows how to set up an encryption certificate and use it to encrypt secrets on Windows clusters. For Linux clusters, see [Set up an encryption certificate and encrypt secrets on Linux clusters.][secret-management-linux-specific-link]
 
@@ -51,7 +43,7 @@ The resulting base-64 encoded string contains both the secret ciphertext as well
 Learn how to [Specify encrypted secrets in an application.][secret-management-specify-encrypted-secrets-link]
 
 <!-- Links -->
-[key-vault-get-started]:../key-vault/key-vault-overview.md
+[key-vault-get-started]:../key-vault/general/overview.md
 [service-fabric-cluster-creation-via-arm]: service-fabric-cluster-creation-via-arm.md
 [parameters-link]:service-fabric-how-to-parameterize-configuration-files.md
 [environment-variables-link]: service-fabric-how-to-specify-environment-variables.md

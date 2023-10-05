@@ -1,15 +1,11 @@
 ---
-title: Use .NET with Hadoop MapReduce on Linux-based HDInsight - Azure 
+title: Use .NET with Hadoop MapReduce on Linux-based HDInsight - Azure
 description: Learn how to use .NET applications for streaming MapReduce on Linux-based HDInsight.
-author: hrasheed-msft
-ms.reviewer: jasonh
 
 ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 02/27/2018
-ms.author: hrasheed
-
+ms.custom: hdinsightactive, devx-track-dotnet
+ms.topic: how-to
+ms.date: 09/14/2023
 ---
 # Migrate .NET solutions for Windows-based HDInsight to Linux-based HDInsight
 
@@ -21,9 +17,6 @@ Mono version 4.2.1 is included with HDInsight version 3.6. For more information 
 
 For more information on compatibility between Mono and .NET, see the [Mono compatibility (https://www.mono-project.com/docs/about-mono/compatibility/)](https://www.mono-project.com/docs/about-mono/compatibility/) document.
 
-> [!IMPORTANT]  
-> The SCP.NET framework is compatible with Mono. For more information on using SCP.NET with Mono, see [Use Visual Studio to develop C# topologies for Apache Storm on HDInsight](storm/apache-storm-develop-csharp-visual-studio-topology.md).
-
 ## Automated portability analysis
 
 The [.NET Portability Analyzer](https://marketplace.visualstudio.com/items?itemName=ConnieYau.NETPortabilityAnalyzer) can be used to generate a report of incompatibilities between your application and Mono. Use the following steps to configure the analyzer to check your application for Mono portability:
@@ -32,7 +25,7 @@ The [.NET Portability Analyzer](https://marketplace.visualstudio.com/items?itemN
 
 2. From Visual Studio 2015, select __Analyze__ > __Portability Analyzer Settings__, and make sure that __4.5__ is checked in the __Mono__ section.
 
-    ![4.5 checked in Mono section for the analyzer settings](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-settings.png)
+    :::image type="content" source="./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-settings.png" alt-text="4.5 checked in Mono section for the analyzer settings":::
 
     Select __OK__ to save the configuration.
 
@@ -40,7 +33,7 @@ The [.NET Portability Analyzer](https://marketplace.visualstudio.com/items?itemN
 
 4. Once analysis is complete, select __Analyze__ > __View analysis reports__. In __Portability Analysis Results__, select __Open report__ to open a report.
 
-    ![Portability analyzer results dialog](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-results.png)
+    :::image type="content" source="./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-results.png" alt-text="Portability analyzer results dialog":::
 
 > [!IMPORTANT]  
 > The analyzer cannot catch every problem with your solution. For example, a file path of `c:\temp\file.txt` is considered OK if Mono is running on Windows. The same path is not valid on a Linux platform.
@@ -66,5 +59,3 @@ For more information on accessing logs, see the following documents:
 * [Use C# with MapReduce on HDInsight](hadoop/apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 
 * [Use C# user-defined functions with Apache Hive and Apache Pig](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
-
-* [Develop C# topologies for Apache Storm on HDInsight](storm/apache-storm-develop-csharp-visual-studio-topology.md)

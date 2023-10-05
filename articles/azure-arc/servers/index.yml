@@ -1,0 +1,106 @@
+### YamlMime:Landing
+title: Azure Arc-enabled servers
+summary: Azure Arc-enabled servers
+
+metadata:
+  title: Azure Arc-enabled servers
+  description: Learn how to connect and manage on-premises machines in Azure.
+  ms.service: azure-arc
+  ms.topic: landing-page
+  ms.date: 03/24/2022
+
+landingContent:
+ # Card
+  - title: About Azure Arc-enabled servers
+    linkLists: 
+      - linkListType: overview
+        links:
+          - text: What is Azure Arc-enabled servers?
+            url: overview.md
+          - text: Azure Connected Machine agent overview
+            url: agent-overview.md
+          - text: VMware FAQ
+            url: vmware-faq.md
+
+      - linkListType: architecture
+        links:
+          - text: Manage configurations for hybrid servers 
+            url: /azure/architecture/hybrid/azure-arc-hybrid-config 
+          - text: Azure Arc landing zone accelerator for hybrid and multicloud
+            url: /azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-servers/eslz-identity-and-access-management
+ 
+ # Card
+  - title: Connect machines to Azure
+    linkLists: 
+      - linkListType: concept
+        links:
+          - text: Plan for deployment
+            url: plan-at-scale-deployment.md
+          - text: Prerequisites
+            url: prerequisites.md
+      - linkListType: quickstart
+        links:
+          - text: Connect a hybrid machine
+            url: ./learn/quick-enable-hybrid-vm.md
+      - linkListType: deploy
+        links:
+          - text: Use a deployment script
+            url: onboard-portal.md
+          - text: Onboard at scale using a service principal
+            url: onboard-service-principal.md
+          - text: Deploy with Windows Admin Center
+            url: onboard-windows-admin-center.md
+          - text: All deployment options
+            url: deployment-options.md
+  
+ # Card
+  - title: Proof of concept
+    linkLists:
+     - linkListType: sample
+       links:
+          - text: Jumpstart for Azure Arc-enabled servers
+            url: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/
+     - linkListType: get-started
+       links:
+          - text: Test Arc-enabled servers using an Azure VM
+            url: plan-evaluate-on-azure-virtual-machine.md
+
+ # Card
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure CLI
+            url: /cli/azure/connectedmachine
+          - text: Azure PowerShell
+            url: /powershell/module/az.connectedmachine/
+          - text: REST
+            url: /rest/api/hybridcompute/
+          - text: Java
+            url: /java/api/com.azure.resourcemanager.compute
+          - text: JavaScript
+            url: /javascript/api/@azure/arm-hybridcompute/
+
+ # Card
+  - title: Training
+    linkLists: 
+      - linkListType: learn
+        links:
+          - text: Learning path
+            url: /training/paths/manage-hybrid-infrastructure-with-azure-arc         
+
+ # Card
+  - title: Azure service integration
+    linkLists: 
+      - linkListType: tutorial
+        links:
+          - text: Azure Policy
+            url: ./learn/tutorial-assign-policy-portal.md 
+          - text: Azure Monitor
+            url: ./learn/tutorial-enable-vm-insights.md  
+      - linkListType: how-to-guide
+        links:
+          - text: Microsoft Sentinel
+            url: scenario-onboard-azure-sentinel.md
+          - text: Microsoft Defender for Cloud
+            url: ../../defender-for-cloud/quickstart-onboard-machines.md?bc=/azure/azure-arc/servers/breadcrumb/toc.json&pivots=azure-arc&toc=/azure/azure-arc/servers/toc.json

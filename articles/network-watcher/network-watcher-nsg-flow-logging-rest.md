@@ -1,56 +1,46 @@
 ---
-title: Manage Network Security Group flow logs with Azure Network Watcher - REST API | Microsoft Docs
-description: This page explains how to manage Network Security Group flow logs in Azure Network Watcher with REST API
-services: network-watcher
-documentationcenter: na
-author: KumudD
-manager: twooley
-editor: 
-
-ms.assetid: 2ab25379-0fd3-4bfe-9d82-425dfc7ad6bb
+title: Manage NSG flow logs - Azure REST API
+titleSuffix: Azure Network Watcher
+description: Learn how to create, change, or disable Azure Network Watcher NSG flow logs using REST API.
+author: halkazwini
 ms.service: network-watcher
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload:  infrastructure-services
-ms.date: 02/22/2017
-ms.author: kumud
-
+ms.topic: how-to
+ms.date: 06/01/2023
+ms.author: halkazwini
+ms.custom: template-how-to, engagement-fy23
 ---
 
-
-# Configuring Network Security Group flow logs using REST API
+# Manage NSG flow logs using REST API
 
 > [!div class="op_single_selector"]
-> - [Azure portal](network-watcher-nsg-flow-logging-portal.md)
+> - [Azure portal](nsg-flow-logging.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 > - [Azure CLI](network-watcher-nsg-flow-logging-cli.md)
 > - [REST API](network-watcher-nsg-flow-logging-rest.md)
+> - [ARM template](network-watcher-nsg-flow-logging-azure-resource-manager.md)
 
-Network Security Group flow logs are a feature of Network Watcher that allows you to view information about ingress and egress IP traffic through a Network Security Group. These flow logs are written in json format and show outbound and inbound flows on a per rule basis, the NIC the flow applies to, 5-tuple information about the flow (Source/Destination IP, Source/Destination Port, Protocol), and if the traffic was allowed or denied.
+Network security group flow logging is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through a network security group. For more information about network security group flow logging, see [NSG flow logs overview](network-watcher-nsg-flow-logging-overview.md).
 
-## Before you begin
+This article shows you how to use the REST API to enable, disable, and query flow logs using the REST API. You can learn how to manage an NSG flow log using the [Azure portal](nsg-flow-logging.md), [PowerShell](network-watcher-nsg-flow-logging-powershell.md), [Azure CLI](network-watcher-nsg-flow-logging-cli.md), or [ARM template](network-watcher-nsg-flow-logging-azure-resource-manager.md).
 
-ARMclient is used to call the REST API using PowerShell. ARMClient is found on chocolatey at [ARMClient on Chocolatey](https://chocolatey.org/packages/ARMClient)
+In this article, uou learn how to:
 
-This scenario assumes you have already followed the steps in [Create a Network Watcher](network-watcher-create.md) to create a Network Watcher.
+> [!div class="checklist"]
+> * Enable flow logs (Version 2)
+> * Disable flow logs
+> * Query flow logs status
 
-> [!Important]
-> For Network Watcher REST API calls the resource group name in the request URI is the resource group that contains the Network Watcher, not the resources you are performing the diagnostic actions on.
+## Prerequisites
 
-## Scenario
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- ARMClient. ARMClient is a simple command line tool to invoke the Azure Resource Manager API. To install the tool, see [ARMClient](https://github.com/projectkudu/ARMClient). For detailed specifications of NSG flow logs REST API, see [Flow Logs - REST API](/rest/api/network-watcher/flowlogs) 
 
-The scenario covered in this article shows you how to enable, disable, and query flow logs using the REST API. To learn more about Network Security Group flow loggings, visit [Network Security Group flow logging - Overview](network-watcher-nsg-flow-logging-overview.md).
+> [!IMPORTANT]
+> When you make REST API calls to Network Watcher, the resource group name in the request URI refers to the resource group that contains the Network Watcher, not the resources you are performing the diagnostic actions on.
 
-In this scenario, you will:
+## Sign in with ARMClient
 
-* Enable flow logs (Version 2)
-* Disable flow logs
-* Query flow logs status
-
-## Log in with ARMClient
-
-Log in to armclient with your Azure credentials.
+Sign in to armclient with your Azure credentials.
 
 ```powershell
 armclient login
@@ -58,16 +48,16 @@ armclient login
 
 ## Register Insights provider
 
-In order for flow logging to work successfully, the **Microsoft.Insights** provider must be registered. If you are not sure if the **Microsoft.Insights** provider is registered, run the following script.
+*Microsoft.Insights* provider must be registered to successfully log traffic flowing through a network security group. If you aren't sure if the *Microsoft.Insights* provider is registered, use [Providers - Register](/rest/api/resources/providers/register) REST API to register it.
 
 ```powershell
 $subscriptionId = "00000000-0000-0000-0000-000000000000"
-armclient post "https://management.azure.com//subscriptions/${subscriptionId}/providers/Microsoft.Insights/register?api-version=2016-09-01"
+armclient post "https://management.azure.com//subscriptions/${subscriptionId}/providers/Microsoft.Insights/register?api-version=2021-04-01"
 ```
 
-## Enable Network Security Group flow logs
+## Enable NSG flow logs
 
-The command to enable flow logs version 2 is shown in the following example. For version 1 replace the 'version' field with '1':
+The command to enable flow logs version 2 is shown in the following example. For version 1, replace the 'version' field with '1':
 
 ```powershell
 $subscriptionId = "00000000-0000-0000-0000-000000000000"
@@ -93,7 +83,7 @@ $requestBody = @"
 }
 "@
 
-armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/configureFlowLog?api-version=2016-12-01" $requestBody
+armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/configureFlowLog?api-version=2022-11-01" $requestBody
 ```
 
 The response returned from the preceding example is as follows:
@@ -116,7 +106,11 @@ The response returned from the preceding example is as follows:
 }
 ```
 
-## Disable Network Security Group flow logs
+> [!NOTE]
+> - The [Network Watchers - Set Flow Log Configuration](/rest/api/network-watcher/network-watchers/set-flow-log-configuration) REST API used in the previous example, is old and may soon be deprecated.
+> - It is recommended to use the new [Flow Logs - Create Or Update](/rest/api/network-watcher/flow-logs/create-or-update) REST API to create or update flow logs.
+
+## Disable NSG flow logs
 
 Use the following example to disable flow logs. The call is the same as enabling flow logs, except **false** is set for the enabled property.
 
@@ -144,7 +138,7 @@ $requestBody = @"
 }
 "@
 
-armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/configureFlowLog?api-version=2016-12-01" $requestBody
+armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/configureFlowLog?api-version=2022-11-01" $requestBody
 ```
 
 The response returned from the preceding example is as follows:
@@ -167,9 +161,13 @@ The response returned from the preceding example is as follows:
 }
 ```
 
+> [!NOTE]
+> - The [Network Watchers - Set Flow Log Configuration](/rest/api/network-watcher/network-watchers/set-flow-log-configuration) REST API used in the previous example, is old and may soon be deprecated.
+> - It is recommended to use the new [Flow Logs - Create Or Update](/rest/api/network-watcher/flow-logs/create-or-update) REST API to disable flow logs and the [Flow Logs - Delete](/rest/api/network-watcher/flow-logs/delete) REST API to delete flow logs resource.
+
 ## Query flow logs
 
-The following REST call queries the status of flow logs on a Network Security Group.
+The following REST call queries the status of flow logs on a network security group.
 
 ```powershell
 $subscriptionId = "00000000-0000-0000-0000-000000000000"
@@ -182,10 +180,10 @@ $requestBody = @"
 }
 "@
 
-armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/queryFlowLogStatus?api-version=2016-12-01" $requestBody
+armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/queryFlowLogStatus?api-version=2022-11-01" $requestBody
 ```
 
-The following is an example of the response returned:
+The following example shows the response returned:
 
 ```json
 {
@@ -205,9 +203,13 @@ The following is an example of the response returned:
 }
 ```
 
+> [!NOTE]
+> - The [Network Watchers - Get Flow Log Status](/rest/api/network-watcher/network-watchers/get-flow-log-status) REST API used in the previous example, requires an additional *reader* permission in the resource group of the network watcher. Additionally, this API is old and may soon be deprecated.
+> - It is recommended to use the new [Flow Logs - Get](/rest/api/network-watcher/flow-logs/get) REST API to query flow logs.
+
 ## Download a flow log
 
-The storage location of a flow log is defined at creation. A convenient tool to access these flow logs saved to a storage account is Microsoft Azure Storage Explorer, which can be downloaded here:  https://storageexplorer.com/
+The storage location of a flow log is defined at creation. A convenient tool to access flow logs saved to a storage account is Microsoft Azure Storage Explorer. Fore more information, see [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
 If a storage account is specified, packet capture files are saved to a storage account at the following location:
 
@@ -217,6 +219,5 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 ## Next steps
 
-Learn how to [Visualize your NSG flow logs with PowerBI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
-
-Learn how to [Visualize your NSG flow logs with open source tools](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
+- To learn how to use Azure built-in policies to audit or deploy NSG flow logs, see [Manage NSG flow logs using Azure Policy](nsg-flow-logs-policy-portal.md).
+- To learn about traffic analytics, see [Traffic analytics](traffic-analytics.md).

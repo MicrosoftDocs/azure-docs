@@ -1,56 +1,40 @@
 ---
-author: ramonarguelles
-ms.service: spatial-anchors
+author: pamistel
+ms.service: azure-spatial-anchors
 ms.topic: include
-ms.date: 1/30/2019
-ms.author: rgarcia
+ms.date: 11/20/2020
+ms.author: pamistel
 ---
 ### Open the publish wizard
 
-In **Solution Explorer**, right-click the **SharingService** project and select **Publish**.
+In **Solution Explorer**, right-click the **SharingService** project, and then select **Publish...**.
 
-The Publish Wizard starts. Select **App Service** > **Publish** to open the **Create App Service** dialog box.
+The Publish Wizard starts. 
 
-### Sign in to Azure
+1. Select Target **Azure** > **Next**. 
+1. Select Specific Target **Azure App Service (Windows)** > **Next**
+1. Sign in to the Azure portal.
+1. Select the green "+" to **Create an Azure App Service**
 
-In the **Create App Service** dialog box, select **Add an account** and sign in to your Azure subscription. If you're already signed in, select the account you want from the drop-down list.
-
-> [!NOTE]
-> If you're already signed in, don't select **Create** yet.
->
-
-### Create a resource group
-
-[!INCLUDE [resource group intro text](resource-group.md)]
-
-Next to **Resource Group**, select **New**.
-
-Name the resource group **myResourceGroup** and select **OK**.
-
-### Create an App Service plan
-
-[!INCLUDE [app-service-plan](app-service-plan.md)]
-
-Next to **Hosting Plan**, select **New**.
-
-In the **Configure Hosting Plan** dialog box, use these settings:
-
+#### App Service Settings
 | Setting | Suggested value | Description |
 |-|-|-|
-|App Service Plan| MySharingServicePlan | Name of the App Service plan. |
-| Location | West US | The datacenter where the web app is hosted. |
-| Size | Free | The [pricing tier](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) that determines hosting features. |
+|Name| _myASASharingService_ | Give your service a unique name |
+|Subscription Name | | Select your preferred Azure subscription |
+|Resource Group |_myResourceGroup_ or select an existing one | [!INCLUDE [resource group intro text](resource-group.md)] |
+|Hosting Plan | Select **New...** and see table below | [!INCLUDE [app-service-plan](app-service-plan.md)] |
+ 
+#### Hosting Plan Settings        
+| Setting | Suggested value | Description |
+|-|-|-|
+|Hosting Plan| MySharingServicePlan | Give your hosting plan a unique name |
+| Location | West US | The datacenter where the web app is hosted. Choose a location closest to the physical location your application will be used |
+| Size | Free | The [pricing tier](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) that determines hosting features |
 
-Select **OK**.
+5. Select **Create** to create the App Service
+6. Once the app service is created select it in the "App service instances" list and select **Finish**
+7. On the **SharingService: Publish** tab select **Publish**
 
-### Create and publish the web app
+Once the ASP.NET Core web app has been published to Azure you can go to `https://<your_app_name>.azurewebsites.net` or click the link next to **Site:** on the **SharingService: Publish** tab. Copy this URL to a text editor for later use.
 
-In **App Name**, enter a unique app name (valid characters are `a-z`, `0-9`, and `-`), or accept the automatically generated unique name. The URL of the web app is `https://<app_name>.azurewebsites.net`, where `<app_name>` is your app name.
-
-Select **Create** to start creating the Azure resources.
-
-After the wizard finishes, it publishes the ASP.NET Core web app to Azure and then opens the app in your default browser.
-
-![Published ASP.NET web app in Azure](./media/spatial-anchors-azure/web-app-running-live.png)
-
-The app name you used in this section is used as the URL prefix in the format `https://<app_name>.azurewebsites.net`. Take note of this URL because you'll need it.
+  ![Screenshot of a published ASP.NET web app in Azure.](./media/spatial-anchors-azure/web-app-running-live.png)

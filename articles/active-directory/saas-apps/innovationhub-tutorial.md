@@ -1,106 +1,86 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Innoverse | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Innoverse.
+title: 'Tutorial: Microsoft Entra single sign-on (SSO) integration with Innoverse'
+description: Learn how to configure single sign-on between Microsoft Entra ID and Innoverse.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-
-ms.assetid: d72e4da0-0123-409b-96c2-e613f3f83fb1
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/17/2019
+ms.date: 11/21/2022
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
-# Tutorial: Azure Active Directory integration with Innoverse
 
-In this tutorial, you learn how to integrate Innoverse with Azure Active Directory (Azure AD).
-Integrating Innoverse with Azure AD provides you with the following benefits:
+# Tutorial: Microsoft Entra single sign-on (SSO) integration with Innoverse
 
-* You can control in Azure AD who has access to Innoverse.
-* You can enable your users to be automatically signed-in to Innoverse (Single Sign-On) with their Azure AD accounts.
-* You can manage your accounts in one central location - the Azure portal.
+In this tutorial, you'll learn how to integrate Innoverse with Microsoft Entra ID. When you integrate Innoverse with Microsoft Entra ID, you can:
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+* Control in Microsoft Entra ID who has access to Innoverse.
+* Enable your users to be automatically signed-in to Innoverse with their Microsoft Entra accounts.
+* Manage your accounts in one central location.
+
+To learn more about SaaS app integration with Microsoft Entra ID, see [What is application access and single sign-on with Microsoft Entra ID](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
-To configure Azure AD integration with Innoverse, you need the following items:
+To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
-* Innoverse single sign-on enabled subscription
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* Innoverse single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment.
+
+
 
 * Innoverse supports **SP and IDP** initiated SSO
 * Innoverse supports **Just In Time** user provisioning
 
+
 ## Adding Innoverse from the gallery
 
-To configure the integration of Innoverse into Azure AD, you need to add Innoverse from the gallery to your list of managed SaaS apps.
+To configure the integration of Innoverse into Microsoft Entra ID, you need to add Innoverse from the gallery to your list of managed SaaS apps.
 
-**To add Innoverse from the gallery, perform the following steps:**
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type **Innoverse** in the search box.
+1. Select **Innoverse** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-	![The Azure Active Directory button](common/select_azuread.png)
 
-2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
+<a name='configure-and-test-azure-ad-single-sign-on-for-innoverse'></a>
 
-	![The Enterprise applications blade](common/enterprise_applications.png)
+## Configure and test Microsoft Entra single sign-on for Innoverse
 
-3. To add new application, click **New application** button on the top of dialog.
+Configure and test Microsoft Entra SSO with Innoverse using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in Innoverse.
 
-	![The New application button](common/add_new_app.png)
+To configure and test Microsoft Entra SSO with Innoverse, complete the following building blocks:
 
-4. In the search box, type **Innoverse**, select **Innoverse** from result panel then click **Add** button to add the application.
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
+1. **[Configure Innoverse SSO](#configure-innoverse-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create Innoverse test user](#create-innoverse-test-user)** - to have a counterpart of B.Simon in Innoverse that is linked to the Microsoft Entra representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-	 ![Innoverse in the results list](common/search_new_app.png)
+<a name='configure-azure-ad-sso'></a>
 
-## Configure and test Azure AD single sign-on
+## Configure Microsoft Entra SSO
 
-In this section, you configure and test Azure AD single sign-on with Innoverse based on a test user called **Britta Simon**.
-For single sign-on to work, a link relationship between an Azure AD user and the related user in Innoverse needs to be established.
+Follow these steps to enable Microsoft Entra SSO.
 
-To configure and test Azure AD single sign-on with Innoverse, you need to complete the following building blocks:
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Innoverse** > **Single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
 
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Configure Innoverse Single Sign-On](#configure-innoverse-single-sign-on)** - to configure the Single Sign-On settings on application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create Innoverse test user](#create-innoverse-test-user)** - to have a counterpart of Britta Simon in Innoverse that is linked to the Azure AD representation of user.
-6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-### Configure Azure AD single sign-on
-
-In this section, you enable Azure AD single sign-on in the Azure portal.
-
-To configure Azure AD single sign-on with Innoverse, perform the following steps:
-
-1. In the [Azure portal](https://portal.azure.com/), on the **Innoverse** application integration page, select **Single sign-on**.
-
-    ![Configure single sign-on link](common/select_sso.png)
-
-2. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
-
-    ![Single sign-on select mode](common/select_saml_option.png)
-
-3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
-
-	![Edit Basic SAML Configuration](common/edit_urls.png)
-
-4. On the **Basic SAML Configuration** section, perform the following steps:
-
-    ![Innoverse Domain and URLs single sign-on information](common/idp_intiated.png)
+1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
     a. In the **Identifier** text box, type a URL using the following pattern:
     `https://<domainname>.innover.se`
@@ -108,117 +88,82 @@ To configure Azure AD single sign-on with Innoverse, perform the following steps
     b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://<domainname>.innover.se/auth/saml2/login`
 
-5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
-
-    ![Innoverse Domain and URLs single sign-on information](common/metadata_upload_additional_signon.png)
+1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<domainname>.innover.se/auth/saml2/login`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Innoverse Client support team](mailto:support@readify.net) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Innoverse Client support team](mailto:support@readify.net) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
-6. Innoverse application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
+1. Innoverse application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
-	![image](./media/innovationhub-tutorial/tutorial-innovationhub-attribute.png)
+	![image](common/edit-attribute.png)
 
-7. In the **User Claims** section on the **User Attributes** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
+1. In addition to above, Innoverse application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirement.
 
-	| Name | Source Attribute| Namespace |
+	| Name | Namespace | Source Attribute| 
 	| ---------------| --------- | ----------------|
-	| displayname | `user.userprincipalname` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
+	| displayname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.userprincipalname` |
 
-	a. Click **Add new claim** to open the **Manage user claims** dialog.
+1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
-	![image](common/new_save_attribute.png)
+	![The Certificate download link](common/copy-metadataurl.png)
 
-	![image](common/new_attribute_details.png)
+<a name='create-an-azure-ad-test-user'></a>
 
-	b. In the **Name** textbox, type the attribute name shown for that row.
+### Create a Microsoft Entra test user
 
-	c. Enter the **Namespace**.
+In this section, you'll create a test user called B.Simon.
 
-	d. Select Source as **Attribute**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Select **Review + create**.
+1. Select **Create**.
 
-	e. From the **Source attribute** list, type the attribute value shown for that row.
+<a name='assign-the-azure-ad-test-user'></a>
 
-	f. Click **Ok**
+### Assign the Microsoft Entra test user
 
-	g. Click **Save**.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Innoverse.
 
-8. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click **copy** icon to copy **App Federation Metadata url** and save it on your computer.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Innoverse**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 
-	![The Certificate download link](common/copy_metadataurl.png)
+   ![The "Users and groups" link](common/users-groups-blade.png)
 
-### Configure Innoverse Single Sign-On
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 
-To configure single sign-on on **Innoverse** side, you need to send the copied **Federation Metadata Url** to [Innoverse support team](mailto:support@readify.net). They set this setting to have the SAML SSO connection set properly on both sides.
+	![The Add User link](common/add-assign-user.png)
 
-### Create an Azure AD test user
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
+1. In the **Add Assignment** dialog, click the **Assign** button.
 
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+## Configure Innoverse SSO
 
-1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
-
-    ![The "Users and groups" and "All users" links](common/users.png)
-
-2. Select **New user** at the top of the screen.
-
-    ![New user Button](common/new_user.png)
-
-3. In the User properties, perform the following steps.
-
-    ![The User dialog box](common/user_properties.png)
-
-    a. In the **Name** field, enter **BrittaSimon**.
-
-    b. In the **User name** field, type **brittasimon\@yourcompanydomain.extension**  
-    For example, BrittaSimon@contoso.com
-
-    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
-
-    d. Click **Create**.
-
-### Assign the Azure AD test user
-
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Innoverse.
-
-1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Innoverse**.
-
-	![Enterprise applications blade](common/enterprise_applications.png)
-
-2. In the applications list, type and select **Innoverse**.
-
-	![The Innoverse link in the Applications list](common/all_applications.png)
-
-3. In the menu on the left, select **Users and groups**.
-
-    ![The "Users and groups" link](common/users_groups_blade.png)
-
-4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
-
-    ![The Add Assignment pane](common/add_assign_user.png)
-
-5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
-
-6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
-
-7. In the **Add Assignment** dialog, click the **Assign** button.
+To configure single sign-on on **Innoverse** side, you need to send the **App Federation Metadata Url** to [Innoverse support team](mailto:support@readify.net). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Innoverse test user
 
-In this section, a user called Britta Simon is created in Innoverse. Innoverse supports **just-in-time provisioning**, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Innoverse, a new one is created when you attempt to access Innoverse.
+In this section, a user called Britta Simon is created in Innoverse. Innoverse supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Innoverse, a new one is created after authentication.
 
-### Test single sign-on
+## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+In this section, you test your Microsoft Entra single sign-on configuration using the Access Panel.
 
-When you click the Innoverse tile in the Access Panel, you should be automatically signed in to the Innoverse for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Innoverse tile in the Access Panel, you should be automatically signed in to the Innoverse for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
-## Additional Resources
+## Additional resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Microsoft Entra ID](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Microsoft Entra ID?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Microsoft Entra ID?](../conditional-access/overview.md)

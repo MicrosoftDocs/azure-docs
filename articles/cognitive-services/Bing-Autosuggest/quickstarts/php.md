@@ -1,21 +1,24 @@
 ---
 title: "Quickstart: Suggest search queries with the Bing Autosuggest REST API and PHP"
-titlesuffix: Azure Cognitive Services
-description: Learn how to quickly start suggesting search terms in real-time with the Bing Autosuggest API.
+titleSuffix: Azure AI services
+description: Learn how to quickly start suggesting search terms in real time with the Bing Autosuggest API and PHP.
 services: cognitive-services
 author: aahill
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 02/20/2019
+ms.date: 05/06/2020
 ms.author: aahi
+ms.devlang: php
+ms.custom: mode-api
 ---
 
 # Quickstart: Suggest search queries with the Bing Autosuggest REST API and PHP
 
-Use this quickstart to begin making calls to the Bing Autosuggest API and getting the JSON response. This simple PHP application sends a partial search query to the API, and returns suggestions for searches. While this application is written in PHP, the API is a RESTful Web service compatible with most programming languages.
+[!INCLUDE [Bing move notice](../../bing-web-search/includes/bing-move-notice.md)]
+
+Follow this quickstart to learn how to make calls to the Bing Autosuggest API and read the JSON response. This simple PHP application sends a partial search query to the API, and returns suggestions for searches. While this application is written in PHP, the API is a RESTful Web service compatible with most programming languages.
 
 ## Prerequisites
 
@@ -27,8 +30,9 @@ Use this quickstart to begin making calls to the Bing Autosuggest API and gettin
 
 1. Create a new PHP project in your favorite IDE.
 2. Add the code provided below.
-3. Replace the `subscriptionKey` value with an access key valid for your subscription.
-4. Run the program.
+3. Replace the `subscriptionKey` value with an access key that's valid for your subscription.
+4. Use the global endpoint in the code, or use the [custom subdomain](../../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+5. Run the program.
 
 ```php
 <?php
@@ -75,7 +79,7 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 ?>
 ```
 
-### Response
+## Example JSON response
 
 A successful response is returned in JSON, as shown in the following example: 
 
@@ -151,4 +155,4 @@ A successful response is returned in JSON, as shown in the following example:
 ## See also
 
 - [What is Bing Autosuggest?](../get-suggested-search-terms.md)
-- [Bing Autosuggest API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)
+- [Bing Autosuggest API v7 reference](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)

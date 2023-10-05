@@ -1,28 +1,20 @@
 ---
-title: How to Configure an App Service Environment v1 - Azure
-description: Configuration, management, and monitoring of the App Service Environment v1
-services: app-service
-documentationcenter: ''
-author: ccompy
-manager: stefsch
-editor: ''
+title: Configure ASE v1
+description: Configuration, management, and monitoring of the App Service Environment v1. This doc is provided only for customers who use the legacy v1 ASE.
+author: madsd
 
 ms.assetid: b5a1da49-4cab-460d-b5d2-edd086ec32f4
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
-ms.author: ccompy
+ms.date: 03/29/2022
+ms.author: madsd
 ms.custom: seodec18
 
 ---
 # Configuring an App Service Environment v1
 
-> [!NOTE]
-> This article is about the App Service Environment v1.  There is a newer version of the App Service Environment that is easier  to use and runs on more powerful infrastructure. To learn more about the new version start with the [Introduction to the App  Service Environment](intro.md).
-> 
+> [!IMPORTANT]
+> This article is about App Service Environment v1. [App Service Environment v1 will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/). There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v1, please follow the steps in [this article](migration-alternatives.md) to migrate to the new version.
+>
 
 ## Overview
 At a high level, an Azure App Service Environment consists of several major components:
@@ -76,7 +68,7 @@ Each ASE is configured with 500 GB of storage. This space is used across all the
 The database holds the information that defines the environment, as well as the details about the apps that are running within it. This too is a part of the Azure-held subscription. It's not something that you have a direct ability to manipulate. If you're making adjustments to your virtual network routing or security, you need to still allow access to SQL Azure--or the ASE cannot function.
 
 ### Network
-The VNet that is used with your ASE can be one that you made when you created the ASE or one that you made ahead of time. When you create the subnet during ASE creation, it forces the ASE to be in the same resource group as the virtual network. If you need the resource group used by your ASE to be different than that of your VNet, then you need to create your ASE using a resource manager template.
+The VNet that is used with your ASE can be one that you made when you created the ASE or one that you made ahead of time. When you create the subnet during ASE creation, it forces the ASE to be in the same resource group as the virtual network. If you need the resource group used by your ASE to be different than that of your VNet, then you need to create your ASE using an Azure Resource Manager template.
 
 There are some restrictions on the virtual network that is used for an ASE:
 
@@ -100,7 +92,7 @@ There are two primary methods to control inbound traffic to your ASE.  You can u
 
 When you create an ASE, it will create a VIP in your VNet.  There are two VIP types, external and internal.  When you create an ASE with an external VIP then your apps in your ASE will be accessible via an internet routable IP address. When you select Internal your ASE will be configured with an ILB and will not be directly internet accessible.  An ILB ASE still requires an external VIP but it is only used for Azure management and maintenance access.  
 
-During ILB ASE creation you provide the subdomain used by the ILB ASE and will have to manage your own DNS for the subdomain you specify.  Because you set the subdomain name you also need to manage the certificate used for HTTPS access.  After ASE creation you are prompted to provide the certificate.  To learn more about creating and using an ILB ASE read [Using an Internal Load Balancer with an App Service Environment][ILBASE]. 
+During ILB ASE creation you provide the subdomain used by the ILB ASE and will have to manage your own DNS for the subdomain you specify.  Because you set the subdomain name you also need to manage the certificate used for HTTPS access.  After ASE creation you are prompted to provide the certificate.  To learn more about creating and using an ILB ASE read [How to Create an ASEv1 from template](app-service-app-service-environment-create-ilb-ase-resourcemanager.md). 
 
 ## Portal
 You can manage and monitor your App Service Environment by using the UI in the Azure portal. If you have an ASE, then you are likely to see the App Service symbol on your sidebar. This symbol is used to represent App Service Environments in the Azure portal:
@@ -189,7 +181,7 @@ If you want to delete an App Service Environment, then simply use the **Delete**
 ![Delete an App Service Environment UI][9]  
 
 ## Getting started
-To get started with App Service Environments, see [How to create an App Service Environment](app-service-web-how-to-create-an-app-service-environment.md).
+To get started with App Service Environments, see [How to Create an ASEv1 from template](app-service-app-service-environment-create-ilb-ase-resourcemanager.md).
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
 
@@ -207,10 +199,9 @@ To get started with App Service Environments, see [How to create an App Service 
 <!--Links-->
 [WhatisASE]: app-service-app-service-environment-intro.md
 [Appserviceplans]: ../overview-hosting-plans.md
-[HowtoCreateASE]: app-service-web-how-to-create-an-app-service-environment.md
 [HowtoScale]: app-service-web-scale-a-web-app-in-an-app-service-environment.md
 [ControlInbound]: app-service-app-service-environment-control-inbound-traffic.md
-[virtualnetwork]: https://azure.microsoft.com/documentation/articles/virtual-networks-faq/
+[virtualnetwork]: ../../virtual-network/virtual-networks-faq.md
 [AppServicePricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ASEAutoscale]: app-service-environment-auto-scale.md
 [ExpressRoute]: app-service-app-service-environment-network-configuration-expressroute.md

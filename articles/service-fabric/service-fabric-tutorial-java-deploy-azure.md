@@ -1,23 +1,15 @@
 ---
-title: Deploy a Java app to a Service Fabric cluster in Azure | Microsoft Docs
+title: Deploy a Java app to a Service Fabric cluster in Azure 
 description: In this tutorial, learn how to deploy a Java Service Fabric application to an Azure Service Fabric cluster.
-services: service-fabric
-documentationcenter: java
-author: suhuruli
-manager: msfussell
-editor: ''
-
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 02/26/2018
-ms.author: suhuruli
-ms.custom: mvc
-
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+ms.custom: devx-track-extended-java
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Tutorial: Deploy a Java application to a Service Fabric cluster in Azure
 
 This tutorial is part three of a series and shows you how to deploy a Service Fabric application to a cluster in Azure.
@@ -42,7 +34,7 @@ In this tutorial series you learn how to:
 Before you begin this tutorial:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* [Install the Azure CLI](/cli/azure/install-azure-cli)
 * Install the Service Fabric SDK for [Mac](service-fabric-get-started-mac.md) or [Linux](service-fabric-get-started-linux.md)
 * [Install Python 3](https://wiki.python.org/moin/BeginnersGuide/Download)
 
@@ -58,13 +50,13 @@ The following steps create the necessary resources required to deploy your appli
 
 2. Sign in to your Azure account
 
-    ```bash
+    ```azurecli
     az login
     ```
 
 3. Set your Azure subscription that you want to use to create the resources
 
-    ```bash
+    ```azurecli
     az account set --subscription [SUBSCRIPTION-ID]
     ```
 
@@ -78,7 +70,7 @@ The following steps create the necessary resources required to deploy your appli
 
     The preceding command returns the following information that should be noted for use later.
 
-    ```
+    ```output
     Source Vault Resource Id: /subscriptions/<subscription_id>/resourceGroups/testkeyvaultrg/providers/Microsoft.KeyVault/vaults/<name>
     Certificate URL: https://<name>.vault.azure.net/secrets/<cluster-dns-name-for-certificate>/<guid>
     Certificate Thumbprint: <THUMBPRINT>
@@ -86,7 +78,7 @@ The following steps create the necessary resources required to deploy your appli
 
 5. Create a resource group for the storage account that stores your logs
 
-    ```bash
+    ```azurecli
     az group create --location [REGION] --name [RESOURCE-GROUP-NAME]
 
     Example: az group create --location westus --name teststorageaccountrg
@@ -94,7 +86,7 @@ The following steps create the necessary resources required to deploy your appli
 
 6. Create a storage account which will be used to store the logs that will be produced
 
-    ```bash
+    ```azurecli
     az storage account create -g [RESOURCE-GROUP-NAME] -l [REGION] --name [STORAGE-ACCOUNT-NAME] --kind Storage
 
     Example: az storage account create -g teststorageaccountrg -l westus --name teststorageaccount --kind Storage
@@ -106,13 +98,13 @@ The following steps create the necessary resources required to deploy your appli
 
 8. Copy the account SAS URL and set it aside for use when creating your Service Fabric cluster. It resembles the following URL:
 
-    ```
+    ```output
     ?sv=2017-04-17&ss=bfqt&srt=sco&sp=rwdlacup&se=2018-01-31T03:24:04Z&st=2018-01-30T19:24:04Z&spr=https,http&sig=IrkO1bVQCHcaKaTiJ5gilLSC5Wxtghu%2FJAeeY5HR%2BPU%3D
     ```
 
 9. Create a resource group that contains the Event Hub resources. Event Hubs is used to send messages from Service Fabric to the server running the ELK resources.
 
-    ```bash
+    ```azurecli
     az group create --location [REGION] --name [RESOURCE-GROUP-NAME]
 
     Example: az group create --location westus --name testeventhubsrg
@@ -120,11 +112,11 @@ The following steps create the necessary resources required to deploy your appli
 
 10. Create an Event Hubs resource using the following command. Follow the prompts to enter details for the namespaceName, eventHubName, consumerGroupName, sendAuthorizationRule, and receiveAuthorizationRule.
 
-    ```bash
-    az group deployment create -g [RESOURCE-GROUP-NAME] --template-file eventhubsdeploy.json
+    ```azurecli
+    az deployment group create -g [RESOURCE-GROUP-NAME] --template-file eventhubsdeploy.json
 
     Example:
-    az group deployment create -g testeventhubsrg --template-file eventhubsdeploy.json
+    az deployment group create -g testeventhubsrg --template-file eventhubsdeploy.json
     Please provide string value for 'namespaceName' (? for help): testeventhubnamespace
     Please provide string value for 'eventHubName' (? for help): testeventhub
     Please provide string value for 'consumerGroupName' (? for help): testeventhubconsumergroup
@@ -163,7 +155,7 @@ The following steps create the necessary resources required to deploy your appli
 
     Copy the value of the **sr** field in the JSON returned. The **sr** field value is the SAS token for EventHubs. The following URL is an example of the **sr** field:
 
-    ```bash
+    ```output
     https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
     ```
 
@@ -191,7 +183,7 @@ The following steps create the necessary resources required to deploy your appli
 
 14. Run the following command to create your Service Fabric cluster
 
-    ```bash
+    ```azurecli
     az sf cluster create --location 'westus' --resource-group 'testlinux' --template-file sfdeploy.json --parameter-file sfdeploy.parameters.json --secret-identifier <certificate_url_from_step4>
     ```
 
@@ -223,11 +215,11 @@ The following steps create the necessary resources required to deploy your appli
     ./install.sh
     ```
 
-5. To access Service Fabric Explorer, open your favorite browser and type in https://testlinuxcluster.westus.cloudapp.azure.com:19080. Choose the certificate from the certificate store that you want to use to connect to this endpoint. If you are using a Linux machine, the certificates that were generated by the *new-service-fabric-cluster-certificate.sh* script has to be imported into Chrome to view Service Fabric Explorer. If you are using a Mac, you have to install the PFX file into your Keychain. You notice your application has been installed on the cluster.
+5. To access Service Fabric Explorer, open your favorite browser and type in `https://testlinuxcluster.westus.cloudapp.azure.com:19080`. Choose the certificate from the certificate store that you want to use to connect to this endpoint. If you are using a Linux machine, the certificates that were generated by the *new-service-fabric-cluster-certificate.sh* script has to be imported into Chrome to view Service Fabric Explorer. If you are using a Mac, you have to install the PFX file into your Keychain. You notice your application has been installed on the cluster.
 
     ![SFX Java Azure](./media/service-fabric-tutorial-java-deploy-azure/sfxjavaonazure.png)
 
-6. To access your application, type in https://testlinuxcluster.westus.cloudapp.azure.com:8080
+6. To access your application, type in `https://testlinuxcluster.westus.cloudapp.azure.com:8080`
 
     ![Voting App Java Azure](./media/service-fabric-tutorial-java-deploy-azure/votingappjavaazure.png)
 

@@ -1,0 +1,69 @@
+### YamlMime:Landing
+
+title: Azure Custom Resource Providers documentation
+summary: Define custom APIs that extend the Azure experience.
+
+metadata:
+  title: Azure Custom Resource Providers documentation
+  description: Azure Custom Resource Providers is an extensibility platform to Azure that enables you to define custom APIs.
+  ms.service: azure-custom-providers
+  ms.topic: landing-page
+  ms.collection: na
+  author: davidsmatlak
+  ms.author: davidsmatlak
+  ms.date: 01/02/2020
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+  # Card (optional)
+  - title: About Azure Custom Resource Providers
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What are Azure Custom Resource Providers?
+            url: overview.md
+      - linkListType: concept
+        links:
+          - text: Azure Policy for custom resource provider associations
+            url: concepts-built-in-policy.md
+          - text: Resource onboarding overview
+            url: concepts-resource-onboarding.md
+
+  # Card
+  - title: Create custom resource providers
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a custom resource provider
+            url: create-custom-provider.md
+      - linkListType: tutorial
+        links:
+          - text: Get started with custom resource providers
+            url: tutorial-get-started-with-custom-providers.md
+          - text: Set up Azure Functions
+            url: tutorial-custom-providers-function-setup.md
+          - text: Author a RESTful endpoint
+            url: tutorial-custom-providers-function-authoring.md
+          - text: Create and utilize custom resource providers
+            url: tutorial-custom-providers-create.md
+          - text: Extend resources
+            url: tutorial-resource-onboarding.md
+      - linkListType: how-to-guide
+        links:
+          - text: Add custom actions to Azure
+            url: custom-providers-action-endpoint-how-to.md
+          - text: Add custom resources to Azure
+            url: custom-providers-resources-endpoint-how-to.md
+
+  # Card
+  - title: Examples
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Custom resource proxy reference
+            url: proxy-resource-endpoint-reference.md
+          - text: Custom resource cache reference
+            url: proxy-cache-resource-endpoint-reference.md
+          - text: Custom resource provider RESTful endpoint reference
+            url: reference-custom-providers-csharp-endpoint.md

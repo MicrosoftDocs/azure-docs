@@ -1,26 +1,21 @@
 ---
-title: Tutorial - Create a custom role for Azure resources using Azure PowerShell | Microsoft Docs
-description: Get started creating a custom role for Azure resources using Azure PowerShell.
+title: "Tutorial: Create an Azure custom role with Azure PowerShell - Azure RBAC"
+description: Get started creating an Azure custom role using Azure PowerShell and Azure role-based access control (Azure RBAC) in this tutorial.
 services: active-directory
-documentationCenter: ''
 author: rolyon
-manager: mtillman
-editor: ''
+manager: amycolannino
 
 ms.service: role-based-access-control
-ms.devlang: ''
+ms.custom: devx-track-azurepowershell
 ms.topic: tutorial
-ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
-
 #Customer intent: As a dev or devops, I want step-by-step instructions for how to grant custom permissions because the current built-in roles do not meet my permission needs.
-
 ---
-# Tutorial: Create a custom role for Azure resources using Azure PowerShell
+# Tutorial: Create an Azure custom role using Azure PowerShell
 
-If the [built-in roles for Azure resources](built-in-roles.md) don't meet the specific needs of your organization, you can create your own custom roles. For this tutorial, you create a custom role named Reader Support Tickets using Azure PowerShell. The custom role allows the user to view everything in the management plane of a subscription and also open support tickets.
+If the [Azure built-in roles](built-in-roles.md) don't meet the specific needs of your organization, you can create your own custom roles. For this tutorial, you create a custom role named Reader Support Tickets using Azure PowerShell. The custom role allows the user to view everything in the control plane of a subscription and also open support tickets.
 
 In this tutorial, you learn how to:
 
@@ -39,7 +34,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 To complete this tutorial, you will need:
 
 - Permissions to create custom roles, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator)
-- [Azure Cloud Shell](../cloud-shell/overview.md) or [Azure PowerShell](/powershell/azure/install-az-ps)
+- [Azure Cloud Shell](../cloud-shell/overview.md) or [Azure PowerShell](/powershell/azure/install-azure-powershell)
 
 ## Sign in to Azure PowerShell
 
@@ -49,7 +44,7 @@ Sign in to [Azure PowerShell](/powershell/azure/authenticate-azureps).
 
 The easiest way to create a custom role is to start with a built-in role, edit it, and then create a new role.
 
-1. In PowerShell, use the [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) command to get the list of operations for the Microsoft.Support resource provider. It's helpful to know the operations that are available to create your permissions. You can also see a list of all the operations at [Azure Resource Manager resource provider operations](resource-provider-operations.md#microsoftsupport).
+1. In PowerShell, use the [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) command to get the list of operations for the Microsoft.Support resource provider. It's helpful to know the operations that are available to create your permissions. You can also see a list of all the operations at [Azure resource provider operations](resource-provider-operations.md#microsoftsupport).
 
     ```azurepowershell
     Get-AzProviderOperation "Microsoft.Support/*" | FT Operation, Description -AutoSize
@@ -71,7 +66,7 @@ The easiest way to create a custom role is to start with a built-in role, edit i
 
 1. Open the **ReaderSupportRole.json** file in an editor.
 
-    The following shows the JSON output. For information about the different properties, see [Custom roles](custom-roles.md).
+    The following shows the JSON output. For information about the different properties, see [Azure custom roles](custom-roles.md).
 
     ```json
     {
@@ -91,7 +86,7 @@ The easiest way to create a custom role is to start with a built-in role, edit i
     }
     ```
     
-1. Edit the JSON file to add the `"Microsoft.Support/*"` operation to the `Actions` property. Be sure to include a comma after the read operation. This action will allow the user to create support tickets.
+1. Edit the JSON file to add the `"Microsoft.Support/*"` action to the `Actions` property. Be sure to include a comma after the read action. This action will allow the user to create support tickets.
 
 1. Get the ID of your subscription using the [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) command.
 
@@ -177,7 +172,7 @@ To update the custom role, you can update the JSON file or use the `PSRoleDefini
 
 1. Open the file in an editor.
 
-1. In `Actions`, add the operation to create and manage resource group deployments `"Microsoft.Resources/deployments/*"`.
+1. In `Actions`, add the action to create and manage resource group deployments `"Microsoft.Resources/deployments/*"`.
 
     Your updated JSON file should look like the following:
 
@@ -225,7 +220,7 @@ To update the custom role, you can update the JSON file or use the `PSRoleDefini
     $role = Get-AzRoleDefinition "Reader Support Tickets"
     ```
     
-1. Call the `Add` method to add the operation to read diagnostic settings.
+1. Call the `Add` method to add the action to read diagnostic settings.
 
     ```azurepowershell
     $role.Actions.Add("Microsoft.Insights/diagnosticSettings/*/read")
@@ -275,4 +270,4 @@ To update the custom role, you can update the JSON file or use the `PSRoleDefini
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create custom roles for Azure resources using Azure PowerShell](custom-roles-powershell.md)
+> [Create or update Azure custom roles using Azure PowerShell](custom-roles-powershell.md)

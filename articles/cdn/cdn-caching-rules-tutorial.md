@@ -3,26 +3,25 @@ title: Tutorial - Set Azure CDN caching rules | Microsoft Docs
 description: In this tutorial, you set an Azure CDN global caching rule and a custom caching rule.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: duongau
 manager: danielgi
 editor: ''
 
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/20/2018
-ms.author: magattus
+ms.author: duau
 ms.custom: mvc
-# As an Azure CDN administrator, I want to create custom rules on my CDN endpoint so that I can control how content is cached.
+#Customer intent: As an Azure CDN administrator, I want to create custom rules on my CDN endpoint so that I can control how content is cached.
 
 ---
 
 # Tutorial: Set Azure CDN caching rules
 
 > [!NOTE] 
-> Azure CDN caching rules are available only for **Azure CDN Standard from Verizon** and **Azure CDN Standard from Akamai**. For **Azure CDN Premium from Verizon**, use the [Azure CDN rules engine](cdn-rules-engine.md) in the **Manage** portal for similar functionality.
+> Caching rules are available only for **Azure CDN Standard from Edgio** and **Azure CDN Standard from Akamai** profiles. For **Azure CDN from Microsoft** profiles, you must use the [Standard rules engine](cdn-standard-rules-engine-reference.md) For **Azure CDN Premium from Edgio** profiles, you must use the [Edgio Premium rules engine](./cdn-verizon-premium-rules-engine.md) in the **Manage** portal for similar functionality.
  
 
 This tutorial describes how you can use Azure Content Delivery Network (CDN) caching rules to set or modify default cache expiration behavior both globally and with custom conditions, such as a URL path and file extension. Azure CDN provides two types of caching rules:
@@ -112,6 +111,3 @@ Advance to the next article to learn how to configure additional caching rule se
 
 > [!div class="nextstepaction"]
 > [Control Azure CDN caching behavior with caching rules](cdn-caching-rules.md)
-
-
-

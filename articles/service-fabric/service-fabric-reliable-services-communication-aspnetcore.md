@@ -1,20 +1,12 @@
 ---
-title: Service communication with the ASP.NET Core | Microsoft Docs
-description: Learn how to use ASP.NET Core in stateless and stateful Reliable Services.
-services: service-fabric
-documentationcenter: .net
-author: vturecek
-manager: chackdan
-editor: ''
-
-ms.assetid: 8aa4668d-cbb6-4225-bd2d-ab5925a868f2
-ms.service: service-fabric
-ms.devlang: dotnet
+title: Service communication with the ASP.NET Core 
+description: Learn how to use ASP.NET Core in stateless and stateful Azure Service Fabric Reliable Services applications.
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
-ms.date: 10/12/2018
-ms.author: vturecek
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 
 # ASP.NET Core in Azure Service Fabric Reliable Services
@@ -25,7 +17,7 @@ This article is an in-depth guide to hosting ASP.NET Core services in Service Fa
 
 For an introductory tutorial on ASP.NET Core in Service Fabric and instructions on getting your development environment set up, see [Tutorial: Create and deploy an application with an ASP.NET Core Web API front-end service and a stateful back-end service](service-fabric-tutorial-create-dotnet-app.md).
 
-The rest of this article assumes you're already familiar with ASP.NET Core. If not, please read through the [ASP.NET Core fundamentals](https://docs.microsoft.com/aspnet/core/fundamentals/index).
+The rest of this article assumes you're already familiar with ASP.NET Core. If not, please read through the [ASP.NET Core fundamentals](/aspnet/core/fundamentals/index).
 
 ## ASP.NET Core in the Service Fabric environment
 
@@ -99,7 +91,7 @@ Thus, both Kestrel and HTTP.sys `ICommunicationListener` implementations standar
 ## HTTP.sys in Reliable Services
 You can use HTTP.sys in Reliable Services by importing the **Microsoft.ServiceFabric.AspNetCore.HttpSys** NuGet package. This package contains `HttpSysCommunicationListener`, an implementation of `ICommunicationListener`. `HttpSysCommunicationListener` allows you to create an ASP.NET Core WebHost inside a reliable service by using HTTP.sys as the web server.
 
-HTTP.sys is built on the [Windows HTTP Server API](https://msdn.microsoft.com/library/windows/desktop/aa364510(v=vs.85).aspx). This API uses the **HTTP.sys** kernel driver to process HTTP requests and route them to processes that run web applications. This allows multiple processes on the same physical or virtual machine to host web applications on the same port, disambiguated by either a unique URL path or host name. These features are useful in Service Fabric for hosting multiple websites in the same cluster.
+HTTP.sys is built on the [Windows HTTP Server API](/windows/win32/http/http-api-start-page). This API uses the **HTTP.sys** kernel driver to process HTTP requests and route them to processes that run web applications. This allows multiple processes on the same physical or virtual machine to host web applications on the same port, disambiguated by either a unique URL path or host name. These features are useful in Service Fabric for hosting multiple websites in the same cluster.
 
 >[!NOTE]
 >HTTP.sys implementation works only on the Windows platform.
@@ -138,9 +130,9 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 
 ### Endpoint configuration
 
-An `Endpoint` configuration is required for web servers that use the Windows HTTP Server API, including HTTP.sys. Web servers that use the Windows HTTP Server API must first reserve their URL with HTTP.sys (this is normally accomplished with the [netsh](https://msdn.microsoft.com/library/windows/desktop/cc307236(v=vs.85).aspx) tool). 
+An `Endpoint` configuration is required for web servers that use the Windows HTTP Server API, including HTTP.sys. Web servers that use the Windows HTTP Server API must first reserve their URL with HTTP.sys (this is normally accomplished with the [netsh](/windows/win32/http/netsh-commands-for-http) tool). 
 
-This action requires elevated privileges that your services don't have by default. The "http" or "https" options for the `Protocol` property of the `Endpoint` configuration in ServiceManifest.xml are used specifically to instruct the Service Fabric runtime to register a URL with HTTP.sys on your behalf. It does this by using the [*strong wildcard*](https://msdn.microsoft.com/library/windows/desktop/aa364698(v=vs.85).aspx) URL prefix.
+This action requires elevated privileges that your services don't have by default. The "http" or "https" options for the `Protocol` property of the `Endpoint` configuration in ServiceManifest.xml are used specifically to instruct the Service Fabric runtime to register a URL with HTTP.sys on your behalf. It does this by using the [*strong wildcard*](/windows/win32/http/urlprefix-strings) URL prefix.
 
 For example, to reserve `http://+:80` for a service, use the following configuration in ServiceManifest.xml:
 
@@ -196,7 +188,7 @@ A dynamic port allocated by an `Endpoint` configuration provides only one port *
 ## Kestrel in Reliable Services
 You can use Kestrel in Reliable Services by importing the **Microsoft.ServiceFabric.AspNetCore.Kestrel** NuGet package. This package contains `KestrelCommunicationListener`, an implementation of `ICommunicationListener`. `KestrelCommunicationListener` allows you to create an ASP.NET Core WebHost inside a reliable service by using Kestrel as the web server.
 
-Kestrel is a cross-platform web server for ASP.NET Core based on libuv, a cross-platform asynchronous I/O library. Unlike HTTP.sys, Kestrel doesn't use a centralized endpoint manager. Also unlike HTTP.sys, Kestrel doesn't support port sharing between multiple processes. Each instance of Kestrel must use a unique port.
+Kestrel is a cross-platform web server for ASP.NET Core. Unlike HTTP.sys, Kestrel doesn't use a centralized endpoint manager. Also unlike HTTP.sys, Kestrel doesn't support port sharing between multiple processes. Each instance of Kestrel must use a unique port. For more on Kestrel, see the [Implementation Details](/aspnet/core/fundamentals/servers/kestrel).
 
 ![Kestrel diagram][4]
 
@@ -336,8 +328,160 @@ new KestrelCommunicationListener(serviceContext, (url, listener) => ...
 
 In this configuration, `KestrelCommunicationListener` will automatically select an unused port from the application port range.
 
+For HTTPS, it should have the Endpoint configured with HTTPS protocol without a port specified in ServiceManifest.xml and pass the endpoint name to KestrelCommunicationListener constructor.
+
+
+## IHost and Minimal Hosting integration
+In addition to IWebHost/IWebHostBuilder, `KestrelCommunicationListener` and `HttpSysCommunicationListener` support building ASP.NET Core services using IHost/IHostBuilder.
+This is available starting v5.2.1363 of `Microsoft.ServiceFabric.AspNetCore.Kestrel` and `Microsoft.ServiceFabric.AspNetCore.HttpSys` packages.
+
+```csharp
+// Stateless Service
+protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
+{
+    return new ServiceInstanceListener[]
+    {
+        new ServiceInstanceListener(serviceContext =>
+            new KestrelCommunicationListener(serviceContext, "ServiceEndpoint", (url, listener) =>
+            {
+                return Host.CreateDefaultBuilder()
+                        .ConfigureWebHostDefaults(webBuilder =>
+                        {
+                            webBuilder.UseKestrel()
+                                .UseStartup<Startup>()
+                                .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
+                                .UseContentRoot(Directory.GetCurrentDirectory())
+                                .UseUrls(url);
+                        })
+                        .ConfigureServices(services => services.AddSingleton<StatelessServiceContext>(serviceContext))
+                        .Build();
+            }))
+    };
+}
+
+```
+
+```csharp
+// Stateful Service
+protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
+{
+    return new ServiceReplicaListener[]
+    {
+        new ServiceReplicaListener(serviceContext =>
+            new KestrelCommunicationListener(serviceContext, "ServiceEndpoint", (url, listener) =>
+            {
+                return Host.CreateDefaultBuilder()
+                        .ConfigureWebHostDefaults(webBuilder =>
+                        {
+                            webBuilder.UseKestrel()
+                                .UseStartup<Startup>()
+                                .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.UseUniqueServiceUrl)
+                                .UseContentRoot(Directory.GetCurrentDirectory())
+                                .UseUrls(url);
+                        })
+                        .ConfigureServices(services =>
+                        {
+                            services.AddSingleton<StatefulServiceContext>(serviceContext);
+                            services.AddSingleton<IReliableStateManager>(this.StateManager);
+                        })
+                        .Build();
+            }))
+    };
+}
+```
+
+
+>[!NOTE]
+> As KestrelCommunicationListener and HttpSysCommunicationListener are meant for web services, it is required to register/configure a web server (using [ConfigureWebHostDefaults](/dotnet/api/microsoft.extensions.hosting.generichostbuilderextensions.configurewebhostdefaults) or [ConfigureWebHost](/dotnet/api/microsoft.extensions.hosting.generichostwebhostbuilderextensions.configurewebhost) method) over the IHost
+
+
+ASP.NET 6 introduced the Minimal Hosting model which is a more simplified and streamlined way of creating web applications. Minimal hosting model can also be used with KestrelCommunicationListener and HttpSysCommunicationListener.
+
+```csharp
+// Stateless Service
+protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
+{
+    return new ServiceInstanceListener[]
+    {
+        new ServiceInstanceListener(serviceContext =>
+            new KestrelCommunicationListener(serviceContext, "ServiceEndpoint", (url, listener) =>
+            {
+                var builder = WebApplication.CreateBuilder();
+
+                builder.Services.AddSingleton<StatelessServiceContext>(serviceContext);
+                builder.WebHost
+                            .UseKestrel()
+                            .UseContentRoot(Directory.GetCurrentDirectory())
+                            .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
+                            .UseUrls(url);
+
+                builder.Services.AddControllersWithViews();
+
+                var app = builder.Build();
+
+                if (!app.Environment.IsDevelopment())
+                {
+                    app.UseExceptionHandler("/Home/Error");
+                }
+
+                app.UseHttpsRedirection();
+                app.UseStaticFiles();
+                app.UseRouting();
+                app.UseAuthorization();
+                app.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                return app;
+            }))
+    };
+}
+```
+
+```csharp
+// Stateful Service
+protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
+{
+    return new ServiceReplicaListener[]
+    {
+        new ServiceReplicaListener(serviceContext =>
+            new KestrelCommunicationListener(serviceContext, "ServiceEndpoint", (url, listener) =>
+            {
+                var builder = WebApplication.CreateBuilder();
+
+                builder.Services
+                            .AddSingleton<StatefulServiceContext>(serviceContext)
+                            .AddSingleton<IReliableStateManager>(this.StateManager);
+                builder.WebHost
+                            .UseKestrel()
+                            .UseContentRoot(Directory.GetCurrentDirectory())
+                            .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.UseUniqueServiceUrl)
+                            .UseUrls(url);
+
+                builder.Services.AddControllersWithViews();
+
+                var app = builder.Build();
+
+                if (!app.Environment.IsDevelopment())
+                {
+                    app.UseExceptionHandler("/Home/Error");
+                }
+                app.UseStaticFiles();
+                app.UseRouting();
+                app.UseAuthorization();
+                app.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                return app;
+            }))
+    };
+}
+```
+
+
 ## Service Fabric configuration provider
-App configuration in ASP.NET Core is based on key-value pairs established by the configuration provider. Read [Configuration in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/) to understand more on general ASP.NET Core configuration support.
+App configuration in ASP.NET Core is based on key-value pairs established by the configuration provider. Read [Configuration in ASP.NET Core](/aspnet/core/fundamentals/configuration/) to understand more on general ASP.NET Core configuration support.
 
 This section describes how the Service Fabric configuration provider integrates with ASP.NET Core configuration by importing the `Microsoft.ServiceFabric.AspNetCore.Configuration` NuGet package.
 
@@ -396,7 +540,7 @@ public Startup()
 {
     ICodePackageActivationContext activationContext = FabricRuntime.GetActivationContext();
     var builder = new ConfigurationBuilder()        
-        .AddServiceFabricConfiguration(activationContext, (options) => options.DecryptValue = true); // set flag to decrypt the value
+        .AddServiceFabricConfiguration(activationContext, (options) => options.DecryptValue = false); // set flag to decrypt the value
     Configuration = builder.Build();
 }
 ```
@@ -450,7 +594,7 @@ public Startup()
 ```
 
 ### Configuration updates
-The Service Fabric configuration provider also supports configuration updates. You can use ASP.NET Core `IOptionsMonitor` to receive change notifications, and then use `IOptionsSnapshot` to reload configuration data. For more information, see [ASP.NET Core options](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options).
+The Service Fabric configuration provider also supports configuration updates. You can use ASP.NET Core `IOptionsMonitor` to receive change notifications, and then use `IOptionsSnapshot` to reload configuration data. For more information, see [ASP.NET Core options](/aspnet/core/fundamentals/configuration/options).
 
 These options are supported by default. No further coding is needed to enable configuration updates.
 
@@ -472,8 +616,8 @@ Kestrel is the suggested web server for front-end services that expose external,
  
 When exposed to the internet, a stateless service should use a well-known and stable endpoint that's reachable through a load balancer. You'll provide this URL to your application's users. We recommend the following configuration:
 
-|  |  | **Notes** |
-| --- | --- | --- |
+| Type | Recommendation | Notes |
+| ---- | -------------- | ----- |
 | Web server | Kestrel | Kestrel is the preferred web server, as it's supported across Windows and Linux. |
 | Port configuration | static | A well-known static port should be configured in the `Endpoints` configuration of ServiceManifest.xml, such as 80 for HTTP or 443 for HTTPS. |
 | ServiceFabricIntegrationOptions | None | Use the `ServiceFabricIntegrationOptions.None` option when configuring Service Fabric integration middleware, so that the service doesn't attempt to validate incoming requests for a unique identifier. External users of your application won't know the unique identifying information that the middleware uses. |
@@ -497,8 +641,8 @@ If multiple externally exposed services share the same set of nodes, you can use
 ### Internal-only stateless ASP.NET Core service
 Stateless services that are only called from within the cluster should use unique URLs and dynamically assigned ports to ensure cooperation between multiple services. We recommend the following configuration:
 
-|  |  | **Notes** |
-| --- | --- | --- |
+| Type | Recommendation | Notes |
+| ---- | -------------- | ----- |
 | Web server | Kestrel | Although you can use HTTP.sys for internal stateless services, Kestrel is the best server to allow multiple service instances to share a host.  |
 | Port configuration | dynamically assigned | Multiple replicas of a stateful service might share a host process or host operating system and thus will need unique ports. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | With dynamic port assignment, this setting prevents the mistaken identity issue described earlier. |
@@ -507,8 +651,8 @@ Stateless services that are only called from within the cluster should use uniqu
 ### Internal-only stateful ASP.NET Core service
 Stateful services that are only called from within the cluster should use dynamically assigned ports to ensure cooperation between multiple services. We recommend the following configuration:
 
-|  |  | **Notes** |
-| --- | --- | --- |
+| Type | Recommendation | Notes |
+| ---- | -------------- | ----- |
 | Web server | Kestrel | The `HttpSysCommunicationListener` isn't designed for use by stateful services in which replicas share a host process. |
 | Port configuration | dynamically assigned | Multiple replicas of a stateful service might share a host process or host operating system and thus will need unique ports. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | With dynamic port assignment, this setting prevents the mistaken identity issue described earlier. |

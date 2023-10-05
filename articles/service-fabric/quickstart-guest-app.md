@@ -1,20 +1,13 @@
 ---
-title: Quickly deploy an existing app to an Azure Service Fabric cluster 
+title: Quickly deploy an existing app to a cluster 
 description: Use an Azure Service Fabric cluster to host an existing Node.js application with Visual Studio.
-services: service-fabric
-documentationcenter: nodejs
-author: aljo-microsoft
-manager: chackdan
-editor: ''
-
-ms.assetid: ''
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
 ms.service: service-fabric
-ms.devlang: dotNet
-ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 12/06/2017
-ms.author: aljo
+ms.custom: devx-track-js
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Host a Node.js application on Azure Service Fabric
@@ -23,7 +16,7 @@ This quickstart helps you deploy an existing application (Node.js in this exampl
 
 ## Prerequisites
 
-Before you get started, make sure that you have [set up your development environment](service-fabric-get-started.md). Which includes installing the Service Fabric SDK and Visual Studio 2019 or 2015.
+Before you get started, make sure that you have [set up your development environment](service-fabric-get-started.md), which includes installing the Service Fabric SDK and Visual Studio 2019 or 2015.
 
 You also need to have an existing Node.js application for deployment. This quickstart uses a simple Node.js website that can be downloaded [here][download-sample]. Extract this file to your `<path-to-project>\ApplicationPackageRoot\<package-name>\Code\` folder after you create the project in the next step.
 
@@ -37,7 +30,7 @@ Create a project with `CTRL`+`SHIFT`+`N`
 
 In the **New Project** dialog, choose **Cloud > Service Fabric Application**.
 
-Name the application **MyGuestApp** and press **OK**.
+Name the application **MyGuestApp** and press **Create**.
 
 >[!IMPORTANT]
 >Node.js can easily break the 260 character limit for paths that windows has. Use a short path for the project itself such as **c:\code\svc1**. Optionally, you can follow **[these instructions](https://stackoverflow.com/a/41687101/1664231)** to enable long file paths in Windows 10.

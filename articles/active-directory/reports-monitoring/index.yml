@@ -1,53 +1,95 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure Active Directory reports and monitoring
+### YamlMime:Landing
+
+title: Microsoft Entra monitoring and health documentation
+summary: Learn how to access and use logs, reports, monitoring integrations, workbooks, and recommendations in Microsoft Entra ID.
+
 metadata:
-  document_id: 
-  title: Azure Active Directory reports and monitoring documentation - Tutorials, quickstarts, concepts | Microsoft Docs
-  description: Learn how to configure and test Azure Active Directory reports and monitoring solutions
+  title: Microsoft Entra monitoring and health documentation
+  description: Learn how to use the logs, reports, and monitoring tools in Microsoft Entra ID.
   services: active-directory
-  ms.subservice: report-monitor
-  author: priyamohanram
-  manager: daveba
   ms.service: active-directory
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: devices
   ms.topic: landing-page
-  ms.date: 08/14/2018
-  ms.author: priyamo
-abstract:
-  description: "Learn how to view security and audit reports for your environment, or monitor them over time to gain insights into usage patterns.
-With Azure Active Directory (Azure AD) reports, you can gain insights into the security and usage patterns in your environment. For example, you can answer the following questions:<ul><li>How are the applications or services utilized by the users?</li><li>What are the potential risks affecting the health of the environment</li><li>How to troubleshoot issues preventing users from getting their work done</li>"
+  author: shlipsey3
+  ms.author: sarahlipsey
+  ms.date: 08/15/2023
 
-sections:
-- title: 5-minute quickstarts
-  items:
-  - type: paragraph
-    text: Learn how to download activity reports and route your logs to an Azure storage account
-  - type: list
-    style: unordered
-    items:
-        - html: <a href="/azure/active-directory/reports-monitoring/quickstart-download-sign-in-report">Download a sign-in report</a>
-        - html: <a href="/azure/active-directory/reports-monitoring/quickstart-download-audit-report">Download an audit report</a>
-        - html: <a href="/azure/active-directory/reports-monitoring/quickstart-install-power-bi-content-pack">Install the Power BI content pack for reports</a>    
-        - html: <a href="/azure/active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account">Route logs to storage account</a>
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
-- title: Step-by-step tutorials
-  items:
-  - type: paragraph
-    text: Learn how to access your reports and stream activity logs to the monitoring system of your choice
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="/azure/active-directory/reports-monitoring/tutorial-access-api-with-certificates">Programmatically access the reporting API using certificates</a>
-    - html: <a href="/azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub">Stream activity logs to an event hub</a>
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Identity monitoring and health
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Identity monitoring and health?
+            url: overview-monitoring-health.md
+          - text: What are Identity Recommendations?
+            url: overview-recommendations.md
+          - text: What are Identity Workbooks?
+            url: overview-workbooks.md
+      - linkListType: concept
+        links:
+         - text: Audit logs
+           url: concept-audit-logs.md
+         - text: Sign-in logs
+           url: concept-all-sign-ins.md
+         - text: Provisioning logs
+           url: concept-provisioning-logs.md
 
-- title: Reference
-  items:
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="/azure/active-directory/reports-monitoring/reference-sign-ins-error-codes">Sign-ins error codes</a>
-    - html: <a href="/azure/active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema">Azure AD audit log schema in Azure Monitor</a>
-    - html: <a href="/azure/active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema">Azure AD sign-ins schema in Azure Monitor</a>
-    
+  # Card
+  - title: Common scenarios for using reports and monitoring
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Manage inactive user accounts in Microsoft Entra ID
+            url: howto-manage-inactive-user-accounts.md
+          - text: Troubleshoot sign-in errors
+            url: howto-troubleshoot-sign-in-errors.md
+          - text: View applied Conditional Access policies
+            url: how-to-view-applied-conditional-access-policies.md
+          - text: Sign-in diagnostics scenarios
+            url: concept-sign-in-diagnostics-scenarios.md
+
+  # Card
+  - title: Identity logs
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Methods to access activity logs
+            url: howto-access-activity-logs.md
+          - text: Access logs with Microsoft Graph
+            url: quickstart-access-log-with-graph-api.md
+
+  # Card
+  - title: Identity reports
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Usage and Insights report
+            url: concept-usage-insights-report.md
+          - text: Convert per-user MFA to Conditional Access recommendation
+            url: recommendation-turn-off-per-user-mfa.md
+          - text: Migrate to Microsoft Authenticator recommendation
+            url: recommendation-migrate-to-authenticator.md
+          - text: Migrate from ADAL to MSAL recommendation
+            url: recommendation-migrate-from-adal-to-msal.md
+          - text: Conditional Access gap analyzer workbook
+            url: workbook-conditional-access-gap-analyzer.md
+          - text: Risk analysis workbook
+            url: workbook-risk-analysis.md
+  # Card
+  - title: Identity monitoring
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Monitoring options and considerations
+            url: concept-log-monitoring-integration-options-considerations.md
+          - text: Integrate activity logs with Azure Monitor logs
+            url: howto-integrate-activity-logs-with-azure-monitor-logs.md        
+          - text: Analyze activity logs in Azure Monitor logs
+            url: howto-analyze-activity-logs-log-analytics.md 
+          - text: Stream logs to an event hub
+            url: howto-stream-logs-to-event-hub.md           

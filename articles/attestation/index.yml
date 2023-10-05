@@ -1,0 +1,79 @@
+### YamlMime:Landing
+
+title: Microsoft Azure Attestation 
+summary: Learn how to use Azure Attestation 
+metadata:
+  title: Azure Attestation documentation
+  description: Learn how to use Azure Attestation to create and maintain keys that access and encrypt your cloud resources, apps, and solutions. Tutorials, API references, and more.
+  services: attestation
+  ms.service: attestation
+  ms.topic: landing-page
+  author: msmbaldwin
+  ms.author: mbaldwin
+  ms.date: 07/20/2020
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Microsoft Azure Attestation
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Microsoft Azure Attestation?
+            url: overview.md
+
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: deploy
+        links:
+          - text: ARM template quickstart
+            url: quickstart-template.md
+          - text: PowerShell quickstart
+            url: quickstart-powershell.md
+          - text: Portal quickstart
+            url: quickstart-portal.md
+          - text: CLI quickstart
+            url: quickstart-azure-cli.md
+
+  # Card
+  - title: Concepts
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Basic concepts
+            url: basic-concepts.md
+          - text: Claim rule grammar
+            url: claim-rule-grammar.md
+          - text: Claim sets
+            url: claim-sets.md
+          - text: Work flow
+            url: workflow.md
+            
+  # Card
+  - title: Tutorials
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Authoring an attestation policy
+            url: author-sign-policy.md
+          - text: Create a Private Endpoint - PowerShell
+            url: private-endpoint-powershell.md
+          - text: SGX attestation code samples
+            url: /samples/browse/?expanded=azure&terms=attestation
+
+  # Card
+  - title: References
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Frequently asked questions
+            url: faq.yml  
+          - text: REST
+            url: /rest/api/attestation/ 
+          - text: Troubleshoot issues
+            url: troubleshoot-guide.md
+

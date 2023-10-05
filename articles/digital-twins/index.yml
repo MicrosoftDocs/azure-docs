@@ -1,31 +1,103 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
+
 title: Azure Digital Twins Documentation
+summary: Learn how to use Azure Digital Twins by creating a digital twin architecture that acts as a representation of your assets, environments and business systems, to build next generation IoT solutions that model the real world.
+
 metadata:
   title: Azure Digital Twins Documentation - Tutorials, API Reference | Microsoft Docs
-  description: Use Azure Digital Twins to create smart spatial solutions.
-  author: dsk-2015
-  manager: timlt
+  description: Learn how to Use Azure Digital Twins to connect people, places, and things, and to build IoT solutions with spatial intelligence.
   ms.service: digital-twins
-  services: digital-twins
   ms.topic: landing-page
-  ms.date: 10/15/2018
-  ms.author: dkshir
-abstract:
-  description: Learn how to use Azure Digital Twins to connect people, places, and things, and to build IoT solutions with spatial intelligence. Walk through the Quickstart and Tutorials to monitor an imaginary smart building, learn in-depth concepts, and create a next generation IoT solution that models your physical environment.
-sections:
-- title: 5-Minute Quickstart
-  items:
-  - type: paragraph
-    text: Learn how to <a href="quickstart-view-occupancy-dotnet">find available rooms with good air quality by using Azure Digital Twins .NET samples</a>.
-- title: Step-by-Step Tutorials
-  items:
-  - type: paragraph
-    text: Learn how to customize and use your Azure Digital Twins solution to monitor your facilities.
-  - type: list
-    style: ordered
-    items:
-    - html: <a href="/azure/digital-twins/tutorial-facilities-setup">Provision a sample building</a>
-    - html: <a href="/azure/digital-twins/tutorial-facilities-udf">Monitor conditions in your building</a>
-    - html: <a href="/azure/digital-twins/tutorial-facilities-events">Receive notifications from your building</a>
-    - html: <a href="/azure/digital-twins/tutorial-facilities-analyze">Analyze events from your building</a>
+  ms.collection: collection
+  author: baanders
+  ms.author: baanders
+  ms.date: 03/10/2022
+
+landingContent:
+  - title: Get started
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Digital Twins?
+            url: overview.md
+      - linkListType: quickstart
+        links:
+          - text: Get started with Azure Digital Twins Explorer
+            url: quickstart-azure-digital-twins-explorer.md
+          - text: Get started with 3D Scenes Studio
+            url: quickstart-3d-scenes-studio.md
+      - linkListType: how-to-guide
+        links:
+          - text: Set up an instance and authentication
+            url: how-to-set-up-instance-portal.md
+
+  - title: Go deeper with the tutorials
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Code a client app
+            url: tutorial-code.md
+      - linkListType: tutorial
+        links:
+          - text: Create a graph in Azure Digital Twins (client app)
+            url: tutorial-command-line-app.md
+      - linkListType: tutorial
+        links:
+          - text: Connect an end-to-end solution
+            url: tutorial-end-to-end.md
+
+  - title: Learn about concepts
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: DTDL models
+            url: concepts-models.md
+          - text: Digital twins and the twin graph
+            url: concepts-twins-graph.md
+          - text: Query language
+            url: concepts-query-language.md
+       
+  - title: Develop
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Azure Digital Twins APIs and SDKs 
+            url: concepts-apis-sdks.md
+          - text: Azure Digital Twins CLI command set
+            url: concepts-cli.md
+      - linkListType: reference
+        links:
+          - text: REST APIs
+            url:  /rest/api/azure-digitaltwins/
+          - text: Control plane .NET (C#) SDK
+            url:  /dotnet/api/overview/azure/digitaltwins
+          - text: Data plane .NET (C#) SDK
+            url:  /dotnet/api/overview/azure/digitaltwins.core-readme
+      - linkListType: how-to-guide
+        links:
+          - text: Call the Azure Digital Twins APIs with Postman
+            url: how-to-use-postman-with-digital-twins.md
+
+  - title: DTDL-based industry ontologies
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: What is an ontology?
+            url: concepts-ontologies.md
+          - text: Adopting DTDL-based industry ontologies
+            url: concepts-ontologies-adopt.md
+      - linkListType: reference
+        links:
+          - text: RealEstateCore smart building ontology
+            url: https://github.com/Azure/opendigitaltwins-building
+          - text: Smart cities ontology
+            url: https://github.com/Azure/opendigitaltwins-smartcities
+          - text: Energy grid ontology
+            url: https://github.com/Azure/opendigitaltwins-energygrid/
+            
+  - title: Scenario-based learning
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: 'Learning path: Extend IoT solutions by using Azure Digital Twins'
+            url: /training/paths/extend-iot-solutions-by-using-azure-digital-twins/

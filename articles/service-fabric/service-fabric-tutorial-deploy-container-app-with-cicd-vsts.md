@@ -1,23 +1,14 @@
 ---
-title: Deploy a container application with CI/CD to an Azure Service Fabric cluster
+title: Deploy a container application with CI/CD
 description: In this tutorial, you learn how to set up continuous integration and deployment for an Azure Service Fabric container application using Visual Studio Azure DevOps.
-services: service-fabric
-documentationcenter: .net
-author: aljo-microsoft
-manager: chackdan
-editor: ''
-
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 08/29/2018
-ms.author: aljo
-ms.custom: mvc
-
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Tutorial: Deploy a container application with CI/CD to a Service Fabric cluster
 
 This tutorial is part two of a series and describes how to set up continuous integration and deployment for an Azure Service Fabric container application using Visual Studio and Azure DevOps.  An existing Service Fabric application is needed, the application created in [Deploy a .NET application in a Windows container to Azure Service Fabric](service-fabric-host-app-in-a-container.md) is used as an example.
@@ -53,11 +44,11 @@ Create a new local Git repo for your project by selecting **Add to Source Contro
 
 In the **Push** view in **Team Explorer**, select the **Publish Git Repo** button under **Push to Azure DevOps**.
 
-![Push Git repo][push-git-repo]
+![Screenshot of the Team Explorer - Synchronization window in Visual Studio. Under Push to Azure DevOps, the Publish to Git Repo button is highlighted.][push-git-repo]
 
 Verify your email and select your organization in the **Account** drop-down. You may have to set up an organization if you don't already have one. Enter your repository name and select **Publish repository**.
 
-![Push Git repo][publish-code]
+![Screenshot of the Push to Azure DevOps window. The settings for Email, Account, Repository name, and the Publish Repository button are highlighted.][publish-code]
 
 Publishing the repository creates a new team project in your account with the same name as the local repo. To create the repository in an existing team project, click **Advanced** next to **Repository** name and select a team project. You can view your code on the web by selecting **See it on the web**.
 
@@ -143,13 +134,13 @@ Enable a continuous deployment trigger so that a release is automatically create
 
 Select **+ Release** -> **Create a Release** -> **Create** to manually create a release. You can monitor the release progress in the **Releases** tab.
 
-Verify that the deployment succeeded and the application is running in the cluster.  Open a web browser and navigate to [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Note the application version, in this example it is "1.0.0.20170616.3".
+Verify that the deployment succeeded and the application is running in the cluster.  Open a web browser and navigate to `http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`.  Note the application version, in this example it is "1.0.0.20170616.3".
 
 ## Commit and push changes, trigger a release
 
 To verify that the continuous integration pipeline is functioning by checking in some code changes to Azure DevOps.
 
-As you write your code, your changes are automatically tracked by Visual Studio. Commit changes to your local Git repository by selecting the pending changes icon (![Pending][pending]) from the status bar in the bottom right.
+As you write your code, your changes are automatically tracked by Visual Studio. Commit changes to your local Git repository by selecting the pending changes icon (![Pending changes icon shows a pencil and a number.][pending]) from the status bar in the bottom right.
 
 On the **Changes** view in Team Explorer, add a message describing your update and commit your changes.
 
@@ -163,9 +154,9 @@ Pushing the changes to Azure DevOps automatically triggers a build.  When the bu
 
 To check your build progress, switch to the **Builds** tab in **Team Explorer** in Visual Studio.  Once you verify that the build executes successfully, define a release definition that deploys your application to a cluster.
 
-Verify that the deployment succeeded and the application is running in the cluster.  Open a web browser and navigate to [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Note the application version, in this example it is "1.0.0.20170815.3".
+Verify that the deployment succeeded and the application is running in the cluster.  Open a web browser and navigate to `http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`.  Note the application version, in this example it is "1.0.0.20170815.3".
 
-![Service Fabric Explorer][sfx1]
+![Screenshot of the Voting app in Service Fabric Explorer. In the Essentials tab, the app version "1.0.0.20170815.3" is highlighted.][sfx1]
 
 ## Update the application
 
@@ -173,11 +164,11 @@ Make code changes in the application.  Save and commit the changes, following th
 
 Once the upgrade of the application begins, you can watch the upgrade progress in Service Fabric Explorer:
 
-![Service Fabric Explorer][sfx2]
+![Screenshot of the Voting app in Service Fabric Explorer. An "Upgrade in Progress" message is highlighted and the app Status is "Upgrading".][sfx2]
 
 The application upgrade may take several minutes. When the upgrade is complete, the application will be running the next version.  In this example "1.0.0.20170815.4".
 
-![Service Fabric Explorer][sfx3]
+![Screenshot of the Voting app in Service Fabric Explorer. In the Essentials tab, the updated app version "1.0.0.20170815.4" is highlighted.][sfx3]
 
 ## Next steps
 

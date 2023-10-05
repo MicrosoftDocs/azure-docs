@@ -1,21 +1,12 @@
 ---
-title: Azure Service Fabric CLI- sfctl container | Microsoft Docs
-description: Describes the Service Fabric CLI sfctl container commands.
-services: service-fabric
-documentationcenter: na
-author: Christina-Kang
-manager: chackdan
-editor: ''
-
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: cli
+title: Azure Service Fabric CLI- sfctl container
+description: Learn about sfctl, the Azure Service Fabric command line interface. Includes a list of commands for containers.
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 
 # sfctl container
@@ -26,7 +17,7 @@ Run container related commands on a cluster node.
 |Command|Description|
 | --- | --- |
 | invoke-api | Invoke container API on a container deployed on a Service Fabric node for the given code package. |
-| logs | Gets the container logs for container deployed on a Service Fabric node for the given code package. |
+| logs | Gets the container logs for container deployed on a Service Fabric node. |
 
 ## sfctl container invoke-api
 Invoke container API on a container deployed on a Service Fabric node for the given code package.
@@ -38,13 +29,13 @@ Invoke container API on a container deployed on a Service Fabric node for the gi
 | --application-id           [Required] | The identity of the application. <br><br> This is typically the full name of the application without the 'fabric\:' URI scheme. Starting from version 6.0, hierarchical names are delimited with the "\~" character. For example, if the application name is "fabric\:/myapp/app1", the application identity would be "myapp\~app1" in 6.0+ and "myapp/app1" in previous versions. |
 | --code-package-instance-id [Required] | ID that uniquely identifies a code package instance deployed on a service fabric node. <br><br> Can be retrieved by 'service code-package-list'. |
 | --code-package-name        [Required] | The name of code package specified in service manifest registered as part of an application type in a Service Fabric cluster. |
-| --container-api-uri-path   [Required] | Container REST API URI path, use '{id}' in place of container name/id. |
+| --container-api-uri-path   [Required] | Container REST API URI path, use '{ID}' in place of container name/id. |
 | --node-name                [Required] | The name of the node. |
 | --service-manifest-name    [Required] | The name of a service manifest registered as part of an application type in a Service Fabric cluster. |
 | --container-api-body | HTTP request body for container REST API. |
 | --container-api-content-type | Content type for container REST API, defaults to 'application/json'. |
 | --container-api-http-verb | HTTP verb for container REST API, defaults to GET. |
-| --timeout -t | Server timeout in seconds.  Default\: 60. |
+| --timeout -t | Default\: 60. |
 
 ### Global Arguments
 
@@ -57,7 +48,7 @@ Invoke container API on a container deployed on a Service Fabric node for the gi
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl container logs
-Gets the container logs for container deployed on a Service Fabric node for the given code package.
+Gets the container logs for container deployed on a Service Fabric node.
 
 ### Arguments
 
@@ -69,7 +60,7 @@ Gets the container logs for container deployed on a Service Fabric node for the 
 | --node-name                [Required] | The name of the node. |
 | --service-manifest-name    [Required] | The name of a service manifest registered as part of an application type in a Service Fabric cluster. |
 | --tail | Number of lines to show from the end of the logs. Default is 100. 'all' to show the complete logs. |
-| --timeout -t | Server timeout in seconds.  Default\: 60. |
+| --timeout -t | Default\: 60. |
 
 ### Global Arguments
 
@@ -84,4 +75,4 @@ Gets the container logs for container deployed on a Service Fabric node for the 
 
 ## Next steps
 - [Set up](service-fabric-cli.md) the Service Fabric CLI.
-- Learn how to use the Service Fabric CLI using the [sample scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Learn how to use the Service Fabric CLI using the [sample scripts](./scripts/sfctl-upgrade-application.md).

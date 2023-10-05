@@ -1,111 +1,178 @@
 ---
-title: 'Tutorial: Configure Slack for automatic user provisioning with Azure Active Directory | Microsoft Docs'
-description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Slack.
+title: 'Tutorial: User provisioning for Slack'
+description: Learn how to configure Microsoft Entra ID to automatically provision and de-provision user accounts to Slack.
 services: active-directory
 documentationcenter: ''
-author: ArvindHarinder1
-manager: CelesteDG
-
-ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
+author: twimmers
+writer: Thwimmer
+manager: jeedes
+ms.assetid: 7fa2a1b1-7ed3-4c51-ae17-f5d4ee88488c
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/27/2019
-ms.author: arvinh
-
-ms.collection: M365-identity-device-management
+ms.topic: tutorial
+ms.date: 11/21/2022
+ms.author: Thwimmer
 ---
 
 # Tutorial: Configure Slack for automatic user provisioning
 
-The objective of this tutorial is to show you the steps you need to perform in Slack and Azure AD to automatically provision and de-provision user accounts from Azure AD to Slack.
+The objective of this tutorial is to show you the steps you need to perform in Slack and Microsoft Entra ID to automatically provision and de-provision user accounts from Microsoft Entra ID to Slack. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Microsoft Entra ID](../app-provisioning/user-provisioning.md). 
+
+
+## Capabilities supported
+> [!div class="checklist"]
+> * Create users in Slack
+> * Remove users in Slack when they do not require access anymore
+> * Keep user attributes synchronized between Microsoft Entra ID and Slack
+> * Provision groups and group memberships in Slack
+> * [Single sign-on](./slack-tutorial.md) to Slack (recommended)
+
 
 ## Prerequisites
 
 The scenario outlined in this tutorial assumes that you already have the following items:
 
-* An Azure Active Directory tenant
-* A Slack tenant with the [Plus plan](https://aadsyncfabric.slack.com/pricing) or better enabled
-* A user account in Slack with Team Admin permissions
+* [A Microsoft Entra tenant](../develop/quickstart-create-new-tenant.md).
+* A user account in Microsoft Entra ID with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
+* A Slack tenant with the [Plus plan](https://slack.com/pricing) or better enabled.
+* A user account in Slack with Team Admin permissions.
 
-Note: The Azure AD provisioning integration relies on the [Slack SCIM API](https://api.slack.com/scim), which is available to Slack teams on the Plus plan or better.
+> [!NOTE]
+> This integration is also available to use from Microsoft Entra US Government Cloud environment. You can find this application in the Microsoft Entra US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
-## Assigning users to Slack
+## Step 1: Plan your provisioning deployment
+1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
+2. Determine who will be in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+3. Determine what data to [map between Microsoft Entra ID and Slack](../app-provisioning/customize-application-attributes.md). 
 
-Azure Active Directory uses a concept called "assignments" to determine which users should receive access to selected apps. In the context of automatic user account provisioning, only the users and groups that have been "assigned" to an application in Azure AD will be synchronized.
+<a name='step-2-add-slack-from-the-azure-ad-application-gallery'></a>
 
-Before configuring and enabling the provisioning service, you will need to decide what users and/or groups in Azure AD represent the users who need access to your Slack app. Once decided, you can assign these users to your Slack app by following the instructions here:
+## Step 2: Add Slack from the Microsoft Entra application gallery
 
-[Assign a user or group to an enterprise app](../manage-apps/assign-user-or-group-access-portal.md)
+Add Slack from the Microsoft Entra application gallery to start managing provisioning to Slack. If you have previously setup Slack for SSO, you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
 
-### Important tips for assigning users to Slack
+## Step 3: Define who will be in scope for provisioning 
 
-* It is recommended that a single Azure AD user is assigned to Slack to test the provisioning configuration. Additional users and/or groups may be assigned later.
+The Microsoft Entra provisioning service allows you to scope who will be provisioned based on assignment to the application and or based on attributes of the user / group. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. If you choose to scope who will be provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* When assigning a user to Slack, you must select the **User** or "Group" role in the assignment dialog. The "Default Access" role does not work for provisioning.
+* Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-## Configuring user provisioning to Slack 
+* If you need additional roles, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add new roles.
 
-This section guides you through connecting your Azure AD to Slack's user account provisioning API, and configuring the provisioning service to create, update, and disable assigned user accounts in Slack based on user and group assignment in Azure AD.
+## Step 4: Configure automatic user provisioning to Slack 
 
-**Tip:** You may also choose to enabled SAML-based Single Sign-On for Slack, following the instructions provided in [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features compliment each other.
+This section guides you through connecting your Microsoft Entra ID to Slack's user account provisioning API, and configuring the provisioning service to create, update, and disable assigned user accounts in Slack based on user and group assignment in Microsoft Entra ID.
 
-### To configure automatic user account provisioning to Slack in Azure AD:
+<a name='to-configure-automatic-user-account-provisioning-to-slack-in-azure-ad'></a>
 
-1. In the [Azure portal](https://portal.azure.com), browse to the **Azure Active Directory > Enterprise Apps > All applications**  section.
+### To configure automatic user account provisioning to Slack in Microsoft Entra ID:
 
-2. If you have already configured Slack for single sign-on, search for your instance of Slack using the search field. Otherwise, select **Add** and search for **Slack** in the application gallery. Select Slack from the search results, and add it to your list of applications.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
-3. Select your instance of Slack, then select the **Provisioning** tab.
+	![Enterprise applications blade](common/enterprise-applications.png)
+
+1. In the applications list, select **Slack**.
+
+	![The Slack link in the Applications list](common/all-applications.png)
+
+3. Select the **Provisioning** tab.
+
+	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-   ![Slack Provisioning](./media/slack-provisioning-tutorial/Slack1.PNG)
+	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
 5. Under the **Admin Credentials** section, click **Authorize**. This opens a Slack authorization dialog in a new browser window.
 
+	![Screenshot shows the Authorize Admin Credentials button.](media/slack-provisioning-tutorial/authorization.png)
+
+
 6. In the new window, sign into Slack using your Team Admin account. in the resulting authorization dialog, select the Slack team that you want to enable provisioning for, and then select **Authorize**. Once completed, return to the Azure portal to complete the provisioning configuration.
 
-    ![Authorization Dialog](./media/slack-provisioning-tutorial/Slack3.PNG)
+    ![Authorization Dialog](./media/slack-provisioning-tutorial/slackauthorize.png)
 
-7. In the Azure portal, click **Test Connection** to ensure Azure AD can connect to your Slack app. If the connection fails, ensure your Slack account has Team Admin permissions and try the "Authorize" step again.
+7. Select **Test Connection** to ensure Microsoft Entra ID can connect to your Slack app. If the connection fails, ensure your Slack account has Team Admin permissions and try the "Authorize" step again.
 
-8. Enter the email address of a person or group who should receive provisioning error notifications in the **Notification Email** field, and check the checkbox below.
+8. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 
-9. Click **Save**.
+	![Notification Email](common/provisioning-notification-email.png)
 
-10. Under the Mappings section, select **Synchronize Azure Active Directory Users to Slack**.
+9. Select **Save**.
 
-11. In the **Attribute Mappings** section, review the user attributes that will be synchronized from Azure AD to Slack. Note that the attributes selected as **Matching** properties will be used to match the user accounts in Slack for update operations. Select the Save button to commit any changes.
+10. Under the Mappings section, select **Synchronize Microsoft Entra users to Slack**.
 
-12. To enable the Azure AD provisioning service for Slack, change the **Provisioning Status** to **On** in the **Settings** section
+11. In the **Attribute Mappings** section, review the user attributes that will be synchronized from Microsoft Entra ID to Slack. Note that the attributes selected as **Matching** properties will be used to match the user accounts in Slack for update operations. Select the Save button to commit any changes.
 
-13. Click **Save**.
+   |Attribute|Type|
+   |---|---|
+   |active|Boolean|
+   |externalId|String|
+   |displayName|String|
+   |name.familyName|String|
+   |name.givenName|String|
+   |title|String|
+   |emails[type eq "work"].value|String|
+   |userName|String|
+   |nickName|String|
+   |addresses[type eq "untyped"].streetAddress|String|
+   |addresses[type eq "untyped"].locality|String|
+   |addresses[type eq "untyped"].region|String|
+   |addresses[type eq "untyped"].postalCode|String|
+   |addresses[type eq "untyped"].country|String|
+   |phoneNumbers[type eq "mobile"].value|String|
+   |phoneNumbers[type eq "work"].value|String|
+   |roles[primary eq "True"].value|String|
+   |locale|String|
+   |name.honorificPrefix|String|
+   |photos[type eq "photo"].value|String|
+   |profileUrl|String|
+   |timezone|String|
+   |userType|String|
+   |preferredLanguage|String|
+   |urn:scim:schemas:extension:enterprise:1.0.department|String|
+   |urn:scim:schemas:extension:enterprise:1.0.manager|Reference|
+   |urn:scim:schemas:extension:enterprise:1.0.employeeNumber|String|
+   |urn:scim:schemas:extension:enterprise:1.0.costCenter|String|
+   |urn:scim:schemas:extension:enterprise:1.0.organization|String|
+   |urn:scim:schemas:extension:enterprise:1.0.division|String|
 
-This will start the initial synchronization of any users and/or groups assigned to Slack in the Users and Groups section. Note that the initial sync will take longer to perform than subsequent syncs, which occur approximately every 10 minutes as long as the service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity reports, which describe all actions performed by the provisioning service on your Slack app.
+12. Under the **Mappings** section, select **Synchronize Microsoft Entra groups to Slack**.
 
-## [Optional] Configuring group object provisioning to Slack
+13. In the **Attribute Mappings** section, review the group attributes that will be synchronized from Microsoft Entra ID to Slack. Note that the attributes selected as **Matching** properties will be used to match the groups in Slack for update operations. Select the Save button to commit any changes.
 
-Optionally, you can enable the provisioning of group objects from Azure AD to Slack. This is different from "assigning groups of users", in that the actual group object in addition to its members will be replicated from Azure AD to Slack. For example, if you have a group named "My Group" in Azure AD, an identical group named "My Group" will be created inside Slack.
+      |Attribute|Type|
+      |---|---|
+      |displayName|String|
+      |members|Reference|
 
-### To enable provisioning of group objects:
+14. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-1. Under the Mappings section, select **Synchronize Azure Active Directory Groups to Slack**.
+15. To enable the Microsoft Entra provisioning service for Slack, change the **Provisioning Status** to **On** in the **Settings** section
 
-2. In the Attribute Mapping blade, set Enabled to Yes.
+	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
-3. In the **Attribute Mappings** section, review the group attributes that will be synchronized from Azure AD to Slack. Note that the attributes selected as **Matching** properties will be used to match the groups in Slack for update operations. 
+16. Define the users and/or groups that you would like to provision to Slack by choosing the desired values in **Scope** in the **Settings** section.
 
-4. Click **Save**.
+	![Provisioning Scope](common/provisioning-scope.png)
 
-This result in any group objects assigned to Slack in the **Users and Groups** section being fully synchronized from Azure AD to Slack. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity logs, which describe all actions performed by the provisioning service on your Slack app.
+17. When you are ready to provision, click **Save**.
 
-For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
+	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 
-## Connector limitations
+This operation starts the initial synchronization cycle of all users and groups defined in **Scope** in the **Settings** section. The initial cycle takes longer to perform than subsequent cycles, which occur approximately every 40 minutes as long as the Microsoft Entra provisioning service is running. 
+
+## Step 5: Monitor your deployment
+Once you've configured provisioning, use the following resources to monitor your deployment:
+
+1. Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
+2. Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion
+3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).
+
+## Troubleshooting Tips
 
 * When configuring Slack's **displayName** attribute, be aware of the following behaviors:
 
@@ -115,11 +182,25 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
   
   * Allowed punctuation includes periods, underscores, hyphens, apostrophes, brackets (e.g. **( [ { } ] )**), and separators (e.g. **, / ;**).
   
+  * displayName property cannot have an '@' character. If an '@' is included, you may find a skipped event in the provisioning logs with the description "AttributeValidationFailed."
+
   * Only updates if these two settings are configured in Slack's workplace/organization - **Profile syncing is enabled** and **Users cannot change their display name**.
+
+* Slack's **userName** attribute has to be under 21 characters and have a unique value.
+
+* Slack only allows matching with the attributes **userName** and **email**.  
   
-  * Slack's **userName** attribute has to be under 21 characters and have a unique value.
+* Common error codes are documented in the official Slack documentation - https://api.slack.com/scim#errors
+
+## Change log
+
+* 06/16/2020 - Modified DisplayName attribute to only be updated during new user creation.
 
 ## Additional Resources
 
-* [Managing user account provisioning for Enterprise Apps](../manage-apps/configure-automatic-user-provisioning-portal.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [What is application access and single sign-on with Microsoft Entra ID?](../manage-apps/what-is-single-sign-on.md)
+
+## Next steps
+
+* [Learn how to review logs and get reports on provisioning activity](../app-provisioning/check-status-user-account-provisioning.md)

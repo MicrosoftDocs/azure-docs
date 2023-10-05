@@ -1,0 +1,114 @@
+### YamlMime:Landing
+
+title: Defender for Cloud for your multicloud environment # < 60 chars
+summary: Microsoft Defender for Cloud connects to your multicloud environments with agentless, API-based methods for CSPM insight. You can leverage Azure Arc to use Defender plans for CWP. # < 160 chars
+
+metadata:
+  title: The Defender for Cloud multicloud solution
+  description: See all of the docs that relate to multicloud scenarios in Microsoft Defender for Cloud on one page.
+  services: defender-for-cloud
+  author: dcurwin
+  ms.author: dacurwin
+  manager: raynew
+  ms.topic: landing-page
+  ms.collection: collection
+  ms.date: 06/29/2022
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About multicloud deployments
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Overview of hybrid and multicloud
+            url: /azure/cloud-adoption-framework/scenarios/hybrid/
+          - text: Why protect multicloud resources with Microsoft Defender for Cloud
+            url: https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/protect-your-google-cloud-workloads-with-microsoft-defender-for/ba-p/3073360
+          - text: Get started planning multicloud security
+            url: plan-multicloud-security-get-started.md
+      - linkListType: how-to-guide
+        links:
+          - text: Connect your non-Azure machines to Defender for Cloud
+            url: quickstart-onboard-machines.md?pivots=azure-arc
+          - text: Enable enhanced security for your multicloud resources
+            url: enable-enhanced-security.md
+      - linkListType: reference
+        links:
+          - text: Troubleshooting multicloud connectors
+            url: troubleshooting-guide.md#troubleshooting-the-native-multicloud-connector
+            
+  # Card
+  - title: Defend Amazon AWS resources
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Protect your AWS virtual machines with Defender for Servers
+            url: defender-for-servers-introduction.md
+          - text: Supported features for AWS virtual machines
+            url: supported-machines-endpoint-solutions-clouds-servers.md?tabs=features-multicloud#supported-features-for-virtual-machines-and-servers
+          - text: Protect your AWS EKS containers with Defender for Containers
+            url: defender-for-containers-introduction.md
+          - text: Supported features for AWS EKS containers
+            url: supported-machines-endpoint-solutions-clouds-containers.md?tabs=aws-eks
+      - linkListType: get-started
+        links:
+          - text: Connect your AWS accounts to Microsoft Defender for Cloud
+            url: quickstart-onboard-aws.md?pivots=env-settings
+          - text: Enable Defender for Containers for your AWS EKS containers
+            url: defender-for-containers-enable.md?tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-eks
+          - text: Enable Defender for SQL servers for your AWS SQL databases
+            url: defender-for-sql-usage.md
+      - linkListType: how-to-guide
+        links:
+          - text: Secure your AWS management ports with just-in-time access
+            url: just-in-time-access-usage.md?tabs=jit-config-asc%2Cjit-request-asc
+          - text: Protect your AWS virtual machines with Microsoft Defender for Endpoint
+            url: integration-defender-for-endpoint.md?tabs=windows
+          - text: Harden your AWS Docker hosts
+            url: harden-docker-hosts.md
+          - text: Monitor file changes that might indicate an attack
+            url: file-integrity-monitoring-overview.md
+          - text: Scan your AWS virtual machines for vulnerabilities
+            url: deploy-vulnerability-assessment-vm.md
+      - linkListType: video
+        links:
+          - text: How to connect AWS to Microsoft Defender for Cloud
+            url: https://youtu.be/LHwgEFXT3kQ
+      - linkListType: reference
+        links:
+          - text: Security recommendations for AWS resources
+            url: recommendations-reference-aws.md
+
+  # Card
+  - title: Defend Google GCP resources
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Protect your GCP virtual machines with Defender for Servers
+            url: defender-for-servers-introduction.md
+          - text: Supported features for GCP virtual machines
+            url: supported-machines-endpoint-solutions-clouds-servers.md?tabs=features-multi-cloud#supported-features-for-virtual-machines-and-servers
+          - text: Protect your GCP GKE containers with Defender for Containers
+            url: defender-for-containers-introduction.md
+          - text: Supported features for GCP GKE containers
+            url: supported-machines-endpoint-solutions-clouds-containers.md?tabs=gcp-gke
+      - linkListType: get-started
+        links:
+          - text: Connect your GCP accounts to Microsoft Defender for Cloud
+            url: quickstart-onboard-gcp.md?pivots=env-settings
+          - text: Enable Defender for Containers for your GCP GKE containers
+            url: defender-for-containers-enable.md?tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-gke
+          - text: Enable Defender for SQL servers for your GCP SQL databases
+            url: defender-for-sql-usage.md
+      - linkListType: video
+        links:
+          - text: How to connect GCP to Microsoft Defender for Cloud
+            url: https://youtu.be/6BpXG3EHoMo
+      # - linkListType: reference
+      #   links:
+      #     - text: Security recommendations for GCP resources
+      #       url: recommendations-reference-gcp.md

@@ -1,0 +1,89 @@
+- name: Azure Arc Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: About Azure Arc
+    href: overview.md
+- name: Concepts
+  items:
+  - name: Custom locations
+    href: ./platform/conceptual-custom-locations.md
+- name: Samples
+  items:
+  - name: Azure Resource Graph queries
+    displayName: arg, query
+    href: ./resource-graph-samples.md
+- name: Azure Arc resource bridge
+  items:
+  - name: About Azure Arc resource bridge
+    displayName: appliance
+    href: ./resource-bridge/overview.md
+  - name: System requirements
+    displayName: resource bridge
+    href: ./resource-bridge/system-requirements.md
+  - name: Network requirements
+    displayName: resource bridge
+    href: ./resource-bridge/network-requirements.md
+  - name: Security overview
+    displayName: resource bridge
+    href: ./resource-bridge/security-overview.md
+  - name: Deployment overview
+    displayName: resource bridge, arcappliance
+    href: ./resource-bridge/deploy-cli.md
+  - name: Upgrade
+    displayName: update, resource bridge
+    href: ./resource-bridge/upgrade.md
+  - name: Maintenance
+    displayName: resource bridge, appliance
+    href: ./resource-bridge/maintenance.md
+  - name: Troubleshoot
+    displayName: resource bridge
+    href: ./resource-bridge/troubleshoot-resource-bridge.md
+- name: Azure Arc-enabled servers >
+  href: ./servers/overview.md
+- name: Azure Arc-enabled Kubernetes >
+  href: ./kubernetes/overview.md
+- name: Azure Arc-enabled data services >
+  href: ./data/overview.md
+- name: Azure Arc-enabled VMware vSphere >
+  href: ./vmware-vsphere/overview.md
+- name: Azure Arc-enabled System Center Virtual Machine Manager (preview)  >
+  href: ./system-center-virtual-machine-manager/overview.md
+- name: Azure Arc-enabled VMs on Azure Stack HCI >
+  href: /azure-stack/hci/manage/azure-arc-enabled-virtual-machines
+- name: Azure Arc-enabled SQL Server >
+  href: /sql/sql-server/azure-arc/overview
+- name: Arc validation program
+  items:
+   - name: Program overview
+     displayName: validation
+     href: validation-program/overview.md
+   - name: Validated Kubernetes partners
+     displayName: validation
+     href: kubernetes/validation-program.md?toc=/azure/azure-arc/toc.json&bc=/azure/azure-arc/breadcrumb/toc.json
+   - name: Validated data services partners
+     displayName: validation
+     href: data/validation-program.md?toc=/azure/azure-arc/toc.json&bc=/azure/azure-arc/breadcrumb/toc.json
+- name: Reference
+  items:
+   - name: Network requirements
+     href: network-requirements-consolidated.md
+   - name: Azure CLI
+     items:
+      - name: Azure Arc resource bridge
+        href: /cli/azure/arcappliance
+- name: Resources
+  items:
+  - name: Azure Arc Jumpstart
+    href: https://azurearcjumpstart.io
+  - name: Microsoft Q&A for Azure Arc
+    href: /answers/tags/146/azure-arc
+  - name: Azure updates
+    href: https://azure.microsoft.com/updates/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Regional availability
+    href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-arc&regions=all
+  - name: Product feedback
+    href: https://feedback.azure.com/d365community/forum/5c778dec-0625-ec11-b6e6-000d3a4f0858
+

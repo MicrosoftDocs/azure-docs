@@ -1,147 +1,219 @@
 ---
-title: What is the location condition in Azure Active Directory conditional access? | Microsoft Docs
-description: Learn how to use the location condition to control access to your cloud apps based on a user's network location.
+title: Using networks and countries/regions in Microsoft Entra ID
+description: Use GPS locations and public IPv4 and IPv6 networks in Conditional Access policy to make access decisions.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
-ms.workload: identity
-ms.date: 04/12/2019
+ms.topic: conceptual
+ms.date: 07/26/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
-ms.reviewer: calebb
+manager: amycolannino
+ms.reviewer: lhuangnorth
 
-#Customer intent: As an IT admin, I need to understand what the location condition is so that I can configure location- based conditional access policies
 ms.collection: M365-identity-device-management
 ---
-# What is the location condition in Azure Active Directory conditional access? 
+# Using the location condition in a Conditional Access policy 
 
-With [Azure Active Directory (Azure AD) conditional access](../active-directory-conditional-access-azure-portal.md), you can control how authorized users can access your cloud apps. The location condition of a conditional access policy enables you to tie access controls settings to the network locations of your users.
+Conditional Access policies are at their most basic an if-then statement combining signals, to make decisions, and enforce organization policies. One of those signals is location.
 
-This article provides you with the information you need to configure the location condition.
+![Conceptual Conditional signal plus decision to get enforcement](./media/location-condition/conditional-access-signal-decision-enforcement.png)
 
-## Locations
+As mentione in the blog post [IPv6 is coming to Microsoft Entra ID](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/ipv6-coming-to-azure-ad/ba-p/2967451) we now support IPv6 in Microsoft Entra services.
 
-Azure AD enables single sign-on to devices, apps, and services from anywhere on the public internet. With the location condition, you can control access to your cloud apps based on the network location of a user. Common use cases for the location condition are:
+Organizations can use these locations for common tasks like: 
 
-- Requiring multi-factor authentication for users accessing a service when they are off the corporate network.
-- Blocking access for users accessing a service from specific countries or regions.
+- Requiring multifactor authentication for users accessing a service when they're off the corporate network.
+- Blocking access for users accessing a service from specific countries or regions your organization never operates from.
 
-A location is a label for a network location that either represents a named location or multi-factor authentication Trusted IPs.
+The location found using the public IP address a client provides to Microsoft Entra ID or GPS coordinates provided by the Microsoft Authenticator app. Conditional Access policies by default apply to all IPv4 and IPv6 addresses. For more information about IPv6 support, see the article [IPv6 support in Microsoft Entra ID](/troubleshoot/azure/active-directory/azure-ad-ipv6-support).
+
+> [!TIP]
+> Conditional Access policies are enforced after first-factor authentication is completed. Conditional Access isn't intended to be an organization's first line of defense for scenarios like denial-of-service (DoS) attacks, but it can use signals from these events to determine access.
 
 ## Named locations
 
-With named locations, you can create logical groupings of IP address ranges or countries and regions.
+Locations exist under **Protection** > **Conditional Access** > **Named locations**. These named network locations may include locations like an organization's headquarters network ranges, VPN network ranges, or ranges that you wish to block. Named locations are defined by IPv4 and IPv6 address ranges or by countries/regions. 
 
-You can access your named locations in the **Manage** section of the conditional access page.
+> [!VIDEO https://www.youtube.com/embed/P80SffTIThY]
 
-![Named locations in conditional access](./media/location-condition/02.png)
+### IPv4 and IPv6 address ranges
 
-A named location has the following components:
+To define a named location by IPv4/IPv6 address ranges, you need to provide: 
 
-![Create a new named location](./media/location-condition/42.png)
+- A **Name** for the location.
+- One or more IP ranges.
+- Optionally **Mark as trusted location**.
 
-- **Name** - The display name of a named location.
-- **IP ranges** - One or more IPv4 address ranges in CIDR format. Specifying an IPv6 address range is not supported.
+![New IP locations](./media/location-condition/new-trusted-location.png)
 
-   > [!NOTE]
-   > IPv6 address rangess cannot currently be included in a named location. This measn IPv6 ranges cannot be excluded from a conditional access policy.
+Named locations defined by IPv4/IPv6 address ranges are subject to the following limitations: 
 
-- **Mark as trusted location** - A flag you can set for a named location to indicate a trusted location. Typically, trusted locations are network areas that are controlled by your IT department. In addition to conditional access, trusted named locations are also used by Azure Identity Protection and Azure AD security reports to reduce [false positives](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1).
-- **Countries/Regions** - This option enables you to select one or more country or region to define a named location.
-- **Include unknown areas** - Some IP addresses are not mapped to a specific country or region. This option allows you to choose if these IP addresses should be included in the named location. Use this setting when the policy using the named location should apply to unknown locations.
+- Configure up to 195 named locations.
+- Configure up to 2000 IP ranges per named location.
+- Both IPv4 and IPv6 ranges are supported.
+- The number of IP addresses contained in a range is limited. Only CIDR masks greater than /8 are allowed when defining an IP range. 
 
-The number of named locations you can configure is constrained by the size of the related object in Azure AD. Organizations can configure up to 90 named locations, each configured with up to 1200 IP ranges.
+#### Trusted locations
 
-Conditional access policy applies to IPv4 and IPv6 traffic. Currently named locations do not allow IPv6 ranges to be configured. This limitation causes the following situations:
+Locations such as your organization's public network ranges can be marked as trusted. This marking is used by features in several ways.
 
-- Conditional access policy cannot be targeted to specific IPv6 ranges
-- Conditional access policy cannot exclude specific IPV6 ranges
+- Conditional Access policies can include or exclude these locations.
+- Sign-ins from trusted named locations improve the accuracy of Microsoft Entra ID Protection's risk calculation, lowering a user's sign-in risk when they authenticate from a location marked as trusted.
+- Locations marked as trusted can't be deleted. Remove the trusted designation before attempting to delete.
 
-If a policy is configured to apply to “Any location”, it will apply to IPv4 and IPv6 traffic. Named locations configured for specified countries and regions only support IPv4 addresses. IPv6 traffic is only included if the option to “include unknown areas” selected.
+> [!WARNING]
+> Even if you know the network and mark it as trusted does not mean you should exclude it from policies being applied. Verify explicitly is a core principle of a Zero Trust architecture. To find out more about Zero Trust and other ways to align your organization to the guiding principles, see the [Zero Trust Guidance Center](/security/zero-trust/).
 
-## Trusted IPs
+### Countries/regions
 
-You can also configure IP address ranges representing your organization's local intranet in the [multi-factor authentication service settings](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx). This feature enables you to configure up to 50 IP address ranges. The IP address ranges are in CIDR format. For more information, see [Trusted IPs](../authentication/howto-mfa-mfasettings.md#trusted-ips).  
+Organizations can determine country/region location by IP address or GPS coordinates. 
 
-If you have Trusted IPs configured, they show up as **MFA Trusted IPS** in the list of locations for the location condition.
+To define a named location by country/region, you need to provide: 
 
-### Skipping multi-factor authentication
+- A **Name** for the location.
+- Choose to determine location by IP address or GPS coordinates.
+- Add one or more countries/regions.
+- Optionally choose to **Include unknown countries/regions**.
 
-On the multi-factor authentication service settings page, you can identify corporate intranet users by selecting  **Skip multi-factor authentication for requests from federated users on my intranet**. This setting indicates that the inside corporate network claim, which is issued by AD FS, should be trusted and used to identify the user as being on the corporate network. For more information, see [Enable the Trusted IPs feature by using conditional access](../authentication/howto-mfa-mfasettings.md#enable-the-trusted-ips-feature-by-using-conditional-access).
+![Country as a location](./media/location-condition/new-named-location-country-region.png)
 
-After checking this option, including the named location **MFA Trusted IPS** will apply to any policies with this option selected.
+If you select **Determine location by IP address**, the system collects the IP address of the device the user is signing into. When a user signs in, Microsoft Entra ID resolves the user's IPv4 or [IPv6](/troubleshoot/azure/active-directory/azure-ad-ipv6-support) address (starting April 3, 2023) to a country or region, and the mapping updates periodically. Organizations can use named locations defined by countries/regions to block traffic from countries/regions where they don't do business. 
 
-For mobile and desktop applications, which have long lived session lifetimes, conditional access is periodically reevaluated. The default is once an hour. When the inside corporate network claim is only issued at the time of the initial authentication, Azure AD may not have a list of trusted IP ranges. In this case, it is more difficult to determine if the user is still on the corporate network:
+If you select **Determine location by GPS coordinates**, the user needs to have the Microsoft Authenticator app installed on their mobile device. Every hour, the system contacts the user’s Microsoft Authenticator app to collect the GPS location of the user’s mobile device.
 
-1. Check if the user’s IP address is in one of the trusted IP ranges.
-2. Check whether the first three octets of the user’s IP address match the first three octets of the IP address of the initial authentication. The IP address is compared with the initial authentication when the inside corporate network claim was originally issued and the user location was validated.
+The first time the user must share their location from the Microsoft Authenticator app, the user receives a notification in the app. The user needs to open the app and grant location permissions. For the next 24 hours, if the user is still accessing the resource and granted the app permission to run in the background, the device's location is shared silently once per hour.
 
-If both steps fail, a user is considered to be no longer on a trusted IP.
+- After 24 hours, the user must open the app and approve the notification.
+- Users who have number matching or additional context enabled in the Microsoft Authenticator app won't receive notifications silently and must open the app to approve notifications.
+ 
+Every time the user shares their GPS location, the app does jailbreak detection (Using the same logic as the Intune MAM SDK). If the device is jailbroken, the location isn't considered valid, and the user isn't granted access. The Microsoft Authenticator app on Android uses the Google Play Integrity API to facilitate jailbreak detection. If the Google Play Integrity API is unavailable, the request is denied and the user isn't be able to access the requested resource unless the Conditional Access policy is disabled.
 
-## Location condition configuration
+> [!NOTE]
+> A Conditional Access policy with GPS-based named locations in report-only mode prompts users to share their GPS location, even though they aren't blocked from signing in.
 
-When you configure the location condition, you have the option to distinguish between:
+GPS location doesn't work with [passwordless authentication methods](../authentication/concept-authentication-passwordless.md). 
+
+Multiple Conditional Access policies may prompt users for their GPS location before all are applied. Because of the way Conditional Access policies are applied, a user may be denied access if they pass the location check but fail another policy. For more information about policy enforcement, see the article [Building a Conditional Access policy](concept-conditional-access-policies.md).
+
+> [!IMPORTANT]
+> Users may receive prompts every hour letting them know that Microsoft Entra ID is checking their location in the Authenticator app. The preview should only be used to protect very sensitive apps where this behavior is acceptable or where access needs to be restricted to a specific country/region.
+
+#### Include unknown countries/regions
+
+Some IP addresses don't map to a specific country or region. To capture these IP locations, check the box **Include unknown countries/regions** when defining a geographic location. This option allows you to choose if these IP addresses should be included in the named location. Use this setting when the policy using the named location should apply to unknown locations.
+
+## Define locations
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Protection** > **Conditional Access** > **Named locations**.
+1. Choose **New location**.
+1. Give your location a name.
+1. Choose **IP ranges** if you know the specific externally accessible IPv4 address ranges that make up that location or **Countries/Regions**.
+   1. Provide the **IP ranges** or select the **Countries/Regions** for the location you're specifying.
+      * If you choose Countries/Regions, you can optionally choose to include unknown areas.
+1. Choose **Save**
+
+## Location condition in policy
+
+When you configure the location condition, you can distinguish between:
 
 - Any location
 - All trusted locations
+- All Network Access locations
 - Selected locations
-
-![Location condition configuration](./media/location-condition/01.png)
 
 ### Any location
 
-By default, selecting **Any location** causes a policy to be applied to all IP addresses, which means any address on the Internet. This setting is not limited to IP addresses you have configured as named location. When you select **Any location**, you can still exclude specific locations from a policy. For example, you can apply a policy to all locations except trusted locations to set the scope to all locations, except the corporate network.
+By default, selecting **Any location** causes a policy to apply to all IP addresses, which means any address on the Internet. This setting isn't limited to IP addresses you've configured as named location. When you select **Any location**, you can still exclude specific locations from a policy. For example, you can apply a policy to all locations except trusted locations to set the scope to all locations, except the corporate network.
 
 ### All trusted locations
 
 This option applies to:
 
-- All locations that have been marked as trusted location
-- **MFA Trusted IPS** (if configured)
+- All locations marked as trusted locations.
+- **MFA Trusted IPs**, if configured.
+
+#### Multifactor authentication trusted IPs
+
+Using the trusted IPs section of multifactor authentication's service settings is no longer recommended. This control only accepts IPv4 addresses and should only be used for specific scenarios covered in the article [Configure Microsoft Entra multifactor authentication settings](../authentication/howto-mfa-mfasettings.md#trusted-ips)
+
+If you have these trusted IPs configured, they show up as **MFA Trusted IPs** in the list of locations for the location condition.
+
+### All Network Access locations of my tenant
+
+Organizations with access to Global Secure Access preview features have an another location listed that is made up of users and devices that comply with your organization's security policies. For more information, see the section [Enable Global Secure Access signaling for Conditional Access](../../global-secure-access/how-to-compliant-network.md#enable-global-secure-access-signaling-for-conditional-access). It can be used with Conditional Access policies to perform a compliant network check for access to resources.
 
 ### Selected locations
 
-With this option, you can select one or more named locations. For a policy with this setting to apply, a user needs to connect from any of the selected locations. When you click **Select** the named network selection control that shows the list of named networks opens. The list also shows if the network location has been marked as trusted. The named location called **MFA Trusted IPs** is used to include the IP settings that can be configured in the multi-factor authentication service setting page.
+With this option, you can select one or more named locations. For a policy with this setting to apply, a user needs to connect from any of the selected locations. When you **Select** the named network selection control that shows the list of named networks opens. The list also shows if the network location is marked as trusted.
+
+## IPv6 traffic
+
+Conditional Access policies apply to all IPv4 **and** [IPv6](/troubleshoot/azure/active-directory/azure-ad-ipv6-support) traffic (starting April 3, 2023).
+
+<a name='identifying-ipv6-traffic-with-azure-ad-sign-in-activity-reports'></a>
+
+### Identifying IPv6 traffic with Microsoft Entra Sign-in activity reports
+
+You can discover IPv6 traffic in your tenant by going the [Microsoft Entra sign-in activity reports](../reports-monitoring/concept-sign-ins.md). After you have the activity report open, add the “IP address” column and add a colon (**:**) to the field. This filter helps distinguish IPv6 traffic from IPv4 traffic.
+
+You can also find the client IP by clicking a row in the report, and then going to the “Location” tab in the sign-in activity details. 
+
+:::image type="content" source="media/location-condition/sign-in-logs-showing-ip-address-filter-for-ipv6.png" alt-text="A screenshot showing Microsoft Entra sign-in logs and an IP address filter for IPv6 addresses." lightbox="media/location-condition/sign-in-logs-showing-ip-address-filter-for-ipv6.png":::
+
+> [!NOTE]
+> IPv6 addresses from service endpoints may appear in the sign-in logs with failures due to the way they handle traffic. It's important to note that [service endpoints are not supported](/azure/virtual-network/virtual-network-service-endpoints-overview#limitations). If users are seeing these IPv6 addresses, remove the service endpoint from their virtual network subnet configuration.
 
 ## What you should know
 
+### Cloud proxies and VPNs
+
+When you use a cloud hosted proxy or VPN solution, the IP address Microsoft Entra ID uses while evaluating a policy is the IP address of the proxy. The X-Forwarded-For (XFF) header that contains the user’s public IP address isn't used because there's no validation that it comes from a trusted source, so would present a method for faking an IP address.
+
+When a cloud proxy is in place, a policy that requires a [Microsoft Entra hybrid joined or compliant device](howto-conditional-access-policy-compliant-device.md#create-a-conditional-access-policy) can be easier to manage. Keeping a list of IP addresses used by your cloud hosted proxy or VPN solution up to date can be nearly impossible.
+
+We recommend organizations utilize Global Secure Access to enable [source IP restoration](../../global-secure-access/how-to-source-ip-restoration.md) to avoid this change in address and simplify management.
+
 ### When is a location evaluated?
 
-Conditional access policies are evaluated when:
+Conditional Access policies are evaluated when:
 
 - A user initially signs in to a web app, mobile or desktop application.
 - A mobile or desktop application that uses modern authentication, uses a refresh token to acquire a new access token. By default this check is once an hour.
 
-This check means for mobile and desktop applications using modern authentication, a change in location would be detected within an hour of changing the network location. For mobile and desktop applications that don’t use modern authentication, the policy is applied on each token request. The frequency of the request can vary based on the application. Similarly, for web applications, the policy is applied at initial sign-in and is good for the lifetime of the session at the web application. Due to differences in session lifetimes across applications, the time between policy evaluation will also vary. Each time the application requests a new sign-in token, the  policy is applied.
+This check means for mobile and desktop applications using modern authentication, a change in location is detected within an hour of changing the network location. For mobile and desktop applications that don’t use modern authentication, the policy applies on each token request. The frequency of the request can vary based on the application. Similarly, for web applications, policies apply at initial sign-in and are good for the lifetime of the session at the web application. Because of differences in session lifetimes across applications, the time between policy evaluation varies. Each time the application requests a new sign-in token, the policy is applied.
 
-By default, Azure AD issues a token on an hourly basis. After moving off the corporate network, within an hour the policy is enforced for applications using modern authentication.
+By default, Microsoft Entra ID issues a token on an hourly basis. After users move off the corporate network, within an hour the policy is enforced for applications using modern authentication.
 
 ### User IP address
 
-The IP address that is used in policy evaluation is the public IP address of the user. For devices on a private network, this IP address is not the client IP of the user’s device on the intranet, it is the address used by the network to connect to the public internet.
+The IP address used in policy evaluation is the public IPv4 or IPv6 address of the user. For devices on a private network, this IP address isn't the client IP of the user’s device on the intranet, it's the address used by the network to connect to the public internet.
 
-> [!WARNING]
-> If your device has only an IPv6 address, configuring the location condition is not supported.
+### When you might block locations?
+
+A policy that uses the location condition to block access is considered restrictive, and should be done with care after thorough testing. Some instances of using the location condition to block authentication may include:
+
+- Blocking countries/regions where your organization never does business.
+- Blocking specific IP ranges like:
+   - Known malicious IPs before a firewall policy can be changed.
+   - For highly sensitive or privileged actions and cloud applications.
+   - Based on user specific IP range like access to accounting or payroll applications.
+
+### User exclusions
+
+[!INCLUDE [active-directory-policy-exclusions](../../../includes/active-directory-policy-exclude-user.md)]
 
 ### Bulk uploading and downloading of named locations
 
-When you create or update named locations, for bulk updates, you can upload or download a CSV file with the IP ranges. An upload replaces the IP ranges in the list with those from the file. Each row of the file contains one IP Address range in CIDR format.
-
-### Cloud proxies and VPNs
-
-When you use a cloud hosted proxy or VPN solution, the IP address Azure AD uses while evaluating a policy is the IP address of the proxy. The X-Forwarded-For (XFF) header that contains the user’s public IP address is not used because there is no validation that it comes from a trusted source, so would present a method for faking an IP address.
-
-When a cloud proxy is in place, a policy that is used to require a domain joined device can be used, or the inside corpnet claim from AD FS.
+When you create or update named locations, for bulk updates, you can upload or download a CSV file with the IP ranges. An upload replaces the IP ranges in the list with those ranges from the file. Each row of the file contains one IP Address range in CIDR format.
 
 ### API support and PowerShell
 
-API and PowerShell is not yet supported for named locations, or for conditional access policies.
+A preview version of the Graph API for named locations is available, for more information, see the [namedLocation API](/graph/api/resources/namedlocation).
 
 ## Next steps
 
-- If you want to know how to configure a conditional access policy, see [Require MFA for specific apps with Azure Active Directory conditional access](app-based-mfa.md).
-- If you are ready to configure conditional access policies for your environment, see the [best practices for conditional access in Azure Active Directory](best-practices.md).
+- Configure an example Conditional Access policy using location, see the article [Conditional Access: Block access by location](howto-conditional-access-policy-location.md).

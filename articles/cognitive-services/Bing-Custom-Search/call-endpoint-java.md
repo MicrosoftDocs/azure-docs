@@ -1,35 +1,38 @@
 ---
 title: "Quickstart: Call your Bing Custom Search endpoint using Java | Microsoft Docs"
-titlesuffix: Azure Cognitive Services
-description: Use this quickstart to begin requesting search results from your Bing Custom Search instance in Java. 
+titleSuffix: Azure AI services
+description: Use this quickstart to begin requesting search results from your Bing Custom Search instance in Java.
 services: cognitive-services
 author: aahill
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 03/04/2019
+ms.date: 05/08/2020
+ms.devlang: java
+ms.custom: devx-track-java, mode-api, devx-track-extended-java
 ms.author: aahi
 ---
 
 # Quickstart: Call your Bing Custom Search endpoint using Java
 
-Use this quickstart to begin requesting search results from your Bing Custom Search instance. While this application is written in Java, the Bing Custom Search API is a RESTful web service compatible with most programming languages. The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingCustomSearchv7.java).
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
+
+Use this quickstart to learn how to request search results from your Bing Custom Search instance. Although this application is written in Java, the Bing Custom Search API is a RESTful web service compatible with most programming languages. The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingCustomSearchv7.java).
 
 ## Prerequisites
 
-- A Bing Custom Search instance. See [Quickstart: Create your first Bing Custom Search instance](quick-start.md) for more information.
+- A Bing Custom Search instance. For more information, see [Quickstart: Create your first Bing Custom Search instance](quick-start.md).
 
-- The latest [Java Development Kit](https://www.oracle.com/technetwork/java/javase/downloads/index.html)  
+- The latest [Java Development Kit](https://www.oracle.com/technetwork/java/javase/downloads/index.html).
 
-- The [Gson library](https://github.com/google/gson)
+- The [Gson library](https://github.com/google/gson).
 
 [!INCLUDE [cognitive-services-bing-custom-search-prerequisites](../../../includes/cognitive-services-bing-custom-search-signup-requirements.md)]
 
 ## Create and initialize the application
 
-1. Create a new Java project in your favorite IDE or editor, and import the following libraries.
+1. Create a new Java project in your favorite IDE or editor, and import the following libraries:
 
     ```java
     import java.io.InputStream;
@@ -46,7 +49,7 @@ Use this quickstart to begin requesting search results from your Bing Custom Sea
     import com.google.gson.JsonParser;
     ```
 
-2. create a class named `CustomSrchJava`, and create variables for your subscription key, custom search endpoint, and your search instance's Custom Configuration ID. 
+2. Create a class named `CustomSrchJava`, and then create variables for your subscription key, custom search endpoint, and search instance's custom configuration ID. You can use the global endpoint in the following code, or use the [custom subdomain](../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
     ```java
     public class CustomSrchJava {
         static String host = "https://api.cognitive.microsoft.com";
@@ -59,8 +62,8 @@ Use this quickstart to begin requesting search results from your Bing Custom Sea
 
 3. Create another class named `SearchResults` to contain the response from your Bing Custom Search instance.
 
-    ```csharp
-    class SearchResults{
+    ```java
+    class SearchResults {
         HashMap<String, String> relevantHeaders;
         String jsonResponse;
         SearchResults(HashMap<String, String> headers, String json) {
@@ -84,7 +87,7 @@ Use this quickstart to begin requesting search results from your Bing Custom Sea
 
 ## Send and receive a search request 
 
-1. Create a function named `SearchWeb()` that sends a request and returns a `SearchResults` object. Create the request url by combining your Custom Configuration ID, query, and  endpoint information. Add your Subscription key to the `Ocp-Apim-Subscription-Key` header.
+1. Create a function named `SearchWeb()` that sends a request and returns a `SearchResults` object. Create the request url by combining your custom configuration ID, query, and  endpoint information. Add your subscription key to the `Ocp-Apim-Subscription-Key` header.
 
     ```java
     public class CustomSrchJava {
@@ -116,7 +119,7 @@ Use this quickstart to begin requesting search results from your Bing Custom Sea
         }
     ```
 
-3. In the main method of your application, call `SearchWeb()` with your search term, 
+3. Print the JSON response.
 
     ```java
     System.out.println("\nJSON Response:\n");

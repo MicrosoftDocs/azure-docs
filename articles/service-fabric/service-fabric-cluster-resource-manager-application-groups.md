@@ -1,22 +1,14 @@
 ---
-title: Service Fabric Cluster Resource Manager - Application Groups | Microsoft Docs
+title: Service Fabric Cluster Resource Manager - Application Groups 
 description: Overview of the Application Group functionality in the Service Fabric Cluster Resource Manager
-services: service-fabric
-documentationcenter: .net
-author: masnider
-manager: chackdan
-editor: ''
-
-ms.assetid: 4cae2370-77b3-49ce-bf40-030400c4260d
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 08/18/2017
-ms.author: masnider
-
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Introduction to Application Groups
 Service Fabric's Cluster Resource Manager typically manages cluster resources by spreading the load (represented via [Metrics](service-fabric-cluster-resource-manager-metrics.md)) evenly throughout the cluster. Service Fabric manages the capacity of the nodes in the cluster and the cluster as a whole via [capacity](service-fabric-cluster-resource-manager-cluster-description.md). Metrics and capacity work great for many workloads, but patterns that make heavy use of different Service Fabric Application Instances sometimes bring in additional requirements. For example you may want to:
 
@@ -40,7 +32,7 @@ In the left example, the application doesn’t have a maximum number of nodes de
 
 The parameter that controls this behavior is called MaximumNodes. This parameter can be set during application creation, or updated for an application instance that was already running.
 
-Powershell
+PowerShell
 
 ``` posh
 New-ServiceFabricApplication -ApplicationName fabric:/AppName -ApplicationTypeName AppType1 -ApplicationTypeVersion 1.0.0.0 -MaximumNodes 3
@@ -74,7 +66,7 @@ For each application metric, there are two values that can be set:
 - **Maximum Node Capacity** – This setting specifies the maximum total load for the application on a single node. If load goes over this capacity, the Cluster Resource Manager moves replicas to other nodes so that the load decreases.
 
 
-Powershell:
+PowerShell:
 
 ``` posh
 New-ServiceFabricApplication -ApplicationName fabric:/AppName -ApplicationTypeName AppType1 -ApplicationTypeVersion 1.0.0.0 -Metrics @("MetricName:Metric1,MaximumNodeCapacity:100,MaximumApplicationCapacity:1000")
@@ -126,7 +118,7 @@ In the example on the right, let's say that Application1 was created with the fo
 - An application Metric defined with
   - NodeReservationCapacity of 20
 
-Powershell
+PowerShell
 
  ``` posh
  New-ServiceFabricApplication -ApplicationName fabric:/AppName -ApplicationTypeName AppType1 -ApplicationTypeVersion 1.0.0.0 -MinimumNodes 2 -Metrics @("MetricName:Metric1,NodeReservationCapacity:20")
@@ -155,7 +147,7 @@ Service Fabric reserves capacity on two nodes for Application1, and doesn't allo
 ## Obtaining the application load information
 For each application that has an Application Capacity defined for one or more metrics you can obtain the information about the aggregate load reported by replicas of its services.
 
-Powershell:
+PowerShell:
 
 ``` posh
 Get-ServiceFabricApplicationLoadInformation –ApplicationName fabric:/MyApplication1

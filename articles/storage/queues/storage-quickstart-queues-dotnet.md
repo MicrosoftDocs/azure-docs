@@ -1,273 +1,404 @@
 ---
-title: "Quickstart: Use .NET to create a queue in Azure Storage"
-description: In this quickstart, you learn how to use the Azure Storage client library for .NET to create a queue and add messages to it. Next, you learn how to read and process messages from the queue.
-services: storage
-author: mhopkins-msft
-
-ms.custom: mvc
-ms.service: storage
+title: "Quickstart: Azure Queue Storage client library - .NET"
+description: Learn how to use the Azure Queue Storage client library for .NET to create a queue and add messages to the queue. Next, you learn how to read and delete messages from the queue. You also learn how to delete a queue.
+author: pauljewellmsft
+ms.author: pauljewell
+ms.date: 06/29/2023
 ms.topic: quickstart
-ms.date: 02/06/2018
-ms.author: mhopkins
-ms.reviewer: cbrooks
+ms.service: azure-queue-storage
+ms.devlang: csharp
+ms.custom: devx-track-csharp, mode-api, passwordless-dotnet, devx-track-dotnet
 ---
 
-# Quickstart: Use .NET to create a queue in Azure Storage
+# Quickstart: Azure Queue Storage client library for .NET
 
-In this quickstart, you learn how to use the Azure Storage client library for .NET to create a queue and add messages to it. Next, you learn how to read and process messages from the queue. 
+Get started with the Azure Queue Storage client library for .NET. Azure Queue Storage is a service for storing large numbers of messages for later retrieval and processing. Follow these steps to install the package and try out example code for basic tasks.
+
+[API reference documentation](/dotnet/api/azure.storage.queues) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/12.0.0) | [Samples](../common/storage-samples-dotnet.md?toc=/azure/storage/queues/toc.json#queue-samples)
+
+Use the Azure Queue Storage client library for .NET to:
+
+- Create a queue
+- Add messages to a queue
+- Peek at messages in a queue
+- Update a message in a queue
+- Get the queue length
+- Receive messages from a queue
+- Delete messages from a queue
+- Delete a queue
 
 ## Prerequisites
 
-[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
+- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure Storage account - [create a storage account](../common/storage-account-create.md)
+- Current [.NET SDK](https://dotnet.microsoft.com/download/dotnet) for your operating system. Be sure to get the SDK and not the runtime.
 
-Next, download and install .NET Core 2.0 for your operating system. If you are running Windows, you can install Visual Studio and use the .NET Framework if you prefer. You can also choose to install an editor to use with your operating system.
+## Setting up
 
-### Windows
+This section walks you through preparing a project to work with the Azure Queue Storage client library for .NET.
 
-- Install [.NET Core for Windows](https://www.microsoft.com/net/download/windows) or the [.NET Framework](https://www.microsoft.com/net/download/windows) (included with Visual Studio for Windows)
-- Install [Visual Studio for Windows](https://www.visualstudio.com/). If you are using .NET Core, installing Visual Studio is optional.  
+### Create the project
 
-For information about choosing between .NET Core and the .NET Framework, see [Choose between .NET Core and .NET Framework for server apps](https://docs.microsoft.com/dotnet/standard/choosing-core-framework-server).
+Create a .NET application named `QueuesQuickstart`.
 
-### Linux
+1. In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `QueuesQuickstart`. This command creates a simple "hello world" C# project with a single source file named *Program.cs*.
 
-- Install [.NET Core for Linux](https://www.microsoft.com/net/download/linux)
-- Optionally install [Visual Studio Code](https://www.visualstudio.com/) and the [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp&dotnetid=963890049.1518206068)
+   ```console
+   dotnet new console -n QueuesQuickstart
+   ```
 
-### macOS
+1. Switch to the newly created `QueuesQuickstart` directory.
 
-- Install [.NET Core for macOS](https://www.microsoft.com/net/download/macos).
-- Optionally install [Visual Studio for Mac](https://www.visualstudio.com/vs/visual-studio-mac/)
+   ```console
+   cd QueuesQuickstart
+   ```
 
-## Download the sample application
+### Install the packages
 
-The sample application used in this quickstart is a basic console application. You can explore the sample application on [GitHub](https://github.com/Azure-Samples/storage-queues-dotnet-quickstart).
+While still in the application directory, install the Azure Queue Storage client library for .NET package by using the `dotnet add package` command.
 
-Use [git](https://git-scm.com/) to download a copy of the application to your development environment. 
-
-```bash
-git clone https://github.com/Azure-Samples/storage-queues-dotnet-quickstart.git
+```console
+dotnet add package Azure.Storage.Queues
 ```
 
-This command clones the repository to your local git folder. To open the Visual Studio solution, look for the *storage-queues-dotnet-quickstart* folder, open it, and double-click on *storage-queues-dotnet-quickstart.sln*. 
+The Azure Identity client library package is also needed for passwordless connections to Azure services.
 
-[!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]
-
-## Configure your storage connection string
-
-To run the application, you must provide the connection string for your storage account. The sample application reads the connection string from an environment variable and uses it to authorize requests to Azure Storage.
-
-After you have copied your connection string, write it to a new environment variable on the local machine running the application. To set the environment variable, open a console window, and follow the instructions for your operating system. Replace `<yourconnectionstring>` with your actual connection string:
-
-### Windows
-
-```cmd
-setx storageconnectionstring "<yourconnectionstring>"
+```console
+dotnet add package Azure.Identity
 ```
 
-After you add the environment variable, you may need to restart any running programs that will need to read the environment variable, including the console window. For example, if you are using Visual Studio as your editor, restart Visual Studio before running the sample. 
+### Set up the app framework
 
-### Linux
-
-```bash
-export storageconnectionstring=<yourconnectionstring>
-```
-
-After you add the environment variable, run `source ~/.bashrc` from your console window to make the changes effective.
-
-### macOS
-
-Edit your .bash_profile, and add the environment variable:
-
-```bash
-export STORAGE_CONNECTION_STRING=<yourconnectionstring>
-```
-
-After you add the environment variable, run `source .bash_profile` from your console window to make the changes effective.
-
-## Run the sample
-
-The sample application creates a queue and adds a message to it. The application first peeks at the message without removing it from the queue, then retrieves the message and deletes it from the queue.
-
-### Windows
-
-If you are using Visual Studio as your editor, you can press **F5** to run. 
-
-Otherwise, navigate to your application directory and run the application with the `dotnet run` command.
-
-```
-dotnet run
-```
-
-### Linux
-
-Navigate to your application directory and run the application with the `dotnet run` command.
-
-```
-dotnet run
-```
-
-### macOS
-
-Navigate to your application directory and run the application with the `dotnet run` command.
-
-```
-dotnet run
-```
-
-The output of the sample application is similar to the following example:
-
-```
-Azure Queues - .NET Quickstart sample
-
-Created queue 'quickstartqueues-3136fe9a-fa52-4b19-a447-8999a847da52'
-
-Added message 'aa8fa95f-07ea-4df7-bf86-82b3f7debfb7' to queue 'quickstartqueues-3136fe9a-fa52-4b19-a447-8999a847da52'
-Message insertion time: 2/7/2019 4:30:46 AM +00:00
-Message expiration time: 2/14/2019 4:30:46 AM +00:00
-
-Contents of peeked message 'aa8fa95f-07ea-4df7-bf86-82b3f7debfb7': Hello, World
-
-Message 'aa8fa95f-07ea-4df7-bf86-82b3f7debfb7' becomes visible again at 2/7/2019 4:31:16 AM +00:00
-
-Processed and deleted message 'aa8fa95f-07ea-4df7-bf86-82b3f7debfb7'
-
-Press any key to delete the sample queue.
-```
-
-## Understand the sample code
-
-Next, explore the sample code so that you can understand how it works.
-
-### Try parsing the connection string
-
-The sample first checks that the environment variable contains a connection string that can be parsed to create a [CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount) object pointing to the storage account. To check that the connection string is valid, the sample uses the [TryParse](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount.tryparse) method. If **TryParse** is successful, it initializes the *storageAccount* variable and returns **true**.
+1. Open the project in your editor of choice
+1. Open the *Program.cs* file
+1. Update the existing code to match the following:
 
 ```csharp
-// Retrieve the connection string for use with the application. The storage connection string is stored
-// in an environment variable called storageconnectionstring, on the machine where the application is running.
-// If the environment variable is created after the application is launched in a console or with Visual
-// Studio, the shell needs to be closed and reloaded to take the environment variable into account.
-string storageConnectionString = Environment.GetEnvironmentVariable("storageconnectionstring");
+using Azure;
+using Azure.Identity;
+using Azure.Storage.Queues;
+using Azure.Storage.Queues.Models;
+using System;
+using System.Threading.Tasks;
 
-// Check whether the connection string can be parsed.
-if (CloudStorageAccount.TryParse(storageConnectionString, out storageAccount))
+Console.WriteLine("Azure Queue Storage client library - .NET quickstart sample");
+
+// Quickstart code goes here
+
+```
+
+## Authenticate to Azure
+
+[!INCLUDE [passwordless-overview](../../../includes/passwordless/passwordless-overview.md)]
+
+## [Passwordless (Recommended)](#tab/passwordless)
+
+[!INCLUDE [dotnet-default-azure-credential-overview](../../../includes/passwordless/dotnet-default-azure-credential-overview.md)]
+
+[!INCLUDE [storage-queues-create-assign-roles](../../../includes/passwordless/storage-queues/storage-queues-assign-roles.md)]
+
+## [Connection String](#tab/connection-string)
+
+[!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
+
+> [!IMPORTANT]
+> The account access key should be used with caution. If your account access key is lost or accidentally placed in an insecure location, your service may become vulnerable. Anyone who has the access key is able to authorize requests against the storage account, and effectively has access to all the data. `DefaultAzureCredential` provides enhanced security features and benefits and is the recommended approach for managing authorization to Azure services.
+
+---
+
+## Object model
+
+Azure Queue Storage is a service for storing large numbers of messages. A queue message can be up to 64 KB in size. A queue may contain millions of messages, up to the total capacity limit of a storage account. Queues are commonly used to create a backlog of work to process asynchronously. Queue Storage offers three types of resources:
+
+- **Storage account**: All access to Azure Storage is done through a storage account. For more information about storage accounts, see [Storage account overview](../common/storage-account-overview.md)
+- **Queue**: A queue contains a set of messages. All messages must be in a queue. Note that the queue name must be all lowercase. For information on naming queues, see [Naming Queues and Metadata](/rest/api/storageservices/Naming-Queues-and-Metadata).
+- **Message**: A message, in any format, of up to 64 KB. A message can remain in the queue for a maximum of 7 days. For version 2017-07-29 or later, the maximum time-to-live can be any positive number, or -1 indicating that the message doesn't expire. If this parameter is omitted, the default time-to-live is seven days.
+
+The following diagram shows the relationship between these resources.
+
+![Diagram of Queue storage architecture](./media/storage-queues-introduction/queue1.png)
+
+Use the following .NET classes to interact with these resources:
+
+- [`QueueServiceClient`](/dotnet/api/azure.storage.queues.queueserviceclient): The `QueueServiceClient` allows you to manage the all queues in your storage account.
+- [`QueueClient`](/dotnet/api/azure.storage.queues.queueclient): The `QueueClient` class allows you to manage and manipulate an individual queue and its messages.
+- [`QueueMessage`](/dotnet/api/azure.storage.queues.models.queuemessage): The `QueueMessage` class represents the individual objects returned when calling [`ReceiveMessages`](/dotnet/api/azure.storage.queues.queueclient.receivemessages) on a queue.
+
+## Code examples
+
+These example code snippets show you how to perform the following actions with the Azure Queue Storage client library for .NET:
+
+- [Authorize access and create a client object](#authorize-access-and-create-a-client-object)
+- [Create a queue](#create-a-queue)
+- [Add messages to a queue](#add-messages-to-a-queue)
+- [Peek at messages in a queue](#peek-at-messages-in-a-queue)
+- [Update a message in a queue](#update-a-message-in-a-queue)
+- [Get the queue length](#get-the-queue-length)
+- [Receive messages from a queue](#receive-messages-from-a-queue)
+- [Delete messages from a queue](#delete-messages-from-a-queue)
+- [Delete a queue](#delete-a-queue)
+
+## [Passwordless (Recommended)](#tab/passwordless)
+
+### Authorize access and create a client object
+
+[!INCLUDE [default-azure-credential-sign-in](../../../includes/passwordless/default-azure-credential-sign-in.md)]
+
+Once authenticated, you can create and authorize a `QueueClient` object using `DefaultAzureCredential` to access queue data in the storage account. `DefaultAzureCredential` automatically discovers and uses the account you signed in with in the previous step.
+
+To authorize using `DefaultAzureCredential`, make sure you've added the **Azure.Identity** package, as described in [Install the packages](#install-the-packages). Also, be sure to add a using directive for the `Azure.Identity` namespace in the *Program.cs* file:
+
+```csharp
+using Azure.Identity;
+```
+
+Next, decide on a name for the queue and create an instance of the [`QueueClient`](/dotnet/api/azure.storage.queues.queueclient) class, using `DefaultAzureCredential` for authorization. We use this client object to create and interact with the queue resource in the storage account.
+
+> [!IMPORTANT]
+> Queue names may only contain lowercase letters, numbers, and hyphens, and must begin with a letter or a number. Each hyphen must be preceded and followed by a non-hyphen character. The name must also be between 3 and 63 characters long. For more information, see [Naming queues and metadata](/rest/api/storageservices/naming-queues-and-metadata).
+
+Add the following code to the end of the *Program.cs* file. Make sure to replace the `<storage-account-name>` placeholder value:
+
+```csharp
+// Create a unique name for the queue
+// TODO: Replace the <storage-account-name> placeholder 
+string queueName = "quickstartqueues-" + Guid.NewGuid().ToString();
+string storageAccountName = "<storage-account-name>";
+
+// Instantiate a QueueClient to create and interact with the queue
+QueueClient queueClient = new QueueClient(
+    new Uri($"https://{storageAccountName}.queue.core.windows.net/{queueName}"),
+    new DefaultAzureCredential());
+```
+
+## [Connection String](#tab/connection-string)
+
+### Get the connection string and create a client
+
+The following code retrieves the connection string for the storage account. The connection string is stored in the environment variable created in the [Configure your storage connection string](#configure-your-storage-connection-string) section.
+
+Add this code to the end of the *Program.cs* file:
+
+```csharp
+// Retrieve the connection string for use with the application. The storage
+// connection string is stored in an environment variable called
+// AZURE_STORAGE_CONNECTION_STRING on the machine running the application.
+// If the environment variable is created after the application is launched
+// in a console or with Visual Studio, the shell or application needs to be
+// closed and reloaded to take the environment variable into account.
+string connectionString = Environment.GetEnvironmentVariable("AZURE_STORAGE_CONNECTION_STRING");
+```
+
+Decide on a name for the queue and create an instance of the [`QueueClient`](/dotnet/api/azure.storage.queues.queueclient) class, using the connection string for authorization. We use this client object to create and interact with the queue resource in the storage account.
+
+> [!IMPORTANT]
+> Queue names may only contain lowercase letters, numbers, and hyphens, and must begin with a letter or a number. Each hyphen must be preceded and followed by a non-hyphen character. The name must also be between 3 and 63 characters long. For more information, see [Naming queues and metadata](/rest/api/storageservices/naming-queues-and-metadata).
+
+Add this code to the end of the *Program.cs* file:
+
+```csharp
+// Create a unique name for the queue
+string queueName = "quickstartqueues-" + Guid.NewGuid().ToString();
+
+// Instantiate a QueueClient to create and interact with the queue
+QueueClient queueClient = new QueueClient(connectionString, queueName);
+```
+
+---
+
+> [!NOTE]
+> Messages sent using the [`QueueClient`](/dotnet/api/azure.storage.queues.queueclient) class must be in a format that can be included in an XML request with UTF-8 encoding. You can optionally set the [MessageEncoding](/dotnet/api/azure.storage.queues.queueclientoptions.messageencoding) option to [Base64](/dotnet/api/azure.storage.queues.queuemessageencoding) to handle non-compliant messages.
+
+### Create a queue
+
+Using the `QueueClient` object, call the [`CreateAsync`](/dotnet/api/azure.storage.queues.queueclient.createasync) method to create the queue in your storage account.
+
+Add this code to the end of the *Program.cs* method:
+
+```csharp
+Console.WriteLine($"Creating queue: {queueName}");
+
+// Create the queue
+await queueClient.CreateAsync();
+```
+
+### Add messages to a queue
+
+The following code snippet asynchronously adds messages to queue by calling the [`SendMessageAsync`](/dotnet/api/azure.storage.queues.queueclient.sendmessageasync) method. It also saves a [`SendReceipt`](/dotnet/api/azure.storage.queues.models.sendreceipt) returned from a `SendMessageAsync` call. The receipt is used to update the message later in the program.
+
+Add this code to the end of the *Program.cs* file:
+
+```csharp
+Console.WriteLine("\nAdding messages to the queue...");
+
+// Send several messages to the queue
+await queueClient.SendMessageAsync("First message");
+await queueClient.SendMessageAsync("Second message");
+
+// Save the receipt so we can update this message later
+SendReceipt receipt = await queueClient.SendMessageAsync("Third message");
+```
+
+### Peek at messages in a queue
+
+Peek at the messages in the queue by calling the [`PeekMessagesAsync`](/dotnet/api/azure.storage.queues.queueclient.peekmessagesasync) method. This method retrieves one or more messages from the front of the queue but doesn't alter the visibility of the message.
+
+Add this code to the end of the *Program.cs* file:
+
+```csharp
+Console.WriteLine("\nPeek at the messages in the queue...");
+
+// Peek at messages in the queue
+PeekedMessage[] peekedMessages = await queueClient.PeekMessagesAsync(maxMessages: 10);
+
+foreach (PeekedMessage peekedMessage in peekedMessages)
 {
-    // If the connection string is valid, proceed with calls to Azure Queues here.
-    ...    
-}
-else
-{
-    Console.WriteLine(
-        "A connection string has not been defined in the system environment variables. " +
-        "Add an environment variable named 'storageconnectionstring' with your storage " +
-        "connection string as a value.");
+    // Display the message
+    Console.WriteLine($"Message: {peekedMessage.MessageText}");
 }
 ```
 
-### Create the queue
+### Update a message in a queue
 
-First, the sample creates a queue and adds a message to it. 
+Update the contents of a message by calling the [`UpdateMessageAsync`](/dotnet/api/azure.storage.queues.queueclient.updatemessageasync) method. This method can change a message's visibility timeout and contents. The message content must be a UTF-8 encoded string that is up to 64 KB in size. Along with the new content for the message, pass in the values from the `SendReceipt` that was saved earlier in the code. The `SendReceipt` values identify which message to update.
 
 ```csharp
-// Create a queue called 'quickstartqueues' and append a GUID value so that the queue name 
-// is unique in your storage account. 
-queue = cloudQueueClient.GetQueueReference("quickstartqueues-" + Guid.NewGuid().ToString());
-await queue.CreateAsync();
+Console.WriteLine("\nUpdating the third message in the queue...");
 
-Console.WriteLine("Created queue '{0}'", queue.Name);
-Console.WriteLine();
+// Update a message using the saved receipt from sending the message
+await queueClient.UpdateMessageAsync(receipt.MessageId, receipt.PopReceipt, "Third message has been updated");
 ```
 
-### Add a message
+### Get the queue length
 
-Next, the sample adds a message to the back of the queue. 
+You can get an estimate of the number of messages in a queue. The [`GetProperties`](/dotnet/api/azure.storage.queues.queueclient.getproperties) method returns queue properties including the message count. The [`ApproximateMessagesCount`](/dotnet/api/azure.storage.queues.models.queueproperties.approximatemessagescount) property contains the approximate number of messages in the queue. This number isn't lower than the actual number of messages in the queue, but could be higher.
 
-A message must be in a format that can be included in an XML request with UTF-8 encoding, and may be up to 64 KB in size. If a message contains binary data, then Microsoft recommends that you Base64-encode the message.
-
-By default, the maximum time-to-live for a message is set to 7 days. You can specify any positive number for the message time-to-live, as well as -1 to indicate that the message does not expire.
+Add this code to the end of the *Program.cs* file:
 
 ```csharp
-// Create a message and add it to the queue. Set expiration time to 14 days.
-CloudQueueMessage message = new CloudQueueMessage("Hello, World");
-await queue.AddMessageAsync(message, new TimeSpan(14,0,0,0), null, null, null);
-Console.WriteLine("Added message '{0}' to queue '{1}'", message.Id, queue.Name);
-Console.WriteLine("Message insertion time: {0}", message.InsertionTime.ToString());
-Console.WriteLine("Message expiration time: {0}", message.ExpirationTime.ToString());
-Console.WriteLine();
+QueueProperties properties = queueClient.GetProperties();
+
+// Retrieve the cached approximate message count
+int cachedMessagesCount = properties.ApproximateMessagesCount;
+
+// Display number of messages
+Console.WriteLine($"Number of messages in queue: {cachedMessagesCount}");
 ```
 
-### Peek a message from the queue
+### Receive messages from a queue
 
-The sample shows how to peek a message from a queue. When you peek a message, you can read the contents of the message. However, the message remains visible to other clients, so that another client can subsequently retrieve and process the message.
+Download previously added messages by calling the [`ReceiveMessagesAsync`](/dotnet/api/azure.storage.queues.queueclient.receivemessagesasync) method.
+
+Add this code to the end of the *Program.cs* file:
 
 ```csharp
-// Peek at the message at the front of the queue. Peeking does not alter the message's 
-// visibility, so that another client can still retrieve and process it. 
-CloudQueueMessage peekedMessage = await queue.PeekMessageAsync();
+Console.WriteLine("\nReceiving messages from the queue...");
 
-// Display the ID and contents of the peeked message.
-Console.WriteLine("Contents of peeked message '{0}': {1}", peekedMessage.Id, peekedMessage.AsString);
-Console.WriteLine();
+// Get messages from the queue
+QueueMessage[] messages = await queueClient.ReceiveMessagesAsync(maxMessages: 10);
 ```
 
-### Dequeue a message
+You can optionally specify a value for `maxMessages`, which is the number of messages to retrieve from the queue. The default is 1 message and the maximum is 32 messages. You can also specify a value for `visibilityTimeout`, which hides the messages from other operations for the timeout period. The default is 30 seconds.
 
-The sample also shows how to dequeue a message. When you dequeue a message, you retrieve the message from the front of the queue and render it temporarily invisible to other clients. By default, a message remains invisible for 30 seconds. During this time, your code can process the message. To finish dequeueing the message, you delete the message immediately after processing, so that another client does not dequeue the same message.
+### Delete messages from a queue
 
-If your code fails to process a message due to a hardware or software failure, then the message becomes visible again after the period of invisibility has lapsed. Another client can retrieve the same message and try again.
+Delete messages from the queue after they've been processed. In this case, processing is just displaying the message on the console.
 
-```csharp
-// Retrieve the message at the front of the queue. The message becomes invisible for 
-// a specified interval, during which the client attempts to process it.
-CloudQueueMessage retrievedMessage = await queue.GetMessageAsync();
+The app pauses for user input by calling `Console.ReadLine` before it processes and deletes the messages. Verify in your [Azure portal](https://portal.azure.com) that the resources were created correctly, before they're deleted. Any messages not explicitly deleted eventually become visible in the queue again for another chance to process them.
 
-// Display the time at which the message will become visible again if it is not deleted.
-Console.WriteLine("Message '{0}' becomes visible again at {1}", retrievedMessage.Id, retrievedMessage.NextVisibleTime);
-Console.WriteLine();
-
-//Process and delete the message within the period of invisibility.
-await queue.DeleteMessageAsync(retrievedMessage);
-Console.WriteLine("Processed and deleted message '{0}'", retrievedMessage.Id);
-Console.WriteLine();
-```
-
-### Clean up resources
-
-The sample cleans up the resources that it created by deleting the queue. Deleting the queue also deletes any messages it contains.
+Add this code to the end of the *Program.cs* file:
 
 ```csharp
-Console.WriteLine("Press any key to delete the sample queue.");
+Console.WriteLine("\nPress Enter key to 'process' messages and delete them from the queue...");
 Console.ReadLine();
-Console.WriteLine("Deleting the queue and any messages it contains...");
-Console.WriteLine();
-if (queue != null)
+
+// Process and delete messages from the queue
+foreach (QueueMessage message in messages)
 {
-    await queue.DeleteIfExistsAsync();
+    // "Process" the message
+    Console.WriteLine($"Message: {message.MessageText}");
+
+    // Let the service know we're finished with
+    // the message and it can be safely deleted.
+    await queueClient.DeleteMessageAsync(message.MessageId, message.PopReceipt);
 }
 ```
 
-## Resources for developing .NET applications with queues
+### Delete a queue
 
-See these additional resources for .NET development with Azure Queues:
+The following code cleans up the resources the app created by deleting the queue using the [`DeleteAsync`](/dotnet/api/azure.storage.queues.queueclient.deleteasync) method.
 
-### Binaries and source code
+Add this code to the end of the *Program.cs* file:
 
-- Download the NuGet packages for the latest version of the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage/client)
-    - [Common](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
-    - [Queues](https://www.nuget.org/packages/Azure.Storage.Queues/)
-- View the [.NET client library source code](https://github.com/Azure/azure-storage-net) on GitHub.
+```csharp
+Console.WriteLine("\nPress Enter key to delete the queue...");
+Console.ReadLine();
 
-### Client library reference and samples
+// Clean up
+Console.WriteLine($"Deleting queue: {queueClient.Name}");
+await queueClient.DeleteAsync();
 
-- See the [.NET API reference](https://docs.microsoft.com/dotnet/api/overview/azure/storage) for more information about the .NET client library.
-- Explore [Queue storage samples](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=queues) written using the .NET client library.
+Console.WriteLine("Done");
+```
+
+## Run the code
+
+This app creates and adds three messages to an Azure queue. The code lists the messages in the queue, then retrieves and deletes them, before finally deleting the queue.
+
+In your console window, navigate to your application directory, then build and run the application.
+
+```console
+dotnet build
+```
+
+```console
+dotnet run
+```
+
+The output of the app is similar to the following example:
+
+```output
+Azure Queue Storage client library - .NET quickstart sample
+
+Creating queue: quickstartqueues-5c72da2c-30cc-4f09-b05c-a95d9da52af2
+
+Adding messages to the queue...
+
+Peek at the messages in the queue...
+Message: First message
+Message: Second message
+Message: Third message
+
+Updating the third message in the queue...
+
+Receiving messages from the queue...
+
+Press Enter key to 'process' messages and delete them from the queue...
+
+Message: First message
+Message: Second message
+Message: Third message has been updated
+
+Press Enter key to delete the queue...
+
+Deleting queue: quickstartqueues-5c72da2c-30cc-4f09-b05c-a95d9da52af2
+Done
+```
+
+When the app pauses before receiving messages, check your storage account in the [Azure portal](https://portal.azure.com). Verify the messages are in the queue.
+
+Press the `Enter` key to receive and delete the messages. When prompted, press the `Enter` key again to delete the queue and finish the demo.
 
 ## Next steps
 
-In this quickstart, you learned how to add messages to a queue, peek messages from a queue, and dequeue and process messages using .NET. 
+In this quickstart, you learned how to create a queue and add messages to it using asynchronous .NET code. Then you learned to peek, retrieve, and delete messages. Finally, you learned how to delete a message queue.
+
+For tutorials, samples, quick starts and other documentation, visit:
 
 > [!div class="nextstepaction"]
-> [Communicate between applications with Azure Queue storage](https://docs.microsoft.com/learn/modules/communicate-between-apps-with-azure-queue-storage/index)
+> [Azure for .NET and .NET Core developers](/dotnet/azure/)
 
-- To learn more about .NET Core, see [Get started with .NET in 10 minutes](https://www.microsoft.com/net/learn/get-started/).
+- For related code samples using deprecated .NET version 11.x SDKs, see [Code samples using .NET version 11.x](queues-v11-samples-dotnet.md).
+- To learn more, see the [Azure Storage libraries for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage).
+- For more Azure Queue Storage sample apps, see [Azure Queue Storage client library for .NET samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples).
+- To learn more about .NET Core, see [Get started with .NET in 10 minutes](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro).

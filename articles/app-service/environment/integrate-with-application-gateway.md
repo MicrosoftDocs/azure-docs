@@ -1,134 +1,215 @@
 ---
-title: Integrate ILB App Service Environment with Application Gateway - Azure
-description: Walkthrough on how to integrate an app in your ILB App Service Environment with an Application Gateway
-services: app-service
-documentationcenter: na
-author: ccompy
-manager: stefsch
+title: Integrate with Application Gateway
+description: Learn on how to integrate an app in your ILB App Service Environment with an Application Gateway in this end-to-end walk-through.
+author: madsd
 
 ms.assetid: a6a74f17-bb57-40dd-8113-a20b50ba3050
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 03/03/2018
-ms.author: ccompy
+ms.date: 10/12/2021
+ms.author: madsd
 ms.custom: seodec18
 ---
-# Integrate your ILB App Service Environment with the Azure Application Gateway #
+# Integrate your ILB App Service Environment with the Azure Application Gateway
 
-The [App Service Environment](./intro.md) is a deployment of Azure App Service in the subnet of a customer's Azure virtual network. It can be deployed with a public or private endpoint for app access. The deployment of the App Service Environment with a private endpoint (that is, an internal load balancer) is called an ILB App Service Environment.  
+The [App Service Environment][AppServiceEnvironmentoverview] is a deployment of Azure App Service in the subnet of a customer's Azure virtual network. It can be deployed with an external or internal endpoint for app access. The deployment of the App Service environment with an internal endpoint is called an internal load balancer (ILB) App Service environment (ASE).
 
-Web application firewalls help secure your web applications by inspecting inbound web traffic to block SQL injections, Cross-Site Scripting, malware uploads & application DDoS and other attacks. It also inspects the responses from the back-end web servers for Data Loss Prevention (DLP). You can get a WAF device from the Azure marketplace or you can use the [Azure Application Gateway][appgw].
+Web application firewalls help secure your web applications by inspecting inbound web traffic to block SQL injections, Cross-Site Scripting, malware uploads & application DDoS and other attacks. You can get a WAF device from the Azure Marketplace or you can use the [Azure Application Gateway][appgw].
 
-The Azure Application Gateway is a virtual appliance that provides layer 7 load balancing, SSL offloading, and web application firewall (WAF) protection. It can listen on a public IP address and route traffic to your application endpoint. The following information describes how to integrate a WAF-configured application gateway with an app in an ILB App Service Environment.  
+The Azure Application Gateway is a virtual appliance that provides layer 7 load balancing, TLS/SSL offloading, and web application firewall (WAF) protection. It can listen on a public IP address and route traffic to your application endpoint. The following information describes how to integrate a WAF-configured application gateway with an app in an ILB App Service environment.  
 
-The integration of the application gateway with the ILB App Service Environment is at an app level. When you configure the application gateway with your ILB App Service Environment, you're doing it for specific apps in your ILB App Service Environment. This technique enables hosting secure multitenant applications in a single ILB App Service Environment.  
+The integration of the application gateway with the ILB App Service environment is at an app level. When you configure the application gateway with your ILB App Service environment, you're doing it for specific apps in your ILB App Service environment. This technique enables hosting secure multitenant applications in a single ILB App Service environment.  
 
-![Application gateway pointing to app on an ILB App Service Environment][1]
+:::image type="content" source="./media/integrate-with-application-gateway/appgw-highlevel.png" alt-text="Screenshot of High level integration diagram":::
 
 In this walkthrough, you will:
 
 * Create an Azure Application Gateway.
-* Configure the Application Gateway to point to an app in your ILB App Service Environment.
-* Configure your app to honor the custom domain name.
+* Configure the application gateway to point to an app in your ILB App Service environment.
 * Edit the public DNS host name that points to your application gateway.
 
 ## Prerequisites
 
-To integrate your Application Gateway with your ILB App Service Environment, you need:
+To integrate your application gateway with your ILB App Service environment, you need:
 
-* An ILB App Service Environment.
-* An app running in the ILB App Service Environment.
-* An internet routable domain name to be used with your app in the ILB App Service Environment.
-* The ILB address that your ILB App Service Environment uses. This information is in the App Service Environment portal under **Settings** > **IP Addresses**:
+* An ILB App Service environment.
+* A private DNS zone for ILB App Service environment.
+* An app running in the ILB App Service environment.
+* A public DNS name that's used later to point to your application gateway.
+* If you need to use TLS/SSL encryption to the application gateway, a valid public certificate that's used to bind to your application gateway is required.
 
-	![Example list of IP addresses used by the ILB App Service Environment][9]
-	
-* A public DNS name that is used later to point to your Application Gateway. 
+### ILB App Service environment
 
-For details on how to create an ILB App Service Environment, see [Creating and using an ILB App Service Environment][ilbase].
+For details on how to create an ILB App Service environment, see [Create an ASE in the Azure portal][creation] and [Create an ASE with ARM template][createfromtemplate].
 
-This article assumes that you want an Application Gateway in the same Azure virtual network where the App Service Environment is deployed. Before you start to create the Application Gateway, pick or create a subnet that you will use to host the gateway. 
+* After ILB ASE is created, the default domain is `<YourAseName>.appserviceenvironment.net`.
 
-You should use a subnet that is not the one named GatewaySubnet. If you put the Application Gateway in GatewaySubnet, you'll be unable to create a virtual network gateway later. 
+    :::image type="content" source="./media/integrate-with-application-gateway/ilb-ase.png" alt-text="Screenshot of ILB ASE Overview":::
 
-You also cannot put the gateway in the subnet that your ILB App Service Environment uses. The App Service Environment is the only thing that can be in this subnet.
+* An internal load balancer is provisioned for inbound access. You can check the Inbound address in the IP addresses under ASE Settings. You can create a private DNS zone mapped to this IP address later.
 
-## Configuration steps ##
+    :::image type="content" source="./media/integrate-with-application-gateway/ip-addresses.png" alt-text="Screenshot of getting the inbound address from ILB ASE IP addresses settings.":::
 
-1. In the Azure portal, go to **New** > **Network** > **Application Gateway**.
+### A private DNS zone
 
-2. In the **Basics** area:
+You need a [private DNS zone][privatednszone] for internal name resolution. Create it using the ASE name using the record sets shown in the following table (for instructions, see [Quickstart - Create an Azure private DNS zone using the Azure portal][createprivatednszone]).
 
-   a. For **Name**, enter the name of the Application Gateway.
+| Name  | Type | Value               |
+| ----- | ---- | ------------------- |
+| *     | A    | ASE inbound address |
+| @     | A    | ASE inbound address |
+| @     | SOA  | ASE DNS name        |
+| *.scm | A    | ASE inbound address |
 
-   b. For **Tier**, select **WAF**.
+### App Service on ILB ASE
 
-   c. For **Subscription**, select the same subscription that the App Service Environment virtual network uses.
+You need to create an App Service plan and an app in your ILB ASE. When creating the app in the portal, select your ILB ASE as the **Region**.
 
-   d. For **Resource group**, create or select the resource group.
+### A public DNS name to the application gateway
 
-   e. For **Location**, select the location of the App Service Environment virtual network.
+To connect to the application gateway from internet, you need a routable domain name. In this case, I used a routable domain name `asabuludemo.com` and planning to connect to an App Service with this domain name `app.asabuludemo.com`. The IP addresses mapped to this app domain name need to set to the public IP after the application gateway created.
+With a public domain mapped to the application gateway, you don't need to configure a custom domain in App Service. You can buy a custom domain name with [App Service Domains](../manage-custom-dns-buy-domain.md#buy-and-map-an-app-service-domain). 
 
-   ![New Application Gateway creation basics][2]
+### A valid public certificate
 
-3. In the **Settings** area:
+For security enhancement, it's recommended to bind TLS/SSL certificate for session encryption. To bind TLS/SSL certificate to the application gateway, a valid public certificate with following information is required. With [App Service certificates](../configure-ssl-app-service-certificate.md), you can buy a TLS/SSL certificate and export it in .pfx format.
 
-   a. For **Virtual network**, select the App Service Environment virtual network.
+| Name  | Value               | Description|
+| ----- | ------------------- |------------|
+| **Common Name** |`<yourappname>.<yourdomainname>`, for example: `app.asabuludemo.com`  <br/> or `*.<yourdomainname>`, for example: `*.asabuludemo.com` | A standard certificate or a [wildcard certificate](https://wikipedia.org/wiki/Wildcard_certificate) for the application gateway|
+| **Subject Alternative Name** | `<yourappname>.scm.<yourdomainname>`, for example: `app.scm.asabuludemo.com`  <br/>or `*.scm.<yourdomainname>`, for example: `*.scm.asabuludemo.com` |The SAN that allowing to connect to App Service kudu service. It's an optional setting, if you don't want to publish the App Service kudu service to the internet.|
 
-   b. For **Subnet**, select the subnet where the Application Gateway needs to be deployed. Do not use GatewaySubnet, because it will prevent the creation of VPN gateways.
+The certificate file should have a private key and save in .pfx format, it will be imported to the application gateway later.
 
-   c. For **IP address type**, select **Public**.
+## Create an application gateway
 
-   d. For **Public IP address**, select a public IP address. If you don't have one, create one now.
+For the basic application gateway creation, refer to [Tutorial: Create an application gateway with a Web Application Firewall using the Azure portal][Tutorial: Create an application gateway with a Web Application Firewall using the Azure portal].
 
-   e. For **Protocol**, select **HTTP** or **HTTPS**. If you're configuring for HTTPS, you need to provide a PFX certificate.
+In this tutorial, we'll use Azure portal to create an application gateway with ILB App Service environment.
 
-   f. For **Web application firewall**, you can enable the firewall and also set it for either **Detection** or **Prevention** as you see fit.
+In the Azure portal, select **New** > **Network** > **Application Gateway** to create an application gateway.
 
-   ![New Application Gateway creation settings][3]
-	
-4. In the **Summary** section, review the settings and select **OK**. Your Application Gateway can take a little more than 30 minutes to complete setup.  
+1. Basics setting
 
-5. After your Application Gateway completes setup, go to your Application Gateway portal. Select **Backend pool**. Add the ILB address for your ILB App Service Environment.
+    In **Tier** dropdown list, you can select **Standard V2** or  **WAF V2** to enable **WAF** feature on the application gateway. 
 
-   ![Configure backend pool][4]
+2. Frontends setting
 
-6. After the process of configuring your back-end pool is completed, select **Health probes**. Create a health probe for the domain name that you want to use for your app. 
+    Select Frontend IP address type to **Public**, **Private** or **Both** . If you set to **Private** or **Both**, you need to assign a static IP address in the application gateway subnet range. In this case, we set to Public IP for public endpoint only.
+    
+    * Public IP address - You need to associate a public IP address for the application gateway public access. Record this IP address, you need to add a record in your DNS service later.
+    
+        :::image type="content" source="./media/integrate-with-application-gateway/frontends.png" alt-text="Screenshot of getting a public IP address from the application gateway frontends setting.":::
 
-   ![Configure health probes][5]
-	
-7. After the process of configuring your health probes is completed, select **HTTP settings**. Edit the existing settings, select **Use Custom probe**, and pick the probe that you configured.
+3. Backends setting
 
-   ![Configure HTTP settings][6]
-	
-8. Go to the Application Gateway's **Overview** section, and copy the public IP address that your Application Gateway uses. Set that IP address as an A record for your app domain name, or use the DNS name for that address in a CNAME record. It's easier to select the public IP address and copy it from the public IP address's UI rather than copy it from the link in the Application Gateway's **Overview** section. 
+    Input a backend pool name and select the **App Services** or **IP address or FQDN** in **Target type**. In this case, we set to **App services** and select App Service name from the target dropdown list.
 
-   ![Application Gateway portal][7]
+    :::image type="content" source="./media/integrate-with-application-gateway/add-backend-pool.png" alt-text="Screenshot of adding a backend pool name in backends setting.":::
 
-9. Set the custom domain name for your app in your ILB App Service Environment. Go to your app in the portal, and under **Settings**, select **Custom domains**.
+4. Configuration setting
 
-   ![Set custom domain name on the app][8]
+    In **Configuration** setting, you need to add a routing rule by selecting **Add a routing rule** icon.
 
-There is information on setting custom domain names for your web apps in the article [Setting custom domain names for your web app][custom-domain]. But for an app in an ILB App Service Environment, there isn't any validation on the domain name. Because you own the DNS that manages the app endpoints, you can put whatever you want in there. The custom domain name that you add in this case does not need to be in your DNS, but it does still need to be configured with your app. 
+    :::image type="content" source="./media/integrate-with-application-gateway/configuration.png" alt-text="Screenshot of adding a routing rule in configuration setting.":::
 
-After setup is completed and you have allowed a short amount of time for your DNS changes to propagate, you can access your app by using the custom domain name that you created. 
+    You need to configure a **Listener** and  **Backend targets** in a routing rule. You can add an HTTP listener for proof of concept deployment or add an HTTPS listener for security enhancement.
+
+    * To connect to the application gateway with HTTP protocol, you can create a listener with following settings,
+    
+        | Parameter      | Value                             | Description                                                  |
+        | -------------- | --------------------------------- | ------------------------------------------------------------ |
+        | Rule name      | For example: `http-routingrule`    | Routing name                                                 |
+        | Listener name  | For example: `http-listener`       | Listener name                                                |
+        | Frontend IP    | Public                            | For internet access, set to Public                           |
+        | Protocol       | HTTP                             | Don't use TLS/SSL encryption                                       |
+        | Port           | 80                               | Default HTTP Port                                           |
+        | Listener type  | Multi site                        | Allow to listen multi-sites on the application gateway           |
+        | Host type      | Multiple/Wildcard                 | Set to multiple or wildcard website name if listener type is set to multi-sites. |
+        | Host name      | For example:  `app.asabuludemo.com` | Set to a routable domain name for App Service              |
+        
+        :::image type="content" source="./media/integrate-with-application-gateway/http-routing-rule.png" alt-text="Screenshot of HTTP Listener of the application gateway Routing Rule.":::
+    
+    * To connect to the application gateway with TLS/SSL encryption, you can create a listener with following settings,
+    
+        | Parameter      | Value                             | Description                                                  |
+        | -------------- | --------------------------------- | ------------------------------------------------------------ |
+        | Rule name      | For example: `https-routingrule`    | Routing name                                                 |
+        | Listener name  | For example: `https-listener`       | Listener name                                                |
+        | Frontend IP    | Public                            | For internet access, set to Public                           |
+        | Protocol       | HTTPS                             | Use TLS/SSL encryption                                       |
+        | Port           | 443                               | Default HTTPS Port                                           |
+        | Https Settings | Upload a certificate              | Upload a certificate contains the CN and the private key with .pfx format. |
+        | Listener type  | Multi site                        | Allow to listen multi-sites on the application gateway           |
+        | Host type      | Multiple/Wildcard                 | Set to multiple or wildcard website name if listener type is set to multi-sites. |
+        | Host name      | For example:  `app.asabuludemo.com` | Set to a routable domain name for App Service              |
+        
+        :::image type="content" source="./media/integrate-with-application-gateway/https-routing-rule.png" alt-text="HTTPS listener of the application gateway Routing Rule.":::
+    
+    * You have to configure a **Backend Pool** and **HTTP setting** in **Backend targets**. The Backend pool was configured in previously steps. Select **Add new** link to add an HTTP setting.
+    
+        :::image type="content" source="./media/integrate-with-application-gateway/add-new-http-setting.png" alt-text="Screenshot of adding new link to add an H T T P setting.":::
+    
+    * HTTP settings listed as below:
+    
+        | Parameter                     | Value                                                        | Description                                                  |
+        | ----------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+        | HTTP setting name             | For example: `https-setting`                                   | HTTP setting name                                            |
+        | Backend protocol              | HTTPS                                                        | Use TLS/SSL encryption                                       |
+        | Backend port                  | 443                                                          | Default HTTPS Port                                           |
+        | Use well known CA certificate | Yes                                                          | The default domain name of ILB ASE is `.appserviceenvironment.net`, the certificate of this domain is issued by a public trusted root authority. In the Trusted root certificate setting, you can set to use **well known CA trusted root certificate**. |
+        | Override with new host name   | Yes                                                          | The host name header will be overwrote on connecting to the app on ILB ASE |
+        | Host name override            | Pick host name from backend target | When setting backend pool to App Service, you can pick host from backend target |
+        | Create custom probes | No | Use default health probe|
+        
+        :::image type="content" source="./media/integrate-with-application-gateway/https-setting.png" alt-text="Screenshot of **Add an H T T P setting** dialog.":::
 
 
-<!--IMAGES-->
-[1]: ./media/integrate-with-application-gateway/appgw-highlevel.png
-[2]: ./media/integrate-with-application-gateway/appgw-createbasics.png
-[3]: ./media/integrate-with-application-gateway/appgw-createsettings.png
-[4]: ./media/integrate-with-application-gateway/appgw-backendpool.png
-[5]: ./media/integrate-with-application-gateway/appgw-healthprobe.png
-[6]: ./media/integrate-with-application-gateway/appgw-httpsettings.png
-[7]: ./media/integrate-with-application-gateway/appgw-publicip.png
-[8]: ./media/integrate-with-application-gateway/appgw-customdomainname.png
-[9]: ./media/integrate-with-application-gateway/appgw-iplist.png
+## Configure an application gateway integration with ILB ASE
+
+To access ILB ASE from the application gateway, you need to check if a virtual network link to private DNS zone. If there's no virtual network linked to your application gateway's VNet, add a virtual network link with following steps.
+
+### Configure virtual network links with a private DNS zone
+
+* To configure virtual network link with private DNS zone, go to the private DNS zone configuration plane. Select the **Virtual network links** > **Add** 
+
+:::image type="content" source="./media/integrate-with-application-gateway/add-vnet-link.png" alt-text="Add a virtual network link to private DNS zone.":::
+
+* Input the **Link name** and select the respective subscription and virtual network where the application gateway resides in.
+
+:::image type="content" source="./media/integrate-with-application-gateway/vnet-link.png" alt-text="Screenshot of input link name details to virtual network links setting in private DNS zone.":::
+
+* You can confirm the backend health status from **Backend health** in the application gateway plane.
+
+:::image type="content" source="./media/integrate-with-application-gateway/backend-health.png" alt-text="Screenshot of confirm the backend health status from backend health.":::
+
+### Add a public DNS record
+
+You need to configure a proper DNS mapping when access to the application gateway from internet.
+
+* The public IP address of the application gateway can be found in **Frontend IP configurations** in the application gateway plane.
+
+:::image type="content" source="./media/integrate-with-application-gateway/frontend-ip.png" alt-text="Application gateway frontend IP address can be found in Frontend IP configuration.":::
+
+* Use Azure DNS service as example, you can add a record set to map the app domain name to the public IP address of the application gateway.
+
+:::image type="content" source="./media/integrate-with-application-gateway/dns-service.png" alt-text="Screenshot of adding a record set to map the app domain name to the public IP address of the application gateway.":::
+
+### Validate connection
+
+* On a machine access from internet, you can verify the name resolution for the app domain name to the application gateway public IP address.
+
+:::image type="content" source="./media/integrate-with-application-gateway/name-resolution.png" alt-text="validate the name resolution from a command prompt.":::
+
+* On a machine access from internet, test the web access from a browser.
+
+:::image type="content" source="./media/integrate-with-application-gateway/access-web.png" alt-text="Screenshot of opening a browser, access to the web.":::
 
 <!--LINKS-->
-[appgw]: https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction
+[appgw]: ../../application-gateway/overview.md
 [custom-domain]: ../app-service-web-tutorial-custom-domain.md
-[ilbase]: ./create-ilb-ase.md
+[creation]: ./creation.md
+[createfromtemplate]: ./create-from-template.md
+[createprivatednszone]: ../../dns/private-dns-getstarted-portal.md
+[AppServiceEnvironmentoverview]: ./overview.md
+[privatednszone]: ../../dns/private-dns-overview.md
+[Tutorial: Create an application gateway with a Web Application Firewall using the Azure portal]: ../../web-application-firewall/ag/application-gateway-web-application-firewall-portal.md

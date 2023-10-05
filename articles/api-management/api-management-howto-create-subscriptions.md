@@ -1,19 +1,16 @@
 ---
 title: Create subscriptions in Azure API Management | Microsoft Docs
-description: Learn how to create subscriptions in Azure API Management.
+description: Learn how to create subscriptions in Azure API Management. A subscription is necessary to get subscription keys that allow access to APIs.
 services: api-management
 documentationcenter: ''
-author: miaojiang
-manager: cfowler
-editor: ''
+author: dlepow
  
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/14/2018
-ms.author: apimpm
+ms.topic: how-to
+ms.date: 08/03/2022
+ms.author: danlep
 ---
 # Create subscriptions in Azure API Management
 
@@ -28,21 +25,27 @@ To take the steps in this article, the prerequisites are as follows:
 + [Create an API Management instance](get-started-create-service-instance.md).
 + Understand [subscriptions in API Management](api-management-subscriptions.md).
 
+
+
 ## Create a new subscription
 
-1. Select **Subscriptions** in the menu on the left.
-2. Select **Add subscription**.
-3. Provide a name of the subscription and select the scope.
-4. Optionally, choose if the subscription should be associated with a user.
-5. Select **Save**.
+1. Navigate to your API Management instance in the [Azure portal](https://portal.azure.com).
+1. In the left menu, under **APIs**, select **Subscriptions** > **Add subscription**.
+1. Provide a **Name** and optional **Display name** of the subscription.
+1. Optionally, select **Allow tracing** to enable tracing for debugging and troubleshooting APIs. [Learn more](api-management-howto-api-inspector.md)
 
-![Flexible subscriptions](./media/api-management-subscriptions/flexible-subscription.png)
+    [!INCLUDE [api-management-tracing-alert](../../includes/api-management-tracing-alert.md)]
+1. Select a **Scope** of the subscription from the dropdown list. [Learn more](api-management-subscriptions.md#scope-of-subscriptions)
+1. Optionally, choose if the subscription should be associated with a **User** and whether to send a notification for use with the developer portal.
+1. Select **Create**.
 
-After you create the subscription, two API keys are provided to access the APIs. One key is primary, and one is secondary. 
+:::image type="content" source="media/api-management-howto-create-subscriptions/create-subscription.png" alt-text="Screenshot showing how to create an API Management subscription in the portal.":::
+
+After you create the subscription, it appears in the list on the **Subscriptions** page. Two API keys are provided to access the APIs. One key is primary, and one is secondary. 
 
 ## Next steps
 Get more information on API Management:
 
 + Learn other [concepts](api-management-terminology.md) in API Management.
 + Follow our [tutorials](import-and-publish.md) to learn more about API Management.
-+ Check our [FAQ page](api-management-faq.md) for common questions.
++ Check our [FAQ page](api-management-faq.yml) for common questions.

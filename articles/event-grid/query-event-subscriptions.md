@@ -1,14 +1,9 @@
 ---
 title: Query Azure Event Grid subscriptions
-description: Describes how to list Azure Event Grid subscriptions.
-services: event-grid
-author: spelluru
-manager: timlt
-
-ms.service: event-grid
+description: This article describes how to list Event Grid subscriptions in your Azure subscription. You provide different parameters based on the type of subscription.
 ms.topic: conceptual
-ms.date: 01/04/2019
-ms.author: spelluru
+ms.date: 09/28/2021 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Query Event Grid subscriptions 
@@ -42,7 +37,7 @@ To get event grid subscriptions for an Azure subscription, provide the topic typ
 For Azure CLI, use:
 
 ```azurecli-interactive
-az eventgrid event-subscription list --topic-type-name "Microsoft.Resources.Subscriptions"
+az eventgrid event-subscription list --topic-type-name "Microsoft.Resources.Subscriptions" --location global
 ```
 
 For PowerShell, use:
@@ -56,7 +51,7 @@ To get event grid subscriptions for all resource groups within an Azure subscrip
 For Azure CLI, use:
 
 ```azurecli-interactive
-az eventgrid event-subscription list --topic-type-name "Microsoft.Resources.ResourceGroups"
+az eventgrid event-subscription list --topic-type-name "Microsoft.Resources.ResourceGroups" --location global
 ```
 
 For PowerShell, use:
@@ -70,7 +65,7 @@ To get event grid subscriptions for a specified resource group, provide the name
 For Azure CLI, use:
 
 ```azurecli-interactive
-az eventgrid event-subscription list --resource-group myResourceGroup
+az eventgrid event-subscription list --resource-group myResourceGroup --location global
 ```
 
 For PowerShell, use:

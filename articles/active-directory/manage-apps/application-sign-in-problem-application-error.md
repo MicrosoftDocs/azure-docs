@@ -1,162 +1,115 @@
 ---
-title: Error on an application's page after signing in | Microsoft Docs
-description: How to resolve issues with Azure AD sign in when the application itself emits an error
+title: Error message appears on app page after you sign in
+description: How to resolve issues with Microsoft Entra sign-in when the app returns an error message.
 services: active-directory
-documentationcenter: ''
-author: msmimart
+author: omondiatieno
 manager: CelesteDG
-
-ms.assetid: 
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 07/11/2017
-ms.author: mimart
-ms.reviewer: asteen
-
+ms.topic: troubleshooting
+ms.date: 09/06/2022
+ms.author: jomondi
+ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
+ms.custom: enterprise-apps
 ---
 
-# Error on an application's page after signing in
+# An app page shows an error message after the user signs in
 
-In this scenario, Azure AD has signed the user in, but the application is displaying an error not allowing the user to successfully finish the sign-in flow. In this scenario, the application is not accepting the response issue by Azure AD.
+In this scenario, Microsoft Entra ID signs the user in. But the application displays an error message and doesn't let the user finish the sign-in flow. The problem is that the app didn't accept the response that Microsoft Entra ID issued.
 
-There are some possible reasons why the application didn’t accept the response from Azure AD. If the error in the application is not clear enough to know what is missing in the response, then:
+There are several possible reasons why the app didn't accept the response from Microsoft Entra ID. If there's an error message or code displayed, use the following resources to diagnose the error:
 
--   If the application is the Azure AD Gallery, verify you have followed all the steps in the article [How to debug SAML-based single sign-on to applications in Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging).
+- [Microsoft Entra authentication and authorization error codes](../develop/reference-error-codes.md)
+- [Troubleshooting consent prompt errors](application-sign-in-unexpected-user-consent-error.md)
 
--   Use a tool like [Fiddler](https://www.telerik.com/fiddler) to capture SAML request, SAML response and SAML token.
+If the error message doesn't clearly identify what's missing from the response, try the following:
 
--   Share the SAML response with the application vendor to know what is missing.
+- If the app is in the Microsoft Entra gallery, verify that you followed the steps in [How to debug SAML-based single sign-on to applications in Microsoft Entra ID](./debug-saml-sso-issues.md).
+- Use a tool like [Fiddler](https://www.telerik.com/fiddler) to capture the SAML request, response, and token.
+- Send the SAML response to the app vendor and ask them what's missing.
 
-## Missing attributes in the SAML response
+[!INCLUDE [portal updates](../includes/portal-update.md)]
 
-To add an attribute in the Azure AD configuration to be sent in the Azure AD response, follow these steps:
+## Attributes are missing from the SAML response
 
-1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
+To add an attribute in the Microsoft Entra configuration that will be sent in the Microsoft Entra response, follow these steps:
 
-2. Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
-
-3. Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
-
-4. click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
-
-5. click **All Applications** to view a list of all your applications.
-
-   * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
-
-6. Select the application you want to configure single sign-on.
-
-7. Once the application loads, click the **Single sign-on** from the application’s left-hand navigation menu.
-
-8. click **View and edit all other user attributes under** the **User Attributes** section to edit the attributes to be sent to the application in the SAML token when users sign in.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
+1. Enter the name of the existing application in the search box, and then select the application that you want to configure for single sign-on.
+1. After the app loads, select **Single sign-on** in the navigation pane.
+1. In the **User Attributes** section, select **View and edit all other user attributes**. Here you can change which attributes to send to the app in the SAML token when users sign in.
 
    To add an attribute:
 
-   * click **Add attribute**. Enter the **Name** and the select the **Value** from the dropdown.
+   1. Select **Add attribute**. Enter the **Name**, and select the **Value** from the drop-down list.
 
-   * Click **Save.** You see the new attribute in the table.
+   1. Select **Save**. You'll see the new attribute in the table.
 
-9. Save the configuration.
+1. Save the configuration.
 
-Next time the user signs in to the application, Azure AD send the new attribute in the SAML response.
+   The next time that the user signs in to the app, Microsoft Entra ID will send the new attribute in the SAML response.
 
-## The application doesn't identify the user
+## The app cannot identify the user
 
-The sign-in to the application is failing because the SAML response is missing attributes such as roles or because the application is expecting a different format or value for the EntityID attribute.
+Signing in to the app fails because the SAML response is missing an attribute such as a role. Or it fails because the app expects a different format or value for the **NameID** (User Identifier) attribute.
 
-If you're using [Azure AD automated user provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) to create, maintain, and remove users in the application. Then, verify that the user has been successfully provisioned to the SaaS application. For more information, see [No users are being provisioned to an Azure AD Gallery application](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem-no-users-provisioned)
+If you're using [Microsoft Entra ID automated user provisioning](../app-provisioning/user-provisioning.md) to create, maintain, and remove users in the app, verify that the user has been provisioned to the SaaS app. For more information, see [No users are being provisioned to a Microsoft Entra Gallery application](../app-provisioning/application-provisioning-config-problem-no-users-provisioned.md).
 
-## Add an attribute in the Azure AD application configuration:
+<a name='add-an-attribute-to-the-azure-ad-app-configuration'></a>
+
+### Add an attribute to the Microsoft Entra app configuration
 
 To change the User Identifier value, follow these steps:
 
-1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
+1. Select the app that you want to configure for SSO.
+1. After the app loads, select **Single sign-on** in the navigation pane.
+1. Under **User attributes**, select the unique identifier for the user from the **User Identifier** drop-down list.
 
-2. Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
+### Change the NameID format
 
-3. Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
+If the application expects another format for the **NameID** (User Identifier) attribute, see the [Edit nameID](../develop/saml-claims-customization.md#edit-nameid) section to change the NameID format.
 
-4. click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
+Microsoft Entra ID selects the format for the **NameID** attribute (User Identifier) based on the value that's selected or the format that's requested by the app in the SAML AuthRequest. For more information, see the "NameIDPolicy" section of [Single sign-on SAML protocol](../develop/single-sign-on-saml-protocol.md#nameidpolicy).
 
-5. click **All Applications** to view a list of all your applications.
+## The app expects a different signature method for the SAML response
 
-   * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
+To change which parts of the SAML token are digitally signed by Microsoft Entra ID, follow these steps:
 
-6. Select the application you want to configure single sign-on.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
+1. Select the application that you want to configure for single sign-on.
+1. After the application loads, select **Single sign-on** in the navigation pane.
+1. Under **SAML Signing Certificate**, select  **Show advanced certificate signing settings**.
+1. Select the **Signing Option** that the app expects from among these options:
 
-7. Once the application loads, click the **Single sign-on** from the application’s left-hand navigation menu.
+   - **Sign SAML response**
+   - **Sign SAML response and assertion**
+   - **Sign SAML assertion**
 
-8. Under the **User attributes**, select the unique identifier for your users in the **User Identifier** dropdown.
+   The next time that the user signs in to the app, Microsoft Entra ID will sign the part of the SAML response that you selected.
 
-## Change EntityID (User Identifier) format
+## The app expects the SHA-1 signing algorithm
 
-If the application expects another format for the EntityID attribute. Then, you won’t be able to select the EntityID (User Identifier) format that Azure AD sends to the application in the response after user authentication.
-
-Azure AD select the format for the NameID attribute (User Identifier) based on the value selected or the format requested by the application in the SAML AuthRequest. For more information visit the article [Single Sign-On SAML protocol](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) under the section NameIDPolicy.
-
-## The application expects a different signature method for the SAML response
-
-To change what parts of the SAML token are digitally signed by Azure Active Directory. Follow these steps:
-
-1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
-
-2. Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
-
-3. Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
-
-4. click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
-
-5. click **All Applications** to view a list of all your applications.
-
-   * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
-
-6. Select the application you want to configure single sign-on.
-
-7. Once the application loads, click the **Single sign-on** from the application’s left-hand navigation menu.
-
-8. click **Show advanced certificate signing settings** under the **SAML Signing Certificate** section.
-
-9. Select the appropriate **Signing Option** expected by the application:
-
-   * Sign SAML response
-
-   * Sign SAML response and assertion
-
-   * Sign SAML assertion
-
-Next time the user signs in to the application, Azure AD sign the part of the SAML response selected.
-
-## The application expects the signing algorithm to be SHA-1
-
-By default, Azure AD signs the SAML token using the most security algorithm. Changing the sign algorithm to SHA-1 is not recommended unless required by the application.
+By default, Microsoft Entra ID signs the SAML token by using the most-secure algorithm. We recommend that you don't change the signing algorithm to *SHA-1* unless the app requires SHA-1.
 
 To change the signing algorithm, follow these steps:
 
-1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
+1. Select the app that you want to configure for single sign-on.
+1. After the app loads, select **Single sign-on** from the navigation pane on the left side of the app.
+1. Under **SAML Signing Certificate**, select **Show advanced certificate signing settings**.
+1. Select **SHA-1** as the **Signing Algorithm**.
 
-2. Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
-
-3. Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
-
-4. click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
-
-5. click **All Applications** to view a list of all your applications.
-
-   * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
-
-6. Select the application you want to configure single sign-on.
-
-7. Once the application loads, click the **Single sign-on** from the application’s left-hand navigation menu.
-
-8. click **Show advanced certificate signing settings** under the **SAML Signing Certificate** section.
-
-9. Select SHA-1, in the **Signing Algorithm**.
-
-Next time the user signs in to the application, Azure AD sign the SAML token using SHA-1 algorithm.
+   The next time that the user signs in to the app, Microsoft Entra ID will sign the SAML token by using the SHA-1 algorithm.
 
 ## Next steps
-[How to debug SAML-based single sign-on to applications in Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging)
+
+- [How to debug SAML-based single sign-on to applications in Microsoft Entra ID](./debug-saml-sso-issues.md)
+- [Microsoft Entra authentication and authorization error codes](../develop/reference-error-codes.md)
+- [Troubleshooting consent prompt errors](application-sign-in-unexpected-user-consent-error.md)

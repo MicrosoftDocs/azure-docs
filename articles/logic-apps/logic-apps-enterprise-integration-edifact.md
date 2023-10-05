@@ -1,282 +1,312 @@
 ---
-title: EDIFACT messages for B2B enterprise integration - Azure Logic Apps | Microsoft Docs
-description: Exchange EDIFACT messages in EDI format for B2B enterprise integration in Azure Logic Apps with Enterprise Integration Pack
+title: Exchange EDIFACT messages in B2B workflows
+description: Exchange EDIFACT messages between partners by creating workflows with Azure Logic Apps and Enterprise Integration Pack.
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
-ms.topic: article
-ms.assetid: 2257d2c8-1929-4390-b22c-f96ca8b291bc
-ms.date: 07/26/2016
+ms.reviewer: estfan, azla
+ms.topic: how-to
+ms.date: 08/15/2023
 ---
 
-# Exchange EDIFACT messages for B2B enterprise integration in Azure Logic Apps with Enterprise Integration Pack
+# Exchange EDIFACT messages using workflows in Azure Logic Apps
 
-Before you can exchange EDIFACT messages for Azure Logic Apps, 
-you must create an EDIFACT agreement and 
-store that agreement in your integration account. 
-Here are the steps for how to create an EDIFACT agreement.
+To send and receive EDIFACT messages in workflows that you create using Azure Logic Apps, use the **EDIFACT** connector, which provides operations that support and manage EDIFACT communication.
 
-> [!NOTE]
-> This page covers the EDIFACT features for Azure Logic Apps. 
-> For more information, see [X12](logic-apps-enterprise-integration-x12.md).
+This how-to guide shows how to add the EDIFACT encoding and decoding actions to an existing logic app workflow. The **EDIFACT** connector doesn't include any triggers, so you can use any trigger to start your workflow. The examples in this guide use the [Request trigger](../connectors/connectors-native-reqres.md).
 
-## Before you start
+## Connector technical reference
 
-Here's the items you need:
+The **EDIFACT** connector has one version across workflows in [multi-tenant Azure Logic Apps, single-tenant Azure Logic Apps, and the integration service environment (ISE)](logic-apps-overview.md#resource-environment-differences). For technical information about the **EDIFACT** connector, see the following documentation:
 
-* An [integration account](logic-apps-enterprise-integration-create-integration-account.md) 
-that's already defined and associated with your Azure subscription  
-* At least two [partners](logic-apps-enterprise-integration-partners.md) 
-that are already defined in your integration account
+* [Connector reference page](/connectors/edifact/), which describes the triggers, actions, and limits as documented by the connector's Swagger file
 
-> [!NOTE]
-> When you create an agreement, the content in the messages that you 
-> receive or send to and from the partner must match the agreement type.
+* [B2B protocol limits for message sizes](logic-apps-limits-and-config.md#b2b-protocol-limits)
 
-After you [create an integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 
-and [add partners](logic-apps-enterprise-integration-partners.md), 
-you can create an EDIFACT agreement by following these steps.
+  For example, in an [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md), this connector's ISE version uses the [B2B message limits for ISE](logic-apps-limits-and-config.md#b2b-protocol-limits).
 
-## Create an EDIFACT agreement 
+The following sections provide more information about the tasks that you can complete using the EDIFACT encoding and decoding actions.
 
-1. Sign in to the [Azure portal](https://portal.azure.com "Azure portal"). 
+### Encode to EDIFACT message action
 
-2. On the main Azure menu, select **All services**. 
-In the search box, enter "integration", 
-and then select **Integration accounts**.
+This action performs the following tasks:
 
-   ![Find your integration account](./media/logic-apps-enterprise-integration-edifact/edifact-0.png)
+* Resolve the agreement by matching the sender qualifier & identifier and receiver qualifier and identifier.
 
-   > [!TIP]
-   > If **All services** doesn't appear, you might have to expand the menu first. 
-   > At the top of the collapsed menu, select **Show text labels**.
+* Serialize the Electronic Data Interchange (EDI), which converts XML-encoded messages into EDI transaction sets in the interchange.
 
-3. Under **Integration Accounts**, select the integration 
-account where you want to create the agreement.
+* Apply transaction set header and trailer segments.
 
-   ![Select integration account where to create the agreement](./media/logic-apps-enterprise-integration-edifact/edifact-1-4.png)
+* Generate an interchange control number, a group control number, and a transaction set control number for each outgoing interchange.
 
-4. Choose **Agreements**. If you don't have an Agreements tile, 
-add the tile first.   
+* Replace separators in the payload data.
 
-   ![Choose "Agreements" tile](./media/logic-apps-enterprise-integration-edifact/edifact-1-5.png)
+* Validate EDI and partner-specific properties, such as the schema for transaction-set data elements against the message schema, transaction-set data elements, and extended validation on transaction-set data elements.
 
-5. On the Agreements page, choose **Add**.
+* Generate an XML document for each transaction set.
 
-   ![Choose "Add"](./media/logic-apps-enterprise-integration-edifact/edifact-agreement-2.png)
+* Request a technical acknowledgment, functional acknowledgment, or both, if configured.
 
-6. Under **Add**, enter a **Name** for your agreement. 
-For **Agreement type**, select **EDIFACT**. 
-Select the **Host Partner**, **Host Identity**, 
-**Guest Partner**, and **Guest Identity** for your agreement.
+  * As a technical acknowledgment, the CONTRL message indicates the receipt for an interchange.
 
-   ![Provide agreement details](./media/logic-apps-enterprise-integration-edifact/edifact-1.png)
+  * As a functional acknowledgment, the CONTRL message indicates the acceptance or rejection for the received interchange, group, or message, including a list of errors or unsupported functionality.
 
-   | Property | Description |
-   | --- | --- |
-   | Name |Name of the agreement |
-   | Agreement Type | Should be EDIFACT |
-   | Host Partner |An agreement needs both a host and guest partner. The host partner represents the organization that configures the agreement. |
-   | Host Identity |An identifier for the host partner |
-   | Guest Partner |An agreement needs both a host and guest partner. The guest partner represents the organization that's doing business with the host partner. |
-   | Guest Identity |An identifier for the guest partner |
-   | Receive Settings |These properties apply to all messages received by an agreement. |
-   | Send Settings |These properties apply to all messages sent by an agreement. |
-   ||| 
+### Decode EDIFACT message action
 
-## Configure how your agreement handles received messages
+This action performs the following tasks:
 
-Now that you've set the agreement properties, 
-you can configure how this agreement identifies and 
-handles incoming messages received from your partner through this agreement.
+* Validate the envelope against the trading partner agreement.
 
-1. Under **Add**, select **Receive Settings**.
-Configure these properties based on your agreement 
-with the partner that exchanges messages with you. 
-For property descriptions, see the tables in this section.
+* Resolve the agreement by matching the sender qualifier and identifier along with the receiver qualifier and identifier.
 
-   **Receive Settings** is organized into these sections: 
-   Identifiers, Acknowledgment, Schemas, Control Numbers, 
-   Validation, and Internal Settings.
+* Split an interchange into multiple transaction sets when the interchange has more than one transaction, based on the agreement's **Receive Settings**.
 
-   ![Configure "Receive Settings"](./media/logic-apps-enterprise-integration-edifact/edifact-2.png)  
+* Disassemble the interchange.
 
-2. After you're done, make sure to save your settings by choosing **OK**.
+* Validate Electronic Data Interchange (EDI) and partner-specific properties, such as the interchange envelope structure, the envelope schema against the control schema, the schema for the transaction-set data elements against the message schema, and extended validation on transaction-set data elements.
 
-Now your agreement is ready to handle incoming 
-messages that conform to your selected settings.
+* Verify that the interchange, group, and transaction set control numbers aren't duplicates, if configured, for example:
 
-### Identifiers
+  * Check the interchange control number against previously received interchanges.
 
-| Property | Description |
-| --- | --- |
-| UNB6.1 (Recipient Reference Password) |Enter an alphanumeric value ranging between 1 and 14 characters. |
-| UNB6.2 (Recipient Reference Qualifier) |Enter an alphanumeric value with a minimum of one character and a maximum of two characters. |
-
-### Acknowledgments
-
-| Property | Description |
-| --- | --- |
-| Receipt of Message (CONTRL) |Select this checkbox to return a technical (CONTRL) acknowledgment to the interchange sender. The acknowledgment is sent to the interchange sender based on the Send Settings for the agreement. |
-| Acknowledgement (CONTRL) |Select this checkbox to return a functional (CONTRL) acknowledgment to the interchange sender The acknowledgment is sent to the interchange sender based on the Send Settings for the agreement. |
-
-### Schemas
-
-| Property | Description |
-| --- | --- |
-| UNH2.1 (TYPE) |Select a transaction set type. |
-| UNH2.2 (VERSION) |Enter the message version number. (Minimum, one character; maximum, three characters). |
-| UNH2.3 (RELEASE) |Enter the message release number. (Minimum, one character; maximum, three characters). |
-| UNH2.5 (ASSOCIATED ASSIGNED CODE) |Enter the assigned code. (Maximum, six characters. Must be alphanumeric). |
-| UNG2.1 (APP SENDER ID) |Enter an alphanumeric value with a minimum of one character and a maximum of 35 characters. |
-| UNG2.2 (APP SENDER CODE QUALIFIER) |Enter an alphanumeric value, with a maximum of four characters. |
-| SCHEMA |Select the previously uploaded schema you want to use from your associated integration account. |
-
-### Control Numbers
-| Property | Description |
-| --- | --- |
-| Disallow Interchange Control Number duplicates |To block duplicate interchanges, select this property. If selected, the EDIFACT Decode Action checks that the interchange control number (UNB5) for the received interchange does not match a previously processed interchange control number. If a match is detected, then the interchange is not processed. |
-| Check for duplicate UNB5 every (days) |If you chose to disallow duplicate interchange control numbers, you can specify the number of days when to perform the check by giving the appropriate value for this setting. |
-| Disallow Group control number duplicates |To block interchanges with duplicate group control numbers (UNG5), select this property. |
-| Disallow Transaction set control number duplicates |To block interchanges with duplicate transaction set control numbers (UNH1), select this property. |
-| EDIFACT Acknowledgement Control Number |To designate the transaction set reference numbers for use in an acknowledgment, enter a value for the prefix, a range of reference numbers, and a suffix. |
-
-### Validations
-
-When you complete each validation row, another is automatically added. 
-If you don't specify any rules, then validation uses the "Default" row.
-
-| Property | Description |
-| --- | --- |
-| Message Type |Select the EDI message type. |
-| EDI Validation |Perform EDI validation on data types as defined by the schema's EDI properties, length restrictions, empty data elements, and trailing separators. |
-| Extended Validation |If the data type isn't EDI, validation is on the data element requirement and allowed repetition, enumerations, and data element length validation (min/max). |
-| Allow Leading/Trailing Zeroes |Retain any additional leading or trailing zero and space characters. Don't remove these characters. |
-| Trim Leading/Trailing Zeroes |Remove leading or trailing zero and space characters. |
-| Trailing Separator Policy |Generate trailing separators. <p>Select **Not Allowed** to prohibit trailing delimiters and separators in the received interchange. If the interchange has trailing delimiters and separators, the interchange is declared not valid. <p>Select **Optional** to accept interchanges with or without trailing delimiters and separators. <p>Select **Mandatory** when the received interchange must have trailing delimiters and separators. |
-
-### Internal Settings
-
-| Property | Description |
-| --- | --- |
-| Create empty XML tags if trailing separators are allowed |Select this check box to have the interchange sender include empty XML tags for trailing separators. |
-| Split Interchange as transaction sets - suspend transaction sets on error|Parses each transaction set in an interchange into a separate XML document by applying the appropriate envelope to the transaction set. Suspend only the transaction sets that fail validation. |
-| Split Interchange as transaction sets - suspend interchange on error|Parses each transaction set in an interchange into a separate XML document by applying the appropriate envelope. Suspend the entire interchange when one or more transaction sets in the interchange fail validation. | 
-| Preserve Interchange - suspend transaction sets on error |Leaves the interchange intact, creates an XML document for the entire batched interchange. Suspend only the transaction sets that fail validation, while continuing to process all other transaction sets. |
-| Preserve Interchange - suspend interchange on error |Leaves the interchange intact, creates an XML document for the entire batched interchange. Suspend the entire interchange when one or more transaction sets in the interchange fail validation. |
-
-## Configure how your agreement sends messages
-
-You can configure how this agreement identifies and handles outgoing 
-messages that you send to your partners through this agreement.
-
-1.	Under **Add**, select **Send Settings**.
-Configure these properties based on your agreement 
-with your partner who exchanges messages with you. 
-For property descriptions, see the tables in this section.
-
-	**Send Settings** is organized into these sections: 
-	Identifiers, Acknowledgment, Schemas, Envelopes, 
-	Character Sets and Separators, Control Numbers, and Validations.
-
-	![Configure "Send Settings"](./media/logic-apps-enterprise-integration-edifact/edifact-3.png)    
-
-2. After you're done, 
-make sure to save your settings by choosing **OK**.
-
-Now your agreement is ready to handle outgoing 
-messages that conform to your selected settings.
-
-### Identifiers
-
-| Property | Description |
-| --- | --- |
-| UNB1.2 (Syntax version) |Select a value between **1** and **4**. |
-| UNB2.3 (Sender Reverse Routing Address) |Enter an alphanumeric value with a minimum of one character and a maximum of 14 characters. |
-| UNB3.3 (Recipient Reverse Routing Address) |Enter an alphanumeric value with a minimum of one character and a maximum of 14 characters. |
-| UNB6.1 (Recipient Reference Password) |Enter an alphanumeric value with a minimum of one and a maximum of 14 characters. |
-| UNB6.2 (Recipient Reference Qualifier) |Enter an alphanumeric value with a minimum of one character and a maximum of two characters. |
-| UNB7 (Application Reference ID) |Enter an alphanumeric value with a minimum of one character and a maximum of 14 characters |
-
-### Acknowledgment
-| Property | Description |
-| --- | --- |
-| Receipt of Message (CONTRL) |Select this checkbox if the hosted partner expects to receive a technical (CONTRL) acknowledgment. This setting specifies that the hosted partner, who is sending the message, requests an acknowledgement from the guest partner. |
-| Acknowledgement (CONTRL) |Select this checkbox if the hosted partner expects to receive a functional (CONTRL) acknowledgment. This setting specifies that the hosted partner, who is sending the message, requests an acknowledgement from the guest partner. |
-| Generate SG1/SG4 loop for accepted transaction sets |If you chose to request a functional acknowledgement, select this checkbox to force generation of SG1/SG4 loops in functional CONTRL acknowledgments for accepted transaction sets. |
-
-### Schemas
-| Property | Description |
-| --- | --- |
-| UNH2.1 (TYPE) |Select a transaction set type. |
-| UNH2.2 (VERSION) |Enter the message version number. |
-| UNH2.3 (RELEASE) |Enter the message release number. |
-| SCHEMA |Select the schema to use. Schemas are located in your integration account. To access your schemas, first link your integration account to your Logic app. |
-
-### Envelopes
-| Property | Description |
-| --- | --- |
-| UNB8 (Processing Priority Code) |Enter an alphabetical value that is not more than one character long. |
-| UNB10 (Communication Agreement) |Enter an alphanumeric value with a minimum of one character and a maximum of 40 characters. |
-| UNB11 (Test Indicator) |Select this checkbox to indicate that the interchange generated is test data |
-| Apply UNA Segment (Service String Advice) |Select this checkbox to generate a UNA segment for the interchange to be sent. |
-| Apply UNG Segments (Function Group Header) |Select this checkbox to create grouping segments in the functional group header in the messages sent to the guest partner. The following values are used to create the UNG segments: <p>For **UNG1**, enter an alphanumeric value with a minimum of one character and a maximum of six characters. <p>For **UNG2.1**, enter an alphanumeric value with a minimum of one character and a maximum of 35 characters. <p>For **UNG2.2**, enter an alphanumeric value, with a maximum of four characters. <p>For **UNG3.1**, enter an alphanumeric value with a minimum of one character and a maximum of 35 characters. <p>For **UNG3.2**, enter an alphanumeric value, with a maximum of four characters. <p>For **UNG6**, enter an alphanumeric value with a minimum of one and a maximum of three characters. <p>For **UNG7.1**, enter an alphanumeric value with a minimum of one character and a maximum of three characters. <p>For **UNG7.2**, enter an alphanumeric value with a minimum of one character and a maximum of three characters. <p>For **UNG7.3**, enter an alphanumeric value with a minimum of 1 character and a maximum of 6 characters. <p>For **UNG8**, enter an alphanumeric value with a minimum of one character and a maximum of 14 characters. |
-
-### Character Sets and Separators
-
-Other than the character set, you can enter a different set of delimiters to be used for each message type. 
-If a character set is not specified for a given message schema, then the default character set is used.
-
-| Property | Description |
-| --- | --- |
-| UNB1.1 (System Identifier) |Select the EDIFACT character set to be applied on the outgoing interchange. |
-| Schema |Select a schema from the drop-down list. After you complete each row, a new row is automatically added. For the selected schema, select the separators set that you want to use, based on the separator descriptions below. |
-| Input Type |Select an input type from the drop-down list. |
-| Component Separator |To separate composite data elements, enter a single character. |
-| Data Element Separator |To separate simple data elements within composite data elements, enter a single character. |
-| Segment Terminator |To indicate the end of an EDI segment, enter a single character. |
-| Suffix |Select the character that is used with the segment identifier. If you designate a suffix, then the segment terminator data element can be empty. If the segment terminator is left empty, then you must designate a suffix. |
-
-### Control Numbers
-| Property | Description |
-| --- | --- |
-| UNB5 (Interchange Control Number) |Enter a prefix, a range of values for the interchange control number, and a suffix. These values are used to generate an outgoing interchange. The prefix and suffix are optional, while the control number is required. The control number is incremented for each new message; the prefix and suffix remain the same. |
-| UNG5 (Group Control Number) |Enter a prefix, a range of values for the interchange control number, and a suffix. These values are used to generate the group control number. The prefix and suffix are optional, while the control number is required. The control number is incremented for each new message until the maximum value is reached; the prefix and suffix remain the same. |
-| UNH1 (Message Header Reference Number) |Enter a prefix, a range of values for the interchange control number, and a suffix. These values are used to generate the message header reference number. The prefix and suffix are optional, while the reference number is required. The reference number is incremented for each new message; the prefix and suffix remain the same. |
-
-### Validations
-
-When you complete each validation row, another is automatically added. 
-If you don't specify any rules, then validation uses the "Default" row.
-
-| Property | Description |
-| --- | --- |
-| Message Type |Select the EDI message type. |
-| EDI Validation |Perform EDI validation on data types as defined by the EDI properties of the schema, length restrictions, empty data elements, and trailing separators. |
-| Extended Validation |If the data type isn't EDI, validation is on the data element requirement and allowed repetition, enumerations, and data element length validation (min/max). |
-| Allow Leading/Trailing Zeroes |Retain any additional leading or trailing zero and space characters. Don't remove these characters. |
-| Trim Leading/Trailing Zeroes |Remove leading or trailing zero characters. |
-| Trailing Separator Policy |Generate trailing separators. <p>Select **Not Allowed** to prohibit trailing delimiters and separators in the sent interchange. If the interchange has trailing delimiters and separators, the interchange is declared not valid. <p>Select **Optional** to send interchanges with or without trailing delimiters and separators. <p>Select **Mandatory** if the sent interchange must have trailing delimiters and separators. |
-
-## Find your created agreement
-
-1.	After you finish setting all your agreement properties, 
-on the **Add** page, choose **OK** to finish creating your agreement 
-and return to your integration account.
-
-	Your newly added agreement now appears in your **Agreements** list.
-
-2.	You can also view your agreements in your integration account overview. 
-On your integration account menu, choose **Overview**, then select the **Agreements** tile. 
-
-	![Choose "Agreements" tile](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
-
-## View Swagger file
-To view the Swagger details for the EDIFACT connector, see [EDIFACT](/connectors/edifact/).
-
-## Learn more
-* [Learn more about the Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  
+  * Check the group control number against other group control numbers in the interchange.
 
+  * Check the transaction set control number against other transaction set control numbers in that group.
+
+* Split the interchange into transaction sets, or preserve the entire interchange, for example:
+
+  * Split Interchange as transaction sets - suspend transaction sets on error.
+
+    The decoding action splits the interchange into transaction sets and parses each transaction set. The action outputs only those transaction sets that fail validation to `badMessages`, and outputs the remaining transactions sets to `goodMessages`.
+
+  * Split Interchange as transaction sets - suspend interchange on error.
+
+    The decoding action splits the interchange into transaction sets and parses each transaction set. If one or more transaction sets in the interchange fail validation, the action outputs all the transaction sets in that interchange to `badMessages`.
+
+  * Preserve Interchange - suspend transaction sets on error.
+
+    The decoding action preserves the interchange and processes the entire batched interchange. The action outputs only those transaction sets that fail validation to `badMessages`, and outputs the remaining transactions sets to `goodMessages`.
+
+  * Preserve Interchange - suspend interchange on error.
+
+    The decoding action preserves the interchange and processes the entire batched interchange. If one or more transaction sets in the interchange fail validation, the action outputs all the transaction sets in that interchange to `badMessages`.
+
+* Generate a technical acknowledgment, functional acknowledgment, or both, if configured.
+
+  * A technical acknowledgment or the CONTRL ACK, which reports the results from a syntactical check on the complete received interchange.
+
+  * A functional acknowledgment that acknowledges the acceptance or rejection for the received interchange or group.
+
+## Prerequisites
+
+* An Azure account and subscription. If you don't have a subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+* An [integration account resource](logic-apps-enterprise-integration-create-integration-account.md) where you define and store artifacts, such as trading partners, agreements, certificates, and so on, for use in your enterprise integration and B2B workflows. This resource has to meet the following requirements:
+
+  * Both your integration account and logic app resource must exist in the same Azure subscription and Azure region.
+
+  * Defines at least two [trading partners](logic-apps-enterprise-integration-partners.md) that participate in the **EDIFACT** operation used in your workflow. The definitions for both partners must use the same *business identity* qualifier, which is **ZZZ - Mutually Defined** for this scenario.
+
+  * Defines an [EDIFACT agreement](logic-apps-enterprise-integration-agreements.md) between the trading partners that participate in your workflow. Each agreement requires a host partner and a guest partner. The content in the messages between you and the other partner must match the agreement type. For information about agreement settings to use when receiving and sending messages, see [EDIFACT message settings](logic-apps-enterprise-integration-edifact-message-settings.md).
+
+    > [!IMPORTANT]
+    >
+    > The EDIFACT connector supports only UTF-8 characters. If your output contains 
+    > unexpected characters, check that your EDIFACT messages use the UTF-8 character set.
+
+* Based on whether you're working on a Consumption or Standard logic app workflow, your logic app resource might require a link to your integration account:
+
+  | Logic app workflow | Link required? |
+  |--------------------|----------------|
+  | Consumption | Connection to integration account required, but no link required. You can create the connection when you add the **EDIFACT** operation to your workflow. |
+  | Standard | Connection to integration account required, but no link required. You can create the connection when you add the **EDIFACT** operation to your workflow. |
+
+* The logic app resource and workflow where you want to use the EDIFACT operations.
+
+  For more information, see the following documentation:
+
+  * [Create an example Consumption logic app workflow in multi-tenant Azure Logic Apps](quickstart-create-example-consumption-workflow.md)
+
+  * [Create an example Standard logic app workflow in single-tenant Azure Logic Apps](create-single-tenant-workflows-azure-portal.md)
+
+<a name="encode"></a>
+
+## Encode EDIFACT messages
+
+### [Consumption](#tab/consumption)
+
+1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
+
+1. In the designer, [follow these general steps to add the **EDIFACT** action named **Encode to EDIFACT message by agreement name** to your workflow](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
+
+   > [!NOTE]
+   >
+   > If you want to use **Encode to EDIFACT message by identities** action instead, 
+   > you later have to provide different values, such as the **Sender identifier** 
+   > and **Receiver identifier** that's specified by your EDIFACT agreement. 
+   > You also have to specify the **XML message to encode**, which can be the output 
+   > from the trigger or a preceding action.
+
+1. When prompted, provide the following connection information for your integration account:
+
+   | Property | Required | Description |
+   |----------|----------|-------------|
+   | **Connection name** | Yes | A name for the connection |
+   | **Integration account** | Yes | From the list of available integration accounts, select the account to use. |
+
+   For example:
+
+   ![Screenshot showing the "Encode to EDIFACT message by agreement name" connection pane.](./media/logic-apps-enterprise-integration-edifact/create-edifact-encode-connection-consumption.png)
+
+1. When you're done, select **Create**.
+
+1. In the EDIFACT action information box, provide the following property values:
+
+   | Property | Required | Description |
+   |----------|----------|-------------|
+   | **Name of EDIFACT agreement** | Yes | The EDIFACT agreement to use. |
+   | **XML message to encode** | Yes | The business identifier for the message sender as specified by your EDIFACT agreement |
+   | Other parameters | No | This operation includes the following other parameters: <p>- **Data element separator** <br>- **Release indicator** <br>- **Component separator** <br>- **Repetition separator** <br>- **Segment terminator** <br>- **Segment terminator suffix** <br>- **Decimal indicator** <p>For more information, review [EDIFACT message settings](logic-apps-enterprise-integration-edifact-message-settings.md). |
+
+   For example, the XML message payload can be the **Body** content output from the Request trigger:
+
+   ![Screenshot showing the "Encode to EDIFACT message by agreement name" operation with the message encoding properties.](./media/logic-apps-enterprise-integration-edifact/encode-edifact-message-agreement-consumption.png)
+
+### [Standard](#tab/standard)
+
+1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
+
+1. In the designer, [follow these general steps to add the **EDIFACT** action named **Encode to EDIFACT message by agreement name** to your workflow](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
+
+   > [!NOTE]
+   >
+   > If you want to use **Encode to EDIFACT message by identities** action instead, 
+   > you later have to provide different values, such as the **Sender identifier** 
+   > and **Receiver identifier** that's specified by your EDIFACT agreement. 
+   > You also have to specify the **XML message to encode**, which can be the output 
+   > from the trigger or a preceding action.
+
+1. When prompted, provide the following connection information for your integration account:
+
+   | Property | Required | Description |
+   |----------|----------|-------------|
+   | **Connection name** | Yes | A name for the connection |
+   | **Integration account** | Yes | From the list of available integration accounts, select the account to use. |
+
+   For example:
+
+   ![Screenshot showing the "Encode to EDIFACT message by parameter name" connection pane.](./media/logic-apps-enterprise-integration-edifact/create-edifact-encode-connection-standard.png)
+
+1. When you're done, select **Create**.
+
+1. In the EDIFACT action information box, provide the following property values:
+
+   | Property | Required | Description |
+   |----------|----------|-------------|
+   | **Name of EDIFACT agreement** | Yes | The EDIFACT agreement to use. |
+   | **XML message to encode** | Yes | The business identifier for the message sender as specified by your EDIFACT agreement |
+   | Other parameters | No | This operation includes the following other parameters: <p>- **Data element separator** <br>- **Release indicator** <br>- **Component separator** <br>- **Repetition separator** <br>- **Segment terminator** <br>- **Segment terminator suffix** <br>- **Decimal indicator** <p>For more information, review [EDIFACT message settings](logic-apps-enterprise-integration-edifact-message-settings.md). |
+
+   For example, the message payload is the **Body** content output from the Request trigger:
+
+   ![Screenshot showing the "Encode to EDIFACT message by parameter name" operation with the message encoding properties.](./media/logic-apps-enterprise-integration-edifact/encode-edifact-message-agreement-standard.png)
+
+---
+
+<a name="decode"></a>
+
+## Decode EDIFACT messages
+
+### [Consumption](#tab/consumption)
+
+1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
+
+1. In the designer, [follow these general steps to add the **EDIFACT** action named **Decode EDIFACT message** to your workflow](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
+
+1. When prompted, provide the following connection information for your integration account:
+
+   | Property | Required | Description |
+   |----------|----------|-------------|
+   | **Connection name** | Yes | A name for the connection |
+   | **Integration account** | Yes | From the list of available integration accounts, select the account to use. |
+
+   For example:
+
+   ![Screenshot showing the "Decode EDIFACT message" connection pane.](./media/logic-apps-enterprise-integration-edifact/create-edifact-decode-connection-consumption.png)
+
+1. When you're done, select **Create**.
+
+1. In the EDIFACT action information box, provide the following property values:
+
+   | Property | Required | Description |
+   |----------|----------|-------------|
+   | **EDIFACT flat file message to decode** | Yes | The XML flat file message to decode. |
+   | Other parameters | No | This operation includes the following other parameters: <p>- **Component separator** <br>- **Data element separator** <br>- **Release indicator** <br>- **Repetition separator** <br>- **Segment terminator** <br>- **Segment terminator suffix** <br>- **Decimal indicator** <br>- **Payload character set** <br>- **Segment terminator suffix** <br>- **Preserve Interchange** <br>- **Suspend Interchange On Error** <p>For more information, review [EDIFACT message settings](logic-apps-enterprise-integration-edifact-message-settings.md). |
+
+   For example, the XML message payload to decode can be the **Body** content output from the Request trigger:
+
+   ![Screenshot showing the "Decode EDIFACT message" operation with the message decoding properties.](./media/logic-apps-enterprise-integration-edifact/decode-edifact-message-consumption.png)
+
+### [Standard](#tab/standard)
+
+1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
+
+1. In the designer, [follow these general steps to add the **EDIFACT** action named **Decode EDIFACT message** to your workflow](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
+
+1. When prompted, provide the following connection information for your integration account:
+
+   | Property | Required | Description |
+   |----------|----------|-------------|
+   | **Connection name** | Yes | A name for the connection |
+   | **Integration account** | Yes | From the list of available integration accounts, select the account to use. |
+
+   For example:
+
+   ![Screenshot showing the "Decode EDIFACT message" connection pane.](./media/logic-apps-enterprise-integration-edifact/create-edifact-decode-connection-standard.png)
+
+1. When you're done, select **Create**.
+
+1. In the EDIFACT action information box, provide the following property values:
+
+   | Property | Required | Description |
+   |----------|----------|-------------|
+   | **Name of EDIFACT agreement** | Yes | The EDIFACT agreement to use. |
+   | **XML message to encode** | Yes | The business identifier for the message sender as specified by your EDIFACT agreement |
+   | Other parameters | No | This operation includes the following other parameters: <p>- **Data element separator** <br>- **Release indicator** <br>- **Component separator** <br>- **Repetition separator** <br>- **Segment terminator** <br>- **Segment terminator suffix** <br>- **Decimal indicator** <p>For more information, review [EDIFACT message settings](logic-apps-enterprise-integration-edifact-message-settings.md). |
+
+   For example, the message payload is the **Body** content output from the Request trigger:
+
+   ![Screenshot showing the "Decode EDIFACT message" operation with the message decoding properties.](./media/logic-apps-enterprise-integration-edifact/decode-edifact-message-standard.png)
+
+---
+
+## Handle UNH2.5 segments in EDIFACT documents
+
+In an EDIFACT document, the [UNH2.5 segment](logic-apps-enterprise-integration-edifact-message-settings.md#receive-settings-schemas) is used for schema lookup. For example, in this sample EDIFACT message, the UNH field is `EAN008`:
+
+`UNH+SSDD1+ORDERS:D:03B:UN:EAN008`
+
+To handle an EDIFACT document or process an EDIFACT message that has a UN2.5 segment, follow these steps:
+
+1. Update or deploy a schema that has the UNH2.5 root node name.
+
+   For example, suppose the schema root name for the sample UNH field is `EFACT_D03B_ORDERS_EAN008`. For each `D03B_ORDERS` that has a different UNH2.5 segment, you have to deploy an individual schema.
+
+1. In the [Azure portal](https://portal.azure.com), add the schema to your integration account resource or logic app resource, based on whether you have a Consumption or Standard logicapp workflow respectively.
+
+1. Whether you're using the EDIFACT decoding or encoding action, upload your schema and set up the schema settings in your EDIFACT agreement's **Receive Settings** or **Send Settings** sections respectively.
+
+1. To edit your EDIFACT agreement, on the **Agreements** pane, select your agreement. On the **Agreements** pane's toolbar, select **Edit as JSON**.
+
+   * In the agreement's `receiveAgreement` section, find the `schemaReferences` section, and add the UNH2.5 value.
+
+     ![Screenshot showing the Azure portal with an EDIFACT agreement's "receiveAgreement" section in the JSON editor, and the "schemaReferences" section is highlighted.](./media/logic-apps-enterprise-integration-edifact/agreement-receive-schema-references.png)
+
+   * In the agreement's `sendAgreement`section, find the `schemaReferences` section, and add the UNH2.5 value.
+
+     ![Screenshot showing the Azure portal with an EDIFACT agreement's "sendAgreement" section in the JSON editor, and the "schemaReferences" section is highlighted.](./media/logic-apps-enterprise-integration-edifact/agreement-send-schema-references.png)
+
+## Next steps
+
+* [EDIFACT message settings](logic-apps-enterprise-integration-edifact-message-settings.md)

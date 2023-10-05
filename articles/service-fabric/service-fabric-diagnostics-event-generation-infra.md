@@ -1,21 +1,12 @@
 ---
-title: Azure Service Fabric Platform Level Monitoring | Microsoft Docs
+title: Azure Service Fabric Platform Level Monitoring 
 description: Learn about platform level events and logs used to monitor and diagnose Azure Service Fabric clusters.
-services: service-fabric
-documentationcenter: .net
-author: srrengar
-manager: chackdan
-editor: ''
-
-ms.assetid:
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 11/21/2018
-ms.author: srrengar
-
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Monitoring the cluster
@@ -84,14 +75,14 @@ If you need to contact Microsoft support for help with your Azure Service Fabric
 
 ## Measuring performance
 
-Measure performance of your cluster will help you understand how it is able to handle load and drive decisions around scaling your cluster (see more about scaling a cluster [on Azure](service-fabric-cluster-scale-up-down.md), or [on-premises](service-fabric-cluster-windows-server-add-remove-nodes.md)). Performance data is also useful when compared to actions you or your applications and services may have taken, when analyzing logs in the future. 
+Measure performance of your cluster will help you understand how it is able to handle load and drive decisions around scaling your cluster (see more about scaling a cluster [on Azure](service-fabric-cluster-scale-in-out.md), or [on-premises](service-fabric-cluster-windows-server-add-remove-nodes.md)). Performance data is also useful when compared to actions you or your applications and services may have taken, when analyzing logs in the future. 
 
 For a list of performance counters to collect when using Service Fabric, see [Performance Counters in Service Fabric](service-fabric-diagnostics-event-generation-perf.md)
 
 Here are two common ways in which you can set up collecting performance data for your cluster:
 
 * **Using an agent**  
-This is the preferred way of collecting performance from a machine, since agents usually have a list of possible performance metrics that can be collected, and it is a relatively easy process to choose the metrics you want to collect or change. The Read about the Azure Monitor offering Azure Monitor logs in Service Fabric's [Azure Monitor logs integration](service-fabric-diagnostics-event-analysis-oms.md) and [Setting up the Log Analytics agent](../log-analytics/log-analytics-windows-agent.md) to learn more about the Log Analytics agent, which is one such monitoring agent that is able to pick up performance data for cluster VMs and deployed containers.
+This is the preferred way of collecting performance from a machine, since agents usually have a list of possible performance metrics that can be collected, and it is a relatively easy process to choose the metrics you want to collect or change. The Read about the Azure Monitor offering Azure Monitor logs in Service Fabric's [Azure Monitor logs integration](service-fabric-diagnostics-event-analysis-oms.md) and [Setting up the Log Analytics agent](../azure-monitor/agents/agent-windows.md) to learn more about the Log Analytics agent, which is one such monitoring agent that is able to pick up performance data for cluster VMs and deployed containers.
 
 * **Performance counters to Azure Table Storage**  
 You can also send performance metrics to the same table storage as the events. This requires changing the Azure Diagnostics configuration to pick up the appropriate performance counters from the VMs in your cluster, and enabling it to pick up docker stats if you will be deploying any containers. Read about configuring [Performance Counters in WAD](service-fabric-diagnostics-event-aggregation-wad.md) in Service Fabric to set up performance counter collection.

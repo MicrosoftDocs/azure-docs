@@ -1,63 +1,66 @@
 ---
-title: Copy files from multiple containers by using Azure Data Factory | Microsoft Docs
+title: Copy files from multiple containers
 description: Learn how to use a solution template to copy files from multiple containers by using Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: dearandyxu
 ms.author: yexu
-ms.reviewer: douglasl
-manager: craigg
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.subservice: tutorials
 ms.topic: conceptual
-ms.date: 11/1/2018
+ms.custom: seo-lt-2019
+ms.date: 08/10/2023
 ---
-# Copy files from multiple containers with Azure Data Factory
 
-This article describes a solution template that you can use to copy files from multiple containers between file stores. For example, you can use it to migrate your data lake from AWS S3 to Azure Data Lake Store. Or, you could use the template to replicate everything from one Azure Blob storage account to another.
+# Copy multiple folders with Azure Data Factory
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+This article describes a solution template that you can use multiple copy activities to copy containers or folders between file-based stores, where each copy activity is supposed to copy single container or folder. 
 
 > [!NOTE]
 > If you want to copy files from a single container, it's more efficient to use the [Copy Data Tool](copy-data-tool.md) to create a pipeline with a single copy activity. The template in this article is more than you need for that simple scenario.
 
 ## About this solution template
 
-This template enumerates the containers from your source storage store. It then copies those containers to the destination store.
+This template enumerates the folders from a given parent folder on your source storage store. It then copies each of the folders to the destination store.
 
 The template contains three activities:
-- **GetMetadata** scans your source storage store and gets the container list.
-- **ForEach** gets the container list from the **GetMetadata** activity and then iterates over the list and passes each container to the Copy activity.
-- **Copy** copies each container from the source storage store to the destination store.
+- **GetMetadata** scans your source storage store and gets the subfolder list from a given parent folder.
+- **ForEach** gets the subfolder list from the **GetMetadata** activity and then iterates over the list and passes each folder to the Copy activity.
+- **Copy** copies each folder from the source storage store to the destination store.
 
-The template defines two parameters:
-- *SourceFilePath* is the path of your data source store, where you can get a list of the containers. In most cases, the path is the root directory, which contains multiple container folders. The default value of this parameter is `/`.
-- *DestinationFilePath* is the path where the files will be copied to in your destination store. The default value of this parameter is `/`.
+The template defines the following parameters:
+- *SourceFileFolder* is part the parent folder path of your data source store: *SourceFileFolder/SourceFileDirectory*, where you can get a list of the subfolders. 
+- *SourceFileDirectory* is part the parent folder path of your data source store: *SourceFileFolder/SourceFileDirectory*, where you can get a list of the subfolders. 
+- *DestinationFileFolder* is part the parent folder path: *DestinationFileFolder/DestinationFileDirectory* where the files will be copied to your destination store. 
+- *DestinationFileDirectory* is part the parent folder path: *DestinationFileFolder/DestinationFileDirectory* where the files will be copied to your destination store. 
+
+If you want to copy multiple containers under root folders between storage stores, you can input all four parameters as */*. By doing so, you will replicate everything between storage stores.
 
 ## How to use this solution template
 
 1. Go to the **Copy multiple files containers between File Stores** template. Create a **New** connection to your source storage store. The source storage store is where you want to copy files from multiple containers from.
 
-    ![Create a new connection to the source](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image1.png)
+    :::image type="content" source="media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image-1.png" alt-text="Create a new connection to the source":::
 
 2. Create a **New** connection to your destination storage store.
 
-    ![Create a new connection to the destination](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image2.png)
+    :::image type="content" source="media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image-2.png" alt-text="Create a new connection to the destination":::
 
 3. Select **Use this template**.
 
-    ![Use this template](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image3.png)
+    :::image type="content" source="media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image-3.png" alt-text="Use this template":::
 	
 4. You'll see the pipeline, as in the following example:
 
-    ![Show the pipeline](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image4.png)
+    :::image type="content" source="media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image-4.png" alt-text="Show the pipeline":::
 
 5. Select **Debug**, enter the **Parameters**, and then select **Finish**.
 
-    ![Run the pipeline](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image5.png)
+    :::image type="content" source="media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image-5.png" alt-text="Run the pipeline":::
 
 6. Review the result.
 
-    ![Review the result](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image6.png)
+    :::image type="content" source="media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image-6.png" alt-text="Review the result":::
 
 ## Next steps
 

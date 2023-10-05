@@ -1,65 +1,154 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure VPN Gateway Documentation
+### YamlMime:Landing
+
+title: VPN Gateway documentation # < 60 chars
+summary: Learn how to configure, create, and manage an Azure VPN gateway. Create encrypted cross-premises connections to your virtual network from on-premises locations, or create encrypted connections between VNets. # < 160 chars
+
 metadata:
-  document_id:
-  title: VPN Gateway Documentation - Tutorials, API references | Microsoft Docs
-  meta.description: Learn how to configure, create, and manage an Azure VPN gateway. Create encrypted cross-premises connections to your virtual network from on-premises locations, or create encrypted connections between VNets.
+  title: VPN Gateway documentation
+  description: Learn how to configure, create, and manage an Azure VPN gateway.
   services: vpn-gateway
-  author: cherylmc
-  manager: jeconnoc
   ms.service: vpn-gateway
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 04/26/2018
+  author: cherylmc
   ms.author: cherylmc
-abstract:
-  description: Learn how to configure, create, and manage an Azure VPN gateway. Create encrypted cross-premises connections to your virtual network from on-premises locations, or create encrypted connections between VNets.
-sections:
-- title: Step-by-Step Tutorials
-  items:
-  - type: paragraph
-    text: Learn how to create, configure, and manage Azure VPN gateways.
-  - type: list
-    style: unordered
-    className: spaced noBullet
-    items:
-    - html: <a href="/azure/vpn-gateway/vpn-gateway-tutorial-create-gateway-powershell">Create and manage a VPN gateway</a>
-- title: Free Pluralsight Video Training
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
-    items:
-    - title: Azure Administrator
-      href: https://go.microsoft.com/fwlink/?linkid=2012827
-      image: 
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://go.microsoft.com/fwlink/?linkid=2012827
-    - title: Azure Solution Architect
-      href: https://go.microsoft.com/fwlink/?linkid=2012824
-      image: 
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://go.microsoft.com/fwlink/?linkid=2012824
-- title: Samples
-  items:
-  - type: paragraph
-    text: Script samples for common tasks.
-  - type: list
-    style: unordered
-    className: spaced noBullet
-    items:
-    - html: <a href="/azure/vpn-gateway/powershell-samples">PowerShell</a>
-- title: Reference
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Command-Line
-      html: <p><a href="/powershell/module/az.network#vpn">PowerShell</a></p><p><a href="/cli/azure/network/vnet-gateway">Azure CLI</a></p>
-    - title: Languages
-      html: <p><a href="/dotnet/api/overview/azure/virtual-network">.NET</a></p><p><a href="/java/api/overview/azure/network">Java</a></p><p><a href="/javascript/api/overview/azure/virtual-network">Node.js</a></p><p><a href="/python/api/overview/azure/network">Python</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/network-gateway/">REST API Reference</a></p>
+  ms.date: 08/30/2022
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About VPN Gateway
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is VPN Gateway?
+            url: vpn-gateway-about-vpngateways.md
+      - linkListType: concept
+        links:
+          - text: VPN Gateway FAQ
+            url: vpn-gateway-vpn-faq.md
+          - text: About VPN Gateway connections and topology
+            url: design.md
+          - text: About zone-redundant gateways
+            url: about-zone-redundant-vnet-gateways.md
+          - text: About BGP and VPN Gateway
+            url: vpn-gateway-bgp-overview.md
+      - linkListType: learn
+        links:
+          - text: Introduction to Azure VPN Gateway
+            url: /training/modules/intro-to-azure-vpn-gateway/
+          - text: Connect your on-premises network to Azure with VPN Gateway
+            url: /training/modules/connect-on-premises-network-with-vpn-gateway/
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Create and manage a VPN gateway
+            url: tutorial-create-gateway-portal.md
+
+  # Card
+  - title: Point-to-site VPNs
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: About point-to-site VPNs
+            url: point-to-site-about.md
+          - text: About point-to-site VPN routing
+            url: vpn-gateway-about-point-to-site-routing.md
+      - linkListType: how-to-guide
+        links:
+          - text: Certificate authentication
+            url: vpn-gateway-howto-point-to-site-resource-manager-portal.md
+          - text: RADIUS authentication
+            url: point-to-site-how-to-radius-ps.md
+          - text: Azure AD authentication
+            url: openvpn-azure-ad-tenant.md
+          - text: Multiple authentication types
+            url: howto-point-to-site-multi-auth.md
+
+# Card
+  - title: Site-to-site VPNs
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Create a site-to-site configuration
+            url: tutorial-site-to-site-portal.md
+      - linkListType: how-to-guide
+        links:
+          - text: Configure BGP
+            url: bgp-howto.md
+          - text: Configure forced tunneling
+            url: vpn-gateway-forced-tunneling-rm.md
+          - text: Configure active-active gateways
+            url: active-active-portal.md
+
+  # Card
+  - title: VPN devices
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: VPN devices for site-to-site connections
+            url: vpn-gateway-about-vpn-devices.md
+      - linkListType: how-to-guide
+        links:
+          - text: Configure VPN devices
+            url: vpn-gateway-3rdparty-device-config-overview.md
+          - text: Download device configuration scripts
+            url: vpn-gateway-download-vpndevicescript.md
+
+  # Card
+  - title: Manage
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: About configuration settings
+            url: vpn-gateway-about-vpn-gateway-settings.md
+          - text: Gateway SKUs
+            url: vpn-gateway-about-vpn-gateway-settings.md#gwsku
+      - linkListType: how-to-guide
+        links:
+          - text: Verify a VPN gateway
+            url: vpn-gateway-verify-connection-resource-manager.md
+          - text: Delete a VPN gateway
+            url: vpn-gateway-delete-vnet-gateway-portal.md
+          - text: Modify a local network gateway
+            url: vpn-gateway-modify-local-network-gateway-portal.md
+
+  # Card
+  - title: Learn about VPN Gateway architecture
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: Virtual network peering and VPN gateways
+            url: /azure/architecture/reference-architectures/hybrid-networking/vnet-peering/
+      - linkListType: concept
+        links:
+          - text: Troubleshoot a hybrid VPN connection
+            url: /azure/architecture/reference-architectures/hybrid-networking/troubleshoot-vpn/
+
+  # Card
+  - title: Security and monitoring
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Security controls
+            url: ./security-baseline.md
+      - linkListType: how-to-guide
+        links:
+          - text: Monitoring and alerts
+            url: monitor-vpn-gateway.md
+            
+  # Card
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure CLI
+            url: /cli/azure/network/vnet-gateway
+          - text: Azure PowerShell
+            url: /powershell/module/az.network#vpn
+          - text: REST
+            url: /rest/api/network-gateway

@@ -1,8 +1,8 @@
-- name: Analysis Services Documentation
-  href: index.md
+- name: Azure Analysis Services Documentation
+  href: index.yml
 - name: Overview
   items:
-  - name: What is Analysis Services?
+  - name: What is Azure Analysis Services?
     href: analysis-services-overview.md
 - name: Quickstarts
   items:
@@ -10,6 +10,14 @@
     href: analysis-services-create-server.md
   - name: Create a server - PowerShell
     href: analysis-services-create-powershell.md
+  - name: Create a server - Bicep
+    displayName: Resource Manager, ARM, Bicep
+    href: analysis-services-create-bicep-file.md
+  - name: Create a server - ARM template
+    displayName: Resource Manager
+    href: analysis-services-create-template.md
+  - name: Create a server - Terraform
+    href: analysis-services-create-terraform.md
   - name: Configure server firewall - Portal
     href: analysis-services-qs-firewall.md
 - name: Tutorials
@@ -27,17 +35,25 @@
   - name: Automation with service principals
     href: analysis-services-service-principal.md
   - name: Client libraries
-    href: analysis-services-data-providers.md
+    href: /analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true
   - name: Compatibility level
-    href: analysis-services-compat-level.md
+    href: /analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services?view=azure-analysis-services-current&preserve-view=true
   - name: Connecting to on-premises data sources
     href: analysis-services-gateway.md
   - name: Connecting to servers
     href: analysis-services-connect.md
   - name: High availability
     href: analysis-services-bcdr.md
+  - name: Long running operations
+    href: analysis-services-long-operations.md
   - name: Supported data sources
     href: analysis-services-datasource.md
+  - name: Network connectivity FAQ
+    href: analysis-services-network-faq.yml
+  - name: Security
+    items:
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/azure-analysis-services-security-baseline?toc=/azure/analysis-services/TOC.json
 - name: How-to
   items:
   - name: Server
@@ -64,13 +80,17 @@
       href: ../active-directory/develop/howto-authenticate-service-principal-powershell.md
     - name: Add a service principal to server administrator role
       href: analysis-services-addservprinc-admins.md
+    - name: Move between regions
+      href: move-between-regions.md
   - name: Model
     items:
-    - name: Deploy from Visual Studio (SSDT)
+    - name: Tabular modeling
+      href: /analysis-services/tabular-models/tabular-models-ssas
+    - name: Deploy from Visual Studio
       href: analysis-services-deploy.md
     - name: Refresh with REST API
       href: analysis-services-async-refresh.md
-    - name: Refresh with Logic Apps 
+    - name: Refresh with Logic Apps
       href: analysis-services-refresh-logic-app.md
     - name: Refresh with Azure Automation
       href: analysis-services-refresh-azure-automation.md
@@ -93,17 +113,17 @@
   - name: PowerShell
     href: analysis-services-powershell.md
   - name: REST
-    href: /rest/api/analysisservices
+    href: /rest/api/analysisservices/
   - name: Resource Manager template
     href: /azure/templates/microsoft.analysisservices/servers
   - name: DAX
-    href: https://msdn.microsoft.com/library/gg413422.aspx
+    href: /dax/
   - name: Power Query M
-    href: https://msdn.microsoft.com/library/mt211003.aspx
+    href: /powerquery-m/
   - name: Tabular Model Scripting Language (TMSL)
-    href: https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference
+    href: /analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference?view=azure-analysis-services-current&preserve-view=true
   - name: Tabular Object Model (TOM)
-    href: https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo
+    href: /analysis-services/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo?view=azure-analysis-services-current&preserve-view=true
   - name: Resource and object limits
     href: analysis-services-capacity-limits.md
 - name: Resources
@@ -111,15 +131,13 @@
   - name: Samples
     href: analysis-services-samples.md
   - name: Analysis Services team blog
-    href: https://blogs.msdn.microsoft.com/analysisservices/
-  - name: Azure Analysis Services forum
-    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAnalysisServices
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=intelligence-analytics
+    href: https://powerbi.microsoft.com/blog/category/analysis-services/
+  - name: Azure updates
+    href: https://azure.microsoft.com/updates/?query=Analysis%20Services
   - name: Azure status
-    href: https://azure.microsoft.com/status/
+    href: https://azure.status.microsoft/
   - name: Feedback
-    href: https://feedback.azure.com/forums/556165-azure-analysis-services
+    href: https://feedback.azure.com/d365community/forum/d92323a0-0525-ec11-b6e6-000d3a4f0858
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/analysis-services/
   - name: Pricing calculator

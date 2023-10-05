@@ -1,22 +1,14 @@
 ---
-title: Configure your Azure Service Fabric standalone cluster | Microsoft Docs
+title: Configure your Azure Service Fabric standalone cluster 
 description: Learn how to configure your standalone or on-premises Azure Service Fabric cluster.
-services: service-fabric
-documentationcenter: .net
-author: dkkapur
-manager: chackdan
-editor: ''
-
-ms.assetid: 0c5ec720-8f70-40bd-9f86-cd07b84a219d
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
 ms.service: service-fabric
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/12/2018
-ms.author: dekapur
-
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Configuration settings for a standalone Windows cluster
 This article describes configuration settings of a standalone Azure Service Fabric cluster that can be set in the *ClusterConfig.json* file. You will use this file to specify information about the cluster's nodes, security configurations, as well as the network topology in terms of fault and upgrade domains.  After changing or adding configuration settings, you can either [create a standalone cluster](service-fabric-cluster-creation-for-windows-server.md) or [upgrade the configuration of a standalone cluster](service-fabric-cluster-config-upgrade-windows-server.md).
 
@@ -94,7 +86,7 @@ In the diagnosticsStore section, you can configure parameters to enable diagnost
 }
 ```
 
-The metadata is a description of your cluster diagnostics and can be set according to your setup. These variables help in collecting ETW trace logs and crash dumps as well as performance counters. For more information on ETW trace logs, see [Tracelog](https://msdn.microsoft.com/library/windows/hardware/ff552994.aspx) and [ETW tracing](https://msdn.microsoft.com/library/ms751538.aspx). All logs, including [crash dumps](https://blogs.technet.microsoft.com/askperf/2008/01/08/understanding-crash-dump-files/) and [performance counters](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx), can be directed to the connectionString folder on your machine. You also can use AzureStorage to store diagnostics. See the following sample snippet:
+The metadata is a description of your cluster diagnostics and can be set according to your setup. These variables help in collecting ETW trace logs and crash dumps as well as performance counters. For more information on ETW trace logs, see [Tracelog](/windows-hardware/drivers/devtest/tracelog) and [ETW tracing](/dotnet/framework/wcf/samples/etw-tracing). All logs, including [crash dumps](https://techcommunity.microsoft.com/t5/ask-the-performance-team/bg-p/AskPerf) and [performance counters](/windows/win32/perfctrs/performance-counters-portal), can be directed to the connectionString folder on your machine. You also can use AzureStorage to store diagnostics. See the following sample snippet:
 
 ```json
 "diagnosticsStore": {
@@ -128,7 +120,7 @@ The nodeTypes section describes the type of nodes that your cluster has. At leas
     "name": "NodeType0",
     "clientConnectionEndpointPort": "19000",
     "clusterConnectionEndpointPort": "19001",
-    "leaseDriverEndpointPort": "19002"
+    "leaseDriverEndpointPort": "19002",
     "serviceConnectionEndpointPort": "19003",
     "httpGatewayEndpointPort": "19080",
     "reverseProxyEndpointPort": "19081",
@@ -198,6 +190,7 @@ To configure add-on features, configure the apiVersion as 04-2017 or higher, and
     ]
 }
 ```
+All available add-on features can be seen in the [Service Fabric REST API Reference](/rest/api/servicefabric/sfrp-model-addonfeatures).
 
 ### Container support
 To enable container support for both Windows Server containers and Hyper-V containers for standalone clusters, the DnsService add-on feature must be enabled.
@@ -208,4 +201,3 @@ After you have a complete *ClusterConfig.json* file configured according to your
 If you have a stand alone cluster deployed, you can also [upgrade the configuration of a standalone cluster](service-fabric-cluster-config-upgrade-windows-server.md). 
 
 Learn how to [visualize your cluster with Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
-

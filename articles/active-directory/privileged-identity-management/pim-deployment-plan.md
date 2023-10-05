@@ -1,411 +1,326 @@
 ---
-title: Deploy Privileged Identity Management (PIM) - Azure Active Directory | Microsoft Docs
-description: Describes how to plan the deployment of Azure AD Privileged Identity Management (PIM).
+title: Plan a Privileged Identity Management deployment
+description: Learn how to deploy Privileged Identity Management (PIM) in your Microsoft Entra organization.
 services: active-directory
 documentationcenter: ''
-author: rolyon
-manager: mtillman
+author: barclayn
+manager: amycolannino
 editor: ''
-
 ms.service: active-directory
-ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 02/08/2019
-ms.author: rolyon
-ms.custom: 
+ms.topic: conceptual
+ms.date: 09/12/2023
+ms.author: barclayn
+ms.reviewer: shaunliu
+ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
 
-# Deploy Azure AD Privileged Identity Management (PIM)
+# Plan a Privileged Identity Management deployment
 
-This step-by-step guide describes how to plan the deployment of Azure Active Directory (Azure AD) Privileged Identity Management (PIM) in your organization.
+**Privileged Identity Management (PIM)** provides a time-based and approval-based role activation to mitigate the risks of excessive, unnecessary, or misused access permissions to important resources. These resources include resources in Microsoft Entra ID, Azure, and other Microsoft Online Services such as Microsoft 365 or Microsoft Intune.
 
-> [!TIP]
-> Throughout this document, you will see items marked as:
-> 
-> :heavy_check_mark: **Microsoft recommends**
-> 
-> These are general recommendations, and you should only implement if they apply to your specific enterprise needs.
+PIM enables you to allow a specific set of actions at a particular scope. Key features include:
 
-## Step 1. Learn about PIM
+* Provide **just-in-time** privileged access to resources
 
-Azure AD Privileged Identity Management (PIM) helps you to manage privileged administrative roles across Azure AD, Azure resources, and other Microsoft Online Services. In a world where privileged identities are assigned and forgotten, PIM provides solutions like just-in-time access, request approval workflows, and fully integrated access reviews so you can identify, uncover, and prevent malicious activities of privileged roles in real time. Deploying PIM to manage your privileged roles throughout your organization will greatly reduce risk while surfacing valuable insights about the activities of your privileged roles.
+* Assign **eligibility for membership or ownership** of PIM for Groups
 
-### Business value of PIM
+* Assign **time-bound** access to resources using start and end dates
 
-**Manage risk** - Secure your organization by enforcing the principle of [least privilege access](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) and just-in-time access. By minimizing the number of permanent assignments of users to privileged roles and enforcing approvals and MFA for elevation, you can greatly reduce security risks related to privileged access in your organization. Enforcing least privilege and just-in-time access will also allow you to view a history of access to privileged roles and track down security issues as they happen.
+* Require **approval** to activate privileged roles
 
-**Address compliance and governance** - Deploying PIM creates an environment for on-going identity governance. Just-in-time elevation of privileged identities provides a way for PIM to keep track of privileged access activities in your organization. You will also be able to view and receive notifications for all assignments of permanent and eligible roles inside your organization. Through access review, you can regularly audit and remove unnecessary privileged identities and make sure your organization is compliant with the most rigorous identity, access, and security standards.
+* Enforce **multifactor authentication** to activate any role
 
-**Reduce costs** - Reduce costs by eliminating inefficiencies, human error, and security issues by deploying PIM correctly. The net result is a reduction of cyber crimes associated with privileged identities, which are costly and difficult to recover from. PIM will also help your organization reduce cost associated with auditing access information when it comes to complying with regulations and standards.
+* Use **justification** to understand why users activate
 
-For more information, see [What is Azure AD Privileged Identity Management?](pim-configure.md).
+* Get **notifications** when privileged roles are activated
 
-### Licensing requirements
+* Conduct **access reviews** to ensure users still need roles
 
-To use PIM, your directory must have one of the following paid or trial licenses:
+* Download **audit history** for internal or external audit
 
-- Azure AD Premium P2
-- Enterprise Mobility + Security (EMS) E5
-- Microsoft 365 M5
+To gain the most from this deployment plan, it’s important that you get a complete overview of [What is Privileged Identity Management](pim-configure.md).
 
-For more information, see [License requirements to use PIM](subscription-requirements.md).
+## Understand PIM
 
-### Key PIM terminology
+The PIM concepts in this section will help you understand your organization’s privileged identity requirements.
 
-| Term or concept | Description |
-| --- | --- |
-| eligible | A role assignment that requires a user to perform one or more actions to use the role. If a user has been made eligible for a role, that means they can activate the role when they need to perform privileged tasks. There's no difference in the access given to someone with a permanent versus an eligible role assignment. The only difference is that some people don't need that access all the time. |
-| activate | The process of performing one or more actions to use a role that a user is eligible for. Actions might include performing a multi-factor authentication (MFA) check, providing a business justification, or requesting approval from designated approvers. |
-| just-in-time (JIT) access | A model in which users receive temporary permissions to perform privileged tasks, which prevents malicious or unauthorized users from gaining access after the permissions have expired. Access is granted only when users need it. |
-| principle of least privilege access | A recommended security practice in which every user is provided with only the minimum privileges needed to accomplish the tasks they are authorized to perform. This practice minimizes the number of Global Administrators and instead uses specific administrator roles for certain scenarios. |
+### What can you manage in PIM
 
-For more information, see [Terminology](pim-configure.md#terminology).
+Today, you can use PIM with:
 
-### High-level overview of how PIM works
+* **Microsoft Entra roles** – Sometimes referred to as directory roles, Microsoft Entra roles include built-in and custom roles to manage Microsoft Entra ID and other Microsoft 365 online services.
 
-1. PIM is set up so that users are eligible for privileged roles.
-1. When an eligible user needs to use their privileged role, they activate the role in PIM.
-1. Depending on the PIM settings configured for the role, the user must complete certain steps (such as performing multi-factor authentication, getting approval, or specifying a reason.)
-1. Once the user successfully activates their role, they will get the role for a pre-configured time period.
-1. Administrators can view a history of all PIM activities in the audit log. They can also further secure their tenants and meet compliance using PIM features like access reviews and alerts.
+* **Azure roles** – The role-based access control (RBAC) roles in Azure that grants access to management groups, subscriptions, resource groups, and resources.
 
-For more information, see [What is Azure AD Privileged Identity Management?](pim-configure.md).
+* **PIM for Groups** – To set up just-in-time access to member and owner role of a Microsoft Entra security group. PIM for Groups not only gives you an alternative way to set up PIM for Microsoft Entra roles and Azure roles, but also allows you to set up PIM for other permissions across Microsoft online services like Intune, Azure Key Vaults, and Azure Information Protection. 
 
-### Roles that can be managed by PIM
+You can assign the following to these roles or groups: 
 
-**Azure AD roles** – These roles are all in Azure Active Directory (such as Global Administrator, Exchange Administrator, and Security Administrator). You can read more about the roles and their functionality in [Administrator role permissions in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md). For help with determining which roles to assign your administrators, see [least privileged roles by task](../users-groups-roles/roles-delegate-by-task.md).
+* **Users**- To get just-in-time access to Microsoft Entra roles, Azure roles, and PIM for Groups. 
 
-**Azure resource roles** – These roles are linked to an Azure resource, resource group, subscription, or management group. PIM provides just-in-time access to both built-in roles like Owner, User Access Administrator, and Contributor, as well as [custom roles](../../role-based-access-control/custom-roles.md). For more information about Azure resource roles, see [role-based access control (RBAC)](../../role-based-access-control/overview.md).
+* **Groups**- Anyone in a group to get just-in-time access to Microsoft Entra roles and Azure roles. For Microsoft Entra roles, the group must be a newly created cloud group that’s marked as assignable to a role while for Azure roles, the group can be any Microsoft Entra security group. We don't recommend assigning/nesting a group to a PIM for Groups. 
 
-For more information, see [Roles you cannot manage in PIM](pim-roles.md).
+> [!NOTE] 
+>You cannot assign service principals as eligible to Microsoft Entra roles, Azure roles, and PIM for Groups but you can grant a time limited active assignment to all three.
 
-## Step 2. Plan your deployment
+### Principle of least privilege
 
-This section focuses on what you need to do before deploying PIM in your organization. It is essential to follow the instructions and understand the concepts in this section as they will guide you to create the best plan tailored for your organization’s privileged identities.
+You assign users the role with the [least privileges necessary to perform their tasks](../roles/delegate-by-task.md). This practice minimizes the number of Global Administrators and instead uses specific administrator roles for certain scenarios.
 
-### Identify your stakeholders
+> [!NOTE] 
+> Microsoft has very few Global Administrators. Learn more at [how Microsoft uses Privileged Identity Management](https://www.microsoft.com/itshowcase/Article/Content/887/Using-Azure-AD-Privileged-Identity-Management-for-elevated-access).
 
-The following section helps you identify all the stakeholders that are involved in the project and need to sign off, review, or stay informed. It includes separate tables for deploying PIM for Azure AD roles and PIM for Azure resource roles. Add stakeholders to the following table as appropriate for your organization.
+### Type of assignments 
 
-- SO = Sign off on this project
-- R = Review this project and provide input
-- I = Informed of this project
+There are two types of assignment – **eligible** and **active**. If a user has been made eligible for a role, that means they can activate the role when they need to perform privileged tasks. 
 
-#### Stakeholders: PIM For Azure AD roles
+You can also set a start and end time for each type of assignment. This addition gives you four possible types of assignments:
 
-| Name | Role | Action |
+* Permanent eligible
+
+* Permanent active
+
+* Time-bound eligible, with specified start and end dates for assignment
+
+* Time-bound active, with specified start and end dates for assignment
+
+In case the role expires, you can **extend** or **renew** these assignments. 
+
+**We recommend** you keep zero permanently active assignments for roles other than the recommended [two break-glass emergency access accounts](../roles/security-emergency-access.md), which should have the permanent Global Administrator role. 
+
+## Plan the project
+
+When technology projects fail, it’s typically because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you’re engaging the right stakeholders](../architecture/deployment-plans.md) and that stakeholder roles in the project are well understood.
+
+### Plan a pilot
+
+At each stage of your deployment ensure that you are evaluating that the results are as expected. See [best practices for a pilot](../architecture/deployment-plans.md#best-practices-for-a-pilot).
+
+* Start with a small set of users (pilot group) and verify that the PIM behaves as expected.
+
+* Verify whether all the configuration you set up for the roles or PIM for Groups are working correctly. 
+
+* Roll it to production only after it’s thoroughly tested. 
+
+### Plan communications
+
+Communication is critical to the success of any new service. Proactively communicate with your users how their experience changes, when it changes, and how to gain support if they experience issues.
+
+Set up time with your internal IT support to walk them through the PIM workflow. Provide them with the appropriate documentations and your contact information.
+
+## Plan testing and rollback
+
+> [!NOTE] 
+> For Microsoft Entra roles, organizations often test and roll out Global Administrators first, while for Azure resources, they usually test PIM one Azure subscription at a time. 
+
+### Plan testing
+
+Create test users to verify PIM settings work as expected before you impact real users and potentially disrupt their access to apps and resources. Build a test plan to have a comparison between the expected results and the actual results. 
+
+The following table shows an example test case: 
+
+| Role| Expected behavior during activation| Actual results |
 | --- | --- | --- |
-| Name and email | **Identity architect or Azure Global Administrator**<br/>A representative from the identity management team in charge of defining how this change is aligned with the core identity management infrastructure in your organization. | SO/R/I |
-| Name and email | **Service owner / Line manager**<br/>A representative from the IT owners of a service or a group of services. They are key in making decisions and helping to roll out PIM for their team. | SO/R/I |
-| Name and email | **Security owner**<br/>A representative from the security team that can sign off that the plan meets the security requirements of your organization. | SO/R |
-| Name and email | **IT support manager / Helpdesk**<br/>A representative from the IT support organization who can provide input on the supportability of this change from a helpdesk perspective. | R/I |
-| Name and email for pilot users | **Privileged role users**<br/>The group of users for which privileged identity management is implemented. They will need to know how to activate their roles once PIM is implemented. | I |
+|Global Administrator| <li> Require MFA <br><li>  Require Approval <br><li>  Approver receives notification and can approve <br><li>  Role expires after preset time|
 
-#### Stakeholders: PIM For Azure resource roles
+For both Microsoft Entra ID and Azure resource role, make sure that you have users represented who will take those roles. In addition, consider the following roles when you test PIM in your staged environment:
 
-| Name | Role | Action |
-| --- | --- | --- |
-| Name and email | **Subscription / Resource owner**<br/>A representative from the IT owners of each subscription or resource that you want to deploy PIM for | SO/R/I |
-| Name and email | **Security owner**<br/>A representative from the security team that can sign off that the plan meets the security requirements of your organization. | SO/R |
-| Name and email | **IT support manager / Helpdesk**<br/>A representative from the IT support organization who can provide input on the supportability of this change from a helpdesk perspective. | R/I |
-| Name and email for pilot users | **RBAC role users**<br/>The group of users for which privileged identity management is implemented. They will need to know how to activate their roles once PIM is implemented. | I |
+| Roles| Microsoft Entra roles| Azure Resource roles| PIM for Groups |
+| --- | --- | --- |--- |
+| Member of a group| | | x |
+| Members of a role| x| x|  |
+| IT service owner| x| | x |
+| Subscription or resource owner| | x| x |
+| PIM for Groups owner| | | x |
 
-### Enable PIM
+### Plan rollback
 
-As part of the planning process, you must first consent to and enable PIM by following our [start using PIM document](pim-getting-started.md). Enabling PIM gives you access to some features that are specifically designed to help with your deployment.
+If PIM fails to work as desired in the production environment, you can change the role assignment from eligible to active once again. For each role that you’ve configured, select the ellipsis **(…)** for all users with assignment type as **eligible**. You can then select the **Make active** option to go back and make the role assignment **active**.
 
-If your objective is to deploy PIM for Azure resources, you should follow our [discover Azure resources to manage in PIM document](pim-resource-roles-discover-resources.md). Only owners of each resource, resource group, and subscription will be able to discover them inside PIM. If you are a Global Administrator trying to deploy PIM for your Azure resources, you can [elevate access to manage all Azure subscriptions](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json) to give yourself access to all Azure resources in the directory for discovery. However, we advise that you get approval from each of your subscription owners before managing their resources with PIM.
+<a name='plan-and-implement-pim-for-azure-ad-roles'></a>
 
-### Enforce principle of least privilege
+## Plan and implement PIM for Microsoft Entra roles
 
-It is important to make sure that you have enforced the principle of least privilege in your organization for both your Azure AD and your Azure resource roles.
+Follow these tasks to prepare PIM to manage Microsoft Entra roles. 
 
-#### Azure AD roles
+### Discover and mitigate privileged roles
 
-For Azure AD roles, it is common for organizations to assign the Global Administrator role to a significant number of administrators when most administrators only need one or two specific administrator roles. Privileged role assignments also tend to be left unmanaged.
+List who has privileged roles in your organization. Review the users assigned, identify administrators who no longer need the role, and remove them from their assignments. 
 
-> [!NOTE]
-> Common pitfalls in role delegation:
->
-> - The administrator in charge of Exchange is given the Global Administrator role even though they only need the Exchange Administrator role to perform their day to day job.
-> - The Global Administrator role is assigned to an Office administrator because the administrator needs both Security and SharePoint administrator roles and it is easier to just delegate one role.
-> - The administrator was assigned a Security Administrator role to perform a task long ago, but was never removed.
+You can use [Microsoft Entra roles access reviews](./pim-create-roles-and-resource-roles-review.md) to automate the discovery, review, and approval or removal of assignments.
 
-Follow these steps to enforce the principle of least privilege for your Azure AD roles.
+### Determine roles to be managed by PIM
 
-1. Understand the granularity of the roles by reading and understanding the [available Azure AD administrator roles](../users-groups-roles/directory-assign-admin-roles.md#available-roles). You and your team should also reference [administrator roles by identity task in Azure AD](../users-groups-roles/roles-delegate-by-task.md), which explains the least privileged role for specific tasks.
+Prioritize protecting Microsoft Entra roles that have the most permissions. It’s also important to consider what data and permission are most sensitive for your organization. 
 
-1. List who has privileged roles in your organization. You can use the [PIM wizard](pim-security-wizard.md#run-the-wizard) to get to a page like the following.
+First, ensure that all Global and Security admin roles are managed using PIM because they’re the users who can do the most harm when compromised. Then consider more roles that should be managed that could be vulnerable to attack.
 
-    ![Discover privileged roles](./media/pim-deployment-plan/discover-privileged-roles-users.png)
+<a name='configure-pim-settings-for-azure-ad-roles'></a>
 
-1. For all Global Administrators in your organization, find out why they need the role. Based on reading the previous documentation, if the person’s job can be performed by one or more granular administrator roles, you should remove them from the Global Administrator role and make assignments accordingly inside Azure Active Directory (As a reference: Microsoft currently only has about 10 administrators with the Global Administrator role. Learn more at [how Microsoft uses PIM](https://www.microsoft.com/itshowcase/Article/Content/887/Using-Azure-AD-Privileged-Identity-Management-for-elevated-access)).
+### Configure PIM settings for Microsoft Entra roles
 
-1. For all other Azure AD roles, review the list of assignments, identify administrators who no longer need the role, and remove them from their assignments.
+[Draft and configure your PIM settings](pim-how-to-change-default-settings.md) for every privileged Microsoft Entra role that your organization uses. 
 
-To automate steps 3 and 4, you can utilize the access review function inside PIM. Following the steps in [start an access review for Azure AD roles in PIM](pim-how-to-start-security-review.md), you can set up an access review for every Azure AD role that has one or more members.
+The following table shows example settings:
 
-![Create an access review](./media/pim-deployment-plan/create-access-review.png)
+| Role| Require MFA| Notification| Incident ticket| Require approval| Approver| Activation duration| Perm admin |
+| --- | --- | --- |--- |--- |--- |--- |--- |
+| Global Administrator| :heavy_check_mark:| :heavy_check_mark:| :heavy_check_mark:| :heavy_check_mark:| Other Global Administrator| 1 Hour| Emergency access accounts |
+| Exchange Admin| :heavy_check_mark:| :heavy_check_mark:| :x:| :x:| None| 2 Hour| None |
+| Helpdesk Admin| :x:| :x:| :heavy_check_mark:| :x:| None| 8 Hour| None |
 
-You should set the reviewers to **Members (self)**. This will send out an email to all members in the role to get them to confirm whether they need the access. You should also turn on **Require reason on approval** in the advanced settings so that users can state why they need the role. Based on this information, you will be able to remove users from unnecessary roles and delegate more granular administrator roles in the case of Global Administrators.
 
-Access reviews rely on emails to notify people to review their access to the roles. If you have privileged accounts that don’t have emails linked, be sure to populate the secondary email field on those accounts. For more information, see [proxyAddresses attribute in Azure AD](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad).
+<a name='assign-and-activate-azure-ad-roles-'></a>
 
-#### Azure resource roles
+### Assign and activate Microsoft Entra roles 
 
-For Azure subscriptions and resources, you can set up a similar Access review process to review the roles in each subscription or resource. The goal of this process is to minimize Owner and User Access Administrator assignments attached to each subscription or resource as well as to remove unnecessary assignments. However, organizations often delegate such tasks to the owner of each subscription or resource because they have a better understanding of the specific roles (especially custom roles).
+For Microsoft Entra roles in PIM, only a user who is in the Privileged Role Administrator or Global Administrator role can manage assignments for other administrators. Global Administrators, Security Administrators, Global Readers, and Security Readers can also view assignments to Microsoft Entra roles in PIM. 
 
-If you are an IT administrator with the Global Administrator role trying to deploy PIM for Azure resources in your organization, you can [elevate access to manage all Azure subscriptions](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json) to get access to each subscription. You can then find each subscription owner and work with them to remove unnecessary assignments and minimize owner role assignment.
+Follow the instructions in the links below:
 
-Users with the Owner role for an Azure subscription can also utilize [access reviews for Azure resources](pim-resource-roles-start-access-review.md) to audit and remove unnecessary role assignments similar to the process described earlier for Azure AD roles.
+1. [Give eligible assignments](pim-how-to-add-role-to-user.md).
 
-### Decide which role assignments should be protected by PIM
+1. [Allow eligible users to activate their Microsoft Entra role just-in-time](pim-how-to-activate-role.md)
 
-After cleaning up privileged role assignments in your organization, you will need to decide which roles to protect with PIM.
+When role nears its expiration, use [PIM to extend or renew the roles](pim-resource-roles-renew-extend.md). Both user-initiated actions require an approval from a Global administrator or Privileged role administrator.
 
-If a role is protected by PIM, eligible users assigned to it must elevate to use the privileges granted by the role. The elevation process may also include obtaining approval, performing multi-factor authentication, and/or providing a reason why they are activating. PIM can also track elevations through notifications and the PIM and Azure AD audit event logs.
+When these important events occur in Microsoft Entra roles, PIM [sends email notifications and weekly digest emails](pim-email-notifications.md) to privilege administrators depending on the role, event, and notification settings. These emails might also include links to relevant tasks, such activating or renewing a role. 
 
-Choosing which roles to protect with PIM can be difficult and will be different for each organization. This section provides our best practice advice for Azure AD and Azure resource roles.
+> [!NOTE] 
+>You can also perform these PIM tasks [using the Microsoft Graph APIs for Microsoft Entra roles](pim-apis.md). 
 
-#### Azure AD roles
+### Approve or deny PIM activation requests 
 
-It is important to prioritize protecting Azure AD roles that have the most number of permissions. Based on usage patterns among all PIM customers, the top 10 Azure AD roles managed by PIM are:
+A delegated approver receives an email notification when a request is pending for approval. Follow these steps to [approve or deny requests to activate an Azure resource role](pim-resource-roles-approval-workflow.md).
 
-1. Global administrator
-1. Security administrator
-1. User administrator
-1. Exchange administrator
-1. SharePoint administrator
-1. Intune administrator
-1. Security reader
-1. Service administrator
-1. Billing administrator
-1. Skype for Business administrator
+<a name='view-audit-history-for-azure-ad-roles'></a>
 
-> [!TIP]
-> :heavy_check_mark: **Microsoft recommends** you manage all your Global Administrators and Security Administrators using PIM as a first step as they are the ones that can do the most harm when compromised.
+### View audit history for Microsoft Entra roles
 
-It is important to consider what data and permission are most sensitive for your organization. As an example, some organizations may want to protect their Power BI Administrator role or their Teams Administrator role using PIM as they have the ability to access data and/or change core workflows.
+[View audit history for all role assignments and activations](pim-how-to-use-audit-log.md) within past 30 days for Microsoft Entra roles. You can access the audit logs if you are a Global Administrator or a privileged role administrator. 
 
-If there are any roles with guest users assigned, they are particularly vulnerable to attack.
+**We recommend** you have at least one administrator read through all audit events on a weekly basis and export your audit events on a monthly basis.
 
-> [!TIP]
-> :heavy_check_mark: **Microsoft recommends** you manage all roles with guest users using PIM to reduce risk associated with compromised guest user accounts.
+<a name='security-alerts-for-azure-ad-roles'></a>
 
-Reader roles like the Directory Reader, Message Center Reader, and Security Reader are sometimes believed to be less important compared to other roles as they don’t have write permission. However, we have seen some customers also protect these roles because attackers who have gained access to these accounts may be able to read sensitive data, such as personally identifiable information (PII). You should take this into consideration when deciding whether reader roles in your organization need to be managed using PIM.
+### Security alerts for Microsoft Entra roles
 
-#### Azure resource roles
+[Configure security alerts for the Microsoft Entra roles](pim-how-to-configure-security-alerts.md) which triggers an alert in case of suspicious and unsafe activity.
 
-When deciding which role assignments should be managed using PIM for Azure resource, you must first identify the subscriptions/resources that are most vital for your organization. Examples of such subscriptions/resources are:
+## Plan and implement PIM for Azure Resource roles
 
-- Resources that host the most sensitive data
-- Resources that core, customer-facing applications depend on
+Follow these tasks to prepare PIM to manage Azure resource roles.
 
-If you are a Global Administrator having trouble deciding which subscriptions/resources are most important, you should reach out to subscription owners in your organization to gather a list of resources managed by each subscription. You should then work with the subscription owners to group the resources based on severity level in the case they are compromised (low, medium, high). You should prioritize managing resources with PIM based on this severity level.
+### Discover and mitigate privileged roles
 
-> [!TIP]
-> :heavy_check_mark: **Microsoft recommends** you work with subscription/resource owners of critical services to set up PIM workflow for all roles inside sensitive subscriptions/resources.
+Minimize Owner and User Access Administrator assignments attached to each subscription or resource and remove unnecessary assignments.
 
-PIM for Azure resources supports time-bound service accounts. You should treat service accounts exactly the same as how you would treat a regular user account.
+As a Global Administrator you can [elevate access to manage all Azure subscriptions](../../role-based-access-control/elevate-access-global-admin.md). You can then find each subscription owner and work with them to remove unnecessary assignments within their subscriptions.
 
-For subscriptions/resources that are not as critical, you won’t need to set up PIM for all roles. However, you should still protect the Owner and User Access Administrator roles with PIM.
+Use [access reviews for Azure resources](./pim-create-roles-and-resource-roles-review.md) to audit and remove unnecessary role assignments. 
 
-> [!TIP]
-> :heavy_check_mark: **Microsoft recommends** you manage Owner roles and User Access Administrator roles of all subscriptions/resources using PIM.
+### Determine roles to be managed by PIM
 
-### Decide which role assignments should be permanent or eligible
+When deciding which role assignments should be managed using PIM for Azure resource, you must first identify the [management groups](../../governance/management-groups/overview.md), subscriptions, resource groups, and resources that are most vital for your organization. Consider using management groups to organize all their resources within their organization.
 
-Once you have decided the list of roles to be managed by PIM, you must decide which users should get the eligible role versus the permanently active role. Permanently active roles are the normal roles assigned through Azure Active Directory and Azure resources while eligible roles can only be assigned in PIM.
+**We recommend** you manage all Subscription Owner and User Access Administrator roles using PIM. 
 
-> [!TIP]
-> :heavy_check_mark: **Microsoft recommends** you have zero permanently active assignments for both Azure AD roles and Azure resource roles other than the recommended [two break-glass emergency access accounts](../users-groups-roles/directory-emergency-access.md), which should have the permanent Global Administrator role.
+Work with Subscription owners to document resources managed by each subscription and classify the risk level of each resource if compromised. Prioritize managing resources with PIM based on risk level. This also includes custom resources attached to the subscription.
 
-Even though we recommend zero standing administrator, it is sometimes difficult for organizations to achieve this right away. Here are things to consider when making this decision:
+**We also recommend** you work with Subscription or Resource owners of critical services to set up PIM workflow for all the roles inside sensitive subscriptions or resources.
 
-- Frequency of elevation – If the user only needs the privileged assignment once, they shouldn’t have the permanent assignment. On the other hand, if the user needs the role for their day-to-day job and using PIM would greatly reduce their productivity, they can be considered for the permanent role.
-- Cases specific to your organization – If the person being given the eligible role is from a very distant team or a high-ranking executive to the point that communicating and enforcing the elevation process is difficult, they can be considered for the permanent role.
+For subscriptions or resources that aren’t as critical, you won’t need to set up PIM for all roles. However, you should still protect the Owner and User Access Administrator roles with PIM.
 
-> [!TIP]
-> :heavy_check_mark: **Microsoft recommends** you to set up recurring access reviews for users with permanent role assignments (should you have any). Learn more about recurring access review in the final section of this deployment plan
+### Configure PIM settings for Azure Resource roles
 
-### Draft your PIM settings
+[Draft and configure settings](pim-resource-roles-configure-role-settings.md) for the Azure Resource roles that you’ve planned to protect with PIM. 
 
-Before you implement your PIM solution, it is good practice to draft your PIM settings for every privileged role your organization uses. This section has some examples of PIM settings for particular roles (they are only for reference and might be different for your organization). Each of these settings is explained in detail with Microsoft’s recommendations after the tables.
+The following table shows example settings:
 
-#### PIM settings for Azure AD roles
+| Role| Require MFA| Notification| Require approval| Approver| Activation duration| Active admin| Active expiration| Eligible expiration|
+| --- | --- | --- |--- |--- |--- |--- |---|---|
+| Owner of critical subscriptions| :heavy_check_mark:| :heavy_check_mark:| :heavy_check_mark:| Other owners of the subscription| 1 Hour| None| n/a| 3 months |
+| User Access Administrator of less critical subscriptions| :heavy_check_mark:| :heavy_check_mark:| :x:| None| 1 Hour| None| n/a| 3 months |
 
-| Role | Require MFA | Notification | Incident ticket | Require approval | Approver | Activation Duration | Permanent admin |
-| --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Global Administrator | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Other Global Administrators | 1 Hour | Emergency access accounts |
-| Exchange Administrator | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: | None | 2 Hour | None |
-| Helpdesk Administrator | :x: | :x: | :heavy_check_mark: | :x: | None | 8 Hour | None |
+### Assign and activate Azure Resource role
 
-#### PIM settings for Azure resource roles
+For Azure resource roles in PIM, only an owner or User Access administrator can manage assignments for other administrators. Users who are Privileged Role Administrators, Security Administrators, or Security Readers do not by default have access to view assignments to Azure resource roles.
 
-| Role | Require MFA | Notification | Require approval | Approver | Activation duration | Active admin | Active expiration | Eligible expiration |
-| --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Owner of critical subscriptions | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Other owners of the subscription | 1 Hour | None | n/a | 3 month |
-| User Access Administrator of less critical subscriptions | :heavy_check_mark: | :heavy_check_mark: | :x: | None | 1 Hour | None | n/a | 3 month |
-| Virtual Machine Contributor | :x: | :heavy_check_mark: | :x: | None | 3 Hour | None | n/a | 6 month |
+Follow the instructions in the links below:
 
-The following table describes each of the settings.
+1.[Give eligible assignments](pim-resource-roles-assign-roles.md)
 
-| Setting | Description |
-| --- | --- |
-| Role | Name of the role you are defining the settings for. |
-| Require MFA | Whether the eligible user needs to perform MFA before activating the role.<br/><br/> :heavy_check_mark: **Microsoft recommends** you enforce MFA for all administrator roles, especially if the roles have guest users. |
-| Notification | If set to true, Global Administrator, Privileged Role Administrator, and Security Administrator in the organization will receive an email notification when an eligible user activates the role.<br/><br/>**Note:** Some organizations don’t have an email address tied to their administrator accounts, to get these email notifications, you should go set an alternative email address so administrators will receive these emails. |
-| Incident ticket | Whether the eligible user needs to record an incident ticket number when activating their role. This setting helps an organization identify each activation with an internal incident number to mitigate unwanted activations.<br/><br/> :heavy_check_mark: **Microsoft recommends** taking advantage of incident ticket numbers to tie PIM with your internal system. This is particularly useful for approvers who need context for the activation. |
-| Require approval | Whether the eligible user needs to get approval to activate the role.<br/><br/> :heavy_check_mark: **Microsoft recommends** you to set up approval for roles with the most permission. Based on usage patterns of all PIM customers, Global Administrator, User Administrator, Exchange Administrator, Security Administrator, and Password Administrator are the most common roles with approval setup. |
-| Approver | If approval is required to activate the eligible role, list out the people who should approve the request. By default, PIM sets the approver to be all users who are a privileged role administrator whether they are permanent or eligible.<br/><br/>**Note:** If a user is both eligible for an Azure AD role and an approver of the role, they will not be able to approve themselves.<br/><br/> :heavy_check_mark: **Microsoft recommends** that you choose approvers to be those who are most knowledgeable about the specific role and its frequent users rather than a Global Administrator. |
-| Activation duration | The length of time a user will be activated in the role before it will expire. |
-| Permanent admin | List of users who will be a permanent administrator for the role (never have to activate).<br/><br/> :heavy_check_mark: **Microsoft recommends** you have zero standing administrator for all roles except for Global Administrators. Read more about it in the who should be made eligible and who should be permanently active section of this plan. |
-| Active admin | For Azure resources, active administrator is the list of users who will never have to activate to use the role. This is not referred to as permanent administrator like in Azure AD roles because you can set an expiration time for when the user will lose this role. |
-| Active expiration | An active role assignment for Azure resource roles expire after this configured time period. You can choose from 15 days, 1 month, 3 month, 6 month, 1 year or permanently active. |
-| Eligible expiration | An eligible role assignment for Azure resource roles expire after this configured time period. You can choose from 15 days, 1 month, 3 month, 6 month, 1 year or permanently eligible. |
+2.[Allow eligible users to activate their Azure roles just-in-time](pim-resource-roles-activate-your-roles.md)
 
-## Step 3. Implement your solution
+When privileged role assignment nears its expiration, [use PIM to extend or renew the roles](pim-resource-roles-renew-extend.md). Both user-initiated actions require an approval from the resource owner or User Access administrator. 
 
-The foundation of proper planning is the basis upon which you can deploy an application successfully with Azure Active Directory.  It provides intelligent security and integration that simplifies onboarding while reducing the time for successful deployments.  This combination ensures that your application is integrated with ease while mitigating down time for your end users.
+When these important events occur in Azure resource roles, PIM sends [email notifications](pim-email-notifications.md) to Owners and Users Access Administrators. These emails might also include links to relevant tasks, such activating or renewing a role.
 
-### Identify test users
+>[!NOTE]
+>You can also perform these PIM tasks [using the Microsoft Azure Resource Manager APIs for Azure resource roles](pim-apis.md). 
 
-Use this section to identify a set of users and or groups of users to validate the implementation. Based on the settings that you selected in the planning section, identify the users that you want to test for each role.
+### Approve or deny PIM activation requests
 
-> [!TIP]
-> :heavy_check_mark: **Microsoft recommends** you make service owners of each Azure AD role to be the test users so they can become familiar with the process and become an internal advocator for the roll out.
+[Approve or deny activation requests for Microsoft Entra role](./pim-approval-workflow.md)- A delegated approver receives an email notification when a request is pending for approval.
 
-In this table, identify the test users that will verify that the settings for each role is working.
+### View audit history for Azure Resource roles
 
-| Role name | Test users |
-| --- | --- |
-| &lt;Role name&gt; | &lt;Users to test the role&gt; |
-| &lt;Role name&gt; | &lt;Users to test the role&gt; |
+[View audit history for all assignments and activations](azure-pim-resource-rbac.md) within past 30 days for Azure resource roles.
 
-### Test implementation
+### Security alerts for Azure Resource roles
 
-Now that you have identified the test users, use this step to configure PIM for your test users. If your organization wants to incorporate PIM workflow into your own internal application instead of using PIM’s user interface inside the Azure portal, all the operations in PIM are also supported through our [graph API](https://docs.microsoft.com/graph/api/resources/privilegedidentitymanagement-root).
+[Configure security alerts for the Azure resource roles](pim-resource-roles-configure-alerts.md) which triggers an alert in case of any suspicious and unsafe activity.
 
-#### Configure PIM for Azure AD roles
+## Plan and implement PIM for PIM for Groups
 
-1. [Configure the Azure AD role settings](pim-how-to-change-default-settings.md) based on what you planned.
+Follow these tasks to prepare PIM to manage PIM for Groups.
 
-1. Navigate to **Azure AD roles**, click **Roles**, and then select the role you just configured.
+### Discover PIM for Groups
 
-1. For the group of test users, if they are already a permanent administrator, you can make them eligible by searching for them and converting them from permanent to eligible by clicking the three dots on their row. If they don’t have the role assignments yet, you can [make a new eligible assignment](pim-how-to-add-role-to-user.md#make-a-user-eligible-for-a-role).
+It may be the case that an individual has five or six eligible assignments to Microsoft Entra roles through PIM. They have to activate each role individually, which can reduce productivity. Worse still, they can also have tens or hundreds of Azure resources assigned to them, which aggravates the problem.
 
-1. Repeat steps 1-3 for all the roles you want to test.
+In this case, you should use PIM for Groups. Create a PIM for Groups and grant it permanent active access to multiple roles. See [Privileged Identity Management (PIM) for Groups (preview)](concept-pim-for-groups.md).
 
-1. Once you have set up the test users, you should send them the link for how to [activate their Azure AD role](pim-how-to-activate-role.md).
+To manage a Microsoft Entra role-assignable group as a PIM for Groups, you must [bring it under management in PIM](groups-discover-groups.md).
 
-#### Configure PIM for Azure resource roles
+### Configure PIM settings for PIM for Groups
 
-1. [Configure the Azure resource role settings](pim-resource-roles-configure-role-settings.md) for a role inside a subscription or resource that you want to test.
+[Draft and configure settings](groups-role-settings.md) for the PIM for Groups that you’ve planned to protect with PIM.
 
-1. Navigate to **Azure resources** for that subscription and click **Roles**, select the role you just configured.
+The following table shows example settings:
 
-1. For the group of test users, if they are already an active administrator, you can make them eligible by searching for them and [update their role assignment](pim-resource-roles-assign-roles.md#update-or-remove-an-existing-role-assignment). If they don’t have the role yet, you can [assign a new role](pim-resource-roles-assign-roles.md#assign-a-role).
+| Role| Require MFA| Notification| Require approval| Approver| Activation duration| Active admin| Active expiration| Eligible expiration |
+| --- | --- | --- |--- |--- |--- |--- |---|---|
+| Owner| :heavy_check_mark:| :heavy_check_mark:| :heavy_check_mark:| Other owners of the resource| One Hour| None| n/a| Three months |
+| Member| :heavy_check_mark:| :heavy_check_mark:| :x:| None| Five Hours| None| n/a| 3 months |
 
-1. Repeat steps 1-3 for all the roles you want to test.
+### Assign eligibility for PIM for Groups
 
-1. Once you have set up the test users, you should send them the link for how to [activate their Azure resource role](pim-resource-roles-activate-your-roles.md).
+You can [assign eligibility to members or owners of the PIM for Groups.](groups-assign-member-owner.md) With just one activation, they will have access to all the linked resources. 
 
-You should use this stage to verify whether all the configuration you set up for the roles are working correctly. Use the following table to document your tests. You should also use this stage to optimize the communication with affected users.
+>[!NOTE] 
+>You can assign the group to one or more Microsoft Entra ID and Azure resource roles in the same way as you assign roles to users. A maximum of 400 role-assignable groups can be created in a single Microsoft Entra organization (tenant).
 
-| Role | Expected behavior during activation | Actual results |
-| --- | --- | --- |
-| Global Administrator | (1) Require MFA<br/>(2) Require Approval<br/>(3) Approver receives notification and can approve<br/>(4) Role expires after preset time |  |
-| Owner of subscription *X* | (1) Require MFA<br/>(2) eligible assignment expires after configured time period |  |
+![Diagram of assign eligibility for PIM for Groups.](media/pim-deployment-plan/pim-for-groups.png)
 
-### Communicate PIM to affected stakeholders
 
-Deploying PIM will introduce additional steps for users of privileged roles. Although PIM greatly reduces security issues associated with privileged identities, the change needs to be effectively communicated before the tenant-wide deployment. Depending on the number of impacted administrators, organizations often elect to create an internal document, a video, or an email about the change. Frequently included in these communications include:
+When group assignment nears its expiration, use [PIM to extend or renew the group assignment](groups-renew-extend.md). This operation requires group owner approval.
 
-- What is PIM
-- What is the benefit for the organization
-- Who will be affected
-- When will PIM be rolled out
-- What additional steps will be required for users to activate their role
-    - You should send links to our documentation:
-    - [Activate Azure AD roles](pim-how-to-activate-role.md)
-    - [Activate Azure resource roles](pim-resource-roles-activate-your-roles.md)
-- Contact information or helpdesk link for any issues associated with PIM
+### Approve or deny PIM activation request
 
-> [!TIP]
-> :heavy_check_mark: **Microsoft recommends** you to set up time with your helpdesk/support team to walk them through the PIM workflow (if your organization has an internal IT support team). Provide them with the appropriate documentations as well as your contact information.
+Configure PIM for Groups members and owners to require approval for activation and choose users or groups from your Microsoft Entra organization as delegated approvers. We recommend selecting two or more approvers for each group to reduce workload for the privileged role administrator. 
 
-### Move to production
+[Approve or deny role activation requests for PIM for Groups](groups-approval-workflow.md). As a delegated approver, you'll receive an email notification when a request is pending for your approval.
 
-Once your testing is complete and successful, move PIM to production by repeating all the steps in the testing phases for all the users of each role you defined in your PIM configuration. For PIM for Azure AD roles, organizations often test and roll out PIM for Global Administrators before testing and rolling out PIM for other roles. Meanwhile for Azure resource, organizations normally test and roll out PIM one Azure subscription at a time.
+### View audit history for PIM for Groups
 
-### In the case a rollback is needed
+[View audit history for all assignments and activations](groups-audit.md) within past 30 days for PIM for Groups.
 
-If PIM failed to work as desired in the production environment, the following rollback steps can assist you to revert back to a known good state before setting up PIM:
+## Next steps
 
-#### Azure AD roles
+* If there is PIM-related issues, see [Troubleshooting a problem with PIM](pim-troubleshoot.md).
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Open **Azure AD Privileged Identity Management**.
-1. Click **Azure AD roles** and then click **Roles**.
-1. For each role that you have configured, click the ellipsis (**...**) for all users with an eligible assignment.
-1. Click the **Make permanent** option to make the role assignment permanent.
-
-#### Azure resource roles
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Open **Azure AD Privileged Identity Management**.
-1. Click **Azure resources** and then click a subscription or resource you want to roll back.
-1. Click **Roles**.
-1. For each role that you have configured, click the ellipsis (**...**) for all users with an eligible assignment.
-1. Click the **Make permanent** option to make the role assignment permanent.
-
-## Step 4. Next steps after deploying PIM
-
-Successfully deploying PIM in production is a significant step forward in terms of securing your organization’s privileged identities. With the deployment of PIM comes additional PIM features that you should use for security and compliance.
-
-### Use PIM alerts to safeguard your privileged access
-
-You should utilize PIM’s built-in alerting functionality to better safeguard your tenant. For more information, see [security alerts](pim-how-to-configure-security-alerts.md#security-alerts). These alerts include: administrators aren’t using privileged roles, roles are being assigned outside of PIM, roles are being activated too frequently and more. To fully protect your organization, you should regularly go through your list of alerts and fix the issues. You can view and fix your alerts the following way:
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Open **Azure AD Privileged Identity Management**.
-1. Click **Azure AD roles** and then click **Alerts**.
-
-> [!TIP]
-> :heavy_check_mark: **Microsoft recommends** you deal with all alerts marked with high severity immediately. For medium and low severity alerts, you should stay informed and make changes if you believe there is a security threat.
-
-If any of the specific alerts aren’t useful or does not apply to your organization, you can always dismiss the alert on the alerts page. You can always revert this dismissal later in the Azure AD settings page.
-
-### Set up recurring access reviews to regularly audit your organization’s privileged identities
-
-Access reviews are the best way for you to ask users assigned with privileged roles or specific reviewers whether each user need the privileged identity. Access reviews are great if you want to reduce attack surface and stay compliant. For more information about starting an access review, see [Azure AD roles access reviews](pim-how-to-start-security-review.md) and [Azure resource roles access reviews](pim-resource-roles-start-access-review.md). For some organizations, performing periodic access review is required to stay compliant with laws and regulations while for others, access review is the best way to enforce the principal of least privilege throughout your organization.
-
-> [!TIP]
-> :heavy_check_mark: **Microsoft recommends** you set up quarterly access reviews for all your Azure AD and Azure resource roles.
-
-In most cases, the reviewer for Azure AD roles is the users themselves while the reviewer for Azure resource roles is the owner of the subscription, which the role is in. However, it is often the case where companies have privileged accounts that are not linked with any particular person’s email address. In those cases, no one reads and reviews the access.
-
-> [!TIP]
-> :heavy_check_mark: **Microsoft recommends** you add a secondary email address for all accounts with privileged role assignments that are not linked to a regularly checked email address
-
-### Get the most out of your audit log to improve security and compliance
-
-The Audit log is the place where you can stay up-to-date and be compliant with regulations. PIM currently stores a 30-day history of all your organization’s history inside its audit log including:
-
-- Activation/deactivation of eligible roles
-- Role assignment activities inside and outside of PIM
-- Changes in role settings
-- Request/approve/deny activities for role activation with approval setup
-- Update to alerts
-
-You can access these audit logs if you are a Global Administrator or a privileged role administrator. For more information, see [audit history for Azure AD roles](pim-how-to-use-audit-log.md) and [audit history for Azure resource roles](azure-pim-resource-rbac.md).
-
-> [!TIP]
-> :heavy_check_mark: **Microsoft recommends** you to have at least one administrator read through all audit events on a weekly basis and export your audit events on a monthly basis.
-
-If you want to automatically store your audit events for a longer period of time, PIM’s audit log is automatically synced into the [Azure AD audit logs](../reports-monitoring/concept-audit-logs.md).
-
-> [!TIP]
-> :heavy_check_mark: **Microsoft recommends** you to set up [Azure log monitoring](../reports-monitoring/concept-activity-logs-azure-monitor.md) to archive audit events in an Azure storage account for the need of security and compliance.
+* [Deploy other identity features](../architecture/deployment-plans.md)

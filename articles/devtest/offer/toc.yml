@@ -1,0 +1,46 @@
+- name: Azure Dev/Test offer Docs
+  href: index.yml
+- name: Overview
+  expanded: true
+  items: 
+    - name: What is the Dev/Test offer?
+      href: overview-what-is-devtest-offer-visual-studio.md
+- name: Quickstart
+  expanded: true
+  items: 
+  - name: Get started with individual Azure Dev/Test credits
+    href: quickstart-individual-credit.md
+  - name: Create an enterprise Dev/Test subscription
+    href: quickstart-create-enterprise-devtest-subscriptions.md    
+- name: Concepts
+  expanded: true
+  items:
+  - name: GitOps & Azure Dev/Test offer
+    href: concepts-gitops-azure-devtest.md  
+  - name: Security & governance
+    href: concepts-security-governance-devtest.md    
+- name: How-to guides
+  expanded: true
+  items:
+  - name: Change directory tenants
+    href: how-to-change-directory-tenants-visual-studio-azure.md
+  - name: Remove credit limits 
+    href: how-to-remove-credit-limits.md
+  - name: Add users to your directory
+    href: how-to-add-users-directory.md
+  - name: Sign into Azure with GitHub
+    href: how-to-sign-into-azure-with-github.md
+  - name: Manage & monitor Dev/Test
+    href: how-to-manage-monitor-devtest.md
+  - name: Manage reliability & performance
+    href: how-to-manage-reliability-performance.md
+  - name: Expired or removed subscriptions
+    href: troubleshoot-expired-removed-subscription.md
+- name: Resources
+  items: 
+    - name: Azure roadmap
+      href: https://azure.microsoft.com/roadmap/
+    - name: Pricing
+      href: https://azure.microsoft.com/pricing/dev-test/ 
+    - name: Regional availability
+      href: https://azure.microsoft.com/regions/services/
