@@ -12,9 +12,9 @@ Syslog is an event logging protocol that's common to Linux. You can use the Sysl
 
 When the Azure Monitor agent for Linux is installed, it configures the local Syslog daemon to forward messages to the agent when Syslog collection is enabled in [data collection rules (DCRs)](../essentials/data-collection-rule-overview.md). Azure Monitor Agent then sends the messages to an Azure Monitor or Log Analytics workspace where a corresponding Syslog record is created in a [Syslog table](/azure/azure-monitor/reference/tables/syslog).
 
-![Diagram that shows Syslog collection.](media/data-sources-syslog/overview.png)
+:::image type="content" source="media/data-sources-syslog/overview.png" lightbox="media/data-sources-syslog/overview.png" alt-text="Diagram that shows Syslog collection.":::
 
-![Diagram that shows Syslog daemon and Azure Monitor Agent communication.](media/azure-monitor-agent/linux-agent-syslog-communication.png)
+:::image type="content" source="media/azure-monitor-agent/linux-agent-syslog-communication.png" lightbox="media/azure-monitor-agent/linux-agent-syslog-communication.png" alt-text="Diagram that shows Syslog daemon and Azure Monitor Agent communication.":::
 
 The following facilities are supported with the Syslog collector:
 * auth

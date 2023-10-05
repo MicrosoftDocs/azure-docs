@@ -118,7 +118,7 @@ For the network requirements for the Linux agent, see [Log Analytics agent overv
 
 Regardless of the installation method used, you need the workspace ID and key for the Log Analytics workspace that the agent will connect to. Select the workspace from the **Log Analytics workspaces** menu in the Azure portal. Under the **Settings** section, select **Agents**.
 
-[![Screenshot that shows workspace details.](media/log-analytics-agent/workspace-details.png)](media/log-analytics-agent/workspace-details.png#lightbox)
+:::image type="content" source="media/log-analytics-agent/workspace-details.png" lightbox="media/log-analytics-agent/workspace-details.png" alt-text="Screenshot that shows workspace details.":::
 
 ## Agent install package
 
