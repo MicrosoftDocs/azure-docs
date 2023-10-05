@@ -44,8 +44,8 @@ If a query on a read replica tries to read a row that is simultaneously being up
 
   **Caveats:**
   * This setting can prevent some necessary cleanup operations on the primary, potentially leading to table bloat (increased disk space usage due to unvacuumed old row versions).
-  * Regular monitoring of the primary's disk space and table sizes is essential.
-  * Be prepared to manage potential table bloat manually if it becomes problematic.
+  * Regular monitoring of the primary's disk space and table sizes is essential. Learn more about monitoring for Azure Database for PostgreSQL - Flexible Server [here](concepts-monitoring.md).
+  * Be prepared to manage potential table bloat manually if it becomes problematic. Consider enabling [autovacuum tuning](how-to-enable-intelligent-performance-portal.md) in Azure Database for PostgreSQL - Flexible Server to help mitigate this issue.
 
 
 
