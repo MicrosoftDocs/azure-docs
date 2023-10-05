@@ -22,9 +22,9 @@ In the provided screenshot, on the left is the primary Azure Database for Postgr
 
 :::image type="content" source="./media/troubleshoot-canceling-statement-due-to-conflict-with-recovery/canceling-statement-due-to-conflict-with-recovery.png" alt-text="Screenshot showing triggering of Canceling statement due to conflict with recovery error":::
 
-* **Read replica console (right)**
+* **Read replica console (right side of the screenshot above)**
   *   We can observe a lengthy `SELECT` statement in progress. A vital aspect to note about SQL is its consistent view of the data. When an SQL statement is executed, it essentially "freezes" its view of the data. Throughout its execution, the SQL statement always see a consistent snapshot of the data, even if changes are occurring concurrently elsewhere.
-* **Primary console (left)**
+* **Primary console (left side of the screenshot above)**
   * An `UPDATE` operation has been executed. While an `UPDATE` by itself doesn't necessarily disrupt the behavior of the read replica, the subsequent operation does. After the update, a `VACUUM` operation (in this case, manually triggered for demonstration purposes, but it's noteworthy that an autovacuum process could also be initiated automatically) is executed.
   * The `VACUUM`'s role is to reclaim space by removing old versions of rows. Given that the read replica is running a lengthy `SELECT` statement, it's currently accessing some of these rows that `VACUUM` targets for removal.
   * These changes initiated by the `VACUUM` operation, which include the removal of rows, get logged into the Write-Ahead Log (`WAL`). As Azure Database for PostgreSQL Flexible Server read replicas utilize native PostgreSQL physical replication, these changes are later sent to the read replica.
