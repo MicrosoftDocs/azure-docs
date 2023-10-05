@@ -189,13 +189,13 @@ To associate the RAM role with the Microsoft Entra user, you must create a role 
       >You can locate the appRoles property by entering `https://graph.microsoft.com/beta/servicePrincipals/<objectID>` in the field of the query. Note that the `objectID` is the object ID you have copied from the Microsoft Entra ID **Properties** page.
 
    1. Go back to the Graph Explorer, change the method from **GET** to **PATCH**, paste the following content into the **Request Body** section, and click **Run Query**:
-    
+
       ```json
       { 
         "appRoles": [
           {
-            "allowedMemberTypes":[
-            "User"
+            "allowedMemberTypes": [
+              "User"
             ],
             "description": "msiam_access",
             "displayName": "msiam_access",
@@ -204,7 +204,7 @@ To associate the RAM role with the Microsoft Entra user, you must create a role 
             "origin": "Application",
             "value": null
           },
-        {
+          {
             "allowedMemberTypes": [
               "User"
             ],
@@ -218,7 +218,7 @@ To associate the RAM role with the Microsoft Entra user, you must create a role 
         ]
       }
       ```
-    
+
       > [!NOTE]
       > The `value` is the ARNs of the IdP and the role you created in the RAM console. Here, you can add multiple roles as needed. Microsoft Entra ID will send the value of these roles as the claim value in SAML response. However, you can only add new roles after the `msiam_access` part for the patch operation. To smooth the creation process, we recommend that you use an ID generator, such as GUID Generator, to generate IDs in real time.
 
