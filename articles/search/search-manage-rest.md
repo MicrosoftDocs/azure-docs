@@ -48,7 +48,7 @@ Management REST API calls are authenticated through Azure Active Directory (Azur
 > [!NOTE]
 > The following steps are borrowed from the [Azure REST APIs with Postman](https://blog.jongallant.com/2021/02/azure-rest-apis-postman-2021/) blog post.
 
-1. Open a command shell for Azure CLI. If you don't have Azure CLI installed, you can open [Create a service principal](/cli/azure/create-an-azure-service-principal-azure-cli#1-create-a-service-principal), select **Try It**. 
+1. Open a command shell for Azure CLI.
 
 1. Sign in to your Azure subscription.
 
