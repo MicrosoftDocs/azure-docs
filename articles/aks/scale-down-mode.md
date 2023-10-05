@@ -3,6 +3,7 @@ title: Use Scale-down Mode for your Azure Kubernetes Service (AKS) cluster
 titleSuffix: Azure Kubernetes Service
 description: Learn how to use Scale-down Mode in Azure Kubernetes Service (AKS).
 ms.topic: article
+ms.custom: devx-track-azurecli
 ms.date: 08/21/2023
 ms.author: qpetraroia
 author: qpetraroia
