@@ -22,7 +22,7 @@ You must use Service Fabric API version 2023-09-01-preview or later.
 * Only secondary node types support using multiple NICs.
 * Currently, only ARM template deployment allows the configuration of multiple NICs.
 * Adding and removing NICs from an existing node type is currently not supported, but updates are supported.
-* Specifying different subnets per NIC is currently only supported for a [bring your own virtual network scenario](how-to-managed-cluster-networking#bring-your-own-virtual-network).
+* Specifying different subnets per NIC is currently only supported for a [bring your own virtual network scenario](how-to-managed-cluster-networking.md#bring-your-own-virtual-network).
 * Only the creation of secondary NICs is supported when using multiple NICs in your cluster.
 For more information, see [Configure network settings for Service Fabric managed clusters](./how-to-managed-cluster-networking.md#bring-your-own-virtual-network)
 
