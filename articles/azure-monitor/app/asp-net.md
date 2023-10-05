@@ -371,8 +371,8 @@ This section provides answers to common questions.
 
 To remove Application Insights, you need to remove the NuGet packages and references from the API in your application. You can uninstall NuGet packages by using the NuGet Package Manager in Visual Studio.
 
-1. If trace collection is enabled, first uninstall the Microsoft.ApplicationInsights.TraceListener package by using the [NuGet Package Manager](/nuget/consume-packages/install-use-packages-visual-studio#uninstall-a-package).
-1. Uninstall the Microsoft.ApplicationInsights.Web package by using the [NuGet Package Manager](/nuget/consume-packages/install-use-packages-visual-studio#uninstall-a-package). When you uninstall this package, be sure to also remove all of its dependencies by using the [Uninstall options](/nuget/consume-packages/install-use-packages-visual-studio#uninstall-options) within the [NuGet Package Manager Options control](/nuget/consume-packages/install-use-packages-visual-studio#nuget-package-manager-options-control).
+1. If trace collection is enabled, first uninstall the Microsoft.ApplicationInsights.TraceListener package by using the [NuGet Package Manager](/nuget/consume-packages/install-use-packages-visual-studio#uninstall-a-package) but don't remove any dependencies.
+1. Uninstall the Microsoft.ApplicationInsights.Web package and remove its dependencies by using the [NuGet Package Manager](/nuget/consume-packages/install-use-packages-visual-studio#uninstall-a-package) and its [Uninstall options](/nuget/consume-packages/install-use-packages-visual-studio#uninstall-options) within the [NuGet Package Manager Options control](/nuget/consume-packages/install-use-packages-visual-studio#nuget-package-manager-options-control).
 1. To fully remove Application Insights, check and manually delete the added code or files along with any API calls you added in your project. For more information, see [What is created when you add the Application Insights SDK?](#what-is-created-when-you-add-the-application-insights-sdk).
 
 ### What is created when you add the Application Insights SDK?
