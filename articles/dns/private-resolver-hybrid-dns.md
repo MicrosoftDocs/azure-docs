@@ -51,8 +51,8 @@ Create a private zone with at least one resource record to use for testing. The 
 
 In this article, the private zone **azure.contoso.com** and the resource record **test** are used.  Autoregistration isn't required for the current demonstration.
 
-> [!NOTE]
-> To forward queries from on-premises to Azure, the zone (azure.contoso.com) must not already exist on-premises. Forwarding is not possible for authoritative zones, such as child zones that are delegated on-premises.
+> [!IMPORTANT]
+> A recursive server is used to forward queries from on-premises to Azure in this example. If the server is authoritative for the parent zone (contoso.com), forwarding is not possible unless you first create a delegation for azure.contoso.com.
 
 [ ![View resource records](./media/private-resolver-hybrid-dns/private-zone-records-small.png) ](./media/private-resolver-hybrid-dns/private-zone-records.png#lightbox)
 
