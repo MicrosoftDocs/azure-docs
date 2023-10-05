@@ -72,9 +72,9 @@ For deployments of Containerized Network Functions (CNFs), it's crucial to have 
 - **Helm Packages with Schema** - These packages should be present on your local storage and referenced within the `input.json` configuration file.
 - **Creating a Sample Configuration File** - Generate an example configuration file for defining a CNF deployment. Issue this command to generate an `input.json` file that you need to populate with your specific configuration.
 
-```azurecli
-az aosm nfd generate-config
-```
+    ```azurecli
+    az aosm nfd generate-config
+    ```
 
 - **Images for your CNF** - Here are the options:
   - A reference to an existing Azure Container Registry that contains the images for your CNF. Currently, only one ACR and namespace are supported per CNF. The images to be copied from this ACR are populated automatically based on the helm package schema. You must have Reader/AcrPull permissions on this ACR. To use this option, fill in `source_registry` and optionally `source_registry_namespace` in the input.json file.
