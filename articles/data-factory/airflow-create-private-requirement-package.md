@@ -18,7 +18,7 @@ In the context of Managed Airflow, you can use Python packages to organize and d
 
 This guide provides step-by-step instructions on installing `.whl` (Wheel) file, which serve as a binary distribution format for Python package, as a requirement in your Managed Airflow runtime.
 
-For illustration purpose, I will create custom operator as python package, that can be imported as a module inside dags file. 
+For illustration purpose, I'll create custom operator as python package that can be imported as a module inside dags file. 
 
 ## Step 1: Develop a custom operator.
 - Create a file `sample_operator.py`
@@ -58,7 +58,7 @@ Use the steps described in [Manage blob containers using the Azure portal](/azur
 ## Step 3: Upload the private package into your storage account.
 
 1. Navigate to the designated container where you intend to store your Airflow DAGs and Plugins files.
-1. Upload your private package file to the container. Common file formats include zip, whl, or tar.gz. Place the file within either the 'Dags' or 'Plugins' folder, as appropriate.
+1. Upload your private package file to the container. Common file formats include `zip`, `.whl`, or `tar.gz`. Place the file within either the 'Dags' or 'Plugins' folder, as appropriate.
 
 ## Step 4: Add your private package as a requirement.
 
@@ -67,7 +67,7 @@ Use the steps described in [Manage blob containers using the Azure portal](/azur
 
 ## Step 5: Import your folder to an Airflow integrated runtime (IR) environment.
 
-When performing the import of your folder into an Airflow IR environment, ensure that you check the import requirements checkbox. This should load your requirements inside your airflow env.
+When performing the import of your folder into an Airflow IR environment, ensure that you check the import requirements checkbox to load your requirements inside your airflow env.
 
 :::image type="content" source="media/airflow-create-private-requirement-package/import-requirements-checkbox.png" alt-text="Screenshot showing the import dialog for an Airflow integrated runtime environment, with the Import requirements checkbox checked.":::
 
