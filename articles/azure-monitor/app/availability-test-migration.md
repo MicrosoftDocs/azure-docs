@@ -92,7 +92,7 @@ The following steps walk you through the process of creating [standard tests](av
 
 #### When should I use these commands?
 
-We recommend using these commands to migrate a URL ping test to a standard test and take advantage of the available capabilities. Remember, this migration is optional.
+Migrate URL ping tests to standard tests now to take advantage of new capabilities.
 
 #### Do these steps work for both HTTP and HTTPS endpoints?
 
