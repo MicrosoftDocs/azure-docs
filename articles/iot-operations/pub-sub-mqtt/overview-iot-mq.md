@@ -1,5 +1,5 @@
 ---
-title: What is Azure IoT MQ
+title: Publish and subscribe MQTT messages using Azure IoT MQ
 #titleSuffix: Azure IoT MQ
 description: Use Azure IoT MQ to publish and subscribe to messages. Destinations include other MQTT brokers, Azure IoT Data Processor, and Azure cloud services.
 author: PatAltimore
@@ -10,7 +10,7 @@ ms.date: 10/03/2023
 #CustomerIntent: As an operator, I want to understand how to I can use Azure IoT MQ to publish and subscribe MQTT topics.
 ---
 
-# What is Azure IoT MQ
+# Publish and subscribe MQTT messages using Azure IoT MQ
 
 <!-- 2. Overview ------------------------------------------------------------------------
 
@@ -21,9 +21,6 @@ image that provides a high-level view of how the feature works.
 -->
 
 Azure IoT MQ is a distributed MQTT broker that provides the messaging pipeline for Azure IoT Operations. It's a set of Kubernetes services that aggregates data from on-premises assets, provides highly available edge compute, and enables bi-directional data flow with a variety of services in the cloud.
-
-
-
 
 <!-- 3. Use cases -----------------------------------------------------------------------
 
