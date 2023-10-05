@@ -35,7 +35,7 @@ Consolidate software and configuration management tasks into a single set of end
 
 ### Simplify service creation
 
-Model network services using ARM, just like any other Azure resources.  Reduce the number of parameters needed to create operator-centric services and drive run-time operations via traditional Azure interfaces, such as portal, CLI, API or SDK.
+Model network services using Azure Resource Manager (ARM), just like any other Azure resources.  Reduce the number of parameters needed to create operator-centric services and drive run-time operations via traditional Azure interfaces, such as portal, CLI, API or SDK.
 
 ### Reliably deploy Telco grade network function software
 
@@ -70,3 +70,7 @@ By unifying service management, facilitating reliable deployments, supporting gl
 ## Service Level Agreement
 
 SLA (Service Level Agreement) information can be found on the [Service Level Agreements SLA for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1)).
+
+## Get access to Azure Operator Service Manager (AOSM) for your Azure subscription
+
+Contact your Microsoft account team to register your Azure subscription for access to Azure Operator Service Manager (AOSM) or express your interest through the [partner registration form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR7lMzG3q6a5Hta4AIflS-llUMlNRVVZFS00xOUNRM01DNkhENURXU1o2TS4u).

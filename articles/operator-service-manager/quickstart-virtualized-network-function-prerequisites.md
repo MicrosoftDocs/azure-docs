@@ -13,6 +13,10 @@ ms.date: 09/11/2023
 
 Before you begin using Azure Operator Service Manager, ensure you have registered the required resource providers and installed the necessary tools to interact with the service.
 
+## Prerequisites
+
+An Azure account with an active subscription. If you don't have an Azure subscription, request access via [partner registration form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR7lMzG3q6a5Hta4AIflS-llUMlNRVVZFS00xOUNRM01DNkhENURXU1o2TS4u).
+
 ## Download and install Azure CLI
 
 You can use the Bash environment in Azure Cloud Shell. For more information, see [Quickstart for Bash in Azure Cloud Shell](../cloud-shell/quickstart.md).
