@@ -106,7 +106,7 @@
         },
         {
             "source_path_from_root": "/articles/defender-for-iot/organizations/plan-network-monitoring.md",
-            "redirect_url": "/azure/defender-for-iot/organizations/best-practices/plan-network-monitoring",
+            "redirect_url": "/azure/defender-for-iot/organizations/best-practices/plan-prepare-deploy",
             "redirect_document_id": false
         },
         {
@@ -181,7 +181,7 @@
         },
         {
             "source_path_from_root": "/articles/defender-for-iot/how-to-identify-required-appliances.md",
-            "redirect_url": "/azure/defender-for-iot/organizations/how-to-identify-required-appliances",
+            "redirect_url": "/azure/defender-for-iot/organizations/ot-appliance-sizing",
             "redirect_document_id": false
         },
         {
@@ -211,7 +211,7 @@
         },
         {
             "source_path_from_root": "/articles/defender-for-iot/how-to-activate-and-set-up-your-sensor.md",
-            "redirect_url": "/azure/defender-for-iot/organizations/how-to-activate-and-set-up-your-sensor",
+            "redirect_url": "/azure/defender-for-iot/organizations/ot-deploy/activate-deploy-sensor",
             "redirect_document_id": false
         },
         {
@@ -271,7 +271,7 @@
         },
         {
             "source_path_from_root": "/articles/defender-for-iot/how-to-work-with-alerts-on-your-sensor.md",
-            "redirect_url": "/azure/defender-for-iot/organizations/how-to-work-with-alerts-on-your-sensor",
+            "redirect_url": "/azure/defender-for-iot/organizations/overview",
             "redirect_document_id": false
         },
         {
@@ -281,7 +281,7 @@
         },
         {
             "source_path_from_root": "/articles/defender-for-iot/how-to-view-information-provided-in-alerts.md",
-            "redirect_url": "/azure/defender-for-iot/organizations/how-to-view-information-provided-in-alerts",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-view-alerts",
             "redirect_document_id": false
         },
         {
@@ -291,7 +291,7 @@
         },
         {
             "source_path_from_root": "/articles/defender-for-iot/how-to-manage-the-alert-event.md",
-            "redirect_url": "/azure/defender-for-iot/organizations/how-to-manage-the-alert-event",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-view-alerts",
             "redirect_document_id": false
         },
         {
@@ -311,7 +311,7 @@
         },
         {
             "source_path_from_root": "/articles/defender-for-iot/how-to-view-information-per-zone.md",
-            "redirect_url": "/azure/defender-for-iot/organizations/how-to-view-information-per-zone",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-work-with-the-sensor-device-map#view-a-device-map-for-a-specific-zone",
             "redirect_document_id": false
         },
         {
@@ -341,12 +341,12 @@
         },
         {
             "source_path_from_root": "/articles/defender-for-iot/how-to-work-with-device-notifications.md",
-            "redirect_url": "/azure/defender-for-iot/organizations/how-to-work-with-device-notifications",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-work-with-the-sensor-device-map#manage-device-notifications-from-an-ot-sensor-device-map",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/defender-for-iot/how-to-enhance-port-and-vlan-name-resolution.md",
-            "redirect_url": "/azure/defender-for-iot/organizations/how-to-enhance-port-and-vlan-name-resolution",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-control-what-traffic-is-monitored#customize-port-and-vlan-names",
             "redirect_document_id": false
         },
         {
@@ -356,7 +356,7 @@
         },
         {
             "source_path_from_root": "/articles/defender-for-iot/how-to-configure-windows-endpoint-monitoring.md",
-            "redirect_url": "/azure/defender-for-iot/organizations/how-to-configure-windows-endpoint-monitoring",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-control-what-traffic-is-monitored#configure-windows-endpoint-monitoring",
             "redirect_document_id": false
         },
         {
@@ -366,7 +366,7 @@
         },
         {
             "source_path_from_root": "/articles/defender-for-iot/how-to-troubleshoot-the-sensor-and-on-premises-management-console.md",
-            "redirect_url": "/azure/defender-for-iot/organizations/how-to-troubleshoot-the-sensor-and-on-premises-management-console",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-troubleshoot-sensor",
             "redirect_document_id": false
         },
         {
@@ -411,12 +411,12 @@
         },
         {
             "source_path_from_root": "/articles/defender-for-iot/references-horizon-api.md",
-            "redirect_url": "/azure/defender-for-iot/organizations/references-horizon-api",
+            "redirect_url": "/azure/defender-for-iot/organizations",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/defender-for-iot/references-horizon-sdk.md",
-            "redirect_url": "/azure/defender-for-iot/organizations/references-horizon-sdk",
+            "redirect_url": "/azure/defender-for-iot/organizations",
             "redirect_document_id": false
         },
         {
@@ -431,12 +431,12 @@
         },
         {
             "source_path_from_root": "/articles/defender-for-iot/resources-frequently-asked-questions.md",
-            "redirect_url": "/azure/defender-for-iot/organizations/resources-frequently-asked-questions",
+            "redirect_url": "/azure/defender-for-iot/organizations/faqs-general",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/defender-for-iot/references-defender-for-iot-glossary.md",
-            "redirect_url": "/azure/defender-for-iot/organizations/references-defender-for-iot-glossary",
+            "redirect_url": "/azure/defender-for-iot/organizations/overview",
             "redirect_document_id": false
         },
         {
@@ -456,7 +456,7 @@
         },
         {
             "source_path_from_root": "/articles/defender-for-iot/quickstart-building-the-defender-micro-agent-from-source.md",
-            "redirect_url": "/azure/defender-for-iot/device-builders/quickstart-building-the-defender-micro-agent-from-source",
+            "redirect_url": "/azure/defender-for-iot/device-builders/overview",
             "redirect_document_id": false
         },
         {
@@ -496,12 +496,12 @@
         },
         {
             "source_path_from_root": "/articles/defender-for-iot/concept-security-agent-authentication.md",
-            "redirect_url": "/azure/defender-for-iot/device-builders/concept-security-agent-authentication",
+            "redirect_url": "/azure/defender-for-iot/device-builders/tutorial-standalone-agent-binary-installation",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/defender-for-iot/concept-security-posture.md",
-            "redirect_url": "/azure/defender-for-iot/device-builders/concept-security-posture",
+            "redirect_url": "/azure/defender-for-iot/device-builders/overview",
             "redirect_document_id": false
         },
         {
@@ -626,7 +626,7 @@
         },
         {
             "source_path_from_root": "/articles/defender-for-iot/organizations/resources-sensor-deployment-checklist.md",
-            "redirect_url": "/azure/defender-for-iot/organizations/pre-deployment-checklist",
+            "redirect_url": "/azure/defender-for-iot/organizations/ot-deploy/ot-deploy-path",
             "redirect_document_id": false
         },
         {

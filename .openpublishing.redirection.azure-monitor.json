@@ -2502,8 +2502,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-monitor/platform/alerts-managing-nagios-zabbix-scom.md",
-            "redirect_url": "/azure/azure-monitor/platform/alert-management-solution",
-            "redirect_document_id": ""
+            "redirect_url": "/azure/azure-monitor/platform/alert-management-solution"
         },
         {
             "source_path_from_root": "/articles/log-analytics/log-analytics-solution-alert-management.md",

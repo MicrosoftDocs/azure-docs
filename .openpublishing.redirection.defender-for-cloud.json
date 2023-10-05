@@ -57,17 +57,17 @@
         },
         {
             "source_path_from_root": "/articles/security-center/security-center-os-coverage.md",
-            "redirect_url": "/azure/defender-for-cloud/os-coverage",
+            "redirect_url": "/azure/defender-for-cloud/support-matrix-defender-for-cloud#supported-operating-systems",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/defender-for-cloud/security-center-os-coverage.md",
-            "redirect_url": "/azure/defender-for-cloud/os-coverage",
+            "redirect_url": "/azure/defender-for-cloud/support-matrix-defender-for-cloud#supported-operating-systems",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/defender-for-cloud/supported-machines-endpoint-solutions-clouds.md",
-            "redirect_url": "/azure/defender-for-cloud/supported-machines-endpoint-solutions-clouds-containers",
+            "redirect_url": "/azure/defender-for-cloud/support-matrix-defender-for-containers",
             "redirect_document_id": false
         },
         {
@@ -97,12 +97,12 @@
         },
         {
             "source_path_from_root": "/articles/security-center/security-center-file-integrity-monitoring-baselines.md",
-            "redirect_url": "/azure/defender-for-cloud/file-integrity-monitoring-usage",
+            "redirect_url": "/azure/defender-for-cloud/file-integrity-monitoring-enable-log-analytics",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/security-center/file-integrity-monitoring-usage.md",
-            "redirect_url": "/azure/defender-for-cloud/file-integrity-monitoring-usage",
+            "redirect_url": "/azure/defender-for-cloud/file-integrity-monitoring-enable-log-analytics",
             "redirect_document_id": false
         },
         {
@@ -112,7 +112,7 @@
         },
         {
             "source_path_from_root": "/articles/security-center/enable-azure-defender.md",
-            "redirect_url": "/azure/defender-for-cloud/enable-enhanced-security",
+            "redirect_url": "/azure/defender-for-cloud/connect-azure-subscription",
             "redirect_document_id": false
         },
         {
@@ -147,7 +147,7 @@
         },
         {
             "source_path_from_root": "/articles/security-center/security-center-services.md",
-            "redirect_url": "/azure/defender-for-cloud/supported-machines-endpoint-solutions-clouds",
+            "redirect_url": "/azure/defender-for-cloud/support-matrix-defender-for-containers",
             "redirect_document_id": false
         },
         {
@@ -247,7 +247,7 @@
         },
         {
             "source_path_from_root": "/articles/security-center/security-center-get-started.md",
-            "redirect_url": "/azure/defender-for-cloud/get-started",
+            "redirect_url": "/azure/defender-for-cloud/connect-azure-subscription",
             "redirect_document_id": false
         },
         {
@@ -262,17 +262,17 @@
         },
         {
             "source_path_from_root": "/articles/security-center/security-center-pricing.md",
-            "redirect_url": "/azure/defender-for-cloud/enhanced-security-features-overview",
+            "redirect_url": "/azure/defender-for-cloud/defender-for-cloud-introduction",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/security-center/security-center-enable-data-collection.md",
-            "redirect_url": "/azure/defender-for-cloud/enable-data-collection",
+            "redirect_url": "/azure/defender-for-cloud/monitoring-components",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/security-center/features-paas.md",
-            "redirect_url": "/azure/defender-for-cloud/features-paas",
+            "redirect_url": "/azure/defender-for-cloud/support-matrix-defender-for-cloud",
             "redirect_document_id": false
         },
         {
@@ -357,7 +357,7 @@
         },
         {
             "source_path_from_root": "/articles/security-center/container-security.md",
-            "redirect_url": "/azure/defender-for-cloud/container-security",
+            "redirect_url": "/azure/defender-for-cloud/defender-for-containers-introduction",
             "redirect_document_id": true
         },
         {
@@ -387,7 +387,7 @@
         },
         {
             "source_path_from_root": "/articles/security-center/defender-for-container-registries-cicd.md",
-            "redirect_url": "/azure/defender-for-cloud/defender-for-container-registries-cicd",
+            "redirect_url": "/azure/defender-for-cloud/defender-for-devops-introduction",
             "redirect_document_id": true
         },
         {
@@ -397,7 +397,7 @@
         },
         {
             "source_path_from_root": "/articles/security-center/defender-for-container-registries-usage.md",
-            "redirect_url": "/azure/defender-for-cloud/defender-for-container-registries-usage",
+            "redirect_url": "/azure/defender-for-cloud/defender-for-containers-vulnerability-assessment-azure",
             "redirect_document_id": true
         },
         {
@@ -422,7 +422,7 @@
         },
         {
             "source_path_from_root": "/articles/security-center/defender-for-kubernetes-azure-arc.md",
-            "redirect_url": "/azure/defender-for-cloud/defender-for-kubernetes-azure-arc",
+            "redirect_url": "/azure/defender-for-cloud/defender-for-containers-enable?pivots=defender-for-container-arc#protect-arc-enabled-kubernetes-clusters",
             "redirect_document_id": true
         },
         {
@@ -437,7 +437,7 @@
         },
         {
             "source_path_from_root": "/articles/security-center/defender-for-servers-introduction.md",
-            "redirect_url": "/azure/defender-for-cloud/defender-for-servers-introduction",
+            "redirect_url": "/azure/defender-for-cloud/plan-defender-for-servers",
             "redirect_document_id": true
         },
         {
@@ -472,12 +472,12 @@
         },
         {
             "source_path_from_root": "/articles/security-center/enable-data-collection.md",
-            "redirect_url": "/azure/defender-for-cloud/enable-data-collection",
+            "redirect_url": "/azure/defender-for-cloud/monitoring-components",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/security-center/enable-enhanced-security.md",
-            "redirect_url": "/azure/defender-for-cloud/enable-enhanced-security",
+            "redirect_url": "/azure/defender-for-cloud/connect-azure-subscription",
             "redirect_document_id": true
         },
         {
@@ -487,7 +487,7 @@
         },
         {
             "source_path_from_root": "/articles/security-center/enhanced-security-features-overview.md",
-            "redirect_url": "/azure/defender-for-cloud/enhanced-security-features-overview",
+            "redirect_url": "/azure/defender-for-cloud/defender-for-cloud-introduction",
             "redirect_document_id": true
         },
         {
@@ -512,7 +512,7 @@
         },
         {
             "source_path_from_root": "/articles/security-center/get-started.md",
-            "redirect_url": "/azure/defender-for-cloud/get-started",
+            "redirect_url": "/azure/defender-for-cloud/connect-azure-subscription",
             "redirect_document_id": false
         },
         {
@@ -557,7 +557,7 @@
         },
         {
             "source_path_from_root": "/articles/security-center/os-coverage.md",
-            "redirect_url": "/azure/defender-for-cloud/os-coverage",
+            "redirect_url": "/azure/defender-for-cloud/support-matrix-defender-for-cloud#supported-operating-systems",
             "redirect_document_id": false
         },
         {
@@ -592,7 +592,7 @@
         },
         {
             "source_path_from_root": "/articles/defender-for-cloud/defender-for-sql-enable-azure-sql-protections.md",
-            "redirect_url": "/azure/defender-for-cloud/quickstart-enable-database-protections",
+            "redirect_url": "/azure/defender-for-cloud/tutorial-enable-databases-plan",
             "redirect_document_id": true
         },
         {
@@ -657,7 +657,7 @@
         },
         {
             "source_path_from_root": "/articles/security-center/supported-machines-endpoint-solutions-clouds.md",
-            "redirect_url": "/azure/defender-for-cloud/supported-machines-endpoint-solutions-clouds-containers",
+            "redirect_url": "/azure/defender-for-cloud/support-matrix-defender-for-containers",
             "redirect_document_id": false
         },
         {
@@ -707,12 +707,12 @@
         },
         {
             "source_path_from_root": "/articles/defender-for-cloud/defender-for-container-registries-cicd.md",
-            "redirect_url": "/azure/defender-for-cloud/defender-for-containers-cicd",
+            "redirect_url": "/azure/defender-for-cloud/defender-for-devops-introduction",
             "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/defender-for-cloud/defender-for-container-registries-usage.md",
-            "redirect_url": "/azure/defender-for-cloud/defender-for-containers-usage",
+            "redirect_url": "/azure/defender-for-cloud/defender-for-containers-vulnerability-assessment-azure",
             "redirect_document_id": true
         },
         {
@@ -722,7 +722,7 @@
         },
         {
             "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-usage.md",
-            "redirect_url": "/azure/defender-for-cloud/defender-for-containers-va-acr",
+            "redirect_url": "/azure/defender-for-cloud/defender-for-containers-vulnerability-assessment-azure",
             "redirect_document_id": true
         },
         {

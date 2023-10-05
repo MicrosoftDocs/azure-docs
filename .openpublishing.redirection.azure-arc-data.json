@@ -57,12 +57,12 @@
           },
           {
             "source_path_from_root": "/articles/azure-arc/data/create-data-controller-using-azdata.md",
-            "redirect_url": "/azure/azure-arc/data/create-data-controller-using-cli",
+            "redirect_url": "/azure/azure-arc/data/create-data-controller-indirect-cli",
             "redirect_document_id": false
           },
           {
             "source_path_from_root": "/articles/azure-arc/data/scale-out-postgresql-hyperscale-server-group.md",
-            "redirect_url": "/azure/azure-arc/data/scale-out-in-postgresql-hyperscale-server-group",
+            "redirect_url": "/azure/azure-arc/data/release-notes",
             "redirect_document_id": false
           },
           {
@@ -72,7 +72,7 @@
           },
           {
             "source_path_from_root": "/articles/azure-arc/data/reference/overview.md",
-            "redirect_url": "/azure/azure-arc/data/reference/reference-az-arcdata",
+            "redirect_url": "/cli/azure/arcdata",
             "redirect_document_id": false
           },
           {
@@ -82,7 +82,7 @@
           },
           {
             "source_path_from_root": "/articles/azure-arc/data/create-postgresql-hyperscale-server-group-k8s-native-tools.md",
-            "redirect_url": "/azure/azure-arc/data/create-postgresql-hyperscale-server-group-kubernetes-native-tools",
+            "redirect_url": "/azure/azure-arc/data/create-postgresql-server-kubernetes-native-tools",
             "redirect_document_id": false
           },
           {
@@ -197,7 +197,7 @@
           },
           {
             "source_path_from_root": "/articles/azure-arc/data/configure-server-parameters-postgresql-hyperscale.md",
-            "redirect_url": "/azure/azure-arc/data/configure-server-parameters-postgresql",
+            "redirect_url": "/azure/azure-arc/data/show-configuration-postgresql-server",
             "redirect_document_id": false
           },
           {

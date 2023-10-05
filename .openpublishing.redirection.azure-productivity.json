@@ -32,22 +32,22 @@
     },
     {
       "source_path": "articles/lab-services/how-to-create-schedules-within-teams.md",
-      "redirect_url": "/azure/lab-services/how-to-manage-labs-within-teams",
+      "redirect_url": "/azure/lab-services/tutorial-setup-lab-teams-canvas",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/lab-services/how-to-delete-lab-within-teams.md",
-      "redirect_url": "/azure/lab-services/how-to-manage-labs-within-teams",
+      "redirect_url": "/azure/lab-services/tutorial-setup-lab-teams-canvas",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/lab-services/how-to-manage-user-lists-within-teams.md",
-      "redirect_url": "/azure/lab-services/how-to-manage-labs-within-teams",
+      "redirect_url": "/azure/lab-services/tutorial-setup-lab-teams-canvas",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/lab-services/how-to-manage-vm-pool-within-teams.md",
-      "redirect_url": "/azure/lab-services/how-to-manage-labs-within-teams",
+      "redirect_url": "/azure/lab-services/tutorial-setup-lab-teams-canvas",
       "redirect_document_id": false
     },
     {
@@ -62,22 +62,22 @@
     },
     {
       "source_path": "articles/lab-services/how-to-create-schedules-within-canvas.md",
-      "redirect_url": "/azure/lab-services/how-to-manage-labs-within-canvas",
+      "redirect_url": "/azure/lab-services/tutorial-setup-lab-teams-canvas",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/lab-services/how-to-delete-lab-within-canvas.md",
-      "redirect_url": "/azure/lab-services/how-to-manage-labs-within-canvas",
+      "redirect_url": "/azure/lab-services/tutorial-setup-lab-teams-canvas",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/lab-services/how-to-manage-user-lists-within-canvas.md",
-      "redirect_url": "/azure/lab-services/how-to-manage-labs-within-canvas",
+      "redirect_url": "/azure/lab-services/tutorial-setup-lab-teams-canvas",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/lab-services/how-to-manage-vm-pool-within-canvas.md",
-      "redirect_url": "/azure/lab-services/how-to-manage-labs-within-canvas",
+      "redirect_url": "/azure/lab-services/tutorial-setup-lab-teams-canvas",
       "redirect_document_id": false
     },
     {
@@ -127,7 +127,7 @@
     },
     {
       "source_path": "articles/lab-services/quick-create-lab-plan-template.md",
-      "redirect_url": "/azure/lab-services/how-to-create-lab-plan-template",
+      "redirect_url": "/azure/lab-services/how-to-create-lab-plan-bicep",
       "redirect_document_id": true
     },
     {
@@ -142,7 +142,7 @@
     },
     {
       "source_path": "articles/lab-services/quick-create-lab-template.md",
-      "redirect_url": "/azure/lab-services/how-to-create-lab-template",
+      "redirect_url": "/azure/lab-services/how-to-create-lab-bicep",
       "redirect_document_id": true
     },
     {
