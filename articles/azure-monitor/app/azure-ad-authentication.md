@@ -100,8 +100,6 @@ services.AddApplicationInsightsTelemetry(new ApplicationInsightsServiceOptions
 });
 ```
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
-
 ### [Node.js](#tab/nodejs)
 
 > [!NOTE]
@@ -136,8 +134,6 @@ appInsights.setup("InstrumentationKey=00000000-0000-0000-0000-000000000000;Inges
 appInsights.defaultClient.config.aadTokenCredential = credential;
 
 ```
-
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ### [Java](#tab/java)
 
@@ -203,32 +199,6 @@ The following example shows how to configure the Java agent to use a service pri
 :::image type="content" source="media/azure-ad-authentication/client-secret-tenant-id.png" alt-text="Screenshot that shows the client secret with the tenant ID and the client ID." lightbox="media/azure-ad-authentication/client-secret-tenant-id.png":::
 
 :::image type="content" source="media/azure-ad-authentication/client-secret-cs.png" alt-text="Screenshot that shows the Client secrets section with the client secret." lightbox="media/azure-ad-authentication/client-secret-cs.png":::
-
-#### Environment variable configuration
-
-The `APPLICATIONINSIGHTS_AUTHENTICATION_STRING` environment variable specifies the Azure AD authentication string for Azure Application Insights. It lets the Application Insights Java SDK authenticate to Azure AD and send telemetry.
-
-**Example connection string with Azure AD authentication:**
-
-```plaintext
-InstrumentationKey=00000000-0000-0000-0000-000000000000;AuthenticationType=AzureAD;
-```
-
-Set the `APPLICATIONINSIGHTS_AUTHENTICATION_STRING` environment variable using this string.
-
-**In Unix/Linux:**
-
-```shell
-export APPLICATIONINSIGHTS_AUTHENTICATION_STRING="InstrumentationKey=00000000-0000-0000-0000-000000000000;AuthenticationType=AzureAD;"
-```
-
-**In Windows:**
-
-```shell
-set APPLICATIONINSIGHTS_AUTHENTICATION_STRING="InstrumentationKey=00000000-0000-0000-0000-000000000000;AuthenticationType=AzureAD;"
-```
-
-After setting it, restart your Java application. It now sends telemetry to Application Insights using Azure AD authentication.
 
 ### [Python](#tab/python)
 
@@ -297,8 +267,6 @@ tracer = Tracer(
 ...
 ```
 ---
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
--
 
 ## Disable local authentication
 
@@ -445,6 +413,30 @@ If you're using sovereign clouds, you can find the audience information in the c
 _InstrumentationKey={profile.InstrumentationKey};IngestionEndpoint={ingestionEndpoint};LiveEndpoint={liveDiagnosticsEndpoint};AADAudience={aadAudience}_
 
 The audience parameter, AADAudience, may vary depending on your specific environment.
+
+### Environment variable configuration
+
+The `APPLICATIONINSIGHTS_AUTHENTICATION_STRING` environment variable specifies the Azure AD authentication string for Azure Application Insights. It lets Application Insights authenticate to Azure AD and send telemetry.
+
+Example connection string with Azure AD authentication:
+
+`InstrumentationKey=00000000-0000-0000-0000-000000000000;AuthenticationType=AzureAD;`
+
+Set the `APPLICATIONINSIGHTS_AUTHENTICATION_STRING` environment variable using this string.
+
+**In Unix/Linux:**
+
+```shell
+export APPLICATIONINSIGHTS_AUTHENTICATION_STRING="InstrumentationKey=00000000-0000-0000-0000-000000000000;AuthenticationType=AzureAD;"
+```
+
+**In Windows:**
+
+```shell
+set APPLICATIONINSIGHTS_AUTHENTICATION_STRING="InstrumentationKey=00000000-0000-0000-0000-000000000000;AuthenticationType=AzureAD;"
+```
+
+After setting it, restart your application. It now sends telemetry to Application Insights using Azure AD authentication.
 
 ## Troubleshooting
 
