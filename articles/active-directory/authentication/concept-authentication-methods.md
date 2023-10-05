@@ -44,6 +44,7 @@ The following table outlines the security considerations for the available authe
 | Certificate-based authentication | High | High | High       |
 | OATH hardware tokens (preview) | Medium   | Medium    | High         |
 | OATH software tokens           | Medium   | Medium    | High         |
+| Temporary Access Pass (TAP)    | Medium   | High      | High         |
 | SMS                            | Medium   | High      | Medium       |
 | Voice                          | Medium   | Medium    | Medium       |
 | Password                       | Low      | High      | High         |
@@ -72,9 +73,10 @@ The following table outlines when an authentication method can be used during a 
 | Certificate-based authentication | Yes                  | No                        |
 | OATH hardware tokens (preview) | No                     | MFA and SSPR              |
 | OATH software tokens           | No                     | MFA and SSPR              |
+| Temporary Access Pass (TAP)    | Yes                    | MFA                       |
 | SMS                            | Yes                    | MFA and SSPR              |
 | Voice call                     | No                     | MFA and SSPR              |
-| Password                       | Yes                    |                           |
+| Password                       | Yes                    | No                        |
 
 > \* Windows Hello for Business, by itself, does not serve as a step-up MFA credential. For example, an MFA Challenge from Sign-in Frequency or SAML Request containing forceAuthn=true. Windows Hello for Business can serve as a step-up MFA credential by being used in FIDO2 authentication. This requires users to be enabled for FIDO2 authentication to work successfully.
 
@@ -88,6 +90,7 @@ To learn more about how each authentication method works, see the following sepa
 * [Certificate-based authentication](concept-certificate-based-authentication.md)
 * [OATH hardware tokens (preview)](concept-authentication-oath-tokens.md#oath-hardware-tokens-preview)
 * [OATH software tokens](concept-authentication-oath-tokens.md#oath-software-tokens)
+* [Temporary Access Pass (TAP)](howto-authentication-temporary-access-pass.md)
 * [SMS sign-in](howto-authentication-sms-signin.md) and [verification](concept-authentication-phone-options.md#mobile-phone-verification)
 * [Voice call verification](concept-authentication-phone-options.md)
 * Password
@@ -127,5 +130,6 @@ To review what authentication methods are in use, see [Microsoft Entra multifact
 <!-- INTERNAL LINKS -->
 [tutorial-sspr]: tutorial-enable-sspr.md
 [tutorial-azure-mfa]: tutorial-enable-azure-mfa.md
+[tutorial-tap]: howto-authentication-temporary-access-pass.md
 [concept-sspr]: concept-sspr-howitworks.md
 [concept-mfa]: concept-mfa-howitworks.md
