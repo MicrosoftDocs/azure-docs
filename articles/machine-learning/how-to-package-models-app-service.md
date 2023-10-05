@@ -5,6 +5,7 @@ description:  Learn how you can package a model to deploy outside of Azure Machi
 author: santiagxf
 ms.author: fasantia
 ms.reviewer: mopeakande
+reviewer: msakande
 ms.service: machine-learning
 ms.subservice: mlops
 ms.date: 10/04/2023
@@ -212,8 +213,9 @@ Let's see how to package the previously registered MLflow model to deploy it to 
             --data-binary @-
         ```
 
-## Next steps
+## Next step
 
-* [Model packages for deployment (preview)](concept-package-models.md)
+> [!div class="nextstepaction"]
+> [Model packages for deployment (preview)](concept-package-models.md)
 
 

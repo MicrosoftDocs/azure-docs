@@ -873,7 +873,7 @@
             - name: Deploy MLflow models to online endpoints
               displayName: ncd, no code deploy, no-code deployment
               href: how-to-deploy-mlflow-models-online-endpoints.md
-            - name: Deploy model packages to online endpoints
+            - name: Deploy model packages for online inferencing
               href: how-to-package-models.md
             - name: Use a custom container to deploy a model to an online endpoint
               href: how-to-deploy-custom-container.md

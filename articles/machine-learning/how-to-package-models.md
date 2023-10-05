@@ -13,71 +13,107 @@ ms.topic: how-to
 
 # Package a model for online deployment (preview)
 
-Model packages is a capability in Azure Machine Learning that allows you to collect all the dependencies required to deploy a machine learning model to a serving platform. Creating packages before deploying models provides robust and reliable deployment and a more efficient MLOps practice. Packages can be moved across workspaces and even outside of Azure Machine Learning. 
+Model package is a capability in Azure Machine Learning that allows you to collect all the dependencies required to deploy a machine learning model to a serving platform. Creating packages before deploying models provides robust and reliable deployment and a more efficient MLOps workflow. Packages can be moved across workspaces and even outside of Azure Machine Learning. 
 
 [!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
-In this article, you learn how package a model and deploy it to an Online Endpoint in Azure Machine Learning.
+In this article, you learn how to package a model and deploy it to an online endpoint in Azure Machine Learning.
 
-## Package models before deployments
+## Prerequisites
 
-The simplest way to deploy models with packages is by indicating Azure Machine Learning to do so before executing the deployment. When creating a deployment in an Online Endpoints, just indicate to prepackage the model. This is supported in the Azure CLI, Azure Machine Learning SDK, and Azure Machine Learning studio.
+Before following the steps in this article, make sure you have the following prerequisites:
+
+* An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
+
+* An Azure Machine Learning workspace. If you don't have one, use the steps in the [How to manage workspaces](../how-to-manage-workspace.md) article to create one.
+
+* Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the owner or contributor role for the Azure Machine Learning workspace, or a custom role allowing Microsoft.MachineLearningServices/workspaces/onlineEndpoints/*. For more information, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
+
+<!-- Add complete list of prerequisites -->
+
+
+## Prepare your system
+
+In this example, you package a model of type **custom** and deploy it to an online endpoint for online inference.
+
+#### Clone the repository
+
+The example in this article is based on code samples contained in the [azureml-examples](https://github.com/azure/azureml-examples) repository. To run the commands locally without having to copy/paste YAML and other files, first clone the repo and then change directories to the folder:
 
 # [Azure CLI](#tab/cli)
 
-Use flag `--with-package` when creating a deployment:
-
 ```azurecli
-az ml online-deployment create  -f deployment.yml --package-model
+git clone https://github.com/Azure/azureml-examples --depth 1
+cd azureml-examples/cli
 ```
 
 # [Python](#tab/sdk)
 
-Use the argument `--with_package=True` when creating a deployment:
-
-```python
-ml_client.batch_deployment.create(
-    ManagedOnlineDeployment(
-        name="default",
-        endpoint_name=endpoint_name,
-        model=model,
-        instance_count=1,
-        package_model=True,
-    )
-).result()
+```azurecli
+!git clone https://github.com/Azure/azureml-examples --depth 1
+!cd azureml-examples/sdk/python
 ```
 
 # [Studio](#tab/studio)
 
-In the model detail page in [Azure Machine Learning studio](https://ml.azure.com), select the option **Deploy** and then click on **Online Endpoints**. In the creation wizard, you see an option **Package Model (preview)** to package the model before deployment.
-
-:::image type="content" source="./media/model-packaging/model-package-ux.png" alt-text="An screenshot of the model deployment wizard to Online Endpoints highlighting the Package model option.":::
+1. From the left navigation bar, select the option __Notebooks__.
+1. Select __Samples__.
+1. Navigate to the folder _SDK v2/sdk/python/endpoints/online/deploy-packages_.
+1. Find the notebook you want to try out and select __Clone this notebook__.
 
 ---
 
-Azure Machine Learning packages the model first and then execute the deployment. Notice that when using packages, if you indicate a base environment with conda or pip dependencies, you don't need to include the dependencies of the inference server (`azureml-inference-server-http`). It's automatically added for you.
+This section uses the example in the folder **endpoints/online/deploy-packages/custom-model**.
 
-> [!TIP] 
-> Packaging MLflow models before deployment is highly advisable and required for endpoints without outbound networking connectivity. MLflow models indicate their dependencies in the model itself, which requires dynamic installation of packages. When an MLflow model is packaged, this dynamic installation is performed at packaging time, avoiding the installation of software at deployment time.
+#### Connect to your workspace
 
-## Create model packages
+Connect to the Azure Machine Learning workspace where you'll do your work.
 
-You can create model packages explicitly, allowing you to control how the operation is done. Use this workflow when:
+# [Azure CLI](#tab/cli)
 
-> [!div class="checklist"]
-> * You want to customize how the package is created.
-> * You want to deploy the package outside of Azure Machine Learning.
-> * You want to use packages in an MLOps workflow.
+```azurecli
+az account set --subscription <subscription>
+az configure --defaults workspace=<workspace> group=<resource-group> location=<location>
+```
 
-Model packages can be creating by indicating the model to package, the serving technology that you want to use to run the model, and the base image that's going to be used to package the model. Base images are indicated using **Environments** in Azure Machine Learning. For MLflow models, base environments and scoring scripts are automatically generated.
+# [Python](#tab/sdk)
 
-> [!NOTE]
-> Each model package can contain only 1 single model. Packaging multiple models under the same package isn't supported by the moment.
+The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, you connect to the workspace in which you perform deployment tasks.
 
+1. Import the required libraries:
 
-### Example: Packaging a custom model
+    ```python
+    from azure.ai.ml import MLClient, Input
+    from azure.ai.ml.entities import ManagedOnlineEndpoint, ManagedOnlineDeployment, Model
+    from azure.ai.ml.constants import AssetTypes
+    from azure.identity import DefaultAzureCredential
+    ```
 
-In the following example, we package a model of type **custom** to finally deploy it to an online endpoint for online inference.
+2. If you're running in a compute instance in Azure Machine Learning, create an `MLClient` as follows:
+
+    ```python
+    ml_client = MLClient.from_config(DefaultAzureCredential())
+    ```
+
+    Otherwise, configure your workspace details and get a handle to the workspace:
+
+    ```python
+    subscription_id = "<subscription>"
+    resource_group = "<resource-group>"
+    workspace = "<workspace>"
+    
+    ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)
+    ```
+
+# [Studio](#tab/studio)
+
+Navigate to [Azure Machine Learning studio](https://ml.azure.com).
+
+---
+
+<!-- ### Package a custom model -->
+
+<!-- In the following example, you package a model of type **custom** and deploy it to an online endpoint for online inference.
 
 #### Clone the repo
 
@@ -155,13 +191,27 @@ The workspace is the top-level resource for Azure Machine Learning, providing a 
 
 Navigate to [Azure Machine Learning studio](https://ml.azure.com).
 
----
+--- -->
+
+<!-- ## Create model packages
+
+You can create model packages explicitly, allowing you to control how the operation is done. Use this workflow when:
+
+> [!div class="checklist"]
+> * You want to customize how the package is created.
+> * You want to deploy the package outside Azure Machine Learning.
+> * You want to use packages in an MLOps workflow.
+
+Model packages can be created by specifying the model to package, the serving technology that you want to use to run the model, and the base image that's going to be used to package the model. **Environments** in Azure Machine Learning indicate the base image. For MLflow models, base environments and scoring scripts are automatically generated.
+
+> [!NOTE]
+> Each model package can contain only a single model. Azure Machine Learning does not support packaging of multiple models under the same model package. -->
+
+#### Register the model
+
+Model packages require the model to be registered in either your workspace or in an Azure Machine Learning registry. In this example, you already have a local copy of the model in the repository, so you only need to publish the model to the registry in the workspace. You can skip this section if the model you're trying to deploy is already registered.
 
 
-#### Registering the model
-
-In this case, we already have a local copy of the model in the repository, so we only need to publish the model to the registry in the workspace. You can skip this step if the model you're trying to deploy is already registered.
-   
 # [Azure CLI](#tab/cli)
 
 ```azurecli
@@ -182,19 +232,22 @@ model = ml_client.models.create_or_update(
 
 # [Studio](#tab/studio)
 
-To create a model in Azure Machine Learning, open the Models page in Azure Machine Learning. Select **Register model** and select where your model is located. Fill out the required fields, and then select __Register__.
+Create a model in Azure Machine Learning as follows:
+
+- Open the __Models__ page in Azure Machine Learning studio. 
+- Select **Register model**.
+- Select where your model is located and fill out the required fields.
+- Select __Register__.
 
 :::image type="content" source="./media/how-to-manage-models/register-model-as-asset.png" alt-text="Screenshot of the UI to register a model." lightbox="./media/how-to-manage-models/register-model-as-asset.png":::
 
 ---
 
+#### Create the base environment
 
+Models require an environment indicating all the packages and software they need to run. In packages, such an environment is called the *base environment*. For an MLflow model, Azure Machine Learning automatically detects the base environment, therefore it's optional. For a custom model, the base environment is required.
 
-#### The base environment
-
-Models require an environment indicating all the packages and software they need to run. In packages, such environment is called the *base environment*. For MLflow models, the base environment is automatically detected by Azure Machine Learning and hence they're optional. For custom models, they're required. 
-
-In this example we create an environment using a base image and the following conda file:
+In this example, you create an environment using a base image and the following conda file:
 
 __conda.yaml__
 
@@ -210,10 +263,10 @@ dependencies:
   - scipy=1.10.1
 ```
 
-> [!TIP]
-> **What's the difference with the environments you use to deploy to Online or Batch Endpoints?** When you deployed to Online Endpoints, you need to include the dependencies of the model + the packages required by Managed Online Endpoints to work. This brings a manual process into the deployment where you have to combine the requirements of your model with the requirements of the serving platform. Packages remove that friction since the **required packages for the inference server will be injected at packaging time automatically**.
+<!-- > [!TIP]
+> **What's the difference between the environment you use for deployment to online or batch endpoints?** <br> When you deploy to online endpoints, you need to include the dependencies of the model and the Python packages required by managed online endpoints to work. This brings a manual process into the deployment where you have to combine the requirements of your model with the requirements of the serving platform. Use of model packages removes this friction, since the **required packages for the inference server will be injected at packaging time automatically**. -->
 
-We can create the environment as follows:
+Create the environment as follows:
 
 # [Azure CLI](#tab/cli)
 
@@ -235,23 +288,23 @@ base_environment = ml_client.environments.create_or_update(
 
 # [Studio](#tab/studio)
 
-1. Navigate to the section **Environments** in Azure Machine Learning studio.
+1. Navigate to the **Environments** section in the studio.
 
-1. Select the tab **Custom environments**.
+1. Select the **Custom environments** tab.
 
-1. Click on **Create**.
+1. Select **Create**.
 
 1. Configure the wizard as follows:
 
-    1. On **Name**, enter *sklearn-regression-env*.
+    1. For **Name**, enter *sklearn-regression-env*.
 
-    1. On **Select environment source**, select *Use existing docker image with optional conda file*.
+    1. For **Select environment source**, select **Use existing docker image with optional conda file**.
 
-    1. Leave **Container registry image path** as defaults.
+    1. Leave **Container registry image path** as the defaults.
 
-1. Click on **Next**.
+1. Select **Next**.
 
-1. On **Customize** paste the following conda YAML definition:
+1. For **Customize**, paste the following conda YAML definition:
 
     ```yml
     name: model-env
@@ -266,19 +319,19 @@ base_environment = ml_client.environments.create_or_update(
       - xgboost==1.3.3
     ``` 
 
-1. Finish the wizard.
-
-1. Your environment is ready to be used.
+1. Select **Finish**. Now, your environment is ready to be used.
 
 ---
 
-#### Creating a package for a custom model
+#### Create a package for a custom model
 
-Packages can be created in Azure Machine Learning using the Azure CLI or the Azure Machine Learning SDK for Python:
+You can create model packages in Azure Machine Learning, using the Azure CLI or the Azure Machine Learning SDK for Python.
 
 # [Azure CLI](#tab/cli)
 
-To create a model package, we need to create a package specification. The package supports the following attributes:
+To create a model package, create a package specification as follows:
+
+<!-- The package supports the following attributes:
 
 | Attribute                               | Type      | Description | Required |
 |-----------------------------------------|-----------|-------------|----------|
@@ -290,7 +343,7 @@ To create a model package, we need to create a package specification. The packag
 | `inferencing_server.type`               | `azureml_online` <br /> `custom` | Use `azureml_online` to Azure Machine Learning inferencing server, or `custom` for a custom online server like TensorFlow serving, Torch Serve, etc. | Yes |
 | `inferencing_server.code_configuration` | `object`  | The code configuration with the inference routine. It should contain at least one Python file with methods `init` and `run`. | Yes, unless model is MLflow. |
 | `model_configuration`                   | `object`  | The model configuration. Use this attribute to control how the model is packaged in the resulting image. | No |
-| `model_configuration.mode`              | `download` <br /> `copy` | Indicate how the model would be placed in the package. Possible values are `download` and `copy`. Defaults to `download`. | No  |
+| `model_configuration.mode`              | `download` <br /> `copy` | Indicate how the model would be placed in the package. Possible values are `download` and `copy`. Defaults to `download`. | No  | -->
 
 __package-moe.yml__
 
@@ -307,9 +360,13 @@ inferencing_server:
       entry_script: score.py
 ```
 
+For more details about the package attributes, see [Package creation for a custom model](concept-package-models.md#package-creation-for-a-custom-model).
+
 # [Python](#tab/sdk)
 
-To create a model package, we need to create a package specification. The package supports the following attributes:
+To create a model package, create a package specification as follows: 
+
+<!-- The package supports the following attributes:
 
 | Attribute                             | Type                  | Description | Required |
 |---------------------------------------|-----------------------|-------------|----------|
@@ -319,7 +376,7 @@ To create a model package, we need to create a package specification. The packag
 | `base_environment_source.resource_id` | `str`                 | The resource ID of the base environment to use. Use format `azureml:<name>:<version>` or a long-format resource id. |  |
 | `inferencing_server`                  | `AzureMLOnlineInferencingServer` <br /> `CustomOnlineInferenceServer` | The inferencing server to use. Use `AzureMLOnlineInferencingServer` to Azure Machine Learning inferencing server, or `CustomOnlineInferenceServer` for a custom online server like TensorFlow serving, Torch Serve, etc. <br /><br />If set to `AzureMLInferencingServer` and the model type isn't Mlflow, a code configuration section should be indicated containing at least one Python file with methods `init` and `run`. <br /><br />If set to `CustomOnlineInferenceServer`, an online server configuration section should be indicated.  | Yes |
 | `model_configuration`                 | `ModelConfiguration`  | The model configuration. Use this attribute to control how the model is packaged in the resulting image. | No |
-| `model_configuration.mode`            | `ModelInputMode`      | Indicate how the model would be placed in the package. Possible values are `ModelInputMode.DOWNLOAD` (default) and `ModelInputMode.COPY`. Downloading the model helps to make packages more lighweighted, specially for large models. However, it requires packages to be deployed to Azure Machine Learning. Copying, on the other hand, generated bigger packages as all the artifacts are copied on it, but they can be deployed anywhere. | No |
+| `model_configuration.mode`            | `ModelInputMode`      | Indicate how the model would be placed in the package. Possible values are `ModelInputMode.DOWNLOAD` (default) and `ModelInputMode.COPY`. Downloading the model helps to make packages more lighweighted, specially for large models. However, it requires packages to be deployed to Azure Machine Learning. Copying, on the other hand, generated bigger packages as all the artifacts are copied on it, but they can be deployed anywhere. | No | -->
 
 
 ```python
@@ -338,13 +395,15 @@ package_config = ModelPackage(
 )
 ```
 
+For more details about the package attributes, see [Package creation for a custom model](concept-package-models.md#package-creation-for-a-custom-model).
+
 # [Studio](#tab/studio)
 
-Creating packages in studio isn't supported by the moment. Use the Azure CLI or Azure Machine Learning SDK for Python.
+Creating packages in studio isn't supported currently. Use the Azure CLI or Azure Machine Learning SDK for Python.
 
 ---
 
-Let's start the package operation:
+Start the model package operation:
 
 # [Azure CLI](#tab/cli)
 
@@ -360,7 +419,7 @@ model_package = ml_client.models.begin_package(model_name, model.version, packag
 
 # [Studio](#tab/studio)
 
-Creating packages in studio isn't supported by the moment. Use the Azure CLI or Azure Machine Learning SDK for Python.
+Creating packages in studio isn't supported currently. Use the Azure CLI or Azure Machine Learning SDK for Python.
 
 ---
 
@@ -368,9 +427,9 @@ The result of the package operation is an environment.
 
 #### Deploy model packages to online endpoints
 
-Model packages can be deployed directly to Online Endpoint in Azure Machine Learning. Follow these steps to deploy a package to an online endpoint:
+Model packages can be deployed directly to online endpoints in Azure Machine Learning. Follow these steps to deploy a package to an online endpoint:
 
-1. Let's create an endpoint to host the deployment of the package. We need to pick a name for it:
+1. Pick a name for an endpoint to host the deployment of the package:
 
     # [Azure CLI](#tab/cli)
 
@@ -386,7 +445,7 @@ Model packages can be deployed directly to Online Endpoint in Azure Machine Lear
     
     # [Studio](#tab/studio)
     
-    Deploying custom model packages isn't supported in studio by the moment. Use the option [Package models before deployments](#package-models-before-deployments) to deploy standard model packages from studio or use the Azure CLI or Azure Machine Learning SDK for Python.
+    Deploying custom model packages isn't supported in the studio currently. Use the option [Package a model before deployment](#package-a-model-before-deployment) to deploy standard model packages from studio or use the Azure CLI or Azure Machine Learning SDK for Python.
     
 1. Create the endpoint:
 
@@ -405,9 +464,9 @@ Model packages can be deployed directly to Online Endpoint in Azure Machine Lear
 
     # [Studio](#tab/studio)
     
-    Deploying custom model packages isn't supported in studio by the moment. Use the option [Package models before deployments](#package-models-before-deployments) to deploy standard model packages from studio.
+    Deploying custom model packages isn't supported in the studio currently. Use the option [Package a model before deployment](#package-a-model-before-deployment) to deploy standard model packages from studio.
 
-1. Crate the deployment using the package. Notice how `environment` is configured with the package we've just created.
+1. Create the deployment, using the package. Notice how `environment` is configured with the package you've created.
 
     # [Azure CLI](#tab/cli)
 
@@ -435,12 +494,12 @@ Model packages can be deployed directly to Online Endpoint in Azure Machine Lear
 
     # [Studio](#tab/studio)
 
-    Deploying custom model packages isn't supported in studio by the moment. Use the option [Package models before deployments](#package-models-before-deployments) to deploy standard model packages from studio or use the Azure CLI or Azure Machine Learning SDK for Python.
+    Deploying custom model packages isn't supported in the studio currently. Use the option [Package a model before deployment](#package-a-model-before-deployment) to deploy standard model packages from studio or use the Azure CLI or Azure Machine Learning SDK for Python.
 
     ---
 
     > [!TIP]
-    > Notice how model or scoring script are not being indicated in this example. All of them are part of the package.
+    > Notice you don't specify the model or scoring script in this example; they are all part of the package.
 
 1. Start the deployment:
 
@@ -458,9 +517,9 @@ Model packages can be deployed directly to Online Endpoint in Azure Machine Lear
 
     # [Studio](#tab/studio)
 
-    Deploying custom model packages isn't supported in studio by the moment. Use the option [Package models before deployments](#package-models-before-deployments) to deploy standard model packages from studio or use the Azure CLI or Azure Machine Learning SDK for Python.
+    Deploying custom model packages isn't supported in the studio currently. Use the option [Package a model before deployment](#package-a-model-before-deployment) to deploy standard model packages from studio or use the Azure CLI or Azure Machine Learning SDK for Python.
 
-1. At this point, the deployment is ready to be consumed. We can test how it's working by creating a sample request file:
+1. At this point, the deployment is ready to be consumed. You can test how it's working by creating a sample request file:
 
     __sample-request.json__
 
@@ -473,7 +532,7 @@ Model packages can be deployed directly to Online Endpoint in Azure Machine Lear
     }
     ```
 
-1. Let's send the request to the endpoint: 
+1. Send the request to the endpoint
 
     # [Azure CLI](#tab/cli)
 
@@ -493,13 +552,13 @@ Model packages can be deployed directly to Online Endpoint in Azure Machine Lear
 
     # [Studio](#tab/studio)
 
-    1. Go to the section **Endpoints**.
+    1. Go to the **Endpoints** section.
 
-    1. Select the endpoint you've just created.
+    1. Select the endpoint you've created.
 
-    1. Select the tab **Test**.
+    1. Select the **Test** tab.
 
-    1. In the section **Input data to test endpoint**, paste the following content:
+    1. In the **Input data to test endpoint** section, paste the following content:
 
         ```json
         {
@@ -510,9 +569,7 @@ Model packages can be deployed directly to Online Endpoint in Azure Machine Lear
         }
         ```
 
-    1. Click on **Test**.
-
-1. You should see two numeric predictions being generated.
+    1. Select **Test**. You should see two numeric predictions being generated.
 
 ## Package models with dependencies in private Python feeds 
 
@@ -537,7 +594,7 @@ ws_connection = WorkspaceConnection(
 ml_client.connections.create_or_update(ws_connection)
 ```
 
-Once the connection is created, build the model package as usual. In the following example, the **base environment** of the package is using a private feed for the Python dependency `bar` indicated in a conda file:
+Once the connection is created, build the model package as usual. In the following example, the **base environment** of the package uses a private feed for the Python dependency `bar` indicated in a conda file:
 
 __conda.yml__
 
@@ -553,15 +610,15 @@ dependencies:
     - bar
 ```
 
-If your model is MLflow, model dependencies are indicated inside the model itself and hence a **base environment** isn't needed. In that case, indicate private feed dependencies when logging the model as explained at [Logging models with a custom signature, environment or samples](how-to-log-mlflow-models.md#logging-models-with-a-custom-signature-environment-or-samples).
+If you're using an MLflow model, model dependencies are indicated inside the model itself, and hence a **base environment** isn't needed. In that case, specify private feed dependencies when logging the model as explained in [Logging models with a custom signature, environment or samples](how-to-log-mlflow-models.md#logging-models-with-a-custom-signature-environment-or-samples).
 
 ## Package models in registries
 
-Model packages provide a convenient way to collect dependencies before deployment. However, when models are hosted in registries, the deployment target is usually another workspace. When creating packages in this setup, use the property `target_environment_name` to indicate the full location where you want the package to be created instead of just its name.
+Model packages provide a convenient way to collect dependencies before deployment. However, when models are hosted in registries, the deployment target is usually another workspace. When creating packages in this setup, use the property `target_environment_name` to specify the full location where you want the model package to be created instead of just its name.
 
 The following example creates a package of the `t5-base` model:
 
-1. Connect to the registry where the model is placed and the workspace you need the package to be created to:
+1. Connect to the registry where the model is located and the workspace in which you need the model package to be created:
 
     # [Azure CLI](#tab/cli)
 
@@ -583,7 +640,7 @@ The following example creates a package of the `t5-base` model:
     
     # [Studio](#tab/studio)
     
-    Creating packages in studio isn't supported by the moment. Use the Azure CLI or Azure Machine Learning SDK for Python.
+    Creating packages in studio isn't supported currently. Use the Azure CLI or Azure Machine Learning SDK for Python.
     
 1. Get a reference to the model you want to package:
 
@@ -603,13 +660,13 @@ The following example creates a package of the `t5-base` model:
     
     # [Studio](#tab/studio)
     
-    Creating packages in studio isn't supported by the moment. Use the Azure CLI or Azure Machine Learning SDK for Python.
+    Creating packages in studio isn't supported currently. Use the Azure CLI or Azure Machine Learning SDK for Python.
     
-1. Create a reference to the workspace you want to target the package to. Package uses the model in the registry but produce an environment (the packaged model) in the target workspace:
+1. Create a reference to the workspace you want to target the model package to. The model package uses the model in the registry but produces an environment (the packaged model) in the target workspace:
 
     # [Azure CLI](#tab/cli)
 
-    The following section gets the subscription, resource group name, and workspace name, from the defaults values in the console. Replace them with specific values if needed.
+    The following section gets the subscription, resource group name, and workspace name, from the default values in the console. Replace them with specific values if needed.
 
     ```azurecli
     SUBSCRIPTION_ID=$(az account show | jq .tenantId -r)
@@ -623,7 +680,7 @@ The following example creates a package of the `t5-base` model:
 
     # [Python](#tab/sdk)
 
-    The following sections gets the subscription, resource group name, and workspace name, from the workspace `MLClient`. Replace them with specific values if needed.
+    The following section gets the subscription, resource group name, and workspace name, from the workspace `MLClient`. Replace them with specific values if needed.
     
     ```python
     import time
@@ -636,7 +693,7 @@ The following example creates a package of the `t5-base` model:
     
     # [Studio](#tab/studio)
     
-    Creating packages in studio isn't supported by the moment. Use the Azure CLI or Azure Machine Learning SDK for Python.
+    Creating packages in studio isn't supported currently. Use the Azure CLI or Azure Machine Learning SDK for Python.
     
 1. Create a package configuration:
 
@@ -664,14 +721,14 @@ The following example creates a package of the `t5-base` model:
     
     # [Studio](#tab/studio)
     
-    Creating packages in studio isn't supported by the moment. Use the Azure CLI or Azure Machine Learning SDK for Python.
+    Creating packages in studio isn't supported currently. Use the Azure CLI or Azure Machine Learning SDK for Python.
     
     ---
 
     > [!NOTE]
     > See how `taget_environment_name` now contains the name of a resource.
     
-2. Let's start the package operation:
+2. Start the package operation:
 
     # [Azure CLI](#tab/cli)
     
@@ -694,16 +751,16 @@ The following example creates a package of the `t5-base` model:
     
     # [Studio](#tab/studio)
     
-    Creating packages in studio isn't supported by the moment. Use the Azure CLI or Azure Machine Learning SDK for Python.
+    Creating packages in studio isn't supported currently. Use the Azure CLI or Azure Machine Learning SDK for Python.
     
-1. The package is created in the target workspace and ready to be deployed.
+1. The package is now created in the target workspace and ready to be deployed.
 
 
 ## Package models to deploy outside of Azure Machine Learning
 
-Model packages can be deployed outside of Azure Machine Learning if needed.  To guarantee portability, you only need to ensure that the **model configuration** in your package has the mode set to **copy**. That means that the model itself is copied inside of the generated docker image instead of referenced from the model registry in Azure Machine Learning.
+Model packages can be deployed outside of Azure Machine Learning if needed.  To guarantee portability, you only need to ensure that the **model configuration** in your package has the mode set to **copy** so that the model itself is copied inside the generated docker image instead of referenced from the model registry in Azure Machine Learning.
 
-The following example shows how to configure copy in a package:
+The following example shows how to configure `copy` in a package:
 
 # [Azure CLI](#tab/cli)
 
@@ -749,9 +806,8 @@ TODO
 
 ---
     
-See an example about [how to deploy Azure Machine Learning models to Azure App Service](how-to-package-models-app-service.md).
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
 > [Package and deploy a model to App Service](how-to-package-models-app-service.md)
