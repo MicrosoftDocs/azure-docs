@@ -10,44 +10,6 @@ ms.date: 10/02/2023
 #CustomerIntent: As an operator, I want understand options to secure MQTT communications for my IoT Operations solution.
 ---
 
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the  main branch.
-
-This template provides the basic structure of a Concept article pattern. See the [instructions - Concept](../level4/article-concept.md) in the pattern library.
-
-You can provide feedback about this template at: https://aka.ms/patterns-feedback
-
-Concept is an article pattern that defines what something is or explains an abstract idea.
-
-There are several situations that might call for writing a Concept article, including:
-
-* If there's a new idea that's central to a service or product, that idea must be explained so that customers understand the value of the service or product as it relates to their circumstances. A good recent example is the concept of containerization or the concept of scalability.
-* If there's optional information or explanations that are common to several Tutorials or How-to guides, this information can be consolidated and single-sourced in a full-bodied Concept article for you to reference.
-* If a service or product is extensible, advanced users might modify it to better suit their application. It's better that advanced users fully understand the reasoning behind the design choices and everything else "under the hood" so that their variants are more robust, thereby improving their experience.
-
--->
-
-<!-- 1. H1
------------------------------------------------------------------------------
-
-Required. Set expectations for what the content covers, so customers know the content meets their needs. The H1 should NOT begin with a verb.
-
-Reflect the concept that undergirds an action, not the action itself. The H1 must start with:
-
-* "\<noun phrase\> concept(s)", or
-* "What is \<noun\>?", or
-* "\<noun\> overview"
-
-Concept articles are primarily distinguished by what they aren't:
-
-* They aren't procedural articles. They don't show how to complete a task.
-* They don't have specific end states, other than conveying an underlying idea, and don't have concrete, sequential actions for the user to take.
-
-One clear sign of a procedural article would be the use of a numbered list. With rare exception, numbered lists shouldn't appear in Concept articles.
-
--->
-
 # Secure Azure IoT MQ communication
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
@@ -55,24 +17,6 @@ One clear sign of a procedural article would be the use of a numbered list. With
 To customize the network access and security use the **BrokerListener** resource. A listener is a network endpoint that exposes the broker to the network. You can have one or more BrokerListener resources for each Broker resource, and thus multiple ports with different access control each.
 
 Each listener can have its own authentication and authorization rules, which define who can connect to the listener and what actions they can perform on the broker. You can use BrokerAuthentication and BrokerAuthorization resources to specify the access control policies for each listener. This allows you to fine-tune the permissions and roles of your MQTT clients, based on their needs and use cases.
-
-
-<!-- 4. H2s (Article body)
---------------------------------------------------------------------
-
-Required: In a series of H2 sections, the article body should discuss the ideas that explain how "X is a (type of) Y that does Z":
-
-* Give each H2 a heading that sets expectations for the content that follows.
-* Follow the H2 headings with a sentence about how the section contributes to the whole.
-* Describe the concept's critical features in the context of defining what it is.
-* Provide an example of how it's used where, how it fits into the context, or what it does. If it's complex and new to the user, show at least two examples.
-* Provide a non-example if contrasting it will make it clearer to the user what the concept is.
-* Images, code blocks, or other graphical elements come after the text block it illustrates.
-* Don't number H2s.
-
--->
-
-## BrokerListener resource
 
 The *BrokerListener* resource has these fields:
 
@@ -87,7 +31,7 @@ The *BrokerListener* resource has these fields:
   - `automatic`: Indicates that this listener uses cert-manager to get and renew a certificate for the listener. To use this type, specify an `issuerRef` field to reference the cert-manager Issuer.
   - `manual`: Indicates that this listener uses a manually provided certificate for the listener. To use this type, specify a `secret` field that references a Kubernetes Secret resource containing the certificate and the private key.
 
-### Example configuration
+## Example configuration
 
 This example shows how to create two BrokerListener resources for a Broker resource named `my-broker`. Each BrokerListener resource defines a port and a TLS setting for a listener that accepts MQTT connections from clients.
 
@@ -127,7 +71,7 @@ spec:
 
 ## Related content
 
-- Configure authentication for a BrokerListener
-- Configure authorization for a BrokerListener
-- Configure TLS for a BrokerListener
+- [Configure Azure IoT MQ authorization](../administer/howto-configure-authorization.md)
+- [Configure Azure IoT MQ authentication](../administer/howto-configure-authentication.md))
+- [Configure Azure IoT MQ TLS](../administer/howto-configure-tls.md)
 
