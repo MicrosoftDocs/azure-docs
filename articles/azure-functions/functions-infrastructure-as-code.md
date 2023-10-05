@@ -615,7 +615,7 @@ resource hostingPlan 'Microsoft.Web/serverfarms@2022-03-01' = {
 
 ::: zone-end
 
-## Application and site settings
+## Function app configuration
 
 Functions provides the following options for configuring your app: 
 
@@ -663,152 +663,136 @@ The following application settings are required for a given operating system and
 + [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring)
 
 + [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare)
-::: zone-end  
+::: zone-end
+:::zone pivot="consumption-plan,premium-plan,dedicated-plan"   
 + [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package)
 
 + [`WEBSITE_NODE_DEFAULT_VERSION`](functions-app-settings.md#website_node_default_version)<sup>2</sup>
-
+::: zone-end  
 <sup>1</sup>`APPINSIGHTS_INSTRUMENTATIONKEY` is deprecated. Use `APPLICATIONINSIGHTS_CONNECTION_STRING` instead.  
 <sup>2</sup>Supported only for Node.js deployments on Windows.
 
 ---
 
-The following site settings may be set on the `siteConfig` property:
+The following site settings may be required on the `siteConfig` property:
 
 ### [Linux](#tab/linux)
 
 + [`linuxFxVersion`](functions-app-settings.md#linuxfxversion) 
 
-+ [`netFrameworkVersion`](functions-app-settings.md#netframeworkversion)
++ [`netFrameworkVersion`](functions-app-settings.md#netframeworkversion)<sup>*</sup>
+
 
 ### [Windows](#tab/windows)
 
-+ [`netFrameworkVersion](functions-app-settings.md#netframeworkversion)
++ [`netFrameworkVersion](functions-app-settings.md#netframeworkversion)<sup>*</sup>
 
 ---
 
+<sup>*</sup>Only required for .NET (C#) apps.
+
 ## Function app
 
-The function app resource is defined by using a resource of type **Microsoft.Web/sites** and kind **functionapp**.
+The function app resource is defined by a resource of type **Microsoft.Web/sites** and kind of at leasdt **functionapp**.
+:::zone pivot="consumption-plan" 
+<a name="consumption"></a>
+The Consumption plan automatically allocates compute power when your code is running, scales-out as necessary to handle load, and then scales-in when code isn't running. You don't have to pay for idle VMs, and you don't have to reserve capacity in advance. To learn more, see [Consumption plan](consumption-plan.md).
 
-# [Bicep](#tab/bicep)
+The way that you define a function app depends on whether you are hosting on Linux or on Windows:
+
+### [Linux](#tab/linux)
+
+When running on Linux, you must set `"kind": "functionapp,linux"` and `"reserved": true` for the function app. Linux apps must also include a `linuxFxVersion` property under `siteConfig`. If you're just deploying code, the value for this property is determined by your desired runtime stack in the format of `<runtime>|<runtimeVersion>`. For more information, see the [linuxFxVersion site setting](functions-app-settings.md#linuxfxversion) reference.
+
+For a list of application settings required when running on Linux in a Consumption plan, see [Function app configuration](#function-app-configuration).
+
+For a sample Bicep file/Azure Resource Manager template, see [Azure Function App Hosted on Linux Consumption Plan](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-linux-consumption).
+
+### [Windows](#tab/windows)
+
+For a list of application settings required when running on Windows in a Consumption plan, see [Function app configuration](#function-app-configuration).
+
+For a sample Bicep file/Azure Resource Manager template, see [Azure Function App Hosted on Windows Consumption Plan](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-windows-consumption).
+
+---
+
+>[!NOTE]  
+>If you choose to optionally define your Consumption plan, you must set the `serverFarmId` property on the app so that it points to the resource ID of the plan. Make sure that the function app has a `dependsOn` setting that also references the plan. IF you didn't explicitly define a plan, it gets created for you. 
+
+The settings required by a function app running in Consumption plan also differ between Windows and Linux. For a comprehensive list, see [Function app configuration](#function-app-configuration).
+
+### [Linux](#tab/linux/bicep)
 
 ```bicep
 resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
   name: functionAppName
   location: location
-  kind: 'functionapp'
-  identity:{
-    type:'SystemAssigned'
-  }
+  kind: 'functionapp,linux'
   properties: {
+    reserved: true
     serverFarmId: hostingPlan.id
-    clientAffinityEnabled: false
     siteConfig: {
-      alwaysOn: true
-    }
-    httpsOnly: true
-  }
-  dependsOn: [
-    storageAccount
-  ]
-}
-```
-
-# [JSON](#tab/json)
-
-```json
-"resources:": [
-  {
-    "type": "Microsoft.Web/sites",
-    "apiVersion": "2022-03-01",
-    "name": "[parameters('functionAppName')]",
-    "location": "[parameters('location')]",
-    "kind": "functionapp",
-    "identity": {
-      "type": "SystemAssigned"
-    },
-    "properties": {
-      "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
-      "clientAffinityEnabled": false,
-      "siteConfig": {
-        "alwaysOn": true
-      },
-      "httpsOnly": true
-    },
-    "dependsOn": [
-      "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]",
-      "[resourceId('Microsoft.Insights/components', parameters('applicationInsightsName'))]"
-    ]
-  }
-]
-```
-
----
-
-# [Bicep](#tab/bicep)
-
-```bicep
-resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
-  ...
-  properties: {
-    ...
-    siteConfig: {
-      ...
+      linuxFxVersion: 'node|14'
       appSettings: [
         {
+          name: 'APPINSIGHTS_INSTRUMENTATIONKEY'
+          value: applicationInsights.properties.InstrumentationKey
+        }
+        {
           name: 'AzureWebJobsStorage'
-          value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};AccountKey=${listKeys(storageAccountName, '2021-09-01').keys[0].value}'
-        }
-        {
-          name: 'FUNCTIONS_WORKER_RUNTIME'
-          value: 'node'
-        }
-        {
-          name: 'WEBSITE_NODE_DEFAULT_VERSION'
-          value: '~14'
+          value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};EndpointSuffix=${environment().suffixes.storage};AccountKey=${storageAccount.listKeys().keys[0].value}'
         }
         {
           name: 'FUNCTIONS_EXTENSION_VERSION'
           value: '~4'
         }
-        ...
+        {
+          name: 'FUNCTIONS_WORKER_RUNTIME'
+          value: 'node'
+        }
       ]
     }
   }
 }
-
 ```
 
-# [JSON](#tab/json)
+### [Linux](#tab/linux/json)
 
 ```json
 "resources": [
   {
-  "type": "Microsoft.Web/sites",
-    ...
+    "type": "Microsoft.Web/sites",
+    "apiVersion": "2022-03-01",
+    "name": "[parameters('functionAppName')]",
+    "location": "[parameters('location')]",
+    "kind": "functionapp,linux",
+    "dependsOn": [
+      "[resourceId('Microsoft.Insights/components', parameters('applicationInsightsName'))]",
+      "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
+      "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
+    ],
     "properties": {
-      ...
+      "reserved": true,
+      "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
       "siteConfig": {
-        ...
+        "linuxFxVersion": "node|14",
         "appSettings": [
           {
+            "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
+            "value": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2020-02-02).InstrumentationKey]"
+          },
+          {
             "name": "AzureWebJobsStorage",
-                  "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}', parameters('storageAccountName'), listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
-          },
-          {
-            "name": "FUNCTIONS_WORKER_RUNTIME",
-            "value": "node"
-          },
-          {
-            "name": "WEBSITE_NODE_DEFAULT_VERSION",
-            "value": "~14"
+            "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};AccountKey={2}', parameters('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
           },
           {
             "name": "FUNCTIONS_EXTENSION_VERSION",
             "value": "~4"
           },
-          ...
+          {
+            "name": "FUNCTIONS_WORKER_RUNTIME",
+            "value": "node"
+          }
         ]
       }
     }
@@ -816,31 +800,7 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
 ]
 ```
 
----
-
-<a name="consumption"></a>
-## Deploy on Consumption plan
-
-The Consumption plan automatically allocates compute power when your code is running, scales out as necessary to handle load, and then scales in when code isn't running. You don't have to pay for idle VMs, and you don't have to reserve capacity in advance. To learn more, see [Consumption plan](consumption-plan.md).
-
-For a sample Bicep file/Azure Resource Manager template, see [Function app on Consumption plan].
-
-### Create a Consumption plan
-
-
-
-### Create a function app
-
-When you explicitly define your Consumption plan, you must set the `serverFarmId` property on the app so that it points to the resource ID of the plan. Make sure that the function app has a `dependsOn` setting that also references the plan.
-
-The settings required by a function app running in Consumption plan differ between Windows and Linux. You can choose your operating system at the [top of this article](#top).
-
-:::zone pivot="platform-windows" 
-On Windows, a Consumption plan requires another two other settings in the site configuration: [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring) and [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare). This property configures the storage account where the function app code and configuration are stored.
-
-For a sample Bicep file/Azure Resource Manager template, see [Azure Function App Hosted on Windows Consumption Plan](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-windows-consumption).
-
-# [Bicep](#tab/bicep)
+### [Windows](#tab/windows/bicep)
 
 ```bicep
 resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
@@ -885,7 +845,7 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
 }
 ```
 
-# [JSON](#tab/json)
+### [Windows](#tab/windows/json)
 
 ```json
 "resources": [
@@ -939,104 +899,9 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
 ]
 ```
 
----
-
-> [!IMPORTANT]
-> Don't set the [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) setting in a new deployment slot. This setting is generated for you when the app is created in the deployment slot.
-:::zone-end
-:::zone pivot="platform-linux"  
-The function app must have set `"kind": "functionapp,linux"`, and it must have set property `"reserved": true`. Linux apps should also include a `linuxFxVersion` property under siteConfig. If you're just deploying code, the value for this property is determined by your desired runtime stack in the format of runtime|runtimeVersion. For example: `python|3.7`, `node|14` and `dotnet|3.1`.
-
-For Linux Consumption plan it is also required to add the two other settings in the site configuration: [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring) and [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare).
-
-For a sample Bicep file/Azure Resource Manager template, see [Azure Function App Hosted on Linux Consumption Plan](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-linux-consumption).
-
-# [Bicep](#tab/bicep)
-
-```bicep
-resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
-  name: functionAppName
-  location: location
-  kind: 'functionapp,linux'
-  properties: {
-    reserved: true
-    serverFarmId: hostingPlan.id
-    siteConfig: {
-      linuxFxVersion: 'node|14'
-      appSettings: [
-        {
-          name: 'APPINSIGHTS_INSTRUMENTATIONKEY'
-          value: applicationInsights.properties.InstrumentationKey
-        }
-        {
-          name: 'AzureWebJobsStorage'
-          value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};EndpointSuffix=${environment().suffixes.storage};AccountKey=${storageAccount.listKeys().keys[0].value}'
-        }
-        {
-          name: 'FUNCTIONS_EXTENSION_VERSION'
-          value: '~4'
-        }
-        {
-          name: 'FUNCTIONS_WORKER_RUNTIME'
-          value: 'node'
-        }
-      ]
-    }
-  }
-}
-```
-
-# [JSON](#tab/json)
-
-```json
-"resources": [
-  {
-    "type": "Microsoft.Web/sites",
-    "apiVersion": "2022-03-01",
-    "name": "[parameters('functionAppName')]",
-    "location": "[parameters('location')]",
-    "kind": "functionapp,linux",
-    "dependsOn": [
-      "[resourceId('Microsoft.Insights/components', parameters('applicationInsightsName'))]",
-      "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
-      "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
-    ],
-    "properties": {
-      "reserved": true,
-      "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
-      "siteConfig": {
-        "linuxFxVersion": "node|14",
-        "appSettings": [
-          {
-            "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
-            "value": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2020-02-02).InstrumentationKey]"
-          },
-          {
-            "name": "AzureWebJobsStorage",
-            "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};AccountKey={2}', parameters('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
-          },
-          {
-            "name": "FUNCTIONS_EXTENSION_VERSION",
-            "value": "~4"
-          },
-          {
-            "name": "FUNCTIONS_WORKER_RUNTIME",
-            "value": "node"
-          }
-        ]
-      }
-    }
-  }
-]
-```
 
 ---
 :::zone-end  
-
-
-
-
-
 :::zone pivot="premium-plan"
 For function app on a Premium plan, you'll need to set the `serverFarmId` property on the app so that it points to the resource ID of the plan. You should ensure that the function app has a `dependsOn` setting for the plan as well.
 
@@ -1252,16 +1117,94 @@ resource functionApp 'Microsoft.Web/sites@2021-02-01' = {
 
 :::zone-end
 :::zone pivot="dedicated-plan"
-When creating a function app on a Dedicated (App Service) plan, must include the following in your deployment:
+When creating a function app on a Dedicated (App Service) plan, set the `serverFarmId` property on the app so that it points to the resource ID of the plan and make sure that the function app has a `dependsOn` setting that also references the plan.
 
-+ Set the `serverFarmId` property on the app so that it points to the resource ID of the plan. 
-+ Make sure that the function app has a `dependsOn` setting that also references the plan.
-+ Enable the `"alwaysOn": true` setting under site config so that your function app runs correctly. On an App Service plan, the functions runtime goes idle after a few minutes of inactivity, so only HTTP triggers will "wake up" your functions. Without this setting your non-HTTP trigger functions, including Timer trigger, won't run correctly.
-+ Don't include [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring) and [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) settings. These dynamic scale settings aren't supported on a Dedicated plan.
+The settings required by a function app running in Dedicated plan differ between Windows and Linux. 
 
-The settings required by a function app running in Dedicated plan differ between Windows and Linux. You can choose your operating system at the [top of this article](#top).
+The function app must have set `"kind": "functionapp,linux"`, and it must have set property `"reserved": true`. Linux apps should also include a `linuxFxVersion` property under `siteConfig`. If you're just deploying code, the value for this property is determined by your desired runtime stack in the format of runtime|runtimeVersion. Examples of `linuxFxVersion` property include:  `python|3.7`, `node|14` and `dotnet|3.1`.
 
-:::zone pivot="platform-windows" 
+# [Bicep](#tab/bicep)
+
+```bicep
+resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
+  name: functionAppName
+  location: location
+  kind: 'functionapp,linux'
+  properties: {
+    reserved: true
+    serverFarmId: hostingPlan.id
+    siteConfig: {
+      alwaysOn: true
+      linuxFxVersion: 'node|14'
+      appSettings: [
+        {
+          name: 'APPINSIGHTS_INSTRUMENTATIONKEY'
+          value: applicationInsightsName.properties.InstrumentationKey
+        }
+        {
+          name: 'AzureWebJobsStorage'
+          value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};EndpointSuffix=${environment().suffixes.storage};AccountKey=${storageAccount.listKeys().keys[0].value}'
+        }
+        {
+          name: 'FUNCTIONS_EXTENSION_VERSION'
+          value: '~4'
+        }
+        {
+          name: 'FUNCTIONS_WORKER_RUNTIME'
+          value: 'node'
+        }
+      ]
+    }
+  }
+}
+```
+
+# [JSON](#tab/json)
+
+```json
+"resources": [
+  {
+    "type": "Microsoft.Web/sites",
+    "apiVersion": "2022-03-01",
+    "name": "[parameters('functionAppName')]",
+    "location": "[parameters('location')]",
+    "kind": "functionapp,linux",
+    "dependsOn": [
+      "[resourceId('Microsoft.Insights/components', parameters('applicationInsightsName'))]",
+      "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
+      "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
+    ],
+    "properties": {
+      "reserved": true,
+      "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
+      "siteConfig": {
+        "alwaysOn": true,
+        "linuxFxVersion": "node|14",
+        "appSettings": [
+          {
+            "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
+            "value": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2020-02-02').InstrumentationKey]"
+          },
+          {
+            "name": "AzureWebJobsStorage",
+            "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};AccountKey={2}', parameters('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
+          },
+          {
+            "name": "FUNCTIONS_EXTENSION_VERSION",
+            "value": "~4"
+          },
+          {
+            "name": "FUNCTIONS_WORKER_RUNTIME",
+            "value": "node"
+          }
+        ]
+      }
+    }
+  }
+]
+```
+
+---
 
 # [Bicep](#tab/bicep)
 
@@ -1350,98 +1293,23 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
 
 ---
 
-:::zone-end
-:::zone pivot="platform-linux" 
-The function app must have set `"kind": "functionapp,linux"`, and it must have set property `"reserved": true`. Linux apps should also include a `linuxFxVersion` property under siteConfig. If you're just deploying code, the value for this property is determined by your desired runtime stack in the format of runtime|runtimeVersion. Examples of `linuxFxVersion` property include:  `python|3.7`, `node|14` and `dotnet|3.1`.
+When creating a function app in a Dedicated plan, keep the following considerations in mind:
 
-# [Bicep](#tab/bicep)
-
-```bicep
-resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
-  name: functionAppName
-  location: location
-  kind: 'functionapp,linux'
-  properties: {
-    reserved: true
-    serverFarmId: hostingPlan.id
-    siteConfig: {
-      alwaysOn: true
-      linuxFxVersion: 'node|14'
-      appSettings: [
-        {
-          name: 'APPINSIGHTS_INSTRUMENTATIONKEY'
-          value: applicationInsightsName.properties.InstrumentationKey
-        }
-        {
-          name: 'AzureWebJobsStorage'
-          value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};EndpointSuffix=${environment().suffixes.storage};AccountKey=${storageAccount.listKeys().keys[0].value}'
-        }
-        {
-          name: 'FUNCTIONS_EXTENSION_VERSION'
-          value: '~4'
-        }
-        {
-          name: 'FUNCTIONS_WORKER_RUNTIME'
-          value: 'node'
-        }
-      ]
-    }
-  }
-}
-```
-
-# [JSON](#tab/json)
-
-```json
-"resources": [
-  {
-    "type": "Microsoft.Web/sites",
-    "apiVersion": "2022-03-01",
-    "name": "[parameters('functionAppName')]",
-    "location": "[parameters('location')]",
-    "kind": "functionapp,linux",
-    "dependsOn": [
-      "[resourceId('Microsoft.Insights/components', parameters('applicationInsightsName'))]",
-      "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
-      "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
-    ],
-    "properties": {
-      "reserved": true,
-      "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
-      "siteConfig": {
-        "alwaysOn": true,
-        "linuxFxVersion": "node|14",
-        "appSettings": [
-          {
-            "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
-            "value": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2020-02-02').InstrumentationKey]"
-          },
-          {
-            "name": "AzureWebJobsStorage",
-            "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};AccountKey={2}', parameters('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
-          },
-          {
-            "name": "FUNCTIONS_EXTENSION_VERSION",
-            "value": "~4"
-          },
-          {
-            "name": "FUNCTIONS_WORKER_RUNTIME",
-            "value": "node"
-          }
-        ]
-      }
-    }
-  }
-]
-```
-
----
++ Enable the `"alwaysOn": true` setting under site config so that your function app runs correctly. On an App Service plan, the functions runtime goes idle after a few minutes of inactivity, so only HTTP triggers will "wake up" your functions. Without this setting your non-HTTP trigger functions, including Timer trigger, won't run correctly.
++ Don't include [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring) and [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) settings. These dynamic scale settings aren't supported on a Dedicated plan.
 
 :::zone-end
+:::zone pivot="dedicated-plan,premium-plan"
+## Containerized function apps
 
-### Custom Container Image
+If you're [deploying containerized function app](./functions-how-to-custom-container.md) to an Azure Functions Premium or Dedicated plan, you must set the [`linuxFxVersion`](functions-app-settings.md#linuxfxversion) site setting with the identifier of your container image. You also need to set these application settings:
 
-If you're [deploying a custom container image](./functions-how-to-custom-container.md), you must specify it with `linuxFxVersion` and include configuration that allows your image to be pulled, as in [Web App for Containers](../app-service/index.yml). Also, set `WEBSITES_ENABLE_APP_SERVICE_STORAGE` to `false`, since your app content is provided in the container itself:
+| Setting | Value | Description |
+|----|----|----|
+| [`DOCKER_REGISTRY_SERVER_URL`](../app-service/reference-app-settings.md#custom-containers) | Container service URL | Use with a private container registry service, like Azure Container Registry. |
+| [`DOCKER_REGISTRY_SERVER_USERNAME](../app-service/reference-app-settings.md#custom-containers) | username | Username of the private container registry service account. |
+| [`DOCKER_REGISTRY_SERVER_PASSWORD`](../app-service/reference-app-settings.md#custom-containers) | password | Password for the private container registry service account. |
+ [`WEBSITES_ENABLE_APP_SERVICE_STORAGE`](../app-service/reference-app-settings.md#custom-containers) | `false` | Don't use the root since your app content is provided in the container itself. |
 
 #### [Bicep](#tab/bicep)
 
@@ -1555,12 +1423,17 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
 ```
 
 ---
+:::zone pivot="azure-arc"
+When deploying functions to Azure Arc, the value you set for the `kind` field of the function app resource depends on the type of deployment:
 
-## Deploy to Azure Arc
+| Deployment type | `kind` field value |
+|----|----|
+| Code-only deployment | `functionapp,linux,kubernetes` |
+| Container deployment | `functionapp,linux,kubernetes,container` |  
 
+You must also set the `customLocationId` as you did for the [hosting plan resource](#hosting-plan).
 
-
-The function app resource should have its `kind` field set to **functionapp,linux,kubernetes** or **functionapp,linux,kubernetes,container** depending on if you intend to deploy via code or container. An example .NET 6.0 function app might look like:
+The definition of a containerized .NET 6.0 function app might look like this example:
 
 # [Bicep](#tab/bicep)
 
@@ -1644,6 +1517,8 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
 ```
 
 ---
+
+::: zone-end
 
 ## Customize deployments
 
