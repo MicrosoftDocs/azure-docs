@@ -350,13 +350,13 @@
   - name: Cloud Services
     tocHref: /azure/cloud-services/
     topicHref: /azure/cloud-services/
-  - name: Cognitive Search
-    tocHref: /azure/search/
-    topicHref: /azure/search/
   - name: AI Services
     tocHref: /azure/ai-services/
     topicHref: /azure/ai-services/
     items:
+    - name: Cognitive Search
+      tocHref: /azure/search/
+      topicHref: /azure/search/
     - name: Academic Knowledge
       tocHref: /azure/cognitive-services/academic-knowledge/
       topicHref: https://www.microsoft.com/research/project/academic-knowledge/
