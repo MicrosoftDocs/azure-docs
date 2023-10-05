@@ -120,7 +120,7 @@ ADLS Gen2 provides OAuth 2.0 with your Azure AD application service principal fo
 
 **Mount ADLS Gen2 into DBFS, on Azure Databricks notebook**
 
-:::image type="content" source="media/azure-databricks/adls-gen-2.png" alt-text="Screenshot shows mount ADLS Gen2 into DBFS, on Azure Databricks notebook." lightbox="media/azure-databricks/adls-gen-2.png":::
+:::image type="content" source="media/azure-databricks/azure-data-lake-storage-gen-2.png" alt-text="Screenshot shows mount ADLS Gen2 into DBFS, on Azure Databricks notebook." lightbox="media/azure-databricks/azure-data-lake-storage-gen-2.png":::
 
 **Prepare notebook**
 
