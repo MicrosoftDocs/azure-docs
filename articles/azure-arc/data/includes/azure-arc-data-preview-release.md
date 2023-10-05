@@ -38,13 +38,6 @@ Oct 2023 preview release is now available.
 |Azure Arc Extension for Azure Data Studio<br/>`arc`<br/>`azcli`|<br/>1.8.0 ([Download](https://aka.ms/ads-arcdata-ext))</br>1.8.0 ([Download](https://aka.ms/ads-azcli-ext))|
 |SQL Database version | 957 |
 
- -->
-
-
 ### Release notes
 
-- Arc SQL Server | Arc enable SQL Server FCI - General Support | Public Preview
-- Arc SQL Server | Arc enable SQL Server FCI - DB Inventory | Public Preview
-- Arc SQL Server | Arc enable SQL Server FCI - Defender | Public Preview
-- Arc SQL Server | Point-in-time restore | Private Preview
-- Arc SQL Server | Billing | Enable ESU for FCI clusters | GA
+-->
