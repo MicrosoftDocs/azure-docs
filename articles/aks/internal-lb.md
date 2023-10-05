@@ -224,6 +224,8 @@ A Private Endpoint allows you to privately connect to your Kubernetes service ob
 
 ### PLS Customizations via Annotations
 
+The following are annotations that can be used to customize the PLS resource.
+
 | Annotation | Value | Description | Required | Default |
 | ------------------------------------------------------------------------ | ---------------------------------- | ------------------------------------------------------------ |------|------|
 | `service.beta.kubernetes.io/azure-pls-create`                            | `"true"`                           | Boolean indicating whether a PLS needs to be created. | Required | |
