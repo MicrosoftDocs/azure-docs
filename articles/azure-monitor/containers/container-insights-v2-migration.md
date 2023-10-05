@@ -26,6 +26,9 @@ To transition to ContainerLogV2, we recommend the following approach.
 
 The following table highlights the key differences between using ContainerLog and ContainerLogV2 schema.
 
+>[!NOTE]
+> DCR based configuration is not supported for service principal based clusters. Please [migrate your clusters with service principal to managed identity](./container-insights-enable-aks.md#migrate-to-managed-identity-authentication) to use this experience.
+
 | Feature differences  | ContainerLog | ContainerLogV2 |
 | ------------------- | ----------------- | ------------------- |
 | Onboarding | Only configurable through the ConfigMap | Configurable through both the ConfigMap and DCR\* |
