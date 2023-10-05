@@ -94,6 +94,8 @@ items:
         href: ./how-to/switching-endpoints.md
       - name: Manage quota
         href: ./how-to/quota.md
+      - name: Manage models
+        href: ./how-to/working-with-models.md
       - name: Monitor Azure OpenAI
         href: ./how-to/monitoring.md
       - name: Plan and manage costs
