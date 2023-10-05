@@ -8,24 +8,26 @@ ms.date: 10/05/2023
 
 # Incorporate Flink DataStream into Azure Databricks Delta Lake Table
 
-This example shows how to sink stream data landed into azure ADLS gen2 from HDInsight Flink cluster on AKS applications into Delta Lake tables using Azure Databricks Auto Loader.
+This example shows how to sink stream data landed into Azure ADLS Gen2 from HDInsight Flink cluster on AKS applications into Delta Lake tables using Azure Databricks Auto Loader.
 
 ## Prerequisites
 
-- HDInsight Flink 1.16.0 on AKS
-- HDInsight Kafka 3.2.0
-- Azure Databricks in the same VNET as HDInsight on AKS
-- ADLS gen2 and Service Principle
+- [HDInsight Flink 1.16.0 on AKS](./flink-create-cluster-portal.md)
+- [HDInsight Kafka 3.2.0](../../hdinsight/kafka/apache-kafka-get-started.md)
+- [Azure Databricks](/azure/databricks/getting-started/) in the same VNET as HDInsight on AKS
+- [ADLS Gen2](/azure/databricks/getting-started/connect-to-azure-storage/) and Service Principal
 
 ## Azure Databricks Auto Loader
 
-Databricks Auto Loader makes it easy to stream data land into object storage from Flink applications into Delta Lake tables. [Auto Loader](/databricks/ingestion/auto-loader/) provides a Structured Streaming source called cloudFiles.
+Databricks Auto Loader makes it easy to stream data land into object storage from Flink applications into Delta Lake tables. [Auto Loader](/azure/databricks/ingestion/auto-loader/) provides a Structured Streaming source called cloudFiles.
 
 Here are the steps how you can use data from Flink in Azure Databricks delta live tables.
 
-### Step1: Create Kafka table on Flink SQL
+### Create Kafka table on Flink SQL
 
-In this step, you can create Kafka table and ADLS gen2 on Flink SQL.
+In this step, you can create Kafka table and ADLS Gen2 on Flink SQL. For the purpose of this document, we are using a airplanes_state_real_time table, you can use any topic of your choice. 
+
+You are required to update the broker IPs with your Kafka cluster in the code snippet.
 
 ```SQL
 CREATE TABLE kafka_airplanes_state_real_time (
@@ -62,6 +64,8 @@ CREATE TABLE kafka_airplanes_state_real_time (
 ```
 Next, you can create ADLSgen2 table on Flink SQL.
 
+Update the container-name and storage-account-name in the code snippet with your ADLS Gen2 details.
+
 ```SQL
 CREATE TABLE adlsgen2_airplanes_state_real_time (
    `date` STRING,
@@ -89,7 +93,7 @@ CREATE TABLE adlsgen2_airplanes_state_real_time (
    `longitude` FLOAT
  ) WITH (
      'connector' = 'filesystem',
-     'path' = 'abfs://adb@contosoflinkgen2.dfs.core.windows.net/flink/airplanes_state_real_time/',
+     'path' = 'abfs://<container-name>@<storage-account-name>/flink/airplanes_state_real_time/',
      'format' = 'json'
  );
 ```
@@ -98,21 +102,21 @@ Further, you can insert Kafka table into ADLSgen2 table on Flink SQL.
 
 :::image type="content" source="media/azure-databricks/insert-kafka-table.png" alt-text="Screenshot shows insert Kafka table into ADLSgen2 table." lightbox="media/azure-databricks/insert-kafka-table.png":::
 
-### Step2: Validate the streaming job on Flink
+### Validate the streaming job on Flink
 
 :::image type="content" source="media/azure-databricks/validate-streaming-job.png" alt-text="Screenshot shows validate the streaming job on Flink." lightbox="media/azure-databricks/validate-streaming-job.png":::
 
-### Step3: Check data sink from Kafka in Azure Storage on Azure Portal
+### Check data sink from Kafka in Azure Storage on Azure portal
 
 :::image type="content" source="media/azure-databricks/check-data-sink.png" alt-text="Screenshot shows check data sink from Kafka on Azure Storage." lightbox="media/azure-databricks/check-data-sink.png":::
 
-### Step4: Authentication of Azure Storage and Azure Databricks notebook
+### Authentication of Azure Storage and Azure Databricks notebook
 
 ADLS Gen2 provides OAuth 2.0 with your Azure AD application service principal for authentication from an Azure Databricks notebook and then mount into Azure Databricks DBFS.
 
 **Let's get service principle appid, tenant id and secret key.**
 
-:::image type="content" source="media/azure-databricks/service-id.png" alt-text="Screenshot shows get service principle appid, tenant id and secret key." lightbox="media/azure-databricks/service-id.png":::
+:::image type="content" source="media/azure-databricks/service-id.png" alt-text="Screenshot shows get service principle appid, tenant ID and secret key." lightbox="media/azure-databricks/service-id.png":::
 
 **Grant service principle the Storage Blob Data Owner on Azure portal**
 
@@ -131,12 +135,12 @@ CREATE OR REFRESH STREAMING TABLE airplanes_state_real_time2
 AS SELECT * FROM cloud_files("dbfs:/mnt/contosoflinkgen2/flink/airplanes_state_real_time/", "json")
 ```
 
-### Step5: Define Delta Live Table Pipeline and run on Azure Databricks
+### Define Delta Live Table Pipeline and run on Azure Databricks
 
 :::image type="content" source="media/azure-databricks/delta-live-table-pipeline.png" alt-text="Screenshot shows Delta Live Table Pipeline and run on Azure Databricks." lightbox="media/azure-databricks/delta-live-table-pipeline.png":::
 
-:::image type="content" source="media/azure-databricks/delta-live-table-pipeline-2.png" alt-text="Screenshot shows Delta Live Table Pipeline and run on Azure Databricks." lightbox="media/azure-databricks/delta-live-table-pipeline-2.png":::
+:::image type="content" source="media/azure-databricks/delta-live-table-pipeline-2.png" alt-text="Screenshot shows Delta Live Table Pipeline and run on the Azure Databricks." lightbox="media/azure-databricks/delta-live-table-pipeline-2.png":::
 
-### Step6: Check Delta Live Table on Azure Databricks Notebook
+### Check Delta Live Table on Azure Databricks Notebook
 
 :::image type="content" source="media/azure-databricks/delta-live-table-azure.png" alt-text="Screenshot shows check Delta Live Table on Azure Databricks Notebook." lightbox="media/azure-databricks/delta-live-table-azure.png":::
