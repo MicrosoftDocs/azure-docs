@@ -40,6 +40,7 @@ Application Gateway for Containers enables multi-site hosting by allowing you to
   - a namespace called `test-infra`
   - 2 services called `backend-v1` and `backend-v2` in the `test-infra` namespace
   - 2 deployments called `backend-v1` and `backend-v2` in the `test-infra` namespace
+  - 2 healthcheckpolicy  called `backend-v1` and `backend-v2` in the `test-infra` namespace
 
 ## Deploy the required Gateway API resources
 
