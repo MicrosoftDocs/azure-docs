@@ -176,7 +176,7 @@ The ability to completely block routes isn't supported by the Azure VPN Client. 
 
 ## Azure VPN Client version information
 
-For Azure VPN Client version information, see [Azure VPN Client versions](vpn-client-versions.md).
+For Azure VPN Client version information, see [Azure VPN Client versions](azure-vpn-client-versions.md).
 
 ## Next steps
 
