@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 06/27/2023
+ms.date: 10/04/2023
 ms.author: danlep
 ---
 
@@ -97,6 +97,7 @@ The following table compares features available in the managed gateway versus th
 | [Pass-through GraphQL](graphql-apis-overview.md) |  ✔️ | ✔️ | ❌ |
 | [Synthetic GraphQL](graphql-apis-overview.md)|  ✔️ |  ✔️<sup>1</sup> | ❌ |
 | [Pass-through WebSocket](websocket-api.md) |  ✔️ |  ❌ | ✔️ |
+| [Pass-through gRPC](grpc-api.md) |  ❌ |  ❌ | ✔️ |
 
 <sup>1</sup> Synthetic GraphQL subscriptions (preview) aren't supported in the Consumption tier.
 
