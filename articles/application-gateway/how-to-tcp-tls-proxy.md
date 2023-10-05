@@ -139,7 +139,7 @@ First, create a SQL Server virtual machine (VM) using the Azure portal.
 
     <!-- Below is a comparison of two methods of displaying the same image in an article on the learn platform. The first is markdown, the second is HTML -->
 
-    ![A screenshot displaying backend pool creation.](i./media/how-to-tcp-tls-proxy/add-backend-pool.png)
+    ![A screenshot showing backend pool creation.](./media/how-to-tcp-tls-proxy/add-backend-pool.png)
 
     <img src="./media/how-to-tcp-tls-proxy/add-backend-pool.png" alt="A screenshot displaying backend pool creation." width="60%">
  
