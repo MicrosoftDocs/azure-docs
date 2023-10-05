@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 04/27/2023
+ms.date: 10/05/2023
 ms.author: alkohli
 ---
 
@@ -31,7 +31,8 @@ To wipe the data off the data disks of your device, you need to reset your devic
 Before you reset, create a copy of the local data on the device if needed. You can copy the data from the device to an Azure Storage container.
 
 >[!IMPORTANT]
-> Resetting your device will erase all local data and workloads from your device, and that can't be reversed. Reset your device only if you want to start afresh with the device.
+> - Resetting your device will erase all local data and workloads from your device, and that can't be reversed. Reset your device only if you want to start afresh with the device.
+> - Each time you change the Kubernetes profile, you are prompted for the Kubernetes update. Go ahead and apply the update.
 
 You can reset your device in the local web UI or in PowerShell. For PowerShell instructions, see [Reset your device](./azure-stack-edge-connect-powershell-interface.md#reset-your-device).
 

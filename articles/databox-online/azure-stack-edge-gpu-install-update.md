@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 10/02/2023
+ms.date: 10/05/2023
 ms.author: alkohli
 ---
 # Update your Azure Stack Edge Pro GPU 
@@ -77,6 +77,8 @@ If you are running 2303, you can update both your device version and Kubernetes 
 In Azure portal, the process will require two clicks, the first update gets your device version to 2303 and your Kubernetes version to 2210, and the second update gets your Kubernetes version upgraded to 2309.
 
 From the local UI, you will have to run each update separately: update the device version to 2303, update Kubernetes version to 2210, update Kubernetes version to 2303, and then the third update gets both the device version and Kubernetes version to 2309.
+
+Each time you change the Kubernetes profile, you are prompted for the Kubernetes update. Go ahead and apply the update.
 
 ### Updates for a single-node vs two-node
 
