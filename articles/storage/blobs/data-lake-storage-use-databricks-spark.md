@@ -65,7 +65,7 @@ Leave your notebuook open. You'll use it in the following sections.
 
 Use AzCopy to copy data from your *.csv* file into your Data Lake Storage Gen2 account. You'll use the `azcopy make` command to create a container in your storage account. Then you'll use the `azcopy copy` command to copy the *csv* data you just downloaded to a directory in that container.
 
-In the following steps, you'll need to enter names for the container you want to create, and the directory and blob that you want to upload the flight data to in the container. You can use the suggested names in each step or specify your own observing the [naming conventions for containers, directories, and blobs](/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
+In the following steps, you'll need to enter names for the container you want to create, and the directory and blob that you want to upload the flight data to in the container. You can use the suggested names in each step or specify your own observing the [naming conventions for containers, directories, and blobs](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
 1. Open a command prompt window, and enter the following command to log in Azure Active Directory to access your storage account.
 
@@ -141,7 +141,7 @@ To run the commands, you'll need:
 
 Now that our *csv* flight data is accessible through a DBFS mount point, we'll use an Apache DataFrame to load it into our workspace and write it back to our ADLs Gen 2 object store in parquet format.
 
-Apache Spark DataFrames provide a rich set of functions (select columns, filter, join, aggregate) that allow you to solve common data analysis problems efficiently. A DataFrame is a two-dimensional labeled data structure with columns of potentially different types. You can use a DataFrame to easily read and write data in a variety of supported formats. To learn more, see [What is a DataFrame?](../../databricks/getting-started/dataframes-python.md#what-is-a-dataframe).
+Apache Spark DataFrames provide a rich set of functions (select columns, filter, join, aggregate) that allow you to solve common data analysis problems efficiently. A DataFrame is a two-dimensional labeled data structure with columns of potentially different types. You can use a DataFrame to easily read and write data in a variety of supported formats. To learn more, see [What is a DataFrame?](/azure/databricks/getting-started/dataframes-python#what-is-a-dataframe).
 
 In the notebook, add a new cell, and paste the following code into that cell.
 
