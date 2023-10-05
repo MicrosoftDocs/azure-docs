@@ -26,7 +26,7 @@ As with cloud services, you have options when implementing AI capabilities for y
 
 The following diagram illustrates the areas of responsibility between you and Microsoft according to the type of deployment.
 
-:::image type="content" source="media/shared-responsibility-ai/ai-shared-responsibility.svg" alt-text="Diagram showing responsibility zones." border="false":::
+:::image type="content" source="media/shared-responsibility-ai/ai-shared-responsibility.svg" alt-text="Diagram showing AI responsibility zones." border="false":::
 
 ## AI layer overview
 An AI enabled application consists of three layers of functionality that group together tasks, which you or an AI provider perform. The security responsibilities generally reside with whoever performs the tasks, but an AI provider may choose to expose security or other controls as a configuration option to you as appropriate. These three layers include:
@@ -39,7 +39,7 @@ The AI platform layer provides the AI capabilities to the applications. At the p
 Microsoft has built-in safety systems for both PaaS and SaaS offerings:
 
 - PaaS - [Azure OpenAI Service](../../ai-services/openai/overview.md)
-- SaaS - [Microsoft Security CoPilot](https://www.microsoft.com/security/business/ai-machine-learning/microsoft-security-copilot)
+- SaaS - [Microsoft Security Copilot](https://www.microsoft.com/security/business/ai-machine-learning/microsoft-security-copilot)
 
 ### AI application
 The AI application accesses the AI capabilities and provides the service or interface that the user consumes. The components in this layer can vary from relatively simple to highly complex, depending on the application. The simplest standalone AI applications act as an interface to a set of APIs taking a text-based user-prompt and passing that data to the model for a response. More complex AI applications include the ability to ground the user-prompt with extra context, including a persistence layer, semantic index, or via plugins to allow access to more data sources. Advanced AI applications may also interface with existing applications and systems. Existing applications and systems may work across text, audio, and images to generate various types of content.
@@ -84,6 +84,6 @@ To help bring AI to the world, Microsoft is developing Copilot solutions for eac
 Microsoft ensures that every Copilot solution is engineered following our strong principles for [AI governance](https://blogs.microsoft.com/on-the-issues/2023/05/25/how-do-we-best-govern-ai/).
 
 ## Next steps
-Learn more about the security of AI systems by reading the [Microsoft Principles of Secure AI](https://www.microsoft.com/ai/principles-and-approach/).
+Learn more about Microsoft's product development requirements for responsible AI in the [Microsoft Responsible AI Standard](https://www.microsoft.com/ai/principles-and-approach/).
 
-Learn about the [shared responsibilities for cloud computing](shared-responsibility.md).
+Learn about [shared responsibilities for cloud computing](shared-responsibility.md).
