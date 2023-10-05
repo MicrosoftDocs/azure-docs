@@ -87,21 +87,20 @@ Input can be in the form of:
 > [!NOTE]
 > If the current version of the `KubernetesCluster` resource matches the input version’s pattern, no update occurs, meaning that an input of 1.1.1 doesn't trigger the change from 1.1.1-1 to 1.1.1-2, because 1.1.1-1 is already congruent with 1.1.1. To upgrade to 1.1.1-2, it can be fully specified as input.
 
-### Discovering available upgrade versions
-
-See the [Upgrading cluster runtime document](./howto-cluster-runtime-upgrade.md)
-
-## Upgrade experience
+### Upgrade experience
 
 During a version upgrade, there are two stages: Control plane and Agent pools. These stages attempt to minimize the effect to running workloads by following safe Kubernetes practices.
 
-### Control plane
+#### Control plane
 
-The control plane nodes are cycled to the new version one node at a time. No interruption to the Kubernetes API or cluster operation is expected.
+The control plane nodes are cycled to the new version one node at a time in a scale-out upgrade process. This means that no interruption to the Kubernetes API or cluster operation is expected during the upgrade.
 
-### Agent pools
+#### Agent pools
 
-The agent pool nodes scale out and then cordon, drain and tear down one node at a time by default, with the `maxSurge` option to allow for more rapid replacement of the agent pool. Standard Kubernetes workloads natively cycle to the new nodes when they're drained from the nodes being torn down. Nexus Kubernetes service can't make workload promises for nonstandard Kubernetes behaviors.
+The agent pool nodes undergo a scale-out upgrade process, which involves cordoning, draining, and tearing down one node at a time by default. However, the process can be accelerated using the `maxSurge` option to allow for more rapid replacement of the agent pool. In cases where there are multiple agent pools, each agent pool undergoes a scale-out upgrade independently.
+
+> [!IMPORTANT]
+> It's important to note that standard Kubernetes workloads natively cycle to the new nodes when they are drained from the nodes being torn down. Please keep in mind that Nexus Kubernetes service cannot make workload promises for nonstandard Kubernetes behaviors.
 
 ## Kubernetes version support policy
 

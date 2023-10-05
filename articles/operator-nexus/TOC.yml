@@ -83,6 +83,8 @@
       items:
         - name: Understand agent pools
           href: howto-kubernetes-cluster-agent-pools.md
+        - name: Upgrade cluster version
+          href: howto-upgrade-nexus-kubernetes-cluster.md
         - name: Configure huge-pages for cluster virtual machines
           href: howto-kubernetes-cluster-huge-pages.md
         - name: Configure service load balancer
