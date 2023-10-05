@@ -2,6 +2,7 @@
 title: Update or rotate the credentials for an Azure Kubernetes Service (AKS) cluster
 description: Learn how update or rotate the service principal or Azure AD Application credentials for an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
+ms.custom: devx-track-azurecli
 ms.date: 03/01/2023
 ---
 
