@@ -331,6 +331,11 @@ A nudge won't appear if a user is presented with the [terms of use (ToU)](/azure
 
 A nudge won't appear if a user is redirected during sign-in due to [Conditional Access custom controls](/azure/active-directory/conditional-access/controls) settings.
 
+**Are there any plans to discontinue SMS and Voice as methods usable for MFA?**
+
+No, there are no such plans.
+
 ## Next steps
 
 [Enable passwordless sign-in with Microsoft Authenticator](howto-authentication-passwordless-phone.md)
+
