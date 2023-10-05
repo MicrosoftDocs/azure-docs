@@ -630,6 +630,7 @@ App Service app has the following settings:
         - FLASK_DEBUG
         - SCM_DO_BUILD_DURING_DEPLOYMENT
         - SECRET_KEY
+
 < Output removed for brevity. >
 </pre>
 
@@ -657,7 +658,7 @@ App Service app has the following settings:
 
 ## 4. Generate database schema
 
-In the output, find the link to SSH to the App Service container. Select the SSH link.
+In the output, find the link to SSH to the App Service container and select it.
 
 The following text shows an example of the link to SSH to the App Service container:
 
