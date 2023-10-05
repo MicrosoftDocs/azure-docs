@@ -34,6 +34,8 @@
           href: quickstarts-kubernetes-cluster-deployment-arm.md
         - name: Use Bicep file
           href: quickstarts-kubernetes-cluster-deployment-bicep.md
+        - name: Use Azure PowerShell
+          href: quickstarts-kubernetes-cluster-deployment-powershell.md
     - name: Deploy Nexus Virtual Machine
       expanded: true
       items:

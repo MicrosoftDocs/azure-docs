@@ -83,9 +83,11 @@ Follow these steps to increase your storage size.
 
 
 ## Storage Autogrow 
-Follow these steps to increase your storage size.
+
+Please use below steps to enable storage autogrow for your flexible server and automatically scale your storage in most cases.
 
 1.  In the [Azure portal](https://portal.azure.com/), choose the flexible server for which you want to increase the storage size.
+
 2.  Click **Compute+storage**.
 
 3.  A page with current settings is displayed.
@@ -96,13 +98,15 @@ Follow these steps to increase your storage size.
 
  :::image type="content" source="./media/how-to-scale-compute-storage-portal/storage-autogrow.png" alt-text="Screenshot that shows storage autogrow.":::
 
-6.  click **Save**. 
-7.  You receive a notification that storage autogrow is in progress.
+5.  click **Save**. 
+
+6.  You receive a notification that storage autogrow enablement is in progress.
 
 
+> [!IMPORTANT]
+> Storage autogrow initiates disk scaling operations online, but there are specific situations where online scaling is not possible. In such cases, like when approaching or surpassing the 4,096-GiB limit, storage autogrow does not activate, and you must manually increase the storage. A portal informational message is displayed when this happens.
 
-
-## Next steps
+### Next steps
 
 -   Learn about [business continuity](./concepts-business-continuity.md)
 -   Learn about [high availability](./concepts-high-availability.md)
