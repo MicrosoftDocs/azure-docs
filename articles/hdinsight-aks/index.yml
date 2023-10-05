@@ -8,7 +8,7 @@ metadata:
   ms.service: hdinsight-aks #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.topic: landing-page # Required
   ms.collection: collection
-  author: sreekzz  #Required; your GitHub user alias, with correct capitalization.
+  author: sairamyeturi  #Required; your GitHub user alias, with correct capitalization.
   ms.author: v-sreiyer #Required; microsoft alias of author; optional team alias.
   ms.date: 08/29/2023 #Required; mm/dd/yyyy format.
 
