@@ -39,6 +39,21 @@
       "source_path_from_root": "/articles/app-service/app-service-web-restore-snapshots.md",
       "redirect_url": "/azure/app-service/manage-backup",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/networking/app-gateway-with-service-endpoints.md",
+      "redirect_url": "/azure/app-service/overview-app-gateway-integration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/networking/nat-gateway-integration.md",
+      "redirect_url": "/azure/app-service/overview-nat-gateway-integration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/networking/private-endpoint.md",
+      "redirect_url": "/azure/app-service/overview-private-endpoint",
+      "redirect_document_id": false
     }
   ]
 }
