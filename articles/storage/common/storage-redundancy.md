@@ -3,12 +3,12 @@ title: Data redundancy
 titleSuffix: Azure Storage
 description: Understand data redundancy in Azure Storage. Data in your Microsoft Azure Storage account is replicated for durability and high availability.
 services: storage
-author: jimmart-dev
+author: akashdubey-ms
 
 ms.service: azure-storage
 ms.topic: conceptual
 ms.date: 09/06/2023
-ms.author: jammart
+ms.author: akashdubey
 ms.subservice: storage-common-concepts
 ms.custom: references_regions, engagement
 ---
@@ -76,7 +76,7 @@ The following diagram shows how your data is replicated across availability zone
 
 ZRS provides excellent performance, low latency, and resiliency for your data if it becomes temporarily unavailable. However, ZRS by itself may not protect your data against a regional disaster where multiple zones are permanently affected. For protection against regional disasters, Microsoft recommends using [geo-zone-redundant storage](#geo-zone-redundant-storage) (GZRS), which uses ZRS in the primary region and also geo-replicates your data to a secondary region.
 
-The Archive tier for Blob Storage isn't currently supported for ZRS, GZRS, or RA-GZRS accounts. Unmanaged disks don't support ZRS or GZRS.
+The archive tier for Blob Storage isn't currently supported for ZRS, GZRS, or RA-GZRS accounts. Unmanaged disks don't support ZRS or GZRS.
 
 For more information about which regions support ZRS, see [Azure regions with availability zones](../../availability-zones/az-overview.md#azure-regions-with-availability-zones).
 
@@ -191,8 +191,8 @@ The following table describes key parameters for each redundancy option:
 | Parameter | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
 |:-|:-|:-|:-|:-|
 | Percent durability of objects over a given year | at least 99.999999999% (11 9's) | at least 99.9999999999% (12 9's) | at least 99.99999999999999% (16 9's) | at least 99.99999999999999% (16 9's) |
-| Availability for read requests | At least 99.9% (99% for Cool or Archive access tiers) | At least 99.9% (99% for Cool access tier) | At least 99.9% (99% for Cool or Archive access tiers) for GRS<br/><br/>At least 99.99% (99.9% for Cool or Archive access tiers) for RA-GRS | At least 99.9% (99% for Cool access tier) for GZRS<br/><br/>At least 99.99% (99.9% for Cool access tier) for RA-GZRS |
-| Availability for write requests | At least 99.9% (99% for Cool or Archive access tiers) | At least 99.9% (99% for Cool access tier) | At least 99.9% (99% for Cool or Archive access tiers) | At least 99.9% (99% for Cool access tier) |
+| Availability for read requests | At least 99.9% (99% for cool or archive access tiers) | At least 99.9% (99% for cool access tier) | At least 99.9% (99% for cool or archive access tiers) for GRS<br/><br/>At least 99.99% (99.9% for cool or archive access tiers) for RA-GRS | At least 99.9% (99% for cool access tier) for GZRS<br/><br/>At least 99.99% (99.9% for cool access tier) for RA-GZRS |
+| Availability for write requests | At least 99.9% (99% for cool or archive access tiers) | At least 99.9% (99% for cool access tier) | At least 99.9% (99% for cool or archive access tiers) | At least 99.9% (99% for cool access tier) |
 | Number of copies of data maintained on separate nodes | Three copies within a single region | Three copies across separate availability zones within a single region | Six copies total, including three in the primary region and three in the secondary region | Six copies total, including three across separate availability zones in the primary region and three locally redundant copies in the secondary region |
 
 For more information, see the [SLA for Storage Accounts](https://azure.microsoft.com/support/legal/sla/storage/v1_5/).
@@ -240,7 +240,7 @@ The following table shows which redundancy options are supported for each type o
 
 All data for all storage accounts is copied from the primary to the secondary according to the redundancy option for the storage account. Objects including block blobs, append blobs, page blobs, queues, tables, and files are copied.
 
-Data in all tiers, including the Archive tier, is always copied from the primary to the secondary during geo-replication. The Archive tier for Blob Storage is currently supported for LRS, GRS, and RA-GRS accounts, but not for ZRS, GZRS, or RA-GZRS accounts. For more information about blob tiers, see [Hot, Cool, and Archive access tiers for blob data](../blobs/access-tiers-overview.md).
+Data in all tiers, including the archive tier, is always copied from the primary to the secondary during geo-replication. The archive tier for Blob Storage is currently supported for LRS, GRS, and RA-GRS accounts, but not for ZRS, GZRS, or RA-GZRS accounts. For more information about blob tiers, see [Access tiers for blob data](../blobs/access-tiers-overview.md).
 
 Unmanaged disks don't support ZRS or GZRS.
 

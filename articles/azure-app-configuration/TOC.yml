@@ -182,7 +182,7 @@
   items:
     - name: Use labels for per-environment configuration
       href: howto-labels-aspnet-core.md
-    - name: Create and manage Snapshots
+    - name: Manage and use snapshots
       href: howto-create-snapshots.md
     - name: Import or export configuration data
       href: howto-import-export-data.md
@@ -315,5 +315,7 @@
           href: https://www.youtube.com/watch?v=DJqmA5PcfzE
         - name: Rolling out new features
           href: /Shows/Azure-Friday/How-Azure-App-Configuration-helps-developers-roll-out-new-features?ocid=AID747781&wt.mc_id=azfr-c9-scottha&wt.mc_id=CFID0553
+        - name: Three reasons to use configuration snapshots
+          href: https://aka.ms/appconfig/snapshotVideo
     - name: Provide product feedback
       href: https://github.com/Azure/AppConfiguration/issues

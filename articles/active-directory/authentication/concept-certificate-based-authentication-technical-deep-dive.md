@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 09/27/2023
+ms.date: 10/02/2023
 
 
 ms.author: justinha
@@ -16,6 +16,7 @@ ms.reviewer: vimrang
 
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
+ms.localizationpriority: high
 ---
 
 # Microsoft Entra certificate-based authentication technical deep dive
@@ -122,7 +123,7 @@ For passwordless sign-in to work, users should disable legacy notification throu
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
 
-1. Follow the steps at [Enable passwordless phone sign-in authentication](../authentication/howto-authentication-passwordless-phone.md#enable-passwordless-phone-sign-in-authentication-methods)
+1. Follow the steps at [Enable passwordless phone sign-in authentication](../authentication/howto-authentication-passwordless-phone.md#enable-passwordless-phone-sign-in-authentication-methods).
 
    >[!IMPORTANT]
    >In the above configuration under step 4, please choose **Passwordless** option. Change the mode for each groups added for PSI for **Authentication mode**, choose **Passwordless** for passwordless sign-in to work with CBA. If the admin configures "Any", CBA and PSI don't work.

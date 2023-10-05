@@ -2,8 +2,8 @@
 title: How to create Azure Maps applications using the Java REST SDK (preview)
 titleSuffix: Azure Maps
 description: How to develop applications that incorporate Azure Maps using the Java REST SDK Developers Guide.
-author: dubiety
-ms.author: yuchungchen 
+author: sinnypan
+ms.author: sipa
 ms.date: 01/25/2023
 ms.topic: how-to
 ms.service: azure-maps

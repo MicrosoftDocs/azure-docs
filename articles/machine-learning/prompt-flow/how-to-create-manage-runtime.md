@@ -20,11 +20,13 @@ Prompt flow's runtime provides the computing resources required for the applicat
 > Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Permissions/roles need to use runtime
+## Permissions/roles for runtime management
 
-You need to assign enough permission to use runtime in Prompt flow. To assign a role, you need to have `owner` or have `Microsoft.Authorization/roleAssignments/write` permission on resource.
+To create and use a runtime for Prompt flow authoring, you need to have the `AzureML Data Scientist` role in the workspace. To learn more, see [Prerequisites](#prerequisites).
 
-To create and use runtime to author prompt flow, you need to have `AzureML Data Scientist` role in the workspace. To learn more, see [Prerequisites](#prerequisites)
+## Permissions/roles for deployments
+
+After deploying a Prompt flow, the endpoint must be assigned the `AzureML Data Scientist` role to the workspace for successful inferencing. This can be done at any point after the endpoint has been created.
 
 ## Create runtime in UI
 
@@ -35,12 +37,12 @@ To create and use runtime to author prompt flow, you need to have `AzureML Data 
 > [!IMPORTANT]
 > Prompt flow is **not supported** in the workspace which has data isolation enabled. The enableDataIsolation flag can only be set at the workspace creation phase and can't be updated.
 >
->Prompt flow is **not supported** in the project workspace which was created with a workspace hub. The workspace hub is a private preview feature.
+> Prompt flow is **not supported** in the project workspace which was created with a workspace hub. The workspace hub is a private preview feature.
 >
 
 ### Create compute instance runtime in UI
 
-If you didn't have compute instance, create a new one: [Create and manage an Azure Machine Learning compute instance](../how-to-create-compute-instance.md).
+If you do not have a compute instance, create a new one: [Create and manage an Azure Machine Learning compute instance](../how-to-create-compute-instance.md).
 
 1. Select add compute instance runtime in runtime list page.
     :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-runtime-list-add.png" alt-text="Screenshot of Prompt flow on the runtime add with compute instance runtime selected. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-runtime-list-add.png":::
@@ -81,7 +83,7 @@ To use the runtime, assigning the `AzureML Data Scientist` role of workspace to 
 > [!NOTE]
 > This operation may take several minutes to take effect.
 
-## Using runtime in prompt flow authoring
+## Using runtime in Prompt flow authoring
 
 When you're authoring your Prompt flow, you can select and change the runtime from left top corner of the flow page.
 
@@ -95,18 +97,18 @@ When performing a bulk test, you can use the original runtime in the flow or cha
 
 We regularly update our base image (`mcr.microsoft.com/azureml/promptflow/promptflow-runtime`) to include the latest features and bug fixes. We recommend that you update your runtime to the [latest version](https://mcr.microsoft.com/v2/azureml/promptflow/promptflow-runtime/tags/list) if possible.
 
-Every time you open the runtime detail page, we'll check whether there are new versions of the runtime. If there are new versions available, you'll see a notification at the top of the page. You can also manually check the latest version by clicking the **check version** button.
+Every time you open the runtime details page, we'll check whether there are new versions of the runtime. If there are new versions available, you'll see a notification at the top of the page. You can also manually check the latest version by clicking the **check version** button.
 
 :::image type="content" source="./media/how-to-create-manage-runtime/runtime-update-env-notification.png" alt-text="Screenshot of the runtime detail page with checkout version highlighted. " lightbox = "./media/how-to-create-manage-runtime/runtime-update-env-notification.png":::
 
 Try to keep your runtime up to date to get the best experience and performance.
 
-Go to runtime detail page and select update button at the top. You can change new environment to update. If you select **use default environment** to update, system will attempt to update your runtime to the latest version.
+Go to the runtime details page and select the "Update" button at the top. Here you can update the environment to use in your runtime. If you select **use default environment**, system will attempt to update your runtime to the latest version.
 
 :::image type="content" source="./media/how-to-create-manage-runtime/runtime-update-env.png" alt-text="Screenshot of the runtime detail page with updated selected. " lightbox = "./media/how-to-create-manage-runtime/runtime-update-env.png":::
 
 > [!NOTE]
-> If you used a custom environment, you need to rebuild it using latest prompt flow image first, and then update your runtime with the new custom environment.
+> If you used a custom environment, you need to rebuild it using the latest Prompt flow image first, and then update your runtime with the new custom environment.
 
 
 ## Next steps

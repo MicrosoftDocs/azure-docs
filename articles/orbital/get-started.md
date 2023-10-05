@@ -16,7 +16,7 @@ Azure Orbital Ground Station can be used to communicate with a private satellite
 
 ## Learn about resources
 
-Azure Orbital Ground Station uses three different types of resources:
+Azure Orbital Ground Station uses three different types of Azure resources:
 - [Spacecraft](spacecraft-object.md)
 - [Contact profile](concepts-contact-profile.md)
 - [Contact](concepts-contact.md)

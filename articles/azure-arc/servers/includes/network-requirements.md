@@ -38,6 +38,9 @@ The table below lists the URLs that must be available in order to install and us
 
 #### [Azure Cloud](#tab/azure-cloud)
 
+> [!NOTE]
+> When configuring the Azure connected machine agent to communicate with Azure through a private link, some endpoints must still be accessed through the internet. The **Endpoint used with private link** column in the following table shows which endpoints can be configured with a private endpoint. If the column shows *Public* for an endpoint, you must still allow access to that endpoint through your organization's firewall and/or proxy server for the agent to function.
+> 
 | Agent resource | Description | When required| Endpoint used with private link |
 |---------|---------|--------|---------|
 |`aka.ms`|Used to resolve the download script during installation|At installation time, only| Public |
@@ -64,6 +67,9 @@ The table below lists the URLs that must be available in order to install and us
 
 #### [Azure Government](#tab/azure-government)
 
+> [!NOTE]
+> When configuring the Azure connected machine agent to communicate with Azure through a private link, some endpoints must still be accessed through the internet. The **Endpoint used with private link** column in the following table shows which endpoints can be configured with a private endpoint. If the column shows *Public* for an endpoint, you must still allow access to that endpoint through your organization's firewall and/or proxy server for the agent to function.
+> 
 | Agent resource | Description | When required| Endpoint used with private link |
 |---------|---------|--------|---------|
 |`aka.ms`|Used to resolve the download script during installation|At installation time, only| Public |
