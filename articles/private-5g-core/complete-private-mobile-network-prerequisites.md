@@ -7,7 +7,7 @@ ms.author: robswain
 ms.service: private-5g-core
 ms.topic: how-to 
 ms.date: 03/30/2023
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-azurecli
 zone_pivot_groups: ase-pro-version
 ---
 
