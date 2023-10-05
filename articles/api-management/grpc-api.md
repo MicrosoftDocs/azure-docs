@@ -47,7 +47,7 @@ For background about gRPC, see [Introduction to gRPC](https://grpc.io/docs/what-
 
 1. Under **Define a new API**, select **gRPC**.
 
-    :::image type="content" source="media/grpc-api/grpcs-api.png" alt-text="Screenshot of creating a gRPC API in the portal." :::
+    :::image type="content" source="./media/grpc-api/grpc-api.png" alt-text="Screenshot of creating a gRPC API in the portal." :::
 
 1. In the **Create a gRPC API window**, select **Full**.
 
@@ -62,7 +62,7 @@ For background about gRPC, see [Introduction to gRPC](https://grpc.io/docs/what-
         > [!IMPORTANT]
         > In public preview, you can only select a self-hosted gateway. The **Managed** gateway isn't supported. 
 
-1. Enter remaining settings to configure your API. These settings are explained in the [Import and publish your first API](../articles/api-management/import-and-publish.md#import-and-publish-a-backend-api) tutorial.
+1. Enter remaining settings to configure your API. These settings are explained in the [Import and publish your first API](import-and-publish.md#import-and-publish-a-backend-api) tutorial.
 
 1. Select **Create**.
 
