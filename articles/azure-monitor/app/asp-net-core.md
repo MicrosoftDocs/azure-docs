@@ -773,6 +773,9 @@ This SDK requires `HttpContext`. It doesn't work in any non-HTTP applications, i
 
 To remove Application Insights, you need to remove the NuGet packages and references from the API in your application. You can uninstall NuGet packages by using the NuGet Package Manager in Visual Studio.
 
+> [!NOTE]
+> These instructions are for uninstalling the ASP.NET Core SDK. If you need to uninstall the ASP.NET SDK, see [How can I uninstall the ASP.NET SDK?](./asp-net.md#how-can-i-uninstall-the-sdk).
+
 1. Uninstall the Microsoft.ApplicationInsights.AspNetCore package by using the [NuGet Package Manager](/nuget/consume-packages/install-use-packages-visual-studio#uninstall-a-package).
 1. To fully remove Application Insights, check and manually delete the added code or files along with any API calls you added in your project. For more information, see [What is created when you add the Application Insights SDK?](#what-is-created-when-you-add-the-application-insights-sdk).
 
