@@ -42,7 +42,7 @@ Azure Communications Gateway includes multiple features that allow your network 
 - [SIP interworking](#sip-signaling)
 - [Media interworking](#rtp-and-srtp-media)
 
-## Support for multiple customers with the Microsoft Teams multi-tenant model
+## Support for multiple customers with the Microsoft Teams multitenant model
 
 An Azure Communications Gateway deployment is designed to support Direct Routing for many tenants. Its design allows you to provide Microsoft Teams calling services to many customers, each with many users. It uses the carrier tenant and customer tenant model described in the [Microsoft Teams documentation on configuring a Session Border Controller for multiple tenants](/microsoftteams/direct-routing-sbc-multiple-tenants). In this model:
 

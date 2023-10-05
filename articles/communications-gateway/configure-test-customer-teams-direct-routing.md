@@ -17,7 +17,7 @@ Testing Microsoft Teams Direct Routing requires some test numbers in a Microsoft
 > [!TIP]
 > When you onboard a real customer, you'll typically need to ask them to change their tenant's configuration, because your organization won't have permission. You'll still need to make configuration changes on Azure Communications Gateway.
 >
-> For more information about how Azure Communications Gateway and Microsoft Teams use tenant configuration to route calls, see [Support for multiple customers with the Microsoft Teams multi-tenant model](interoperability-teams-direct-routing.md#support-for-multiple-customers-with-the-microsoft-teams-multi-tenant-model).
+> For more information about how Azure Communications Gateway and Microsoft Teams use tenant configuration to route calls, see [Support for multiple customers with the Microsoft Teams multitenant model](interoperability-teams-direct-routing.md#support-for-multiple-customers-with-the-microsoft-teams-multitenant-model).
 
 ## Prerequisites
 

@@ -33,7 +33,7 @@ To ensure availability, Azure Communications Gateway is deployed into two Azure 
 
 For more information about the networking requirements, see [Your network and Azure Communications Gateway](role-in-network.md) and [Reliability in Azure Communications Gateway](reliability-communications-gateway.md).
 
-Traffic from all enterprises shares a single SIP trunk, using a multi-tenant format. This multi-tenant format ensures the solution is suitable for both the SMB and Enterprise markets.
+Traffic from all enterprises shares a single SIP trunk, using a multitenant format. This multitenant format ensures the solution is suitable for both the SMB and Enterprise markets.
 
 > [!IMPORTANT]
 > Azure Communications Gateway doesn't store/process any data outside of the Azure Regions where you deploy it.
@@ -69,9 +69,9 @@ The Number Management Portal is available as part of the optional API Bridge fea
 
 Azure Communications Gateway also automatically integrates with Operator Connect APIs to upload call duration data to Microsoft Teams. For more information, see [Providing call duration data to Microsoft Teams](interoperability-operator-connect.md#providing-call-duration-data-to-microsoft-teams).
 
-## Multi-tenant support and caller ID screening for Direct Routing
+## Multitenant support and caller ID screening for Direct Routing
 
-Microsoft Teams Direct Routing's multi-tenant model for carrier telecommunications operators requires inbound messages to Microsoft Teams to indicate the Microsoft tenant associated with your customers. Azure Communications Gateway automatically updates the SIP signaling to indicate  the correct tenant, using information that you provision onto Azure Communications Gateway. This process removes the need for your core network to map between numbers and customer tenants. For more information, see [Identifying the customer tenant for Microsoft Phone System](interoperability-teams-direct-routing.md#identifying-the-customer-tenant-for-microsoft-phone-system).
+Microsoft Teams Direct Routing's multitenant model for carrier telecommunications operators requires inbound messages to Microsoft Teams to indicate the Microsoft tenant associated with your customers. Azure Communications Gateway automatically updates the SIP signaling to indicate  the correct tenant, using information that you provision onto Azure Communications Gateway. This process removes the need for your core network to map between numbers and customer tenants. For more information, see [Identifying the customer tenant for Microsoft Phone System](interoperability-teams-direct-routing.md#identifying-the-customer-tenant-for-microsoft-phone-system).
 
 Microsoft Teams Direct Routing allows a customer admin to assign any phone number to a user, even if you haven't assigned that number to them. This lack of validation presents a risk of caller ID spoofing. Azure Communications Gateway automatically screens all Direct Routing calls originating from Microsoft Teams. This screening ensures that customers can only place calls from numbers that you have assigned to them. However, you can disable this screening on a per-customer basis if necessary. For more information, see [Support for caller ID screening](interoperability-teams-direct-routing.md#support-for-caller-id-screening).
 

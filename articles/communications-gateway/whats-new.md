@@ -14,7 +14,7 @@ This article covers new features and improvements for Azure Communications Gatew
 
 ## October 2023
 
-### Support for multi-tenant Microsoft Teams Direct Routing
+### Support for multitenant Microsoft Teams Direct Routing
 
 From October 2023, Azure Communications Gateway supports providing PSTN connectivity to Microsoft Teams through Direct Routing. You can provide Microsoft Teams calling services to many customers, each with many users, with minimal disruption to your existing network. Azure Communications Gateway automatically updates the SIP signaling to indicate the correct tenant, without needing changes to your core network to map between numbers and customer tenants.
 

@@ -9069,12 +9069,12 @@
 		</g>
 		<g id="shape1122-91" v:mID="1122" v:groupContext="shape" v:layerMember="0" transform="translate(402.52,-199.558)">
 			<title>Dynamic connector.1122</title>
-			<desc>Calls (“Multi-tenant Direct Routing” trunks)</desc>
+			<desc>Calls (“Multitenant Direct Routing” trunks)</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="106.299" cy="431.999" width="92.13" height="53.1132"/>
 			<path d="M0 395.43 L151.9 395.43" class="st28"/>
 			<text x="95.13" y="414" class="st29" v:langID="2057"><v:paragraph v:horizAlign="1"/><v:tabList/>Calls<v:lf/><tspan
-						x="70.9" dy="1.2em" class="st5">(“</tspan>Multi-tenant <tspan x="68.8" dy="1.2em" class="st5">Direct Routing</tspan>” <tspan
+						x="70.9" dy="1.2em" class="st5">(“</tspan>Multitenant <tspan x="68.8" dy="1.2em" class="st5">Direct Routing</tspan>” <tspan
 						x="89" dy="1.2em" class="st5">trunks)</tspan></text>		</g>
 		<g id="shape1033-98" v:mID="1033" v:groupContext="shape" transform="translate(119.935,-160.158)">
 			<title>Sheet.1033</title>
