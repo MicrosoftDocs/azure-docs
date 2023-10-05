@@ -340,7 +340,7 @@ An alternative to the Import Jobs API is the [Model uploader sample](https://git
 
 If you need to delete all models in an Azure Digital Twins instance at once, you can use the [Model Deleter sample](https://github.com/Azure/opendigitaltwins-tools/tree/main/ADTTools#deletemodels). This is a project that contains recursive logic to handle model dependencies through the deletion process. It currently only works with [version 2 of DTDL](concepts-models.md#supported-dtdl-versions).
 
-Or, if you want to clear out the data in an instance by deleting all the models **along with** all twins and relationships, you can use the [Delete Jobs API](concepts-apis-sdks.md#bulk-delete).
+Or, if you want to clear out the data in an instance by deleting all the models **along with** all twins and relationships, you can use the [Delete Jobs API](concepts-apis-sdks.md#bulk-delete-with-the-delete-jobs-api).
 
 ### Visualize models
 

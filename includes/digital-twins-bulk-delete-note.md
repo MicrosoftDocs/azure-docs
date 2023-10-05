@@ -8,4 +8,4 @@ ms.author: baanders
 ---
 
 >[!NOTE]
->If you want to delete **all** data elements in an instance at once, including models, twins, and relationships, use the [Delete Jobs API](../articles/digital-twins/concepts-apis-sdks.md#bulk-delete).
+>If you want to delete **all** models, twins, and relationships in an instance at once, use the [Delete Jobs API](../articles/digital-twins/concepts-apis-sdks.md#bulk-delete-with-the-delete-jobs-api).

@@ -73,7 +73,7 @@ You can upload many twins and relationships in a single API call using the [Impo
 
 To delete specific twins and relationships, use the [DigitalTwins Delete](/rest/api/digital-twins/dataplane/twins/digital-twins-delete) and [DigitalTwins DeleteRelationship](/rest/api/digital-twins/dataplane/twins/digital-twins-delete-relationship) APIs (also available in as CLI commands and SDK calls). 
 
-To delete all data in an instance at once, including all models, twins, and relationships, use the [Delete Jobs API](concepts-apis-sdks.md#bulk-delete).
+To delete all models, twins, and relationships in an instance at once, use the [Delete Jobs API](concepts-apis-sdks.md#bulk-delete-with-the-delete-jobs-api).
 
 ## JSON representations of graph elements
 

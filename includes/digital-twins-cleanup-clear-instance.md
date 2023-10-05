@@ -13,4 +13,4 @@ ms.author: baanders
     az dt job deletion create -n <name-of-Azure-Digital-Twins-instance> -y
     ```
     
-    If you only want to delete **some** of the data elements, you can use the [az dt twin relationship delete](/cli/azure/dt/twin/relationship#az-dt-twin-relationship-delete), [az dt twin delete](/cli/azure/dt/twin#az-dt-twin-delete), and [az dt model delete](/cli/azure/dt/model#az-dt-model-delete) commands to selectively delete only the elements you want to remove.
+    If you only want to delete **some** of these elements, you can use the [az dt twin relationship delete](/cli/azure/dt/twin/relationship#az-dt-twin-relationship-delete), [az dt twin delete](/cli/azure/dt/twin#az-dt-twin-delete), and [az dt model delete](/cli/azure/dt/model#az-dt-model-delete) commands to selectively delete only the elements you want to remove.

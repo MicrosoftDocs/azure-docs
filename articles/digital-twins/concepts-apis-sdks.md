@@ -149,13 +149,15 @@ Keep the following considerations in mind while working with the Import Jobs API
 * Import Jobs are not atomic operations. There is no rollback in the case of failure, partial job completion, or usage of the [Cancel operation](/rest/api/digital-twins/dataplane/jobs/import-jobs-cancel?tabs=HTTP).
 * Only one bulk job is supported at a time within an Azure Digital Twins instance. You can view this information and other numerical limits of the Jobs APIs in [Azure Digital Twins limits](reference-service-limits.md).
 
-## Bulk delete
+## Bulk delete with the Delete Jobs API
 
-The Delete Jobs API is a data plane API that allows you to delete all data plane elements, including models, twins, and relationships, in a single API call. Delete Jobs API operations are also available as [CLI commands](/cli/azure/dt/job). Visit the API documentation to see the request details for creating a delete job and checking its status.
+The Delete Jobs API is a data plane API that allows you to delete all models, twins, and relationships in an instance with a single API call. Delete Jobs API operations are also available as [CLI commands](/cli/azure/dt/job). Visit the API documentation to see the request details for creating a delete job and checking its status.
 
 To make sure all elements are deleted, follow these recommendations while using the Delete Jobs API:
 * If you recently imported a large number of entities to your graph, wait for some time and verify that all elements are synchronized in your graph before beginning the delete job.
 * Stop all operations on the instance, especially upload operations, until the delete job is complete.
+
+The default timeout period for a delete job is 12 hours, which can be adjusted to any value between 15 minutes and 24 hours by using a query parameter on the API. This is the amount of time that the delete job will run before it times out, at which point the service will attempt to stop the job if it hasn't completed yet.
 
 ## Monitor API metrics
 
