@@ -113,6 +113,7 @@ After a successful installation of Step, you should open a command prompt in you
     :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/create-topic-space-menu.png" alt-text="Screenshot of Topic spaces page with create button selected." lightbox="./media/mqtt-publish-and-subscribe-portal/create-topic-space-menu.png":::
 1. On the **Create topic space** page, enter a name for the topic space. 
 1. Select **+ Add topic template**.
+1. Enter a valid **name** for this topic template.
 
     :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/create-topic-space-name.png" alt-text="Screenshot of Create topic space with the name.":::
 1. Enter `contosotopics/topic1` for the topic template, and then select **Create** to create the topic space.
