@@ -30,20 +30,8 @@ items:
       items:
       - name: Overview
         href: pub-sub-mqtt/overview-iot-mq.md
-      - name: Secure communications with TLS
-        href: pub-sub-mqtt/howto-configure-listeners.md
-      - name: Configure TLS auto certificates
-        href: pub-sub-mqtt/howto-configure-tls-auto-cert.md
-      - name: Configure TLS manual certicates
-        href: pub-sub-mqtt/howto-configure-tls-manual-cert.md
-      - name: Configure authentication
-        href: pub-sub-mqtt/howto-configure-authentication.md
-      - name: Configure authorization
-        href: pub-sub-mqtt/howto-configure-authorization.md
-      - name: Configure availability and scale
-        href: pub-sub-mqtt/howto-configure-availability-scale.md
-      - name: Configure disk buffer
-        href: pub-sub-mqtt/howto-configure-disk-buffer.md
+      - name: Secure communication
+        href: pub-sub-mqtt/concept-brokerlistener.md
     - name: Process messages
       items:
       - name: Overview
@@ -106,6 +94,19 @@ items:
       items:
       - name: Overview
         href: administer/overview-manage-solution.md
+      - name: Manage Azure MQ
+        items:
+        - name: Configure TLS
+          href: administer/howto-configure-tls.md
+        - name: Configure authentication
+          href: administer/howto-configure-authentication.md
+        - name: Configure authorization
+          href: administer/howto-configure-authorization.md
+        - name: Configure availability and scale
+          href: administer/howto-configure-availability-scale.md
+        - name: Configure disk buffer
+          href: administer/howto-configure-disk-buffer.md
+
     - name: Troubleshoot
       href: troubleshoot/troubleshoot.md
     - name: Reference # supporting information like APIs, tools, code libraries
