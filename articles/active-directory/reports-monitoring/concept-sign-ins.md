@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 10/02/2023
+ms.date: 10/04/2023
 ms.author: sarahlipsey
 ms.reviewer: egreenberg14
 ---
@@ -49,6 +49,9 @@ There are four types of logs in the sign-in logs preview:
 - Managed identity sign-ins
 
 The classic sign-in logs only include interactive user sign-ins. 
+
+> [!NOTE]
+> Entries in the sign-in logs are system generated and can't be changed or deleted.
 
 ### Interactive user sign-ins
 

@@ -117,7 +117,7 @@ items:
         - name: Client-side JavaScript
           items:
           - name: Get Started with JavaScript SDK
-            displayName: browser, client-side, Javascript (Web) SDK Loader Script
+            displayName: browser, client-side, JavaScript (Web) SDK Loader Script
             href: app/javascript-sdk.md
           - name: Configure JavaScript SDK
             href: app/javascript-sdk-configuration.md
@@ -480,6 +480,9 @@ items:
     - name: Monitor Kubernetes
       displayName: containers
       href: containers/monitor-kubernetes.md
+    - name: Best practices
+      displayName: containers, kubernetes
+      href: best-practices-containers.md
     - name: Prometheus
       items:
       - name: Enable on AKS cluster

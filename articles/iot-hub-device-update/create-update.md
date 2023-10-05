@@ -6,6 +6,7 @@ ms.author: andbrown
 ms.date: 10/31/2022
 ms.topic: how-to
 ms.service: iot-hub-device-update
+ms.custom: devx-track-azurecli
 ---
 
 # Prepare an update to import into Device Update for IoT Hub
