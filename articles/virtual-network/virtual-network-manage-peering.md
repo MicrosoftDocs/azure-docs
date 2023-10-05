@@ -7,7 +7,7 @@ ms.service: virtual-network
 ms.topic: how-to
 ms.date: 08/24/2023
 ms.author: allensu
-ms.custom: template-how-to, engagement-fy23, devx-track-azurepowershell
+ms.custom: template-how-to, engagement-fy23, devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Create, change, or delete a virtual network peering

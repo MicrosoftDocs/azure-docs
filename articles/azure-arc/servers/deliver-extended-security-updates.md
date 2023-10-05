@@ -1,7 +1,7 @@
 ---
 title: Deliver Extended Security Updates for Windows Server 2012
 description: Learn how to deliver Extended Security Updates for Windows Server 2012.
-ms.date: 09/14/2023
+ms.date: 10/05/2023
 ms.topic: conceptual
 ---
 
@@ -42,7 +42,7 @@ The **Licenses** tab displays Azure Arc WS2012 licenses that are available. From
 
 :::image type="content" source="media/deliver-extended-security-updates/extended-security-updates-licenses.png" alt-text="Screenshot showing existing licenses." lightbox="media/deliver-extended-security-updates/extended-security-updates-licenses.png":::
 
-1. To create a new WS2012 license, select **Create ESUs license**, and then provide the information required to configure the license on the page.
+1. To create a new WS2012 license, select **Create**, and then provide the information required to configure the license on the page.
 
     For details on how to complete this step, see [License provisioning guidelines for Extended Security Updates for Windows Server 2012](license-extended-security-updates.md).
 

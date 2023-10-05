@@ -66,12 +66,12 @@ Follow these steps to create a new console application and install the Speech SD
         std::promise<void> recognitionEnd;
 
         // Subscribes to events.
-        conversationTranscriber->Transcribing.Connect([](const SpeechRecognitionEventArgs& e)
+        conversationTranscriber->Transcribing.Connect([](const ConversationTranscriptionEventArgs& e)
             {
                 std::cout << "TRANSCRIBING:" << e.Result->Text << std::endl;
             });
 
-        conversationTranscriber->Transcribed.Connect([](const SpeechRecognitionEventArgs& e)
+        conversationTranscriber->Transcribed.Connect([](const ConversationTranscriptionEventArgs& e)
             {
                 if (e.Result->Reason == ResultReason::RecognizedSpeech)
                 {
@@ -84,7 +84,7 @@ Follow these steps to create a new console application and install the Speech SD
                 }
             });
 
-        conversationTranscriber->Canceled.Connect([&recognitionEnd](const SpeechRecognitionCanceledEventArgs& e)
+        conversationTranscriber->Canceled.Connect([&recognitionEnd](const ConversationTranscriptionCanceledEventArgs& e)
             {
                 auto cancellation = CancellationDetails::FromResult(e.Result);
                 std::cout << "CANCELED: Reason=" << (int)cancellation->Reason << std::endl;
