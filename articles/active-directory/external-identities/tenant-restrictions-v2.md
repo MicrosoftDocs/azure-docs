@@ -105,7 +105,7 @@ Think of the different cross-tenant access settings this way:
 
 When your users need access to external organizations and apps, we recommend enabling tenant restrictions to block external accounts and use B2B collaboration instead. B2B collaboration gives you the ability to:
 
-- Use Conditional Access and force multi-factor authentication for B2B collaboration users.
+- Use Conditional Access and force multifactor authentication for B2B collaboration users.
 - Manage inbound and outbound access.
 - Terminate sessions and credentials when a B2B collaboration user's employment status changes or their credentials are breached.
 - Use sign-in logs to view details about the B2B collaboration user.
@@ -380,7 +380,7 @@ where `<DirectoryID>` is your Azure AD tenant ID and `<policyGUID>` is the objec
 
 #### Tenant restrictions v1 settings on the corporate proxy
 
-The following is an example of an existing tenant restrictions V1 setting on the corporate proxy:
+The following example shows an existing tenant restrictions V1 setting on the corporate proxy:
 
 `Restrict-Access-To-Tenants: contoso.com, fabrikam.com, dogfood.com sec-Restrict-Tenant-Access-Policy: restrict-msa`
 
@@ -398,11 +398,11 @@ You can configure server-side cloud tenant restrictions v2 policies by following
 
 - Keep the tenant restrictions v2 default policy that blocks all external tenant access using foreign identities (for example, `user@externaltenant.com`).
 
-- Create a partner tenant policy for each tenant listed in your v1 allow list by following the steps at [Step 2: Configure tenant restrictions v2 for specific partners](#step-2-configure-tenant-restrictions-v2-for-specific-partners).
+- Create a partner tenant policy for each tenant listed in your v1 allowlist by following the steps at [Step 2: Configure tenant restrictions v2 for specific partners](#step-2-configure-tenant-restrictions-v2-for-specific-partners).
 
 - Allow only specific users to access specific applications. This design increases your security posture by limiting access to necessary users only.
 
-- Tenant restrictions v2 policies treat MSA as a partner tenant. Create a partner tenant configuration for MSA by following the steps in [Step 2: Configure tenant restrictions v2 for specific partners](#step-2-configure-tenant-restrictions-v2-for-specific-partners). Because user-level assignment isn't available for MSA tenants, the policy will apply to all MSA users. However, application-level granularity is available, and you should limit the applications that MSA or consumer acconts can access to only those applications that are necessary.
+- Tenant restrictions v2 policies treat MSA as a partner tenant. Create a partner tenant configuration for MSA by following the steps in [Step 2: Configure tenant restrictions v2 for specific partners](#step-2-configure-tenant-restrictions-v2-for-specific-partners). Because user-level assignment isn't available for MSA tenants, the policy applies to all MSA users. However, application-level granularity is available, and you should limit the applications that MSA or consumer accounts can access to only those applications that are necessary.
 
 > [!NOTE]
 >Blocking the MSA tenant will not block user-less traffic for devices, including:
