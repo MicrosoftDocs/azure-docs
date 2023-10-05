@@ -30,7 +30,7 @@ items:
       items:
       - name: Overview
         href: pub-sub-mqtt/overview-iot-mq.md
-      - name: Secure communications with TLS
+      - name: Secure communications
         href: pub-sub-mqtt/concept-brokerlistener.md
     - name: Process messages
       items:
