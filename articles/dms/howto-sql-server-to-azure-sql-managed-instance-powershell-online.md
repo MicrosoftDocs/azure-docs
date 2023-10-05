@@ -8,7 +8,9 @@ ms.reviewer: randolphwest
 ms.date: 12/16/2020
 ms.service: dms
 ms.topic: how-to
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - sql-migration-content
 ---
 
 # Migrate SQL Server to SQL Managed Instance online with PowerShell & Azure Database Migration Service

@@ -6,7 +6,9 @@ ms.author: roblescarlos
 ms.date: 05/09/2022
 ms.service: dms
 ms.topic: conceptual
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - sql-migration-content
 ---
 
 # Get Azure recommendations to migrate your SQL Server database (Preview)

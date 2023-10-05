@@ -11,6 +11,7 @@ ms.topic: how-to
 ms.custom:
   - seo-lt-2019
   - devx-track-azurepowershell
+  - sql-migration-content
 ---
 
 # Migrate a SQL Server database to Azure SQL Database using Azure PowerShell

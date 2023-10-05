@@ -8,7 +8,9 @@ ms.reviewer: cawrites
 ms.date: 06/07/2023
 ms.service: dms
 ms.topic: tutorial
-ms.custom: seo-lt-2019
+ms.custom:
+  - seo-lt-2019
+  - sql-migration-content
 ---
 
 # Tutorial: Migrate SQL Server to Azure SQL Managed Instance online in Azure Data Studio

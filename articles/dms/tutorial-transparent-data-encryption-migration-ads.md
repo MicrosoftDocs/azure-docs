@@ -8,6 +8,8 @@ ms.reviewer: randolphwest
 ms.date: 02/03/2023
 ms.service: dms
 ms.topic: tutorial
+ms.custom:
+  - sql-migration-content
 ---
 # Tutorial: Migrate TDE-enabled databases (preview) to Azure SQL in Azure Data Studio
 
