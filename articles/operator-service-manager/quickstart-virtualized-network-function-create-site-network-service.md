@@ -86,8 +86,8 @@ On the **Choose a Network Service Design** page, select the Publisher, Network S
         "managedIdentity": "`<managed-identity-resource-id>`"
     }
     ```
-    > [!NOTE]
-> Refer to the [Resource ID for the managed identity](quickstart-virtualized-network-function-operator.md#locate-resource-id-for-managed-identity)section to see how to retrieve the `managedIdentity` resource ID. Additionally, the sshPublicKeyadmin can be listed by executing `cat~/.ssh.id_rsa.pub` or `cat ~/.ssh/id_dsa.pub`.
+    Refer to [Quickstart: Prerequisites for Operator and Virtualized Network Function (VNF)](quickstart-virtualized-network-function-operator.md) in the **Resource ID for the managed identity** section to see how to retrieve the `managedIdentity` resource ID. Additionally, the sshPublicKeyadmin can be listed by executing `cat~/.ssh.id_rsa.pub` or `cat ~/.ssh/id_dsa.pub`. 
+
 1. Select **Review + create**.
 1. Select **Create**.
 
@@ -100,4 +100,4 @@ Wait for the deployment to reach the 'Succeeded' state. After completion, your V
 1. To access your Virtual Network Function (VNF), go to the Site Network Service object in the Azure portal.
 1. Select the link under **Current State -> Resources**. The link takes you to the managed resource group created by Azure Operator Service Manager.
 
-Congratulations! You have successfully created a Site Network Service for Ubuntu VM as a Virtual Network Function (VNF) in Azure. You can now manage and monitor your Virtual Network Function (VNF) through the Azure portal.
+Congratulations! You have successfully created a Site Network Service for Ubuntu Virtual Machine (VM) as a Virtual Network Function (VNF) in Azure. You can now manage and monitor your Virtual Network Function (VNF) through the Azure portal.
