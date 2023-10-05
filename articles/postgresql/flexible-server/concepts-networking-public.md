@@ -11,6 +11,7 @@ ms.date: 11/30/2021
 ---
 
 # Networking overview for Azure Database for PostgreSQL - Flexible Server with public access (allowed IP addresses)
+
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 This article describes connectivity and networking concepts for Azure Database for PostgreSQL - Flexible Server. 
