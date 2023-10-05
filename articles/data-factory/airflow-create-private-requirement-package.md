@@ -20,7 +20,7 @@ This guide provides step-by-step instructions on installing `.whl` (Wheel) file,
 
 For illustration purpose, I'll create custom operator as python package that can be imported as a module inside dags file. 
 
-## Step 1: Develop a custom operator.
+### Step 1: Develop a custom operator.
 - Create a file `sample_operator.py`
 ```python
 from airflow.models.baseoperator import BaseOperator
@@ -51,21 +51,21 @@ with DAG(
     sample_task = SampleCustomOperator(task_id="sample-task", name="foo_bar")
 ```
 
-## Step 2: Create a storage container.
+### Step 2: Create a storage container.
 
 Use the steps described in [Manage blob containers using the Azure portal](/azure/storage/blobs/blob-containers-portal) to create a storage account to upload dag and your package file.
 
-## Step 3: Upload the private package into your storage account.
+### Step 3: Upload the private package into your storage account.
 
 1. Navigate to the designated container where you intend to store your Airflow DAGs and Plugins files.
 1. Upload your private package file to the container. Common file formats include `zip`, `.whl`, or `tar.gz`. Place the file within either the 'Dags' or 'Plugins' folder, as appropriate.
 
-## Step 4: Add your private package as a requirement.
+### Step 4: Add your private package as a requirement.
 
 1. Add your private package as a requirement in the requirements.txt file. Add this file if it doesn't already exist.
 1. Be sure to prepend the prefix "**/opt/airflow**" to the package path. For instance, if your private package resides at _/dats/test/private.wht_, your requirements.txt file should feature the requirement _/opt/airflow/dags/test/private.wht_.
 
-## Step 5: Import your folder to an Airflow integrated runtime (IR) environment.
+### Step 5: Import your folder to an Airflow integrated runtime (IR) environment.
 
 When performing the import of your folder into an Airflow IR environment, ensure that you check the import requirements checkbox to load your requirements inside your airflow env.
 
@@ -73,7 +73,7 @@ When performing the import of your folder into an Airflow IR environment, ensure
 
 :::image type="content" source="media/airflow-create-private-requirement-package/import-requirements-airflow-env.png" alt-text="Screenshot showing the imported requirements dialog in an Airflow integrated runtime environment." lightbox="media/airflow-create-private-requirement-package/import-requirements-airflow-env.png":::
 
-## Step 6: Inside Airflow UI, you can run your dag file created at step 1, to check if import is successful.
+### Step 6: Inside Airflow UI, you can run your dag file created at step 1, to check if import is successful.
 
 
 ## Next steps
