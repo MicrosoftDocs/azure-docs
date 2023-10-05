@@ -1,6 +1,6 @@
 ---
-title: Manage an Astronomer resource through the Azure portal
-description: This article describes management functions for Astronomer on the Azure portal. 
+title: Manage an Astro resource through the Azure portal
+description: This article describes management functions for Astro on the Azure portal. 
 author: flang-msft
 
 ms.author: franlanglois
@@ -10,110 +10,54 @@ ms.date: 10/04/2023
 ms.custom: ignite-2023-metadata-update
 ---
 
-# Manage your Astronomer integration through the portal
+# Manage your Astro integration through the portal
 
-Once your Astronomer resource is created in the Azure portal, you might need to get information about it or change it. Here's list of ways to manage your Astronomer resource.
+Once your Astro resource is created in the Azure portal, you might need to get information about it or change it. Here's how you can manage your Astro resource.
 
-- [Configure managed identity](#configure-managed-identity)
-- [Changing the configuration](#changing-the-configuration)
-- [Adding certificates](#adding-certificates)
-- [Send metrics to monitoring](#send-metrics-to-monitoring)
-- [Delete an Astronomer deployment](#delete-an-astronomer-deployment)
-- [GitHub integration](#github-integration)
+-  [Single Sign-On](#single-sign-on)
+-  [Delete an Astro deployment](#delete-an-astro-deployment)
 
-## Configure managed identity
+## Single Sign-On
 
-Add a new User Assigned Managed Identity.
+To implement SSO for your organization, your tenant administrator can import the gallery application. This step is optional. For information importing an application, see [Quickstart: Add an application to your Azure Active Directory (Azure AD) tenant](https://learn.microsoft.com/en-us/azure/active-directory/manage-apps/add-application-portal). When the tenant administrator imports the application, users don't need to explicitly consent to allow access for the Astro portal.
 
-1. From the Resource menu, select your Astronomer deployment.
+To enable SSO, follow these steps:
 
-1. From **Settings** in the Resource menu, select **Identity**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Navigate to the Overview for your instance of the Astro resource. Click on the SSO Url.
 
-    :::image type="content" source="media/astronomer-manage/astronomer-identity.png" alt-text="Screenshot showing how to add a managed identity to Astronomer resource.":::
+:::image type="content" source="media/astronomer-manage/astro-sso-overview.png" alt-text="Screenshot showing the SSO url in Overview blade of the Astro resource.":::
 
-1. To add a User Assigned identity, select **Add** in the working pane. You see a new pane for adding **User assigned managed identities** on the right that are part of the subscription. Select an identity and select **Add**.
+3. If tenant administrator didn't import the gallery application for SSO consent, grant permissions and consent. This step is only needed the first time you access the SSO Url.
 
-    :::image type="content" source="media/astronomer-manage/astronomer-user-assigned.png" alt-text="Screenshot after user assigned managed identity is added.":::
+:::image type="content" source="media/astronomer-manage/astro-sso-consent.png" alt-text="Screenshot showing the User consent permissions on clicking SSO url for the first time.":::
 
-## Changing the configuration
+4. Choose an Azure AD account for the Single Sign-on. Once consent is provided, you are redirected to the Astro portal.
 
-1. From the Resource menu, select your Astronomer deployment.
+## Delete an Astro deployment
 
-1. Select **Astronomer configuration** in the Resource menu.
+To delete an Astro resource:
 
-    :::image type="content" source="media/astronomer-manage/astronomer-configuration.png" alt-text="Screenshot resources for Astronomer configuration settings.":::
+1. From the Resource menu, select the Astro deployment you would like to delete.
 
-1. To upload an existing **Astronomer config package**, type the appropriate `.conf file` in **File path** in the working paned and select the **+** button and for config package.
+1. In the **Overview** blade, select **Delete**.
 
-    :::image type="content" source="media/astronomer-manage/astronomer-config-path.png" alt-text="Screenshot of config (. C O N F) file for uploading.":::
+    :::image type="content" source="media/astronomer-manage/astronomer-delete-deployment.png" alt-text="Screenshot showing how to delete an Astro resource.":::
 
-1. You see the contents of the file in the working pane. Select **Confirm** if correct.
+1. Confirm that you want to delete the Astro resource by entering the name of the resource.
 
-    :::image type="content" source="media/astronomer-manage/astronomer-config-upload.png" alt-text="Screenshot of upload confirmation for config file.":::
+    :::image type="content" source="media/astronomer-manage/astronomer-confirm-delete.png" alt-text="Screenshot showing the final confirmation of delete for Astro resource.":::
 
-1. To edit the config file within the Editor, select the pencil icon. When you're done editing, select **Submit**.
+1. Select the reason why would you like to delete the resource. 
+2. Select **Delete**.
 
-    :::image type="content" source="media/astronomer-manage/astronomer-config-editor.png" alt-text="Screenshot of editor for config file with Intellisense displayed.":::
+After the account is deleted, all billing stops for that Astro resource through Azure Marketplace.
 
-## Adding certificates
-
-You can add a certificate by uploading it to Azure Key vault, and then associating the certificate with your deployment.
-
-1. From the Resource menu, select your Astronomer deployment.
-
-1. Select **Astronomer certificates** in **Settings** in the Resource menu.
-
-    :::image type="content" source="media/astronomer-manage/astronomer-certificates.png" alt-text="Screenshot of Astronomer certificate uploading.":::
-
-1. Select **Add certificate**. You see an **Add certificate** in the working pane. Add the appropriate information
-
-    :::image type="content" source="media/astronomer-manage/astronomer-add-certificate.png" alt-text="Screenshot of the add certificate pane.":::
-
-1. When you've added the needed information, select **Save**.
-
-## Send metrics to monitoring
-
-1. From the Resource menu, select your Astronomer deployment.
-
-1. Select **Astronomer Monitoring** under the **Settings** in the Resource menu.
-
-    :::image type="content" source="media/astronomer-manage/astronomer-monitoring.png" alt-text="Screenshot of Astronomer monitoring in Azure metrics.":::
-
-1. Select **Send metrics to Azure Monitor** to enable metrics and select **Save**.
-
-    :::image type="content" source="media/astronomer-manage/astronomer-send-to-monitor.png" alt-text="screenshot of astronomer sent to monitoring":::
-
-## Delete an Astronomer deployment
-
-To delete a deployment of Astronomer:
-
-1. From the Resource menu, select your Astronomer deployment.
-
-1. Select **Overview** in the Resource menu.
-
-1. Select **Delete**.
-
-    :::image type="content" source="media/astronomer-manage/astronomer-delete-deployment.png" alt-text="Screenshot showing how to delete an Astronomer resource.":::
-
-1. Confirm that you want to delete the Astronomer resource.
-
-    :::image type="content" source="media/astronomer-manage/astronomer-confirm-delete.png" alt-text="Screenshot showing the final confirmation of delete for Astronomer resource.":::
-
-1. Select **Delete**.
-
-After the account is deleted, logs are no longer sent to Astronomer, and all billing stops for Astronomer through Azure Marketplace.
-
-> [!NOTE]
-> The delete button on the main account is only activated if all the sub-accounts mapped to the main account are already deleted. Refer to section for deleting sub-accounts here.
-
-## GitHub Integration
-
-Enable CI/CD deployments via GitHub Actions integrations.
 
 ## Next steps
 
-- For help with troubleshooting, see [Troubleshooting Astronomer integration with Azure](astronomer-troubleshoot.md).
-- Get started with Astronomer – An Azure Native ISV Service on
+- For help with troubleshooting, see [Troubleshooting Astro integration with Azure](astronomer-troubleshoot.md).
+- Get started with Apache Airflow on Astro – An Azure Native ISV Service on
 <!--  fix links when marketplace information exists
     > [!div class="nextstepaction"]
     > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/astronomer.astronomerPLUS%2FastronomerDeployments)
