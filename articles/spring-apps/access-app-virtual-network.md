@@ -229,4 +229,4 @@ az group delete --name $RESOURCE_GROUP
 
 - [Expose applications with end-to-end TLS in a virtual network](./expose-apps-gateway-end-to-end-tls.md)
 - [Troubleshooting Azure Spring Apps in virtual networks](./troubleshooting-vnet.md)
-- [Customer Responsibilities for Running Azure Spring Apps in a virtual network](./vnet-customer-responsibilities.md)
+- [Customer responsibilities for running Azure Spring Apps in a virtual network](./vnet-customer-responsibilities.md)
