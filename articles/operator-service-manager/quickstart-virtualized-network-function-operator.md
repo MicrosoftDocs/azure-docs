@@ -14,11 +14,11 @@ This quickstart contains the prerequisite tasks for Operator and Containerized N
 
 ## Deploy prerequisites for Virtual Machine (VM)
 
-Follow the actions to [Create resource groups](../azure-resource-manager/management/manage-resource-groups-cli.md) for the prerequisites in the same region as your Publisher resources.
+1. Follow the actions to [Create resource groups](../azure-resource-manager/management/manage-resource-groups-cli.md) for the prerequisites in the same region as your Publisher resources.
 
-```azurecli
-az login
-```
+    ```azurecli
+    az login
+    ```
 1. Select active subscription using the subscription ID.
 
     ```azurecli

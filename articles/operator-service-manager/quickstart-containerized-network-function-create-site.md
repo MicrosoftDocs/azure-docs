@@ -31,6 +31,7 @@ Sites can be within a single Azure region or an on-premises location. If colloca
 1. Select **Create a resource**.
 1. Search for **Sites**, then select **Create**.
 1. On the **Basics tab**, enter or select your **Subscription**, **Resource group**, and the **Name** and **Region** of your instance. 
+
     :::image type="content" source="media/create-site-basics-tab.png" alt-text="Screenshot showing the Basic tab to enter Project details and Instance details for your site.":::
     > [!NOTE]
     > The site must be located in the same region as the prerequisite resources.  
