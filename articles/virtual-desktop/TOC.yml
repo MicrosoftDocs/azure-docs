@@ -678,6 +678,8 @@
     href: https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates
   - name: Terraform samples
     href: /azure/developer/terraform/configure-azure-virtual-desktop
+  - name: App Assure for Azure Virtual Desktop
+    href: /microsoft-365/fasttrack/windows-and-other-services#app-assure
   - name: Azure compliance offerings
     href: https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/
   - name: Azure Virtual Desktop (classic) documentation

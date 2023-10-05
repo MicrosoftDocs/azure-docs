@@ -11,7 +11,6 @@ ms.subservice: report-monitor
 ms.date: 09/27/2023
 ms.author: sarahlipsey
 ms.reviewer: egreenberg14
-
 ---
 
 # Microsoft Entra SLA performance 
@@ -53,7 +52,7 @@ The SLA attainment is truncated at three places after the decimal. Numbers aren'
 | June      | 99.999% | 99.999% | 99.999% |
 | July      | 99.999% | 99.999% | 99.999% |
 | August    | 99.999% | 99.999% | 99.999% |
-| September | 99.999% | 99.998% | |
+| September | 99.999% | 99.998% | 99.999%|
 | October   | 99.999% | 99.999% | |
 | November  | 99.998% | 99.999% | |
 | December  | 99.978% | 99.999% | |
@@ -91,3 +90,4 @@ To access your tenant-level SLA performance:
 * [Microsoft Entra monitoring and health overview](overview-monitoring-health.md)
 * [Programmatic access to Microsoft Entra reports](./howto-configure-prerequisites-for-reporting-api.md)
 * [Microsoft Entra ID risk detections](../identity-protection/overview-identity-protection.md)
+
