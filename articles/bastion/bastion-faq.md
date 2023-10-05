@@ -4,7 +4,7 @@ description: Learn about frequently asked questions for Azure Bastion.
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 08/16/2023
+ms.date: 10/03/2023
 ms.author: cherylmc
 ---
 # Azure Bastion FAQ
@@ -153,9 +153,9 @@ Azure Bastion offers support for file transfer between your target VM and local 
 
 This feature doesn't work with AADJ VM extension-joined machines using Azure AD users. For more information, see [Sign in to a Windows virtual machine in Azure by using Azure AD](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#requirements).
 
-### <a name="rdscal"></a>Does Azure Bastion require an RDS CAL for administrative purposes on Azure-hosted VMs?
+### <a name="rdscal-compatibility"></a>Is Bastion compatible with VMs set up as RDS session hosts?
 
-No, access to Windows Server VMs by Azure Bastion doesn't require an [RDS CAL](https://www.microsoft.com/p/windows-server-remote-desktop-services-cal/dg7gmgf0dvsv?activetab=pivot:overviewtab) when used solely for administrative purposes.
+Bastion does not support connecting to a VM that is set up as an RDS session host.
 
 ### <a name="keyboard"></a>Which keyboard layouts are supported during the Bastion remote session?
 

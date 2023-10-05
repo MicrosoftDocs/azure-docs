@@ -26,7 +26,7 @@ Depending on your configuration and environment, there are some variations.
 
 ## Ports
 
-All traffic to a key vault for all three functions (authentication, management, and data plane access) goes over HTTPS: port 443. However, there will occasionally be HTTP (port 80) traffic for CRL. Clients that support OCSP shouldn't reach CRL, but may occasionally reach [http://cdp1.public-trust.com/CRL/Omniroot2025.crl](http://cdp1.public-trust.com/CRL/Omniroot2025.crl).  
+All traffic to a key vault for all three functions (authentication, management, and data plane access) goes over HTTPS: port 443. However, there will occasionally be HTTP (port 80) traffic for CRL. Clients that support OCSP shouldn't reach CRL, but may occasionally reach CRL endpoints listed [here](../../security/fundamentals/azure-ca-details.md#certificate-downloads-and-revocation-lists).  
 
 ## Authentication
 

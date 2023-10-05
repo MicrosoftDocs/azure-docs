@@ -3,7 +3,6 @@ title: Reliability recommendations
 description: Full list of available reliability recommendations in Advisor.
 author: mabrahms
 ms.author: v-mabrahms
-ms.service: azure
 ms.topic: article
 ms.date: 09/27/2023
 ---
@@ -92,7 +91,7 @@ Learn more about [App Service Certificate - ASCDomainVerificationRequired (Domai
 
 ## Cache
 
-### Availability may be impacted from high memory fragmentation. Increase fragmentation memory reservation to avoid potential impact.
+### Availability may be impacted from high memory fragmentation. Increase fragmentation memory reservation to avoid potential impact
 
 Fragmentation and memory pressure can cause availability incidents during a failover or management operations. Increasing reservation of memory for fragmentation helps in reducing the cache failures when running under high memory pressure. Memory for fragmentation can be increased via maxfragmentationmemory-reserved setting available in advanced settings blade.
 
@@ -172,7 +171,7 @@ Learn more about [Virtual machine - MigrateStandardStorageAccountToPremium (Upgr
 
 ### Enable virtual machine replication to protect your applications from regional outage
 
-Virtual machines that don't have replication enabled to another region aren't resilient to regional outages. Replicating the machines drastically reduce any adverse business impact during the time of an Azure region outage. We highly recommend enabling replication of all the business critical virtual machines from the below list so that in an event of an outage, you can quickly bring up your machines in remote Azure region.
+Virtual machines that don't have replication enabled to another region aren't resilient to regional outages. Replicating the machines drastically reduce any adverse business impact during the time of an Azure region outage. We highly recommend enabling replication of all the business critical virtual machines from the following list so that in an event of an outage, you can quickly bring up your machines in remote Azure region.
 Learn more about [Virtual machine - ASRUnprotectedVMs (Enable virtual machine replication to protect your applications from regional outage)](https://aka.ms/azure-site-recovery-dr-azure-vms).
 
 ### Upgrade VM from Premium Unmanaged Disks to Managed Disks at no extra cost
@@ -189,13 +188,13 @@ Learn more about [Virtual machine - ASRUpdateOutboundConnectivityProtocolToServi
 
 ### Update your firewall configurations to allow new RHUI 4 IPs
 
-Your Virtual Machine Scale Sets will start receiving package content from RHUI4 servers on October 12, 2023. If you're allowing RHUI 3 IPs [https://aka.ms/rhui-server-list] via firewall and proxy, allow the new RHUI 4 IPs [https://aka.ms/rhui-server-list] to continue receiving RHEL package updates.
+Your Virtual Machine Scale Sets start receiving package content from RHUI4 servers on October 12, 2023. If you're allowing RHUI 3 IPs [https://aka.ms/rhui-server-list] via firewall and proxy, allow the new RHUI 4 IPs [https://aka.ms/rhui-server-list] to continue receiving RHEL package updates.
 
 Learn more about [Virtual machine scale set - Rhui3ToRhui4MigrationVMSS (Update your firewall configurations to allow new RHUI 4 IPs)](https://aka.ms/rhui-server-list).
 
 ### Update your firewall configurations to allow new RHUI 4 IPs
 
-Your Virtual Machine Scale Sets will start receiving package content from RHUI4 servers on October 12, 2023. If you're allowing RHUI 3 IPs [https://aka.ms/rhui-server-list] via firewall and proxy, allow the new RHUI 4 IPs [https://aka.ms/rhui-server-list] to continue receiving RHEL package updates.
+Your Virtual Machine Scale Sets start receiving package content from RHUI4 servers on October 12, 2023. If you're allowing RHUI 3 IPs [https://aka.ms/rhui-server-list] via firewall and proxy, allow the new RHUI 4 IPs [https://aka.ms/rhui-server-list] to continue receiving RHEL package updates.
 
 Learn more about [Virtual machine - Rhui3ToRhui4MigrationV2 (Update your firewall configurations to allow new RHUI 4 IPs)](https://aka.ms/rhui-server-list).
 
@@ -247,9 +246,9 @@ Virtual machines in an Availability Set with disks that share either storage acc
 
 Learn more about [Availability set - ManagedDisksAvSet (Use Managed Disks to improve data reliability)](https://aka.ms/aa_avset_manageddisk_learnmore).
 
-### Check Point Virtual Machine may lose Network Connectivity.
+### Check Point Virtual Machine may lose Network Connectivity
 
-We have identified that your Virtual Machine might be running a version of Check Point image that has been known to lose network connectivity in the event of a platform servicing operation. We recommend that you upgrade to a newer version of the image. Contact Check Point for further instructions on how to upgrade your image.
+We have identified that your Virtual Machine may be running a version of Check Point image that might lose network connectivity during a platform servicing operation. We recommend that you upgrade to a newer version of the image. Contact Check Point for further instructions on how to upgrade your image.
 
 Learn more about [Virtual machine - CheckPointPlatformServicingKnownIssueA (Check Point Virtual Machine may lose Network Connectivity.)](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk151752&partition=Advanced&product=CloudGuard).
 
@@ -265,17 +264,37 @@ In order for a session host to deploy and register to Azure Virtual Desktop prop
 
 Learn more about [Virtual machine - SessionHostNeedsAssistanceForUrlCheck (Access to mandatory URLs missing for your Azure Virtual Desktop environment)](../virtual-desktop/safe-url-list.md).
 
+### Clusters having node pools using non-recommended B-Series
+
+Cluster has one or more node pools using a non-recommended burstable VM SKU. With burstable VMs, full vCPU capability 100% is unguaranteed. Make sure B-series VMs are not used in a Production environment.
+
+Learn more about [Kubernetes service - ClustersUsingBSeriesVMs (Clusters having node pools using non-recommended B-Series)](/azure/virtual-machines/sizes-b-series-burstable).
+
+## MySQL
+
+### Replication - Add a primary key to the table that currently does not have one
+
+Based on our internal monitoring, we have observed significant replication lag on your replica server. This lag is occurring because the replica server is replaying relay logs on a table that lacks a primary key. To ensure that the replica can synchronize with the primary and keep up with changes, add primary keys to the tables in the primary server and then recreate the replica server.
+
+Learn more about [Azure Database for MySQL flexible server - MySqlFlexibleServerReplicaMissingPKfb41 (Replication - Add a primary key to the table that currently does not have one)](/azure/mysql/how-to-troubleshoot-replication-latency#no-primary-key-or-unique-key-on-a-table).
+
+### High Availability - Add primary key to the table that currently does not have one
+
+Our internal monitoring system has identified significant replication lag on the High Availability standby server. The standby server replaying relay logs on a table that lacks a primary key, is the main cause of the lag. To address this issue and adhere to best practices, we recommend you add primary keys to all tables. Once you add the primary keys, proceed to disable and then re-enable High Availability to mitigate the problem.
+
+Learn more about [Azure Database for MySQL flexible server - MySqlFlexibleServerHAMissingPKcf38 (High Availability - Add primary key to the table that currently does not have one.)](/azure/mysql/how-to-troubleshoot-replication-latency#no-primary-key-or-unique-key-on-a-table).
+
 ## PostgreSQL
 
 ### Improve PostgreSQL availability by removing inactive logical replication slots
 
-Our internal telemetry indicates that your PostgreSQL server may have inactive logical replication slots. THIS NEEDS IMMEDIATE ATTENTION. Inactive logical replication can result in degraded server performance and unavailability due to WAL file retention and buildup of snapshot files. To improve performance and availability, we STRONGLY recommend that you IMMEDIATELY either delete the inactive replication slots, or start consuming the changes from these slots so that the slots' Log Sequence Number (LSN) advances and is close to the current LSN of the server.
+Our internal telemetry indicates that your PostgreSQL server may have inactive logical replication slots. THIS NEEDS IMMEDIATE ATTENTION. Inactive logical replication can result in degraded server performance and unavailability due to WAL file retention and buildup of snapshot files. To improve performance and availability, we STRONGLY recommend that you IMMEDIATELY take action. Either delete the inactive replication slots, or start consuming the changes from these slots so that the slots' Log Sequence Number (LSN) advances and is close to the current LSN of the server.
 
 Learn more about [PostgreSQL server - OrcasPostgreSqlLogicalReplicationSlots (Improve PostgreSQL availability by removing inactive logical replication slots)](https://aka.ms/azure_postgresql_logical_decoding).
 
 ### Improve PostgreSQL availability by removing inactive logical replication slots
 
-Our internal telemetry indicates that your PostgreSQL flexible server may have inactive logical replication slots. THIS NEEDS IMMEDIATE ATTENTION. This can result in degraded server performance and unavailability due to WAL file retention and buildup of snapshot files. To improve performance and availability, we STRONGLY recommend that you IMMEDIATELY either delete the inactive replication slots, or start consuming the changes from these slots so that the slots' Log Sequence Number (LSN) advances and is close to the current LSN of the server.
+Our internal telemetry indicates that your PostgreSQL flexible server may have inactive logical replication slots. THIS NEEDS IMMEDIATE ATTENTION. Inactive logical replication slots can result in degraded server performance and unavailability due to WAL file retention and buildup of snapshot files. To improve performance and availability, we STRONGLY recommend that you IMMEDIATELY take action. Either delete the inactive replication slots, or start consuming the changes from these slots so that the slots' Log Sequence Number (LSN) advances and is close to the current LSN of the server.
 
 Learn more about [Azure Database for PostgreSQL flexible server - OrcasPostgreSqlFlexibleServerLogicalReplicationSlots (Improve PostgreSQL availability by removing inactive logical replication slots)](https://aka.ms/azure_postgresql_flexible_server_logical_decoding).
 
@@ -287,6 +306,36 @@ Some or all of your devices are using outdated SDK and we recommend you upgrade 
 
 Learn more about [IoT hub - UpgradeDeviceClientSdk (Upgrade device client SDK to a supported version for IotHub)](https://aka.ms/iothubsdk).
 
+### IoT Hub Potential Device Storm Detected
+
+A device storm is when two or more devices are trying to connect to the IoT Hub using the same device ID credentials. When the second device (B) connects, it causes the first one (A) to become disconnected. Then (A) attempts to reconnect again, which causes (B) to get disconnected.
+
+Learn more about [IoT hub - IoTHubDeviceStorm (IoT Hub Potential Device Storm Detected)](https://aka.ms/IotHubDeviceStorm).
+
+### Upgrade Device Update for IoT Hub SDK to a supported version
+
+Your Device Update for IoT Hub Instance is using an outdated version of the SDK. We recommend you upgrade to the latest version for the latest fixes, performance improvements, and new feature capabilities.
+
+Learn more about [IoT hub - DU_SDK_Advisor_Recommendation (Upgrade Device Update for IoT Hub SDK to a supported version)](/azure/iot-hub-device-update/understand-device-update).
+
+### IoT Hub Quota Exceeded Detected
+
+We have detected that your IoT Hub has exceeded its daily message quota. To prevent this in the future, add units or increase the SKU level.
+
+Learn more about [IoT hub - IoTHubQuotaExceededAdvisor (IoT Hub Quota Exceeded Detected)](/azure/iot-hub/troubleshoot-error-codes#403002-iothubquotaexceeded).
+
+### Upgrade device client SDK to a supported version for IotHub
+
+Some or all of your devices are using outdated SDK and we recommend you upgrade to a supported version of SDK. See the details in the recommendation.
+
+Learn more about [IoT hub - UpgradeDeviceClientSdk (Upgrade device client SDK to a supported version for IotHub)](https://aka.ms/iothubsdk).
+
+### Upgrade Edge Device Runtime to a supported version for Iot Hub
+
+Some or all of your Edge devices are using outdated versions and we recommend you upgrade to the latest supported version of the runtime. See the details in the recommendation.
+
+Learn more about [IoT hub - UpgradeEdgeSdk (Upgrade Edge Device Runtime to a supported version for Iot Hub)](https://aka.ms/IOTEdgeSDKCheck).
+
 ## Azure Cosmos DB
 
 ### Configure Consistent indexing mode on your Azure Cosmos DB container
@@ -297,31 +346,31 @@ Learn more about [Azure Cosmos DB account - CosmosDBLazyIndexing (Configure Cons
 
 ### Upgrade your old Azure Cosmos DB SDK to the latest version
 
-Your Azure Cosmos DB account is using an old version of the SDK. We recommend upgrading to the latest version for the latest fixes, performance improvements, and new feature capabilities.
+Your Azure Cosmos DB account is using an old version of the SDK. We recommend you upgrade to the latest version for the latest fixes, performance improvements, and new feature capabilities.
 
 Learn more about [Azure Cosmos DB account - CosmosDBUpgradeOldSDK (Upgrade your old Azure Cosmos DB SDK to the latest version)](../cosmos-db/index.yml).
 
 ### Upgrade your outdated Azure Cosmos DB SDK to the latest version
 
-Your Azure Cosmos DB account is using an outdated version of the SDK. We recommend upgrading to the latest version for the latest fixes, performance improvements, and new feature capabilities.
+Your Azure Cosmos DB account is using an outdated version of the SDK. We recommend you upgrade to the latest version for the latest fixes, performance improvements, and new feature capabilities.
 
 Learn more about [Azure Cosmos DB account - CosmosDBUpgradeOutdatedSDK (Upgrade your outdated Azure Cosmos DB SDK to the latest version)](../cosmos-db/index.yml).
 
 ### Configure your Azure Cosmos DB containers with a partition key
 
-Your Azure Cosmos DB nonpartitioned collections are approaching their provisioned storage quota. Migrate these collections to new collections with a partition key definition so that they can automatically be scaled out by the service.
+Your Azure Cosmos DB nonpartitioned collections are approaching their provisioned storage quota. Migrate these collections to new collections with a partition key definition so the service can automatically scale them out.
 
 Learn more about [Azure Cosmos DB account - CosmosDBFixedCollections (Configure your Azure Cosmos DB containers with a partition key)](../cosmos-db/partitioning-overview.md#choose-partitionkey).
 
 ### Upgrade your Azure Cosmos DB for MongoDB account to v4.0 to save on query/storage costs and utilize new features
 
-Your Azure Cosmos DB for MongoDB account is eligible to upgrade to version 4.0. Upgrading to v4.0 can reduce your storage costs by up to 55% and your query costs by up to 45% by leveraging a new storage format. Numerous additional features such as multi-document transactions are also included in v4.0.
+Your Azure Cosmos DB for MongoDB account is eligible to upgrade to version 4.0. Reduce your storage costs by up to 55% and your query costs by up to 45% by upgrading to the v4.0 new storage format. Numerous other features such as multi-document transactions are also included in v4.0.
 
 Learn more about [Azure Cosmos DB account - CosmosDBMongoSelfServeUpgrade (Upgrade your Azure Cosmos DB for MongoDB account to v4.0 to save on query/storage costs and utilize new features)](/azure/cosmos-db/mongodb-version-upgrade).
 
 ### Add a second region to your production workloads on Azure Cosmos DB
 
-Based on their names and configuration, we have detected the Azure Cosmos DB accounts below as being potentially used for production workloads. These accounts currently run in a single Azure region. You can increase their availability by configuring them to span at least two Azure regions.
+Based on their names and configuration, we have detected the Azure Cosmos DB accounts listed as being potentially used for production workloads. These accounts currently run in a single Azure region. You can increase their availability by configuring them to span at least two Azure regions.
 
 > [!NOTE]
 > Additional regions incur extra costs.
@@ -336,7 +385,7 @@ Learn more about [Azure Cosmos DB account - CosmosDBMongoServerSideRetries (Enab
 
 ### Migrate your Azure Cosmos DB for MongoDB account to v4.0 to save on query/storage costs and utilize new features
 
-Migrate your database account to a new database account to take advantage of Azure Cosmos DB for MongoDB v4.0. Upgrading to v4.0 can reduce your storage costs by up to 55% and your query costs by up to 45% by leveraging a new storage format. Numerous additional features such as multi-document transactions are also included in v4.0. When upgrading, you must also migrate the data in your existing account to a new account created using version 4.0. Azure Data Factory or Studio 3T can assist you in migrating your data.
+Migrate your database account to a new database account to take advantage of Azure Cosmos DB for MongoDB v4.0. Reduce your storage costs by up to 55% and your query costs by up to 45% by upgrading to the v4.0 new storage format. Numerous other features such as multi-document transactions are also included in v4.0. When upgrading, you must also migrate the data in your existing account to a new account created using version 4.0. Azure Data Factory or Studio 3T can assist you in migrating your data.
 
 Learn more about [Azure Cosmos DB account - CosmosDBMongoMigrationUpgrade (Migrate your Azure Cosmos DB for MongoDB account to v4.0 to save on query/storage costs and utilize new features)](/azure/cosmos-db/mongodb-feature-support-40).
 
@@ -348,7 +397,7 @@ Learn more about [Azure Cosmos DB account - CosmosDBKeyVaultWrap (Your Azure Cos
 
 ### Avoid being rate limited from metadata operations
 
-We found a high number of metadata operations on your account. Your data in Azure Cosmos DB, including metadata about your databases and collections is distributed across partitions. Metadata operations have a system-reserved request unit (RU) limit. Avoid being rate limited from metadata operations by using static Azure Cosmos DB client instances in your code and caching the names of databases and collections.
+We found a high number of metadata operations on your account. Your data in Azure Cosmos DB, including metadata about your databases and collections, is distributed across partitions. Metadata operations have a system-reserved request unit (RU) limit. A high number of metadata operations can cause rate limiting. Avoid this by using static Azure Cosmos DB client instances in your code, and caching the names of databases and collections.
 
 Learn more about [Azure Cosmos DB account - CosmosDBHighMetadataOperations (Avoid being rate limited from metadata operations)](/azure/cosmos-db/performance-tips).
 
@@ -360,13 +409,13 @@ Learn more about [Azure Cosmos DB account - CosmosDBMongoNudge36AwayFrom32 (Use 
 
 ### Upgrade to 2.6.14 version of the Async Java SDK v2 to avoid a critical issue or upgrade to Java SDK v4 as Async Java SDK v2 is being deprecated
 
-There is a critical bug in version 2.6.13 and lower of the Azure Cosmos DB Async Java SDK v2 causing errors when a Global logical sequence number (LSN) greater than the Max Integer value is reached. This happens transparent to you by the service after a large volume of transactions occur in the lifetime of an Azure Cosmos DB container. Note: This is a critical hotfix for the Async Java SDK v2, however we still highly recommend you migrate to the [Java SDK v4](../cosmos-db/sql/sql-api-sdk-java-v4.md).
+There is a critical bug in version 2.6.13 and lower, of the Azure Cosmos DB Async Java SDK v2 causing errors when a Global logical sequence number (LSN) greater than the Max Integer value is reached. These service errors happen after a large volume of transactions occur in the lifetime of an Azure Cosmos DB container. Note: There is a critical hotfix for the Async Java SDK v2, however we still highly recommend you migrate to the [Java SDK v4](../cosmos-db/sql/sql-api-sdk-java-v4.md).
 
 Learn more about [Azure Cosmos DB account - CosmosDBMaxGlobalLSNReachedV2 (Upgrade to 2.6.14 version of the Async Java SDK v2 to avoid a critical issue or upgrade to Java SDK v4 as Async Java SDK v2 is being deprecated)](../cosmos-db/sql/sql-api-sdk-async-java.md).
 
 ### Upgrade to the current recommended version of the Java SDK v4 to avoid a critical issue
 
-There is a critical bug in version 4.15 and lower of the Azure Cosmos DB Java SDK v4 causing errors when a Global logical sequence number (LSN) greater than the Max Integer value is reached. This happens transparent to you by the service after a large volume of transactions occur in the lifetime of an Azure Cosmos DB container.
+There is a critical bug in version 4.15 and lower of the Azure Cosmos DB Java SDK v4 causing errors when a Global logical sequence number (LSN) greater than the Max Integer value is reached. These service errors happen after a large volume of transactions occur in the lifetime of an Azure Cosmos DB container.
 
 Learn more about [Azure Cosmos DB account - CosmosDBMaxGlobalLSNReachedV4 (Upgrade to the current recommended version of the Java SDK v4 to avoid a critical issue)](../cosmos-db/sql/sql-api-sdk-java-v4.md).
 
@@ -374,11 +423,41 @@ Learn more about [Azure Cosmos DB account - CosmosDBMaxGlobalLSNReachedV4 (Upgra
 
 ### Upgrade your Azure Fluid Relay client library
 
-You have recently invoked the Azure Fluid Relay service with an old client library. Your Azure Fluid Relay client library should now be upgraded to the latest version to ensure your application remains operational. Upgrading provides the most up-to-date functionality, as well as enhancements in performance and stability. For more information on the latest version to use and how to upgrade, see the following article.
+You have recently invoked the Azure Fluid Relay service with an old client library. Your Azure Fluid Relay client library should now be upgraded to the latest version to ensure your application remains operational. Upgrading provides the most up-to-date functionality and enhancements in performance and stability. For more information on the latest version to use and how to upgrade, see the following article.
 
 Learn more about [FluidRelay Server - UpgradeClientLibrary (Upgrade your Azure Fluid Relay client library)](https://github.com/microsoft/FluidFramework).
 
 ## HDInsight
+
+### Your cluster running Ubuntu 16.04 is out of support
+
+We detected that your HDInsight cluster still uses Ubuntu 16.04 LTS. End of support for Azure HDInsight clusters on Ubuntu 16.04 LTS began on November 30, 2022. Existing clusters run as is without support from Microsoft. Consider rebuilding your cluster with the latest images.
+
+Learn more about [HDInsight cluster - ubuntu1604HdiClusters (Your cluster running Ubuntu 16.04 is out of support)](/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions).
+
+### Upgrade your HDInsight Cluster
+
+We detected your cluster is not using the latest image. We recommend customers to use the latest versions of HDInsight Images as they bring in the best of open source updates, Azure updates and security fixes. HDInsight release happens every 30 to 60 days. Consider moving to the latest release.
+
+Learn more about [HDInsight cluster - upgradeHDInsightCluster (Upgrade your HDInsight Cluster)](/azure/hdinsight/hdinsight-release-notes).
+
+### Your cluster was created one year ago
+
+We detected your cluster was created 1 year ago. As part of the best practices, we recommend you to use the latest HDInsight images as they bring in the best of open source updates, Azure updates and security fixes. The recommended maximum duration for cluster upgrades is less than six months.
+
+Learn more about [HDInsight cluster - clusterOlderThanAYear (Your cluster was created one year ago)](/azure/hdinsight/hdinsight-overview-before-you-start#keep-your-clusters-up-to-date).
+
+### Your Kafka Cluster Disks are almost full
+
+The data disks used by Kafka brokers in your HDInsight cluster are almost full. When that happens, the Apache Kafka broker process can't start and fails because of the disk full error. To mitigate, find the retention time for every topic, back up the files that are older and restart the brokers.
+
+Learn more about [HDInsight cluster - KafkaDiskSpaceFull (Your Kafka Cluster Disks are almost full)](https://aka.ms/kafka-troubleshoot-full-disk).
+
+### Creation of clusters under custom VNet requires more permission
+
+Your clusters with custom VNet were created without VNet joining permission. Ensure that the users who perform create operations have permissions to the Microsoft.Network/virtualNetworks/subnets/join action before September 30, 2023.
+
+Learn more about [HDInsight cluster - EnforceVNetJoinPermissionCheck (Creation of clusters under custom VNet requires more permission)](https://aka.ms/hdinsightEnforceVnet).
 
 ### Deprecation of Kafka 1.1 in HDInsight 4.0 Kafka cluster
 
@@ -394,7 +473,7 @@ Learn more about [HDInsight cluster - SparkVersionRetirement (Deprecation of Old
 
 ### Enable critical updates to be applied to your HDInsight clusters
 
-HDInsight service is applying an important certificate related update to your cluster. However, one or more policies in your subscription are preventing HDInsight service from creating or modifying network resources (Load balancer, Network Interface and Public IP address) associated with your clusters and applying this update. Take actions to allow HDInsight service to create or modify network resources (Load balancer, Network interface and Public IP address) associated with your clusters before January 13, 2021 05:00 PM UTC. The HDInsight team is performing updates between January 13, 2021 05:00 PM UTC and January 16, 2021 05:00 PM UTC. Failure to apply this update may result in your clusters becoming unhealthy and unusable.
+HDInsight service is applying an important certificate related update to your cluster. However, one or more policies in your subscription are preventing HDInsight service from creating or modifying network resources  associated with your clusters and applying this update. Take actions to allow HDInsight service to create or modify network resources such as Load balancer, Network interface and Public IP address, associated with your clusters before January 13, 2021 05:00 PM UTC. The HDInsight team is performing updates between January 13, 2021 05:00 PM UTC and January 16, 2021 05:00 PM UTC. Failure to apply this update may result in your clusters becoming unhealthy and unusable.
 
 Learn more about [HDInsight cluster - GCSCertRotation (Enable critical updates to be applied to your HDInsight clusters)](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -412,7 +491,7 @@ Learn more about [HDInsight cluster - GCSCertRotationR3DropRecreate (Drop and re
 
 ### Apply critical updates to your HDInsight clusters
 
-The HDInsight service has attempted to apply a critical certificate update on all your running clusters. However, one or more policies in your subscription are preventing HDInsight service from creating or modifying network resources (Load balancer, Network Interface and Public IP address) associated with your clusters and applying this update. Remove or update your policy assignment to allow HDInsight service to create or modify network resources (Load balancer, Network interface and Public IP address) associated with your clusters before January 21, 2021 05:00 PM UTC. The HDInsight team is performing updates between January 21, 2021 05:00 PM UTC and January 23, 2021 05:00 PM UTC. To verify the policy update, you can try to create network resources (Load balancer, Network interface and Public IP address) in the same resource group and Subnet where your cluster is in. Failure to apply this update may result in your clusters becoming unhealthy and unusable. You can also drop and recreate your cluster before January 25, 2021 to prevent the cluster from becoming unhealthy and unusable. The HDInsight service sends another notification if we failed to apply the update to your clusters.
+The HDInsight service has attempted to apply a critical certificate update on all your running clusters. However, one or more policies in your subscription are preventing HDInsight service from creating or modifying network resources  associated with your clusters and applying this update. Remove or update your policy assignment to allow HDInsight service to create or modify network resources such as Load balancer, Network interface and Public IP address, associated with your clusters before January 21, 2021 05:00 PM UTC. The HDInsight team is performing updates between January 21, 2021 05:00 PM UTC and January 23, 2021 05:00 PM UTC. To verify the policy update, you can try to create network resources in the same resource group and subnet where your cluster is. Failure to apply this update may result in your clusters becoming unhealthy and unusable. You can also drop and recreate your cluster before January 25, 2021 to prevent the cluster from becoming unhealthy and unusable. The HDInsight service sends another notification if we failed to apply the update to your clusters.
 
 Learn more about [HDInsight cluster - GCSCertRotationR3PlanPatch (Apply critical updates to your HDInsight clusters)](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -432,6 +511,12 @@ Learn more about [Machine - Azure Arc - ArcServerAgentVersion (Upgrade to the la
 
 ## Kubernetes
 
+### Upgrade to Standard tier for mission-critical and production clusters
+
+This cluster has more than 10 nodes and has not enabled the Standard tier. The Kubernetes Control Plane on the Free tier comes with limited resources and is not intended for production use or any cluster with 10 or more nodes.
+
+Learn more about [Kubernetes service - UseStandardpricingtier (Upgrade to Standard tier for mission-critical and production clusters)](/azure/aks/uptime-sla).
+
 ### Pod Disruption Budgets Recommended
 
 Pod Disruption Budgets Recommended. Improve service high availability.
@@ -446,11 +531,25 @@ Learn more about [Kubernetes - Azure Arc - Arc-enabled K8s agent version upgrade
 
 ## Media Services
 
-### Increase Media Services quotas or limits to ensure continuity of service.
+### Increase Media Services quotas or limits to ensure continuity of service
 
-Your media account is about to hit its quota limits. Review current usage of Assets, Content Key Policies and Stream Policies for the media account. To avoid any disruption of service, you should request quota limits to be increased for the entities that are closer to hitting quota limit. You can request quota limits to be increased by opening a ticket and adding relevant details to it. Don't create additional Azure Media accounts in an attempt to obtain higher limits.
+Your media account is about to hit its quota limits. Review current usage of Assets, Content Key Policies and Stream Policies for the media account. To avoid any disruption of service, you should request quota limits to be increased for the entities that are closer to hitting quota limit. You can request quota limits to be increased by opening a ticket and adding relevant details to it. Don't create extra Azure Media accounts in an attempt to obtain higher limits.
 
 Learn more about [Media Service - AccountQuotaLimit (Increase Media Services quotas or limits to ensure continuity of service.)](https://aka.ms/ams-quota-recommendation/).
+
+## Azure NetApp Files
+
+### Implement disaster recovery strategies for your Azure NetApp Files Resources
+
+To avoid data or functionality loss in the event of a regional or zonal disaster, implement common disaster recovery techniques such as cross region replication or cross zone replication for your Azure NetApp Files volumes
+
+Learn more about [Volume - ANFCRRCZRRecommendation (Implement disaster recovery strategies for your Azure NetApp Files Resources)](https://aka.ms/anfcrr).
+
+### Azure NetApp Files Enable Continuous Availability for SMB Volumes
+
+Recommendation to enable SMB volume for Continuous Availability.
+
+Learn more about [Volume - anfcaenablement (Azure NetApp Files Enable Continuous Availability for SMB Volumes)](https://aka.ms/anfdoc-continuous-availability).
 
 ## Networking
 
@@ -486,19 +585,19 @@ Learn more about [Traffic Manager profile - ProximityProfile (Add or move one en
 
 ### Implement multiple ExpressRoute circuits in your Virtual Network for cross premises resiliency
 
-We have detected that your ExpressRoute gateway only has 1 ExpressRoute circuit associated to it. Connect one or more additional circuits to your gateway to ensure peering location redundancy and resiliency
+We have detected that your ExpressRoute gateway only has 1 ExpressRoute circuit associated to it. Connect one or more extra circuits to your gateway to ensure peering location redundancy and resiliency
 
 Learn more about [Virtual network gateway - ExpressRouteGatewayRedundancy (Implement multiple ExpressRoute circuits in your Virtual Network for cross premises resiliency)](../expressroute/designing-for-high-availability-with-expressroute.md).
 
 ### Implement ExpressRoute Monitor on Network Performance Monitor for end-to-end monitoring of your ExpressRoute circuit
 
-We have detected that your ExpressRoute circuit isn't currently being monitored by ExpressRoute Monitor on Network Performance Monitor. ExpressRoute monitor provides end-to-end monitoring capabilities including: Loss, latency, and performance from on-premises to Azure and Azure to on-premises
+We have detected that ExpressRoute Monitor on Network Performance Monitor isn't currently monitoring your ExpressRoute circuit. ExpressRoute monitor provides end-to-end monitoring capabilities including: Loss, latency, and performance from on-premises to Azure and Azure to on-premises
 
 Learn more about [ExpressRoute circuit - ExpressRouteGatewayE2EMonitoring (Implement ExpressRoute Monitor on Network Performance Monitor for end-to-end monitoring of your ExpressRoute circuit)](../expressroute/how-to-npm.md).
 
 ### Avoid hostname override to ensure site integrity
 
-Try to avoid overriding the hostname when configuring Application Gateway.  Having a different domain on the frontend of Application Gateway than the one which is used to access the backend can potentially lead to cookies or redirect urls being broken.  Note that this might not be the case in all situations and that certain categories of backends (like REST APIs) in general are less sensitive to this.  Make sure the backend is able to deal with this or update the Application Gateway configuration so the hostname does not need to be overwritten towards the backend.  When used with App Service, attach a custom domain name to the Web App and avoid use of the `*.azurewebsites.net` host name towards the backend.
+Try to avoid overriding the hostname when configuring Application Gateway.  Having a domain on the frontend of Application Gateway different than the one used to access the backend, can potentially lead to cookies or redirect URLs being broken. This might not be the case in all situations, and certain categories of backends, like REST APIs, are less sensitive in general.  Make sure the backend is able to deal with this or update the Application Gateway configuration so the hostname does not need to be overwritten towards the backend.  When used with App Service, attach a custom domain name to the Web App and avoid use of the `*.azurewebsites.net` host name towards the backend.
 
 Learn more about [Application gateway - AppGatewayHostOverride (Avoid hostname override to ensure site integrity)](https://aka.ms/appgw-advisor-usecustomdomain).
 
@@ -510,7 +609,7 @@ Learn more about [ExpressRoute circuit - UseGlobalReachForDR (Use ExpressRoute G
 
 ### Azure WAF RuleSet CRS 3.1/3.2 has been updated with Log4j 2 vulnerability rule
 
-In response to Log4j 2 vulnerability (CVE-2021-44228), Azure Web Application Firewall (WAF) RuleSet CRS 3.1/3.2 has been updated on your Application Gateway to help provide additional protection from this vulnerability. The rules are available under Rule 944240 and no action is needed to enable this.
+In response to Log4j 2 vulnerability (CVE-2021-44228), Azure Web Application Firewall (WAF) RuleSet CRS 3.1/3.2 has been updated on your Application Gateway to help provide extra protection from this vulnerability. The rules are available under Rule 944240 and no action is needed to enable them.
 
 Learn more about [Application gateway - AppGwLog4JCVEPatchNotification (Azure WAF RuleSet CRS 3.1/3.2 has been updated with log4j2 vulnerability rule)](https://aka.ms/log4jcve).
 
@@ -518,8 +617,8 @@ Learn more about [Application gateway - AppGwLog4JCVEPatchNotification (Azure WA
 
 To mitigate the impact of Log4j 2 vulnerability, we recommend these steps:
 
-1) Upgrade Log4j 2 to version 2.15.0 on your backend servers. If upgrade isn't possible, follow the system property guidance link below.
-2) Take advantage of WAF Core rule sets (CRS) by upgrading to WAF SKU
+1) Upgrade Log4j 2 to version 2.15.0 on your backend servers. If upgrade isn't possible, follow the system property guidance link provided.
+2) Take advantage of WAF Core rule sets (CRS) by upgrading to WAF SKU.
 
 Learn more about [Application gateway - AppGwLog4JCVEGenericNotification (Additional protection to mitigate Log4j2 vulnerability (CVE-2021-44228))](https://aka.ms/log4jcve).
 
@@ -528,6 +627,18 @@ Learn more about [Application gateway - AppGwLog4JCVEGenericNotification (Additi
 Prevent risk of connectivity failures due to SNAT port exhaustion by using NAT gateway for outbound traffic from your virtual networks. NAT gateway scales dynamically and provides secure connections for traffic headed to the internet.
 
 Learn more about [Virtual network - natGateway (Use NAT gateway for outbound connectivity)](/azure/load-balancer/load-balancer-outbound-connections#2-associate-a-nat-gateway-to-the-subnet).
+
+### Update VNet permission of Application Gateway users
+
+To improve security and provide a more consistent experience across Azure, all users must pass a permission check before creating or updating an Application Gateway in a Virtual Network. The users or service principals must include at least Microsoft.Network/virtualNetworks/subnets/join/action permission.
+
+Learn more about [Application gateway - AppGwLinkedAccessFailureRecmmendation (Update VNet permission of Application Gateway users)](https://aka.ms/agsubnetjoin).
+
+### Use version-less Key Vault secret identifier to reference the certificates
+
+We strongly recommend that you use a version-less secret identifier to allow your application gateway resource to automatically retrieve the new certificate version, whenever available. Example: https://myvault.vault.azure.net/secrets/mysecret/
+
+Learn more about [Application gateway - AppGwAdvisorRecommendationForCertificateUpdate (Use version-less Key Vault secret identifier to reference the certificates)](https://aka.ms/agkvversion).
 
 ### Enable Active-Active gateways for redundancy
 
@@ -539,7 +650,7 @@ Learn more about [Virtual network gateway - VNetGatewayActiveActive (Enable Acti
 
 ### Enable soft delete for your Recovery Services vaults
 
-Soft delete helps you retain your backup data in the Recovery Services vault for an additional duration after deletion, giving you an opportunity to retrieve it before it's permanently deleted.
+The soft delete option helps you retain your backup data in the Recovery Services vault for an extra duration after deletion. This gives you an opportunity to retrieve the data before it's permanently deleted.
 
 Learn more about [Recovery Services vault - AB-SoftDeleteRsv (Enable soft delete for your Recovery Services vaults)](../backup/backup-azure-security-feature-cloud.md).
 
@@ -551,29 +662,43 @@ Learn more about [Recovery Services vault - Enable CRR (Enable Cross Region Rest
 
 ## Search
 
-### You are close to exceeding storage quota of 2GB. Create a Standard search service.
+### You are close to exceeding storage quota of 2GB. Create a Standard search service
 
 You're close to exceeding storage quota of 2GB. Create a Standard search service. Indexing operations stop working when storage quota is exceeded.
 
 Learn more about [Service limits in Azure Cognitive Search](/azure/search/search-limits-quotas-capacity).
 
-### You are close to exceeding storage quota of 50MB. Create a Basic or Standard search service.
+### You are close to exceeding storage quota of 50MB. Create a Basic or Standard search service
 
 You're close to exceeding storage quota of 50MB. Create a Basic or Standard search service. Indexing operations stop working when storage quota is exceeded.
 
 Learn more about [Service limits in Azure Cognitive Search](/azure/search/search-limits-quotas-capacity).
 
-### You are close to exceeding your available storage quota. Add additional partitions if you need more storage.
+### You are close to exceeding your available storage quota. Add additional partitions if you need more storage
 
-you're close to exceeding your available storage quota. Add additional partitions if you need more storage. After exceeding storage quota, you can still query, but indexing operations no longer work.
+you're close to exceeding your available storage quota. Add extra partitions if you need more storage. After exceeding storage quota, you can still query, but indexing operations no longer work.
 
 Learn more about [Service limits in Azure Cognitive Search](/azure/search/search-limits-quotas-capacity).
 
+## Azure SQL
+
+### Enable Azure backup for SQL on your virtual machines
+
+Enable backups for SQL databases on your virtual machines using Azure backup and realize the benefits of zero-infrastructure backup, point-in-time restore, and central management with SQL AG integration.
+
+Learn more about [SQL virtual machine - EnableAzBackupForSQL (Enable Azure backup for SQL on your virtual machines)](/azure/backup/backup-azure-sql-database).
+
 ## Storage
+
+### You have ADLS Gen1 Accounts Which Need to be Migrated to ADLS Gen2
+
+As previously announced, Azure Data Lake Storage Gen1 will be retired on February 29, 2024. We highly recommend that you migrate your data lake to Azure Data Lake Storage Gen2, which offers advanced capabilities specifically designed for big data analytics, and is built on top of Azure Blob Storage.
+
+Learn more about [Data lake store account - ADLSGen1_Deprecation (You have ADLS Gen1 Accounts Which Needs to be Migrated to ADLS Gen2)](https://azure.microsoft.com/updates/action-required-switch-to-azure-data-lake-storage-gen2-by-29-february-2024/).
 
 ### Enable Soft Delete to protect your blob data
 
-After enabling Soft Delete, deleted data transitions to a soft deleted state instead of being permanently deleted. When data is overwritten, a soft deleted snapshot is generated to save the state of the overwritten data. You can configure the amount of time soft deleted data is recoverable before it permanently expires.
+After enabling the soft delete option, deleted data transitions to a soft deleted state instead of being permanently deleted. When data is overwritten, a soft deleted snapshot is generated to save the state of the overwritten data. You can configure the amount of time soft deleted data is recoverable before it permanently expires.
 
 Learn more about [Storage Account - StorageSoftDelete (Enable Soft Delete to protect your blob data)](https://aka.ms/softdelete).
 
@@ -582,6 +707,20 @@ Learn more about [Storage Account - StorageSoftDelete (Enable Soft Delete to pro
 We have identified that you're using Premium SSD Unmanaged Disks in Storage account(s) that are about to reach Premium Storage capacity limit. To avoid failures when the limit is reached, we recommend migrating to Managed Disks that don't have account capacity limit. This migration can be done through the portal in less than 5 minutes.
 
 Learn more about [Storage Account - StoragePremiumBlobQuotaLimit (Use Managed Disks for storage accounts reaching capacity limit)](https://aka.ms/premium_blob_quota).
+
+### Configure blob backup
+
+Configure blob backup
+
+Learn more about [Storage Account - ConfigureBlobBackup (Configure blob backup)](/azure/backup/blob-backup-overview).
+
+## Subscriptions
+
+### Turn on Azure Backup to get simple, reliable, and cost-effective protection for your data
+
+Keep your information and applications safe with robust, one click backup from Azure.  Activate Azure Backup to get cost-effective protection for a wide range of workloads including VMs, SQL databases, applications, and file shares.
+
+Learn more about [Subscription - AzureBackupService (Turn on Azure Backup to get simple, reliable, and cost-effective protection for your data)](/azure/backup/).
 
 ## Web
 
@@ -627,13 +766,13 @@ You have deployed your application multiple times over the last week. Deployment
 
 Learn more about [App service - AppServiceStandardOrHigher (Move your App Service resource to Standard or higher and use deployment slots)](https://aka.ms/ant-staging).
 
-### Consider scaling out your App Service Plan to optimize user experience and availability.
+### Consider scaling out your App Service Plan to optimize user experience and availability
 
 Consider scaling out your App Service Plan to at least two instances to avoid cold start delays and service interruptions during routine maintenance.
 
 Learn more about [App Service plan - AppServiceNumberOfInstances (Consider scaling out your App Service Plan to optimize user experience and availability.)](https://aka.ms/appsvcnuminstances).
 
-### Consider upgrading the hosting plan of the Static Web App(s) in this subscription to Standard SKU.
+### Consider upgrading the hosting plan of the Static Web App(s) in this subscription to Standard SKU
 
 The combined bandwidth used by all the Free SKU Static Web Apps in this subscription is exceeding the monthly limit of 100GB. Consider upgrading these apps to Standard SKU to avoid throttling.
 
@@ -641,16 +780,300 @@ Learn more about [Static Web App - StaticWebAppsUpgradeToStandardSKU (Consider u
 
 ### Application code should be fixed as worker process crashed due to Unhandled Exception
 
-We identified the below thread resulted in an unhandled exception for your App and application code should be fixed to prevent impact to application availability. A crash happens when an exception in your code terminates the process.
+We identified the following thread resulted in an unhandled exception for your App and application code should be fixed to prevent impact to application availability. A crash happens when an exception in your code terminates the process.
 
 Learn more about [App service - AppServiceProactiveCrashMonitoring (Application code should be fixed as worker process crashed due to Unhandled Exception)](https://azure.github.io/AppService/2020/08/11/Crash-Monitoring-Feature-in-Azure-App-Service.html).
 
 ### Consider changing your App Service configuration to 64-bit
 
-We identified your application is running in 32-bit and the memory is reaching the 2GB limit. 
-Consider switching to 64-bit processes so you can take advantage of the additional memory available in your Web Worker role. This action triggers a web app restart, so schedule accordingly.
+We identified your application is running in 32-bit and the memory is reaching the 2GB limit. Consider switching to 64-bit processes so you can take advantage of the extra memory available in your Web Worker role. This action triggers a web app restart, so schedule accordingly.
 
 Learn more about [App service 32-bit limitations](/troubleshoot/azure/app-service/web-apps-performance-faqs#i-see-the-message-worker-process-requested-recycle-due-to-percent-memory-limit-how-do-i-address-this-issue).
+
+## SAP solutions on Azure
+
+### Review SAP configuration for timeout values used with Azure NetApp Files
+
+High availability of SAP while used with Azure NetApp Files relies on setting proper timeout values to prevent disruption to your application. Review the documentation to ensure your configuration meets the timeout values as noted in the documentation.
+
+Learn more about [Volume - SAPTimeoutsANF (Review SAP configuration for timeout values used with Azure NetApp Files)](/azure/sap/workloads/get-started).
+
+### Enable HA ports in the Azure Load Balancer for ASCS HA setup in SAP workloads
+
+Enable HA ports in the Load balancing rules for HA set up of ASCS instance in SAP workloads. Open the load balancer, select 'load balancing rules' and add/edit the rule to enable the recommended settings.
+
+Learn more about [Central Server Instance - ASCSHAEnableLBPorts (Enable HA ports in the Azure Load Balancer for ASCS HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+
+### Enable Floating IP in the Azure Load balancer for ASCS HA setup in SAP workloads
+
+Enable floating IP in the load balancing rules for the Azure Load Balancer for HA set up of ASCS instance in SAP workloads. Open the load balancer, select 'load balancing rules' and add/edit the rule to enable the recommended settings.
+
+Learn more about [Central Server Instance - ASCSHAEnableFloatingIpLB (Enable Floating IP in the Azure Load balancer for ASCS HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+
+### Set the Idle timeout in Azure Load Balancer to 30 minutes for ASCS HA setup in SAP workloads
+
+To prevent load balancer timeout, make sure that all Azure Load Balancing Rules have: 'Idle timeout (minutes)' set to the maximum value of 30 minutes. Open the load balancer, select 'load balancing rules' and add/edit the rule to enable the recommended settings.
+
+Learn more about [Central Server Instance - ASCSHASetIdleTimeOutLB (Set the Idle timeout in Azure Load Balancer to 30 minutes for ASCS HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+
+### Enable HA ports in the Azure Load Balancer for HANA DB HA setup in SAP workloads
+
+Enable HA ports in the Load balancing rules for HA set up of HANA DB instance in SAP workloads. Open the load balancer, select 'load balancing rules' and add/edit the rule to enable the recommended settings.
+
+Learn more about [Database Instance - DBHAEnableLBPorts (Enable HA ports in the Azure Load Balancer for HANA DB HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+
+### Set the Idle timeout in Azure Load Balancer to 30 minutes for HANA DB HA setup in SAP workloads
+
+To prevent load balancer timeout, make sure that all Azure Load Balancing Rules have: 'Idle timeout (minutes)' set to the maximum value of 30 minutes. Open the load balancer, select 'load balancing rules' and add/edit the rule to enable the recommended settings.
+
+Learn more about [Database Instance - DBHASetIdleTimeOutLB (Set the Idle timeout in Azure Load Balancer to 30 minutes for HANA DB HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+
+### Enable Floating IP in the Azure Load balancer for HANA DB HA setup in SAP workloads
+
+Enable floating IP in the load balancing rules for the Azure Load Balancer for HA set up of HANA DB instance in SAP workloads. Open the load balancer, select 'load balancing rules' and add/edit the rule to enable the recommended settings.
+
+Learn more about [Database Instance - DBHAEnableFloatingIpLB (Enable Floating IP in the Azure Load balancer for HANA DB HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+
+### Disable TCP timestamps on VMs placed behind Azure Load Balancer in ASCS HA setup in SAP workloads
+
+Disable TCP timestamps on VMs placed behind AzurEnabling TCP timestamps cause the health probes to fail due to TCP packets being dropped by the VM's guest OS TCP stack causing the load balancer to mark the endpoint as down.
+
+Learn more about [Central Server Instance - ASCSLBHADisableTCP (Disable TCP timestamps on VMs placed behind Azure Load Balancer in ASCS HA setup in SAP workloads)](/azure/sap/workloads/sap-hana-high-availability).
+
+### Disable TCP timestamps on VMs placed behind Azure Load Balancer in HANA DB HA setup in SAP workloads
+
+Disable TCP timestamps on VMs placed behind Azure Load Balancer. Enable TCP timestamps cause the health probes to fail due to TCP packets being dropped by the VM's guest OS TCP stack causing the load balancer to mark the endpoint as down.
+
+Learn more about [Database Instance - DBLBHADisableTCP (Disable TCP timestamps on VMs placed behind Azure Load Balancer in HANA DB HA setup in SAP workloads)](/azure/load-balancer/load-balancer-custom-probe-overview).
+
+### Enable stonith in the cluster cofiguration in HA enabled SAP workloads for VMs with Redhat OS
+
+In a Pacemaker cluster, the implementation of node level fencing is done using STONITH (Shoot The Other Node in the Head) resource. Ensure that 'stonith-enable' is set to 'true' in the HA cluster configuration of your SAP workload.
+
+Learn more about [Database Instance - StonithEnabledHARH (Enable stonith in the cluster cofiguration in HA enabled SAP workloads for VMs with Redhat OS)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel).
+
+### Set the corosync token in Pacemaker cluster to 30000 for HA enabled HANA DB for VM with Redhat OS
+
+The corosync token setting determines the timeout that is used directly or as a base for real token timeout calculation in HA clusters. Set the corosync token to 30000 as per recommendation for SAP on Azure to allow memory-preserving maintenance.
+
+Learn more about [Database Instance - CorosyncTokenHARH (Set the corosync token in Pacemaker cluster to 30000 for HA enabled HANA DB for VM with Redhat OS)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel).
+
+### Set the expected votes parameter to 2 in the cluster cofiguration in HA enabled SAP workloads
+
+In case of a two node HA cluster, set the quorum votes to 2 as per recommendation for SAP on Azure.
+
+Learn more about [Database Instance - ExpectedVotesParamtersHARH (Set the expected votes parameter to 2 in the cluster cofiguration in HA enabled SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel).
+
+### Set the stonith timeout to 144 for the cluster cofiguration in HA enabled SAP workloads
+
+Set the stonith timeout to 144 for HA cluster as per recommendation for SAP on Azure.
+
+Learn more about [Database Instance - StonithTimeoutHASLE (Set the stonith timeout to 144 for the cluster cofiguration in HA enabled SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+
+### Enable stonith in the cluster cofiguration in HA enabled SAP workloads for VMs with SUSE OS
+
+In a Pacemaker cluster, the implementation of node level fencing is done using STONITH (Shoot The Other Node in the Head) resource. Ensure that 'stonith-enable' is set to 'true' in the HA cluster configuration.
+
+Learn more about [Database Instance - StonithEnabledHASLE (Enable stonith in the cluster cofiguration in HA enabled SAP workloads for VMs with SUSE OS)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+
+### Set the corosync token in Pacemaker cluster to 30000 for HA enabled HANA DB for VM with SUSE OS
+
+The corosync token setting determines the timeout that is used directly or as a base for real token timeout calculation in HA clusters. Set the corosync token to 30000 as per recommendation for SAP on Azure to allow memory-preserving maintenance.
+
+Learn more about [Database Instance - CorosyncTokenHASLE (Set the corosync token in Pacemaker cluster to 30000 for HA enabled HANA DB for VM with SUSE OS)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+
+### Enable the 'concurrent-fencing' parameter in Pacemaker cofiguration in ASCS HA setup in SAP workloads
+
+The concurrent-fencing parameter when set to true, enables the fencing operations to be performed in parallel. Set this parameter to 'true' in the pacemaker cluster configuration for ASCS HA setup.
+
+Learn more about [Central Server Instance - ConcurrentFencingHAASCSRH (Enable the 'concurrent-fencing' parameter in Pacemaker cofiguration in ASCS HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel).
+
+### Ensure that stonith is enabled for the Pacemaker cofiguration in ASCS HA setup in SAP workloads
+
+In a Pacemaker cluster, the implementation of node level fencing is done using STONITH (Shoot The Other Node in the Head) resource. Ensure that 'stonith-enable' is set to 'true' in the HA cluster configuration of your SAP workload.
+
+Learn more about [Central Server Instance - StonithEnabledHAASCSRH (Ensure that stonith is enabled for the Pacemaker cofiguration in ASCS HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel).
+
+### Set the corosync token in Pacemaker cluster to 30000 for ASCS HA setup in SAP workloads
+
+The corosync token setting determines the timeout that is used directly or as a base for real token timeout calculation in HA clusters. Set the corosync token to 30000 as per recommendation for SAP on Azure to allow memory-preserving maintenance.
+
+Learn more about [Central Server Instance - CorosyncTokenHAASCSRH (Set the corosync token in Pacemaker cluster to 30000 for ASCS HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel).
+
+### Set parameter PREFER_SITE_TAKEOVER to 'true' in the Pacemaker cofiguration for HANA DB HA setup
+
+The parameter PREFER_SITE_TAKEOVER in SAP HANA topology defines if the HANA SR resource agent should prefer to takeover to the secondary instance instead of restarting the failed primary locally. Set it to 'true' for reliable function of HANA DB HA setup.
+
+Learn more about [Database Instance - PreferSiteTakeOverHARH (Set parameter PREFER_SITE_TAKEOVER to 'true' in the Pacemaker cofiguration for HANA DB HA setup)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel).
+
+### Set the expected votes parameter to 2 in Pacemaker cofiguration in ASCS HA setup in SAP workloads
+
+In case of a two node HA cluster, set the quorum votes to 2 as per recommendation for SAP on Azure.
+
+Learn more about [Central Server Instance - ExpectedVotesHAASCSRH (Set the expected votes parameter to 2 in Pacemaker cofiguration in ASCS HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel).
+
+### Enable the 'concurrent-fencing' parameter in the Pacemaker cofiguration for HANA DB HA setup
+
+The concurrent-fencing parameter when set to true, enables the fencing operations to be performed in parallel. Set this parameter to 'true' in the pacemaker cluster configuration for HANA DB HA setup.
+
+Learn more about [Database Instance - ConcurrentFencingHARH (Enable the 'concurrent-fencing' parameter in the Pacemaker cofiguration for HANA DB HA setup)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel).
+
+### Set 'token_retransmits_before_loss_const' to 10 in Pacemaker cluster in ASCS HA setup in SAP workloads
+
+The corosync token_retransmits_before_loss_const determines how many token retransmits the system attempts before timeout in HA clusters. Set the totem.token_retransmits_before_loss_const to 10 as per recommendation for ASCS HA setup.
+
+Learn more about [Central Server Instance - TokenRestransmitsHAASCSSLE (Set 'token_retransmits_before_loss_const' to 10 in Pacemaker cluster in ASCS HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+
+### Set the corosync token in Pacemaker cluster to 30000 for ASCS HA setup in SAP workloads
+
+The corosync token setting determines the timeout that is used directly or as a base for real token timeout calculation in HA clusters. Set the corosync token to 30000 as per recommendation for SAP on Azure to allow memory-preserving maintenance.
+
+Learn more about [Central Server Instance - CorosyncTokenHAASCSSLE (Set the corosync token in Pacemaker cluster to 30000 for ASCS HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+
+### Set the 'corosync max_messages' in Pacemaker cluster to 20 for ASCS HA setup in SAP workloads
+
+The corosync max_messages constant specifies the maximum number of messages that may be sent by one processor on receipt of the token. We recommend you set to 20 times the corosync token parameter in Pacemaker cluster configuration.
+
+Learn more about [Central Server Instance - CorosyncMaxMessagesHAASCSSLE (Set the 'corosync max_messages' in Pacemaker cluster to 20 for ASCS HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+
+### Set the 'corosync consensus' in Pacemaker cluster to 36000 for ASCS HA setup in SAP workloads
+
+The corosync parameter 'consensus' specifies in milliseconds how long to wait for consensus to be achieved before starting a new round of membership in the cluster configuration. We recommend that you set 1.2 times the corosync token in Pacemaker cluster configuration for ASCS HA setup.
+
+Learn more about [Central Server Instance - CorosyncConsensusHAASCSSLE (Set the 'corosync consensus' in Pacemaker cluster to 36000 for ASCS HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+
+### Set the expected votes parameter to 2 in the cluster cofiguration in ASCS HA setup in SAP workloads
+
+In case of a two node HA cluster, set the quorum parameter expected_votes to 2 as per recommendation for SAP on Azure.
+
+Learn more about [Central Server Instance - ExpectedVotesHAASCSSLE (Set the expected votes parameter to 2 in the cluster cofiguration in ASCS HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+
+### Set the stonith timeout to 144 for the cluster cofiguration in ASCS HA setup in SAP workloads
+
+Set the stonith timeout to 144 for HA cluster as per recommendation for SAP on Azure.
+
+Learn more about [Central Server Instance - StonithTimeOutHAASCS (Set the stonith timeout to 144 for the cluster cofiguration in ASCS HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+
+### Set parameter PREFER_SITE_TAKEOVER to 'true' in the cluster cofiguration in HA enabled SAP workloads
+
+The parameter PREFER_SITE_TAKEOVER in SAP HANA topology defines if the HANA SR resource agent should prefer to takeover to the secondary instance instead of restarting the failed primary locally. Set it to 'true' for reliable function of HANA DB HA setup.
+
+Learn more about [Database Instance - PreferSiteTakeoverHDB (Set parameter PREFER_SITE_TAKEOVER to 'true' in the cluster cofiguration in HA enabled SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+
+### Set the two_node parameter to 1 in the cluster cofiguration in ASCS HA setup in SAP workloads
+
+In case of a two node HA cluster, set the quorum parameter 'two_node' to 1 as per recommendation for SAP on Azure.
+
+Learn more about [Central Server Instance - TwoNodesParametersHAASCSSLE (Set the two_node parameter to 1 in the cluster cofiguration in ASCS HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+
+### Set the 'corosync join' in Pacemaker cluster to 60 for ASCS HA setup in SAP workloads
+
+The corosync join timeout specifies in milliseconds how long to wait for join messages in the membership protocol. We recommend that you set 60 in Pacemaker cluster configuration for ASCS HA setup.
+
+Learn more about [Central Server Instance - CorosyncJoinHAASCSSLE (Set the 'corosync join' in Pacemaker cluster to 60 for ASCS HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+
+### Set 'token_retransmits_before_loss_const'  to 10 in Pacemaker cluster in HA enabled SAP workloads
+
+The corosync token_retransmits_before_loss_const determines how many token retransmits should be attempted before timeout in HA clusters.  Set the totem.token_retransmits_before_loss_const to 10 as per recommendation for HANA DB HA setup.
+
+Learn more about [Database Instance - TokenRetransmitsHDB (Set 'token_retransmits_before_loss_const'  to 10 in Pacemaker cluster in HA enabled SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+
+### Set the expected votes parameter to 2 in the cluster cofiguration in HA enabled SAP workloads
+
+Set the expected votes parameter to 2 in the cluster cofiguration in HA enabled SAP workloads.
+
+Learn more about [Database Instance - ExpectedVotesSuseHDB (Set the expected votes parameter to 2 in the cluster cofiguration in HA enabled SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+
+### Set the two_node parameter to 1 in the cluster cofiguration in HA enabled SAP workloads
+
+In case of a two node HA cluster, set the quorum parameter 'two_node' to 1 as per recommendation for SAP on Azure.
+
+Learn more about [Database Instance - TwoNodeParameterSuseHDB (Set the two_node parameter to 1 in the cluster cofiguration in HA enabled SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+
+### Set the 'corosync join' in Pacemaker cluster to 60 for HA enabled HANA DB in SAP workloads
+
+The corosync join timeout specifies in milliseconds how long to wait for join messages in the membership protocol.  We recommend that you set 60 in Pacemaker cluster configuration for HANA DB HA setup.
+
+Learn more about [Database Instance - CorosyncHDB (Set the 'corosync join' in Pacemaker cluster to 60 for HA enabled HANA DB in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+
+### Ensure that stonith is enabled for the cluster cofiguration in ASCS HA setup in SAP workloads
+
+In a Pacemaker cluster, the implementation of node level fencing is done using STONITH (Shoot The Other Node in the Head) resource. Ensure that 'stonith-enable' is set to 'true' in the HA cluster configuration.
+
+Learn more about [Central Server Instance - StonithEnabledHAASCS (Ensure that stonith is enabled for the cluster cofiguration in ASCS HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+
+### Enable the 'concurrent-fencing' parameter in the cluster cofiguration in HA enabled SAP workloads
+
+The concurrent-fencing parameter when set to true, enables the fencing operations to be performed in parallel. Set this parameter to 'true' in the pacemaker cluster configuration for HANA DB HA setup.
+
+Learn more about [Database Instance - ConcurrentFencingSuseHDB (Enable the 'concurrent-fencing' parameter in the cluster cofiguration in HA enabled SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+
+### Set the 'corosync max_messages' in Pacemaker cluster to 20 for HA enabled HANA DB in SAP workloads
+
+The corosync max_messages constant specifies the maximum number of messages that may be sent by one processor on receipt of the token.  We recommend that you set 20 times the corosync token parameter in Pacemaker cluster configuration.
+
+Learn more about [Database Instance - CorosyncMaxMessageHDB (Set the 'corosync max_messages' in Pacemaker cluster to 20 for HA enabled HANA DB in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+
+### Set the 'corosync consensus' in Pacemaker cluster to 36000 for HA enabled HANA DB in SAP workloads
+
+The corosync parameter 'consensus' specifies in milliseconds how long to wait for consensus to be achieved before starting a new round of membership in the cluster configuration. We recommend that you set 1.2 times the corosync token in Pacemaker cluster configuration for HANA DB HA setup.
+
+Learn more about [Database Instance - CorosyncConsensusHDB (Set the 'corosync consensus' in Pacemaker cluster to 36000 for HA enabled HANA DB in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+
+### Enable the 'concurrent-fencing' parameter in Pacemaker cofiguration in ASCS HA setup in SAP workloads
+
+The concurrent-fencing parameter when set to true, enables the fencing operations to be performed in parallel. Set this parameter to 'true' in the pacemaker cluster configuration for ASCS HA setup.
+
+Learn more about [Central Server Instance - ConcurrentFencingHAASCSSLE (Enable the 'concurrent-fencing' parameter in Pacemaker cofiguration in ASCS HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+
+### Set stonith-timeout to 900 in Pacemaker configuration with Azure fence agent for ASCS HA setup
+
+stonith-timeout should be set to 900 for reliable function of the Pacemaker for ASCS HA setup. This is applicable if you are using Azure fence agent for fencing with either managed identity or service principal.
+
+Learn more about [Central Server Instance - StonithTimeOutHAASCSSLE (Set stonith-timeout to 900 in Pacemaker configuration with Azure fence agent for ASCS HA setup)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+
+### Create the softdog config file in Pacemaker configuration for ASCS HA setup in SAP workloads
+
+The softdog timer is loaded as a kernel module in linux OS. This timer  triggers a system reset if it detects that the system has hung. Ensure that the softdog configuration file is created in the Pacemaker cluster forASCS HA set up.
+
+Learn more about [Central Server Instance - SoftdogConfigHAASCSSLE (Create the softdog config file in Pacemaker configuration for ASCS HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+
+### Ensure the softdog module is loaded in for Pacemaker in ASCS HA setup in SAP workloads
+
+The softdog timer is loaded as a kernel module in linux OS. This timer  triggers a system reset if it detects that the system has hung. First ensure that you created the softdog configuration file, then load the softdog module in the Pacemaker configuration for ASCS HA setup.
+
+Learn more about [Central Server Instance - softdogmoduleloadedHAASCSSLE (Ensure the softdog module is loaded in for Pacemaker in ASCS HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+
+### Create the softdog config file in Pacemaker configuration for HA enable HANA DB in SAP workloads
+
+The softdog timer is loaded as a kernel module in linux OS. This timer  triggers a system reset if it detects that the system has hung. Ensure that the softdog configuration file is created in the Pacemaker cluster for HANA DB HA setup.
+
+Learn more about [Database Instance - SoftdogConfigSuseHDB (Create the softdog config file in Pacemaker configuration for HA enable HANA DB in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+
+### Set stonith-timeout to 900 in Pacemaker configuration with Azure fence agent for HANA DB HA setup
+
+stonith-timeout should be set to 900 for reliable function of the Pacemaker for HANA DB HA setup. This is applicable if you are using Azure fence agent for fencing with either managed identity or service principal.
+
+Learn more about [Database Instance - StonithTimeOutSuseHDB (Set stonith-timeout to 900 in Pacemaker configuration with Azure fence agent for HANA DB HA setup)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+
+### There should be one instance of fence_azure_arm in Pacemaker configuration for ASCS HA setup
+
+fence_azure_arm is an I/O fencing agent for Azure Resource Manager. Ensure that there is one instance of fence_azure_arm in the pacemaker configuration for ASCS HA setup. This is applicable if you are using Azure fence agent for fencing with either managed identity or service principal.
+
+Learn more about [Central Server Instance - FenceAzureArmHAASCSSLE (There should be one instance of fence_azure_arm in Pacemaker configuration for ASCS HA setup)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+
+### There should be one instance of fence_azure_arm in Pacemaker configuration for HANA DB HA setup
+
+fence_azure_arm is an I/O fencing agent for Azure Resource Manager. Ensure that there is one instance of fence_azure_arm in the pacemaker configuration for HANA DB HA setup. This is applicable if you are using Azure fence agent for fencing with either managed identity or service principal.
+
+Learn more about [Database Instance - FenceAzureArmSuseHDB (There should be one instance of fence_azure_arm in Pacemaker configuration for HANA DB HA setup)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+
+### Ensure the softdog module is loaded in for Pacemaker in HA enabled HANA DB in SAP workloads
+
+The softdog timer is loaded as a kernel module in linux OS. This timer  triggers a system reset if it detects that the system has hung. First ensure that you created the softdog configuration file, then load the softdog module in the Pacemaker configuration for HANA DB HA setup.
+
+Learn more about [Database Instance - SoftdogModuleSuseHDB (Ensure the softdog module is loaded in for Pacemaker in HA enabled HANA DB in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+
 
 ## Next steps
 
