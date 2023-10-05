@@ -11,7 +11,7 @@ ms.date: 10/05/2023
 
 # Use multiple network interface cards in a Service Fabric managed cluster
 
-Service Fabric managed cluster allows you to create node types with multiple virtual [network interface cards (NICs)](../virtual-network/virtual-network-network-interface.md). The NICs are attached to each virtual machine (VM) of the virtual machine scale set (VMSS) that backs the node type. A common use case is having different subnets for front-end and back-end connectivity. You can associate multiple NICs on a node type with multiple subnets, but all those subnets must be part of the same virtual network (VNET). Another use case is to enable the creation of multiple public IPs per node. Keep in mind that different VM sizes support varying numbers of NICs, so choose your VM size accordingly.
+Service Fabric managed cluster allows you to create node types with multiple virtual [network interface cards (NICs)](../virtual-network/virtual-network-network-interface.md). The NICs are attached to each virtual machine (VM) of the virtual machine scale set that backs the node type. A common use case is having different subnets for front-end and back-end connectivity. You can associate multiple NICs on a node type with multiple subnets, but all those subnets must be part of the same virtual network. Another use case is to enable the creation of multiple public IPs per node. Keep in mind that different VM sizes support varying numbers of NICs, so choose your VM size accordingly.
 
 ## Prerequisites
 
@@ -19,11 +19,11 @@ You must use Service Fabric API version 2023-09-01-preview or later.
 
 ## Limitations
 
-* Multiple NICs is only supported for secondary node types.
-* Multiple NICs is currently only supported via ARM template deployment.
+* Only secondary node types support using multiple NICs.
+* Currently, only ARM template deployment allows the configuration of multiple NICs.
 * Adding and removing NICs from an existing node type is currently not supported, but updates are supported.
 * Specifying different subnets per NIC is currently only supported for a [bring your own virtual network scenario](how-to-managed-cluster-networking#bring-your-own-virtual-network).
-* Multiple NICs only supports the creatin of secondary NICs.
+* Only the creation of secondary NICs is supported when using multiple NICs in your cluster.
 For more information, see [Configure network settings for Service Fabric managed clusters](./how-to-managed-cluster-networking.md#bring-your-own-virtual-network)
 
 ## Use multiple NICs in your managed cluster
