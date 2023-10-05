@@ -62,7 +62,7 @@ export IP_ADDRESS=$(az network lb frontend-ip list \
 If you have your own DNS solution for your virtual network, like Active Directory Domain Controller, Infoblox, or another, you need to point the domain `*.private.azuremicroservices.io` to the [IP address](#find-the-ip-for-your-application). Otherwise, use the following instructions to create an **Azure Private DNS Zone** in your subscription to translate/resolve the private fully qualified domain name (FQDN) to its IP address.
 
 > [!NOTE]
-> If you're using Microsoft Azure operated by 21Vianet, be sure to replace `private.azuremicroservices.io` with `private.microservices.azure.cn` in this article. For more information, see the [Check Endpoints in Azure](/azure/china/resources-developer-guide#check-endpoints-in-azure) section of [Azure China developer guide](/azure/china/resources-developer-guide.md).
+> If you're using Microsoft Azure operated by 21Vianet, be sure to replace `private.azuremicroservices.io` with `private.microservices.azure.cn` in this article. For more information, see the [Check Endpoints in Azure](/azure/china/resources-developer-guide#check-endpoints-in-azure) section of [Azure China developer guide](/azure/china/resources-developer-guide).
 
 ## Create a private DNS zone
 
@@ -215,7 +215,7 @@ az spring app update \
 
 You can access the application's private FQDN in a private network. For example, you can create a jumpbox machine in the same virtual network or in a peered virtual network. Then, on that jumpbox or virtual machine, you can access the private FQDN.
 
-:::image type="content" source="media/media/spring-cloud-access-app-vnet/access-private-endpoint.png" alt-text="Screenshot of the sample application that shows the URL within the private network." lightbox="media/spring-cloud-access-app-vnet/access-private-endpoint.png":::
+:::image type="content" source="media/spring-cloud-access-app-vnet/access-private-endpoint.png" alt-text="Screenshot of the sample application that shows the URL within the private network." lightbox="media/spring-cloud-access-app-vnet/access-private-endpoint.png":::
 
 ## Clean up resources
 
