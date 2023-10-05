@@ -92,8 +92,8 @@ Azure database for MySQL connector supports triggers for when an item is created
 
 |Trigger|Description|
 |----|----|
-|(When an item is created)[./connectors/azuremysql/#when-an-item-is-created]|Triggers a flow when an item is created in MySQL (Available only for Power Automate.)|
-|(When an item is modified)[./connectors/azuremysql/#when-an-item-is-modified]|Triggers a flow when an item is modified in MySQL. (Available only for Power Automate.)|
+|[When an item is created](/connectors/azuremysql/#when-an-item-is-created)|Triggers a flow when an item is created in MySQL (Available only for Power Automate.)|
+|[When an item is modified](/connectors/azuremysql/#when-an-item-is-modified)|Triggers a flow when an item is modified in MySQL. (Available only for Power Automate.)|
 
 ## Next steps
 [Azure Database for MySQL connector](/connectors/azuremysql/) reference 
