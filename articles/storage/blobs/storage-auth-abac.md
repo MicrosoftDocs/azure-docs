@@ -2,12 +2,12 @@
 title: Authorize access to Azure Blob Storage using Azure role assignment conditions
 titleSuffix: Azure Storage
 description: Authorize access to Azure Blob Storage and Azure Data Lake Storage Gen2 using Azure role assignment conditions and Azure attribute-based access control (Azure ABAC). Define conditions on role assignments using Blob Storage attributes.
-author: akashdubey-ms
+author: pauljewellmsft
 
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 04/21/2023
-ms.author: akashdubey
+ms.date: 10/05/2023
+ms.author: pauljewell
 ms.reviewer: nachakra
 ---
 
@@ -70,11 +70,11 @@ See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.m
 The table below shows the current status of ABAC by storage account performance tier, storage resource type, and attribute type. Exceptions for specific attributes are also shown.
 
 | Performance tier | Resource types | Attribute types    | Attributes                | Availability |
-|--|--|--|--|--|
-| Standard | Blobs<br/>Data Lake Storage Gen2<br/>Queues | request<br/>resource      | all attributes except for the snapshot resource attribute for Data Lake Storage Gen2 | GA |
+|---|---|---|---|---|
+| Standard | Blobs<br/>Data Lake Storage Gen2<br/>Queues | request<br/>resource<br/>principal | All attributes except for the snapshot resource attribute for Data Lake Storage Gen2 | GA |
 | Standard | Data Lake Storage Gen2                      | resource                  | snapshot       | Preview |
-| Standard | Blobs<br/>Data Lake Storage Gen2<br/>Queues | environment<br/>principal | all attributes | Preview |
-| Premium  | Blobs<br/>Data Lake Storage Gen2<br/>Queues | environment<br/>principal<br/>request<br/>resource | all attributes | Preview |
+| Standard | Blobs<br/>Data Lake Storage Gen2<br/>Queues | environment | All attributes | Preview |
+| Premium  | Blobs<br/>Data Lake Storage Gen2<br/>Queues | environment<br/>principal<br/>request<br/>resource | All attributes | Preview |
 
 ## Next steps
 
