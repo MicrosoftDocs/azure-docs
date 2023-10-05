@@ -80,6 +80,12 @@ items:
           items:
           - name: Monitoring data reference (MQTT delivery)
             href: monitor-mqtt-delivery-reference.md
+        - name: Secure
+          items:
+          - name: Allow access from specific IP addresses
+            href: configure-ip-firewall-mqtt.md
+          - name: Allow access via private endpoints
+            href: configure-private-endpoints-mqtt.md
     - name: Pull delivery
       items:    
       - name: Overview
