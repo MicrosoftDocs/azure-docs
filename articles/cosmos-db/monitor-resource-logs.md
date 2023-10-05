@@ -8,7 +8,7 @@ ms.reviewer: esarroyo
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 04/26/2023
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-azurecli
 ---
 
 # Monitor Azure Cosmos DB data by using diagnostic settings in Azure

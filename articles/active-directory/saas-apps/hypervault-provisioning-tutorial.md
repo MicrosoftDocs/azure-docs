@@ -42,7 +42,11 @@ The scenario outlined in this tutorial assumes that you already have the followi
 <a name='step-2-configure-hypervault-to-support-provisioning-with-azure-ad'></a>
 
 ## Step 2: Configure Hypervault to support provisioning with Microsoft Entra ID
-Contact Hypervault support to configure Hypervault to support provisioning with Microsoft Entra ID.
+
+1. Sign in into your Hypervault account as a manager.
+1. Navigate to the **Workspace Settings** page.
+1. Under the **Connect to Microsoft Azure** section, click **Enable User Provisioning**.
+1. Copy the Domain and Token values. You will need these values in step 5.
 
 <a name='step-3-add-hypervault-from-the-azure-ad-application-gallery'></a>
 
@@ -58,10 +62,9 @@ The Microsoft Entra provisioning service allows you to scope who is provisioned 
 
 * If you need more roles, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add new roles.
 
-
 ## Step 5: Configure automatic user provisioning to Hypervault 
 
-This section guides you through the steps to configure the Microsoft Entra provisioning service to create, update, and disable users in TestApp based on user assignments in Microsoft Entra ID.
+This section guides you through the steps to configure the Microsoft Entra provisioning service to create, update, and disable users in Hypervault based on user assignments in Microsoft Entra ID.
 
 <a name='to-configure-automatic-user-provisioning-for-hypervault-in-azure-ad'></a>
 
@@ -84,7 +87,7 @@ This section guides you through the steps to configure the Microsoft Entra provi
 
 	![Screenshot of Provisioning tab automatic.](common/provisioning-automatic.png)
 
-1. Under the **Admin Credentials** section, input your Hypervault Tenant URL and Secret Token. Click **Test Connection** to ensure Microsoft Entra ID can connect to Hypervault. If the connection fails, ensure your Hypervault account has Admin permissions and try again.
+1. Under the **Admin Credentials** section, input your Hypervault Tenant URL and Secret Token (generated in step 2). Click **Test Connection** to ensure Microsoft Entra ID can connect to Hypervault. If the connection fails, ensure your Hypervault account has Admin permissions and try again.
 
  	![Screenshot of Token.](common/provisioning-testconnection-tenanturltoken.png)
 

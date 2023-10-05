@@ -111,7 +111,7 @@ This section helps you deploy Bastion to your virtual network. Once Bastion is d
 
 1. On the **Subnets** page, select **+Subnet** to open the **Add subnet** page.
 
-1. On the **Add subnet page**, create the 'AzureBastionSubnet' subnet using the following values. Leave the other values as default.
+1. On the **Add subnet page**, create the 'AzureBastionSubnet' subnet using the following values. Leave the other values as default. 
 
    * The subnet name must be **AzureBastionSubnet**.
    * The subnet must be at least **/26 or larger** (/26, /25, /24 etc.) to accommodate features available with the Standard SKU.

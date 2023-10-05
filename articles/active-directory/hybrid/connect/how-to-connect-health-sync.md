@@ -30,8 +30,6 @@ The following documentation is specific to monitoring Microsoft Entra Connect (S
 ## Alerts for Microsoft Entra Connect Health for sync
 The Microsoft Entra Connect Health Alerts for sync section provides you the list of active alerts. Each alert includes relevant information, resolution steps, and links to related documentation. By selecting an active or resolved alert you will see a new blade with additional information, as well as steps you can take to resolve the alert, and links to additional documentation. You can also view historical data on alerts that were resolved in the past.
 
-By selecting an alert you will be provided with additional information as well as steps you can take to resolve the alert and links to additional documentation.
-
 ![Microsoft Entra Connect Sync error](./media/how-to-connect-health-sync/alert.png)
 
 ### Limited Evaluation of Alerts

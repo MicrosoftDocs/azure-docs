@@ -108,6 +108,7 @@ This sandbox setup is designed to help developers begin building the application
 |Batch of participants - CreateThread|200 |
 |Batch of participants - AddParticipant|200 |
 |Page size - ListMessages|200 |
+|Number of Azure Communication Services resources per Azure Bot|1000 |
 
 ### Operation Limits
 
