@@ -14,25 +14,26 @@ ms.custom: ignite-2023-metadata-update
 
 Once your Astro resource is created in the Azure portal, you might need to get information about it or change it. Here's how you can manage your Astro resource.
 
--  [Single Sign-On](#single-sign-on)
--  [Delete an Astro deployment](#delete-an-astro-deployment)
+- [Single Sign-On](#single-sign-on)
+- [Delete an Astro deployment](#delete-an-astro-deployment)
 
 ## Single Sign-On
 
-To implement SSO for your organization, your tenant administrator can import the gallery application. This step is optional. For information importing an application, see [Quickstart: Add an application to your Azure Active Directory (Azure AD) tenant](https://learn.microsoft.com/en-us/azure/active-directory/manage-apps/add-application-portal). When the tenant administrator imports the application, users don't need to explicitly consent to allow access for the Astro portal.
+To implement SSO for your organization, your tenant administrator can import the gallery application. This step is optional. For information importing an application, see [Quickstart: Add an application to your Azure Active Directory (Azure AD) tenant](azure/active-directory/manage-apps/add-application-portal). When the tenant administrator imports the application, users don't need to explicitly consent to allow access for the Astro portal.
 
 To enable SSO, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Navigate to the Overview for your instance of the Astro resource. Click on the SSO Url.
 
-:::image type="content" source="media/astronomer-manage/astro-sso-overview.png" alt-text="Screenshot showing the SSO url in Overview blade of the Astro resource.":::
+1. Navigate to the Overview for your instance of the Astro resource. Click on the SSO Url.
 
-3. If tenant administrator didn't import the gallery application for SSO consent, grant permissions and consent. This step is only needed the first time you access the SSO Url.
+   :::image type="content" source="media/astronomer-manage/astronomer-sso-overview.png" alt-text="Screenshot showing the Single Sign-on url in Overview blade of the Astro resource.":::
 
-:::image type="content" source="media/astronomer-manage/astro-sso-consent.png" alt-text="Screenshot showing the User consent permissions on clicking SSO url for the first time.":::
+1. If tenant administrator didn't import the gallery application for SSO consent, grant permissions and consent. This step is only needed the first time you access the SSO Url.
 
-4. Choose an Azure AD account for the Single Sign-on. Once consent is provided, you are redirected to the Astro portal.
+   :::image type="content" source="media/astronomer-manage/astronomer-sso-consent.png" alt-text="Screenshot showing the User consent permissions on clicking SSO url for the first time.":::
+
+1. Choose an Azure AD account for the Single Sign-on. Once consent is provided, you are redirected to the Astro portal.
 
 ## Delete an Astro deployment
 
@@ -48,11 +49,11 @@ To delete an Astro resource:
 
     :::image type="content" source="media/astronomer-manage/astronomer-confirm-delete.png" alt-text="Screenshot showing the final confirmation of delete for Astro resource.":::
 
-1. Select the reason why would you like to delete the resource. 
-2. Select **Delete**.
+1. Select the reason why would you like to delete the resource.
+
+1. Select **Delete**.
 
 After the account is deleted, all billing stops for that Astro resource through Azure Marketplace.
-
 
 ## Next steps
 

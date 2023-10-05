@@ -30,9 +30,10 @@ Here are the key capabilities provided by the Astro integration:
 - **Single-Sign on to Astro** - No separate sign-up needed from the Astronomer portal.
 - **Manage all Astro resources** from the Azure portal, and track them in the **All resources** page with your other Azure resources.
 
-### Pre-requisites for Apache Airflow on Astro - An Azure Native ISV Service
-- An Azure account. If you don't have an active Azure subscription, [create a free account](https://azure.microsoft.com/en-us/free/).
-- The Astro integration can only be set up by users who have **Owner or Contribubtor access** on the Azure subscription. Ensure you have the appropriate access before starting to set up this integration.
+## Pre-requisites for Apache Airflow on Astro - An Azure Native ISV Service
+
+- An Azure account. If you don't have an active Azure subscription, [create a free account](https://azure.microsoft.com/free/).
+- The Astro integration can only be set up by users who have _Owner or Contribubtor access_ on the Azure subscription. Ensure you have the appropriate access before starting to set up this integration.
 
 ## Find Astro in the Azure Marketplace
 
