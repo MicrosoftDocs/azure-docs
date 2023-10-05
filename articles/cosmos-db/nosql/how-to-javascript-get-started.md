@@ -8,7 +8,7 @@ ms.subservice: nosql
 ms.devlang: javascript
 ms.topic: how-to
 ms.date: 07/06/2022
-ms.custom: cosmos-db-dev-journey, devx-track-azurepowershell, devx-track-js
+ms.custom: cosmos-db-dev-journey, devx-track-azurepowershell, devx-track-js, devx-track-azurecli
 ---
 
 # Get started with Azure Cosmos DB for NoSQL using JavaScript

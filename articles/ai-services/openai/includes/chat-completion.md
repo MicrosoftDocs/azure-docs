@@ -83,7 +83,7 @@ Consider setting `max_tokens` to a slightly higher value than normal such as 300
 
 Unlike previous GPT-3 and GPT-3.5 models, the `gpt-35-turbo` model as well as the `gpt-4` and `gpt-4-32k` models will continue to be updated. When creating a [deployment](../how-to/create-resource.md#deploy-a-model) of these models, you'll also need to specify a model version.
 
-You can find the model retirement dates for these models on our [models](../concepts/models.md#gpt-35-turbo-0301-and-gpt-4-0314-retirement) page.
+You can find the model retirement dates for these models on our [models](../how-to/working-with-models.md#gpt-35-turbo-0301-and-gpt-4-0314-retirement) page.
 
 ## Working with the Chat Completion API
 
