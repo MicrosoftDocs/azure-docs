@@ -1,7 +1,7 @@
 ---
 title: How to prepare to deliver Extended Security Updates for Windows Server 2012 through Azure Arc
 description: Learn how to prepare to deliver Extended Security Updates for Windows Server 2012 through Azure Arc.
-ms.date: 09/27/2023
+ms.date: 10/05/2023
 ms.topic: conceptual
 ---
 
