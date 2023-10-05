@@ -36,44 +36,25 @@ The agent is automatically installed when adding session hosts in most scenarios
 
 This update was released at the beginning of September 2023 and includes the following changes: 
 
-Security improvements and bug fixes. 
+- Security improvements and bug fixes. 
 
 ## Version 1.0.7539.8300  
 
 This update was released at the beginning of September 2023 and includes the following changes: 
 
-Security improvements and bug fixes. 
-
-## Version 1.0.7539.5800 
-
-This update was released at the beginning of September 2023 and includes the following changes: 
-
 - Security improvements and bug fixes. 
-
-## Version 1.0.7255.1400   
-
-This update was released at the end of July 2023 and includes the following changes: 
-
-- Security improvements and bug fixes. 
-
-## Version 1.0.7255.800  
-
-This update was released at the end of July 2023 and includes the following changes: 
-
-- Fixed an issue that disabled the Traversal Using Relay NAT (TURN) health check whenever the user disabled the Unified Datagram Protocol (UDP). 
-- Security improvements and bug fixes.
 
 ## Version 1.0.7539.5800
 
 This update was released at the beginning of September 2023 and includes the following changes: 
 
-- Security improvements and bug fixes. 
+- Security improvements and bug fixes.
 
 ## Version 1.0.7255.1400
 
 This update was released at the end of August 2023 and includes the following changes:
 
-- Minor updates and bug fixes.
+- Security improvements and bug fixes.
 
 ## Version 1.0.7255.800
 
