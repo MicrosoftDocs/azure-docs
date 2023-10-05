@@ -4,7 +4,7 @@ description: Learn how to send custom metrics for an Azure resource to the Azure
 author: EdB-MSFT
 services: azure-monitor
 ms.reviewer: priyamishra
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/05/2023
 ms.author: edbaynash
 ---
