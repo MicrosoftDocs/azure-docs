@@ -27,7 +27,7 @@ This article walks through how to configure Application Gateway with App Service
 
 App Service (multitenant) has a public internet-facing endpoint. By using [service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md), you can allow traffic from only a specific subnet within an Azure virtual network and block everything else. In the following scenario, you use this functionality to ensure that an App Service instance can receive traffic from only a specific application gateway.
 
-:::image type="content" source="./media/app-gateway-with-service-endpoints/service-endpoints-appgw.png" alt-text="Diagram that shows the internet flowing to an application gateway in an Azure virtual network and then flowing through a firewall icon to instances of apps in App Service.":::
+:::image type="content" source="./media/overview-app-gateway-integration/service-endpoints-appgw.png" alt-text="Diagram that shows the internet flowing to an application gateway in an Azure virtual network and then flowing through a firewall icon to instances of apps in App Service.":::
 
 There are two parts to this configuration, aside from creating the App Service instance and the application gateway. The first part is enabling service endpoints in the subnet of the virtual network where the application gateway is deployed. Service endpoints ensure that all network traffic leaving the subnet toward App Service is tagged with the specific subnet ID.
 
@@ -44,7 +44,7 @@ With the Azure portal, you follow four steps to create and configure the setup o
 
 You can now access App Service through Application Gateway. If you try to access App Service directly, you should receive a 403 HTTP error that says the web app has blocked your access.
 
-:::image type="content" source="./media/app-gateway-with-service-endpoints/website-403-forbidden.png" alt-text="Screenshot shows the text of Error 403 - Forbidden.":::
+:::image type="content" source="./media/overview-app-gateway-integration/website-403-forbidden.png" alt-text="Screenshot shows the text of Error 403 - Forbidden.":::
 
 ## Set up services by using an Azure Resource Manager template
 
@@ -66,7 +66,7 @@ In the default configuration, the command ensures setup of the service endpoint 
 
 As an alternative to service endpoints, you can use private endpoints to secure traffic between Application Gateway and App Service (multitenant). You need to ensure that Application Gateway can use DNS to resolve the private IP address of the App Service apps. Alternatively, you can use the private IP address in the back-end pool and override the host name in the HTTP settings.
 
-:::image type="content" source="./media/app-gateway-with-service-endpoints/private-endpoint-appgw.png" alt-text="Diagram that shows traffic flowing to an application gateway in an Azure virtual network and then flowing through a private endpoint to instances of apps in App Service.":::
+:::image type="content" source="./media/overview-app-gateway-integration/private-endpoint-appgw.png" alt-text="Diagram that shows traffic flowing to an application gateway in an Azure virtual network and then flowing through a private endpoint to instances of apps in App Service.":::
 
 Application Gateway caches the DNS lookup results. If you use fully qualified domain names (FQDNs) and rely on DNS lookup to get the private IP address, you might need to restart the application gateway if the DNS update or the link to an Azure private DNS zone happened after you configured the back-end pool.
 
