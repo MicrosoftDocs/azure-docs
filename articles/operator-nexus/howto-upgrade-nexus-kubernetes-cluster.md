@@ -66,8 +66,7 @@ Sample output:
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Navigate to your Nexus Kubernetes cluster.
 3. Under **Overview**, select **Available upgrades** tab.
-:::image type="content" source="./media/" lightbox="media/nexus-kubernetes/search-kubernetes-service.png" alt-text="Screenshot of browsing Nexus Kubernetes service.":::
-[](./media/nexus-kubernetes/available-upgrades.png)
+:::image type="content" source="media/nexus-kubernetes/search-kubernetes-service.png" lightbox="media/nexus-kubernetes/search-kubernetes-service.png" alt-text="Screenshot of browsing Nexus Kubernetes service.":::
 
 ### Choose a version to upgrade to
 
