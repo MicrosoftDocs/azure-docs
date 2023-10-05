@@ -2,20 +2,20 @@
 title: API-driven inbound provisioning with Azure Logic Apps (Public preview)
 description: Learn how to implement API-driven inbound provisioning with Azure Logic Apps.
 services: active-directory
-author: jenniferf-skc
+author: kenwith
 manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to
 ms.workload: identity
-ms.date: 07/18/2023
-ms.author: jfields
+ms.date: 09/15/2023
+ms.author: kenwith
 ms.reviewer: cmmdesai
 ---
 
 # API-driven inbound provisioning with Azure Logic Apps (Public preview)
 
-This tutorial describes how to use Azure Logic Apps workflow to implement Microsoft Entra ID [API-driven inbound provisioning](inbound-provisioning-api-concepts.md). Using the steps in this tutorial, you can convert a CSV file containing HR data into a bulk request payload and send it to the Microsoft Entra ID provisioning [/bulkUpload](/graph/api/synchronization-synchronizationjob-post-bulkupload) API endpoint. The article also provides guidance on how the same integration pattern can be used with any system of record.
+This tutorial describes how to use Azure Logic Apps workflow to implement Microsoft Entra ID [API-driven inbound provisioning](inbound-provisioning-api-concepts.md). Using the steps in this tutorial, you can convert a CSV file containing HR data into a bulk request payload and send it to the Microsoft Entra provisioning [/bulkUpload](/graph/api/synchronization-synchronizationjob-post-bulkupload) API endpoint. The article also provides guidance on how the same integration pattern can be used with any system of record.
 
 ## Integration scenario
 
@@ -29,7 +29,7 @@ From an implementation perspective:
 
 * You want to use an Azure Logic Apps workflow  to read data from the CSV file exports available in an Azure File Share and send it to the inbound provisioning API endpoint. 
 * In your Azure Logic Apps workflow, you don't want to implement the complex logic of comparing identity data between your system of record and target directory. 
-* You want to use Microsoft Entra ID provisioning service to apply your IT managed provisioning rules to automatically create/update/enable/disable accounts in the target directory (on-premises Active Directory or Microsoft Entra ID).
+* You want to use Microsoft Entra provisioning service to apply your IT managed provisioning rules to automatically create/update/enable/disable accounts in the target directory (on-premises Active Directory or Microsoft Entra ID).
 
 :::image type="content" source="media/inbound-provisioning-api-logic-apps/logic-apps-integration-overview.png" alt-text="Graphic of Azure Logic Apps-based integration." lightbox="media/inbound-provisioning-api-logic-apps/logic-apps-integration-overview.png":::
 
@@ -48,14 +48,14 @@ Here's a list of enterprise integration scenario variations, where API-driven in
 | 5 | Dynamics 365 Human Resources | Use the [Dataverse connector](/azure/connectors/connect-common-data-service) to read data from [Dataverse tables](/dynamics365/human-resources/hr-developer-entities) used by Microsoft Dynamics 365 Human Resources. |
 | 6 | Any system that exposes REST APIs | If you don't find a connector for your system of record in the Logic Apps connector library, You can create your own [custom connector](/azure/logic-apps/logic-apps-create-api-app) to read data from your system of record. |
 
-After reading the source data, apply your pre-processing rules and convert the output from your system of record into a bulk request that can be sent to the Microsoft Entra ID provisioning [bulkUpload](/graph/api/synchronization-synchronizationjob-post-bulkupload) API endpoint.
+After reading the source data, apply your pre-processing rules and convert the output from your system of record into a bulk request that can be sent to the Microsoft Entra provisioning [bulkUpload](/graph/api/synchronization-synchronizationjob-post-bulkupload) API endpoint.
 
 > [!IMPORTANT]
-> If you'd like to share your API-driven inbound provisioning + Logic Apps integration workflow with the community, create a [Logic app template](/azure/logic-apps/logic-apps-create-azure-resource-manager-templates), document steps on how to use it and submit a pull request for inclusion in the GitHub repository [Entra-ID-Inbound-Provisioning](https://github.com/AzureAD/entra-id-inbound-provisioning). 
+> If you'd like to share your API-driven inbound provisioning + Logic Apps integration workflow with the community, create a [Logic app template](/azure/logic-apps/logic-apps-create-azure-resource-manager-templates), document steps on how to use it and submit a pull request for inclusion in the GitHub repository [`entra-id-inbound-provisioning`](https://github.com/AzureAD/entra-id-inbound-provisioning). 
 
 ## How to use this tutorial
 
-The Logic Apps deployment template published in the [Microsoft Entra ID inbound provisioning GitHub repository](https://github.com/AzureAD/entra-id-inbound-provisioning/tree/main/LogicApps/CSV2SCIMBulkUpload) automates several tasks. It also has logic for handling large CSV files and chunking the bulk request to send 50 records in each request. Here's how you can test it and customize it per your integration requirements. 
+The Logic Apps deployment template published in the [Microsoft Entra inbound provisioning GitHub repository](https://github.com/AzureAD/entra-id-inbound-provisioning/tree/main/LogicApps/CSV2SCIMBulkUpload) automates several tasks. It also has logic for handling large CSV files and chunking the bulk request to send 50 records in each request. Here's how you can test it and customize it per your integration requirements. 
 
 > [!NOTE]
 > The sample Azure Logic Apps workflow is provided "as-is" for implementation reference. If you have questions related to it or if you'd like to enhance it, please use the [GitHub project repository](https://github.com/AzureAD/entra-id-inbound-provisioning).
@@ -73,7 +73,7 @@ The Logic Apps deployment template published in the [Microsoft Entra ID inbound 
 ## Step 1: Create an Azure Storage account to host the CSV file
 The steps documented in this section are optional. If you already have an existing storage account or would like to read the CSV file from another source like SharePoint site or Blob storage, update the Logic App to use your connector of choice.
 
-1. Log in to your Azure portal as administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
 1. Search for "Storage accounts" and create a new storage account. 
      :::image type="content" source="media/inbound-provisioning-api-logic-apps/storage-accounts.png" alt-text="Screenshot of creating new storage account." lightbox="media/inbound-provisioning-api-logic-apps/storage-accounts.png"::: 
 1. Assign a resource group and give it a name. 
@@ -89,7 +89,7 @@ The steps documented in this section are optional. If you already have an existi
 
 ## Step 2: Configure Azure Function CSV2JSON converter
 
-1. In the browser associated with your Azure portal login, open the GitHub repository URL - https://github.com/joelbyford/CSVtoJSONcore.
+1. In the browser associated with your Azure portal, open the GitHub repository URL - https://github.com/joelbyford/CSVtoJSONcore.
 1. Click on the link "Deploy to Azure" to deploy this Azure Function to your Azure tenant.
      :::image type="content" source="media/inbound-provisioning-api-logic-apps/deploy-azure-function.png" alt-text="Screenshot of deploying Azure Function." lightbox="media/inbound-provisioning-api-logic-apps/deploy-azure-function.png":::    
 1. Specify the resource group under which to deploy this Azure function. 

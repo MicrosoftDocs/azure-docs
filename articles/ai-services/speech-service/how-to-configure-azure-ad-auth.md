@@ -5,8 +5,7 @@ description: Learn how to authenticate using Azure Active Directory Authenticati
 services: cognitive-services
 author: rhurey
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 06/18/2021
 ms.author: rhurey

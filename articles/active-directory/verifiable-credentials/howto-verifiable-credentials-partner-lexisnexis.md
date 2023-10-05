@@ -14,11 +14,11 @@ ms.author: barclayn
 
 # Configure Verified ID with LexisNexis as your Identity Verification Partner
 
-You can use Entra Verified ID with LexisNexis Risk Solutions to enable faster onboarding by replacing some human interactions. Verifiable Credentials (VCs) can be used to onboard employees, students, citizens, or others to access services.
+You can use Microsoft Entra Verified ID with LexisNexis Risk Solutions to enable faster onboarding by replacing some human interactions. Verifiable Credentials (VCs) can be used to onboard employees, students, citizens, or others to access services.
 
 ## Prerequisites
 
-- A tenant [configured](verifiable-credentials-configure-tenant.md) for Entra Verified ID service.
+- A tenant [configured](verifiable-credentials-configure-tenant.md) for Microsoft Entra Verified ID service.
     - If you don't have an existing tenant, you can [create an Azure account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Your tenant should also have completed the LexisNexis onboarding process.
     - Create a LexisNexis account, you can request a [demo](https://solutions.risk.lexisnexis.com/did-microsoft). Expect response from your LexisNexis Risk Solutions within 48 hours.

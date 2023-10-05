@@ -44,37 +44,62 @@ Workspace managed virtual network is the recommended way to support network isol
     az ml workspace provision-network --subscription <sub_id> -g <resource_group_name> -n <workspace_name>
     ```
 
-2. If you want to communicate with [private Azure Cognitive Services](../../ai-services/cognitive-services-virtual-networks.md), you need to add related user defined outbound rules to related resource. The Azure Machine Learning workspace creates private endpoint in the related resource with auto approve. If the status is stuck in pending, go to related resource to approve the private endpoint manually.
+2. Add workspace MSI as `Storage File Data Privileged Contributor` and `Storage Table Data Contributor` to storage account linked with workspace.
+
+    2.1 Go to azure portal, find the workspace.
+
+    :::image type="content" source="./media/how-to-secure-prompt-flow/go-to-azure-portal.png" alt-text="Diagram showing how to go from AzureML portal to Azure portal." lightbox = "./media/how-to-secure-prompt-flow/go-to-azure-portal.png":::
+
+
+    2.2 Find the storage account linked with workspace.
+
+    :::image type="content" source="./media/how-to-secure-prompt-flow/linked-storage.png" alt-text="Diagram showing how to find workspace linked storage account in Azure portal." lightbox = "./media/how-to-secure-prompt-flow/linked-storage.png":::
+
+    2.3 Jump to role assignment page of storage account.
+
+    :::image type="content" source="./media/how-to-secure-prompt-flow/add-role-storage.png" alt-text="Diagram showing how to jump to role assignment of storage account." lightbox = "./media/how-to-secure-prompt-flow/add-role-storage.png":::
+
+    2.4 Find storage file data privileged contributor role.
+
+    :::image type="content" source="./media/how-to-secure-prompt-flow/storage-file-data-privileged-contributor.png" alt-text="Diagram showing how to find storage file data privileged contributor role." lightbox = "./media/how-to-secure-prompt-flow/storage-file-data-privileged-contributor.png":::
+    
+    2.5 Assign storage file data privileged contributor role to workspace managed identity.
+
+    :::image type="content" source="./media/how-to-secure-prompt-flow/managed-identity-workspace.png" alt-text="Diagram showing how to assign storage file data privileged contributor role to workspace managed identity." lightbox = "./media/how-to-secure-prompt-flow/managed-identity-workspace.png":::
+
+    > [!NOTE]
+    > You need follow the same process to assign `Storage Table Data Contributor` role to workspace managed identity.
+    > This operation may take several minutes to take effect.
+
+3. If you want to communicate with [private Azure Cognitive Services](../../ai-services/cognitive-services-virtual-networks.md), you need to add related user defined outbound rules to related resource. The Azure Machine Learning workspace creates private endpoint in the related resource with auto approve. If the status is stuck in pending, go to related resource to approve the private endpoint manually.
 
     :::image type="content" source="./media/how-to-secure-prompt-flow/outbound-rule-cognitive-services.png" alt-text="Screenshot of user defined outbound rule for Azure Cognitive Services." lightbox = "./media/how-to-secure-prompt-flow/outbound-rule-cognitive-services.png":::
 
     :::image type="content" source="./media/how-to-secure-prompt-flow/outbound-private-endpoint-approve.png" alt-text="Screenshot of user approve private endpoint." lightbox = "./media/how-to-secure-prompt-flow/outbound-private-endpoint-approve.png":::
 
-3. If you're restricting outbound traffic to only allow specific destinations, you must add a corresponding user-defined outbound rule to allow the relevant FQDN.
+4. If you're restricting outbound traffic to only allow specific destinations, you must add a corresponding user-defined outbound rule to allow the relevant FQDN.
 
     :::image type="content" source="./media/how-to-secure-prompt-flow/outbound-rule-non-azure-resources.png" alt-text="Screenshot of user defined outbound rule for non Azure resource." lightbox = "./media/how-to-secure-prompt-flow/outbound-rule-non-azure-resources.png":::
+
+5. In workspaces that enable managed VNet, you can only deploy prompt flow to managed online endpoint. You can follow [Secure your managed online endpoints with network isolation](../how-to-secure-kubernetes-inferencing-environment.md) to secure your managed online endpoint.
 
 ## Secure prompt flow use your own virtual network
 
 - To set up Azure Machine Learning related resources as private, see [Secure workspace resources](../how-to-secure-workspace-vnet.md).
+- Add workspace MSI as `Storage File Data Privileged Contributor` to storage account linked with workspace. Please follow step 2 in [Secure prompt flow with workspace managed virtual network](#secure-prompt-flow-with-workspace-managed-virtual-network).
 - Meanwhile, you can follow [private Azure Cognitive Services](../../ai-services/cognitive-services-virtual-networks.md) to make them as private.
+- If you want to deploy prompt flow in workspace which secured by your own virtual network, you can deploy it to AKS cluster which is in the same virtual network. You can follow [Secure Azure Kubernetes Service inferencing environment](../how-to-secure-kubernetes-inferencing-environment.md) to secure your AKS cluster.
 - You can either create private endpoint to the same virtual network or leverage virtual network peering to make them communicate with each other.
 
-## Limitations
+## Known limitations
 
-- Only public access enable storage account is supported. You can't use private storage account now.
 - Workspace hub / lean workspace and AI studio don't support bring your own virtual network.
-- Managed online endpoint only supports workspace managed virtual network. If you want to use your own virtual network, you may need one workspace for prompt flow authoring with your virtual network and another workspace for prompt flow deployment using managed online endpoint with workspace managed virtual network.
-
-## FAQ
-
-### Why I can't create or upgrade my flow when I disable public network access of storage account?
-Prompt flow rely on fileshare to store snapshot of flow. Prompt flow didn't support private storage account now. Here are some workarounds you can try:
-- Make the storage account as public access enabled if there is no security concern. 
-- If you are only use UI to authoring promptflow, you can add following flights (flight=PromptFlowCodeFirst=false) to use our old UI.
-- You can use our CLI/SDK to authoring promptflow, CLI/SDK authong didn't rely on fileshare. See [Integrate Prompt Flow with LLM-based application DevOps ](how-to-integrate-with-llm-app-devops.md).
+- Managed online endpoint only supports workspace with managed virtual network. If you want to use your own virtual network, you may need one workspace for prompt flow authoring with your virtual network and another workspace for prompt flow deployment using managed online endpoint with workspace managed virtual network.
 
 ## Next steps
 
 - [Secure workspace resources](../how-to-secure-workspace-vnet.md)
 - [Workspace managed network isolation](../how-to-managed-network.md)
+- [Secure Azure Kubernetes Service inferencing environment](../how-to-secure-online-endpoint.md)
+- [Secure your managed online endpoints with network isolation](../how-to-secure-kubernetes-inferencing-environment.md)
+- [Secure your RAG workflows with network isolation](../how-to-secure-rag-workflows.md)

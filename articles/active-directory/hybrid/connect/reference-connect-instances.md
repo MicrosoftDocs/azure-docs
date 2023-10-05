@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: Sync service instances'
-description: This page documents special considerations for Azure AD instances.
+title: 'Microsoft Entra Connect: Sync service instances'
+description: This page documents special considerations for Microsoft Entra instances.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -18,8 +18,8 @@ ms.author: billmath
 
 ms.collection: M365-identity-device-management
 ---
-# Azure AD Connect: Special considerations for instances
-Azure AD Connect is most commonly used with the world-wide instance of Azure AD and Microsoft 365. But there are also other instances and these have different requirements for URLs and other special considerations.
+# Microsoft Entra Connect: Special considerations for instances
+Microsoft Entra Connect is most commonly used with the world-wide instance of Microsoft Entra ID and Microsoft 365. But there are also other instances and these have different requirements for URLs and other special considerations.
 
 ## Microsoft Cloud Germany
 The [Microsoft Cloud Germany](https://www.microsoft.com/de-de/microsoft-cloud) is a sovereign cloud operated by a German data trustee.
@@ -30,17 +30,17 @@ The [Microsoft Cloud Germany](https://www.microsoft.com/de-de/microsoft-cloud) i
 | \*.windows.net |
 | +Certificate Revocation Lists |
 
-When you sign in to your Azure AD tenant, you must use an account in the onmicrosoft.de domain.
+When you sign in to your Microsoft Entra tenant, you must use an account in the onmicrosoft.de domain.
 
 Features currently not present in the Microsoft Cloud Germany:
 
-* **Password writeback** is available for preview with Azure AD Connect version 1.1.570.0 and after.
-* Other Azure AD Premium services are not available.
+* **Password writeback** is available for preview with Microsoft Entra Connect version 1.1.570.0 and after.
+* Other Microsoft Entra ID P1 or P2 services are not available.
 
 ## Microsoft Azure Government
 The [Microsoft Azure Government cloud](https://azure.microsoft.com/features/gov/) is a cloud for US government.
 
-This cloud has been supported by earlier releases of DirSync. From build 1.1.180 of Azure AD Connect, the next generation of the cloud is supported. This generation is using US-only based endpoints and has a different list of URLs to open in your proxy server.
+This cloud has been supported by earlier releases of DirSync. From build 1.1.180 of Microsoft Entra Connect, the next generation of the cloud is supported. This generation is using US-only based endpoints and has a different list of URLs to open in your proxy server.
 
 | URLs to open in proxy server |
 | --- |
@@ -51,16 +51,16 @@ This cloud has been supported by earlier releases of DirSync. From build 1.1.180
 | +Certificate Revocation Lists |
 
 > [!NOTE]
-> As of Azure AD Connect version 1.1.647.0, setting the AzureInstance value in the registry is no longer required provided that *.windows.net is open on your proxy server(s). However, for customers that do not allow Internet connectivity from their Azure AD Connect server(s), the following manual configuration can be used.
+> As of Microsoft Entra Connect version 1.1.647.0, setting the AzureInstance value in the registry is no longer required provided that *.windows.net is open on your proxy server(s). However, for customers that do not allow Internet connectivity from their Microsoft Entra Connect server(s), the following manual configuration can be used.
 
 ### Manual Configuration
 
-The following manual configuration steps are used to ensure Azure AD Connect uses Azure Government synchronization endpoints.
+The following manual configuration steps are used to ensure Microsoft Entra Connect uses Azure Government synchronization endpoints.
 
-1. Start the Azure AD Connect installation.
+1. Start the Microsoft Entra Connect installation.
 2. When you see the first page where you are supposed to accept the EULA, do not continue but leave the installation wizard running.
 3. Start regedit and change the registry key `HKLM\SOFTWARE\Microsoft\Azure AD Connect\AzureInstance` to the value `4`.
-4. Go back to the Azure AD Connect installation wizard, accept the EULA, and continue. During installation, make sure to use the **custom configuration** installation path (and not Express installation), then continue the installation as usual.
+4. Go back to the Microsoft Entra Connect installation wizard, accept the EULA, and continue. During installation, make sure to use the **custom configuration** installation path (and not Express installation), then continue the installation as usual.
 
 ## Next steps
-Learn more about [Integrating your on-premises identities with Azure Active Directory](../whatis-hybrid-identity.md).
+Learn more about [Integrating your on-premises identities with Microsoft Entra ID](../whatis-hybrid-identity.md).

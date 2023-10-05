@@ -1,6 +1,6 @@
 ---
 title: 'Delete an enterprise application'
-description: Delete an enterprise application in Azure Active Directory.
+description: Delete an enterprise application in Microsoft Entra ID.
 services: active-directory
 author: omondiatieno
 manager: CelesteDG
@@ -13,12 +13,12 @@ ms.author: jomondi
 ms.reviewer: sureshja
 zone_pivot_groups: enterprise-apps-all
 ms.custom: enterprise-apps, has-azure-ad-ps-ref
-#Customer intent: As an administrator of an Azure AD tenant, I want to delete an enterprise application.
+#Customer intent: As an administrator of a Microsoft Entra tenant, I want to delete an enterprise application.
 ---
 
 # Delete an enterprise application
 
-In this article, you learn how to delete an enterprise application that was added to your Azure Active Directory (Azure AD) tenant. 
+In this article, you learn how to delete an enterprise application that was added to your Microsoft Entra tenant. 
 
 When you delete and enterprise application, it's held in a suspended state in the recycle bin for 30 days. During the 30 days, you can [Restore the application](restore-application.md). Deleted items are automatically hard deleted after the 30-day period. For more information on frequently asked questions about deletion and recovery of applications, see [Deleting and recovering applications FAQs](delete-recover-faq.yml).
 
@@ -27,7 +27,7 @@ When you delete and enterprise application, it's held in a suspended state in th
 
 To delete an enterprise application, you need:
 
-- An Azure AD user account. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- A Microsoft Entra user account. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
 - An [enterprise application added to your tenant](add-application-portal.md)
 
@@ -41,7 +41,7 @@ To delete an enterprise application, you need:
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
 1. Enter the name of the existing application in the search box, and then select the application from the search results. In this article, we use the **Azure AD SAML Toolkit 1** as an example.
 1. In the **Manage** section of the left menu, select **Properties**.
-1. At the top of the **Properties** pane, select **Delete**, and then select **Yes** to confirm you want to delete the application from your Azure AD tenant.
+1. At the top of the **Properties** pane, select **Delete**, and then select **Yes** to confirm you want to delete the application from your Microsoft Entra tenant.
 
     :::image type="content" source="media/delete-application-portal/delete-application.png" alt-text="Delete an enterprise application.":::
 
@@ -50,7 +50,7 @@ To delete an enterprise application, you need:
 :::zone pivot="aad-powershell"
 
 > [!IMPORTANT]
-> Make sure you're using the AzureAD module. This is important if you've installed both the [AzureAD](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0) module and the AzureADPreview module.
+> Make sure you're using the Azure AD PowerShell module. This is important if you've installed both the [Azure AD PowerShell module](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0) and the AzureADPreview module.
 1. Run the following commands:
 
     ```powershell

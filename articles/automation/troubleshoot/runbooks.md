@@ -58,7 +58,6 @@ When you receive errors during runbook execution in Azure Automation, you can us
 
 1. If your runbook is suspended or unexpectedly fails:
 
-    * [Renew the certificate](../manage-runas-account.md#cert-renewal) if the Run As account has expired.
     * [Renew the webhook](../automation-webhooks.md#update-a-webhook) if you're trying to use an expired webhook to start the runbook.
     * [Check job statuses](../automation-runbook-execution.md#job-statuses) to determine current runbook statuses and some possible causes of the issue.
     * [Add additional output](../automation-runbook-output-and-messages.md#working-with-message-streams) to the runbook to identify what happens before the runbook is suspended.
@@ -195,7 +194,7 @@ Run Login-AzureRMAccount to login.
 
 ### Cause
 
-This error can occur when you're not using a Run As account or the Run As account has expired. For more information, see [Azure Automation Run As accounts overview](../automation-security-overview.md#run-as-accounts).
+This error can occur when you're not using a Run As account or the Run As account has expired.
 
 This error has two primary causes:
 
@@ -720,7 +719,7 @@ Follow [Step 5 - Add authentication to manage Azure resources](../learn/powershe
 
 #### Insufficient permissions
 
-[Add permissions to Key Vault](../manage-runas-account.md#add-permissions-to-key-vault) to ensure that your Run As account has sufficient permissions to access Key Vault.
+Add permissions to Key Vault to ensure that your Run As account has sufficient permissions to access Key Vault.
 
 ## Scenario: Runbook fails with "Parameter length exceeded" error
 

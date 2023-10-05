@@ -2,7 +2,7 @@
 title: Programmatically create Azure Dashboards
 description: Use a dashboard in the Azure portal as a template to programmatically create Azure Dashboards. Includes JSON reference.
 ms.topic: how-to
-ms.custom: devx-track-azurecli
+ms.custom:
 ms.date: 09/05/2023
 ---
 

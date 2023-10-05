@@ -2,14 +2,14 @@
 title: Quickstart API-driven inbound provisioning with Postman
 description: Learn how to get started quickly with API-driven inbound provisioning using Postman
 services: active-directory
-author: jenniferf-skc
+author: kenwith
 manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/19/2023
-ms.author: jfields
+ms.date: 09/15/2023
+ms.author: kenwith
 ms.reviewer: cmmdesai
 ---
 
@@ -28,10 +28,10 @@ In this step, you'll configure the Postman app and invoke the API using the conf
 
 1. Download and install the [Postman app](https://www.postman.com/downloads/). 
 1. Open the Postman desktop app. 
-1. From the **Workspaces** menu, select **Create Workspace** to create a new Workspace called **Microsoft Entra ID Provisioning API**. 
+1. From the **Workspaces** menu, select **Create Workspace** to create a new Workspace called **Microsoft Entra provisioning API**. 
 1. Download the following Postman collections and save it in your local directory.
-    - [Entra ID Inbound Provisioning.postman_collection.json](https://github.com/AzureAD/entra-id-inbound-provisioning/blob/main/Postman/Entra%20ID%20Inbound%20Provisioning.postman_collection.json) (Request collection)
-    - [Test-API2AAD.postman_environment.json](https://github.com/AzureAD/entra-id-inbound-provisioning/blob/main/Postman/Test-API2AAD.postman_environment.json) (Environment collection for API-driven provisioning to Azure AD)- 
+    - [Microsoft Entra Inbound Provisioning.postman_collection.json](https://github.com/AzureAD/entra-id-inbound-provisioning/blob/main/Postman/Entra%20ID%20Inbound%20Provisioning.postman_collection.json) (Request collection)
+    - [Test-API2AAD.postman_environment.json](https://github.com/AzureAD/entra-id-inbound-provisioning/blob/main/Postman/Test-API2AAD.postman_environment.json) (Environment collection for API-driven provisioning to Microsoft Entra ID)- 
     - [Test-API2AD.postman_environment.json](https://github.com/AzureAD/entra-id-inbound-provisioning/blob/main/Postman/Test-API2AD.postman_environment.json) (Environment collection for API-driven provisioning to on-premises AD) 
 1. Use the **Import** option in Postman to import both of these files into your Workspace.  
      :::image type="content" source="media/inbound-provisioning-api-postman/postman-import-elements.png" alt-text="Screenshot of Postman Import elements." lightbox="media/inbound-provisioning-api-postman/postman-import-elements.png":::
@@ -43,7 +43,7 @@ In this step, you'll configure the Postman app and invoke the API using the conf
 1. Open your provisioning app landing page and copy-paste the value of **Job ID** for the `jobId` variable and the value of **Provisioning API endpoint** for the `bulk_upload_endpoint` variable
       :::image type="content" source="media/inbound-provisioning-api-configure-app/provisioning-api-endpoint.png" alt-text="Screenshot of Provisioning API endpoint." lightbox="media/inbound-provisioning-api-configure-app/provisioning-api-endpoint.png":::
 1. Leave the value of **ms_graph_resource_id** unchanged and save the environment collection. Make sure that both **Initial value** and **Current value** columns are populated. 
-1. Next, open the collection **Entra ID Inbound Provisioning**.
+1. Next, open the collection **Microsoft Entra Inbound Provisioning**.
 1. From the **Environment** dropdown, select **Test-API2AAD**.
 1. Select the **Authorization** tab associated with the collection. 
 1. Make sure that authorization is configured to use OAuth settings. 
@@ -65,8 +65,8 @@ If the API invocation is successful, you see the message `202 Accepted.` Under H
 You can verify the processing either from the Microsoft Entra admin center or using Postman.
 
 ### Verify processing from Microsoft Entra admin center 
-1. Log in to [Microsoft Entra admin center](https://entra.microsoft.com) with *global administrator* or *application administrator* login credentials.
-1. Browse to **Azure Active Directory -> Applications -> Enterprise applications**.
+1. Log in to [Microsoft Entra admin center](https://entra.microsoft.com) with at least [Application Administrator](https://go.microsoft.com/fwlink/?linkid=2247823) level credentials.
+1. Browse to **Microsoft Entra ID -> Applications -> Enterprise applications**.
 1. Under all applications, use the search filter text box to find and open your API-driven provisioning application.
 1. Open the Provisioning blade. The landing page displays the status of the last run.
 1. Click on **View provisioning logs** to open the provisioning logs blade. Alternatively, you can click on the menu option **Monitor -> Provisioning logs**.
@@ -85,8 +85,8 @@ You can verify the processing either from the Microsoft Entra admin center or us
 ### Verify processing using provisioning logs API in Postman
 This section shows how you can query provisioning logs in Postman using the same service account (service principal) that you configured.
 
-1. Open the workspace **Microsoft Entra ID Provisioning API** in your Postman desktop app. 
-2. The collection **Entra ID Inbound Provisioning** contains three sample requests that enable you to query the provisioning logs. 
+1. Open the workspace **Microsoft Entra provisioning API** in your Postman desktop app. 
+2. The collection **Microsoft Entra Inbound Provisioning** contains three sample requests that enable you to query the provisioning logs. 
 3. You can open any of these predefined requests. 
 4. If you don't have a valid access token or you're not sure if the access token is still valid, go to the collection object's root Authorization tab and use the option **Get New Access Token** to get a fresh token. 
 5. Click **Send** to get provisioning log records. 

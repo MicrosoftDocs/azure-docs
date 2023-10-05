@@ -1,17 +1,13 @@
 ---
-title: Custom image templates (preview) - Azure Virtual Desktop
-description: Learn about Custom image templates in Azure Virtual Desktop, where you can create custom images that you can use when deploying session host virtual machines.
+title: Custom image templates - Azure Virtual Desktop
+description: Learn about custom image templates in Azure Virtual Desktop, where you can create custom images that you can use when deploying session host virtual machines.
 ms.topic: conceptual
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 04/05/2023
+ms.date: 09/08/2023
 ---
 
-# Custom image templates in Azure Virtual Desktop (preview)
-
-> [!IMPORTANT]
-> Custom image templates in Azure Virtual Desktop is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+# Custom image templates in Azure Virtual Desktop
 
 Custom image templates in Azure Virtual Desktop enable you to easily create a custom image that you can use when deploying session host virtual machines (VMs). Using custom images helps you to standardize the configuration of your session host VMs for your organization. Custom image templates are built on [Azure Image Builder](../virtual-machines/image-builder-overview.md) and tailored for Azure Virtual Desktop.
 
@@ -34,7 +30,9 @@ The source image must be [supported for Azure Virtual Desktop](prerequisites.md#
 - An existing managed image.
 - An existing custom image template.
 
-We've added several built-in scripts available for you to use that configures some of the most popular features and settings when using Azure Virtual Desktop. You can also add your own custom scripts to the template, as long as they're hosted at a publicly available location, such as GitHub or a web service. You need to specify a duration for the build, so make sure you allow enough time for your scripts to complete. Here are some examples of the built-in scripts you can add to a custom image template:
+We've added several built-in scripts available for you to use that configures some of the most popular features and settings when using Azure Virtual Desktop. You can also add your own custom scripts to the template, as long as they're hosted at a publicly available location, such as GitHub or a web service. You need to specify a duration for the build, so make sure you allow enough time for your scripts to complete. Built-in scripts include restarts where needed.
+
+Here are some examples of the built-in scripts you can add to a custom image template:
 
 - Install language packs.
 - Set the default language of the operating system.
@@ -44,12 +42,12 @@ We've added several built-in scripts available for you to use that configures so
 - Enable FSLogix with Kerberos.
 - Enable [RDP Shortpath for managed networks](rdp-shortpath.md?tabs=managed-networks).
 - Enable [screen capture protection](screen-capture-protection.md).
-- Configure Teams optimizations 
+- Configure [Teams optimizations](teams-on-avd.md).
 - Configure session timeouts.
 - Add or remove Microsoft Office applications.
-- Apply Windows Updates
+- Apply Windows Updates.
 
-When the custom image is being created and distributed, Azure Image Builder uses a user-assigned Managed Identity. Azure Image Builder uses this Managed Identity to create several resources in your subscription, such as a resource group, a VM used to build the image, Key Vault, and a storage account. The VM needs internet access to download the built-in scripts or your own scripts that you added. The built-in scripts are stored in the *RDS-templates* GitHub repository at [https://github.com/Azure/RDS-Templates](https://github.com/Azure/RDS-Templates).
+When the custom image is being created and distributed, Azure Image Builder uses a user-assigned managed identity. Azure Image Builder uses this managed identity to create several resources in your subscription, such as a resource group, a VM used to build the image, Key Vault, and a storage account. The VM needs internet access to download the built-in scripts or your own scripts that you added. The built-in scripts are stored in the *RDS-templates* GitHub repository at [https://github.com/Azure/RDS-Templates](https://github.com/Azure/RDS-Templates).
 
 You can choose whether you want the VM to connect to an existing virtual network and subnet, which will enable the VM to have access to other resources you may have available to that virtual network. If you don't specify an existing virtual network, a temporary virtual network, subnet, and public IP address are created for use by the VM. For more information on networking options, see [Azure VM Image Builder networking options](../virtual-machines/linux/image-builder-networking.md).
 

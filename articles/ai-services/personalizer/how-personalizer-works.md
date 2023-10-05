@@ -4,8 +4,7 @@ description: The Personalizer _loop_ uses machine learning to build the model th
 author: jcodella
 ms.author: jacodel
 ms.manager: nitinme
-ms.service: cognitive-services
-ms.subservice: personalizer
+ms.service: azure-ai-personalizer
 ms.topic: conceptual
 ms.date: 02/18/2020
 ---

@@ -288,7 +288,9 @@ The [Get Daily Forecast API] returns detailed daily weather forecast such as tem
 >[!IMPORTANT]
 >In the S0 pricing tier, you can request daily forecast for the next 1, 5, 10, and 15 days. In either Gen1 (S1) or Gen2 pricing tier, you can request daily forecast for the next 25 days, and 45 days.
 >
-> Gen1 pricing tier is now deprecated and will be retired on 9/15/26. If your Azure Maps account has Gen1 pricing tier selected, you can switch to Gen2 before it’s retired, otherwise it will automatically be updated. For more information, see [Manage the pricing tier of your Azure Maps account].
+> **Azure Maps Gen1 pricing tier retirement**
+>
+> Gen1 pricing tier is now deprecated and will be retired on 9/15/26. Gen2 pricing tier replaces Gen1 (both S0 and S1) pricing tier. If your Azure Maps account has Gen1 pricing tier selected, you can switch to Gen2 pricing before it’s retired, otherwise it will automatically be updated. For more information, see [Manage the pricing tier of your Azure Maps account].
 
 In this example, you use the [Get Daily Forecast API] to retrieve the five-day weather forecast for coordinates located in Seattle, WA.
 

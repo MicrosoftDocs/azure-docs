@@ -9,7 +9,9 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ---
 
-# Audio effects detection 
+# Audio effects detection
+
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
 
 Audio effects detection is an Azure AI Video Indexer feature that detects insights on various acoustic events and classifies them into acoustic categories. Audio effect detection can detect and classify different categories such as laughter, crowd reactions, alarms and/or sirens.  
 

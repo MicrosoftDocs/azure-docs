@@ -115,7 +115,7 @@ In this section, you define the security rule to block high-risk network traffic
     | ------- | ----- |
     | Name | Enter a rule name. |
     | Description | Enter a description about the rule. |
-    | Priority* | Enter a value between 0 and 99 to determine the priority of the rule. The lower the value the higher the priority.|
+    | Priority* | Enter a value between 1 and 4096 to determine the priority of the rule. The lower the value the higher the priority.|
     | Action* | Select **Deny** to block traffic. For more information, see [Action](concept-security-admins.md#action)
     | Direction* | Select **Inbound** as you want to deny inbound traffic with this rule. |
     | Protocol* | Select the network protocol for the port. |

@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/16/2023
+ms.date: 09/14/2023
 ms.author: jfields
 ---
 
@@ -67,12 +67,5 @@ This article describes how you can attach and detach permissions for users, role
 
 ## Next steps
 
-
-- To view existing roles/policies, requests, and permissions, see [View roles/policies, requests, and permission in the Remediation dashboard](ui-remediation.md).
-- To create a role/policy, see [Create a role/policy](how-to-create-role-policy.md).
-- To clone a role/policy, see [Clone a role/policy](how-to-clone-role-policy.md).
-- To delete a role/policy, see [Delete a role/policy](how-to-delete-role-policy.md).
-- To modify a role/policy, see [Modify a role/policy](how-to-modify-role-policy.md).
-- To view information about roles/policies, see [View information about roles/policies](how-to-view-role-policy.md).
 - To revoke high-risk and unused tasks or assign read-only status for Microsoft Azure and Google Cloud Platform (GCP) identities, see [Revoke high-risk and unused tasks or assign read-only status for Azure and GCP identities](how-to-revoke-task-readonly-status.md)
 To create or approve a request for permissions, see [Create or approve a request for permissions](how-to-create-approve-privilege-request.md).

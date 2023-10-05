@@ -47,7 +47,9 @@ Create a new **VisionSource** object from the URL of the image you want to analy
 
 Create a new **VisionSource** object from the local image file you want to analyze, using the static constructor [VisionSource::FromFile](/cpp/cognitive-services/vision/input-visionsource#fromufile).
 
-[!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/how-to/how-to.cpp?name=vision_source)]
+```cpp
+auto imageSource = VisionSource::FromFile("sample.jpg");
+```
 
 ### Image buffer
 

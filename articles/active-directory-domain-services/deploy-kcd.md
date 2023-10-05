@@ -1,6 +1,6 @@
 ---
-title: Kerberos constrained delegation for Azure AD Domain Services | Microsoft Docs
-description: Learn how to enable resource-based Kerberos constrained delegation (KCD) in an Azure Active Directory Domain Services managed domain.
+title: Kerberos constrained delegation for Microsoft Entra Domain Services | Microsoft Docs
+description: Learn how to enable resource-based Kerberos constrained delegation (KCD) in a Microsoft Entra Domain Services managed domain.
 services: active-directory-ds
 author: justinha
 manager: amycolannino
@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/29/2023
+ms.date: 09/23/2023
 ms.author: justinha
 
 ---
-# Configure Kerberos constrained delegation (KCD) in Azure Active Directory Domain Services
+# Configure Kerberos constrained delegation (KCD) in Microsoft Entra Domain Services
 
 As you run applications, there may be a need for those applications to access resources in the context of a different user. Active Directory Domain Services (AD DS) supports a mechanism called *Kerberos delegation* that enables this use-case. Kerberos *constrained* delegation (KCD) then builds on this mechanism to define specific resources that can be accessed in the context of the user.
 
-Azure Active Directory Domain Services (Azure AD DS) managed domains are more securely locked down than traditional on-premises AD DS environments, so use a more secure *resource-based* KCD.
+Microsoft Entra Domain Services managed domains are more securely locked down than traditional on-premises AD DS environments, so use a more secure *resource-based* KCD.
 
-This article shows you how to configure resource-based Kerberos constrained delegation in an Azure AD DS managed domain.
+This article shows you how to configure resource-based Kerberos constrained delegation in a Domain Services managed domain.
 
 ## Prerequisites
 
@@ -28,13 +28,13 @@ To complete this article, you need the following resources:
 
 * An active Azure subscription.
     * If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* An Azure Active Directory tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
-    * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
-* An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
-    * If needed, [create and configure an Azure Active Directory Domain Services managed domain][create-azure-ad-ds-instance].
-* A Windows Server management VM that is joined to the Azure AD DS managed domain.
+* A Microsoft Entra tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
+    * If needed, [create a Microsoft Entra tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
+* A Microsoft Entra Domain Services managed domain enabled and configured in your Microsoft Entra tenant.
+    * If needed, [create and configure a Microsoft Entra Domain Services managed domain][create-azure-ad-ds-instance].
+* A Windows Server management VM that is joined to the Domain Services managed domain.
     * If needed, complete the tutorial to [create a Windows Server VM and join it to a managed domain][create-join-windows-vm] then [install the AD DS management tools][tutorial-create-management-vm].
-* A user account that's a member of the *Azure AD DC administrators* group in your Azure AD tenant.
+* A user account that's a member of the *Microsoft Entra DC administrators* group in your Microsoft Entra tenant.
 
 ## Kerberos constrained delegation overview
 
@@ -64,11 +64,11 @@ Complete the following steps to configure this scenario:
 1. [Domain-join the virtual machines][create-join-windows-vm], both the one that runs the web app, and the one that runs the web API, to the managed domain. Create these computer accounts in the custom OU from the previous step.
 
     > [!NOTE]
-    > The computer accounts for the web app and the web API must be in a custom OU where you have permissions to configure resource-based KCD. You can't configure resource-based KCD for a computer account in the built-in *AAD DC Computers* container.
+    > The computer accounts for the web app and the web API must be in a custom OU where you have permissions to configure resource-based KCD. You can't configure resource-based KCD for a computer account in the built-in *Microsoft Entra DC Computers* container.
 
 1. Finally, configure resource-based KCD using the [Set-ADComputer][Set-ADComputer] PowerShell cmdlet.
 
-    From your domain-joined management VM and logged in as user account that's a member of the *Azure AD DC administrators* group, run the following cmdlets. Provide your own computer names as needed:
+    From your domain-joined management VM and logged in as user account that's a member of the *Microsoft Entra DC administrators* group, run the following cmdlets. Provide your own computer names as needed:
     
     ```powershell
     $ImpersonatingAccount = Get-ADComputer -Identity contoso-webapp.aaddscontoso.com
@@ -84,11 +84,11 @@ In this scenario, let's assume you have a web app that runs as a service account
 1. Create the service account (for example, *appsvc*) used to run the web app within the custom OU.
 
     > [!NOTE]
-    > Again, the computer account for the web API VM, and the service account for the web app, must be in a custom OU where you have permissions to configure resource-based KCD. You can't configure resource-based KCD for accounts in the built-in *AAD DC Computers* or *AAD DC Users* containers. This also means that you can't use user accounts synchronized from Azure AD to set up resource-based KCD. You must create and use service accounts specifically created in Azure AD DS.
+    > Again, the computer account for the web API VM, and the service account for the web app, must be in a custom OU where you have permissions to configure resource-based KCD. You can't configure resource-based KCD for accounts in the built-in *Microsoft Entra DC Computers* or *Microsoft Entra DC Users* containers. This also means that you can't use user accounts synchronized from Microsoft Entra ID to set up resource-based KCD. You must create and use service accounts specifically created in Domain Services.
 
 1. Finally, configure resource-based KCD using the [Set-ADUser][Set-ADUser] PowerShell cmdlet.
 
-    From your domain-joined management VM and logged in as user account that's a member of the *Azure AD DC administrators* group, run the following cmdlets. Provide your own service names as needed:
+    From your domain-joined management VM and logged in as user account that's a member of the *Microsoft Entra DC administrators* group, run the following cmdlets. Provide your own service names as needed:
 
     ```powershell
     $ImpersonatingAccount = Get-ADUser -Identity appsvc
@@ -100,8 +100,8 @@ In this scenario, let's assume you have a web app that runs as a service account
 To learn more about how delegation works in Active Directory Domain Services, see [Kerberos Constrained Delegation Overview][kcd-technet].
 
 <!-- INTERNAL LINKS -->
-[create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
-[associate-azure-ad-tenant]: ../active-directory/fundamentals/how-subscriptions-associated-directory.md
+[create-azure-ad-tenant]: /azure/active-directory/fundamentals/sign-up-organization
+[associate-azure-ad-tenant]: /azure/active-directory/fundamentals/how-subscriptions-associated-directory
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [create-join-windows-vm]: join-windows-vm.md
 [tutorial-create-management-vm]: tutorial-create-management-vm.md

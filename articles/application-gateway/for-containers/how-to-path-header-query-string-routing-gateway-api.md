@@ -6,7 +6,7 @@ author: greglin
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: how-to
-ms.date: 07/30/2023
+ms.date: 09/20/2023
 ms.author: greglin
 ---
 
@@ -16,6 +16,12 @@ This document helps you set up an example application that uses the resources fr
 - Create a [Gateway](https://gateway-api.sigs.k8s.io/concepts/api-overview/#gateway) resource with one HTTPS listener.
 - Create an [HTTPRoute](https://gateway-api.sigs.k8s.io/v1alpha2/api-types/httproute/) resource that references a backend service.
 - Use [HTTPRouteMatch](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1beta1.HTTPRouteMatch) to perform `matches` that route based on path, header, and query string.
+
+## Background
+
+Application Gateway for Containers enables traffic routing based on URL path, query string, and header. See the following example scenario:
+
+![A figure showing path, header, and query string routing with Application Gateway for Containers.](./media/how-to-path-header-query-string-routing-gateway-api/routing.png)
 
 ## Prerequisites
 

@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/24/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -46,7 +46,7 @@ The following example returns the sign of various numbers from -2 to 2.
 
 - This function doesn't use the index.
 
-## Next steps
+## Related content
 
 - [System functions](system-functions.yml)
 - [`ABS`](abs.md)

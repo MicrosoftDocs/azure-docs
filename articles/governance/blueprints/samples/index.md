@@ -6,6 +6,8 @@ ms.topic: sample
 ---
 # Azure Blueprints samples
 
+[!INCLUDE [Blueprints deprecation note](../../../../includes/blueprints-deprecation-note.md)]
+
 The following table includes links to samples for Azure Blueprints. Each sample is production
 quality and ready to deploy today to assist you in meeting your various compliance needs.
 

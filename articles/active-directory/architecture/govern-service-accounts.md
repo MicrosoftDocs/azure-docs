@@ -1,6 +1,6 @@
 ---
-title: Governing Azure Active Directory service accounts
-description: Principles and procedures for managing the lifecycle of service accounts in Azure Active Directory.
+title: Governing Microsoft Entra service accounts
+description: Principles and procedures for managing the lifecycle of service accounts in Microsoft Entra ID.
 services: active-directory
 author: jricketts
 manager: martinco
@@ -15,9 +15,9 @@ ms.custom: it-pro, seodec18, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 
-# Governing Azure Active Directory service accounts
+# Governing Microsoft Entra service accounts
 
-There are three types of service accounts in Azure Active Directory (Azure AD): managed identities, service principals, and user accounts employed as service accounts. When you create service accounts for automated use, they're granted permissions to access resources in Azure and Azure AD. Resources can include Microsoft 365 services, software as a service (SaaS) applications, custom applications, databases, HR systems, and so on. Governing Azure AD service account is managing creation, permissions, and lifecycle to ensure security and continuity.
+There are three types of service accounts in Microsoft Entra ID: managed identities, service principals, and user accounts employed as service accounts. When you create service accounts for automated use, they're granted permissions to access resources in Azure and Microsoft Entra ID. Resources can include Microsoft 365 services, software as a service (SaaS) applications, custom applications, databases, HR systems, and so on. Governing Microsoft Entra service account is managing creation, permissions, and lifecycle to ensure security and continuity.
 
 Learn more:
 
@@ -25,7 +25,7 @@ Learn more:
 * [Securing service principals](service-accounts-principal.md)
 
 > [!NOTE] 
-> We do not recommend user accounts as service accounts because they are less secure. This includes on-premises service accounts synced to Azure AD, because they aren't converted to service principals. Instead, we recommend managed identities, or service principals, and the use of Conditional Access.
+> We do not recommend user accounts as service accounts because they are less secure. This includes on-premises service accounts synced to Microsoft Entra ID, because they aren't converted to service principals. Instead, we recommend managed identities, or service principals, and the use of Conditional Access.
 
 Learn more: [What is Conditional Access?](../conditional-access/overview.md)
 
@@ -55,7 +55,7 @@ We recommend the following practices for service account privileges.
 * Don't assign built-in roles to service accounts
   * See, [oAuth2PermissionGrant resource type](/graph/api/resources/oauth2permissiongrant)
 * The service principal is assigned a privileged role
-  * [Create and assign a custom role in Azure Active Directory](../roles/custom-create.md)
+  * [Create and assign a custom role in Microsoft Entra ID](../roles/custom-create.md)
 * Don't include service accounts as members of any groups with elevated permissions
   * See, [Get-AzureADDirectoryRoleMember](/powershell/module/azuread/get-azureaddirectoryrolemember):
    
@@ -78,9 +78,9 @@ We recommend the following practices for service account privileges.
 After you understand the purpose, scope, and permissions, create your service account, use the instructions in the following articles. 
 
 * [How to use managed identities for App Service and Azure Functions](../../app-service/overview-managed-identity.md?tabs=dotnet)
-* [Create an Azure Active Directory application and service principal that can access resources](../develop/howto-create-service-principal-portal.md)
+* [Create a Microsoft Entra application and service principal that can access resources](../develop/howto-create-service-principal-portal.md)
 
-Use a managed identity when possible. If you can't use a managed identity, use a service principal. If you can't use a service principal, then use an Azure AD user account.
+Use a managed identity when possible. If you can't use a managed identity, use a service principal. If you can't use a service principal, then use a Microsoft Entra user account.
 
 ## Build a lifecycle process
 
@@ -94,8 +94,8 @@ Monitor your service accounts to ensure usage patterns are correct, and that the
 
 Use one of the following monitoring methods:
 
-* Azure AD sign-in logs in the Azure portal
-* Export the Azure AD sign-in logs to 
+* Microsoft Entra sign-in logs in the Azure portal
+* Export the Microsoft Entra sign-in logs to 
   * [Azure Storage documentation](../../storage/index.yml)
   * [Azure Event Hubs documentation](../../event-hubs/index.yml), or 
   * [Azure Monitor Logs overview](../../azure-monitor/logs/data-platform-logs.md)
@@ -111,14 +111,14 @@ Look for the following details in sign-in logs.
 * Service accounts not signed in to the tenant
 * Changes in sign-in service account patterns
 
-We recommend you export Azure AD sign-in logs, and then import them into a security information and event management (SIEM) tool, such as Microsoft Sentinel. Use the SIEM tool to build alerts and dashboards.
+We recommend you export Microsoft Entra sign-in logs, and then import them into a security information and event management (SIEM) tool, such as Microsoft Sentinel. Use the SIEM tool to build alerts and dashboards.
 
 ### Review service account permissions
 
 Regularly review service account permissions and accessed scopes to see if they can be reduced or eliminated.
 
 * See, [Get-AzureADServicePrincipalOAuth2PermissionGrant](/powershell/module/azuread/get-azureadserviceprincipaloauth2permissiongrant)
-  * [Script to list all delegated permissions and application permissions in Azure AD](https://gist.github.com/psignoret/41793f8c6211d2df5051d77ca3728c09) scopes for service account
+  * [Script to list all delegated permissions and application permissions in Microsoft Entra ID](https://gist.github.com/psignoret/41793f8c6211d2df5051d77ca3728c09) scopes for service account
 * See, [Azure AD/AzureADAssessment](https://github.com/AzureAD/AzureADAssessment) and confirm validity
 * Don't set service principal credentials to **Never expire**
 * Use certificates or credentials stored in Azure Key Vault, when possible
@@ -161,7 +161,7 @@ Deprovisioning includes the following tasks:
 
 After the associated application or script is deprovisioned:
 
-* [Sign-in logs in Azure AD](../reports-monitoring/concept-sign-ins.md) and resource access by the service account
+* [Sign-in logs in Microsoft Entra ID](../reports-monitoring/concept-sign-ins.md) and resource access by the service account
   * If the account is active, determine how it's being used before continuing
 * For a managed service identity, disable service account sign-in, but don't remove it from the directory
 * Revoke service account role assignments and OAuth2 consent grants

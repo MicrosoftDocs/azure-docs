@@ -1,18 +1,18 @@
 ---
-title: Reference for writing expressions for attribute mappings in Azure Active Directory Application Provisioning
-description: Learn how to use expression mappings to transform attribute values into an acceptable format during automated provisioning of SaaS app objects in Azure Active Directory. Includes a reference list of functions.
+title: Reference for writing expressions for attribute mappings in Microsoft Entra Application Provisioning
+description: Learn how to use expression mappings to transform attribute values into an acceptable format during automated provisioning of SaaS app objects in Microsoft Entra ID. Includes a reference list of functions.
 author: kenwith
 manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/20/2022
+ms.date: 09/15/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
 
-# Reference for writing expressions for attribute mappings in Azure Active Directory
+# Reference for writing expressions for attribute mappings in Microsoft Entra ID
 
 When you configure provisioning to a SaaS application, one of the types of attribute mappings that you can specify is an expression mapping. For these mappings, you must write a script-like expression that allows you to transform your users' data into formats that are more acceptable for the SaaS application.
 
@@ -70,7 +70,7 @@ Example: If you're using a Salesforce Sandbox, you might need to append another 
 AppRoleAssignmentsComplex([appRoleAssignments])
 
 **Description:** 
-Used to provision multiple roles for a user. For detailed usage, see [Tutorial - Customize user provisioning attribute-mappings for SaaS applications in Azure Active Directory](customize-application-attributes.md#provisioning-a-role-to-a-scim-app).
+Used to provision multiple roles for a user. For detailed usage, see [Tutorial - Customize user provisioning attribute-mappings for SaaS applications in Microsoft Entra ID](customize-application-attributes.md#provisioning-a-role-to-a-scim-app).
 
 **Parameters:** 
 
@@ -1073,7 +1073,7 @@ Splits a string into a multi-valued array, using the specified delimiter charact
 | **delimiter** |Required |String |Specifies the character that will be used to split the string (example: ",") |
 
 #### Split a string into a multi-valued array
-Example: You need to take a comma-delimited list of strings, and split them into an array that can be plugged into a multi-value attribute like Salesforce's PermissionSets attribute. In this example, a list of permission sets has been populated in extensionAttribute5 in Azure AD.
+Example: You need to take a comma-delimited list of strings, and split them into an array that can be plugged into a multi-value attribute like Salesforce's PermissionSets attribute. In this example, a list of permission sets has been populated in extensionAttribute5 in Microsoft Entra ID.
 
 **Expression:** 
 Split([extensionAttribute5], ",")
@@ -1124,7 +1124,7 @@ When **source** value matches a **key**, returns **value** for that **key**. If 
 | **value** |Required |String |Replacement value for the **source** matching the key. |
 
 #### Replace a value based on predefined set of options
-Example: Define the time zone of the user based on the state code stored in Azure AD. 
+Example: Define the time zone of the user based on the state code stored in Microsoft Entra ID. 
 If the state code doesn't match any of the predefined options, use default value of "Australia/Sydney".
 
 **Expression:** 
@@ -1258,6 +1258,6 @@ Add a comma between last name and first name.
 * [Automate User Provisioning/Deprovisioning to SaaS Apps](../app-provisioning/user-provisioning.md)
 * [Customizing Attribute Mappings for User Provisioning](../app-provisioning/customize-application-attributes.md)
 * [Scoping Filters for User Provisioning](define-conditional-rules-for-provisioning-user-accounts.md)
-* [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](../app-provisioning/use-scim-to-provision-users-and-groups.md)
+* [Using SCIM to enable automatic provisioning of users and groups from Microsoft Entra ID to applications](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 * [Account Provisioning Notifications](../app-provisioning/user-provisioning.md)
 * [List of Tutorials on How to Integrate SaaS Apps](../saas-apps/tutorial-list.md)

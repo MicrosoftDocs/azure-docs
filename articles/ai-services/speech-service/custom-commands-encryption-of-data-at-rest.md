@@ -5,8 +5,7 @@ description: Custom Commands encryption of data at rest.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: conceptual
 ms.date: 07/05/2020
 ms.author: eur

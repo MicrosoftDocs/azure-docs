@@ -1,6 +1,6 @@
 ---
 title: Manage consent to applications and evaluate consent requests
-description: Learn how to manage consent requests when user consent is restricted, and how to evaluate a request for tenant-wide admin consent to an application in Azure Active Directory.
+description: Learn how to manage consent requests when user consent is restricted, and how to evaluate a request for tenant-wide admin consent to an application in Microsoft Entra ID.
 services: active-directory
 author: omondiatieno
 manager: CelesteDG
@@ -106,7 +106,7 @@ Instead of granting consent for the entire organization, an administrator can al
 
 User access to applications can still be limited even when tenant-wide admin consent has been granted. To limit user access, require user assignment to an application. For more information, see [Methods for assigning users and groups](./assign-user-or-group-access-portal.md). Administrators can also limit user access to applications by disabling all future user consent operations to any application.
 
-For a broader overview, including how to handle more complex scenarios, see [Use Azure Active Directory (Azure AD) for application access management](what-is-access-management.md).
+For a broader overview, including how to handle more complex scenarios, see [Use Microsoft Entra ID for application access management](what-is-access-management.md).
 
 ## Next steps
 

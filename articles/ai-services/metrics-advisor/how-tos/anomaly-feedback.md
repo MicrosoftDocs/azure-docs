@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: Learn how to send feedback on anomalies found by your Metrics Advisor instance, and tune the results. 
 author: mrbullwinkle
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: metrics-advisor
+ms.service: azure-ai-metrics-advisor
 ms.topic: how-to
 ms.date: 11/24/2020
 ms.author: mbullwin

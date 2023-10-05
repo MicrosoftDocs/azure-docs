@@ -153,6 +153,34 @@ The build version number is generated only by the Microsoft Build Engine, not by
 
 If you use Azure DevOps, you can [get an annotation marker](../../azure-monitor/app/annotations.md) added to your charts whenever you release a new version.
 
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### How do I move an Application Insights resource to a new region?
+
+Moving existing Application Insights resources from one region to another is *currently not supported*. Historical data that you've collected *can't be migrated* to a new region. The only partial workaround is to:
+          
+1. Create a new Application Insights resource ([classic](/previous-versions/azure/azure-monitor/app/create-new-resource) or [workspace based](./create-workspace-resource.md)) in the new region.
+1. Re-create all unique customizations specific to the original resource in the new resource.
+1. Modify your application to use the new region resource's [instrumentation key](/previous-versions/azure/azure-monitor/app/create-new-resource#copy-the-instrumentation-key) or [connection string](./sdk-connection-string.md).
+1. Test to confirm that everything is continuing to work as expected with your new Application Insights resource.
+1. At this point, you can either keep or delete the original Application Insights resource. If you delete a classic Application Insights resource, *all historical data is lost*. If the original resource was workspace based, its data remains in Log Analytics. Keeping the original Application Insights resource allows you to access its historical data until its data retention settings run out.
+          
+Unique customizations that commonly need to be manually re-created or updated for the resource in the new region include but aren't limited to:
+          
+- Re-create custom dashboards and workbooks.
+- Re-create or update the scope of any custom log/metric alerts.
+- Re-create availability alerts.
+- Re-create any custom Azure role-based access control settings that are required for your users to access the new resource.
+- Replicate settings involving ingestion sampling, data retention, daily cap, and custom metrics enablement. These settings are controlled via the **Usage and estimated costs** pane.
+- Any integration that relies on API keys, such as [release annotations](./annotations.md) and [live metrics secure control channel](./live-stream.md#secure-the-control-channel). You need to generate new API keys and update the associated integration.
+- Continuous export in classic resources must be configured again.
+- Diagnostic settings in workspace-based resources must be configured again.
+          
+> [!NOTE]
+> If the resource you're creating in a new region is replacing a classic resource, we recommend that you explore the benefits of [creating a new workspace-based resource](./create-workspace-resource.md). Alternatively, [migrate your existing resource to workspace based](./convert-classic-resource.md).
+
 ## Next steps
 
 * [Shared resources for multiple roles](../../azure-monitor/app/app-map.md)

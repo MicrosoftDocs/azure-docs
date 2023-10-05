@@ -36,6 +36,10 @@ In this article, you learn how to:
 
 - **Kubernetes command-line tool (kubectl):** [Download kubectl](https://kubernetes.io/releases/download/).
 
+## Login to your Azure Account
+
+[!INCLUDE [authenticate-to-azure.md](~/azure-dev-docs-pr/articles/terraform/includes/authenticate-to-azure.md)]
+
 ## Implement the Terraform code
 
 > [!NOTE]

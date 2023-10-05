@@ -71,55 +71,6 @@ Here's how to create an application group using the Azure portal.
 
 1. Once the application group has been created, select **Go to resource** to go to the overview of your new application group, then select **Properties** to view its properties.
 
-# [Azure CLI](#tab/cli)
-
-Here's how to create an application group using the [desktopvirtualization](/cli/azure/desktopvirtualization) extension for Azure CLI.
-
-> [!IMPORTANT]
-> In the following examples, you'll need to change the `<placeholder>` values for your own.
-
-[!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
-
-2. Get the resource ID of the host pool you want to create an application group for and store it in a variable by running the following command:
-
-   ```azurecli
-   hostPoolArmPath=$(az desktopvirtualization hostpool show \
-       --name <Name> \
-       --resource-group <ResourceGroupName> \
-       --query [id] \
-       --output tsv)
-   ```
-
-3. Use the `az desktopvirtualization applicationgroup create` command with the following examples to create an application group. For more information, see the [az desktopvirtualization applicationgroup Azure CLI reference](/cli/azure/desktopvirtualization/applicationgroup).
-
-   1. To create a Desktop application group in the Azure region UK South, run the following command:
-
-      ```azurecli
-      az desktopvirtualization applicationgroup create \
-          --name <Name> \
-          --resource-group <ResourceGroupName> \
-          --application-group-type Desktop \
-          --host-pool-arm-path $hostPoolArmPath \
-          --location uksouth
-      ```
-
-   1. To create a RemoteApp application group in the Azure region UK South, run the following command. You can only create a RemoteApp application group with a pooled host pool.
-
-      ```azurecli
-      az desktopvirtualization applicationgroup create \
-          --name <Name> \
-          --resource-group <ResourceGroupName> \
-          --application-group-type RemoteApp \
-          --host-pool-arm-path $hostPoolArmPath \
-          --location uksouth
-      ```
-
-4. You can view the properties of your new application group by running the following command:
-
-   ```azurecli
-   az desktopvirtualization applicationgroup show --name <Name> --resource-group <ResourceGroupName>
-   ```
-
 # [Azure PowerShell](#tab/powershell)
 
 Here's how to create an application group using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module.
@@ -171,6 +122,55 @@ Here's how to create an application group using the [Az.DesktopVirtualization](/
    Get-AzWvdApplicationGroup -Name <Name> -ResourceGroupName <ResourceGroupName> | FL *
    ```
 
+# [Azure CLI](#tab/cli)
+
+Here's how to create an application group using the [desktopvirtualization](/cli/azure/desktopvirtualization) extension for Azure CLI.
+
+> [!IMPORTANT]
+> In the following examples, you'll need to change the `<placeholder>` values for your own.
+
+[!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
+
+2. Get the resource ID of the host pool you want to create an application group for and store it in a variable by running the following command:
+
+   ```azurecli
+   hostPoolArmPath=$(az desktopvirtualization hostpool show \
+       --name <Name> \
+       --resource-group <ResourceGroupName> \
+       --query [id] \
+       --output tsv)
+   ```
+
+3. Use the `az desktopvirtualization applicationgroup create` command with the following examples to create an application group. For more information, see the [az desktopvirtualization applicationgroup Azure CLI reference](/cli/azure/desktopvirtualization/applicationgroup).
+
+   1. To create a Desktop application group in the Azure region UK South, run the following command:
+
+      ```azurecli
+      az desktopvirtualization applicationgroup create \
+          --name <Name> \
+          --resource-group <ResourceGroupName> \
+          --application-group-type Desktop \
+          --host-pool-arm-path $hostPoolArmPath \
+          --location uksouth
+      ```
+
+   1. To create a RemoteApp application group in the Azure region UK South, run the following command. You can only create a RemoteApp application group with a pooled host pool.
+
+      ```azurecli
+      az desktopvirtualization applicationgroup create \
+          --name <Name> \
+          --resource-group <ResourceGroupName> \
+          --application-group-type RemoteApp \
+          --host-pool-arm-path $hostPoolArmPath \
+          --location uksouth
+      ```
+
+4. You can view the properties of your new application group by running the following command:
+
+   ```azurecli
+   az desktopvirtualization applicationgroup show --name <Name> --resource-group <ResourceGroupName>
+   ```
+
 ---
 
 ## Create a workspace
@@ -207,26 +207,6 @@ Here's how to create a workspace using the Azure portal.
 
 1. Once the workspace has been created, select **Go to resource** to go to the overview of your new workspace, then select **Properties** to view its properties.
 
-# [Azure CLI](#tab/cli)
-
-Here's how to create a workspace using the [desktopvirtualization](/cli/azure/desktopvirtualization) extension for Azure CLI.
-
-> [!IMPORTANT]
-> In the following examples, you'll need to change the `<placeholder>` values for your own.
-
-[!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
-
-2. Use the `az desktopvirtualization workspace create` command with the following example to create a workspace. More parameters are available, such as to register existing application groups. For more information, see the [az desktopvirtualization workspace Azure CLI reference](/cli/azure/desktopvirtualization/workspace).
-
-   ```azurecli
-   az desktopvirtualization workspace create --name <Name> --resource-group <ResourceGroupName>
-   ```
-
-3. You can view the properties of your new workspace by running the following command:
-
-   ```azurecli
-   az desktopvirtualization workspace show --name <Name> --resource-group <ResourceGroupName>
-   ```
 
 # [Azure PowerShell](#tab/powershell)
 
@@ -247,6 +227,27 @@ Here's how to create a workspace using the [Az.DesktopVirtualization](/powershel
 
    ```azurepowershell
    Get-AzWvdWorkspace -Name <Name> -ResourceGroupName <ResourceGroupName> | FL *
+   ```
+
+# [Azure CLI](#tab/cli)
+
+Here's how to create a workspace using the [desktopvirtualization](/cli/azure/desktopvirtualization) extension for Azure CLI.
+
+> [!IMPORTANT]
+> In the following examples, you'll need to change the `<placeholder>` values for your own.
+
+[!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
+
+2. Use the `az desktopvirtualization workspace create` command with the following example to create a workspace. More parameters are available, such as to register existing application groups. For more information, see the [az desktopvirtualization workspace Azure CLI reference](/cli/azure/desktopvirtualization/workspace).
+
+   ```azurecli
+   az desktopvirtualization workspace create --name <Name> --resource-group <ResourceGroupName>
+   ```
+
+3. You can view the properties of your new workspace by running the following command:
+
+   ```azurecli
+   az desktopvirtualization workspace show --name <Name> --resource-group <ResourceGroupName>
    ```
 
 ---
@@ -270,6 +271,32 @@ Here's how to add an application group to a workspace using the Azure portal.
 1. Select the plus icon (**+**) next to an application group from the list. Only application groups that aren't already assigned to a workspace are listed.
 
 1. Select **Select**. The application group will be added to the workspace.
+
+
+# [Azure PowerShell](#tab/powershell)
+
+Here's how to add an application group to a workspace using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module.
+
+> [!IMPORTANT]
+> In the following examples, you'll need to change the `<placeholder>` values for your own.
+
+[!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
+
+2. Use the `Update-AzWvdWorkspace` cmdlet with the following example to add an application group to a workspace:
+
+   ```azurepowershell
+   # Get the resource ID of the application group you want to add to the workspace
+   $appGroupPath = (Get-AzWvdApplicationGroup -Name <Name -ResourceGroupName <ResourceGroupName>).Id
+
+   # Add the application group to the workspace
+   Update-AzWvdWorkspace -Name <Name> -ResourceGroupName <ResourceGroupName> -ApplicationGroupReference $appGroupPath
+   ```
+
+3. You can view the properties of your workspace by running the following command. The key **ApplicationGroupReference** contains an array of the application groups added to the workspace.
+
+   ```azurepowershell
+   Get-AzWvdWorkspace -Name <Name> -ResourceGroupName <ResourceGroupName> | FL *
+   ```
 
 # [Azure CLI](#tab/cli)
 
@@ -305,31 +332,6 @@ Here's how to add an application group to a workspace using the [desktopvirtuali
        --resource-group <ResourceGroupName>
    ```
 
-# [Azure PowerShell](#tab/powershell)
-
-Here's how to add an application group to a workspace using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module.
-
-> [!IMPORTANT]
-> In the following examples, you'll need to change the `<placeholder>` values for your own.
-
-[!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
-
-2. Use the `Update-AzWvdWorkspace` cmdlet with the following example to add an application group to a workspace:
-
-   ```azurepowershell
-   # Get the resource ID of the application group you want to add to the workspace
-   $appGroupPath = (Get-AzWvdApplicationGroup -Name <Name -ResourceGroupName <ResourceGroupName>).Id
-
-   # Add the application group to the workspace
-   Update-AzWvdWorkspace -Name <Name> -ResourceGroupName <ResourceGroupName> -ApplicationGroupReference $appGroupPath
-   ```
-
-3. You can view the properties of your workspace by running the following command. The key **ApplicationGroupReference** contains an array of the application groups added to the workspace.
-
-   ```azurepowershell
-   Get-AzWvdWorkspace -Name <Name> -ResourceGroupName <ResourceGroupName> | FL *
-   ```
-
 ---
 
 ## Assign users to an application group
@@ -349,6 +351,50 @@ Here's how to assign users or user groups to an application group to a workspace
 1. Select **+ Add**, then search for and select the user account or user group you want to assign to this application group.
 
 1. Finish by selecting **Select**.
+
+
+# [Azure PowerShell](#tab/powershell)
+
+Here's how to assign users or user groups to an application group to a workspace using [Az.Resources](/powershell/module/az.resources) PowerShell module.
+
+> [!IMPORTANT]
+> In the following examples, you'll need to change the `<placeholder>` values for your own.
+
+[!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
+
+2. Use the `New-AzRoleAssignment` cmdlet with the following examples to assign users or user groups to an application group.
+
+   1. To assign users to the application group, run the following commands:
+
+      ```azurepowershell
+      $parameters = @{
+          SignInName = '<UserPrincipalName>'
+          ResourceName = '<ApplicationGroupName>'
+          ResourceGroupName = '<ResourceGroupName>'
+          RoleDefinitionName = 'Desktop Virtualization User'
+          ResourceType = 'Microsoft.DesktopVirtualization/applicationGroups'
+      }
+      
+      New-AzRoleAssignment @parameters
+      ```
+
+   1. To assign user groups to the application group, run the following commands:
+   
+      ```azurepowershell
+      # Get the object ID of the user group you want to assign to the application group
+      $userGroupId = (Get-AzADGroup -DisplayName "<UserGroupName>").Id
+
+      # Assign users to the application group
+      $parameters = @{
+          ObjectId = $userGroupId
+          ResourceName = '<ApplicationGroupName>'
+          ResourceGroupName = '<ResourceGroupName>'
+          RoleDefinitionName = 'Desktop Virtualization User'
+          ResourceType = 'Microsoft.DesktopVirtualization/applicationGroups'
+      }
+      
+      New-AzRoleAssignment @parameters
+      ```
 
 # [Azure CLI](#tab/cli)
 
@@ -399,49 +445,6 @@ Here's how to assign users or user groups to an application group to a workspace
           --assignee $userGroupId \
           --role 'Desktop Virtualization User' \
           --scope $appGroupPath
-      ```
-
-# [Azure PowerShell](#tab/powershell)
-
-Here's how to assign users or user groups to an application group to a workspace using [Az.Resources](/powershell/module/az.resources) PowerShell module.
-
-> [!IMPORTANT]
-> In the following examples, you'll need to change the `<placeholder>` values for your own.
-
-[!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
-
-2. Use the `New-AzRoleAssignment` cmdlet with the following examples to assign users or user groups to an application group.
-
-   1. To assign users to the application group, run the following commands:
-
-      ```azurepowershell
-      $parameters = @{
-          SignInName = '<UserPrincipalName>'
-          ResourceName = '<ApplicationGroupName>'
-          ResourceGroupName = '<ResourceGroupName>'
-          RoleDefinitionName = 'Desktop Virtualization User'
-          ResourceType = 'Microsoft.DesktopVirtualization/applicationGroups'
-      }
-      
-      New-AzRoleAssignment @parameters
-      ```
-
-   1. To assign user groups to the application group, run the following commands:
-   
-      ```azurepowershell
-      # Get the object ID of the user group you want to assign to the application group
-      $userGroupId = (Get-AzADGroup -DisplayName "<UserGroupName>").Id
-
-      # Assign users to the application group
-      $parameters = @{
-          ObjectId = $userGroupId
-          ResourceName = '<ApplicationGroupName>'
-          ResourceGroupName = '<ResourceGroupName>'
-          RoleDefinitionName = 'Desktop Virtualization User'
-          ResourceType = 'Microsoft.DesktopVirtualization/applicationGroups'
-      }
-      
-      New-AzRoleAssignment @parameters
       ```
 
 ---

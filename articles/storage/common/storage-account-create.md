@@ -7,10 +7,10 @@ author: akashdubey-ms
 
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 08/18/2023
+ms.date: 09/12/2023
 ms.author: akashdubey
 ms.subservice: storage-common-concepts
-ms.custom: devx-track-azurecli, devx-track-azurepowershell, engagement
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, engagement-fy23
 ---
 
 # Create a storage account
@@ -155,7 +155,7 @@ The following table describes the fields on the **Advanced** tab.
 | Section | Field | Required or optional | Description |
 |--|--|--|--|
 | Security | Require secure transfer for REST API operations | Optional | Require secure transfer to ensure that incoming requests to this storage account are made only via HTTPS (default). Recommended for optimal security. For more information, see [Require secure transfer to ensure secure connections](storage-require-secure-transfer.md). |
-| Security | Allow enabling public access on containers | Optional | When enabled, this setting allows a user with the appropriate permissions to enable anonymous public access to a container in the storage account (default). Disabling this setting prevents all anonymous public access to the storage account. For more information, see [Prevent anonymous public read access to containers and blobs](../blobs/anonymous-read-access-prevent.md).<br> <br> Enabling blob public access does not make blob data available for public access unless the user takes the additional step to explicitly configure the container's public access setting. |
+| Security | Allow enabling anonymous access on individual containers | Optional | When enabled, this setting allows a user with the appropriate permissions to enable anonymous access to a container in the storage account (default). Disabling this setting prevents all anonymous access to the storage account. Microsoft recommends disabling this setting for optimal security.<br/> <br/> For more information, see [Prevent anonymous read access to containers and blobs](../blobs/anonymous-read-access-prevent.md).<br/> <br/> Enabling anonymous access does not make blob data available for anonymous access unless the user takes the additional step to explicitly configure the container's anonymous access setting. |
 | Security | Enable storage account key access | Optional | When enabled, this setting allows clients to authorize requests to the storage account using either the account access keys or an Azure Active Directory (Azure AD) account (default). Disabling this setting prevents authorization with the account access keys. For more information, see [Prevent Shared Key authorization for an Azure Storage account](shared-key-authorization-prevent.md). |
 | Security | Default to Azure Active Directory authorization in the Azure portal | Optional | When enabled, the Azure portal authorizes data operations with the user's Azure AD credentials by default. If the user does not have the appropriate permissions assigned via Azure role-based access control (Azure RBAC) to perform data operations, then the portal will use the account access keys for data access instead. The user can also choose to switch to using the account access keys. For more information, see [Default to Azure AD authorization in the Azure portal](../blobs/authorize-data-operations-portal.md#default-to-azure-ad-authorization-in-the-azure-portal). |
 | Security | Minimum TLS version | Required | Select the minimum version of Transport Layer Security (TLS) for incoming requests to the storage account. The default value is TLS version 1.2. When set to the default value, incoming requests made using TLS 1.0 or TLS 1.1 are rejected. For more information, see [Enforce a minimum required version of Transport Layer Security (TLS) for requests to a storage account](transport-layer-security-configure-minimum-version.md). |
@@ -270,7 +270,8 @@ New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Name <account-name> `
   -Location $location `
   -SkuName Standard_RAGRS `
-  -Kind StorageV2
+  -Kind StorageV2 `
+  -AllowBlobPublicAccess $false
 ```
 
 To create an account with Azure DNS zone endpoints (preview), follow these steps:
@@ -302,6 +303,7 @@ $account = New-AzStorageAccount -ResourceGroupName $rgName `
           -SkuName Standard_RAGRS `
           -Location <location> `
           -Kind StorageV2 `
+          -AllowBlobPublicAccess $false `
           -DnsEndpointType AzureDnsZone
 
 $account.PrimaryEndpoints
@@ -338,7 +340,8 @@ az storage account create \
   --resource-group storage-resource-group \
   --location eastus \
   --sku Standard_RAGRS \
-  --kind StorageV2
+  --kind StorageV2 \
+  --allow-blob-public-access false
 ```
 
 To create an account with Azure DNS zone endpoints (preview), first register for the preview as described in [Azure DNS zone endpoints (preview)](storage-account-overview.md#azure-dns-zone-endpoints-preview). Next, install the preview extension for the Azure CLI if it's not already installed:

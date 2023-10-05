@@ -4,8 +4,7 @@ description: Get started with the Image Analysis 4.0 client SDK for Python with 
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.custom: ignite-2022
 ms.topic: include
 ms.date: 01/24/2023
@@ -14,7 +13,7 @@ ms.author: pafarley
 
 <a name="HOLTop"></a>
 
-Use the Image Analysis client SDK for Python to analyze a remote image to read text and generate an image caption. This quickstart calls a method `analyze()`, which uses the client object to analyze a remote image and print the results to the console.
+Use the Image Analysis client SDK for Python to analyze a remote image to read text and generate an image caption. This quickstart uses the client object to analyze a remote image and print the results to the console.
 
 [Reference documentation](/python/api/azure-ai-vision) | [Package (PyPi)](https://pypi.org/project/azure-ai-vision/) | [Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk)
 
@@ -59,9 +58,9 @@ Use the Image Analysis client SDK for Python to analyze a remote image to read t
     python quickstart.py
     ```
 
-
-
 ## Output
+
+The console output should show something similar to the following text:
 
 ```console
 Caption:

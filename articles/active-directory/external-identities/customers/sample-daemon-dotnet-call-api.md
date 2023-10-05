@@ -1,6 +1,6 @@
 ---
 title: Call an API in a sample .NET daemon application
-description: Learn how to configure a sample .NET daemon application that calls an API protected with Azure Active Directory (Azure AD) for customers
+description: Learn how to configure a sample .NET daemon application that calls an API protected with Microsoft Entra ID for customers
 services: active-directory
 author: SHERMANOUKO
 manager: mwongerapk
@@ -11,14 +11,14 @@ ms.subservice: ciam
 ms.custom: devx-track-dotnet
 ms.topic: sample
 ms.date: 07/13/2023
-#Customer intent: As a dev, devops, I want to configure a sample .NET daemon application that calls an API protected by Azure Active Directory (Azure AD) for customers tenant
+#Customer intent: As a dev, devops, I want to configure a sample .NET daemon application that calls an API protected by Microsoft Entra ID for customers tenant
 ---
 
 # Call an API in a sample .NET daemon application 
 
-This article uses a sample .NET daemon application to show you how a daemon application acquires a token to call a protected web API. Azure Active Directory (Azure AD) for customers protects the Web API. 
+This article uses a sample .NET daemon application to show you how a daemon application acquires a token to call a protected web API. Microsoft Entra ID for customers protects the Web API. 
 
-A daemon application acquires a token on behalf of itself (not on behalf of a user). Users can't interact with a daemon application because it requires its own identity. This type of application requests an access token by using its application identity and presenting its application ID, credential (password or certificate), and application ID URI to Azure AD. 
+A daemon application acquires a token on behalf of itself (not on behalf of a user). Users can't interact with a daemon application because it requires its own identity. This type of application requests an access token by using its application identity and presenting its application ID, credential (password or certificate), and application ID URI to External ID. 
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ A daemon application acquires a token on behalf of itself (not on behalf of a us
 
 - [Visual Studio Code](https://code.visualstudio.com/download) or another code editor.
 
-- Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl)</a>.
+- Microsoft Entra ID for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl)</a>.
 
 ## Register a daemon application and a web API
 

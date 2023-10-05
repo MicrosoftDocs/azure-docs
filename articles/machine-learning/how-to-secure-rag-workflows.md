@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to secure your RAG workflows with managed network and custom virtual network scenarios.
 services: machine-learning
 ms.author: namohan
-author: namohan
+author: nanditamohan
 ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: core
@@ -75,4 +75,4 @@ If you're using an **Allow only approved outbound** Managed Vnet workspace and a
 
 ## Next Steps
 
-- Secure your Prompt Flow
+- [Secure your Prompt Flow](./prompt-flow/how-to-secure-prompt-flow.md)

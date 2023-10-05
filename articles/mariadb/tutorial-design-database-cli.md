@@ -12,6 +12,8 @@ ms.custom: mvc, devx-track-azurecli
 
 # Tutorial: Design an Azure Database for MariaDB using Azure CLI
 
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
+
 Azure Database for MariaDB is a relational database service in the Microsoft cloud based on MariaDB Community Edition database engine. In this tutorial, you use Azure CLI (command-line interface) and other utilities to learn how to:
 
 > [!div class="checklist"]

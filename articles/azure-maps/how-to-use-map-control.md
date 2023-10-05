@@ -2,8 +2,8 @@
 title: How to use the Azure Maps web map control
 titleSuffix: Microsoft Azure Maps
 description: Learn how to add and localize maps to web and mobile applications by using the Map Control client-side JavaScript library in Azure Maps. 
-author: dubiety
-ms.author: yuchungchen
+author: sinnypan
+ms.author: sipa
 ms.date: 06/29/2023
 ms.topic: how-to
 ms.service: azure-maps

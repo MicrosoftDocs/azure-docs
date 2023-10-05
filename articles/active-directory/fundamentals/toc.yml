@@ -4,9 +4,9 @@ items:
 - name: Overview
   expanded: true
   items:
-  - name: What is Azure Active Directory?
+  - name: What is Microsoft Entra ID?
     href: whatis.md
-  - name: New name for Azure AD
+  - name: New name for Microsoft Entra ID
     href: new-name.md
   - name: Identity fundamentals
     href: identity-fundamental-concepts.md
@@ -25,6 +25,8 @@ items:
     href: properties-area.md
   - name: Add company branding
     href: how-to-customize-branding.md
+  - name: Rename Microsoft Entra ID
+    href: how-to-rename-azure-ad.md
 - name: Users, groups, and licenses
   expanded: false
   items:
@@ -32,7 +34,7 @@ items:
     href: how-to-create-delete-users.md
   - name: Apply licenses to users
     href: license-users-groups.md
-  - name: Manage users
+  - name: Users
     expanded: false
     items: 
     - name: Assign roles to users
@@ -47,7 +49,7 @@ items:
       href: users-restore.md
     - name: Set default user permissions
       href: users-default-permissions.md
-  - name: Manage groups
+  - name: Groups
     expanded: false
     items:
     - name: Learn about groups
@@ -56,12 +58,14 @@ items:
       href: ./groups-view-azure-portal.md
     - name: Manage groups
       href: how-to-manage-groups.md
-  - name: Manage licenses
+  - name: Licenses
     expanded: false
     items: 
     - name: Group-based licensing
       href: licensing-whatis-azure-portal.md
-    - name: Sign up for Azure AD Premium
+    - name: Entra preview program terms
+      href: licensing-preview-terms.md
+    - name: Sign up for Microsoft Entra ID P1 or P2
       href: get-started-premium.md 
 - name: Quick security wins
   expanded: false
@@ -72,7 +76,7 @@ items:
     href: identity-secure-score.md
   - name: Improve your security posture
     href: concept-secure-remote-workers.md
-  - name: Integrating all your apps with Azure AD
+  - name: Integrating all your apps with Microsoft Entra ID
     href: five-steps-to-full-application-integration.md
   - name: Security defaults
     href: security-defaults.md
@@ -83,7 +87,7 @@ items:
   items:
   - name: Find your tenant ID
     href: how-to-find-tenant.md
-  - name: Get support for Azure AD
+  - name: Get support for Microsoft Entra ID
     href: how-to-get-support.md
   - name: Support access requests
     expanded: false
@@ -102,15 +106,15 @@ items:
   - name: What's new?
     expanded: false
     items:
-    - name: What's new in Azure Active Directory
+    - name: What's new in Microsoft Entra ID
       href: whats-new.md
-    - name: What's deprecated in Azure Active Directory?
+    - name: What's deprecated in Microsoft Entra ID?
       href: what-is-deprecated.md
     - name: What's new in sovereign clouds?
       href: whats-new-sovereign-clouds.md  
-    - name: Archive for What's new? in Azure AD
+    - name: Archive for What's new? in Microsoft Entra ID
       href: whats-new-archive.md
-    - name: Archive for What's new in sovereign clouds? in Azure AD
+    - name: Archive for What's new in sovereign clouds? in Microsoft Entra ID
       href: whats-new-sovereign-clouds-archive.md  
   - name: Frequently asked questions
     href: faq.yml
@@ -119,7 +123,7 @@ items:
   - name: Compliance
     expanded: false
     items:
-    - name: Azure AD and data residency
+    - name: Microsoft Entra ID and data residency
       href: data-residency.md
     - name: Data operational considerations
       href: data-operational-considerations.md
@@ -133,7 +137,7 @@ items:
       href: data-storage-australia-newzealand.md
     - name: Identity data storage for Japan
       href: data-storage-japan.md
-  - name: Compare Azure AD with AD DS
+  - name: Compare Microsoft Entra ID with AD DS
     href: compare.md
   - name: Custom security attributes
     expanded: false
