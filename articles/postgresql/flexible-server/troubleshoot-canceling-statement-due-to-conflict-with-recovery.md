@@ -31,3 +31,23 @@ In the provided screenshot, on the left is the primary Azure Database for Postgr
   * Here lies the crux of the issue: the `VACUUM` operation, unaware of the ongoing `SELECT` statement on the read replica, removes rows that the read replica still needs. This leads to what's known as a replication conflict.
 
 The aftermath of this scenario is that the read replica experiences a replication conflict due to the rows removed by the `VACUUM` operation. By default, the read replica attempts to resolve this conflict for a duration of 30 seconds, since the default value of `max_standby_streaming_delay` is set to 30 seconds. After this duration, if the conflict remains unresolved, the query on the read replica is canceled.
+
+## Cause
+The root cause of this issue is that the read replica in PostgreSQL is a continuously recovering system. This means that while the replica is catching up with the primary, it is essentially in a state of constant recovery.
+If a query on a read replica tries to read a row that is simultaneously being updated by the recovery process (because the primary has made a change), PostgreSQL might cancel the query to allow the recovery to proceed without interruption.
+
+## Resolution
+1. **Adjust `max_standby_streaming_delay`**:  Increase the `max_standby_streaming_delay` parameter on the read replica. This allows the replica more time to resolve conflicts before deciding to cancel a query. However, this might also increase replication lag, so it's a trade-off.
+2. **Monitor and Optimize Queries**: Review the types and frequencies of queries run against the read replica. Long-running or complex queries might be more susceptible to conflicts. Optimizing or scheduling them differently can help.
+3. **Enable `hot_standby_feedback`**: Consider setting `hot_standby_feedback` to `on` on the read replica. When enabled, it informs the primary server about the queries currently being executed by the standby. This prevents the primary from removing rows that are still needed by the standby, reducing the likelihood of a replication conflict.
+
+  **Caveats:**
+  * This setting can prevent some necessary cleanup operations on the primary, potentially leading to table bloat (increased disk space usage due to unvacuumed old row versions).
+  * Regular monitoring of the primary's disk space and table sizes is essential.
+  * Be prepared to manage potential table bloat manually if it becomes problematic.
+4. **Off-Peak Query Execution**: Consider running heavy or long-running queries during off-peak hours to reduce the chances of a conflict.
+
+
+Monitor and Optimize Queries: Review the types and frequencies of queries run against the read replica. Long-running or complex queries might be more susceptible to conflicts. Optimizing or scheduling them differently can help.
+
+
