@@ -47,11 +47,11 @@ The migration tool comes with a simple, wizard-based experience on the Azure por
 
 3. In the **Overview** tab of the Flexible Server, on the left menu, scroll down to **Migration** and select it.
 
-    :::image type="content" source="./media/concepts-single-to-flexible/fspg-overview.png" alt-text="Screenshot of the FSPG Overview page." lightbox="./media/concepts-single-to-flexible/fspg-overview.png":::
+    :::image type="content" source="./media/concepts-single-to-flexible/flexible-overview.png" alt-text="Screenshot of the flexible Overview page." lightbox="./media/concepts-single-to-flexible/flexible-overview.png":::
 
 4. Select the **Migrate from Single Server** button to start a migration from Single Server to Flexible Server. If this is the first time you're using the migration tool, an empty grid appears with a prompt to begin your first migration.
 
-    :::image type="content" source="./media/concepts-single-to-flexible/fspg-migration-grid.png" alt-text="Screenshot of the Migration tab in FSPG." lightbox="./media/concepts-single-to-flexible/fspg-migration-grid.png":::
+    :::image type="content" source="./media/concepts-single-to-flexible/flexible-migration-grid.png" alt-text="Screenshot of the Migration tab in flexible." lightbox="./media/concepts-single-to-flexible/flexible-migration-grid.png":::
 
     If you've already created migrations to your Flexible Server target, the grid contains information about migrations that were attempted to this target from the Single Server(s).
 
@@ -63,15 +63,15 @@ Alternatively, you can initiate the migration process from the Azure Database fo
 
 2. Upon selecting the Single Server, you can observe a migration-related banner in the Overview tab. Select **Migrate now** to get started.
 
-    :::image type="content" source="./media/concepts-single-to-flexible/sspg-banner.png" alt-text="Screenshot to initiate migration from Single Server tab." lightbox="./media/concepts-single-to-flexible/sspg-banner.png":::
+    :::image type="content" source="./media/concepts-single-to-flexible/single-banner.png" alt-text="Screenshot to initiate migration from Single Server tab." lightbox="./media/concepts-single-to-flexible/single-banner.png":::
 
 3. You're taken to a page with two options. If you've already created a Flexible Server and want to use that as the target, choose **Select existing**, and select the corresponding Subscription, Resource group and Server name details. Once the selections are made, select **Go to Migration wizard** and skip to the instructions under the **Setup tab** section in this page.
 
-    :::image type="content" source="./media/concepts-single-to-flexible/sspg-click-banner.png" alt-text="Screenshot to choose existing flexible server option." lightbox="./media/concepts-single-to-flexible/sspg-click-banner.png":::
+    :::image type="content" source="./media/concepts-single-to-flexible/single-click-banner.png" alt-text="Screenshot to choose existing flexible server option." lightbox="./media/concepts-single-to-flexible/single-click-banner.png":::
 
 4. Should you choose to Create a new Flexible Server, select **Create new** and select **Go to Create Wizard**. This action takes you through the Flexible Server creation process and deploys the Flexible Server.
 
-    :::image type="content" source="./media/concepts-single-to-flexible/sspg-banner-create-new.png" alt-text="Screenshot to choose new flexible server option." lightbox="./media/concepts-single-to-flexible/sspg-banner-create-new.png":::
+    :::image type="content" source="./media/concepts-single-to-flexible/single-banner-create-new.png" alt-text="Screenshot to choose new flexible server option." lightbox="./media/concepts-single-to-flexible/single-banner-create-new.png":::
 
 After deploying the Flexible Server, follow the steps 3 to 5 under [Configure the migration task](#configure-the-migration-task)
 
@@ -82,7 +82,7 @@ The first tab is **Setup**. Just in case you missed it, allowlist necessary exte
 >[!NOTE]
 > If TIMESCALEDB, POSTGIS_TOPOLOGY, POSTGIS_TIGER_GEOCODER, POSTGRES_FDW or PG_PARTMAN extensions are used in your single server database, please raise a support request since the Single to Flex migration tool will not handle these extensions.
 
-:::image type="content" source="./media/concepts-single-to-flexible/fspg-migration-setup.png" alt-text="Screenshot of the details belonging to Set up tab." lightbox="./media/concepts-single-to-flexible/fspg-migration-setup.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/flexible-migration-setup.png" alt-text="Screenshot of the details belonging to Set up tab." lightbox="./media/concepts-single-to-flexible/flexible-migration-setup.png":::
 
 **Migration name** is the unique identifier for each migration to this Flexible Server target. This field accepts only alphanumeric characters and doesn't accept any special characters except a hyphen (-). The name can't start with a hyphen and should be unique for a target server. No two migrations to the same Flexible Server target can have the same name.
 
@@ -94,7 +94,7 @@ Select the **Next** button.
 
 The **Source** tab prompts you to give details related to the Single Server that is the source of the databases.
 
-:::image type="content" source="./media/concepts-single-to-flexible/fspg-migration-source.png" alt-text="Screenshot of source database server details." lightbox="./media/concepts-single-to-flexible/fspg-migration-source.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/flexible-migration-source.png" alt-text="Screenshot of source database server details." lightbox="./media/concepts-single-to-flexible/flexible-migration-source.png":::
 
 After you make the **Subscription** and  **Resource Group** selections, the dropdown list for server names shows Single Servers under that resource group across regions. Select the source that you want to migrate databases from. Note that you can migrate databases from a Single Server to a target Flexible Server in the same region - cross region migrations are supported only in China regions.
 
@@ -106,7 +106,7 @@ After filling out all the fields, select the **Next** button.
 
 The **Target** tab displays metadata for the Flexible Server target, like subscription name, resource group, server name, location, and PostgreSQL version. 
 
-:::image type="content" source="./media/concepts-single-to-flexible/fspg-migration-target.png" alt-text="Screenshot of target database server details." lightbox="./media/concepts-single-to-flexible/fspg-migration-target.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/flexible-migration-target.png" alt-text="Screenshot of target database server details." lightbox="./media/concepts-single-to-flexible/flexible-migration-target.png":::
 
 For **Server admin login name**, the tab displays the admin username used during the creation of the Flexible Server target. Enter the corresponding password for the admin user.
 
@@ -119,7 +119,7 @@ Select the **Next** button.
 
 Under this tab, there is a list of user databases inside the Single Server. You can select and migrate up to eight databases in a single migration attempt. If there are more than eight user databases, the migration process is repeated between the source and target servers for the next set of databases.
 
-:::image type="content" source="./media/concepts-single-to-flexible/fspg-migration-database.png" alt-text="Screenshot of Databases to migrate." lightbox="./media/concepts-single-to-flexible/fspg-migration-database.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/flexible-migration-database.png" alt-text="Screenshot of Databases to migrate." lightbox="./media/concepts-single-to-flexible/flexible-migration-database.png":::
 
 ### Review + create tab
 
@@ -128,20 +128,20 @@ Under this tab, there is a list of user databases inside the Single Server. You 
 
 The **Review + create** tab summarizes all the details for creating the migration. Review the details and select the **Create** button to start the migration.
 
-:::image type="content" source="./media/concepts-single-to-flexible/fspg-migration-review.png" alt-text="Screenshot of details to review for the migration." lightbox="./media/concepts-single-to-flexible/fspg-migration-review.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/flexible-migration-review.png" alt-text="Screenshot of details to review for the migration." lightbox="./media/concepts-single-to-flexible/flexible-migration-review.png":::
 
 ## Monitor the migration
 
 After you select the **Create** button, a notification appears in a few seconds to say that the migration creation is successful. You are redirected automatically to the **Migration** page of Flexible Server. That page has a new entry for the recently created migration.
 
-:::image type="content" source="./media/concepts-single-to-flexible/fspg-migration-monitor.png" alt-text="Screenshot of recently created migration details." lightbox="./media/concepts-single-to-flexible/fspg-migration-monitor.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/flexible-migration-monitor.png" alt-text="Screenshot of recently created migration details." lightbox="./media/concepts-single-to-flexible/flexible-migration-monitor.png":::
 
 The grid that displays the migrations has these columns: **Name**, **Status**,  **Source DB server**, **Resource group**, **Region**, **Databases**, and **Start time**. The migrations are in the descending order of migration start time with the most recent migration on top.
 
 You can use the refresh button to refresh the status of the migrations.
 You can also select the migration name in the grid to see the details of that migration.
 
-:::image type="content" source="./media/concepts-single-to-flexible/fspg-migration-progress.png" alt-text="Screenshot of the migration in detail." lightbox="./media/concepts-single-to-flexible/fspg-migration-progress.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/flexible-migration-progress.png" alt-text="Screenshot of the migration in detail." lightbox="./media/concepts-single-to-flexible/flexible-migration-progress.png":::
 
 As soon as the migration is created, the migration moves to the **InProgress** state and **PerformingPreRequisiteSteps** substate. It takes 2-3 minutes for the migration workflow to set up the migration infrastructure and network connections.
 
@@ -149,19 +149,19 @@ After the **PerformingPreRequisiteSteps** substate is completed, the migration m
 
 When you select any of the databases in migration, a fan-out pane appears. It has all the table count - copied, queued, copying and errors apart from the database migration status.
 
-:::image type="content" source="./media/concepts-single-to-flexible/fspg-migration-progress-dbclick.png" alt-text="Screenshot of the migration grid containing all DB details." lightbox="./media/concepts-single-to-flexible/fspg-migration-progress-dbclick.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/flexible-migration-progress-dbclick.png" alt-text="Screenshot of the migration grid containing all DB details." lightbox="./media/concepts-single-to-flexible/flexible-migration-progress-dbclick.png":::
 
 The migration moves to the **Succeeded** state as soon as the **Migrating Data** state finishes successfully. If there's an issue at the **Migrating Data** state, the migration moves into a **Failed** state.
 
-:::image type="content" source="./media/concepts-single-to-flexible/fspg-migration-progress-dbsuccess.png" alt-text="Screenshot of the migration result." lightbox="./media/concepts-single-to-flexible/fspg-migration-progress-dbsuccess.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/flexible-migration-progress-dbsuccess.png" alt-text="Screenshot of the migration result." lightbox="./media/concepts-single-to-flexible/flexible-migration-progress-dbsuccess.png":::
 
 Once the migration moves to the **Succeeded** state, migration of schema and data from your Single Server to your Flexible Server target is complete. You can use the refresh button on the page to confirm the same.
 
-:::image type="content" source="./media/concepts-single-to-flexible/fspg-migration-progress-complete.png" alt-text="Screenshot of the completed migrations." lightbox="./media/concepts-single-to-flexible/fspg-migration-progress-complete.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/flexible-migration-progress-complete.png" alt-text="Screenshot of the completed migrations." lightbox="./media/concepts-single-to-flexible/flexible-migration-progress-complete.png":::
 
 The Migration grid gives a top-level view of the completed migration.
 
-:::image type="content" source="./media/concepts-single-to-flexible/fspg-migration-grid-complete.png" alt-text="Screenshot of the completed grid." lightbox="./media/concepts-single-to-flexible/fspg-migration-grid-complete.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/flexible-migration-grid-complete.png" alt-text="Screenshot of the completed grid." lightbox="./media/concepts-single-to-flexible/flexible-migration-grid-complete.png":::
 
 After the migration has moved to the **Succeeded** state, follow the post-migration steps in [Migrate from Azure Database for PostgreSQL Single Server to Flexible Server](./concepts-single-to-flexible.md#post-migration).
 
