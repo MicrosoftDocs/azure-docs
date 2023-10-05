@@ -25,7 +25,7 @@ Here are the steps how you can use data from Flink in Azure Databricks delta liv
 
 ### Step 1: Create Kafka table on Flink SQL
 
-In this step, you can create Kafka table and ADLS Gen2 on Flink SQL.
+In this step, you can create Kafka table and ADLS Gen2 on Flink SQL. For the purpose of this document, we are using a airplanes_state_real_time table, you can use any topic of your choice.
 
 ```SQL
 CREATE TABLE kafka_airplanes_state_real_time (
