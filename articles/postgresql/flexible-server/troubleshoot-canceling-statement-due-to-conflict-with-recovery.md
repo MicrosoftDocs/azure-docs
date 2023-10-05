@@ -23,7 +23,7 @@ In the provided screenshot, on the left is the primary Azure Database for Postgr
 :::image type="content" source="./media/troubleshoot-canceling-statement-due-to-conflict-with-recovery/canceling-statement-due-to-conflict-with-recovery.png" alt-text="Screenshot showing triggering of Canceling statement due to conflict with recovery error":::
 
 * **Read replica console (right side of the screenshot above)**
-  *   We can observe a lengthy `SELECT` statement in progress. A vital aspect to note about SQL is its consistent view of the data. When an SQL statement is executed, it essentially "freezes" its view of the data. Throughout its execution, the SQL statement always see a consistent snapshot of the data, even if changes are occurring concurrently elsewhere.
+  *   We can observe a lengthy `SELECT` statement in progress. A vital aspect to note about SQL is its consistent view of the data. When an SQL statement is executed, it essentially "freezes" its view of the data. Throughout its execution, the SQL statement always sees a consistent snapshot of the data, even if changes are occurring concurrently elsewhere.
 * **Primary console (left side of the screenshot above)**
   * An `UPDATE` operation has been executed. While an `UPDATE` by itself doesn't necessarily disrupt the behavior of the read replica, the subsequent operation does. After the update, a `VACUUM` operation (in this case, manually triggered for demonstration purposes, but it's noteworthy that an autovacuum process could also be initiated automatically) is executed.
   * The `VACUUM`'s role is to reclaim space by removing old versions of rows. Given that the read replica is running a lengthy `SELECT` statement, it's currently accessing some of these rows that `VACUUM` targets for removal.
@@ -33,14 +33,14 @@ In the provided screenshot, on the left is the primary Azure Database for Postgr
 The aftermath of this scenario is that the read replica experiences a replication conflict due to the rows removed by the `VACUUM` operation. By default, the read replica attempts to resolve this conflict for a duration of 30 seconds, since the default value of `max_standby_streaming_delay` is set to 30 seconds. After this duration, if the conflict remains unresolved, the query on the read replica is canceled.
 
 ## Cause
-The root cause of this issue is that the read replica in PostgreSQL is a continuously recovering system. This means that while the replica is catching up with the primary, it is essentially in a state of constant recovery.
+The root cause of this issue is that the read replica in PostgreSQL is a continuously recovering system. This situation means that while the replica is catching up with the primary, it's essentially in a state of constant recovery.
 If a query on a read replica tries to read a row that is simultaneously being updated by the recovery process (because the primary has made a change), PostgreSQL might cancel the query to allow the recovery to proceed without interruption.
 
 ## Resolution
-1. **Adjust `max_standby_streaming_delay`**:  Increase the `max_standby_streaming_delay` parameter on the read replica. This allows the replica more time to resolve conflicts before deciding to cancel a query. However, this might also increase replication lag, so it's a trade-off. This parameter is dynamic, meaning changes take effect without requiring a server restart.
+1. **Adjust `max_standby_streaming_delay`**:  Increase the `max_standby_streaming_delay` parameter on the read replica. Increasing the value of the setting allows the replica more time to resolve conflicts before it decides to cancel a query. However, this might also increase replication lag, so it's a trade-off. This parameter is dynamic, meaning changes take effect without requiring a server restart.
 2. **Monitor and Optimize Queries**: Review the types and frequencies of queries run against the read replica. Long-running or complex queries might be more susceptible to conflicts. Optimizing or scheduling them differently can help.
 3. **Off-Peak Query Execution**: Consider running heavy or long-running queries during off-peak hours to reduce the chances of a conflict.
-4. **Enable `hot_standby_feedback`**: Consider setting `hot_standby_feedback` to `on` on the read replica. When enabled, it informs the primary server about the queries currently being executed by the standby. This prevents the primary from removing rows that are still needed by the standby, reducing the likelihood of a replication conflict. This parameter is dynamic, meaning changes take effect without requiring a server restart.
+4. **Enable `hot_standby_feedback`**: Consider setting `hot_standby_feedback` to `on` on the read replica. When enabled, it informs the primary server about the queries currently being executed by the replica. This prevents the primary from removing rows that are still needed by the replica, reducing the likelihood of a replication conflict. This parameter is dynamic, meaning changes take effect without requiring a server restart.
 
   **Caveats:**
   * This setting can prevent some necessary cleanup operations on the primary, potentially leading to table bloat (increased disk space usage due to unvacuumed old row versions).
