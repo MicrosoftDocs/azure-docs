@@ -72,10 +72,22 @@ Tenant admins can use the following steps to update certificate user IDs for a u
 
 Authorized callers can run Microsoft Graph queries to find all the users with a given certificateUserId value. On the Microsoft Graph [user](/graph/api/resources/user) object, the collection of certificateUserIds is stored in the **authorizationInfo** property.
 
-To retrieve all user objects that have the value 'bob@contoso.com' in certificateUserIds:
+To retrieve certificateUserIds of all user objects:
 
 ```msgraph-interactive
-GET https://graph.microsoft.com/v1.0/users?$filter=authorizationInfo/certificateUserIds/any(x:x eq 'bob@contoso.com')&$count=true
+GET https://graph.microsoft.com/v1.0/users?$select=authorizationinfo
+ConsistencyLevel: eventual
+```
+To retrieve certificateUserIds for a given user by user's ObjectId:
+
+```msgraph-interactive
+GET https://graph.microsoft.com/v1.0/users/{user-object-id}?$select=authorizationinfo
+ConsistencyLevel: eventual
+```
+To retrieve the user object with a specific value in certificateUserIds:
+
+```msgraph-interactive
+GET https://graph.microsoft.com/v1.0/users?$select=authorizationinfo&$filter=authorizationInfo/certificateUserIds/any(x:x eq 'x509:<PN>user@contoso.com')&$count=true
 ConsistencyLevel: eventual
 ```
 
@@ -88,7 +100,7 @@ Run a PATCH request to update the certificateUserIds for a given user.
 #### Request body:
 
 ```http
-PATCH https://graph.microsoft.com/v1.0/users/{id}
+PATCH https://graph.microsoft.com/v1.0/users/{user-object-id}
 Content-Type: application/json
 {
     "authorizationInfo": {
