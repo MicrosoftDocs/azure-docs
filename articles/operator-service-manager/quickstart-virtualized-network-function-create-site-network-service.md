@@ -100,4 +100,4 @@ Wait for the deployment to reach the 'Succeeded' state. After completion, your V
 1. To access your Virtual Network Function (VNF), go to the Site Network Service object in the Azure portal.
 1. Select the link under **Current State -> Resources**. The link takes you to the managed resource group created by Azure Operator Service Manager.
 
-Congratulations! You have successfully created a Site Network Service for Ubuntu VM as a Virtual Network Function (VNF) in Azure. You can now manage and monitor your Virtual Network Function (VNF) through the Azure portal.
+Congratulations! You have successfully created a Site Network Service for Ubuntu Virtual Machine (VM) as a Virtual Network Function (VNF) in Azure. You can now manage and monitor your Virtual Network Function (VNF) through the Azure portal.
