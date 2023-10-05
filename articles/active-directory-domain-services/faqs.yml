@@ -11,7 +11,7 @@ metadata:
   ms.subservice: domain-services
   ms.workload: identity
   ms.topic: faq
-  ms.date: 09/23/2023
+  ms.date: 10/05/2023
   ms.author: justinha
 title: Frequently asked questions (FAQs) about Microsoft Entra Domain Services
 summary: This page answers frequently asked questions about Microsoft Entra Domain Services.
@@ -159,7 +159,10 @@ sections:
           How are Windows Updates applied in Microsoft Entra Domain Services?
         answer: |
           Domain controllers in a managed domain automatically apply required Windows updates. There's nothing for you to configure or administer here. Make sure you don't create network security group rules that block outbound traffic to Windows Updates. For your own VMs joined to the managed domain, you are responsible for configuring and applying any required OS and application updates.
-          
+      - question: |
+         How is patching performed on domain controllers that are part of a managed domain?
+        answer: |
+         Patches are installed as soon as they become available (every second Tuesday). They are installed in phases during the week they become available, starting on Tuesdays.          
       - question: |
           Why do my domain controllers change names?
         answer: |
