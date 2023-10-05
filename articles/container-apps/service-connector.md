@@ -6,7 +6,7 @@ ms.author: malev
 ms.service: container-apps
 ms.topic: how-to
 ms.date: 06/16/2022
-ms.custom: service-connector
+ms.custom: service-connector, devx-track-azurecli
 # Customer intent: As an app developer, I want to connect a containerized app to a storage account in the Azure portal using Service Connector.
 ---
 

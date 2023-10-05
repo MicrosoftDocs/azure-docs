@@ -19,7 +19,7 @@ The following steps walk you through the process of creating [standard tests](av
 
 > [!IMPORTANT]
 > 
-> On 30 September 2026, the **[URL ping tests](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability)** will be retired, and ping tests. Before that date, you'll need to transition to **[standard tests](/editor/availability-standard-tests.md)**.
+> On September 30th, 2026, **[URL ping tests](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability) retire**. Transition to **[standard tests](/editor/availability-standard-tests.md)** before then.
 > 
 > - A cost is associated with running **[standard tests](/editor/availability-standard-tests.md)**. Once you create a **[standard test](/editor/availability-standard-tests.md)**, you will be charged for test executions.
 > - Refer to **[Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/#pricing)** before starting this process.
@@ -92,7 +92,7 @@ The following steps walk you through the process of creating [standard tests](av
 
 #### When should I use these commands?
 
-We recommend using these commands to migrate a URL ping test to a standard test and take advantage of the available capabilities. Remember, this migration is optional.
+Migrate URL ping tests to standard tests now to take advantage of new capabilities.
 
 #### Do these steps work for both HTTP and HTTPS endpoints?
 

@@ -1,7 +1,7 @@
 ---
 title: Delete an Azure Arc-enabled SQL Managed Instance
 description: Learn how to delete an Azure Arc-enabled SQL Managed Instance and optionally, reclaim associated Kubernetes persistent volume claims (PVCs).
-ms.custom: kr2b-contr-experiment
+ms.custom: kr2b-contr-experiment, devx-track-azurecli
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-sqlmi
