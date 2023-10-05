@@ -204,7 +204,31 @@ The following example shows how to configure the Java agent to use a service pri
 
 :::image type="content" source="media/azure-ad-authentication/client-secret-cs.png" alt-text="Screenshot that shows the Client secrets section with the client secret." lightbox="media/azure-ad-authentication/client-secret-cs.png":::
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+#### Environment variable configuration
+
+The `APPLICATIONINSIGHTS_AUTHENTICATION_STRING` environment variable specifies the Azure AD authentication string for Azure Application Insights. It lets the Application Insights Java SDK authenticate to Azure AD and send telemetry.
+
+**Example connection string with Azure AD authentication:**
+
+```plaintext
+InstrumentationKey=00000000-0000-0000-0000-000000000000;AuthenticationType=AzureAD;
+```
+
+Set the `APPLICATIONINSIGHTS_AUTHENTICATION_STRING` environment variable using this string.
+
+**In Unix/Linux:**
+
+```shell
+export APPLICATIONINSIGHTS_AUTHENTICATION_STRING="InstrumentationKey=00000000-0000-0000-0000-000000000000;AuthenticationType=AzureAD;"
+```
+
+**In Windows:**
+
+```shell
+set APPLICATIONINSIGHTS_AUTHENTICATION_STRING="InstrumentationKey=00000000-0000-0000-0000-000000000000;AuthenticationType=AzureAD;"
+```
+
+After setting it, restart your Java application. It now sends telemetry to Application Insights using Azure AD authentication.
 
 ### [Python](#tab/python)
 
