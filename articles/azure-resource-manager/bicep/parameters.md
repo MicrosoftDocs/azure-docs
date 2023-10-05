@@ -1,11 +1,9 @@
 ---
 title: Parameters in Bicep files
 description: Describes how to define parameters in a Bicep file.
-author: mumian
-ms.author: jgao
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 09/28/2022
+ms.date: 10/05/2023
 ---
 
 # Parameters in Bicep
@@ -194,6 +192,8 @@ You might use this decorator to track information about the parameter that doesn
 })
 param settings object
 ```
+
+When you provides a `@metadata()` decorator with a property that conflicts with another decorator. That decorator always take precedence over anything in the `@metadata()` decorator. Consequently, the conflicting property within the @metadata() value is redundant and will be replaced. For more information, see [No conflicting metadata](./linter-rule-no-conflicting-metadata.md).
 
 ## Use parameter
 
