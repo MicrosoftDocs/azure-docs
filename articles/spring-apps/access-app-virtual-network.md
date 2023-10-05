@@ -70,7 +70,7 @@ Use the following steps to create a private DNS zone for an application in the p
 
 ### [Azure portal](#tab/azure-portal)
 
-1. Open the Azure portal. Using the seach box, search for *Private DNS zones*. Select **Private DNS zones** from the search results.
+1. Open the Azure portal. Using the search box, search for *Private DNS zones*. Select **Private DNS zones** from the search results.
 
 1. On the **Private DNS zones** page, select **Add**.
 
@@ -121,7 +121,7 @@ To link the private DNS zone to the virtual network, you need to create a virtua
 
 1. Enter *azure-spring-apps-dns-link* for the **Link name**.
 
-1. For **Virtual network**, select the virtual network you created. For more information, see [Deploy Azure Spring Apps in your Azure virtual network (VNet injection)](./how-to-deploy-in-azure-virtual-network.md).
+1. For **Virtual network**, select the virtual network you created. For more information, see [Deploy Azure Spring Apps in a virtual network](./how-to-deploy-in-azure-virtual-network.md).
 
    :::image type="content" source="media/spring-cloud-access-app-vnet/add-virtual-network-link.png" alt-text="Screenshot of the Azure portal that shows the Add virtual network link page." lightbox="media/spring-cloud-access-app-vnet/add-virtual-network-link.png":::    
 
