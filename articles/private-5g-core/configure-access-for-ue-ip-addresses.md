@@ -19,7 +19,10 @@ Before you begin, make sure you have the following:
 
 - Access to your Azure Private 5G Core via the Azure Portal.
 - Knowledge of your organization's network topology.
-- An AP5GC with network address port translation (NAPT) disabled.
+- An AP5GC with network address port translation (NAPT) disabled.  
+    > [!IMPORTANT]
+    > Using a deployment where NAPT is enabled will only work if the UE initiates the contact to the server and the server is capable of differentiating UE clients using a combination of IP address and port.  
+    > If the server tries to make the initial contact or tries to contact a UE after the pinhole has timed out, the connection will fail.
 - Access to any necessary network devices for configuration (e.g. routers, firewalls, switches, proxies).
 - Ability to capture packet traces at different points in your network.
 
@@ -51,16 +54,15 @@ You can see the IP addresses for devices by either
 
 1. Deploy AP5GC with NAPT disabled.
 1. Add rules to the enterprise firewall to allow HTTPS traffic from the corporate network to the smart camera IP address.
-1. Add routing configuration to the firewall.
-    - Forward traffic destined to the smart camera's IP address to the N6 IP address of the DN name assigned to the UE in the AP5GC deployment.
-1. Take packet captures on the N6 interface that traffic to the smart camera should be using.
-    - Check that the expected traffic is reaching the N6 interface of the AP5GC solution.
-1. Take packet captures on the N3 interface that traffic to the smart camera should be using.
-    - Check that the expected traffic is leaving the N3 interface of the AP5GC solution.
-1. Take packet captures on the N3 interface that traffic to the client device should be using.
-    - Check that the expected traffic is reaching the N3 interface of the AP5GC solution.
-1. Take packet captures on the N6 interface that traffic to the client device should be using.
-    - Check that the expected traffic is leaving the N6 interface of the AP5GC solution.
+1. Add routing configuration to the firewall. Forward traffic destined to the smart camera's IP address to the N6 IP address of the DN name assigned to the UE in the AP5GC deployment.
+1. Verify the intended traffic flows for the N3 and N6 interfaces.
+    1. Take packet captures on the N3 and N6 interface simultaneously.
+    1. Check traffic on the N3 interface.
+        1. Check the packet capture for expected traffic reaching the N3 interface from the UE.
+        1. Check the packet capture for expected traffic leaving the N3 interface towards the UE.
+    1. Check traffic on the N6 interface.
+        1. Check the packet capture for expected traffic reaching the N6 interface from the UE.
+        1. Check the packet capture for expected traffic leaving the N6 interface towards the UE.
 1. Take packet captures to check that the firewall is both receiving and sending traffic destined to the smart camera and to the client device.
 
 ## Result
