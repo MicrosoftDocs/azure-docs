@@ -80,7 +80,7 @@ We recommend that you use the `dotenv` module to manage your environment. With `
 
 ## Add Microsoft Playwright Testing configuration
 
-To run your Playwright tests in your Microsoft Playwright Testing workspace, you need to add a service configuration file alongside your Playwright configuration file. The service configuration file references the environment variables to get the workspace endpoint and your access token. In the next step, you pass this service configuration file to the Playwright CLI.
+To run your Playwright tests in your Microsoft Playwright Testing workspace, you need to add a service configuration file alongside your Playwright configuration file. The service configuration file references the environment variables to get the workspace endpoint and your access token.
 
 To add the service configuration to your project:
 
@@ -137,19 +137,21 @@ To add the service configuration to your project:
 
 ## Run your tests at scale with Microsoft Playwright Testing
 
-You've now prepared the configuration for running your Playwright tests in the cloud with Microsoft Playwright Testing. To run your Playwright tests, you use the Playwright CLI and specify the service configuration file and number of workers on the command-line.
+You've now prepared the configuration for running your Playwright tests in the cloud with Microsoft Playwright Testing. You can either use the Playwright CLI to run your tests, or use the [Playwright Test Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright).
 
 Perform the following steps to run your Playwright tests with Microsoft Playwright Testing.
 
 # [Playwright CLI](#tab/playwrightcli)
 
-Open a terminal window and enter the following command to run your Playwright tests on remote browsers in your workspace:
+When you use the Playwright CLI to run your tests, specify the service configuration file in the command-line to connect to use remote browsers.
 
-Depending on the size of your test suite, the tests run on up to 20 parallel workers.
+Open a terminal window and enter the following command to run your Playwright tests on remote browsers in your workspace:
 
 ```bash
 npx playwright test --config=playwright.service.config.ts --workers=20
 ```
+    
+Depending on the size of your test suite, this command runs your tests on up to 20 parallel workers.
 
 You should see a similar output when the tests complete:
 
@@ -164,11 +166,13 @@ To open last HTML report run:
 
 # [Visual Studio Code](#tab/vscode)
 
+To run your Playwrights tests in Visual Studio Code with Microsoft Playwright Testing:
+
 1. Install the [Playwright Test Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright).
 
 1. Open the **Test Explorer** view in the activity bar.
 
-    The test explorer automatically detects your Playwright tests.
+    The test explorer automatically detects your Playwright tests and the service configuration.
 
     :::image type="content" source="./media/quickstart-run-end-to-end-tests/visual-studio-code-test-explorer.png" alt-text="Screenshot that shows the Test Explorer view in Visual Studio Code, which lists the Playwright tests." lightbox="./media/quickstart-run-end-to-end-tests/visual-studio-code-test-explorer.png":::
 
