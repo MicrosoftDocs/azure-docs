@@ -31,10 +31,10 @@ Windows Server failover clustering is the foundation of a high-availability SAP 
 A failover cluster is a group of 1+n-independent servers (nodes) that work together to increase the availability of applications and services. If a node failure occurs, Windows Server failover clustering calculates the number of failures that can occur and still maintain a healthy cluster to provide applications and services. You can choose from different quorum modes to achieve failover clustering.
 
 ## Prerequisites
+
 Before you begin the tasks in this article, review the following article:
 
 * [Azure Virtual Machines high-availability architecture and scenarios for SAP NetWeaver][sap-high-availability-architecture-scenarios]
-
 
 ## Windows Server failover clustering in Azure
 
@@ -42,9 +42,9 @@ Windows Server failover clustering with Azure Virtual Machines requires addition
 
 ### Name resolution in Azure and the cluster virtual host name
 
-The Azure cloud platform doesn't offer the option to configure virtual IP addresses, such as floating IP addresses. You need an alternative solution to set up a virtual IP address to reach the cluster resource in the cloud. 
+The Azure cloud platform doesn't offer the option to configure virtual IP addresses, such as floating IP addresses. You need an alternative solution to set up a virtual IP address to reach the cluster resource in the cloud.
 
-The Azure Load Balancer service provides an *internal load balancer* for Azure. With the internal load balancer, clients reach the cluster over the cluster virtual IP address. 
+The Azure Load Balancer service provides an *internal load balancer* for Azure. With the internal load balancer, clients reach the cluster over the cluster virtual IP address.
 
 Deploy the internal load balancer in the resource group that contains the cluster nodes. Then, configure all necessary port forwarding rules by using the probe ports of the internal load balancer. Clients can connect via the virtual host name. The DNS server resolves the cluster IP address, and the internal load balancer handles port forwarding to the active node of the cluster.
 
@@ -56,21 +56,20 @@ Deploy the internal load balancer in the resource group that contains the cluste
 _Windows Server failover clustering configuration in Azure without a shared disk_
 
 ### SAP ASCS/SCS HA with cluster shared disks
+
 In Windows, an SAP ASCS/SCS instance contains SAP central services, the SAP message server, enqueue server processes, and SAP global host files. SAP global host files store central files for the entire SAP system.
 
 An SAP ASCS/SCS instance has the following components:
 
 * SAP central services:
-    * Two processes, a message and enqueue server, and an \<ASCS/SCS virtual host name>, which is used to access these two processes.
-    * File structure: S:\usr\sap\\&lt;SID&gt;\ASCS/SCS\<instance number\>
-
+  * Two processes, a message and enqueue server, and an \<ASCS/SCS virtual host name>, which is used to access these two processes.
+  * File structure: S:\usr\sap\\&lt;SID&gt;\ASCS/SCS\<instance number\>
 
 * SAP global host files:
   * File structure: S:\usr\sap\\&lt;SID&gt;\SYS\...
   * The sapmnt file share, which enables access to these global S:\usr\sap\\&lt;SID&gt;\SYS\... files by using the following UNC path:
 
     \\\\<ASCS/SCS virtual host name\>\sapmnt\\&lt;SID&gt;\SYS\...
-
 
 ![Figure 2: Processes, file structure, and global host sapmnt file share of an SAP ASCS/SCS instance][sap-ha-guide-figure-8001]
 
@@ -82,12 +81,13 @@ In a high-availability setting, you cluster SAP ASCS/SCS instances. We use *clus
 
 _SAP ASCS/SCS HA architecture with shared disk_
 
-
 With Enqueue server replication 1 architecture:
+
 * The same \<ASCS/SCS virtual host name> is used to access the SAP message and enqueue server processes, and the SAP global host files via the sapmnt file share.
 * The same cluster shared disk drive S is shared between them.  
 
-With Enqueue server replication 2 architecture: 
+With Enqueue server replication 2 architecture:
+
 * The same \<ASCS/SCS virtual host name> is used to access the SAP message server process, and the SAP global host files via the sapmnt file share.
 * The same cluster shared disk drive S is shared between them.
 * There is separate \<ERS virtual host name> to access the enqueue server process  
@@ -96,9 +96,9 @@ With Enqueue server replication 2 architecture:
 
 _SAP ASCS/SCS HA architecture with shared disk_
 
-#### Shared Disk and Enqueue Replication Server 
+#### Shared Disk and Enqueue Replication Server
 
-1. Shared disk is supported with Enqueue server replication 1 architecture, where Enqueue Replication Server (ERS) instance:   
+1. Shared disk is supported with Enqueue server replication 1 architecture, where Enqueue Replication Server (ERS) instance:
 
    - is not clustered
    - uses `localhost` name
@@ -121,7 +121,7 @@ _SAP ASCS/SCS HA architecture with shared disk_
 There are two options for shared disk in a windows failover cluster in Azure:
 
 - [Azure shared disks](../../virtual-machines/disks-shared.md) - feature, that allows to attach Azure managed disk to multiple VMs simultaneously. 
-- Using 3rd-party software [SIOS DataKeeper Cluster Edition](https://us.sios.com/products/sios-datakeeper/) to create a mirrored storage that simulates cluster shared storage. 
+- Using 3rd-party software [SIOS DataKeeper Cluster Edition](https://us.sios.com/products/sios-datakeeper/) to create a mirrored storage that simulates cluster shared storage.
 
 When selecting the technology for shared disk, keep in mind the following considerations:
 
@@ -131,10 +131,11 @@ When selecting the technology for shared disk, keep in mind the following consid
 - [Azure shared disk](../../virtual-machines/disks-shared.md) with [Premium SSD](../../virtual-machines/disks-types.md#premium-ssds) disks is supported for SAP deployment in availability set and availability zones.
 - [Azure Ultra disk](../../virtual-machines/disks-types.md#ultra-disks) and [Azure Standard disks](../../virtual-machines/disks-types.md#standard-ssds) is not supported as Azure shared disk for SAP workloads.
 - Make sure to provision Azure Premium disk with a minimum disk size as specified in [Premium SSD ranges](../../virtual-machines/disks-shared.md#disk-sizes) to be able to attach to the required number of VMs simultaneously (typically 2 for SAP ASCS Windows Failover cluster).
- 
+
 **SIOS**
+
 - The SIOS solution provides real-time synchronous data replication between two disks
-- With the SIOS solution you operate with two managed disks, and if using either Availability sets or Availability zones, the managed disks will land on different storage clusters. 
+- With the SIOS solution you operate with two managed disks, and if using either Availability sets or Availability zones, the managed disks will land on different storage clusters.
 - Deployment in Availability zones is supported
 - Requires installing and operating third-party software, which you will need to purchase additionally
 
@@ -146,15 +147,15 @@ Microsoft is offering [Azure shared disks](../../virtual-machines/disks-shared.m
 
 Currently you can use Azure Premium SSD disks as an Azure shared disk for the SAP ASCS/SCS instance. The following limitations are currently in place:
 
--  [Azure Ultra disk](../../virtual-machines/disks-types.md#ultra-disks) and [Standard SSD disks](../../virtual-machines/disks-types.md#standard-ssds) is not supported as Azure Shared Disk for SAP workloads.
--  [Azure Shared disk](../../virtual-machines/disks-shared.md) with [Premium SSD disks](../../virtual-machines/disks-types.md#premium-ssds) is supported for SAP deployment in availability set and availability zones.
--  Azure shared disk with Premium SSD disks comes with two storage SKUs.
-   - Locally redundant storage (LRS) for premium shared disk (skuName - Premium_LRS) is supported with deployment in Azure availability set.
-   - Zone-redundant storage (ZRS) for premium shared disk (skuName - Premium_ZRS) is supported with deployment in Azure availability zones.
--  Azure shared disk value [maxShares](../../virtual-machines/disks-shared-enable.md?tabs=azure-cli#disk-sizes) determines how many cluster nodes can use the shared disk. Typically for SAP ASCS/SCS instance you will configure two nodes in Windows Failover Cluster, therefore the value for `maxShares` must be set to two.
--  [Azure proximity placement group](../../virtual-machines/windows/proximity-placement-groups.md) is not required for Azure shared disk. But for SAP deployment with PPG, follow below guidelines:
-   -  If you are using PPG for SAP system deployed in a region then all virtual machines sharing a disk must be part of the same PPG.
-   -  If you are using PPG for SAP system deployed across zones like described in the document [Proximity placement groups with zonal deployments](proximity-placement-scenarios.md#proximity-placement-groups-with-zonal-deployments), you can attach Premium_ZRS storage to virtual machines sharing a disk.
+- [Azure Ultra disk](../../virtual-machines/disks-types.md#ultra-disks) and [Standard SSD disks](../../virtual-machines/disks-types.md#standard-ssds) is not supported as Azure Shared Disk for SAP workloads.
+- [Azure Shared disk](../../virtual-machines/disks-shared.md) with [Premium SSD disks](../../virtual-machines/disks-types.md#premium-ssds) is supported for SAP deployment in availability set and availability zones.
+- Azure shared disk with Premium SSD disks comes with two storage SKUs.
+  - Locally redundant storage (LRS) for premium shared disk (skuName - Premium_LRS) is supported with deployment in Azure availability set.
+  - Zone-redundant storage (ZRS) for premium shared disk (skuName - Premium_ZRS) is supported with deployment in Azure availability zones.
+- Azure shared disk value [maxShares](../../virtual-machines/disks-shared-enable.md?tabs=azure-cli#disk-sizes) determines how many cluster nodes can use the shared disk. Typically for SAP ASCS/SCS instance you will configure two nodes in Windows Failover Cluster, therefore the value for `maxShares` must be set to two.
+- [Azure proximity placement group](../../virtual-machines/windows/proximity-placement-groups.md) is not required for Azure shared disk. But for SAP deployment with PPG, follow below guidelines:
+  -  If you are using PPG for SAP system deployed in a region then all virtual machines sharing a disk must be part of the same PPG.
+  -  If you are using PPG for SAP system deployed across zones like described in the document [Proximity placement groups with zonal deployments](proximity-placement-scenarios.md#proximity-placement-groups-with-zonal-deployments), you can attach Premium_ZRS storage to virtual machines sharing a disk.
 
 For further details on limitations for Azure shared disk, please review carefully the [limitations](../../virtual-machines/disks-shared.md#limitations) section of Azure Shared Disk documentation.
 
@@ -179,9 +180,10 @@ Following are some of the important points to consider for Azure Premium shared 
 Windows Servers 2016, 2019 and higher are supported (use the latest data center images).
 
 We strongly recommend using at least **Windows Server 2019 Datacenter**, as:
+
 - Windows 2019 Failover Cluster Service is Azure aware
 - There is added integration and awareness of Azure Host Maintenance and improved experience by monitoring for Azure schedule events.
-- It is possible to use Distributed network name(it is the default option). Therefore, there is no need to have a dedicated IP address for the cluster network name. Also, there is no need to configure this IP address on Azure Internal Load Balancer. 
+- It is possible to use Distributed network name(it is the default option). Therefore, there is no need to have a dedicated IP address for the cluster network name. Also, there is no need to configure this IP address on Azure Internal Load Balancer.
 
 ### Shared disks in Azure with SIOS DataKeeper
 
@@ -241,7 +243,6 @@ While the resource consumption of the SAP ASCS/SCS is fairly small, a reduction 
 
 * [Install SAP NetWeaver HA on a Windows failover cluster and shared disk for an SAP ASCS/SCS instance][sap-high-availability-installation-wsfc-shared-disk]
 
-
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
 [2015553]:https://launchpad.support.sap.com/#/notes/2015553
@@ -289,8 +290,6 @@ While the resource consumption of the SAP ASCS/SCS is fairly small, a reduction 
 [sap-ha-guide-9]:#a06f0b49-8a7a-42bf-8b0d-c12026c5746b
 [sap-ha-guide-9.1]:#31c6bd4f-51df-4057-9fdf-3fcbc619c170
 [sap-ha-guide-9.1.1]:#a97ad604-9094-44fe-a364-f89cb39bf097
-
-
 
 [Logo_Linux]:media/virtual-machines-shared-sap-shared/Linux.png
 [Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
@@ -364,7 +363,6 @@ While the resource consumption of the SAP ASCS/SCS is fairly small, a reduction 
 
 [sap-ha-guide-figure-6003]:./media/virtual-machines-shared-sap-high-availability-guide/6003-sap-multi-sid-full-landscape.png
 
-
 [sap-ha-guide-figure-8001]:./media/virtual-machines-shared-sap-high-availability-guide/8001.png
 [sap-ha-guide-figure-8002]:./media/virtual-machines-shared-sap-high-availability-guide/8002.png
 [sap-ha-guide-figure-8003]:./media/virtual-machines-shared-sap-high-availability-guide/8003.png
@@ -390,7 +388,6 @@ While the resource consumption of the SAP ASCS/SCS is fairly small, a reduction 
 [sap-ha-guide-figure-8023]:./media/virtual-machines-shared-sap-high-availability-guide/8023.png
 [sap-ha-guide-figure-8024]:./media/virtual-machines-shared-sap-high-availability-guide/8024.png
 [sap-ha-guide-figure-8025]:./media/virtual-machines-shared-sap-high-availability-guide/8025.png
-
 
 [sap-templates-3-tier-multisid-xscs-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-xscs-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json

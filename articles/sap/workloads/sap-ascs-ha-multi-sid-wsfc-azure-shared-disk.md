@@ -1,6 +1,6 @@
 ---
 title: SAP ASCS/SCS multi-SID HA with WSFC and Azure shared disk | Microsoft Docs
-description:  Multi-SID high availability for an SAP ASCS/SCS instance with WSFC and Azure shared disk
+description: Learn about multi-SID high availability for an SAP ASCS/SCS instance with Windows Server Failover Clustering and an Azure shared disk.
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: rdeltcheva
@@ -18,88 +18,96 @@ ms.date: 12/16/2022
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017, devx-track-azurepowershell
 ---
-# SAP ASCS/SCS instance multi-SID high availability with Windows server failover clustering and Azure shared disk
+# SAP ASCS/SCS instance multi-SID high availability with Windows Server Failover Clustering and an Azure shared disk
 
 > ![Windows OS][Logo_Windows] Windows
 
-This article focuses on how to move from a single ASCS/SCS installation to an SAP multi-SID configuration by installing additional SAP ASCS/SCS clustered instances into an existing Windows Server Failover Clustering (WSFC) cluster with Azure shared disk. When this process is completed, you have configured an SAP multi-SID cluster.
+This article focuses on how to move from a single SAP ASCS/SCS installation to an SAP multi-SID configuration by installing additional SAP ASCS/SCS clustered instances into an existing Windows Server Failover Clustering (WSFC) cluster with an Azure shared disk. When you complete this process, you've configured an SAP multi-SID cluster.
 
 ## Prerequisites and limitations
 
-Currently you can use Azure Premium SSD disks as an Azure shared disk for the SAP ASCS/SCS instance. The following limitations are currently in place:
+You can use Azure Premium SSD disks as an Azure shared disk for the SAP ASCS/SCS instance. The following limitations are currently in place:
 
--  [Azure Ultra disk](../../virtual-machines/disks-types.md#ultra-disks) and [Standard SSD disks](../../virtual-machines/disks-types.md#standard-ssds) are not supported as Azure Shared Disk for SAP workloads.
--  [Azure Shared disk](../../virtual-machines/disks-shared.md) with [Premium SSD disks](../../virtual-machines/disks-types.md#premium-ssds) is supported for SAP deployment in availability set and availability zones.
--  Azure shared disk with Premium SSD disks comes with two storage SKUs.
-   - Locally redundant storage (LRS) for premium shared disk (skuName - Premium_LRS) is supported with deployment in availability set.
-   - Zone-redundant storage (ZRS) for premium shared disk (skuName - Premium_ZRS) is supported with deployment in availability zones.
--  Azure shared disk value [maxShares](../../virtual-machines/disks-shared-enable.md?tabs=azure-cli#disk-sizes) determines how many cluster nodes can use the shared disk. Typically for SAP ASCS/SCS instance you will configure two nodes in Windows Failover Cluster, therefore the value for `maxShares` must be set to two.
--  [Azure proximity placement group](../../virtual-machines/windows/proximity-placement-groups.md) is not required for Azure shared disk. But for SAP deployment with PPG, follow below guidelines:
-   -  If you are using PPG for SAP system deployed in a region then all virtual machines sharing a disk must be part of the same PPG.
-   -  If you are using PPG for SAP system deployed across zones like described in the document [Proximity placement groups with zonal deployments](proximity-placement-scenarios.md#proximity-placement-groups-with-zonal-deployments), you can attach Premium_ZRS storage to virtual machines sharing a disk.
+- [Azure ultra disks](../../virtual-machines/disks-types.md#ultra-disks) and [Standard SSD disks](../../virtual-machines/disks-types.md#standard-ssds) are not supported as Azure shared disks for SAP workloads.
+- [Azure shared disks](../../virtual-machines/disks-shared.md) with [Premium SSD disks](../../virtual-machines/disks-types.md#premium-ssds) are supported for SAP deployment in availability sets and availability zones.
+- An Azure shared disk with Premium SSD disks comes with two storage options:
+  - Locally redundant storage (LRS) for premium shared disks (`skuName` value of `Premium_LRS`) is supported with deployment in availability sets.
+  - Zone-redundant storage (ZRS) for premium shared disks (`skuName` value of `Premium_ZRS`) is supported with deployment in availability zones.
+- The Azure shared disk value [maxShares](../../virtual-machines/disks-shared-enable.md?tabs=azure-cli#disk-sizes) determines how many cluster nodes can use the shared disk. For an SAP ASCS/SCS instance, you typically configure two nodes in WSFC. You then set the value for `maxShares` to `2`.
+- An [Azure proximity placement group (PPG)](../../virtual-machines/windows/proximity-placement-groups.md) is not required for Azure shared disks. But for SAP deployment with PPGs, follow these guidelines:
+  - If you're using PPGs for a SAP system deployed in a region, all virtual machines that share a disk must be part of the same PPG.
+  - If you are using PPGs for a SAP system deployed across zones, as described in [Proximity placement groups with zonal deployments](proximity-placement-scenarios.md#proximity-placement-groups-with-zonal-deployments), you can attach `Premium_ZRS` storage to virtual machines that share a disk.
 
-For further details on limitations for Azure shared disk, please review carefully the [limitations](../../virtual-machines/disks-shared.md#limitations) section of Azure Shared Disk documentation.
+For more details on limitations for Azure shared disks, review the [Limitations](../../virtual-machines/disks-shared.md#limitations) section of the documentation for Azure shared disks.
 
-#### Important consideration for Premium shared disk
+### Important considerations for premium shared disks
 
-Following are some of the important points to consider with respect to Azure Premium shared disk:
+Consider these important points about Azure Premium shared disks:
 
-- LRS for Premium shared disk
-  - SAP deployment with LRS for premium shared disk will be operating with a single Azure shared disk on one storage cluster. Your SAP ASCS/SCS instance would be impacted, in case of issues with the storage cluster, where the Azure shared disk is deployed.
+- LRS for premium shared disks:
+  - SAP deployment with LRS for premium shared disks operates with a single Azure shared disk on one storage cluster. If there's a problem with the storage cluster where the Azure shared disk is deployed, it affects your SAP ASCS/SCS instance.
 
-- ZRS for Premium shared disk
-  - Write latency for ZRS is higher than that of LRS due to cross-zonal copy of data.
-  - The distance between availability zones in different region varies and with that ZRS disk latency across availability zones as well. [Benchmark your disks](../../virtual-machines/disks-benchmarks.md) to identify the latency of ZRS disk in your region.
-  - ZRS for Premium shared disk synchronously replicates data across three availability zones in the region. In case of any issue in one of the storage clusters, your SAP ASCS/SCS will continue to run as storage failover is transparent to the application layer.
-  - Review the [limitations](../../virtual-machines/disks-redundancy.md#limitations) section of ZRS for managed disks for more details.
+- ZRS for premium shared disks:
+  - Write latency for ZRS is higher than that of LRS because cross-zonal copying of data.
+  - The distance between availability zones in different region varies, and so does ZRS disk latency across availability zones. [Benchmark your disks](../../virtual-machines/disks-benchmarks.md) to identify the latency of ZRS disk in your region.
+  - ZRS for premium shared disks synchronously replicates data across three availability zones in the region. If there's a problem in one of the storage clusters, your SAP ASCS/SCS instance continues to run, because storage failover is transparent to the application layer.
+  - For more information, review the [Limitations](../../virtual-machines/disks-redundancy.md#limitations) section of the documentation about ZRS for managed disks.
 
 > [!IMPORTANT]
 > The setup must meet the following conditions:
-> * Each database management system (DBMS) SID must have its own dedicated WSFC cluster.  
-> * SAP application servers that belong to one SAP system SID must have their own dedicated VMs.  
-> * A mix of Enqueue Replication Server 1 and Enqueue Replication Server 2 in the same cluster is not supported.  
-
+>
+> - The SID for each database management system (DBMS) must have its own dedicated WSFC cluster.  
+> - SAP application servers that belong to one SAP system SID must have their own dedicated virtual machines (VMs).  
+> - A mix of Enqueue Replication Server 1 (ERS1) and Enqueue Replication Server 2 (ERS2) in the same cluster is not supported.  
 
 ## Supported OS versions
 
-Windows Servers 2016, 2019 and higher are supported (use the latest data center images).
+Windows Server 2016, 2019, and later are supported. Use the latest datacenter images.
 
-We strongly recommend using at least **Windows Server 2019 Datacenter**, as:
-- Windows 2019 Failover Cluster Service is Azure aware
-- There is added integration and awareness of Azure Host Maintenance and improved experience by monitoring for Azure schedule events.
-- It is possible to use Distributed network name(it is the default option). Therefore, there is no need to have a dedicated IP address for the cluster network name. Also, there is no need to configure this IP address on Azure Internal Load Balancer. 
+We strongly recommend using at least Windows Server 2019 Datacenter, for these reasons:
+
+- WSFC in Windows Server 2019 is Azure aware.
+- It includes integration and awareness of Azure host maintenance and improved experience by monitoring for Azure scheduled events.
+- You can use distributed network names. (It's the default option.) There's no need to have a dedicated IP address for the cluster network name. Also, you don't need to configure an IP address on an Azure internal load balancer.
 
 ## Architecture
 
-Both Enqueue replication server 1 (ERS1) and Enqueue replication server 2 (ERS2) are supported in multi-SID configuration.  A mix of ERS1 and ERS2 is not supported in the same cluster. 
+Both ERS1 and ERS2 are supported in a multi-SID configuration. A mix of ERS1 and ERS2 is not supported in the same cluster.
 
-1. The first example shows two SAP SIDs, both with ERS1 architecture where:
+The following example shows two SAP SIDs. Both have an ERS1 architecture where:
 
-   - SAP SID1 is deployed on shared disk, with ERS1. The ERS instance is installed on local host and on local drive.
-     SAP SID1 has its own (virtual) IP address (SID1 (A)SCS IP1), which is configured on the Azure Internal Load balancer.
+- SAP SID1 is deployed on a shared disk with ERS1. The ERS instance is installed on a local host and on a local drive.
 
-   - SAP SID2 is deployed on shared disk, with ERS1. The ERS instance is installed on local host and on local drive.
-     SAP SID2 has own (virtual) IP address (SID2 (A)SCS IP2), which is configured also on the Azure Internal Load balancer.
+  SAP SID1 has its own virtual IP address (SID1 (A)SCS IP1), which is configured on the Azure internal load balancer.
 
-![High-availability SAP ASCS/SCS instance - two instances with ERS1 configuration][sap-ha-guide-figure-6007]
+- SAP SID2 is deployed on a shared disk with ERS1. The ERS instance is installed on a local host and on a local drive.
 
-2. The second example shows two SAP SIDs, both with ERS2 architecture where: 
+  SAP SID2 has own virtual IP address (SID2 (A)SCS IP2), which is also configured on the Azure internal load balancer.
 
-   - SAP SID1 with ERS2, is which also clustered and is deployed on local drive.  
-     SAP SID1 has own (virtual) IP address (SID1 (A)SCS IP1), which is configured on the Azure Internal Load balancer.
-     SAP ERS2, used by SAP SID1 system has its own (virtual) IP address (SID1 ERS2 IP2), which is configured on the Azure Internal Load balancer.
+![Diagram of two high-availability SAP ASCS/SCS instances with an ERS1 configuration.][sap-ha-guide-figure-6007]
 
-   - SAP SID2 with ERS2, is which also clustered and is deployed on local drive.  
-     SAP SID2 has own (virtual) IP address (SID2 (A)SCS IP3), which is configured on the Azure Internal Load balancer.
-     SAP ERS2, used by SAP SID2 system has its own (virtual) IP address (SID2 ERS2 IP4), which is configured on the Azure Internal Load balancer.
+The next example also shows two SAP SIDs. Both have an ERS2 architecture where:
 
-   Here we have a total of four virtual IP addresses:  
-   - SID1 (A)SCS IP1
-   - SID2 ERS2   IP2
-   - SID2 (A)SCS IP3
-   - SID2 ERS2   IP4
+- SAP SID1 is deployed on a shard disk with ERS2, which is also clustered and is deployed on a local drive.  
 
-![High-availability SAP ASCS/SCS instance - two instances with ERS1 and ERS2 configuration][sap-ha-guide-figure-6008]
+  SAP SID1 has its own virtual IP address (SID1 (A)SCS IP1), which is configured on the Azure internal load balancer.
+
+  SAP ERS2 has its own (virtual) IP address (SID1 ERS2 IP2), which is configured on the Azure internal load balancer.
+
+- SAP SID2 is deployed on a shard disk with ERS2, which is also clustered and is deployed on a local drive.  
+
+  SAP SID2 has own virtual IP address (SID2 (A)SCS IP3), which is configured on the Azure internal load balancer.
+
+  SAP ERS2 has its own virtual IP address (SID2 ERS2 IP4), which is configured on the Azure internal load balancer.
+
+- There's a total of four virtual IP addresses:  
+
+  - SID1 (A)SCS IP1
+  - SID2 ERS2   IP2
+  - SID2 (A)SCS IP3
+  - SID2 ERS2   IP4
+
+![Diagram of two high-availability SAP ASCS/SCS instances with an ERS1 and ERS2 configuration.][sap-ha-guide-figure-6008]
 
 ## Infrastructure preparation
 
@@ -107,92 +115,87 @@ We'll install a new SAP SID **PR2**, in addition to the **existing clustered** S
 
 ### Host names and IP addresses
 
-Based on your deployment type, the host names and the IP addresses of the scenario would be like:
+Based on your deployment type, the host names and the IP addresses of the scenario should be like the following examples.
 
-**SAP deployment in Azure availability set**
+Here are the details for an SAP deployment in an Azure availability set:
 
-| Host name role                                        | Host name   | Static IP address                        | Availability set | Disk SkuName |
+| Host name role                                        | Host name   | Static IP address                        | Availability set | Disk `SkuName` value |
 | ----------------------------------------------------- | ----------- | ---------------------------------------- | ---------------- | ------------ |
-| 1st cluster node ASCS/SCS cluster                     | pr1-ascs-10 | 10.0.0.4                                 | pr1-ascs-avset   | Premium_LRS  |
+| First cluster node ASCS/SCS cluster                     | pr1-ascs-10 | 10.0.0.4                                 | pr1-ascs-avset   | `Premium_LRS`  |
 | 2nd cluster node ASCS/SCS cluster                     | pr1-ascs-11 | 10.0.0.5                                 | pr1-ascs-avset   |              |
-| Cluster Network Name                                  | pr1clust    | 10.0.0.42(**only** for Win 2016 cluster) | n/a              |              |
-| **SID1** ASCS cluster network name                    | pr1-ascscl  | 10.0.0.43                                | n/a              |              |
-| **SID1** ERS cluster network name (**only** for ERS2) | pr1-erscl   | 10.0.0.44                                | n/a              |              |
-| **SID2** ASCS cluster network name                    | pr2-ascscl  | 10.0.0.45                                | n/a              |              |
-| **SID2** ERS cluster network name (**only** for ERS2) | pr1-erscl   | 10.0.0.46                                | n/a              |              |
+| Cluster network name                                  | pr1clust    | 10.0.0.42 (only for a Windows Server 2016 cluster) | Not applicable              |              |
+| SID1 ASCS cluster network name                    | pr1-ascscl  | 10.0.0.43                                | Not applicable              |              |
+| SID1 ERS cluster network name (only for ERS2) | pr1-erscl   | 10.0.0.44                                | Not applicable              |              |
+| SID2 ASCS cluster network name                    | pr2-ascscl  | 10.0.0.45                                | Not applicable              |              |
+| SID2 ERS cluster network name (only for ERS2) | pr1-erscl   | 10.0.0.46                                | Not applicable              |              |
 
-**SAP deployment in Azure availability zones**
+Here are the details for an SAP deployment in Azure availability zones:
 
-| Host name role                                        | Host name   | Static IP address                        | Availability zone | Disk SkuName |
+| Host name role                                        | Host name   | Static IP address                        | Availability zone | Disk `SkuName` value |
 | ----------------------------------------------------- | ----------- | ---------------------------------------- | ----------------- | ------------ |
-| 1st cluster node ASCS/SCS cluster                     | pr1-ascs-10 | 10.0.0.4                                 | AZ01              | Premium_ZRS  |
-| 2nd cluster node ASCS/SCS cluster                     | pr1-ascs-11 | 10.0.0.5                                 | AZ02              |              |
-| Cluster Network Name                                  | pr1clust    | 10.0.0.42(**only** for Win 2016 cluster) | n/a               |              |
-| **SID1** ASCS cluster network name                    | pr1-ascscl  | 10.0.0.43                                | n/a               |              |
-| **SID2** ERS cluster network name (**only** for ERS2) | pr1-erscl   | 10.0.0.44                                | n/a               |              |
-| **SID2** ASCS cluster network name                    | pr2-ascscl  | 10.0.0.45                                | n/a               |              |
-| **SID2** ERS cluster network name (**only** for ERS2) | pr1-erscl   | 10.0.0.46                                | n/a               |              |
+| First cluster node ASCS/SCS cluster                     | pr1-ascs-10 | 10.0.0.4                                 | AZ01              | `Premium_ZRS`  |
+| Second cluster node ASCS/SCS cluster                     | pr1-ascs-11 | 10.0.0.5                                 | AZ02              |              |
+| Cluster Network Name                                  | pr1clust    | 10.0.0.42 (only for a Windows Server 2016 cluster) | Not applicable               |              |
+| SID1 ASCS cluster network name                    | pr1-ascscl  | 10.0.0.43                                | Not applicable               |              |
+| SID2 ERS cluster network name (only for ERS2) | pr1-erscl   | 10.0.0.44                                | Not applicable               |              |
+| SID2 ASCS cluster network name                    | pr2-ascscl  | 10.0.0.45                                | Not applicable               |              |
+| SID2 ERS cluster network name (only for ERS2) | pr1-erscl   | 10.0.0.46                                | Not applicable               |              |
 
-The steps mentioned in the document remain same for both deployment type. But if your cluster is running in availability set, you need to deploy LRS for Azure  premium shared disk (Premium_LRS) and if cluster is running in availability zone deploy ZRS for Azure premium shared disk (Premium_ZRS). 
+The steps in this article remain the same for both deployment types. But if your cluster is running in an availability set, you need to deploy LRS for Azure  premium shared disks (`Premium_LRS`). If your cluster is running in an availability zone, you need to deploy ZRS for Azure premium shared disks (`Premium_ZRS`).
 
 ### Create Azure internal load balancer
 
-SAP ASCS, SAP SCS, and the new SAP ERS2, use virtual hostname and virtual IP addresses. On Azure a [load balancer](../../load-balancer/load-balancer-overview.md) is required to use a virtual IP address. 
-We strongly recommend using [Standard load balancer](../../load-balancer/quickstart-load-balancer-standard-public-portal.md). 
+SAP ASCS, SAP SCS, and SAP ERS2 use virtual host names and virtual IP addresses. On Azure, a [load balancer](../../load-balancer/load-balancer-overview.md) is required to use a virtual IP address.
+We strongly recommend using a [standard load balancer](../../load-balancer/quickstart-load-balancer-standard-public-portal.md).
 
-You will need to add configuration to the existing load balancer for the second SAP SID ASCS/SCS/ERS instance **PR2**. The configuration for the first SAP SID **PR1** should be already in place.  
+You need to add configuration to the existing load balancer for the second SAP SID instance, *PR2*, for ASCS, SCS,or ERS. The configuration for the first SAP SID, *PR1*, should be already in place.  
 
-**(A)SCS PR2 [instance number 02]**
-- Frontend configuration
-    - Static ASCS/SCS IP address **10.0.0.45**
-- Backend configuration  
-    Already be in place - the VMs were already added to the backend pool, while configuring for SAP SID **PR1**
-- Probe Port
-    - Port 620**nr** [**62002**]
-    Leave the default option for Protocol (TCP), Interval (5), Unhealthy threshold (2)
-- Load-balancing rules
-    - If using Standard Load Balancer, select HA ports
-    - If using Basic Load Balancer, create Load-balancing rules for the following ports
-        - 32**nr** TCP [**3202**]
-        - 36**nr** TCP [**3602**]
-        - 39**nr** TCP [**3902**]
-        - 81**nr** TCP [**8102**]
-        - 5**nr**13 TCP [**50213**]
-        - 5**nr**14 TCP [**50214**]
-        - 5**nr**16 TCP [**50216**]
-        - Associate with the **PR2** ASCS Frontend IP, health probe, and the existing backend pool.  
+#### (A)SCS PR2 [instance number 02]
 
-    - Make sure that Idle timeout (minutes) is set to the maximum value 30, and that Floating IP (direct server return) is Enabled.
+- Front-end configuration: Static ASCS/SCS IP address 10.0.0.45.
+- Back-end configuration: Already in place. The VMs were added to the back-end pool during configuration of SAP SID PR1.
+- Probe port: Port 620*nr* [62002]. Leave the default options for protocol (TCP), interval (5), and unhealthy threshold (2).
+- Load-balancing rules:
+  - If you're using a standard load balancer, select HA ports.
+  - If you're using a basic load balancer, create load-balancing rules for the following ports:
+    - 32*nr* TCP [3202]
+    - 36*nr* TCP [3602]
+    - 39*nr* TCP [3902]
+    - 81*nr* TCP [8102]
+    - 5*nr*13 TCP [50213]
+    - 5*nr*14 TCP [50214]
+    - 5*nr*16 TCP [50216]
 
-**ERS2 PR2 [instance number 12]** 
+  - Associate with the PR2 ASCS front-end IP, the health probe, and the existing back-end pool.  
 
-As Enqueue Replication Server 2 (ERS2) is also clustered, ERS2 virtual IP address must be also configured on Azure ILB in addition to above SAP ASCS/SCS IP. This section only applies, if using Enqueue replication server 2 architecture for **PR2**.  
-- New Frontend configuration
-    - Static SAP ERS2 IP address **10.0.0.46**
+  - Make sure that idle timeout is set to the maximum value of 30 minutes, and that floating IP (direct server return) is enabled.
 
-- Backend configuration  
-  The VMs were already added to the ILB backend pool.  
+#### ERS2 PR2 [instance number 12]
 
-- New Probe Port
-    - Port 621**nr**  [**62112**]
-    Leave the default option for Protocol (TCP), Interval (5), Unhealthy threshold (2)
+Because ERS2 is also clustered, you must configure the ERS2 virtual IP address on an Azure internal load balancer in addition to preceding SAP ASCS/SCS IP address. This section applies only if you're using the ERS2 architecture for PR2.  
 
-- New Load-balancing rules
-    - If using Standard Load Balancer, select HA ports
-    - If using Basic Load Balancer, create Load-balancing rules for the following ports
-        - 32**nr** TCP [**3212**]
-        - 33**nr** TCP [**3312**]
-        - 5**nr**13 TCP [**51212**]
-        - 5**nr**14 TCP [**51212**]
-        - 5**nr**16 TCP [**51212**]
-        - Associate with the **PR2** ERS2 Frontend IP, health probe and the existing backend pool.  
+- New front-end configuration: Static SAP ERS2 IP address 10.0.0.46.
 
-    - Make sure that Idle timeout (minutes) is set to max value, e.g.,  30, and that Floating IP (direct server return) is Enabled.
+- Back-end configuration: The VMs were already added to the internal load balancer's back-end pool.  
 
+- New probe port: Port 621*nr* [62112]. Leave the default options for protocol (TCP), interval (5), and unhealthy threshold (2).
 
-### Create and attach second Azure shared disk
+- New load-balancing rules:
+  - If you're using a standard load balancer, select HA ports.
+  - If using a Basic load balancer, create load-balancing rules for the following ports:
+    - 32*nr* TCP [3212]
+    - 33*nr* TCP [3312]
+    - 5*nr*13 TCP [51212]
+    - 5*nr*14 TCP [51212]
+    - 5*nr*16 TCP [51212]
+  
+  - Associate with the PR2 ERS2 front-end IP, the health probe, and the existing back-end pool.  
 
-Run this command on one of the cluster nodes. You will need to adjust the values for your resource group, Azure region, SAPSID, and so on.  
+  - Make sure that idle timeout is set to the maximim value of 30 minutes, and that floating IP (direct server return) is enabled.
+
+### Create and attach a second Azure shared disk
+
+Run this command on one of the cluster nodes. Adjust the values for details like your resource group, Azure region, and SAP SID.  
 
 ```powershell
 $ResourceGroupName = "MyResourceGroup"
@@ -202,9 +205,9 @@ $DiskSizeInGB = 512
 $DiskName = "$($SAPSID)ASCSSharedDisk"
 $NumberOfWindowsClusterNodes = 2
 
-# For SAP deployment in availability set, use below storage SkuName
+# For SAP deployment in an availability set, use this storage SkuName value
 $SkuName = "Premium_LRS"
-# For SAP deployment in availability zone, use below storage SkuName
+# For SAP deployment in an availability zone, use this storage SkuName value
 $SkuName = "Premium_ZRS"
 
 $diskConfig = New-AzDiskConfig -Location $location -SkuName $SkuName  -CreateOption Empty  -DiskSizeGB $DiskSizeInGB -MaxSharesCount $NumberOfWindowsClusterNodes
@@ -213,26 +216,27 @@ $dataDisk = New-AzDisk -ResourceGroupName $ResourceGroupName -DiskName $DiskName
 ##################################
 ## Attach the disk to cluster VMs
 ##################################
-# ASCS Cluster VM1
+# ASCS cluster VM1
 $ASCSClusterVM1 = "pr1-ascs-10"
-# ASCS Cluster VM2
+# ASCS cluster VM2
 $ASCSClusterVM2 = "pr1-ascs-11"
-# next free LUN number
+# Next free LUN
 $LUNNumber = 1
 
-# Add the Azure Shared Disk to Cluster Node 1
+# Add the Azure shared disk to Cluster Node 1
 $vm = Get-AzVM -ResourceGroupName $ResourceGroupName -Name $ASCSClusterVM1 
 $vm = Add-AzVMDataDisk -VM $vm -Name $DiskName -CreateOption Attach -ManagedDiskId $dataDisk.Id -Lun $LUNNumber
 Update-AzVm -VM $vm -ResourceGroupName $ResourceGroupName -Verbose
 
-# Add the Azure Shared Disk to Cluster Node 2
+# Add the Azure shared disk to Cluster Node 2
 $vm = Get-AzVM -ResourceGroupName $ResourceGroupName -Name $ASCSClusterVM2
 $vm = Add-AzVMDataDisk -VM $vm -Name $DiskName -CreateOption Attach -ManagedDiskId $dataDisk.Id -Lun $LUNNumber
 Update-AzVm -VM $vm -ResourceGroupName $ResourceGroupName -Verbose
 ```
 
-### Format the shared disk with PowerShell
-1. Get the disk number. Run the PowerShell commands on one of the cluster nodes:
+### Format the shared disk by using PowerShell
+
+1. Get the disk number. Run these PowerShell commands on one of the cluster nodes:
 
    ```powershell
     Get-Disk | Where-Object PartitionStyle -Eq "RAW"  | Format-Table -AutoSize 
@@ -242,10 +246,11 @@ Update-AzVm -VM $vm -ResourceGroupName $ResourceGroupName -Verbose
     # 3      Msft Virtual Disk               Healthy      Online                512 GB RAW            
 
    ```
-2. Format the disk. In this example, it is disk number 3. 
+
+2. Format the disk. In this example, it's disk number 3.
 
    ```powershell
-    # Format SAP ASCS Disk number '3', with drive letter 'S'
+    # Format SAP ASCS disk number 3, with drive letter S
     $SAPSID = "PR2"
     $DiskNumber = 3
     $DriveLetter = "S"
@@ -258,7 +263,8 @@ Update-AzVm -VM $vm -ResourceGroupName $ResourceGroupName -Verbose
     # S           PR2SAP          ReFS       Fixed     Healthy      OK                    504.98 GB 511.81 GB
    ```
 
-3. Verify that the disk is now visible as a cluster disk.  
+3. Verify that the disk is now visible as a cluster disk:  
+
    ```powershell
     # List all disks
     Get-ClusterAvailableDisk -All
@@ -271,9 +277,10 @@ Update-AzVm -VM $vm -ResourceGroupName $ResourceGroupName -Verbose
     # Partitions : {\\?\GLOBALROOT\Device\Harddisk3\Partition2\}
    ```
 
-4. Register the disk in the cluster.  
+4. Register the disk in the cluster:  
+
    ```powershell
-    # Add the disk to cluster 
+    # Add the disk to the cluster 
     Get-ClusterAvailableDisk -All | Add-ClusterDisk
     # Example output 
     # Name           State  OwnerGroup        ResourceType 
@@ -284,43 +291,39 @@ Update-AzVm -VM $vm -ResourceGroupName $ResourceGroupName -Verbose
 ## Create a virtual host name for the clustered SAP ASCS/SCS instance
 
 1. Create a DNS entry for the virtual host name for new the SAP ASCS/SCS instance in the Windows DNS manager.  
-   The IP address you assign to the virtual host name in DNS must be the same as the IP address you assigned in Azure Load Balancer.  
 
-   ![_Define the DNS entry for the SAP ASCS/SCS cluster virtual name and IP address][sap-ha-guide-figure-6009]
- 
-   _Define the DNS entry for the SAP ASCS/SCS cluster virtual name and IP address_
+   The IP address that you assign to the virtual host name in DNS must be the same as the IP address that you assigned in Azure Load Balancer.  
 
-2. If using SAP Enqueue Replication Server 2, which is also clustered instance, then you need to reserve in DNS a virtual host name for ERS2 as well. 
-   The IP address you assign to the virtual host name for ERS2 in DNS must be the same as the IP address you assigned in Azure Load Balancer.  
+   ![Screenshot that shows options for defining a DNS entry for the SAP ASCS/SCS cluster virtual name and IP address.][sap-ha-guide-figure-6009]
 
-   ![_Define the DNS entry for the SAP ERS2 cluster virtual name and IP address][sap-ha-guide-figure-6010]
- 
-   _Define the DNS entry for the SAP ERS2 cluster virtual name and IP address_
+2. If you're using a clustered instance of SAP ERS2, you need to reserve in DNS a virtual host name for ERS2.
+
+   The IP address that you assign to the virtual host name for ERS2 in DNS must be the same as the IP address that you assigned in Azure Load Balancer.  
+
+   ![Screenshot that shows options for defining a DNS entry for the SAP ERS2 cluster virtual name and IP address.][sap-ha-guide-figure-6010]
 
 3. To define the IP address that's assigned to the virtual host name, select **DNS Manager** > **Domain**.
 
-   ![New virtual name and IP address for SAP ASCS/SCS and ERS2 cluster configuration][sap-ha-guide-figure-6011]
+   ![Screenshot that shows a new virtual name and IP address for SAP ASCS/SCS and ERS2 cluster configuration.][sap-ha-guide-figure-6011]
 
-   _New virtual name and TCP/IP address for SAP ASCS/SCS and ERS2 cluster configuration_
-
-## SAP Installation 
+## SAP installation
 
 ### Install the SAP first cluster node
 
 Follow the SAP described installation procedure. Make sure in the start installation option "First Cluster Node", and to choose "Cluster Shared Disk" as configuration option.  
-Choose the newly create shared disk.  
+Choose the newly created shared disk.  
 
 ### Modify the SAP profile of the ASCS/SCS instance
 
-If you are running Enqueue Replication Server 1, add  SAP profile parameter `enque/encni/set_so_keepalive` as described below. The profile parameter prevents connections between SAP work processes and the enqueue server from closing when they are idle for too long. The SAP parameter  is not required for ERS2. 
+If you are running ERS1, add the SAP profile parameter `enque/encni/set_so_keepalive` as described below. The profile parameter prevents connections between SAP work processes and the enqueue server from closing when they're idle for too long. The SAP parameter is not required for ERS2.
 
-1. Add this profile parameter to the SAP ASCS/SCS instance profile, if using ERS1.
+1. Add this profile parameter to the SAP ASCS/SCS instance profile, if you're using ERS1.
 
-   ```
+   ```powershell
    enque/encni/set_so_keepalive = true
    ```
-   
-   For both ERS1 and ERS2, make sure that the `keepalive` OS parameters are set as described in SAP note [1410736](https://launchpad.support.sap.com/#/notes/1410736).   
+
+   For both ERS1 and ERS2, make sure that the `keepalive` OS parameters are set as described in SAP note [1410736](https://launchpad.support.sap.com/#/notes/1410736).
 
 2. To apply the SAP profile parameter changes, restart the SAP ASCS/SCS instance.
 
@@ -331,22 +334,26 @@ Use the internal load balancer's probe functionality to make the entire cluster 
 However, this won't work in some cluster configurations because only one instance is active. The other instance is passive and can't accept any of the workload. A probe functionality helps when the Azure internal load balancer detects which instance is active, and only target the active instance.  
 
 > [!IMPORTANT]
-> In this example configuration, the **ProbePort** is set to 620**Nr**. For SAP ASCS instance with number **02** it is 620**02**.
-> You will need to adjust the configuration to match your SAP instance numbers and your SAP SID.
+> In this example configuration, the **ProbePort** is set to 620**Nr**. For SAP ASCS instance with number **02**, it's 620**02**.
+>
+> You need to adjust the configuration to match your SAP instance numbers and your SAP SID.
 
 To add a probe port, run this PowerShell Module on one of the cluster VMs:
 
-- In the case of SAP ASC/SCS Instance with instance number **02** 
+- In the case of SAP ASC/SCS Instance with instance number **02**
+
    ```powershell
    Set-AzureLoadBalancerHealthCheckProbePortOnSAPClusterIPResource -SAPSID PR2 -ProbePort 62002
    ```
 
 - If using ERS2, with instance number **12**, which is clustered. There is no need to configure probe port for ERS1, as it is not clustered.  
+
    ```powershell
    Set-AzureLoadBalancerHealthCheckProbePortOnSAPClusterIPResource -SAPSID PR2 -ProbePort 62012 -IsSAPERSClusteredInstance $True
    ```
 
  The code for function `Set-AzureLoadBalancerHealthCheckProbePortOnSAPClusterIPResource` would look like:
+
    ```powershell
     function Set-AzureLoadBalancerHealthCheckProbePortOnSAPClusterIPResource {
     <#
@@ -491,16 +498,17 @@ To add a probe port, run this PowerShell Module on one of the cluster VMs:
 
 1. Install the database instance, by following the process that's described in the SAP installation guide.  
 2. Install SAP on the second cluster node by following the steps that are described in the SAP installation guide.  
-3. Install the SAP Primary Application Server (PAS) instance on the virtual machine that you've designated to host the PAS.   
+3. Install the SAP Primary Application Server (PAS) instance on the virtual machine that you've designated to host the PAS.
    Follow the process described in the SAP installation guide. There are no dependencies on Azure.
 4. Install additional SAP application servers on the virtual machines, designated to host SAP Application server instances.  
-   Follow the process described in the SAP installation guide. There are no dependencies on Azure. 
+   Follow the process described in the SAP installation guide. There are no dependencies on Azure.
 
 ## Test the SAP ASCS/SCS instance failover
+
 For the outlined failover tests, we assume that SAP ASCS is active on node A.  
 
-1. Verify that the SAP system can successfully fail over from node A to node B. In this example, the test is done for SAPSID **PR2**.  
-   Make sure that each of SAPSID can successfully move to the other cluster node.   
+1. Verify that the SAP system can successfully fail over from node A to node B. In this example, the test is done for SAPSID PR2.  
+   Make sure that each of SAPSID can successfully move to the other cluster node.
    Choose one of these options to initiate a failover of the SAP \<SID\> cluster group from cluster node A to cluster node B:
     - Failover Cluster Manager  
     - Failover Cluster PowerShell
@@ -512,194 +520,23 @@ For the outlined failover tests, we assume that SAP ASCS is active on node A.
     Move-ClusterGroup -Name $SAPClusterGroup
 
     ```
+
 2. Restart cluster node A within the Windows guest operating system. This initiates an automatic failover of the SAP \<SID\> cluster group from node A to node B.  
 3. Restart cluster node A from the Azure portal. This initiates an automatic failover of the SAP \<SID\> cluster group from node A to node B.  
 4. Restart cluster node A by using Azure PowerShell. This initiates an automatic failover of the SAP \<SID\> cluster group from node A to node B.
 
 ## Next steps
 
-* [Prepare the Azure infrastructure for SAP HA by using a Windows  failover cluster and shared disk for an SAP ASCS/SCS instance][sap-high-availability-infrastructure-wsfc-shared-disk]
-* [Install SAP NetWeaver HA on a Windows failover cluster and shared disk for an SAP ASCS/SCS instance][sap-high-availability-installation-wsfc-shared-disk]
+- [Prepare the Azure infrastructure for SAP HA by using a Windows  failover cluster and shared disk for an SAP ASCS/SCS instance][sap-high-availability-infrastructure-wsfc-shared-disk]
+- [Install SAP NetWeaver HA on a Windows failover cluster and shared disk for an SAP ASCS/SCS instance][sap-high-availability-installation-wsfc-shared-disk]
 
-
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
-[1869038]:https://launchpad.support.sap.com/#/notes/1869038
-[2287140]:https://launchpad.support.sap.com/#/notes/2287140
-[2492395]:https://launchpad.support.sap.com/#/notes/2492395
-
-[sap-installation-guides]:http://service.sap.com/instguides
-
-[azure-resource-manager/management/azure-subscription-service-limits]:../../azure-resource-manager/management/azure-subscription-service-limits.md
-[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../azure-resource-manager/management/azure-subscription-service-limits.md
-[networking-limits-azure-resource-manager]:../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits
-[load-balancer-multivip-overview]:../../load-balancer/load-balancer-multivip-overview.md
-
-
-[sap-net-weaver-ports]:https://help.sap.com/viewer/ports
-[sap-high-availability-architecture-scenarios]:sap-high-availability-architecture-scenarios.md
-[sap-high-availability-guide-wsfc-shared-disk]:sap-high-availability-guide-wsfc-shared-disk.md
-[sap-high-availability-guide-wsfc-file-share]:sap-high-availability-guide-wsfc-file-share.md
-[sap-ascs-high-availability-multi-sid-wsfc]:sap-ascs-high-availability-multi-sid-wsfc.md
 [sap-high-availability-infrastructure-wsfc-shared-disk]:sap-high-availability-infrastructure-wsfc-shared-disk.md
 [sap-high-availability-installation-wsfc-shared-disk]:sap-high-availability-installation-wsfc-shared-disk.md
-[sap-hana-ha]:sap-hana-high-availability.md
-[sap-suse-ascs-ha]:high-availability-guide-suse.md
-[sap-net-weaver-ports-ascs-scs-ports]:sap-high-availability-infrastructure-wsfc-shared-disk.md#fe0bd8b5-2b43-45e3-8295-80bee5415716
 
-[dbms-guide]:../../virtual-machines-windows-sap-dbms-guide-general.md
-
-[deployment-guide]:deployment-guide.md
-
-[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
-
-[getting-started]:get-started.md
-
-[planning-guide]:planning-guide.md
-[planning-guide-11]:planning-guide.md
-[planning-guide-2.1]:planning-guide.md#1625df66-4cc6-4d60-9202-de8a0b77f803
-[planning-guide-2.2]:planning-guide.md#f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10
-
-[planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd
-[planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f
-
-[sap-high-availability-architecture-scenarios]:sap-high-availability-architecture-scenarios.md
-[sap-high-availability-guide-wsfc-shared-disk]:sap-high-availability-guide-wsfc-shared-disk.md
-[sap-high-availability-guide-wsfc-file-share]:sap-high-availability-guide-wsfc-file-share.md
-[sap-ascs-high-availability-multi-sid-wsfc]:sap-ascs-high-availability-multi-sid-wsfc.md
-[sap-high-availability-infrastructure-wsfc-shared-disk]:sap-high-availability-infrastructure-wsfc-shared-disk.md
-[sap-high-availability-infrastructure-wsfc-file-share]:sap-high-availability-infrastructure-wsfc-file-share.md
-
-[sap-high-availability-installation-wsfc-shared-disk]:sap-high-availability-installation-wsfc-shared-disk.md
-[sap-high-availability-installation-wsfc-shared-disk-install-ascs]:sap-high-availability-installation-wsfc-shared-disk.md#31c6bd4f-51df-4057-9fdf-3fcbc619c170
-[sap-high-availability-installation-wsfc-shared-disk-modify-ascs-profile]:sap-high-availability-installation-wsfc-shared-disk.md#e4caaab2-e90f-4f2c-bc84-2cd2e12a9556
-[sap-high-availability-installation-wsfc-shared-disk-add-probe-port]:sap-high-availability-installation-wsfc-shared-disk.md#10822f4f-32e7-4871-b63a-9b86c76ce761
-[sap-high-availability-installation-wsfc-shared-disk-win-firewall-probe-port]:sap-high-availability-installation-wsfc-shared-disk.md#4498c707-86c0-4cde-9c69-058a7ab8c3ac
-[sap-high-availability-installation-wsfc-shared-disk-change-ers-service-startup-type]:sap-high-availability-installation-wsfc-shared-disk.md#094bc895-31d4-4471-91cc-1513b64e406a
-[sap-high-availability-installation-wsfc-shared-disk-test-ascs-failover-and-sios-repl]:sap-high-availability-installation-wsfc-shared-disk.md#18aa2b9d-92d2-4c0e-8ddd-5acaabda99e9
-
-
-[sap-high-availability-installation-wsfc-file-share]:sap-high-availability-installation-wsfc-file-share.md
-[sap-high-availability-infrastructure-wsfc-shared-disk-install-sios]:sap-high-availability-infrastructure-wsfc-shared-disk.md#5c8e5482-841e-45e1-a89d-a05c0907c868
-
-[Logo_Linux]:media/virtual-machines-shared-sap-shared/Linux.png
 [Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
-
-[sap-ha-guide-figure-1000]:./media/virtual-machines-shared-sap-high-availability-guide/1000-wsfc-for-sap-ascs-on-azure.png
-[sap-ha-guide-figure-1001]:./media/virtual-machines-shared-sap-high-availability-guide/1001-wsfc-on-azure-ilb.png
-[sap-ha-guide-figure-1002]:./media/virtual-machines-shared-sap-high-availability-guide/1002-wsfc-sios-on-azure-ilb.png
-[sap-ha-guide-figure-2000]:./media/virtual-machines-shared-sap-high-availability-guide/2000-wsfc-sap-as-ha-on-azure.png
-[sap-ha-guide-figure-2001]:./media/virtual-machines-shared-sap-high-availability-guide/2001-wsfc-sap-ascs-ha-on-azure.png
-[sap-ha-guide-figure-2003]:./media/virtual-machines-shared-sap-high-availability-guide/2003-wsfc-sap-dbms-ha-on-azure.png
-[sap-ha-guide-figure-2004]:./media/virtual-machines-shared-sap-high-availability-guide/2004-wsfc-sap-ha-e2e-archit-template1-on-azure.png
-[sap-ha-guide-figure-2005]:./media/virtual-machines-shared-sap-high-availability-guide/2005-wsfc-sap-ha-e2e-arch-template2-on-azure.png
-
-[sap-ha-guide-figure-3000]:./media/virtual-machines-shared-sap-high-availability-guide/3000-template-parameters-sap-ha-arm-on-azure.png
-[sap-ha-guide-figure-3001]:./media/virtual-machines-shared-sap-high-availability-guide/3001-configuring-dns-servers-for-Azure-vnet.png
-[sap-ha-guide-figure-3002]:./media/virtual-machines-shared-sap-high-availability-guide/3002-configuring-static-IP-address-for-network-card-of-each-vm.png
-[sap-ha-guide-figure-3003]:./media/virtual-machines-shared-sap-high-availability-guide/3003-setup-static-ip-address-ilb-for-ascs-instance.png
-[sap-ha-guide-figure-3004]:./media/virtual-machines-shared-sap-high-availability-guide/3004-default-ascs-scs-ilb-balancing-rules-for-azure-ilb.png
-[sap-ha-guide-figure-3005]:./media/virtual-machines-shared-sap-high-availability-guide/3005-changing-ascs-scs-default-ilb-rules-for-azure-ilb.png
-[sap-ha-guide-figure-3006]:./media/virtual-machines-shared-sap-high-availability-guide/3006-adding-vm-to-domain.png
-[sap-ha-guide-figure-3007]:./media/virtual-machines-shared-sap-high-availability-guide/3007-config-wsfc-1.png
-[sap-ha-guide-figure-3008]:./media/virtual-machines-shared-sap-high-availability-guide/3008-config-wsfc-2.png
-[sap-ha-guide-figure-3009]:./media/virtual-machines-shared-sap-high-availability-guide/3009-config-wsfc-3.png
-[sap-ha-guide-figure-3010]:./media/virtual-machines-shared-sap-high-availability-guide/3010-config-wsfc-4.png
-[sap-ha-guide-figure-3011]:./media/virtual-machines-shared-sap-high-availability-guide/3011-config-wsfc-5.png
-[sap-ha-guide-figure-3012]:./media/virtual-machines-shared-sap-high-availability-guide/3012-config-wsfc-6.png
-[sap-ha-guide-figure-3013]:./media/virtual-machines-shared-sap-high-availability-guide/3013-config-wsfc-7.png
-[sap-ha-guide-figure-3014]:./media/virtual-machines-shared-sap-high-availability-guide/3014-config-wsfc-8.png
-[sap-ha-guide-figure-3015]:./media/virtual-machines-shared-sap-high-availability-guide/3015-config-wsfc-9.png
-[sap-ha-guide-figure-3016]:./media/virtual-machines-shared-sap-high-availability-guide/3016-config-wsfc-10.png
-[sap-ha-guide-figure-3017]:./media/virtual-machines-shared-sap-high-availability-guide/3017-config-wsfc-11.png
-[sap-ha-guide-figure-3018]:./media/virtual-machines-shared-sap-high-availability-guide/3018-config-wsfc-12.png
-[sap-ha-guide-figure-3019]:./media/virtual-machines-shared-sap-high-availability-guide/3019-assign-permissions-on-share-for-cluster-name-object.png
-[sap-ha-guide-figure-3020]:./media/virtual-machines-shared-sap-high-availability-guide/3020-change-object-type-include-computer-objects.png
-[sap-ha-guide-figure-3021]:./media/virtual-machines-shared-sap-high-availability-guide/3021-check-box-for-computer-objects.png
-[sap-ha-guide-figure-3022]:./media/virtual-machines-shared-sap-high-availability-guide/3022-set-security-attributes-for-cluster-name-object-on-file-share-quorum.png
-[sap-ha-guide-figure-3023]:./media/virtual-machines-shared-sap-high-availability-guide/3023-call-configure-cluster-quorum-setting-wizard.png
-[sap-ha-guide-figure-3024]:./media/virtual-machines-shared-sap-high-availability-guide/3024-selection-screen-different-quorum-configurations.png
-[sap-ha-guide-figure-3025]:./media/virtual-machines-shared-sap-high-availability-guide/3025-selection-screen-file-share-witness.png
-[sap-ha-guide-figure-3026]:./media/virtual-machines-shared-sap-high-availability-guide/3026-define-file-share-location-for-witness-share.png
-[sap-ha-guide-figure-3027]:./media/virtual-machines-shared-sap-high-availability-guide/3027-successful-reconfiguration-cluster-file-share-witness.png
-[sap-ha-guide-figure-3028]:./media/virtual-machines-shared-sap-high-availability-guide/3028-install-dot-net-framework-35.png
-[sap-ha-guide-figure-3029]:./media/virtual-machines-shared-sap-high-availability-guide/3029-install-dot-net-framework-35-progress.png
-[sap-ha-guide-figure-3030]:./media/virtual-machines-shared-sap-high-availability-guide/3030-sios-installer.png
-[sap-ha-guide-figure-3031]:./media/virtual-machines-shared-sap-high-availability-guide/3031-first-screen-sios-data-keeper-installation.png
-[sap-ha-guide-figure-3032]:./media/virtual-machines-shared-sap-high-availability-guide/3032-data-keeper-informs-service-be-disabled.png
-[sap-ha-guide-figure-3033]:./media/virtual-machines-shared-sap-high-availability-guide/3033-user-selection-sios-data-keeper.png
-[sap-ha-guide-figure-3034]:./media/virtual-machines-shared-sap-high-availability-guide/3034-domain-user-sios-data-keeper.png
-[sap-ha-guide-figure-3035]:./media/virtual-machines-shared-sap-high-availability-guide/3035-provide-sios-data-keeper-license.png
-[sap-ha-guide-figure-3036]:./media/virtual-machines-shared-sap-high-availability-guide/3036-data-keeper-management-config-tool.png
-[sap-ha-guide-figure-3037]:./media/virtual-machines-shared-sap-high-availability-guide/3037-tcp-ip-address-first-node-data-keeper.png
-[sap-ha-guide-figure-3038]:./media/virtual-machines-shared-sap-high-availability-guide/3038-create-replication-sios-job.png
-[sap-ha-guide-figure-3039]:./media/virtual-machines-shared-sap-high-availability-guide/3039-define-sios-replication-job-name.png
-[sap-ha-guide-figure-3040]:./media/virtual-machines-shared-sap-high-availability-guide/3040-define-sios-source-node.png
-[sap-ha-guide-figure-3041]:./media/virtual-machines-shared-sap-high-availability-guide/3041-define-sios-target-node.png
-[sap-ha-guide-figure-3042]:./media/virtual-machines-shared-sap-high-availability-guide/3042-define-sios-synchronous-replication.png
-[sap-ha-guide-figure-3043]:./media/virtual-machines-shared-sap-high-availability-guide/3043-enable-sios-replicated-volume-as-cluster-volume.png
-[sap-ha-guide-figure-3044]:./media/virtual-machines-shared-sap-high-availability-guide/3044-data-keeper-synchronous-mirroring-for-SAP-gui.png
-[sap-ha-guide-figure-3045]:./media/virtual-machines-shared-sap-high-availability-guide/3045-replicated-disk-by-data-keeper-in-wsfc.png
-[sap-ha-guide-figure-3046]:./media/virtual-machines-shared-sap-high-availability-guide/3046-dns-entry-sap-ascs-virtual-name-ip.png
-[sap-ha-guide-figure-3047]:./media/virtual-machines-shared-sap-high-availability-guide/3047-dns-manager.png
-[sap-ha-guide-figure-3048]:./media/virtual-machines-shared-sap-high-availability-guide/3048-default-cluster-probe-port.png
-[sap-ha-guide-figure-3049]:./media/virtual-machines-shared-sap-high-availability-guide/3049-cluster-probe-port-after.png
-[sap-ha-guide-figure-3050]:./media/virtual-machines-shared-sap-high-availability-guide/3050-service-type-ers-delayed-automatic.png
-[sap-ha-guide-figure-5000]:./media/virtual-machines-shared-sap-high-availability-guide/5000-wsfc-sap-sid-node-a.png
-[sap-ha-guide-figure-5001]:./media/virtual-machines-shared-sap-high-availability-guide/5001-sios-replicating-local-volume.png
-[sap-ha-guide-figure-5002]:./media/virtual-machines-shared-sap-high-availability-guide/5002-wsfc-sap-sid-node-b.png
-[sap-ha-guide-figure-5003]:./media/virtual-machines-shared-sap-high-availability-guide/5003-sios-replicating-local-volume-b-to-a.png
-
-[sap-ha-guide-figure-6001]:media/virtual-machines-shared-sap-high-availability-guide/6001-sap-multi-sid-ascs-scs-sid1.png
-[sap-ha-guide-figure-6002]:media/virtual-machines-shared-sap-high-availability-guide/6002-sap-multi-sid-ascs-scs.png
-[sap-ha-guide-figure-6003]:media/virtual-machines-shared-sap-high-availability-guide/6003-sap-multi-sid-full-landscape.png
-[sap-ha-guide-figure-6004]:media/virtual-machines-shared-sap-high-availability-guide/6004-sap-multi-sid-dns.png
-[sap-ha-guide-figure-6005]:media/virtual-machines-shared-sap-high-availability-guide/6005-sap-multi-sid-azure-portal.png
-[sap-ha-guide-figure-6006]:media/virtual-machines-shared-sap-high-availability-guide/6006-sap-multi-sid-sios-replication.png
 
 [sap-ha-guide-figure-6007]:media/virtual-machines-shared-sap-high-availability-guide/6007-sap-multi-sid-ascs-azure-shared-disk-sid-1.png
 [sap-ha-guide-figure-6008]:media/virtual-machines-shared-sap-high-availability-guide/6008-sap-multi-sid-ascs-azure-shared-disk-sid-2.png
 [sap-ha-guide-figure-6009]:media/virtual-machines-shared-sap-high-availability-guide/6009-sap-multi-sid-ascs-azure-shared-disk-dns1.png
 [sap-ha-guide-figure-6010]:media/virtual-machines-shared-sap-high-availability-guide/6010-sap-multi-sid-ascs-azure-shared-disk-dns2.png
 [sap-ha-guide-figure-6011]:media/virtual-machines-shared-sap-high-availability-guide/6011-sap-multi-sid-ascs-azure-shared-disk-dns3.png
-
-[sap-ha-guide-figure-8001]:./media/virtual-machines-shared-sap-high-availability-guide/8001.png
-[sap-ha-guide-figure-8002]:./media/virtual-machines-shared-sap-high-availability-guide/8002.png
-[sap-ha-guide-figure-8003]:./media/virtual-machines-shared-sap-high-availability-guide/8003.png
-[sap-ha-guide-figure-8004]:./media/virtual-machines-shared-sap-high-availability-guide/8004.png
-[sap-ha-guide-figure-8005]:./media/virtual-machines-shared-sap-high-availability-guide/8005.png
-[sap-ha-guide-figure-8006]:./media/virtual-machines-shared-sap-high-availability-guide/8006.png
-[sap-ha-guide-figure-8007]:./media/virtual-machines-shared-sap-high-availability-guide/8007.png
-[sap-ha-guide-figure-8008]:./media/virtual-machines-shared-sap-high-availability-guide/8008.png
-[sap-ha-guide-figure-8009]:./media/virtual-machines-shared-sap-high-availability-guide/8009.png
-[sap-ha-guide-figure-8010]:./media/virtual-machines-shared-sap-high-availability-guide/8010.png
-[sap-ha-guide-figure-8011]:./media/virtual-machines-shared-sap-high-availability-guide/8011.png
-[sap-ha-guide-figure-8012]:./media/virtual-machines-shared-sap-high-availability-guide/8012.png
-[sap-ha-guide-figure-8013]:./media/virtual-machines-shared-sap-high-availability-guide/8013.png
-[sap-ha-guide-figure-8014]:./media/virtual-machines-shared-sap-high-availability-guide/8014.png
-[sap-ha-guide-figure-8015]:./media/virtual-machines-shared-sap-high-availability-guide/8015.png
-[sap-ha-guide-figure-8016]:./media/virtual-machines-shared-sap-high-availability-guide/8016.png
-[sap-ha-guide-figure-8017]:./media/virtual-machines-shared-sap-high-availability-guide/8017.png
-[sap-ha-guide-figure-8018]:./media/virtual-machines-shared-sap-high-availability-guide/8018.png
-[sap-ha-guide-figure-8019]:./media/virtual-machines-shared-sap-high-availability-guide/8019.png
-[sap-ha-guide-figure-8020]:./media/virtual-machines-shared-sap-high-availability-guide/8020.png
-[sap-ha-guide-figure-8021]:./media/virtual-machines-shared-sap-high-availability-guide/8021.png
-[sap-ha-guide-figure-8022]:./media/virtual-machines-shared-sap-high-availability-guide/8022.png
-[sap-ha-guide-figure-8023]:./media/virtual-machines-shared-sap-high-availability-guide/8023.png
-[sap-ha-guide-figure-8024]:./media/virtual-machines-shared-sap-high-availability-guide/8024.png
-[sap-ha-guide-figure-8025]:./media/virtual-machines-shared-sap-high-availability-guide/8025.png
-
-
-[sap-templates-3-tier-multisid-xscs-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs%2Fazuredeploy.json
-[sap-templates-3-tier-multisid-xscs-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
-[sap-templates-3-tier-multisid-db-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db%2Fazuredeploy.json
-[sap-templates-3-tier-multisid-db-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-multi-sid-db-md%2Fazuredeploy.json
-[sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
-[sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
-
-[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
-
-[virtual-machines-manage-availability]:../../virtual-machines/availability.md
