@@ -7,6 +7,7 @@ ms.topic: conceptual
 ms.date: 10/26/2022
 ms.author: prashabora
 ms.service: chaos-studio
+ms.custom: devx-track-azurecli
 ---
 # Virtual network injection in Azure Chaos Studio Preview
 
