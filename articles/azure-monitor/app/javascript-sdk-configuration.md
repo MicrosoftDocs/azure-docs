@@ -325,7 +325,7 @@ This section only applies to you if you're using the deprecated functions and yo
 
 ## Service notifications
 
-Service notifications provide actionable recommendations to mitigate the impacts of Azure service changes to ensure your telemetry continuously flows to Application Insights. We are able to ensure notifications are relevant to you based on your SDK settings. The notifications will show up as an exception within Application Insights, and we will adjust the verbosity based on the urgency of the recommendation. We recommend leaving service notifications on, but you are able to opt out via the 'featureOptIn' configuration. See below for a list of active notifications.
+Service notifications is a feature built into the SDK to provide actionable recommendations to help ensure your telemetry flows uninterrupted to Application Insights. You will see the notifications as an exception message within Application Insights. We ensure notifications are relevant to you based on your SDK settings, and we adjust the verbosity based on the urgency of the recommendation. We recommend leaving service notifications on, but you are able to opt out via the `featureOptIn` configuration. See below for a list of active notifications.
 
 Currently, no active notifications are being sent.
 
