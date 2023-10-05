@@ -1,6 +1,6 @@
 ---
-title: Networking overview - Azure Database for PostgreSQL - Flexible Server
-description: Learn about connectivity and networking options in the Flexible Server deployment option for Azure Database for PostgreSQL.
+title: Networking overview - Azure Database for PostgreSQL - Flexible Server with private access (VNET)
+description: Learn about connectivity and networking options in the Flexible Server deployment option for Azure Database for PostgreSQL with private access (VNET)
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -10,26 +10,15 @@ ms.reviewer:
 ms.date: 11/30/2021
 ---
 
-# Networking overview for Azure Database for PostgreSQL - Flexible Server 
+# Networking overview for Azure Database for PostgreSQL - Flexible Server with private access (VNET Integration)
+
+
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 This article describes connectivity and networking concepts for Azure Database for PostgreSQL - Flexible Server. 
 
 When you create an Azure Database for PostgreSQL - Flexible Server instance (a *flexible server*), you must choose one of the following networking options: **Private access (VNet integration)** or **Public access (allowed IP addresses)**. 
-
-> [!NOTE]
-> You can't change your networking option after the server is created. 
-
-The following characteristics apply whether you choose to use the private access or the public access option:
-
-* Connections from allowed IP addresses need to authenticate to the PostgreSQL server with valid credentials.
-* [Connection encryption](#tls-and-ssl) is enforced for your network traffic.
-* The server has a fully qualified domain name (FQDN). For the `hostname` property in connection strings, we recommend using the FQDN instead of an IP address.
-* Both options control access at the server level, not at the database  or table level. You would use PostgreSQL's roles properties to control database, table, and other object access.
-
-> [!NOTE]
-> Because Azure Database for PostgreSQL is a managed database service, users are not provided host or OS access to view or modify configuration files such as `pg_hba.conf`. The content of the files is automatically updated based on the network settings.
 
 ## Private access (VNet integration)
 
@@ -47,7 +36,7 @@ In the preceding diagram:
 - Flexible servers are injected into subnet 10.0.1.0/24 of the VNet-1 virtual network.
 - Applications that are deployed on different subnets within the same virtual network can access flexible servers directly.
 - Applications that are deployed on a different virtual network (VNet-2) don't have direct access to flexible servers. You have to perform [virtual network peering for a private DNS zone](#private-dns-zone-and-virtual-network-peering) before they can access the flexible server.
-   
+
 ### Virtual network concepts
 
 An Azure virtual network contains a private IP address space that's configured for your use. Your virtual network must be in the same Azure region as your flexible server. To learn more about virtual networks, see the [Azure Virtual Network overview](../../virtual-network/virtual-networks-overview.md).
@@ -157,8 +146,6 @@ By default DNS name resolution is scoped to a virtual network. This means that a
 In order to resolve this issue, you must make sure clients in VNET1 can access the Flexible Server Private DNS Zone. This can be achieved by adding a [virtual network link](../../dns/private-dns-virtual-network-links.md) to the Private DNS Zone of your Flexible Server instance.
 
 
-
-
 ### Unsupported virtual network scenarios
 
 Here are some limitations for working with virtual networks:
@@ -171,82 +158,12 @@ Here are some limitations for working with virtual networks:
 > [!IMPORTANT]
 > Azure Resource Manager supports  ability to lock resources, as a security control. Resource locks are applied to the resource, and are effective across all users and roles. There are two types of resource lock: CanNotDelete and ReadOnly. These lock types can be applied either to a Private DNS zone, or to an individual record set. Applying a lock of either type against Private DNS Zone or individual record set may interfere with ability of Azure Database for PostgreSQL - Flexible Server service to update DNS records and cause issues during important operations on DNS, such as High Availability failover from primary to secondary. For these reasons,  please make sure you are not utilizing DNS private zone or record locks when utilizing High Availability features with Azure Database for PostgreSQL - Flexible Server. 
 
-## Public access (allowed IP addresses)
-
-When you choose the public access method, your flexible server is accessed through a public endpoint over the internet. The public endpoint is a publicly resolvable DNS address. The phrase *allowed IP addresses* refers to a range of IP addresses that you choose to give permission to access your server. These permissions are called *firewall rules*. 
-
-Choose this networking option if you want the following capabilities:
-
-* Connect from Azure resources that don't support virtual networks.
-* Connect from resources outside Azure that are not connected by VPN or ExpressRoute.
-* Ensure that the flexible server has a public endpoint that's accessible through the internet.
-
-Characteristics of the public access method include:
-
-* Only the IP addresses that you allow have permission to access your PostgreSQL flexible server. By default, no IP addresses are allowed. You can add IP addresses during server creation or afterward.
-* Your PostgreSQL server has a publicly resolvable DNS name.
-* Your flexible server is not in one of your Azure virtual networks.
-* Network traffic to and from your server does not go over a private network. The traffic uses the general internet pathways.
-
-### Firewall rules
-
-If a connection attempt comes from an IP address that you haven't allowed through a firewall rule, the originating client will get an error.
-
-### Allowing all Azure IP addresses
-
-If a fixed outgoing IP address isn't available for your Azure service, you can consider enabling connections from all IP addresses for Azure datacenters.
-
-> [!IMPORTANT]
-> The **Allow public access from Azure services and resources within Azure** option configures the firewall to allow all connections from Azure, including connections from the subscriptions of other customers. When you select this option, make sure that your sign-in and user permissions limit access to only authorized users.
-
-### Troubleshooting public access issues
-Consider the following points when access to the Azure Database for PostgreSQL service doesn't behave as you expect:
-
-* **Changes to the allowlist have not taken effect yet**. There might be as much as a five-minute delay for changes to the firewall configuration of the Azure Database for PostgreSQL server to take effect.
-
-* **Authentication failed**. If a user doesn't have permissions on the Azure Database for PostgreSQL server or the password is incorrect, the connection to the Azure Database for PostgreSQL server is denied. Creating a firewall setting only provides clients with an opportunity to try connecting to your server. Each client must still provide the necessary security credentials.
-
-* **Dynamic client IP address is preventing access**. If you have an internet connection with dynamic IP addressing and you're having trouble getting through the firewall, try one of the following solutions:
-
-   * Ask your internet service provider (ISP) for the IP address range assigned to your client computers that access the Azure Database for PostgreSQL server. Then add the IP address range as a firewall rule.
-   * Get static IP addressing instead for your client computers, and then add the static IP address as a firewall rule.
-
-* **Firewall rule is not available for IPv6 format**. The firewall rules must be in IPv4 format. If you specify firewall rules in IPv6 format, you'll get a validation error.
-
 ## Host name
 
 Regardless of the networking option that you choose, we recommend that you always use an FQDN as host name when connecting to your flexible server. The server's IP address is not guaranteed to remain static. Using the FQDN will help you avoid making changes to your connection string. 
 
 An example that uses an FQDN as a host name is `hostname = servername.postgres.database.azure.com`. Where possible, avoid using `hostname = 10.0.0.4` (a private address) or `hostname = 40.2.45.67` (a public address).
 
-
-## TLS and SSL
-
-Azure Database for PostgreSQL - Flexible Server enforces connecting your client applications to the PostgreSQL service by using Transport Layer Security (TLS). TLS is an industry-standard protocol that ensures encrypted network connections between your database server and client applications. TLS is an updated protocol of Secure Sockets Layer (SSL). 
-
-There are several government entities worldwide that maintain guidelines for TLS with regard to network security, including Department of Health and Human Services (HHS) or the National Institute of Standards and Technology (NIST) in the United States. The level of security that TLS provides is most affected by the TLS protocol version and the supported cipher suites. A cipher suite is a set of algorithms, including a cipher, a key-exchange algorithm and a hashing algorithm, which are used together to establish a secure TLS connection. Most TLS clients and servers support multiple alternatives, so they have to negotiate when establishing a secure connection to select a common TLS version and cipher suite.
-
-Azure Database for PostgreSQL supports TLS version 1.2 and later. In [RFC 8996](https://datatracker.ietf.org/doc/rfc8996/), the Internet Engineering Task Force (IETF) explicitly states that TLS 1.0 and TLS 1.1 must not be used. Both protocols were deprecated by the end of 2019.
-
-All incoming connections that use earlier versions of the TLS protocol, such as TLS 1.0 and TLS 1.1, will be denied by default. 
-
-> [!NOTE]
-> SSL and TLS certificates certify that your connection is secured with state-of-the-art encryption protocols. By encrypting your  connection on the wire, you prevent unauthorized access to your data while in transit. This is why we strongly recommend using latest versions of TLS to encrypt your connections to Azure Database for PostgreSQL - Flexible Server. 
-> Although its not recommended, if needed, you have an option to disable TLS\SSL for connections to Azure Database for PostgreSQL - Flexible Server by updating  the **require_secure_transport** server parameter to OFF. You can also set TLS version by setting **ssl_min_protocol_version** and **ssl_max_protocol_version** server parameters.
-
-[Certificate authentication](https://www.postgresql.org/docs/current/auth-cert.html) is performed using **SSL client certificates** for authentication. In this scenario, PostgreSQL server compares the CN (common name) attribute of the client certificate presented, against the requested database user.
-**Azure Database for PostgreSQL - Flexible Server does not support SSL certificate based authentication at this time.**
-
-To determine your current SSL connection status you can load the [sslinfo extension](concepts-extensions.md) and then call the `ssl_is_used()` function to determine if SSL is being used. The function returns t if the connection is using SSL, otherwise it returns f. You can also collect all the information about your Azure Database for PostgreSQL - Flexible Server instance's SSL usage by process, client, and application by using the following query:
-
-```sql
-SELECT datname as "Database name", usename as "User name", ssl, client_addr, application_name, backend_type
-   FROM pg_stat_ssl
-   JOIN pg_stat_activity
-   ON pg_stat_ssl.pid = pg_stat_activity.pid
-   ORDER BY ssl;
-```
 ## Next steps
 
 * Learn how to create a flexible server by using the **Private access (VNet integration)** option in [the Azure portal](how-to-manage-virtual-network-portal.md) or [the Azure CLI](how-to-manage-virtual-network-cli.md).
-* Learn how to create a flexible server by using the **Public access (allowed IP addresses)** option in [the Azure portal](how-to-manage-firewall-portal.md) or [the Azure CLI](how-to-manage-firewall-cli.md).

@@ -106,8 +106,13 @@
     - name: Prepay for reserved capacity
       href: concept-reserved-pricing.md
     - name: Networking
-      href: flexible-server/concepts-networking.md
-      displayName: virtual networks, vnet, IP address, public access
+      items:
+      - name: Networking with Public Access (allowed IP addresses)
+        href: flexible-server/concepts-networking-public.md
+      - name: Networking with Private Access (VNET Integration)
+        href: flexible-server/concepts-networking-private.md
+      - name: Networking with Private Endpoint
+        href: flexible-server/concepts-networking-private-link.md
     - name: Firewall rules
       href: flexible-server/concepts-firewall-rules.md
     - name: Security
