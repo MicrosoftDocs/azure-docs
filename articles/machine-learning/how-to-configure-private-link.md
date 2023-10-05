@@ -306,6 +306,10 @@ You can use IP network rules to allow access to your workspace and endpoint from
 > * Enable your endpoint's [public network access flag](concept-secure-online-endpoint.md#secure-inbound-scoring-requests) if you want to allow access to your endpoint from specific public internet IP address ranges.
 > * When you enable this feature, this has an impact to all existing public endpoints associated with your workspace. This may limit access to new or existing endpoints. If you access any endpoints from a non-allowed IP, you get a 403 error.
 
+# [Azure CLI](#tab/cli)
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
+Azure CLI does not support this.
+
 # [Portal](#tab/azure-portal)
 
 1. From the [Azure portal](https://portal.azure.com), select your Azure Machine Learning workspace.
@@ -313,6 +317,8 @@ You can use IP network rules to allow access to your workspace and endpoint from
 1. Select __Enabled from selected IP addresses__, input address ranges and then select __Save__.
 
 :::image type="content" source="./media/how-to-configure-private-link/workspace-public-access-ip-ranges.png" alt-text="Screenshot of the UI to enable access from internet IP ranges.":::
+
+---
 
 ### Restrictions for IP network rules
 
