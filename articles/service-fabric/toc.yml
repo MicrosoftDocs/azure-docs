@@ -471,6 +471,8 @@
       href: how-to-managed-cluster-nat-gateway.md
     - name: Use public IP prefix in a managed cluster
       href: how-to-managed-cluster-public-ip-prefix.md
+    - name: Use multiple network interface cards
+      href: how-to-managed-cluster-use-multiple-nics.md
   - name: Set up your development environment
     items:
     - name: Windows
