@@ -39,6 +39,9 @@ The following public IP prefix sizes are available:
 
 Prefix size is specified as a Classless Inter-Domain Routing (CIDR) mask size.
 
+>[!NOTE]
+>If you are [deriving a Public IP Prefix from a Custom IP Prefix (BYOIP range)](manage-custom-ip-address-prefix.md#create-a-public-ip-prefix-from-a-custom-ip-prefix), the prefix size can be as large as the Custom IP Prefix.
+
 There aren't limits as to how many prefixes created in a subscription. The number of ranges created can't exceed more static public IP addresses than allowed in your subscription. For more information, see [Azure limits](../../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 ## Scenarios
