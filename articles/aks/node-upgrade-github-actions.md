@@ -129,7 +129,7 @@ This process is better than updating Linux-based kernels manually because Linux 
     :::image type="content" source="media/node-upgrade-github-actions/azure-cli-action.png" alt-text="Search result for 'Azure CLI Action' with first result being shown as made by Azure":::
 
 4. Under **Installation**, select a version, such as *v1.0.8*, and copy the installation code snippet.
-5. Paste the contents of the action into the YAML below the `*Azure Login*` step, similar to the following:
+5. Paste the contents of the action into the YAML below the `*Azure Login*` step, similar to the following example:
 
     ```yml
     name: Upgrade cluster node images
@@ -169,7 +169,7 @@ You can run the workflow manually in addition to the scheduled run by adding a n
 > az aks nodepool upgrade -g {resourceGroupName} --cluster-name {aksClusterName} --name {{nodePoolName}} --node-image-only
 > ```
 
-* Add the `workflow_dispatch` trigger to the `on` key:
+* Add the `workflow_dispatch` trigger under the `on` key:
 
     ```yml
     name: Upgrade cluster node images
@@ -179,7 +179,7 @@ You can run the workflow manually in addition to the scheduled run by adding a n
       workflow_dispatch:
     ```
 
-    Your completed YAML should look similar to the following:
+    The YAML should look similar to the following example:
 
     ```yml
         name: Upgrade cluster node images
