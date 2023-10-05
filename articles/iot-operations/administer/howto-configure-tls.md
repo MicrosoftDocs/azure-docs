@@ -21,4 +21,4 @@ You can configure TLS to secure MQTT communication between the MQTT broker and c
 
 - [Secure Azure IoT MQ communication](../pub-sub-mqtt/concept-brokerlistener.md)
 - [Configure Azure IoT MQ authorization](howto-configure-authorization.md)
-- [Configure Azure IoT MQ authentication](howto-configure-authentication.md))
+- [Configure Azure IoT MQ authentication](howto-configure-authentication.md)
