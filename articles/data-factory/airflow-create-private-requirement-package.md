@@ -18,7 +18,7 @@ In the context of Managed Airflow, you can use Python packages to organize and d
 
 This guide provides step-by-step instructions on installing `.whl` (Wheel) file, which serve as a binary distribution format for Python package, as a requirement in your Managed Airflow runtime.
 
-For illustration purpose, I'll create custom operator as python package that can be imported as a module inside dags file. 
+For illustration purpose, I create custom operator as python package that can be imported as a module inside dags file. 
 
 ### Step 1: Develop a custom operator.
 - Create a file `sample_operator.py`
