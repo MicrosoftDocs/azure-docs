@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: xiangy
 ms.topic: how-to
 ms.service: spring-apps
-ms.custom: event-tier1-build-2022, devx-track-java, devx-track-extended-java
+ms.custom: event-tier1-build-2022, devx-track-java, devx-track-extended-java, devx-track-azurecli
 ms.date: 4/28/2022
 ---
 

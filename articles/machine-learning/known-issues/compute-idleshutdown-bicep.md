@@ -13,12 +13,11 @@ ms.custom: known-issue, devx-track-bicep
 
 # Known issue  - Idleshutdown property in Bicep template causes error
 
+[!INCLUDE [dev v2](../includes/machine-learning-dev-v2.md)]
+
 When creating an Azure Machine Learning compute instance through Bicep compiled using [MSBuild/NuGet](../../azure-resource-manager/bicep/msbuild-bicep-file.md), using the `idleTimeBeforeShutdown` property as described in the API reference [Microsoft.MachineLearningServices workspaces/computes API reference](/azure/templates/microsoft.machinelearningservices/workspaces/computes?pivots=deployment-language-bicep) results in an error.
 
  
-
-[!INCLUDE [dev v2](../includes/machine-learning-dev-v2.md)]
-
 
 **Status:** Open
 
