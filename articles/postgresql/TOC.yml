@@ -182,7 +182,6 @@
           href: flexible-server/concepts-connectivity.md
         - name: Connection Pooling Best Practices
           href: flexible-server/concepts-connection-pooling-best-practices.md
-
     - name: Azure Advisor recommendations
       href: flexible-server/concepts-azure-advisor-recommendations.md
   - name: Integrations
@@ -199,7 +198,9 @@
     - name: Functional troubleshooting
       items:
       - name: Troubleshoot CLI errors
-        href: flexible-server/how-to-troubleshoot-cli-errors.md 
+        href: flexible-server/how-to-troubleshoot-cli-errors.md
+      - name: Canceling statement due to conflict with recovery
+        href: flexible-server/troubleshoot-canceling-statement-due-to-conflict-with-recovery.md
     - name: Performance troubleshooting
       items:
       - name: Troubleshoot high CPU utilization

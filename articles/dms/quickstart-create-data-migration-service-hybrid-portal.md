@@ -12,6 +12,7 @@ ms.custom:
   - seo-lt-2019
   - mode-ui
   - subject-rbac-steps
+  - sql-migration-content
 ---
 
 # Quickstart: Create a hybrid mode instance with Azure portal & Azure Database Migration Service
