@@ -276,11 +276,11 @@ or provide credential-less data access. Depending on the datastore type and the 
 |Storage account type|Credential-less data access|Data access mechanism|Role assignments|
 | ------------------------ | ------------------------ | ------------------------ | ------------------------ |
 |Azure Blob|No|Access key or SAS token|No role assignments needed|
-|Azure Blob|Yes|User identity passthrough<sup><b>*</b></sup>|User identity should have [appropriate role assignments](./apache-spark-environment-configuration.md#add-role-assignments-in-azure-storage-accounts) in the Azure Blob storage account|
+|Azure Blob|Yes|User identity passthrough<sup>__*__</sup>|User identity should have [appropriate role assignments](./apache-spark-environment-configuration.md#add-role-assignments-in-azure-storage-accounts) in the Azure Blob storage account|
 |Azure Data Lake Storage (ADLS) Gen 2|No|Service principal|Service principal should have [appropriate role assignments](./apache-spark-environment-configuration.md#add-role-assignments-in-azure-storage-accounts) in the Azure Data Lake Storage (ADLS) Gen 2 storage account|
 |Azure Data Lake Storage (ADLS) Gen 2|Yes|User identity passthrough|User identity should have [appropriate role assignments](./apache-spark-environment-configuration.md#add-role-assignments-in-azure-storage-accounts) in the Azure Data Lake Storage (ADLS) Gen 2 storage account|
 
-<sup><b>*</b></sup> User identity passthrough works for credential-less datastores that point to Azure Blob storage accounts, only if [soft delete](../storage/blobs/soft-delete-blob-overview.md) is not enabled.
+<sub>__*__</sub> User identity passthrough works for credential-less datastores that point to Azure Blob storage accounts, only if [soft delete](../storage/blobs/soft-delete-blob-overview.md) is not enabled.
 
 ## Accessing data on the default file share
 
