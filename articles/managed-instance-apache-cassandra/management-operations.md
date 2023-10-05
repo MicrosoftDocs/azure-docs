@@ -90,12 +90,13 @@ To restore from an existing backup, file a [support request](https://portal.azur
 1. If restore of the whole cluster is not required, provide the keyspace and table (if applicable) that needs to be restored.
 1. Advise whether you want the backup to be restored in the existing cluster, or in a new cluster.
 1. If you want to restore to a new cluster, you will need to create the new cluster first. Ensure that the target cluster matches the source cluster in terms of the number of data centers, and that corresponding data center has the same number of nodes. You can also decide whether to keep the credentials (username/password) in the new target cluster, or allow restore to override username/password with what was originally created.
+1. You can also decide whether to keep `system_auth` keyspace in the new target cluster or allow the restore to overwrite it with data from the backup. The `system_auth` keyspace in Cassandra contains authorization and internal authentication data, including roles, role permissions, and passwords. Please note that our default restore process will overwrite the `system_auth` keyspace.
 
 > [!NOTE]
 > The time it takes to respond to a request to restore from backup will depend both on the severity of support case you raise, and the amount of data to be restored. For example, if you raise a Sev-A support case, the SLA for response to the ticket is 15 minutes. However, we do not provide an SLA for time to complete the restore, as this is very dependent on the volume of data being restored.
 
 > [!WARNING]
-> Backups can be restored to the same VNet/subnet as your existing cluster, but they cannot be restored to the *same cluster*. Backups can only be restored to **new clusters**. Backups are intended for accidental deletion scenarios, and are not geo-redundant. They are therefore not recommended for use as a disaster recovery (DR) strategy in case of a total regional outage. To safeguard against region-wide outages, we recommend a multi-region deployment. Take a look at our [quickstart for multi-region deployments](create-multi-region-cluster.md).
+> Backups are intended for accidental deletion scenarios, and are not geo-redundant. They are therefore not recommended for use as a disaster recovery (DR) strategy in case of a total regional outage. To safeguard against region-wide outages, we recommend a multi-region deployment. Take a look at our [quickstart for multi-region deployments](create-multi-region-cluster.md).
 
 ## Security
 
