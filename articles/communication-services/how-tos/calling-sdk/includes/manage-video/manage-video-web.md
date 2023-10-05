@@ -409,12 +409,12 @@ const isAvailable: boolean = remoteVideoStream.isAvailable;
 
 - `isReceiving`:
     - Will inform the application if remote video stream data is being received or not. Such scenarios are:
-        - I am viewing the video of a remote participant who is on mobile browser. The remote participant brings the mobile browser app to the background. I now see the RemoteVideoStream.isReceiving flag goes to false and I see their video with black frames / frozen. When the remote participant brings the mobile browser back to the foreground, I now see the RemoteVideoStream.isReceiving flag to back to true, and I see their video playing normally.
-        - I am viewing the video of a remote participant who is on whatever platforms. There are network issues from either side, their video start to have bad quality, probably because of network issues, so I see the RemoteVideoStream.isReceiving flag goes to false.
-        - I am viewing the video of a Remote participant who is On MacOS/iOS Safari, and from their address bar, they click on "Pause" / "Resume" camera. I see a black/frozen video since they paused their camera and I see the RemoteVideoStream.isReceiving flag goes to false. Once they resume playing the camera, then I see the RemoteVideoStream.isReceiving flag goes to true.
-        - I am viewing the video of a remote participant who in on whatever platform. And for whatever reason their network disconnects. This will actually leave the remote participant in the call for a little while and I see their video frozen/black frame, and see RemoteVideoStream.isReceiving flag goes to false. The remote participant can get network back and reconnect and their audio/video should start flowing normally and I see the RemoteVideoStream.isReceiving flag to true.
-        - I am viewing the video of a remote participant who is on mobile browser. The remote participant terminates/kills the mobile browser. Since that remote participant was on mobile, this will actually leave the participant in the call for a little while and I will still see them on the call and their video will be frozen, and so I  see the RemoteVideoStream.isReceiving flag goes to false. At some point, service will kick participant out of the call and I would just see that the participant disconnected from the call.
-        - I am viewing the video of a remote participant who is on mobile browser and they lock the device. I see the RemoteVideoStream.isReceiving flag goes to false. Once the remote participant unlocks the device and navigates to the acs call, then ill see the flag go back to true. Same behavior when remote participant is on desktop and the desktop locks/sleeps
+        - I'm viewing the video of a remote participant who is on mobile browser. The remote participant brings the mobile browser app to the background. I now see the RemoteVideoStream.isReceiving flag goes to false and I see their video with black frames / frozen. When the remote participant brings the mobile browser back to the foreground, I now see the RemoteVideoStream.isReceiving flag to back to true, and I see their video playing normally.
+        - I'm viewing the video of a remote participant who is on whatever platforms. There are network issues from either side, their video start to have bad quality, probably because of network issues, so I see the RemoteVideoStream.isReceiving flag goes to false.
+        - I'm viewing the video of a Remote participant who is On macOS/iOS Safari, and from their address bar, they click on "Pause" / "Resume" camera. I see a black/frozen video since they paused their camera and I see the RemoteVideoStream.isReceiving flag goes to false. Once they resume playing the camera, then I see the RemoteVideoStream.isReceiving flag goes to true.
+        - I'm viewing the video of a remote participant who in on whatever platform. And for whatever reason their network disconnects. This will actually leave the remote participant in the call for a little while and I see their video frozen/black frame, and see RemoteVideoStream.isReceiving flag goes to false. The remote participant can get network back and reconnect and their audio/video should start flowing normally and I see the RemoteVideoStream.isReceiving flag to true.
+        - I'm viewing the video of a remote participant who is on mobile browser. The remote participant terminates/kills the mobile browser. Since that remote participant was on mobile, this will actually leave the participant in the call for a little while and I will still see them on the call and their video will be frozen, and so I  see the RemoteVideoStream.isReceiving flag goes to false. At some point, service will kick participant out of the call and I would just see that the participant disconnected from the call.
+        - I'm viewing the video of a remote participant who is on mobile browser and they lock the device. I see the RemoteVideoStream.isReceiving flag goes to false. Once the remote participant unlocks the device and navigates to the acs call, then ill see the flag go back to true. Same behavior when remote participant is on desktop and the desktop locks/sleeps
     - This feature improves the user experience for rendering remote video streams.
     - You can display a loading spinner over the remote video stream when isReceiving flag changes to false. You don't have to do a loading spinner, you can do anything you desire, but a loading spinner is the most common usage for better user experience.
 ```js
@@ -487,13 +487,13 @@ await callObj2.mute();
 ```
 Limitations:
 - This must be done with two different call agents with different identities, hence the code snippet shows two call agents being used.
-- Sending the same camera in both CallAgent, is not supported. They must be two different cameras.
+- Sending the same camera in both CallAgent, isn't supported. They must be two different cameras.
 - Sending two different cameras with one CallAgent is currently not supported.
-- On MacOS Safari, background blur video effects (from @azure/communication-effects), can only be applied to one camera, and not both at the same time.
+- On macOS Safari, background blur video effects (from @azure/communication-effects), can only be applied to one camera, and not both at the same time.
 
 ## Send or receive a reaction from other participants
 [!INCLUDE [Public Preview Disclaimer](../../../../includes/public-preview-include.md)]
-Sending and receiving of reactions is in public preview and available as part of versions 1.18.1-beta.1+.
+Sending and receiving of reactions is in public preview and available as part of versions 1.18.1-beta.1 or higher.
 
 Within ACS you can send and receive reactions when on a group call:
 - Like :+1:
