@@ -1145,7 +1145,7 @@ This release applies both for HDInsight 3.6 and 4.0. HDInsight release is made a
 
 ### New features
 #### Support for Customer Lockbox for Microsoft Azure
-Azure HDInsight now supports Azure Customer Lockbox. It provides an interface for customers to review and approve, or reject customer data access requests. It's used when Microsoft engineer needs to access customer data during a support request. For more information, see [Customer Lockbox for Microsoft Azure](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios).
+Azure HDInsight now supports Azure Customer Lockbox. It provides an interface for customers to review and approve, or reject customer data access requests. It's used when Microsoft engineer needs to access customer data during a support request. For more information, see [Customer Lockbox for Microsoft Azure](../security/fundamentals/customer-lockbox-overview.md).
 
 #### Service endpoint policies for storage
 Customers can now use Service Endpoint Policies (SEP) on the HDInsight cluster subnet. Learn more about [Azure service endpoint policy](../virtual-network/virtual-network-service-endpoint-policies-overview.md).
