@@ -32,7 +32,7 @@ These settings are configured by the [Azure AD PowerShell module](/previous-vers
 To see the configuration in your Microsoft Entra directory, run `Get-MsolDirSyncFeatures`.
 ![Get-MsolDirSyncFeatures result](./media/how-to-connect-syncservice-features/getmsoldirsyncfeatures.png)
 
-To see the configuration in your Microsoft Entra directory using the Graph Powershell, use the following commands:
+To see the configuration in your Microsoft Entra directory using the Graph Powerhell, use the following commands:
 ```powershell
 Connect-MgGraph -Scopes OnPremDirectorySynchronization.Read.All, OnPremDirectorySynchronization.ReadWrite.All
 
@@ -107,7 +107,7 @@ This feature is on by default for newly created Microsoft Entra directories. You
 ## Using the MSOnline module
 Get-MsolDirSyncFeatures -Feature EnableSoftMatchOnUpn
 
-## Using the Graph Powershell module
+## Using the Graph PowerShell module
 $Config = Get-MgDirectoryOnPremisSynchronization
 $Config.Features.SoftMatchOnUpnEnabled
 ```
@@ -146,7 +146,7 @@ This feature is on by default for newly created Microsoft Entra directories. You
 ## Using the MSOnline module
 Get-MsolDirSyncFeatures -Feature SynchronizeUpnForManagedUsers
 
-## Using the Graph Powershell module
+## Using the Graph PowerShell module
 $config = Get-MgDirectoryOnPremisSynchronization
 $config.Features.SynchronizeUpnForManagedUsersEnabled
 ```
