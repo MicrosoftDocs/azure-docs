@@ -85,7 +85,7 @@ To restore from an existing backup, file a [support request](https://portal.azur
 
 1. Provide the backup id from portal for the backup you want to restore. This can be found in the portal:
 
-    :::image type="content" source="./media/management-operations/backup.png" alt-text="Screenshot of backup schedule configuration page highlighting backup id." lightbox="./media/management-operation/backup.png" border="true":::
+    :::image type="content" source="./media/management-operations/backup.png" alt-text="Screenshot of backup schedule configuration page highlighting backup id." lightbox="./media/management-operations/backup.png" border="true":::
     
 1. If restore of the whole cluster is not required, provide the keyspace and table (if applicable) that needs to be restored.
 1. Advise whether you want the backup to be restored in the existing cluster, or in a new cluster.
