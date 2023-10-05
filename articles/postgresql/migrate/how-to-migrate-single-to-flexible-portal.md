@@ -71,7 +71,7 @@ Alternatively, you can initiate the migration process from the Azure Database fo
 
 4. Should you choose to Create a new Flexible Server, select **Create new** and select **Go to Create Wizard**. This action takes you through the Flexible Server creation process and deploys the Flexible Server.
 
-    :::image type="content" source="./media/concepts-single-to-flexible/sspg-banner-createnew.png" alt-text="Screenshot to choose new flexible server option." lightbox="./media/concepts-single-to-flexible/sspg-banner-createnew.png":::
+    :::image type="content" source="./media/concepts-single-to-flexible/sspg-banner-create-new.png" alt-text="Screenshot to choose new flexible server option." lightbox="./media/concepts-single-to-flexible/sspg-banner-create-new.png":::
 
 After deploying the Flexible Server, follow the steps 3 to 5 under [Configure the migration task](#configure-the-migration-task)
 
