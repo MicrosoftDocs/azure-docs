@@ -112,7 +112,7 @@ When you create an API Management service (`contosointernalvnet`, for example), 
 
 If you don't want to access the API Management service with the default host names, set up [custom domain names](configure-custom-domain.md) for all your endpoints, as shown in the following image:
 
-    :::image type="content" source="media/api-management-using-with-internal-vnet/api-mTo access these API Management endpoints 
+:::image type="content" source="media/api-management-using-with-internal-vnet/api-management-custom-domain-name.png" alt-text="Set up custom domain name":::
 
 ### Configure DNS records
 
