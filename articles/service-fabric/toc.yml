@@ -46,7 +46,7 @@
     - name: 3- Add and remove managed cluster node types
       href: tutorial-managed-cluster-add-remove-node-type.md
     - name: 4- Connect to a managed cluster and deploy an application
-      href: tutorial-managed-cluster-deploy-app.md
+      href: how-to-managed-cluster-app-deployment-template.md
   - name: Deploy a .NET app
     items:
     - name: 1- Build a .NET application
