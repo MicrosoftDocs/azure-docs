@@ -37,7 +37,7 @@ To conduct calculations on credit accumulations and consumptions, customers can 
 
 Putting this calculation into action, let's say that a customer deploys the Standard_B2ts_v2 VM size and their workload demands 10% of the 'Percentage CPU' or CPU performance, then the 'credits banked per minute' calculation will be as follows: `((20*2) - (10*2))/100 = 0.2 credits/minute`. In such a scenario, a B-series VM is accumulating credits given the 'Percentage CPU' per CPU performance requirement is below the 'Base CPU performance' of the Standard_B2ts_v2. 
 
-Similarly, utilizing the example of a Standard_B32as_v2 VM size, if the workload demands 60% of the CPU performance for a measurement of time - then the 'credits banked per minute' calculation will be as follows: `((40*32) - (60%*32))/100 = -6.4 credits/minute`. Here the negative result implies the B-series VM is consuming credits given the 'Percentage CPU'/CPU performance requirement is above the 'Base CPU performance' of the Standard_B32as_v2.  
+Similarly, utilizing the example of a Standard_B32as_v2 VM size, if the workload demands 60% of the CPU performance for a measurement of time - then the 'credits banked per minute' calculation will be as follows: `((40*32) - (60*32))/100 = -6.4 credits/minute`. Here the negative result implies the B-series VM is consuming credits given the 'Percentage CPU'/CPU performance requirement is above the 'Base CPU performance' of the Standard_B32as_v2.  
  
 
 ## Credit monitoring
