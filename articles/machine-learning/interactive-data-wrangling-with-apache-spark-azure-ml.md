@@ -7,8 +7,8 @@ ms.author: yogipandey
 ms.reviewer: franksolomon
 ms.service: machine-learning
 ms.subservice: mldata
-ms.topic: how-to 
-ms.date: 05/22/2023
+ms.topic: how-to
+ms.date: 10/05/2023
 ms.custom: template-how-to 
 ---
 
@@ -29,7 +29,7 @@ In this article, you'll learn how to perform data wrangling using
 - (Optional): A Service Principal. See [Create a Service Principal](../active-directory/develop/howto-create-service-principal-portal.md).
 - [(Optional): An attached Synapse Spark pool in the Azure Machine Learning workspace](./how-to-manage-synapse-spark-pool.md).
 
-Before starting data wrangling tasks, you need familiarity with the process of storing secrets
+Before you start your data wrangling tasks, learn about the process of storing secrets
 
 - Azure Blob storage account access key
 - Shared Access Signature (SAS) token
@@ -52,9 +52,12 @@ The Notebooks UI also provides options for Spark session configuration, for the 
 
 1. Select **Configure session** at the top of the screen.
 2. Select **Apache Spark version** from the dropdown menu.
-   > [!IMPORTANT]
-   >
-   > End of life announcement (EOLA) for Azure Synapse Runtime for Apache Spark 3.1 was made on January 26, 2023. In accordance, Apache Spark 3.1 will not be supported after July 31, 2023. We recommend that you use Apache Spark 3.2.
+    > [!IMPORTANT]
+    > Azure Synapse Runtime for Apache Spark: Announcements
+    > * Azure Synapse Runtime for Apache Spark 3.2:
+    >   * EOLA Announcement Date: July 8, 2023
+    >   * End of Support Date: July 8, 2024. After this date, the runtime will be disabled.
+    > * For continued support and optimal performance, we advise that you migrate to Apache Spark 3.3.
 3. Select **Instance type** from the dropdown menu. The following instance types are currently supported:
     - `Standard_E4s_v3`
     - `Standard_E8s_v3`
@@ -66,12 +69,16 @@ The Notebooks UI also provides options for Spark session configuration, for the 
 6. Select the number of **Executors** for the Spark session.
 7. Select **Executor size** from the dropdown menu.
 8. Select **Driver size** from the dropdown menu.
-9. To use a conda file to configure a Spark session, check the **Upload conda file** checkbox. Then, select **Browse**, and choose the conda file with the Spark session configuration you want.
+9. To use a Conda file to configure a Spark session, check the **Upload conda file** checkbox. Then, select **Browse**, and choose the Conda file with the Spark session configuration you want.
 10. Add **Configuration settings** properties, input values in the **Property** and **Value** textboxes, and select **Add**.
 11. Select **Apply**.
 12. Select **Stop session** in the **Configure new session?** pop-up.
 
 The session configuration changes persist and become available to another notebook session that is started using the serverless Spark compute.
+
+> [!TIP]
+>
+> If you use session-level Conda packages, you can [improve](./how-to-submit-spark-jobs.md#improving-serverless-spark-session-start-up-time-while-using-session-level-conda-packages) the Spark session *cold start* time if you set the configuration variable `spark.hadoop.aml.enable_cache` to true.
 
 ### Import and wrangle data from Azure Data Lake Storage (ADLS) Gen 2
 
@@ -81,15 +88,15 @@ You can access and wrangle data stored in Azure Data Lake Storage (ADLS) Gen 2 s
 - Service principal-based data access
 
 > [!TIP]
-> Data wrangling with a serverless Spark compute, and user identity passthrough to access data in Azure Data Lake Storage (ADLS) Gen 2 storage account requires the least number of configuration steps.
+> Data wrangling with a serverless Spark compute, and user identity passthrough to access data in a Azure Data Lake Storage (ADLS) Gen 2 storage account, requires the smallest number of configuration steps.
 
 To start interactive data wrangling with the user identity passthrough:
 
 - Verify that the user identity has **Contributor** and **Storage Blob Data Contributor** [role assignments](./apache-spark-environment-configuration.md#add-role-assignments-in-azure-storage-accounts) in the Azure Data Lake Storage (ADLS) Gen 2 storage account.
 
-- To use the serverless Spark compute, select **Serverless Spark Compute** under **Azure Machine Learning Serverless Spark**, from the **Compute** selection menu.
+- To use the serverless Spark compute, select **Serverless Spark Compute** under **Azure Machine Learning Serverless Spark** from the **Compute** selection menu.
 
-- To use an attached Synapse Spark pool, select an attached Synapse Spark pool under **Synapse Spark pools**, from the **Compute** selection menu.
+- To use an attached Synapse Spark pool, select an attached Synapse Spark pool under **Synapse Spark pools** from the **Compute** selection menu.
 
 - This Titanic data wrangling code sample shows use of a data URI in format `abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/<PATH_TO_DATA>` with `pyspark.pandas` and `pyspark.ml.feature.Imputer`.
 
@@ -115,7 +122,7 @@ To start interactive data wrangling with the user identity passthrough:
     ```
 
     > [!NOTE]
-    > This Python code sample uses `pyspark.pandas`, which is only supported by Spark runtime version 3.2.
+    > This Python code sample uses `pyspark.pandas`. Only the Spark runtime version 3.2 or later supports this.
 
 To wrangle data by access through a service principal:
 
@@ -123,7 +130,7 @@ To wrangle data by access through a service principal:
 2. [Create Azure Key Vault secrets](./apache-spark-environment-configuration.md#store-azure-storage-account-credentials-as-secrets-in-azure-key-vault) for the service principal tenant ID, client ID and client secret values.
 3. Select **Serverless Spark compute** under **Azure Machine Learning Serverless Spark** from the **Compute** selection menu, or select an attached Synapse Spark pool under **Synapse Spark pools** from the **Compute** selection menu.
 4. To set the service principal tenant ID, client ID and client secret in the configuration, and execute the following code sample.
-     - The `get_secret()` call in the code depends on name of the Azure Key Vault, and the names of the Azure Key Vault secrets created for the service principal tenant ID, client ID and client secret. The corresponding property name/values to set in the configuration are as follows:
+     - The `get_secret()` call in the code depends on name of the Azure Key Vault, and the names of the Azure Key Vault secrets created for the service principal tenant ID, client ID and client secret. Set these corresponding property name/values in the configuration:
        - Client ID property: `fs.azure.account.oauth2.client.id.<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net`
        - Client secret property: `fs.azure.account.oauth2.client.secret.<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net`
        - Tenant ID property: `fs.azure.account.oauth2.client.endpoint.<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net`
@@ -201,7 +208,7 @@ To start interactive data wrangling:
         > [!NOTE]
         > The `get_secret()` calls in the above code snippets require the name of the Azure Key Vault, and the names of the secrets created for the Azure Blob storage account access key or SAS token
 
-2. Execute the data wrangling code in the same notebook. Format the data URI as `wasbs://<BLOB_CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/<PATH_TO_DATA>` similar to this code snippet
+2. Execute the data wrangling code in the same notebook. Format the data URI as `wasbs://<BLOB_CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/<PATH_TO_DATA>`, similar to what this code snippet shows:
 
     ```python
     import pyspark.pandas as pd
@@ -225,7 +232,7 @@ To start interactive data wrangling:
     ```
 
     > [!NOTE]
-    > This Python code sample uses `pyspark.pandas`, which is only supported by Spark runtime version 3.2.
+    > This Python code sample uses `pyspark.pandas`. Only the Spark runtime version 3.2 or later supports this.
 
 ### Import and wrangle data from Azure Machine Learning Datastore
 
@@ -256,15 +263,15 @@ To access data from [Azure Machine Learning Datastore](how-to-datastore.md), def
     ```
 
     > [!NOTE]
-    > This Python code sample uses `pyspark.pandas`, which is only supported by Spark runtime version 3.2.
+    > This Python code sample uses `pyspark.pandas`. Only the Spark runtime version 3.2 or later supports this.
 
-The Azure Machine Learning datastores can access data using Azure storage account credentials 
+The Azure Machine Learning datastores can access data using Azure storage account credentials
 
 - access key
-- SAS token 
+- SAS token
 - service principal
 
-or provide credential-less data access. Depending on the datastore type and the underlying Azure storage account type, adopt an appropriate authentication mechanism to ensure data access. This table summarizes the authentication mechanisms to access data in the Azure Machine Learning datastores:
+or provide credential-less data access. Depending on the datastore type and the underlying Azure storage account type, select an appropriate authentication mechanism to ensure data access. This table summarizes the authentication mechanisms to access data in the Azure Machine Learning datastores:
 
 |Storage account type|Credential-less data access|Data access mechanism|Role assignments|
 | ------------------------ | ------------------------ | ------------------------ | ------------------------ |
@@ -273,7 +280,7 @@ or provide credential-less data access. Depending on the datastore type and the 
 |Azure Data Lake Storage (ADLS) Gen 2|No|Service principal|Service principal should have [appropriate role assignments](./apache-spark-environment-configuration.md#add-role-assignments-in-azure-storage-accounts) in the Azure Data Lake Storage (ADLS) Gen 2 storage account|
 |Azure Data Lake Storage (ADLS) Gen 2|Yes|User identity passthrough|User identity should have [appropriate role assignments](./apache-spark-environment-configuration.md#add-role-assignments-in-azure-storage-accounts) in the Azure Data Lake Storage (ADLS) Gen 2 storage account|
 
-<sup><b>*</b></sup> user identity passthrough works for credential-less datastores that point to Azure Blob storage accounts, only if [soft delete](../storage/blobs/soft-delete-blob-overview.md) isn't enabled.
+<sup><b>*</b></sup> User identity passthrough works for credential-less datastores that point to Azure Blob storage accounts, only if [soft delete](../storage/blobs/soft-delete-blob-overview.md) is not enabled.
 
 ## Accessing data on the default file share
 
@@ -302,7 +309,7 @@ df.to_csv(output_path, index_col="PassengerId")
 ```
 
 > [!NOTE]
-> This Python code sample uses `pyspark.pandas`, which is only supported by Spark runtime version 3.2.
+> This Python code sample uses `pyspark.pandas`. Only the Spark runtime version 3.2 or later supports this.
 
 ## Next steps
 
