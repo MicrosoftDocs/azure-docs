@@ -808,7 +808,7 @@ The `errorHandling` property allows you to configure how errors are handled duri
 
 # [Bicep](#bicep)
 
-```Bicep
+```bicep
 errorHandling: {
   onCustomizerError: 'abort',
   onValidationError: 'cleanup'
