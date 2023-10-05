@@ -3,7 +3,7 @@ title: Windows Server node pools FAQ
 titleSuffix: Azure Kubernetes Service
 description: See the frequently asked questions when you run Windows Server node pools and application workloads in Azure Kubernetes Service (AKS).
 ms.topic: article
-ms.custom: build-2023
+ms.custom: build-2023, devx-track-azurecli
 ms.date: 04/13/2023
 #Customer intent: As a cluster operator, I want to see frequently asked questions when running Windows node pools and application workloads.
 ---

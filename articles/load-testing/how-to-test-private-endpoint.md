@@ -4,6 +4,7 @@ titleSuffix: Azure Load Testing
 description: Learn how to deploy Azure Load Testing in a virtual network (VNET injection) to test private application endpoints and hybrid deployments.
 services: load-testing
 ms.service: load-testing
+ms.custom: devx-track-azurecli
 ms.author: nicktrog
 author: ntrogh
 ms.date: 05/12/2023
