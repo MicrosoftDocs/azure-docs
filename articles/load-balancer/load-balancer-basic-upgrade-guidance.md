@@ -85,9 +85,9 @@ Suggested order of operations for manually upgrading a Basic Load Balancer in co
     1. Load balancing rules - use the temporary frontend configuration
     1. NAT rules - use the temporary frontend configuration
 1. For public load balancers, if you do not have one already, [create a new Network Security Group](../virtual-network/tutorial-filter-network-traffic.md) with allow rules for the traffic coming through the Load Balancer rules
-1. For Virtual Machine Scale Set backends, remove the Load Balancer association in the Networking settings and update the instances 
+1. For Virtual Machine Scale Set backends, remove the Load Balancer association in the Networking settings and [update the instances](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-policy.md#performing-manual-upgrades) 
 1. Delete the Basic Load Balancer 
-1. Upgrade all Public IPs previously associated with the Basic Load Balancer and backend Virtual Machines to Standard SKU. For Virtual Machine Scale Sets, remove any instance-level public IP configuration, update the instances, then add a new one with Standard SKU and update the instances again. 
+1. [Upgrade all Public IPs](../virtual-network/ip-services/public-ip-upgrade-portal.md) previously associated with the Basic Load Balancer and backend Virtual Machines to Standard SKU. For Virtual Machine Scale Sets, remove any instance-level public IP configuration, update the instances, then add a new one with Standard SKU and update the instances again. 
 1. Recreate the frontend configurations from the Basic Load Balancer on the newly created Standard Load Balancer, using the same public or private IP addresses as on the Basic Load Balancer
 1. Update the load balancing and NAT rules to use the appropriate frontend configurations
 1. For public Load Balancers, [create one or more outbound rules](./outbound-rules.md) to enable internet access for backend pools
