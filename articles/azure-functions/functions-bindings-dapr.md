@@ -40,7 +40,7 @@ This extension is available by installing the [NuGet package](https://www.nuget.
 Using the .NET CLI:
 
 ```dotnetcli
-dotnet add package Microsoft.Azure.WebJobs.Extensions.Dapr --version 0.17.0-preview01
+dotnet add package Microsoft.Azure.WebJobs.Extensions.Dapr --prerelease
 ``` 
 
 # [Isolated process](#tab/isolated-process)
@@ -50,7 +50,7 @@ Add the extension to your project by installing the [NuGet package](https://www.
 Using the .NET CLI:
 
 ```dotnetcli
-dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Dapr --version 0.17.0-preview01
+dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Dapr --prerelease
 ``` 
 
 ---
@@ -192,7 +192,7 @@ Learn how to use the Dapr Extension for Azure Functions via the provided samples
 | [.NET Isolated][dapr-isolated] | Integrate with Dapr components in .NET using the Azure Functions out-of-proc (OOP) execution model. |
 
 [dapr-quickstart]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/quickstart
-[dapr-kafka]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/dapr-kafka
+[dapr-kafka]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/python-v2-azurefunction#3-dapr-binding
 [dapr-in-proc]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/dotnet-azurefunction
 [dapr-isolated]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/dotnet-isolated-azurefunction
 
@@ -225,7 +225,7 @@ Learn how to use the Dapr Extension for Azure Functions via the provided samples
 | [JavaScript][dapr-js] | Run a JavaScript Dapr function application and integrate with Dapr Service Invocation, Pub/sub, Bindings, and State Management using Azure Functions. |
 
 [dapr-quickstart]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/quickstart
-[dapr-kafka]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/dapr-kafka
+[dapr-kafka]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/javascript-azurefunction#3-dapr-binding
 [dapr-js]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/javascript-azurefunction
 
 ::: zone-end
@@ -258,9 +258,9 @@ Learn how to use the Dapr Extension for Azure Functions via the provided samples
 | [Python v2][dapr-python-2] | Launch a Dapr application using the Azure Functions Python v2 programming model to integrate with Dapr components. |
 
 [dapr-quickstart]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/quickstart
-[dapr-kafka]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/dapr-kafka
+[dapr-kafka]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/dotnet-isolated-azurefunction#3-dapr-binding
 [dapr-python]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/python-azurefunction
-[dapr-python-2]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/python-v2-azurefunctions
+[dapr-python-2]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/python-v2-azurefunction
 
 ::: zone-end
 
