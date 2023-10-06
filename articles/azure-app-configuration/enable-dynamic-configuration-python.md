@@ -120,9 +120,10 @@ In `app.py`, setup Azure App Configuration to load your configuration values. Th
 from azure.appconfiguration.provider import SentinelKey
 from azure.appconfiguration.provider.aio import load
 
-async with await load(connection_string=os.environ.get("AZURE_APPCONFIG_CONNECTION_STRING")) as azure_app_config:
-    # NOTE: This will override all existing configuration settings with the same key name.
-    app.config.update(azure_app_config)
+azure_app_config = load(connection_string=os.environ.get("AZURE_APPCONFIG_CONNECTION_STRING")) as 
+
+# NOTE: This will override all existing configuration settings with the same key name.
+app.config.update(azure_app_config)
 
 @app.route('/')
  def index():
@@ -142,7 +143,7 @@ You can find a full sample project [here](https://github.com/Azure/AppConfigurat
 Setup App Configuration in your Django settings file, `settings.py`.
 
 ```python
-CONFIG = load(connection_string=os.environ.get("AZURE_APPCONFIG_CONNECTION_STRING"))
+AZURE_APPCONFIGURATION = load(connection_string=os.environ.get("AZURE_APPCONFIG_CONNECTION_STRING"))
 ```
 
 Update your view endpoints to check for updated configuration values.
@@ -152,7 +153,7 @@ from django.conf import settings
 
 def index(request):
     # Refresh the configuration from Azure App Configuration.
-    settings.CONFIG.refresh()
+    settings.AZURE_APPCONFIGURATION.refresh()
 
     # Once this returns CONFIG will be updated with the latest values
     ...
