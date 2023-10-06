@@ -110,7 +110,7 @@ Unlike Premium SSDs, Premium SSD v2 doesn't have dedicated sizes. You can set a 
 
 ### Premium SSD v2 limitations
 
-[!INCLUDE [disks-prem-v2-limitations](../../includes/disks-prem-v2-limitations.md)]
+Premium SSD v2 can't be used with some features and functionality, including disk snapshots, disk export, changing disk type, VM images, availability sets, Azure Dedicated Hosts, or Azure disk encryption.
 
 #### Regional availability
 
