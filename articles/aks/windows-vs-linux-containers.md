@@ -3,7 +3,7 @@ title: Windows container considerations in Kubernetes
 titleSuffix: Azure Kubernetes Service
 description: See the Windows container considerations in Kubernetes.
 ms.topic: article
-ms.date: 09/05/2023
+ms.date: 10/05/2023
 ms.author: schaffererin
 author: schaffererin
 
@@ -11,7 +11,7 @@ author: schaffererin
 
 # Windows container considerations in Kubernetes
 
-When you create deployments that use Windows Server containers in Azure Kubernetes Service (AKS), there are a few differences relative to Linux deployments you should keep in mind. For a detailed comparison of the differences between Windows and Linux in upstream Kubernetes, please see [Windows containers in Kubernetes](https://kubernetes.io/docs/concepts/windows/intro/).
+When you create deployments that use Windows Server containers on Azure Kubernetes Service (AKS), there are a few differences relative to Linux deployments you should keep in mind. For a detailed comparison of the differences between Windows and Linux in upstream Kubernetes, please see [Windows containers in Kubernetes](https://kubernetes.io/docs/concepts/windows/intro/).
 
 Some of the major differences include:
 
@@ -32,7 +32,7 @@ This article covers important considerations to keep in mind when using Windows 
 | [Privileged containers][privileged-containers] | Not supported. The equivalent is **HostProcess Containers (HPC) containers**. |
 | [HPC containers][hpc-containers] | • HostProcess containers are the Windows alternative to Linux privileged containers. For more information, see [Create a Windows HostProcess pod](https://kubernetes.io/docs/tasks/configure-pod-container/create-hostprocess-pod/). |
 | [Azure Network Policy Manager (Azure NPM)][azure-network-policy] | Azure NPM doesn't support:<br/> • Named ports<br/> • SCTP protocol<br/> • Negative match labels or namespace selectors (all labels except "debug=true")<br/> • "except" CIDR blocks (a CIDR with exceptions)<br/> • Windows Server 2019<br/> |
-| [Node upgrade][node-upgrade] | Windows Server nodes in AKS don't automatically apply Windows updates. Instead, you perform a node pool upgrade or [node image upgrade][node-image-upgrade]. These upgrade deploy new nodes with the latest Window Server 2019 and Windows Server 2022 base node image and security patches. |
+| [Node upgrade][node-upgrade] | Windows Server nodes on AKS don't automatically apply Windows updates. Instead, you perform a node pool upgrade or [node image upgrade][node-image-upgrade]. These upgrade deploy new nodes with the latest Window Server 2019 and Windows Server 2022 base node image and security patches. |
 | [AKS Image Cleaner][aks-image-cleaner] | Not supported. |
 | [BYOCNI][byo-cni] | Not supported. |
 | [Open Service Mesh][open-service-mesh] | Not supported. |
