@@ -54,6 +54,7 @@ To obtain the sample application, you can either clone it from GitHub or downloa
     ```console
     git clone https://github.com/Azure-Samples/ms-identity-docs-code-javascript.git
     ```
+
 - [Download the .zip file](https://github.com/Azure-Samples/ms-identity-docs-code-javascript/archive/refs/heads/main.zip). Extract it to a file path where the length of the name is fewer than 260 characters.
 
 ## Configure the project
@@ -63,9 +64,9 @@ To obtain the sample application, you can either clone it from GitHub or downloa
 
     :::code language="JavaScript" source="~/ms-identity-docs-code-javascript/angular-spa/src/app/app.module.ts":::
 
-    * `clientId` - The identifier of the application, also referred to as the client. Replace the text in quotes with the **Directory (tenant) ID** value that was recorded earlier from the overview page of the registered application.
-    * `authority` - The identifier of the tenant where the application is registered. Replace the text in quotes with the **Directory (tenant) ID** that was recorded earlier from the overview page of the registered application.
-    * `redirectUri` - The **Redirect URI** of the application. If necessary, replace the text in quotes with the redirect URI that was recorded earlier from the overview page of the registered application.
+    * `clientId` - The identifier of the application, also referred to as the client. Replace the text in quotes with the **Application (client) ID** value that was recorded earlier.
+    * `authority` - The identifier of the tenant where the application is registered. Replace the text in quotes with the **Directory (tenant) ID** value that was recorded earlier.
+    * `redirectUri` - The **Redirect URI** of the application. If necessary, replace the text in quotes with the redirect URI that was recorded earlier.
 
 ## Run the application and sign in
 
