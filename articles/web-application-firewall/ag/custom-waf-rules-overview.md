@@ -24,10 +24,12 @@ Different matching conditions within the same rule are always compounded using *
 
 If you want to use **or** between two different conditions,then the two conditions must be in different rules. For example, block traffic from a specific IP address or block traffic if they're using a specific browser.
 
+Regular expressions are also supported in custom rules, just like in the CRS rulesets. For examples, see Examples 3 and 5 in [Create and use custom web application firewall rules](create-custom-waf-rules.md).
+
+Custom rules can be duplicated within a given policy. When doing this, you will need to specify a unique name for the rule and a unique priority value. Additionally, custom rules can be copied from one Application Gateway WAF policy to another as long as the policies are both in the same subscription. When copying a rule from one policy to another you will need to select the Application Gateway WAF policy you wish to copy the rule into, give the rule a unique name, and assign a priority rank.
+
 > [!NOTE]
 > The maximum number of WAF custom rules is 100. For more information about Application Gateway limits, see [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits).
-
-Regular expressions are also supported in custom rules, just like in the CRS rulesets. For examples, see Examples 3 and 5 in [Create and use custom web application firewall rules](create-custom-waf-rules.md).
 
 > [!CAUTION]
 > Any redirect rules applied at the application gateway level will bypass WAF custom rules. See [Application Gateway redirect overview](../../application-gateway/redirect-overview.md) for more information about redirect rules.
