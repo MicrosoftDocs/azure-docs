@@ -1,6 +1,6 @@
 ---
-title: Call service endpoints by using HTTP or HTTPS
-description: Send outbound HTTP or HTTPS requests to service endpoints from Azure Logic Apps.
+title: Call external service endpoints from workflows
+description: Send outbound HTTP or HTTPS requests to service endpoints from workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
@@ -9,11 +9,11 @@ ms.date: 10/06/2023
 tags: connectors
 ---
 
-# Call service endpoints over HTTP or HTTPS from Azure Logic Apps
+# Call external service endpoints over HTTP or HTTPS from workflows in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
-With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in HTTP trigger or action, you can create automated tasks and workflows that can send outbound requests to endpoints on other services and systems over HTTP or HTTPS. To receive and respond to inbound HTTPS calls instead, use the built-in [Request trigger and Response action](../connectors/connectors-native-reqres.md).
+This how-to guide shows create a logic app workflow that can send outbound requests to endpoints on other services and systems over HTTP or HTTPS. To receive and respond to inbound HTTPS calls instead, use the built-in [Request trigger and Response action](../connectors/connectors-native-reqres.md).
 
 For example, you can monitor a service endpoint for your website by checking that endpoint on a specific schedule. When the specified event happens at that endpoint, such as your website going down, the event triggers your logic app's workflow and runs the actions in that workflow.
 
@@ -33,7 +33,7 @@ For information about encryption, security, and authorization for outbound calls
 
 * Basic knowledge about how to create logic app workflows. If you're new to logic apps, see [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md)?
 
-* The logic app workflow from where you want to call the target endpoint. To start with the HTTP trigger, you'll need a blank workflow. To use the HTTP action, start your workflow with any trigger that you want. This example uses the HTTP trigger as the first step.
+* The logic app workflow from where you want to call the target endpoint. To start with the HTTP trigger, you have to start with a blank workflow. To use the HTTP action, start your workflow with any trigger that you want. This example uses the HTTP trigger as the first step.
 
 <a name="http-trigger"></a>
 

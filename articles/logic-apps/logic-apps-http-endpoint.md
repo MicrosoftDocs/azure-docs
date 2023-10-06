@@ -1,5 +1,5 @@
 ---
-title: Call, trigger, or nest workflows
+title: Create callable or nestable workflows
 description: Set up HTTPS endpoints to call, trigger, or nest workflows in Azure Logic Apps.
 services: logic-apps
 ms.workload: integration
@@ -9,7 +9,7 @@ ms.custom: engagement-fy23
 ms.date: 10/06/2023
 ---
 
-# Call, trigger, or nest logic apps by using HTTPS endpoints in Azure Logic Apps
+# Create workflows that you can call, trigger, or nest using HTTPS endpoints in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
@@ -25,9 +25,9 @@ For information about security, authorization, and encryption for inbound calls 
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* The logic app where you want to use the trigger to create the callable endpoint. You can start with either a blank logic app workflow or an existing logic app workflow where you can replace the current trigger. This example starts with a blank workflow. If you're new to logic apps, see [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) and [Create an example Consumption logic app workflow in multi-tenant Azure Logic Apps](../logic-apps/quickstart-create-example-consumption-workflow.md).
+* The logic app workflow where you want to use the trigger to create the callable endpoint. You can start with either a blank workflow or an existing logic app workflow where you can replace the current trigger. This example starts with a blank workflow. If you're new to logic apps, see [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) and [Create an example Consumption logic app workflow in multi-tenant Azure Logic Apps](../logic-apps/quickstart-create-example-consumption-workflow.md).
 
 ## Create a callable endpoint
 
