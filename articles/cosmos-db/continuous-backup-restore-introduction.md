@@ -132,7 +132,7 @@ Currently the point in time restore functionality has the following limitations:
 
 * Multi-regions write accounts aren't supported.
 
-* Currently Azure Synapse Link isn't fully compatible with continuous backup mode. For more information about backup with analytical store, see [analytical store backup](analytical-store-introduction.md#backup).
+* Currently Azure Synapse Link can be enabled, in preview, in continuous backup database accounts. The opposite situation isn't supported yet, it is not possible to turn on continuous backup in Synapse Link enabled database accounts. And analytical store isn't included in backups. For more information about backup and analytical store, see [analytical store backup](analytical-store-introduction.md#backup).
 
 * The restored account is created in the same region where your source account exists. You can't restore an account into a region where the source account didn't exist.
 
