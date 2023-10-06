@@ -8,6 +8,8 @@ ms.reviewer: maghan
 ms.date: 08/07/2023
 ms.service: dms
 ms.topic: tutorial
+ms.custom:
+  - sql-migration-content
 ---
 
 # Tutorial: Migrate from MySQL to Azure Database for MySQL - Flexible Server online using DMS via the Azure portal
