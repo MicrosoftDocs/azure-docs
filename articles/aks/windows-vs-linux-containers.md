@@ -53,7 +53,7 @@ For more information on Windows containers, see the [Windows Server containers F
 [cluster-configuration]: ../aks/learn/quick-windows-container-deploy-cli.md#limitations
 [privileged-containers]: use-windows-hpc.md#limitations
 [hpc-containers]: use-windows-hpc.md#limitations
-[node-upgrade]: configure-azure-cni.md#plan-ip-addressing-for-your-cluster
+[node-upgrade]: ./manage-node-pools.md#upgrade-a-single-node-pool
 [aks-image-cleaner]: image-cleaner.md#limitations
 [windows-server-containers-faq]: windows-faq.md
 [azure-network-policy]: use-network-policies.md#overview-of-network-policy
