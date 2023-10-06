@@ -477,8 +477,9 @@ RedWolf's [DDoS Testing](https://www.redwolfsecurity.com/services/) service suit
    - **Guided and self service**: Leverage RedWolf's team or run tests yourself.
 
 
+## Next steps
 
-To view attack metrics and alerts, continue to these next tutorials.
+To view attack metrics and alerts after an attack, continue to these next tutorials.
 
 > [!div class="nextstepaction"]
 > [View alerts in defender for cloud](ddos-view-alerts-defender-for-cloud.md)
