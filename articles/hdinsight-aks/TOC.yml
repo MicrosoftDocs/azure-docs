@@ -265,6 +265,10 @@ items:
   items:
   - name: FAQ
     href: ./faq.md
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Support options
+    href: ./aks-support-help.md
   - name: Troubleshoot
     items:
     - name: Cluster creation errors
