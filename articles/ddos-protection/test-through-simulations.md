@@ -13,7 +13,7 @@ ms.author: abell
 
 # Tutorial: Azure DDoS Protection simulation testing
 
-It’s a good practice to test your assumptions about how your services will respond to an attack by conducting periodic simulations. During testing, validate that your services or applications continue to function as expected and there’s no disruption to the user experience. Identify gaps from both a technology and process standpoint and incorporate them in the DDoS response strategy. We recommend that you perform such tests in staging environments or during non-peak hours to minimize the impact to the production environment.
+It’s a good practice to test your assumptions about how your services respond to an attack by conducting periodic simulations. During testing, validate that your services or applications continue to function as expected and there’s no disruption to the user experience. Identify gaps from both a technology and process standpoint and incorporate them in the DDoS response strategy. We recommend that you perform such tests in staging environments or during non-peak hours to minimize the impact to the production environment.
 
 Simulations help you:
 - Validate how Azure DDoS Protection helps protect your Azure resources from DDoS attacks.
@@ -32,6 +32,17 @@ Our testing partners' simulation environments are built within Azure. You can on
 
 > [!NOTE]
 > BreakingPoint Cloud and Red Button are only available for the Public cloud.
+
+For this tutorial, you'll create a test environment that includes:
+- A DDoS protection plan
+- A virtual network
+- A Azure Bastion host 
+- A load balancer 
+- Two virtual machines. 
+
+You'll then configure diagnostic logs and alerts to monitor for attacks and traffic patterns. Finally, you'll configure a DDoS attack simulation using one of our approved testing partners.
+
+:::image type="content" source="./media/ddos-attack-simulation/ddos-protection-testing-architecture.png" alt-text="Diagram of the DDoS Protection test environment architecture.":::
 
 ## Prerequisites
 
@@ -158,7 +169,7 @@ During the creation of the load balancer, you'll configure:
     | Setting                 | Value                                              |
     | -----------------------| -------------------------------------------------- |
     | **Name**                | Enter **myFrontend**.                               |
-    | **Subnet**          | Select your subnet. In this example our subnet is named *MyBackendSubnet*. |
+    | **Subnet**          | Select your subnet. In this example, our subnet is named *MyBackendSubnet*. |
     | **Availability zone** | Select **Zone-redundant**. |
 
     > [!NOTE]
@@ -172,7 +183,7 @@ During the creation of the load balancer, you'll configure:
     | Setting                 | Value                                              |
     | -----------------------| -------------------------------------------------- |
     | **Name**                | Enter **myBackendPool**.                               |
-    | **Subnet**          | Select your subnet. In this example our subnet is named *MyBackendSubnet*. |
+    | **Subnet**          | Select your subnet. In this example, our subnet is named *MyBackendSubnet*. |
     | **Availability zone** | Select **Zone-redundant**. |
     | **Backend Pool Configuration** | Select **IP Address**. |
     
@@ -255,11 +266,11 @@ In this section, you'll create two virtual machines that will be load balanced b
     | Select a backend pool | Select **myBackendPool** |
     | Configure network security group | Select **Create new**. </br> In the **Create network security group**, enter **myNSG** in **Name**. </br> Under **Inbound rules**, select **+Add an inbound rule**. </br> Under  **Service**, select **HTTP**. </br> Under **Priority**, enter **100**. </br> In **Name**, enter **myNSGRule** </br> Select **Add** </br> Select **OK** |
    
-6. Select **Review + create**. 
+1. Select **Review + create**. 
   
-7. Review the settings, and then select **Create**.
+1. Review the settings, and then select **Create**.
 
-8. Follow the steps 1 through 7 to create another VM with the following values and all the other settings the same as **myVM1**:
+1. Follow the steps 1 through 7 to create another VM with the following values and all the other settings the same as **myVM1**:
 
     | Setting | VM 2 
     | ------- | ----- |
@@ -307,7 +318,7 @@ In this section, you'll create two virtual machines that will be load balanced b
 
 ## Configure DDoS Protection metrics and alerts
 
-Now we will configure metrics and alerts to monitor for attacks and traffic patterns.
+Now we'll configure metrics and alerts to monitor for attacks and traffic patterns.
 
 ### Configure diagnostic logs
 
@@ -403,7 +414,7 @@ Now we will configure metrics and alerts to monitor for attacks and traffic patt
     :::image type="content" source="./media/ddos-attack-simulation/ddos-protection-alert-notification.png" alt-text="Screenshot of adding DDoS Protection attack alert notification page." lightbox="./media/ddos-attack-simulation/ddos-protection-alert-notification.png":::
 
 1. Select **Review + create** and then select **Create**.
-1. 
+
 #### Continue configuring alerts through portal
 
 1. Select **Next: Details**. 
@@ -424,24 +435,23 @@ Now we will configure metrics and alerts to monitor for attacks and traffic patt
 ### BreakingPoint Cloud
 
 
-1. For BreakingPoint Cloud, you must first [create an account](https://www.ixiacom.com/products/breakingpoint-cloud). 
+For BreakingPoint Cloud, you must first [create a BreakingPoint Cloud account](https://www.ixiacom.com/products/breakingpoint-cloud). 
 
-1. Example values:
+Example attack values:
 
-    :::image type="content" source="./media/ddos-attack-simulation/ddos-attack-simulation-example-1.png" alt-text="DDoS Attack Simulation Example: BreakingPoint Cloud."::: 
+:::image type="content" source="./media/ddos-attack-simulation/ddos-attack-simulation-example-1.png" alt-text="DDoS Attack Simulation Example: BreakingPoint Cloud."::: 
 
-    |Setting        |Value                                              |
-    |---------      |---------                                          |
-    |Target IP address           | Enter one of your public IP address you want to test.                     |
-    |Port Number   | Enter _443_.                       |
-    |DDoS Profile | Possible values include `DNS Flood`, `NTPv2 Flood`, `SSDP Flood`, `TCP SYN Flood`, `UDP 64B Flood`, `UDP 128B Flood`, `UDP 256B Flood`, `UDP 512B Flood`, `UDP 1024B Flood`, `UDP 1514B Flood`, `UDP Fragmentation`, `UDP Memcached`.|
-    |Test Size       | Possible values include `100K pps, 50 Mbps and 4 source IPs`, `200K pps, 100 Mbps and 8 source IPs`, `400K pps, 200Mbps and 16 source IPs`, `800K pps, 400 Mbps and 32 source IPs`.                                  |
-    |Test Duration | Possible values include `10 Minutes`, `15 Minutes`, `20 Minutes`, `25 Minutes`, `30 Minutes`.|
+|Setting        |Value                                              |
+|---------      |---------                                          |
+|Target IP address           | Enter one of your public IP address you want to test.                     |
+|Port Number   | Enter _443_.                       |
+|DDoS Profile | Possible values include `DNS Flood`, `NTPv2 Flood`, `SSDP Flood`, `TCP SYN Flood`, `UDP 64B Flood`, `UDP 128B Flood`, `UDP 256B Flood`, `UDP 512B Flood`, `UDP 1024B Flood`, `UDP 1514B Flood`, `UDP Fragmentation`, `UDP Memcached`.|
+|Test Size       | Possible values include `100K pps, 50 Mbps and 4 source IPs`, `200K pps, 100 Mbps and 8 source IPs`, `400K pps, 200Mbps and 16 source IPs`, `800K pps, 400 Mbps and 32 source IPs`.                                  |
+|Test Duration | Possible values include `10 Minutes`, `15 Minutes`, `20 Minutes`, `25 Minutes`, `30 Minutes`.|
 
-
-For more information on using BreakingPoint Cloud with your Azure environment, see this [BreakingPoint Cloud blog](https://www.keysight.com/blogs/tech/nwvs/2020/11/17/six-simple-steps-to-understand-how-microsoft-azure-ddos-protection-works).
-
-
+>!NOTE
+> - For more information on using BreakingPoint Cloud with your Azure environment, see this [BreakingPoint Cloud blog](https://www.keysight.com/blogs/tech/nwvs/2020/11/17/six-simple-steps-to-understand-how-microsoft-azure-ddos-protection-works).
+> - For a video demonstration of utilizing BreakingPoint Cloud, see [DDoS Attack Simulation](https://www.youtube.com/watch?v=xFJS7RnX-Sw).
 
 
 
