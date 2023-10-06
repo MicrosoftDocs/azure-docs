@@ -4,7 +4,7 @@ description: Details on what to keep in mind when choosing Azure File Sync cloud
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 04/13/2021
+ms.date: 10/05/2023
 ms.author: kendownie
 ---
 
@@ -20,7 +20,7 @@ This article provides guidance for users who are selecting and adjusting their c
 
 ### Minimum file size for a file to tier
 
-For agent versions 9 and newer, the minimum file size for a file to tier is based on the file system cluster size. The minimum file size eligible for cloud tiering is calculated by 2x the cluster size and at a minimum 8 KiB. The following table illustrates the minimum file sizes that can be tiered, based on the volume cluster size:
+The minimum file size for a file to tier is based on the file system cluster size. The minimum file size eligible for cloud tiering is calculated by 2x the cluster size and at a minimum 8 KiB. The following table illustrates the minimum file sizes that can be tiered, based on the volume cluster size:
 
 |Volume cluster size  |Files of this size or larger can be tiered  |
 |----------------------------|---------|
@@ -35,7 +35,7 @@ For agent versions 9 and newer, the minimum file size for a file to tier is base
 |1 MiB (1048576 bytes) | 2 MiB |
 |2 MiB (2097152 bytes) | 4 MiB |
 
-Cluster sizes up to 2 MiB are supported with Azure File Sync agent version 12 but, for larger sizes, cloud tiering does not work.
+Azure File Sync supports cloud tiering on volumes with cluster sizes up to 2 MiB.
 
 All file systems that are used by Windows, organize your hard disk based on cluster size (also known as allocation unit size). Cluster size represents the smallest amount of disk space that can be used to hold a file. When file sizes do not come out to an even multiple of the cluster size, additional space must be used to hold the file - up to the next multiple of the cluster size.
 
