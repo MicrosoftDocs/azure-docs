@@ -109,13 +109,6 @@ Update Manager doesn't support CIS-hardened images.
 
 # [Azure VMs](#tab/azurevm-os)
 
-> [!NOTE]
-> Currently, Azure Update Manager has the following limitation regarding the operating system support:
->
-> - [Specialized images](../virtual-machines/linux/imaging.md#specialized-images) and **VMs created by Azure Migrate, Azure Backup, and Azure Site Recovery** aren't fully supported for now. However, you can **use on-demand operations such as one-time update and check for updates** in Update Manager.
->
-> For the preceding limitation, we recommend that you use [Automation Update Management](../automation/update-management/overview.md) until support is available in Update Manager.
-
 ### Azure Marketplace/PIR images
 
 The Azure Marketplace image has the following attributes:
@@ -174,7 +167,7 @@ The following table lists the operating systems for Azure Marketplace images tha
 
 ### Custom images
 
-We support [generalized](../virtual-machines/linux/imaging.md#generalized-images) custom images. The following table lists the operating systems that we support for generalized images. For instructions on how to start using Update Manager to manage updates on custom images, see [Custom images (preview)](manage-updates-customized-images.md).
+We support custom images. The following table lists the operating systems that we support for custom images. For instructions on how to start using Update Manager to manage updates on custom images, see [Custom images (preview)](manage-updates-customized-images.md).
 
    |**Windows operating system**|
    |---|

@@ -14,10 +14,6 @@ ms.topic: conceptual
 
 This article describes customized image support, how to enable a subscription, and limitations.
 
-> [!NOTE]
-> - Currently, we support [generalized Azure Compute Gallery (SIG) custom images](../virtual-machines/linux/imaging.md#generalized-images). Automatic virtual machine (VM) guest patching for generalized custom images isn't supported.
-> - [Specialized Azure Compute Gallery (SIG) custom images](../virtual-machines/linux/imaging.md#specialized-images) and non-Azure Compute Gallery images (including the VMs created by Azure Migrate, Azure Backup, and Azure Site Recovery) aren't supported yet.
-
 ## Asynchronous check to validate customized image support
 
 If you're using Azure Compute Gallery (formerly known as Shared Image Gallery) to create customized images, you can use Update Manager operations such as **Check for updates**, **One-time update**, **Schedule updates**, or **Periodic assessment** to validate if the VMs are supported for guest patching. If the VMs are supported, you can begin patching.

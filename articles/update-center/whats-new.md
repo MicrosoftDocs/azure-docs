@@ -12,9 +12,15 @@ ms.date: 09/18/2023
 
 [Azure Update Manager](overview.md) helps you manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your deployments in Azure, on-premises, and on the other cloud platforms from a single dashboard. This article summarizes new releases and features in Azure Update Manager.
 
+## October 2023
+
+### VM support for Azure Migrate, Backup, and Site recovery
+
+Azure Update Manager now supports [specialized](../virtual-machines/linux/imaging.md#specialized-images) VMs including the VMs created by Azure Migrate, Backup and Site recovery.
+
 ## September 2023
 
-Azure Update Manager is now generally available.  
+**Azure Update Manager is now generally available**.  
 
 ## August 2023
 
