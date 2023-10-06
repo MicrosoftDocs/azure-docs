@@ -4,7 +4,7 @@ description: Using managed identities in Container Apps
 services: container-apps
 author: v-jaswel
 ms.service: container-apps
-ms.custom: event-tier1-build-2022, ignite-2022
+ms.custom: event-tier1-build-2022, ignite-2022, devx-track-azurecli
 ms.topic: how-to
 ms.date: 09/29/2022
 ms.author: v-wellsjason

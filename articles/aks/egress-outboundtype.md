@@ -3,10 +3,10 @@ title: Customize cluster egress with outbound types in Azure Kubernetes Service 
 description: Learn how to define a custom egress route in Azure Kubernetes Service (AKS)
 author: asudbring
 ms.subservice: aks-networking
+ms.custom: devx-track-azurecli
 ms.author: allensu
 ms.topic: how-to
 ms.date: 06/06/2023
-
 #Customer intent: As a cluster operator, I want to define my own egress paths with user-defined routes. Since I define this up front I do not want AKS provided load balancer configurations.
 ---
 

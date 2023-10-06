@@ -66,6 +66,8 @@ First, let's enable SMS-based authentication for your Microsoft Entra tenant.
 
 
 1. Click **Enable** and select **Target users**. You can choose to enable SMS-based authentication for *All users* or *Select users* and groups. 
+   > [!NOTE]
+   > To configure SMS-based authentication for first-factor (that is, to allow users to sign in with this method), check the **Use for sign-in** checkbox. Leaving this unchecked makes SMS-based authentication available for multifactor authentication and Self-Service Password Reset only.
 
     ![Enable SMS authentication in the authentication method policy window](./media/howto-authentication-sms-signin/enable-sms-authentication-method.png)
 

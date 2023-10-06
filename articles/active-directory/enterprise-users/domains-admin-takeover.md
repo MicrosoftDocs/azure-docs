@@ -177,6 +177,9 @@ cmdlet | Usage
    Confirm-MgDomain -DomainId "contoso.com"
    ```
 
+>[!NOTE]
+> The Confirm-MgDomain Cmdlet is being updated. You can monitor the [Confirm-MgDomain Cmdlet](/powershell/module/microsoft.graph.identity.directorymanagement/confirm-mgdomain?view=graph-powershell-1.0&preserve-view=true) article for updates.
+
 A successful challenge returns you to the prompt without an error.
 
 ## Next steps

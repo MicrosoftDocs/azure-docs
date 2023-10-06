@@ -4,8 +4,8 @@ titleSuffix: Azure AI services
 description: Microsoft offers Microsoft-managed encryption keys, and also lets you manage your Azure AI services subscriptions with your own keys, called customer-managed keys (CMK). This article covers data encryption at rest for QnA Maker, and how to enable and manage CMK.
 author: erindormier
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
+ms.service: azure-ai-language
+ms.subservice: azure-ai-qna-maker
 ms.topic: conceptual
 ms.date: 09/09/2021
 ms.author: egeaney

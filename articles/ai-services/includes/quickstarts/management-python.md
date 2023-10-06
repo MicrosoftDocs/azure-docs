@@ -79,7 +79,7 @@ The following function deletes the specified resource from the given resource gr
 
 [!code-python[](~/cognitive-services-quickstart-code/python/azure_management_service/create_delete_resource.py?name=snippet_delete)]
 
-If you need to recover a deleted resource, see [Recover deleted Azure AI services resources](../../manage-resources.md).
+If you need to recover a deleted resource, see [Recover or purge deleted Azure AI services resources](../../recover-purge-resources.md).
 
 ## Call management functions
 

@@ -46,7 +46,7 @@ From there, you can go to **All devices** to:
 [![Screenshot that shows the All devices view.](./media/manage-device-identities/all-devices-azure-portal.png)](./media/manage-device-identities/all-devices-azure-portal.png#lightbox)
 
 > [!TIP]
-> - Microsoft Entra hybrid joined Windows 10 or newer devices don't have an owner. If you're looking for a device by owner and don't find it, search by the device ID.
+> - Microsoft Entra hybrid joined Windows 10 or newer devices don't have an owner unless the primary user is set in Microsoft Intune. If you're looking for a device by owner and don't find it, search by the device ID.
 >
 > - If you see a device that's **Microsoft Entra hybrid joined** with a state of **Pending** in the **Registered** column, the device has been synchronized from Microsoft Entra Connect and is waiting to complete registration from the client. See [How to plan your Microsoft Entra hybrid join implementation](hybrid-join-plan.md). For more information, see [Device management frequently asked questions](faq.yml).
 >

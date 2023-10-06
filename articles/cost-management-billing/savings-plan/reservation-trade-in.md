@@ -8,7 +8,7 @@ ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 07/20/2023
+ms.date: 10/05/2023
 ms.author: banders
 ---
 
@@ -29,6 +29,8 @@ Apart from [Azure Virtual Machines](https://azure.microsoft.com/pricing/details/
 Although compute reservation exchanges will end on January 1, 2024, noncompute reservation exchanges are unchanged. You're able to continue to trade-in reservations for saving plans.
 
 - You must have owner access on the Reservation Order to trade in an existing reservation. You can [Add or change users who can manage a savings plan](manage-savings-plan.md#who-can-manage-a-savings-plan).
+- To trade-in a reservation for a savings plan, you must have Azure RBAC Owner permission on the subscription you plan to use to purchase a savings plan.
+    - EA Admin write permission or Billing profile contributor and higher, which are Cost Management + Billing permissions, are supported only for direct Savings plan purchases. They can't be used for savings plans purchases as a part of a reservation trade-in.
 - Microsoft isn't currently charging early termination fees for reservation trade ins. We might charge the fees made in the future. We currently don't have a date for enabling the fee.
 
 ## How to trade in an existing reservation

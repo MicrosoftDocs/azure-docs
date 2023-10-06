@@ -87,7 +87,7 @@ az vmss create
 --name myVMSS 
 --location eastus 
 --vm-sku Standard_Ds1_v2 
---image UbuntuLTS 
+--image Ubuntu2204 
 --capacity-reservation-group /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/capacityReservationGroups/{capacityReservationGroupName} 
 ```
 

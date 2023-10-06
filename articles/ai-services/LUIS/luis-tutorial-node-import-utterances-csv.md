@@ -8,8 +8,8 @@ author: aahill
 manager: nitinme
 ms.devlang: javascript
 ms.custom: seodec18, devx-track-js
-ms.service: cognitive-services
-ms.subservice: language-understanding
+ms.service: azure-ai-language
+ms.subservice: azure-ai-luis
 ms.topic: tutorial
 ms.date: 05/17/2021
 ---
