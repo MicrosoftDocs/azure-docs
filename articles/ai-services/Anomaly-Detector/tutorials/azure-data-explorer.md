@@ -13,6 +13,8 @@ ms.author: mbullwin
 
 # Tutorial: Use Univariate Anomaly Detector in Azure Data Explorer
 
+[!INCLUDE [Deprecation announcement](../includes/deprecation.md)]
+
 ## Introduction
 
 The [Anomaly Detector API](../overview.md) enables you to check and detect abnormalities in your time series data without having to know machine learning. The Anomaly Detector API's algorithms adapt by automatically finding and applying the best-fitting models to your data, regardless of industry, scenario, or data volume. Using your time series data, the API decides boundaries for anomaly detection, expected values, and which data points are anomalies.

@@ -106,26 +106,12 @@ productDirectory:
         - ai-machine-learning
       url: ai-services/computer-vision/overview-identity.md
     # Card
-    - title: Anomaly Detector
-      summary: Easily add anomaly detection capabilities to your apps
-      imageSrc: ai-services/media/service-icons/anomaly-detector.svg
-      azureCategories:
-        - ai-machine-learning
-      url: ai-services/anomaly-detector/index.yml
-    # Card
     - title: Content Safety
       summary: An AI service that detects unwanted contents
       imageSrc: ai-services/media/service-icons/content-safety.svg
       azureCategories:
         - ai-machine-learning
       url: ai-services/content-moderator/index.yml
-    # Card
-    - title: Personalizer
-      summary: An AI service that delivers a personalized user experience
-      imageSrc: ai-services/media/service-icons/personalizer.svg
-      azureCategories:
-        - ai-machine-learning
-      url: ai-services/personalizer/index.yml
     # Card
     - title: Azure AI Bot Service
       summary: Intelligent, serverless bot service that scales on demand
@@ -149,13 +135,6 @@ productDirectory:
         - mobile
         - web
       url: search/index.yml
-    # Card
-    - title: Metrics Advisor
-      summary: An AI service that monitors metrics and diagnoses issues
-      imageSrc: ai-services/media/service-icons/metrics-advisor.svg
-      azureCategories:
-        - ai-machine-learning
-      url: ai-services/metrics-advisor/index.yml
     # Card
     - title: Azure AI Video Indexer
       summary: Unlock video insights
