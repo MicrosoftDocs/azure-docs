@@ -356,7 +356,7 @@ The new work item integration offers the following features over [classic](#clas
 
 1. A new tab in your browser will open up to your select tracking system. In Azure DevOps you can create a bug or task, and in GitHub you can create a new issue in your repository. A new work item is automatically create with contextual information provided by Application Insights.
 
-    :::image type="content" source="./media/release-and-work-item-insights/github-work-item.png" alt-text=" Screenshot of automatically created GitHub issue" lightbox="./media/release-and-work-item-insights/github-work-item.png":::
+    :::image type="content" source="./media/release-and-work-item-insights/github-work-item.png" alt-text=" Screenshot of automatically created GitHub issue." lightbox="./media/release-and-work-item-insights/github-work-item.png":::
 
     :::image type="content" source="./media/release-and-work-item-insights/azure-devops-work-item.png" alt-text=" Screenshot of automatically create bug in Azure DevOps." lightbox="./media/release-and-work-item-insights/azure-devops-work-item.png":::
 
@@ -366,7 +366,7 @@ To edit your template, go to the **Work Items** tab under *Configure* and select
 
 :::image type="content" source="./media/release-and-work-item-insights/edit-template.png" alt-text=" Screenshot of work item tab with the edit pencil icon selected.":::
 
-Select edit :::image type="content" source="./media/release-and-work-item-insights/edit-icon.png" lightbox="./media/release-and-work-item-insights/edit-icon.png" alt-text="edit icon"::: in the top toolbar.
+Select edit :::image type="icon" source="./media/release-and-work-item-insights/edit-icon.png"::: in the top toolbar.
 
 :::image type="content" source="./media/release-and-work-item-insights/edit-workbook.png" alt-text=" Screenshot of the work item template workbook in edit mode." lightbox="./media/release-and-work-item-insights/edit-workbook.png":::
 
