@@ -63,7 +63,7 @@ Create a *data collection rule* in the same region as your Log Analytics workspa
 1. Select **Add resources**.
 1. Use the filters to find the virtual machine you want to use to collect logs.
 
-   :::image type="content" source="../../sentinel/media/forward-syslog-monitor-agent/create-rule-scope.png" lightbox=="../../sentinel/media/forward-syslog-monitor-agent/create-rule-scope.png" alt-text="Screenshot that shows the page to select the scope for the data collection rule. ":::
+   :::image type="content" source="../../sentinel/media/forward-syslog-monitor-agent/create-rule-scope.png" lightbox="../../sentinel/media/forward-syslog-monitor-agent/create-rule-scope.png" alt-text="Screenshot that shows the page to select the scope for the data collection rule. ":::
 1. Select the virtual machine.
 1. Select **Apply**.
 1. Select **Next: Collect and deliver**.
