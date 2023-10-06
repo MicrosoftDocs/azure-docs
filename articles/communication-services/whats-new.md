@@ -5,11 +5,11 @@ author: sroons
 ms.author: serooney
 ms.service: azure-communication-services
 ms.topic: conceptual
-ms.date: 09/01/2023
+ms.date: 10/05/2023
 ms.custom: template-concept, references_regions
 ---
 
-# What's new in Azure Communication Services, June through August, 2023
+# What's new in Azure Communication Services, September 2023
 
 We've created this page to keep you updated on new features, blog posts, and other useful information related to Azure Communication Services. Be sure to check back monthly for all the newest and latest information!
 
@@ -19,38 +19,69 @@ We've created this page to keep you updated on new features, blog posts, and oth
 
 ## New features
 Get detailed information on the latest Azure Communication Services feature launches.
-### Trial phone numbers
-:::image type="content" source="./media/whats-new-images/09-23/trial-phone-numbers.png" alt-text="A photograph of a developer sitting in front of multiple computer monitors.":::
+### Number Lookup Public Preview
+:::image type="content" source="./media/whats-new-images/10-23/number-lookup.png" alt-text="A diagram of the number lookup architecture.":::
+The Number Lookup API offers number type details that help developers to determine whether a particular number can receive SMS messages. 
 
-Explore the benefits of Trial Phone Numbers for Azure Communication Services. Enjoy a 30-day free trial period to assess features and make calls for up to 60 minutes, perfect for thorough testing and experimentation. Additionally, Trial Phone Numbers include recipient phone number verification, ensuring that calls are made only to verified numbers, safeguarding against any potential misuse.
+[Read more in the customer documentation](./concepts/numbers/number-lookup-concept.md)
+[Check out the SDK overview](./concepts/numbers/number-lookup-sdk.md)
+[Try the quickstart](./quickstarts/telephony/number-lookup.md)
 
-[Read more on the Azure Communication Services blog](https://techcommunity.microsoft.com/t5/azure-communication-services/azure-communication-services-august-2023-feature-updates/ba-p/3890595)
 
-[Try the trial phone numbers quickstart](https://aka.ms/trial-quickstart)
+<br>
+<br>
+
+
+### Call Automation Extensibility into Microsoft Teams
+:::image type="content" source="./media/whats-new-images/10-23/teams-extensibility.png" alt-text="A diagram of the Teams extensibility architecture.":::
+
+The public preview of Azure Communication Services call automation extensibility into Microsoft Teams, enabling businesses to optimize customer service operations by bringing Microsoft Teams users into their B2C calling workflows is now available. Azure Communication Services Call Automation provides developers the ability to build programmable customer interactions using real-time event triggers to perform actions based on custom business logic. 
+
+[Read more in the customer documentation](./concepts/call-automation/call-automation-teams-interop.md)
+
+[Try the quickstart](./how-tos/call-automation/teams-interop-call-automation.md)
 
 
 <br>
 <br>
 
  
-### Job router
-:::image type="content" source="./media/whats-new-images/05-23/call-automation.png" alt-text="A photograph of a worker sitting in a large office talking on the phone.":::
+### Advanced Actions with Azure Cognitive Services
+:::image type="content" source="./media/whats-new-images/10-23/cognitive-services.png" alt-text="A diagram of the architecture of an app using Azure communication services and Azure Cognitive Services.":::
 
- Job Router is a robust tool that makes it easy for developers to add advanced routing rules to their business application. As part of Azure Communication Services, Job Router simplifies the routing of customer engagement interactions to the best agent or automated services, ensuring that every interaction is directed to the most appropriate resource.
+Azure Communication Services has released two new advanced actions with Azure Cognitive Services:
 
-[Try Job Router](./concepts/router/concepts.md)
-[Try the Job Router Quickstart](./quickstarts/router/get-started-router.md?pivots=programming-language-csharp)
+- Enhance play action with support for Text-to-Speech and SSML
+- Recognize voice input using Azure Speech-to-Text
+ 
+We’ve also updated the process to connect your Azure Communication Services to Azure Cognitive Services.
+
+[Read more in the customer documentation](./concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md)
+[Try the Text-To-Speech Quickstart](./how-tos/call-automation/play-action.md)
+[Try the voice input Quickstart](./how-tos/call-automation/recognize-action.md)
 
 <br>
 <br>
 
 
-### New geographies available for email
-:::image type="content" source="./media/whats-new-images/09-23/geo-expansion.png" alt-text="A photograph of a map of the world showing multiple countries.":::
+### Call Automation Dual Tone Multi-Frequency (DTMF) Features 
+:::image type="content" source="./media/whats-new-images/10-23/DTMF.png" alt-text="A photograph of a multiple computer screens with code.":::
 
-With Email Geo Expansion, you can choose the location where your email communication service is created. This update means all email domain config information and data stored by Azure Communication Services Email at rest is retained in that geography. Secure your data and improve your email communication with Email Geo Expansion.
+The enhanced Dual Tone Multi-Frequency (DTMF) features, Continuous DTMF Recognition and Send DTMF are now available in public preview through Azure Communication Services Call Automation SDKs, with added support for NodeJS and Python.
+
+- Continuous DTMF Recognition: With Continuous DTMF Recognition, developers will be notified in real-time when a call participant presses keys on a dialpad/numpad.
+- Send DTMF: The Send DTMF action can be used in scenarios where a contact center agent needs to invite an external consultant/specialist into the call to assist the customer.
+
+[Read more in the customer documentation](./how-tos/call-automation/control-mid-call-media-actions?tabs=csharp)
 <br>
 <br>
+
+### PSTN direct offers in new regions
+:::image type="content" source="./media/whats-new-images/10-23/geo-expansion.png" alt-text="A photograph of a man pointing to a map of the world showing multiple countries.":::
+
+Customers can acquire telephone numbers from 15 new regions, including Australia, China, Finland, Hong Kong, Israel, South Korea, Malaysia, New Zealand, Philippines, Poland, Saudi Arabia, Singapore, Taiwan, Thailand, and the United Arab Emirates
+
+[Read more about our new availability](./concepts/numbers/sub-eligibility-number-capability.md)
 
 ## Blog posts and case studies 
 Go deeper on common scenarios and learn more about how customers are using advanced Azure Communication 
@@ -75,71 +106,31 @@ Customer experience strategy leader Capgemini partners with Azure Communication 
 See examples and get inspired by what's being done in the community of Azure Communication Services users.
 
 
-### Build AI-assisted communication workflows for customer engagement
-:::image type="content" source="./media/whats-new-images/05-23/customer-service-workflow.png" alt-text="Screenshot of the architecture of the demo app." lightbox="./media/whats-new-images/05-23/customer-service-workflow-large.png":::
+### Build GPT-automated customer support with Azure Communication Services
+:::image type="content" source="./media/whats-new-images/10-23/mechanics-video.png" alt-text="A screenshot of the demo app." lightbox="./media/whats-new-images/05-23/customer-service-workflow-large.png":::
 
-Listen to Azure Communication Services PMs Ashwinder Bhatti and Anuj Bhatia talk about how to use Azure Communication Services features and tools to build intelligent workflows that businesses can use to improve customer engagement.
+Watch Bob Serr, Azure Communication Services VP, join Jeremy Chapman and Microsoft Mechanics to share how to build GPT-automated customer support with Azure Communication Services
 
-[Watch the video](https://youtu.be/EYTjH1xrmtI)
+[Watch the video](https://www.youtube.com/watch?v=N0Cay8md9s4)
 
-[Learn more about Azure AI services](https://azure.microsoft.com/products/cognitive-services/)
+[Read the blog post](https://techcommunity.microsoft.com/t5/azure-communication-services/accelerate-customer-outcomes-with-azure-ai-services-and-azure/ba-p/3937262)
 
-[Learn more about Azure Event Grid](../event-grid/overview.md)
-
-
-<br>
-<br>
-
-### Microsoft 365 & Power Platform Development Community call
-:::image type="content" source="./media/whats-new-images/09-23/power-platform.png" alt-text="A photograph showing two workers working on a tablet computer." lightbox="./media/whats-new-images/05-23/virtual-appts-large.png":::
-
-Microsoft 365 & Power Platform Development Community call on August 31, 2023. Recap on news and updates from Microsoft and community projects, followed by demos by the community on the art of possible.
-
-[Watch the video](https://www.youtube.com/watch?v=gAqUr9wa2_0)
-
-[Learn more about Azure OpenAI function calling](../ai-services/openai/how-to/function-calling.md)
-
-[Read more about Microsoft Teams Premium](https://www.microsoft.com/microsoft-teams/premium)
-
-
-<br>
-<br>
-
-### Building an SMS generator with short URLs using Azure Functions, Storage, and Communication Services
-:::image type="content" source="./media/whats-new-images/05-23/sms-generator-blog.png" alt-text="A visual representation of the challenge of fitting a long URL into a short SMS." lightbox="./media/whats-new-images/05-23/sms-generator-blog-large.png":::
-
-Learn how to convert a lengthy URL into a format that fits the format of SMS, and then send the SMS using Azure Communication Services.
-
-[Watch the video](https://youtu.be/Knctudbao1o)
-
-[Read the accompanying tutorial](https://aka.ms/sms-shorturl)
-
-[Read the quickstart on how to send an SMS using Azure Communication Services](./quickstarts/sms/send.md)
+[View the sample code](https://github.com/Azure-Samples/communication-services-AI-customer-service-sample#readme)
 
 
 <br>
 <br>
 
 
-### View of new features from Q2 2023
-:::image type="content" source="./media/whats-new-images/09-23/summer-features.png" alt-text="An abstract photo of a wavy metal roof shining in the sunlight." :::
 
-This summer, we launched a host of new features, including:
-* Job Router
-* Trial Phone Numbers
-* Alphanumeric Sender ID
-* Email Geo Expansion
-* Call automation & recording 
-* Direct routing
-* Virtual rooms
-* PSTN Updates
-* and others....
 
-[View the complete list from August](https://techcommunity.microsoft.com/t5/azure-communication-services/azure-communication-services-august-2023-feature-updates/ba-p/3890595) of all new features added to Azure Communication Services in August.
+### View of new features from September 2023
+:::image type="content" source="./media/whats-new-images/10-23/blog.png" alt-text="An abstract photo of a wavy metal roof shining in the sunlight." :::
 
-[View the complete list from July](https://techcommunity.microsoft.com/t5/azure-communication-services/azure-communication-services-july-2023-feature-updates/ba-p/3869978) of all new features added to Azure Communication Services in July.
+We haven't slowed down at all and continue to add new features. Check out the blog page for September to see the complete list
 
-[View the complete list from June](https://techcommunity.microsoft.com/t5/azure-communication-services/azure-communication-services-june-2023-feature-updates/ba-p/3841874) of all new features added to Azure Communication Services in June.
+[View the complete list from September](https://techcommunity.microsoft.com/t5/azure-communication-services/azure-communication-services-september-2023-feature-updates/ba-p/3925569) of all new features added to Azure Communication Services in September.
+
 
 <br>
 <br>
