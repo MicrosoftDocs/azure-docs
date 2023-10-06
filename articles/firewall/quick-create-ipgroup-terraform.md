@@ -97,16 +97,10 @@ In this article, you learn how to:
     resource_group_name=$(terraform output -raw resource_group_name)
     ```
 
-1. Get the firewall name.
-
-    ```console
-    firewall_name=$(terraform output -raw firewall_name)
-    ```
-
-1. Run [az network firewall show](/cli/azure/network/firewall#az-network-firewall-show) with a [JMESPath](/cli/azure/query-azure-cli) query to display the availability zones for the firewall.
+1. Run [az network ip-group list](/cli/azure/network/ip-group#az-network-ip-group-list) to display the two new IP Groups.
 
     ```azurecli
-    az network firewall show --name $firewall_name --resource-group $resource_group_name --query "{Zones:zones"}
+    az network ip-group list --resource-group $resource_group_name
     ```
 
 ---
