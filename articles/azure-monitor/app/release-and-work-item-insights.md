@@ -391,7 +391,7 @@ To delete, go to in your Application Insights resource under *Configure* select 
 
 ## See also
 
-* For more information about Azure Pipelines, see the [Azure Pipelines documentation](/azure/devops/pipelines).
+* [Azure Pipelines documentation](/azure/devops/pipelines)
 * [Create work items](./diagnostic-search.md#create-work-item)
 * [Automation with PowerShell](./powershell.md)
 * [Availability test](availability-overview.md)
