@@ -212,7 +212,7 @@ australiaeast - 20.248.180.252
 southeastasia - 20.24.186.80
 
 # Azure US Government.
-# These IPs are deprecated since 10th April 2023. Newer RHEL images are already redirected to Public region for updates. If you have already added below IPs to your UDR/firewall, you are not required to remove these IPs until next update on this doc.
+# The below mentioned IPs are deprecated since 10th April 2023. Newer RHEL images are already redirected to Public region for updates. If you have already added below IPs to your UDR/firewall, you are not required to remove these IPs until next update on this doc.
 # For RHUI 4 connections, use public RHUI IPs as provided above.
 13.72.186.193
 13.72.14.155
