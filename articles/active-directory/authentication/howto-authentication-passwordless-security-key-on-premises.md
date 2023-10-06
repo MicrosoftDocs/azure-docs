@@ -279,7 +279,7 @@ For information about compliant security keys, see [FIDO2 security keys](concept
 
 ### What can I do if I lose my security key?
 
-To delete an enrolled security key, sign in to the [Microsoft Entra admin center](https://entra.microsoft.com), and then go to the **Security info** page.
+To delete an enrolled security key, sign in to the [myaccount.microsoft.com](https://myaccount.microsoft.com/), and then go to the **Security info** page.
 
 <a name='what-can-i-do-if-im-unable-to-use-the-fido-security-key-immediately-after-i-create-a-hybrid-azure-ad-joined-machine'></a>
 
