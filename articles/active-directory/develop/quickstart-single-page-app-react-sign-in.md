@@ -60,7 +60,7 @@ To obtain the sample application, you can either clone it from GitHub or downloa
 ## Configure the project
 
 1. In your IDE, open the project folder, *ms-identity-docs-code-javascript/react-spa*, containing the sample.
-1. Open *src/authConfig.js* and replace the file contents with the following snippet:
+1. Open *src/authConfig.js* and update the following values with the information recorded earlier in the admin center.
 
     :::code language="JavaScript" source="~/ms-identity-docs-code-javascript/react-spa/src/authConfig.js":::
 
