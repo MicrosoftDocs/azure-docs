@@ -138,9 +138,9 @@ This section guides you through the steps to configure the Microsoft Entra provi
    |active|Boolean||
    |emails[type eq "work"].value|String||
    |name.givenName|String||
-   |name.givenName|String||
+   |name.familyName|String||
    |externalId|String||
-   |externalId|String||
+   |roles|List of appRoleAssignments [appRoleAssignments]||
 
 1. Under the **Mappings** section, select **Synchronize Microsoft Entra groups to Amazon Business**.
 
