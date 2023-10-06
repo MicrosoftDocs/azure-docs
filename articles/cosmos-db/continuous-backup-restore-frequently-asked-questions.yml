@@ -41,7 +41,7 @@ sections:
       - question: |
           Is continuous backup supported for Azure Synapse Link-enabled accounts?
         answer: |
-          The capability to turn on Synapse Link in database accounts with continuous backup enabled is in public preview now. The opposite situation, to turn on continuous backup in Synapse Link enabled databases accounts, is still not supported yet.
+          The capability to turn on Synapse Link in database accounts with continuous backup enabled is in preview now. The opposite situation, to turn on continuous backup in Synapse Link enabled databases accounts, is still not supported yet.
 additionalContent: |
   ## Next steps
   
