@@ -204,7 +204,7 @@ The script migrates the following from the Basic Load Balancer to the Standard L
 
 ### How do I migrate when my backend pool members belong to multiple Load Balancers?
 
-In a scenario where your backend pool members are also members of backend pools on another Load Balancer, such as when you have internal and external Load Balancers for the same application, the Basic Load Balancers need to be migrated at the same time. Trying to migrate the Load Balancers one at a time would attempt to mix Basic and Standard SKU resources, which is not allowed. The migration script supports this by passing multiple Basic Load Balancers into the same script execution using the `-MultiLBConfig` parameter. 
+In a scenario where your backend pool members are also members of backend pools on another Load Balancer, such as when you have internal and external Load Balancers for the same application, the Basic Load Balancers need to be migrated at the same time. Trying to migrate the Load Balancers one at a time would attempt to mix Basic and Standard SKU resources, which is not allowed. The migration script supports this by passing multiple Basic Load Balancers into the same [script execution using the `-MultiLBConfig` parameter](#example-migrate-multiple-load-balancers-with-shared-backend-members-at-the-same-time). 
 
 ### How do I validate that a migration was successful?
 
