@@ -2,7 +2,7 @@
 title: Event Hubs - Capture streaming events using Azure portal
 description: This article describes how to enable capturing of events streaming through Azure Event Hubs by using the Azure portal.
 ms.topic: quickstart
-ms.date: 10/27/2022
+ms.date: 07/07/2023
 ms.custom: mode-ui
 ---
 
@@ -11,8 +11,7 @@ ms.custom: mode-ui
 Azure [Event Hubs Capture][capture-overview] enables you to automatically deliver the streaming data in Event Hubs to an [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/) or [Azure Data Lake Storage Gen1 or Gen 2](https://azure.microsoft.com/services/data-lake-store/) account of your choice.You can configure capture settings using the [Azure portal](https://portal.azure.com) when creating an event hub or for an existing event hub. For conceptual information on this feature, see [Event Hubs Capture overview][capture-overview].
 
 > [!IMPORTANT]
-> - The destination storage (Azure Storage or Azure Data Lake Storage) account  must be in the same subscription as the event hub. 
-> - Event Hubs doesn't support capturing events in a **premium** storage account. 
+> Event Hubs doesn't support capturing events in a **premium** storage account. 
 
 
 ## Enable Capture when you create an event hub
@@ -48,6 +47,9 @@ See one of the following sections based on the type of storage you want to use t
 1. For **Capture file name format**, specify format for the captured file names.
 1. Select **Review + create** at the bottom of the page. 
 1. On the **Review + create** page, review settings, and select **Create** to create the event hub. 
+
+    > [!NOTE]
+    > If public access is disabled on the storage account, allow **trusted services**, which include Azure Event Hubs, to access the storage account. For details and step-by-step instructions, see [this article](../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services).
  
 ## Capture data to Azure Data Lake Storage Gen 2 
 

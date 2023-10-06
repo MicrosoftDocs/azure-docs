@@ -4,10 +4,10 @@ description: Learn how to provision an account with continuous backup and point 
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 02/28/2023
+ms.date: 05/02/2023
 ms.author: govindk
 ms.reviewer: mjbrown
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2022
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2022, build-2023
 ms.devlang: azurecli
 ---
 
@@ -19,8 +19,6 @@ Azure Cosmos DB's point-in-time restore feature helps you to recover from an acc
 
 This article explains how to provision an account with continuous backup and point in time restore using [Azure portal](#provision-portal), [PowerShell](#provision-powershell), [CLI](#provision-cli) and [Resource Manager templates](#provision-arm-template).
 
-> [!IMPORTANT]
-> Support for 7-day continous backup in both provisioning and migration scenarios is still in preview. Please use PowerShell and Azure CLI to migrate or provision an account with continous backup configured at the 7-day tier.
 
 > [!NOTE]
 > You can provision continuous backup mode account only if the following conditions are true:
@@ -35,7 +33,6 @@ When creating a new Azure Cosmos DB account, in the **Backup policy** tab, choos
 
 :::image type="content" source="./media/provision-account-continuous-backup/provision-account-continuous-mode.png" alt-text="Provision an Azure Cosmos DB account with continuous backup configuration." border="true" lightbox="./media/provision-account-continuous-backup/provision-account-continuous-mode.png":::
 
-Support for API for Table and Gremlin is in preview and can be provisioned with PowerShell and Azure CLI.
 
 ## <a id="provision-powershell"></a>Provision using Azure PowerShell
 
@@ -129,12 +126,7 @@ For PowerShell and CLI commands tier value is optional, if it isn't provided –
 
 Before provisioning the account, install Azure CLI with the following steps:
 
-1. Install the latest version of Azure CLI
-
-   * Install a version of the Azure CLI higher than 2.26.0. For more information about the latest version of the Azure CLI, see [Azure CLI](/cli/azure/install-azure-cli).
-   * If you have already installed CLI, run ``az upgrade`` command to update to the latest version. This command will only work with CLI version higher than 2.11. If you have an earlier version, use the above link to install the latest version.
-   * For provisioning the ``Continuous7Days`` tier, you'll need to install the preview version of the extension by ``az extension update --name cosmosdb-preview``
-
+1. Install the latest version of Azure CLI, see [Azure CLI](/cli/azure/install-azure-cli)
 2. Sign in and select your subscription
 
    * Sign into your Azure account with ``az login`` command.
@@ -216,7 +208,7 @@ You can use Azure Resource Manager templates to deploy an Azure Cosmos DB accoun
     {
       "name": "ademo-pitr1",
       "type": "Microsoft.DocumentDB/databaseAccounts",
-      "apiVersion": "2022-02-15-preview",
+      "apiVersion": "2023-04-15",
       "location": "West US",
       "properties": {
         "locations": [
@@ -231,10 +223,7 @@ You can use Azure Resource Manager templates to deploy an Azure Cosmos DB accoun
         }
         } 
         "databaseAccountOfferType": "Standard"
-        }
-        ]
-        }
-
+        } }
 ```
 
 Next, deploy the template by using Azure PowerShell or CLI. The following example shows how to deploy the template with a CLI command:

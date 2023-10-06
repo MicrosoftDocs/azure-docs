@@ -3,12 +3,12 @@ title: Default outbound access in Azure
 titleSuffix: Azure Virtual Network
 description: Learn about default outbound access in Azure.
 services: virtual-network
-author: asudbring
+author: mbender-ms
+ms.author: mbender
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: conceptual
-ms.date: 12/09/2022
-ms.author: allensu
+ms.date: 08/24/2023
 ms.custom: FY23 content-maintenance
 ---
 
@@ -38,6 +38,9 @@ If you deploy a virtual machine in Azure and it doesn't have explicit outbound c
 
 :::image type="content" source="./media/default-outbound-access/default-outbound-access.png" alt-text="Diagram of default outbound access.":::
 
+>[!Important]
+>On September 30, 2025, default outbound access for new deployments will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/).  It is reccomended to use one the explict forms of connectivity discussed below.
+
 ## Why is disabling default outbound access recommended?
 
 * Secure by default
@@ -50,9 +53,9 @@ If you deploy a virtual machine in Azure and it doesn't have explicit outbound c
 
 * Loss of IP address
 
-    * The default outbound access IP isn't owned by customers. This IP is subject to change.  Any dependency on this IP could cause issues in the future.
+    * Customers don't own the default outbound access IP. This IP may change, and any dependency on it could cause issues in the future.
 
-## How can I disable default outbound access?
+## How can I transition to an explicit method of public connectivity (and disable default outbound access)?
 
 There are multiple ways to turn off default outbound access:
 
@@ -64,14 +67,14 @@ There are multiple ways to turn off default outbound access:
 
     * Associate a Basic public IP to the virtual machine's network interface (if there's only one network interface).
     
-    * Associate a Standard public IP to any of the virtual machine's network interfaces (if there are multiple network interfaces, having a single one with a Standard public IP will prevent default outbound access for the virtual machine).
+    * Associate a Standard public IP to any of the virtual machine's network interfaces (if there are multiple network interfaces, having a single NIC with a standard public IP prevents default outbound access for the virtual machine).
 
 *  Use Flexible orchestration mode for Virtual Machine Scale Sets.
 
-    * Flexible scale sets are secure by default. Any instances created via Flexible scale sets won't have the default outbound access IP associated to it. For more information, see [Flexible orchestration mode for Virtual Machine Scale Sets](../../virtual-machines/flexible-virtual-machine-scale-sets.md)
+    * Flexible scale sets are secure by default. Any instances created via Flexible scale sets don't have the default outbound access IP associated with them, so an explicit outbound method is required. For more information, see [Flexible orchestration mode for Virtual Machine Scale Sets](../../virtual-machines/flexible-virtual-machine-scale-sets.md)
 
 >[!Important]
-> When a backend pool is configured by IP address, it will use default outbound access due to an ongoing known issue. For secure by default configuration and applications with demanding outbound needs, associate a NAT gateway to the VMs in your load balancer's backend pool to secure traffic. See more on existing [known issues](../../load-balancer/whats-new.md#known-issues).
+> When a load balancer backend pool is configured by IP address, it will use default outbound access due to an ongoing known issue. For secure by default configuration and applications with demanding outbound needs, associate a NAT gateway to the VMs in your load balancer's backend pool to secure traffic. See more on existing [known issues](../../load-balancer/whats-new.md#known-issues).
 
 ## If I need outbound access, what is the recommended way?
 
@@ -79,7 +82,7 @@ NAT gateway is the recommended approach to have explicit outbound connectivity. 
 
 ## Constraints
 
-* Connectivity maybe needed for Windows Updates.
+* Public connectivity is required for Windows Activation and Windows Updates.  It is recommended to set up an explicit form of public outbound connectivity.
 
 * Default outbound access IP doesn't support fragmented packets. 
 

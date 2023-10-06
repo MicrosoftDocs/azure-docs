@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 zone_pivot_groups: iot-dps-set1
-ms.custom: mvc, amqp, mqtt, mode-other
+ms.custom: mvc, amqp, mqtt, mode-other, devx-track-extended-java, devx-track-python
 #Customer intent: As a new IoT developer, I want simulate a TPM device to learn how secure provisioning works.
 ---
 
@@ -631,7 +631,7 @@ In this section, you'll configure sample code to use the [Advanced Message Queui
 
 ## Confirm your device provisioning registration
 
-1. Go to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. On the left-hand menu or on the portal page, select **All resources**.
 

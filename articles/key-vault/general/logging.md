@@ -95,7 +95,7 @@ The following table lists the **operationName** values and corresponding REST AP
 | **VaultRecover** |Recover deleted vault|
 | **VaultGetDeleted** |[Get deleted vault](/rest/api/keyvault/keyvault/vaults/get-deleted) |
 | **VaultListDeleted** |[List deleted vaults](/rest/api/keyvault/keyvault/vaults/list-deleted) |
-| **VaultAccessPolicyChangedEventGridNotification** | Vault access policy changed event published |
+| **VaultAccessPolicyChangedEventGridNotification** | Vault access policy changed event published.  It is logged regardless if an Event Grid subscription exists. |
 
 # [Keys](#tab/Keys)
 
@@ -120,8 +120,8 @@ The following table lists the **operationName** values and corresponding REST AP
 | **KeyRecover** |[Recover a key](/rest/api/keyvault/keys/recover-deleted-key) |
 | **KeyGetDeleted** |[Get deleted key](/rest/api/keyvault/keys/get-deleted-key) |
 | **KeyListDeleted** |[List the deleted keys in a vault](/rest/api/keyvault/keys/get-deleted-keys) |
-| **KeyNearExpiryEventGridNotification** |Key near expiry event published |
-| **KeyExpiredEventGridNotification** |Key expired event published |
+| **KeyNearExpiryEventGridNotification** |Key near expiry event published.  It is logged regardless if an Event Grid subscription exists. |
+| **KeyExpiredEventGridNotification** |Key expired event published.  It is logged regardless if an Event Grid subscription exists. |
 | **KeyRotate** |[Rotate key](/rest/api/keyvault/keys/rotate-key) |
 | **KeyRotateIfDue** |Scheduled automated key rotation operation based on defined rotation policy |
 | **KeyRotationPolicyGet** |[Get Key Rotation Policy](/rest/api/keyvault/keys/get-key-rotation-policy) |
@@ -144,8 +144,8 @@ The following table lists the **operationName** values and corresponding REST AP
 | **SecretRecover** |[Recover a secret](/rest/api/keyvault/secrets/recover-deleted-secret) |
 | **SecretGetDeleted** |[Get deleted secret](/rest/api/keyvault/secrets/get-deleted-secret) |
 | **SecretListDeleted** |[List the deleted secrets in a vault](/rest/api/keyvault/secrets/get-deleted-secrets) |
-| **SecretNearExpiryEventGridNotification** |Secret near expiry event published |
-| **SecretExpiredEventGridNotification** |Secret expired event published |
+| **SecretNearExpiryEventGridNotification** |Secret near expiry event published.  It is logged regardless if an Event Grid subscription exists. |
+| **SecretExpiredEventGridNotification** |Secret expired event published.  It is logged regardless if an Event Grid subscription exists. |
 
 # [Certificates](#tab/Cerificates)
 
@@ -181,8 +181,8 @@ The following table lists the **operationName** values and corresponding REST AP
 | **CertificatePendingMerge** | The merger of the certificate is pending |
 | **CertificatePendingUpdate** | The update of the certificate is pending |
 | **CertificatePendingDelete** |Delete pending certificate |
-| **CertificateNearExpiryEventGridNotification** |Certificate near expiry event published |
-| **CertificateExpiredEventGridNotification** |Certificate expired event published |
+| **CertificateNearExpiryEventGridNotification** |Certificate near expiry event published. It is logged regardless if an Event Grid subscription exists. |
+| **CertificateExpiredEventGridNotification** |Certificate expired event published. It is logged regardless if an Event Grid subscription exists. |
 
 ---
 

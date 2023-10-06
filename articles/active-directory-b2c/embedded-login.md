@@ -73,6 +73,7 @@ The **Sources** attribute contains the URI of your web application. Add a space 
 - The URI must be trusted and owned by your application.
 - The URI must use the https scheme.  
 - The full URI of the web app must be specified. Wildcards are not supported.
+- The **JourneyFraming** element only allows site URLs with a **two to seven-character** Top-level domain (TLD) to align with commonly recognized TLDs.
 
 In addition, we recommend that you also block your own domain name from being embedded in an iframe by setting the `Content-Security-Policy` and `X-Frame-Options` headers respectively on your application pages. This will mitigate security concerns around older browsers related to nested embedding of iframes.
 

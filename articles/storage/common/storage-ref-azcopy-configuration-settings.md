@@ -2,11 +2,11 @@
 title: AzCopy v10 configuration setting (Azure Storage)
 description: This article provides reference information for AzCopy V10 configuration settings.
 author: normesta
-ms.service: storage
+ms.service: azure-storage
 ms.topic: reference
 ms.date: 02/28/2023
 ms.author: normesta
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ms.reviewer: zezha-msft
 ---
 
@@ -32,7 +32,7 @@ The following table describes each environment variable and provides links to co
 | AZCOPY_CONCURRENCY_VALUE | Specifies the number of concurrent requests that can occur. You can use this variable to increase throughput. If your computer has fewer than 5 CPUs, then the value of this variable is set to `32`. Otherwise, the default value is equal to 16 multiplied by the number of CPUs. The maximum default value of this variable is `3000`, but you can manually set this value higher or lower. See [Increase concurrency](storage-use-azcopy-optimize.md#increase-concurrency) |
 | AZCOPY_CONCURRENT_FILES | Overrides the (approximate) number of files that are in progress at any one time, by controlling how many files we concurrently initiate transfers for. |
 | AZCOPY_CONCURRENT_SCAN | Controls the (max) degree of parallelism used during scanning. Only affects parallelized enumerators, which include Azure Files/Blobs, and local file systems. |
-| AZCOPY_CONTENT_TYPE_MAP  | Overrides one or more of the default MIME type mappings defined by your operating system. Set this variable to the path of a JSON file that defines any mapping.  Here's the contents of an example JSON file: <br><br> {<br>&nbsp;&nbsp;"MIMETypeMapping": { <br>&nbsp;&nbsp;&nbsp;&nbsp;".323": "text/h323",<br>&nbsp;&nbsp;&nbsp;&nbsp;".aaf": "application/octet-stream",<br>&nbsp;&nbsp;&nbsp; ".aca": "application/octet-stream",<br>&nbsp;&nbsp;&nbsp;&nbsp;".accdb": "application/msaccess",<br>&nbsp;&nbsp;&nbsp;&nbsp;  }<br>}
+| AZCOPY_CONTENT_TYPE_MAP  | Overrides one or more of the default MIME type mappings defined by your operating system. Set this variable to the path of a JSON file that defines any mapping.  Here's the contents of an example JSON file: <br><br> {<br>&nbsp;&nbsp;"MIMETypeMapping": { <br>&nbsp;&nbsp;&nbsp;&nbsp;".323": "text/h323",<br>&nbsp;&nbsp;&nbsp;&nbsp;".aaf": "application/octet-stream",<br>&nbsp;&nbsp;&nbsp; ".aca": "application/octet-stream",<br>&nbsp;&nbsp;&nbsp;&nbsp;".accdb": "application/msaccess"<br>&nbsp;&nbsp;&nbsp;&nbsp;  }<br>}
 |
 | AZCOPY_DEFAULT_SERVICE_API_VERSION | Overrides the service API version so that AzCopy could accommodate custom environments such as Azure Stack. |
 | AZCOPY_DISABLE_HIERARCHICAL_SCAN | Applies only when Azure Blobs is the source. Concurrent scanning is faster but employs the hierarchical listing API, which can result in more IOs/cost. Specify 'true' to sacrifice performance but save on cost. |

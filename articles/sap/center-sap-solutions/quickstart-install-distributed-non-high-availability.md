@@ -3,6 +3,7 @@ title: Quickstart - Install software for a distributed non-HA SAP system with Az
 description: Learn how to  install software for a distributed non-HA SAP system in Azure Center for SAP solutions through Azure PowerShell module.
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
+ms.custom: devx-track-azurepowershell
 ms.topic: quickstart
 ms.date: 05/04/2023
 ms.author: sagarkeswani
@@ -42,8 +43,8 @@ After you [deploy infrastructure](deploy-s4hana.md) and install SAP software wit
 - The json file for installation of SAP software is similar to the one used to Deploy infrastructure for SAP with an added section for SAP software configuration. 
 - The software configuration section requires he following inputs
     - Software installation type: Keep this as "SAPInstallWithoutOSConfig"
-    - BOM URL: This is the BOM file path. Example: `https://<your-storage-account>.blob.core.windows.net/sapbits/sapfiles/boms/S41909SPS03_v0010ms.yaml`
-    - Software version: Azure Center for SAP solutions supports three SAP software versions viz. **SAP S/4HANA 1909 SPS03** or **SAP S/4HANA 2020 SPS 03** or **SAP S/4HANA 2021 ISS 00**
+    - BOM URL: This is the BOM file path. Example: `https://<your-storage-account>.blob.core.windows.net/sapbits/sapfiles/boms/S42022SPS00_v0001ms.yaml`
+    - Software version: Azure Center for SAP solutions supports the following SAP software versions viz. **SAP S/4HANA 1909 SPS03** or **SAP S/4HANA 2020 SPS 03** or **SAP S/4HANA 2021 ISS 00** or **SAP S/4HANA 2022**
     - Storage account ID: This is the resource ID for the storage account where the BOM file is created
 - You can use the [sample software installation payload file](https://github.com/Azure/Azure-Center-for-SAP-solutions-preview/blob/main/Payload_Samples/InstallPayloadDistributedNon-HA.json)
 
@@ -57,4 +58,3 @@ New-AzWorkloadsSapVirtualInstance -ResourceGroupName 'PowerShell-CLI-TestRG' -Na
 In this quickstart, you installed SAP software on the deployed infrastructure in Azure for an SAP system using Azure Center for SAP solutions. Continue to the next article to learn how to Manage your SAP system on Azure using [Virtual Instance for SAP solutions]()
 > [!div class="nextstepaction"]
 > [Manage a Virtual Instance for SAP solutions](manage-virtual-instance.md)
-

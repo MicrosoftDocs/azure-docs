@@ -1,7 +1,7 @@
 ---
 title: Customize the node configuration for Azure Kubernetes Service (AKS) node pools
 description: Learn how to customize the configuration on Azure Kubernetes Service (AKS) cluster nodes and node pools.
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, devx-track-azurecli
 ms.topic: article
 ms.date: 04/24/2023
 ms.author: jpalma
@@ -208,6 +208,12 @@ Kubelet custom configuration is supported for Linux and Windows node pools. Supp
 
 ## Linux custom OS configuration settings
 
+> [!IMPORTANT]
+> To simplify search and readability, the OS settings are displayed in this article by their name, but they should be added to the configuration JSON file or AKS API using [camelCase capitalization convention](/dotnet/standard/design-guidelines/capitalization-conventions).
+>
+> For example, if you modify the 'vm.max_map_count setting', you should reformat to 'vmMaxMapCount' in the configuration JSON file.
+> 
+
 ### File handle limits
 
 When serving a lot of traffic, the traffic commonly comes from a large number of local files. You can adjust the below kernel settings and built-in limits to allow you to handle more, at the cost of some system memory.
@@ -259,14 +265,13 @@ The settings below can be used to tune the operation of the virtual memory (VM) 
 | Setting | Allowed values/interval | Default | Description |
 | ------- | ----------------------- | ------- | ----------- |
 | `vm.max_map_count` | 	65530 - 262144 | 65530 | This file contains the maximum number of memory map areas a process may have. Memory map areas are used as a side-effect of calling `malloc`, directly by `mmap`, `mprotect`, and `madvise`, and also when loading shared libraries. |
-| `vm.vfs_cache_pressure` | 1 - 500 | 100 | This percentage value controls the tendency of the kernel to reclaim the memory, which is used for caching of directory and inode objects. |
+| `vm.vfs_cache_pressure` | 1 - 100 | 100 | This percentage value controls the tendency of the kernel to reclaim the memory, which is used for caching of directory and inode objects. |
 | `vm.swappiness` | 0 - 100 | 60 | This control is used to define how aggressive the kernel will swap memory pages. Higher values will increase aggressiveness, lower values decrease the amount of swap. A value of 0 instructs the kernel not to initiate swap until the amount of free and file-backed pages is less than the high water mark in a zone. |
 | `swapFileSizeMB` | 1 MB - Size of the [temporary disk](../virtual-machines/managed-disks-overview.md#temporary-disk) (/dev/sdb) | None | SwapFileSizeMB specifies size in MB of a swap file will be created on the agent nodes from this node pool. |
 | `transparentHugePageEnabled` | `always`, `madvise`, `never` | `always` | [Transparent Hugepages](https://www.kernel.org/doc/html/latest/admin-guide/mm/transhuge.html#admin-guide-transhuge) is a Linux kernel feature intended to improve performance by making more efficient use of your processor’s memory-mapping hardware. When enabled the kernel attempts to allocate `hugepages` whenever possible and any Linux process will receive 2-MB pages if the `mmap` region is 2 MB naturally aligned. In certain cases when `hugepages` are enabled system wide, applications may end up allocating more memory resources. An application may `mmap` a large region but only touch 1 byte of it, in that case a 2-MB page might be allocated instead of a 4k page for no good reason. This scenario is why it's possible to disable `hugepages` system-wide or to only have them inside `MADV_HUGEPAGE madvise` regions. |
 | `transparentHugePageDefrag` | `always`, `defer`, `defer+madvise`, `madvise`, `never` | `madvise` | This value controls whether the kernel should make aggressive use of memory compaction to make more `hugepages` available. |
 
-> [!IMPORTANT]
-> For ease of search and readability the OS settings are displayed in this document by their name but should be added to the configuration json file or AKS API using [camelCase capitalization convention](/dotnet/standard/design-guidelines/capitalization-conventions).
+
 
 ## Next steps
 

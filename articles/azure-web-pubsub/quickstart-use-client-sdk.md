@@ -6,7 +6,7 @@ ms.author: chenyl
 ms.service: azure-web-pubsub
 ms.topic: quickstart
 ms.date: 03/15/2023
-ms.custom: mode-api, devx-track-azurecli 
+ms.custom: mode-api
 ms.devlang: azurecli
 ---
 

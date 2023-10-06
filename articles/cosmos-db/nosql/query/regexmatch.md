@@ -1,113 +1,79 @@
 ---
-title: RegexMatch in Azure Cosmos DB query language
-description: Learn about the RegexMatch SQL system function in Azure Cosmos DB
-author: seesharprun
+title: RegexMatch
+titleSuffix: Azure Cosmos DB for NoSQL
+description: An Azure Cosmos DB for NoSQL system function that provides regular expression capabilities.
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.topic: conceptual
-ms.date: 08/12/2021
-ms.author: sidandrews
-ms.reviewer: jucocchi
-ms.custom: query-reference, ignite-2022
+ms.topic: reference
+ms.date: 09/21/2023
+ms.custom: query-reference
 ---
-# REGEXMATCH (Azure Cosmos DB)
+
+# RegexMatch (NoSQL query)
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
-Provides regular expression capabilities. Regular expressions are a concise and flexible notation for finding patterns of text. Azure Cosmos DB uses [PERL compatible regular expressions (PCRE)](http://www.pcre.org/). 
+This function provides regular expression capabilities. Regular expressions are a concise and flexible notation for finding patterns of text.
+
+> [!NOTE]
+> Azure Cosmos DB for NoSQL uses [PERL compatible regular expressions (PCRE)](https://pcre2project.github.io/pcre2/).
 
 ## Syntax
-  
+
 ```sql
-RegexMatch(<str_expr1>, <str_expr2>, [, <str_expr3>])  
+RegexMatch(<string_expr_1>, <string_expr_2>, [, <string_expr_3>])  
 ```  
-  
+
 ## Arguments
-  
-*str_expr1*  
-   Is the string expression to be searched.  
-  
-*str_expr2*  
-   Is the regular expression.
 
-*str_expr3*  
-   Is the string of selected modifiers to use with the regular expression. This string value is optional. If you'd like to run RegexMatch with no modifiers, you can either add an empty string or omit entirely. 
+| | Description |
+| --- | --- |
+| **`string_expr_1`** | A string expression to be searched. |
+| **`string_expr_2`** | A string expression with a regular expression defined to use when searching `string_expr_1`. |
+| **`string_expr_3`** *(Optional)* | An optional string expression with the selected modifiers to use with the regular expression (`string_expr_2`). If not provided, the default is to run the regular expression match with no modifiers. |
 
-You can learn about [syntax for creating regular expressions in Perl](https://perldoc.perl.org/perlre). 
-
-Azure Cosmos DB supports the following four modifiers:
-
-| Modifier | Description |
-| ------ | ----------- |
-| `m` | Treat the string expression to be searched as multiple lines. Without this option, "^" and "$" will match at the beginning or end of the string and not each individual line. |
-| `s` | Allow "." to match any character, including a newline character. | 
-| `i` | Ignore case when pattern matching. |
-| `x` | Ignore all whitespace characters. |
+> [!NOTE]
+> Providing an empty string for `string_expr_3` is functionally equivalent to omitting the argument.
 
 ## Return types
-  
-  Returns a Boolean expression. Returns undefined if the string expression to be searched, the regular expression, or the selected modifiers are invalid.
-  
+
+Returns a boolean expression.
+
 ## Examples
-  
-The following simple RegexMatch example checks the string "abcd" for regular expression match using a few different modifiers.
-  
-```sql
-SELECT RegexMatch ("abcd", "ABC", "") AS NoModifiers, 
-RegexMatch ("abcd", "ABC", "i") AS CaseInsensitive, 
-RegexMatch ("abcd", "ab.", "") AS WildcardCharacter,
-RegexMatch ("abcd", "ab c", "x") AS IgnoreWhiteSpace, 
-RegexMatch ("abcd", "aB c", "ix") AS CaseInsensitiveAndIgnoreWhiteSpace 
-```  
-  
- Here is the result set.  
-  
-```json
-[
-    {
-        "NoModifiers": false,
-        "CaseInsensitive": true,
-        "WildcardCharacter": true,
-        "IgnoreWhiteSpace": true,
-        "CaseInsensitiveAndIgnoreWhiteSpace": true
-    }
-]
-```
 
-With RegexMatch, you can use metacharacters to do more complex string searches that wouldn't otherwise be possible with the StartsWith, EndsWith, Contains, or StringEquals system functions. Here are some additional examples:
+The following example illustrates regular expression matches using a few different modifiers.
 
-> [!NOTE] 
-> If you need to use a metacharacter in a regular expression and don't want it to have special meaning, you should escape the metacharacter using `\`.
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/regexmatch/query.sql" highlight="2-9":::
 
-**Check items that have a description that contains the word "salt" exactly once:**
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/regexmatch/result.json":::
 
-```sql
-SELECT * 
-FROM c 
-WHERE RegexMatch (c.description, "salt{1}","")
-```
+The next example assumes that you have a container with items including a `name` field.
 
-**Check items that have a description that contain a number between 0 and 99:**
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/regexmatch-field/seed.json" range="1-2,4-7,9-12,14-17" highlight="3,7,11":::
 
-```sql
-SELECT * 
-FROM c 
-WHERE RegexMatch (c.description, "[0-99]","")
-```
+This example uses a regular expression match as a filter to return a subset of items.
 
-**Check items that have a description that contain four letter words starting with "S" or "s":**
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/regexmatch-field/query.sql" highlight="7":::
 
-```sql
-SELECT * 
-FROM c 
-WHERE RegexMatch (c.description, " s... ","i")
-```
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/regexmatch-field/result.json":::
 
 ## Remarks
 
-This system function will benefit from a [range index](../../index-policy.md#includeexclude-strategy) if the regular expression can be broken down into either StartsWith, EndsWith, Contains, or StringEquals system functions.
+- This function benefits from a [range index](../../index-policy.md#includeexclude-strategy) only if the regular expression can be broken down into either `StartsWith`, `EndsWith`, `Contains`, or `StringEquals` equivalent system functions.
+- Returns `undefined` if the string expression to be searched (`string_expr_1`), the regular expression (`string_expr_2`), or the selected modifiers (`string_expr_3`) are invalid.
+- This function supports the following four modifiers:
+    | | Format | Description |
+    | --- | --- | --- |
+    | **Multiple lines** | `m` | Treat the string expression to be searched as multiple lines. Without this option, the characters `^` and `$` match at the beginning or end of the string and not each individual line. |
+    | **Match any string** | `s` | Allow "." to match any character, including a newline character. |
+    | **Ignore case** | `i` | Ignore case when pattern matching. |
+    | **Ignore whitespace** | `x` | Ignore all whitespace characters. |
+- If you'd like to use a meta-character in a regular expression and don't want it to have special meaning, you should escape the metacharacter using `\`.
 
-## Next steps
+## Related content
 
-- [String functions Azure Cosmos DB](string-functions.md)
-- [System functions Azure Cosmos DB](system-functions.md)
-- [Introduction to Azure Cosmos DB](../../introduction.md)
+- [System functions](system-functions.yml)
+- [`IS_STRING`](is-string.md)

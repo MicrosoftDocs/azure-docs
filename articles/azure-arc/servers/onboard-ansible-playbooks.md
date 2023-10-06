@@ -3,7 +3,7 @@ title: Connect machines at scale using Ansible Playbooks
 description: In this article, you learn how to connect machines to Azure using Azure Arc-enabled servers using Ansible playbooks.
 ms.date: 05/09/2022
 ms.topic: conceptual
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-ansible
 ---
 
 # Connect machines at scale using Ansible playbooks
@@ -144,4 +144,3 @@ After you have successfully installed the agent and configured it to connect to 
 - Review the [Planning and deployment guide](plan-at-scale-deployment.md) to plan for deploying Azure Arc-enabled servers at any scale and implement centralized management and monitoring.
 - Review connection troubleshooting information in the [Troubleshoot Connected Machine agent guide](troubleshoot-agent-onboard.md).
 - Learn how to manage your machine using [Azure Policy](../../governance/policy/overview.md) for such things as VM [guest configuration](../../governance/machine-configuration/overview.md), verifying that the machine is reporting to the expected Log Analytics workspace, enabling monitoring with [VM insights](../../azure-monitor/vm/vminsights-enable-policy.md), and much more.
-

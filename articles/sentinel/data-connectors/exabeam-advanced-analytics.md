@@ -3,23 +3,21 @@ title: "Exabeam Advanced Analytics connector for Microsoft Sentinel"
 description: "Learn how to install the connector Exabeam Advanced Analytics to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 08/28/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
 # Exabeam Advanced Analytics connector for Microsoft Sentinel
 
-The [Exabeam Advanced Analytics](https://www.exabeam.com/ueba/advanced-analytics-and-mitre-detect-and-stop-threats/) data connector provides the capability to ingest Exabeam Advanced Analytics events into Azure Sentinel. Refer to [Exabeam Advanced Analytics documentation](https://docs.exabeam.com/) for more information.
+The [Exabeam Advanced Analytics](https://www.exabeam.com/ueba/advanced-analytics-and-mitre-detect-and-stop-threats/) data connector provides the capability to ingest Exabeam Advanced Analytics events into Microsoft Sentinel. Refer to [Exabeam Advanced Analytics documentation](https://docs.exabeam.com/) for more information.
 
 ## Connector attributes
 
 | Connector attribute | Description |
 | --- | --- |
-| **Kusto function alias** | ExabeamEvent |
-| **Kusto function url** | https://aka.ms/sentinel-Exabeam-parser |
 | **Log Analytics table(s)** | Syslog (Exabeam)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
+| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
 
 ## Query samples
@@ -39,7 +37,7 @@ ExabeamEvent
 
 
 > [!NOTE]
-   >  This data connector depends on a parser based on a Kusto Function to work as expected. [Follow these steps](https://aka.ms/sentinel-Exabeam-parser) to create the Kusto Functions alias, **ExabeamEvent**
+   >  This data connector depends on a parser based on a Kusto Function to work as expected which is deployed as part of the solution. To view the function code in Log Analytics, open Log Analytics/Microsoft Sentinel Logs blade, click Functions and search for the alias Exabeam Advanced Analytics and load the function code or click [here](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Exabeam%20Advanced%20Analytics/Parsers/ExabeamEvent.txt), on the second line of the query, enter the hostname(s) of your Exabeam Advanced Analytics device(s) and any other unique identifiers for the logstream. The function usually takes 10-15 minutes to activate after solution installation/update.
 
 
 > [!NOTE]
@@ -61,7 +59,7 @@ Configure the custom log directory to be collected
 
 3. Configure Exabeam event forwarding to Syslog
 
-[Follow these instructions](https://docs.exabeam.com/en/advanced-analytics/i56/advanced-analytics-administration-guide/125371-configure-advanced-analytics.html#UUID-6d28da8d-6d3e-5aa7-7c12-e67dc804f894) to send Exabeam Advanced Analytics activity log data via syslog.
+[Follow these instructions](https://docs.exabeam.com/en/advanced-analytics/i56/advanced-analytics-administration-guide/125351-advanced-analytics.html#UUID-7ce5ff9d-56aa-93f0-65de-c5255b682a08) to send Exabeam Advanced Analytics activity log data via syslog.
 
 
 

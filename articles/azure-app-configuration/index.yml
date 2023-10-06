@@ -4,8 +4,8 @@ summary: Learn how to use Azure App Configuration, a managed service that helps 
 metadata:
   title: Azure App Configuration documentation
   description: Learn how to use Azure App Configuration, a managed service that helps developers centralize their application and feature settings simply and securely.
-  author: mcleanbyron
-  ms.author: mcleans
+  author: maud-lv
+  ms.author: malev
   ms.service: azure-app-configuration
   ms.topic: landing-page
   ms.date: 03/20/2023
@@ -28,8 +28,6 @@ landingContent:
         links:
         - text: Getting started with Azure App Configuration
           url: /Shows/Azure-Friday/Getting-started-with-Azure-App-Configuration
-        - text: Feature management
-          url: /Shows/NET-Community-Standups/ASPNET-Community-Standup-May-21st-2019-Introducing-MicrosoftFeatureManagement
         - text: Making centralized configuration easy
           url: /Events/dotnetConf/NET-Conf-2019/B210
         - text: Azure App Configuration on Cloud Native Show
@@ -46,7 +44,9 @@ landingContent:
         links:
         - text: Keys and values
           url: concept-key-value.md
-        - text: Point-in-time snapshot
+        - text: Snapshots
+          url: concept-snapshots.md
+        - text: Point-in-time key-values
           url: concept-point-time-snapshot.md
         - text: Feature Management
           url: concept-feature-management.md
@@ -98,6 +98,8 @@ landingContent:
           url: enable-dynamic-configuration-azure-functions-csharp.md
         - text: Use dynamic config in Spring Boot
           url: enable-dynamic-configuration-java-spring-app.md
+        - text: Use dynamic config in Python
+          url: enable-dynamic-configuration-python.md
         - text: Integrating dynamic config using the push model in .NET Core
           url: enable-dynamic-configuration-dotnet-core-push-refresh.md
         - text: Integrating dynamic config using the push model in Java Spring
@@ -152,10 +154,8 @@ landingContent:
           url: howto-targetingfilter-aspnet-core.md
       - linkListType: reference
         links:
-        - text: .NET Core library
-          url: https://www.nuget.org/packages/Microsoft.FeatureManagement/
-        - text: .NET Core filter library
-          url: /dotnet/api/microsoft.azure.management.storsimple8000series.models.featurefilter
+        - text: .NET library
+          url: /dotnet/api/overview/azure/appconfiguration/featuremanagement
         - text: Java Spring Library
           url: https://azure.github.io/azure-sdk-for-java/springboot.html
 

@@ -49,7 +49,7 @@ An Event Hubs namespace provides a unique scoping container, in which you create
    1. Select the **resource group** you created in the previous step.   
    1. Enter a **name** for the namespace. The system immediately checks to see if the name is available.  
    1. Select a **location** for the namespace.
-   1. Choose **Basic** for the **pricing tier**. To learn about differences between tiers, see [Quotas and limits](event-hubs-quotas.md), [Event Hubs Premium](event-hubs-premium-overview.md), and [Event Hubs Dedicated](event-hubs-dedicated-overview.md) articles. 
+   1. Choose **Basic** for the **pricing tier**. If you plan to use the namespace from **Apache Kafka** apps, use the **Standard** tier. The basic tier doesn't support Apache Kafka workloads. To learn about differences between tiers, see [Quotas and limits](event-hubs-quotas.md), [Event Hubs Premium](event-hubs-premium-overview.md), and [Event Hubs Dedicated](event-hubs-dedicated-overview.md) articles. 
    1. Leave the **throughput units** (for standard tier) or **processing units** (for premium tier) settings as it is. To learn about throughput units or processing units: [Event Hubs scalability](event-hubs-scalability.md).  
    1. Select **Review + Create** at the bottom of the page.
       
@@ -74,7 +74,7 @@ To create an event hub within the namespace, do the following actions:
       :::image type="content" source="./media/event-hubs-quickstart-portal/create-event-hub4.png" lightbox="./media/event-hubs-quickstart-portal/create-event-hub4.png" alt-text="Screenshot of the selection of Add event hub button on the command bar.":::
 1. Type a name for your event hub, then select **Review + create**.
    
-      :::image type="content" source="./media/event-hubs-quickstart-portal/create-event-hub5.png" alt-text="Screenshot of the Create event bub page.":::
+      :::image type="content" source="./media/event-hubs-quickstart-portal/create-event-hub5.png" alt-text="Screenshot of the Create event hub page.":::
 
     The **partition count** setting allows you to parallelize consumption across many consumers. For more information, see [Partitions](event-hubs-scalability.md#partitions).
 
@@ -97,6 +97,5 @@ In this article, you created a resource group, an Event Hubs namespace, and an e
 - [Apache Storm (receive only)](event-hubs-storm-getstarted-receive.md)
 
 
-[Azure portal]: https://portal.azure.com/
 [3]: ./media/event-hubs-quickstart-portal/sender1.png
 [4]: ./media/event-hubs-quickstart-portal/receiver1.png

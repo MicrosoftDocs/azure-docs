@@ -1,32 +1,47 @@
 ---
-title: Enable Defender for APIs in Defender for Cloud 
+title: Protect your APIs with Defender for APIs
 description: Learn about deploying the Defender for APIs plan in Defender for Cloud
-author: elazark
-ms.author: elkrieger
+author: dcurwin
+ms.author: dacurwin
 ms.service: defender-for-cloud
 ms.topic: conceptual
-ms.date: 03/23/2023
+ms.date: 06/29/2023
 ---
-# Onboard Defender for APIs
 
-This article describes how to deploy the [Microsoft Defender for APIs](defender-for-apis-introduction.md) plan in the Microsoft Defender for Cloud portal. Defender for APIs is currently in preview.
+# Protect your APIs with Defender for APIs (Preview)
 
-## Before you start
+Defender for APIs in Microsoft Defender for Cloud offers full lifecycle protection, detection, and response coverage for APIs.
+
+Defender for APIs helps you to gain visibility into business-critical APIs. You can investigate and improve your API security posture, prioritize vulnerability fixes, and quickly detect active real-time threats.
+
+Learn more about the [Microsoft Defender for APIs](defender-for-apis-introduction.md) plan in the Microsoft Defender for Cloud. Defender for APIs is currently in preview.
+
+## Prerequisites
+
+- You need a Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free subscription](https://azure.microsoft.com/pricing/free-trial/).
+
+- You must [enable Microsoft Defender for Cloud](get-started.md#enable-defender-for-cloud-on-your-azure-subscription) on your Azure subscription.
 
 - Review [Defender for APIs support, permissions, and requirements](defender-for-apis-introduction.md) before you begin deployment.
-- Make sure that Defender for Cloud is enabled in your Azure subscription. You enable Defender for APIs at the subscription level.
+
+- You enable Defender for APIs at the subscription level.
+
 - Ensure that APIs you want to secure are published in [Azure API management](/azure/api-management/api-management-key-concepts). Follow [these instructions](/azure/api-management/get-started-create-service-instance) to set up Azure API Management.
 
 > [!NOTE]
 > This article describes how to enable and onboard the Defender for APIs plan in the Defender for Cloud portal. Alternately, you can [enable Defender for APIs within an API Management instance](../api-management/protect-with-defender-for-apis.md) in the Azure portal.
 
-## Enable the plan
+## Enable the Defender for APIs plan
 
 1. Sign into the [portal](https://portal.azure.com/), and in Defender for Cloud, select **Environment settings**.
+
 1. Select the subscription that contains the managed APIs that you want to protect.
+
 1. In the **APIs** plan, select **On**. Then select **Save**.
 
     :::image type="content" source="media/defender-for-apis-deploy/enable-plan.png" alt-text="Screenshot that shows how to turn on the Defender for APIs plan in the portal." lightbox="media/defender-for-apis-deploy/enable-plan.png":::
+
+1. Select **Save**.
 
 > [!NOTE]
 > After enabling Defender for APIs, onboarded APIs take up to 50 minutes to appear in the **Recommendations** tab. Security insights are available in the **Workload protections** > **API security** dashboard within 40 minutes of onboarding.

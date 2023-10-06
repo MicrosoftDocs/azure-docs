@@ -4,17 +4,22 @@ description: Azure Storage inventory is a tool to help get an overview of all yo
 services: storage
 author: normesta
 
-ms.service: storage
-ms.date: 03/30/2023
+ms.service: azure-blob-storage
+ms.date: 09/22/2023
 ms.topic: conceptual
 ms.author: normesta
-ms.subservice: blobs
 ms.custom: references_regions
 ---
 
 # Azure Storage blob inventory
 
 Azure Storage blob inventory provides a list of the containers, blobs, blob versions, and snapshots in your storage account, along with their associated properties. It generates an output report in either comma-separated values (CSV) or Apache Parquet format on a daily or weekly basis. You can use the report to audit retention, legal hold or encryption status of your storage account contents, or you can use it to understand the total data size, age, tier distribution, or other attributes of your data. You can also use blob inventory to simplify your business workflows or speed up data processing jobs, by using blob inventory as a scheduled automation of the [List Containers](/rest/api/storageservices/list-containers2) and [List Blobs](/rest/api/storageservices/list-blobs) APIs. Blob inventory rules allow you to filter the contents of the report by blob type, prefix, or by selecting the blob properties to include in the report.
+
+Azure Storage blob inventory is available for the following types of storage accounts:
+
+- Standard general-purpose v2
+- Premium block blob storage
+- Blob storage
 
 ## Inventory features
 
@@ -171,7 +176,7 @@ View the JSON for inventory rules by selecting the **Code view** tab in the **Bl
 | Name (Required)  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 | Creation-Time  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 | Last-Modified  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| Last-Access-Time  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| LastAccessTime<sup>1<sup>  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 | ETag  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 | Content-Length  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 | Content-Type  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
@@ -219,8 +224,7 @@ View the JSON for inventory rules by selecting the **Code view** tab in the **Bl
 | IncrementalCopy | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | 
 | x-ms-blob-sequence-number | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) | 
 
-> [!NOTE]
-> 
+<sup>1</sup> Disabled by default. [Optionally enable access time tracking](lifecycle-management-policy-configure.md#optionally-enable-access-time-tracking).
 
 ### Custom schema fields supported for container inventory
 
@@ -312,12 +316,12 @@ Each inventory rule generates a set of files in the specified inventory destinat
 
 Each inventory run for a rule generates the following files:
 
-- **Inventory file:** An inventory run for a rule generates one or more CSV or Apache Parquet formatted files. If the matched object count is large, then multiple files are generated instead of a single file. Each such file contains matched objects and their metadata. 
+- **Inventory file:** An inventory run for a rule generates a CSV or Apache Parquet formatted file. Each such file contains matched objects and their metadata. 
 
-  > [!NOTE]
-  > Reports in the Apache Parquet format present dates in the following format: `timestamp_millis [number of milliseconds since 1970-01-01 00:00:00 UTC`.
-
-  For a CSV formatted file, the first row is always the schema row. The following image shows an inventory CSV file opened in Microsoft Excel.
+  > [!IMPORTANT]
+  > Starting in October 2023, inventory runs will produce multiple files if the object count is large. To learn more, see [Multiple inventory file output FAQ](storage-blob-faq.yml#multiple-inventory-file-output).   
+  
+  Reports in the Apache Parquet format present dates in the following format: `timestamp_millis [number of milliseconds since 1970-01-01 00:00:00 UTC`]. For a CSV formatted file, the first row is always the schema row. The following image shows an inventory CSV file opened in Microsoft Excel.
 
   :::image type="content" source="./media/blob-inventory/csv-file-excel.png" alt-text="Screenshot of an inventory CSV file opened in Microsoft Excel":::
 
@@ -371,11 +375,13 @@ Each inventory run for a rule generates the following files:
   }
   ```
 
+  This file is created when the run begins. The `status` field of this file is set to `Pending` until the run completes. After the run completes, this field is set to a completion status (For example: `Succeeded` or `Failed`).
+
 ## Pricing and billing
 
-Pricing for inventory is based on the number of blobs and containers that are scanned during the billing period. As an example, suppose an account contains one million blobs, and blob inventory is set to run once per week. After four weeks, four million blob entries will have been scanned.
+Pricing for inventory is based on the number of blobs and containers that are scanned during the billing period. The [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) page shows the price per one million objects scanned. For example, if the price to scan one million objects is $0.003, your account contains three million objects, and you produce four reports in a month, then your bill would be 4 * 3  * $0.003 = $0.036.
 
-Billing for blob inventory begins on October 1, 2021. Regional pricing will be published at that time. The baseline price without regional adjustment is approximately $0.0025 USD per million entries scanned for blob storage and $0.0035 USD if Data Lake Storage Gen2 is enabled. After inventory files are created, additional standard data storage and operations charges will be incurred for storing, reading, and writing the inventory-generated files in the account.
+After inventory files are created, additional standard data storage and operations charges will be incurred for storing, reading, and writing the inventory-generated files in the account.
 
 After an inventory report is complete, additional standard data storage and operations charges are incurred for storing, reading, and writing the inventory report in the storage account.
 
@@ -393,7 +399,7 @@ For more information about pricing for Azure Storage blob inventory, see [Azure 
 
 This section describes limitations and known issues of the Azure Storage blob inventory feature.
 
-#### Inventory jobs take a longer time to complete in certain cases
+### Inventory jobs take a longer time to complete in certain cases
 
 An inventory job can take a longer amount of time in these cases:
 
@@ -409,7 +415,7 @@ An inventory job can take a longer amount of time in these cases:
 
 - There is no option to generate a report retrospectively for a particular date.
 
-#### Inventory jobs can't write reports to containers that have an object replication policy
+### Inventory jobs can't write reports to containers that have an object replication policy
 
 An object replication policy can prevent an inventory job from writing inventory reports to the destination container. Some other scenarios can archive the reports or make the reports immutable when they're partially completed which can cause inventory jobs to fail.
 

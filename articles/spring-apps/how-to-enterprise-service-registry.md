@@ -1,12 +1,12 @@
 ---
-title: How to Use Tanzu Service Registry with Azure Spring Apps Enterprise tier
-description: How to use Tanzu Service Registry with Azure Spring Apps Enterprise tier.
-author: karlerickson
+title: How to Use Tanzu Service Registry with the Azure Spring Apps Enterprise plan
+description: How to use Tanzu Service Registry with the Azure Spring Apps Enterprise plan.
+author: KarlErickson
 ms.author: yoterada
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 06/17/2022
-ms.custom: devx-track-java, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022, devx-track-azurecli
 ---
 
 # Use Tanzu Service Registry
@@ -14,23 +14,19 @@ ms.custom: devx-track-java, event-tier1-build-2022
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
-This article shows you how to use VMware Tanzu® Service Registry with Azure Spring Apps Enterprise tier.
+This article shows you how to use VMware Tanzu Service Registry with the Azure Spring Apps Enterprise plan.
 
 Tanzu Service Registry is one of the commercial VMware Tanzu components. This component helps you apply the *service discovery* design pattern to your applications.
 
 Service discovery is one of the main ideas of the microservices architecture. Without service discovery, you'd have to hand-configure each client of a service or adopt some form of access convention. This process can be difficult, and the configurations and conventions can be brittle in production. Instead, you can use the Tanzu Service Registry to dynamically discover and invoke registered services in your application.
 
-With Azure Spring Apps Enterprise tier, you don't have to create or start the Service Registry yourself. You can use the Tanzu Service Registry by selecting it when you create your Azure Spring Apps Enterprise tier instance.
+with the Azure Spring Apps Enterprise plan, you don't have to create or start the Service Registry yourself. You can use the Tanzu Service Registry by selecting it when you create your Azure Spring Apps Enterprise plan instance.
 
 ## Prerequisites
 
-- An already provisioned Azure Spring Apps Enterprise tier instance with Tanzu Service Registry enabled. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md).
-
-  > [!NOTE]
-  > To use Tanzu Service Registry, you must enable it when you provision your Azure Spring Apps service instance. You cannot enable it after provisioning at this time.
-
+- An already provisioned Azure Spring Apps Enterprise plan instance with Tanzu Service Registry enabled. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise plan](quickstart-deploy-apps-enterprise.md).
 - [!INCLUDE [install-enterprise-extension](includes/install-enterprise-extension.md)]
 
 ## Create applications that use Service Registry
@@ -49,12 +45,12 @@ These steps are described in more detail in the following sections.
 
 ## Create environment variables
 
-This article uses the following environment variables. Set these variables to the values you used when you created your Azure Spring Apps Enterprise tier instance.
+This article uses the following environment variables. Set these variables to the values you used when you created your Azure Spring Apps Enterprise plan instance.
 
 | Variable                 | Description                       |
 |--------------------------|-----------------------------------|
 | $RESOURCE_GROUP          | Resource group name.              |
-| $AZURE_SPRING_APPS_NAME | Azure Spring Apps instance name. |
+| $AZURE_SPRING_APPS_NAME  | Azure Spring Apps instance name.  |
 
 ## Create Service A with Spring Boot
 
@@ -167,7 +163,7 @@ mvn clean package
 
 ## Deploy Service A and register with Service Registry
 
-This section explains how to deploy Service A to Azure Spring Apps Enterprise tier and register it with Service Registry.
+This section explains how to deploy Service A to an Azure Spring Apps Enterprise plan instance and register it with Service Registry.
 
 ### Create an Azure Spring Apps application
 

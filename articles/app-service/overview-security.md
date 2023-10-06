@@ -5,6 +5,8 @@ keywords: azure app service, web app, mobile app, api app, function app, securit
 ms.topic: article
 ms.date: 08/24/2018
 ms.custom: UpdateFrequency3
+author: cephalin
+ms.author: cephalin
 
 ---
 # Security in Azure App Service
@@ -96,5 +98,9 @@ Except for the **Isolated** pricing tier, all tiers run your apps on the shared 
 - Serve your apps through a dedicated public endpoint, with dedicated front ends.
 - Serve internal application using an internal load balancer (ILB), which allows access only from inside your Azure Virtual Network. The ILB has an IP address from your private subnet, which provides total isolation of your apps from the internet.
 - [Use an ILB behind a web application firewall (WAF)](environment/integrate-with-application-gateway.md). The WAF offers enterprise-level protection to your public-facing applications, such as DDoS protection, URI filtering, and SQL injection prevention.
+
+## DDoS protection
+
+For web workloads, we highly recommend utilizing [Azure DDoS protection](../ddos-protection/ddos-protection-overview.md) and a [web application firewall](../web-application-firewall/overview.md) to safeguard against emerging DDoS attacks. Another option is to deploy [Azure Front Door](../frontdoor/web-application-firewall.md) along with a web application firewall. Azure Front Door offers platform-level [protection against network-level DDoS attacks](../frontdoor/front-door-ddos.md).
 
 For more information, see [Introduction to Azure App Service Environments](environment/intro.md).

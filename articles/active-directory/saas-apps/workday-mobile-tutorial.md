@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Workday Mobile Application'
-description: Learn how to configure single sign-on between Azure Active Directory and Workday Mobile Application.
+title: 'Tutorial: Microsoft Entra single sign-on (SSO) integration with Workday Mobile Application'
+description: Learn how to configure single sign-on between Microsoft Entra ID and Workday Mobile Application.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -13,28 +13,28 @@ ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Workday Mobile Application
+# Tutorial: Microsoft Entra single sign-on (SSO) integration with Workday Mobile Application
 
-In this tutorial, you’ll learn how to integrate Azure Active Directory (Azure AD), Conditional Access, and Intune with Workday Mobile Application. When you integrate Workday Mobile Application with Microsoft, you can:
+In this tutorial, you’ll learn how to integrate Microsoft Entra ID, Conditional Access, and Intune with Workday Mobile Application. When you integrate Workday Mobile Application with Microsoft, you can:
 
 * Ensure that devices are compliant with your policies prior to sign-in.
 * Add controls to Workday Mobile Application to ensure that users are securely accessing corporate data. 
-* Control in Azure AD who has access to Workday.
-* Enable your users to be automatically signed in to Workday with their Azure AD accounts.
+* Control in Microsoft Entra ID who has access to Workday.
+* Enable your users to be automatically signed in to Workday with their Microsoft Entra accounts.
 * Manage your accounts in one central location: the Azure portal.
 
 ## Prerequisites
 
 To get started:
 
-* Integrate Workday with Azure AD.
-* Read [Azure Active Directory single sign-on (SSO) integration with Workday](./workday-tutorial.md).
+* Integrate Workday with Microsoft Entra ID.
+* Read [Microsoft Entra single sign-on (SSO) integration with Workday](./workday-tutorial.md).
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD Conditional Access policies and Intune with Workday Mobile Application.
+In this tutorial, you configure and test Microsoft Entra Conditional Access policies and Intune with Workday Mobile Application.
 
-For enabling single sign-on (SSO), you can configure Workday Federated application with Azure AD. For more information, see [Azure Active Directory single sign-on (SSO) integration with Workday](./workday-tutorial.md).
+For enabling single sign-on (SSO), you can configure Workday Federated application with Microsoft Entra ID. For more information, see [Microsoft Entra single sign-on (SSO) integration with Workday](./workday-tutorial.md).
 
 > [!NOTE] 
 > Workday doesn't support the app protection policies of Intune. You must use mobile device management to use Conditional Access.
@@ -83,13 +83,13 @@ To set up Workday as a managed device, perform the following steps:
 
 1. In **Cloud apps or actions**:
 
-    a. Switch **Select what this policy applies to** to **Cloud apps**.
+    1. Switch **Select what this policy applies to** to **Cloud apps**.
 
-    b. In **Include**, choose **Select apps**.
+    1. In **Include**, choose **Select apps**.
 
-    c. From the **Select** list, choose **Workday**.
+    1. From the **Select** list, choose **Workday**.
 
-    d. Select **Done**.
+    1. Select **Done**.
 
 1. Switch **Enable policy** to **On**.
 
@@ -105,13 +105,13 @@ For **Grant** access, perform the following steps:
 
 1. In **Grant**:
 
-    a. Select the controls to be enforced as **Grant access**.
+    1. Select the controls to be enforced as **Grant access**.
 
-    b. Select **Require device to be marked as compliant**.
+    1. Select **Require device to be marked as compliant**.
 
-    c. Select **Require one of the selected controls**.
+    1. Select **Require one of the selected controls**.
 
-    d. Choose **Select**.
+    1. Choose **Select**.
 
 1. Switch **Enable policy** to **On**.
 
@@ -135,7 +135,7 @@ To ensure that iOS devices are only able to sign in through Workday managed by m
 
 ## iOS configuration policies
 
-1. Go to the [Azure portal](https://portal.azure.com/), and sign in.
+1. Sign in to the [Azure portal](https://portal.azure.com/), and sign in.
 1. Search for **Intune** or select the widget from the list.
 1. Go to **Client Apps** > **Apps** > **App Configuration Policies**. Then select **+ Add** > **Managed Devices**.
 1. Enter a name.
@@ -168,7 +168,7 @@ To ensure that iOS devices are only able to sign in through Workday managed by m
 
 ## Android configuration policies
 
-1. Go to the [Azure portal](https://portal.azure.com/), and sign in.
+1. Sign in to the [Azure portal](https://portal.azure.com/), and sign in.
 2. Search for **Intune** or select the widget from the list.
 3. Go to **Client Apps** > **Apps** > **App Configuration Policies**. Then select **+ Add** > **Managed Devices**.
 5. Enter a name. 

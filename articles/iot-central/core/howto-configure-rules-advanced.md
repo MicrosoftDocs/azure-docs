@@ -1,9 +1,9 @@
 ---
-title: Use workflows to integrate your Azure IoT Central application with other cloud services | Microsoft Docs
-description: This how-to article shows you, as a builder, how to configure rules and actions that integrate your IoT Central application with other cloud services. To create an advanced rule, you use an IoT Central connector in either Power Automate or Azure Logic Apps. 
+title: Use workflows to integrate Azure IoT Central
+description: How to configure rules and actions that integrate your IoT Central application with other cloud services by using Power Automate or Azure Logic Apps.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/21/2022
+ms.date: 06/14/2023
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -13,7 +13,7 @@ services: iot-central
 
 # Use workflows to integrate your Azure IoT Central application with other cloud services
 
-You can create rules in IoT Central that trigger actions, such as sending an email, in response to telemetry-based conditions, such as device temperature exceeding a threshold.
+You can create rules in IoT Central that trigger actions in response to telemetry-based conditions. For example, to send an email when a device temperature exceeds a threshold.
 
 The Azure IoT Central V3 connector for Power Automate and Azure Logic Apps lets you create more advanced rules to automate operations in IoT Central:
 
@@ -55,7 +55,7 @@ You can run actions in an IoT Central application from Power Automate and Azure 
 
 To add the **Azure IoT Central V3** connector as an action in Power Automate:
 
-1. In Power Automate, in the **Choose an action** panel, select the **Custom** tab.
+1. In Power Automate in the **Choose an action** panel, select the **Custom** tab.
 1. Search for *IoT Central* and select the **Azure IoT Central V3** connector.
 1. In the list of actions, select the IoT Central action you want to use.
 1. In the action step, complete the configuration for the action you chose. Then select **Save**.
@@ -63,7 +63,7 @@ To add the **Azure IoT Central V3** connector as an action in Power Automate:
 To add the **Azure IoT Central V3- preview** connector as an action in Azure Logic Apps:
 
 1. In **Logic Apps Designer**, in the **Choose an action** panel, select the **Custom** tab.
-1. Search for *IoT Central*, and select the **Azure IoT Central V3- preview** connector.
+1. Search for *IoT Central*, and select the **Azure IoT Central V3** connector.
 1. In the list of actions, select the IoT Central action you want to use.
 1. In the action step, complete the configuration for the action you chose. Then select **Save**.
 
@@ -72,7 +72,6 @@ To add the **Azure IoT Central V3- preview** connector as an action in Azure Log
 ## List of actions
 
 For a complete list of actions supported by the connector, see [Actions](/connectors/azureiotcentral/#actions).
-
 
 ### Create or update a device
 
@@ -184,4 +183,4 @@ Use this action to update writable property values for a specific device.
 
 ## Next steps
 
-Now that you've learned how to create an advanced rule in your Azure IoT Central application, you can learn how to [Analyze device data in your Azure IoT Central application](howto-create-analytics.md)
+Now that you've learned how to create an advanced rule in your Azure IoT Central application, you can learn how to [Analyze device data in your Azure IoT Central application](howto-create-analytics.md).

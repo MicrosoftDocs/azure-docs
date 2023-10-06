@@ -3,8 +3,8 @@ title: "Tutorial: Run a parallel workload using the Python API"
 description: Learn how to process media files in parallel using ffmpeg in Azure Batch with the Batch Python client library.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 04/19/2023
-ms.custom: mvc, devx-track-python
+ms.date: 05/25/2023
+ms.custom: mvc, devx-track-python, devx-track-linux
 ---
 
 # Tutorial: Run a parallel workload with Azure Batch using the Python API
@@ -155,7 +155,7 @@ input_files = [
 
 ### Create a pool of compute nodes
 
-Next, the sample creates a pool of compute nodes in the Batch account with a call to `create_pool`. This defined function uses the Batch [PoolAddParameter](/python/api/azure-batch/azure.batch.models.pooladdparameter) class to set the number of nodes, VM size, and a pool configuration. Here, a [VirtualMachineConfiguration](/python/api/azure-batch/azure.batch.models.virtualmachineconfiguration) object specifies an [ImageReference](/python/api/azure-batch/azure.batch.models.imagereference) to an Ubuntu Server 18.04 LTS image published in the Azure Marketplace. Batch supports a wide range of VM images in the Azure Marketplace, as well as custom VM images.
+Next, the sample creates a pool of compute nodes in the Batch account with a call to `create_pool`. This defined function uses the Batch [PoolAddParameter](/python/api/azure-batch/azure.batch.models.pooladdparameter) class to set the number of nodes, VM size, and a pool configuration. Here, a [VirtualMachineConfiguration](/python/api/azure-batch/azure.batch.models.virtualmachineconfiguration) object specifies an [ImageReference](/python/api/azure-batch/azure.batch.models.imagereference) to an Ubuntu Server 20.04 LTS image published in the Azure Marketplace. Batch supports a wide range of VM images in the Azure Marketplace, as well as custom VM images.
 
 The number of nodes and VM size are set using defined constants. Batch supports dedicated nodes and [Spot nodes](batch-spot-vms.md), and you can use either or both in your pools. Dedicated nodes are reserved for your pool. Spot nodes are offered at a reduced price from surplus VM capacity in Azure. Spot nodes become unavailable if Azure doesn't have enough capacity. The sample by default creates a pool containing only five Spot nodes in size *Standard_A1_v2*. 
 
@@ -170,10 +170,10 @@ new_pool = batch.models.PoolAddParameter(
         image_reference=batchmodels.ImageReference(
             publisher="Canonical",
             offer="UbuntuServer",
-            sku="18.04-LTS",
+            sku="20.04-LTS",
             version="latest"
         ),
-        node_agent_sku_id="batch.node.ubuntu 18.04"),
+        node_agent_sku_id="batch.node.ubuntu 20.04"),
     vm_size=_POOL_VM_SIZE,
     target_dedicated_nodes=_DEDICATED_POOL_NODE_COUNT,
     target_low_priority_nodes=_LOW_PRIORITY_POOL_NODE_COUNT,

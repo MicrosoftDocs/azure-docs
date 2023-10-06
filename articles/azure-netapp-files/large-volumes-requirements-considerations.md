@@ -13,7 +13,7 @@ ms.workload: storage
 ms.custom: references_regions
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/27/2023
+ms.date: 08/31/2023
 ms.author: anfdocs
 ---
 # Requirements and considerations for large volumes (preview)
@@ -27,6 +27,8 @@ The large volumes feature for Azure NetApp Files is currently in public preview.
 To enroll in the preview for large volumes, use the [large volumes preview sign-up form](https://aka.ms/anflargevolumespreviewsignup).
 
 ## Requirements and considerations
+
+The following requirements and considerations apply to large volumes. For performance considerations of *regular volumes*, see [Performance considerations for Azure NetApp Files](azure-netapp-files-performance-considerations.md).
 
 * Existing regular volumes can't be resized over 100 TiB.
 * You can't convert regular Azure NetApp Files volumes to large volumes.
@@ -54,6 +56,7 @@ Support for Azure NetApp Files large volumes is available in the following regio
 * Australia Southeast
 * Brazil South
 * Canada Central
+* Central India
 * Central US
 * East US
 * East US 2

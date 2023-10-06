@@ -1,11 +1,11 @@
 ---
 title: What's new in Azure Backup
-description: Learn about new features in Azure Backup.
+description: Learn about the new features in Azure Backup.
 ms.topic: conceptual
-ms.date: 03/20/2023
+ms.date: 09/29/2023
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # What's new in Azure Backup
@@ -16,12 +16,22 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Updates summary
 
+- September 2023
+  - [Multi-user authorization using Resource Guard for Backup vault is now generally available](#multi-user-authorization-using-resource-guard-for-backup-vault-is-now-generally-available)
+  - [Enhanced soft delete for Azure Backup is now generally available](#enhanced-soft-delete-for-azure-backup-is-now-generally-available)
+  - [Support for selective disk backup with enhanced policy for Azure VM is now generally available](whats-new.md#support-for-selective-disk-backup-with-enhanced-policy-for-azure-vm-is-now-generally-available)
+- August 2023
+  - [Save your MARS backup passphrase securely to Azure Key Vault (preview)](#save-your-mars-backup-passphrase-securely-to-azure-key-vault-preview)
+  - [Cross Region Restore for MARS Agent (preview)](#cross-region-restore-for-mars-agent-preview)
+- July 2023
+  - [SAP HANA System Replication database backup support is now generally available](#sap-hana-system-replication-database-backup-support-is-now-generally-available)
+  - [Cross Region Restore for PostgreSQL (preview)](#cross-region-restore-for-postgresql-preview)
 - April 2023
   - [Microsoft Azure Backup Server v4 is now generally available](#microsoft-azure-backup-server-v4-is-now-generally-available)
 - March 2023
   - [Multiple backups per day for Azure VMs is now generally available](#multiple-backups-per-day-for-azure-vms-is-now-generally-available)
   - [Immutable vault for Azure Backup is now generally available](#immutable-vault-for-azure-backup-is-now-generally-available)
-  - [Support for selective disk backup with enhanced policy for Azure VM (preview)](#support-for-selective-disk-backup-with-enhanced-policy-for-azure-vm-preview)
+  - [Support for selective disk backup with enhanced policy for Azure VM (preview)](whats-new.md#support-for-selective-disk-backup-with-enhanced-policy-for-azure-vm-is-now-generally-available)
   - [Azure Kubernetes Service backup (preview)](#azure-kubernetes-service-backup-preview)
   - [Azure Blob vaulted backups (preview)](#azure-blob-vaulted-backups-preview)
 - October 2022
@@ -58,6 +68,50 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
 
+## Multi-user authorization using Resource Guard for Backup vault is now generally available
+
+Azure Backup now supports multi-user authorization (MUA) that allows you to add an additional layer of protection to critical operations on your Backup vaults. For MUA, Azure Backup uses the Azure resource, Resource Guard, to ensure critical operations are performed only with applicable authorization.
+
+For more information, see [MUA for Backup vault](multi-user-authorization-concept.md?tabs=backup-vault).
+
+## Enhanced soft delete for Azure Backup is now generally available
+
+Enhanced soft delete provides improvements to the existing [soft delete](backup-azure-security-feature-cloud.md) feature. With enhanced soft delete, you now get the ability to make soft delete always-on, thus protecting it from being disabled by any malicious actors.
+
+You can also customize soft delete retention period (for which soft deleted data must be retained). Enhanced soft delete is available for Recovery Services vaults and Backup vaults.
+
+>[!Note]
+>Once you enable the *always-on* state for soft delete, you can't disable it for that vault.
+
+For more information, see [Enhanced soft delete for Azure Backup](backup-azure-enhanced-soft-delete-about.md).
+
+## Save your MARS backup passphrase securely to Azure Key Vault (preview)
+
+Azure Backup now enables you to save the MARS passphrase to Azure Key Vault automatically from the MARS console during registration or changing passphrase.
+
+The MARS agent from Azure Backup requires a passphrase provided by the user to encrypt the backups sent to and stored on Azure Recovery Services Vault. This passphrase is not shared with Microsoft and needs to be saved in a secure location to ensure that the backups can be retrieved if the server backed up with MARS goes down. 
+
+For more information, see [Save and manage MARS agent passphrase securely in Azure Key Vault](save-backup-passphrase-securely-in-azure-key-vault.md).
+
+## Cross Region Restore for MARS Agent (preview)
+
+You can now restore data from the secondary region for MARS Agent backups using Cross Region Restore on Recovery Services vaults with Geo-redundant storage (GRS) replication. You can use this capability to do recovery drills from the secondary region for audit or compliance. If disasters cause partial or complete unavailability of the primary region, you can directly access the  backup data from the secondary region.
+
+For more information, see [Cross Region Restore for MARS (preview)](about-restore-microsoft-azure-recovery-services.md#cross-region-restore-preview).
+
+## SAP HANA System Replication database backup support is now generally available
+
+Azure Backup now supports backup of HANA database with HANA System Replication. Now, the log backups from the new primary node are accepted immediately; thus provides continuous database automatic protection,
+
+This eliminates the need of manual intervention to continue backups on the new primary node during a failover. With the elimination of the need to trigger full backups for every failover, you can save costs and reduce time for continue protection.
+
+For more information, see [Back up a HANA system with replication enabled](sap-hana-database-about.md#back-up-a-hana-system-with-replication-enabled).
+
+## Cross Region Restore for PostgreSQL (preview)
+
+Azure Backup allows you to replicate your backups to an additional Azure paired region by using Geo-redundant Storage (GRS) to protect your backups from regional outages. When you enable the backups with GRS, the backups in the secondary region become accessible only when Microsoft declares an outage in the primary region.
+
+For more information, see [Cross Region Restore support for PostgreSQL using Azure Backup](backup-vault-overview.md#cross-region-restore-support-for-postgresql-using-azure-backup-preview).
 
 ## Microsoft Azure Backup Server v4 is now generally available
 
@@ -66,7 +120,7 @@ Azure Backup now provides Microsoft Azure Backup Server (MABS) v4, the latest ed
 - It can *protect* and *run on* Windows Server 2022, Azure Stack HCI 22H2, vSphere 8.0, and SQL Server 2022.
 - It contains stability improvements and bug fixes on *MABS v3 UR2*. 
 
-For more information see [What's new in MABS](backup-mabs-whats-new-mabs.md).
+For more information, see [What's new in MABS](backup-mabs-whats-new-mabs.md).
 ## Multiple backups per day for Azure VMs is now generally available
 
 Azure Backup now enables you to create a backup policy to take multiple backups a day. With this capability, you can also define the duration in which your backup jobs would trigger and align your backup schedule with the working hours when there are frequent updates to Azure Virtual Machines.
@@ -79,7 +133,7 @@ Azure Backup now supports immutable vaults that help you ensure that recovery po
 
 For more information, see the [concept of Immutable vault for Azure Backup](backup-azure-immutable-vault-concept.md).
 
-## Support for selective disk backup with enhanced policy for Azure VM (preview)
+## Support for selective disk backup with enhanced policy for Azure VM is now generally available
 
 Azure Backup now provides *Selective Disk backup and restore* capability to Enhanced policy. Using this capability, you can selectively back up a subset of the data disks that are attached to your VM, and then restore a subset of the disks that are available in a recovery point, both from instant restore and vault tier.
 
@@ -142,9 +196,9 @@ For more information, see [Back up databases' instance snapshots (preview)](sap-
 
 Azure Backup now supports backup of HANA database with HANA System Replication. Now, the log backups from the new primary node are accepted immediately; thus provides continuous database automatic protection,
 
-This eliminates the need of manual intervention to continue backups on the new primary node during a failover. With the elimination of the need to trigger full backups for every failover, you can save costs and reduce time for continue protection
+This eliminates the need of manual intervention to continue backups on the new primary node during a failover. With the elimination of the need to trigger full backups for every failover, you can save costs and reduce time for continue protection.
 
-For more information, see [Back up a HANA system with replication enabled (preview)](sap-hana-database-about.md#back-up-a-hana-system-with-replication-enabled-preview).
+For more information, see [Back up a HANA system with replication enabled (preview)](sap-hana-database-about.md#back-up-a-hana-system-with-replication-enabled).
 
 ## Built-in Azure Monitor alerting for Azure Backup is now generally available
 

@@ -7,7 +7,7 @@ ms.date: 02/21/2023
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
-ms.custom: compute-evergreen
+ms.custom: compute-evergreen, devx-track-dotnet
 ---
 # Enabling Azure Diagnostics in Azure Cloud Services (classic)
 

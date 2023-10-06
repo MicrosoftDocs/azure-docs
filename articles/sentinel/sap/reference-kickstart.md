@@ -1,10 +1,10 @@
 ---
 title: Microsoft Sentinel solution for SAP® applications container kickstart deployment script reference | Microsoft Docs
 description: Description of command line options available with kickstart deployment script
-author: MSFTandrelom
-ms.author: andrelom
+author: yelevin
+ms.author: yelevin
 ms.topic: reference
-ms.date: 03/02/2022
+ms.date: 05/24/2023
 ---
 
 # Kickstart script reference
@@ -162,7 +162,7 @@ If set to `cfgf`, configuration file stored locally will be used to store secret
 
 **Required:** Yes, if [Secret storage location](#secret-storage-location) is set to `kvsi`.
 
-**Explanation:** When Azure Key Vault authentication mode is set to `kvsi`, authentication to key vault is done using an [enterprise application (service principal) identity](deploy-data-connector-agent-container.md?tabs=registered-application#deploy-the-data-connector-agent-container). This parameter specifies the application ID.
+**Explanation:** When Azure Key Vault authentication mode is set to `kvsi`, authentication to key vault is done using an [enterprise application (service principal) identity](deploy-data-connector-agent-container-other-methods.md?tabs=registered-application#deploy-the-data-connector-agent-container). This parameter specifies the application ID.
 
 #### Enterprise Application secret
 
@@ -172,7 +172,7 @@ If set to `cfgf`, configuration file stored locally will be used to store secret
 
 **Required:** Yes, if [Secret storage location](#secret-storage-location) is set to `kvsi`.
 
-**Explanation:** When Azure Key Vault authentication mode is set to `kvsi`, authentication to key vault is done using an [enterprise application (service principal) identity](deploy-data-connector-agent-container.md?tabs=registered-application#deploy-the-data-connector-agent-container). This parameter specifies the application secret.
+**Explanation:** When Azure Key Vault authentication mode is set to `kvsi`, authentication to key vault is done using an [enterprise application (service principal) identity](deploy-data-connector-agent-container-other-methods.md?tabs=registered-application#deploy-the-data-connector-agent-container). This parameter specifies the application secret.
 
 #### Tenant ID
 
@@ -182,7 +182,7 @@ If set to `cfgf`, configuration file stored locally will be used to store secret
 
 **Required:** Yes, if [Secret storage location](#secret-storage-location) is set to `kvsi`.
 
-**Explanation:** When Azure Key Vault authentication mode is set to `kvsi`, authentication to key vault is done using an [enterprise application (service principal) identity](deploy-data-connector-agent-container.md?tabs=registered-application#deploy-the-data-connector-agent-container). This parameter specifies the Azure Active Directory Tenant ID.
+**Explanation:** When Azure Key Vault authentication mode is set to `kvsi`, authentication to key vault is done using an [enterprise application (service principal) identity](deploy-data-connector-agent-container-other-methods.md?tabs=registered-application#deploy-the-data-connector-agent-container). This parameter specifies the Azure Active Directory Tenant ID.
  
 #### Key Vault Name
 
@@ -314,6 +314,14 @@ If set to `cfgf`, configuration file stored locally will be used to store secret
 
 **Explanation:** Containers, that cannot establish connection to Microsoft Azure services directly and require connection via a proxy server require `--http-proxy` switch to define proxy url for the container. Format of the proxy url is `http://hostname:port`.
 
+#### Host Based Networking
+
+**Parameter name:** `--hostnetwork`
+
+**Required:** No.
+
+**Explanation:** If this switch is specified, the agent will use host-based networking configuration. This can solve internal DNS resolution issues in some cases.
+
 #### Confirm all prompts
 
 **Parameter name:** `--confirm-all-prompts`
@@ -341,16 +349,16 @@ Learn more about the Microsoft Sentinel solution for SAP® applications:
 - [Deploy Microsoft Sentinel solution for SAP® applications](deployment-overview.md)
 - [Prerequisites for deploying Microsoft Sentinel solution for SAP® applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
 - [Deploy SAP Change Requests (CRs) and configure authorization](preparing-sap.md)
+- [Deploy the solution content from the content hub](deploy-sap-security-content.md)
 - [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
-- [Deploy SAP security content](deploy-sap-security-content.md)
 - [Deploy the Microsoft Sentinel for SAP data connector with SNC](configure-snc.md)
+- [Monitor the health of your SAP system](../monitor-sap-system-health.md)
 - [Enable and configure SAP auditing](configure-audit.md)
 - [Collect SAP HANA audit logs](collect-sap-hana-audit-logs.md)
 
 Troubleshooting:
 
 - [Troubleshoot your Microsoft Sentinel solution for SAP® applications solution deployment](sap-deploy-troubleshoot.md)
-- [Configure SAP Transport Management System](configure-transport.md)
 
 Reference files:
 

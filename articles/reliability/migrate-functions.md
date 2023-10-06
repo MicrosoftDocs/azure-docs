@@ -38,10 +38,9 @@ The following steps describe how to enable availability zones.
 > [Learn about the Azure Functions Premium plan](../azure-functions/functions-premium-plan.md)
 
 > [!div class="nextstepaction"]
-> [Learn about Azure Functions support for availability zone redundancy](./reliability-functions.md)
+> [Learn about Azure Functions support for availability zone redundancy and disaster recovery](./reliability-functions.md)
 
 > [!div class="nextstepaction"]
 > [ARM Quickstart Templates](https://azure.microsoft.com/resources/templates/)
 
-> [!div class="nextstepaction"]
-> [Azure Functions geo-disaster recovery](../azure-functions/functions-geo-disaster-recovery.md)
+

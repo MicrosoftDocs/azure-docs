@@ -51,7 +51,7 @@ Depending on your network configuration, you can access the VNET via a VPN conne
 
 This method uses a proxy server hosted within Azure. To handle load balancing and failover, the proxy is configured to scale automatically behind a load balancer.
 
-For more information, see [Connect via an Azure proxy](connect-sensors.md#connect-via-an-azure-proxy).
+For more information, see [Connect via an Azure proxy](connect-sensors.md#set-up-an-azure-proxy).
 
 ## Proxy connections with proxy chaining
 
@@ -91,7 +91,7 @@ Depending on your environment configuration, you might connect using one of the 
 
 - A site-to-site VPN over the internet.
 
-For more information, see [Connect via multicloud vendors](connect-sensors.md#connect-via-multicloud-vendors).
+For more information, see [Connect via multicloud vendors](connect-sensors.md#set-up-connectivity-for-multicloud-environments).
 
 ## Next steps
 

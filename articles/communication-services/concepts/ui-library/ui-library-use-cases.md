@@ -2,11 +2,11 @@
 title: UI Library use cases
 titleSuffix: An Azure Communication Services concept document
 description: Learn about the UI Library and how it can help you build communication experiences
-author: ddematheu2
+author: RinaRish
 manager: chrispalm
 services: azure-communication-services
 
-ms.author: dademath
+ms.author: ektrishi
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services

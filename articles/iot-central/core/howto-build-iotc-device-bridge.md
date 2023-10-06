@@ -1,12 +1,12 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Deploy the Azure IoT Central device bridge | Microsoft Docs
-description: Deploy the IoT Central device bridge to connect other IoT clouds to your IoT Central app. Examples of other IoT clouds include Sigfox, Particle Device Cloud, and The Things Network.
+title: Deploy the Azure IoT Central device bridge
+description: Deploy the IoT Central device bridge to connect other IoT clouds such as Sigfox, Particle Device Cloud, and The Things Network to your application.
 services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/22/2022
+ms.date: 06/14/2023
 ms.topic: how-to
 custom: contperf-fy22q3
 
@@ -17,7 +17,13 @@ custom: contperf-fy22q3
 
 The IoT Central device bridge is an open-source solution that connects other IoT clouds such as [Sigfox](https://www.sigfox.com/), [Particle Device Cloud](https://www.particle.io/), and [The Things Network](https://www.thethingsnetwork.org/) to your IoT Central application. The device bridge works by forwarding data from devices connected to other IoT clouds through to your IoT Central application. The device bridge only forwards data to IoT Central, it doesn't send commands or property updates from IoT Central back to the devices.
 
-The device bridge lets you combine the power of IoT Central with devices such as asset tracking devices connected to Sigfox's low-power wide area network, air quality monitoring devices on the Particle Device Cloud, or soil moisture monitoring devices on The Things Network. You can use IoT Central application features such as rules and analytics on the data, create workflows in Power Automate and Azure Logic apps, or export the data.
+The device bridge lets you combine the power of IoT Central with devices such as:
+
+* Asset tracking devices connected to Sigfox's low-power wide area network.
+* Air quality monitoring devices on the Particle Device Cloud.
+* Soil moisture monitoring devices on The Things Network.
+
+You can use IoT Central application features such as rules and analytics on the data, create workflows in Power Automate and Azure Logic apps, or export the data.
 
 The device bridge solution provisions several Azure resources into your Azure subscription that work together to transform and forward device messages to IoT Central.
 
@@ -35,9 +41,9 @@ The function app is the core piece of the device bridge. It receives HTTP POST r
 
 The function app transforms the data into a format accepted by IoT Central and forwards it using the device provisioning service and device client APIs:
 
-:::image type="content" source="media/howto-build-iotc-device-bridge/azure-function.png" alt-text="Screenshot of Azure Functions.":::
+:::image type="content" source="media/howto-build-iotc-device-bridge/azure-function.png" alt-text="Screenshot of an Azure Functions definition showing the code.":::
 
-If your IoT Central application recognizes the device ID in the forwarded message, the telemetry from the device appears in IoT Central. If the device ID isn't recognized by your IoT Central application, the function app attempts to register a new device with the device ID. The new device appears as an **Unassigned** device on the **Devices** page in your IoT Central application. From the **Devices** page, you can assign the new device to a device template and then view the telemetry.
+If your IoT Central application recognizes the device ID in the forwarded message, the telemetry from the device appears in IoT Central. If your IoT Central application doesn't recognize the device ID, the function app attempts to register a new device with the device ID. The new device appears as an **Unassigned** device on the **Devices** page in your IoT Central application. From the **Devices** page, you can assign the new device to a device template and then view the telemetry.
 
 ## Deploy the device bridge
 
@@ -49,11 +55,11 @@ To deploy the device bridge to your subscription:
 
     1. In the same page, open the **SAS-IoT-Devices** enrollment group. On the **SAS-IoT-Devices** group page, copy the **Primary key**. You use this value when you deploy the device bridge.
 
-1. Use the **Deploy to Azure** button below to open the custom Resource Manager template that deploys the function app to your subscription. Use the **ID Scope** and **Primary key** from the previous step:
+1. Use the following **Deploy to Azure** button to open the custom Resource Manager template that deploys the function app to your subscription. Use the **ID Scope** and **Primary key** from the previous step:
 
     [![Deploy to Azure Button](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fiotc-device-bridge%2Fmaster%2Fazuredeploy.json)
 
-After the deployment is completed, you need to install the NPM packages the function requires:
+After the deployment is completed, you need to install the npm packages the function requires:
 
 1. In the Azure portal, open the function app that was deployed to your subscription. Then, go to **Development Tools** > **Console**. In the console, run the following commands to install the packages:
 
@@ -66,11 +72,11 @@ After the deployment is completed, you need to install the NPM packages the func
 
 1. After the package installation finishes, Select **Restart** on the **Overview** page of the function app:
 
-    :::image type="content" source="media/howto-build-iotc-device-bridge/restart.png" alt-text="Screenshot of Restart.":::
+    :::image type="content" source="media/howto-build-iotc-device-bridge/restart.png" alt-text="Screenshot that shows the restart option in Azure Functions.":::
 
 1. The function is now ready to use. External systems can use HTTP POST requests to send device data through the device bridge into your IoT Central application. To get the function URL, navigate to **Functions > IoTCIntegration > Code + Test > Get function URL**:
 
-    :::image type="content" source="media/howto-build-iotc-device-bridge/get-function-url.png" alt-text="Screenshot of Get Function URL.":::
+    :::image type="content" source="media/howto-build-iotc-device-bridge/get-function-url.png" alt-text="Screenshot that shows the get function URL in Azure Functions.":::
 
 Messages bodies sent to the device bridge must have the following format:
 
@@ -116,7 +122,7 @@ The function app runs on a [consumption plan](https://azure.microsoft.com/pricin
 
 To use a dedicated App Service plan instead of a consumption plan, edit the custom template before deploying. Select  **Edit template**.
 
-:::image type="content" source="media/howto-build-iotc-device-bridge/edit-template.png" alt-text="Screenshot of Edit Template.":::
+:::image type="content" source="media/howto-build-iotc-device-bridge/edit-template.png" alt-text="Screenshot that shows the edit template option for an Azure Resource Manager template.":::
 
 Replace the following segment:
 
@@ -185,7 +191,7 @@ Paste in the **function URL** from your function app, and you see Particle devic
 
 ### Example 2: Connecting Sigfox devices through the device bridge
 
-Some platforms may not allow you to specify the format of device messages sent through a webhook. For such systems, you must convert the message payload to the expected body format before the device bridge processes it. You can do the conversion in the same function that runs the device bridge.
+Some platforms may not let you specify the format of device messages sent through a webhook. For such systems, you must convert the message payload to the expected body format before the device bridge processes it. You can do the conversion in the same function that runs the device bridge.
 
 This section shows how to convert the payload of a Sigfox webhook integration to the body format expected by the device bridge. The Sigfox cloud transmits device data in a hexadecimal string format. For convenience, the device bridge includes a conversion function for this format, which accepts a subset of the possible field types in a Sigfox device payload: `int` and `uint` of 8, 16, 32, or 64 bits; `float` of 32 bits or 64 bits; little-endian and big-endian. To process messages from a Sigfox webhook integration, make the following changes to the _IoTCIntegration/index.js_ file in the function app.
 
@@ -278,7 +284,7 @@ req.body = {
 
 ## Limitations
 
-The device bridge only forwards messages to IoT Central, and doesn't send messages back to devices. That's why, properties and commands don't work for devices that connect to IoT Central through this device bridge. Because device twin operations aren't supported, it's not possible to update device properties through the device bridge. To use these features, a device must connect directly to IoT Central using one of the [Azure IoT device SDKs](../../iot-hub/iot-hub-devguide-sdks.md).
+The device bridge only forwards messages to IoT Central, and doesn't send messages back to devices. This limitation is why properties and commands don't work for devices that connect to IoT Central through this device bridge. Because device twin operations aren't supported, it's not possible to update device properties through the device bridge. To use these features, a device must connect directly to IoT Central using one of the [Azure IoT device SDKs](../../iot-hub/iot-hub-devguide-sdks.md).
 
 ## Next steps
 Now that you've learned how to deploy the IoT Central device bridge, here's the suggested next step:

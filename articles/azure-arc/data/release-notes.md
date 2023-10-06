@@ -7,7 +7,7 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 05/09/2023
+ms.date: 09/12/2023
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurecli, event-tier1-build-2022
 #Customer intent: As a data professional, I want to understand why my solutions would benefit from running with Azure Arc-enabled data services so that I can leverage the capability of the feature.
@@ -16,6 +16,57 @@ ms.custom: references_regions, devx-track-azurecli, event-tier1-build-2022
 # Release notes - Azure Arc-enabled data services
 
 This article highlights capabilities, features, and enhancements recently released or improved for Azure Arc-enabled data services.
+
+## September 12, 2023
+
+### Image tag
+
+`v1.23.0_2023-09-12`
+
+For complete release version information, review [Version log](version-log.md#september-12-2023).
+
+### Release notes
+
+- Portal automatically refreshes status of failover group every 2 seconds. [Monitor failover group status in the portal](managed-instance-disaster-recovery-portal.md#monitor-failover-group-status-in-the-portal).
+
+## August 8, 2023
+
+### Image tag
+
+`v1.22.0_2023-08-08`
+
+For complete release version information, review [Version log](version-log.md#august-8-2023).
+
+### Release notes
+
+- Support for configuring and managing Azure Failover groups between two Azure Arc-enabled SQL managed instances using Azure portal. For details, review [Configure failover group - portal](managed-instance-disaster-recovery-portal.md).
+- Upgraded OpenSearch and OpenSearch Dashboards from 2.7.0 to 2.8.0
+- Improvements and examples to [Back up and recover controller database](backup-controller-database.md).
+
+## July 11, 2023
+
+### Image tag
+
+`v1.21.0_2023-07-11`
+
+For complete release version information, review [Version log](version-log.md#july-11-2023).
+
+### Release notes
+
+- Proxy bypass is now supported for Arc SQL Server Extension. Starting this release, you can also specify services which should not use the specified proxy server.
+
+## June 13, 2023
+
+### Image tag
+
+`v1.20.0_2023-06-13`
+
+For complete release version information, review [Version log](version-log.md#june-13-2023).
+
+### Release notes
+
+- Azure Arc-enabled SQL Managed Instance
+    -  [Added Azure CLI support to manage transparent data encryption (TDE)](configure-transparent-data-encryption-sql-managed-instance.md).
 
 ## May 9, 2023
 
@@ -82,7 +133,7 @@ New for this release:
   - [Rotate Azure Arc-enabled SQL Managed Instance service-managed credentials (preview)](rotate-sql-managed-instance-credentials.md) 
 - Azure Arc-enabled PostgreSQL 
   - Require client connections to use SSL
-  - Extended Azure Arc-enabled SQL Managed Instance authentication control plane to PostgresSQL
+  - Extended Azure Arc-enabled SQL Managed Instance authentication control plane to PostgreSQL
 
 ## February 14, 2023
 
@@ -226,8 +277,8 @@ New for this release:
   - Added support for specifying multiple encryption types for AD connectors using the Azure CLI extension or Azure portal.
 
 - Arc-enabled PostgreSQL server
-  - Removed Hyperscale/Citus scale-out capabilities. Focus will be on providing a single node Postgres server service. All user experiences have had terms and concepts like `Hyperscale`, `server groups`, `worker nodes`, `coordinator nodes`, and so forth. removed.  **BREAKING CHANGE**
-  - The postgresql container image is based on [CBL-Mariner](https://github.com/microsoft/CBL-Mariner) base OS image.
+   - Removed Hyperscale/Citus scale-out capabilities. Focus will be on providing a single node Postgres server service. All user experiences have had terms and concepts like `Hyperscale`, `server groups`, `worker nodes`, `coordinator nodes`, and so forth. removed.  **BREAKING CHANGE**
+
   - Only PostgreSQL version 14 is supported for now. Versions 11 and 12 have been removed.  Two new images are introduced: `arc-postgres-14` and `arc-postgresql-agent`.  The `arc-postgres-11` and `arc-postgres-12` container images are removed going forward.
   - The postgresql CRD version has been updated to v1beta3.  Some properties such as `workers` have been removed or changed.  Update any scripts or automation you have as needed to align to the new CRD schema. **BREAKING CHANGE**
 
@@ -992,4 +1043,5 @@ This section describes the new features introduced or enabled for this release.
 - [Create an Azure SQL Managed Instance on Azure Arc](create-sql-managed-instance.md) (requires creation of an Azure Arc data controller first)
 - [Create an Azure Database for PostgreSQL server on Azure Arc](create-postgresql-server.md) (requires creation of an Azure Arc data controller first)
 - [Resource providers for Azure services](../../azure-resource-manager/management/azure-services-resource-providers.md)
+
 

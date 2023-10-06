@@ -3,8 +3,8 @@ title: Manage read replicas - Azure portal - Azure Database for MySQL
 description: Learn how to set up and manage read replicas in Azure Database for MySQL using the Azure portal.
 ms.service: mysql
 ms.subservice: single-server
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: how-to
 ms.date: 06/20/2022
 ---
@@ -33,7 +33,7 @@ In this article, you will learn how to create and manage read replicas in the Az
 
 A read replica server can be created using the following steps:
 
-1. Sign into the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Select the existing Azure Database for MySQL server that you want to use as a master. This action opens the **Overview** page.
 
@@ -125,7 +125,7 @@ To delete a source server from the Azure portal, use the following steps:
 
 ## Monitor replication
 
-1. In the [Azure portal](https://portal.azure.com/), select the replica Azure Database for MySQL server you want to monitor.
+1. In the [Azure portal](https://portal.azure.com), select the replica Azure Database for MySQL server you want to monitor.
 
 2. Under the **Monitoring** section of the sidebar, select **Metrics**:
 

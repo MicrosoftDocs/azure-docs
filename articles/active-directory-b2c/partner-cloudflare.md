@@ -15,10 +15,7 @@ ms.subservice: B2C
 ---
 # Tutorial: Configure Cloudflare Web Application Firewall with Azure Active Directory B2C
 
-In this tutorial, you can learn how to configure the [Cloudflare Web Application Firewall (WAF)](https://www.cloudflare.com/waf/) solution for Azure Active Directory B2C (Azure AD B2C) tenant with custom domain. Use Cloudflare WAF to help protect organizations from malicious attacks that can exploit vulnerabilities such as SQL Injection, and cross-site scripting (XSS).
-
->[!NOTE]
->This feature is in public preview.
+In this tutorial, you can learn how to configure the [Cloudflare Web Application Firewall (WAF)](https://www.cloudflare.com/application-services/products/waf/) solution for Azure Active Directory B2C (Azure AD B2C) tenant with custom domain. Use Cloudflare WAF to help protect organizations from malicious attacks that can exploit vulnerabilities such as SQL Injection, and cross-site scripting (XSS).
 
 ## Prerequisites
 
@@ -45,7 +42,7 @@ After a custom domain for Azure AD B2C is configured using Azure Front Door, [te
 
 ## Create a Cloudflare account
 
-On cloudflare.com, you can [create an account](https://dash.cloudflare.com/sign-up). To enable WAF, on [Application Services]([https://www.cloudflare.com/plans/](https://www.cloudflare.com/plans/#price-matrix) select **Pro**, which is required.
+On cloudflare.com, you can [create an account](https://dash.cloudflare.com/sign-up). To enable WAF, on [Application Services](https://www.cloudflare.com/plans/#price-matrix), select **Pro**, which is required.
 
 ### Configure DNS
 
@@ -61,7 +58,7 @@ The settings appear in the following image.
 
 ### Configure the Web Application Firewall
 
-Go to your Cloudflare settings, and use the Cloudflare content to [configure the WAF](https://www.cloudflare.com/waf/) and learn about other security tools. 
+Go to your Cloudflare settings, and use the Cloudflare content to [configure the WAF](https://www.cloudflare.com/application-services/products/waf/) and learn about other security tools. 
 
 ### Configure firewall rule
 

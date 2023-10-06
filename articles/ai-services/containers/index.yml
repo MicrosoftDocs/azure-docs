@@ -1,0 +1,91 @@
+### YamlMime:Landing
+
+title: Azure AI containers
+summary: Azure AI services offers several containers to use AI on premises. Containers give you the flexibility to bring Azure AI services closer to your data for compliance, security or other operational reasons.
+metadata:
+  title: Azure AI containers
+  titleSuffix: Azure AI services
+  services: cognitive-services
+  author: aahill
+  manager: nitinme
+  ms.service: cognitive-services
+  ms.topic: landing-page
+  ms.date: 01/27/2023
+  ms.author: aahi
+
+landingContent:
+- title: About Azure AI containers
+  linkLists:
+    - linkListType: concept
+      links:
+        - text: What are Azure AI containers?
+          url: ../cognitive-services-container-support.md
+        - text: Frequently Asked Questions
+          url: container-faq.yml
+- title: Container recipes
+  linkLists:
+    - linkListType: concept
+      links:
+        - text: Container reuse recipe
+          url: container-reuse-recipe.md
+        - text: Deploy on Azure Container Instances
+          url: azure-container-instance-recipe.md
+        - text: Deploy on Kubernetes
+          url: azure-kubernetes-recipe.md
+        - text: Deploy with Docker compose
+          url: azure-kubernetes-recipe.md
+- title: Vision containers
+  linkLists:
+      - linkListType: how-to-guide
+        links:
+        - url: ../computer-vision/computer-vision-how-to-install-containers.md
+          text: Read OCR
+        - url: ../computer-vision/spatial-analysis-container.md
+          text: Spatial analysis
+- title: Language containers
+  linkLists:
+      - linkListType: how-to-guide
+        links:
+        - url: ../language-service/sentiment-opinion-mining/how-to/use-containers.md
+          text: Sentiment Analysis
+        - url: ../language-service/key-phrase-extraction/how-to/use-containers.md
+          text: Key phrase extraction
+        - url: ../language-service/language-detection/how-to/use-containers.md
+          text: Text language detection
+        - url: ../language-service/text-analytics-for-health/how-to/use-containers.md
+          text: Text Analytics for health
+        - url: ../luis/luis-container-howto.md
+          text: LUIS container
+        - url: ../language-service/custom-named-entity-recognition/how-to/use-containers.md
+          text: Custom Named Entity Recognition
+        - url: ../Translator/containers/translator-how-to-install-container.md
+          text: Translator container
+        - url: ../language-service/summarization/how-to/use-containers.md
+          text: Summarization
+- title: Speech containers
+  linkLists:
+      - linkListType: how-to-guide
+        links:
+        - url: ../speech-service/speech-container-stt.md
+          text: Speech to text
+        - url: ../speech-service/speech-container-cstt.md
+          text: Custom Speech to text
+        - url: ../speech-service/speech-container-ntts.md
+          text: Neural text to speech
+        - url: ../speech-service/speech-container-lid.md
+          text: Speech language identification
+- title: Decision container
+  linkLists:
+      - linkListType: how-to-guide
+        links:
+        - url: ../anomaly-detector/anomaly-detector-container-howto.md
+          text: Anomaly Detector
+- title: Disconnected containers
+  linkLists:
+      - linkListType: how-to-guide
+        links:
+        - url: disconnected-containers.md 
+          text: Run containers disconnected from the internet
+        - url: disconnected-container-faq.yml
+          text: Frequently Asked Questions about disconnected containers
+        

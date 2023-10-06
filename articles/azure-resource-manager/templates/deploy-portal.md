@@ -2,7 +2,7 @@
 title: Deploy resources with Azure portal
 description: Use Azure portal and Azure Resource Manage to deploy your resources to a resource group in your subscription.
 ms.topic: conceptual
-ms.date: 05/05/2021
+ms.date: 05/22/2023
 ---
 
 # Deploy resources with ARM templates and Azure portal
@@ -22,11 +22,11 @@ This article shows both methods.
 
 1. To create a new resource group, select **Resource groups** from the [Azure portal](https://portal.azure.com).
 
-   ![Select resource groups](./media/deploy-portal/select-resource-groups.png)
+   :::image type="content" source="./media/deploy-portal/select-resource-groups.png" alt-text="Screenshot of selecting resource groups in Azure portal":::
 
 1. Under Resource groups, select **Add**.
 
-   ![Add resource group](./media/deploy-portal/add-resource-group.png)
+   :::image type="content" source="./media/deploy-portal/add-resource-group.png" alt-text="Screenshot of adding a resource group in Azure portal":::
 
 1. Select or enter the following property values:
 
@@ -34,7 +34,7 @@ This article shows both methods.
     - **Resource group**: Give the resource group a name.
     - **Region**: Specify an Azure location. This location is where the resource group stores metadata about the resources. For compliance reasons, you may want to specify where that metadata is stored. In general, we recommend that you specify a location where most of your resources will be. Using the same location can simplify your template.
 
-   ![Set group values](./media/deploy-portal/set-group-properties.png)
+   :::image type="content" source="./media/deploy-portal/set-group-properties.png" alt-text="Screenshot of setting resource group property values in Azure portal":::
 
 1. Select **Review + create**.
 1. Review the values, and then select **Create**.
@@ -46,25 +46,25 @@ After you create a resource group, you can deploy resources to the group from th
 
 1. To start a deployment, select **Create a resource** from the [Azure portal](https://portal.azure.com).
 
-   ![New resource](./media/deploy-portal/new-resources.png)
+   :::image type="content" source="./media/deploy-portal/new-resources.png" alt-text="Screenshot of creating a new resource in Azure portal":::
 
 1. Find the type of resource you would like to deploy. The resources are organized in categories. If you don't see the particular solution you would like to deploy, you can search the Marketplace for it. The following screenshot shows that Ubuntu Server is selected.
 
-   ![Select resource type](./media/deploy-portal/select-resource-type.png)
+   :::image type="content" source="./media/deploy-portal/select-resource-type.png" alt-text="Screenshot of selecting a resource type in Azure portal":::
 
 1. Depending on the type of selected resource, you have a collection of relevant properties to set before deployment. For all types, you must select a destination resource group. The following image shows how to create a Linux virtual machine and deploy it to the resource group you created.
 
-   ![Create resource group](./media/deploy-portal/select-existing-group.png)
+   :::image type="content" source="./media/deploy-portal/select-existing-group.png" alt-text="Screenshot of creating a Linux virtual machine and deploying it to a resource group in Azure portal":::
 
    You can decide to create a resource group when deploying your resources. Select **Create new** and give the resource group a name.
 
 1. Your deployment begins. The deployment could take several minutes. Some resources take longer time than other resources. When the deployment has finished, you see a notification. Select **Go to resource** to open
 
-   ![View notification](./media/deploy-portal/view-notification.png)
+   :::image type="content" source="./media/deploy-portal/view-notification.png" alt-text="Screenshot of viewing deployment notification in Azure portal":::
 
 1. After deploying your resources, you can add more resources to the resource group by selecting **Add**.
 
-   ![Add resource](./media/deploy-portal/add-resource.png)
+   :::image type="content" source="./media/deploy-portal/add-resource.png" alt-text="Screenshot of adding a resource to a resource group in Azure portal":::
 
 Although you didn't see it, the portal used an ARM template to deploy the resources you selected. You can find the template from the deployment history. For more information, see [Export template after deployment](export-template-portal.md#export-template-after-deployment).
 
@@ -77,7 +77,7 @@ If you want to execute a deployment but not use any of the templates in the Mark
 
 1. To deploy a customized template through the portal, select **Create a resource**, search for **template**. and then select **Template deployment**.
 
-   ![Search template deployment](./media/deploy-portal/search-template.png)
+   :::image type="content" source="./media/deploy-portal/search-template.png" alt-text="Screenshot of searching for template deployment in Azure portal":::
 
 1. Select **Create**.
 1. You see several options for creating a template:
@@ -86,7 +86,7 @@ If you want to execute a deployment but not use any of the templates in the Mark
     - **Common templates**: Select from common solutions.
     - **Load a GitHub quickstart template**: Select from [quickstart templates](https://azure.microsoft.com/resources/templates/).
 
-   ![View options](./media/deploy-portal/see-options.png)
+   :::image type="content" source="./media/deploy-portal/see-options.png" alt-text="Screenshot of template creation options in Azure portal":::
 
     This tutorial provides the instruction for loading a quickstart template.
 
@@ -99,12 +99,12 @@ If you want to execute a deployment but not use any of the templates in the Mark
 
 1. Select **Edit template** to explore the portal template editor. The template is loaded in the editor. Notice there are two parameters: `storageAccountType` and `location`.
 
-   ![Create template](./media/deploy-portal/show-json.png)
+   :::image type="content" source="./media/deploy-portal/show-json.png" alt-text="Screenshot of editing a JSON template in Azure portal":::
 
 1. Make a minor change to the template. For example, update the `storageAccountName` variable to:
 
     ```json
-    "storageAccountName": "[concat('azstore', uniquestring(resourceGroup().id))]"
+    "storageAccountName": "[format('azstore{0}', uniquestring(resourceGroup().id))]"
     ```
 
 1. Select **Save**. Now you see the portal template deployment interface. Notice the two parameters that you defined in the template.

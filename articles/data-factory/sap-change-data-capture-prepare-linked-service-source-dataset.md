@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 08/18/2022
+ms.date: 07/20/2023
 ms.author: ulrichchrist
 ---
 
@@ -34,7 +34,7 @@ To set up an SAP CDC linked service:
    1. In **Name**, enter a unique name for the linked service.
    1. In **Connect via integration runtime**, select your self-hosted integration runtime.
    1. In **Server name**, enter the mapped server name for your SAP system.
-   1. In **Subscriber name**, enter a unique name to register and identify this Data Factory connection as a subscriber that consumes data packages that are produced in the Operational Delta Queue (ODQ) by your SAP system. For example, you might name it `<your data factory -name>_<your linked service name>`. Make sure to only use upper case letters.
+   1. In **Subscriber name**, enter a unique name to register and identify this Data Factory connection as a subscriber that consumes data packages that are produced in the Operational Delta Queue (ODQ) by your SAP system. For example, you might name it `<YOUR_DATA_FACTORY_NAME>_<YOUR_LINKED_SERVICE_NAME>`. Make sure to only use upper case letters. Also be sure that the total character count doesn't exceed 32 characters, or SAP will truncate the name. This can be an issue if your factory and linked services both have long names.
 
     Make sure you assign a unique subscriber name to every linked service connecting to the same SAP system. This will make monitoring and trouble shooting on SAP side much easier.
 

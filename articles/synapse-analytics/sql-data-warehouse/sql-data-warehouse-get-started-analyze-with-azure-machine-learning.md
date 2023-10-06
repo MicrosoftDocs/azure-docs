@@ -1,14 +1,12 @@
 ---
-title: Analyze data with Azure Machine Learning 
+title: Analyze data with Azure Machine Learning
 description: Use Azure Machine Learning to build a predictive machine learning model based on data stored in Azure Synapse.
-author: mlee3gsd 
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: machine-learning 
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.date: 07/15/2020
-ms.author: martinle
-ms.reviewer: wiassaf
+ms.service: synapse-analytics
+ms.subservice: machine-learning
+ms.topic: conceptual
 ms.custom: seo-lt-2019
 tag: azure-Synapse
 ---
@@ -149,7 +147,7 @@ You'll see two more columns added to your test dataset.
 * Scored Probabilities: the likelihood that a customer is a bike buyer.
 * Scored Labels: the classification done by the model – bike buyer (1) or not (0). This probability threshold for labeling is set to 50% and can be adjusted.
 
-Compare the column BikeBuyer (actual) with the Scored Labels (prediction), to see how well the model has performed. Next, you can use this model to make predictions for new customers. You can [publish this model as a web service](../../machine-learning/tutorial-designer-automobile-price-deploy.md) or write results back to Azure Synapse.
+Compare the column BikeBuyer (actual) with the Scored Labels (prediction), to see how well the model has performed. Next, you can use this model to make predictions for new customers. You can [publish this model as a web service](../../machine-learning/v1/tutorial-designer-automobile-price-deploy.md) or write results back to Azure Synapse.
 
 ## Next steps
 

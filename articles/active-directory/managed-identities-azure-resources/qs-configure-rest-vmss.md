@@ -11,7 +11,7 @@ ms.subservice: msi
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/11/2022
+ms.date: 05/25/2023
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: mode-api, devx-track-azurecli 
@@ -20,9 +20,7 @@ ms.devlang: azurecli
 
 # Configure managed identities for Azure resources on a virtual machine scale set using REST API calls
 
-[!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
-
-Managed identities for Azure resources provide Azure services with an automatically managed system identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
+Managed identities for Azure resources provide Azure services with an automatically managed system identity in Microsoft Entra ID. You can use this identity to authenticate to any service that supports Microsoft Entra authentication, without having credentials in your code. 
 
 In this article, using CURL to make calls to the Azure Resource Manager REST endpoint, you learn how to perform the following managed identities for Azure resources operations on a virtual machine scale set:
 
@@ -44,7 +42,7 @@ If you don't already have an Azure account, [sign up for a free account](https:/
   - [Managed Identity Operator](../../role-based-access-control/built-in-roles.md#managed-identity-operator) role to assign and remove a user-assigned identity from and to a virtual machine scale set.
 
   > [!NOTE]
-  > No additional Azure AD directory role assignments required.
+  > No additional Microsoft Entra directory role assignments required.
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 

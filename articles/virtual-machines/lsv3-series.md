@@ -44,10 +44,10 @@ The Lsv3-series VMs are available in sizes from 8 to 80 vCPUs. There are 8 GiB o
 
 1. **Temp disk**: Lsv3-series VMs have a standard SCSI-based temp resource disk for use by the OS paging or swap file (`D:` on Windows, `/dev/sdb` on Linux). This disk provides 80 GiB of storage, 4,000 IOPS, and 80 MBps transfer rate for every 8 vCPUs. For example, Standard_L80s_v3 provides 800 GiB at 40000 IOPS and 800 MBPS. This configuration ensures the NVMe drives can be fully dedicated to application use. This disk is ephemeral, and all data is lost on stop or deallocation. 
 2. **NVMe Disks**: NVMe disk throughput can go higher than the specified numbers. However, higher performance isn't guaranteed. Local NVMe disks are ephemeral. Data is lost on these disks if you stop or deallocate your VM. 
-3. **NVMe Disk encryption** Lsv3 VMs created or allocated on or after 1/1/2023 have their local NVME drives encrypted by default using hardware-based encryption with a Platform-managed key, except for the regions listed below. 
+3. **NVMe Disk encryption** Lsv3 VMs created or allocated on or after 1/1/2023 have their local NVMe drives encrypted by default using hardware-based encryption with a Platform-managed key, except for the regions listed below. 
 
 > [!NOTE]
-> Central US and Qatar Central do not support Local NVME disk encryption, but will be added in the future. 
+> Central US and Qatar Central Lsv3 VMs created or allocated on or after 4/1/2023 have their local NVMe Drives Encrypted. 
 
 4. **NVMe Disk throughput**: Hyper-V NVMe Direct technology provides unthrottled access to local NVMe drives mapped securely into the guest VM space. Lsv3 NVMe disk throughput can go higher than the specified numbers, but higher performance isn't guaranteed. To achieve maximum performance, see how to optimize performance on the Lsv3-series [Windows-based VMs](../virtual-machines/windows/storage-performance.md) or [Linux-based VMs](../virtual-machines/linux/storage-performance.md).   Read/write performance varies based on IO size, drive load, and capacity utilization. 
 5. **Max burst uncached data disk throughput**: Lsv3-series VMs can [burst their disk performance](./disk-bursting.md) for up to 30 minutes at a time. 

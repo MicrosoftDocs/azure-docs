@@ -160,5 +160,5 @@ Security administrators can use base policy to enforce guardrails and block cert
 
 ## Next steps
 
-Learn more about [Azure Firewall policy](policy-overview.md).
-
+- [Learn more about Azure Firewall policy](policy-overview.md)
+- [Learn more about Azure network security](../networking/security/index.yml)

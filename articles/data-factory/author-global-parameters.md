@@ -7,7 +7,7 @@ ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 ms.date: 05/05/2023
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 
 # Global parameters in Azure Data Factory

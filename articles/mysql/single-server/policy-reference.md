@@ -4,10 +4,10 @@ description: Lists Azure Policy built-in policy definitions for Azure Database f
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: reference
-author: timwarner-msft
-ms.author: timwarner
+author: markingmyname 
+ms.author: maghan 
 ms.custom: subject-policy-reference
-ms.date: 02/21/2023
+ms.date: 09/19/2023
 ---
 
 # Azure Policy built-in definitions for Azure Database for MySQL

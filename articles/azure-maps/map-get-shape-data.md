@@ -1,22 +1,21 @@
 ---
-title: Get data from shapes on a map | Microsoft Azure Maps
+title: Get data from shapes on a map
+titleSuffix: Microsoft Azure Maps
 description: In this article learn, how to get shape data drawn on a map using the Microsoft Azure Maps Web SDK.
-author: eriklindeman
-ms.author: eriklind
-ms.date: 09/04/2019
-ms.topic: conceptual
+author: sinnypan
+ms.author: sipa
+ms.date: 07/13/2023
+ms.topic: how-to
 ms.service: azure-maps
-ms.custom: devx-track-js
 ---
 
 # Get shape data
 
 This article shows you how to get data of shapes that are drawn on the map. We use the **drawingManager.getSource()** function inside [drawing manager](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager#getsource--). There are various scenarios when you want to extract geojson data of a drawn shape and use it elsewhere.  
 
-
 ## Get data from drawn shape
 
-The following function gets the drawn shape's source data and outputs it to the screen. 
+The following function gets the drawn shape's source data and outputs it to the screen.
 
 ```javascript
 function getDrawnShapes() {
@@ -26,14 +25,13 @@ function getDrawnShapes() {
 }
 ```
 
-Below is the complete running code sample, where you can draw a shape to test the functionality:
+The [Get drawn shapes from drawing manager] code sample allows you to draw a shape on a map and then get the code used to create those drawings by using the drawing managers `drawingManager.getSource()` function. For the source code for this sample, see [Get drawn shapes from drawing manager sample code].
 
-<br/>
+:::image type="content" source="./media/map-get-shape-data/get-data-from-drawn-shape.png" alt-text="A screenshot of a map with a circle drawn around Seattle. Next to the map is the code used to create the circle.":::
 
-<iframe height="686" title="Get shape data" src="//codepen.io/azuremaps/embed/xxKgBVz/?height=265&theme-id=0&default-tab=result" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">See the Pen <a href='https://codepen.io/azuremaps/pen/xxKgBVz/'>Get shape data</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
-
+<!-----------------------------------------
+> [!VIDEO //codepen.io/azuremaps/embed/xxKgBVz/?height=265&theme-id=0&default-tab=result]
+------------------------------------------->
 
 ## Next steps
 
@@ -55,3 +53,6 @@ Learn more about the classes and methods used in this article:
 
 > [!div class="nextstepaction"]
 > [Drawing toolbar](/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar)
+
+[Get drawn shapes from drawing manager]: https://samples.azuremaps.com/drawing-tools-module/get-drawn-shapes-from-drawing-manager
+[Get drawn shapes from drawing manager sample code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Drawing%20Tools%20Module/Get%20drawn%20shapes%20from%20drawing%20manager/Get%20drawn%20shapes%20from%20drawing%20manager.html

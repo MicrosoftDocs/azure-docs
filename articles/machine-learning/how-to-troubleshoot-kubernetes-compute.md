@@ -301,6 +301,16 @@ curl https://{workspace_id}.workspace.westcentralus.api.azureml.ms/metric/v2.0/s
 
 If the proxy and workspace with private link is configured correctly, you can see it's trying to connect to an internal IP. This will return a response with http 401, which is expected when you don't provide token.
 
+## Other known issues
+
+### Kubernetes compute update does not take effect
+
+At this time, the CLI v2 and SDK v2 do not allow updating any configuration of an existing Kubernetes compute. For example, changing the namespace will not take effect.
+
+### Workspace or resource group name end with '-' 
+
+A common cause of the "InternalServerError" failure when creating workloads such as deployments, endpoints, or jobs in a Kubernetes compute, is having the special characters like '-' at the end of your workspace or resource group name.
+
 ## Next steps
 
 - [How to troubleshoot kubernetes extension](how-to-troubleshoot-kubernetes-extension.md)

@@ -1,17 +1,17 @@
 ---
 title: Configure network connections
 titleSuffix: Microsoft Dev Box
-description: Learn how to create, delete, attach, and remove Microsoft Dev Box Preview network connections.
+description: Learn how to create, delete, attach, and remove Microsoft Dev Box network connections.
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
 ms.date: 04/25/2023
 ms.topic: how-to
-#Customer intent: As a dev infrastructure manager, I want to be able to manage network connections so that I can enable dev boxes to connect to my existing networks and deploy them in the desired region.
+#Customer intent: As a platform engineer, I want to be able to manage network connections so that I can enable dev boxes to connect to my existing networks and deploy them in the desired region.
 ---
 
-# Connect dev boxes to resources by configuring network connections 
+# Connect dev boxes to resources by configuring network connections
 
 Network connections allow dev boxes to connect to existing virtual networks. They also determine the region into which dev boxes are deployed.
 
@@ -68,24 +68,24 @@ To create a network connection, you need an existing virtual network and subnet.
 
 An organization can control network ingress and egress by using a firewall, network security groups, and even Microsoft Defender.
 
-If your organization routes egress traffic through a firewall, you need to open certain ports to allow the Microsoft Dev Box Preview service to function. For more information, see [Network requirements](/windows-365/enterprise/requirements-network).
+If your organization routes egress traffic through a firewall, you need to open certain ports to allow the Microsoft Dev Box service to function. For more information, see [Network requirements](/windows-365/enterprise/requirements-network).
 
 ## Plan a network connection
 
-The following sections show you how to create and configure a network connection in Microsoft Dev Box Preview.
-  
+The following sections show you how to create and configure a network connection in Microsoft Dev Box.
+
 ### Types of Active Directory join
 
 The Dev Box service requires a configured and working Active Directory join, which defines how dev boxes join your domain and access resources. There are two choices:
 
-- **Azure AD join**: If your organization uses Azure AD, you can use an Azure AD join (sometimes called a native Azure AD join). Dev box users sign in to Azure AD-joined dev boxes by using their Azure AD account and access resources based on the permissions assigned to that account. Azure AD join enables access to cloud-based and on-premises apps and resources. 
+- **Azure AD join**: If your organization uses Azure AD, you can use an Azure AD join (sometimes called a native Azure AD join). Dev box users sign in to Azure AD-joined dev boxes by using their Azure AD account and access resources based on the permissions assigned to that account. Azure AD join enables access to cloud-based and on-premises apps and resources.
 
-  For more information, see [Plan your Azure Active Directory join deployment](../active-directory/devices/azureadjoin-plan.md).
+  For more information, see [Plan your Azure Active Directory join deployment](../active-directory/devices/device-join-plan.md).
 - **Hybrid Azure AD join**: If your organization has an on-premises Active Directory implementation, you can still benefit from some of the functionality in Azure AD by using hybrid Azure AD-joined dev boxes. These dev boxes are joined to your on-premises Active Directory instance and registered with Azure AD.
 
   Hybrid Azure AD-joined dev boxes require network line of sight to your on-premises domain controllers periodically. Without this connection, devices become unusable.
 
-  For more information, see [Plan your hybrid Azure Active Directory join deployment](../active-directory/devices/hybrid-azuread-join-plan.md).
+  For more information, see [Plan your hybrid Azure Active Directory join deployment](../active-directory/devices/hybrid-join-plan.md).
 
 ### Create a network connection
 
@@ -165,7 +165,7 @@ You need to attach a network connection to a dev center before you can use it in
 
 1. Select the dev center that you created, and then select **Networking**.
 
-1. Select  **+ Add**.
+1. Select **+ Add**.
 
 1. On the **Add network connection** pane, select the network connection that you created earlier, and then select **Add**.
 

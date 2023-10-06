@@ -8,10 +8,9 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 04/12/2023
 ms.author: RunCai
-ms.custom: mode-arm, devx-track-azurecli, devx-track-arm-template
+ms.custom: mode-arm, devx-track-azurecli, devx-track-arm-template, devx-track-linux, has-azure-ad-ps-ref
 ms.devlang: azurecli
 ---
-
 
 # Quickstart: Deploy confidential VM with ARM template
 
@@ -185,7 +184,7 @@ Use this example to create a custom parameter file for a Linux-based confidentia
         az group create --name $resourceGroup --location $region
         ```
 
-    1. Create a key vault instance with a premium SKU in your preferred region.
+    1. Create a key vault instance with a premium SKU and select your preferred region. The standard SKU is not supported.
 
         ```azurecli-interactive
         $KeyVault = <name of key vault>
@@ -197,7 +196,7 @@ Use this example to create a custom parameter file for a Linux-based confidentia
 
         ```azurecli-interactive
         $cvmAgent = az ad sp show --id "bf7b6499-ff71-4aa2-97a4-f372087be7f0" | Out-String | ConvertFrom-Json
-        az keyvault set-policy --name $KeyVault --object-id $cvmAgent.objectId --key-permissions get release
+        az keyvault set-policy --name $KeyVault --object-id $cvmAgent.Id --key-permissions get release
         ```
 
 1. (Optional) If you don't want to use an Azure key vault, you can create an Azure Key Vault Managed HSM instead.
@@ -213,7 +212,7 @@ Use this example to create a custom parameter file for a Linux-based confidentia
 
         ```azurecli-interactive
         $cvmAgent = az ad sp show --id "bf7b6499-ff71-4aa2-97a4-f372087be7f0" | Out-String | ConvertFrom-Json
-        az keyvault role assignment create --hsm-name $hsm --assignee $cvmAgent.objectId --role "Managed HSM Crypto Service Release User" --scope /keys/$KeyName 
+        az keyvault role assignment create --hsm-name $hsm --assignee $cvmAgent.Id --role "Managed HSM Crypto Service Release User" --scope /keys/$KeyName 
         ```
 
 1. Create a new key using Azure Key Vault. For how to use an Azure Managed HSM instead, see the next step.

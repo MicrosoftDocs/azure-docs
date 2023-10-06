@@ -5,12 +5,12 @@ services: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/05/2022
+ms.date: 06/21/2023
 ---
 
 # Map visualization
 
-Azure Workbooks map visualizations aid in pinpointing issues in specific regions and showing high-level aggregated views of the monitoring data. Maps aggregate all the data mapped to each location, country, or region.
+Azure Workbooks map visualizations aid in pinpointing issues in specific regions and showing high-level aggregated views of the monitoring data. Maps aggregate all the data mapped to each location or country/region.
 
 The following screenshot shows the total transactions and end-to-end latency for different storage accounts. Here the size is determined by the total number of transactions. The color metrics below the map show the end-to-end latency.
 

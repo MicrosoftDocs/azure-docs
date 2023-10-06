@@ -94,7 +94,7 @@ To create an action group:
 1. In the **Work Item** type field, select the type of work item.
 
     > [!NOTE]
-    > As of September 2022, we are starting the 3-year process of deprecating support of using ITSM actions to send alerts and events to ServiceNow.
+    > As of September 2022, we are starting the 3-year process of deprecating support for using ITSM actions to send alerts and events to ServiceNow.
 
 1. In the last section of the interface for creating an ITSM action group, if the alert is a log alert, you can define how many work items will be created for each alert. For all other alert types, one work item is created per alert.
 

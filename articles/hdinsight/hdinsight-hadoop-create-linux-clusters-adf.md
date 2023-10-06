@@ -4,7 +4,7 @@ description: Tutorial - Learn how to create on-demand Apache Hadoop clusters in 
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: seoapr2020, devx-track-azurepowershell
-ms.date: 04/22/2022
+ms.date: 05/26/2023
 #Customer intent: As a data worker, I need to create a Hadoop cluster and run Hive jobs on demand
 ---
 

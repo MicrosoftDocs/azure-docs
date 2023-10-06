@@ -6,7 +6,7 @@ ms.author: mbaldwin
 ms.date: 11/14/2022
 ms.service: confidential-ledger
 ms.topic: quickstart
-ms.custom: devx-track-python, mode-ui
+ms.custom: mode-ui
 ---
 
 # Quickstart: Create a confidential ledger using the Azure portal
@@ -19,7 +19,7 @@ In this quickstart, you create a confidential ledger with the [Azure portal](htt
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at https://portal.azure.com.
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a confidential ledger
 

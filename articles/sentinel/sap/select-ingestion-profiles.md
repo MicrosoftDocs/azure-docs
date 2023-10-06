@@ -4,6 +4,7 @@ description: This article shows you how to select the profile for your Microsoft
 author: kobymon
 ms.author: kobymin
 ms.topic: how-to
+ms.custom: devx-track-extended-java
 ms.date: 01/03/2023
 ---
 
@@ -189,16 +190,16 @@ Learn more about the Microsoft Sentinel solution for SAP® applications:
 - [Deploy Microsoft Sentinel solution for SAP® applications](deployment-overview.md)
 - [Prerequisites for deploying Microsoft Sentinel solution for SAP® applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
 - [Deploy SAP Change Requests (CRs) and configure authorization](preparing-sap.md)
+- [Deploy the solution content from the content hub](deploy-sap-security-content.md)
 - [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
-- [Deploy SAP security content](deploy-sap-security-content.md)
 - [Deploy the Microsoft Sentinel for SAP data connector with SNC](configure-snc.md)
 - [Enable and configure SAP auditing](configure-audit.md)
+- [Monitor the health of your SAP system](../monitor-sap-system-health.md)
 - [Collect SAP HANA audit logs](collect-sap-hana-audit-logs.md)
 
 Troubleshooting:
 
 - [Troubleshoot your Microsoft Sentinel solution for SAP® applications solution deployment](sap-deploy-troubleshoot.md)
-- [Configure SAP Transport Management System](configure-transport.md)
 
 Reference files:
 

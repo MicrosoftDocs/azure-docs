@@ -2,7 +2,8 @@
 title: Troubleshoot log alerts in Azure Monitor | Microsoft Docs
 description: Common issues, errors, and resolutions for log alert rules in Azure.
 ms.topic: conceptual
-ms.date: 2/23/2022
+ms.custom: build-2023
+ms.date: 06/20/2023
 ms.reviewer: yalavi
 ---
 # Troubleshoot log alerts in Azure Monitor  
@@ -36,11 +37,24 @@ A common issue is that you think that the alert didn't fire, but it was actually
 
 When you author an alert rule, Log Analytics creates a permission snapshot for your user ID. This snapshot is saved in the rule and contains the rule scope resource, Azure Resource Manager ID. If the rule scope resource moves, gets renamed, or is deleted, all log alert rules that refer to that resource will break. To work correctly, alert rules need to be recreated using the new Azure Resource Manager ID.
 
+### The alert rule uses a system-assigned managed identity
+
+When you create a log alert rule with system-assigned managed identity, the identity is created without any permissions. After you create the rule, you need to assign the appropriate roles to the rule’s identity so that it can access the data you want to query. For example, you might need to give it a Reader role for the relevant Log Analytics workspaces, or a Reader role and a Database Viewer role for the relevant ADX cluster. See [managed identities](alerts-create-new-alert-rule.md#managed-id) for more information about using managed identities in log alerts.
+
 ### Metric measurement alert rule with splitting using the legacy Log Analytics API
 
 [Metric measurement](alerts-unified-log.md#calculation-of-a-value) is a type of log alert that's based on summarized time series results. You can use these rules to group by columns to [split alerts](alerts-unified-log.md#split-by-alert-dimensions). If you're using the legacy Log Analytics API, splitting doesn't work as expected because it doesn't support grouping.
 
-You can use the current ScheduledQueryRules API to set **Aggregate On** in [Metric measurement](alerts-unified-log.md#calculation-of-a-value) rules, which work as expected. To learn more about switching to the current ScheduledQueryRules API, see [Upgrade to the current Log Alerts API from legacy Log Analytics Alert API]](/previous-versions/azure/azure-monitor/alerts/alerts-log-api-switch).
+You can use the current ScheduledQueryRules API to set **Aggregate On** in [Metric measurement](alerts-unified-log.md#calculation-of-a-value) rules, which work as expected. To learn more about switching to the current ScheduledQueryRules API, see [Upgrade to the current Log Alerts API from legacy Log Analytics Alert API](./alerts-log-api-switch.md).
+
+### Override query time range
+As a part of the configuration of the alert, in the section of the "Advance Options", there is an option to configure "Override query time range" parameter. 
+If you want the alert evaluation period to be different than the query time range, enter a time range here.
+The alert time range is limited to a maximum of two days. Even if the query contains an ago command with a time range of longer than two days, the two-day maximum time range is applied. For example, even if the query text contains ago(7d), the query only scans up to two days of data.
+If the query requires more data than the alert evaluation, you can change the time range manually.
+If there's ago command in the query, it will be changed automatically to be 2 days (48 hours).
+
+:::image type="content" source="media/alerts-troubleshoot-log/alerts-rule-preview-advanced-options.png" alt-text="Screenshot of advanced settings for log alerts.":::
 
 ## Log alert fired unnecessarily
 
@@ -58,7 +72,7 @@ There are built-in capabilities to prevent false alerts, but they can still occu
 
 ## Log alert was disabled
 
-The following sections list some reasons why Azure Monitor might disable a log alert rule. After those section, there's an [example of the activity log that is sent when a rule is disabled](#activity-log-example-when-rule-is-disabled).
+The following sections list some reasons why Azure Monitor might disable a log alert rule. After those sections, there's an [example of the activity log that is sent when a rule is disabled](#activity-log-example-when-rule-is-disabled).
 
 ### Alert scope no longer exists or was moved
 

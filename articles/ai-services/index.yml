@@ -1,0 +1,176 @@
+### YamlMime:Hub
+
+title: Azure AI services documentation
+summary: Build cutting-edge, market-ready, responsible applications for your organization with AI.
+brand: azure
+
+metadata:
+  title: Azure AI services documentation
+  description: Azure AI services help developers and organizations rapidly create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and pre-built and customizable APIs and models. 
+  ms.service: cognitive-services
+  ms.topic: hub-page
+  author: eric-urban
+  ms.author: eur
+  manager: nitinme
+  ms.custom: build-2023, build-2023-dataai
+  ms.date: 7/18/2023
+highlightedContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+  items:
+    - title: What are Azure AI services?
+      itemType: overview # controls the icon image and super-title text
+      url: ./what-are-ai-services.md
+    - title: Responsible use of AI
+      itemType: concept
+      url: responsible-use-of-ai-overview.md
+    - title: Development options
+      itemType: concept
+      url: ./cognitive-services-development-options.md
+    - title: Support and help options
+      itemType: reference
+      url: ./cognitive-services-support-options.md
+    
+# productDirectory section 
+productDirectory:
+  #title:  # < 60 chars (optional)
+  #summary:  # < 160 chars (optional)
+  # imageSrc should be square in ratio with no whitespace
+  items:
+    # Card
+    - title: Azure OpenAI
+      imageSrc: ./media/service-icons/azure.svg
+      summary: Perform a wide variety of natural language tasks
+      url: ./openai/index.yml
+    # Card
+    - title: Speech
+      imageSrc: ./media/service-icons/speech.svg
+      summary: Speech to text, text to speech, translation and speaker recognition
+      url: ./speech-service/index.yml
+    # Card
+    - title: Language
+      imageSrc: ./media/service-icons/language.svg
+      summary: Build apps with industry-leading natural language understanding capabilities
+      url: ./language-service/index.yml
+    # Card
+    - title: Translator
+      imageSrc: ./media/service-icons/translator.svg
+      summary: Translate more than 100 languages and dialects
+      url: ./translator/index.yml
+    # Card
+    - title: Vision
+      imageSrc: ./media/service-icons/vision.svg
+      summary: Analyze content in images and videos
+      url: ./computer-vision/index.yml
+    # Card
+    - title: Custom Vision
+      imageSrc: ./media/service-icons/custom-vision.svg
+      summary: Customize image recognition to fit your business
+      url: ./custom-vision-service/index.yml
+    # Card
+    - title: Face
+      imageSrc: ./media/service-icons/face.svg
+      summary: Detect and identify people and emotions in images
+      url: ./computer-vision/overview-identity.md
+    # Card
+    - title: Anomaly Detector
+      imageSrc: ./media/service-icons/anomaly-detector.svg
+      summary: Identify potential problems early on
+      url: ./anomaly-detector/index.yml
+    # Card
+    - title: Content Safety
+      imageSrc: ./media/service-icons/content-safety.svg
+      summary: An AI service that detects unwanted contents
+      url: ./content-safety/index.yml
+    # Card
+    - title: Personalizer
+      imageSrc: ./media/service-icons/personalizer.svg
+      summary: Create rich, personalized experiences for each user
+      url: ./personalizer/index.yml
+    # Card
+    - title: Bot Service
+      imageSrc: ./media/service-icons/bot-services.svg
+      summary: Create bots and connect them across channels
+      url: /composer/
+    # Card
+    - title: Document Intelligence
+      imageSrc: ./media/service-icons/document-intelligence.svg
+      summary: Turn documents into usable data at a fraction of the time and cost
+      url: ./document-intelligence/index.yml
+    # Card
+    - title: Azure Cognitive Search
+      imageSrc: ./media/service-icons/cognitive-search.svg
+      summary: Bring AI-powered cloud search to your mobile and web apps
+      url: ../search/index.yml
+    # Card
+    - title: Metrics Advisor
+      imageSrc: ./media/service-icons/metrics-advisor.svg
+      summary: Proactively monitor metrics and diagnose issues
+      url: ./metrics-advisor/index.yml
+    # Card
+    - title: Video Indexer
+      imageSrc: ./media/service-icons/video-indexer.svg
+      summary: Extract actionable insights from your videos
+      url: ../azure-video-indexer/index.yml
+     # Card
+    - title: Immersive Reader
+      imageSrc: ./media/service-icons/immersive-reader.svg
+      summary: Help users read and comprehend text
+      url: ./immersive-reader/index.yml
+      
+additionalContent:
+  sections:
+    - title: Additional resources
+      items:
+        - title: Demo & customization studios
+          links:
+            - text: Azure OpenAI
+              url: https://oai.azure.com/
+            - text: Speech
+              url: https://speech.microsoft.com/
+            - text: Language
+              url: https://language.cognitive.azure.com/
+            - text: Vision
+              url: https://portal.vision.cognitive.azure.com/
+            - text: Custom Vision
+              url: https://www.customvision.ai/
+            - text: Document Intelligence
+              url: https://formrecognizer.appliedai.azure.com/
+            - text: Content Safety
+              url: https://contentsafety.cognitive.azure.com/
+            - text: Custom Translator
+              url: https://portal.customtranslator.azure.ai/
+            - text: Azure Machine Learning
+              url: https://ml.azure.com/
+        - title: Explore more AI resources
+          links:
+            - text: Azure Machine Learning
+              url: ../machine-learning/index.yml
+            - text: Semantic Kernel
+              url: /semantic-kernel/
+            - text: AI Builder
+              url: /ai-builder/
+            - text: Power Virtual Agents with Azure AI Language
+              url: /power-virtual-agents/advanced-clu-integration
+            - text: Windows AI
+              url: /windows/ai/
+            - text: GitHub Copilot
+              url: https://docs.github.com/copilot/getting-started-with-github-copilot
+        - title: Training & certification
+          links:
+            - text: AI learning and community hub
+              url: /ai/
+            - text: Identify principles and practices for responsible AI
+              url: /training/paths/responsible-ai-business-principles/
+            - text: AI Learning paths and modules
+              url: /training/browse/?resource_type=learning%20path&expanded=data-ai&subjects=artificial-intelligence
+            - text: AI Engineer career path
+              url: /training/career-paths/ai-engineer
+        - title: Retired Azure AI services
+          links:
+            - text: Content Moderator
+              url: ./content-moderator/index.yml
+            - text: Language Understanding (LUIS)
+              url: ./luis/index.yml
+            - text: QnA Maker
+              url: ./qnamaker/index.yml
+

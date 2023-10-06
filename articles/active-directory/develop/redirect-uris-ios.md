@@ -18,9 +18,9 @@ ms.custom: aaddev, has-adal-ref
 
 # Using redirect URIs with the Microsoft Authentication Library (MSAL) for iOS and macOS
 
-When a user authenticates, Azure Active Directory (Azure AD) sends the token to the app by using the redirect URI registered with the Azure AD application.
+When a user authenticates, Microsoft Entra ID sends the token to the app by using the redirect URI registered with the Microsoft Entra application.
 
-The MSAL requires that the redirect URI be registered with the Azure AD app in a specific format. MSAL uses a default redirect URI, if you don't specify one. The format is `msauth.[Your_Bundle_Id]://auth`.
+The MSAL requires that the redirect URI be registered with the Microsoft Entra app in a specific format. MSAL uses a default redirect URI, if you don't specify one. The format is `msauth.[Your_Bundle_Id]://auth`.
 
 The default redirect URI format works for most apps and scenarios, including brokered authentication and system web view. Use the default format whenever possible.
 

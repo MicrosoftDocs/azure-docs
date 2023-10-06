@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Perform a search with PHP - Bing Web Search API"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Use this quickstart to send requests to the Bing Web Search REST API using PHP, and receive a JSON response
 services: cognitive-services
 author: aahill
@@ -16,7 +16,7 @@ ms.custom: seodec2018, mode-api
 
 # Quickstart: Use PHP to call the Bing Web Search API  
 
-[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../../bing-web-search/includes/bing-move-notice.md)]
 
 Use this quickstart to make your first call to the Bing Web Search API. This Node.js application sends a search request to the API, and shows the JSON response. Although this application is written in JavaScript, the API is a RESTful Web service compatible with most programming languages.
 
@@ -41,7 +41,7 @@ Before we get started, locate php.ini and uncomment this line:
 
 1. Create a new PHP project in your favorite IDE or editor. Add opening and closing tags: `<?php` and `?>`.
 
-2. For the `$endpoint` value, you can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource. 
+2. For the `$endpoint` value, you can use the global endpoint in the following code, or use the [custom subdomain](../../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource. 
 
 3. Confirm that the `$endpoint` value is correct and replace the `$accesskey` value with a valid subscription key from your Azure account. 
 
@@ -190,7 +190,7 @@ Responses from the Bing Web Search API are returned as JSON. This sample respons
           },
           {
             "name": "Computer Vision API",
-            "url": "https://azure.microsoft.com/services/cognitive-services/computer-vision/",
+            "url": "https://azure.microsoft.com/products/ai-services?activetab=pivot:visiontab",
             "snippet": "Extract the data you need from images using optical character recognition and image analytics with Computer Vision APIs from Microsoft Azure."
           },
           {

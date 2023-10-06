@@ -2,7 +2,7 @@
 title: Create your first function in the Azure portal
 description: Learn how to create your first Azure Function for serverless execution using the Azure portal.
 ms.topic: how-to
-ms.date: 06/10/2022
+ms.date: 06/10/2023
 ms.custom: "devx-track-csharp, mvc, devcenter, cc996988-fb4f-47, devdivchpfy22"
 ---
 
@@ -50,6 +50,9 @@ Next, create a function in the new function app.
     Azure creates the HTTP trigger function. Now, you can run the new function by sending an HTTP request.
 
 ## Test the function
+
+> [!TIP]
+> The **Code + Test** functionality in the portal works even for functions that are read-only and can't be edited in the portal.
 
 1. In your new HTTP trigger function, select **Code + Test** from the left menu, and then select **Get function URL** from the top menu.
 

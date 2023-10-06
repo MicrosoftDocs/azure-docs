@@ -1,13 +1,14 @@
 ---
-title: Define an Azure AD technical profile in a custom policy
+title: Define a Microsoft Entra technical profile in a custom policy
 titleSuffix: Azure AD B2C
-description: Define an Azure Active Directory technical profile in a custom policy in Azure Active Directory B2C.
+description: Define a Microsoft Entra technical profile in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
+ms.custom: build-2023
 ms.topic: reference
 ms.date: 12/29/2022
 ms.author: kengaderdus
@@ -15,18 +16,20 @@ ms.reviewer: yoelhor
 ms.subservice: B2C
 ---
 
-# Define an Azure Active Directory technical profile in an Azure Active Directory B2C custom policy
+# Define a Microsoft Entra technical profile in an Azure Active Directory B2C custom policy
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD B2C) provides support for the Azure Active Directory user management. This article describes the specifics of a technical profile for interacting with a claims provider that supports this standardized protocol.
+<!-- docutune:ignored "AAD-" -->
+
+Azure Active Directory B2C (Azure AD B2C) provides support for the Microsoft Entra user management. This article describes the specifics of a technical profile for interacting with a claims provider that supports this standardized protocol.
 
 ## Protocol
 
 The **Name** attribute of the **Protocol** element needs to be set to `Proprietary`. The **handler** attribute must contain the fully qualified name of the protocol handler assembly `Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
 
-Following [custom policy starter pack](tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack) Azure AD technical profiles include the **AAD-Common** technical profile. The Azure AD technical profiles don't specify the protocol because the protocol is configured in the **AAD-Common** technical profile:
- 
+Following [custom policy starter pack](tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack) Microsoft Entra technical profiles include the **AAD-Common** technical profile. The Microsoft Entra technical profiles don't specify the protocol because the protocol is configured in the **AAD-Common** technical profile:
+
 - **AAD-UserReadUsingAlternativeSecurityId** and **AAD-UserReadUsingAlternativeSecurityId-NoError** - Look up a social account in the directory.
 - **AAD-UserWriteUsingAlternativeSecurityId** - Create a new social account.
 - **AAD-UserReadUsingEmailAddress** - Look up a local account in the directory.
@@ -55,9 +58,9 @@ The following example shows the **AAD-Common** technical profile:
 
 ## InputClaims
 
-The InputClaims element contains a claim, which is used to look up an account in the directory, or create a new one. There must be exactly one InputClaim element in the input claims collection for all Azure AD technical profiles. You may need to map the name of the claim defined in your policy to the name defined in Azure Active Directory.
+The InputClaims element contains a claim, which is used to look up an account in the directory, or create a new one. There must be exactly one InputClaim element in the input claims collection for all Microsoft Entra technical profiles. You may need to map the name of the claim defined in your policy to the name defined in Microsoft Entra ID.
 
-To read, update, or delete an existing user account, the input claim is a key that uniquely identifies the account in Azure AD directory. For example, **objectId**, **userPrincipalName**, **signInNames.emailAddress**, **signInNames.userName**, or **alternativeSecurityId**. 
+To read, update, or delete an existing user account, the input claim is a key that uniquely identifies the account in Microsoft Entra directory. For example, **objectId**, **userPrincipalName**, **signInNames.emailAddress**, **signInNames.userName**, or **alternativeSecurityId**. 
 
 To create a new user account, the input claim is a key that uniquely identifies a local or federated account. For example, local account: **signInNames.emailAddress**, or **signInNames.userName**. For a federated account: the **alternativeSecurityId**.
 
@@ -65,7 +68,7 @@ The [InputClaimsTransformations](technicalprofiles.md#input-claims-transformatio
 
 ## OutputClaims
 
-The **OutputClaims** element contains a list of claims returned by the Azure AD technical profile. You may need to map the name of the claim defined in your policy to the name defined in Azure Active Directory. You can also include claims that aren't returned by the Azure Active Directory, as long as you set the `DefaultValue` attribute.
+The **OutputClaims** element contains a list of claims returned by the Microsoft Entra technical profile. You may need to map the name of the claim defined in your policy to the name defined in Microsoft Entra ID. You can also include claims that aren't returned by the Microsoft Entra ID, as long as you set the `DefaultValue` attribute.
 
 The [OutputClaimsTransformations](technicalprofiles.md#output-claims-transformations) element may contain a collection of **OutputClaimsTransformation** elements that are used to modify the output claims or generate new ones.
 
@@ -89,7 +92,7 @@ For example, the **AAD-UserWriteUsingLogonEmail** technical profile creates a lo
 
 ## PersistedClaims
 
-The **PersistedClaims** element contains all of the values that should be persisted by Azure AD with possible mapping information between a claim type already defined in the [ClaimsSchema](claimsschema.md) section in the policy and the Azure AD attribute name.
+The **PersistedClaims** element contains all of the values that should be persisted by Microsoft Entra ID with possible mapping information between a claim type already defined in the [ClaimsSchema](claimsschema.md) section in the policy and the Microsoft Entra attribute name.
 
 The **AAD-UserWriteUsingLogonEmail** technical profile, which creates new local account, persists following claims:
 
@@ -107,17 +110,19 @@ The **AAD-UserWriteUsingLogonEmail** technical profile, which creates new local 
   </PersistedClaims>
 ```
 
-The name of the claim is the name of the Azure AD attribute unless the **PartnerClaimType** attribute is specified, which contains the Azure AD attribute name.
+The name of the claim is the name of the Microsoft Entra attribute unless the **PartnerClaimType** attribute is specified, which contains the Microsoft Entra attribute name.
 
 ## Requirements of an operation
 
-- There must be exactly one **InputClaim** element in the claims bag for all Azure AD technical profiles.
+- There must be exactly one **InputClaim** element in the claims bag for all Microsoft Entra technical profiles.
 - The [user profile attributes article](user-profile-attributes.md) describes the supported Azure AD B2C user profile attributes you can use in the input claims, output claims, and persisted claims. 
 - If the operation is `Write` or `DeleteClaims`, then it must also appear in a **PersistedClaims** element.
 - The value of the **userPrincipalName** claim must be in the format of `user@tenant.onmicrosoft.com`.
 - The **displayName** claim is required and cannot be an empty string.
 
-## Azure AD technical profile operations
+<a name='azure-ad-technical-profile-operations'></a>
+
+## Microsoft Entra technical profile operations
 
 ### Read
 
@@ -264,20 +269,6 @@ The following settings can be used to configure the error message displayed upon
 
 ## Next steps
 
-See the following article, for example of using Azure AD technical profile:
+See the following article, for example of using Microsoft Entra technical profile:
 
 - [Add claims and customize user input using custom policies in Azure Active Directory B2C](configure-user-input.md)
-
-
-
-
-
-
-
-
-
-
-
-
-
-

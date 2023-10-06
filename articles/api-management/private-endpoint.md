@@ -172,7 +172,7 @@ If you have sufficient permissions, approve a private endpoint connection on the
 You can also use the API Management [Private Endpoint Connection - Create Or Update](/rest/api/apimanagement/current-ga/private-endpoint-connection/create-or-update) REST API.
 
 ```rest
-PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{apimServiceName}privateEndpointConnections/{privateEndpointConnectionName}?api-version=2021-08-01
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{apimServiceName}privateEndpointConnections/{privateEndpointConnectionName}?api-version=2021-08-01
 ```
 
 ### Optionally disable public network access
@@ -180,7 +180,7 @@ PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups
 To optionally limit incoming traffic to the API Management instance only to private endpoints, disable public network access. Use the [API Management Service - Create Or Update](/rest/api/apimanagement/current-ga/api-management-service/create-or-update) REST API.
 
 ```rest
-PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{apimServiceName}?api-version=2021-08-01
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{apimServiceName}?api-version=2021-08-01
 Authorization: Bearer {{authToken.response.body.access_token}}
 Content-Type: application/json
 

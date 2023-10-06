@@ -6,9 +6,9 @@ author: akashraokm
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
-ms.date: 04/06/2023
+ms.date: 05/16/2023
 ---
-# Enable data encryption with customer-managed keys (preview) in Azure Cosmos DB for PostgreSQL
+# Enable data encryption with customer-managed keys in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
@@ -68,7 +68,8 @@ Using customer-managed keys with Azure Cosmos DB for PostgreSQL requires you to 
 
 ### Add an Access Policy to the Key Vault
 
-1. From the Azure portal, go to the Azure Key Vault instance that you plan to use to host your encryption keys. Select Access configuration from the left menu and then select Go to access policies.
+1. From the Azure portal, go to the Azure Key Vault instance that you plan to use to host your encryption keys. Select Access configuration from the left menu. 
+Make sure <b>Vault access policy</b> is selected under Permission model and then select Go to access policies.
 
    [ ![Screenshot of Key Vault's access configuration.](media/how-to-customer-managed-keys/access-policy.png) ](media/how-to-customer-managed-keys/access-policy.png#lightbox)
 
@@ -115,7 +116,7 @@ Using customer-managed keys with Azure Cosmos DB for PostgreSQL requires you to 
 
    1. Select the Key created in the previous step, and then select Review+create.
 
-   1. Verify that CMK is encryption is enabled by Navigating to the Data Encryption(preview) blade of the Cosmos DB for PostgreSQL cluster in the Azure portal.
+   1. Verify that CMK is encryption is enabled by Navigating to the Data Encryption blade of the Cosmos DB for PostgreSQL cluster in the Azure portal.
       ![Screenshot of data encryption tab.](media/how-to-customer-managed-keys/data-encryption-tab-note.png)
 
    > [!NOTE]
@@ -256,7 +257,7 @@ Encryption configuration can be changed from service managed encryption to CMK e
   1. Navigate to the Data Encryption blade, and select Initiate restore operation. Alternatively, you can perform PITR by selecting the Restore option in the overview blade.
    [ ![Screenshot of PITR.](media/how-to-customer-managed-keys/point-in-time-restore.png)](media/how-to-customer-managed-keys/point-in-time-restore.png#lightbox)
 
-  1. You can change/configure the Data Encryption from the Encryption(preview) Tab.
+  1. You can change/configure the Data Encryption from the Encryption Tab.
 
 # [ARM Template](#tab/arm)
 

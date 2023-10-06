@@ -12,10 +12,10 @@ ms.assetid:
 ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: java
+ms.custom: devx-track-extended-java
 ms.topic: tutorial
-ms.date: 04/11/2023
+ms.date: 09/27/2023
 ms.author: mametcal
-
 #Customer intent: I want to use push refresh to dynamically update my app to use the latest configuration data in App Configuration.
 ---
 # Tutorial: Use dynamic configuration using push refresh in a Java Spring app
@@ -51,19 +51,63 @@ In this tutorial, you learn how to:
 
 1. Open *pom.xml* and update the file with the following dependencies.
 
-   ```xml
-           <dependency>
-               <groupId>com.azure.spring</groupId>
-               <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-               <version>4.7.0</version>
-           </dependency>
-   
-           <!-- Adds the Ability to Push Refresh -->
-           <dependency>
-               <groupId>org.springframework.boot</groupId>
-               <artifactId>spring-boot-starter-actuator</artifactId>
-           </dependency>
-   ```
+    ### [Spring Boot 3](#tab/spring-boot-3)
+
+    ```xml
+    <dependency>
+        <groupId>com.azure.spring</groupId>
+        <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
+    </dependency>
+
+    <!-- Adds the Ability to Push Refresh -->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-actuator</artifactId>
+    </dependency>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+            <groupId>com.azure.spring</groupId>
+            <artifactId>spring-cloud-azure-dependencies</artifactId>
+            <version>5.5.0</version>
+            <type>pom</type>
+            <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    ```
+
+    ### [Spring Boot 2](#tab/spring-boot-2)
+
+    ```xml
+    <dependency>
+        <groupId>com.azure.spring</groupId>
+        <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
+        <version>4.10.0</version>
+    </dependency>
+
+    <!-- Adds the Ability to Push Refresh -->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-actuator</artifactId>
+    </dependency>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+            <groupId>com.azure.spring</groupId>
+            <artifactId>spring-cloud-azure-dependencies</artifactId>
+            <version>4.11.0</version>
+            <type>pom</type>
+            <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    ```
+
+    ---
+
 
 1. Set up [Maven App Service Deployment](../app-service/quickstart-java.md?tabs=javase) so the application can be deployed to Azure App Service via Maven.
 

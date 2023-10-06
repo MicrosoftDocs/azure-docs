@@ -2,12 +2,10 @@
 title: Deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster
 recommendations: false
 description: Deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster
-author: KarlErickson
-ms.author: zhengchang
 ms.topic: how-to
 ms.date: 12/21/2022
 keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty, aks, kubernetes
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, build-2023, devx-track-extended-java, devx-track-azurecli, devx-track-linux
 ---
 
 # Deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster
@@ -16,22 +14,28 @@ This article demonstrates how to:
 
 * Run your Java, Java EE, Jakarta EE, or MicroProfile application on the Open Liberty or WebSphere Liberty runtime.
 * Build the application Docker image using Open Liberty or WebSphere Liberty container images.
-* Deploy the containerized application to an AKS cluster using the Open Liberty Operator.
+* Deploy the containerized application to an AKS cluster using the Open Liberty Operator or WebSphere Liberty Operator.
 
-The Open Liberty Operator simplifies the deployment and management of applications running on Kubernetes clusters. With the Open Liberty Operator, you can also perform more advanced operations, such as gathering traces and dumps.
+The Open Liberty Operator simplifies the deployment and management of applications running on Kubernetes clusters. With the Open Liberty or WebSphere Liberty Operator, you can also perform more advanced operations, such as gathering traces and dumps.
 
 For more information on Open Liberty, see [the Open Liberty project page](https://openliberty.io/). For more information on IBM WebSphere Liberty, see [the WebSphere Liberty product page](https://www.ibm.com/cloud/websphere-liberty).
 
 This article uses the Azure Marketplace offer for Open/WebSphere Liberty to accelerate your journey to AKS. The offer automatically provisions a number of Azure resources including an Azure Container Registry (ACR) instance, an AKS cluster, an Azure App Gateway Ingress Controller (AGIC) instance, the Liberty Operator, and optionally a container image including Liberty and your application. To see the offer, visit the [Azure portal](https://aka.ms/liberty-aks). If you prefer manual step-by-step guidance for running Liberty on AKS that doesn't utilize the automation enabled by the offer, see [Manually deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster](/azure/developer/java/ee/howto-deploy-java-liberty-app-manual).
+
+This article is intended to help you quickly get to deployment. Before going to production, you should explore [Tuning Liberty](https://www.ibm.com/docs/was-liberty/base?topic=tuning-liberty).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 * This article requires at least version 2.31.0 of Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+
+> [!NOTE]
+>  This guidance can also be executed from a local developer command line with Azure CLI installed. To learn how to install the Azure CLI, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
+
 * If running the commands in this guide locally (instead of Azure Cloud Shell):
-  * Prepare a local machine with Unix-like operating system installed (for example, Ubuntu, Mariner, macOS, Windows Subsystem for Linux).
-  * Install a Java SE implementation (for example, [Eclipse Open J9](https://www.eclipse.org/openj9/)).
+  * Prepare a local machine with Unix-like operating system installed (for example, Ubuntu, Azure Linux, macOS, Windows Subsystem for Linux).
+  * Install a Java SE implementation, version 17 or later. (for example, [Eclipse Open J9](https://www.eclipse.org/openj9/)).
   * Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
   * Install [Docker](https://docs.docker.com/get-docker/) for your OS.
 * Make sure you've been assigned either the `Owner` role or the `Contributor` and `User Access Administrator` roles in the subscription. You can verify it by following steps in [List role assignments for a user or group](../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-or-group).
@@ -105,6 +109,14 @@ Clone the sample code for this guide. The sample is on [GitHub](https://github.c
 
 There are a few samples in the repository. We'll use *java-app/*. Here's the file structure of the application.
 
+```azurecli-interactive
+git clone https://github.com/Azure-Samples/open-liberty-on-aks.git
+cd open-liberty-on-aks
+git checkout 20230830
+```
+
+If you see a message about being in "detached HEAD" state, this message is safe to ignore. It just means you have checked out a tag.
+
 ```
 java-app
 ├─ src/main/
@@ -126,7 +138,7 @@ The directories *java*, *resources*, and *webapp* contain the source code of the
 
 In the *aks* directory, we placed three deployment files. *db-secret.xml* is used to create [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/) with DB connection credentials. The file *openlibertyapplication-agic.yaml* is used to deploy the application image. In the *docker* directory, there are two files to create the application image with either Open Liberty or WebSphere Liberty.
 
-In directory *liberty/config*, the *server.xml* FILE is used to configure the DB connection for the Open Liberty and WebSphere Liberty cluster.
+In directory *liberty/config*, the *server.xml* file is used to configure the DB connection for the Open Liberty and WebSphere Liberty cluster.
 
 ### Build the project
 
@@ -136,10 +148,10 @@ Now that you've gathered the necessary properties, you can build the application
 cd <path-to-your-repo>/java-app
 
 # The following variables will be used for deployment file generation into target.
-export LOGIN_SERVER=<Azure_Container_Registery_Login_Server_URL>
-export REGISTRY_NAME=<Azure_Container_Registery_Name>
-export USER_NAME=<Azure_Container_Registery_Username>
-export PASSWORD=<Azure_Container_Registery_Password>
+export LOGIN_SERVER=<Azure_Container_Registry_Login_Server_URL>
+export REGISTRY_NAME=<Azure_Container_Registry_Name>
+export USER_NAME=<Azure_Container_Registry_Username>
+export PASSWORD=<Azure_Container_Registry_Password>
 export DB_SERVER_NAME=<Server name>.database.windows.net
 export DB_NAME=<Database name>
 export DB_USER=<Server admin login>@<Server name>
@@ -199,7 +211,7 @@ You can now use the following steps to test the Docker image locally before depl
 
 ### Upload image to ACR
 
-Now, we upload the built image to the ACR created in the offer.
+Upload the built image to the ACR created in the offer.
 
 ```bash
 docker tag javaee-cafe:v1 ${LOGIN_SERVER}/javaee-cafe:v1
@@ -256,8 +268,15 @@ The following steps deploy and test the application.
       ```
 
       Copy the value of **ADDRESS** from the output, this is the frontend public IP address of the deployed Azure Application Gateway.
+      
+   1. Go to `https://<ADDRESS>` to test the application. For your convenience, this shell command will create an environment variable whose value you can paste straight into the browser.
+      
+      ```bash
+      export APP_URL=https://$(kubectl get ingress | grep javaee-cafe-cluster-agic-ingress | cut -d " " -f14)/
+      echo $APP_URL
+      ```
 
-   1. Go to `https://<ADDRESS>` to test the application.
+      If the web page doesn't render correctly or returns a `502 Bad Gateway` error, that's because the app is still starting in the background. Wait for a few minutes and then try again.
 
 ## Clean up resources
 

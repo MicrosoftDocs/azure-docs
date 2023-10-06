@@ -7,6 +7,7 @@ ms.subservice: hpc
 ms.collection: windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
+ms.custom: devx-track-arm-template
 ms.workload: infrastructure-services
 ms.date: 04/06/2023
 ms.author: mamccrea
@@ -20,6 +21,10 @@ The NVIDIA GPU Driver Extension for Windows installs NVIDIA GPU drivers on Windo
 The instructions for manual installation of the drivers, and the list of current supported versions are available for review. For more information, see [Install NVIDIA GPU drivers on N-series VMs running Windows](/azure/virtual-machines/windows/n-series-driver-setup).
 
 The NVIDIA GPU Driver Extension can also be deployed on Linux N-series VMs. For more information, see [NVIDIA GPU Driver Extension for Linux](hpccompute-gpu-linux.md).
+
+> [!Note]
+> The GPU driver extensions do not automatically update the driver after the extension is installed. If you need to move to a newer driver version then either manually download and install the driver or remove and add the extension again.
+>
 
 ## Prerequisites
 

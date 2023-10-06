@@ -5,7 +5,7 @@ author: yelevin
 ms.author: yelevin
 ms.topic: how-to
 ms.custom: devx-track-arm-template
-ms.date: 01/08/2023
+ms.date: 05/28/2023
 ---
 
 # Create custom analytics rules to detect threats
@@ -164,7 +164,7 @@ If you see that your query would trigger too many or too frequent alerts, you ca
 
     | Field name | Contains | Running the query in this field<br>results in... |
     | - | :-: | :-: |
-    | **Query** | The compressed record of the event that generated this instance of the alert | The event that generated this instance of the alert |
+    | **Query** | The compressed record of the event that generated this instance of the alert | The event that generated this instance of the alert;<br>limited to 10240 bytes  |
     | **OriginalQuery** | The original query as written in the analytics&nbsp;rule | The most recent event in the timeframe in which the query runs, that fits the parameters defined by the query |
 
     In other words, the **OriginalQuery** field behaves like the **Query** field usually behaves. The result of this extra field is that the problem described by the first item in the [Troubleshooting](#troubleshooting) section below has been solved.
@@ -174,7 +174,7 @@ If you see that your query would trigger too many or too frequent alerts, you ca
   >
   > - An **event** is a description of a single occurrence of an action. For example, a single entry in a log file could count as an event. In this context an event refers to a single result returned by a query in an analytics rule.
   >
-  > - An **alert** is a collection of events that, taken together, are significant from a security standpoint. An alert could contain a single event if the event had significant security implications - an administrative login from a foreign country outside of office hours, for example.
+  > - An **alert** is a collection of events that, taken together, are significant from a security standpoint. An alert could contain a single event if the event had significant security implications - an administrative login from a foreign country/region outside of office hours, for example.
   >
   > - By the way, what are **incidents**? Microsoft Sentinel's internal logic creates **incidents** from **alerts** or groups of alerts. The incidents queue is the focal point of SOC analysts' work - triage, investigation and remediation.
   >
@@ -230,7 +230,7 @@ In the **Automated responses** tab, you can use [automation rules](automate-inci
    
 The grid displayed under **Automation rules** shows the automation rules that already apply to this analytics rule (by virtue of it meeting the conditions defined in those rules). You can edit any of these by selecting the ellipsis at the end of each row. Or, you can [create a new automation rule](create-manage-use-automation-rules.md).
 
-Use automation rules to perform basic triage, assignment, [workflow](incident-tasks.md), and closing of incidents. 
+Use automation rules to perform [basic triage](investigate-incidents.md#navigate-and-triage-incidents), assignment, [workflow](incident-tasks.md), and closing of incidents. 
 
 Automate more complex tasks and invoke responses from remote systems to remediate threats by calling playbooks from these automation rules. You can do this for incidents as well as for individual alerts.
 
@@ -240,7 +240,10 @@ Automate more complex tasks and invoke responses from remote systems to remediat
 
     :::image type="content" source="media/tutorial-detect-threats-custom/automated-response-tab.png" alt-text="Define the automated response settings":::
 
-- Under **Alert automation (classic)** at the bottom of the screen, you'll see any playbooks you've configured to run automatically when an alert is generated using the old method. If you still have any of these, you should instead create an automation rule based on the **alert created trigger** and invoke the playbook from there.
+- Under **Alert automation (classic)** at the bottom of the screen, you'll see any playbooks you've configured to run automatically when an alert is generated using the old method. 
+    - **As of June 2023**, you can no longer add playbooks to this list. Playbooks already listed here will continue to run until this method is **deprecated, effective March 2026**.
+
+    - If you still have any playbooks listed here, you should instead create an automation rule based on the **alert created trigger** and invoke the playbook from there. After you've done that, select the ellipsis at the end of the line of the playbook listed here, and select **Remove**. See [Migrate your Microsoft Sentinel alert-trigger playbooks to automation rules](migrate-playbooks-to-automation-rules.md) for full instructions.
 
 Select **Review and create** to review all the settings for your new analytics rule. When the "Validation passed" message appears, select **Create**.
 
@@ -295,7 +298,7 @@ A permanent failure occurs due to a change in the conditions that allow the rule
 - The target table (on which the rule query operated) has been deleted.
 - Microsoft Sentinel had been removed from the target workspace.
 - A function used by the rule query is no longer valid; it has been either modified or removed.
-- Permissions to one of the data sources of the rule query were changed.
+- Permissions to one of the data sources of the rule query were changed ([see example below](#permanent-failure-due-to-lost-access-across-subscriptionstenants)).
 - One of the data sources of the rule query was deleted.
 
 **In the event of a predetermined number of consecutive permanent failures, of the same type and on the same rule,** Microsoft Sentinel stops trying to execute the rule, and also takes the following steps:
@@ -319,11 +322,21 @@ To re-enable the rule, you must address the issues in the query that cause it to
 
 Also see [Useful resources for working with Kusto Query Language in Microsoft Sentinel](kusto-resources.md) for further assistance.
 
+#### Permanent failure due to lost access across subscriptions/tenants
+
+One particular example of when a permanent failure could occur due to a permissions change on a data source ([see list above](#permanent-failure---rule-auto-disabled)) concerns the case of an MSSP&mdash;or any other scenario where analytics rules query across subscriptions or tenants.
+
+When you create an analytics rule, an access permissions token is applied to the rule and saved along with it. This token ensures that the rule can access the workspace that contains the data queried by the rule, and that this access will be maintained even if the rule's creator loses access to that workspace.
+
+There is one exception to this, however: when a rule is created to access workspaces in other subscriptions or tenants, such as what happens in the case of an MSSP, Microsoft Sentinel takes extra security measures to prevent unauthorized access to customer data. For these kinds of rules, the credentials of the user that created the rule are applied to the rule instead of an independent access token, so that when the user no longer has access to the other tenant, the rule will stop working.
+
+If you operate Microsoft Sentinel in a cross-subscription or cross-tenant scenario, be aware that if one of your analysts or engineers loses access to a particular workspace, any rules created by that user will stop working. You will get a health monitoring message regarding "insufficient access to resource", and the rule will be [auto-disabled according to the procedure described above](#permanent-failure---rule-auto-disabled).
+
 ## Next steps
 
-When using analytics rules to detect threats from Microsoft Sentinel, make sure that you enable all rules associated with your connected data sources in order to ensure full security coverage for your environment. The most efficient way to enable analytics rules is directly from the data connector page, which lists any related rules. For more information, see [Connect data sources](connect-data-sources.md).
+When using analytics rules to detect threats from Microsoft Sentinel, make sure you enable all rules associated with your connected data sources to ensure full security coverage for your environment.
 
-You can also push rules to Microsoft Sentinel via [API](/rest/api/securityinsights/) and [PowerShell](https://www.powershellgallery.com/packages/Az.SecurityInsights/0.1.0), although doing so requires additional effort. When using API or PowerShell, you must first export the rules to JSON before enabling the rules. API or PowerShell may be helpful when enabling rules in multiple instances of Microsoft Sentinel with identical settings in each instance.
+To automate rule enablement, push rules to Microsoft Sentinel via [API](/rest/api/securityinsights/) and [PowerShell](https://www.powershellgallery.com/packages/Az.SecurityInsights/0.1.0), although doing so requires additional effort. When using API or PowerShell, you must first export the rules to JSON before enabling the rules. API or PowerShell may be helpful when enabling rules in multiple instances of Microsoft Sentinel with identical settings in each instance.
 
 For more information, see:
 

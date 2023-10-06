@@ -3,7 +3,7 @@ title: Resources, roles, and access control in Application Insights | Microsoft 
 description: Owners, contributors and readers of your organization's insights.
 ms.topic: conceptual
 ms.date: 04/13/2023
-ms.custom: devx-track-azurepowershell   
+ms.custom:
 ms.reviewer: cogoodson
 ---
 
@@ -21,9 +21,9 @@ You can control who has read and update access to your data in [Application Insi
 First, let's define some terms:
 
 * **Resource**: An instance of an Azure service. Your Application Insights resource collects, analyzes, and displays the telemetry data sent from your application. Other types of Azure resources include web apps, databases, and VMs.
-  
-    To see your resources, open the [Azure portal][portal], sign in, and select **All resources**. To find a resource, enter part of its name in the filter field.
-  
+
+    To see your resources, open the [Azure portal](https://portal.azure.com), sign in, and select **All resources**. To find a resource, enter part of its name in the filter field.
+
     :::image type="content" source="./media/resources-roles-access-control/10-browse.png" lightbox="./media/resources-roles-access-control/10-browse.png" alt-text="Screenshot that shows a list of Azure resources.":::
 
 <a name="resource-group"></a>
@@ -62,8 +62,8 @@ Where applicable, the link connects to the associated official reference documen
 | Azure Service Deploy Release Management Contributor | Contributor role for services deploying through Azure Service Deploy. |
 | [Data Purger](../../role-based-access-control/built-in-roles.md#data-purger) | Special role for purging personal data. For more information, see [Manage personal data in Log Analytics and Application Insights](../logs/personal-data-mgmt.md).   |
 | Azure ExpressRoute administrator | Can create, delete, and manage express routes.|
-| [Log Analytics Contributor](../../role-based-access-control/built-in-roles.md#log-analytics-contributor) | Log Analytics Contributor can read all monitoring data and edit monitoring settings. Editing monitoring settings includes adding the VM extension to VMs, reading storage account keys to be able to configure collection of logs from Azure Storage, creating and configuring Automation accounts, adding solutions, and configuring Azure diagnostics on all Azure resources.  |
-| [Log Analytics Reader](../../role-based-access-control/built-in-roles.md#log-analytics-reader) | Log Analytics Reader can view and search all monitoring data and view monitoring settings, including viewing the configuration of Azure diagnostics on all Azure resources. |
+| [Log Analytics Contributor](../../role-based-access-control/built-in-roles.md#log-analytics-contributor) | Log Analytics Contributor can read all monitoring data and edit monitoring settings. Editing monitoring settings includes adding the VM extension to VMs, reading storage account keys to be able to configure collection of logs from Azure Storage, creating and configuring Automation accounts, adding solutions, and configuring Azure diagnostics on all Azure resources. If you're having trouble setting up your Azure diagnostics, see [Azure diagnostics](../agents/diagnostics-extension-to-application-insights.md).  |
+| [Log Analytics Reader](../../role-based-access-control/built-in-roles.md#log-analytics-reader) | Log Analytics Reader can view and search all monitoring data and view monitoring settings, including viewing the configuration of Azure diagnostics on all Azure resources. If you're having trouble setting up your Azure diagnostics, see [Azure diagnostics](../agents/diagnostics-extension-to-application-insights.md). |
 | masterreader | Allows a user to view everything but not make changes. |
 | [Monitoring Contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) | Can read all monitoring data and update monitoring settings.|
 | [Monitoring Metrics Publisher](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher) | Enables publishing metrics against Azure resources. |
@@ -117,5 +117,4 @@ $resourceGroup = "RGNAME"
 
 [account]: https://account.microsoft.com
 [group]: ../../azure-resource-manager/management/overview.md
-[portal]: https://portal.azure.com/
 [start]: ./app-insights-overview.md

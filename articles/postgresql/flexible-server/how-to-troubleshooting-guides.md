@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting guides - Azure portal - Azure Database for PostgreSQL - Flexible Server Preview
+title: Troubleshooting guides - Azure portal - Azure Database for PostgreSQL - Flexible Server
 description: Learn how to use Troubleshooting guides for Azure Database for PostgreSQL - Flexible Server from the Azure portal.
 ms.service: postgresql
 ms.subservice: flexible-server
@@ -9,19 +9,16 @@ author: AwdotiaRomanowna
 ms.date: 03/21/2023
 ---
 
-# Use the Troubleshooting guides for Azure Database for PostgreSQL - Flexible Server Preview
+# Use the Troubleshooting guides for Azure Database for PostgreSQL - Flexible Server
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
-
-> [!NOTE]
-> Troubleshooting guides for PostgreSQL Flexible Server are currently in preview.
 
 In this article, you'll learn how to use Troubleshooting guides for Azure Database for PostgreSQL from the Azure portal. To learn more about Troubleshooting guides, see the [overview](concepts-troubleshooting-guides.md).
 
 ## Prerequisites
 
 To effectively troubleshoot specific issue, you need to make sure you have all the necessary data in place. 
-Each troubleshooting guide requires a specific set of data, which is sourced from three separate features: [Diagnostic settings](howto-configure-and-access-logs.md), [Query Store](concepts-query-store.md), and [Enhanced Metrics](concepts-monitoring.md#enable-enhanced-metrics).
+Each troubleshooting guide requires a specific set of data, which is sourced from three separate features: [Diagnostic settings](howto-configure-and-access-logs.md), [Query Store](concepts-query-store.md), and [Enhanced Metrics](concepts-monitoring.md#enabling-enhanced-metrics).
 All troubleshooting guides require logs to be sent to the Log Analytics workspace, but the specific category of logs to be captured may vary depending on the particular guide. 
 
 Please follow the steps described in the [Configure and Access Logs in Azure Database for PostgreSQL - Flexible Server](howto-configure-and-access-logs.md) article to configure diagnostic settings and send the logs to the Log Analytics workspace.

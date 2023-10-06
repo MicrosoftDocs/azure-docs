@@ -5,7 +5,7 @@ services: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 09/08/2022
+ms.date: 06/21/2023
 author: AbbyMSFT
 ms.author: abbyweisberg
 ---

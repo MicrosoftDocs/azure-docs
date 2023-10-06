@@ -1,11 +1,11 @@
 ---
 title: Packet core and Azure Stack Edge compatibility
 description: Discover which Azure Stack Edge models and versions are compatible with each packet core version
-author: liumichelle
-ms.author: limichel
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: conceptual
-ms.date: 03/30/2023
+ms.date: 09/07/2023
 ---
 
 # Packet core and Azure Stack Edge (ASE) compatibility
@@ -22,12 +22,18 @@ The following Azure Stack Edge Pro models are supported:
   - Model 128G4T1GPU
   - Model 256G6T2GPU
 
+All features, and all [packet core service plans](modify-service-plan.md), are supported on all supported models of Azure Stack Edge.
+
 ## Packet core and Azure Stack Edge version compatibility table
 
 The following table provides information on which versions of the ASE device are compatible with each packet core version.
 
 | Packet core version  | ASE Pro GPU compatible versions  | ASE Pro 2 compatible versions |
 |-----|-----|-----|
+| 2308 | 2303, 2309 | 2303, 2309 |
+| 2307 | 2303 | 2303 |
+| 2306 | 2303 | 2303 |
+| 2305 | 2303 | 2303 |
 | 2303 | 2301, 2303  | 2301, 2303 |
 | 2302 | 2301  | N/A |
 | 2301 | 2210, 2301  | N/A |

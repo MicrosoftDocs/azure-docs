@@ -4,16 +4,15 @@ description: Find out how to create and manage action groups. Learn about notifi
 ms.topic: conceptual
 ms.date: 05/02/2023
 ms.reviewer: jagummersall
-ms.custom: references_regions
-
+ms.custom: references_regions, devx-track-arm-template, has-azure-ad-ps-ref
 ---
 # Action groups
 
 When Azure Monitor data indicates that there might be a problem with your infrastructure or application, an alert is triggered. Alerts can contain action groups, which are a collection of notification preferences. Azure Monitor, Azure Service Health, and Azure Advisor use action groups to notify users about the alert and take an action.
 
-This article shows you how to create and manage action groups. Depending on your requirements, you can configure various alerts to use the same action group or different action groups.
+This article shows you how to create and manage action groups. 
 
-Each action is made up of the following properties:
+Each action is made up of:
 
 - **Type**: The notification that's sent or action that's performed. Examples include sending a voice call, SMS, or email. You can also trigger various types of automated actions.
 - **Name**: A unique identifier within the action group.
@@ -21,6 +20,10 @@ Each action is made up of the following properties:
 
 In general, an action group is a global service. Efforts to make them more available regionally are in development. 
 Global requests from clients can be processed by action group services in any region. If one region of the action group service is down, the traffic is automatically routed and processed in other regions. As a global service, an action group helps provide a disaster recovery solution. Regional requests rely on availability zone redundancy to meet privacy requirements and offer a similar disaster recovery solution.
+
+- You can add up to five action groups to an alert rule.
+- Action groups are executed concurrently, in no specific order.
+- Multiple alert rules can use the same action group.
 
 ## Create an action group in the Azure portal
 
@@ -41,7 +44,7 @@ Global requests from clients can be processed by action group services in any re
       | Option | Behavior |
       | ------ | -------- |
       | Global | The action groups service decides where to store the action group. The action group is persisted in at least two regions to ensure regional resiliency. Processing of actions may be done in any [geographic region](https://azure.microsoft.com/explore/global-infrastructure/geographies/#overview).<br></br>Voice, SMS, and email actions performed as the result of [service health alerts](../../service-health/alerts-activity-log-service-notifications-portal.md) are resilient to Azure live-site incidents. |
-      | Regional | The action group is stored within the selected region. The action group is [zone-redundant](../../availability-zones/az-region.md#highly-available-services). Processing of actions is performed within the region.</br></br>Use this option if you want to ensure that the processing of your action group is performed within a specific [geographic boundary](https://azure.microsoft.com/explore/global-infrastructure/geographies/#overview). |
+      | Regional | The action group is stored within the selected region. The action group is [zone-redundant](../../availability-zones/az-region.md#highly-available-services). Use this option if you want to ensure that the processing of your action group is performed within a specific [geographic boundary](https://azure.microsoft.com/explore/global-infrastructure/geographies/#overview). You can select one of these regions for regional processing of action groups: <br> - South Central US <br> - North Central US<br> - Sweden Central<br> - Germany West Central<br> We're continually adding more regions for regional data processing of action groups.|
 
     The action group is saved in the subscription, region, and resource group that you select.
 
@@ -56,7 +59,7 @@ Global requests from clients can be processed by action group services in any re
 
         |Notification type|Description  |Fields|
         |---------|---------|---------|
-        |Email Azure Resource Manager role|Send an email to the subscription members, based on their role.<br>A notification email is sent only to the primary email address configured for the Azure AD user.<br>The email is only sent to Azure Active Directory **user** members of the selected role, not to Azure AD groups or service principals.<br> See [Configure the email address for the Email Azure Resource Manager role](#email).|Enter the primary email address configured for the Azure AD user. See [Configure the email address for the Email Azure Resource Manager role](#email).|
+        |Email Azure Resource Manager role|Send an email to the subscription members, based on their role.<br>A notification email is sent only to the primary email address configured for the Azure AD user.<br>The email is only sent to Azure Active Directory **user** members of the selected role, not to Azure AD groups or service principals.<br> See [Email](#email-azure-resource-manager).|Enter the primary email address configured for the Azure AD user. See [Email](#email-azure-resource-manager).|
         |Email| Ensure that your email filtering and any malware/spam prevention services are configured appropriately. Emails are sent from the following email addresses:<br> * azure-noreply@microsoft.com<br> * azureemail-noreply@microsoft.com<br> * alerts-noreply@mail.windowsazure.com|Enter the email where the notification should be sent.|
         |SMS|SMS notifications support bi-directional communication. The SMS contains the following information:<br> * Shortname of the action group this alert was sent to<br> * The title of the alert.<br> A user can respond to an SMS to:<br> * Unsubscribe from all SMS alerts for all action groups or a single action group.<br> * Resubscribe to alerts<br> * Request help.<br> For more information about supported SMS replies, see [SMS replies](#sms-replies).|Enter the **Country code** and the **Phone number** for the SMS recipient. If you can't select your country/region code in the Azure portal, SMS isn't supported for your country/region. If your country/region code isn't available, you can vote to have your country/region added at [Share your ideas](https://feedback.azure.com/d365community/idea/e527eaa6-2025-ec11-b6e6-000d3a4f09d0). As a workaround until your country is supported, configure the action group to call a webhook to a third-party SMS provider that supports your country/region.|
         |Azure app Push notifications|Send notifications to the Azure mobile app. To enable push notifications to the Azure mobile app, provide the For more information about the Azure mobile app, see [Azure mobile app](https://azure.microsoft.com/features/azure-portal/mobile-app/).|In the **Azure account email** field, enter the email address that you use as your account ID when you configure the Azure mobile app. |
@@ -70,7 +73,7 @@ Global requests from clients can be processed by action group services in any re
 1. Configure actions. Select **Next: Actions**. or select the **Actions** tab at the top of the page.
 1. Define a list of actions to trigger when an alert is triggered. Select an action type and enter a name for each action.
 
-    |Action type     |Details  |
+    |Action type|Details  |
     |---------|---------|
     |Automation Runbook|For information about limits on Automation runbook payloads, see [Automation limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits). |
     |Event hubs |An Event Hubs action publishes notifications to Event Hubs. For more information about Event Hubs, see [Azure Event Hubs—A big data streaming platform and event ingestion service](../../event-hubs/event-hubs-about.md). You can subscribe to the alert notification stream from your event receiver.         |
@@ -334,9 +337,9 @@ Rate limiting applies across all subscriptions. Rate limiting is applied as soon
 
 When an email address is rate limited, a notification is sent to communicate that rate limiting was applied and when the rate limiting expires.
 
-## Email
+## Email Azure Resource Manager
 
-When you use email notifications, you can send email to the members of a subscription's role. Email is only sent to Azure Active Directory (Azure AD) **user** members of the role. Email isn't sent to Azure AD groups or service principals.
+When you use Azure Resource Manager for email notifications, you can send email to the members of a subscription's role. Email is only sent to Azure Active Directory (Azure AD) **user** members of the role. Email isn't sent to Azure AD groups or service principals.
 
 A notification email is sent only to the primary email address.
 
@@ -395,7 +398,7 @@ These replies are supported for SMS notifications. The recipient of the SMS can 
 >If a user has unsubscribed from SMS alerts, but is then added to a new action group; they WILL receive SMS alerts for that new action group, but remain unsubscribed from all previous action groups.
 
 You might have a limited number of Azure app actions per action group.
-### Countries with SMS notification support
+### Countries/Regions with SMS notification support
 
 | Country code | Country |
 |:---|:---|
@@ -412,7 +415,7 @@ You might have a limited number of Azure app actions per action group.
 | 358 | Finland |
 | 33 | France |
 | 49 | Germany |
-| 852 | Hong Kong |
+| 852 | Hong Kong Special Administrative Region|
 | 91 | India |
 | 353 | Ireland |
 | 972 | Israel |
@@ -448,7 +451,7 @@ You might have a limited number of voice actions per action group.
 >
 > If you can't select your country/region code in the Azure portal, voice calls aren't supported for your country/region. If your country/region code isn't available, you can vote to have your country/region added at [Share your ideas](https://feedback.azure.com/d365community/idea/e527eaa6-2025-ec11-b6e6-000d3a4f09d0). In the meantime, as a workaround, configure your action group to call a webhook to a third-party voice call provider that offers support in your country/region.
 
-### Countries with Voice notification support
+### Countries/Regions with Voice notification support
 | Country code | Country |
 |:---|:---|
 | 61 | Australia |

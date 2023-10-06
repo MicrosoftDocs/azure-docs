@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.custom: synapse
 ms.topic: how-to
 ms.subservice: tutorials
-ms.date: 08/10/2022
+ms.date: 07/20/2023
 ---
 
 # Send notifications to a Microsoft Teams channel from an Azure Data Factory or Synapse Analytics pipeline
@@ -171,7 +171,7 @@ Before you can send notifications to Teams from your pipelines, you must create 
                 "targets": [
                     {
                         "os": "default",
-                        "uri": "@{concat('https://adf.azure.com/monitoring/pipelineruns/',pipeline().parameters.runId,'?factory=/subscriptions/',pipeline().parameters.subscription,'/resourceGroups/',pipeline().parameters.resourceGroup,'/providers/Microsoft.DataFactory/factories/',pipeline().DataFactory)}"
+                        "uri": "@{concat('https://synapse.azure.com/monitoring/pipelineruns/',pipeline().parameters.runId,'?factory=/subscriptions/',pipeline().parameters.subscription,'/resourceGroups/',pipeline().parameters.resourceGroup,'/providers/Microsoft.DataFactory/factories/',pipeline().DataFactory)}"
                     }
                 ]
             }
@@ -329,7 +329,7 @@ Before you can send notifications to Teams from your pipelines, you must create 
                 "targets": [
                     {
                         "os": "default",
-                        "uri": "@{concat('https://adf.azure.com/monitoring/pipelineruns/',pipeline().parameters.runId,'?factory=/subscriptions/',pipeline().parameters.subscription,'/resourceGroups/',pipeline().parameters.resourceGroup,'/providers/Microsoft.DataFactory/factories/',pipeline().DataFactory)}"
+                        "uri": "@{concat('https://web.azuresynapse.net/monitoring/pipelineruns/',pipeline().parameters.runId,'?workspace=%2Fsubscriptions%2F',pipeline().parameters.subscription,'%2FresourceGroups%2F',pipeline().parameters.resourceGroup,'%2Fproviders%2FMicrosoft.Synapse%2Fworkspaces%2F',pipeline().DataFactory)}"
                     }
                 ]
             }

@@ -95,6 +95,8 @@
         href: manage-vm-extensions-powershell.md
       - name: Deploy extensions using ARM template
         href: manage-vm-extensions-template.md
+      - name: Deploy extensions using Ansible
+        href: manage-vm-extensions-ansible.md
       - name: Automatic extension upgrade
         href: manage-automatic-vm-extension-upgrade.md
     - name: Use managed identities on server
@@ -111,6 +113,8 @@
       href: scenario-onboard-azure-sentinel.md
     - name: Migrate to Azure Monitor Agent using Ansible
       href: migrate-azure-monitor-agent-ansible.md
+    - name: Deploy and configure Azure Monitor Agent using Azure Policy
+      href: deploy-ama-policy.md
     - name: Organize and inventory servers
       href: organize-inventory-servers.md
     - name: Onboard to Microsoft Defender for Cloud
@@ -123,6 +127,18 @@
       href: ssh-arc-overview.md
     - name: Troubleshoot SSH access to Azure Arc-enabled servers
       href: ssh-arc-troubleshoot.md
+  - name: Extended Security Updates
+    items:
+    - name: Prepare to deliver Extended Security Updates
+      href: prepare-extended-security-updates.md
+    - name: License provisioning for Extended Security Updates
+      href: license-extended-security-updates.md
+    - name: Deliver Extended Security Updates
+      href: deliver-extended-security-updates.md
+    - name: Programmatically manage Extended Security Updates licenses
+      href: api-extended-security-updates.md
+    - name: Troubleshoot Extended Security Updates
+      href: troubleshoot-extended-security-updates.md
   - name: Troubleshooting
     items:
     - name: Agent connection issues
@@ -160,7 +176,7 @@
   - name: Azure PowerShell
     href: /powershell/module/az.connectedmachine/
   - name: .NET
-    href: /dotnet/api/overview/azure/hybridcompute/management/management-hybridcompute
+    href: /dotnet/api/microsoft.azure.management.hybridcompute.hybridcomputemanagementclient.apiversion
   - name: Azure Stack HCI REST
     href: /rest/api/stackhci/
   - name: REST
@@ -176,7 +192,19 @@
   - name: Azure Policy built-ins 
     displayName: samples, policies, definitions
     href: policy-reference.md
+  - name: License terms
+    href: /legal/azure-arc/license-terms?toc=/azure/azure-arc/servers/toc.json&bc=/azure/azure-arc/servers/breadcrumb/toc.json
 - name: Resources
   items:
-  - name: Azure Arc jumpstart
+  - name: Azure Arc Jumpstart
     href: https://azurearcjumpstart.io
+  - name: Microsoft Q&A for Azure Arc
+    href: /answers/tags/146/azure-arc
+  - name: Azure updates
+    href: https://azure.microsoft.com/updates/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Regional availability
+    href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-arc&regions=all
+  - name: Product feedback
+    href: https://feedback.azure.com/d365community/forum/5c778dec-0625-ec11-b6e6-000d3a4f0858

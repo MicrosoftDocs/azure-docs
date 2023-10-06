@@ -208,7 +208,7 @@ To deploy the template, follow the instructions for [Azure Resource Manager][lnk
 > If there are no IP and virtual network rules, all the traffic flows into the namespace even if you set the `defaultAction` to `deny`.  The namespace can be accessed over the public internet (using the access key). Specify at least one IP rule or virtual network rule for the namespace to allow traffic only from the specified IP addresses or subnet of a virtual network.  
 
 ## Use Azure CLI
-Use [`az servicebus namespace network-rule`](/cli/azure/servicebus/namespace/network-rule) add, list, update, and remove commands to manage virtual network rules for a Service Bus namespace.
+Use [`az servicebus namespace network-rule-set`](/cli/azure/servicebus/namespace/network-rule-set) add, list, update, and remove commands to manage virtual network rules for a Service Bus namespace.
 
 ## Use Azure PowerShell
 Use the following Azure PowerShell commands to add, list, remove, update, and delete network rules for a Service Bus namespace. 
@@ -228,7 +228,7 @@ From API version **2021-06-01-preview onwards**, the default value of the `defau
 
 The API version **2021-06-01-preview onwards** also introduces a new property named `publicNetworkAccess`. If it's set to `Disabled`, operations are restricted to private links only. If it's set to `Enabled`, operations are allowed over the public internet. 
 
-For more information about these properties, see [Create or Update Network Rule Set](/rest/api/servicebus/preview/namespaces-network-rule-set/create-or-update-network-rule-set) and [Create or Update Private Endpoint Connections](/rest/api/servicebus/preview/private-endpoint-connections/create-or-update).
+For more information about these properties, see [Create or Update Network Rule Set](/rest/api/servicebus/controlplane-preview/namespaces-network-rule-set/create-or-update-network-rule-set) and [Create or Update Private Endpoint Connections](/rest/api/servicebus/controlplane-preview/private-endpoint-connections/create-or-update).
 
 > [!NOTE]
 > None of the above settings bypass validation of claims via SAS or Azure AD authentication. The authentication check always runs after the service validates the network checks that are configured by `defaultAction`, `publicNetworkAccess`, `privateEndpointConnections` settings.

@@ -1,5 +1,5 @@
 ---
-title: Issuer service communication examples - Entra Verified ID
+title: Issuer service communication examples - Microsoft Entra Verified ID
 description: Details of communication between identity provider and issuer service
 author: barclayn
 manager: amycolannino
@@ -7,7 +7,7 @@ ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/01/2021
+ms.date: 05/25/2023
 ms.author: barclayn
 # Customer intent: As a developer I am looking for information on how to enable my users to control their own information 
 ---
@@ -36,7 +36,7 @@ Examples of the HTTP requests sent to your identity provider are included below.
 
 To receive a verifiable credential, your users need to sign into your IDP from the Microsoft Authenticator app. 
 
-To enable this exchange, register an application with your identity provider. If you are using Azure AD, you can find the instructions [here](../develop/quickstart-register-app.md). Use the following values when registering.
+To enable this exchange, register an application with your identity provider. If you are using Microsoft Entra ID, you can find the instructions [here](../develop/quickstart-register-app.md). Use the following values when registering.
 
 | Setting | Value |
 | ------- | ----- |

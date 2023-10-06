@@ -9,9 +9,7 @@ ms.date: 04/27/2023
 
 **Episode description**: In this episode of Defender for Cloud in the field, Maya Herskovic joins Yuri Diogenes to talk about Microsoft Defender for Containers. Maya explains what's new in Microsoft Defender for Containers, the new capabilities that are available, the new pricing model, and the multicloud coverage. Maya also demonstrates the overall experience of Microsoft Defender for Containers from the recommendations to the alerts that you may receive.
 
-<br>
-<br>
-<iframe src="https://aka.ms/docs/player?id=b8624912-ef9e-4fc6-8c0c-ea65e86d9128" width="1080" height="530" allowFullScreen="true" frameBorder="0"></iframe>
+> [!VIDEO https://aka.ms/docs/player?id=b8624912-ef9e-4fc6-8c0c-ea65e86d9128]
 
 - [1:09](/shows/mdc-in-the-field/defender-for-containers#time=01m09s) - What's new in the Defender for Containers plan?
 

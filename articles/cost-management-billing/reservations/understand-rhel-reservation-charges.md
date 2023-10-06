@@ -26,22 +26,7 @@ For example, if you buy a plan for Red Hat Linux Enterprise Server for a VM with
 - 1 deployed VMs with 1 to 4 vCPUs,
 - or 0.46 or about 46% of Red Hat Enterprise Linux costs for a VM with 5 or more vCPUs.
 
-### Red Hat Enterprise Linux
-
-Azure portal marketplace names:
-- Red Hat Enterprise Linux 6.7
-- Red Hat Enterprise Linux 6.8
-- Red Hat Enterprise Linux 6.9
-- Red Hat Enterprise Linux 6.10
-- Red Hat Enterprise Linux 7
-- Red Hat Enterprise Linux 7.2
-- Red Hat Enterprise Linux 7.3
-- Red Hat Enterprise Linux 7.4
-- Red Hat Enterprise Linux 7.5
-- Red Hat Enterprise Linux 7.6
-- Red Hat Enterprise Linux 8.2
-
-[Check Red Hat Enterprise Linux meters that the plan applies to](https://phoenixnap.com/kb/how-to-check-redhat-version)
+For more information to [Review RedHat VM usage before you buy](understand-suse-reservation-charges.md#review-redhat-vm-usage-before-you-buy)
 
 ## Next steps
 

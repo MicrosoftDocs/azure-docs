@@ -1,7 +1,7 @@
 ---
 title: Allow the Azure portal URLs on your firewall or proxy server
 description: To optimize connectivity between your network and the Azure portal and its services, we recommend you add these URLs to your allowlist.
-ms.date: 10/12/2022
+ms.date: 09/14/2023
 ms.topic: conceptual
 ---
 
@@ -20,6 +20,11 @@ You can use [service tags](../virtual-network/service-tags-overview.md) to defin
 
 The URL endpoints to allow for the Azure portal are specific to the Azure cloud where your organization is deployed. To allow network traffic to these endpoints to bypass restrictions, select your cloud, then add the list of URLs to your proxy server or firewall. We do not recommend adding any additional portal-related URLs aside from those listed here, although you may want to add URLs related to other Microsoft products and services. Depending on which services you use, you may not need to include all of these URLs in your allowlist.
 
+> [!IMPORTANT]
+> Including the wildcard symbol (\*) at the start of an endpoint will allow all subdomains. For endpoints with wildcards, we also advise you to add the URL without the wildcard. For example, you should add both `*.portal.azure.com` and `portal.azure.com` to ensure that access to the domain is allowed with or without a subdomain.
+>
+> Avoid adding a wildcard symbol to endpoints listed here that don't already include one. Instead, if you identify additional subdomains of an endpoint that are needed for your particular scenario, we recommend that you allow only that particular subdomain.
+
 ### [Public Cloud](#tab/public-cloud)
 
 > [!TIP]
@@ -29,12 +34,12 @@ The URL endpoints to allow for the Azure portal are specific to the Azure cloud 
 #### Azure portal authentication
 
 ```
-*.login.microsoftonline.com
+login.microsoftonline.com
 *.aadcdn.msftauth.net
 *.aadcdn.msftauthimages.net
 *.aadcdn.msauthimages.net
 *.logincdn.msftauth.net
-*.login.live.com
+login.live.com
 *.msauth.net
 *.aadcdn.microsoftonline-p.com
 *.microsoftonline-p.com
@@ -46,7 +51,7 @@ The URL endpoints to allow for the Azure portal are specific to the Azure cloud 
 *.portal.azure.com
 *.hosting.portal.azure.net
 *.reactblade.portal.azure.net
-*.management.azure.com
+management.azure.com
 *.ext.azure.com
 *.graph.windows.net
 *.graph.microsoft.com
@@ -60,7 +65,7 @@ The URL endpoints to allow for the Azure portal are specific to the Azure cloud 
 *.subscriptionrp.trafficmanager.net
 *.signup.azure.com
 ```
- 
+
 #### General Azure services and documentation
 
 ```
@@ -73,6 +78,7 @@ ad.azure.com (Azure AD)
 adf.azure.com (Azure Data Factory)
 api.aadrm.com (Azure AD)
 api.loganalytics.io (Log Analytics Service)
+api.azrbac.mspim.azure.com (Azure AD)
 *.applicationinsights.azure.com (Application Insights Service)
 appservice.azure.com (Azure App Services)
 *.arc.azure.net (Azure Arc)
@@ -121,6 +127,7 @@ azure.status.microsoft (Azure Status)
 storage.azure.com (Azure Storage)
 storage.azure.net (Azure Storage)
 vault.azure.net (Azure Key Vault Service)
+ux.console.azure.com (Azure Cloud Shell)
 ```
 
 ### [U.S. Government Cloud](#tab/us-government-cloud)
@@ -138,12 +145,14 @@ vault.azure.net (Azure Key Vault Service)
 graph.microsoftazure.us
 ```
 
-### [Azure China Cloud](#tab/azure-china-cloud)
+### [Microsoft Azure operated by 21Vianet Cloud](#tab/azure-china-cloud)
 
 ```
 aadcdn.msauth.cn
 aadcdn.msftauth.cn
 login.live.com
+catalogartifact.azureedge.net
+store-images.s-microsoft.com
 *.azure.cn
 *.microsoft.cn
 *.microsoftonline.cn

@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
 ms.service: container-instances
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-linux
 services: container-instances
 ms.date: 06/17/2022
 ---
@@ -118,4 +118,3 @@ Task-based scenarios, such as batch processing a large dataset with several cont
 [az-container-logs]: /cli/azure/container#az_container_logs
 [az-container-show]: /cli/azure/container#az_container_show
 [new-azurermcontainergroup]: /powershell/module/azurerm.containerinstance/new-azurermcontainergroup
-[portal]: https://portal.azure.com

@@ -35,7 +35,7 @@ Features marked with an asterisk (*) are planned to be unswapped.
 * Diagnostic settings
 * Cross-origin resource sharing (CORS)
 * Virtual network integration
-* Managed identities
+* Managed identities and related settings
 * Settings that end with the suffix _EXTENSION_VERSION
 
 > [!NOTE]

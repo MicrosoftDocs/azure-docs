@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: teams-interop
 zone_pivot_groups: acs-js-csharp-java-python
-ms.custom: mode-other
+ms.custom: mode-other, devx-track-extended-java, devx-track-js, devx-track-python, has-azure-ad-ps-ref
 ---
 # Quickstart: Set up and manage access tokens for Teams users
 
@@ -191,5 +191,3 @@ Learn about the following concepts:
 - [Teams interoperability](../concepts/teams-interop.md)
 - [Single-tenant and multi-tenant authentication for Teams users](../concepts/interop/custom-teams-endpoint-authentication-overview.md)
 - [Create and manage Communication access tokens for Teams users in a single-page application (SPA)](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/manage-teams-identity-spa)
-
-

@@ -3,12 +3,12 @@ title: 'Quickstart: Create a public IP address prefix - Azure CLI'
 titleSuffix: Azure Virtual Network
 description: Learn how to create a public IP address prefix using the Azure CLI.
 services: virtual-network
-author: asudbring
+author: mbender-ms
+ms.author: mbender
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: quickstart
-ms.date: 10/01/2021
-ms.author: allensu
+ms.date: 08/24/2023
 ms.custom: mode-api, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -39,7 +39,7 @@ Create a resource group with [az group create](/cli/azure/group#az-group-create)
 
 ## Create a public IP address prefix
 
-In this section, you'll create a zone redundant, zonal, and non-zonal public IP prefix using Azure PowerShell. 
+In this section, you create a zone redundant, zonal, and non-zonal public IP prefix using Azure PowerShell. 
 
 The prefixes in the examples are:
 
@@ -103,7 +103,20 @@ The removal of the **`--zone`** parameter is the default selection for standard 
 
 ---
 
+# [**Routing Preference Internet IPv4 prefix**](#tab/ipv4-routing-pref)
 
+To create a IPv4 public IP prefix with routing preference Internet, enter **RoutingPreference=Internet** in the **`--ip-tags`** parameter.
+
+```azurecli-interactive
+  az network public-ip prefix create \
+    --length 28 \
+    --name myPublicIpPrefix-rpinternet \
+    --resource-group QuickStartCreateIPPrefix-rg \
+    --location eastus2 \
+    --version IPv4
+    --iptags 'RoutingPreference=Internet'
+```
+---
 
 ## IPv6
 
@@ -159,7 +172,7 @@ The removal of the **`--zone`** parameter is the default selection for standard 
 
 ## Create a static public IP address from a prefix
 
-Once you create a prefix, you must create static IP addresses from the prefix. In this section, you'll create a static IP address from the prefix you created earlier.
+Once you create a prefix, you must create static IP addresses from the prefix. In this section, you create a static IP address from the prefix you created earlier.
 
 Create a public IP address with [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) in the **myPublicIpPrefix** prefix.
 
@@ -198,7 +211,7 @@ To create a IPv6 public IP prefix, enter **IPv6** in the **`--version`** paramet
 
 ## Delete a prefix
 
-In this section, you'll learn how to delete a prefix.
+In this section, you learn how to delete a prefix.
 
 To delete a public IP prefix, use [az network public-ip prefix delete](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-delete).
 

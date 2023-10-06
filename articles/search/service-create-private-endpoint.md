@@ -16,7 +16,7 @@ In this article, you'll learn how to secure an Azure Cognitive Search service so
 
 + [Create an Azure virtual network](#create-the-virtual-network) (or use an existing one)
 + [Create a search service to use a private endpoint](#create-a-search-service-with-a-private-endpoint)
-+ [Create a Azure virtual machine in the same virtual network](#create-a-virtual-machine)
++ [Create an Azure virtual machine in the same virtual network](#create-a-virtual-machine)
 + [Connect to search using a browser session on the virtual machine](#connect-to-the-vm)
 
 Private endpoints are provided by [Azure Private Link](../private-link/private-link-overview.md), as a separate billable service. For more information about costs, see the [pricing page](https://azure.microsoft.com/pricing/details/private-link/).
@@ -128,7 +128,7 @@ In this section, you'll create a new Azure Cognitive Search service with a Priva
     | VM architecture | Accept the default **x64**. |
     | Size | Accept the default **Standard D2S v3**. |
     | **ADMINISTRATOR ACCOUNT** |  |
-    | Username | Enter the user name of the administrator. Use an account that's valid for your Azure subscription. You'll want to sign into Azure portal from the VM so that you can manage your search service. |
+    | Username | Enter the user name of the administrator. Use an account that's valid for your Azure subscription. You'll want to sign in to the Azure portal from the VM so that you can manage your search service. |
     | Password | Enter the account password. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).|
     | Confirm Password | Reenter password. |
     | **INBOUND PORT RULES** |  |
@@ -225,7 +225,7 @@ To work around this restriction, connect to Azure portal from a browser on a vir
 
 1. Follow the [steps to provision a VM that can access the search service through a private endpoint](#create-virtual-machine-private-endpoint).
 
-1. On a virtual machine in your virtual network, open a browser and sign into the Azure portal. The portal will use the private endpoint attached to the virtual machine to connect to your search service.
+1. On a virtual machine in your virtual network, open a browser and sign in to the Azure portal. The portal will use the private endpoint attached to the virtual machine to connect to your search service.
 
 ## Clean up resources
 

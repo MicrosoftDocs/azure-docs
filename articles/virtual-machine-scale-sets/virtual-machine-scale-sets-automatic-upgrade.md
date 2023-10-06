@@ -6,7 +6,8 @@ ms.author: jushiman
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.subservice: automatic-os-upgrade
-ms.date: 11/22/2022
+ms.custom: devx-track-linux
+ms.date: 07/25/2023
 ms.reviewer: mimckitt
 ---
 # Azure Virtual Machine Scale Set automatic OS image upgrades
@@ -66,6 +67,8 @@ The region of a scale set becomes eligible to get image upgrades either through 
 
 The scale set OS upgrade orchestrator checks for the overall scale set health before upgrading every batch. While you're upgrading a batch, there could be other concurrent planned or unplanned maintenance activities that could impact the health of your scale set instances. In such cases if more than 20% of the scale set's instances become unhealthy, then the scale set upgrade stops at the end of current batch.
 
+To modify the default settings associated with Rolling Upgrades, review Azure's [Rolling Upgrade Policy](/rest/api/compute/virtual-machine-scale-sets/create-or-update?tabs=HTTP#rollingupgradepolicy).
+
 > [!NOTE]
 >Automatic OS upgrade does not upgrade the reference image Sku on the scale set. To change the Sku (such as Ubuntu 18.04-LTS to 20.04-LTS), you must update the [scale set model](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-model) directly with the desired image Sku. Image publisher and offer can't be changed for an existing scale set.  
 
@@ -104,11 +107,12 @@ The following platform SKUs are currently supported (and more are added periodic
 | MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter |
 | MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-smalldisk |
 | MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-smalldisk-g2 |
-| MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-azure-edition |
 | MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-core |
 | MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-core-smalldisk |
 | MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-g2 |
 | MicrosoftWindowsServer  | WindowsServer | Datacenter-core-20h2-with-containers-smalldisk-gs |
+| MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-azure-edition |
+| MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-azure-edition-smalldisk |
 
 
 ## Requirements for configuring automatic OS image upgrade
@@ -145,7 +149,7 @@ Automatic OS image upgrade is supported for custom images deployed through [Azur
 - The new image version should not be excluded from the latest version for that gallery image. Image versions excluded from the gallery image's latest version are not rolled out to the scale set through automatic OS image upgrade.
 
 > [!NOTE]
->It can take up to 3 hours for a scale set to trigger the first image upgrade rollout after the scale set is first configured for automatic OS upgrades. This is a one-time delay per scale set. Subsequent image rollouts are triggered on the scale set within 30-60 minutes.
+> It can take up to 3 hours for a scale set to trigger the first image upgrade rollout after the scale set is first configured for automatic OS upgrades due to certain factors such as Maintenance Windows or other restrictions. Customers on the latest image may not get an upgrade until a new image is available. 
 
 
 ## Configure automatic OS image upgrade
@@ -202,13 +206,14 @@ The following example describes how to set automatic OS upgrades on a scale set 
          "MaxUnhealthyInstancePercent": 25,
          "MaxUnhealthyUpgradedInstancePercent": 25,
          "PauseTimeBetweenBatches": "PT0S"
-      "automaticOSUpgradePolicy": { 
-        "enableAutomaticOSUpgrade": true,
-         "useRollingUpgradePolicy": true,
-         "disableAutomaticRollback": false 
-      } 
-    }
-   },
+     },
+    "automaticOSUpgradePolicy": { 
+      "enableAutomaticOSUpgrade": true,
+        "useRollingUpgradePolicy": true,
+        "disableAutomaticRollback": false 
+    } 
+  },
+  },
 "imagePublisher": {
    "type": "string",
    "defaultValue": "MicrosoftWindowsServer"
@@ -224,8 +229,8 @@ The following example describes how to set automatic OS upgrades on a scale set 
  "imageOSVersion": {
    "type": "string",
    "defaultValue": "latest"
- } 
-}
+ }
+
 ```
 
 ### Bicep
@@ -240,6 +245,7 @@ properties: {
         enableAutomaticOSUpgrade: true 
       } 
     } 
+}
 ```
 
 ## Using Application Health Probes
@@ -250,7 +256,11 @@ A scale set can optionally be configured with Application Health Probes to provi
 
 If the scale set is configured to use multiple placement groups, probes using a [Standard Load Balancer](../load-balancer/load-balancer-overview.md) need to be used.
 
+> [!NOTE]
+> Only one source of health monitoring can be used for a Virtual Machine Scale Set, either an Application Health Extension or a Health Probe. If you have both options enabled, you will need to remove one before using orchestration services like Instance Repairs or Automatic OS Upgrades. 
+
 ### Configuring a Custom Load Balancer Probe as Application Health Probe on a scale set
+
 As a best practice, create a load balancer probe explicitly for scale set health. The same endpoint for an existing HTTP probe or TCP probe can be used, but a health probe could require different behavior from a traditional load-balancer probe. For example, a traditional load balancer probe could return unhealthy if the load on the instance is too high, but that would not be appropriate for determining the instance health during an automatic OS upgrade. Configure the probe to have a high probing rate of less than two minutes.
 
 The load-balancer probe can be referenced in the *networkProfile* of the scale set and can be associated with either an internal or public facing load-balancer as follows:
@@ -269,6 +279,7 @@ The load-balancer probe can be referenced in the *networkProfile* of the scale s
 > When using Automatic OS Upgrades with Service Fabric, the new OS image is rolled out Update Domain by Update Domain to maintain high availability of the services running in Service Fabric. To utilize Automatic OS Upgrades in Service Fabric your cluster node type must be configured to use the Silver Durability Tier or higher. For Bronze Durability tier, automatic OS image upgrade is only supported for Stateless node types. For more information on the durability characteristics of Service Fabric clusters, please see [this documentation](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster).
 
 ### Keep credentials up to date
+
 If your scale set uses any credentials to access external resources, such as a VM extension configured to use a SAS token for storage account, then ensure that the credentials are updated. If any credentials, including certificates and tokens, have expired, the upgrade will fail and the first batch of VMs will be left in a failed state.
 
 The recommended steps to recover VMs and re-enable automatic OS upgrade if there's a resource authentication failure are:
@@ -279,11 +290,15 @@ The recommended steps to recover VMs and re-enable automatic OS upgrade if there
 * Deploy the updated scale set, which will update all VM instances including the failed ones.
 
 ## Using Application Health extension
+
 The Application Health extension is deployed inside a Virtual Machine Scale Set instance and reports on VM health from inside the scale set instance. You can configure the extension to probe on an application endpoint and update the status of the application on that instance. This instance status is checked by Azure to determine whether an instance is eligible for upgrade operations.
 
 As the extension reports health from within a VM, the extension can be used in situations where external probes such as Application Health Probes (that utilize custom Azure Load Balancer [probes](../load-balancer/load-balancer-custom-probe-overview.md)) can’t be used.
 
 There are multiple ways of deploying the Application Health extension to your scale sets as detailed in the examples in [this article](virtual-machine-scale-sets-health-extension.md#deploy-the-application-health-extension).
+
+> [!NOTE]
+> Only one source of health monitoring can be used for a Virtual Machine Scale Set, either an Application Health Extension or a Health Probe. If you have both options enabled, you will need to remove one before using orchestration services like Instance Repairs or Automatic OS Upgrades. 
 
 ## Get the history of automatic OS image upgrades
 You can check the history of the most recent OS upgrade performed on your scale set with Azure PowerShell, Azure CLI 2.0, or the REST APIs. You can get history for the last five OS upgrade attempts within the past two months.

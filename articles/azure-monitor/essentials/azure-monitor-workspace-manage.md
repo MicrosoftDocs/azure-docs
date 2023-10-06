@@ -1,10 +1,11 @@
 ---
-title: Manage an Azure Monitor workspace (preview)
+title: Manage an Azure Monitor workspace
 description: How to create and delete Azure Monitor workspaces.
 author: EdB-MSFT
 ms.author: edbaynash 
 ms.reviewer: poojaa
 ms.topic: conceptual
+ms.custom: devx-track-azurecli
 ms.date: 03/28/2023
 ---
 
@@ -31,7 +32,7 @@ This article shows you how to create and delete an Azure Monitor workspace. When
 Use the following command to create an Azure Monitor workspace using Azure CLI.
 
 ```azurecli
-az resource create --resource-group <resource-group-name> --namespace microsoft.monitor --resource-type accounts --name <azure-monitor-workspace-name> --location <location> --properties {}
+az resource create --resource-group <resource-group-name> --namespace microsoft.monitor --resource-type accounts --name <azure-monitor-workspace-name> --location <location> --properties "{}"
 ```
 
 ### [Resource Manager](#tab/resource-manager)
@@ -157,11 +158,11 @@ Output
 ### [Resource Manager](#tab/resource-manager)  
   
 
-To set up an Azure monitor workspace as a data source for Grafana using a Resource Manager template, see [Collect Prometheus metrics from AKS cluster (preview)](prometheus-metrics-enable.md?tabs=resource-manager#enable-prometheus-metric-collection)
+To set up an Azure monitor workspace as a data source for Grafana using a Resource Manager template, see [Collect Prometheus metrics from AKS cluster](prometheus-metrics-enable.md?tabs=resource-manager#enable-prometheus-metric-collection)
 
 ---
 
-If your Grafana instance is self managed, see [Use Azure Monitor managed service for Prometheus (preview) as data source for self-managed Grafana using managed system identity](./prometheus-self-managed-grafana-azure-active-directory.md)
+If your Grafana instance is self managed, see [Use Azure Monitor managed service for Prometheus as data source for self-managed Grafana using managed system identity](./prometheus-self-managed-grafana-azure-active-directory.md)
 
 
 

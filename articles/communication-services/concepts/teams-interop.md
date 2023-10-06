@@ -2,7 +2,7 @@
 title: Teams interoperability
 titleSuffix: An Azure Communication Services concept document
 description: Teams interoperability
-author: chpalm
+author: tophpalmer
 ms.author: chpalm
 ms.date: 06/30/2021
 ms.topic: conceptual

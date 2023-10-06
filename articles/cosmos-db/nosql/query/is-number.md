@@ -1,76 +1,52 @@
 ---
-title: IS_NUMBER in Azure Cosmos DB query language
-description: Learn about SQL system function IS_NUMBER in Azure Cosmos DB.
-author: seesharprun
+title: IS_NUMBER
+titleSuffix: Azure Cosmos DB for NoSQL
+description: An Azure Cosmos DB for NoSQL system function that returns true if the type of the specified expression is a number.
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.topic: conceptual
-ms.date: 09/13/2019
-ms.author: sidandrews
-ms.custom: query-reference, ignite-2022
+ms.topic: reference
+ms.date: 09/21/2023
+ms.custom: query-reference
 ---
 
-# IS_NUMBER (Azure Cosmos DB)
+# IS_NUMBER (NoSQL query)
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
-Returns a Boolean value indicating if the type of the specified expression is a number.  
-  
+Returns a boolean value indicating if the type of the specified expression is a number.
+
 ## Syntax
-  
+
 ```sql
 IS_NUMBER(<expr>)  
 ```  
   
 ## Arguments
-  
-*expr*  
-  Is any expression.  
+
+| | Description |
+| --- | --- |
+| **`expr`** | Any expression. |
   
 ## Return types
   
-Returns a Boolean expression.  
+Returns a boolean expression.  
   
 ## Examples
-  
-The following example checks objects of JSON Boolean, number, string, null, object, array, and undefined types using the `IS_NUMBER` function.  
-  
-```sql
-SELECT   
-    IS_NUMBER(true) AS isBooleanANumber,   
-    IS_NUMBER(1) AS isNumberANumber, 
-    IS_NUMBER("value") AS isTextStringANumber, 
-    IS_NUMBER("1") AS isNumberStringANumber,
-    IS_NUMBER(null) AS isNullANumber,  
-    IS_NUMBER({prop: "value"}) AS isObjectANumber,   
-    IS_NUMBER([1, 2, 3]) AS isArrayANumber,  
-    IS_NUMBER({stringProp: "value"}.stringProp) AS isObjectStringPropertyANumber, 
-    IS_NUMBER({numberProp: 1}.numberProp) AS isObjectNumberPropertyANumber  
-```  
 
-Here's the result set.  
-  
-```json
-[
-    {
-        "isBooleanANumber": false,
-        "isNumberANumber": true,
-        "isTextStringANumber": false,
-        "isNumberStringANumber": false,
-        "isNullANumber": false,
-        "isObjectANumber": false,
-        "isArrayANumber": false,
-        "isObjectStringPropertyANumber": false,
-        "isObjectNumberPropertyANumber": true
-    }
-]
-```  
+The following example various values to see if they're a number.
+
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/is-number/query.sql" highlight="2-9":::
+
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/is-number/result.json":::
 
 ## Remarks
 
-This system function will benefit from a [range index](../../index-policy.md#includeexclude-strategy).
+- This function benefits from a [range index](../../index-policy.md#includeexclude-strategy).
 
-## Next steps
+## Related content
 
-- [Type checking functions Azure Cosmos DB](type-checking-functions.md)
-- [System functions Azure Cosmos DB](system-functions.md)
-- [Introduction to Azure Cosmos DB](../../introduction.md)
+- [System functions](system-functions.yml)
+- [`IS_FINITE_NUMBER`](is-finite-number.md)

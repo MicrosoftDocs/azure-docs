@@ -52,7 +52,7 @@ To follow the steps described in this article, you must have:
 
 ## Scenario
 
-In this article, you learn how to use a single API Management instance for internal and external consumers and make it act as a single front end for both on-premises and cloud APIs. You'll create an API Management instance of the newer single-tenant version 2 (stv2) type. You'll also understand how to expose only a subset of your APIs for external consumption by using routing functionality available in Application Gateway. In the example, the APIs are highlighted in green.
+In this article, you learn how to use a single API Management instance for internal and external consumers and make it act as a single front end for both on-premises and cloud APIs. You create an API Management instance of the newer single-tenant version 2 (stv2) type. You also understand how to expose only a subset of your APIs for external consumption by using routing functionality available in Application Gateway. In the example, the APIs are highlighted in green.
 
 In the first setup example, all your APIs are managed only from within your virtual network. Internal consumers can access all your internal and external APIs. Traffic never goes out to the internet. High-performance connectivity can be delivered via Azure ExpressRoute circuits. In the example, the internal consumers are highlighted in orange.
 
@@ -66,7 +66,7 @@ In the first setup example, all your APIs are managed only from within your virt
 * **Listener**: The listener has a front-end port, a protocol (Http or Https, these values are case sensitive), and the TLS/SSL certificate name (if configuring TLS offload).
 * **Rule**: The rule binds a listener to a back-end server pool.
 * **Custom health probe**: Application Gateway, by default, uses IP address-based probes to figure out which servers in `BackendAddressPool` are active. API Management only responds to requests with the correct host header, so the default probes fail. You define a custom health probe to help the application gateway determine that the service is alive and should forward requests.
-* **Custom domain certificates**: To access API Management from the internet, create DNS records to map its host names to the Application Gateway front-end IP address. This mapping ensures that the host name header and certificate sent to Application Gateway and forwarded to API Management are ones that API Management recognizes as valid. In this example, we'll use three certificates. They're for API Management's gateway (the back end), the developer portal, and the management endpoint.
+* **Custom domain certificates**: To access API Management from the internet, create DNS records to map its host names to the Application Gateway front-end IP address. This mapping ensures that the Host header and certificate sent to API Management are valid. In this example, we use three certificates. They're for API Management's gateway (the back end), the developer portal, and the management endpoint.
 
 ### Expose the developer portal and management endpoint externally through Application Gateway
 
@@ -82,6 +82,40 @@ If you use Azure Active Directory or third-party authentication, enable the [coo
 > - `920300`, `920330`, `931130`, `942100`, `942110`, `942180`, `942200`, `942260`, `942340`, `942370` for the administrative mode
 > - `942200`, `942260`, `942370`, `942430`, `942440` for the published portal
 
+## Setting Variables
+
+Throughout this guide, you will need to define several variables. Naming is based on the [Cloud Adoption Framework abbreviation](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-abbreviations) guidance.
+
+```powershell
+# These variables must be changed.
+$subscriptionId = "00000000-0000-0000-0000-000000000000"      # GUID of your Azure subscription
+$domain = "contoso.net"                                       # The custom domain for your certificate
+$apimServiceName = "apim-contoso"                             # API Management service instance name, must be globally unique    
+$apimDomainNameLabel = $apimServiceName                       # Domain name label for API Management's public IP address, must be globally unique
+$apimAdminEmail = "admin@contoso.net"                         # Administrator's email address - use your email address
+
+$gatewayHostname = "api.$domain"                              # API gateway host
+$portalHostname = "portal.$domain"                            # API developer portal host
+$managementHostname = "management.$domain"                    # API management endpoint host
+
+$baseCertPath = "C:\Users\Contoso\"                           # The base path where all certificates are stored
+$trustedRootCertCerPath = "${baseCertPath}trustedroot.cer"    # Full path to contoso.net trusted root .cer file
+$gatewayCertPfxPath = "${baseCertPath}gateway.pfx"            # Full path to api.contoso.net .pfx file
+$portalCertPfxPath = "${baseCertPath}portal.pfx"              # Full path to portal.contoso.net .pfx file
+$managementCertPfxPath = "${baseCertPath}management.pfx"      # Full path to management.contoso.net .pfx file
+
+$gatewayCertPfxPassword = "certificatePassword123"            # Password for api.contoso.net pfx certificate
+$portalCertPfxPassword = "certificatePassword123"             # Password for portal.contoso.net pfx certificate
+$managementCertPfxPassword = "certificatePassword123"         # Password for management.contoso.net pfx certificate
+
+
+# These variables may be changed.
+$resGroupName = "rg-apim-agw"                                 # Resource group name that will hold all assets
+$location = "West US"                                         # Azure region that will hold all assets
+$apimOrganization = "Contoso"                                 # Organization name    
+$appgwName = "agw-contoso"                                    # The name of the Application Gateway
+```
+
 ## Create a resource group for Resource Manager
 
 To create a resource group for Azure Resource Manager:
@@ -96,16 +130,13 @@ To create a resource group for Azure Resource Manager:
 
 1. Select the subscription you want.
     
-    ```powershell
-    $subscriptionId = "00000000-0000-0000-0000-000000000000" # GUID of your Azure subscription
+    ```powershell    
     Get-AzSubscription -Subscriptionid $subscriptionId | Select-AzSubscription
     ```
 
 1. Create a resource group. You can skip this step if you're using an existing resource group.
 
-    ```powershell
-    $resGroupName = "apim-appGw-RG" # resource group name
-    $location = "West US"           # Azure region
+    ```powershell    
     New-AzResourceGroup -Name $resGroupName -Location $location
     ```
 
@@ -126,7 +157,7 @@ The following example shows how to create a virtual network by using Resource Ma
         Internet -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 443
         
     $appGwNsg = New-AzNetworkSecurityGroup -ResourceGroupName $resGroupName -Location $location -Name `
-        "NSG-APPGW" -SecurityRules $appGwRule1, $appGwRule2
+        "nsg-agw" -SecurityRules $appGwRule1, $appGwRule2
     ```
     
 1.  Create a network security group (NSG) and NSG rules for the API Management subnet. [API Management stv2 requires several specific NSG rules](api-management-using-with-internal-vnet.md#enable-vnet-connection).
@@ -146,7 +177,7 @@ The following example shows how to create a virtual network by using Resource Ma
         -SourcePortRange * -DestinationAddressPrefix AzureKeyVault -DestinationPortRange 443
     
     $apimNsg = New-AzNetworkSecurityGroup -ResourceGroupName $resGroupName -Location $location -Name `
-        "NSG-APIM" -SecurityRules $apimRule1, $apimRule2, $apimRule3, $apimRule4
+        "nsg-apim" -SecurityRules $apimRule1, $apimRule2, $apimRule3, $apimRule4
     ```
 
 1. Assign the address range 10.0.0.0/24 to the subnet variable to be used for Application Gateway while you create a virtual network.
@@ -161,10 +192,10 @@ The following example shows how to create a virtual network by using Resource Ma
     $apimSubnet = New-AzVirtualNetworkSubnetConfig -Name "apimSubnet" -NetworkSecurityGroup $apimNsg -AddressPrefix "10.0.1.0/24"
     ```
 
-1. Create a virtual network named **appgwvnet** in resource group **apim-appGw-RG** for the West US region. Use the prefix 10.0.0.0/16 with subnets 10.0.0.0/24 and 10.0.1.0/24.
+1. Create a virtual network named **vnet-contoso**. Use the prefix 10.0.0.0/16 with subnets 10.0.0.0/24 and 10.0.1.0/24.
 
     ```powershell
-    $vnet = New-AzVirtualNetwork -Name "appgwvnet" -ResourceGroupName $resGroupName `
+    $vnet = New-AzVirtualNetwork -Name "vnet-contoso" -ResourceGroupName $resGroupName `
       -Location $location -AddressPrefix "10.0.0.0/16" -Subnet $appGatewaySubnet,$apimSubnet
     ```
 
@@ -183,7 +214,7 @@ The following example shows how to create an API Management instance in a virtua
 
     ```powershell
     $apimPublicIpAddressId = New-AzPublicIpAddress -ResourceGroupName $resGroupName -name "pip-apim" -location $location `
-        -AllocationMethod Static -Sku Standard -Force -DomainNameLabel "apim-contoso"
+        -AllocationMethod Static -Sku Standard -Force -DomainNameLabel $apimDomainNameLabel
     ```
 
 1. Create an API Management virtual network object by using the subnet `$apimSubnetData` you created.
@@ -195,11 +226,6 @@ The following example shows how to create an API Management instance in a virtua
 1. Create an API Management instance inside the virtual network. This example creates the service in the Developer service tier. Substitute a unique name for your API Management instance.
     
     ```powershell
-    $domain = "contoso.net"
-    $apimServiceName = "ContosoApi"       # API Management service instance name, must be globally unique
-    $apimOrganization = "Contoso"         # Organization name
-    $apimAdminEmail = "admin@contoso.net" # Administrator's email address
-    
     $apimService = New-AzApiManagement -ResourceGroupName $resGroupName -Location $location -Name $apimServiceName -Organization $apimOrganization `
         -AdminEmail $apimAdminEmail -VirtualNetwork $apimVirtualNetwork -VpnType "Internal" -Sku "Developer" -PublicIpAddressId $apimPublicIpAddressId.Id
     ```
@@ -213,18 +239,6 @@ To set up custom domain names in API Management:
 1. Initialize the following variables with the details of the certificates with private keys for the domains and the trusted root certificate. In this example, we use `api.contoso.net`, `portal.contoso.net`, and `management.contoso.net`.  
 
     ```powershell
-    $gatewayHostname = "api.$domain"                                # API gateway host
-    $portalHostname = "portal.$domain"                              # API developer portal host
-    $managementHostname = "management.$domain"                      # API management endpoint host
-    $gatewayCertPfxPath = "C:\Users\Contoso\gateway.pfx"            # Full path to api.contoso.net .pfx file
-    $portalCertPfxPath = "C:\Users\Contoso\portal.pfx"              # Full path to portal.contoso.net .pfx file
-    $managementCertPfxPath = "C:\Users\Contoso\management.pfx"      # Full path to management.contoso.net .pfx file
-    $gatewayCertPfxPassword = "certificatePassword123"              # Password for api.contoso.net pfx certificate
-    $portalCertPfxPassword = "certificatePassword123"               # Password for portal.contoso.net pfx certificate
-    $managementCertPfxPassword = "certificatePassword123"           # Password for management.contoso.net pfx certificate
-    # Path to trusted root CER file used in Application Gateway HTTP settings
-    $trustedRootCertCerPath = "C:\Users\Contoso\trustedroot.cer"    # Full path to contoso.net trusted root .cer file
-    
     $certGatewayPwd = ConvertTo-SecureString -String $gatewayCertPfxPassword -AsPlainText -Force
     $certPortalPwd = ConvertTo-SecureString -String $portalCertPfxPassword -AsPlainText -Force
     $certManagementPwd = ConvertTo-SecureString -String $managementCertPfxPassword -AsPlainText -Force
@@ -361,7 +375,7 @@ All configuration items must be set up before you create the application gateway
 1. Upload the trusted root certificate to be configured on the HTTP settings.
     
     ```powershell
-    $trustedRootCert = New-AzApplicationGatewayTrustedRootCertificate -Name "whitelistcert1" -CertificateFile $trustedRootCertCerPath
+    $trustedRootCert = New-AzApplicationGatewayTrustedRootCertificate -Name "allowlistcert1" -CertificateFile $trustedRootCertCerPath
     ```
 
 1. Configure HTTP back-end settings for the application gateway, including a timeout limit for back-end requests, after which they're canceled. This value is different from the probe timeout.
@@ -435,8 +449,7 @@ To create an Application Gateway resource:
 
 1. Create an application gateway with all the configuration objects from the preceding steps.
 
-    ```powershell
-    $appgwName = "apim-app-gw"
+    ```powershell    
     $appgw = New-AzApplicationGateway -Name $appgwName -ResourceGroupName $resGroupName -Location $location `
       -BackendAddressPools $apimGatewayBackendPool,$apimPortalBackendPool,$apimManagementBackendPool `
       -BackendHttpSettingsCollection $apimPoolGatewaySetting, $apimPoolPortalSetting, $apimPoolManagementSetting `

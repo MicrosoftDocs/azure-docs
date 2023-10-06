@@ -161,9 +161,8 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 ## Microsoft.Automation
 
 > [!IMPORTANT]
-> Runbooks must exist in the same resource group as the Automation Account.
->
-> For information, see [Move your Azure Automation account to another subscription](../../automation/how-to/move-account.md?toc=/azure/azure-resource-manager/toc.json).
+> Runbooks must exist in the same resource group as the Automation Account. 
+> The movement of System assigned managed identity, and User-assigned managed identity takes place automatically with the Automation account. For information, see [Move your Azure Automation account to another subscription](../../automation/how-to/move-account.md?toc=/azure/azure-resource-manager/toc.json).
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
@@ -448,7 +447,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | sharedvmextensions | No | No | No |
 > | sharedvmimages | No | No | No |
 > | sharedvmimages / versions | No | No | No |
-> | snapshots | **Yes** - Full <br> No - Incremental | **Yes** - Full <br> No - Incremental | No - Full <br> No - Incremental |
+> | snapshots | **Yes** - Full <br> No - Incremental | **Yes** - Full <br> No - Incremental | No - Full <br> **Yes** - Incremental |
 > | sshpublickeys | No | No | No |
 > | virtualmachines | **Yes** | **Yes** | **Yes** <br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move Azure VMs. |
 > | virtualmachines / extensions | **Yes** | **Yes** | No |
@@ -681,7 +680,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ---------- |
-> | backupvaults | [**Yes**](../../backup/backup-vault-overview.md#use-azure-portal-to-move-backup-vault-to-a-different-resource-group) | [**Yes**](../../backup/backup-vault-overview.md#use-azure-portal-to-move-backup-vault-to-a-different-subscription) | No |
+> | backupvaults | [**Yes**](../../backup/create-manage-backup-vault.md#use-azure-portal-to-move-backup-vault-to-a-different-resource-group) | [**Yes**](../../backup/create-manage-backup-vault.md#use-azure-portal-to-move-backup-vault-to-a-different-subscription) | No |
 
 ## Microsoft.DataShare
 
@@ -969,7 +968,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | accounts | **Yes** | **Yes** | No. [Learn more](../../azure-monitor/faq.yml#how-do-i-move-an-application-insights-resource-to-a-new-region-). |
+> | accounts | **Yes** | **Yes** | No. [Learn more](../../azure-monitor/app/separate-resources.md#how-do-i-move-an-application-insights-resource-to-a-new-region). |
 > | actiongroups | **Yes** | **Yes** | No |
 > | activitylogalerts | No | No | No |
 > | alertrules | **Yes** | **Yes** | No |
@@ -1078,7 +1077,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | loadtests | No | No | No |
+> | loadtests | Yes | Yes | No |
 
 ## Microsoft.LocationBasedServices
 
@@ -1417,11 +1416,11 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | legacypeerings | No | No | No |
 > | peerasns | No | No | No |
 > | peeringlocations | No | No | No |
-> | peerings | No | No | No |
+> | peerings | **Yes** | **Yes** | No |
 > | peeringservicecountries | No | No | No |
 > | peeringservicelocations | No | No | No |
 > | peeringserviceproviders | No | No | No |
-> | peeringservices | No | No | No |
+> | peeringservices | **Yes** | **Yes** | No |
 
 ## Microsoft.PolicyInsights
 
@@ -1659,7 +1658,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | namespaces | **Yes** | **Yes** | No |
+> | namespaces | **Yes** | **Yes** | Yes (with template)<br/><br/> [Move an Azure Service Bus namespace to another region](../../service-bus-messaging/move-across-regions.md) |
 > | premiummessagingregions | No | No | No |
 > | sku | No | No | No |
 
@@ -1689,6 +1688,15 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | networks | **Yes** | **Yes** | No |
 > | secrets | **Yes** | **Yes** | No |
 > | volumes | **Yes** | **Yes** | No |
+
+## Microsoft.ServiceNetworking
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Resource group | Subscription | Region move |
+> | ------------- | ----------- | ---------- | ----------- |
+> | trafficcontrollers | No | No | No |
+> | associations | No | No | No |
+> | frontends | No | No | No |
 
 ## Microsoft.Services
 

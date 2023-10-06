@@ -161,7 +161,7 @@
       items:
         - name: Partitioning overview
           href: ../partitioning-overview.md
-        - name: Hierarchical partition keys (preview)
+        - name: Hierarchical partition keys
           items:
             - name: Hierarchical partition keys overview
               href: ../hierarchical-partition-keys.md
@@ -193,15 +193,15 @@
           items:
             - name: Serverless overview
               href: ../serverless.md
-            - name: Serverless 1 TB
-              href: ../serverless-1TB.md
+            - name: Serverless Performance
+              href: ../serverless-performance.md
         - name: Choose between autoscale and standard (manual) throughput
           href: ../how-to-choose-offer.md
         - name: Choose between provisioned throughput and serverless
           href: ../throughput-serverless.md
         - name: Best practices for scaling provisioned throughput
           href: ../scaling-provisioned-throughput-best-practices.md
-        - name: Burst capacity (preview)
+        - name: Burst capacity
           items:
             - name: Burst capacity overview
               href: ../burst-capacity.md
@@ -239,6 +239,8 @@
           href: ../change-feed.md
         - name: Change feed design patterns
           href: change-feed-design-patterns.md
+        - name: Change feed modes
+          href: change-feed-modes.md
         - name: Reading change feed
           href: read-change-feed.md
         - name: Change feed processor
@@ -272,6 +274,8 @@
           href: ../analytical-store-introduction.md
         - name: Change data capture (CDC)
           href: ../analytical-store-change-data-capture.md
+        - name: Time travel (preview)
+          href: ../synapse-link-time-travel.md
     - name: Back up and restore
       items:
         - name: Back up and restore introduction
@@ -280,14 +284,26 @@
           items:
             - name: Continuous backup - Introduction
               href: ../continuous-backup-restore-introduction.md
-            - name: Continuous backup - FAQ
-              href: ../continuous-backup-restore-frequently-asked-questions.yml
-            - name: Continuous backup - Resource model
-              href: ../continuous-backup-restore-resource-model.md
-            - name: Latest restorable timestamp
-              href: ../latest-restore-timestamp-continuous-backup.md
-            - name: Auditing restore action with continuous backup
-              href: ../audit-restore-continuous.md
+            - name: Restore
+              items:
+                - name: Restore into a new account
+                  items:
+                    - name: Continuous backup - Resource model
+                      href: ../continuous-backup-restore-resource-model.md
+                    - name: Continuous backup - FAQ
+                      href: ../continuous-backup-restore-frequently-asked-questions.yml
+                    - name: Latest restorable timestamp
+                      href: ../latest-restore-timestamp-continuous-backup.md
+                    - name: Auditing restore action with continuous backup
+                      href: ../audit-restore-continuous.md
+                - name: Restore in the same account (preview)
+                  items:
+                    - name: Introduction
+                      href: ../restore-in-account-continuous-backup-introduction.md
+                    - name: Resource model
+                      href: ../restore-in-account-continuous-backup-resource-model.md
+                    - name: FAQ
+                      href: ../restore-in-account-continuous-backup-frequently-asked-questions.yml
         - name: Periodic backup
           items:
             - name: Introduction
@@ -347,49 +363,15 @@
         - name: Data residency
           href: ../data-residency.md
     - name: Optimize your Azure Cosmos DB costs
-      items:
-        - name: Overview
-          href: ../optimize-costs.yml
-        - name: Free tier
-          href: ../free-tier.md
-          displayName: free tier
-        - name: Limit total account throughput
-          displayName: cost, RUs, RU
-          href: ../limit-total-account-throughput.md
-        - name: Plan and manage costs
-          href: ../plan-manage-costs.md
-        - name: Pricing model
-          href: ../how-pricing-works.md
-        - name: Total Cost of Ownership (TCO)
-          href: ../total-cost-ownership.md
-        - name: Understand your bill
-          displayName: free tier
-          href: ../understand-your-bill.md
-        - name: Optimize provisioned throughput cost
-          displayName: request units, RUs, RU
-          href: ../optimize-cost-throughput.md
-        - name: Optimize request cost
-          displayName: request, cost, read, write, query, queries, RUs, RU
-          href: ../optimize-cost-reads-writes.md
-        - name: Optimize storage cost
-          href: ../optimize-cost-storage.md
-        - name: Optimize multi-region cost
-          href: ../optimize-cost-regions.md
-        - name: Optimize development/testing cost
-          displayName: free tier
-          href: ../optimize-dev-test.md
-        - name: Optimize cost with reserved capacity
-          href: ../reserved-capacity.md
-        - name: Optimize using rate limiting
-          href: ../rate-limiting-requests.md
-        - name: Use the emulator
-          href: ../local-emulator.md
+      href: ../optimize-costs.yml
     - name: Jupyter notebooks
       items:
         - name: Overview
           href: ../notebooks-overview.md
         - name: FAQ
           href: ../notebooks-faq.yml
+    - name: Emulator
+      href: ../emulator.md
 - name: How to
   items:
     - name: Access preview features
@@ -418,6 +400,24 @@
                   href: how-to-dotnet-read-item.md
                 - name: Query items
                   href: how-to-dotnet-query-items.md
+        - name: JavaScript
+          items:
+            - name: Get started
+              href: how-to-javascript-get-started.md
+            - name: Work with databases
+              items:
+                - name: Create a database
+                  href: how-to-javascript-create-database.md
+            - name: Work with containers
+              items:
+                - name: Create a container
+                  href: how-to-javascript-create-container.md
+            - name: Work with items
+              items:
+                - name: Create an item
+                  href: how-to-javascript-create-item.md
+                - name: Query items
+                  href: how-to-javascript-query-items.md
         - name: Python
           items:
             - name: Get started
@@ -482,6 +482,11 @@
           href: how-to-java-change-feed.md
     - name: NoSQL query
       href: query/toc.yml
+    - name: Materialized views (preview)
+      href: materialized-views.md
+    - name: Index and query geospatial data
+      displayName: geospatial, geojson, spatial, index, query, geography, geometry
+      href: how-to-geospatial-index-query.md
     - name: Throughput (Request units)
       items:
         - name: Provisioned throughput
@@ -511,30 +516,10 @@
         - name: Find request unit charge
           displayName: request units, RUs, RU, charge, consumption
           href: find-request-unit-charge.md
+    - name: Develop with the emulator
+      href: ../how-to-develop-emulator.md?pivots=api-nosql
     - name: Tools, SDKs, and providers
       items:
-        - name: Develop locally with emulator
-          items:
-            - name: Install and use the emulator
-              href: ../local-emulator.md
-            - name: Run the emulator container in Docker
-              items:
-                - name: Run in Docker for Linux
-                  href: ../docker-emulator-linux.md
-                - name: Run in Docker for Windows
-                  href: ../docker-emulator-windows.md
-                - name: Access the REST API
-                  href: ../docker-emulator-rest-api.md
-            - name: Export emulator certificates
-              href: ../local-emulator-export-ssl-certificates.md
-            - name: Emulator command-line parameters
-              href: ../emulator-command-line-parameters.md
-            - name: Emulator troubleshooting
-              href: ../troubleshoot-local-emulator.md
-            - name: Emulator release notes
-              href: ../local-emulator-release-notes.md
-            - name: Visual Studio Code extension
-              href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
         - name: Kafka Connect
           items:
             - name: Kafka Connect overview
@@ -575,6 +560,8 @@
           href: ../tutorial-setup-ci-cd.md
         - name: Use Azure Cosmos DB Explorer
           href: ../data-explorer.md
+        - name: SDK observability
+          href: sdk-observability.md
     - name: Performance
       items:
         - name: Query
@@ -602,6 +589,8 @@
               href: performance-tips-dotnet-sdk-v3.md
             - name: Performance tips for .NET SDK v2
               href: performance-tips.md
+            - name: Tune connection configurations for Azure Cosmos DB .NET SDK v3
+              href: tune-connection-configurations-net-sdk-v3.md
         - name: Java
           items:
             - name: Best practices for Java SDK
@@ -613,7 +602,11 @@
             - name: Async Java SDK v2
               href: performance-tips-async-java.md
             - name: Sync Java SDK v2
-              href: performance-tips-java.md
+              href: performance-tips-java.md        
+        - name: JavaScript
+          items:
+            - name: Best practices for JavaScript SDK
+              href: best-practices-javascript.md
         - name: Configure the integrated cache
           href: ../how-to-configure-integrated-cache.md
         - name: Benchmarking framework
@@ -730,12 +723,16 @@
               href: ../continuous-backup-restore-permissions.md
             - name: Create account - Continuous backup
               href: ../provision-account-continuous-backup.md
-            - name: Get the latest restorable timestamp
-              href: ../get-latest-restore-timestamp.md
-            - name: Restore an account - Continuous backup
-              href: ../restore-account-continuous-backup.md
             - name: Migrate to continuous backup
               href: ../migrate-continuous-backup.md
+            - name: Restore
+              items:
+                - name: Restore to a different account
+                  href: ../restore-account-continuous-backup.md
+                - name: Restore in the same account (preview)
+                  href: ../how-to-restore-in-account-continuous-backup.md
+                - name: Get the latest restorable timestamp
+                  href: ../get-latest-restore-timestamp.md
         - name: Periodic backup
           items:
             - name: Update storage redundancy
@@ -761,8 +758,12 @@
               href: ../how-to-always-encrypted.md
             - name: Self-serve minimum TLS version enforcement
               href: ../self-serve-minimum-tls-enforcement.md
-            - name: Configure customer-managed keys with Azure key vault
+            - name: Configure customer-managed keys with Azure Key Vault
               href: ../how-to-setup-customer-managed-keys.md
+            - name: Configure customer-managed keys on existing accounts with Azure Key Vault
+              href: ../how-to-setup-customer-managed-keys-existing-accounts.md
+            - name: CMK troubleshooting guide
+              href: ../cmk-troubleshooting-guide.md
             - name: Configure customer-managed keys with Azure managed HSM key vault
               href: ../how-to-setup-customer-managed-keys-mhsm.md
             - name: Configure cross-tenant customer-managed keys
@@ -775,6 +776,8 @@
           href: ../how-to-setup-managed-identity.md
         - name: Use managed identities to access data
           href: ../managed-identity-based-authentication.md
+        - name: Migrate to passwordless authentication
+          href: migrate-passwordless.md
           displayName: msi, managed service identity, aad, azure active directory, identity
         - name: Role-based access control
           items:
@@ -786,8 +789,6 @@
           href: how-to-configure-cross-origin-resource-sharing.md
         - name: Use Azure Key Vault to store keys
           href: ../store-credentials-key-vault.md
-        - name: Use certificates to access data
-          href: certificate-based-authentication.md
     - name: Monitor
       items:
         - name: Monitor Azure Cosmos DB
@@ -816,6 +817,8 @@
               href: ../audit-control-plane-logs.md
             - name: Troubleshoot issues with advanced diagnostics queries
               href: diagnostic-queries.md
+            - name: Add a transformation for workspace data
+              href: ../tutorial-log-transformation.md
         - name: Configure alerts
           items:
             - name: Create alert on metrics
@@ -868,6 +871,8 @@
           href: migrate-hbase-to-cosmos-db.md
     - name: Integrate with other Azure services
       items:
+        - name: RAG with Azure OpenAI
+          href: ../vector-search.md#retrieval-augmented-generation
         - name: Change feed Ecommerce solution
           href: changefeed-ecommerce-solution.md
         - name: Azure App Service
@@ -894,6 +899,8 @@
           href: /azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: ODBC driver
           href: odbc-driver.md
+        - name: Vercel
+          href: ../vercel-integration.md
 - name: Reference
   items:
     - name: .NET SDKs
@@ -920,6 +927,8 @@
           href: sdk-java-spring-data-v2.md
         - name: Spring Data Connector v3
           href: sdk-java-spring-data-v3.md
+        - name: Spring Data Connector v5
+          href: sdk-java-spring-data-v5.md
         - name: Spark 3.x OLTP Connector
           href: sdk-java-spark-v3.md
         - name: Spark 2.x LTS OLTP Connector
@@ -946,6 +955,12 @@
     - name: Azure Policy built-ins
       displayName: samples, policies, definitions
       href: ../policy-reference.md
+    - name: Emulator
+      items:
+        - name: Release notes
+          href: ../emulator-release-notes.md
+        - name: Windows command-line arguments
+          href: ../emulator-windows-arguments.md
 - name: Resources
   items:
     - name: Build your skills with Microsoft Learn training

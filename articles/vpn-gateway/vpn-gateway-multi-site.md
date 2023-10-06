@@ -4,30 +4,18 @@ description: Learn how to connect multiple on-premises sites to a classic virtua
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 08/21/2023
 ms.author: cherylmc
 ---
 # Add a Site-to-Site connection to a VNet with an existing VPN gateway connection (classic)
 
+This article walks you through using PowerShell to add Site-to-Site (S2S) connections to a VPN gateway that has an existing connection using the classic (legacy) deployment model. This type of connection is sometimes referred to as a "multi-site" configuration. These steps don't apply to ExpressRoute/Site-to-Site coexisting connection configurations.
+
+The steps in this article apply to the classic (legacy) deployment model and don't apply to the current deployment model, Resource Manager. **Unless you want to work in the classic deployment model specifically, we recommend that you use the [Resource Manager version of this article](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)**.
+
 [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
-
-> [!div class="op_single_selector"]
-> * [Azure portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
-> * [PowerShell (classic)](vpn-gateway-multi-site.md)
->
->
-
-This article walks you through using PowerShell to add Site-to-Site (S2S) connections to a VPN gateway that has an existing connection. This type of connection is often referred to as a "multi-site" configuration. The steps in this article apply to virtual networks created using the classic deployment model (also known as Service Management). These steps do not apply to ExpressRoute/Site-to-Site coexisting connection configurations.
-
-### Deployment models and methods
-
-[!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
-
-We update this table as new articles and additional tools become available for this configuration. When an article is available, we link directly to it from this table.
-
-[!INCLUDE [vpn-gateway-table-multi-site](../../includes/vpn-gateway-table-multisite-include.md)]
 
 ## About connecting
 
@@ -35,7 +23,7 @@ You can connect multiple on-premises sites to a single virtual network. This is 
 
 If you already have a static gateway connected to your virtual network, you can change the gateway type to dynamic without needing to rebuild the virtual network in order to accommodate multi-site. Before changing the routing type, make sure that your on-premises VPN gateway supports route-based VPN configurations.
 
-![multi-site diagram](./media/vpn-gateway-multi-site/multisite.png "multi-site")
+:::image type="content" source="./media/vpn-gateway-multi-site/multisite.png" alt-text="Diagram showing classic multi-site connection architecture.":::
 
 ## Points to consider
 
@@ -48,10 +36,10 @@ You should feel comfortable using the network configuration file by the time you
 Before you begin configuration, verify that you have the following:
 
 * Compatible VPN hardware for each on-premises location. Check [About VPN Devices for Virtual Network Connectivity](vpn-gateway-about-vpn-devices.md) to verify if the device that you want to use is something that is known to be compatible.
-* An externally facing public IPv4 IP address for each VPN device. The IP address cannot be located behind a NAT. This is requirement.
+* An externally facing public IPv4 IP address for each VPN device. The IP address can't be located behind a NAT. This is a requirement.
 * Someone who is proficient at configuring your VPN hardware. You'll have to have a strong understanding of how to configure your VPN device, or work with someone who does.
 * The IP address ranges that you want to use for your virtual network (if you haven't already created one).
-* The IP address ranges for each of the local network sites that you'll be connecting to. You'll need to make sure that the IP address ranges for each of the local network sites that you want to connect to do not overlap. Otherwise, the portal or the REST API will reject the configuration being uploaded.<br>For example, if you have two local network sites that both contain the IP address range 10.2.3.0/24 and you have a package with a destination address 10.2.3.3, Azure wouldn't know which site you want to send the package to because the address ranges are overlapping. To prevent routing issues, Azure doesn't allow you to upload a configuration file that has overlapping ranges.
+* The IP address ranges for each of the local network sites that you'll be connecting to. You'll need to make sure that the IP address ranges for each of the local network sites that you want to connect to don't overlap. Otherwise, the portal or the REST API rejects the configuration being uploaded.<br>For example, if you have two local network sites that both contain the IP address range 10.2.3.0/24 and you have a package with a destination address 10.2.3.3, Azure wouldn't know which site you want to send the package to because the address ranges are overlapping. To prevent routing issues, Azure doesn't allow you to upload a configuration file that has overlapping ranges.
 
 ### Working with Azure PowerShell
 
@@ -163,10 +151,10 @@ To add additional site references (create a multi-site configuration), simply ad
 ```
 
 ## 5. Import the network configuration file
-Import the network configuration file. When you import this file with the changes, the new tunnels will be added. The tunnels will use the dynamic gateway that you created earlier. You can use PowerShell to import the file.
+Import the network configuration file. When you import this file with the changes, the new tunnels are added. The tunnels use the dynamic gateway that you created earlier. You can use PowerShell to import the file.
 
 ## 6. Download keys
-Once your new tunnels have been added, use the PowerShell cmdlet 'Get-AzureVNetGatewayKey' to get the IPsec/IKE pre-shared keys for each tunnel.
+Once your new tunnels have been added, use the PowerShell cmdlet 'Get-AzureVNetGatewayKey' to get the IPsec/IKE preshared keys for each tunnel.
 
 For example:
 
@@ -175,10 +163,10 @@ Get-AzureVNetGatewayKey –VNetName "VNet1" –LocalNetworkSiteName "Site1"
 Get-AzureVNetGatewayKey –VNetName "VNet1" –LocalNetworkSiteName "Site2"
 ```
 
-If you prefer, you can also use the *Get Virtual Network Gateway Shared Key* REST API to get the pre-shared keys.
+If you prefer, you can also use the *Get Virtual Network Gateway Shared Key* REST API to get the preshared keys.
 
 ## 7. Verify your connections
-Check the multi-site tunnel status. After downloading the keys for each tunnel, you'll want to verify connections. Use 'Get-AzureVnetConnection' to get a list of virtual network tunnels, as shown in the example below. VNet1 is the name of the VNet.
+Check the multi-site tunnel status. After downloading the keys for each tunnel, you'll want to verify connections. Use 'Get-AzureVnetConnection' to get a list of virtual network tunnels, as shown in the following example. VNet1 is the name of the VNet.
 
 ```powershell
 Get-AzureVnetConnection -VNetName VNET1

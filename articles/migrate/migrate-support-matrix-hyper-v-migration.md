@@ -1,12 +1,13 @@
 ---
 title: Support for Hyper-V migration in Azure Migrate
 description: Learn about support for Hyper-V migration with Azure Migrate.
-author: v-ksreedevan
-ms.author: v-ksreedevan
+author: Vikram1988
+ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 12/12/2022
-ms.custom: engagement-fy23
+ms.service: azure-migrate
+ms.date: 09/01/2023
+ms.custom: engagement-fy24
 ---
 
 # Support matrix for Hyper-V migration
@@ -24,7 +25,7 @@ You can select up to 10 VMs at once for replication. If you want to migrate more
 | :-------------------       | :------------------- |
 | **Deployment**       | The Hyper-V host can be standalone or deployed in a cluster. <br>Azure Migrate replication software (Hyper-V Replication provider) is installed on the Hyper-V hosts.|
 | **Permissions**           | You need administrator permissions on the Hyper-V host. |
-| **Host operating system** | Windows Server 2022, Windows Server 2019, Windows Server 2016, or Windows Server 2012 R2 with latest updates. Note that Server core installation of these operating systems is also supported. |
+| **Host operating system** | Windows Server 2022, Windows Server 2019, or Windows Server 2012 R2 with latest updates. Note that Server core installation of these operating systems is also supported. |
 | **Other Software requirements** | .NET Framework 4.7 or later |
 | **Port access** |  Outbound connections on HTTPS port 443 to send VM replication data.
 
@@ -36,7 +37,7 @@ You can select up to 10 VMs at once for replication. If you want to migrate more
 | :----------------------------- | :------------------- |
 | **Operating system** | All [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) and [Linux](../virtual-machines/linux/endorsed-distros.md) operating systems that are supported by Azure. |
 **Windows Server 2003** | For VMs running Windows Server 2003, you need to [install Hyper-V Integration Services](prepare-windows-server-2003-migration.md) before migration. | 
-**Linux VMs in Azure** | Some VMs might require changes so that they can run in Azure.<br><br> For Linux, Azure Migrate makes the changes automatically for these operating systems:<br> - Red Hat Enterprise Linux 8.x, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x<br> - Cent OS  8.x, 7.7, 7.6, 7.5, 7.4, 6.x</br> - SUSE Linux Enterprise Server 15 SP0, 15 SP1, 12, 11 SP4, 11 SP3 <br>- Ubuntu 20.04, 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS<br> - Debian 10, 9, 8, 7<br> - Oracle Linux 8, 7.7-CI, 7.7, 6<br> For other operating systems, you make the [required changes](prepare-for-migration.md#verify-required-changes-before-migrating) manually.
+**Linux VMs in Azure** | Some VMs might require changes so that they can run in Azure.<br><br> For Linux, Azure Migrate makes the changes automatically for these operating systems:<br> - Red Hat Enterprise Linux 9.x, 8.x, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x<br> - CentOS  9.x (Release and Stream), 8.x (Release and Stream), 7.9, 7.7, 7.6, 7.5, 7.4, 6.x</br> - SUSE Linux Enterprise Server 15 SP4, 15 SP3, 15 SP2, 15 SP1, 15 SP0, 12, 11 SP4, 11 SP3 <br>- Ubuntu 22.04, 21.04, 20.04, 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS<br> - Debian 11, 10, 9, 8, 7<br> - Oracle Linux 9, 8, 7.7-CI, 7.7, 6<br> - Kali Linux (2016, 2017, 2018, 2019, 2020, 2021, 2022) <br> - For other operating systems, you make the [required changes](prepare-for-migration.md#verify-required-changes-before-migrating) manually.
 | **Required changes for Azure** | Some VMs might require changes so that they can run in Azure. Make adjustments manually before migration. The relevant articles contain instructions about how to do this. |
 | **Linux boot**                 | If /boot is on a dedicated partition, it should reside on the OS disk, and not be spread across multiple disks.<br> If /boot is part of the root (/) partition, then the '/' partition should be on the OS disk, and not span other disks. |
 | **UEFI boot**                  | Supported. UEFI-based VMs will be migrated to Azure generation 2 VMs.  |
@@ -47,11 +48,12 @@ You can select up to 10 VMs at once for replication. If you want to migrate more
 | **RDM/passthrough disks**      | Not supported for migration.|
 | **Shared disk** | VMs using shared disks aren't supported for migration.|
 | **NFS**                        | NFS volumes mounted as volumes on the VMs won't be replicated.|
+| **ReiserFS**                   | Not supported.
 | **ISCSI**                      | VMs with iSCSI targets aren't supported for migration.
 | **Target disk**                | You can migrate to Azure VMs with managed disks only. |
 | **IPv6** | Not supported.|
 | **NIC teaming** | Not supported.|
-| **Azure Site Recovery** | You can't replicate using Migration and modernization if the VM is enabled for replication with Azure Site Recovery.|
+| **Azure Site Recovery and/or Hyper-V** | You can't replicate using Migration and modernization if the VM is enabled for replication with Azure Site Recovery or with Hyper-V replica.|
 | **Ports** | Outbound connections on HTTPS port 443 to send VM replication data.|
 
 

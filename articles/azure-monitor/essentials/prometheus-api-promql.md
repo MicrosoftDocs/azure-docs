@@ -10,7 +10,7 @@ ms.reviewer: aul
 
 # Query Prometheus metrics using the API and PromQL
 
-Azure Monitor managed service for Prometheus (preview), collects metrics from Azure Kubernetes clusters and stores them in an Azure Monitor workspace.  PromQL (Prometheus query language), is a functional query language that allows you to query and aggregate time series data. Use PromQL to query and aggregate metrics stored in an Azure Monitor workspace. 
+Azure Monitor managed service for Prometheus, collects metrics from Azure Kubernetes clusters and stores them in an Azure Monitor workspace.  PromQL (Prometheus query language), is a functional query language that allows you to query and aggregate time series data. Use PromQL to query and aggregate metrics stored in an Azure Monitor workspace. 
 
 This article describes how to query an Azure Monitor workspace using PromQL via the REST API.
 For more information on PromQL, see [Querying prometheus](https://prometheus.io/docs/prometheus/latest/querying/basics/). 
@@ -18,7 +18,7 @@ For more information on PromQL, see [Querying prometheus](https://prometheus.io/
 ## Prerequisites
 To query an Azure monitor workspace using PromQL, you need the following prerequisites:
 + An Azure Kubernetes cluster or remote Kubernetes cluster.
-+ Azure Monitor managed service for Prometheus (preview) scraping metrics from a Kubernetes cluster.
++ Azure Monitor managed service for Prometheus scraping metrics from a Kubernetes cluster.
 + An Azure Monitor workspace where Prometheus metrics are being stored.
 
 ## Authentication
@@ -77,7 +77,7 @@ curl -X POST 'https://login.microsoftonline.com/<tennant ID>/oauth2/token' \
 -H 'Content-Type: application/x-www-form-urlencoded' \
 --data-urlencode 'grant_type=client_credentials' \
 --data-urlencode 'client_id=<your apps client ID>' \
---data-urlencode 'client_secret=<your apps client secret' \
+--data-urlencode 'client_secret=<your apps client secret>' \
 --data-urlencode 'resource=https://prometheus.monitor.azure.com'
 ```
 
@@ -186,13 +186,14 @@ Example:
 GET 'https://k8s02-workspace-abcd.eastus.prometheus.monitor.azure.com/api/v1/label/__name__/values'
 ```
 
-For the full specification of OSS prom APIs, see [Prometheus HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/#http-api )
+For the full specification of OSS prom APIs, see [Prometheus HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/#http-api).
 
 ## API limitations
 The following limitations are in addition to those detailed in the Prometheus specification.  
 
 + Query must be scoped to a metric  
     Any time series fetch queries (/series or /query or /query_range) must contain a \_\_name\_\_ label matcher. That is, each query must be scoped to a metric. There can only be one \_\_name\_\_ label matcher in a query.
++ Query /series does not support regular expression filter
 + Supported time range  
     + /query_range API supports a time range of 32 days. This is the maximum time range allowed, including range selectors specified in the query itself.
     For example, the query `rate(http_requests_total[1h]` for last the 24 hours would actually mean data is being queried for 25 hours. This comes from the 24-hour range plus the 1 hour specified in query itself.
@@ -208,7 +209,7 @@ For more information on Prometheus metrics limits, see [Prometheus metrics](../.
 
 ## Next steps
 
-[Azure Monitor workspace overview (preview)](./azure-monitor-workspace-overview.md)  
-[Manage an Azure Monitor workspace (preview)](./azure-monitor-workspace-manage.md)  
-[Overview of Azure Monitor Managed Service for Prometheus (preview)](./prometheus-metrics-overview.md)  
-[Query Prometheus metrics using Azure workbooks (preview)](./prometheus-workbooks.md)
+[Azure Monitor workspace overview](./azure-monitor-workspace-overview.md)  
+[Manage an Azure Monitor workspace](./azure-monitor-workspace-manage.md)  
+[Overview of Azure Monitor Managed Service for Prometheus](./prometheus-metrics-overview.md)  
+[Query Prometheus metrics using Azure workbooks](./prometheus-workbooks.md)

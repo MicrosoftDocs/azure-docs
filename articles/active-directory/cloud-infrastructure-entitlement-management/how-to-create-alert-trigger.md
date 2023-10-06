@@ -1,6 +1,6 @@
 ---
-title: Create and view activity alerts and alert triggers in Permissions Management
-description: How to create and view activity alerts and alert triggers in Permissions Management.
+title: Create and view activity alerts and alert triggers in Microsoft Entra Permissions Management
+description: How to create and view activity alerts and alert triggers in Microsoft Entra Permissions Management.
 services: active-directory
 author: jenniferf-skc
 manager: amycolannino
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/23/2022
+ms.date: 06/16/2023
 ms.author: jfields
 ---
 
@@ -32,7 +32,7 @@ This article describes how you can create and view activity alerts and alert tri
 
 1. To add another parameter, select the plus sign **(+)**, then select an operator, and then enter a value.
 
-    To remove a parameter, select the minus sign **(-)**.
+1. To remove a parameter, select the minus sign **(-)**.
 1. To add another activity type, select **Add**, and then enter your parameters.
 1. To save your alert, select **Save**.
 
@@ -51,6 +51,8 @@ This article describes how you can create and view activity alerts and alert tri
 1. To view the alert, select **Apply**
 
     The **Alerts** table displays information about your alert.
+
+    Select the alert name to view the individual activities and further details about the **resources**, **tasks**, and **identities** involved.
 
 
 
@@ -73,7 +75,7 @@ This article describes how you can create and view activity alerts and alert tri
     - **Subscription**: A switch that displays if the alert is **On** or **Off**.
 
          - If the column displays **Off**, the current user isn't subscribed to that alert. Switch the toggle to **On** to subscribe to the alert.
-         - The user who creates an alert trigger is automatically subscribed to the alert, and will receive emails about the alert.
+         - The user who creates an alert trigger is automatically subscribed to the alert, and receives emails about the alert.
 
 1. To see only activated or only deactivated triggers, from the **Status** dropdown, select **Activated** or **Deactivated**, and then select **Apply**.
 
@@ -88,7 +90,7 @@ This article describes how you can create and view activity alerts and alert tri
 
     - **Duplicate**: Create a duplicate of the alert called "**Copy of XXX**".
     - **Rename**: Enter the new name of the query, and then select **Save.**
-    - **Deactivate**: The alert will still be listed, but will no longer send emails to subscribed users.
+    - **Deactivate**: The alert is listed, but no longer sends emails to subscribed users.
     - **Activate**: Activate the alert trigger and start sending emails to subscribed users.
     - **Notification Settings**: View the **Email** of users who are subscribed to the alert trigger and their **User Status**.
     - **Delete**: Delete the alert.
@@ -105,5 +107,3 @@ This article describes how you can create and view activity alerts and alert tri
 
 - For an overview on activity triggers, see [View information about activity triggers](ui-triggers.md).
 - For information on rule-based anomalies and anomaly triggers, see [Create and view rule-based anomalies and anomaly triggers](product-rule-based-anomalies.md).
-- For information on finding outliers in identity's behavior, see [Create and view statistical anomalies and anomaly triggers](product-statistical-anomalies.md).
-- For information on permission analytics triggers, see [Create and view permission analytics triggers](product-permission-analytics.md).

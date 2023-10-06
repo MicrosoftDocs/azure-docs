@@ -2,7 +2,7 @@
 title: Set deployment order for resources
 description: Describes how to set one Azure resource as dependent on another resource during deployment. The dependencies ensure resources are deployed in the correct order.
 ms.topic: conceptual
-ms.date: 03/02/2022
+ms.date: 08/22/2023
 ---
 
 # Define the order for deploying resources in ARM templates
@@ -22,16 +22,54 @@ The following example shows a network interface that depends on a virtual networ
 
 ```json
 {
-    "type": "Microsoft.Network/networkInterfaces",
-    "apiVersion": "2020-06-01",
-    "name": "[variables('networkInterfaceName')]",
-    "location": "[parameters('location')]",
-    "dependsOn": [
-      "[resourceId('Microsoft.Network/networkSecurityGroups/', parameters('networkSecurityGroupName'))]",
-      "[resourceId('Microsoft.Network/virtualNetworks/', parameters('virtualNetworkName'))]",
-      "[resourceId('Microsoft.Network/publicIpAddresses/', variables('publicIpAddressName'))]"
-    ],
-    ...
+  "type": "Microsoft.Network/networkInterfaces",
+  "apiVersion": "2022-07-01",
+  "name": "[variables('networkInterfaceName')]",
+  "location": "[parameters('location')]",
+  "dependsOn": [
+    "[resourceId('Microsoft.Network/networkSecurityGroups/', parameters('networkSecurityGroupName'))]",
+    "[resourceId('Microsoft.Network/virtualNetworks/', parameters('virtualNetworkName'))]",
+    "[resourceId('Microsoft.Network/publicIpAddresses/', variables('publicIpAddressName'))]"
+  ],
+  ...
+}
+```
+
+With [languageVersion 2.0](./syntax.md#languageversion-20), use resource symbolic name in `dependsOn` arrays. For example:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "languageVersion": "2.0",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    }
+  },
+  "resources": {
+    "myStorage": {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2023-01-01",
+      "name": "[format('storage{0}', uniqueString(resourceGroup().id))]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "StorageV2"
+    },
+    "myVm": {
+      "type": "Microsoft.Compute/virtualMachines",
+      "apiVersion": "2023-03-01",
+      "name": "[format('vm{0}', uniqueString(resourceGroup().id))]",
+      "location": "[parameters('location')]",
+      "dependsOn": [
+        "myStorage"
+      ],
+      ...
+    }
+  }
 }
 ```
 
@@ -47,7 +85,7 @@ The following example shows a logical SQL server and database. Notice that an ex
 "resources": [
   {
     "type": "Microsoft.Sql/servers",
-    "apiVersion": "2020-02-02-preview",
+    "apiVersion": "2022-05-01-preview",
     "name": "[parameters('serverName')]",
     "location": "[parameters('location')]",
     "properties": {
@@ -57,7 +95,7 @@ The following example shows a logical SQL server and database. Notice that an ex
     "resources": [
       {
         "type": "databases",
-        "apiVersion": "2020-08-01-preview",
+        "apiVersion": "2022-05-01-preview",
         "name": "[parameters('sqlDBName')]",
         "location": "[parameters('location')]",
         "sku": {
@@ -65,7 +103,7 @@ The following example shows a logical SQL server and database. Notice that an ex
           "tier": "Standard"
           },
         "dependsOn": [
-          "[resourceId('Microsoft.Sql/servers', concat(parameters('serverName')))]"
+          "[resourceId('Microsoft.Sql/servers', parameters('serverName'))]"
         ]
       }
     ]
@@ -99,9 +137,9 @@ In the following example, a CDN endpoint explicitly depends on the CDN profile, 
 
 ```json
 {
-    "name": "[variables('endpointName')]",
-    "apiVersion": "2016-04-02",
     "type": "endpoints",
+    "apiVersion": "2021-06-01",
+    "name": "[variables('endpointName')]",
     "location": "[resourceGroup().location]",
     "dependsOn": [
       "[variables('profileName')]"
@@ -111,7 +149,7 @@ In the following example, a CDN endpoint explicitly depends on the CDN profile, 
       ...
     }
     ...
-}    
+}
 ```
 
 To learn more, see [reference function](template-functions-resource.md#reference).
@@ -128,8 +166,8 @@ The following example shows how to deploy multiple virtual machines. The templat
 ```json
 {
   "type": "Microsoft.Network/networkInterfaces",
-  "apiVersion": "2020-05-01",
-  "name": "[concat(variables('nicPrefix'),'-',copyIndex())]",
+  "apiVersion": "2022-07-01",
+  "name": "[format('{0}-{1}', variables('nicPrefix'), copyIndex())]",
   "location": "[parameters('location')]",
   "copy": {
     "name": "nicCopy",
@@ -139,11 +177,11 @@ The following example shows how to deploy multiple virtual machines. The templat
 },
 {
   "type": "Microsoft.Compute/virtualMachines",
-  "apiVersion": "2020-06-01",
-  "name": "[concat(variables('vmPrefix'),copyIndex())]",
+  "apiVersion": "2022-11-01",
+  "name": "[format('{0}{1}', variables('vmPrefix'), copyIndex())]",
   "location": "[parameters('location')]",
   "dependsOn": [
-    "[resourceId('Microsoft.Network/networkInterfaces',concat(variables('nicPrefix'),'-',copyIndex()))]"
+    "[resourceId('Microsoft.Network/networkInterfaces',format('{0}-{1}', variables('nicPrefix'),copyIndex()))]"
   ],
   "copy": {
     "name": "vmCopy",
@@ -153,7 +191,7 @@ The following example shows how to deploy multiple virtual machines. The templat
     "networkProfile": {
       "networkInterfaces": [
         {
-          "id": "[resourceId('Microsoft.Network/networkInterfaces',concat(variables('nicPrefix'),'-',copyIndex()))]",
+          "id": "[resourceId('Microsoft.Network/networkInterfaces',format('(0)-(1)', variables('nicPrefix'), copyIndex()))]",
           "properties": {
             "primary": "true"
           }
@@ -171,13 +209,18 @@ The following example shows how to deploy three storage accounts before deployin
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
-  "parameters": {},
+  "parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    }
+  },
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2019-04-01",
-      "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
-      "location": "[resourceGroup().location]",
+      "apiVersion": "2022-09-01",
+      "name": "[format('{0}storage{1}, copyIndex(), uniqueString(resourceGroup().id))]",
+      "location": "[parameters('location')]",
       "sku": {
         "name": "Standard_LRS"
       },
@@ -190,13 +233,52 @@ The following example shows how to deploy three storage accounts before deployin
     },
     {
       "type": "Microsoft.Compute/virtualMachines",
-      "apiVersion": "2015-06-15",
-      "name": "[concat('VM', uniqueString(resourceGroup().id))]",
+      "apiVersion": "2022-11-01",
+      "name": "[format('VM{0}', uniqueString(resourceGroup().id))]",
       "dependsOn": ["storagecopy"],
       ...
     }
-  ],
-  "outputs": {}
+  ]
+}
+```
+
+[Symbolic names](./resource-declaration.md#use-symbolic-name) can be used in `dependsOn` arrays. If a symbolic name is for a copy loop, all resources in the loop are added as dependencies. The preceding sample can be written as the following JSON. In the sample, **myVM** depends on all of the storage accounts in the **myStorages** loop.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "languageVersion": "2.0",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    }
+  },
+  "resources": {
+    "myStorages": {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2022-09-01",
+      "name": "[format('{0}storage{1}, copyIndex(), uniqueString(resourceGroup().id))]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "Storage",
+      "copy": {
+        "name": "storagecopy",
+        "count": 3
+      },
+      "properties": {}
+    },
+    "myVM": {
+      "type": "Microsoft.Compute/virtualMachines",
+      "apiVersion": "2022-11-01",
+      "name": "[format('VM{0}', uniqueString(resourceGroup().id))]",
+      "dependsOn": ["myStorages"],
+      ...
+    }
+  }
 }
 ```
 

@@ -4,7 +4,7 @@ description: Use environment variables and create options to enable module acces
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 08/14/2020
+ms.date: 06/26/2023
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -25,59 +25,59 @@ For production scenarios, use a persistent storage location on the host filesyst
 
 To set up system modules to use persistent storage:
 
-1. For both IoT Edge hub and IoT Edge agent, add an environment variable called **storageFolder** that points to a directory in the module.
+1. For both IoT Edge hub and IoT Edge agent, add an environment variable called **StorageFolder** that points to a directory in the module.
 1. For both IoT Edge hub and IoT Edge agent, add binds to connect a local directory on the host machine to a directory in the module. For example:
 
    :::image type="content" source="./media/how-to-access-host-storage-from-module/offline-storage-1-4.png" alt-text="Screenshot that shows how to add create options and environment variables for local storage.":::
 
-Or, you can configure the local storage directly in the deployment manifest. For example:
+    Replace `<HostStoragePath>` and `<ModuleStoragePath>` with your host and module storage path. Both values must be an absolute path and `<HostStoragePath>` must exist. 
+
+You can configure the local storage directly in the deployment manifest. For example, if you want to map the following storage paths:
+
+| Module | Host storage path | Module storage path |
+|--------|-------------------|---------------------|
+| edgeAgent | /srv/edgeAgent | /tmp/edgeAgent |
+| edgeHub | /srv/edgeHub | /tmp/edgeHub |
+
+Your deployment manifest would be similar to the following:
 
 ```json
 "systemModules": {
     "edgeAgent": {
+        "env": {
+            "StorageFolder": {
+                "value": "/tmp/edgeAgent"
+            }
+        },
         "settings": {
             "image": "mcr.microsoft.com/azureiotedge-agent:1.4",
-            "createOptions": {
-                "HostConfig": {
-                    "Binds":["<HostStoragePath>:<ModuleStoragePath>"]
-                }
-            }
+            "createOptions": "{\"HostConfig\":{\"Binds\":[\"/srv/edgeAgent:/tmp/edgeAgent\"]}}"
         },
-        "type": "docker",
-        "env": {
-            "storageFolder": {
-                "value": "<ModuleStoragePath>"
-            }
-        }
+        "type": "docker"
     },
     "edgeHub": {
-        "settings": {
-            "image": "mcr.microsoft.com/azureiotedge-hub:1.4",
-            "createOptions": {
-                "HostConfig": {
-                    "Binds":["<HostStoragePath>:<ModuleStoragePath>"],
-                    "PortBindings":{"5671/tcp":[{"HostPort":"5671"}],"8883/tcp":[{"HostPort":"8883"}],"443/tcp":[{"HostPort":"443"}]}}}
-        },
-        "type": "docker",
         "env": {
-            "storageFolder": {
-                "value": "<ModuleStoragePath>"
+            "StorageFolder": {
+                "value": "/tmp/edgeHub"
             }
         },
+        "restartPolicy": "always",
+        "settings": {
+            "image": "mcr.microsoft.com/azureiotedge-hub:1.4",
+            "createOptions": "{\"HostConfig\":{\"Binds\":[\"/srv/edgeHub:/tmp/edgeHub\"],\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
+        },
         "status": "running",
-        "restartPolicy": "always"
+        "type": "docker"
     }
 }
 ```
 
-Replace `<HostStoragePath>` and `<ModuleStoragePath>` with your host and module storage path; both values must be an absolute path and `<HostStoragePath>` must exist. 
-
 ### Automatic host system permissions management
 
-On version 1.4 and newer, there's no need for manually setting ownership or permissions for host storage backing the `storageFolder`. Permissions and ownership are automatically managed by the system modules during startup.
+On version 1.4 and newer, there's no need for manually setting ownership or permissions for host storage backing the `StorageFolder`. Permissions and ownership are automatically managed by the system modules during startup.
 
 > [!NOTE]
-> Automatic permission management of host bound storage only applies to system modules, IoT Edge agent and Edge hub. For custom modules, manual management of permissions and ownership of bound host storage is required if the custom module container is not running as `root` user. 
+> Automatic permission management of host bound storage only applies to system modules, IoT Edge agent and Edge hub. For custom modules, manual management of permissions and ownership of bound host storage is required if the custom module container isn't running as `root` user. 
 
 
 

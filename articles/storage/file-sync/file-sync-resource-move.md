@@ -2,11 +2,10 @@
 title: Azure File Sync resource moves and topology changes
 description: Learn how to move sync resources across resource groups, subscriptions, and Azure Active Directory tenants.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 03/15/2023
+ms.date: 09/21/2023
 ms.author: kendownie
-ms.subservice: files
 ---
 
 # Move Azure File Sync resources to a different resource group, subscription, or Azure AD tenant
@@ -96,7 +95,7 @@ When storage accounts are moved to either a new subscription or are moved within
         :::image type="content" source="media/storage-sync-resource-move/storage-sync-resource-move-afs-rp-registered-small.png" alt-text="An image showing the Azure portal, subscription management, registered resource providers." lightbox="media/storage-sync-resource-move/storage-sync-resource-move-afs-rp-registered.png":::
     :::column-end:::
     :::column:::
-        The Azure File Sync service principal must exist in your Azure AD tenant before you can authorize sync access to a storage account. </br></br> When you create a new Azure subscription today, the Azure File Sync resource provider *Microsoft.StorageSync* is automatically registered with your subscription. Resource provider registration will make a *service principal* for sync available in the Azure Active Directory tenant that governs the subscription. A service principal is similar to a user account in your Azure AD. You can use the Azure File Sync service principal to authorize access to resources via role-based access control (RBAC). The only resource sync needs access to is your storage accounts containing the file shares that are supposed to sync. *Microsoft.StorageSync* must be assigned to the built-in role **Reader and Data access** on the storage account. </br></br> This assignment is done automatically through the user context of the logged on user when you add a file share to a sync group, or in other words, you create a cloud endpoint. When a storage account moves to a new subscription or Azure AD tenant, this role assignment is lost and [must be manually reestablished](#establish-sync-access-to-a-storage-account).
+        The Azure File Sync service principal must exist in your Azure AD tenant before you can authorize sync access to a storage account. </br></br> When you create a new Azure subscription today, the Azure File Sync resource provider *Microsoft.StorageSync* is automatically registered with your subscription. Resource provider registration will make a *service principal* for sync available in the Azure Active Directory tenant that governs the subscription. A service principal is similar to a user account in your Azure AD. You can use the Azure File Sync service principal to authorize access to resources via role-based access control (RBAC). The only resources sync needs access to are your storage accounts containing the file shares that are supposed to sync. *Microsoft.StorageSync* must be assigned to the built-in role **Reader and Data access** on the storage account. </br></br> This assignment is done automatically through the user context of the logged on user when you add a file share to a sync group, or in other words, you create a cloud endpoint. When a storage account moves to a new subscription or Azure AD tenant, this role assignment is lost and [must be manually reestablished](#establish-sync-access-to-a-storage-account).
     :::column-end:::
 :::row-end:::
 
@@ -131,7 +130,7 @@ Assigning a different region to a resource is different from a [region fail-over
 
 ## Region fail-over
 
-[Azure storage offers geo-redundancy options](../common/storage-redundancy.md#geo-redundant-storage) for a storage account. These redundancy options can pose problems for storage accounts used with Azure File Sync. The main reason is that replication between geographically distant regions isn't performed by Azure File Sync, but by a storage replication technology built-in to the storage subsystem in Azure. It can't have an understanding of application state and Azure File Sync is an application with files syncing to and from Azure file shares at any given moment. If you opt for any of these geographically disbursed storage redundancy options, you won't lose all of your data in a large-scale disaster. However, you need to [anticipate data loss](../common/storage-disaster-recovery-guidance.md#anticipate-data-loss).
+[Azure Files offers geo-redundancy options](../files/files-redundancy.md#geo-redundant-storage) for storage accounts. These redundancy options can pose problems for storage accounts used with Azure File Sync. The main reason is that replication between geographically distant regions isn't performed by Azure File Sync, but by a storage replication technology built-in to the storage subsystem in Azure. It can't have an understanding of application state and Azure File Sync is an application with files syncing to and from Azure file shares at any given moment. If you opt for any of these geographically disbursed storage redundancy options, you won't lose all of your data in a large-scale disaster. However, you need to account for potential [Data loss and inconsistencies](../common/storage-disaster-recovery-guidance.md#anticipate-data-loss-and-inconsistencies).
 
 > [!CAUTION]
 > Failover is never an appropriate substitute to provisioning your resources in the correct Azure region. If your resources are in the "wrong" region, you need to consider stopping sync and setting sync up again to new Azure file shares that are deployed in your desired region.
@@ -143,6 +142,6 @@ A regional failover can be started by Microsoft in a catastrophic event that wil
 
 ## See also
 
-- [Overview of Azure file share and sync migration guides](../files/storage-files-migration-overview.md?toc=/azure/storage/filesync/toc.json)
-- [Troubleshoot Azure File Sync](file-sync-troubleshoot.md)
+- [Overview of Azure file share and sync migration guides](../files/storage-files-migration-overview.md?toc=/azure/storage/file-sync/toc.json)
+- [Troubleshoot Azure File Sync](/troubleshoot/azure/azure-storage/file-sync-troubleshoot?toc=/azure/storage/file-sync/toc.json)
 - [Planning for an Azure File Sync deployment](file-sync-planning.md)

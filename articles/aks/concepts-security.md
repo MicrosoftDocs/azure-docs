@@ -3,6 +3,7 @@ title: Concepts - Security in Azure Kubernetes Services (AKS)
 description: Learn about security in Azure Kubernetes Service (AKS), including master and node communication, network policies, and Kubernetes secrets.
 author: miwithro
 ms.topic: conceptual
+ms.custom: build-2023
 ms.date: 02/28/2023
 ms.author: miwithro
 ---
@@ -13,7 +14,7 @@ Container security protects the entire end-to-end pipeline from build to the app
 
 The Secure Supply Chain includes the build environment and registry.
 
-Kubernetes includes security components, such as *pod security standards* and *Secrets*. Azure includes components like Active Directory, Microsoft Defender for Containers, Azure Policy, Azure Key Vault, network security groups and orchestrated cluster upgrades. AKS combines these security components to:
+Kubernetes includes security components, such as *pod security standards* and *Secrets*. Azure includes components like Active Directory, Microsoft Defender for Containers, Azure Policy, Azure Key Vault, network security groups, and orchestrated cluster upgrades. AKS combines these security components to:
 
 * Provide a complete authentication and authorization story.
 * Apply AKS Built-in Azure Policy to secure your applications.
@@ -25,7 +26,7 @@ This article introduces the core concepts that secure your applications in AKS.
 
 ## Build Security
 
-As the entry point for the Supply Chain, it is important to conduct static analysis of image builds before they are promoted down the pipeline. This includes vulnerability and compliance assessment. It is not about failing a build because it has a vulnerability, as that breaks development. It's about looking at the **Vendor Status** to segment based on vulnerabilities that are actionable by the development teams. Also use **Grace Periods** to allow developers time to remediate identified issues.
+As the entry point for the Supply Chain, it's important to conduct static analysis of image builds before they're promoted down the pipeline, which includes vulnerability and compliance assessment. It's not about failing a build because it has a vulnerability, as that breaks development. It's about looking at the **Vendor Status** to segment based on vulnerabilities that are actionable by the development teams. Also use **Grace Periods** to allow developers time to remediate identified issues.
 
 ## Registry Security
 
@@ -33,7 +34,7 @@ Assessing the vulnerability state of the image in the Registry detects drift and
 
 ## Cluster security
 
-In AKS, the Kubernetes master components are part of the managed service provided, managed, and maintained by Microsoft. Each AKS cluster has its own single-tenanted, dedicated Kubernetes master to provide the API Server, Scheduler, etc. For information on how Microsoft manages security vulnerabilities and details about releasing security updates for managed pars of an AKS clusters, see [Vulnerability management for Azure Kubernetes Service][microsoft-vulnerability-management-aks].
+In AKS, the Kubernetes master components are part of the managed service provided, managed, and maintained by Microsoft. Each AKS cluster has its own single-tenanted, dedicated Kubernetes master to provide the API Server, Scheduler, etc. For more information, see [Vulnerability management for Azure Kubernetes Service][microsoft-vulnerability-management-aks].
 
 By default, the Kubernetes API server uses a public IP address and a fully qualified domain name (FQDN). You can limit access to the API server endpoint using [authorized IP ranges][authorized-ip-ranges]. You can also create a fully [private cluster][private-clusters] to limit API server access to your virtual network.
 
@@ -43,7 +44,7 @@ You can control access to the API server using Kubernetes role-based access cont
 
 AKS nodes are Azure virtual machines (VMs) that you manage and maintain.
 
-* Linux nodes run optimized versions of Ubuntu or Mariner.
+* Linux nodes run optimized versions of Ubuntu or Azure Linux.
 * Windows Server nodes run an optimized Windows Server 2019 release using the `containerd` or Docker container runtime.
 
 When an AKS cluster is created or scaled up, the nodes are automatically deployed with the latest OS security updates and configurations.
@@ -57,11 +58,11 @@ For more information about the security upgrade process for Linux and Windows wo
 
 ### Node authorization
 
-Node authorization is a special-purpose authorization mode that specifically authorizes API requests made by kubelets to protect against East-West attacks.  Node authorization is enabled by default on AKS 1.24 + clusters.
+Node authorization is a special-purpose authorization mode that specifically authorizes kubelet API requests to protect against East-West attacks.  Node authorization is enabled by default on AKS 1.24 + clusters.
 
 ### Node deployment
 
-Nodes are deployed into a private virtual network subnet, with no public IP addresses assigned. For troubleshooting and management purposes, SSH is enabled by default and only accessible using the internal IP address.
+Nodes are deployed into a private virtual network subnet with no public IP addresses assigned. SSH is enabled by default for troubleshooting and management purposes and is only accessible using the internal IP address.
 
 ### Node storage
 
@@ -106,7 +107,7 @@ For connectivity and security with on-premises networks, you can deploy your AKS
 
 To filter virtual network traffic flow, Azure uses network security group rules. These rules define the source and destination IP ranges, ports, and protocols allowed or denied access to resources. Default rules are created to allow TLS traffic to the Kubernetes API server. You create services with load balancers, port mappings, or ingress routes. AKS automatically modifies the network security group for traffic flow.
 
-If you provide your own subnet for your AKS cluster (whether using Azure CNI or Kubenet), **do not** modify the NIC-level network security group managed by AKS. Instead, create more subnet-level network security groups to modify the flow of traffic. Verify they don't interfere with necessary traffic managing the cluster, such as load balancer access, communication with the control plane, and [egress][aks-limit-egress-traffic].
+If you provide your own subnet for your AKS cluster (whether using Azure CNI or Kubenet), **do not** modify the NIC-level network security group managed by AKS. Instead, create more subnet-level network security groups to modify the flow of traffic. Make sure they don't interfere with necessary traffic managing the cluster, such as load balancer access, communication with the control plane, or [egress][aks-limit-egress-traffic].
 
 ### Kubernetes network policy
 
@@ -130,9 +131,9 @@ With a Kubernetes *Secret*, you inject sensitive data into pods, such as access 
 Using Secrets reduces the sensitive information defined in the pod or service YAML manifest. Instead, you request the Secret stored in Kubernetes API Server as part of your YAML manifest. This approach only provides the specific pod access to the Secret.
 
 > [!NOTE]
-> The raw secret manifest files contain the secret data in base64 format (see the [official documentation][secret-risks] for more details). Treat these files as sensitive information, and never commit them to source control.
+> The raw secret manifest files contain the secret data in base64 format. For more information, see the [official documentation][secret-risks]. Treat these files as sensitive information, and never commit them to source control.
 
-Kubernetes secrets are stored in etcd, a distributed key-value store. AKS fully manages the Etcd store and [data is encrypted at rest within the Azure platform][encryption-atrest].
+Kubernetes secrets are stored in *etcd*, a distributed key-value store. AKS fully manages the *etcd* store and [data is encrypted at rest within the Azure platform][encryption-atrest].
 
 ## Next steps
 
@@ -159,7 +160,7 @@ For more information on core Kubernetes and AKS concepts, see:
 [aks-daemonsets]: concepts-clusters-workloads.md#daemonsets
 [aks-upgrade-cluster]: upgrade-cluster.md
 [aks-aad]: ./managed-azure-ad.md
-[aks-add-np-containerd]: learn/quick-windows-container-deploy-cli.md#add-a-windows-server-node-pool-with-containerd
+[aks-add-np-containerd]: /azure/aks/create-node-pools
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
 [aks-concepts-identity]: concepts-identity.md
 [aks-concepts-scale]: concepts-scale.md

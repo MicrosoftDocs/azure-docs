@@ -1,7 +1,7 @@
 ---
 title: Configure the Microsoft Security DevOps Azure DevOps extension
 description: Learn how to configure the Microsoft Security DevOps Azure DevOps extension.
-ms.date: 05/01/2023
+ms.date: 06/20/2023
 ms.topic: how-to
 ms.custom: ignite-2022
 ---
@@ -17,18 +17,20 @@ The Microsoft Security DevOps uses the following Open Source tools:
 
 | Name | Language | License |
 |--|--|--|
-| [AntiMalware](https://www.microsoft.com/windows/comprehensive-security) | AntiMalware protection in Windows from Windows Defender, that scans source code and breaks the build if malware has been found | Not Open Source |
+| [AntiMalware](https://www.microsoft.com/windows/comprehensive-security) | AntiMalware protection in Windows from Microsoft Defender for Endpoint, that scans for malware and breaks the build if malware has been found. This tool scans by default on windows-latest agent. | Not Open Source |
 | [Bandit](https://github.com/PyCQA/bandit) | Python | [Apache License 2.0](https://github.com/PyCQA/bandit/blob/master/LICENSE) |
 | [BinSkim](https://github.com/Microsoft/binskim) | Binary--Windows, ELF | [MIT License](https://github.com/microsoft/binskim/blob/main/LICENSE) |
-| [Credscan](detect-exposed-secrets.md) | Credential Scanner (also known as CredScan) is a tool developed and maintained by Microsoft to identify credential leaks such as those in source code and configuration files <br> common types: default passwords, SQL connection strings, Certificates with private keys | Not Open Source |
 | [ESlint](https://github.com/eslint/eslint) | JavaScript | [MIT License](https://github.com/eslint/eslint/blob/main/LICENSE) |
 | [Template Analyzer](https://github.com/Azure/template-analyzer) | ARM template, Bicep file | [MIT License](https://github.com/Azure/template-analyzer/blob/main/LICENSE.txt) |
 | [Terrascan](https://github.com/accurics/terrascan) | Terraform (HCL2), Kubernetes (JSON/YAML), Helm v3, Kustomize, Dockerfiles, Cloud Formation | [Apache License 2.0](https://github.com/accurics/terrascan/blob/master/LICENSE) |
 | [Trivy](https://github.com/aquasecurity/trivy) | container images, file systems, git repositories | [Apache License 2.0](https://github.com/aquasecurity/trivy/blob/main/LICENSE) |
 
-## Prerequisites 
+> [!NOTE]
+> Effective September 20, 2023, the secret scanning (CredScan) tool within the Microsoft Security DevOps (MSDO) Extension for Azure DevOps has been deprecated. MSDO secret scanning will be replaced with [GitHub Advanced Security for Azure DevOps](https://azure.microsoft.com/products/devops/github-advanced-security). 
 
-- Admin privileges to the Azure DevOps organization are required to install the extension. 
+## Prerequisites
+
+- Admin privileges to the Azure DevOps organization are required to install the extension.
 
 If you don't have access to install the extension, you must request access from your Azure DevOps organization's administrator during the installation process.
 
@@ -77,15 +79,15 @@ If you don't have access to install the extension, you must request access from 
 
     :::image type="content" source="media/msdo-azure-devops-extension/repo-git.png" alt-text="Screenshot that shows you where to navigate to, to select Azure repo git.":::
 
-1.  Select the relevant repository.
+1. Select the relevant repository.
 
     :::image type="content" source="media/msdo-azure-devops-extension/repository.png" alt-text="Screenshot showing where to select your repository.":::
 
-5.  Select **Starter pipeline**.
+1. Select **Starter pipeline**.
 
     :::image type="content" source="media/msdo-azure-devops-extension/starter-piepline.png" alt-text="Screenshot showing where to select starter pipeline.":::
 
-1.  Paste the following YAML into the pipeline:
+1. Paste the following YAML into the pipeline:
 
     ```yml
     # Starter pipeline
@@ -96,37 +98,22 @@ If you don't have access to install the extension, you must request access from 
     pool:
       vmImage: 'windows-latest'
     steps:
-    - task: UseDotNet@2
-      displayName: 'Use dotnet'
-      inputs:
-        version: 3.1.x
-    - task: UseDotNet@2
-      displayName: 'Use dotnet'
-      inputs:
-        version: 5.0.x
-    - task: UseDotNet@2
-      displayName: 'Use dotnet'
-      inputs:
-        version: 6.0.x
     - task: MicrosoftSecurityDevOps@1
       displayName: 'Microsoft Security DevOps'
     ```
 
-> [!Note] 
-> The MicrosoftSecurityDevOps build task depends on .NET 6. The CredScan analyzer depends on .NET 3.1. See more [here](https://marketplace.visualstudio.com/items?itemName=ms-securitydevops.microsoft-security-devops-azdevops).
-
-9. To commit the pipeline, select **Save and run**.
+1. To commit the pipeline, select **Save and run**.
 
 The pipeline will run for a few minutes and save the results.
 
-> [!Note] 
+> [!NOTE]
 > Install the SARIF SAST Scans Tab extension on the Azure DevOps organization in order to ensure that the generated analysis results will be displayed automatically under the Scans tab.
 
 ## Learn more
 
-- Learn how to [create your first pipeline](/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=java%2Ctfs-2018-2%2Cbrowser).
+- Learn how to [create your first pipeline](/azure/devops/pipelines/create-first-pipeline).
 
-- Learn how to [deploy pipelines to Azure](/azure/devops/pipelines/overview-azure?toc=%2Fazure%2Fdevops%2Fcross-service%2Ftoc.json&bc=%2Fazure%2Fdevops%2Fcross-service%2Fbreadcrumb%2Ftoc.json&view=azure-devops).
+- Learn how to [deploy pipelines to Azure](/azure/devops/pipelines/overview-azure).
 
 ## Next steps
 

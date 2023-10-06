@@ -5,8 +5,9 @@ author: ju-shim
 ms.service: virtual-machines
 ms.subservice: spot
 ms.workload: infrastructure-services
+ms.custom: devx-track-linux
 ms.topic: how-to
-ms.date: 04/21/2023
+ms.date: 05/31/2023
 ms.author: jushiman
 ms.reviewer: cynthn
 ---

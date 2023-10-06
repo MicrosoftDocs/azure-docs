@@ -1,14 +1,13 @@
 ---
 title: Best Practices
 description: Learn best practices and the common troubleshooting scenarios for your app running in Azure App Service.
-author: dariagrigoriu
 
 ms.assetid: f3359464-fa44-4f4a-9ea6-7821060e8d0d
 ms.topic: article
 ms.date: 07/01/2016
-ms.author: dariac
-ms.custom: seodec18
-
+author: msangapu-msft
+ms.author: msangapu
+ms.custom: seodec18, devx-track-js
 ---
 # Best Practices for Azure App Service
 This article summarizes best practices for using [Azure App Service](./overview.md). 
@@ -29,7 +28,7 @@ Note that applications which rely on certificate pinning should also not have a 
 If an application needs to rely on certificate pinning behavior, it is recommended to add a custom domain to a web app and provide a custom TLS certificate for the domain which can then be relied on for certificate pinning.
 
 ## <a name="memoryresources"></a>When apps consume more memory than expected
-When you notice an app consumes more memory than expected as indicated via monitoring or service recommendations, consider the [App Service Auto-Healing feature](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites). One of the options for the Auto-Healing feature is taking custom actions based on a memory threshold. Actions span the spectrum from email notifications to investigation via memory dump to on-the-spot mitigation by recycling the worker process. Auto-healing can be configured via web.config and via a friendly user interface as described at in this blog post for the [App Service Support Site Extension](https://azure.microsoft.com/blog/additional-updates-to-support-site-extension-for-azure-app-service-web-apps).   
+When you notice an app consumes more memory than expected as indicated via monitoring or service recommendations, consider the [App Service Auto-Healing feature](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites). One of the options for the Auto-Healing feature is taking custom actions based on a memory threshold. Actions span the spectrum from email notifications to investigation via memory dump to on-the-spot mitigation by recycling the worker process. Auto-healing can be configured via web.config and via a friendly user interface as described at in this blog post for the App Service Support Site Extension.   
 
 ## <a name="CPUresources"></a>When apps consume more CPU than expected
 When you notice an app consumes more CPU than expected or experiences repeated CPU spikes as indicated via monitoring or service recommendations, consider scaling up or scaling out the App Service plan. If your application is stateful, scaling up is the only option, while if your application is stateless, scaling out gives you more flexibility and higher scale potential. 
@@ -69,9 +68,9 @@ When backup failures happen, review most recent results to understand which type
 Azure App Service default configuration for Node.js apps is intended to best suit the needs of most common apps. If configuration for your Node.js app would benefit from personalized tuning to improve performance or optimize resource usage for CPU/memory/network resources, see [Best practices and troubleshooting guide for Node applications on Azure App Service](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md). This article describes the iisnode settings you may need to configure for your Node.js app, describes the various scenarios or issues that your app may be facing, and shows how to address these issues.
 
 ## <a name=""></a>When Internet of Things (IoT) devices are connected to apps on App Service
-There are a few scenarios where you can improve your environment when running Internet of Things (IoT) devices that are connected to App Service. One very common practice with IoT devices is "certificate pinning". To avoid any unforseen downtime due to changes in the service's managed certificates, you should never pin certificates to the default \*.azurewebsites.net certificate nor to an App Service Managed Certificate. If your system needs to rely on certificate pinning behavior, it is recommended to add a custom domain to a web app and provide a custom TLS certificate for the domain which can then be relied on for certificate pinning. You can refer to the [certificate pinning](#certificatepinning) section of this article for more information.
+There are a few scenarios where you can improve your environment when running Internet of Things (IoT) devices that are connected to App Service. One very common practice with IoT devices is "certificate pinning". To avoid any unforeseen downtime due to changes in the service's managed certificates, you should never pin certificates to the default \*.azurewebsites.net certificate nor to an App Service Managed Certificate. If your system needs to rely on certificate pinning behavior, it is recommended to add a custom domain to a web app and provide a custom TLS certificate for the domain which can then be relied on for certificate pinning. You can refer to the [certificate pinning](#certificatepinning) section of this article for more information.
 
-To increase resiliency in your environment, you should not rely on a single endpoint for all your devices. You should at least host your web apps in two different regions to avoid a single point of failure and be ready to failover traffic. On App Service, you can add identical custom domain to different web apps as long as these web apps are hosted in different regions. This ensures that if you need to pin certificates, you can also pin on the custom TLS certificate that you provided. Another option would be to use a load balancer in front of the web apps, such as Azure Front Door or Traffic Manager, to ensure high availabilty for your web apps. You can refer to [Quickstart: Create a Front Door for a highly available global web application](../frontdoor/quickstart-create-front-door.md) or [Controlling Azure App Service traffic with Azure Traffic Manager](./web-sites-traffic-manager.md) for more information.
+To increase resiliency in your environment, you should not rely on a single endpoint for all your devices. You should at least host your web apps in two different regions to avoid a single point of failure and be ready to failover traffic. On App Service, you can add identical custom domain to different web apps as long as these web apps are hosted in different regions. This ensures that if you need to pin certificates, you can also pin on the custom TLS certificate that you provided. Another option would be to use a load balancer in front of the web apps, such as Azure Front Door or Traffic Manager, to ensure high availability for your web apps. You can refer to [Quickstart: Create a Front Door for a highly available global web application](../frontdoor/quickstart-create-front-door.md) or [Controlling Azure App Service traffic with Azure Traffic Manager](./web-sites-traffic-manager.md) for more information.
 
 ## Next Steps
 For more information on best practices, visit [App Service Diagnostics](./overview-diagnostics.md) to find out actionable best practices specific to your resource.

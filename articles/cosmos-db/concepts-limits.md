@@ -8,7 +8,7 @@ ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/15/2023
-ms.custom: ignite-2022
+ms.custom: ignite-2022, build-2023
 ---
 
 # Azure Cosmos DB service quotas
@@ -86,12 +86,12 @@ Depending on the current RU/s provisioned and resource settings, each resource c
 
 | Resource | Limit |
 | --- | --- |
-| Maximum RU/s per container | 5,000 |
+| Maximum RU/s per container | 20,000* |
 | Maximum storage across all items per (logical) partition | 20 GB |
-| Maximum storage per container (API for NoSQL, MongoDB, Table, and Gremlin)| 50 GB (default)¹  |
-| Maximum storage per container (API for Cassandra)| 30 GB (default)¹  |
+| Maximum storage per container (API for NoSQL, MongoDB, Table, and Gremlin)| 1 TB  |
+| Maximum storage per container (API for Cassandra)| 1 TB  |
 
-¹ Serverless containers up to 1 TB are currently in preview with Azure Cosmos DB. To try the new feature, register the *"Azure Cosmos DB Serverless 1 TB Container Preview"* [preview feature in your Azure subscription](../azure-resource-manager/management/preview-features.md).
+*Maximum RU/sec availability is dependent on data stored in the container. See, [Serverless Performance](serverless-performance.md)
 
 ## Control plane
 
@@ -144,7 +144,7 @@ Here's a list of limits per account.
 
 | Resource | Limit |
 | --- | --- |
-| Maximum number of databases and containers per account | 500 |
+| Maximum number of databases and containers per account | 500¹ |
 | Maximum number of containers per database with shared throughput | 25 |
 | Maximum number of regions | No limit (All Azure regions) |
 
@@ -152,10 +152,10 @@ Here's a list of limits per account.
 
 | Resource | Limit |
 | --- | --- |
-| Maximum number of databases and containers per account  | 100 ¹ |
+| Maximum number of databases and containers per account  | 100¹ |
 | Maximum number of regions | 1 (Any Azure region) |
 
-¹ You can increase this limit by creating an [Azure Support request](nosql/create-support-request-quota-increase.md).
+¹ You can increase any of these per-account limits by creating an [Azure Support request](create-support-request-quota-increase.md).
 
 ## Per-container limits
 
@@ -223,7 +223,7 @@ Azure Cosmos DB uses HMAC for authorization. You can use either a primary key, o
 
 ## Limits for autoscale provisioned throughput
 
-See the [Autoscale](provision-throughput-autoscale.md#autoscale-limits) article and [FAQ](autoscale-faq.yml#how-do-i-lower-the maximum-ru-s---) for more detailed explanation of the throughput and storage limits with autoscale.
+See the [Autoscale](./provision-throughput-autoscale.md#autoscale-limits) article and [FAQ](./autoscale-faq.yml#how-do-i-lower-the-maximum-ru-s-) for more detailed explanation of the throughput and storage limits with autoscale.
 
 | Resource | Limit |
 | --- | --- |
@@ -247,6 +247,7 @@ Azure Cosmos DB supports querying items using [SQL](nosql/query/getting-started.
 | Maximum explicitly included paths per container| 1500 ¹ |
 | Maximum explicitly excluded paths per container| 1500 ¹ |
 | Maximum properties in a composite index| 8 |
+| Maximum number of paths in a composite index| 100 |
 
 ¹ You can increase any of these SQL query limits by creating an [Azure Support request](create-support-request-quota-increase.md).
 
@@ -303,5 +304,3 @@ In addition to the previous table, the [Per-account limits](#per-account-limits)
 
 * Read more about [global distribution](distribute-data-globally.md)
 * Read more about [partitioning](partitioning-overview.md) and [provisioned throughput](request-units.md).
-
-

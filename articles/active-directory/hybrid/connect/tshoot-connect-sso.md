@@ -1,6 +1,6 @@
 ---
-title: 'Azure Active Directory Connect: Troubleshoot Seamless Single Sign-On'
-description: This topic describes how to troubleshoot Azure Active Directory Seamless Single Sign-On
+title: 'Microsoft Entra Connect: Troubleshoot Seamless Single Sign-On'
+description: This topic describes how to troubleshoot Microsoft Entra seamless single sign-on
 services: active-directory
 author: billmath
 ms.reviewer: swkrish
@@ -8,6 +8,7 @@ manager: amycolannino
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
+ms.custom: has-azure-ad-ps-ref
 ms.topic: troubleshooting
 ms.date: 01/19/2023
 ms.subservice: hybrid
@@ -15,9 +16,9 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-# Troubleshoot Azure Active Directory Seamless Single Sign-On
+# Troubleshoot Microsoft Entra seamless single sign-on
 
-This article helps you find troubleshooting information about common problems regarding Azure Active Directory (Azure AD) Seamless Single Sign-On (Seamless SSO).
+This article helps you find troubleshooting information about common problems regarding Microsoft Entra seamless single sign-on (Seamless SSO).
 
 ## Known issues
 
@@ -29,30 +30,30 @@ This article helps you find troubleshooting information about common problems re
 - Seamless SSO doesn't work in Internet Explorer when Enhanced Protected mode is turned on.
 - Microsoft Edge (legacy) is no longer supported
 - Seamless SSO doesn't work on mobile browsers on iOS and Android.
-- If a user is part of too many groups in Active Directory, the user's Kerberos ticket will likely be too large to process, and this will cause Seamless SSO to fail. Azure AD HTTPS requests can have headers with a maximum size of 50 KB; Kerberos tickets need to be smaller than that limit to accommodate other Azure AD artifacts (typically, 2 - 5 KB) such as cookies. Our recommendation is to reduce user's group memberships and try again.
-- If you're synchronizing 30 or more Active Directory forests, you can't enable Seamless SSO through Azure AD Connect. As a workaround, you can [manually enable](#manual-reset-of-the-feature) the feature on your tenant.
-- Adding the Azure AD service URL (`https://autologon.microsoftazuread-sso.com`) to the Trusted sites zone instead of the Local intranet zone *blocks users from signing in*.
+- If a user is part of too many groups in Active Directory, the user's Kerberos ticket will likely be too large to process, and this will cause Seamless SSO to fail. Microsoft Entra HTTPS requests can have headers with a maximum size of 50 KB; Kerberos tickets need to be smaller than that limit to accommodate other Microsoft Entra artifacts (typically, 2 - 5 KB) such as cookies. Our recommendation is to reduce user's group memberships and try again.
+- If you're synchronizing 30 or more Active Directory forests, you can't enable Seamless SSO through Microsoft Entra Connect. As a workaround, you can [manually enable](#manual-reset-of-the-feature) the feature on your tenant.
+- Adding the Microsoft Entra service URL (`https://autologon.microsoftazuread-sso.com`) to the Trusted sites zone instead of the Local intranet zone *blocks users from signing in*.
 - Seamless SSO supports the AES256_HMAC_SHA1, AES128_HMAC_SHA1 and RC4_HMAC_MD5 encryption types for Kerberos. It is recommended that the encryption type for the AzureADSSOAcc$ account is set to AES256_HMAC_SHA1, or one of the AES types vs. RC4 for added security. The encryption type is stored on the msDS-SupportedEncryptionTypes attribute of the account in your Active Directory.  If the AzureADSSOAcc$ account encryption type is set to RC4_HMAC_MD5, and you want to change it to one of the AES encryption types, please make sure that you first roll over the Kerberos decryption key of the AzureADSSOAcc$ account as explained in the [FAQ document](how-to-connect-sso-faq.yml) under the relevant question, otherwise Seamless SSO will not happen.
 -  If you have more than one forest with forest trust, enabling SSO in one of the forests, will enable SSO in all trusted forests. If you enable SSO in a forest where SSO is already enabled, you'll get an error saying that SSO is already enabled in the forest.
 -  The policy that enables Seamless SSO has a 25600 char limit. This limit is for everything included in the policy, including the forest names you want Seamless SSO to be enabled on. You may hit the char limit if you have a high number of forests in your environment. If your forests have trust between them, it’s enough to enable Seamless SSO only on one forests. For example, if you have contoso.com and fabrikam.com and there’s trust between the two, you can enable Seamless SSO only on contoso.com and that will apply on fabrikam.com as well. This way, you can reduce the number of forests enabled in the policy and avoid hitting the policy char limit.
 
 ## Check status of feature
 
-Ensure that the Seamless SSO feature is still **Enabled** on your tenant. You can check the status by going to the **Azure Active Directory** > **Azure AD Connect** pane in the [Azure portal](https://portal.azure.com/).
+Ensure that the Seamless SSO feature is still **Enabled** on your tenant. You can check the status by going to the **Identity** > **Hybrid management** > **Microsoft Entra Connect** > **Connect Sync** pane in the [[Microsoft Entra admin center](https://entra.microsoft.com)](https://portal.azure.com/).
 
-![Azure portal: Azure AD Connect pane](./media/tshoot-connect-sso/sso10.png)
+![Screenshot of the Microsoft Entra admin center: Microsoft Entra Connect pane.](./media/tshoot-connect-sso/sso10.png)
 
 Click through to see all the AD forests that have been enabled for Seamless SSO.
 
-![Azure portal: Seamless SSO pane](./media/tshoot-connect-sso/sso13.png)
+![Screenshot of the Microsoft Entra admin center: Seamless SSO pane.](./media/tshoot-connect-sso/sso13.png)
 
-## Sign-in failure reasons in the Azure portal (needs a Premium license)
+## Sign-in failure reasons in the [Microsoft Entra admin center](https://entra.microsoft.com) (needs a Premium license)
 
-If your tenant has an Azure AD Premium license associated with it, you can also look at the [sign-in activity report](../../reports-monitoring/concept-sign-ins.md) inside of Azure Active Directory in the [Azure portal](https://portal.azure.com/).
+If your tenant has a Microsoft Entra ID P1 or P2 license associated with it, you can also look at the [sign-in activity report](../../reports-monitoring/concept-sign-ins.md) inside of Microsoft Entra ID in the [Microsoft Entra admin center](https://entra.microsoft.com).
 
-![Azure portal: Sign-ins report](media/tshoot-connect-sso/sso9.png)
+![Screenshot of the Microsoft Entra admin center: Sign-ins report.](media/tshoot-connect-sso/sso9.png)
 
-Browse to **Azure Active Directory** > **Sign-ins** in the [Azure portal](https://portal.azure.com/), and then select a specific user's sign-in activity. Look for the **SIGN-IN ERROR CODE** field. Map the value of that field to a failure reason and resolution by using the following table:
+Browse to **Identity** > **Monitoring & health** > **Sign-ins** in the [[Microsoft Entra admin center](https://entra.microsoft.com)](https://portal.azure.com/), and then select a specific user's sign-in activity. Look for the **SIGN-IN ERROR CODE** field. Map the value of that field to a failure reason and resolution by using the following table:
 
 |Sign-in error code|Sign-in failure reason|Resolution
 | --- | --- | ---
@@ -63,18 +64,18 @@ Browse to **Azure Active Directory** > **Sign-ins** in the [Azure portal](https:
 | 81008 | Unable to validate the user's Kerberos ticket. | See the [troubleshooting checklist](#troubleshooting-checklist).
 | 81009 | Unable to validate the user's Kerberos ticket. | See the [troubleshooting checklist](#troubleshooting-checklist).
 | 81010 | Seamless SSO failed because the user's Kerberos ticket has expired or is invalid. | The user needs to sign in from a domain-joined device inside your corporate network.
-| 81011 | Unable to find the user object based on the information in the user's Kerberos ticket. | Use Azure AD Connect to synchronize the user's information into Azure AD.
-| 81012 | The user trying to sign in to Azure AD is different from the user that is signed in to the device. | The user needs to sign in from a different device.
-| 81013 | Unable to find the user object based on the information in the user's Kerberos ticket. |Use Azure AD Connect to synchronize the user's information into Azure AD. 
+| 81011 | Unable to find the user object based on the information in the user's Kerberos ticket. | Use Microsoft Entra Connect to synchronize the user's information into Microsoft Entra ID.
+| 81012 | The user trying to sign in to Microsoft Entra ID is different from the user that is signed in to the device. | The user needs to sign in from a different device.
+| 81013 | Unable to find the user object based on the information in the user's Kerberos ticket. |Use Microsoft Entra Connect to synchronize the user's information into Microsoft Entra ID. 
 
 ## Troubleshooting checklist
 
 Use the following checklist to troubleshoot Seamless SSO problems:
 
-- Ensure that the Seamless SSO feature is enabled in Azure AD Connect. If you can't enable the feature (for example, due to a blocked port), ensure that you have all the [prerequisites](how-to-connect-sso-quick-start.md#step-1-check-the-prerequisites) in place.
-- If you have enabled both [Azure AD Join](../../devices/overview.md) and Seamless SSO on your tenant, ensure that the issue is not with Azure AD Join. SSO from Azure AD Join takes precedence over Seamless SSO if the device is both registered with Azure AD and domain-joined. With SSO from Azure AD Join the user sees a sign-in tile that says "Connected to Windows".
-- Ensure that the Azure AD URL (`https://autologon.microsoftazuread-sso.com`) is part of the user's Intranet zone settings.
-- Ensure that the corporate device is joined to the Active Directory domain. The device _doesn't_ need to be [Azure AD Joined](../../devices/overview.md) for Seamless SSO to work.
+- Ensure that the Seamless SSO feature is enabled in Microsoft Entra Connect. If you can't enable the feature (for example, due to a blocked port), ensure that you have all the [prerequisites](how-to-connect-sso-quick-start.md#step-1-check-the-prerequisites) in place.
+- If you have enabled both [Microsoft Entra join](../../devices/overview.md) and Seamless SSO on your tenant, ensure that the issue is not with Microsoft Entra join. SSO from Microsoft Entra join takes precedence over Seamless SSO if the device is both registered with Microsoft Entra ID and domain-joined. With SSO from Microsoft Entra join the user sees a sign-in tile that says "Connected to Windows".
+- Ensure that the Microsoft Entra URL (`https://autologon.microsoftazuread-sso.com`) is part of the user's Intranet zone settings.
+- Ensure that the corporate device is joined to the Active Directory domain. The device _doesn't_ need to be [Microsoft Entra joined](../../devices/overview.md) for Seamless SSO to work.
 - Ensure that the user is logged on to the device through an Active Directory domain account.
 - Ensure that the user's account is from an Active Directory forest where Seamless SSO has been set up.
 - Ensure that the device is connected to the corporate network.
@@ -100,7 +101,7 @@ If you enable success auditing on your domain controller, then every time a user
 
 ## Manual reset of the feature
 
-If troubleshooting didn't help, you can manually reset the feature on your tenant. Follow these steps on the on-premises server where you're running Azure AD Connect.
+If troubleshooting didn't help, you can manually reset the feature on your tenant. Follow these steps on the on-premises server where you're running Microsoft Entra Connect.
 
 ### Step 1: Import the Seamless SSO PowerShell module
 
@@ -142,6 +143,6 @@ If troubleshooting didn't help, you can manually reset the feature on your tenan
 
 2. Repeat the preceding step for each Active Directory forest where you want to set up the feature.
 
-### Step 5. Enable the feature on your tenant
+### Step 5: Enable the feature on your tenant
 
 To turn on the feature on your tenant, call `Enable-AzureADSSO -Enable $true`.

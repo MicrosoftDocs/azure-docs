@@ -5,6 +5,7 @@ description: Enable two sample Dapr applications to send and receive messages an
 author: hhunter-ms
 ms.author: hannahhunter
 ms.service: container-apps
+ms.custom: devx-track-dotnet, devx-track-js, devx-track-python
 ms.topic: how-to
 ms.date: 05/15/2023
 zone_pivot_group_filename: container-apps/dapr-zone-pivot-groups.json
@@ -23,9 +24,6 @@ The sample pub/sub project includes:
 1. An (subscriber) `order-processor` service that listens for messages from the `checkout` service of a specific topic. 
 
 :::image type="content" source="media/microservices-dapr-azd/pubsub-quickstart.png" alt-text="Diagram of the Dapr pub/sub sample.":::
-
-> [!NOTE]
-> This tutorial uses [Azure Developer CLI (`azd`)](/azure/developer/azure-developer-cli/overview), which is currently in preview. Preview features are available on a self-service, opt-in basis. Previews are provided "as is" and "as available," and they're excluded from the service-level agreements and limited warranty. The `azd` previews are partially covered by customer support on a best-effort basis.
 
 ## Prerequisites
 
@@ -221,7 +219,7 @@ In the Azure portal, verify the `checkout` service is publishing messages to the
 
 1. Copy the `checkout` container app name from the terminal output.
 
-1. Go to the [Azure portal](https://ms.portal.azure.com) and search for the container app resource by name.
+1. Sign in to the [Azure portal](https://portal.azure.com) and search for the container app resource by name.
 
 1. In the Container Apps dashboard, select **Monitoring** > **Log stream**.
 
@@ -433,7 +431,7 @@ In the Azure portal, verify the `checkout` service is publishing messages to the
 
 1. Copy the `checkout` container app name from the terminal output.
 
-1. Go to the [Azure portal](https://ms.portal.azure.com) and search for the container app resource by name.
+1. Sign in to the [Azure portal](https://portal.azure.com) and search for the container app resource by name.
 
 1. In the Container Apps dashboard, select **Monitoring** > **Log stream**.
 
@@ -645,7 +643,7 @@ In the Azure portal, verify the `checkout` service is publishing messages to the
 
 1. Copy the `checkout` container app name from the terminal output.
 
-1. Go to the [Azure portal](https://ms.portal.azure.com) and search for the container app resource by name.
+1. Sign in to the [Azure portal](https://portal.azure.com) and search for the container app resource by name.
 
 1. In the Container Apps dashboard, select **Monitoring** > **Log stream**.
 

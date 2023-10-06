@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Perform a web search with Java - Bing Web Search REST API"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Use this quickstart to send a request to the Bing News Search REST API using Java, and receive a JSON response.
 services: cognitive-services
 author: aahill
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
 ms.devlang: java
-ms.custom: seodec2018, devx-track-java, mode-api
+ms.custom: seodec2018, devx-track-java, mode-api, devx-track-extended-java
 ---
 
 # Quickstart: Perform a news search using Java and the Bing News Search REST API
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 Use this quickstart to make your first call to the Bing News Search API. This simple Java application sends a news search query to the API, and displays the JSON response.
 
@@ -47,7 +47,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
     import com.google.gson.JsonParser;
     ```
 
-2. Create a new class. Add variables for the API endpoint, your subscription key, and search term. You can use the global endpoint in the following code, or use the [custom subdomain](../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+2. Create a new class. Add variables for the API endpoint, your subscription key, and search term. You can use the global endpoint in the following code, or use the [custom subdomain](../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```java
     public static SearchResults SearchNews (String searchQuery) throws Exception {

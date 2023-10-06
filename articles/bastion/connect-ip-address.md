@@ -5,7 +5,7 @@ description: Learn how to connect to your virtual machines using a specified pri
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 04/26/2022
+ms.date: 09/13/2023
 ms.author: cherylmc
 
 ---
@@ -22,7 +22,13 @@ IP-based connection lets you connect to your on-premises, non-Azure, and Azure v
 
 **Limitations**
 
-IP-based connection won’t work with force tunneling over VPN, or when a default route is advertised over an ExpressRoute circuit. Azure Bastion requires access to the Internet and force tunneling, or the default route advertisement will result in traffic blackholing.
+* IP-based connection won’t work with force tunneling over VPN, or when a default route is advertised over an ExpressRoute circuit. Azure Bastion requires access to the Internet and force tunneling, or the default route advertisement will result in traffic blackholing.
+
+* Azure Active Directory Authentication isn't supported for RDP connections. Azure Active Directory authentication is supported for SSH connections via native client.
+
+* Custom ports and protocols aren't currently supported when connecting to a VM via native client.
+
+* UDR isn't supported on Bastion subnet, including with IP-based connection.
 
 ## Prerequisites
 
@@ -64,26 +70,30 @@ Before you begin these steps, verify that you have the following environment set
 
 ## Connect to VM - native client
 
-You can connect to VMs using a specified IP address with native client via SSH, RDP, or tunnelling. Note that this feature does not support Azure Active Directory authentication or custom port and protocol at the moment. To learn more about configuring native client support, see [Connect to a VM - native client](connect-native-client-windows.md). Use the following commands as examples:
+You can connect to VMs using a specified IP address with native client via SSH, RDP, or tunneling. To learn more about configuring native client support, see [Configure Bastion native client support](native-client.md).
 
-   **RDP:**
-   
-   ```azurecli
-   az network bastion rdp --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-ip-address "<VMIPAddress>
-   ```
-   
-   **SSH:**
-   
-   ```azurecli
-   az network bastion ssh --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-ip-addres "<VMIPAddress>" --auth-type "ssh-key" --username "<Username>" --ssh-key "<Filepath>"
-   ```
-   
-   **Tunnel:**
-   
-   ```azurecli
-   az network bastion tunnel --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-ip-address "<VMIPAddress>" --resource-port "<TargetVMPort>" --port "<LocalMachinePort>"
-   ```
+> [!NOTE]
+> This feature does not currently support Azure Active Directory authentication or custom port and protocol.
 
+Use the following commands as examples:
+
+**RDP:**
+
+```azurecli
+az network bastion rdp --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-ip-address "<VMIPAddress>
+```
+
+**SSH:**
+
+```azurecli
+az network bastion ssh --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-ip-address "<VMIPAddress>" --auth-type "ssh-key" --username "<Username>" --ssh-key "<Filepath>"
+```
+
+**Tunnel:**
+
+```azurecli
+az network bastion tunnel --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-ip-address "<VMIPAddress>" --resource-port "<TargetVMPort>" --port "<LocalMachinePort>"
+```
 
 ## Next steps
 

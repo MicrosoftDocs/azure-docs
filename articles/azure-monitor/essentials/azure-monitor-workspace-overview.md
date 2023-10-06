@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor workspace overview (preview)
+title: Azure Monitor workspace overview
 description: Overview of Azure Monitor workspace, which is a unique environment for data collected by Azure Monitor.
 author: EdB-MSFT
 ms.author: edbaynash 
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 01/22/2023
 ---
 
-# Azure Monitor workspace (preview)
+# Azure Monitor workspace
 An Azure Monitor workspace is a unique environment for data collected by Azure Monitor. Each workspace has its own data repository, configuration, and permissions.
 
 > [!Note]
@@ -63,12 +63,16 @@ In certain circumstances, splitting an Azure Monitor workspace into multiple wor
 
 ## Limitations
 See [Azure Monitor service limits](../service-limits.md#prometheus-metrics) for performance related service limits for Azure Monitor managed service for Prometheus.
-- Azure Monitor Private Links aren't supported for Prometheus metrics collection into Azure monitor workspace.
-- Azure Monitor workspaces are currently only supported in public clouds.
-- Azure Monitor workspaces don't currently support being moved into a different subscription or resource group once created.
 
+
+## Data considerations
+Data stored in the Azure Monitor Workspace is handled in accordance with all standards described in the [Azure Trust Center](https://www.microsoft.com/en-us/trust-center?rtc=1). Several considerations exist specific to data stored in the Azure Monitor Workspace:
+- Data is physically stored in the same region that the Azure Monitor Workspace is provisioned in
+- Data is encrypted at rest using a Microsoft-managed key
+- Data is retained for 18 months
+- For details about the Azure Monitor managed service for Prometheus' support of PII/EUII data, please see details [here](./prometheus-metrics-overview.md)
 
 ## Next steps
 
 - Learn more about the [Azure Monitor data platform](../data-platform.md).
-- [Manage an Azure Monitor workspace (preview)](./azure-monitor-workspace-manage.md)
+- [Manage an Azure Monitor workspace](./azure-monitor-workspace-manage.md)

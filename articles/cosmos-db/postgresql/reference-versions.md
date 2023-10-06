@@ -1,13 +1,13 @@
 ---
 title: Supported versions – Azure Cosmos DB for PostgreSQL
 description: PostgreSQL versions available in Azure Cosmos DB for PostgreSQL
-ms.author: jonels
-author: jonels-msft
+ms.author: nlarin
+author: niklarin
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 02/25/2023
+ms.date: 09/27/2023
 ---
 
 # Supported database versions in Azure Cosmos DB for PostgreSQL
@@ -21,34 +21,40 @@ customizable during creation. Azure Cosmos DB for PostgreSQL currently supports 
 following major [PostgreSQL
 versions](https://www.postgresql.org/docs/release/):
 
+### PostgreSQL version 16
+
+The current minor release is 16.0. Refer to the [PostgreSQL
+documentation](https://www.postgresql.org/docs/release/16.0/) to
+learn more about improvements and fixes in this minor release.
+
 ### PostgreSQL version 15
 
-The current minor release is 15.2. Refer to the [PostgreSQL
-documentation](https://www.postgresql.org/docs/release/15.2/) to
+The current minor release is 15.4. Refer to the [PostgreSQL
+documentation](https://www.postgresql.org/docs/release/15.4/) to
 learn more about improvements and fixes in this minor release.
 
 ### PostgreSQL version 14
 
-The current minor release is 14.7. Refer to the [PostgreSQL
-documentation](https://www.postgresql.org/docs/release/14.7/) to
+The current minor release is 14.9. Refer to the [PostgreSQL
+documentation](https://www.postgresql.org/docs/release/14.9/) to
 learn more about improvements and fixes in this minor release.
 
 ### PostgreSQL version 13
 
-The current minor release is 13.10. Refer to the [PostgreSQL
-documentation](https://www.postgresql.org/docs/release/13.10/) to
+The current minor release is 13.12. Refer to the [PostgreSQL
+documentation](https://www.postgresql.org/docs/release/13.12/) to
 learn more about improvements and fixes in this minor release.
 
 ### PostgreSQL version 12
 
-The current minor release is 12.14. Refer to the [PostgreSQL
-documentation](https://www.postgresql.org/docs/release/12.14/) to
+The current minor release is 12.16. Refer to the [PostgreSQL
+documentation](https://www.postgresql.org/docs/release/12.16/) to
 learn more about improvements and fixes in this minor release.
 
 ### PostgreSQL version 11
 
-The current minor release is 11.19. Refer to the [PostgreSQL
-documentation](https://www.postgresql.org/docs/release/11.19/) to
+The current minor release is 11.21. Refer to the [PostgreSQL
+documentation](https://www.postgresql.org/docs/release/11.21/) to
 learn more about improvements and fixes in this minor release.
 
 ### PostgreSQL version 10 and older
@@ -67,13 +73,12 @@ _major_ version upgrade.
 
 ## PostgreSQL version support and retirement
 
-Each major version of PostgreSQL will be supported by Azure Cosmos DB for
-PostgreSQL from the date on which Azure begins supporting the version until the
-version is retired by the PostgreSQL community. Refer to [PostgreSQL community
+Azure Cosmos DB for PostgreSQL supports each major version of PostgreSQL from the date on which Azure begins supporting the version until the PostgreSQL community retires that 
+major PostgreSQL version. Refer to [PostgreSQL community
 versioning policy](https://www.postgresql.org/support/versioning/).
 
-Azure Cosmos DB for PostgreSQL automatically performs minor version upgrades to
-the Azure preferred PostgreSQL version as part of periodic maintenance.
+Azure Cosmos DB for PostgreSQL automatically performs minor version updates to
+the latest PostgreSQL version available on Azure as part of periodic maintenance.
 
 ### Major version retirement policy
 
@@ -88,6 +93,7 @@ policy](https://www.postgresql.org/support/versioning/).
 | [PostgreSQL 13](https://www.postgresql.org/about/news/postgresql-13-released-2077/) | [Features](https://www.postgresql.org/docs/13/release-13.html) | Apr 6, 2021  | Nov 13, 2025 |
 | [PostgreSQL 14](https://www.postgresql.org/about/news/postgresql-14-released-2318/) | [Features](https://www.postgresql.org/docs/14/release-14.html) | Oct 1, 2021  | Nov 12, 2026 |
 | [PostgreSQL 15](https://www.postgresql.org/about/news/postgresql-15-released-2526/) | [Features](https://www.postgresql.org/docs/15/release-15.html) | Oct 20, 2022 | Nov 11, 2027 |
+| [PostgreSQL 16](https://www.postgresql.org/about/news/postgresql-16-released-2715/) | [Features](https://www.postgresql.org/docs/16/release-16.html) | Sep 28, 2023 | Nov 9, 2028  |
 
 ### Retired PostgreSQL engine versions not supported in Azure Cosmos DB for PostgreSQL
 
@@ -106,8 +112,7 @@ PostgreSQL database version:
 
 Depending on which version of PostgreSQL is running in a cluster,
 different [versions of PostgreSQL extensions](reference-extensions.md)
-will be installed as well. In particular, PostgreSQL 14 and PostgreSQL 15 come with Citus 11, PostgreSQL versions 12 and 13 come with
-Citus 10, and earlier PostgreSQL versions come with Citus 9.5.
+will be installed as well. In particular, PostgreSQL 14, PostgreSQL 15, and PostgreSQL 16 come with Citus 12, PostgreSQL 13 comes with Citus 11, PostgreSQL 12 comes with Citus 10, and earlier PostgreSQL versions come with Citus 9.5.
 
 ## Next steps
 

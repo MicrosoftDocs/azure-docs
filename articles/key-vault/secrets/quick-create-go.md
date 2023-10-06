@@ -8,6 +8,7 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.devlang: golang
+ms.custom: devx-track-go
 ---
 
 # Quickstart: Manage secrets by using the Azure Key Vault Go client library
@@ -28,7 +29,7 @@ Get started with the [azsecrets](https://aka.ms/azsdk/go/keyvault-secrets/docs) 
 
 For purposes of this quickstart, you use the [azidentity](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity) package to authenticate to Azure by using the Azure CLI. To learn about the various authentication methods, see [Azure authentication with the Azure SDK for Go](/azure/developer/go/azure-sdk-authentication).
 
-###  Sign in to the Azure portal
+### Sign in to the Azure portal
 
 1. In the Azure CLI, run the following command:
 
@@ -69,65 +70,65 @@ Create a file named *main.go*, and then paste the following code into it:
 package main
 
 import (
-	"context"
-	"fmt"
-	"log"
+    "context"
+    "fmt"
+    "log"
 
-	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
-	"github.com/Azure/azure-sdk-for-go/sdk/keyvault/azsecrets"
+    "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+    "github.com/Azure/azure-sdk-for-go/sdk/keyvault/azsecrets"
 )
 
 func main() {
-	mySecretName := "secretName01"
-	mySecretValue := "secretValue"
-	vaultURI := os.Getenv("AZURE_KEY_VAULT_URI")
+    mySecretName := "secretName01"
+    mySecretValue := "secretValue"
+    vaultURI := os.Getenv("AZURE_KEY_VAULT_URI")
 
-	// Create a credential using the NewDefaultAzureCredential type.
-	cred, err := azidentity.NewDefaultAzureCredential(nil)
-	if err != nil {
-		log.Fatalf("failed to obtain a credential: %v", err)
-	}
+    // Create a credential using the NewDefaultAzureCredential type.
+    cred, err := azidentity.NewDefaultAzureCredential(nil)
+    if err != nil {
+        log.Fatalf("failed to obtain a credential: %v", err)
+    }
 
-	// Establish a connection to the Key Vault client
-	client, err := azsecrets.NewClient(vaultURI, cred, nil)
+    // Establish a connection to the Key Vault client
+    client, err := azsecrets.NewClient(vaultURI, cred, nil)
 
-	// Create a secret
-	params := azsecrets.SetSecretParameters{Value: &mySecretValue}
-	_, err = client.SetSecret(context.TODO(), mySecretName, params, nil)
-	if err != nil {
-		log.Fatalf("failed to create a secret: %v", err)
-	}
+    // Create a secret
+    params := azsecrets.SetSecretParameters{Value: &mySecretValue}
+    _, err = client.SetSecret(context.TODO(), mySecretName, params, nil)
+    if err != nil {
+        log.Fatalf("failed to create a secret: %v", err)
+    }
 
-	// Get a secret. An empty string version gets the latest version of the secret.
-	version := ""
-	resp, err := client.GetSecret(context.TODO(), mySecretName, version, nil)
-	if err != nil {
-		log.Fatalf("failed to get the secret: %v", err)
-	}
+    // Get a secret. An empty string version gets the latest version of the secret.
+    version := ""
+    resp, err := client.GetSecret(context.TODO(), mySecretName, version, nil)
+    if err != nil {
+        log.Fatalf("failed to get the secret: %v", err)
+    }
 
-	fmt.Printf("secretValue: %s\n", *resp.Value)
+    fmt.Printf("secretValue: %s\n", *resp.Value)
 
-	// List secrets
-	pager := client.NewListSecretsPager(nil)
-	for pager.More() {
-		page, err := pager.NextPage(context.TODO())
-		if err != nil {
-			log.Fatal(err)
-		}
-		for _, secret := range page.Value {
-			fmt.Printf("Secret ID: %s\n", *secret.ID)
-		}
-	}
+    // List secrets
+    pager := client.NewListSecretsPager(nil)
+    for pager.More() {
+        page, err := pager.NextPage(context.TODO())
+        if err != nil {
+            log.Fatal(err)
+        }
+        for _, secret := range page.Value {
+            fmt.Printf("Secret ID: %s\n", *secret.ID)
+        }
+    }
 
-	// Delete a secret. DeleteSecret returns when Key Vault has begun deleting the secret.
-	// That can take several seconds to complete, so it may be necessary to wait before
-	// performing other operations on the deleted secret.
-	delResp, err := client.DeleteSecret(context.TODO(), mySecretName, nil)
-	if err != nil {
-		log.Fatalf("failed to delete secret: %v", err)
-	}
+    // Delete a secret. DeleteSecret returns when Key Vault has begun deleting the secret.
+    // That can take several seconds to complete, so it may be necessary to wait before
+    // performing other operations on the deleted secret.
+    delResp, err := client.DeleteSecret(context.TODO(), mySecretName, nil)
+    if err != nil {
+        log.Fatalf("failed to delete secret: %v", err)
+    }
 
-	fmt.Println(delResp.ID.Name() + " has been deleted")
+    fmt.Println(delResp.ID.Name() + " has been deleted")
 }
 ```
 
@@ -135,22 +136,22 @@ func main() {
 
 1. Before you run the code, create an environment variable named `KEY_VAULT_NAME`. Set the environment variable value to the name of the key vault that you created previously.
 
-	```azurecli
-	export KEY_VAULT_NAME=quickstart-kv
-	```
+    ```azurecli
+    export KEY_VAULT_NAME=quickstart-kv
+    ```
 
 1. To start the Go app, run the following command:
 
-	```azurecli
-	go run main.go
-	```
+    ```azurecli
+    go run main.go
+    ```
 
-	```output
-	secretValue: createdWithGO
-	Secret ID: https://quickstart-kv.vault.azure.net/secrets/quickstart-secret
-	Secret ID: https://quickstart-kv.vault.azure.net/secrets/secretName
-	quickstart-secret has been deleted
-	```
+    ```output
+    secretValue: createdWithGO
+    Secret ID: https://quickstart-kv.vault.azure.net/secrets/quickstart-secret
+    Secret ID: https://quickstart-kv.vault.azure.net/secrets/secretName
+    quickstart-secret has been deleted
+    ```
 
 ## Code examples
 

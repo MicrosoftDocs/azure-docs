@@ -4,7 +4,7 @@ description: How to use the Azure CLI to assign a Key Vault access policy to a s
 services: key-vault
 author: msmbaldwin
 tags: azure-resource-manager
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurecli, has-azure-ad-ps-ref
 
 ms.service: key-vault
 ms.subservice: general
@@ -14,7 +14,7 @@ ms.author: mbaldwin
 #Customer intent: As someone new to Key Vault, I'm trying to learn basic concepts that can help me understand Key Vault documentation.
 ---
 
-# Assign a Key Vault access policy
+# Assign a Key Vault access policy (legacy)
 
 A Key Vault access policy determines whether a given security principal, namely a user, application or user group, can perform different operations on Key Vault [secrets](../secrets/index.yml), [keys](../keys/index.yml), and [certificates](../certificates/index.yml). You can assign access policies using the [Azure portal](assign-access-policy-portal.md), the Azure CLI, or [Azure PowerShell](assign-access-policy-powershell.md).
 

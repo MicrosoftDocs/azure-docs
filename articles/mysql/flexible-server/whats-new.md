@@ -26,11 +26,70 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 > This article references the term slave, which Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 
+## September 2023
+
+- **Flexible Maintenance for Azure Database for MySQL - Flexible server(Public Preview)**
+Flexible Maintenance for Azure Database for MySQL - Flexible Server enables a tailored maintenance schedule to suit your operational rhythm. This feature allows you to reschedule maintenance tasks within a maximum 14-day window and initiate on-demand maintenance, granting you unprecedented control over server upkeep timing. Stay tuned for more customizable experiences in the future. [Learn more](concepts-maintenance.md).
+
+- **Universal Cross Region Read Replica on Azure Database for MySQL- Flexible Server (General Availability)**
+Azure Database for MySQL - Flexible server now supports Universal Read Replicas in Public regions. The feature allows you to replicate your data from an instance of Azure Database for MySQL Flexible Server to a read-only server in Universal region which could be any region from the list of Azure supported region where flexible server is available. [Learn more](concepts-read-replicas.md)
+
+- **Private Link for Azure Database for MySQL - Flexible Server (General Availability)**
+You can now enable private endpoints to provide a secure means to access Azure Database for MySQL Flexible Server via a Private Link, allowing both public and private access simultaneously. If necessary, you have the choice to restrict public access, ensuring that connections are exclusively routed through private endpoints for heightened network security. It's also possible to configure or update Private Link settings either during or after the creation of the server. [Learn more](./concepts-networking-private-link.md).
+
+- **Azure MySQL Import Smart Defaults for Azure Database for MySQL - Single to Flexible Server migration (Public Preview)**
+You can now migrate an Azure Database for MySQL Single Server to an Azure Database for MySQL Flexible Server by running a single CLI command with minimal inputs as the command leverages smart defaults for target Flexible Server provisioning based on the source server SKU and properties! [Learn more](../migrate/migrate-single-flexible-mysql-import-cli.md)
+
+- **Nominate eligible Azure DB for MySQL Single Server instance for in-place automigration to Flexible Server**
+If you own a Azure DB for MySQL Single Server workload with Basic or GP SKU, data storage used < 10 GiB and no complex features (CMK, AAD, Read Replica, Private Link) enabled, you can now nominate yourself (if not already scheduled by the service) for in-place automigration to Flexible Server by submitting your server details through this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4lhLelkCklCuumNujnaQ-ZUQzRKSVBBV0VXTFRMSDFKSUtLUDlaNTA5Wi4u)
+
+## August 2023
+  
+- **Universal Geo Restore in Azure Database for MySQL - Flexible Server (Public Preview)**
+Universal Geo Restore feature will allow you to restore a source server instance to an alternate region from the list of Azure supported regions where flexible server is [available](./overview.md#azure-regions). If a large-scale incident in a region results in unavailability of database application, then you can use this feature as a disaster recovery option to restore the server to an Azure supported target region, which is different than the source server region. [Learn more](concepts-backup-restore.md#restore)
+
+- **Generated Invisible Primary Key in Azure Database for MySQL - Flexible Server** 
+Azure Database for MySQL Flexible Server now supports [generated invisible primary key (GIPK)](https://dev.mysql.com/doc/refman/8.0/en/create-table-gipks.html) for MySQL version 8.0. With this change, by default, the value of the server system variable "[sql_generate_invisible_primary_key](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_sql_generate_invisible_primary_key) " is ON for all MySQL - Flexible Server on MySQL 8.0. With GIPK mode ON, MySQL generates an invisible primary key to any InnoDB table which is new created without an explicit primary key. Learn more about the GIPK mode:
+[Generated Invisible Primary Keys](./concepts-limitations.md#generated-invisible-primary-keys)
+[Invisible Column Metadata](https://dev.mysql.com/doc/refman/8.0/en/invisible-columns.html#invisible-column-metadata)
+
+
+## July 2023
+
+- **Autoscale IOPS in Azure Database for MySQL - Flexible Server (General Availability)**
+
+    You can now scale IOPS on demand without having to pre-provision a certain amount of IOPS. With this feature, you can now enjoy worry free IO management in Azure Database for MySQL - Flexible Server because the server scales IOPs up or down automatically depending on workload needs. With this feature, you pay only for the IO you use and no longer need to provision and pay for resources they aren't fully using, saving time and money. The autoscale IOPS feature eliminates the administration required to provide the best performance for Azure Database for MySQL customers at the lowest cost. [Learn more](./concepts-storage-iops.md#autoscale-iops)
+
+## June 2023
+
+- **Private Link for Azure Database for MySQL - Flexible Server (Preview)**
+
+  You can now enable private access to Azure Database for MySQL - flexible server using Private Link. Azure Private Link essentially brings Azure services inside your private Virtual Network (VNet). Using the private IP address, the MySQL flexible server is accessible just like any other resource within the VNet. [Learn more](./concepts-networking-private-link.md).
+
+- **Enhanced Data Encryption with Customer Managed Keys for Azure Database for MySQL - Flexible Server**
+
+  Azure Database for MySQL - Flexible Server now supports allowing access to Azure Key Vault from selected Vnets for enabling data encryption using Customer Managed Keys. [Learn more](./concepts-customer-managed-key.md).
+
+
+- **Server Parameters support for Azure Database for MySQL- Flexible Server**
+
+  Please reach out to our [support team](https://azure.microsoft.com/support/create-ticket) if you require assistance with below server parameters.
+
+  [lower_case_table_names](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_lower_case_table_names): Supported value change is to value of 2 for MySQL version 5.7. Please note that changing the value from 2 back to 1 is not allowed. Please contact our support team for assistance.
+
+  [innodb_flush_log_at_trx_commit](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_flush_log_at_trx_commit): This parameter determines the level of strictness for commit operations to ensure ACID compliance. Changing the value from its default setting may result in data loss.
+
+- **Max IOPS support for Azure Database for MySQL- Flexible Server**
+
+  Business Critical SKU now supports 80K IOPS, enabling enhanced performance with increased IO operations per second. [Learn more](./concepts-service-tiers-storage.md#service-tiers-size-and-server-types).
+
+ 
+
 ## May 2023
 
-- **Read-Replica in Geo-Paired Region on Azure Database for MySQL- Flexible Server**
+- **Read-Replica in Geo-Paired Region on Azure Database for MySQL- Flexible Server (General Availability)**
 
-  Azure Database for MySQL - Flexible server now supports cross region read-replica in a geo-paired region. The feature allows you to replicate your data from an instance of Azure Database for MySQL Flexible Server to a read-only server in geo-paired region. [Learn more](how-to-read-replicas-portal.md)
+  Azure Database for MySQL - Flexible server now supports cross region read-replica in a geo-paired region. The feature allows you to replicate your data from an instance of Azure Database for MySQL Flexible Server to a read-only server in geo-paired region. [Learn more](concepts-read-replicas.md)
 
 - **Support for data-in replication using GTID**
 
@@ -186,7 +245,7 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 
 - **On-Demand Backup for Azure Database for MySQL - Flexible Server**
 
-    The on-Demand backup feature allows customers to trigger On-Demand backups of their production workload, in addition to the automated backups taken by Azure Database for MySQL Flexible service, and store it in alignment with the server's backup retention policy. These backups can be used as the fastest restore point to perform a point-in-time restore for faster and more predictable restore times. [**Learn more**](how-to-trigger-on-demand-backup.md#trigger-on-demand-backup)
+    The on-Demand backup feature allows customers to trigger On-Demand backups of their production workload, in addition to the automated backups taken by Azure Database for MySQL Flexible Server, and store it in alignment with the server's backup retention policy. These backups can be used as the fastest restore point to perform a point-in-time restore for faster and more predictable restore times. [**Learn more**](how-to-trigger-on-demand-backup.md#trigger-on-demand-backup)
 
 - **Business Critical tier now supports Ev5 compute series**
 
@@ -413,7 +472,7 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
   - Australia Southeast
   - South Africa North
-  - East Asia (Hong Kong)
+  - East Asia (Hong Kong Special Administrative Region)
   - Central India
 
    [Learn more](overview.md#azure-regions).
@@ -570,3 +629,8 @@ If you have questions about or suggestions for working with Azure Database for M
 - Learn more about [Azure Database for MySQL pricing](https://azure.microsoft.com/pricing/details/mysql/server/).
 - Browse the [public documentation](index.yml) for Azure Database for MySQL – Flexible Server.
 - Review details on [troubleshooting common migration errors](../howto-troubleshoot-common-errors.md).
+
+
+
+
+

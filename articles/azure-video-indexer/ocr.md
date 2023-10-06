@@ -1,20 +1,22 @@
 ---
-title: Azure Video Indexer optical character recognition (OCR) overview 
-titleSuffix: Azure Video Indexer 
-description: An introduction to Azure Video Indexer optical character recognition (OCR) component responsibly.
-author: Juliako
-ms.author: juliako
+title: Azure AI Video Indexer optical character recognition (OCR) overview 
+titleSuffix: Azure AI Video Indexer 
+description: An introduction to Azure AI Video Indexer optical character recognition (OCR) component responsibly.
 manager: femila
 ms.service: azure-video-indexer
 ms.date: 06/15/2022
 ms.topic: article
+ms.author: inhenkel
+author: IngridAtMicrosoft
 ---
 
-# Optical character recognition (OCR)  
+# Optical character recognition (OCR)
 
-Optical character recognition (OCR) is an Azure Video Indexer AI feature that extracts text from images like pictures, street signs and products in media files to create insights.  
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
 
-OCR currently extracts insights from printed and handwritten text in over 50 languages, including from an image with text in multiple languages. For more information, see [OCR supported languages](/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr).    
+Optical character recognition (OCR) is an Azure AI Video Indexer AI feature that extracts text from images like pictures, street signs and products in media files to create insights.  
+
+OCR currently extracts insights from printed and handwritten text in over 50 languages, including from an image with text in multiple languages. For more information, see [OCR supported languages](../ai-services/computer-vision/language-support.md#optical-character-recognition-ocr).    
 
 ## Prerequisites  
 
@@ -91,7 +93,7 @@ To see  the insights in a JSON file, do the following:
         },
     ```
     
-To download the JSON file via the API, use the [Azure Video Indexer developer portal](https://api-portal.videoindexer.ai/). 
+To download the JSON file via the API, use the [Azure AI Video Indexer developer portal](https://api-portal.videoindexer.ai/). 
 
 ## OCR components 
 
@@ -100,11 +102,11 @@ During the OCR procedure, text images in a media file are processed, as follows:
 |Component|Definition|
 |---|---|
 |Source file|	The user uploads the source file for indexing.|
-|Read model	|Images are detected in the media file and text is then extracted and analyzed by Azure Cognitive Services. |
+|Read model	|Images are detected in the media file and text is then extracted and analyzed by Azure AI services. |
 |Get read results model	|The output of the extracted text is displayed in a JSON file.|
 |Confidence value|	The estimated confidence level of each word is calculated as a range of 0 to 1. The confidence score represents the certainty in the accuracy of the result. For example, an 82% certainty will be represented as an 0.82 score.|
 
-For more information, see [OCR technology](/azure/cognitive-services/computer-vision/overview-ocr). 
+For more information, see [OCR technology](../ai-services/computer-vision/overview-ocr.md). 
 
 ## Example use cases 
 
@@ -121,7 +123,7 @@ For more information, see [OCR technology](/azure/cognitive-services/computer-
 - When extracting handwritten text, avoid using the OCR results of signatures that are hard to read for both humans and machines. A better way to use OCR is to use it for detecting the presence of a signature for further analysis. 
 - Don't use OCR for decisions that may have serious adverse impacts. Machine learning models that extract text can result in undetected or incorrect text output. Decisions based on incorrect output could have serious adverse impacts. Additionally, it's advisable to include human review of decisions that have the potential for serious impacts on individuals. 
 
-When used responsibly and carefully, Azure Video Indexer is a valuable tool for many industries. To respect the privacy and safety of others, and to comply with local and global regulations, we recommend the following:   
+When used responsibly and carefully, Azure AI Video Indexer is a valuable tool for many industries. To respect the privacy and safety of others, and to comply with local and global regulations, we recommend the following:   
 
 - Always respect an individual’s right to privacy, and only ingest videos for lawful and justifiable purposes.   
 - Don't purposely disclose inappropriate content about young children or family members of celebrities or other content that may be detrimental or pose a threat to an individual’s personal freedom.   
@@ -133,6 +135,16 @@ When used responsibly and carefully, Azure Video Indexer is a valuable tool for 
 - Be aware of any applicable laws or regulations that exist in your area regarding processing, analyzing, and sharing media containing people.  
 - Keep a human in the loop. Don't use any solution as a replacement for human oversight and decision-making.   
 - Fully examine and review the potential of any AI model you're using to understand its capabilities and limitations.  
+
+## Learn more about OCR
+
+- [Azure AI services documentation](/azure/ai-services/computer-vision/overview-ocr)
+- [Transparency note](/legal/cognitive-services/computer-vision/ocr-transparency-note)  
+- [Use cases](/legal/cognitive-services/computer-vision/ocr-transparency-note#example-use-cases) 
+- [Capabilities and limitations](/legal/cognitive-services/computer-vision/ocr-characteristics-and-limitations) 
+- [Guidance for integration and responsible use with OCR technology](/legal/cognitive-services/computer-vision/ocr-guidance-integration-responsible-use)
+- [Data, privacy and security](/legal/cognitive-services/computer-vision/ocr-data-privacy-security)
+- [Meter: WER](/legal/cognitive-services/computer-vision/ocr-characteristics-and-limitations#word-level-accuracy-measure)  
 
 ## Next steps
 
@@ -147,7 +159,7 @@ When used responsibly and carefully, Azure Video Indexer is a valuable tool for 
 
 `visupport@microsoft.com`  
 
-## Azure Video Indexer insights
+## Azure AI Video Indexer insights
 
 - [Audio effects detection](audio-effects-detection.md)
 - [Face detection](face-detection.md)

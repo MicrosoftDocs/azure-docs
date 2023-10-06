@@ -3,11 +3,10 @@ title: Handle Linux node reboots with kured
 titleSuffix: Azure Kubernetes Service
 description: Learn how to update Linux nodes and automatically reboot them with kured in Azure Kubernetes Service (AKS)
 ms.topic: article
+ms.custom: build-2023, devx-track-linux
 ms.reviewer: mattmcinnes
 ms.date: 04/19/2023
-
-
-#Customer intent: As a cluster administrator, I want to know how to automatically apply Linux updates and reboot nodes in AKS for security and/or compliance 
+#Customer intent: As a cluster administrator, I want to know how to automatically apply Linux updates and reboot nodes in AKS for security and/or compliance
 ---
 
 # Apply security and kernel updates to Linux nodes in Azure Kubernetes Service (AKS)
@@ -27,7 +26,7 @@ You need the Azure CLI version 2.0.59 or later installed and configured. Run `az
 
 ## Understand the AKS node update experience
 
-In an AKS cluster, your Kubernetes nodes run as Azure virtual machines (VMs). These Linux-based VMs use an Ubuntu or Mariner image, with the OS configured to automatically check for updates every day. If security or kernel updates are available, they're automatically downloaded and installed.
+In an AKS cluster, your Kubernetes nodes run as Azure virtual machines (VMs). These Linux-based VMs use an Ubuntu or Azure Linux image, with the OS configured to automatically check for updates every day. If security or kernel updates are available, they're automatically downloaded and installed.
 
 ![AKS node update and reboot process with kured](media/node-updates-kured/node-reboot-process.png)
 
@@ -109,7 +108,7 @@ For AKS clusters that use Windows Server nodes, see [Upgrade a node pool in AKS]
 
 <!-- LINKS - external -->
 [kured]: https://github.com/kubereboot/kured
-[kured-install]: https://github.com/kubereboot/kured/tree/main/cmd/kured
+[kured-install]: https://github.com/kubereboot/charts/tree/main/charts/kured
 [kubectl-get-nodes]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 
 <!-- LINKS - internal -->
@@ -117,5 +116,5 @@ For AKS clusters that use Windows Server nodes, see [Upgrade a node pool in AKS]
 [DaemonSet]: concepts-clusters-workloads.md#statefulsets-and-daemonsets
 [aks-ssh]: ssh.md
 [aks-upgrade]: upgrade-cluster.md
-[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
+[nodepool-upgrade]: manage-node-pools.md#upgrade-a-single-node-pool
 [node-image-upgrade]: node-image-upgrade.md

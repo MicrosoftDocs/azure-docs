@@ -5,16 +5,11 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, wsilveira
 ms.topic: how-to
-ms.date: 10/28/2022
+ms.date: 07/21/2023
 #Customer intent: As a developer, I want to export one or more Consumption workflows to a Standard workflow.
 ---
 
-# Export Consumption workflows to a Standard logic app (Preview)
-
-> [!NOTE]
->
-> This capability is in preview and is subject to the 
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Export Consumption workflows to a Standard logic app
 
 Standard logic app workflows, which run in single-tenant Azure Logic Apps, offer many new and improved capabilities. For example, you get compute isolation, virtual network integration, and private endpoints along with App Services Environment hosting, local development and debugging using Visual Studio Code, low latency with stateless workflows, and more.
 
@@ -87,17 +82,17 @@ Consider the following recommendations when you select logic apps for export:
 
 1. In Visual Studio Code, sign in to Azure, if you haven't already.
 
-1. In the left navigation bar, select **Azure** to open the **Azure** window (Shift + Alt + A), and expand the **Logic Apps (Standard)** extension view.
+1. On the Visual Studio Code Activity Bar, select **Azure** to open the **Azure** window (Shift + Alt + A).
 
-   :::image type="content" source="media/export-from-consumption-to-standard-logic-app/select-azure-view.png" alt-text="Screenshot showing Visual Studio Code with 'Azure' view selected.":::
+   :::image type="content" source="media/export-from-consumption-to-standard-logic-app/select-azure-view.png" alt-text="Screenshot showing Visual Studio Code Activity Bar with Azure icon selected.":::
 
-1. On the extension toolbar, select **Export Logic App...**.
+1. On the **Workspace** section toolbar, from the **Azure Logic Apps** menu, select **Export Logic App**.
 
-   :::image type="content" source="media/export-from-consumption-to-standard-logic-app/select-export-logic-app.png" alt-text="Screenshot showing Visual Studio Code and 'Logic Apps (Standard)' extension toolbar with 'Export Logic App' selected.":::
+   :::image type="content" source="media/export-from-consumption-to-standard-logic-app/select-export-logic-app.png" alt-text="Screenshot showing Azure window, Workspace section toolbar, and Export Logic App selected.":::
 
 1. After the **Export** tab opens, select your Azure subscription and region, and then select **Next**.
 
-   :::image type="content" source="media/export-from-consumption-to-standard-logic-app/select-subscription-consumption.png" alt-text="Screenshot showing 'Export' tab and 'Select logic app instance' section with Azure subscription and region selected.":::
+   :::image type="content" source="media/export-from-consumption-to-standard-logic-app/select-subscription-consumption.png" alt-text="Screenshot showing Export tab with Azure subscription and region selected.":::
 
 1. Select the logic apps to export. Each selected logic app appears on the **Selected logic apps** list to the side. When you're done, select **Next**.
 

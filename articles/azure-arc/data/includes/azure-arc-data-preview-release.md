@@ -6,18 +6,19 @@ ms.topic: include
 ms.date: 05/02/2023
 ---
 
-At this time, a test or preview build is not available for the next release.
-
 <!--
 
-May 2023 preview release is now available.
+At this time, a test or preview build is not available for the next release.
+ -->
+ 
+Oct 2023 preview release is now available.
 
 |Component|Value|
 |-----------|-----------|
 |Container images registry/repository |`mcr.microsoft.com/arcdata/preview`|
-|Container images tag |`v1.19.0_2023-05-09`|
+|Container images tag |`v1.24.0_2023-10-10`|
 |**CRD names and version:**| |
-|`activedirectoryconnectors.arcdata.microsoft.com`| v1beta1, v1beta2, v1|
+|`activedirectoryconnectors.arcdata.microsoft.com`| v1beta1, v1beta2, v1, v2|
 |`datacontrollers.arcdata.microsoft.com`| v1beta1, v1 through v5|
 |`exporttasks.tasks.arcdata.microsoft.com`| v1beta1, v1, v2|
 |`failovergroups.sql.arcdata.microsoft.com`| v1beta1, v1beta2, v1, v2|
@@ -32,16 +33,17 @@ May 2023 preview release is now available.
 |`telemetrycollectors.arcdata.microsoft.com`| v1beta1 through v1beta5|
 |`telemetryrouters.arcdata.microsoft.com`| v1beta1 through v1beta5|
 |Azure Resource Manager (ARM) API version|2023-01-15-preview|
-|`arcdata` Azure CLI extension version|1.5.0 ([Download](https://aka.ms/az-cli-arcdata-ext))|
-|Arc-enabled Kubernetes helm chart extension version|1.19.0|
+|`arcdata` Azure CLI extension version|1.5.6 ([Download](https://aka.ms/az-cli-arcdata-ext))|
+|Arc-enabled Kubernetes helm chart extension version|1.24.0|
 |Azure Arc Extension for Azure Data Studio<br/>`arc`<br/>`azcli`|<br/>1.8.0 ([Download](https://aka.ms/ads-arcdata-ext))</br>1.8.0 ([Download](https://aka.ms/ads-azcli-ext))|
+|SQL Database version | 957 |
+
+
 
 ### Release notes
 
-- Arc SQL MI GP | Customer-Managed TDE | Preview
-- Arc SQL MI | Configuration Manager | sp_configure support
-- Arc SQL MI | Service-Managed Credential Rotation
-- Arc Data Services | Upgrade to OpenSearch | GA
-- Arc Data Services | Arc Data Controller | az CLI | Improved Arc data controller upgrade reliability
-
--->
+- Arc SQL Server | Arc enable SQL Server FCI - General Support | Public Preview
+- Arc SQL Server | Arc enable SQL Server FCI - DB Inventory | Public Preview
+- Arc SQL Server | Arc enable SQL Server FCI - Defender | Public Preview
+- Arc SQL Server | Point-in-time restore | Private Preview
+- Arc SQL Server | Billing | Enable ESU for FCI clusters | GA

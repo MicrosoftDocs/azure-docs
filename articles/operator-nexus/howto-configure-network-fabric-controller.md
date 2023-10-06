@@ -1,11 +1,11 @@
 ---
-title: "Azure Operator Nexus: How to configure Network fabric Controller"
-description: How to configure Network fabric Controller
-author: surajmb
-ms.author: surmb
+title: "Azure Operator Nexus: Configure a network fabric controller"
+description: Learn commands to create and modify a network fabric controller in Azure Operator Nexus instances.
+author: jdasari
+ms.author: jdasari
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 02/06/2023
+ms.date: 07/20/2023
 ms.custom: template-how-to, devx-track-azurecli
 ---
 # Create and modify a Network Fabric Controller using Azure CLI
@@ -15,7 +15,7 @@ This document also shows you how to check the status, or delete a Network Fabric
 
 ## Prerequisites
 
-You must implement all the prerequisites prior to creating a NFC.
+You must implement all the prerequisites prior to creating an NFC.
 
 Names, such as for resources, shouldn't contain the underscore (\_) character.
 
@@ -41,7 +41,7 @@ az group create -n NFCResourceGroupName -l "East US"
 | Parameter | Description | values | Example | Required     | Type   |
 |---------|------------------------------|----------------------------|----------------------------|------------|------|
 | Resource-Group | A resource group is a container that holds related resources for an Azure solution. | NFCResourceGroupName | XYZNFCResourceGroupName | True | String |
-| Location | The Azure Region is mandatory to provision your deployment. | eastus, westus3 | eastus | True         | String |
+| Location | The Azure Region is mandatory to provision your deployment. | eastus, westus3, southcentralus, eus2euap | eastus | True         | String |
 | Resource-Name | The Resource-name will be the name of the Fabric | nfcname | XYZnfcname | True         | String |
 | NFC IP Block | This Block is the NFC IP subnet, the default subnet block is 10.0.0.0/19, and it also shouldn't overlap with any of the ExpressRoute IPs | 10.0.0.0/19 | 10.0.0.0/19 | Not Required | String |
 | Express Route Circuits | The ExpressRoute circuit is a dedicated 10G link that connects Azure and on-premises. You need to know the ExpressRoute Circuit ID and Auth key for an NFC to successfully provision. There are two Express Route Circuits, one for the Infrastructure services and other one for Workload (Tenant) services | --workload-er-connections '[{"expressRouteCircuitId": "xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx", "expressRouteAuthorizationKey": "xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx"}]' <br /><br /> --infra-er-connections '[{"expressRouteCircuitId": "xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx", "expressRouteAuthorizationKey": "xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx"}]' | subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-01", "expressRouteAuthorizationKey": "xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx"}] | True         | string |
@@ -50,7 +50,7 @@ Here's an example of how you can create an NFC using the Azure CLI.
 For more information, see [attributes section](#attributes-for-nfc-creation).
 
 ```azurecli
-az nf controller create \
+az networkfabric controller create \
   --resource-group "NFCResourceGroupName" \
   --location "eastus"  \
   --resource-name "nfcname" \
@@ -63,92 +63,107 @@ az nf controller create \
 Use the `show` command to monitor NFC creation progress.
 You'll see different provisioning states such as, Accepted, updating and Succeeded/Failed.
 Delete and recreate the NFC if the creation fails (`Failed`).
+The expected output only shows running as soon as you execute via AzureCLI
 
 Expected output:
 
 ```json
- "annotation": null,
+ {
   "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFCResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers/nfcname",
   "infrastructureExpressRouteConnections": [
     {
-      "expressRouteAuthorizationKey": null,
-      "expressRouteCircuitId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-01"
+      "expressRouteCircuitId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-02"
     }
   ],
-  "infrastructureServices": null,
-  "ipv4AddressSpace": "10.0.0.0/19",
-  "ipv6AddressSpace": null,
-  "location": "eastus",
-  "managedResourceGroupConfiguration": {
-    "location": "eastus2euap",
-    "name": "nfcname-HostedResources-7DE8EEC1"
+  "infrastructureServices": {
+    "ipv4AddressSpaces": [
+      "10.0.0.0/21"
+    ],
+    "ipv6AddressSpaces": []
   },
-  "name": "nfcname",
-  "networkFabricIds": null,
-  "operationalState": null,
-  "provisioningState": "Accepted",
-  "resourceGroup": "NFCresourcegroupname",
+  "ipv4AddressSpace": "10.0.0.0/19",
+  "ipv6AddressSpace": "FC00::/59",
+  "isWorkloadManagementNetworkEnabled": "True",
+  "location": "eastus",
+  "managedResourceGroupConfiguration": {},
+  "name": "NFCName",
+  "nfcSku": "Standard",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "NFCResourceGroupName",
   "systemData": {
-    "createdAt": "2022-10-31T10:47:08.072025+00:00",
+    "createdAt": "2023XX-XXT18:59:41.7805324Z",
     "createdBy": "email@address.com",
     "createdByType": "User",
-    "lastModifiedAt": "2022-10-31T10:47:08.072025+00:00",
-    "lastModifiedBy": "email@address.com",
+    "lastModifiedAt": "2023-XX-XXT09:50:27.4598499Z",
+    "lastModifiedBy": "d1bd24c7-b27f-477e-86dd-939e107873d7",
+    "lastModifiedByType": "Application"
+  },
+  "type": "microsoft.managednetworkfabric/networkfabriccontrollers",
+  "workloadExpressRouteConnections": [
+    {
+      "expressRouteCircuitId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx//resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-03"
+    }
+  ],
+  "workloadManagementNetwork": true,
+  "workloadServices": {
+    "ipv4AddressSpaces": [
+      "10.0.28.0/22"
+    ],
+    "ipv6AddressSpaces": []
+  }
+}
 ```
 
 ## Get Network Fabric Controller
 
 ```azurecli
-  az nf controller show --resource-group "NFCResourceGroupName" --resource-name "nfcname"
+  az networkfabric controller show --resource-group "NFCResourceGroupName" --resource-name "nfcname"
 ```
 
 Expected output:
 
 ```json
 {
-  "annotation": null,
   "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFCResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers/nfcname",
   "infrastructureExpressRouteConnections": [
     {
-      "expressRouteAuthorizationKey": null,
       "expressRouteCircuitId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-02"
     }
   ],
   "infrastructureServices": {
-    "ipv4AddressSpaces": ["10.0.0.0/21"],
+    "ipv4AddressSpaces": [
+      "10.0.0.0/21"
+    ],
     "ipv6AddressSpaces": []
   },
   "ipv4AddressSpace": "10.0.0.0/19",
-  "ipv6AddressSpace": null,
+  "ipv6AddressSpace": "FC00::/59",
+  "isWorkloadManagementNetworkEnabled": "True",
   "location": "eastus",
-  "managedResourceGroupConfiguration": {
-    "location": "eastus",
-    "name": "nfcname-HostedResources-XXXXXXXX"
-  },
-  "name": "nfcname",
-  "networkFabricIds": [],
-  "operationalState": null,
+  "managedResourceGroupConfiguration": {},
+  "name": "NFCName",
+  "nfcSku": "Standard",
   "provisioningState": "Succeeded",
   "resourceGroup": "NFCResourceGroupName",
   "systemData": {
-    "createdAt": "2022-10-27T16:02:13.618823+00:00",
+    "createdAt": "2023XX-XXT18:59:41.7805324Z",
     "createdBy": "email@address.com",
     "createdByType": "User",
-    "lastModifiedAt": "2022-10-27T17:13:18.278423+00:00",
+    "lastModifiedAt": "2023-XX-XXT09:50:27.4598499Z",
     "lastModifiedBy": "d1bd24c7-b27f-477e-86dd-939e107873d7",
     "lastModifiedByType": "Application"
   },
-  "tags": null,
   "type": "microsoft.managednetworkfabric/networkfabriccontrollers",
   "workloadExpressRouteConnections": [
     {
-      "expressRouteAuthorizationKey": null,
-      "expressRouteCircuitId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-03"
+      "expressRouteCircuitId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx//resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-03"
     }
   ],
   "workloadManagementNetwork": true,
   "workloadServices": {
-    "ipv4AddressSpaces": ["10.0.28.0/22"],
+    "ipv4AddressSpaces": [
+      "10.0.28.0/22"
+    ],
     "ipv6AddressSpaces": []
   }
 }
@@ -159,7 +174,7 @@ Expected output:
 You should delete an NFC only after deleting all associated network fabrics.
 
 ```azurecli
-  az nf controller delete --resource-group "NFCResourceGroupName" --resource-name "nfcname"
+  az networkfabric controller delete --resource-group "NFCResourceGroupName" --resource-name "nfcname"
 ```
 
 Expected output:
@@ -179,4 +194,4 @@ Expected output:
 
 ## Next steps
 
-Once you've successfully created an NFC, the next step is to create a [Cluster Manager](./howto-cluster-manager.md).
+After you successfully create an NFC, the next step is to create a [cluster manager](./howto-cluster-manager.md).

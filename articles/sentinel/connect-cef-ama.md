@@ -14,6 +14,8 @@ This article describes how to use the **Common Event Format (CEF) via AMA** conn
 
 The connector uses the Azure Monitor Agent (AMA), which uses Data Collection Rules (DCRs). With DCRs, you can filter the logs before they're ingested, for quicker upload, efficient analysis, and querying.
 
+Learn how to [collect Syslog with the AMA](../azure-monitor/agents/data-collection-syslog.md), including how to configure Syslog and create a DCR.
+
 > [!IMPORTANT]
 >
 > The CEF via AMA connector is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -25,7 +27,7 @@ The AMA is installed on a Linux machine that acts as a log forwarder, and the AM
 
 > [!IMPORTANT]
 >
-> On **February 28th 2023**, we will introduce [changes to the CommonSecurityLog table schema](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/upcoming-changes-to-the-commonsecuritylog-table/ba-p/3643232). This means that custom queries will require being reviewed and updated. Out-of-the-box content (detections, hunting queries, workbooks, parsers, etc.) will be updated by Microsoft Sentinel.   
+> On **February 28th 2023**, we introduced changes to the CommonSecurityLog table schema. Following this change, you might need to review and update custom queries. For more details, see the [recommended actions section](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/upcoming-changes-to-the-commonsecuritylog-table/ba-p/3643232) in this blog post. Out-of-the-box content (detections, hunting queries, workbooks, parsers, etc.) has been updated by Microsoft Sentinel.   
 
 ## Overview 
 
@@ -60,8 +62,23 @@ Before you begin, verify that you have:
 - A defined Microsoft Sentinel workspace.
 - A Linux machine to collect logs.
     - The Linux machine must have Python 2.7 or 3 installed on the Linux machine. Use the ``python --version`` or ``python3 --version`` command to check.
+    - For space requirements for your log forwarder, see the [Azure Monitor Agent Performance Benchmark](../azure-monitor/agents/azure-monitor-agent-performance.md). You can also review this blog post, which includes [designs for scalable ingestion](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/designs-for-accomplishing-microsoft-sentinel-scalable-ingestion/ba-p/3741516).
 - Either the `syslog-ng` or `rsyslog` daemon enabled.
 - To collect events from any system that isn't an Azure virtual machine, ensure that [Azure Arc](../azure-monitor/agents/azure-monitor-agent-manage.md) is installed.
+
+## Avoid data ingestion duplication
+
+Using the same facility for both Syslog and CEF messages may result in data ingestion duplication between the CommonSecurityLog and Syslog tables. 
+
+To avoid this scenario, use one of these methods:
+
+- **If the source device enables configuration of the target facility**: On each source machine that sends logs to the log forwarder in CEF format, edit the Syslog configuration file to remove the facilities used to send CEF messages. This way, the facilities sent in CEF won't also be sent in Syslog. Make sure that each DCR you configure in the next steps uses the relevant facility for CEF or Syslog respectively.
+- **If changing the facility for the source appliance isn't applicable**: Use an ingest time transformation to filter out CEF messages from the Syslog stream to avoid duplication. The data will be sent twice from the collector machine to the workspace:
+
+    ```kusto
+    source |
+    where ProcessName !contains \"CEF\"
+    ```
 
 ### Configure a log forwarder
 
@@ -126,11 +143,7 @@ Select the machines on which you want to install the AMA. These machines are VMs
 ##### Select the data source type and create the DCR
 
 > [!NOTE]
-> **Using the same machine to forward both plain Syslog *and* CEF messages**
->
-> If you plan to use this log forwarder machine to forward Syslog messages as well as CEF, in order to avoid the duplication of events to the Syslog and CommonSecurityLog tables:
->
-> On each source machine that sends logs to the forwarder in CEF format, you must edit the Syslog configuration file to remove the facilities that are being used to send CEF messages. This way, the facilities that are sent in CEF won't also be sent in Syslog.
+> Using the same facility for both Syslog and CEF messages may result in data ingestion duplication. Learn how to [avoid data ingestion duplication](#avoid-data-ingestion-duplication).
 
 1. Select the **Collect** tab and select **Linux syslog** as the data source type.
 1. Configure the minimum log level for each facility. When you select a log level, Microsoft Sentinel collects logs for the selected level and other levels with higher severity. For example, if you select **LOG_ERR**, Microsoft Sentinel collects logs for the **LOG_ERR**, **LOG_CRIT**, **LOG_ALERT**, and **LOG_EMERG** levels.
@@ -356,7 +369,7 @@ This example collects events for:
 1. To capture messages sent from a logger or a connected device, run this command in the background:
 
     ```
-    tcpdump -I any port 514 -A vv &
+    tcpdump -i any port 514 -A -vv &
     ```
 1. After you complete the validation, we recommend that you stop the `tcpdump`: Type `fg` and then select <kbd>Ctrl</kbd>+<kbd>C</kbd>.
 1. To send demo messages, do one of the following: 
@@ -371,15 +384,29 @@ This example collects events for:
         logger -p local4.warn -P 514 -n 127.0.0.1 --rfc3164 -t CEF "0|Mock-test|MOCK|common=event-format-test|end|TRAFFIC|1|rt=$common=event-formatted-receive_time"
         ```    
 
-1. To verify that the connector is installed correctly, run the troubleshooting script with this command:
+1. To verify that the connector is installed correctly, run the troubleshooting script with one of these commands:
 
-    ```
-    sudo wget -O cef_AMA_troubleshoot.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_AMA_troubleshoot.py&&sudo python cef_AMA_troubleshoot.py
-    ```
+    - For CEF logs, run:
+        
+        ```python
+         sudo wget -O Sentinel_AMA_troubleshoot.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Sentinel_AMA_troubleshoot.py&&sudo python Sentinel_AMA_troubleshoot.py --cef
+        ```
+
+    - For Cisco Adaptive Security Appliance (ASA) logs, run:
+
+        ```python
+        sudo wget -O Sentinel_AMA_troubleshoot.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Sentinel_AMA_troubleshoot.py&&sudo python Sentinel_AMA_troubleshoot.py --asa
+        ```
+ 
+    - For Cisco Firepower Threat Defense (FTD) logs, run:
+    
+        ```python
+        sudo wget -O Sentinel_AMA_troubleshoot.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Sentinel_AMA_troubleshoot.py&&sudo python Sentinel_AMA_troubleshoot.py --ftd
+        ```
 
 ## Next steps
 
-In this article, you learned how to set up the Windows CEF via AMA connector to upload data from appliances that support CEF over Syslog. To learn more about Microsoft Sentinel, see the following articles:
+In this article, you learned how to set up the CEF via AMA connector to upload data from appliances that support CEF over Syslog. To learn more about Microsoft Sentinel, see the following articles:
 - Learn how to [get visibility into your data, and potential threats](get-visibility.md).
 - Get started [detecting threats with Microsoft Sentinel](detect-threats-built-in.md).
 - [Use workbooks](monitor-your-data.md) to monitor your data.

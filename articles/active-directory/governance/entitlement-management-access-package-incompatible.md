@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 01/25/2023
+ms.date: 05/31/2023
 ms.author: owinfrey
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -36,28 +36,30 @@ Similarly, you may have an application with two app roles - **Western Sales** an
  - the **Western Territory** access package has the **Eastern Territory** package as incompatible, and
  - the **Eastern Territory** access package has the **Western Territory** package as incompatible.
 
-If you’ve been using Microsoft Identity Manager or other on-premises identity management systems for automating access for on-premises apps, then you can integrate these systems with entitlement management as well.  If you'll be controlling access to Azure AD-integrated apps through entitlement management, and want to prevent users from having incompatible access, you can configure that an access package is incompatible with a group. That could be a group, which your on-premises identity management system sends into Azure AD through Azure AD Connect. This check ensures a user will be unable to request an access package, if that access package would give access that's incompatible with access the user has in on-premises apps.
+If you’ve been using Microsoft Identity Manager or other on-premises identity management systems for automating access for on-premises apps, then you can integrate these systems with entitlement management as well.  If you'll be controlling access to Microsoft Entra integrated apps through entitlement management, and want to prevent users from having incompatible access, you can configure that an access package is incompatible with a group. That could be a group, which your on-premises identity management system sends into Microsoft Entra ID through Microsoft Entra Connect. This check ensures a user will be unable to request an access package, if that access package would give access that's incompatible with access the user has in on-premises apps.
 
 ## Prerequisites
 
 To use entitlement management and assign users to access packages, you must have one of the following licenses:
 
-- Azure AD Premium P2
+- Microsoft Entra ID P2 or Microsoft Entra ID Governance
 - Enterprise Mobility + Security (EMS) E5 license
 
 ## Configure another access package or group membership as incompatible for requesting access to an access package
 
-**Prerequisite role**: Global administrator, Identity Governance administrator, User administrator, Catalog owner or Access package manager
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+**Prerequisite role**: Global Administrator, Identity Governance Administrator, Catalog owner or Access package manager
 
 Follow these steps to change the list of incompatible groups or other access packages for an existing access package:
 
-1.	Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1.  Select **Azure Active Directory**, and then select **Identity Governance**.
+1. Browse to **Identity governance** > **Entitlement management** > **Access package**.
 
-1.	In the left menu, select **Access packages** and then open the access package which users will request.
+1. On the **Access packages** page open the access package which users will request.
 
-1.	In the left menu, select **Separation of duties**.
+1. In the left menu, select **Separation of duties**.
 
 1.  If you wish to prevent users who have another access package assignment already from requesting this access package, select on **Add access package** and select the access package that the user would already be assigned.
 
@@ -79,7 +81,6 @@ This script below illustrates using the `v1.0` profile of Graph to create a rela
 
 ```powershell
 Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All"
-Select-MgProfile -Name "v1.0"
 
 $apid = "5925c3f7-ed14-4157-99d9-64353604697a"
 $otherapid = "cdd5f06b-752a-4c9f-97a6-82f4eda6c76d"
@@ -92,17 +93,17 @@ New-MgEntitlementManagementAccessPackageIncompatibleAccessPackageByRef -AccessPa
 
 ## View other access packages that are configured as incompatible with this one
 
-**Prerequisite role**: Global administrator, Identity Governance administrator, User administrator, Catalog owner or Access package manager
+**Prerequisite role**: Global Administrator, Identity Governance Administrator, Catalog owner or Access package manager
 
 Follow these steps to view the list of other access packages that have indicated that they're incompatible with an existing access package:
 
-1.	Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1.  Select **Azure Active Directory**, and then select **Identity Governance**.
+1. Browse to **Identity governance** > **Entitlement management** > **Access package**.
 
-1.	In the left menu, select **Access packages** and then open the access package.
+1. On the **Access packages** page open the access package.
 
-1.	In the left menu, select **Separation of duties**.
+1. In the left menu, select **Separation of duties**.
 
 1. Select on **Incompatible With**.
 
@@ -110,17 +111,17 @@ Follow these steps to view the list of other access packages that have indicated
 
 If you've configured incompatible access settings on an access package that already has users assigned to it, then you can download a list of those users who have that additional access. Those users who also have an assignment to the incompatible access package won't be able to re-request access.
 
-**Prerequisite role**: Global administrator, Identity Governance administrator, User administrator, Catalog owner or Access package manager
+**Prerequisite role**: Global Administrator, Identity Governance Administrator, Catalog owner or Access package manager
 
 Follow these steps to view the list of users who have assignments to two access packages.
 
-1.	Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1.  Select **Azure Active Directory**, and then select **Identity Governance**.
+1. Browse to **Identity governance** > **Entitlement management** > **Access package**.
 
-1.	In the left menu, select **Access packages** and then open the access package where you've configured another access package as incompatible.
+1. On the **Access packages** page open the access package where you've configured another access package as incompatible.
 
-1.	In the left menu, select **Separation of duties**.
+1. In the left menu, select **Separation of duties**.
 
 1.  In the table, if there is a non-zero value in the Additional access column for the second access package, then that indicates there are one or more users with assignments.
 
@@ -134,35 +135,35 @@ Follow these steps to view the list of users who have assignments to two access 
 
 If you're configuring incompatible access settings on an access package that already has users assigned to it, then any of those users who also have an assignment to the incompatible access package or groups won't be able to re-request access.
 
-**Prerequisite role**: Global administrator, Identity Governance administrator, User administrator, Catalog owner or Access package manager
+**Prerequisite role**: Global Administrator, Identity Governance Administrator, Catalog owner or Access package manager
 
 Follow these steps to view the list of users who have assignments to two access packages.
 
-1.	Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1.  Select **Azure Active Directory**, and then select **Identity Governance**.
+1. Browse to **Identity governance** > **Entitlement management** > **Access package**.
 
-1.	In the left menu, select **Access packages** and then open the access package where you'll be configuring incompatible assignments.
+1. Open the access package where you'll be configuring incompatible assignments.
 
-1.	In the left menu, select **Assignments**.
+1. In the left menu, select **Assignments**.
 
-1.  In the **Status** field, ensure that **Delivered** status is selected.
+1. In the **Status** field, ensure that **Delivered** status is selected.
 
-1.  Select the **Download** button and save the resulting CSV file as the first file with a list of assignments.
+1. Select the **Download** button and save the resulting CSV file as the first file with a list of assignments.
 
-1.  In the navigation bar, select **Identity Governance**.
+1. In the navigation bar, select **Identity Governance**.
 
-1.	In the left menu, select **Access packages** and then open the access package that you plan to indicate as incompatible.
+1. In the left menu, select **Access packages** and then open the access package that you plan to indicate as incompatible.
 
-1.	In the left menu, select **Assignments**.
+1. In the left menu, select **Assignments**.
 
-1.  In the **Status** field, ensure that the **Delivered** status is selected.
+1. In the **Status** field, ensure that the **Delivered** status is selected.
 
-1.  Select the **Download** button and save the resulting CSV file as the second file with a list of assignments.
+1. Select the **Download** button and save the resulting CSV file as the second file with a list of assignments.
 
-1.  Use a spreadsheet program such as Excel to open the two files.
+1. Use a spreadsheet program such as Excel to open the two files.
 
-1.  Users who are listed in both files will have already-existing incompatible assignments.
+1. Users who are listed in both files will have already-existing incompatible assignments.
 
 ### Identifying users who already have incompatible access programmatically
 
@@ -170,19 +171,19 @@ You can retrieve assignments to an access package using Microsoft Graph, that ar
 
 ### Identifying users who already have incompatible access using PowerShell
 
-You can also query the users who have assignments to an access package with the `Get-MgEntitlementManagementAccessPackageAssignment` cmdlet from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 1.6.0 or later.
+You can also query the users who have assignments to an access package with the `Get-MgEntitlementManagementAssignment` cmdlet from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 2.1.0 or later.
 
 For example, if you have two access packages, one with ID `29be137f-b006-426c-b46a-0df3d4e25ccd` and the other with ID `cce10272-68d8-4482-8ba3-a5965c86cfe5`, then you could retrieve the users who have assignments to the first access package, and then compare them to the users who have assignments to the second access package. You can also report the users who have assignments delivered to both, using a PowerShell script similar to the following:
 
 ```powershell
 $c = Connect-MgGraph -Scopes "EntitlementManagement.Read.All"
-Select-MgProfile -Name "beta"
+
 $ap_w_id = "29be137f-b006-426c-b46a-0df3d4e25ccd"
 $ap_e_id = "cce10272-68d8-4482-8ba3-a5965c86cfe5"
-$apa_w_filter = "accessPackage/id eq '" + $ap_w_id + "' and assignmentState eq 'Delivered'"
-$apa_e_filter = "accessPackage/id eq '" + $ap_e_id + "' and assignmentState eq 'Delivered'"
-$apa_w = Get-MgEntitlementManagementAccessPackageAssignment -Filter $apa_w_filter -ExpandProperty target -All
-$apa_e = Get-MgEntitlementManagementAccessPackageAssignment -Filter $apa_e_filter -ExpandProperty target -All
+$apa_w_filter = "accessPackage/id eq '" + $ap_w_id + "' and state eq 'Delivered'"
+$apa_e_filter = "accessPackage/id eq '" + $ap_e_id + "' and state eq 'Delivered'"
+$apa_w = @(Get-MgEntitlementManagementAssignment -Filter $apa_w_filter -ExpandProperty target -All)
+$apa_e = @(Get-MgEntitlementManagementAssignment -Filter $apa_e_filter -ExpandProperty target -All)
 $htt = @{}; foreach ($e in $apa_e) { if ($null -ne $e.Target -and $null -ne $e.Target.Id) {$htt[$e.Target.Id] = $e} }
 foreach ($w in $apa_w) { if ($null -ne $w.Target -and $null -ne $w.Target.Id -and $htt.ContainsKey($w.Target.Id)) { write-output $w.Target.Email } }
 ```
@@ -210,7 +211,7 @@ This policy could have as its lifecycle settings a much shorter expiration numbe
 
 You can use Azure Monitor workbooks to get insights on how users have been receiving their access.
 
-1. Configure Azure AD to [send audit events to Azure Monitor](entitlement-management-logs-and-reporting.md).
+1. Configure Microsoft Entra ID to [send audit events to Azure Monitor](entitlement-management-logs-and-reporting.md).
 
 1. The workbook named *Access Package Activity* displays each event related to a particular access package.
 

@@ -66,7 +66,7 @@ See the [Botmetric introduction for Azure](https://nutanix.medium.com/announcing
 
 Circonus provides a platform for machine data intelligence that can handle billions of metric streams in real time to drive business insight and value. Use Circonus to collect, track, and visualize key metrics related to your Microsoft Azure setup. Gain system-wide visibility into Azure resource utilization, application performance, and operational health.
 
-For more information, see the [Circonus documentation](https://docs.circonus.com/circonus/agents/cloud-agent/azure/).
+For more information, see the [Circonus documentation](https://docs.circonus.com/circonus3/integrations/agents/circonus-cloud-agent/#azure).
 
 ## CloudHealth
 
@@ -229,14 +229,34 @@ For more information, see the [Moogsoft documentation](https://www.moogsoft.com/
 
 ![New Relic logo.](./media/partners/newrelic-logo.png)
 
-Microsoft Azure integration monitoring from New Relic gives you an overview of your ecosystem – cloud migrations, digital transformations, and cloud native applications using New Relic Observability Platform.
- 
-**NewRelic Azure monitoring helps you to:**
-* Monitor the entire software stack with Full-stack monitoring.
-* Reduce friction between engineers and ITOps teams by identifying, triaging, and delegating application and infrastructure issues quickly.
-* Identify service dependencies through cross-application tracing using New Relic APM.
- 
-Refer to [New Relic Azure integration](https://newrelic.com/instant-observability/?category=azure&search=azure) for more information. 
+Microsoft and New Relic have teamed up to provide the [Azure Native New Relic Service](https://azuremarketplace.microsoft.com/marketplace/apps/newrelicinc1635200720692.newrelic_liftr_payg?tab=Overview), where the New Relic observability platform is hosted on Azure. You can subscribe to the New Relic service to collect, alert on, and analyze telemetry data for your applications and infrastructure, and with this offering, your telemetry data will be stored in Azure. In addition, you can allocate your multi-year committed Azure spend towards the New Relic service.
+
+Overview of the Azure Native New Relic Service:
+
+**Built on Azure**
+
+- The New Relic platform is hosted on Microsoft Azure.
+- Your telemetry data remains in Azure.
+
+**Rapid Onboarding**
+
+- Onboard with New Relic easily with the natively-integrated service built on Azure.
+- Automatically monitor Azure subscription activity and resource logs.
+- Automatically monitor Azure metrics.
+- Use a single experience to deploy and manage the New Relic agents on virtual machines and app services.
+- Deploy the New Relic infrastructure agent via Site Extensions.
+- Deploy .NET and Java language agents via App Service Extensions.
+- Manage Azure services observability in the Azure Portal.
+
+**Marketplace Advantages**
+
+- Get a single bill for all the resources that you consume on Azure, including New Relic.
+- Retire Microsoft Azure Consumption Commitment (MACC) spend.
+- Set up a free account or purchase New Relic through the Azure Marketplace.
+
+**Next steps**
+
+Learn more about [how to monitor Azure](https://newrelic.com/solutions/partners/azure) using the New Relic platform, the [New Relic Azure Monitor integration](https://docs.newrelic.com/docs/infrastructure/microsoft-azure-integrations/azure-integrations-list/azure-monitor/), and the [Azure Native New Relic Service](https://docs.newrelic.com/docs/infrastructure/microsoft-azure-integrations/get-started/azure-native/).
 
 ## OpsGenie
 

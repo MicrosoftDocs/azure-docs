@@ -33,6 +33,28 @@ items:
         href: on-premises-powershell-connector.md
       - name: Provisioning with the web services connector
         href: on-premises-web-services-connector.md
+      - name: Provisioning with custom connectors
+        href: on-premises-custom-connector.md
+      - name: Provisioning to SAP ECC (formerly SAP R/3)
+        href: on-premises-sap-connector-configure.md
+    - name: API-driven inbound provisioning tutorials
+      items:
+      - name: Configure API-driven provisioning app
+        href: inbound-provisioning-api-configure-app.md
+      - name: Grant permissions for API-driven provisioning
+        href: inbound-provisioning-api-grant-access.md
+      - name: Sync custom attributes
+        href: inbound-provisioning-api-custom-attributes.md
+      - name: Quickstart using cURL
+        href: inbound-provisioning-api-curl-tutorial.md
+      - name: Quickstart with Postman
+        href: inbound-provisioning-api-postman.md
+      - name: Quickstart with Graph Explorer
+        href: inbound-provisioning-api-graph-explorer.md
+      - name: Quickstart with Powershell
+        href: inbound-provisioning-api-powershell.md
+      - name: Quickstart with Azure Logic Apps
+        href: inbound-provisioning-api-logic-apps.md
     - name: Customize attribute mappings
       href: customize-application-attributes.md
   - name: Concepts
@@ -54,6 +76,8 @@ items:
        href: sap-successfactors-integration-reference.md
      - name: Understand Workday integration 
        href: workday-integration-reference.md
+     - name: Understand API-driven inbound provisioning 
+       href: inbound-provisioning-api-concepts.md
      - name: Partner driven integrations
        href: partner-driven-integrations.md
   - name: How-to guides
@@ -78,7 +102,7 @@ items:
       - name: Export and import your configuration
         href: export-import-provisioning-configuration.md  
       - name: Provisioning reports
-        href: ../reports-monitoring/concept-provisioning-logs.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
+        href: ../reports-monitoring/concept-provisioning-logs.md?context=/azure/active-directory/app-provisioning/context/app-provisioning-context
       - name: Provisioning insights workbook
         href: provisioning-workbook.md  
     - name: Workday provisioning scenarios
@@ -100,7 +124,7 @@ items:
       - name: Troubleshooting on-premises provisioning
         href: on-premises-ecma-troubleshoot.md
       - name: Provisioning logs
-        href: ../reports-monitoring/concept-provisioning-logs.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
+        href: ../reports-monitoring/concept-provisioning-logs.md?context=/azure/active-directory/app-provisioning/context/app-provisioning-context
     - name: Troubleshoot HR provisioning
       items:
       - name: Attribute retrieval issues
@@ -113,6 +137,12 @@ items:
         href: hr-manager-update-issues.md
       - name: HR writeback issues
         href: hr-writeback-issues.md
+      - name: Insufficient access rights error
+        href: insufficient-access-rights-error-troubleshooting.md
+    - name: Troubleshoot API-driven inbound provisioning
+      items: 
+      - name: Inbound provisioning API issues
+        href: inbound-provisioning-api-issues.md
     - name: Enable accidental deletions prevention
       href: accidental-deletions.md
     - name: Automate configuration using MS Graph
@@ -135,8 +165,10 @@ items:
         href: provisioning-agent-release-version-history.md
     - name: Migrate connector from MIM Sync
       href: on-premises-migrate-microsoft-identity-manager.md
-    - name: Prepare AD LDS for provisioning from Azure AD
+    - name: Prepare AD LDS for provisioning from Microsoft Entra ID
       href: on-premises-ldap-connector-prepare-directory.md
+    - name: Frequently asked questions (FAQs) about API-driven inbound provisioning 
+      href: inbound-provisioning-api-faqs.md
   - name: Resources
     items:
     - name: Support and help options for developers

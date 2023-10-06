@@ -1,5 +1,5 @@
 ---
-title: Custom partitioning in Azure Synapse Link for Azure Cosmos DB (Preview)
+title: Custom partitioning in Azure Synapse Link for Azure Cosmos DB
 description: Custom partitioning enables you to partition the analytical store data on fields that are commonly used as filters in analytical queries resulting in improved query performance.
 author: Rodrigossz
 ms.service: cosmos-db
@@ -9,22 +9,19 @@ ms.author: rosouz
 ms.custom: ignite-fall-2021, ignite-2022
 ---
 
-# Custom partitioning in Azure Synapse Link for Azure Cosmos DB (Preview)
+# Custom partitioning in Azure Synapse Link for Azure Cosmos DB
 [!INCLUDE[NoSQL](includes/appliesto-nosql.md)]
 
 Custom partitioning enables you to partition analytical store data, on fields that are commonly used as filters in analytical queries, resulting in improved query performance.
 
-In this article, you will learn how to partition your data in Azure Cosmos DB analytical store using keys that are critical for your analytical workloads. It also explains how to take advantage of the improved query performance with partition pruning. You will also learn how the partitioned store helps to improve the query performance when your workloads have a significant number of updates or deletes.
-
-> [!IMPORTANT]
-> Custom partitioning feature is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+In this article, you'll learn how to partition your data in Azure Cosmos DB analytical store using keys that are critical for your analytical workloads. It also explains how to take advantage of the improved query performance with partition pruning. You'll also learn how the partitioned store helps to improve the query performance when your workloads have a significant number of updates or deletes.
 
 > [!NOTE]
-> Azure Cosmos DB accounts should have [Azure Synapse Link](synapse-link.md) enabled to take advantage of custom partitioning. Custom partitioning is currently supported for Azure Synapse Spark 2.0 only.
+> Azure Cosmos DB accounts and containers should have [Azure Synapse Link](synapse-link.md) enabled to take advantage of custom partitioning.
 
 ## How does it work?
 
-Analytical store partitioning is independent of partitioning in the transactional store. By default, analytical store is not partitioned. If you want to query analytical store frequently based on fields such as Date, Time, Category etc. you leverage custom partitioning to create a separate partitioned store based on these keys. You can choose a single field or a combination of fields from your dataset as the analytical store partition key.
+Analytical store partitioning is independent of partitioning in the transactional store. By default, analytical store isn't partitioned. If you want to query analytical store frequently based on fields such as Date, Time, Category etc. you leverage custom partitioning to create a separate partitioned store based on these keys. You can choose a single field or a combination of fields from your dataset as the analytical store partition key.
 
 You can trigger partitioning from an Azure Synapse Spark notebook using Azure Synapse Link. You can schedule it to run as a background job, once or twice a day but can be executed more often, if needed. 
 
@@ -44,7 +41,7 @@ Using partitioned store is optional when querying analytical data in Azure Cosmo
 * High volume of update or delete operations
 * Slow data ingestion 
 
-Except for the workloads that meet above requirements, if you are querying live data using query filters that are different from the partition keys, we recommend that you query  directly from the analytical store. This is especially true if the partitioning jobs are not scheduled to run frequently.
+Except for the workloads that meet above requirements, if you are querying live data using query filters that are different from the partition keys, we recommend that you query  directly from the analytical store. This is especially true if the partitioning jobs aren't scheduled to run frequently.
 
 ## Benefits
 
@@ -66,7 +63,7 @@ In addition to the query improvements from partition pruning, custom partitionin
 
 ### Transactional guarantee
 
-It is important to note that custom partitioning ensures complete transactional guarantee. The query path is not blocked while the partitioning execution is in progress. Each query execution reads the partitioned data from the last successful partitioning. It reads the most recent data from the analytical store, which makes sure that queries always return the latest data available when using the partitioned store.
+It is important to note that custom partitioning ensures complete transactional guarantee. The query path isn't blocked while the partitioning execution is in progress. Each query execution reads the partitioned data from the last successful partitioning. It reads the most recent data from the analytical store, which makes sure that queries always return the latest data available when using the partitioned store.
 
 ## Security
 
@@ -122,17 +119,17 @@ You could use one or more partition keys for your analytical data. If you are us
 
 * Custom partitioning is only available for Azure Synapse Spark. Custom partitioning is currently not supported for serverless SQL pools.
 
-* Currently partitioned store can only point to the primary storage account associated with the Synapse workspace. Selecting custom storage accounts is not supported at this point.
+* Currently partitioned store can only point to the primary storage account associated with the Synapse workspace. Selecting custom storage accounts isn't supported at this point.
 
-* Custom partitioning is only available for API for NoSQL in Azure Cosmos DB. API for MongoDB, Gremlin and Cassandra are not supported at this time. 
+* Custom partitioning is only available for API for NoSQL in Azure Cosmos DB. API for MongoDB, Gremlin and Cassandra aren't supported at this time. 
 
 ## Pricing
 
-In addition to the [Azure Synapse Link pricing](synapse-link.md#pricing), you will incur the following charges when using custom partitioning:
+In addition to the [Azure Synapse Link pricing](synapse-link.md#pricing), you'll incur the following charges when using custom partitioning:
 
 * You are [billed](https://azure.microsoft.com/pricing/details/synapse-analytics/#pricing) for using Synapse Apache Spark pools when you run partitioning jobs on analytical store.
 
-* The partitioned data is stored in the primary Azure Data Lake Storage Gen2 account associated with your Azure Synapse Analytics workspace. You will incur the costs associated with using the ADLS Gen2 storage and transactions. These costs are determined by the storage required by partitioned analytical data and data processed for analytical queries in Synapse respectively. For more information on pricing, please visit the [Azure Data Lake Storage pricing page](https://azure.microsoft.com/pricing/details/storage/data-lake/).
+* The partitioned data is stored in the primary Azure Data Lake Storage Gen2 account associated with your Azure Synapse Analytics workspace. You'll incur the costs associated with using the ADLS Gen2 storage and transactions. These costs are determined by the storage required by partitioned analytical data and data processed for analytical queries in Synapse respectively. For more information on pricing, please visit the [Azure Data Lake Storage pricing page](https://azure.microsoft.com/pricing/details/storage/data-lake/).
 
 ## Frequently asked questions
 

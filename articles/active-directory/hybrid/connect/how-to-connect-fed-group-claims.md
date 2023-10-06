@@ -1,6 +1,6 @@
 ---
-title: Configure group claims for applications by using Azure Active Directory
-description: Get information on how to configure group claims for use with Azure AD.
+title: Configure group claims for applications by using Microsoft Entra ID
+description: Get information on how to configure group claims for use with Microsoft Entra ID.
 services: active-directory
 documentationcenter: ''
 ms.reviewer: paulgarn
@@ -14,21 +14,21 @@ ms.author: billmath
 author: billmath
 ---
 
-# Configure group claims for applications by using Azure Active Directory
+# Configure group claims for applications by using Microsoft Entra ID
 
-Azure Active Directory (Azure AD) can provide a user's group membership information in tokens for use within applications. This feature supports three main patterns:
+Microsoft Entra ID can provide a user's group membership information in tokens for use within applications. This feature supports three main patterns:
 
-- Groups identified by their Azure AD object identifier (OID) attribute
+- Groups identified by their Microsoft Entra object identifier (OID) attribute
 - Groups identified by the `sAMAccountName` or `GroupSID` attribute for Active Directory-synchronized groups and users
-- Groups identified by their Display Name attribute for cloud-only groups (Preview)
+- Groups identified by their Display Name attribute for cloud-only groups
 
 > [!IMPORTANT]
-> The number of groups emitted in a token is limited to 150 for SAML assertions and 200 for JWT, including nested groups. In larger organizations, the number of groups where a user is a member might exceed the limit that Azure AD will add to a token. Exceeding a limit can lead to unpredictable results. For workarounds to these limits, read more in [Important caveats for this functionality](#important-caveats-for-this-functionality).
+> The number of groups emitted in a token is limited to 150 for SAML assertions and 200 for JWT, including nested groups. In larger organizations, the number of groups where a user is a member might exceed the limit that Microsoft Entra ID will add to a token. Exceeding a limit can lead to unpredictable results. For workarounds to these limits, read more in [Important caveats for this functionality](#important-caveats-for-this-functionality).
 
 ## Important caveats for this functionality
 
-- Support for use of `sAMAccountName` and security identifier (SID) attributes synced from on-premises is designed to enable moving existing applications from Active Directory Federation Services (AD FS) and other identity providers. Groups managed in Azure AD don't contain the attributes necessary to emit these claims.
-- In order to avoid the number of groups limit if your users have large numbers of group memberships, you can restrict the groups emitted in claims to the relevant groups for the application. Read more about emitting groups assigned to the application for [JWT tokens](../../develop\active-directory-optional-claims.md#configuring-groups-optional-claims) and [SAML tokens](#add-group-claims-to-tokens-for-saml-applications-using-sso-configuration). If assigning groups to your applications is not possible, you can also configure a [group filter](#group-filtering) to reduce the number of groups emitted in the claim. Group filtering applies to tokens emitted for apps where group claims and filtering were configured in the **Enterprise apps** blade in the portal.
+- Support for use of `sAMAccountName` and security identifier (SID) attributes synced from on-premises is designed to enable moving existing applications from Active Directory Federation Services (AD FS) and other identity providers. Groups managed in Microsoft Entra ID don't contain the attributes necessary to emit these claims.
+- In order to avoid the number of groups limit if your users have large numbers of group memberships, you can restrict the groups emitted in claims to the relevant groups for the application. Read more about emitting groups assigned to the application for [JWT tokens](../../develop/optional-claims.md#configure-groups-optional-claims) and [SAML tokens](#add-group-claims-to-tokens-for-saml-applications-using-sso-configuration). If assigning groups to your applications is not possible, you can also configure a [group filter](#group-filtering) to reduce the number of groups emitted in the claim. Group filtering applies to tokens emitted for apps where group claims and filtering were configured in the **Enterprise apps** blade in the portal.
 - Group claims have a five-group limit if the token is issued through the implicit flow. Tokens requested via the implicit flow will have a `"hasgroups":true` claim only if the user is in more than five groups.
 - We recommend basing in-app authorization on application roles rather than groups when:
 
@@ -41,46 +41,46 @@ Azure Active Directory (Azure AD) can provide a user's group membership informat
 
 Many applications that are configured to authenticate with AD FS rely on group membership information in the form of Windows Server Active Directory group attributes. These attributes are the group `sAMAccountName`, which might be qualified by domain name, or the Windows group security identifier (`GroupSID`). When the application is federated with AD FS, AD FS uses the `TokenGroups` function to retrieve the group memberships for the user.
 
-An app that has been moved from AD FS needs claims in the same format. Group and role claims emitted from Azure AD might contain the domain-qualified `sAMAccountName` attribute or the `GroupSID` attribute synced from Active Directory, rather than the group's Azure AD `objectID` attribute.
+An app that has been moved from AD FS needs claims in the same format. Group and role claims emitted from Microsoft Entra ID might contain the domain-qualified `sAMAccountName` attribute or the `GroupSID` attribute synced from Active Directory, rather than the group's Microsoft Entra ID `objectID` attribute.
 
 The supported formats for group claims are:
 
-- **Azure AD group ObjectId**: Available for all groups.
+- **Microsoft Entra group ObjectId**: Available for all groups.
 - **sAMAccountName**: Available for groups synchronized from Active Directory.
 - **NetbiosDomain\sAMAccountName**: Available for groups synchronized from Active Directory.
 - **DNSDomainName\sAMAccountName**: Available for groups synchronized from Active Directory.
 - **On-premises group security identifier**: Available for groups synchronized from Active Directory.
 
 > [!NOTE]
-> `sAMAccountName` and on-premises `GroupSID` attributes are available only on group objects synced from Active Directory. They aren't available on groups created in Azure AD or Office 365. Applications configured in Azure AD to get synced on-premises group attributes get them for synced groups only.
+> `sAMAccountName` and on-premises `GroupSID` attributes are available only on group objects synced from Active Directory. They aren't available on groups created in Microsoft Entra ID or Office 365. Applications configured in Microsoft Entra ID to get synced on-premises group attributes get them for synced groups only.
 
 ## Options for applications to consume group information
 
 Applications can call the Microsoft Graph group's endpoint to obtain group information for the authenticated user. This call ensures that all the groups where a user is a member are available, even when a large number of groups is involved. Group enumeration is then independent of limitations on token size.
 
-However, if an existing application expects to consume group information via claims, you can configure Azure AD with various claim formats. Consider the following options:
+However, if an existing application expects to consume group information via claims, you can configure Microsoft Entra ID with various claim formats. Consider the following options:
 
-- When you're using group membership for in-application authorization, it's preferable to use the group `ObjectID` attribute. The group `ObjectID` attribute is immutable and unique in Azure AD. It's available for all groups.
-- If you're using the on-premises group `sAMAccountName` attribute for authorization, use domain-qualified names. It reduces the chance of names clashing. `sAMAccountName` might be unique within an Active Directory domain, but if more than one Active Directory domain is synchronized with an Azure AD tenant, there's a possibility for more than one group to have the same name.
-- Consider using [application roles](../../develop/howto-add-app-roles-in-azure-ad-apps.md) to provide a layer of indirection between the group membership and the application. The application then makes internal authorization decisions based on role claims in the token.
+- When you're using group membership for in-application authorization, it's preferable to use the group `ObjectID` attribute. The group `ObjectID` attribute is immutable and unique in Microsoft Entra ID. It's available for all groups.
+- If you're using the on-premises group `sAMAccountName` attribute for authorization, use domain-qualified names. It reduces the chance of names clashing. `sAMAccountName` might be unique within an Active Directory domain, but if more than one Active Directory domain is synchronized with a Microsoft Entra tenant, there's a possibility for more than one group to have the same name.
+- Consider using [application roles](../../develop/howto-add-app-roles-in-apps.md) to provide a layer of indirection between the group membership and the application. The application then makes internal authorization decisions based on role claims in the token.
 - If the application is configured to get group attributes that are synced from Active Directory and a group doesn't contain those attributes, it won't be included in the claims.
 - Group claims in tokens include nested groups, except when you're using the option to restrict the group claims to groups that are assigned to the application. 
 
-  If a user is a member of GroupB, and GroupB is a member of GroupA, then the group claims for the user will contain both GroupA and GroupB. When an organization's users have large numbers of group memberships, the number of groups listed in the token can grow the token size. Azure AD limits the number of groups that it will emit in a token to 150 for SAML assertions and 200 for JWT. If a user is a member of a larger number of groups, the groups are omitted. A link to the Microsoft Graph endpoint to obtain group information is included instead.
+  If a user is a member of GroupB, and GroupB is a member of GroupA, then the group claims for the user will contain both GroupA and GroupB. When an organization's users have large numbers of group memberships, the number of groups listed in the token can grow the token size. Microsoft Entra ID limits the number of groups that it will emit in a token to 150 for SAML assertions and 200 for JWT. If a user is a member of a larger number of groups, the groups are omitted. A link to the Microsoft Graph endpoint to obtain group information is included instead.
 
 ## Prerequisites for using group attributes synchronized from Active Directory
 
-Group membership claims can be emitted in tokens for any group if you use the `ObjectId` format. To use group claims in formats other than group `ObjectId`, the groups must be synchronized from Active Directory via Azure AD Connect.
+Group membership claims can be emitted in tokens for any group if you use the `ObjectId` format. To use group claims in formats other than group `ObjectId`, the groups must be synchronized from Active Directory via Microsoft Entra Connect.
 
-To configure Azure AD to emit group names for Active Directory groups:
+To configure Microsoft Entra ID to emit group names for Active Directory groups:
 
 1. **Synchronize group names from Active Directory**
 
-   Before Azure AD can emit the group names or on-premises group SID in group or role claims, you need to synchronize the required attributes from Active Directory. You must be running Azure AD Connect version 1.2.70 or later. Earlier versions of Azure AD Connect than 1.2.70 will synchronize the group objects from Active Directory, but they won't include the required group name attributes.
+   Before Microsoft Entra ID can emit the group names or on-premises group SID in group or role claims, you need to synchronize the required attributes from Active Directory. You must be running Microsoft Entra Connect version 1.2.70 or later. Earlier versions of Microsoft Entra Connect than 1.2.70 will synchronize the group objects from Active Directory, but they won't include the required group name attributes.
 
-2. **Configure the application registration in Azure AD to include group claims in tokens**
+2. **Configure the application registration in Microsoft Entra ID to include group claims in tokens**
 
-   You can configure group claims in the **Enterprise Applications** section of the portal, or by using the application manifest in the **Application Registrations** section. To configure group claims in the application manifest, see [Configure the Azure AD application registration for group attributes](#configure-the-azure-ad-application-registration-for-group-attributes) later in this article.
+   You can configure group claims in the **Enterprise Applications** section of the portal, or by using the application manifest in the **Application Registrations** section. To configure group claims in the application manifest, see [Configure the Microsoft Entra application registration for group attributes](#configure-the-azure-ad-application-registration-for-group-attributes) later in this article.
 
 ## Add group claims to tokens for SAML applications using SSO configuration
 
@@ -107,7 +107,7 @@ To configure group claims for a gallery or non-gallery SAML application via sing
 
      ![Screenshot that shows the Group Claims window, with the option for security groups selected.](media/how-to-connect-fed-group-claims/group-claims-ui-3.png)
 
-     To emit groups by using Active Directory attributes synced from Active Directory instead of Azure AD `objectID` attributes, select the required format from the **Source attribute** drop-down list. Only groups synchronized from Active Directory will be included in the claims.
+     To emit groups by using Active Directory attributes synced from Active Directory instead of Microsoft Entra ID `objectID` attributes, select the required format from the **Source attribute** drop-down list. Only groups synchronized from Active Directory will be included in the claims.
 
      ![Screenshot that shows the drop-down menu for the source attribute.](media/how-to-connect-fed-group-claims/group-claims-ui-4.png)
 
@@ -121,7 +121,7 @@ To configure group claims for a gallery or non-gallery SAML application via sing
 
      For more information about managing group assignment to applications, see [Assign a user or group to an enterprise app](../../manage-apps/assign-user-or-group-access-portal.md).
 
-## Emit cloud-only group display name in token (Preview)
+## Emit cloud-only group display name in token
 
 You can configure group claim to include the group display name for the cloud-only groups.
 
@@ -133,14 +133,16 @@ You can configure group claim to include the group display name for the cloud-on
    
    ![Screenshot that shows the Group Claims window, with the option for groups assigned to the application selected.](media/how-to-connect-fed-group-claims/group-claims-ui-4-1.png)
 
-4. To emit group display name just for cloud groups, in the **Source attribute** dropdown select the **Cloud-only group display names (Preview)**:
+4. To emit group display name just for cloud groups, in the **Source attribute** dropdown select the **Cloud-only group display names**:
 
    ![Screenshot that shows the Group Claims source attribute dropdown, with the option for configuring cloud only group names selected.](media/how-to-connect-fed-group-claims/group-claims-ui-8.png)
 
-5. For a hybrid setup, to emit on-premises group attribute for synced groups and display name for cloud groups, you can select the desired on-premises sources attribute and check the checkbox **Emit group name for cloud-only groups (Preview)**:
+5. For a hybrid setup, to emit on-premises group attribute for synced groups and display name for cloud groups, you can select the desired on-premises sources attribute and check the checkbox **Emit group name for cloud-only groups**:
 
    ![Screenshot that shows the configuration to emit on-premises group attribute for synced groups and display name for cloud groups.](media/how-to-connect-fed-group-claims/group-claims-ui-9.png)
 
+> [!Note]
+> You can only add cloud-group names of assigned groups to an application. The restriction to `groups assigned to the application` is because a group name is not unique, and display names can only be emitted for groups explicitly assigned to the application to reduce the security risks. Otherwise, any user could create a group with duplicate name and gain access in the application side.
 
 ### Set advanced options
 
@@ -163,7 +165,7 @@ Group filtering allows for fine control of the list of groups that's included as
 
 > [!NOTE]
 > Group filtering applies to tokens emitted for apps where group claims and filtering was configured in the **Enterprise apps** blade in the portal.  
-> Group filtering does not apply to Azure AD Roles.
+> Group filtering does not apply to Microsoft Entra roles.
 
 You can configure filters to be applied to the group's display name or `SAMAccountName` attribute. The following filtering operations are supported: 
 
@@ -174,7 +176,7 @@ You can configure filters to be applied to the group's display name or `SAMAccou
  ![Screenshot that shows filtering options.](media/how-to-connect-fed-group-claims/group-filter-1.png)
 
 #### Group transformation
-Some applications might require the groups in a different format from how they're represented in Azure AD. To support this requirement, you can apply a transformation to each group that will be emitted in the group claim. You achieve it by allowing the configuration of a regular expression (regex) and a replacement value on custom group claims. 
+Some applications might require the groups in a different format from how they're represented in Microsoft Entra ID. To support this requirement, you can apply a transformation to each group that will be emitted in the group claim. You achieve it by allowing the configuration of a regular expression (regex) and a replacement value on custom group claims. 
 
 ![Screenshot of group transformation, with regex information added.](media/how-to-connect-fed-group-claims/group-transform-1.png)\
 
@@ -184,7 +186,7 @@ Some applications might require the groups in a different format from how they'r
 For more information about regex replace and capture groups, see [The Regular Expression Object Model: The Captured Group](/dotnet/standard/base-types/the-regular-expression-object-model?WT.mc_id=Portal-fx#the-captured-group).
 
 >[!NOTE]
-> As described in the Azure AD documentation, you can't modify a restricted claim by using a policy. The data source can't be changed, and no transformation is applied when you're generating these claims. The group claim is still a restricted claim, so you need to customize the groups by changing the name. If you select a restricted name for the name of your custom group claim, the claim will be ignored at runtime. 
+> As described in the Microsoft Entra documentation, you can't modify a restricted claim by using a policy. The data source can't be changed, and no transformation is applied when you're generating these claims. The group claim is still a restricted claim, so you need to customize the groups by changing the name. If you select a restricted name for the name of your custom group claim, the claim will be ignored at runtime. 
 >
 > You can also use the regex transform feature as a filter, because any groups that don't match the regex pattern will not be emitted in the resulting claim.
 >
@@ -196,11 +198,13 @@ After you add a group claim configuration to the **User Attributes & Claims** co
 
 ![Screenshot of the area for user attributes and claims, with the name of a group claim highlighted.](media/how-to-connect-fed-group-claims/group-claims-ui-7.png)
 
-## Configure the Azure AD application registration for group attributes
+<a name='configure-the-azure-ad-application-registration-for-group-attributes'></a>
 
-You can also configure group claims in the [optional claims](../../develop/active-directory-optional-claims.md) section of the [application manifest](../../develop/reference-app-manifest.md).
+## Configure the Microsoft Entra application registration for group attributes
 
-1. In the portal, select **Azure Active Directory** > **Application Registrations** > **Select Application** > **Manifest**.
+You can also configure group claims in the [optional claims](../../develop/optional-claims.md) section of the [application manifest](../../develop/reference-app-manifest.md).
+
+1. In the portal, select **Identity** > **Applications** > **App registrations** > **Select Application** > **Manifest**.
 
 2. Enable group membership claims by changing `groupMembershipClaims`.
 
@@ -209,7 +213,7 @@ You can also configure group claims in the [optional claims](../../develop/activ
    | Selection | Description |
    |----------|-------------|
    | `All` | Emits security groups, distribution lists, and roles. |
-   | `SecurityGroup` | Emits security groups and Azure AD roles that the user is a member of in the group claim. |
+   | `SecurityGroup` | Emits security groups and Microsoft Entra roles that the user is a member of in the group claim. |
    | `DirectoryRole` | If the user is assigned directory roles, they're emitted as a `wids` claim. (A group claim won't be emitted.) |
    | `ApplicationGroup` | Emits only the groups that are explicitly assigned to the application and that the user is a member of. |
    | `None` | No groups are returned. (It's not case-sensitive, so `none` also works. It can be set directly in the application manifest.) |
@@ -293,4 +297,4 @@ Emit group names to be returned in `NetbiosDomain\sAMAccountName` format as the 
 
 - [Add authorization using groups & group claims to an ASP.NET Core web app (code sample)](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/5-WebApp-AuthZ/5-2-Groups/README.md)
 - [Assign a user or group to an enterprise app](../../manage-apps/assign-user-or-group-access-portal.md)
-- [Configure role claims](../../develop/active-directory-enterprise-app-role-management.md)
+- [Configure role claims](../../develop/enterprise-app-role-management.md)

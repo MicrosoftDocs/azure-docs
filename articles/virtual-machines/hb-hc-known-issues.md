@@ -3,6 +3,7 @@ title: Troubleshooting known issues with HPC and GPU VMs - Azure Virtual Machine
 description: Learn about troubleshooting known issues with HPC and GPU VM sizes in Azure. 
 ms.service: virtual-machines
 ms.subservice: hpc
+ms.custom: devx-track-linux
 ms.topic: article
 ms.date: 03/10/2023
 ms.reviewer: cynthn

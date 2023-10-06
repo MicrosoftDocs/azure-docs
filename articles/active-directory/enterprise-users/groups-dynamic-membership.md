@@ -9,29 +9,29 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: overview
-ms.date: 08/18/2022
+ms.date: 06/07/2023
 ms.author: barclayn
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Dynamic membership rules for groups in Azure Active Directory
+# Dynamic membership rules for groups in Microsoft Entra ID
 
-You can create attribute-based rules to enable dynamic membership for a group in Azure Active Directory (Azure AD), part of Microsoft Entra. Dynamic group membership adds and removes group members automatically using membership rules based on member attributes. This article details the properties and syntax to create dynamic membership rules for users or devices. You can set up a rule for dynamic membership on security groups or Microsoft 365 groups.
+You can create attribute-based rules to enable dynamic membership for a group in Microsoft Entra ID, part of Microsoft Entra. Dynamic group membership adds and removes group members automatically using membership rules based on member attributes. This article details the properties and syntax to create dynamic membership rules for users or devices. You can set up a rule for dynamic membership on security groups or Microsoft 365 groups.
+
 
 When the attributes of a user or a device change, the system evaluates all dynamic group rules in a directory to see if the change would trigger any group adds or removes. If a user or device satisfies a rule on a group, they're added as a member of that group. If they no longer satisfy the rule, they're removed. You can't manually add or remove a member of a dynamic group.
-
 - You can create a dynamic group for devices or for users, but you can't create a rule that contains both users and devices.
 - You can't create a device group based on the user attributes of the device owner. Device membership rules can reference only device attributes.
 
 > [!NOTE]
-> This feature requires an Azure AD Premium P1 license or Intune for Education for each unique user that is a member of one or more dynamic groups. You don't have to assign licenses to users for them to be members of dynamic groups, but you must have the minimum number of licenses in the Azure AD organization to cover all such users. For example, if you had a total of 1,000 unique users in all dynamic groups in your organization, you would need at least 1,000 licenses for Azure AD Premium P1 to meet the license requirement.
+> This feature requires a Microsoft Entra ID P1 license or Intune for Education for each unique user that is a member of one or more dynamic groups. You don't have to assign licenses to users for them to be members of dynamic groups, but you must have the minimum number of licenses in the Microsoft Entra organization to cover all such users. For example, if you had a total of 1,000 unique users in all dynamic groups in your organization, you would need at least 1,000 licenses for Microsoft Entra ID P1 to meet the license requirement.
 > No license is required for devices that are members of a dynamic device group.
 
 ## Rule builder in the Azure portal
 
-Azure AD provides a rule builder to create and update your important rules more quickly. The rule builder supports the construction of up to five expressions. The rule builder makes it easier to form a rule with a few simple expressions, however, it can't be used to reproduce every rule. If the rule builder doesn't support the rule you want to create, you can use the text box.
+Microsoft Entra ID provides a rule builder to create and update your important rules more quickly. The rule builder supports the construction of up to five expressions. The rule builder makes it easier to form a rule with a few simple expressions, however, it can't be used to reproduce every rule. If the rule builder doesn't support the rule you want to create, you can use the text box.
 
 Here are some examples of advanced rules or syntax for which we recommend that you construct using the text box:
 
@@ -96,6 +96,7 @@ dirSyncEnabled |true false |user.dirSyncEnabled -eq true
 | department |Any string value or *null* | user.department -eq "value" |
 | displayName |Any string value | user.displayName -eq "value" |
 | employeeId |Any string value | user.employeeId -eq "value"<br>user.employeeId -ne *null* |
+| employeeHireDate (Preview) |Any DateTimeOffset value or keyword system.now | user.employeeHireDate -eq "value" |
 | facsimileTelephoneNumber |Any string value or *null* | user.facsimileTelephoneNumber -eq "value" |
 | givenName |Any string value or *null* | user.givenName -eq "value" |
 | jobTitle |Any string value or *null* | user.jobTitle -eq "value" |
@@ -154,9 +155,20 @@ If you want to compare the value of a user attribute against multiple values, yo
 ```
    user.department -in ["50001","50002","50003","50005","50006","50007","50008","50016","50020","50024","50038","50039","51100"]
 ```
+### Using the -le and -ge operators
 
+You can use the less than (-le) or greater than (-ge) operators when using the employeeHireDate attribute in dynamic group rules.  
+Examples:
+
+```
+user.employeehiredate -ge system.now -plus p1d 
+
+user.employeehiredate -le 2020-06-10T18:13:20Z 
+
+```
 
 ### Using the -match operator 
+
 The **-match** operator is used for matching any regular expression. Examples:
 
 ```
@@ -281,7 +293,7 @@ user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabi
 The following expression selects all users who have no assigned service plan:
 
 ```
-user.assignedPlans -all (assignedPlan.servicePlanId -eq "")
+user.assignedPlans -all (assignedPlan.servicePlanId -ne null)
 ```
 
 ### Using the underscore (\_) syntax
@@ -346,15 +358,15 @@ device.objectId -ne null
 
 ## Extension properties and custom extension properties
 
-Extension attributes and custom extension properties are supported as string properties in dynamic membership rules. [Extension attributes](/graph/api/resources/onpremisesextensionattributes) can be synced from on-premises Window Server Active Directory or updated using Microsoft Graph and take the format of "ExtensionAttributeX", where X equals 1 - 15. Multi-value extension properties are not supported in dynamic membership rules. Here's an example of a rule that uses an extension attribute as a property:
+Extension attributes and custom extension properties are supported as string properties in dynamic membership rules. [Extension attributes](/graph/api/resources/onpremisesextensionattributes) can be synced from on-premises Window Server Active Directory or updated using Microsoft Graph and take the format of "ExtensionAttributeX", where X equals 1 - 15. Multi-value extension properties aren't supported in dynamic membership rules. Here's an example of a rule that uses an extension attribute as a property:
 
 ```
 (user.extensionAttribute15 -eq "Marketing")
 ```
 
-[Custom extension properties](../hybrid/how-to-connect-sync-feature-directory-extensions.md) can be synced from on-premises Windows Server Active Directory, from a connected SaaS application, or created using Microsoft Graph, and are of the format of `user.extension_[GUID]_[Attribute]`, where:
+[Custom extension properties](../hybrid/connect/how-to-connect-sync-feature-directory-extensions.md) can be synced from on-premises Windows Server Active Directory, from a connected SaaS application, or created using Microsoft Graph, and are of the format of `user.extension_[GUID]_[Attribute]`, where:
 
-- [GUID] is the stripped version of the unique identifier in Azure AD for the application that created the property. It contains only characters 0-9 and A-Z
+- [GUID] is the stripped version of the unique identifier in Microsoft Entra ID for the application that created the property. It contains only characters 0-9 and A-Z
 - [Attribute] is the name of the property as it was created
 
 An example of a rule that uses a custom extension property is:
@@ -363,18 +375,18 @@ An example of a rule that uses a custom extension property is:
 user.extension_c272a57b722d4eb29bfe327874ae79cb_OfficeNumber -eq "123"
 ```
 
-Custom extension properties are also called directory or Azure AD extension properties.
+Custom extension properties are also called directory or Microsoft Entra extension properties.
 
 The custom property name can be found in the directory by querying a user's property using Graph Explorer and searching for the property name. Also, you can now select **Get custom extension properties** link in the dynamic user group rule builder to enter a unique app ID and receive the full list of custom extension properties to use when creating a dynamic membership rule. This list can also be refreshed to get any new custom extension properties for that app. Extension attributes and custom extension properties must be from applications in your tenant.  
 
-For more information, see [Use the attributes in dynamic groups](../hybrid/how-to-connect-sync-feature-directory-extensions.md#use-the-attributes-in-dynamic-groups) in the article [Azure AD Connect sync: Directory extensions](../hybrid/how-to-connect-sync-feature-directory-extensions.md).
+For more information, see [Use the attributes in dynamic groups](../hybrid/connect/how-to-connect-sync-feature-directory-extensions.md#use-the-attributes-in-dynamic-groups) in the article [Microsoft Entra Connect Sync: Directory extensions](../hybrid/connect/how-to-connect-sync-feature-directory-extensions.md).
 
 ## Rules for devices
 
 You can also create a rule that selects device objects for membership in a group. You can't have both users and devices as group members. 
 
 > [!NOTE]
-> The **organizationalUnit** attribute is no longer listed and should not be used. This string is set by Intune in specific cases but is not recognized by Azure AD, so no devices are added to groups based on this attribute.
+> The **organizationalUnit** attribute is no longer listed and should not be used. This string is set by Intune in specific cases but is not recognized by Microsoft Entra ID, so no devices are added to groups based on this attribute.
 
 > [!NOTE]
 > systemlabels is a read-only attribute that cannot be set with Intune.
@@ -386,12 +398,14 @@ You can also create a rule that selects device objects for membership in a group
 
 The following device attributes can be used.
 
+<!-- docutune:disable -->
+
  Device attribute  | Values | Example
  ----- | ----- | ----------------
  accountEnabled | true false | device.accountEnabled -eq true
  deviceCategory | a valid device category name | device.deviceCategory -eq "BYOD"
- deviceId | a valid Azure AD device ID | device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d"
- deviceManagementAppId | a valid MDM application ID in Azure AD | device.deviceManagementAppId -eq "0000000a-0000-0000-c000-000000000000" for Microsoft Intune managed or "54b943f8-d761-4f8d-951e-9cea1846db5a" for System Center Configuration Manager Co-managed devices
+ deviceId | a valid Microsoft Entra device ID | device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d"
+ deviceManagementAppId | a valid MDM application ID in Microsoft Entra ID | device.deviceManagementAppId -eq "0000000a-0000-0000-c000-000000000000" for Microsoft Intune managed or "54b943f8-d761-4f8d-951e-9cea1846db5a" for System Center Configuration Manager Co-managed devices
  deviceManufacturer | any string value | device.deviceManufacturer -eq "Samsung"
  deviceModel | any string value | device.deviceModel -eq "iPad Air"
  displayName | any string value | device.displayName -eq "Rob iPhone"
@@ -419,21 +433,23 @@ The following device attributes can be used.
  isRooted | true false | device.isRooted -eq true
  managementType | MDM (for mobile devices) | device.managementType -eq "MDM"
  memberOf | Any string value (valid group object ID) | device.memberof -any (group.objectId -in ['value']) 
- objectId | a valid Azure AD object ID | device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d"
- profileType | a valid [profile type](/graph/api/resources/device?view=graph-rest-1.0#properties&preserve-view=true) in Azure AD | device.profileType -eq "RegisteredDevice"
+ objectId | a valid Microsoft Entra object ID | device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d"
+ profileType | a valid [profile type](/graph/api/resources/device?view=graph-rest-1.0#properties&preserve-view=true) in Microsoft Entra ID | device.profileType -eq "RegisteredDevice"
  systemLabels | any string matching the Intune device property for tagging Modern Workplace devices | device.systemLabels -contains "M365Managed"
 
+<!-- docutune:enable -->
+
 > [!NOTE]
-> When using deviceOwnership to create Dynamic Groups for devices, you need to set the value equal to "Company." On Intune the device ownership is represented instead as Corporate. For more information, see [OwnerTypes](/intune/reports-ref-devices#ownertypes) for more details. 
-> When using deviceTrustType to create Dynamic Groups for devices, you need to set the value equal to "AzureAD" to represent Azure AD joined devices, "ServerAD" to represent Hybrid Azure AD joined devices or "Workplace" to represent Azure AD registered devices.
-> When using extensionAttribute1-15 to create Dynamic Groups for devices you need to set the value for extensionAttribute1-15 on the device. Learn more on [how to write extensionAttributes on an Azure AD device object](/graph/api/device-update?view=graph-rest-1.0&tabs=http#example-2--write-extensionattributes-on-a-device&preserve-view=true)
+> When using `deviceOwnership` to create Dynamic Groups for devices, you need to set the value equal to `Company`. On Intune the device ownership is represented instead as Corporate. For more information, see [OwnerTypes](/intune/reports-ref-devices#ownertypes) for more details. 
+> When using `deviceTrustType` to create Dynamic Groups for devices, you need to set the value equal to `AzureAD` to represent Microsoft Entra joined devices, `ServerAD` to represent Microsoft Entra hybrid joined devices or `Workplace` to represent Microsoft Entra registered devices.
+> When using `extensionAttribute1-15` to create Dynamic Groups for devices you need to set the value for `extensionAttribute1-15` on the device. Learn more on [how to write `extensionAttributes` on a Microsoft Entra device object](/graph/api/device-update?view=graph-rest-1.0&tabs=http#example-2--write-extensionattributes-on-a-device&preserve-view=true)
 
 ## Next steps
 
-These articles provide additional information on groups in Azure Active Directory.
+These articles provide additional information on groups in Microsoft Entra ID.
 
-- [See existing groups](../fundamentals/active-directory-groups-view-azure-portal.md)
-- [Create a new group and adding members](../fundamentals/active-directory-groups-create-azure-portal.md)
-- [Manage settings of a group](../fundamentals/active-directory-groups-settings-azure-portal.md)
-- [Manage memberships of a group](../fundamentals/active-directory-groups-membership-azure-portal.md)
+- [See existing groups](../fundamentals/groups-view-azure-portal.md)
+- [Create a new group and adding members](../fundamentals/how-to-manage-groups.md)
+- [Manage settings of a group](../fundamentals/how-to-manage-groups.md)
+- [Manage memberships of a group](../fundamentals/how-to-manage-groups.md)
 - [Manage dynamic rules for users in a group](groups-create-rule.md)

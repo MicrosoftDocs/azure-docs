@@ -1,15 +1,15 @@
 ---
-title: Pull settings to App Configuration with Azure Pipelines
-description: Learn to use Azure Pipelines to pull key-values to an App Configuration Store
+title: Pull settings from App Configuration with Azure Pipelines
+description: Learn how to use Azure Pipelines to pull key-values from an App Configuration Store
 services: azure-app-configuration
-author: mcleanbyron
+author: maud-lv
 ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 11/17/2020
-ms.author: mcleans
+ms.author: malev
 ---
 
-# Pull settings to App Configuration with Azure Pipelines
+# Pull settings from App Configuration with Azure Pipelines
 
 The [Azure App Configuration](https://marketplace.visualstudio.com/items?itemName=AzureAppConfiguration.azure-app-configuration-task) task pulls key-values from your App Configuration store and sets them as Azure pipeline variables, which can be consumed by subsequent tasks. This task complements the [Azure App Configuration Push](https://marketplace.visualstudio.com/items?itemName=AzureAppConfiguration.azure-app-configuration-task-push) task that pushes key-values from a configuration file into your App Configuration store. For more information, see [Push settings to App Configuration with Azure Pipelines](push-kv-devops-pipeline.md).
 
@@ -54,7 +54,7 @@ This section will cover how to use the Azure App Configuration task in an Azure 
 ![Screenshot shows the Add Task dialog with Azure App Configuration in the search box.](./media/add-azure-app-configuration-task.png)
 1. Configure the necessary parameters for the task to pull the key-values from the App Configuration store. Descriptions of the parameters are available in the **Parameters** section below and in tooltips next to each parameter.
       - Set the **Azure subscription** parameter to the name of the service connection you created in a previous step.
-      - Set the **App Configuration name** to the resource name of your App Configuration store.
+      - Set the **App Configuration Endpoint** to the endpoint of your App Configuration store.
       - Leave the default values for the remaining parameters.
 ![Screenshot shows the app configuration task parameters.](./media/azure-app-configuration-parameters.png)
 1. Save and queue a build. The build log will display any failures that occurred during the execution of the task.
@@ -74,7 +74,7 @@ This section will cover how to use the Azure App Configuration task in an Azure 
 ![Screenshot shows the Add Task dialog with Azure App Configuration in the search box.](./media/add-azure-app-configuration-task.png)
 1. Configure the necessary parameters within the task to pull your key-values from your App Configuration store. Descriptions of the parameters are available in the **Parameters** section below and in tooltips next to each parameter.
       - Set the **Azure subscription** parameter to the name of the service connection you created in a previous step.
-      - Set the **App Configuration name** to the resource name of your App Configuration store.
+      - Set the **App Configuration Endpoint** to the endpoint of your App Configuration store.
       - Leave the default values for the remaining parameters.
 1. Save and queue a release. The release log will display any failures encountered during the execution of the task.
 
@@ -83,10 +83,13 @@ This section will cover how to use the Azure App Configuration task in an Azure 
 The following parameters are used by the Azure App Configuration task:
 
 - **Azure subscription**: A drop-down containing your available Azure service connections. To update and refresh your list of available Azure service connections, press the **Refresh Azure subscription** button to the right of the textbox.
-- **App Configuration Name**: A drop-down that loads your available configuration stores under the selected subscription. To update and refresh your list of available configuration stores, press the **Refresh App Configuration Name** button to the right of the textbox.
+- **App Configuration Endpoint**: A drop-down that loads your available configuration stores endpoints under the selected subscription. To update and refresh your list of available configuration stores endpoints, press the **Refresh App Configuration Endpoint** button to the right of the textbox.
+- **Selection Mode**: Specifies how the key-values read from a configuration store are selected. The 'Default' selection mode allows the use of key and label filters. The 'Snapshot' selection mode allows key-values to be selected from a snapshot. Default value is **Default**.
 - **Key Filter**: The filter can be used to select what key-values are requested from Azure App Configuration. A value of * will select all key-values. For more information on, see [Query key values](concept-key-value.md#query-key-values).
 - **Label**: Specifies which label should be used when selecting key-values from the App Configuration store. If no label is provided, then key-values with the no label will be retrieved. The following characters are not allowed: , *.
+-**Snapshot Name**: Specifies snapshot from which key-values should be retrieved in Azure App Configuration.
 - **Trim Key Prefix**: Specifies one or more prefixes that should be trimmed from App Configuration keys before setting them as variables. Multiple prefixes can be separated by a new-line character.
+- **Suppress Warning For Overridden Keys**: Default value is unchecked. Specifies whether to show warnings when existing keys are overridden. Enable this option when it is expected that the key-values downloaded from App Configuration have overlapping keys with what exists in pipeline variables.
 
 ## Use key-values in subsequent tasks
 

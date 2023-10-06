@@ -8,9 +8,8 @@ ms.service: azure-app-configuration
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 04/11/2023
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 ms.author: mametcal
-
 #Customer intent: As a Java Spring developer, I want to dynamically update my app to use the latest configuration data in App Configuration.
 ---
 # Tutorial: Use dynamic configuration in a Java Spring app
@@ -35,10 +34,6 @@ App Configuration exposes `AppConfigurationRefresh`, which can be used to check 
 1. Update HelloController to use `AppConfigurationRefresh`.
 
     ```java
-    import com.azure.spring.cloud.config.AppConfigurationRefresh;
-
-    ...
-    
     import com.azure.spring.cloud.config.AppConfigurationRefresh;
     
     @RestController
@@ -122,13 +117,27 @@ Then, open the *pom.xml* file in a text editor and add a `<dependency>` for `spr
 
 **Spring Boot**
 
+### [Spring Boot 3](#tab/spring-boot-3)
+
 ```xml
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-    <version>4.7.0</version>
+    <version>5.4.0</version>
 </dependency>
 ```
+
+### [Spring Boot 2](#tab/spring-boot-2)
+
+```xml
+<dependency>
+    <groupId>com.azure.spring</groupId>
+    <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
+    <version>4.10.0</version>
+</dependency>
+```
+
+---
 
 1. Update `bootstrap.properties` to enable refresh
 

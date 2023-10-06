@@ -7,8 +7,7 @@ ms.service: attestation
 ms.topic: reference
 ms.date: 01/23/2023
 ms.author: mbaldwin 
-ms.custom: devx-track-azurepowershell
-
+ms.custom:
 ---
 
 # Microsoft Azure Attestation troubleshooting guide

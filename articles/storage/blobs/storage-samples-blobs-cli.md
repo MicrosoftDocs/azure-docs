@@ -5,8 +5,7 @@ author: stevenmatthew
 
 ms.author: shaas
 ms.date: 06/13/2017
-ms.service: storage
-ms.subservice: blobs
+ms.service: azure-blob-storage
 ms.topic: sample 
 ms.custom: devx-track-azurecli
 ---

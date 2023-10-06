@@ -3,8 +3,8 @@ title: Azure Advisor for MySQL
 description: Learn about Azure Advisor recommendations for MySQL.
 ms.service: mysql
 ms.topic: conceptual
-author: alau-ms
-ms.author: alau
+author: SudheeshGH
+ms.author: sunaray
 ms.date: 06/20/2022
 ---
 

@@ -1,16 +1,19 @@
 ---
-title: Deploy the Azure Monitor Agent with Microsoft Defender for Cloud
+title: Deploy the Azure Monitor Agent
 description: Learn how to deploy the Azure Monitor Agent on your Azure, multicloud, and on-premises servers to support Microsoft Defender for Cloud protections.
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
-ms.date: 03/01/2023
+ms.date: 06/18/2023
 ms.custom: template-how-to, ignite-2022
 ---
 
 # Deploy the Azure Monitor Agent to protect your servers with Microsoft Defender for Cloud
 
 To make sure that your server resources are secure, Microsoft Defender for Cloud uses agents installed on your servers to send information about your servers to Microsoft Defender for Cloud for analysis. You can quietly deploy the Azure Monitor Agent on your servers when you enable Defender for Servers.
+
+> [!NOTE]
+> As part of the Defender for Cloud updated strategy, Azure Monitor Agent will no longer be required for the Defender for Servers offering. However, it will still be required for Defender for SQL Server on machines. As a result, the autoprovisioning process for both agents will be adjusted accordingly. For more information about this change, see [this announcement](upcoming-changes.md#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation).
 
 In this article, we're going to show you how to deploy the agent so that you can protect your servers.
 
@@ -24,9 +27,9 @@ Before you deploy AMA with Defender for Cloud, you must have the following prere
 
 - Make sure your multicloud and on-premises machines have Azure Arc installed.
   - AWS and GCP machines
-    - [Onboard your AWS connector](quickstart-onboard-aws.md) and auto provision Azure Arc.
-    - [Onboard your GCP connector](quickstart-onboard-gcp.md) and auto provision Azure Arc.
-  - Other clouds and on-premises machines
+    - [Onboard your AWS connector](quickstart-onboard-aws.md) and autoprovision Azure Arc.
+    - [Onboard your GCP connector](quickstart-onboard-gcp.md) and autoprovision Azure Arc.
+  - On-premises machines
     - [Install Azure Arc](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
 - Make sure the Defender plans that you want the Azure Monitor Agent to support are enabled:
   - [Enable Defender for Servers Plan 2 on Azure and on-premises VMs](enable-enhanced-security.md)
@@ -52,16 +55,16 @@ To deploy the Azure Monitor Agent with Defender for Cloud:
 
     1. For the **Log Analytics agent/Azure Monitor Agent**, select **Edit configuration**.
 
-    1. For the Auto-provisioning configuration agent type, select **Azure Monitor Agent**.
-      
-        :::image type="content" source="media/auto-deploy-azure-monitoring-agent/select-azure-monitor-agent-auto-provision.png" alt-text="Screenshot showing selecting Azure Monitor Agent for auto-provisioning." lightbox="media/auto-deploy-azure-monitoring-agent/select-azure-monitor-agent-auto-provision.png":::  
+    1. For the Autoprovisioning configuration agent type, select **Azure Monitor Agent**.
+
+        :::image type="content" source="media/auto-deploy-azure-monitoring-agent/select-azure-monitor-agent-auto-provision.png" alt-text="Screenshot showing selecting Azure Monitor Agent for autoprovisioning." lightbox="media/auto-deploy-azure-monitoring-agent/select-azure-monitor-agent-auto-provision.png":::  
 
     By default:
 
     - The Azure Monitor Agent is installed on all existing machines in the selected subscription, and on all new machines created in the subscription.
     - The Log Analytics agent isn't uninstalled from machines that already have it installed. You can [leave the Log Analytics agent](#impact-of-running-with-both-the-log-analytics-and-azure-monitor-agents) on the machine, or you can manually [remove the Log Analytics agent](../azure-monitor/agents/azure-monitor-agent-migration.md) if you don't require it for other protections.
     - The agent sends data to the default workspace for the subscription. You can also [configure a custom workspace](#configure-custom-destination-log-analytics-workspace) to send data to.
-    - You can't enable [collection of additional security events](#additional-security-events-collection).
+    - You can't enable [collection of other security events](#other-security-events-collection).
 
 ## Impact of running with both the Log Analytics and Azure Monitor Agents
 
@@ -79,12 +82,12 @@ Learn more about [migrating to the Azure Monitor Agent](../azure-monitor/agents/
 
 ### Configure custom destination Log Analytics workspace
 
-When you install the Azure Monitor Agent with auto-provisioning, you can define the destination workspace of the installed extensions. By default, the destination is the “default workspace” that Defender for Cloud creates for each region in the subscription: `defaultWorkspace-<subscriptionId>-<regionShortName>`. Defender for Cloud automatically configures the data collection rules, workspace solution, and additional extensions for that workspace.
+When you install the Azure Monitor Agent with autoprovisioning, you can define the destination workspace of the installed extensions. By default, the destination is the “default workspace” that Defender for Cloud creates for each region in the subscription: `defaultWorkspace-<subscriptionId>-<regionShortName>`. Defender for Cloud automatically configures the data collection rules, workspace solution, and other extensions for that workspace.
 
 If you configure a custom Log Analytics workspace:
 
-- Defender for Cloud only configures the data collection rules and additional extensions for the custom workspace. You'll have to configure the workspace solution on the custom workspace.
-- Machines with Log Analytics agent that report to a Log Analytics workspace with the security solution are billed even when the Defender for Servers plan isn't enabled. Machines with the Azure Monitor Agent are billed only when the plan is enabled on the subscription. The security solution is still required on the workspace to work with the plans features and to be eligible for the 500-MB benefit.
+- Defender for Cloud only configures the data collection rules and other extensions for the custom workspace. You have to configure the workspace solution on the custom workspace.
+- Machines with Log Analytics agent that reports to a Log Analytics workspace with the security solution are billed even when the Defender for Servers plan isn't enabled. Machines with the Azure Monitor Agent are billed only when the plan is enabled on the subscription. The security solution is still required on the workspace to work with the plans features and to be eligible for the 500-MB benefit.
 
 To configure a custom destination workspace for the Azure Monitor Agent:
 
@@ -104,24 +107,24 @@ To configure a custom destination workspace for the Azure Monitor Agent:
 
 ### Log analytics workspace solutions
 
-The Azure Monitor Agent requires Log analytics workspace solutions. These solutions are automatically installed when you auto-provision the Azure Monitor Agent with the default workspace. 
+The Azure Monitor Agent requires Log analytics workspace solutions. These solutions are automatically installed when you autoprovision the Azure Monitor Agent with the default workspace.
 
 The required [Log Analytics workspace solutions](/previous-versions/azure/azure-monitor/insights/solutions) for the data that you're collecting are:
 
-  - Security posture management (CSPM) – **SecurityCenterFree solution**
-  - Defender for Servers Plan 2 – **Security solution**
+- Security posture management (CSPM) – **SecurityCenterFree solution**
+- Defender for Servers Plan 2 – **Security solution**
 
-### Additional extensions for Defender for Cloud
+### Other extensions for Defender for Cloud
 
-The Azure Monitor Agent requires more extensions. The ASA extension, which supports endpoint protection recommendations, fileless attack detection, and Adaptive Application controls, is automatically installed when you auto-provision the Azure Monitor Agent.
+The Azure Monitor Agent requires more extensions. The ASA extension, which supports endpoint protection recommendations, fileless attack detection, and Adaptive Application controls, is automatically installed when you autoprovision the Azure Monitor Agent.
 
-### Additional security events collection
+### Other security events collection
 
-When you auto-provision the Log Analytics agent in Defender for Cloud, you can choose to collect additional security events to the workspace. When you auto-provision the Azure Monitor agent in Defender for Cloud, the option to collect additional security events to the workspace isn't available. Defender for Cloud doesn't rely on these security events, but they can be helpful for investigations through Microsoft Sentinel.
+When you autoprovision the Log Analytics agent in Defender for Cloud, you can choose to collect other security events to the workspace. When you autoprovision the Azure Monitor agent in Defender for Cloud, the option to collect other security events to the workspace isn't available. Defender for Cloud doesn't rely on these security events, but they can be helpful for investigations through Microsoft Sentinel.
 
-If you want to collect security events when you auto-provision the Azure Monitor Agent, you can create a [Data Collection Rule](../azure-monitor/essentials/data-collection-rule-overview.md) to collect the required events. Learn [how do it with PowerShell or with Azure Policy](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/how-to-configure-security-events-collection-with-azure-monitor/ba-p/3770719).
+If you want to collect security events when you autoprovision the Azure Monitor Agent, you can create a [Data Collection Rule](../azure-monitor/essentials/data-collection-rule-overview.md) to collect the required events. Learn [how do it with PowerShell or with Azure Policy](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/how-to-configure-security-events-collection-with-azure-monitor/ba-p/3770719).
 
-Like for Log Analytics workspaces, Defender for Cloud users are eligible for [500-MB of free data](plan-defender-for-servers-data-workspace.md#log-analytics-pricing-faq) daily on defined data types that include security events.
+Like for Log Analytics workspaces, Defender for Cloud users are eligible for [500 MB of free data](faq-defender-for-servers.yml) daily on defined data types that include security events.
 
 ## Next steps
 

@@ -3,9 +3,9 @@ title: How to manage Azure Backup Immutable vault operations
 description: This article explains how to manage Azure Backup Immutable vault operations.
 ms.topic: how-to
 ms.service: backup
-ms.date: 02/17/2023
-author: jyothisuri
-ms.author: jsuri
+ms.date: 05/25/2023
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Manage Azure Backup Immutable vault operations
@@ -95,6 +95,18 @@ Now, let's try to increase the retention of daily backup points to *40 days*, in
 This time, the operation successfully passes as no recovery points can be deleted as part of this update.
 
 :::image type="content" source="./media/backup-azure-immutable-vault/modify-policy-to-increase-retention.png" alt-text="Screenshot showing how to modify backup policy to increase backup retention.":::
+
+However, increasing the retention of backup items that are in suspended state isn't supported.
+
+Let's try to stop backup on a VM and choose **Retain as per policy** for backup data retention.
+
+:::image type="content" source="./media/backup-azure-immutable-vault/attempt-to-increase-retention-of-backup-items-in-suspended-state.png" alt-text="Screenshot shows an attempt to increase retention of backup items in suspended state.":::
+
+Now, let's go to **Modify Policy** and try to increase the retention of daily backup points to *45 days*, increasing the value by *5 days*, and save the policy.
+
+:::image type="content" source="./media/backup-azure-immutable-vault/error-on-attempt-to-increase-retention-of-backup-items-in-suspended-state.png" alt-text="Screenshot shows an error has occurred when you try to increase retention of backup items that are in suspended state.":::
+
+When you try to update the policy, the operation fails with an error and you can't modify the policy as the backup is in suspended state.
 
 ## Disable immutability
 

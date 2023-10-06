@@ -3,8 +3,8 @@ title: Use a Windows PC with Hadoop on HDInsight - Azure
 description: Work from a Windows PC in Hadoop on HDInsight. Manage and query clusters with PowerShell, Visual Studio, and Linux tools. Develop big data solutions with .NET.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 08/05/2022
+ms.custom: hdinsightactive, hdiseo17may2017, devx-track-dotnet
+ms.date: 09/14/2023
 ---
 
 # Work in the Apache Hadoop ecosystem on HDInsight from a Windows PC
@@ -68,7 +68,7 @@ Apache Spark clusters in HDInsight include Apache Zeppelin notebooks and kernels
 
 If you come across a situation where you must use a tool or technology that is only available on Linux, consider the following options:
 
-* **Bash on Ubuntu on Windows 10** provides a Linux subsystem on Windows. Bash allows you to directly run Linux utilities without having to maintain a dedicated Linux installation. See [Windows Subsystem for Linux Installation Guide for Windows 10](/windows/wsl/install-win10) for installation steps.  Other [Unix shells](https://www.gnu.org/software/bash/) will work as well.
+* **Bash on Ubuntu on Windows 10** provides a Linux subsystem on Windows. Bash allows you to directly run Linux utilities without having to maintain a dedicated Linux installation. See [Windows Subsystem for Linux Installation Guide for Windows 10](/windows/wsl/install-win10) for installation steps.  Other [Unix shells](https://www.gnu.org/software/bash/) work as well.
 * **Docker for Windows** provides access to many Linux-based tools, and can be run directly from Windows. For example, you can use Docker to run the Beeline client for Hive directly from Windows. You can also use Docker to run a local Jupyter Notebook and remotely connect to Spark on HDInsight. [Get started with Docker for Windows](https://docs.docker.com/docker-for-windows/)
 * **[MobaXTerm](https://mobaxterm.mobatek.net/)** allows you to graphically browse the cluster file system over an SSH connection.
 
@@ -78,6 +78,6 @@ The Azure command-line interface (CLI) is Microsoft's cross-platform command-lin
 
 ## Next steps
 
-If you're new to working in Linux-based clusters, see the follow articles:
+If you're new to work in Linux-based clusters, see the following articles:
 * [Set up Apache Hadoop, Apache Kafka, Apache Spark, or other clusters](hdinsight-hadoop-provision-linux-clusters.md)
 * [Tips for HDInsight clusters on Linux](hdinsight-hadoop-linux-information.md)

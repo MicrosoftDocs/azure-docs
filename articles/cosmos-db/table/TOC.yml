@@ -155,14 +155,26 @@
           items:
             - name: Continuous backup - Introduction
               href: ../continuous-backup-restore-introduction.md
-            - name: Continuous backup - FAQ
-              href: ../continuous-backup-restore-frequently-asked-questions.yml
-            - name: Continuous backup - Resource model
-              href: ../continuous-backup-restore-resource-model.md
-            - name: Latest restorable timestamp
-              href: ../latest-restore-timestamp-continuous-backup.md
-            - name: Auditing restore action with continuous backup
-              href: ../audit-restore-continuous.md
+            - name: Restore
+              items:
+                - name: Restore into a new account
+                  items:
+                    - name: Continuous backup - Resource model
+                      href: ../continuous-backup-restore-resource-model.md
+                    - name: Continuous backup - FAQ
+                      href: ../continuous-backup-restore-frequently-asked-questions.yml
+                    - name: Latest restorable timestamp
+                      href: ../latest-restore-timestamp-continuous-backup.md
+                    - name: Auditing restore action with continuous backup
+                      href: ../audit-restore-continuous.md
+                - name: Restore in the same account (preview)
+                  items:
+                    - name: Introduction
+                      href: ../restore-in-account-continuous-backup-introduction.md
+                    - name: Resource model
+                      href: ../restore-in-account-continuous-backup-resource-model.md
+                    - name: FAQ
+                      href: ../restore-in-account-continuous-backup-frequently-asked-questions.yml
         - name: Periodic backup
           items:
             - name: Introduction
@@ -205,43 +217,7 @@
         - name: Security baseline
           href: /security/benchmark/azure/baselines/cosmos-db-security-baseline?bc=/azure/cosmos-db/breadcrumb/toc.json&toc=/azure/cosmos-db/toc.json
     - name: Optimize your Azure Cosmos DB costs
-      items:
-        - name: Overview
-          href: ../optimize-costs.yml
-        - name: Free tier
-          href: ../free-tier.md
-          displayName: free tier
-        - name: Limit total account throughput
-          displayName: cost, RUs, RU
-          href: ../limit-total-account-throughput.md
-        - name: Plan and manage costs
-          href: ../plan-manage-costs.md
-        - name: Pricing model
-          href: ../how-pricing-works.md
-        - name: Total Cost of Ownership (TCO)
-          href: ../total-cost-ownership.md
-        - name: Understand your bill
-          displayName: free tier
-          href: ../understand-your-bill.md
-        - name: Optimize provisioned throughput cost
-          displayName: request units, RUs, RU
-          href: ../optimize-cost-throughput.md
-        - name: Optimize request cost
-          displayName: request, cost, read, write, query, queries, RUs, RU
-          href: ../optimize-cost-reads-writes.md
-        - name: Optimize storage cost
-          href: ../optimize-cost-storage.md
-        - name: Optimize multi-region cost
-          href: ../optimize-cost-regions.md
-        - name: Optimize development/testing cost
-          displayName: free tier
-          href: ../optimize-dev-test.md
-        - name: Optimize cost with reserved capacity
-          href: ../reserved-capacity.md
-        - name: Optimize using rate limiting
-          href: ../rate-limiting-requests.md
-        - name: Use the emulator
-          href: ../local-emulator.md
+      href: ../optimize-costs.yml
     - name: Enterprise readiness
       items:
         - name: Service quotas
@@ -257,7 +233,9 @@
         - name: Overview
           href: ../notebooks-overview.md
         - name: FAQ
-          href: ../notebooks-faq.yml
+          href: ../notebooks-faq.yml    
+    - name: Emulator
+      href: ../emulator.md
 - name: How to
   items:
     - name: Develop applications
@@ -283,26 +261,10 @@
         - name: Find request unit charge
           displayName: request units, RUs, RU, charge, consumption
           href: find-request-unit-charge.md
+    - name: Develop with the emulator
+      href: ../how-to-develop-emulator.md?pivots=api-table
     - name: Use developer tools
       items:
-        - name: Develop locally with emulator
-          items:
-            - name: Install and use the emulator
-              href: ../local-emulator.md
-            - name: Run the emulator on Docker
-              items:
-                - name: Run the emulator on Docker for Windows
-                  href: ../local-emulator-on-docker-windows.md
-            - name: Export emulator certificates
-              href: ../local-emulator-export-ssl-certificates.md
-            - name: Emulator command-line parameters
-              href: ../emulator-command-line-parameters.md
-            - name: Emulator troubleshooting
-              href: ../troubleshoot-local-emulator.md
-            - name: Emulator release notes
-              href: ../local-emulator-release-notes.md
-            - name: Visual Studio Code extension
-              href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
         - name: Set up CI/CD with Azure Pipelines
           href: ../tutorial-setup-ci-cd.md
         - name: Use Azure Cosmos DB Explorer
@@ -337,12 +299,16 @@
           items:
             - name: Permissions and roles - Continuous backup
               href: ../continuous-backup-restore-permissions.md
-            - name: Get the latest restorable timestamp
-              href: ../get-latest-restore-timestamp.md
-            - name: Restore an account - Continuous backup
-              href: ../restore-account-continuous-backup.md
             - name: Migrate to continuous backup
               href: ../migrate-continuous-backup.md
+            - name: Restore
+              items:
+                - name: Restore to a different account
+                  href: ../restore-account-continuous-backup.md
+                - name: Restore in the same account (preview)
+                  href: ../how-to-restore-in-account-continuous-backup.md
+                - name: Get the latest restorable timestamp
+                  href: ../get-latest-restore-timestamp.md
         - name: Periodic backup
           items:
             - name: Update storage redundancy
@@ -404,6 +370,8 @@
               href: ../monitor-logs-basic-queries.md
             - name: Audit control plane logs
               href: ../audit-control-plane-logs.md
+            - name: Add a transformation for workspace data
+              href: ../tutorial-log-transformation.md
         - name: Configure alerts
           items:
             - name: Create alert on metrics
@@ -430,6 +398,12 @@
       href: /rest/api/storageservices/table-service-rest-api
     - name: Azure CLI
       href: /cli/azure/azure-cli-reference-for-cosmos-db
+    - name: Emulator
+      items:
+        - name: Release notes
+          href: ../emulator-release-notes.md
+        - name: Windows command-line arguments
+          href: ../emulator-windows-arguments.md
 - name: Resources
   items:
     - name: Build your skills with Microsoft Learn training

@@ -119,6 +119,8 @@
     href: expressroute-qos.md
   - name: Routing Microsoft 365 traffic over ExpressRoute 
     href: using-expressroute-for-microsoft365.md
+  - name: Routing Microsoft PSTN traffic over ExpressRoute
+    href: using-expressroute-for-microsoft-pstn.md
   - name: High Availability - Design
     href: designing-for-high-availability-with-expressroute.md
   - name: Disaster Recovery - Design
@@ -227,6 +229,8 @@
       href: expressroute-nat.md
   - name: Troubleshoot
     items:
+    - name: Obtain correlation ID
+      href: get-correlation-id.md
     - name: Verifying ExpressRoute connectivity
       href: expressroute-troubleshooting-expressroute-overview.md
     - name: Resolving network performance issues
@@ -262,18 +266,10 @@
       href: expressroute-config-samples-nat.md
   - name: Backend Connectivity Interoperability
     items:
-    - name: Preface and Test Setup
-      href: ../networking/connectivty-interoperability-preface.md?toc=/azure/expressroute/toc.json
-    - name: Test Setup Configuration
-      href: ../networking/connectivty-interoperability-configuration.md?toc=/azure/expressroute/toc.json
     - name: Control Plane Analysis
-      href: ../networking/connectivty-interoperability-control-plane.md?toc=/azure/expressroute/toc.json
-    - name: Data Plane Analysis
-      href: ../networking/connectivty-interoperability-data-plane.md?toc=/azure/expressroute/toc.json
+      href: ../networking/connectivity-interoperability-control-plane.md?toc=/azure/expressroute/toc.json
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=networking
-  - name: Case Studies
-    href: https://customers.microsoft.com/Pages/advancedsearch.aspx?mrmcproducts=More%20Products
   - name: Networking Blog
     href: https://azure.microsoft.com/blog/topics/networking/
   - name: Pricing

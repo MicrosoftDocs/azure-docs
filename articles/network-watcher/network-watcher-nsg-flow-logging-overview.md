@@ -1,20 +1,19 @@
 ---
 title: NSG flow logs
 titleSuffix: Azure Network Watcher
-description: Learn about NSG flow logs feature of Azure Network Watcher.
-services: network-watcher
+description: Learn about NSG flow logs feature of Azure Network Watcher, which allows you to log information about IP traffic flowing through a network security group.
+ms.author: halkazwini
 author: halkazwini
 ms.service: network-watcher
-ms.topic: conceptual
-ms.workload: infrastructure-services
-ms.date: 04/19/2023
-ms.author: halkazwini
-ms.custom: template-concept, engagement-fy23
+ms.topic: concept-article
+ms.date: 09/20/2023
+
+#CustomerIntent: As an Azure administrator, I want to learn about NSG flow logs so that I can better monitor and optimize my network.
 ---
 
-# Flow logs for network security groups
+# Flow logging for network security groups
 
-NSG flow logs is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through a [network security group (NSG)](../virtual-network/network-security-groups-overview.md). Flow data is sent to Azure Storage from where you can access it and export it to any visualization tool, security information and event management (SIEM) solution, or intrusion detection system (IDS) of your choice.
+Network security groups flow logging is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through a [network security group](../virtual-network/network-security-groups-overview.md). Flow data is sent to Azure Storage from where you can access it and export it to any visualization tool, security information and event management (SIEM) solution, or intrusion detection system (IDS) of your choice.
 
 :::image type="content" source="./media/network-watcher-nsg-flow-logging-overview/nsg-flow-logs-portal.png" alt-text="Screenshot showing Network Watcher NSG flow logs page in the Azure portal.":::
 
@@ -82,25 +81,25 @@ NSG flow logs include the following properties:
     * `Version`: Version number of the flow log's event schema.
     * `flows`: Collection of flows. This property has multiple entries for different rules.
         * `rule`: Rule for which the flows are listed.
-            * `flows`: Collection of flows.
-                * `mac`: MAC address of the NIC for the VM where the flow was collected.
-                * `flowTuples`: String that contains multiple properties for the flow tuple in a comma-separated format:
-                    * `Time stamp`: Time stamp of when the flow occurred in UNIX epoch format.
-                    * `Source IP`: Source IP address.
-                    * `Destination IP`: Destination IP address.
-                    * `Source port`: Source port.
-                    * `Destination port`: Destination port.
-                    * `Protocol`: Protocol of the flow. Valid values are `T` for TCP and `U` for UDP.
-                    * `Traffic flow`: Direction of the traffic flow. Valid values are `I` for inbound and `O` for outbound.
-                    * `Traffic decision`: Whether traffic was allowed or denied. Valid values are `A` for allowed and `D` for denied.
-                    * `Flow State - Version 2 Only`: State of the flow. Possible states are:
-                        * `B`: Begin, when a flow is created. Statistics aren't provided.
-                        * `C`: Continuing for an ongoing flow. Statistics are provided at 5-minute intervals.
-                        * `E`: End, when a flow is terminated. Statistics are provided.
-                    * `Packets sent - Version 2 Only`: Total number of TCP packets sent from source to destination since the last update.
-                    * `Bytes sent - Version 2 Only`: Total number of TCP packet bytes sent from source to destination since the last update. Packet bytes include the packet header and payload.
-                    * `Packets received - Version 2 Only`: Total number of TCP packets sent from destination to source since the last update.
-                    * `Bytes received - Version 2 Only`: Total number of TCP packet bytes sent from destination to source since the last update. Packet bytes include packet header and payload.
+        * `flows`: Collection of flows.
+            * `mac`: MAC address of the NIC for the VM where the flow was collected.
+            * `flowTuples`: String that contains multiple properties for the flow tuple in a comma-separated format:
+                * `Time stamp`: Time stamp of when the flow occurred in UNIX epoch format.
+                * `Source IP`: Source IP address.
+                * `Destination IP`: Destination IP address.
+                * `Source port`: Source port.
+                * `Destination port`: Destination port.
+                * `Protocol`: Protocol of the flow. Valid values are `T` for TCP and `U` for UDP.
+                * `Traffic flow`: Direction of the traffic flow. Valid values are `I` for inbound and `O` for outbound.
+                * `Traffic decision`: Whether traffic was allowed or denied. Valid values are `A` for allowed and `D` for denied.
+                * `Flow State - Version 2 Only`: State of the flow. Possible states are:
+                    * `B`: Begin, when a flow is created. Statistics aren't provided.
+                    * `C`: Continuing for an ongoing flow. Statistics are provided at 5-minute intervals.
+                    * `E`: End, when a flow is terminated. Statistics are provided.
+                * `Packets sent - Version 2 Only`: Total number of TCP packets sent from source to destination since the last update.
+                * `Bytes sent - Version 2 Only`: Total number of TCP packet bytes sent from source to destination since the last update. Packet bytes include the packet header and payload.
+                * `Packets received - Version 2 Only`: Total number of TCP packets sent from destination to source since the last update.
+                * `Bytes received - Version 2 Only`: Total number of TCP packet bytes sent from destination to source since the last update. Packet bytes include packet header and payload.
 
 Version 2 of NSG flow logs introduces the concept of flow state. You can configure which version of flow logs you receive.
 
@@ -404,7 +403,7 @@ For continuation (`C`) and end (`E`) flow states, byte and packet counts are agg
 
 For more information about enabling flow logs, see the following guides:
 
-- [Azure portal](./network-watcher-nsg-flow-logging-portal.md)
+- [Azure portal](./nsg-flow-logging.md)
 - [PowerShell](./network-watcher-nsg-flow-logging-powershell.md)
 - [Azure CLI](./network-watcher-nsg-flow-logging-cli.md)
 - [REST API](./network-watcher-nsg-flow-logging-rest.md)
@@ -425,7 +424,7 @@ To update parameters via command-line tools, use the same command that you used 
 
 ### Read and export flow logs
 
-- [Download and view flow logs from the portal](./network-watcher-nsg-flow-logging-portal.md#download-flow-log)
+- [Download and view flow logs from the portal](./nsg-flow-logging.md#download-a-flow-log)
 - [Read flow logs by using PowerShell functions](./network-watcher-read-nsg-flow-logs.md)
 - [Export NSG flow logs to Splunk](https://www.splunk.com/en_us/blog/platform/splunking-azure-nsg-flow-logs.html)
 
@@ -447,15 +446,17 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 When you disable an NSG flow log, you stop the flow logging for the associated network security group. But the flow log continues to exist as a resource, with all its settings and associations. You can enable it anytime to begin flow logging on the configured network security group.
 
+You can disable a flow log using the [Azure portal](nsg-flow-logging.md#disable-a-flow-log), [PowerShell](network-watcher-nsg-flow-logging-powershell.md#disable-a-flow-log), the [Azure CLI](network-watcher-nsg-flow-logging-cli.md#disable-a-flow-log), or the [REST API](/rest/api/network-watcher/flow-logs/create-or-update).
+
 For steps to disable and enable NSG flow logs, see [Configure NSG flow logs](./network-watcher-nsg-flow-logging-powershell.md).  
 
 ### Delete flow logs
 
 When you delete an NSG flow log, you not only stop the flow logging for the associated network security group but also delete the flow log resource (with all its settings and associations). To begin flow logging again, you must create a new flow log resource for that network security group.
 
-You can delete a flow log using [PowerShell](/powershell/module/az.network/remove-aznetworkwatcherflowlog), the [Azure CLI](/cli/azure/network/watcher/flow-log#az-network-watcher-flow-log-delete), or the [REST API](/rest/api/network-watcher/flowlogs/delete). At this time, you can't delete flow logs from the Azure portal.
+You can delete a flow log using the [Azure portal](nsg-flow-logging.md#delete-a-flow-log), [PowerShell](network-watcher-nsg-flow-logging-powershell.md#delete-a-flow-log), the [Azure CLI](network-watcher-nsg-flow-logging-cli.md#delete-a-flow-log), or the [REST API](/rest/api/network-watcher/flow-logs/delete).
 
-wWhen you delete a network security group, the associated flow log resource is deleted by default.
+When you delete a network security group, the associated flow log resource is deleted by default.
 
 > [!NOTE]
 > To move a network security group to a different resource group or subscription, you must delete the associated flow logs. Just disabling the flow logs won't work. After you migrate a network security group, you must re-create the flow logs to enable flow logging on it.
@@ -544,56 +545,15 @@ Currently, these Azure services don't support NSG flow logs:
 
 ### I can't enable NSG flow logs
 
-If you get an "AuthorizationFailed" or "GatewayAuthenticationFailed" error, you might not have enabled the **Microsoft.Insights** resource provider on your subscription. For more information, see [Register Insights provider](./network-watcher-nsg-flow-logging-portal.md#register-insights-provider).
+If you get an "AuthorizationFailed" or "GatewayAuthenticationFailed" error, you might not have enabled the **Microsoft.Insights** resource provider on your subscription. For more information, see [Register Insights provider](./nsg-flow-logging.md#register-insights-provider).
 
 ### I enabled NSG flow logs but don't see data in my storage account
 
 This problem might be related to:
 
-- **Setup time**: NSG flow logs can take up to 5 minutes to appear in your storage account (if they're configured correctly). A *PT1H.json* file appears. For more information, see [Download flow log](./network-watcher-nsg-flow-logging-portal.md#download-flow-log).
+- **Setup time**: NSG flow logs can take up to 5 minutes to appear in your storage account (if they're configured correctly). A *PT1H.json* file appears. For more information, see [Download flow log](./nsg-flow-logging.md#download-a-flow-log).
 
 - **Lack of traffic on your network security groups**: Sometimes you don't see logs because your virtual machines aren't active, or because upstream filters at Application Gateway or other devices are blocking traffic to your network security groups.
-
-### I want to automate NSG flow logs
-
-Support for automation via Azure Resource Manager templates (ARM templates) is now available for NSG flow logs. For more information, see [Configure network security group flow logs using an Azure Resource Manager (ARM) template](quickstart-configure-network-security-group-flow-logs-from-arm-template.md).
-
-## Frequently asked questions (FAQ)
-
-### What do NSG flow logs do?
-
-NSG flow logs enable you to log 5-tuple flow information about all traffic passing through your network security groups. The raw flow logs are written to an Azure Storage account. From there, you can further process, analyze, query, or export them as needed.
-
-### Do flow logs affect my network latency or performance?
-
-Flow log data is collected outside the path of your network traffic, so it doesn't affect network throughput or latency. You can create or delete flow logs without any risk of impact to network performance.
-
-### How do I use NSG flow logs with a storage account behind a firewall?
-
-To use a storage account behind a firewall, you have to provide an exception for trusted Microsoft services to access the storage account:
-
-1. Go to the storage account by entering the account's name in the portal search.
-1. In the **Networking** section, select **Firewalls and virtual networks** at the top of the page. Then make sure that the following items are configured:
-
-   - For **Public network access**, select **Enabled from selected virtual networks and IP addresses**.
-   - For **Firewall**, select **Add your client IP address**.
-
-     > [!Note]
-     > A client IP address is provided here by default. Use `ipconfig` to verify that this IP address matches the machine that you're using to access the storage account. If the client IP address doesn't match your machine, you might get an "Unauthorized" error when you're trying to access the storage account to read NSG flow logs.
-
-   - For **Exceptions**, select **Allow Azure service on the trusted services list to access this storage account**.
-
-1. On the NSG flow logs page, find your target network security group and then enable flow logging using the previously configured storage account.
-
-Check the storage logs after a few minutes. You should see an updated time stamp or a new JSON file created.
-
-### How do I use NSG flow logs with a storage account behind a service endpoint?
-
-NSG flow logs are compatible with service endpoints without requiring any extra configuration. For more information, see [Enable a service endpoint](../virtual-network/tutorial-restrict-network-access-to-resources.md#enable-a-service-endpoint).
-
-### What's the difference between versions 1 and 2 of flow logs?
-
-Version 2 of flow logs introduces the concept of *flow state* and stores information about transmitted bytes and packets. [Read more](#log-format).
 
 ## Pricing
 
@@ -601,7 +561,8 @@ NSG flow logs are charged per gigabyte of logs collected and come with a free ti
 
 Storage of logs is charged separately. For relevant prices, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
-## Next steps
+## Related content
 
-- Learn how to [Log network traffic to and from a virtual machine](./network-watcher-nsg-flow-logging-portal.md)
-- Learn how to [Read NSG flow logs](./network-watcher-read-nsg-flow-logs.md)
+- To learn how to manage NSG flow logs, see [Create, change, disable, or delete NSG flow logs using the Azure portal](nsg-flow-logging.md).
+- To find answers to some of the most frequently asked questions about NSG flow logs, see [NSG flow logs FAQ](frequently-asked-questions.yml#nsg-flow-logs).
+- To learn about traffic analytics, see [Traffic analytics overview](traffic-analytics.md).

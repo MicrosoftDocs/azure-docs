@@ -3,7 +3,7 @@ title: What's new in Azure Virtual Desktop? - Azure
 description: New features and product updates for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: release-notes
-ms.date: 04/27/2023
+ms.date: 08/22/2023
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: femila
@@ -20,15 +20,84 @@ Azure Virtual Desktop updates regularly. This article is where you'll find out a
 
 Make sure to check back here often to keep up with new updates.
 
+> [!TIP]
+> See [What's new in documentation](whats-new-documentation.md), where we highlight new and updated articles for Azure Virtual Desktop.
+
+## July 2023
+
+Here's what changed in July 2023:
+
+### Watermarking is now generally available
+
+[Watermarking](watermarking.md), when used with [screen capture protection](#screen-capture-protection), helps protect your sensitive information from capture on client endpoints. When you enable watermarking, QR code watermarks appear as part of remote desktops. The QR code contains the connection ID of a remote session that admins can use to trace the session. You can configure watermarking on session hosts and enforce it with the Remote Desktop client.
+
+### Audio call redirection for Azure Virtual Desktop in preview
+
+Call redirection, which optimizes audio calls for WebRTC-based calling apps, is now in preview. Multimedia redirection redirects media content from Azure Virtual Desktop to your local machine for faster processing and rendering. Both Microsoft Edge and Google Chrome support this feature when using the Windows Desktop client.
+
+For more information about which sites are compatible with this feature, see [Call redirection](multimedia-redirection-intro.md#call-redirection).
+
+### Autoscale for personal host pools is currently in preview
+
+Autoscale for personal host pools is now in preview. Autoscale lets you scale your session host virtual machines (VMs) in a host pool up or down according to a schedule to optimize deployment costs.
+
+To learn more about autoscale for personal host pools, see [Autoscale scaling plans and example scenarios in Azure Virtual Desktop](autoscale-scenarios.md).
+
+### Confidential VMs are now generally available in Azure Virtual Desktop
+
+Confidential VM and Trusted Launch security features for Azure Virtual Desktop host pool provisioning are now generally available.
+
+Azure confidential virtual machines (VMs) offer VM memory encryption with integrity protection, which strengthens guest protections to deny the hypervisor and other host management components code access to the VM memory and state. For more information about the security benefits of confidential VMs, see our [confidential computing documentation](../confidential-computing/confidential-vm-overview.md).  
+
+Trusted Launch protects against advanced and persistent attack techniques. This feature allows you to securely deploy your VMs with verified boot loaders, OS kernels, and drivers. Trusted Launch also protects keys, certificates, and secrets in VMs. For more information about the benefits of Trusted Launch, see our [Trusted Launch documentation](../virtual-machines/trusted-launch.md). Trusted Launch is now enabled by default for all Windows images used with Azure Virtual Desktop.
+
+For more information about this announcement, see [Announcing General Availability of confidential VMs in Azure Virtual Desktop](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-general-availability-of-confidential-vms-in-azure/ba-p/3857974). 
+
+### Private Link with Azure Virtual Desktop is now generally available
+
+Private Link with Azure Virtual Desktop allows users to establish secure connections to remote resources using private endpoints. With Private Link, traffic between your virtual network and the Azure Virtual Desktop service is routed through the Microsoft *backbone* network. This routing eliminates the need to expose your service to the public internet, enhancing the overall security of your infrastructure. By keeping traffic within this protected network, Private Link adds an extra layer of security for your Azure Virtual Desktop environment. For more information about Private Link, see [Azure Private Link with Azure Virtual Desktop](private-link-overview.md) or read [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-the-general-availability-of-private-link-for-azure/ba-p/3874429). 
+
+## June 2023
+
+Here's what changed in June 2023:
+
+### Azure Virtual Desktop Insights support for the Azure Monitor Agent now in preview
+
+Azure Virtual Desktop Insights is a dashboard built on Azure Monitor workbooks that helps IT professionals understand their Azure Virtual Desktop environments. Azure Virtual Desktops Insights support for the Azure Monitor agent is now in preview. For more information see [Use Azure Virtual Desktop Insights to monitor your deployment](insights.md?tabs=monitor).
+
+### Administrative template for Azure Virtual Desktop now available in Intune
+
+We've created an administrative template for Azure Virtual Desktop to help you configure certain features in Azure Virtual Desktop. This administrative template is now available in Intune, which enables you to centrally configure session hosts that are enrolled in Intune and joined to Azure Active Directory (Azure AD) or hybrid Azure AD joined.
+
+For more information see [Administrative template for Azure Virtual Desktop](administrative-template.md?tabs=intune).
+
+## May 2023
+
+Here's what changed in May 2023: 
+
+### Custom image templates is now in preview 
+
+Custom image templates is now in  preview. Custom image templates help you easily create a custom image that you can use when deploying session host VMs. With custom images, you can standardize the configuration of your session host VMs for your organization. Custom image templates is built on [Azure Image Builder](../virtual-machines/image-builder-overview.md) and tailored for Azure Virtual Desktop. For more information about the preview, check out [Custom image templates](custom-image-templates.md) or read [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-the-public-preview-of-azure-virtual-desktop-custom/ba-p/3784361).
+
 ## April 2023
 
 Here's what changed in April 2023:
 
 ### Azure Virtual Desktop Store app for Windows in public preview
 
-The [Azure Virtual Desktop Store app for Windows](users/connect-windows-azure-virtual-desktop-app.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json) is now in public preview for Windows 10 and 11. With the Store App, you can now automatically update the client, unlike with the Remote Desktop client. You can also pin remote apps to your Start menu to personalize your desktop and reduce clutter.
+The [Azure Virtual Desktop Store app for Windows](users/connect-windows-azure-virtual-desktop-app.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json) is now in public preview for Windows 10 and 11. With the Store App, you can now automatically update the client, unlike with the Remote Desktop client. You can also pin a RemoteApp to your Start menu to personalize your desktop and reduce clutter.
 
 For more information about the public preview release version, check out [Use features of the Azure Virtual Desktop Store app for Windows when connecting to Azure Virtual Desktop (preview)](users/client-features-windows.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json), [What's new in the Azure Virtual Desktop Store App (preview)](whats-new-client-windows-azure-virtual-desktop-app.md), or read [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-public-preview-of-the-new-azure-virtual-desktop-app/ba-p/3785698).
+
+### Intune user-scope configuration for Windows 10 Enterprise multi-session VMs now generally available
+
+Microsoft Intune user-scope configuration for Azure Virtual Desktop multi-session Virtual Machines (VMs) on Windows 10 and 11 are now generally available. With this feature, you are able to:
+
+- Configure user-scope policies using the Settings catalog and assign those policies to groups of users.
+- Configure user certificates and assign them to users.
+- Configure PowerShell scripts to install in user context and assign the scripts to users.
+
+For more information, see [Azure Virtual Desktop multi-session with Intune](/mem/intune/fundamentals/azure-virtual-desktop-multi-session) or [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/microsoft-intune-user-scope-configuration-for-azure-virtual/ba-p/3667410).
 
 ## March 2023
 
@@ -48,7 +117,7 @@ Windows 10 and 11 22H2 Enterprise and Enterprise multi-session images are now vi
 
 ### Uniform Resource Identifier Schemes in public preview
 
-Uniform Resource Identifier (URI) schemes with the Remote Desktop client for Azure Virtual Desktop is now in public preview. This new feature lets you subscribe to a workspace or connect to a particular desktop or Remote App using URI schemes. URI schemes also provide fast and efficient end-user connection to Azure Virtual Desktop resources. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-the-public-preview-of-uniform-resource-identifier/ba-p/3763075) and [URI schemes with the Remote Desktop client for Azure Virtual Desktop (preview)](uri-scheme.md). 
+Uniform Resource Identifier (URI) schemes with the Remote Desktop client for Azure Virtual Desktop is now in public preview. This new feature lets you subscribe to a workspace or connect to a particular desktop or RemoteApp using URI schemes. URI schemes also provide fast and efficient end-user connection to Azure Virtual Desktop resources. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-the-public-preview-of-uniform-resource-identifier/ba-p/3763075) and [URI schemes with the Remote Desktop client for Azure Virtual Desktop (preview)](uri-scheme.md). 
 
 ### Azure Virtual Desktop Insights at Scale now generally available
 
@@ -104,7 +173,7 @@ The Azure Virtual Desktop region in India is now generally available. Customers 
 
 ### Confidential Virtual Machine support for Azure Virtual Desktop now in public preview
 
-Azure Confidential Virtual Machine (VM) support is now in public preview. Azure Confidential VMs increase data privacy and security by protecting data in use. The public preview update also adds support for Windows 11 22H2 to Confidential VMs. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/confidential-virtual-machine-support-for-azure-virtual-desktop/ba-p/3686350).
+Azure Confidential VM support is now in public preview. Azure Confidential VMs increase data privacy and security by protecting data in use. The public preview update also adds support for Windows 11 22H2 to Confidential VMs. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/confidential-virtual-machine-support-for-azure-virtual-desktop/ba-p/3686350).
 
 ## November 2022
 
@@ -120,7 +189,7 @@ The ability to review performance and diagnostic information across multiple hos
 	
 ### Intune user configuration for Windows 11 Enterprise multi-session VMs now generally available
 
-Microsoft Intune user scope configuration for Azure Virtual Desktop multi-session Virtual Machines (VMs) on Windows 11 is now generally available. With this feature, you’ll be able to:
+Microsoft Intune user scope configuration for Azure Virtual Desktop multi-session VMs on Windows 11 is now generally available. With this feature, you’ll be able to:
 
 - Configure user scope policies using the Settings catalog and assign them to groups of users. 
 - Configure user certificates and assign them to users.
@@ -170,7 +239,7 @@ The ability to collect graphics data for your Azure Virtual Desktop connections 
 
 ### Multimedia redirection enhancements now in public preview
 
-An upgraded version of multimedia redirection (MMR) for Azure Virtual Desktop is now in public preview. We've made various improvements to this version, including more supported websites, remote app browser support, and enhancements to media controls for better clarity and one-click tracing. Learn more at [Use multimedia redirection on Azure Virtual Desktop (preview)](multimedia-redirection.md) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/new-multimedia-redirection-upgrades-on-azure-virtual-desktop-are/m-p/3639520). 
+An upgraded version of multimedia redirection (MMR) for Azure Virtual Desktop is now in public preview. We've made various improvements to this version, including more supported websites, RemoteApp browser support, and enhancements to media controls for better clarity and one-click tracing. Learn more at [Use multimedia redirection on Azure Virtual Desktop (preview)](multimedia-redirection.md) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/new-multimedia-redirection-upgrades-on-azure-virtual-desktop-are/m-p/3639520). 
 
 ### Grouping costs by Azure Virtual Desktop host pool now in public preview
 
@@ -252,7 +321,7 @@ The Azure Virtual Desktop metadata database located in Australia is now in publi
 
 ### Intune user configuration for Windows 11 Enterprise multi-session VMs in public preview
 
-Deploying Intune user configuration policies from the Microsoft Intune admin center to Windows 11 Enterprise multi-session virtual machines (VMs) on Azure Virtual Desktop is now in public preview. In this preview, you can configure the following features:
+Deploying Intune user configuration policies from the Microsoft Intune admin center to Windows 11 Enterprise multi-session VMs on Azure Virtual Desktop is now in public preview. In this preview, you can configure the following features:
 
 - User scope policies using the Settings catalog.
 - User certificates via Templates.
@@ -413,11 +482,11 @@ Remote Desktop Protocol (RDP) Shortpath for managed networks is now generally av
 
 ### Screen capture protection updates
 
-Screen capture protection is now supported on the macOS client and the Azure Government and Azure China clouds. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/screen-capture-protection-for-macos-client-and-support-for/m-p/2840089#M7940).
+Screen capture protection is now supported on the macOS client and the Azure Government and Azure operated by 21Vianet clouds. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/screen-capture-protection-for-macos-client-and-support-for/m-p/2840089#M7940).
 
 ### Azure Active Directory domain join 
 
-Azure Active Directory domain join for Azure Virtual Desktop VMs is now available in the Azure Government and Azure China clouds. Microsoft Intune is currently only supported in the Azure Public cloud. Learn more at [Deploy Azure AD-joined virtual machines in Azure Virtual Desktop](deploy-azure-ad-joined-vm.md).
+Azure Active Directory domain join for Azure Virtual Desktop VMs is now available in the Azure Government and Azure operated by 21Vianet clouds. Microsoft Intune is currently only supported in the Azure Public cloud. Learn more at [Deploy Azure AD-joined virtual machines in Azure Virtual Desktop](deploy-azure-ad-joined-vm.md).
 
 ### Breaking change in Azure Virtual Desktop Azure Resource Manager template
 
@@ -425,7 +494,7 @@ A breaking change has been introduced into the Azure Resource Manager template f
 
 ### Autoscale (preview) public preview
 
-Autoscale for Azure Virtual Desktop is now in public preview. This feature natively turns your virtual machines (VMs) in pooled host pools on or off based on availability needs. Scheduling when your VMs turn on and off optimizes deployment costs, and this feature also offers flexible scheduling options based on your needs. Once you've configured the required custom Role-Based Access Control (RBAC) role, you can start configuring your scaling plan. For more information, see [Autoscale (preview) for Azure Virtual Desktop host pools](autoscale-scaling-plan.md).
+Autoscale for Azure Virtual Desktop is now in public preview. This feature natively turns your VMs in pooled host pools on or off based on availability needs. Scheduling when your VMs turn on and off optimizes deployment costs, and this feature also offers flexible scheduling options based on your needs. Once you've configured the required custom Role-Based Access Control (RBAC) role, you can start configuring your scaling plan. For more information, see [Autoscale (preview) for Azure Virtual Desktop host pools](autoscale-scaling-plan.md).
 
 ## September 2021
 
@@ -439,11 +508,11 @@ You can also now set host pool, application group, and workspace diagnostic sett
 
 ### Azure Active Directory domain join
 
-Azure Active Directory domain join is now generally available. This service lets you join your session hosts to Azure Active Directory (Azure AD). Domain join also lets you autoenroll into Microsoft Intune. You can access this feature in the Azure public cloud, but not the Government cloud or Azure China. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/announcing-general-availability-of-azure-ad-joined-vms-support/ba-p/2751083).
+Azure Active Directory domain join is now generally available. This service lets you join your session hosts to Azure Active Directory (Azure AD). Domain join also lets you autoenroll into Microsoft Intune. You can access this feature in the Azure public cloud, but not the Government cloud or Azure operated by 21Vianet. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/announcing-general-availability-of-azure-ad-joined-vms-support/ba-p/2751083).
 
-### Azure China
+### Azure operated by 21Vianet
 
-Azure Virtual Desktop is now generally available in the Azure China cloud. For more information, see [our blog post](https://azure.microsoft.com/updates/general-availability-azure-virtual-desktop-is-now-available-in-the-azure-china-cloud/).
+Azure Virtual Desktop is now generally available in the Azure operated by 21Vianet cloud. For more information, see [our blog post](https://azure.microsoft.com/updates/general-availability-azure-virtual-desktop-is-now-available-in-the-azure-china-cloud/).
 
 ### Automatic migration module tool
 
@@ -463,7 +532,7 @@ Multimedia redirection gives you smooth video playback while watching videos in 
 
 ### Windows Defender Application Control and Azure Disk Encryption support
 
-Azure Virtual Desktop now supports Windows Defender Application Control to control which drivers and applications are allowed to run on Windows virtual machines (VMs), and Azure Disk Encryption, which uses Windows BitLocker to provide volume encryption for the OS and data disks of your VMs. For more information, see [our announcement](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/support-for-windows-defender-application-control-and-azure-disk/m-p/2658633#M7685).
+Azure Virtual Desktop now supports Windows Defender Application Control to control which drivers and applications are allowed to run on Windows VMs, and Azure Disk Encryption, which uses Windows BitLocker to provide volume encryption for the OS and data disks of your VMs. For more information, see [our announcement](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/support-for-windows-defender-application-control-and-azure-disk/m-p/2658633#M7685).
  
 ### Signing into Azure Active Directory using smart cards are now supported in Azure Virtual Desktop
 
@@ -483,7 +552,7 @@ All available images in the Azure Virtual Desktop image gallery that include Mic
 
 ### Azure Active Directory Domain Join for Session hosts is in public preview
 
-You can now join your Azure Virtual Desktop virtual machines (VMs) directly to Azure Active Directory (Azure AD). This feature lets you connect to your VMs from any device with basic credentials. You can also automatically enroll your VMs with Microsoft Intune. For certain scenarios, this will help eliminate the need for a domain controller, reduce costs, and streamline your deployment. Learn more at [Deploy Azure AD joined virtual machines in Azure Virtual Desktop](deploy-azure-ad-joined-vm.md).
+You can now join your Azure Virtual Desktop VMs directly to Azure Active Directory (Azure AD). This feature lets you connect to your VMs from any device with basic credentials. You can also automatically enroll your VMs with Microsoft Intune. For certain scenarios, this will help eliminate the need for a domain controller, reduce costs, and streamline your deployment. Learn more at [Deploy Azure AD joined virtual machines in Azure Virtual Desktop](deploy-azure-ad-joined-vm.md).
 
 ### FSLogix version 2105 is now available
 
@@ -501,11 +570,10 @@ This feature offers a streamlined onboarding experience in the Azure portal to s
 
 The start VM on connect feature is now generally available. This feature helps you optimize costs by letting you turn off deallocated or stopped VMs, letting your deployment be flexible with user demands. For more information, see [Start Virtual Machine on Connect](start-virtual-machine-connect.md).
 
-### Remote app streaming documentation
+### RemoteApp streaming
 
-We recently announced a new pricing option for remote app streaming for using Azure Virtual Desktop to deliver apps as a service to your customers and business partners. For example, software vendors can use remote app streaming to deliver apps as a software as a service (SaaS) solution that's accessible to their customers. To learn more about remote app streaming, check out [our documentation](./remote-app-streaming/overview.md).
+We recently announced a new pricing option for RemoteApp streaming for using Azure Virtual Desktop to deliver apps as a service to your customers and business partners. For example, software vendors can use RemoteApp streaming to deliver apps as a software as a service (SaaS) solution that's accessible to their customers. To learn more about RemoteApp streaming, check out [our documentation](./remote-app-streaming/overview.md).
 
-From July 14, 2021 to December 31, 2021, we're giving customers who use remote app streaming a promotional offer that lets their business partners and customers access Azure Virtual Desktop for no charge. This offer only applies to external user access rights. Regular billing will resume on January 1, 2022. In the meantime, you can continue to use your existing Windows license entitlements found in licenses like Microsoft 365 E3 or Windows E3. To learn more about this offer, see the [Azure Virtual Desktop pricing page](https://azure.microsoft.com/pricing/details/virtual-desktop/).
 
 ### New Azure Virtual Desktop handbooks
 
@@ -522,7 +590,7 @@ Here's what changed in June 2021:
 
 ### Windows Virtual Desktop is now Azure Virtual Desktop
 
-To better align with our vision of a flexible cloud desktop and remote application platform, we've renamed Windows Virtual Desktop to Azure Virtual Desktop. Learn more at [the announcement post in our blog](https://azure.microsoft.com/blog/azure-virtual-desktop-the-desktop-and-app-virtualization-platform-for-the-hybrid-workplace/).
+To better align with our vision of a flexible cloud desktop and application platform, we've renamed Windows Virtual Desktop to Azure Virtual Desktop. Learn more at [the announcement post in our blog](https://azure.microsoft.com/blog/azure-virtual-desktop-the-desktop-and-app-virtualization-platform-for-the-hybrid-workplace/).
 
 ### EU, UK, and Canada geographies are now generally available
 
@@ -935,7 +1003,7 @@ Here's what this change does for you:
 
 - Azure Virtual Desktop is now integrated with the Azure portal. This means you can manage everything directly in the portal, no PowerShell, web apps, or third-party tools required. To get started, check out our tutorial at [Create a host pool with the Azure portal](create-host-pools-azure-marketplace.md).
 
-- Before this update, you could only publish RemoteApps and Desktops to individual users. With Azure Resource Manager, you can now publish resources to Azure Active Directory groups.
+- Before this update, you could only publish desktops and applications to individual users. With Azure Resource Manager, you can now publish resources to Azure Active Directory groups.
 
 - The earlier version of Azure Virtual Desktop had four built-in admin roles that you could assign to a tenant or host pool. These roles are now in [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md). You can apply these roles to every Azure Virtual Desktop Azure Resource Manager object, which lets you have a full, rich delegation model.
 

@@ -22,7 +22,7 @@ This article describes the properties of a network security group rule, the [def
 
 ## <a name="security-rules"></a> Security rules
 
-A network security group contains zero, or as many rules as desired, within Azure subscription [limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Each rule specifies the following properties:
+A network security group contains as many rules as desired, within Azure subscription [limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Each rule specifies the following properties:
 
 |Property  |Explanation  |
 |---------|---------|
@@ -119,7 +119,7 @@ Application security groups enable you to configure network security as a natura
       After the subscription is exempted from this block and the VMs are stopped and restarted, all VMs in that subscription are exempted going forward. The exemption applies only to the subscription requested and only to VM traffic that is routed directly to the internet.
 
    - **Pay-as-you-go:** Outbound port 25 communication is blocked from all resources. No requests to remove the restriction can be made, because requests aren't granted. If you need to send email from your virtual machine, you have to use an SMTP relay service.
-   - **MSDN, Azure Pass, Azure in Open, Education, BizSpark, and Free trial**: Outbound port 25 communication is blocked from all resources. No requests to remove the restriction can be made, because requests aren't granted. If you need to send email from your virtual machine, you have to use an SMTP relay service.
+   - **MSDN, Azure Pass, Azure in Open, Education, and Free trial**: Outbound port 25 communication is blocked from all resources. No requests to remove the restriction can be made, because requests aren't granted. If you need to send email from your virtual machine, you have to use an SMTP relay service.
    - **Cloud service provider**: Outbound port 25 communication is blocked from all resources. No requests to remove the restriction can be made, because requests aren't granted. If you need to send email from your virtual machine, you have to use an SMTP relay service.
 
 ## Next steps

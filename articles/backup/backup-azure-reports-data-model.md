@@ -4,8 +4,8 @@ description: This data model is in reference to the Resource Specific Mode of se
 ms.topic: conceptual
 ms.date: 04/18/2023
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 # Data Model for Azure Backup Diagnostics Events
 
@@ -253,11 +253,11 @@ This table provides details about policy-related fields.
 | ScheduleWindowDuration          | Integer        | Recovery Services vault | Duration of the daily window in which backups can be run. Applicable for enhanced policy for Azure VM backup | 
 | ScheduleWindowStartTime         | DateTime       | Recovery Services vault | Start time of the daily window in which backups can be run. Applicable for enhanced policy for Azure VM backup        |
 | FullBackupDaysOfTheWeek         | String         | Backup vault	| Days of the week when full backup runs. Currently applicable for Azure PostgreSQL backup                    |
-| FullBackupFrequency             | String           | Backup vault | Frequency of full backup. Currently applicable for Azure PostgreSQL backup                    |                     |
-| FullBackupTimes                 | String           | Backup vault | Time of the day at which full backup is taken. Currently applicable for Azure PostgreSQL backup                    |                   |
+| FullBackupFrequency             | String           | Backup vault | Frequency of full backup. Currently applicable for Azure PostgreSQL backup                    |                     
+| FullBackupTimes                 | String           | Backup vault | Time of the day at which full backup is taken. Currently applicable for Azure PostgreSQL backup                    |                  
 | IncrementalBackupDaysOfTheWeek  | String           | Backup vault | Days of the week when incremental backup runs. Currently applicable for Azure Disk backup                     |
 | IncrementalBackupFrequency      | String           | Backup vault | Frequency of incremental backup. Currently applicable for Azure Disk backup                     |
-| IncrementalBackupTimes          | String           | Backup vault | Time of the day at which incremental backup is taken. Currently applicable for Azure Disk backup                     |                   |
+| IncrementalBackupTimes          | String           | Backup vault | Time of the day at which incremental backup is taken. Currently applicable for Azure Disk backup                     |                  
 | PolicyId                    	  | String           | Backup vault | Azure Resource Manager (ARM) ID of the backup policy                    |
 | SnapshotTierDailyRetentionDuration    | Integer    | Backup vault | Retention duration in days for daily snapshots. Applicable for Azure Blob and Azure Disk backup                     |
 | SnapshotTierWeeklyRetentionDuration   | Integer    | Backup vault | Retention duration in weeks for weekly snapshots. Applicable for Azure Blob and Azure Disk backup                    |

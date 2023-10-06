@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
-ms.date: 01/29/2023
+ms.date: 06/02/2023
 
 ms.author: justinha
 author: justinha
@@ -15,7 +15,9 @@ ms.reviewer: jsimmons
 
 ms.collection: M365-identity-device-management
 ---
-# Azure AD Password Protection agent version history
+# Microsoft Entra Password Protection agent version history
+
+To download the most recent version, see [Microsoft Entra Password Protection for Windows Server Active Directory](https://www.microsoft.com/download/details.aspx?id=57071).
 
 ## 1.2.177.1
 
@@ -28,7 +30,7 @@ Release date: March 28, 2022
 Release date: March 14, 2022
 
 * Minor bugfixes
-* Fixed issue with Azure AD Connect Agent Updater not being updated
+* Fixed issue with Microsoft Entra Connect Agent Updater not being updated
 
 ## 1.2.176.0
 
@@ -40,7 +42,7 @@ Release date: June 4, 2021
 
 Release date: February 22, 2021
 
-It has been almost two years since the GA versions of the on-premises Azure AD Password Protection agents were released. A new update is now available - see change descriptions below. Thank you to everyone who has given us feedback on the product. 
+It has been almost two years since the GA versions of the on-premises Microsoft Entra Password Protection agents were released. A new update is now available - see change descriptions below. Thank you to everyone who has given us feedback on the product. 
 
 * The DC agent and Proxy agent software both now require .NET 4.7.2 to be installed.
   * If .NET 4.7.2 is not already installed, download and run the installer found at [The .NET Framework 4.7.2 offline installer for Windows](https://support.microsoft.com/topic/microsoft-net-framework-4-7-2-offline-installer-for-windows-05a72734-2127-a15d-50cf-daf56d5faec2).
@@ -75,7 +77,7 @@ Release date: March 3, 2019
 * The Proxy service now requires that .NET 4.7 is installed.
   * If .NET 4.7 is not already installed, download and run the installer found at [The .NET Framework 4.7 offline installer for Windows](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
   * On Server Core systems, it may be necessary to pass the /q flag to the .NET 4.7 installer to get it to succeed.
-* The Proxy service now supports automatic upgrade. Automatic upgrade uses the Microsoft Azure AD Connect Agent Updater service, which is installed side by side with the Proxy service. Automatic upgrade is on by default.
+* The Proxy service now supports automatic upgrade. Automatic upgrade uses the Microsoft Entra Connect Agent Updater service, which is installed side by side with the Proxy service. Automatic upgrade is on by default.
 * Automatic upgrade can be enabled or disabled using the Set-AzureADPasswordProtectionProxyConfiguration cmdlet. The current setting can be queried using the Get-AzureADPasswordProtectionProxyConfiguration cmdlet.
 * The service binary for the DC agent service has been renamed to AzureADPasswordProtectionDCAgent.exe.
 * The service binary for the Proxy service has been renamed to AzureADPasswordProtectionProxy.exe. Firewall rules may need to be modified accordingly if a third-party firewall is in-use.
@@ -114,7 +116,7 @@ Changes:
 * Each DC agent will periodically delete mangled and stale service connection points in its domain, for both DC agent and proxy service connection points. Both DC agent and proxy service connection points are considered stale if its heartbeat timestamp is older than seven days.
 * The DC agent will now renew the forest certificate as needed.
 * The Proxy service will now renew the proxy certificate as needed.
-* Updates to password validation algorithm: the global banned password list and customer-specific banned password list (if configured) are combined prior to password validations. A given password may now be rejected (fail or audit-only) if it contains tokens from both the global and customer-specific list. The event log documentation has been updated to reflect this; see [Monitor Azure AD Password Protection](howto-password-ban-bad-on-premises-monitor.md).
+* Updates to password validation algorithm: the global banned password list and customer-specific banned password list (if configured) are combined prior to password validations. A given password may now be rejected (fail or audit-only) if it contains tokens from both the global and customer-specific list. The event log documentation has been updated to reflect this; see [Monitor Microsoft Entra Password Protection](howto-password-ban-bad-on-premises-monitor.md).
 * Performance and robustness fixes
 * Improved logging
 
@@ -154,7 +156,7 @@ Fixes:
 * Both DC agent and proxy installers will now support in-place upgrade when upgrading to future versions.
 
 > [!WARNING]
-> In-place upgrade from version 1.1.10.3 is not supported and will result in an installation error. To upgrade to version 1.2.10 or later, you must first completely uninstall the DC agent and proxy service software, then install the new version from scratch. Re-registration of the Azure AD password protection Proxy service is required.  It is not required to re-register the forest.
+> In-place upgrade from version 1.1.10.3 is not supported and will result in an installation error. To upgrade to version 1.2.10 or later, you must first completely uninstall the DC agent and proxy service software, then install the new version from scratch. Re-registration of the Microsoft Entra password protection Proxy service is required.  It is not required to re-register the forest.
 
 > [!NOTE]
 > In-place upgrades of the DC agent software will require a reboot.
@@ -171,4 +173,4 @@ Initial public preview release
 
 ## Next steps
 
-[Deploy Azure AD Password Protection](howto-password-ban-bad-on-premises-deploy.md)
+[Deploy Microsoft Entra Password Protection](howto-password-ban-bad-on-premises-deploy.md)

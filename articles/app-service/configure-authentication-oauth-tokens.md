@@ -3,6 +3,9 @@ title: OAuth tokens in AuthN/AuthZ
 description: Learn how to retrieve tokens and refresh tokens and extend sessions when using the built-in authentication and authorization in App Service.
 ms.topic: article
 ms.date: 03/29/2021
+ms.custom: AppServiceIdentity
+author: cephalin
+ms.author: cephalin
 ---
 
 # Work with OAuth tokens in Azure App Service authentication

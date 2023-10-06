@@ -5,8 +5,7 @@ author: roygara
 ms.author: rogarana
 ms.date: 06/29/2021
 ms.topic: how-to
-ms.service: storage
-ms.subservice: disks
+ms.service: azure-disk-storage
 ---
 # Benchmark a disk
 

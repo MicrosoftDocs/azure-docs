@@ -2,11 +2,11 @@
 title: Web UI Library overview
 titleSuffix: An Azure Communication Services concept document
 description: Learn about the Azure Communication Services Web UI Library.
-author: ddematheu2
+author: RinaRish
 manager: chrispalm
 services: azure-communication-services
 
-ms.author: dademath
+ms.author: ektrishi
 ms.date: 06/30/2021
 ms.topic: include
 ms.service: azure-communication-services

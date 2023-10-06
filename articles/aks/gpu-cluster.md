@@ -21,6 +21,9 @@ This article helps you provision nodes with schedulable GPUs on new and existing
 * This article assumes you have an existing AKS cluster. If you don't have a cluster, create one using the [Azure CLI][aks-quickstart-cli], [Azure PowerShell][aks-quickstart-powershell], or the [Azure portal][aks-quickstart-portal].
 * You also need the Azure CLI version 2.0.64 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
+> [!NOTE]
+> If using an Azure Linux GPU node pool, automatic security patches aren't applied, and the default behavior for the cluster is *Unmanaged*. For more information, see [auto-upgrade](./auto-upgrade-node-image.md).
+
 ## Get the credentials for your cluster
 
 * Get the credentials for your AKS cluster using the [`az aks get-credentials`][az-aks-get-credentials] command. The following example command gets the credentials for the *myAKSCluster* in the *myResourceGroup* resource group:
@@ -40,6 +43,9 @@ There are two ways to add the NVIDIA device plugin:
 > We don't recommend manually installing the NVIDIA device plugin daemon set with clusters using the AKS GPU image.
 
 ### Update your cluster to use the AKS GPU image (preview)
+
+> [!NOTE]
+> If using an Azure Linux GPU node pool, automatic security patches aren't applied, and the default behavior for the cluster is *Unmanaged*. For more information, see [auto-upgrade](./auto-upgrade-node-image.md).
 
 AKS provides a fully configured AKS image containing the [NVIDIA device plugin for Kubernetes][nvidia-github].
 
@@ -182,7 +188,7 @@ You can deploy a DaemonSet for the NVIDIA device plugin, which runs a pod on eac
             value: "gpu"
             effect: "NoSchedule"
           containers:
-          - image: mcr.microsoft.com/oss/nvidia/k8s-device-plugin:1.11
+          - image: mcr.microsoft.com/oss/nvidia/k8s-device-plugin:v0.14.1
             name: nvidia-device-plugin-ctr
             securityContext:
               allowPrivilegeEscalation: false
@@ -416,7 +422,7 @@ To see the GPU in action, you can schedule a GPU-enabled workload with the appro
 [azureml-aks]: ../machine-learning/how-to-attach-kubernetes-anywhere.md
 [azureml-deploy]: ../machine-learning/how-to-deploy-managed-online-endpoints.md
 [azureml-triton]: ../machine-learning/how-to-deploy-with-triton.md
-[aks-container-insights]: monitor-aks.md#container-insights
+[aks-container-insights]: monitor-aks.md#integrations
 [advanced-scheduler-aks]: operator-best-practices-advanced-scheduler.md
 [az-provider-register]: /cli/azure/provider#az-provider-register
 [az-feature-register]: /cli/azure/feature#az-feature-register

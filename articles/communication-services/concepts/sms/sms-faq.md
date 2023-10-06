@@ -85,7 +85,7 @@ Alphanumeric sender ID is not capable of receiving inbound messages or STOP mess
 Short Code availability is currently restricted to paid Azure subscriptions that have a billing address in the United States. Short Codes cannot be acquired on trial accounts or using Azure free credits. For more details, check out our [subscription eligibility page](../numbers/sub-eligibility-number-capability.md). 
 
 ### Can you text to a toll-free number from a short code?
-No. Texting to a toll-free number from a short code is not supported. You also wont be able to receive a message from a toll-free number to a short code.
+ACS toll-free numbers are enabled to receive messages from short codes. However, short codes are not typically enabled to send messages to toll-free numbers. If your messages from short codes to ACS toll-free numbers are failing, check with your short code provider if the short code is enabled to send messages to toll-free numbers. 
 
 ### How should a short code be formatted?
 Short codes do not fall under E.164 formatting guidelines and do not have a country code, or a "+" sign prefix. In the SMS API request, your short code should be passed as the 5-6 digit number you see in your short codes blade without any prefix. 
@@ -165,9 +165,9 @@ Effective **October 1, 2022**, unverified toll-free numbers sending messages to 
 
 After submission of the form, we will coordinate with our downstream peer to get the application verified by the toll-free messaging aggregator. While we are reviewing your application, we may reach out to you for more information.
 - From Application Submitted to Pending = **1-5 business days** 
-- From Pending to Verdict (Verfied/Rejected/More info needed) = **4-5 weeks**
+- From Pending to Verdict (Verfied/Rejected/More info needed) = **4-5 weeks**. The toll-free aggregator is currently facing a high volume of applications due to which applications can take around 8 weeks to get approved.
 
-The whole toll-free verification process takes about **5-6 weeks**. These timelines are subject to change depending on the volume of applications to the toll-free messaging aggregator and the [quality](#what-is-considered-a-high-quality-toll-free-verification-application) of your application.
+The whole toll-free verification process takes about **5-6 weeks**. These timelines are subject to change depending on the volume of applications to the toll-free messaging aggregator and the [quality](#what-is-considered-a-high-quality-toll-free-verification-application) of your application. The toll-free aggregator is currently facing a high volume of applications due to which applications can take around 8 weeks to get approved.
 
 Updates for changes and the status of your applications will be communicated via the email you provide in the application. For more questions about your submitted application, please email acstns@microsoft.com. 
 
@@ -222,14 +222,17 @@ Azure Communication Services supports sending and receiving of long messages ove
 
 ### Are there any limits on sending messages?
 
-To ensure that we continue offering the high quality of service consistent with our SLAs, Azure Communication Services applies rate limits (different for each primitive). Developers who call our APIs beyond the limit receives a 429 HTTP Status Code Response. If your company has requirements that exceed the rate-limits, email us at phone@microsoft.com.
+To ensure that we continue offering the high quality of service consistent with our SLAs, Azure Communication Services applies rate limits (different for each primitive). Developers who call our APIs beyond the limit receives a 429 HTTP Status Code Response. 
 
 Rate Limits for SMS:
 
 |Operation|Number Type |Scope|Timeframe (s)| Limit (request #) | Message units per minute|
 |---------|---|--|-------------|-------------------|-------------------------|
-|Send Message|Toll-Free|Per Number|60|200|200|
-|Send Message|Short Code |Per Number|60|6000|6000|
+|Send Message|Toll-Free|Per Number|60|200*|200|
+|Send Message|Short Code |Per Number|60|6000*|6000|
+|Send Message|Alphanumeric Sender ID |Per resource|60|600*|600|
+
+*If your company has requirements that exceed the rate-limits, submit [a request to Azure Support](../../../azure-portal/supportability/how-to-create-azure-support-request.md) to enable higher throughput.
 
 ## Carrier Fees 
 ### What are the carrier fees for SMS?

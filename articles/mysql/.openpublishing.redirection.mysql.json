@@ -784,6 +784,16 @@
         "source_path_from_root": "/articles/mysql/single-server/select-right-deployment-type.md",
         "redirect_url": "/azure/mysql/select-right-deployment-type",
         "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/mysql/single-server/how-to-troubleshoot-replication-latency.md",
+        "redirect_url": "/azure/mysql/how-to-troubleshoot-replication-latency",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/mysql/flexible-server/tutorial-archive-laravel.md",
+        "redirect_url": "/azure/mysql/flexible-server/tutorial-php-database-app",
+        "redirect_document_id": true
     }
   ]
 }

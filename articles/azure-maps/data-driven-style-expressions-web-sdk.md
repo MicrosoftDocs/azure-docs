@@ -1,13 +1,13 @@
 ---
 title: Data-driven style Expressions in the Azure Maps Web SDK | Microsoft Azure Maps
 description: Learn about data-driven style expressions. See how to use these expressions in the Azure Maps Web SDK to adjust styles in maps.
-author: dubiety
-ms.author: yuchungchen 
+author: sinnypan
+ms.author: sipa
 ms.date: 4/4/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-ms.custom: devx-track-js
+ms.custom:
 ---
 
 # Data-driven Style Expressions (Web SDK)
@@ -188,6 +188,7 @@ Math expressions provide mathematical operators to perform data-driven calculati
 | `['atan', number]` | number | Calculates the arctangent of the specified number. |
 | `['ceil', number]` | number | Rounds the number up to the next whole integer. |
 | `['cos', number]` | number | Calculates the cos of the specified number. |
+| `['distance', Point \| MultiPoint \| LineString \| MultiLineString \| Polygon \| MultiPolygon \| Feature \| FeatureCollection]` | number | Calculates the shortest distance in meters between the evaluated feature and the input geometry. Distance values returned may vary in precision due to loss in precision from encoding geometries, particularly below zoom level 13. |
 | `['e']` | number | Returns the mathematical constant `e`. |
 | `['floor', number]` | number | Rounds the number down to the previous whole integer. |
 | `['ln', number]` | number | Calculates the natural logarithm of the specified number. |
@@ -464,6 +465,8 @@ Color expressions make it easier to create and manipulate color values.
 
 | Expression | Return type | Description |
 |------------|-------------|-------------|
+| `['interpolate-hcl', interpolation: ["linear"] \| ["exponential", base] \| ["cubic-bezier", x1, y1, x2, y2], input: number, stop_input_1: number, stop_output_1: Color, stop_input_n: number, stop_output_n: Color, ...]` | color | Produces continuous, smooth results by interpolating between pairs of input and output values ("stops"). Works like `interpolate`, but the output type must be a color, and the interpolation is performed in the Hue-Chroma-Luminance color space. |
+| `['interpolate-lab', interpolation: ["linear"] \| ["exponential", base] \| ["cubic-bezier", x1, y1, x2, y2], input: number, stop_input_1: number, stop_output_1: Color, stop_input_n: number, stop_output_n: Color, ...]` | color | Produces continuous, smooth results by interpolating between pairs of input and output values ("stops"). Works like `interpolate`, but the output type must be a color, and the interpolation is performed in the CIELAB color space. |
 | `['rgb', number, number, number]` | color | Creates a color value from *red*, *green*, and *blue* components ranging between `0` and `255`, and an alpha component of `1`. If any component is out of range, the expression is an error. |
 | `['rgba', number, number, number, number]` | color | Creates a color value from *red*, *green*, *blue* components ranging between `0` and `255`, and an alpha component within a range of `0` and `1`. If any component is out of range, the expression is an error. |
 | `['to-rgba']` | \[number, number, number, number\] | Returns a four-element array containing the input color's *red*, *green*, *blue*, and *alpha* components, in that order. |

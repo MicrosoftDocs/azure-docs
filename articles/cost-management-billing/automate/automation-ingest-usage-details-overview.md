@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article explains how to use cost details records to correlate meter-based charges with the specific resources responsible for the charges so that you can properly reconcile your bill.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/29/2022
+ms.date: 05/17/2023
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -51,13 +51,13 @@ Azure resource providers emit usage and charges to the billing system and popula
 
 The cost details file exposes multiple price points today. These are outlined below.
 
-- **PAYGPrice:** This is the list price for a given product or service that is determined based on the customer agreement. For customers who have an Enterprise Agreement, the pay-as-you-go price represents the EA baseline price. 
+- **PAYGPrice:** It's the list price or on demand price for a given product or service.
     - PAYGPrice is populated only for first party Azure usage charges where `PricingModel` is `OnDemand`. So for EA customers, `PAYGprice` isn't populated when `PricingModel` = `Reservations`, `Spot`, `Marketplace`, or `SavingsPlan`.
     - PAYGPrice is the price customers pay if the VM was consumed as a Standard VM, instead of a Spot VM.
 
-- **UnitPrice:** This is the price for a given product or service inclusive of any negotiated discounts on top of the pay-as-you-go price.
+- **UnitPrice:** It's the price for a given product or service inclusive of any negotiated discounts on top of the pay-as-you-go price.
 
-- **EffectivePrice** This is the price for a given product or service that represents the actual rate that you end up paying per unit. It's the price that should be used with the Quantity to do Price \* Quantity calculations to reconcile charges. The price takes into account the following scenarios:
+- **EffectivePrice** It's the price for a given product or service that represents the actual rate that you end up paying per unit. It's the price that should be used with the Quantity to do Price \* Quantity calculations to reconcile charges. The price takes into account the following scenarios:
   - *Tiered pricing:* For example: $10 for the first 100 units, $8 for the next 100 units.
   - *Included quantity:* For example: The first 100 units are free and then $10 for each unit.
   - *Reservations:* For example, a VM that got a reservation benefit on a given day. In amortized data for reservations, the effective price is the prorated hourly reservation cost. The cost is the total cost of reservation usage by the resource on that day.

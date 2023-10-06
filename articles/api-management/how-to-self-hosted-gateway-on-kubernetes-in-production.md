@@ -25,6 +25,9 @@ Without a valid access token, a self-hosted gateway can't access and download co
 
 When you're automating token refresh, use [this management API operation](/rest/api/apimanagement/current-ga/gateway/generate-token) to generate a new token. For information on managing Kubernetes secrets, see the [Kubernetes website](https://kubernetes.io/docs/concepts/configuration/secret).
 
+> [!TIP]
+> You can also deploy the self-hosted gateway to Kubernetes and enable authentication to the API Management instance by using [Azure AD](self-hosted-gateway-enable-azure-ad.md).
+
 ## Autoscaling
 
 While we provide [guidance on the minimum number of replicas](#number-of-replicas) for the self-hosted gateway, we recommend that you use autoscaling for the self-hosted gateway to meet the demand of your traffic more proactively.
@@ -110,7 +113,7 @@ The YAML file provided in the Azure portal applies the default [ClusterFirst](ht
 To learn about name resolution in Kubernetes, see the [Kubernetes website](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service). Consider customizing [DNS policy](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) or [DNS configuration](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-config) as appropriate for your setup.
 
 ## External traffic policy
-The YAML file provided in the Azure portal sets `externalTrafficPolicy` field on the [Service](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.19/#service-v1-core) object to `Local`. This preserves caller IP address (accessible in the [request context](api-management-policy-expressions.md#ContextVariables)) and disables cross node load balancing, eliminating network hops caused by it. Be aware, that this setting might cause asymmetric distribution of traffic in deployments with unequal number of gateway pods per node.
+The YAML file provided in the Azure portal sets `externalTrafficPolicy` field on the [Service](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/service-v1/) object to `Local`. This preserves caller IP address (accessible in the [request context](api-management-policy-expressions.md#ContextVariables)) and disables cross node load balancing, eliminating network hops caused by it. Be aware, that this setting might cause asymmetric distribution of traffic in deployments with unequal number of gateway pods per node.
 
 ## High availability
 The self-hosted gateway is a crucial component in the infrastructure and has to be highly available. However, failure will and can happen.

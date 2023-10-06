@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Search for videos using the REST API and PHP - Bing Video Search"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Use this quickstart to send video search requests to the Bing Video Search REST API using PHP
 services: cognitive-services
 author: aahill
@@ -16,7 +16,7 @@ ms.custom: mode-api
 
 # Quickstart: Search for videos using the Bing Video Search REST API and PHP
 
-[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../../bing-web-search/includes/bing-move-notice.md)]
 
 Use this quickstart to make your first call to the Bing Video Search API. This simple PHP application sends an HTTP video search query to the API, and displays the JSON response. The example code is written to work under PHP 5.6.
 
@@ -35,7 +35,7 @@ The [Bing Video Search API](/rest/api/cognitiveservices-bingsearch/bing-web-api-
 1. Enable secure HTTP support in your `php.ini` file by uncommenting the `;extension=php_openssl.dll` line, as described in the following code.
 2. Create a new PHP project in your favorite IDE or editor.
 3. Add the code provided below.
-4. Replace the `$accessKey` value with an access key valid for your subscription. For the `$endpoint` value, you can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+4. Replace the `$accessKey` value with an access key valid for your subscription. For the `$endpoint` value, you can use the global endpoint in the following code, or use the [custom subdomain](../../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 5. Run the program.
 
 ```php

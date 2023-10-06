@@ -16,11 +16,11 @@ ms.reviewer: larryfr
 
 # CLI (v2) online endpoint YAML schema
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.schema.json.
 
-[!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
+[!INCLUDE [schema note](includes/machine-learning-preview-old-json-schema-note.md)]
 
 > [!NOTE]
 > A fully specified sample YAML for online endpoints is available for [reference](https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.template.yaml)
@@ -40,7 +40,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `identity.user_assigned_identities` | array | List of fully qualified resource IDs of the user-assigned identities. | | |
 | `traffic` | object | Traffic represents the percentage of requests to be served by different deployments. It's represented by a dictionary of key-value pairs, where keys represent the deployment name and value represent the percentage of traffic to that deployment. For example, `blue: 90 green: 10` means 90% requests are sent to the deployment named `blue` and 10% is sent to deployment `green`. Total traffic has to either be 0 or sum up to 100. See [Safe rollout for online endpoints](how-to-safely-rollout-online-endpoints.md) to see the traffic configuration in action. <br><br> Note: you can't set this field during online endpoint creation, as the deployments under that endpoint must be created before traffic can be set. You can update the traffic for an online endpoint after the deployments have been created using `az ml online-endpoint update`; for example, `az ml online-endpoint update --name <endpoint_name> --traffic "blue=90 green=10"`. | | |
 | `public_network_access` | string | This flag controls the visibility of the managed endpoint. When `disabled`, inbound scoring requests are received using the [private endpoint of the Azure Machine Learning workspace](how-to-configure-private-link.md) and the endpoint can't be reached from public networks. This flag is applicable only for managed endpoints | `enabled`, `disabled` | `enabled` |
-| `mirror_traffic` | string | Percentage of live traffic to mirror to a deployment. Mirroring traffic doesn't change the results returned to clients. The mirrored percentage of traffic is copied and submitted to the specified deployment so you can gather metrics and logging without impacting clients. For example, to check if latency is within acceptable bounds and that there are no HTTP errors. It's represented by a dictionary with a single key-value pair, where the key represents the deployment name and the value represents the percentage of traffic to mirror to the deployment. For more information, see [Test a deployment with mirrored traffic](how-to-safely-rollout-online-endpoints.md#test-the-deployment-with-mirrored-traffic-preview).
+| `mirror_traffic` | string | Percentage of live traffic to mirror to a deployment. Mirroring traffic doesn't change the results returned to clients. The mirrored percentage of traffic is copied and submitted to the specified deployment so you can gather metrics and logging without impacting clients. For example, to check if latency is within acceptable bounds and that there are no HTTP errors. It's represented by a dictionary with a single key-value pair, where the key represents the deployment name and the value represents the percentage of traffic to mirror to the deployment. For more information, see [Test a deployment with mirrored traffic](how-to-safely-rollout-online-endpoints.md#test-the-deployment-with-mirrored-traffic).
 
 ## Remarks
 

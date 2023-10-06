@@ -3,7 +3,7 @@ title: host.json reference for Azure Functions 2.x
 description: Reference documentation for the Azure Functions host.json file with the v2 runtime.
 ms.topic: conceptual
 ms.custom: ignite-2022
-ms.date: 11/16/2022
+ms.date: 07/10/2023
 ---
 
 # host.json reference for Azure Functions 2.x and later 
@@ -392,7 +392,7 @@ Controls the logging behaviors of the function app, including Application Insigh
 
 |Property  |Default | Description |
 |---------|---------|---------|
-|fileLoggingMode|debugOnly|Defines what level of file logging is enabled.  Options are `never`, `always`, `debugOnly`. |
+|fileLoggingMode|debugOnly|Determines the file logging behavior when running in Azure. Options are `never`, `always`, and `debugOnly`. This setting isn't used when running locally. When possible, you should use Application Insights when debugging your functions in Azure. Using `always` negatively impacts your app's cold start behavior and data throughput. The default `debugOnly` setting generates log files when you are debugging using the Azure portal. |
 |logLevel|n/a|Object that defines the log category filtering for functions in the app. This setting lets you filter logging for specific functions. For more information, see [Configure log levels](configure-monitoring.md#configure-log-levels). |
 |console|n/a| The [console](#console) logging setting. |
 |applicationInsights|n/a| The [applicationInsights](#applicationinsights) setting. |

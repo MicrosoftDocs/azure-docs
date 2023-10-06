@@ -2,14 +2,13 @@
 title: SharePoint indexer (preview)
 titleSuffix: Azure Cognitive Search
 description: Set up a SharePoint indexer to automate indexing of document library content in Azure Cognitive Search.
-
 author: gmndrg
 ms.author: gimondra
 manager: liamca
 
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 04/04/2023
+ms.date: 10/03/2023
 ---
 
 # Index data from SharePoint document libraries
@@ -17,7 +16,7 @@ ms.date: 04/04/2023
 > [!IMPORTANT]
 > SharePoint indexer support is in public preview. It's offered "as-is", under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Preview features aren't recommended for production workloads and aren't guaranteed to become generally available.
 >
->To use this preview, [request access](https://aka.ms/azure-cognitive-search/indexer-preview), and after access is enabled, use a [preview REST API (2020-06-30-preview or later)](search-api-preview.md) to index your content. There is currently limited portal support and no .NET SDK support.
+>To use this preview, [request access](https://aka.ms/azure-cognitive-search/indexer-preview). Access will be automatically approved after the form is submitted. After access is enabled, use a [preview REST API (2020-06-30-preview or later)](search-api-preview.md) to index your content. There is currently limited portal support and no .NET SDK support.
 
 This article explains how to configure a [search indexer](search-indexer-overview.md) to index documents stored in SharePoint document libraries for full text search in Azure Cognitive Search. Configuration steps are followed by a deeper exploration of behaviors and scenarios you're likely to encounter.
 
@@ -76,7 +75,7 @@ If your Azure Active Directory organization has [Conditional Access enabled](../
 
 The SharePoint indexer will use this Azure Active Directory (Azure AD) application for authentication.
 
-1. [Sign in to Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Search for or navigate to **Azure Active Directory**, then select **App registrations**. 
 
@@ -253,17 +252,26 @@ There are a few steps to creating the indexer:
     }
     ```
 
-1. When creating the indexer for the first time it will fail and you’ll see the following error. Go to the link in the error message. If you don’t go to the link within 10 minutes the code will expire and you’ll need to recreate the [data source](#create-data-source).
+1. When creating the indexer for the first time, the [Create Indexer](/rest/api/searchservice/preview-api/create-or-update-indexer) request will remain waiting until your complete the next steps. You must call [Get Indexer Status](/rest/api/searchservice/get-indexer-status) to get the link and enter your new device code. 
+
+    ```http
+    GET https://[service name].search.windows.net/indexers/sharepoint-indexer/status?api-version=2020-06-30-Preview
+    Content-Type: application/json
+    api-key: [admin key]
+    ```
+
+    Note that if you don’t run the [Get Indexer Status](/rest/api/searchservice/get-indexer-status) within 10 minutes the code will expire and you’ll need to recreate the [data source](#create-data-source).
+
+ 1. The link for the device login and the new device code will appear under [Get Indexer Status](/rest/api/searchservice/get-indexer-status) response "errorMessage".
 
     ```http
     {
-        "error": {
-            "code": "",
-            "message": "Error with data source: To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code <CODE> to authenticate.  Please adjust your data source definition in order to proceed."
+        "lastResult": {
+            "status": "transientFailure",
+            "errorMessage": "To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code <CODE> to authenticate."
         }
     }
     ```
-
 1. Provide the code that was included in the error message.
 
     :::image type="content" source="media/search-howto-index-sharepoint-online/enter-device-code.png" alt-text="Enter device code":::
@@ -276,40 +284,8 @@ There are a few steps to creating the indexer:
 
     :::image type="content" source="media/search-howto-index-sharepoint-online/aad-app-approve-api-permissions.png" alt-text="Approve API permissions":::
 
-1. Resend the indexer create request. This time the request should succeed. 
+1. The [Create Indexer](/rest/api/searchservice/preview-api/create-or-update-indexer) initial request will complete if all the permissions provided above are correct and within the 10 minute timeframe.
 
-    ```http
-    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30-Preview
-    Content-Type: application/json
-    api-key: [admin key]
-    
-    {
-        "name" : "sharepoint-indexer",
-        "dataSourceName" : "sharepoint-datasource",
-        "targetIndexName" : "sharepoint-index",
-        "parameters": {
-        "batchSize": null,
-        "maxFailedItems": null,
-        "maxFailedItemsPerBatch": null,
-        "base64EncodeKeys": null,
-        "configuration:" {
-            "dataToExtract": "contentAndMetadata",
-            "indexedFileNameExtensions" : ".pdf, .docx",
-            "excludedFileNameExtensions" : ".png, .jpg"
-          }
-        },
-        "schedule" : { },
-        "fieldMappings" : [
-            { 
-              "sourceFieldName" : "metadata_spo_site_library_item_id", 
-              "targetFieldName" : "id", 
-              "mappingFunction" : { 
-                "name" : "base64Encode" 
-              } 
-            }
-        ]
-    }
-    ```
 
 > [!NOTE]
 > If the Azure AD application requires admin approval and was not approved before logging in, you may see the following screen. [Admin approval](../active-directory/manage-apps/grant-admin-consent.md) is required to continue.
@@ -327,9 +303,9 @@ api-key: [admin key]
 
 ## Updating the data source
 
-If there are no updates to the data source object, the indexer can run on a schedule without any user interaction. However, every time the Azure Cognitive Search data source object is updated, you'll need to sign in again in order for the indexer to run. For example, if you change the data source query, sign in again using the `https://microsoft.com/devicelogin` and a new code.
+If there are no updates to the data source object, the indexer can run on a schedule without any user interaction. However, every time the Azure Cognitive Search data source object is updated or recreated when the device code expires you'll need to sign in again in order for the indexer to run. For example, if you change the data source query, sign in again using the `https://microsoft.com/devicelogin` and a new code.
 
-Once the data source has been updated, follow the below steps:
+Once the data source has been updated or recreated when the device code expires, follow the below steps:
 
 1. Call [Run Indexer](/rest/api/searchservice/run-indexer) to manually kick off [indexer execution](search-howto-run-reset-indexers.md).
 

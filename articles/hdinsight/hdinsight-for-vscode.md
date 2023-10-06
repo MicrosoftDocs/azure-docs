@@ -3,7 +3,7 @@ title: Azure HDInsight for Visual Studio Code
 description: Learn how to use the Spark & Hive Tools (Azure HDInsight) for Visual Studio Code. Use the tools to create and submit queries and scripts.
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 05/27/2022
+ms.date: 06/08/2023
 ms.custom: devx-track-python
 ---
 
@@ -326,7 +326,7 @@ For run a PySpark batch job, you can follow the normal steps to submit job to HD
 
 ## Apache Livy configuration
 
-[Apache Livy](https://livy.incubator.apache.org/) configuration is supported. You can configure it in the **.VSCode\settings.json** file in the workspace folder. Currently, Livy configuration only supports Python script. For more information, see [Livy README](https://github.com/cloudera/livy/blob/master/README.rst ).
+[Apache Livy](https://livy.incubator.apache.org/) configuration is supported. You can configure it in the **.VSCode\settings.json** file in the workspace folder. Currently, Livy configuration only supports Python script. For more information, see [Livy README](https://github.com/cloudera/livy/blob/master/README.rst).
 
 <a id="triggerlivyconf"></a>**How to trigger Livy configuration**
 

@@ -4,7 +4,7 @@ description: How to create a support request in the Azure portal for Azure Data 
 ms.service: data-factory
 ms.topic: conceptual
 ms.subservice: troubleshooting
-ms.date: 08/18/2022
+ms.date: 07/20/2023
 author: jonburchel
 ms.author: jburchel
 ---

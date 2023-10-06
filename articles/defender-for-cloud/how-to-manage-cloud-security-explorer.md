@@ -1,37 +1,46 @@
 ---
 title: Build queries with cloud security explorer
-titleSuffix: Defender for Cloud
+
 description: Learn how to build queries in cloud security explorer to find vulnerabilities that exist on your multicloud environment.
 ms.topic: how-to
 ms.custom: ignite-2022
-ms.date: 04/13/2023
+ms.date: 08/16/2023
 ---
 
 # Build queries with cloud security explorer
 
-Defender for Cloud's contextual security capabilities assist security teams in reducing the risk of impactful breaches. Defender for Cloud uses environmental context to perform a risk assessment of your security issues, identifies the biggest security risks, and distinguishes them from less risky issues.
+Defender for Cloud's contextual security capabilities assists security teams in reducing the risk of impactful breaches. Defender for Cloud uses environmental context to perform a risk assessment of your security issues, identifies the biggest security risks, and distinguishes them from less risky issues.
 
 Use the cloud security explorer, to proactively identify security risks in your cloud environment by running graph-based queries on the cloud security graph, which is Defender for Cloud's context engine. You can prioritize your security team's concerns, while taking your organization's specific context and conventions into account.  
 
-With the cloud security explorer, you can query all of your security issues and environment context such as assets inventory, exposure to internet, permissions, and lateral movement between resources and across multiple clouds (Azure and AWS).
+With the cloud security explorer, you can query all of your security issues and environment context such as assets inventory, exposure to internet, permissions, and lateral movement between resources and across multiple clouds (Azure AWS, and GCP).
 
 Learn more about [the cloud security graph, attack path analysis, and the cloud security explorer](concept-attack-path.md).
+
+## Availability
+
+| Aspect | Details |
+|--|--|
+| Release state | GA (General Availability) |
+| Required plans | - Defender Cloud Security Posture Management (CSPM) enabled<br>- Defender for Servers P2 customers can use the explorer UI to query for keys and secrets, but must have Defender CSPM enabled to get the full value of the Explorer. |
+| Required roles and permissions: | - **Security Reader** <br> - **Security Admin** <br> - **Reader** <br> - **Contributor** <br> - **Owner** |
+| Clouds: | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds (Azure, AWS) <br>:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds - GCP (Preview) <br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Microsoft Azure operated by 21Vianet) |
 
 ## Prerequisites
 
 - You must [enable Defender CSPM](enable-enhanced-security.md).
-    - For Agentless Container Posture, you must enable the following extensions:
-        - Agentless discovery for Kubernetes (preview)
-        - Container registries vulnerability assessments (preview)
+  - For agentless container posture, you must enable the following extensions:
+    - Agentless discovery for Kubernetes (preview)
+    - Container registries vulnerability assessments (preview)
 
 - You must [enable agentless scanning](enable-vulnerability-assessment-agentless.md).
 
-- Required roles and permissions: 
-    - Security Reader
-    - Security Admin
-    - Reader
-    - Contributor
-    - Owner
+- Required roles and permissions:
+  - Security Reader
+  - Security Admin
+  - Reader
+  - Contributor
+  - Owner
 
 Check the [cloud availability tables](supported-machines-endpoint-solutions-clouds-servers.md) to see which government and cloud environments are supported.
 
@@ -43,7 +52,7 @@ The cloud security explorer allows you to build queries that can proactively hun
 
 - **Custom Search** - Use the dropdown menus to apply filters to build your query.
 
-- **Query templates** -  Use any of the available pre-built query templates to more efficiently build your query.
+- **Query templates** -  Use any of the available prebuilt query templates to more efficiently build your query.
 
 - **Share query link** - Copy and share a link of your query with other people.
 
@@ -69,14 +78,17 @@ The cloud security explorer allows you to build queries that can proactively hun
 
     :::image type="content" source="media/how-to-manage-cloud-security/cloud-security-explorer-query-search-populated.png" alt-text="Screenshot that shows where to select search to run the query and results populated." lightbox="media/how-to-manage-cloud-security/cloud-security-explorer-query-search-populated.png":::
 
+If you want to save a copy of your results locally, you can select the **Download CSV report** button to save a copy of your search results as a CSV file.
+
+:::image type="content" source="media/how-to-manage-cloud-security/download-csv-report.png" alt-text="Screenshot that shows where the download CSV report button is located on the screen.":::
+
 ## Query templates
 
-Query templates are pre-formatted searches using commonly used filters. Use one of the existing query templates from the bottom of the page by selecting **Open query**.
+Query templates are preformatted searches using commonly used filters. Use one of the existing query templates from the bottom of the page by selecting **Open query**.
 
 :::image type="content" source="media/how-to-manage-cloud-security/cloud-security-explorer-query-templates.png" alt-text="Screenshot that shows you the location of the query templates." lightbox="media/how-to-manage-cloud-security/cloud-security-explorer-query-templates.png":::
 
 You can modify any template to search for specific results by changing the query and selecting **Search**.
-
 
 ## Share a query
 

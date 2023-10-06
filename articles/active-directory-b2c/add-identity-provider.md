@@ -7,7 +7,7 @@ manager: CelesteDG
 
 ms.author: godonnell
 ms.date: 02/08/2023
-ms.custom: mvc
+ms.custom: mvc, build-2023
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: B2C
@@ -32,8 +32,8 @@ You typically use only one identity provider in your applications, but you have 
 * [AD FS](identity-provider-adfs.md)
 * [Amazon](identity-provider-amazon.md)
 * [Apple](identity-provider-apple-id.md)
-* [Azure AD (Single-tenant)](identity-provider-azure-ad-single-tenant.md)
-* [Azure AD (Multi-tenant)](identity-provider-azure-ad-multi-tenant.md)
+* [Microsoft Entra ID (Single-tenant)](identity-provider-azure-ad-single-tenant.md)
+* [Microsoft Entra ID (Multi-tenant)](identity-provider-azure-ad-multi-tenant.md)
 * [Azure AD B2C](identity-provider-azure-ad-b2c.md)
 * [eBay](identity-provider-ebay.md)
 * [Facebook](identity-provider-facebook.md)

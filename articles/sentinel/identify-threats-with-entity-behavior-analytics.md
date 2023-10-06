@@ -66,7 +66,7 @@ Information about **entity pages** can now be found at [Investigate entities wit
 
 Using [KQL](/azure/data-explorer/kusto/query/), we can query the Behavioral Analytics Table.
 
-For example – if we want to find all the cases of a user that failed to sign in to an Azure resource, where it was the user's first attempt to connect from a given country, and connections from that country are uncommon even for the user's peers, we can use the following query:
+For example – if we want to find all the cases of a user that failed to sign in to an Azure resource, where it was the user's first attempt to connect from a given country/region, and connections from that country/region are uncommon even for the user's peers, we can use the following query:
 
 ```Kusto
 BehaviorAnalytics

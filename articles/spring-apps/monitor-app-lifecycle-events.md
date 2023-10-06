@@ -1,7 +1,7 @@
 ---
 title:  Monitor app lifecycle events using Azure Activity log and Azure Service Health
 description: Monitor app lifecycle events and set up alerts with Azure Activity log and Azure Service Health.
-author: karlerickson
+author: KarlErickson
 ms.author: shiqiu
 ms.service: spring-apps
 ms.topic: how-to
@@ -14,11 +14,11 @@ ms.custom: devx-track-java, event-tier1-build-2022
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 This article shows you how to monitor app lifecycle events and set up alerts with Azure Activity log and Azure Service Health.
 
-Azure Spring Apps provides built-in tools to monitor the status and health of your applications. App lifecycle events help you understand any changes that were made to your applications so you can take action as necessary. 
+Azure Spring Apps provides built-in tools to monitor the status and health of your applications. App lifecycle events help you understand any changes that were made to your applications so you can take action as necessary.
 
 ## Prerequisites
 
@@ -27,17 +27,17 @@ Azure Spring Apps provides built-in tools to monitor the status and health of yo
 
 ## Monitor app lifecycle events triggered by users in Azure Activity logs
 
-[Azure Activity logs](../azure-monitor/essentials/activity-log.md) contain resource events emitted by operations taken on the resources in your subscription. The following details for application lifecycle events (start, stop, restart) are added into Azure Activity Logs:
+[Azure Activity logs](../azure-monitor/essentials/activity-log.md) contain resource events emitted by operations taken on the resources in your subscription. The following details for application lifecycle events (such as start, stop, and restart) are added into Azure Activity Logs:
 
-- When the operation occurred
-- The status of the operation
-- Which instance(s) are created when you start your app
-- Which instance(s) are deleted when you stop your app
-- Which instance(s) are deleted and created when you restart your app
+- The time the operation occurred.
+- The status of the operation.
+- Which instance(s) are created when you start your app.
+- Which instance(s) are deleted when you stop your app.
+- Which instance(s) are deleted and created when you restart your app.
 
-For example, when you restart your app, you can find the affected instances from the **Activity log** detail page in the Azure portal.
+To see the affected instances when you restart your app, navigate to your Azure Spring Apps instance in the Azure portal and select **Activity log** in the navigation pane.
 
-:::image type="content" source="media/monitor-app-lifecycle-events/activity-log-restart-detail.png" lightbox="media/monitor-app-lifecycle-events/activity-log-restart-detail.png" alt-text="Screenshot of Azure portal restart details in the activity log.":::
+:::image type="content" source="media/monitor-app-lifecycle-events/activity-log-restart-detail.png" alt-text="Screenshot of the Azure portal showing the Activity log page and the details pane open on the selected operation." lightbox="media/monitor-app-lifecycle-events/activity-log-restart-detail.png":::
 
 ## Monitor app lifecycle events in Azure Service Health
 
@@ -45,23 +45,23 @@ For example, when you restart your app, you can find the affected instances from
 
 ### Monitor unplanned app lifecycle events
 
-When your app is restarted because of unplanned events, your Azure Spring Apps instance will show a status of **degraded** in the **Resource health** section of the Azure portal. Degraded means that your resource detected a potential loss in performance, although it's still available for use. Examples of unplanned events include app crash, health check failure, and system outage.
+When your app is restarted because of unplanned events, your Azure Spring Apps instance shows a status of **degraded** in the **Resource health** section of the Azure portal. Degraded means that your resource detected a potential loss in performance, although it's still available for use. Examples of unplanned events include app crash, health check failure, and system outage.
 
-:::image type="content" source="media/monitor-app-lifecycle-events/resource-health-detail.png" alt-text="Screenshot of the resource health pane.":::
+On the Azure Home page, select **Service Health** and then select **Resource Health**.
 
-You can find the latest status, the root cause, and affected instances in the health history page.
+In **Health history**, you can find the latest status, the root cause, and affected instances.
 
-:::image type="content" source="media/monitor-app-lifecycle-events/unplanned-app-lifecycle-event-details.png" lightbox="media/monitor-app-lifecycle-events/unplanned-app-lifecycle-event-details.png" alt-text="Screenshot of Azure portal example logs for unplanned app lifecycle events.":::
+:::image type="content" source="media/monitor-app-lifecycle-events/resource-health-detail.png" alt-text="Screenshot of the Azure portal showing the Resource Health page with the information and health history for degraded resource." lightbox="media/monitor-app-lifecycle-events/resource-health-detail.png" :::
 
 ### Monitor planned app lifecycle events
 
 Your app may be restarted during platform maintenance. You can receive a maintenance notification in advance from the **Planned maintenance** page of Azure Service Health.
 
-:::image type="content" source="media/monitor-app-lifecycle-events/planned-maintenance-notification.png" lightbox="media/monitor-app-lifecycle-events/planned-maintenance-notification.png" alt-text="Screenshot of Azure portal example notification for planned maintenance.":::
+:::image type="content" source="media/monitor-app-lifecycle-events/planned-maintenance-notification.png" alt-text="Screenshot of the Azure portal showing the Planned maintenance page for Service Health with a  maintenance issue highlighted." lightbox="media/monitor-app-lifecycle-events/planned-maintenance-notification.png":::
 
-When platform maintenance happens, your Azure Spring Apps instance will also show a status of **degraded**. If restarting is needed during platform maintenance, Azure Spring Apps will perform a rolling update to incrementally update your applications. Rolling updates are designed to update your workloads without downtime. You can find the latest status in the health history page.
+When platform maintenance happens, your Azure Spring Apps instance shows a status of **degraded**. If restarting is needed during platform maintenance, Azure Spring Apps performs a rolling update to incrementally update your applications. Rolling updates are designed to update your workloads without downtime. You can find the latest status in the health history page.
 
-:::image type="content" source="media/monitor-app-lifecycle-events/planned-maintenance-in-progress.png" lightbox="media/monitor-app-lifecycle-events/planned-maintenance-in-progress.png" alt-text="Screenshot of Azure portal example log for planned maintenance in progress.":::
+:::image type="content" source="media/monitor-app-lifecycle-events/planned-maintenance-in-progress.png" alt-text="Screenshot of Azure portal example log for planned maintenance in progress." lightbox="media/monitor-app-lifecycle-events/planned-maintenance-in-progress.png" :::
 
 >[!NOTE]
 > Currently, Azure Spring Apps performs one regular planned maintenance to upgrade the underlying Kubernetes version every 2-4 months. For a detailed maintenance timeline, check the notifications on the Azure Service Health page.
@@ -77,55 +77,59 @@ The following list describes the key steps needed to set up an alert:
 
 ### Set up alerts on Activity log
 
-The following steps show you how to create an activity log alert rule in the Azure portal:
+Use the following steps to create an activity log alert rule in the Azure portal:
 
-1. Navigate to **Activity log**, open the detail page for any activity log, then select **New alert rule**.
+1. Navigate to your Azure Spring Apps instance and select **Activity log** in the navigation pane.
 
-   :::image type="content" source="media/monitor-app-lifecycle-events/activity-log-alert.png" lightbox="media/monitor-app-lifecycle-events/activity-log-alert.png" alt-text="Screenshot of Azure portal activity log alert.":::
+1. Select any log to open its detail pane and then select **New alert rule**.
 
-2. Select the **Scope** for the alert.
+   :::image type="content" source="media/monitor-app-lifecycle-events/activity-log-alert.png" alt-text="Screenshot of the Azure portal showing the Activity log page and the New Alert rule button highlighted for a selected log." lightbox="media/monitor-app-lifecycle-events/activity-log-alert.png" :::
 
-3. Specify the alert **Condition**.
+1. By default, alerts are scoped to the current subscription. Select the **Scope** tab to select a different subscription.
 
-   :::image type="content" source="media/monitor-app-lifecycle-events/activity-log-alert-condition.png" lightbox="media/monitor-app-lifecycle-events/activity-log-alert-condition.png" alt-text="Screenshot of Azure portal activity log alert condition.":::
+1. Select the **Condition** tab. Select **Signal name** to configure the criteria for the condition.
 
-4. Select **Actions** and add **Alert rule details**.
+   :::image type="content" source="media/monitor-app-lifecycle-events/activity-log-alert-condition.png" alt-text="Screenshot of Azure portal activity log alert condition." lightbox="media/monitor-app-lifecycle-events/activity-log-alert-condition.png":::
 
-5. Select **Create alert rule**.
+1. Select the **Actions** tab. Add action groups to be applied to the alert rule.
+
+1. Select **Review + create** and then select **Create**.
 
 ### Set up alerts to monitor app lifecycle events in Azure Service Health
 
-The following steps show you how to create an alert rule for service health notifications in the Azure portal:
+Use the following steps to create an alert rule for service health notifications in the Azure portal.
 
-1. Navigate to **Resource health** under **Service Health**, then select **Add resource health alert**.
+1. On the Azure Home page, select **Service Health** and then select **Resource health** in the navigation pane.
+1. Select **Add resource health alert**.
 
-   :::image type="content" source="media/monitor-app-lifecycle-events/add-resource-health-alert.png" alt-text="Screenshot of Azure portal resource health pane with the 'Add resource health alert' button highlighted.":::
+   :::image type="content" source="media/monitor-app-lifecycle-events/add-resource-health-alert.png" alt-text="Screenshot of Azure portal Resource health page with the 'Add resource health alert' button highlighted." lightbox="media/monitor-app-lifecycle-events/add-resource-health-alert.png":::
 
-2. Select the **Resource** for the alert.
+1. Select the **Scope** tab. Specify the resources to be applied to the alert rule.
 
-   :::image type="content" source="media/monitor-app-lifecycle-events/resource-health-alert-target.png" alt-text="Screenshot of Azure portal resource health alert target.":::
+   :::image type="content" source="media/monitor-app-lifecycle-events/resource-health-alert-target.png" alt-text="Screenshot of the Azure portal showing the Scope tab for Create an alert rule dialog when selected from the Resource health page." lightbox="media/monitor-app-lifecycle-events/resource-health-alert-target.png":::
 
-3. Specify the **Alert condition**.
+1. Select the **Condition** tab. Define the criteria to trigger the alert rule.
 
-   :::image type="content" source="media/monitor-app-lifecycle-events/resource-health-alert-condition.png" alt-text="Screenshot of Azure portal resource health alert condition.":::
+   :::image type="content" source="media/monitor-app-lifecycle-events/resource-health-alert-condition.png" alt-text="Screenshot of the Azure portal showing the Condition tab for Create an alert rule dialog when selected from the Resource health page." lightbox="media/monitor-app-lifecycle-events/resource-health-alert-condition.png":::
 
-4. Select the **Actions** and add **Alert rule details**.
+1. Select the **Actions** tab. Add action groups to be applied to the alert rule.
 
-5. Select **Create alert rule**.
+1. Select **Review + create** and then select **Create**.
 
 ### Set up alerts to monitor the planned maintenance notification
 
-The following steps show you how to create an alert rule for planned maintenance notifications in the Azure portal:
+Use the following steps to create an alert rule for planned maintenance notifications in the Azure portal:
 
-1. Navigate to **Health alerts** under **Service Health**, then select **Add service health alert**.
+1. On the Azure Home page, select **Service Health** and then select **Health alerts** in the navigation pane.
+1. Select **Add service health alert**.
 
-   :::image type="content" source="media/monitor-app-lifecycle-events/add-service-health-alert.png" alt-text="Screenshot of Azure portal health alerts pane with the 'Add service health alert' button highlighted.":::
+   :::image type="content" source="media/monitor-app-lifecycle-events/add-service-health-alert.png" alt-text="Screenshot of Azure portal Health alerts page the 'Add service health alert' button highlighted." lightbox="media/monitor-app-lifecycle-events/add-service-health-alert.png":::
 
-2. Provide values for **Subscription**, **Service(s)**, **Region(s)**, **Event type**, **Actions**, and **Alert rule details**.
+1. Provide values for settings on the **Scope**, **Condition**, and **Actions** tabs.
 
-   :::image type="content" source="media/monitor-app-lifecycle-events/add-service-health-alert-details.png" lightbox="media/monitor-app-lifecycle-events/add-service-health-alert-details.png" alt-text="Screenshot of Azure portal 'Create rule alert' pane for Service Health.":::
+   :::image type="content" source="media/monitor-app-lifecycle-events/add-service-health-alert-details.png" lightbox="media/monitor-app-lifecycle-events/add-service-health-alert-details.png" alt-text="Screenshot of the Azure portal showing the Scope tab for Create an alert rule dialog when selected from the Health alerts page.":::
 
-3. Select **Create alert rule**.
+1. Select **Review + create** and then select **Create**.
 
 ## Next steps
 

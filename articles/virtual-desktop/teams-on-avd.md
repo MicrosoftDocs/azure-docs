@@ -3,7 +3,7 @@ title: Use Microsoft Teams on Azure Virtual Desktop - Azure
 description: How to use Microsoft Teams on Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 01/19/2023
+ms.date: 06/14/2023
 ms.author: helohr
 manager: femila
 ---
@@ -18,13 +18,17 @@ With media optimization for Microsoft Teams, the Remote Desktop client handles a
 Before you can use Microsoft Teams on Azure Virtual Desktop, you'll need to do these things:
 
 - [Prepare your network](/microsoftteams/prepare-network/) for Microsoft Teams.
-- Install the [Remote Desktop client](./users/connect-windows.md) on a Windows 10, Windows 10 IoT Enterprise, Windows 11, or macOS 10.14 or later device that meets the [hardware requirements for Microsoft Teams](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
-- Connect to an Azure Virtual Desktop session host running Windows 10 or 11 multi-session or Windows 10 or 11 Enterprise.
-- The latest version of the [Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads).
+
+- Connect to a session host running Windows 10 or 11 multi-session or Windows 10 or 11 Enterprise. Session hosts running an N or KN SKU of Windows aren't supported.
+
+- For Windows, you also need to install the latest version of the [Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) on your client device and session hosts. The C++ Redistributable is required to use media optimization for Teams on Azure Virtual Desktop.
+
+- Install the [Remote Desktop client](./users/connect-windows.md) on a client device running Windows 10, Windows 10 IoT Enterprise, Windows 11, or macOS 10.14 or later that meets the [hardware requirements for Microsoft Teams](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
 
 Media optimization for Microsoft Teams is only available for the following two clients:
 
 - [Remote Desktop client for Windows](users/connect-windows.md) or the [Azure Virtual Desktop app](users/connect-windows-azure-virtual-desktop-app.md), version 1.2.1026.0 or later.
+
 - [Remote Desktop client for macOS](users/connect-macos.md), version 10.7.7 or later.
 
 For more information about which features Teams on Azure Virtual Desktop supports and minimum required client versions, see [Supported features for Teams on Azure Virtual Desktop](teams-supported-features.md).
@@ -64,7 +68,7 @@ The Remote Desktop WebRTC Redirector Service is required to run Teams on Azure V
 
 1. Follow the prompts. Once it's completed, select **Finish**.
 
-You can find more information about the latest version of the WebSocket service at [What's new in the Remote Desktop WebRTC Redirector Service](whats-new-webrtc.md).
+You can find more information about the latest version of the WebRTC Redirector Service at [What's new in the Remote Desktop WebRTC Redirector Service](whats-new-webrtc.md).
 
 ## Install Teams on Azure Virtual Desktop
 
@@ -109,7 +113,7 @@ You can deploy the Teams desktop app using a per-machine or per-user installatio
 
 ## Verify media optimizations loaded
 
-After installing the WebSocket Service and the Teams desktop app, follow these steps to verify that Teams media optimizations loaded:
+After installing the WebRTC Redirector Service and the Teams desktop app, follow these steps to verify that Teams media optimizations loaded:
 
 1. Quit and restart the Teams application.
 
@@ -141,9 +145,9 @@ To enable hardware encode:
 1. Set the value to **1** to enable the feature.
 1. Repeat these instructions for every client device.
 
-### Enable content sharing for Teams for Remote App
+### Enable content sharing for Teams for RemoteApp
 
-Enabling content sharing for Teams on Azure Virtual Desktop lets you share your screen or application window. To enable this feature, your session host VM needs to be running version 1.31.2211.15001 or later of [the WebRTC service](whats-new-webrtc.md) and version 1.2.3401 or later of the [Windows Desktop client](whats-new-client-windows.md).
+Enabling content sharing for Teams on Azure Virtual Desktop lets you share your screen or application window. To enable this feature, your session host VM needs to be running version 1.31.2211.15001 or later of [the WebRTC Redirector Service](whats-new-webrtc.md) and version 1.2.3401 or later of the [Windows Desktop client](whats-new-client-windows.md).
 
 To enable content sharing:
 
@@ -152,12 +156,12 @@ To enable content sharing:
 1. Add the **ShareClientDesktop** as a DWORD value.
 1. Set the value to **1** to enable the feature.
 
-### Disable desktop screen share for Teams for Remote App
+### Disable desktop screen share for Teams for RemoteApp
 
 You can disable desktop screen sharing for Teams on Azure Virtual Desktop. To enable this feature, your session host VM needs to be running version 1.31.2211.15001 or later of [the WebRTC service](whats-new-webrtc.md) and version 1.2.3401 or later of the [Windows Desktop client](whats-new-client-windows.md).
 
 >[!NOTE]
->You must [enable the ShareClientDesktop key](#enable-content-sharing-for-teams-for-remote-app) before you can use this key.
+>You must [enable the ShareClientDesktop key](#enable-content-sharing-for-teams-for-remoteapp) before you can use this key.
 
 To disable desktop screen share:
 
@@ -166,12 +170,12 @@ To disable desktop screen share:
 1. Add the **DisableRAILScreensharing** as a DWORD value.
 1. Set the value to **1** to disable desktop screen share.
 
-### Disable application window sharing for Teams for Remote App
+### Disable application window sharing for Teams for RemoteApp
 
 You can disable application window sharing for Teams on Azure Virtual Desktop. To enable this feature, your session host VM needs to be running version 1.31.2211.15001 or later of [the WebRTC service](whats-new-webrtc.md) and version 1.2.3401 or later of the [Windows Desktop client](whats-new-client-windows.md).
 
 >[!NOTE]
->You must [enable the ShareClientDesktop key](#enable-content-sharing-for-teams-for-remote-app) before you can use this key.
+>You must [enable the ShareClientDesktop key](#enable-content-sharing-for-teams-for-remoteapp) before you can use this key.
 
 To disable application window sharing:
 
@@ -198,4 +202,4 @@ See [Supported features for Teams on Azure Virtual Desktop](teams-supported-feat
 
 Learn about known issues, limitations, and how to log issues at [Troubleshoot Teams on Azure Virtual Desktop](troubleshoot-teams.md).
 
-Learn about the latest version of the WebSocket Service at [What's new in the WebSocket Service for Azure Virtual Desktop](whats-new-webrtc.md).
+Learn about the latest version of the WebRTC Redirector Service at [What's new in the WebRTC Redirector Service for Azure Virtual Desktop](whats-new-webrtc.md).

@@ -1,39 +1,36 @@
 ---
-title: Use blob access tiers with TypeScript
+title: Set or change a blob's access tier with TypeScript
 titleSuffix: Azure Storage 
-description: Learn how to add or change a blob's access tier with TypeScript in your Azure Storage account using the JavaScript client library.
+description: Learn how to set or change a blob's access tier with TypeScript in your Azure Storage account using the JavaScript client library.
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 03/21/2023
-ms.subservice: blobs
+ms.date: 06/28/2023
 ms.devlang: typescript
-ms.custom: devx-track-ts, devguide-ts
+ms.custom: devx-track-ts, devguide-ts, devx-track-js
 ---
 
-# Using access tiers with TypeScript
+# Set or change a block blob's access tier with TypeScript
 
-This article shows how to use [access tiers](access-tiers-overview.md) for block blobs with the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob). 
+This article shows how to set or change a blob's [access tier](access-tiers-overview.md) with the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob).
 
-## Understand block blob access tiers
+## Prerequisites
 
-Data stored in the cloud grows at an exponential pace. To manage costs for your expanding storage needs, it can be helpful to organize your data based on how frequently it will be accessed and how long it will be retained. Azure storage offers different access tiers so that you can store your blob data in the most cost-effective manner based on how it's being used. Azure Storage access tiers include:
+- The examples in this article assume you already have a project set up to work with the Azure Blob Storage client library for JavaScript. To learn about setting up your project, including package installation, importing modules, and creating an authorized client object to work with data resources, see [Get started with Azure Blob Storage and TypeScript](storage-blob-typescript-get-started.md).
+- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to set the blob's access tier. To learn more, see the authorization guidance for the following REST API operation:
+    - [Set Blob Tier](/rest/api/storageservices/set-blob-tier#authorization)
 
-- [**Online tiers**](access-tiers-overview.md#online-access-tiers)
-    - **Hot tier** - An online tier optimized for storing data that is accessed or modified frequently. The hot tier has the highest storage costs, but the lowest access costs.
-    - **Cool tier** - An online tier optimized for storing data that is infrequently accessed or modified. Data in the cool tier should be stored for a minimum of 30 days. The cool tier has lower storage costs and higher access costs compared to the hot tier.
-- [**Archive tier**](access-tiers-overview.md#archive-access-tier) - An offline tier optimized for storing data that is rarely accessed, and that has flexible latency requirements, on the order of hours. Data in the archive tier should be stored for a minimum of 180 days.
+[!INCLUDE [storage-dev-guide-about-access-tiers](../../../includes/storage-dev-guides/storage-dev-guide-about-access-tiers.md)]
 
-## Restrictions
-
-Setting the access tier is only allowed on block blobs. To learn more about restrictions on setting a block blob's access tier, see [Set Blob Tier (REST API)](/rest/api/storageservices/set-blob-tier#remarks).
+> [!NOTE]
+> To set the access tier to `Cold` using TypeScript, you must use a minimum [client library](/javascript/api/preview-docs/@azure/storage-blob/) version of 12.13.0.
 
 ## Set a blob's access tier during upload
 
-To [upload](/javascript/api/@azure/storage-blob/blockblobclient#@azure-storage-blob-blockblobclient-upload) a blob into a specific access tier, use the [BlockBlobUploadOptions](/javascript/api/@azure/storage-blob/blockblobuploadoptions). The `tier` property choices are: `Hot`, `Cool`, or `Archive`.
+To [upload](/javascript/api/@azure/storage-blob/blockblobclient#@azure-storage-blob-blockblobclient-upload) a blob into a specific access tier, use the [BlockBlobUploadOptions](/javascript/api/@azure/storage-blob/blockblobuploadoptions). The `tier` property choices are: `Hot`, `Cool`, `Cold`, or `Archive`.
 
 :::code language="typescript" source="~/azure-storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-upload-from-string-with-access-tier.ts" id="Snippet_UploadAccessTier" :::
 
@@ -68,4 +65,4 @@ Create a [BlobBatchClient](/javascript/api/@azure/storage-blob/blobbatchclient).
 ## Next steps
 
 - [Access tiers best practices](access-tiers-best-practices.md)
-- [Blob rehydration from the Archive tier](archive-rehydrate-overview.md)
+- [Blob rehydration from the archive tier](archive-rehydrate-overview.md)

@@ -1,13 +1,13 @@
 ---
 title: "Quickstart - Monitor applications end-to-end"
-titleSuffix: Azure Spring Apps Enterprise tier
-description: Explains how to monitor apps running Azure Spring Apps Enterprise tier by using Application Insights and Log Analytics.
+titleSuffix: Azure Spring Apps Enterprise plan
+description: Explains how to monitor apps running the Azure Spring Apps Enterprise plan by using Application Insights and Log Analytics.
 author: KarlErickson
 ms.author: asirveda # external contributor: paly@vmware.com
 ms.service: spring-apps
 ms.topic: quickstart
 ms.date: 05/31/2022
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
 # Quickstart: Monitor applications end-to-end
@@ -15,9 +15,9 @@ ms.custom: devx-track-java, devx-track-azurecli
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
-This quickstart shows you how monitor apps running Azure Spring Apps Enterprise tier by using Application Insights and Log Analytics.
+This quickstart shows you how monitor apps running the Azure Spring Apps Enterprise plan by using Application Insights and Log Analytics.
 
 > [!NOTE]
 > You can monitor your Spring workloads end-to-end by using any tool and platform of your choice, including App Insights, Log Analytics, New Relic, Dynatrace, AppDynamics, Elastic, or Splunk. For more information, see [Working with other monitoring tools](#working-with-other-monitoring-tools) later in this article.
@@ -25,13 +25,13 @@ This quickstart shows you how monitor apps running Azure Spring Apps Enterprise 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Understand and fulfill the [Requirements](how-to-enterprise-marketplace-offer.md#requirements) section of [Enterprise Tier in Azure Marketplace](how-to-enterprise-marketplace-offer.md).
+- Understand and fulfill the [Requirements](how-to-enterprise-marketplace-offer.md#requirements) section of [Enterprise plan in Azure Marketplace](how-to-enterprise-marketplace-offer.md).
 - [The Azure CLI version 2.45.0 or higher](/cli/azure/install-azure-cli).
 - [Git](https://git-scm.com/).
 - [jq](https://stedolan.github.io/jq/download/)
 - [!INCLUDE [install-enterprise-extension](includes/install-enterprise-extension.md)]
 - Resources to monitor, such as the ones created in the following quickstarts:
-  - [Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md)
+  - [Build and deploy apps to Azure Spring Apps using the Enterprise plan](quickstart-deploy-apps-enterprise.md)
   - [Integrate with Azure Database for PostgreSQL and Azure Cache for Redis](quickstart-integrate-azure-database-and-redis-enterprise.md)
   - [Load application secrets using Key Vault](quickstart-key-vault-enterprise.md)
 
@@ -45,8 +45,8 @@ You must manually provide the Application Insights connection string to the Orde
 1. Use the following commands to retrieve the Application Insights connection string and set it in Key Vault:
 
    ```azurecli
-   INSTRUMENTATION_KEY=$(az monitor app-insights component show \
-       --resource-group=<resource-group-name> \
+   export INSTRUMENTATION_KEY=$(az monitor app-insights component show \
+       --resource-group <resource-group-name> \
        --app <app-insights-name> | jq -r '.connectionString')
 
    az keyvault secret set \
@@ -110,12 +110,12 @@ There are two ways to see logs on Azure Spring Apps: log streaming of real-time 
 Generate traffic in the application by moving through the application, viewing the catalog, and placing orders. Use the following commands to generate traffic continuously, until canceled:
 
 ```azurecli
-GATEWAY_URL=$(az spring gateway show \
+export GATEWAY_URL=$(az spring gateway show \
     --resource-group <resource-group-name> \
     --service <Azure-Spring-Apps-service-instance-name> | jq -r '.properties.url')
 
 cd traffic-generator
-GATEWAY_URL=https://${GATEWAY_URL} ./gradlew gatlingRun-com.vmware.acme.simulation.GuestSimulation
+export GATEWAY_URL=https://${GATEWAY_URL} ./gradlew gatlingRun-com.vmware.acme.simulation.GuestSimulation
 ```
 
 Use the following command to get the latest 100 lines of application console logs from the Catalog Service application:
@@ -276,7 +276,7 @@ Navigate to the **Live Metrics** pane. Here you can see live metrics on screen w
 
 ## Working with other monitoring tools
 
-Azure Spring Apps enterprise tier also supports exporting metrics to other tools, including the following tools:
+The Azure Spring Apps Enterprise plan also supports exporting metrics to other tools, including the following tools:
 
 - AppDynamics
 - ApacheSkyWalking

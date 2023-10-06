@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/08/2023
+ms.date: 08/21/2023
 ms.author: phjensen
 ---
 
@@ -24,7 +24,54 @@ Download the [latest release](https://aka.ms/azacsnapinstaller) of the installer
 
 For specific information on Preview features, refer to the [AzAcSnap Preview](azacsnap-preview.md) page.
 
+## Aug-2023
+
+### AzAcSnap 9 (Build: 1AE5640)
+
+AzAcSnap 9 is being released with the following fixes and improvements:
+
+- Features moved to GA (generally available):
+  - IBM Db2 Database support.
+  - [System Managed Identity](azacsnap-installation.md#azure-system-managed-identity) support for easier setup while improving security posture.
+- Fixes and Improvements:
+  - Configure (`-c configure`) changes:
+    - Allows for a blank value for `authFile` in the configuration file when using System Managed Identity.
+- Features added to [Preview](azacsnap-preview.md):
+  - None.
+- Features removed:
+  - Azure Key Vault support has been removed from Preview, it isn't needed now AzAcSnap supports a System Managed Identity directly.
+
+Download the [AzAcSnap 9](https://aka.ms/azacsnap-9) installer.
+
+## Jun-2023
+
+### AzAcSnap 8b (Build: 1AD3679)
+
+AzAcSnap 8b is being released with the following fixes and improvements:
+
+- Fixes and Improvements:
+  - General improvement to `azacsnap` command exit codes.
+    - `azacsnap` should return an exit code of 0 (zero) when it has run as expected, otherwise it should return an exit code of non-zero.  For example, running `azacsnap` returns non-zero as it hasn't done anything and shows usage information whereas `azacsnap -h` returns exit-code of zero as it's performing as expected by returning usage information.
+    - Any failure in `--runbefore` exits before any backup activity and returns the `--runbefore` exit code.
+    - Any failure in `--runafter` returns the `--runafter` exit code.
+  - Backup (`-c backup`) changes:
+    - Change in the Db2 workflow to move the protected-paths query outside the WRITE SUSPEND, Storage Snapshot, WRITE RESUME workflow to improve resilience. (Preview)
+    - Fix for missing snapshot name (`azSnapshotName`)  in `--runafter` command environment.
+
+Download the [AzAcSnap 8b](https://aka.ms/azacsnap-8b) installer.
+
 ## May-2023
+
+### AzAcSnap 8a (Build: 1AC55A6)
+
+AzAcSnap 8a is being released with the following fixes and improvements:
+
+- Fixes and Improvements:
+  - Configure (`-c configure`) changes:
+    - Fix for `-c configure` related changes in AzAcSnap 8.
+    - Improved workflow guidance for better customer experience.
+
+Download the [AzAcSnap 8a](https://aka.ms/azacsnap-8a) installer.
 
 ### AzAcSnap 8 (Build: 1AC279E)
 
@@ -32,16 +79,16 @@ AzAcSnap 8 is being released with the following fixes and improvements:
 
 - Fixes and Improvements:
   - Restore (`-c restore`) changes:
-    - New ability to use `-c restore` to revertvolume for Azure NetApp Files.
+    - New ability to use `-c restore` to `--restore revertvolume` for Azure NetApp Files.
   - Backup (`-c backup`) changes:
     - Fix for incorrect error output when using `-c backup` and the database has ‘backint’ configured.
     - Remove lower-case conversion for anfBackup rename-only option using `-c backup` so the snapshot name maintains case of Volume name.
-    - Fix for when a snapshot is created even though SAP HANA wasn't put into backup-mode.  Now if SAP HANA cannot be put into backup-mode, AzAcSnap will immediately exit with an error.
+    - Fix for when a snapshot is created even though SAP HANA wasn't put into backup-mode.  Now if SAP HANA can't be put into backup-mode, AzAcSnap immediately exits with an error.
   - Details (`-c details`) changes:
     - Fix for listing snapshot details with `-c details` when using Azure Large Instance storage.
   - Logging enhancements:
-    - Extra logging output to syslog (e.g., /var/log/messages) on failure.
-    - New “mainlog” (azacsnap.log) to provide a more parse-able high-level log of commands run with success or failure result.
+    - Extra logging output to syslog (for example, `/var/log/messages`) on failure.
+    - New “mainlog” (`azacsnap.log`) to provide a more parse-able high-level log of commands run with success or failure result.
   - New global settings file (`.azacsnaprc`) to control behavior of azacsnap, including location of “mainlog” file.
 
 Download the [AzAcSnap 8](https://aka.ms/azacsnap-8) installer.
@@ -93,7 +140,7 @@ Download the [AzAcSnap 7](https://aka.ms/azacsnap-7) installer.
 
 > [!IMPORTANT]
 > AzAcSnap 6 brings a new release model for AzAcSnap and includes fully supported GA features and Preview features in a single release.  
- 
+
 Since AzAcSnap v5.0 was released as GA in April 2021, there have been eight releases of AzAcSnap across two branches. Our goal with the new release model is to align with how Azure components are released.  This change allows moving features from Preview to GA (without having to move an entire branch), and introduce new Preview features (without having to create a new branch). From AzAcSnap 6, we have a single branch with fully supported GA features and Preview features (which are subject to Microsoft's Preview Ts&Cs). It’s important to note customers can't accidentally use Preview features, and must enable them with the `--preview` command line option.  Therefore the next release will be AzAcSnap 7, which could include; patches (if necessary) for GA features, current Preview features moving to GA, or new Preview features.
 
 AzAcSnap 6 is being released with the following fixes and improvements:
@@ -162,8 +209,8 @@ AzAcSnap v5.1 Preview (Build: 20220125.85030) has been released with the followi
 
 AzAcSnap v5.0.2 (Build: 20210827.19086) is provided as a patch update to the v5.0 branch with the following fixes and improvements:
 
-- Ignore `ssh` 255 exit codes.  In some cases the `ssh` command, which is used to communicate with storage on Azure Large Instance, would emit an exit code of 255 when there were no errors or execution failures  (refer `man ssh` "EXIT STATUS") - then AzAcSnap would trap this exit code as a failure and abort.  With this update extra verification is done to validate correct execution, this includes parsing `ssh` STDOUT and STDERR for errors in addition to traditional exit code checks.
-- Fix the installer's check for the location of the hdbuserstore.  The installer would search the filesystem for an incorrect source directory for the hdbuserstore location for the user running the install - the installer now searches for `~/.hdb`.  This fix is applicable to systems (for example, Azure Large Instance) where the hdbuserstore was pre-configured for the `root` user before installing `azacsnap`.
+- Ignore `ssh` 255 exit codes.  In some cases the `ssh` command, which is used to communicate with storage on Azure Large Instance, would emit an exit code of 255 when there were no errors or execution failures  (refer `man ssh` "EXIT STATUS") - then AzAcSnap would trap this exit code as a failure and abort.  With this update extra verification is done to validate correct execution, this validation includes parsing `ssh` STDOUT and STDERR for errors in addition to traditional exit code checks.
+- Fix the installer's check for the location of the hdbuserstore.  The installer would search the filesystem for an incorrect source directory for the hdbuserstore location for the user running the install - the installer now searches for `~/.hdb`.  This fix is applicable to systems (for example, Azure Large Instance) where the hdbuserstore was preconfigured for the `root` user before installing `azacsnap`.
 - Installer now shows the version it will install/extract (if the installer is run without any arguments).
 
 ## May-2021
@@ -189,7 +236,7 @@ AzAcSnap v5.0 (Build: 20210421.6349) has been made Generally Available and for t
 
 AzAcSnap v5.0 Preview (Build: 20210318.30771) has been released with the following fixes and improvements:
 
-- Removed the need to add the AZACSNAP user into the SAP HANA Tenant DBs, see the [Enable communication with database](azacsnap-installation.md#enable-communication-with-database) section.
+- Removed the need to add the AZACSNAP user into the SAP HANA Tenant DBs, see the [Enable communication with database](azacsnap-installation.md#enable-communication-with-the-database) section.
 - Fix to allow a [restore](azacsnap-cmd-ref-restore.md) with volumes configured with Manual QOS.
 - Added mutex control to throttle SSH connections for Azure Large Instance.
 - Fix installer for handling path names with spaces and other related issues.
@@ -199,3 +246,5 @@ AzAcSnap v5.0 Preview (Build: 20210318.30771) has been released with the followi
 
 - [Get started with Azure Application Consistent Snapshot tool](azacsnap-get-started.md)
 - [Download the latest release of the installer](https://aka.ms/azacsnapinstaller)
+
+

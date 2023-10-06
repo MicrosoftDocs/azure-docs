@@ -8,9 +8,9 @@ metadata:
   description: Learn how to securely deploy and manage private mobile networks for 5G Internet of Things (IoT) devices using Azure Private 5G Core.
   ms.service: private-5g-core
   ms.topic: landing-page
-  author: djrmetaswitch
-  ms.author: drichards
-  ms.date: 01/24/2022
+  author: robswain
+  ms.author: robswain
+  ms.date: 05/31/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -40,6 +40,10 @@ landingContent:
         links:
           - text: How to open a support request 
             url: open-support-request.md
+      - linkListType: concept
+        links:
+          - text: Support lifetime 
+            url: support-lifetime.md
   # Card
   - title: Training
     linkLists:
@@ -120,6 +124,8 @@ landingContent:
             url: configure-sim-policy-azure-portal.md
           - text: Configure a service and SIM policy - ARM template
             url: configure-service-sim-policy-arm-template.md
+          - text: Configure UE to UE internal forwarding - Azure portal
+            url: configure-internal-forwarding.md
   # Card
   - title: Provision and manage SIMs
     linkLists:
@@ -134,7 +140,7 @@ landingContent:
           - text: Manage SIM groups
             url: manage-sim-groups.md
   # Card
-  - title: Monitor your private mobile network
+  - title: Monitor and diagnose your private mobile network
     linkLists:
       - linkListType: concept
         links:
@@ -144,18 +150,20 @@ landingContent:
             url: distributed-tracing.md
           - text: Local monitoring with packet core dashboards
             url: packet-core-dashboards.md
+          - text: Monitor AP5GC UE usage with Event Hubs (preview)
+            url: ue-usage-event-hub.md
+          - text: Monitor packet cores with alerts
+            url: monitor-private-5g-core-alerts.md
       - linkListType: how-to-guide
         links:
-          - text: Perform data plane packet capture for a packet core instance
-            url: data-plane-packet-capture.md 
-          - text: Enable Azure Active Directory
-            url: enable-azure-active-directory.md
-          - text: Modify a site's local access configuration
-            url: modify-local-access-configuration.md
-          - text: Export, upload and share traces for diagnostics
-            url: distributed-tracing-share-traces.md
           - text: Gather diagnostics
             url: gather-diagnostics.md
+          - text: Export, upload and share traces for diagnostics
+            url: distributed-tracing-share-traces.md
+          - text: Perform data plane packet capture on a packet core instance
+            url: data-plane-packet-capture.md
+          - text: Use ping and traceroute on a packet core instance
+            url: ping-traceroute.md
             
   # Card
   - title: Learn about Azure Private 5G Core architecture

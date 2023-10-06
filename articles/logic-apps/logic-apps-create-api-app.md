@@ -60,9 +60,6 @@ easy API hosting.
 > * [PHP](../app-service/quickstart-php.md)
 > * [Python](../app-service/quickstart-python.md)
 > * [Ruby](../app-service/quickstart-ruby.md)
->
-> For API App samples built for logic apps, visit the 
-> [Azure Logic Apps GitHub repository](https://github.com/logicappsio).
 
 ## How do custom APIs differ from custom connectors?
 
@@ -134,9 +131,6 @@ The polling pattern mirrors the behavior where you call the
 bakery every 20 minutes to check whether the cake is ready. 
 The webhook pattern mirrors the behavior where the bakery asks you 
 for your phone number so they can call you when the cake is ready.
-
-For samples, visit the [Logic Apps GitHub repository](https://github.com/logicappsio). 
-Also, learn more about [usage metering for actions](logic-apps-pricing.md).
 
 <a name="async-pattern"></a>
 

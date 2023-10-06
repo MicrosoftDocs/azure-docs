@@ -5,7 +5,7 @@ ms.subservice: logs
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
-ms.date: 02/21/2023
+ms.date: 06/05/2023
 ms.custom: references_regions
 
 #customer-intent: As an IT manager, I want to understand the data and service resilience benefits Azure Monitor availability zones provide so that can ensure my data and services are sufficiently protected in the event of datacenter failure.
@@ -29,15 +29,15 @@ Azure Monitor currently supports data resilience for availability-zone-enabled d
 
   | Americas | Europe | Middle East | Africa | Asia Pacific |
   |---|---|---|---|---|
-  | Brazil South | France Central | UAE North | South Africa North | Australia East |
-  | Canada Central | Germany West Central | | | Central India |
+  | Brazil South | France Central | Qatar Central | South Africa North | Australia East |
+  | Canada Central | Germany West Central | UAE North | | Central India | 
   | Central US | North Europe | | | Japan East |
   | East US | Norway East | | | Korea Central |
   | East US 2 | UK South | | | Southeast Asia |
   | South Central US | West Europe | | | East Asia |
-  | US Gov Virginia | Sweden Central | | | China North 3 |
-  | West US 2 | Switzerland North | | | |
-  | West US 3 | | | | |
+  | West US 2 | Sweden Central | | |  |
+  | West US 3 | Switzerland North | | |  |
+  |  | Poland Central | | | |
 
 ## Service resilience - supported regions
 
@@ -48,9 +48,6 @@ Azure Monitor currently supports service resilience for availability-zone-enable
 - East US 2
 - West US 2
 - North Europe
-- Canada Central
-- France Central
-- Japan East
 
 ## Next steps
 

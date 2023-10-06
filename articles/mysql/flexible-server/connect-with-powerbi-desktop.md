@@ -6,7 +6,7 @@ ms.subservice: flexible-server
 ms.topic: quickstart
 author: mksuni
 ms.author: sumuth
-ms.date: 09/01/2022
+ms.date: 05/23/2023
 ---
 
 # Import data from Azure Database for MySQL - Flexible Server in Power BI 
@@ -85,16 +85,13 @@ You can connect to Azure database for MySQL Flexible server with Power BI deskto
    :::image type="content" source="./media/connect-with-powerbi-desktop/navigator.png" alt-text="Screenshot of navigator to view MySQL tables."::: 
    
 ## Connect to MySQL database from Power Query Online
-
-To make the connection, take the following steps:
+A data gateway is required to use MySQL with Power BI query online. See [how to deploy a data gateway for MySQL](/power-bi/connect-data/service-gateway-deployment-guidance). Once data gateway is setup, take the following steps to add a new connection:
 
 1. Select the **MySQL database** option in the connector selection.
  
 2. In the **MySQL database** dialog, provide the name of the server and database.  
 
     :::image type="content" source="./media/connect-with-powerbi-desktop/power-query-service-signin.png" alt-text="Screenshot of MySQL connection with power query online."::: 
-
-   **Note that data gateway is not needed for Azure database for MySQL Flexible Server.**
 
 3. Select the **Basic** authentication kind and input your MySQL credentials in the **Username** and **Password** boxes.
 
@@ -119,4 +116,3 @@ Once you've selected the advanced options you require, select **OK** in Power Qu
 
 ## Next steps
 [Build visuals with Power BI Desktop](/power-bi/fundamentals/desktop-what-is-desktop)
-

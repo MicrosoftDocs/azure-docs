@@ -10,7 +10,7 @@
     href: require-tou.md
 - name: Tutorials
   items:
-  - name: Require Azure AD Multifactor Authentication
+  - name: Require multifactor Authentication
     href: ../authentication/tutorial-enable-azure-mfa.md?toc=/azure/active-directory/conditional-access/toc.json&bc=/azure/active-directory/conditional-access/breadcrumb/toc.json
 - name: Concepts
   expanded: false
@@ -23,7 +23,7 @@
     items: 
      - name: Users and groups
        href: concept-conditional-access-users-groups.md
-     - name: Cloud apps or actions
+     - name: Target resources
        href: concept-conditional-access-cloud-apps.md
      - name: Conditions
        href: concept-conditional-access-conditions.md
@@ -49,6 +49,8 @@
     items:
     - name: CAE for users
       href: concept-continuous-access-evaluation.md
+    - name: CAE strict enforcement
+      href: concept-continuous-access-evaluation-strict-enforcement.md
     - name: CAE for workload identities
       href: concept-continuous-access-evaluation-workload.md
   - name: Filter for devices
@@ -66,6 +68,8 @@
     items: 
     - name: Require MFA for administrators
       href: howto-conditional-access-policy-admin-mfa.md
+    - name: Require phishing-resistant MFA for administrators
+      href: how-to-policy-phish-resistant-admin-mfa.md
     - name: Secure security info registration
       href: howto-conditional-access-policy-registration.md
     - name: Block legacy authentication
@@ -74,6 +78,8 @@
       href: howto-policy-guest-mfa.md
     - name: Require MFA for all users
       href: howto-conditional-access-policy-all-users-mfa.md
+    - name: Require MFA for Microsoft admin portals
+      href: how-to-policy-mfa-admin-portals.md
     - name: Require MFA for Azure management
       href: howto-conditional-access-policy-azure-management.md
     - name: Require MFA for risky sign-in
@@ -86,6 +92,8 @@
       href: howto-policy-unknown-unsupported-device.md
     - name: Require approved app or app protection policy
       href: howto-policy-approved-app-or-app-protection.md
+    - name: Require app protection policy for Windows
+      href: how-to-app-protection-policy-windows.md
     - name: No persistent browser session
       href: howto-policy-persistent-browser-session.md
     - name: Require compliant device, hybrid joined, or MFA for users
@@ -108,7 +116,7 @@
     href: block-legacy-authentication.md
   - name: Require terms of use
     href: terms-of-use.md
-  - name: Sign-in frequency and browser persistence controls
+  - name: Sign-in frequency and browser persistence control
     href: howto-conditional-access-session-lifetime.md
   - name: Troubleshooting
     items:
@@ -126,9 +134,7 @@
     href: controls.md
   - name: Classic policies
     items:
-    - name: Classic policy migrations
-      href: policy-migration.md
-    - name: Migrate classic policies
+    - name: Migrate from classic policies
       href: policy-migration-mfa.md
 - name: Reference
   items:

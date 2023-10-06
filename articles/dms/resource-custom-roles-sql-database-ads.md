@@ -7,6 +7,8 @@ ms.author: roblescarlos
 ms.date: 09/28/2022
 ms.service: dms
 ms.topic: conceptual
+ms.custom:
+  - sql-migration-content
 ---
 
 # Custom roles for SQL Server to Azure SQL Database migrations in Azure Data Studio

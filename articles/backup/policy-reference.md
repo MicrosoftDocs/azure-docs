@@ -1,11 +1,11 @@
 ---
 title: Built-in policy definitions for Azure Backup
 description: Lists Azure Policy built-in policy definitions for Azure Backup. These built-in policy definitions provide common approaches to managing your Azure resources.
-ms.date: 02/21/2023
+ms.date: 09/19/2023
 ms.topic: reference
-ms.custom: subject-policy-reference
-author: jyothisuri
-ms.author: jsuri
+ms.custom: subject-policy-reference; engagement-fy23
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 # Azure Policy built-in definitions for Azure Backup
 

@@ -24,6 +24,9 @@ You can set the permissions on a query pack when you view it in the Azure portal
 - **Reader**: Users can see and run all queries in the query pack.
 - **Contributor**: Users can modify existing queries and add new queries to the query pack.
 
+  > [!IMPORTANT]
+  > When a user needs to modify or add queries, always grant the user the Contributor permission on the `DefaultQueryPack`. Otherwise, the user won't be able to save any queries to the subscription, including in other query packs.
+
 ## Default query pack
 A query pack, called `DefaultQueryPack`, is automatically created in each subscription in a resource group called `LogAnalyticsDefaultResources` when the first query is saved. You can create queries in this query pack or create other query packs depending on your requirements.
 

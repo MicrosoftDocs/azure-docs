@@ -2,12 +2,16 @@
 title: Elastic integration overview
 description: Learn about using the Elastic Cloud-Native Observability Platform in the Azure Marketplace.
 ms.topic: conceptual
-ms.date: 09/02/2021
+ms.date: 05/15/2023
 author: flang-msft
 ms.author: franlanglois
 ---
 
-# What is Elastic integration with Azure?
+# What is Elastic Cloud (Elasticsearch) - An Azure Native ISV Service?
+
+Azure Native ISV Services enable you to easily provision, manage, and tightly integrate independent software vendor (ISV) software and services on Azure. This Azure Native ISV Service is developed and managed by Microsoft and Elastic.
+
+You can find Elastic Cloud (Elasticsearch) - An Azure Native ISV Service in the [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Elastic%2Fmonitors) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-pp?tab=Overview).
 
 This article describes the Elastic software as a service (SaaS) application that is available through the Azure Marketplace. The offering enables deeper integration of the Elastic service with Azure.
 
@@ -37,4 +41,11 @@ For more help with using the Elastic service, see the [Elastic documentation](ht
 
 ## Next steps
 
-To create an instance of Elastic, see [QuickStart: Get started with Elastic](create.md).
+- To create an instance of Elastic, see [QuickStart: Get started with Elastic](create.md).
+- Get started with Elastic Cloud (Elasticsearch) - An Azure Native ISV Service on
+
+    > [!div class="nextstepaction"]
+    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Elastic%2Fmonitors)
+
+    > [!div class="nextstepaction"]
+    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-pp?tab=Overview)

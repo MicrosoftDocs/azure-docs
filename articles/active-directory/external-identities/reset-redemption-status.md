@@ -1,13 +1,13 @@
 ---
 
-title: Reset a guest user's redemption status
-description: Learn how to reset the invitation redemption status for an Azure Active Directory B2B guest users in Azure AD External Identities.
+title: Reset redemption status for a guest user
+description: Learn how to reset the invitation redemption status for a Microsoft Entra B2B guest users in Microsoft Entra External ID.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 12/07/2022
+ms.date: 05/31/2023
 
 ms.author: cmulligan
 author: csmulligan
@@ -26,9 +26,11 @@ In this article, you'll learn how to update the [guest user's](user-properties.m
 - The user has moved to a different company, but they still need the same access to your resources
 - The user’s responsibilities have been passed along to another user
 
-To manage these scenarios previously, you had to manually delete the guest user’s account from your directory and reinvite the user. Now you can use the Azure portal, PowerShell or the Microsoft Graph invitation API to reset the user's redemption status and reinvite the user while keeping the user's object ID, group memberships, and app assignments. When the user redeems the new invitation, the [UPN](../hybrid/plan-connect-userprincipalname.md#what-is-userprincipalname) of the user doesn't change, but the user's sign-in name changes to the new email. Then the user can sign in using the new email or an email you've added to the `otherMails` property of the user object.
+To manage these scenarios previously, you had to manually delete the guest user’s account from your directory and reinvite the user. Now you can use the Microsoft Entra admin center, PowerShell or the Microsoft Graph invitation API to reset the user's redemption status and reinvite the user while keeping the user's object ID, group memberships, and app assignments. When the user redeems the new invitation, the UserPrincipalName (UPN) of the user doesn't change, but the user's sign-in name changes to the new email. Then the user can sign in using the new email or an email you've added to the `otherMails` property of the user object.
 
-## Required Azure AD roles
+<a name='required-azure-ad-roles'></a>
+
+## Required Microsoft Entra roles
 
 To reset a user's redemption status, you'll need one of the following roles:
 
@@ -36,11 +38,13 @@ To reset a user's redemption status, you'll need one of the following roles:
 - [User Administrator](../roles/permissions-reference.md#user-administrator)
 - [Global Administrator](../roles/permissions-reference.md#global-administrator)
 
-## Use the Azure portal to reset redemption status
+## Use the Microsoft Entra admin center to reset redemption status
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global administrator or User administrator account for the directory.
-1. Search for and select **Azure Active Directory**.
-1. Select **Users**.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
 1. In the list, select the user's name to open their user profile.
 1. (Optional) If the user wants to sign in using a different email:
    1. Select the **Edit properties** icon.
@@ -48,15 +52,13 @@ To reset a user's redemption status, you'll need one of the following roles:
    1. Next to **Other emails**, select **Add email**. Select **Add**, type the new email, and select **Save**.
    1. Select the **Save** button at the bottom of the page to save all changes.
 
-1. On the **Overview** tab, under **My Feed**, select the **Manage (resend invitation / reset status)** link in the **B2B collaboration** tile.
+1. On the **Overview** tab, under **My Feed**, select the **Reset redemption status** link in the **B2B collaboration** tile.
 
-    [ ![Screenshot showing the B2B collaboration reset link.](./media/reset-redemption-status/user-profile-b2b-collaboration.png) ](media/reset-redemption-status/user-profile-b2b-collaboration.png#lightbox)
+   :::image type="content" source="media/reset-redemption-status/user-profile-b2b-collaboration.png" alt-text="Screenshot showing the B2B collaboration reset link." lightbox="media/reset-redemption-status/user-profile-b2b-collaboration.png":::
 
-1. Under **Redemption status**, next to **Reset invitation status?**, select **Yes**.
+1. Under **Reset redemption status**, select **Reset**.
 
-    ![Screenshot showing the reset invitation status setting.](./media/reset-redemption-status/reset-status.png)
-
-1. Select **Yes** to confirm.
+   :::image type="content" source="media/reset-redemption-status/reset-status.png" alt-text="Screenshot showing the reset invitation status setting.":::
 
 ## Use PowerShell or Microsoft Graph API to reset redemption status
 
@@ -121,5 +123,5 @@ ContentType: application/json
 
 ## Next steps
 
-- [Add Azure Active Directory B2B collaboration users by using PowerShell](customize-invitation-api.md#powershell)
-- [Properties of an Azure AD B2B guest user](user-properties.md)
+- [Properties of a Microsoft Entra B2B guest user](user-properties.md)
+- [Add Microsoft Entra B2B collaboration users by using PowerShell](customize-invitation-api.md#powershell)

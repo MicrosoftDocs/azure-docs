@@ -2,7 +2,7 @@
 author: dknappettmsft
 ms.author: daknappe
 ms.topic: include
-ms.date: 03/13/2023
+ms.date: 09/18/2023
 ---
 
 ## Latest client versions
@@ -11,8 +11,54 @@ The following table lists the current versions available for the public and beta
 
 | Release | Latest version | Download |
 |---------|----------------|----------|
-| Public  | 10.4.6         | [App Store](https://apps.apple.com/app/microsoft-remote-desktop/id714464092) |
-| Beta    | 10.4.6         | [TestFlight](https://testflight.apple.com/join/vkLIflUJ) |
+| Public  | 10.5.1         | [App Store](https://apps.apple.com/app/microsoft-remote-desktop/id714464092) |
+| Beta    | 10.5.1         | [TestFlight](https://testflight.apple.com/join/vkLIflUJ) |
+
+## Updates for version 10.5.1
+
+*Date published: September 5th, 2023*
+
+In this release, we've made the following changes:
+
+- Added support for displaying sessions on an external monitor. You can use this new feature with iPad and iPhone using AirPlay or a physical cable.
+- Added support for location redirection. To use this feature, you need access to your device location, and your session hosts must be running Windows 11 or later.
+
+## Updates for version 10.5.0
+
+*Date published: July 10, 2023*
+
+In this release, we've made the following changes:
+
+- Fixed an issue with IPv6 address resolution that was blocking connectivity.
+- Addressed a deadlock that could occur in server redirection scenarios.
+
+## Updates for version 10.4.8
+
+*Date published: June 20, 2023*
+
+In this release, we've made the following changes:
+
+- We've changed the connection bar to always start expanded by default. You can minimize the connection bar by dragging it to a corner of the screen. To return the connection bar to its regular size, drag it to the center of the screen. 
+- You can now dismiss all in-app messages by swiping downwards.
+- Fixed an issue that caused graphics to look distorted in Lock to Landscape mode.
+
+## Updates for version 10.4.7
+
+*Date published: May 17, 2023*
+
+In this release we've made some tweaks around the behavior of the connection bar on iPads and fixed some bugs to keep things running smoothly.
+
+We've made the following changes to the iPad connection bar:
+
+- We fixed an issue that caused the connection bar to get stuck under the Stage Manager ellipsis menu.
+- The connection bar will now be docked on the right side of the screen when you turn your iPad on. The iOS client will also save the position you dock your screen in across all your iPad and iPhone devices.
+- We moved the Add a PC or Workspace button to the center of the toolbar at the bottom of the screen.
+
+We've also made the following other changes:
+
+- Fixed an issue where session rotation wasn't working on iOS 16.
+- Resolved an issue where the search box in the Connection Center went out of focus when the user tried entering characters.
+- Improved audio rendering for low-bandwidth scenarios.
 
 ## Updates for version 10.4.6 
 
@@ -192,7 +238,7 @@ In this release, we addressed some compatibility issues with iOS and iPadOS 14. 
 - Added the Cmd+S and Cmd+N shortcuts to access the "Add Workspace" and "Add PC" processes, respectively.
 - Added the Cmd+F shortcut to invoke Search UI in the Connection Center.
 - Added the "Expand All" and "Collapse All" commands to the Workspaces tab.
-- Resolved a bug that caused a 0xD06 protocol error to happen while running Outlook as a remote app.
+- Resolved a bug that caused a 0xD06 protocol error to happen while running Outlook as a RemoteApp.
 - The on-screen keyboard will now disappear when you scroll through search results in the Connection Center.
 - Updated the animation used when hovering over workspace icons with a mouse or trackpad pointer on iPadOS 14.
 
@@ -216,7 +262,7 @@ We've put together some bug fixes and small feature updates for this release. He
 
 We've put together some bug fixes and feature updates for this release. Here's what's new:
 
-- The input mode (Mouse Pointer or Touch mode) is now global across all active PC and remote app connections.
+- The input mode (Mouse Pointer or Touch mode) is now global across all active PC and RemoteApp connections.
 - Fixed an issue that prevented microphone redirection from working consistently.
 - Fixed a bug that caused audio output to play from the iPhone earpiece instead of the internal speaker.
 - The client now supports automatically switching audio output between the iPhone or iPad internal speakers, bluetooth speakers, and AirPods.

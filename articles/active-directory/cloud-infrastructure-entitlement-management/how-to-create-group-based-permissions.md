@@ -1,6 +1,6 @@
 ---
-title: Select group-based permissions settings in Permissions Management with the User management dashboard
-description: How to select group-based permissions settings in Permissions Management with the User management dashboard.
+title: Select group-based permissions settings with the User management dashboard
+description: How to select group-based permissions settings with the User management dashboard.
 services: active-directory
 author: jenniferf-skc
 manager: amycolannino
@@ -8,13 +8,13 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/03/2023
+ms.date: 06/16/2023
 ms.author: jfields
 ---
 
 # Select group-based permissions settings
 
-This article describes how you can create  and manage group-based permissions in Permissions Management with the User management dashboard.
+This article describes how you can create  and manage group-based permissions in Microsoft Entra Permissions Management with the User management dashboard.
 
 > [!NOTE] 
 > The Permissions Management Administrator for all authorization systems will be able to create the new group based permissions.
@@ -23,7 +23,7 @@ This article describes how you can create  and manage group-based permissions in
 
 1. To display the **User Management** dashboard, select **User** (your initials) in the upper right of the screen, and then select **User Management**.
 1. Select the **Groups** tab, and then press the **Create Permission** button in the upper right of the table.
-1. In the **Set Group Permission** box, begin typing the name of an **Azure Active Directory Security Group** in your tenant.
+1. In the **Set Group Permission** box, begin typing the name of an **Microsoft Entra Security Group** in your tenant.
 
 1. Select the permission setting you want:
 2.

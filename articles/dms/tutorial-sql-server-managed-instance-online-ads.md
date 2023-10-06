@@ -2,13 +2,15 @@
 title: "Tutorial: Migrate SQL Server to Azure SQL Managed Instance online by using Azure Data Studio"
 titleSuffix: Azure Database Migration Service
 description: Learn how to migrate on-premises SQL Server to Azure SQL Managed Instance only by using Azure Data Studio and Azure Database Migration Service.
-author: abhims14
-ms.author: abhishekum
+author: croblesm
+ms.author: roblescarlos
 ms.reviewer: cawrites
-ms.date: 01/26/2023
+ms.date: 06/07/2023
 ms.service: dms
 ms.topic: tutorial
-ms.custom: seo-lt-2019
+ms.custom:
+  - seo-lt-2019
+  - sql-migration-content
 ---
 
 # Tutorial: Migrate SQL Server to Azure SQL Managed Instance online in Azure Data Studio
@@ -70,7 +72,7 @@ To complete this tutorial, you need to:
     | Domain names                                          | Outbound ports | Description                |
     | ----------------------------------------------------- | -------------- | ---------------------------|
     | Public Cloud: `{datafactory}.{region}.datafactory.azure.net`<br> or `*.frontend.clouddatahub.net` <br> Azure Government: `{datafactory}.{region}.datafactory.azure.us` <br> China: `{datafactory}.{region}.datafactory.azure.cn` | 443    | Required by the self-hosted integration runtime to connect to the Data Migration service. <br>For a newly created data factory in the public cloud, locate the FQDN from your self-hosted integration runtime key, which is in format `{datafactory}.{region}.datafactory.azure.net`. For the old data factory, if you don't see the FQDN in your self-hosted integration key, use *.frontend.clouddatahub.net instead. |
-    | `download.microsoft.com`    | 443            | Required by the self-hosted integration runtime for downloading the updates. If you have disabled auto-update, you can skip configuring this domain. |
+    | `download.microsoft.com`    | 443            | Required by the self-hosted integration runtime for downloading the updates. If you have disabled autoupdate, you can skip configuring this domain. |
     | `*.core.windows.net`          | 443            | Used by the self-hosted integration runtime that connects to the Azure storage account for uploading database backups from your network share |
 
     > [!TIP]
@@ -86,7 +88,7 @@ To complete this tutorial, you need to:
 1. On the server's home page, select **Azure SQL Migration** extension.
 1. On the Azure SQL Migration dashboard, select **Migrate to Azure SQL** to launch the migration wizard.
     :::image type="content" source="media/tutorial-sql-server-to-managed-instance-online-ads/launch-migrate-to-azure-sql-wizard.png" alt-text="Launch Migrate to Azure SQL wizard":::
-1. The first page of the wizard will allow you to start a new session or resume a previously saved one. Pick the first option to start a new session.
+1. The first page of the wizard allows you to start a new session or resume a previously saved one. Pick the first option to start a new session.
 ## Run database assessment, collect performance data and get Azure recommendation
 
 1. Select the database(s) to run assessment and select **Next**.
@@ -94,12 +96,12 @@ To complete this tutorial, you need to:
     :::image type="content" source="media/tutorial-sql-server-to-managed-instance-online-ads/assessment-complete-target-selection.png" alt-text="Assessment confirmation":::
 1. Select on the **View/Select** button to view details of the assessment results for your database(s), select the database(s) to migrate, and select **OK**. If any issues are displayed in the assessment results, they need to be remediated before proceeding with the next steps.
     :::image type="content" source="media/tutorial-sql-server-to-managed-instance-online-ads/assessment-issues-details.png" alt-text="Database assessment details":::
-1. Click the **Get Azure recommendation** button.
-2. Pick the **Collect performance data now** option and enter a path for performance logs to be collected and click the **Start** button.
+1. Select the **Get Azure recommendation** button.
+2. Pick the **Collect performance data now** option and enter a path for performance logs to be collected and select the **Start** button.
 3. Azure Data Studio will now collect performance data until you either stop the collection, press the **Next** button in the wizard or close Azure Data Studio.
-4. After 10 minutes you will see a recommended configuration for your Azure SQL Managed Instance. You can also press the **Refresh recommendation** link after the initial 
-10 minutes to refresh the recommendation with the additional data collected.
-5. In the above **Azure SQL Managed Instance** box click the **View details** button for more information about your recommendation. 
+4. After 10 minutes you see a recommended configuration for your Azure SQL Managed Instance. You can also press the **Refresh recommendation** link after the initial 
+10 minutes to refresh the recommendation with the extra data collected.
+5. In the above **Azure SQL Managed Instance*** box, select the **View details** button for more information about your recommendation. 
 6. Close the view details box and press the **Next** button.
 
 ## Configure migration settings
@@ -112,7 +114,7 @@ To complete this tutorial, you need to:
     > [!NOTE]
     > If your database backups are provided in an on-premises network share, DMS will require you to set up a self-hosted integration runtime in the next step of the wizard. If a self-hosted integration runtime is required to access your source database backups, check the validity of the backup set and upload them to your Azure storage account.<br/> If your database backups are already on an Azure storage blob container, you don't need to set up a self-hosted integration runtime.
 
-* For backups located on a network share, provide the following details of your source SQL Server, source backup location, target database name, and Azure storage account for the backup files to be uploaded to:
+- For backups located on a network share, provide the following details of your source SQL Server, source backup location, target database name, and Azure storage account for the backup files to be uploaded to:
 
     |Field    |Description  |
     |---------|-------------|
@@ -122,29 +124,57 @@ To complete this tutorial, you need to:
     |**Windows user account with read access to the network share location**     |The Windows credential (username) that has read access to the network share to retrieve the backup files.       |
     |**Password**     |The Windows credential (password) that has read access to the network share to retrieve the backup files.         |
     |**Target database name** |The target database name can be modified if you wish to change the database name on the target during the migration process.            |
-    |**Storage account details** |The resource group and storage account where backup files will be uploaded to. You do not need to create a container as DMS will automatically create a blob container in the specified storage account during the upload process.     
+    |**Storage account details** |The resource group and storage account where backup files are uploaded to. You don't need to create a container as DMS will automatically create a blob container in the specified storage account during the upload process.     
 
-* For backups stored in an Azure storage blob container specify the below details of the Target database name, 
-Resource group, Azure storage account, Blob container from the corresponding drop-down lists. 
+- For backups stored in an Azure storage blob container, specify the below details of the Target database name, 
+Resource group, Azure storage account, and Blob container from the corresponding drop-down lists. 
 
-   |Field    |Description  |
-   |---------|-------------|
-   |**Target database name** |The target database name can be modified if you wish to change the database name on the target during the migration process.            |
-   |**Storage account details** |The resource group, storage account and container where backup files are located.      
+    |Field    |Description  |
+    |---------|-------------|
+    |**Target database name** |The target database name can be modified if you wish to change the database name on the target during the migration process.            |
+    |**Storage account details** |The resource group, storage account and container where backup files are located.      
     
     > [!IMPORTANT]
     > If loopback check functionality is enabled and the source SQL Server and file share are on the same computer, then source won't be able to access the file share using FQDN. To fix this issue, disable loopback check functionality using the instructions [here](https://support.microsoft.com/help/926642/error-message-when-you-try-to-access-a-server-locally-by-using-its-fqd)
+
+- The [Azure SQL migration extension for Azure Data Studio](./migration-using-azure-data-studio.md) no longer requires specific configurations on your Azure Storage account network settings to migrate your SQL Server databases to Azure. However, depending on your database backup location and desired storage account network settings, there are a few steps needed to ensure your resources can access the Azure Storage account. See the following table for the various migration scenarios and network configurations:
+
+    | Scenario | SMB network share | Azure Storage account container |
+    | --- | --- | --- |
+    | Enabled from all networks | No extra steps | No extra steps |
+    | Enabled from selected virtual networks and IP addresses |  [See 1a](#1a---azure-blob-storage-network-configuration) | [See 2a](#2a---azure-blob-storage-network-configuration-private-endpoint)| 
+    | Enabled from selected virtual networks and IP addresses + private endpoint   | [See 1b](#1b---azure-blob-storage-network-configuration) | [See 2b](#2b---azure-blob-storage-network-configuration-private-endpoint) | 
+
+    ### 1a - Azure Blob storage network configuration
+    If you have your Self-Hosted Integration Runtime (SHIR) installed on an Azure VM, see section [1b - Azure Blob storage network configuration](#1b---azure-blob-storage-network-configuration). If you have your Self-Hosted Integration Runtime (SHIR) installed on your on-premises network, you need to add your client IP address of the hosting machine in your Azure Storage account as so: 
+    
+    :::image type="content" source="media/tutorial-sql-server-to-managed-instance-online-ads/storage-networking-details.png" alt-text="Screenshot that shows the storage account network details":::
+    
+    To apply this specific configuration, connect to the Azure portal from the SHIR machine, open the Azure Storage account configuration, select **Networking**, and then mark the **Add your client IP address** checkbox. Select **Save** to make the change persistent. See section [2a - Azure Blob storage network configuration (Private endpoint)](#2a---azure-blob-storage-network-configuration-private-endpoint) for the remaining steps.
+    
+    ### 1b - Azure Blob storage network configuration
+    If your SHIR is hosted on an Azure VM, you need to add the virtual network of the VM to the Azure Storage account since the Virtual Machine has a nonpublic IP address that can't be added to the IP address range section. 
+    
+    :::image type="content" source="media/tutorial-sql-server-to-managed-instance-online-ads/storage-networking-firewall.png" alt-text="Screenshot that shows the storage account network firewall configuration.":::
+    
+    To apply this specific configuration, locate your Azure Storage account, from the **Data storage** panel select **Networking**, then mark the **Add existing virtual network** checkbox. A new panel opens up, select the subscription, virtual network, and subnet of the Azure VM hosting the Integration Runtime. This information can be found on the **Overview** page of the Azure Virtual Machine. The subnet may say **Service endpoint required** if so, select **Enable**. Once everything is ready, save the updates. Refer to section [2a - Azure Blob storage network configuration (Private endpoint)a](#2a---azure-blob-storage-network-configuration-private-endpoint) for the remaining required steps.
+    
+    ### 2a - Azure Blob storage network configuration (Private endpoint)
+    If your backups are placed directly into an Azure Storage Container, all the above steps are unnecessary since there's no Integration Runtime communicating with the Azure Storage account. However, we still need to ensure that the target SQL Server instance can communicate with the Azure Storage account to restore the backups from the container. To apply this specific configuration, follow the instructions in section [1b - Azure Blob storage network configuration](#1b---azure-blob-storage-network-configuration), specifying the target SQL instance Virtual Network when filling out the "Add existing virtual network" popup.
+    
+    ### 2b - Azure Blob storage network configuration (Private endpoint)
+    If you have a private endpoint set up on your Azure Storage account, follow the steps outlined in section [2a - Azure Blob storage network configuration (Private endpoint)](#2a---azure-blob-storage-network-configuration-private-endpoint). However, you need to select the subnet of the private endpoint, not just the target SQL Server subnet. Ensure the private endpoint is hosted in the same VNet as the target SQL Server instance. If it isn't, create another private endpoint using the process in the Azure Storage account configuration section.
 
 ## Create Azure Database Migration Service
 
 1. Create a new Azure Database Migration Service or reuse an existing Service that you previously created.
     > [!NOTE]
     > If you had previously created DMS using the Azure Portal, you cannot reuse it in the migration wizard in Azure Data Studio. Only DMS created previously using Azure Data Studio can be reused.
-1. Select the **Resource group** where you have an existing DMS or need to create a new one. The **Azure Database Migration Service** dropdown will list any existing DMS in the selected resource group.
+1. Select the **Resource group** where you have an existing DMS or need to create a new one. The **Azure Database Migration Service** dropdown lists any existing DMS in the selected resource group.
 1. To reuse an existing DMS, select it from the dropdown list and the status of the self-hosted integration runtime will be displayed at the bottom of the page.
 1. To create a new DMS, select **Create new**. On the **Create Azure Database Migration Service**, screen provide the name for your DMS and select **Create**.
 1. After successful creation of DMS, you'll be provided with details to set up **integration runtime**.
-1. Select on **Download and install integration runtime** to open the download link in a web browser. Complete the download. Install the integration runtime on a machine that meets the pre-requisites of connecting to source SQL Server and the location containing the source backup.
+1. Select on **Download and install integration runtime** to open the download link in a web browser. Complete the download. Install the integration runtime on a machine that meets the prerequisites of connecting to source SQL Server and the location containing the source backup.
 1. After the installation is complete, the **Microsoft Integration Runtime Configuration Manager** will automatically launch to begin the registration process.
 1. Copy and paste one of the authentication keys provided in the wizard screen in Azure Data Studio. If the authentication key is valid, a green check icon is displayed in the Integration Runtime Configuration Manager indicating that you can continue to **Register**.
 1. After successfully completing the registration of self-hosted integration runtime, close the **Microsoft Integration Runtime Configuration Manager** and switch back to the migration wizard in Azure Data Studio.
@@ -174,7 +204,7 @@ Resource group, Azure storage account, Blob container from the corresponding dro
 
 ## Complete migration cutover
 
-The final step of the tutorial is to complete the migration cutover to ensure the migrated database in Azure SQL Managed Instance is ready for use. This is the only part in the process that requires downtime for applications that connect to the database and hence the timing of the cutover needs to be carefully planned with business or application stakeholders.
+The final step of the tutorial is to complete the migration cutover to ensure the migrated database in Azure SQL Managed Instance is ready for use. This process is the only part that requires downtime for applications that connect to the database and hence the timing of the cutover needs to be carefully planned with business or application stakeholders.
 
 To complete the cutover:
 

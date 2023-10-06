@@ -7,7 +7,7 @@ ms.date: 01/31/2023
 ms.author: azfuncdf
 zone_pivot_groups: code-editors-set-one
 ms.devlang: csharp
-ms.custom: mode-other, devdivchpfy22, vscode-azure-extension-update-complete
+ms.custom: mode-other, devdivchpfy22, vscode-azure-extension-update-complete, devx-track-dotnet
 ---
 
 # Create your first Durable Function in C#

@@ -4,7 +4,7 @@ description: Learn how to create and deploy an Azure VMware Solution private clo
 ms.topic: tutorial
 ms.service: azure-vmware
 ms.date: 10/27/2022
-ms.custom: engagement-fy23
+ms.custom: engagement-fy23, devx-track-azurecli
 ---
 
 # Tutorial: Deploy an Azure VMware Solution private cloud

@@ -2,9 +2,8 @@
 title: API server authorized IP ranges in Azure Kubernetes Service (AKS)
 description: Learn how to secure your cluster using an IP address range for access to the API server in Azure Kubernetes Service (AKS)
 ms.topic: article
+ms.custom: devx-track-azurecli
 ms.date: 11/04/2022
-
-
 #Customer intent: As a cluster operator, I want to increase the security of my cluster by limiting access to the API server to only the IP addresses that I specify.
 ---
 
@@ -58,7 +57,7 @@ az aks create \
 > [!NOTE]
 > You should add these ranges to an allow list:
 >
-> - The firewall public IP address
+> - The cluster egress IP address (firewall, NAT gateway, or other address, depending on your [outbound type][egress-outboundtype]).
 > - Any range that represents networks that you'll administer the cluster from
 >
 > The upper limit for the number of IP ranges you can specify is 200.
@@ -196,6 +195,7 @@ In this article, you enabled API server authorized IP ranges. This approach is o
 [az-network-public-ip-list]: /cli/azure/network/public-ip#az_network_public_ip_list
 [concepts-clusters-workloads]: concepts-clusters-workloads.md
 [concepts-security]: concepts-security.md
+[egress-outboundtype]: egress-outboundtype.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [route-tables]: ../virtual-network/manage-route-table.md

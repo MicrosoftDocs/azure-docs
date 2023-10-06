@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Displayr'
-description: Learn how to configure single sign-on between Azure Active Directory and Displayr.
+title: 'Tutorial: Microsoft Entra integration with Displayr'
+description: Learn how to configure single sign-on between Microsoft Entra ID and Displayr.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -13,54 +13,57 @@ ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Integrate Displayr with Azure Active Directory
+# Tutorial: Integrate Displayr with Microsoft Entra ID
 
-In this tutorial, you'll learn how to integrate Displayr with Azure Active Directory (Azure AD). When you integrate Displayr with Azure AD, you can:
+In this tutorial, you'll learn how to integrate Displayr with Microsoft Entra ID. When you integrate Displayr with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to Displayr.
-* Enable your users to be automatically signed-in to Displayr with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Control in Microsoft Entra ID who has access to Displayr.
+* Enable your users to be automatically signed-in to Displayr with their Microsoft Entra accounts.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Displayr single sign-on (SSO) enabled company.
 
 ## Scenario description
 
-In this tutorial, you will learn to configure Azure AD SSO in your Displayr company.
+In this tutorial, you will learn to configure Microsoft Entra SSO in your Displayr company.
 
 * Displayr supports **SP** initiated SSO.
 
 ## Add Displayr from the gallery
 
-To configure the integration of Displayr into Azure AD, you need to add Displayr from the gallery to your list of managed SaaS apps.
+To configure the integration of Displayr into Microsoft Entra ID, you need to add Displayr from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
-1. On the left navigation pane, select the **Azure Active Directory** service.
-1. Navigate to **Enterprise Applications** and then select **All Applications**.
-1. To add new application, select **New application**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
 1. In the **Add from the gallery** section, type **Displayr** in the search box.
 1. Select **Displayr** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure Azure AD SSO for Displayr
+<a name='configure-azure-ad-sso-for-displayr'></a>
 
-To configure Azure AD SSO with Displayr, perform the following steps:
+## Configure Microsoft Entra SSO for Displayr
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** to enable your users to use this feature.
+To configure Microsoft Entra SSO with Displayr, perform the following steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** to enable your users to use this feature.
 1. **[Configure Displayr SSO](#configure-displayr-sso)** to configure the SSO settings on application side.
-1. **[Restrict access to specific users](#restrict-access-to-specific-users)** to restrict which of your Azure AD users can sign in to Displayr.
+1. **[Restrict access to specific users](#restrict-access-to-specific-users)** to restrict which of your Microsoft Entra users can sign in to Displayr.
 1. **[Test SSO](#test-sso)** to verify whether the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+## Configure Microsoft Entra SSO
 
-1. In the Azure portal, on the **Displayr** application integration page, find the **Manage** section and select **Single sign-on**.
+Follow these steps to enable Microsoft Entra SSO.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Displayr** application integration page, find the **Manage** section and select **Single sign-on**.
 1. On the **Select a Single sign-on method** page, select **SAML**.
 1. On the **Set-up Single Sign-On with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
@@ -80,7 +83,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	d. Click **Save**.
 
 	>[!NOTE]
-	>These values are not real. Update these values with the actual Identifier and Sign on URL. Contact [Displayr Client support team](mailto:support@displayr.com) to get these values. You can also refer to the patterns shown in the Basic SAML Configuration section in the Azure portal.
+	>These values are not real. Update these values with the actual Identifier and Sign on URL. Contact [Displayr Client support team](mailto:support@displayr.com) to get these values. You can also refer to the patterns shown in the Basic SAML Configuration section.
 
 1. On the **Set-up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -108,15 +111,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ## Configure Displayr SSO
 
-1. To automate the configuration within Displayr, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-	![My apps extension](common/install-myappssecure-extension.png)
 
-2. After adding extension to the browser, click on **Setup Displayr** will direct you to the Displayr application. From there, provide the admin credentials to sign into Displayr. The browser extension will automatically configure the application for you and automate steps 3-6.
 
-	![Setup configuration](common/setup-sso.png)
-
-3. If you want to set up Displayr manually, open a new web browser window and sign into your Displayr company site as an administrator and perform the following steps:
+1. In a different web browser window, sign in to your up Displayr company site as an administrator
 
 4. Click on the **User** icon, then navigate to **Account settings**.
 
@@ -132,11 +130,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	a. Check the **Enable Single Sign On (SAML)** box.
 
-	b. Copy the actual **Identifier** value from the **Basic SAML Configuration** section of Azure AD and paste it into the **Issuer** text box.
+	b. Copy the actual **Identifier** value from the **Basic SAML Configuration** section of Microsoft Entra ID and paste it into the **Issuer** text box.
 
-	c. In the **Login URL** text box, paste the value of **Login URL**, which you have copied from Azure portal.
+	c. In the **Login URL** text box, paste the value of **Login URL**.
 
-	d. In the **Logout URL** text box, paste the value of **Logout URL**, which you have copied from Azure portal.
+	d. In the **Logout URL** text box, paste the value of **Logout URL**.
 
 	e. Open the Certificate (Base64) in Notepad, copy its content and paste it into the **Certificate** text box.
 
@@ -146,13 +144,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Restrict access to specific users
 
-By default, all users in the tenant where you added the Displayr application can log in to Displayr by using SSO. If you want to restrict access to specific users or groups, see [Restrict your Azure AD app to a set of users in an Azure AD tenant](../develop/howto-restrict-your-app-to-a-set-of-users.md).
+By default, all users in the tenant where you added the Displayr application can log in to Displayr by using SSO. If you want to restrict access to specific users or groups, see [Restrict your Microsoft Entra app to a set of users in a Microsoft Entra tenant](../develop/howto-restrict-your-app-to-a-set-of-users.md).
 
 ## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Displayr Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to Displayr Sign-on URL where you can initiate the login flow. 
 
 * Go to Displayr Sign-on URL directly and initiate the login flow from there.
 

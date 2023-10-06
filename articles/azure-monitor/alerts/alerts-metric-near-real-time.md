@@ -25,7 +25,6 @@ Here's the full list of Azure Monitor metric sources supported by the newer aler
 
 |Resource type  |Dimensions supported |Multi-resource alerts| Metrics available|
 |---------|---------|-----|----------|
-|Microsoft.Aadiam/azureADMetrics | Yes | No | Azure Active Directory (metrics in private preview) |
 |Microsoft.ApiManagement/service | Yes | No | [Azure API Management](../essentials/metrics-supported.md#microsoftapimanagementservice) |
 |Microsoft.App/containerApps | Yes | No | Azure Container Apps |
 |Microsoft.AppConfiguration/configurationStores |Yes | No | [Azure App Configuration](../essentials/metrics-supported.md#microsoftappconfigurationconfigurationstores) |
@@ -47,7 +46,7 @@ Here's the full list of Azure Monitor metric sources supported by the newer aler
 |Microsoft.ClassicStorage/storageAccounts/tableServices | Yes | No | [Azure Table Storage accounts (classic)](../essentials/metrics-supported.md#microsoftclassicstoragestorageaccountstableservices) |
 |Microsoft.CloudTest/hostedpools | Yes | No | [1ES Hosted Pools](../essentials/metrics-supported.md#microsoftcloudtesthostedpools) |
 |Microsoft.CloudTest/pools | Yes | No | [CloudTest Pools](../essentials/metrics-supported.md#microsoftcloudtestpools) |
-|Microsoft.CognitiveServices/accounts | Yes | No | [Azure Cognitive Services](../essentials/metrics-supported.md#microsoftcognitiveservicesaccounts) |
+|Microsoft.CognitiveServices/accounts | Yes | No | [Azure AI services](../essentials/metrics-supported.md#microsoftcognitiveservicesaccounts) |
 |Microsoft.Compute/cloudServices | Yes | No |  [Azure Cloud Services](../essentials/metrics-supported.md#microsoftcomputecloudservices) |
 |Microsoft.Compute/cloudServices/roles | Yes | No |  [Azure Cloud Services roles](../essentials/metrics-supported.md#microsoftcomputecloudservicesroles) |
 |Microsoft.Compute/virtualMachines | Yes | Yes<sup>1</sup> | [Azure Virtual Machines](../essentials/metrics-supported.md#microsoftcomputevirtualmachines) |

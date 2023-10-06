@@ -4,8 +4,7 @@ description: In-depth explanation of how to create and locate anchors using Azur
 author: pamistel
 manager: MehranAzimi-msft
 services: azure-spatial-anchors
-
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 ms.author: pamistel
 ms.date: 11/20/2020
 ms.topic: tutorial
@@ -83,13 +82,13 @@ Learn more about the [TokenRequiredListener](/java/api/com.microsoft.azure.spati
     });
 ```
 
-[!INCLUDE [Azure AD Tokens](../../../includes/spatial-anchors-create-locate-anchors-aad-tokens.md)]
+[!INCLUDE [Azure AD Tokens](../../../includes/spatial-anchors-create-locate-anchors-tokens.md)]
 
 ```java
     mCloudSession.getConfiguration().setAuthenticationToken("MyAuthenticationToken");
 ```
 
-[!INCLUDE [Azure AD Tokens Event](../../../includes/spatial-anchors-create-locate-anchors-aad-tokens-event.md)]
+[!INCLUDE [Azure AD Tokens Event](../../../includes/spatial-anchors-create-locate-anchors-tokens-event.md)]
 
 ```java
     mCloudSession.addTokenRequiredListener(args -> {

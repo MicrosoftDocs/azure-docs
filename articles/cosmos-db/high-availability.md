@@ -90,22 +90,22 @@ Single-region accounts might lose availability after a regional outage. To ensur
 Service-managed failover allows Azure Cosmos DB to fail over the write region of a multiple-region account in order to preserve availability at the cost of data loss, as described earlier in the [Durability](#durability) section. Regional failovers are detected and handled in the Azure Cosmos DB client. They don't require any changes from the application. For instructions on how to enable multiple read regions and service-managed failover, see [Manage an Azure Cosmos DB account using the Azure portal](./how-to-manage-database-account.md).
 
 > [!IMPORTANT]
-> We strongly recommend that you configure the Azure Cosmos DB accounts used for production workloads to *enable service-managed failover*. This configuration enables Azure Cosmos DB to fail over the account databases to available regions.
->
+> If you have chosen single-region write configuration with multiple read regions, we strongly recommend that you configure the Azure Cosmos DB accounts used for production workloads to *enable service-managed failover*. This configuration enables Azure Cosmos DB to fail over the account databases to available regions.
 > In the absence of this configuration, the account will experience loss of write availability for the whole duration of the write region outage. Manual failover won't succeed because of a lack of region connectivity.
+> 
 
 ### Multiple write regions
 
-You can configure Azure Cosmos DB to accept writes in multiple regions. This configuration is useful for reducing write latency in geographically distributed applications.
+You can configure Azure Cosmos DB to accept writes in multiple regions. This configuration is useful for reducing write latency  in geographically distributed applications.
 
 When you configure an Azure Cosmos DB account for multiple write regions, strong consistency isn't supported and write conflicts might arise. For more information on how to resolve these conflicts, see [Conflict types and resolution policies when using multiple write regions](./conflict-resolution-policies.md).
 
 > [!IMPORTANT]
-> Because of the internal Azure Cosmos DB architecture, using multiple write regions doesn't guarantee write availability during a region outage. The best configuration to achieve high availability during a region outage is a single write region with service-managed failover.
+> Updating same Document ID frequently (or recreating same document ID frequently after TTL or delete) will have an effect on replication performance due to increased number of conflicts generated in the system.  
 
 #### Conflict-resolution region
 
-When an Azure Cosmos DB account is configured with multiple-region writes, one of the regions will act as an arbiter in write conflicts. When such conflicts happen, they're routed to this region for consistent resolution.
+When an Azure Cosmos DB account is configured with multiple-region writes, one of the regions will act as an arbiter in write conflicts.  
 
 #### Best practices for multi-region writes
 
@@ -239,3 +239,6 @@ Next, you can read the following articles:
 * [Configure multi-region writes in your applications that use Azure Cosmos DB](how-to-multi-master.md)
 
 * [Diagnose and troubleshoot the availability of Azure Cosmos DB SDKs in multiregional environments](troubleshoot-sdk-availability.md)
+
+
+

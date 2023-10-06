@@ -2,7 +2,7 @@
 title: Release notes - Map Control
 titleSuffix: Microsoft Azure Maps
 description: Release notes for the Azure Maps Web SDK. 
-author: eriklindeman
+author: sinnypan
 ms.author: sipa
 ms.date: 3/15/2023
 ms.topic: reference
@@ -14,9 +14,127 @@ services: azure-maps
 
 This document contains information about new features and other changes to the Map Control.
 
-## v3 (preview)
+## v3 (latest)
 
-### [3.0.0-preview.7] (May 2nd, 2023)
+### [3.0.1] (October 6, 2023)
+
+#### Bug fixes (3.0.1)
+
+- Various accessibility improvements.
+
+- Resolved the issue with dynamic attribution when progressive loading is enabled.
+
+- Fixed missing event names in `HtmlMarkerEvents`.
+
+#### Other changes (3.0.1)
+
+- Modified member methods to be protected for the zoom, pitch, and compass controls.
+
+- Telemetry is disabled by default in the Azure Government cloud.
+
+### [3.0.0] (August 18, 2023)
+
+#### Bug fixes (3.0.0)
+
+- Fixed zoom control to take into account the `maxBounds` [CameraOptions].
+
+- Fixed an issue that mouse positions are shifted after a css scale transform on the map container.
+
+#### Other changes (3.0.0)
+
+- Phased out the style definition version `2022-08-05` and switched the default `styleDefinitionsVersion` to `2023-01-01`.
+
+- Added the `mvc` parameter to encompass the map control version in both definitions and style requests.
+
+#### Installation (3.0.0)
+
+The version is available on [npm][3.0.0] and CDN.
+
+- **NPM:** Refer to the instructions at [azure-maps-control@3.0.0][3.0.0]
+
+- **CDN:** Reference the following CSS and JavaScript in the `<head>` element of an HTML file:
+
+    ```html
+    <link href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3.0/atlas.min.css" rel="stylesheet" />
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3.0/atlas.min.js"></script>
+    ```
+
+### [3.0.0-preview.10] (July 11, 2023)
+
+#### Bug fixes (3.0.0-preview.10)
+
+- Dynamic pixel ratio fixed in underlying maplibre-gl dependency.
+
+- Fixed an issue where `sortKey`, `radialOffset`, `variableAnchor` isn't applied when used in `SymbolLayer` options.
+
+#### Installation (3.0.0-preview.10)
+
+The preview is available on [npm][3.0.0-preview.10] and CDN.
+
+- **NPM:** Refer to the instructions at [azure-maps-control@3.0.0-preview.10][3.0.0-preview.10]
+
+- **CDN:** Reference the following CSS and JavaScript in the `<head>` element of an HTML file:
+
+    ```html
+    <link href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3.0.0-preview.10/atlas.min.css" rel="stylesheet" />
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3.0.0-preview.10/atlas.min.js"></script>
+    ```
+
+### [3.0.0-preview.9] (June 27, 2023)
+
+#### New features (3.0.0-preview.9)
+
+- WebGL2 is used by default.
+
+- Elevation APIs: `atlas.sources.ElevationTileSource`, `map.enableElevation(elevationSource, options)`, `map.disableElevation()`
+
+- Ability to customize maxPitch / minPitch in `CameraOptions`
+
+#### Bug fixes (3.0.0-preview.9)
+
+- Fixed an issue where accessibility-related duplicated DOM elements may result when `map.setServiceOptions` is called
+
+#### Installation (3.0.0-preview.9)
+
+The preview is available on [npm][3.0.0-preview.9] and CDN.
+
+- **NPM:** Refer to the instructions at [azure-maps-control@3.0.0-preview.9][3.0.0-preview.9]
+
+- **CDN:** Reference the following CSS and JavaScript in the `<head>` element of an HTML file:
+
+    ```html
+    <link href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3.0.0-preview.9/atlas.min.css" rel="stylesheet" />
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3.0.0-preview.9/atlas.min.js"></script>
+    ```
+    
+### [3.0.0-preview.8] (June 2, 2023)
+
+#### Bug fixes (3.0.0-preview.8)
+
+- Fixed an exception that occurred while updating the property of a layout that no longer exists.
+
+- Fixed an issue where BubbleLayer's accessible indicators didn't update when the data source was modified.
+
+- Fixed an error in subsequent `map.setStyle()` calls if the raw Maplibre style is retrieved in the `stylechanged` event callback on style serialization.
+
+#### Other changes (3.0.0-preview.8)
+
+- Updated attribution logo and link.
+
+#### Installation (3.0.0-preview.8)
+
+The preview is available on [npm][3.0.0-preview.8] and CDN.
+
+- **NPM:** Refer to the instructions at [azure-maps-control@3.0.0-preview.8][3.0.0-preview.8]
+
+- **CDN:** Reference the following CSS and JavaScript in the `<head>` element of an HTML file:
+
+    ```html
+    <link href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3.0.0-preview.8/atlas.min.css" rel="stylesheet" />
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3.0.0-preview.8/atlas.min.js"></script>
+    ```
+
+### [3.0.0-preview.7] (May 2, 2023)
 
 #### New features (3.0.0-preview.7)
 
@@ -24,7 +142,7 @@ This document contains information about new features and other changes to the M
 
 #### Bug fixes (3.0.0-preview.7)
 
-- Fixed token expired exception on relaunches when using AAD / shared token / anonymous authentication by making sure authentication is resolved prior to any style definition request
+- Fixed token expired exception on relaunches when using Azure AD / shared token / anonymous authentication by making sure authentication is resolved prior to any style definition request
 
 - Fixed redundant style definition and thumbnail requests 
 
@@ -230,9 +348,53 @@ This update is the first preview of the upcoming 3.0.0 release. The underlying [
   })
   ```
 
-## v2 (latest)
+## v2
 
-### [2.2.7] (May 2nd, 2023)
+### [2.3.3] (October 6, 2023)
+
+#### Bug fixes (2.3.3)
+
+- Resolved the issue with dynamic attribution when progressive loading is enabled.
+
+### [2.3.2] (August 11, 2023)
+
+#### Bug fixes (2.3.2)
+
+- Fixed an issue where accessibility-related duplicated DOM elements may result when `map.setServiceOptions` is called.
+
+- Fixed zoom control to take into account the `maxBounds` [CameraOptions].
+
+#### Other changes (2.3.2)
+
+- Added the `mvc` parameter to encompass the map control version in both definitions and style requests.
+
+### [2.3.1] (June 27, 2023)
+
+#### Bug fixes (2.3.1)
+
+- Fix `ImageSpriteManager` icon images may get removed during style change 
+
+#### Other changes (2.3.1)
+
+- Security: insecure-randomness fix in UUID generation.
+
+### [2.3.0] (June 2, 2023)
+
+#### New features (2.3.0)
+
+- **\[BREAKING\]** Refactored the internal StyleManager to replace `_stylePatch` with `transformStyle`. This change will allow road shield icons to update and render properly after a style switch.
+
+#### Bug fixes (2.3.0)
+
+- Fixed an exception that occurred while updating the property of a layout that no longer exists.
+
+- Fixed an issue where BubbleLayer's accessible indicators didn't update when the data source was modified.
+
+#### Other changes (2.3.0)
+
+- Updated attribution logo and link.
+
+### [2.2.7] (May 2, 2023)
 
 #### New features (2.2.7)
 
@@ -240,7 +402,7 @@ This update is the first preview of the upcoming 3.0.0 release. The underlying [
 
 #### Bug fixes (2.2.7)
 
-- Fixed token expired exception on relaunches when using AAD / shared token / anonymous authentication by making sure authentication is resolved prior to any style definition request
+- Fixed token expired exception on relaunches when using Azure AD / shared token / anonymous authentication by making sure authentication is resolved prior to any style definition request
 
 - Fixed redundant style definition and thumbnail requests 
 
@@ -323,6 +485,11 @@ Stay up to date on Azure Maps:
 > [!div class="nextstepaction"]
 > [Azure Maps Blog]
 
+[3.0.1]: https://www.npmjs.com/package/azure-maps-control/v/3.0.1
+[3.0.0]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0
+[3.0.0-preview.10]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.10
+[3.0.0-preview.9]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.9
+[3.0.0-preview.8]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.8
 [3.0.0-preview.7]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.7
 [3.0.0-preview.6]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.6
 [3.0.0-preview.5]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.5
@@ -330,6 +497,10 @@ Stay up to date on Azure Maps:
 [3.0.0-preview.3]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.3
 [3.0.0-preview.2]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.2
 [3.0.0-preview.1]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.1
+[2.3.3]: https://www.npmjs.com/package/azure-maps-control/v/2.3.3
+[2.3.2]: https://www.npmjs.com/package/azure-maps-control/v/2.3.2
+[2.3.1]: https://www.npmjs.com/package/azure-maps-control/v/2.3.1
+[2.3.0]: https://www.npmjs.com/package/azure-maps-control/v/2.3.0
 [2.2.7]: https://www.npmjs.com/package/azure-maps-control/v/2.2.7
 [2.2.6]: https://www.npmjs.com/package/azure-maps-control/v/2.2.6
 [2.2.5]: https://www.npmjs.com/package/azure-maps-control/v/2.2.5
@@ -340,13 +511,14 @@ Stay up to date on Azure Maps:
 [adal-angular]: https://github.com/AzureAD/azure-activedirectory-library-for-js
 [@azure/msal-browser]: https://github.com/AzureAD/microsoft-authentication-library-for-js
 [migration guide]: ../active-directory/develop/msal-compare-msal-js-and-adal-js.md
-[CameraBoundsOptions]: /javascript/api/azure-maps-control/atlas.cameraboundsoptions?view=azure-maps-typescript-latest
-[Map.dispose()]: /javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#azure-maps-control-atlas-map-dispose
-[Map.setCamera(options)]: /javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#azure-maps-control-atlas-map-setcamera
+[CameraOptions]: /javascript/api/azure-maps-control/atlas.cameraoptions
+[CameraBoundsOptions]: /javascript/api/azure-maps-control/atlas.cameraboundsoptions
+[Map.dispose()]: /javascript/api/azure-maps-control/atlas.map#azure-maps-control-atlas-map-dispose
+[Map.setCamera(options)]: /javascript/api/azure-maps-control/atlas.map#azure-maps-control-atlas-map-setcamera
 [language mapping]: https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/azure-maps/supported-languages.md#azure-maps-supported-languages
-[user regions (view)]: /javascript/api/azure-maps-control/atlas.styleoptions?view=azure-maps-typescript-latest#azure-maps-control-atlas-styleoptions-view
-[ImageSpriteManager.add()]: /javascript/api/azure-maps-control/atlas.imagespritemanager?view=azure-maps-typescript-latest#azure-maps-control-atlas-imagespritemanager-add
-[Map.setServiceOptions()]: https://learn.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#azure-maps-control-atlas-map-setserviceoptions
+[user regions (view)]: /javascript/api/azure-maps-control/atlas.styleoptions#azure-maps-control-atlas-styleoptions-view
+[ImageSpriteManager.add()]: /javascript/api/azure-maps-control/atlas.imagespritemanager#azure-maps-control-atlas-imagespritemanager-add
+[Map.setServiceOptions()]: /javascript/api/azure-maps-control/atlas.map#azure-maps-control-atlas-map-setserviceoptions
 [azure-maps-control]: https://www.npmjs.com/package/azure-maps-control
 [maplibre-gl]: https://www.npmjs.com/package/maplibre-gl
 [SourceManager]: /javascript/api/azure-maps-control/atlas.sourcemanager

@@ -9,9 +9,7 @@ ms.date: 04/27/2023
 
 **Episode description**: In this episode of Defender for Cloud in the Field, Yossi Weizman joins Yuri Diogenes to talk about the evolution of the threat matrix for Containers and how attacks against Kubernetes have evolved. Yossi also demonstrates new detections that are available for different attacks and how Defender for Containers can help to quickly identify malicious activities in containers.
 
-<br>
-<br>
-<iframe src="https://aka.ms/docs/player?id=646c2b9a-3f15-4705-af23-7802bd9549c5" width="1080" height="530" allowFullScreen="true" frameBorder="0"></iframe>
+> [!VIDEO https://aka.ms/docs/player?id=646c2b9a-3f15-4705-af23-7802bd9549c5]
 
 - [01:15](/shows/mdc-in-the-field/threat-landscape-containers#time=01m15s) - The evolution of attacks against Kubernetes
 

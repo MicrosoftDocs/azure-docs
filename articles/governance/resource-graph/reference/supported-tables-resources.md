@@ -1,17 +1,16 @@
 ---
 title: Supported Azure Resource Manager resource types
 description: Provide a list of the Azure Resource Manager resource types supported by Azure Resource Graph and Change History.
-ms.date: 10/26/2022
+ms.date: 06/27/2023
 ms.topic: reference
 ms.custom: generated
 ms.author: davidsmatlak
 author: davidsmatlak
 ---
+
 # Azure Resource Graph table and resource type reference
 
-Azure Resource Graph supports the following **resource types** of
-[Azure Resource Manager](../../../azure-resource-manager/management/overview.md). Each **resource type** is
-part of a **table** in Resource Graph.
+Azure Resource Graph supports the following **resource types** of [Azure Resource Manager](../../../azure-resource-manager/management/overview.md). Each **resource type** is part of a **table** in Resource Graph.
 
 ## advisorresources
 
@@ -32,6 +31,12 @@ For sample queries for this table, see [Resource Graph sample queries for adviso
 - microsoft.web/sites/config/web
 - microsoft.web/sites/slots/config/web
 - microsoft.web/sites/workflows
+
+## authorizationresources
+
+- microsoft.authorization/roleassignments
+- microsoft.authorization/roledefinitions
+- microsoft.authorization/classicadministrators
 
 ## chaosresources
 
@@ -117,6 +122,11 @@ For sample queries for this table, see [Resource Graph sample queries for kubern
 - microsoft.maintenance/configurationassignments
 - microsoft.maintenance/maintenanceconfigurations/applyupdates
 - microsoft.maintenance/updates
+
+## managedservicesresources
+
+- microsoft.managedservices/registrationassignments
+- microsoft.managedservices/registrationdefinitions
 
 ## networkresources
 
@@ -238,8 +248,6 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.AppPlatform/Spring (Azure Spring Cloud)
 - microsoft.archive/collections
 - microsoft.Attestation/attestationProviders (Attestation providers)
-- microsoft.authorization/elevateaccessroleassignment
-- microsoft.Authorization/resourceManagementPrivateLinks (Resource management private links)
 - microsoft.automanage/accounts
 - microsoft.automanage/configurationprofilepreferences
 - microsoft.automanage/configurationprofiles
@@ -803,6 +811,8 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.scvmm/virtualnetworks
 - microsoft.ScVmm/vmmServers (SCVMM management servers)
 - microsoft.Search/searchServices (Search services)
+- microsoft.security/apicollections
+- microsoft.security/apicollections/apiendpoints
 - microsoft.security/assignments
 - microsoft.security/automations
 - microsoft.security/customassessmentautomations
@@ -961,8 +971,6 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 
 For sample queries for this table, see [Resource Graph sample queries for securityresources](../samples/samples-by-table.md#securityresources).
 
-- microsoft.authorization/locks/providers/assessments/governanceassignments
-- microsoft.authorization/roleassignments/providers/assessments/governanceassignments
 - microsoft.security/assessments
   - Sample query: [Count healthy, unhealthy, and not applicable resources per recommendation](../samples/samples-by-category.md#count-healthy-unhealthy-and-not-applicable-resources-per-recommendation)
   - Sample query: [List Container Registry vulnerability assessment results](../samples/samples-by-category.md#list-container-registry-vulnerability-assessment-results)

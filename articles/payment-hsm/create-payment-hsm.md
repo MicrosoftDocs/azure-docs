@@ -5,39 +5,36 @@ services: payment-hsm
 ms.service: payment-hsm
 author: msmbaldwin
 ms.author: mbaldwin
-ms.topic: quickstart
-ms.devlang: azurecli
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.date: 09/12/2022
+ms.topic: tutorial
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.date: 05/25/2023
 ---
 
 # Tutorial: Create a payment HSM
 
-Azure Payment HSM Service is a "BareMetal" service delivered using Thales payShield 10K payment hardware security modules (HSM) to provide cryptographic key operations for real-time, critical payment transactions in the Azure cloud. This article describes how to create an Azure Payment HSM with the host and management port in same virtual network.  
+[!INCLUDE [Payment HSM intro](./includes/about-payment-hsm.md)]
 
-In this tutorial, you learn how to:
-
-> [!div class="checklist"]
-> * Create a resource group
-> * Create a virtual network and subnet for your payment HSM
-> * Create a payment HSM
-> * Retrieve information about your payment HSM
+This tutorial describes how to create an Azure Payment HSM with the host and management port in same virtual network. You can instead:
+- [Create a payment HSM with the host and management port in the same virtual network using an ARM template](quickstart-template.md)
+- [Create a payment HSM with the host and management port in different virtual networks using Azure CLI or PowerShell](create-different-vnet.md)
+- [Create a payment HSM with the host and management port in different virtual networks using an ARM template](create-different-vnet-template.md)
+- [Create HSM resource with host and management port with IP addresses in different virtual networks using ARM template](create-different-ip-addresses.md)
 
 > [!NOTE]
 > If you wish to reuse an existing VNet, verify that you have met all of the [Prerequisites](#prerequisites) and then read [How to reuse an existing virtual network](reuse-vnet.md).
 
 ## Prerequisites
 
-[!INCLUDE [Specialized Service](../../includes/payment-hsm/specialized-service.md)]
+[!INCLUDE [Specialized Service](./includes/specialized-service.md)]
 
 # [Azure CLI](#tab/azure-cli)
 
 - You must register the "Microsoft.HardwareSecurityModules" and "Microsoft.Network" resource providers, as well as the Azure Payment HSM features. Steps for doing so are at [Register the Azure Payment HSM resource provider and resource provider features](register-payment-hsm-resource-providers.md).
 
   > [!WARNING]
-  > You must apply the "FastPathEnabled" feature flag to **every** subscription ID, and add the "fastpathenabled" tag to **every** virtual network. For more details, see [Fastpathenabled](fastpathenabled.md).
+  > You must apply the "FastPathEnabled" feature flag to **every** subscription ID, and add the "fastpathenabled" tag to **every** virtual network. For more information, see [Fastpathenabled](fastpathenabled.md).
 
-  To quickly ascertain if the resource providers and features are already registered, use the Azure CLI [az provider show](/cli/azure/provider#az-provider-show) command. (You will find the output of this command more readable if you display it in table-format.)
+  To quickly ascertain if the resource providers and features are already registered, use the Azure CLI [az provider show](/cli/azure/provider#az-provider-show) command. (The output of this command is more readable when displayed in table-format.)
 
   ```azurecli-interactive
   az provider show --namespace "Microsoft.HardwareSecurityModules" -o table
@@ -59,7 +56,7 @@ In this tutorial, you learn how to:
 - You must register the "Microsoft.HardwareSecurityModules" and "Microsoft.Network" resource providers, as well as the Azure Payment HSM features. Steps for doing so are at [Register the Azure Payment HSM resource provider and resource provider features](register-payment-hsm-resource-providers.md).
 
   > [!WARNING]
-  > You must apply the "FastPathEnabled" feature flag to **every** subscription ID, and add the "fastpathenabled" tag to **every** virtual network. For more details, see [Fastpathenabled](fastpathenabled.md).
+  > You must apply the "FastPathEnabled" feature flag to **every** subscription ID, and add the "fastpathenabled" tag to **every** virtual network. For more information, see [Fastpathenabled](fastpathenabled.md).
 
   To quickly ascertain if the resource providers and features are already registered, use the Azure PowerShell [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) cmdlet:
 
@@ -117,7 +114,7 @@ To verify that the VNet and subnet were created correctly, use the Azure CLI [az
 az network vnet subnet show -g "myResourceGroup" --vnet-name "myVNet" -n myPHSMSubnet
 ```
 
-Make note of the subnet's ID, as you will need it for the next step.  The ID of the subnet will end with the name of the subnet:
+Make note of the subnet's ID, as you need it for the next step.  The ID of the subnet ends with the name of the subnet:
 
 ```json
 "id": "/subscriptions/<subscriptionID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVNet/subnets/myPHSMSubnet",
@@ -162,7 +159,7 @@ To verify that the VNet was created correctly, use the Azure PowerShell [Get-AzV
 Get-AzVirtualNetwork -Name "myVNet" -ResourceGroupName "myResourceGroup"
 ```
 
-Make note of the subnet's ID, as you will need it for the next step.  The ID of the subnet will end with the name of the subnet:
+Make note of the subnet's ID, which is used in the next step.  The ID of the subnet ends with the name of the subnet:
 
 ```json
 "Id": "/subscriptions/<subscriptionID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVNet/subnets/myPHSMSubnet",
@@ -172,9 +169,11 @@ Make note of the subnet's ID, as you will need it for the next step.  The ID of 
 
 ## Create a payment HSM
 
+### Create with dynamic hosts
+
 # [Azure CLI](#tab/azure-cli)
 
-To create a payment HSM, use the [az dedicated-hsm create](/cli/azure/dedicated-hsm#az-dedicated-hsm-create) command. The following example creates a payment HSM named `myPaymentHSM` in the `eastus` region, `myResourceGroup` resource group, and specified subscription, virtual network, and subnet:
+To create a payment HSM with dynamic hosts, use the [az dedicated-hsm create](/cli/azure/dedicated-hsm#az-dedicated-hsm-create) command. The following example creates a payment HSM named `myPaymentHSM` in the `eastus` region, `myResourceGroup` resource group, and specified subscription, virtual network, and subnet:
 
 ```azurecli-interactive
 az dedicated-hsm create \
@@ -186,15 +185,43 @@ az dedicated-hsm create \
    --sku "payShield10K_LMK1_CPS60" 
 ```
 
+To see the newly created network interfaces, use the [az network nic list](/cli/azure/network/nic#az-network-nic-list) command, providing the resource group:
+
+```azurecli-interactive
+az network nic list -g myResourceGroup -o table
+```
+
+In the output, host 1 and host 2 are listed, as well as a management interface:
+
+```bash
+...  Name                      NicType    Primary    ProvisioningState    ResourceGroup    ...
+---  ------------------------  ---------  ---------  -------------------  ---------------  ---
+...  myPaymentHSM_HSMHost1Nic  Standard   True       Succeeded            myResourceGroup  ...
+...  myPaymentHSM_HSMHost2Nic  Standard   True       Succeeded            myResourceGroup  ...
+...  myPaymentHSM_HSMMgmtNic   Standard   True       Succeeded            myResourceGroup  ...
+```
+
+To see the newly created network interfaces, use the [az network nic show](/cli/azure/network/nic#az-network-nic-show) command, providing the resource group and name of the network interface:
+
+```azurecli-interactive
+ az network nic show -g myresourcegroup -n myPaymentHSM_HSMHost1Nic
+```
+
+The output contains this line:
+
+```json
+  "privateIPAllocationMethod": "Dynamic",
+```
+
 # [Azure PowerShell](#tab/azure-powershell)
 
-To create a payment HSM, use the [New-AzDedicatedHsm](/powershell/module/az.dedicatedhsm/new-azdedicatedhsm) cmdlet and the VNet ID from the previous step:
+To create a payment HSM with dynamic hosts, use the [New-AzDedicatedHsm](/powershell/module/az.dedicatedhsm/new-azdedicatedhsm) cmdlet and the VNet ID from the previous step:
 
 ```azurepowershell-interactive
 New-AzDedicatedHsm -Name "myPaymentHSM" -ResourceGroupName "myResourceGroup" -Location "East US" -Sku "payShield10K_LMK1_CPS60" -StampId "stamp1" -SubnetId "<subnet-id>"
 ```
 
-The output of the payment HSM creation will look like this:
+The output of the payment HSM creation looks like this:
 
 ```Output
 Name  Provisioning State SKU                     Location
@@ -202,47 +229,129 @@ Name  Provisioning State SKU                     Location
 myHSM Succeeded          payShield10K_LMK1_CPS60 East US
 ```
 
+To see the newly created network interfaces, use the [Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) cmdlet, providing the resource group:
+
+```azurecli-interactive
+Get-AzNetworkInterface -ResourceGroupName myResourceGroup | Format-Table
+```
+
+In the output, host 1 and host 2 are listed, as well as the management interface:
+
+```bash
+ResourceGroupName Name                     Location ...
+----------------- ----                     -------- ---
+myResourceGroup   myPaymentHSM_HSMHost1Nic eastus   ...
+myResourceGroup   myPaymentHSM_HSMHost2Nic eastus   ...
+myResourceGroup   myPaymentHSM_HSMMgmtNic  eastus   ...
+```
+
+In the Azure portal, the "Private IP allocation method" is "Dynamic":
+
+:::image type="content" source="./media/nic-dynamic.png" alt-text="Azure portal screenshot showing a network interface with a private IP allocation method of 'dynamic'." lightbox="./media/nic-dynamic.png":::
+
 ---
 
-## View your payment HSM
+### Create with static hosts
 
 # [Azure CLI](#tab/azure-cli)
 
-To see your payment HSM and its properties, use the Azure CLI [az dedicated-hsm show](/cli/azure/dedicated-hsm#az-dedicated-hsm-show) command.
+To create a payment HSM with static hosts, use the [az dedicated-hsm create](/cli/azure/dedicated-hsm#az-dedicated-hsm-create) command. The following example creates a payment HSM named `myPaymentHSM` in the `eastus` region, `myResourceGroup` resource group, and specified subscription, virtual network, and subnet:
 
 ```azurecli-interactive
-az dedicated-hsm show --resource-group "myResourceGroup" --name "myPaymentHSM"
+az dedicated-hsm create \
+  --resource-group "myResourceGroup" \
+  --name "myPaymentHSM" \
+  --location "EastUS" \
+  --subnet id="<subnet-id>" \
+  --stamp-id "stamp1" \
+  --sku "payShield10K_LMK1_CPS60" \
+  --network-interfaces private-ip-address='("10.0.0.5", "10.0.0.6")
 ```
 
-To list all of your payment HSMs, use the [az dedicated-hsm list](/cli/azure/dedicated-hsm#az-dedicated-hsm-list) command. (You will find the output of this command more readable if you display it in table-format.)
+If you wish to also specify a static IP for the management host, you can add:
 
 ```azurecli-interactive
-az dedicated-hsm list --resource-group "myResourceGroup" -o table
+  --mgmt-network-interfaces private-ip-address="10.0.0.7" \
+  --mgmt-network-subnet="<subnet-id>"
+```
+
+To see the newly created network interfaces, use the [az network nic list](/cli/azure/network/nic#az-network-nic-list) command, providing the resource group:
+
+```azurecli-interactive
+az network nic list -g myResourceGroup -o table
+```
+
+In the output, host 1 and host 2 are listed, as well as the management interface:
+
+```bash
+...  Name                      NicType    Primary    ProvisioningState    ResourceGroup    ...
+---  ------------------------  ---------  ---------  -------------------  ---------------  ---
+...  myPaymentHSM_HSMHost1Nic  Standard   True       Succeeded            myResourceGroup  ...
+...  myPaymentHSM_HSMHost2Nic  Standard   True       Succeeded            myResourceGroup  ...
+...  myPaymentHSM_HSMMgmtNic   Standard   True       Succeeded            myResourceGroup  ...
+```
+
+To view the properties of a network interface, use the [az network nic show](/cli/azure/network/nic#az-network-nic-show) command, providing the resource group and name of the network interface:
+
+```azurecli-interactive
+ az network nic show -g myresourcegroup -n myPaymentHSM_HSMHost1Nic
+```
+
+The output contains this line:
+
+```json
+  "privateIPAllocationMethod": "Static",
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-To see your payment HSM and its properties, use the Azure PowerShell [Get-AzDedicatedHsm](/powershell/module/az.dedicatedhsm/get-azdedicatedhsm) cmdlet.
+To create a payment HSM with static hosts, use the [New-AzDedicatedHsm](/powershell/module/az.dedicatedhsm/new-azdedicatedhsm) cmdlet and the VNet ID from the previous step:
 
 ```azurepowershell-interactive
-Get-AzDedicatedHsm -Name "myPaymentHSM" -ResourceGroup "myResourceGroup"
+New-AzDedicatedHsm -Name "myPaymentHSM" -ResourceGroupName "myResourceGroup" -Location "East US" -Sku "payShield10K_LMK1_CPS60" -StampId "stamp1" -SubnetId "<subnet-id>" -NetworkInterface (@{PrivateIPAddress = '10.0.0.5'}, @{PrivateIPAddress = '10.0.0.6'})
 ```
 
-To list all of your payment HSMs, use the [Get-AzDedicatedHsm](/powershell/module/az.dedicatedhsm/get-azdedicatedhsm) cmdlet with no parameters.
-
-To get more information on your payment HSM, you can use the [Get-AzResource](/powershell/module/az.dedicatedhsm/get-azdedicatedhsm) cmdlet, specifying the resource group, and "Microsoft.HardwareSecurityModules/dedicatedHSMs" as the resource type:
+If you wish to also specify a static IP for the management host, you can add:
 
 ```azurepowershell-interactive
-Get-AzResource -ResourceGroupName "myResourceGroup" -ResourceType "Microsoft.HardwareSecurityModules/dedicatedHSMs"
+-ManagementNetworkInterface @{PrivateIPAddress = '10.0.07'} -ManagementSubnetId "<subnetId>"
 ```
+
+The output of the payment HSM creation looks like this:
+
+```Output
+Name  Provisioning State SKU                     Location
+----  ------------------ ---                     --------
+myHSM Succeeded          payShield10K_LMK1_CPS60 East US
+```
+
+To see the newly created network interfaces, use the [Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) cmdlet, providing the resource group:
+
+```azurecli-interactive
+Get-AzNetworkInterface -ResourceGroupName myResourceGroup | Format-Table
+```
+
+In the output, host 1 and host 2 are listed, as well as the management interface:
+
+```bash
+ResourceGroupName Name                     Location ...
+----------------- ----                     -------- ---
+myResourceGroup   myPaymentHSM_HSMHost1Nic eastus   ...
+myResourceGroup   myPaymentHSM_HSMHost2Nic eastus   ...
+myResourceGroup   myPaymentHSM_HSMMgmtNic  eastus   ...
+```
+
+The Azure portal shows the "Private IP allocation method" as "Dynamic":
+
+:::image type="content" source="./media/nic-static.png" alt-text="Azure portal screenshot showing a network interface with a private IP allocation method of 'static'." lightbox="./media/nic-static.png":::
 
 ---
 
 ## Next steps
 
-Advance to the next article to learn how to access the payShield manager for your payment HSM
+Advance to the next article to learn how to view your payment HSM.
 > [!div class="nextstepaction"]
-> [Access the payShield manager](access-payshield-manager.md)
+> [View your payment HSMs](view-payment-hsms.md)
 
 Additional information:
 

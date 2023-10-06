@@ -2,14 +2,13 @@
 title: Azure Blob indexer
 titleSuffix: Azure Cognitive Search
 description: Set up an Azure Blob indexer to automate indexing of blob content for full text search operations and knowledge mining in Azure Cognitive Search.
-
 author: gmndrg
 ms.author: gimondra
 manager: nitinme
 
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 04/03/2023
+ms.date: 05/18/2023
 ---
 
 # Index data from Azure Blob Storage
@@ -95,6 +94,9 @@ You still have to add the underscored fields to the index definition, but you ca
 Lastly, any metadata properties specific to the document format of the blobs you're indexing can also be represented in the index schema. For more information about content-specific metadata, see [Content metadata properties](search-blob-metadata-properties.md).
 
 It's important to point out that you don't need to define fields for all of the above properties in your search index - just capture the properties you need for your application.
+
+Currently, indexing [blob index tags](../storage/blobs/storage-blob-index-how-to.md) is not supported by this indexer. 
+
 
 ## Define the data source
 

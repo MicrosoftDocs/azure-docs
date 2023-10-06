@@ -91,10 +91,13 @@ The script takes the following actions:
 
 ### Prerequisites
 
-You must have PowerShell and the AWS CLI on your machine.
+- Install the Amazon Web Services solution from the **Content Hub** in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content (Public preview)](sentinel-solutions-deploy.md).
 
-   - [Installation instructions for PowerShell](/powershell/scripting/install/installing-powershell)
-   - [Installation instructions for the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
+- You must have PowerShell and the AWS CLI on your machine.
+  - [Installation instructions for PowerShell](/powershell/scripting/install/installing-powershell)
+  - [Installation instructions for the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
+
+
 
 ### Instructions
 
@@ -102,8 +105,11 @@ To run the script to set up the connector, use the following steps:
 
 1. From the Microsoft Sentinel navigation menu, select **Data connectors**.
 
-1. Select **Amazon Web Services S3** from the data connectors gallery, and in the details pane, select **Open connector page**.
+1. Select **Amazon Web Services S3** from the data connectors gallery.
 
+   If you don't see the connector, install the Amazon Web Services solution from the **Content Hub** in Microsoft Sentinel.
+
+1. In the details pane for the connector, select **Open connector page**.
 1. In the **Configuration** section, under **1. Set up your AWS environment**, expand **Setup with PowerShell script (recommended)**.
 
 1. Follow the on-screen instructions to download and extract the [AWS S3 Setup Script](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/AWS-S3/ConfigAwsS3DataConnectorScripts.zip?raw=true) (link downloads a zip file containing the main setup script and helper scripts) from the connector page.
@@ -141,6 +147,8 @@ Microsoft recommends using the automatic setup script to deploy this connector. 
 
     - Create a [standard Simple Queue Service (SQS) queue](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-create-queue.html) in AWS.
 
+- Install the Amazon Web Services solution from the **Content Hub** in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
+
 ### Instructions
 
 The manual setup consists of the following steps:
@@ -152,8 +160,13 @@ The manual setup consists of the following steps:
 
 #### Create an AWS assumed role and grant access to the AWS Sentinel account
 
-1. In Microsoft Sentinel, select **Data connectors** and then select the **Amazon Web Services S3** line in the table and in the AWS pane to the right,  select **Open connector page**.
+1. In Microsoft Sentinel, select **Data connectors**.
 
+1. Select **Amazon Web Services S3** from the data connectors gallery.
+
+   If you don't see the connector, install the Amazon Web Services solution from the **Content Hub** in Microsoft Sentinel.
+
+1. In the details pane for the connector, select **Open connector page**.
 1. Under **Configuration**, copy the **External ID (Workspace ID)** and paste it aside.
  
 1. In your AWS management console, under **Security, Identity & Compliance**, select **IAM**.
@@ -261,14 +274,21 @@ Learn how to [troubleshoot Amazon Web Services S3 connector issues](aws-s3-troub
 
 ## Prerequisites
 
-You must have write permission on the Microsoft Sentinel workspace.
+- You must have write permission on the Microsoft Sentinel workspace.
+-  Install the Amazon Web Services solution from the Content Hub in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
 
 > [!NOTE]
 > Microsoft Sentinel collects CloudTrail management events from all regions. It is recommended that you do not stream events from one region to another.
 
 ## Connect AWS CloudTrail
 
-1. In Microsoft Sentinel, select **Data connectors** and then select the **Amazon Web Services** line in the table and in the AWS pane to the right,  select **Open connector page**.
+1. In Microsoft Sentinel, select **Data connectors**.
+
+1. Select **Amazon Web Services** from the data connectors gallery.
+
+   If you don't see the connector, install the Amazon Web Services solution from the **Content Hub** in Microsoft Sentinel.
+
+1. In the details pane for the connector, select **Open connector page**.
 
 1. Follow the instructions under **Configuration** using the following steps.
  

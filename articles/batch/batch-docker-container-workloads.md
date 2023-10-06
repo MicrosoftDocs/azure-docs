@@ -2,9 +2,9 @@
 title: Container workloads on Azure Batch
 description: Learn how to run and scale apps from container images on Azure Batch. Create a pool of compute nodes that support running container tasks.
 ms.topic: how-to
-ms.date: 05/01/2023
+ms.date: 07/14/2023
 ms.devlang: csharp, python
-ms.custom: "seodec18, devx-track-csharp"
+ms.custom: seodec18, devx-track-csharp, devx-track-linux
 ---
 
 # Use Azure Batch to run container workloads
@@ -31,6 +31,15 @@ You should be familiar with container concepts and how to create a Batch pool an
 - **Accounts**: In your Azure subscription, you need to create a [Batch account](accounts.md) and optionally an Azure Storage account.
 
 - **A supported virtual machine (VM) image**: Containers are only supported in pools created with the Virtual Machine Configuration, from a supported image (listed in the next section). If you provide a custom image, see the considerations in the following section and the requirements in [Use a managed image to create a custom image pool](batch-custom-images.md).
+
+> [!NOTE]
+> From Batch SDK versions:
+> - Batch .NET SDK version 16.0.0
+> - Batch Python SDK version 14.0.0
+> - Batch Java SDK version 11.0.0
+> - Batch Node.js SDK version 11.0.0
+
+Currently, the `containerConfiguration` requires `Type` property to be passed and the supported values are: `ContainerType.DockerCompatible` and `ContainerType.CriCompatible`.
 
 Keep in mind the following limitations:
 
@@ -62,6 +71,31 @@ For Linux container workloads, Batch currently supports the following Linux imag
 - Publisher: `microsoft-azure-batch`
   - Offer: `centos-container-rdma`
   - Offer: `ubuntu-server-container-rdma`
+
+- Publisher: `microsoft-dsvm`
+  - Offer: `ubuntu-hpc`
+
+#### Notes
+  The docker data root of the above images lies in different places:
+  - For the batch image `microsoft-azure-batch` (Offer: `centos-container-rdma`, etc), the docker data root is mapped to `/mnt/batch/docker`, which is usually located on the temporary disk.
+  - For the HPC image, or `microsoft-dsvm` (Offer: `ubuntu-hpc`, etc), the docker data root is unchanged from the Docker default which is `/var/lib/docker` on Linux and `C:\ProgramData\Docker` on Windows. These folders are usually located on the OS disk.
+
+    When using non-Batch images, the OS disk has the potential risk of being filled up quickly as container images are downloaded.
+#### Potential solutions for customer
+
+Change the docker data root in a start task when creating a pool in BatchExplorer. Here's an example of the Start Task command:
+```csharp
+1)  sudo systemctl stop docker
+2)  sudo vi /lib/systemd/system/docker.service
+    +++
+    FROM:
+    ExecStart=/usr/bin/docker daemon -H fd://
+    TO:
+    ExecStart=/usr/bin/docker daemon -g /new/path/docker -H fd://
+    +++
+3)  sudo systemctl daemon-reload
+4)  sudo systemctl start docker
+```
 
 These images are only supported for use in Azure Batch pools and are geared for Docker container execution. They feature:
 

@@ -4,18 +4,14 @@ description: Familiarize yourself with the infrastructure requirements for Azure
 author: boris-bazilevskiy
 manager: nmurav
 services: azure-communication-services
-
 ms.author: bobazile
-ms.date: 05/11/2023
+ms.date: 06/22/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: pstn
 ---
 
 # Azure direct routing infrastructure requirements 
-
-[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
-[!INCLUDE [Dynamics 365 Omnichannel Notice](../includes/direct-routing-omnichannel-note.md)]
  
 This article describes infrastructure, licensing, and Session Border Controller (SBC) connectivity details that you want to keep in mind as your plan your Azure direct routing deployment.
 
@@ -49,7 +45,7 @@ Alternatively, Communication Services direct routing supports a wildcard in the 
 
 Customers who already use Office 365 and have a domain registered in Microsoft 365 Admin Center can use SBC FQDN from the same domain.
 
-An example would be using `\*.contoso.com`, which would match the SBC FQDN `sbc.contoso.com`, but wouldn't match with `sbc.test.contoso.com`.
+An example would be using `*.contoso.com`, which would match the SBC FQDN `sbc.contoso.com`, but wouldn't match with `sbc.test.contoso.com`.
 
  >[!NOTE]
  > SBC FQDN in Azure Communication Services direct routing must be different from SBC FQDN in Teams Direct Routing.
@@ -71,12 +67,13 @@ Learn more:
 
 SBC pairing works on the Communication Services resource level. It means you can pair many SBCs to a single Communication Services resource. Still, you can't pair a single SBC to more than one Communication Services resource. Unique SBC FQDNs are required for pairing to different resources.
 
+If Mutual TLS (MTLS) support is enabled for the direct routing connection on the SBC, then you must install the Baltimore CyberTrust Root **and** the DigiCert Global Root G2 certificates in the SBC Trusted Root Store of the direct routing TLS context. (This is because the Microsoft service certificates use one of these two root certificates.) To download these root certificates, see [Office 365 Encryption chains](/microsoft-365/compliance/encryption-office-365-certificate-chains). For more details, see [Office TLS Certificate Changes](/microsoft-365/compliance/encryption-office-365-tls-certificates-changes).
 
 ## SIP Signaling: FQDNs 
 
 The connection points for Communication Services direct routing are the following three FQDNs:
 
-- **sip.pstnhub.microsoft.com — Global FQDN — must be tried first. When the SBC sends a request to resolve this name, the Microsoft Azure DNS servers return an IP address that points to the primary Azure datacenter assigned to the SBC. The assignment is based on performance metrics of the datacenters and geographical proximity to the SBC. The IP address returned corresponds to the primary FQDN.
+- **sip.pstnhub.microsoft.com** — Global FQDN — must be tried first. When the SBC sends a request to resolve this name, the Microsoft Azure DNS servers return an IP address that points to the primary Azure datacenter assigned to the SBC. The assignment is based on performance metrics of the datacenters and geographical proximity to the SBC. The IP address returned corresponds to the primary FQDN.
 - **sip2.pstnhub.microsoft.com** — Secondary FQDN — geographically maps to the second priority region.
 - **sip3.pstnhub.microsoft.com** — Tertiary FQDN — geographically maps to the third priority region.
 
@@ -87,8 +84,8 @@ These three FQDNs in order are required to:
 
 The FQDNs — sip.pstnhub.microsoft.com, sip2.pstnhub.microsoft.com, and sip3.pstnhub.microsoft.com — resolve to one of the following IP addresses:
 
-- `52.112.0.0/14 (IP addresses from 52.112.0.1 to 52.115.255.254)`
-- `52.120.0.0/14 (IP addresses from 52.120.0.1 to 52.123.255.254)`
+- `52.112.0.0/14 (IP addresses from 52.112.0.0 to 52.115.255.255)`
+- `52.120.0.0/14 (IP addresses from 52.120.0.0 to 52.123.255.255)`
 
 Open firewall ports for all these IP address ranges to allow incoming and outgoing traffic to and from the addresses for signaling.
 
@@ -109,8 +106,8 @@ The SBC makes a DNS query to resolve sip.pstnhub.microsoft.com. Based on the SBC
 
 The media traffic flows to and from a separate service called Media Processor. The IP address ranges for media traffic are the same as for signaling:
 
-- `52.112.0.0/14 (IP addresses from 52.112.0.1 to 52.115.255.254)`
-- `52.120.0.0/14 (IP addresses from 52.120.0.1 to 52.123.255.254)`
+- `52.112.0.0/14 (IP addresses from 52.112.0.0 to 52.115.255.255)`
+- `52.120.0.0/14 (IP addresses from 52.120.0.0 to 52.123.255.255)`
 
 ### Port ranges
 The port ranges of the Media Processors are shown in the following table: 

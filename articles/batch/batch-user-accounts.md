@@ -2,8 +2,8 @@
 title: Run tasks under user accounts
 description: Learn the types of user accounts and how to configure them.
 ms.topic: how-to
-ms.date: 04/13/2021
-ms.custom: seodec18
+ms.date: 05/16/2023
+ms.custom: seodec18, devx-track-linux
 ms.devlang: csharp, java, python
 ---
 # Run tasks under user accounts in Batch
@@ -176,19 +176,19 @@ List<NodeAgentSku> nodeAgentSkus =
     batchClient.PoolOperations.ListNodeAgentSkus().ToList();
 
 // Define a delegate specifying properties of the VM image to use.
-Func<ImageReference, bool> isUbuntu1404 = imageRef =>
+Func<ImageReference, bool> isUbuntu1804 = imageRef =>
     imageRef.Publisher == "Canonical" &&
     imageRef.Offer == "UbuntuServer" &&
-    imageRef.Sku.Contains("14.04");
+    imageRef.Sku.Contains("20.04-LTS");
 
 // Obtain the first node agent SKU in the collection that matches
-// Ubuntu Server 14.04. 
+// Ubuntu Server 20.04. 
 NodeAgentSku ubuntuAgentSku = nodeAgentSkus.First(sku =>
-    sku.VerifiedImageReferences.Any(isUbuntu1404));
+    sku.VerifiedImageReferences.Any(isUbuntu2004));
 
 // Select an ImageReference from those available for node agent.
 ImageReference imageReference =
-    ubuntuAgentSku.VerifiedImageReferences.First(isUbuntu1404);
+    ubuntuAgentSku.VerifiedImageReferences.First(isUbuntu2004);
 
 // Create the virtual machine configuration to use to create the pool.
 VirtualMachineConfiguration virtualMachineConfiguration =

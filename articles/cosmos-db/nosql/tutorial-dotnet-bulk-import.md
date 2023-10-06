@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.date: 03/25/2022
 ms.reviewer: mjbrown
 ms.devlang: csharp
-ms.custom: devx-track-csharp, cosmos-db-video, ignite-2022
+ms.custom: devx-track-csharp, cosmos-db-video, ignite-2022, devx-track-dotnet
 ---
 # Bulk import data to Azure Cosmos DB for NoSQL account by using the .NET SDK
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
@@ -42,7 +42,7 @@ Before following the instructions in this article, make sure that you have the f
 
 ## Step 1: Create an Azure Cosmos DB account
 
-[Create an Azure Cosmos DB for NoSQL account](quickstart-portal.md) from the Azure portal or you can create the account by using the [Azure Cosmos DB Emulator](../local-emulator.md).
+[Create an Azure Cosmos DB for NoSQL account](quickstart-portal.md) from the Azure portal or you can create the account by using the [Azure Cosmos DB Emulator](../emulator.md).
 
 ## Step 2: Set up your .NET project
 
@@ -88,7 +88,7 @@ The sample application needs to authenticate to your Azure Cosmos DB account. To
 1.    Navigate to your Azure Cosmos DB account.
 1.    Open the **Keys** pane and copy the **URI** and **PRIMARY KEY** of your account.
 
-If you're using the Azure Cosmos DB Emulator, obtain the [emulator credentials from this article](../local-emulator.md#authenticate-requests).
+If you're using the Azure Cosmos DB Emulator, obtain the [emulator credentials from this article](../emulator.md).
 
 ## Step 5: Initialize the CosmosClient object with bulk execution support
 

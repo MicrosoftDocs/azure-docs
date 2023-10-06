@@ -18,7 +18,7 @@ You can call other container apps in the same environment from your application 
 
 - default fully qualified domain name (FQDN)
 - a custom domain name
-- the container app name
+- the container app name, for instance `http://<APP_NAME>` for internal requests
 - a Dapr URL
 
 > [!NOTE]

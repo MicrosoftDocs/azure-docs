@@ -1,18 +1,21 @@
 ---
 title: Add Contributor role on the Media Services account
 description: This topic explains how to add contributor role on the Media Services account.
-ms.author: itnorman
 ms.topic: how-to
 ms.date: 10/13/2021
 ms.custom: ignite-fall-2021
+ms.author: itnorman
+author: IngridAtMicrosoft
 ---
 
 # Add contributor role to Media Services
 
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
+
 This article describes how to assign contributor role on the Media Services account.
 
 > [!NOTE]
-> If you are creating your Azure Video Indexer through the Azure portal UI, the selected Managed identity will be automatically assigned with a contributor permission on the selected Media Service account.
+> If you are creating your Azure AI Video Indexer through the Azure portal UI, the selected Managed identity will be automatically assigned with a contributor permission on the selected Media Service account.
 
 ## Prerequisites
 
@@ -20,7 +23,7 @@ This article describes how to assign contributor role on the Media Services acco
 2. User-assigned managed identity
 
 > [!NOTE]
-> You need an Azure subscription with access to both the [Contributor][docs-role-contributor] role and the [User Access Administrator][docs-role-administrator] role to the Azure Media Services and the User-assigned managed identity. If you don't have the right permissions, ask your account administrator to grant you those permissions. The associated Azure Media Services must be in the same region as the Azure Video Indexer account.
+> You need an Azure subscription with access to both the [Contributor][docs-role-contributor] role and the [User Access Administrator][docs-role-administrator] role to the Azure Media Services and the User-assigned managed identity. If you don't have the right permissions, ask your account administrator to grant you those permissions. The associated Azure Media Services must be in the same region as the Azure AI Video Indexer account.
 
 ## Add Contributor role on the Media Services
 ### [Azure portal](#tab/portal/)

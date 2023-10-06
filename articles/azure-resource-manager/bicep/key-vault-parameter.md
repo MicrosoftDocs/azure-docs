@@ -1,19 +1,17 @@
 ---
 title: Key Vault secret with Bicep
 description: Shows how to pass a secret from a key vault as a parameter during Bicep deployment.
-author: mumian
-ms.author: jgao
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep
-ms.date: 06/18/2021
+ms.date: 06/23/2023
 ---
 
 # Use Azure Key Vault to pass secure parameter value during Bicep deployment
 
-Instead of putting a secure value (like a password) directly in your Bicep file or parameter file, you can retrieve the value from an [Azure Key Vault](../../key-vault/general/overview.md) during a deployment. When a [module](./modules.md) expects a `string` parameter with `secure:true` modifier, you can use the [getSecret function](bicep-functions-resource.md#getsecret) to obtain a key vault secret. The value is never exposed because you only reference its key vault ID.
+Instead of putting a secure value (like a password) directly in your Bicep file or parameters file, you can retrieve the value from an [Azure Key Vault](../../key-vault/general/overview.md) during a deployment. When a [module](./modules.md) expects a `string` parameter with `secure:true` modifier, you can use the [getSecret function](bicep-functions-resource.md#getsecret) to obtain a key vault secret. The value is never exposed because you only reference its key vault ID.
 
 > [!IMPORTANT]
-> This article focuses on how to pass a sensitive value as a template parameter. When the secret is passed as a parameter, the key vault can exist in a different subscription than the resource group you're deploying to. 
+> This article focuses on how to pass a sensitive value as a template parameter. When the secret is passed as a parameter, the key vault can exist in a different subscription than the resource group you're deploying to.
 >
 > This article doesn't cover how to set a virtual machine property to a certificate's URL in a key vault. For a quickstart template of that scenario, see [Install a certificate from Azure Key Vault on a Virtual Machine](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/vm-winrm-keyvault-windows).
 
@@ -189,7 +187,7 @@ param subscriptionId string
 param kvResourceGroup string
 param kvName string
 
-resource kv 'Microsoft.KeyVault/vaults@2019-09-01' existing = {
+resource kv 'Microsoft.KeyVault/vaults@2023-02-01' existing = {
   name: kvName
   scope: resourceGroup(subscriptionId, kvResourceGroup )
 }
@@ -204,15 +202,28 @@ module sql './sql.bicep' = {
 }
 ```
 
-## Reference secrets in parameter file
+Also, `getSecret` function (or with the namespace qualifier `az.getSecret`) can be used in a `.bicepparam` file to retrieve the value of a secret from a key vault.
 
-If you don't want to use a module, you can reference the key vault directly in the parameter file. The following image shows how the parameter file references the secret and passes that value to the Bicep file.
+```bicep
+using './main.bicep'
+
+param secureUserName = getSecret('exampleSubscription', 'exampleResourceGroup', 'exampleKeyVault', 'exampleSecretUserName', 'exampleSecretVersion')
+param securePassword = az.getSecret('exampleSubscription', 'exampleResourceGroup', 'exampleKeyVault', 'exampleSecretPassword')
+```
+
+## Reference secrets in parameters file
+
+If you don't want to use a module, you can reference the key vault directly in the parameters file. The following image shows how the parameters file references the secret and passes that value to the Bicep file.
 
 ![Resource Manager key vault integration diagram](./media/key-vault-parameter/statickeyvault.png)
+
+> [!NOTE]
+> Currently you can only reference the key vault in JSON parameters files. You can't reference key vault in Bicep parameters file.
 
 The following Bicep file deploys a SQL server that includes an administrator password. The password parameter is set to a secure string. But the Bicep doesn't specify where that value comes from.
 
 ```bicep
+param location string = resourceGroup().location
 param adminLogin string
 
 @secure()
@@ -220,9 +231,9 @@ param adminPassword string
 
 param sqlServerName string
 
-resource sqlServer 'Microsoft.Sql/servers@2020-11-01-preview' = {
+resource sqlServer 'Microsoft.Sql/servers@2022-11-01-preview' = {
   name: sqlServerName
-  location: resourceGroup().location
+  location: location
   properties: {
     administratorLogin: adminLogin
     administratorLoginPassword: adminPassword
@@ -233,9 +244,9 @@ resource sqlServer 'Microsoft.Sql/servers@2020-11-01-preview' = {
 
 ---
 
-Now, create a parameter file for the preceding Bicep file. In the parameter file, specify a parameter that matches the name of the parameter in the Bicep file. For the parameter value, reference the secret from the key vault. You reference the secret by passing the resource identifier of the key vault and the name of the secret:
+Now, create a parameters file for the preceding Bicep file. In the parameters file, specify a parameter that matches the name of the parameter in the Bicep file. For the parameter value, reference the secret from the key vault. You reference the secret by passing the resource identifier of the key vault and the name of the secret:
 
-In the following parameter file, the key vault secret must already exist, and you provide a static value for its resource ID.
+In the following parameters file, the key vault secret must already exist, and you provide a static value for its resource ID.
 
 ```json
 {
@@ -267,7 +278,7 @@ If you need to use a version of the secret other than the current version, inclu
 "secretVersion": "cd91b2b7e10e492ebb870a6ee0591b68"
 ```
 
-Deploy the template and pass in the parameter file:
+Deploy the template and pass in the parameters file:
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -276,7 +287,7 @@ az group create --name SqlGroup --location westus2
 az deployment group create \
   --resource-group SqlGroup \
   --template-file <Bicep-file> \
-  --parameters <parameter-file>
+  --parameters <parameters-file>
 ```
 
 # [PowerShell](#tab/azure-powershell)
@@ -286,7 +297,7 @@ New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment `
   -ResourceGroupName $resourceGroupName `
   -TemplateFile <Bicep-file> `
-  -TemplateParameterFile <parameter-file>
+  -TemplateParameterFile <parameters-file>
 ```
 
 ---

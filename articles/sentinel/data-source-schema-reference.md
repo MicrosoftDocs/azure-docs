@@ -48,7 +48,7 @@ The following table lists supported third-party vendors and their Syslog or Comm
 | **Network**	| Zscaler |	Nano Streaming Service (NSS)|	CommonSecurityLog |	[Formatting NSS Feeds](https://help.zscaler.com/zia/documentation-knowledgebase/analytics/nss/nss-feeds/formatting-nss-feeds) (Web, Firewall, DNS, and Tunnel logs only) |
 | **Network**	|F5	| BigIP LTM|	CommonSecurityLog|	[Event Messages and Attack Types](https://techdocs.f5.com/kb/en-us/products/big-ip_ltm/manuals/product/bigip-external-monitoring-implementations-13-0-0/15.html)  |
 | **Network** |	F5	| BigIP ASM|	CommonSecurityLog|	[Logging Application Security Events](https://techdocs.f5.com/kb/en-us/products/big-ip_asm/manuals/product/asm-implementations-13-1-0/14.html)                                                           |
-| **Network** |	Citrix	|Web App Firewall	| CommonSecurityLog|	[Common Event Format (CEF) Logging Support in the Application Firewall](https://support.citrix.com/article/CTX136146) <br>  [NetScaler 12.0 Syslog Message Reference](https://developer-docs.citrix.com/projects/netscaler-syslog-message-reference/en/12.0/)   |
+| **Network** |	Citrix	|Web App Firewall	| CommonSecurityLog|	[Common Event Format (CEF) Logging Support in the Application Firewall](https://support.citrix.com/article/CTX136146)  |
 |**Host** |Symantec | Symantec Endpoint Protection Manager (SEPM) | CommonSecurityLog|[External Logging settings and log event severity levels for Endpoint Protection Manager](https://support.symantec.com/us/en/article.tech171741.html)|
 |**Host** |Trend Micro |All |CommonSecurityLog | [Syslog Content Mapping - CEF](https://docs.trendmicro.com/en-us/enterprise/trend-micro-apex-central-2019-online-help/appendices/syslog-mapping-cef.aspx) |
 

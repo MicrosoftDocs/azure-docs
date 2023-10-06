@@ -5,15 +5,17 @@ description: This quickstart shows how to create a public load balancer using th
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: quickstart
-ms.date: 03/16/2022
+ms.date: 09/25/2023
 ms.author: mbender
-ms.custom: mvc, devx-track-js, devx-track-azurecli, mode-api, template-quickstart, engagement-fy23
+ms.custom: mvc, devx-track-azurecli, mode-api, template-quickstart, engagement-fy23
 #Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
 ---
 
 # Quickstart: Create a public load balancer to load balance VMs using the Azure CLI
 
-Get started with Azure Load Balancer by using the Azure CLI to create a public load balancer and two virtual machines.
+Get started with Azure Load Balancer by using the Azure CLI to create a public load balancer and two virtual machines. Along with these resources, you deploy Azure Bastion, NAT Gateway, a virtual network, and the required subnets.
+
+:::image type="content" source="media/quickstart-load-balancer-standard-public-portal/public-load-balancer-resources.png" alt-text="Diagram of resources deployed for a standard public load balancer.":::
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -37,7 +39,7 @@ Create a resource group with [az group create](/cli/azure/group#az-group-create)
 
 Before you deploy VMs and test your load balancer, create the supporting virtual network and subnet.
 
-Create a virtual network using [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). The virtual network and subnet will contain the resources deployed later in this article.
+Create a virtual network using [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). The virtual network and subnet contain the resources deployed later in this article.
 
 ```azurecli
   az network vnet create \
@@ -63,7 +65,7 @@ Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public
     --zone 1 2 3
 ```
 
-To create a zonal public IP address in Zone 1, use the following command:
+To create a zonal public IP address in Zone 1 instead, use the following command:
 
 ```azurecli
   az network public-ip create \
@@ -177,7 +179,10 @@ Create a network security group rule using [az network nsg rule create](/cli/azu
 
 ## Create a bastion host
 
-In this section, you'll create the resources for Azure Bastion. Azure Bastion is used to securely manage the virtual machines in the backend pool of the load balancer.
+In this section, you create the resources for Azure Bastion. Azure Bastion is used to securely manage the virtual machines in the backend pool of the load balancer.
+
+> [!IMPORTANT]
+> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
 
 ### Create a public IP address
 
@@ -305,7 +310,7 @@ Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public
     --zone 1 2 3
 ```
 
-To create a zonal redundant public IP address in Zone 1:
+To create a zonal redundant public IP address in Zone 1 instead, use the following command:
 
 ```azurecli
   az network public-ip create \

@@ -2,7 +2,7 @@
 title: Set up Bicep development and deployment environments
 description: How to configure Bicep development and deployment environments
 ms.topic: conceptual
-ms.date: 03/17/2023
+ms.date: 09/21/2023
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep
 ---
 
@@ -12,14 +12,14 @@ Let's make sure your environment is set up for working with Bicep files. To auth
 
 | Tasks | Options | Bicep CLI installation |
 | ------ | ------- | ----------- |
-| Author | [VS Code and Bicep extension](#vs-code-and-bicep-extension) | automatic |
+| Author | [VS Code and Bicep extension](#visual-studio-code-and-bicep-extension) | automatic |
 |  | [Visual Studio and Bicep extension](#visual-studio-and-bicep-extension) | automatic |
 | Deploy | [Azure CLI](#azure-cli) | automatic |
 |  | [Azure PowerShell](#azure-powershell) | [manual](#install-manually) |
-|  | [VS Code and Bicep extension](#vs-code-and-bicep-extension) | [manual](#install-manually) |
+|  | [VS Code and Bicep extension](#visual-studio-code-and-bicep-extension) | [manual](#install-manually) |
 |  | [Air-gapped cloud](#install-on-air-gapped-cloud) | download |
 
-## VS Code and Bicep extension
+## Visual Studio Code and Bicep extension
 
 To create Bicep files, you need a good Bicep editor. We recommend:
 
@@ -30,15 +30,43 @@ To create Bicep files, you need a good Bicep editor. We recommend:
 
   Select **Install**.
 
-  :::image type="content" source="./media/install/install-extension.png" alt-text="Install Bicep extension":::
+  :::image type="content" source="./media/install/install-extension.png" alt-text="Screenshot of installing Bicep extension.":::
 
 To verify you've installed the extension, open any file with the `.bicep` file extension. You should see the language mode in the lower right corner change to **Bicep**.
 
-:::image type="content" source="./media/install/language-mode.png" alt-text="Bicep language mode":::
+:::image type="content" source="./media/install/language-mode.png" alt-text="Screenshot of Bicep language mode.":::
 
 If you get an error during installation, see [Troubleshoot Bicep installation](installation-troubleshoot.md).
 
 You can deploy your Bicep files directly from the VS Code editor. For more information, see [Deploy Bicep files from Visual Studio Code](deploy-vscode.md).
+
+### Configure Bicep extension
+
+To see the settings:
+
+1. From the `View` menu, select `Extensions`.
+1. Select `Bicep` from the list of extensions.
+1. Select the `FEATURE CONTRIBUTIONS` tab:
+
+    :::image type="content" source="./media/install/bicep-extension-feature-contributions-settings.png" alt-text="Screenshot of Bicep extension settings.":::
+
+    The Bicep extension has these settings and default values:
+
+    | ID | Default value | Description |
+    |-----|-------------|---------|
+    | bicep.decompileOnPaste | true | Automatically convert pasted JSON values, JSON ARM templates or resources from a JSON ARM template into Bicep (use Undo to revert). For more information, see [Paste as Bicep](./visual-studio-code.md#paste-as-bicep).|
+    | bicep.enableOutputTimestamps | true | Prepend each line displayed in the Bicep Operations output channel with a timestamp. |
+    | bicep.suppressedWarnings | | Warnings that are being suppressed because a 'Don't show again' button was pressed. Remove items to reset.|
+    | bicep.enableSurveys | true | Enable occasional surveys to collect feedback that helps us improve the Bicep extension. |
+    | bicep.completions.getAllAccessibleAzureContainerRegistries | false | When completing 'br:' module references, query Azure for all container registries accessible to the user (may be slow). If this option is off, only  registries configured under [moduleAliases](./bicep-config-modules.md#aliases-for-modules) in [bicepconfig.json](./bicep-config.md) will be listed. |
+    | bicep.trace.server | off | Configure tracing of messages sent to the Bicep language server. |
+
+To configure the settings:
+
+1. From the `File` menu, select `Preferences`, and then select `Settings`.
+1. Expand `Extensions`, and then select `Bicep`:
+
+    :::image type="content" source="./media/install/bicep-extension-settings.png" alt-text="Screenshot of configuring Bicep extension settings.":::
 
 ## Visual Studio and Bicep extension
 
@@ -154,8 +182,10 @@ sudo mv ./bicep /usr/local/bin/bicep
 # Verify you can now access the 'bicep' command
 bicep --help
 # Done!
-
 ```
+
+> [!NOTE]
+> The installation of Bicep CLI version 0.16 or newer does not need Gatekeeper exception. However, [nightly builds](#install-the-nightly-builds) of the Bicep CLI still require the exception.
 
 ### Windows
 

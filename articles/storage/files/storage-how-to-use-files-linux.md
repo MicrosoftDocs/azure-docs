@@ -2,11 +2,11 @@
 title: Mount SMB Azure file share on Linux
 description: Learn how to mount an Azure file share over SMB on Linux and review SMB security considerations on Linux clients.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
+ms.custom: devx-track-linux, devx-track-azurecli
 ms.topic: how-to
 ms.date: 01/10/2023
 ms.author: kendownie
-ms.subservice: files
 ---
 
 # Mount SMB Azure file share on Linux
@@ -93,7 +93,7 @@ On other distributions, use the appropriate package manager or [compile from sou
         --name $STORAGE_ACCOUNT_NAME \
         --query "primaryEndpoints.file" --output tsv | tr -d '"')
     SMBPATH=$(echo $HTTP_ENDPOINT | cut -c7-${#HTTP_ENDPOINT})
-    FILE_HOST=$(echo $-- | tr -d "/")
+    FILE_HOST=$(echo $SMBPATH | tr -d "/")
 
     nc -zvw3 $FILE_HOST 445
     ```
@@ -339,12 +339,12 @@ After you've created the file share snapshot, following these instructions to mo
    
 6. If you're able to browse the snapshot under the path `/mnt/<file-share-name>/snapshot1`, then the mount succeeded.
 
-If the mount fails, see [Troubleshoot Azure Files connectivity and access issues (SMB)](files-troubleshoot-smb-connectivity.md).
+If the mount fails, see [Troubleshoot Azure Files connectivity and access issues (SMB)](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-connectivity?toc=/azure/storage/files/toc.json).
 
 ## Next steps
 See these links for more information about Azure Files:
 
 - [Planning for an Azure Files deployment](storage-files-planning.md)
 - [Remove SMB 1 on Linux](files-remove-smb1-linux.md)
-- [Troubleshoot general SMB issues on Linux](files-troubleshoot-linux-smb.md)
-- [Troubleshoot general NFS issues on Linux](files-troubleshoot-linux-nfs.md)
+- [Troubleshoot general SMB issues on Linux](/troubleshoot/azure/azure-storage/files-troubleshoot-linux-smb?toc=/azure/storage/files/toc.json)
+- [Troubleshoot general NFS issues on Linux](/troubleshoot/azure/azure-storage/files-troubleshoot-linux-nfs?toc=/azure/storage/files/toc.json)

@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: iot-central
- author: v-krishnag
+ author: dominicbetts
  ms.service: iot-central
  ms.topic: include
- ms.date: 04/27/2022
- ms.author: v-krishnag
+ ms.date: 05/22/2023
+ ms.author: dobett
  ms.custom: include file
 ---
 
@@ -98,7 +98,7 @@ Each message or record represents changes to device and cloud properties. Inform
 - `messageType`: Either `cloudPropertyChange`, `devicePropertyDesiredChange`,  or `devicePropertyReportedChange`.
 - `deviceId`:  The ID of the device that sent the telemetry message.
 - `schema`: The name and version of the payload schema.
-- `enqueuedTime`: The time at which this change was detected by IoT Central.
+- `enqueuedTime`: The time at which IoT Central detected this change.
 - `templateId`: The ID of the device template assigned to the device.
 - `properties`: An array of properties that changed, including the names of the properties and values that changed. The component and module information is included if the property is modeled within a component or an IoT Edge module.
 - `enrichments`: Any enrichments set up on the export.

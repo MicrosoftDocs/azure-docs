@@ -4,8 +4,8 @@ description: In this tutorial, learn how to manage backed-up SAP HANA databases 
 ms.topic: tutorial
 ms.date: 08/11/2022
 ms.custom: devx-track-azurecli
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Tutorial: Manage SAP HANA databases in an Azure VM using Azure CLI

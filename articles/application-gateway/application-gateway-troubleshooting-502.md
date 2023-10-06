@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: troubleshooting
-ms.date: 09/13/2022
+ms.date: 05/19/2023
 ms.author: greglin
 ms.custom: devx-track-azurepowershell
 ---
@@ -96,6 +96,8 @@ The following table lists the values associated with the default health probe:
 * If Azure classic VMs or Cloud Service is used with an FQDN or a public IP, ensure that the corresponding [endpoint](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints?toc=%2fazure%2fapplication-gateway%2ftoc.json) is opened.
 * If the VM is configured via Azure Resource Manager and is outside the VNet where the application gateway is deployed, a [Network Security Group](../virtual-network/network-security-groups-overview.md) must be configured to allow access on the desired port.
 
+For more information, see [Application Gateway infrastructure configuration](configuration-infrastructure.md).
+
 ## Problems with custom health probe
 
 ### Cause
@@ -116,7 +118,7 @@ The following additional properties are added:
 
 ### Solution
 
-Validate that the Custom Health Probe is configured correctly as the preceding table. In addition to the preceding troubleshooting steps, also ensure the following:
+Validate that the Custom Health Probe is configured correctly, as shown in the preceding table. In addition to the preceding troubleshooting steps, also ensure the following:
 
 * Ensure that the probe is correctly specified as per the [guide](application-gateway-create-probe-ps.md).
 * If  the application gateway is configured for a single site, by default the Host name should be specified as `127.0.0.1`, unless otherwise configured in custom probe.
@@ -128,7 +130,7 @@ Validate that the Custom Health Probe is configured correctly as the preceding t
 
 ### Cause
 
-When a user request is received, the application gateway applies the configured rules to the request and routes it to a backend pool instance. It waits for a configurable interval of time for a response from the backend instance. By default, this interval is **20** seconds. In Application Gateway v1, if the application gateway doesn't receive a response from backend application in this interval, the user request gets a 502 error.  In Application Gateway v2, if the application gateway doesn't receive a response from the backend application in this interval, the request will be tried against a second backend pool member.  If the second request fails the user request gets a 502 error.
+When a user request is received, the application gateway applies the configured rules to the request and routes it to a backend pool instance. It waits for a configurable interval of time for a response from the backend instance. By default, this interval is **20** seconds. In Application Gateway v1, if the application gateway doesn't receive a response from backend application in this interval, the user request gets a 502 error.  In Application Gateway v2, if the application gateway doesn't receive a response from the backend application in this interval, the request will be tried against a second backend pool member.  If the second request fails the user request gets a 504 error.
 
 ### Solution
 
@@ -152,7 +154,7 @@ Ensure that the backend address pool isn't empty. This can be done either via Po
 Get-AzApplicationGateway -Name "SampleGateway" -ResourceGroupName "ExampleResourceGroup"
 ```
 
-The output from the preceding cmdlet should contain non-empty backend address pool. The following example shows two pools returned which are configured with an FQDN or an IP addresses for the backend VMs. The provisioning state of the BackendAddressPool must be 'Succeeded'.
+The output from the preceding cmdlet should contain nonempty backend address pool. The following example shows two pools returned which are configured with an FQDN or an IP addresses for the backend VMs. The provisioning state of the BackendAddressPool must be 'Succeeded'.
 
 BackendAddressPoolsText:
 
@@ -194,9 +196,9 @@ Ensure that the instances are healthy and the application is properly configured
 
 ### Cause
 
-The TLS certificate installed in the backend server(s), does not match the hostname received in the Host request header. 
+The TLS certificate installed on backend servers does not match the hostname received in the Host request header. 
 
-In scenarios where End-to-end TLS is enabled, a configuration that is achieved by editing the appropiate "Backend HTTP Settings", and changing there the configuration of the "Backend protocol" setting to HTTPS, it is mandatory to ensure that the CNAME of the TLS certificate installed in the backend servers matches the hostname coming to the backend in the HTTP host header request.
+In scenarios where End-to-end TLS is enabled, a configuration that is achieved by editing the appropriate "Backend HTTP Settings", and changing there the configuration of the "Backend protocol" setting to HTTPS, it is mandatory to ensure that the CNAME of the TLS certificate installed on backend servers matches the hostname coming to the backend in the HTTP host header request.
 
 As a reminder, the effect of enabling on the "Backend HTTP Settings" the option of protocol HTTPS rather than HTTP, will be that the second part of the communication that happens between the instances of the Application Gateway and the backend servers will be encrypted with TLS.
 
@@ -205,21 +207,20 @@ Remember that, unless specified otherwise, this hostname would be the same as th
 
 For example:
 
-Imagine that you have an Application Gateway to serve the https requests for domain www.contoso.com
-You could have the domain contoso.com delegated to an Azure DNS Public Zone, and a A DNS record in that zone pointing www.contoso.com to the public IP of the specific Application Gateway that is going to serve the requests.
+Imagine that you have an Application Gateway to serve the https requests for domain www.contoso.com. You could have the domain contoso.com delegated to an Azure DNS Public Zone, and a A DNS record in that zone pointing www.contoso.com to the public IP of the specific Application Gateway that is going to serve the requests.
 
 On that Application Gateway you should have a listener for the host www.contoso.com with a rule that has the "Backed HTTP Setting" forced to use protocol HTTPS (ensuring End-to-end TLS). That same rule could have configured a backend pool with two VMs running IIS as Web servers.
 
 As we know enabling HTTPS in the "Backed HTTP Setting" of the rule will make the second part of the communication that happens between the Application Gateway instances and the servers in the backend to use TLS.
 
-If the backend servers do not have a TLS certificate issued for the CNAME www.contoso.com or *.contoso.com, the request will fail with **Server Error: 502 - Web server received an invalid response while acting as a gateway or proxy server** because the upstream SSL certificate (the certificate installed in the backend servers) will not match the hostname in the host header, and hence the TLS negotiation will fail. 
+If the backend servers do not have a TLS certificate issued for the CNAME www.contoso.com or *.contoso.com, the request will fail with **Server Error: 502 - Web server received an invalid response while acting as a gateway or proxy server** because the upstream SSL certificate (the certificate installed on the backend servers) will not match the hostname in the host header, and hence the TLS negotiation will fail. 
 
 
-www.contoso.com --> APP GW front end IP --> Listener with a rule that configures "Backend HTTP Settings" to use protocol HTTP  --> Backend Pool --> Web server (needs to have a TLS certificate installed for www.contoso.com) 
+www.contoso.com --> APP GW front end IP --> Listener with a rule that configures "Backend HTTP Settings" to use protocol HTTPS rather than HTTP  --> Backend Pool --> Web server (needs to have a TLS certificate installed for www.contoso.com) 
 
 ## Solution
 
-it is required that the CNAME of the TLS certificate installed in the backend server, matches the host name configured in the HTTP backend settings, otherwise the second part of the End-to-end communication that happens between the instances of the Application Gateway and the backend, will fail with "Upstream SSL certificate does not match", and will throw back a **Server Error: 502 - Web server received an invalid response while acting as a gateway or proxy server**
+it is required that the CNAME of the TLS certificate installed on the backend server, matches the host name configured in the HTTP backend settings, otherwise the second part of the End-to-end communication that happens between the instances of the Application Gateway and the backend, will fail with "Upstream SSL certificate does not match", and will throw back a **Server Error: 502 - Web server received an invalid response while acting as a gateway or proxy server**
 
 
 ## Next steps

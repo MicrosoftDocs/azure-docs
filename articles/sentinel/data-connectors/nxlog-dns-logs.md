@@ -3,7 +3,7 @@ title: "NXLog DNS Logs connector for Microsoft Sentinel"
 description: "Learn how to install the connector NXLog DNS Logs to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 08/28/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -18,7 +18,7 @@ The NXLog DNS Logs data connector uses Event Tracing for Windows ([ETW](/windows
 | --- | --- |
 | **Log Analytics table(s)** | NXLog_DNS_Server_CL<br/> |
 | **Data collection rules support** | Not currently supported |
-| **Supported by** | [NXLog](https://nxlog.co/community-forum/t/819-support-tickets) |
+| **Supported by** | [NXLog](https://nxlog.co/user?destination=node/add/support-ticket) |
 
 ## Query samples
 

@@ -5,26 +5,28 @@ services: payment-hsm
 ms.service: payment-hsm
 author: msmbaldwin
 ms.author: mbaldwin
-ms.topic: quickstart
-ms.devlang: azurecli
-ms.custom: devx-track-arm-template, devx-track-azurepowershell
-ms.date: 09/12/2022
+ms.topic: tutorial
+ms.custom: devx-track-azurepowershell, devx-track-arm-template, devx-track-azurecli
+ms.date: 05/25/2023
 ---
 
 # Create a payment HSM with host and management port with IP addresses in different virtual networks using ARM template
 
-This quickstart describes how to use an Azure Resource Manager template (ARM template) to create an Azure payment HSM. Azure Payment HSM is a "BareMetal" service delivered using [Thales payShield 10K payment hardware security modules (HSM)](https://cpl.thalesgroup.com/encryption/hardware-security-modules/payment-hsms/payshield-10k) to provide cryptographic key operations for real-time, critical payment transactions in the Azure cloud. Azure Payment HSM is designed specifically to help a service provider and an individual financial institution accelerate their payment system's digital transformation strategy and adopt the public cloud. For more information, see [Azure Payment HSM: Overview](./overview.md).
+[!INCLUDE [Payment HSM intro](./includes/about-payment-hsm.md)]
 
-This article describes how to create a payment HSM with the host and management port in same virtual network.  You can instead:
+This tutorial describes how to use an Azure Resource Manager template (ARM template) to create an Azure payment HSM with host and management port with IP addresses in different virtual networks. You can instead:
 
-- [Create a payment HSM with the host and management port in same virtual network using an ARM template](quickstart-template.md)
-- [Create a payment HSM with host and management port in different virtual network using an ARM template](create-different-vnet.md)
+- [Create a payment HSM with the host and management port in the same virtual network using Azure CLI or PowerShell](create-payment-hsm.md)
+- [Create a payment HSM with the host and management port in the same virtual network using an ARM template](quickstart-template.md)
+- [Create a payment HSM with the host and management port in different virtual networks using Azure CLI or PowerShell](create-different-vnet.md)
+- [Create a payment HSM with the host and management port in different virtual networks using an ARM template](create-different-vnet-template.md)
+- [Create HSM resource with host and management port with IP addresses in different virtual networks using ARM template](create-different-ip-addresses.md)
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 ## Prerequisites
 
-[!INCLUDE [Specialized service](../../includes/payment-hsm/specialized-service.md)]
+[!INCLUDE [Specialized service](./includes/specialized-service.md)]
 
 - You must register the "Microsoft.HardwareSecurityModules" and "Microsoft.Network" resource providers, as well as the Azure Payment HSM features. Steps for doing so are at [Register the Azure Payment HSM resource provider and resource provider features](register-payment-hsm-resource-providers.md).
 
@@ -419,32 +421,12 @@ New-AzureRmResourceGroupDeployment -Name $deploymentName -ResourceGroupName $res
 
 ---
 
-## Validate the deployment
-
-# [Azure CLI](#tab/azure-cli)
-
-You can verify that the payment HSM was created with the Azure CLI [az dedicated-hsm list](/cli/azure/dedicated-hsm#az-dedicated-hsm-list) command. You will find the output easier to read if you format the results as a table:
-
-```azurecli-interactive
-az dedicated-hsm list -o table
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-You can verify that the payment HSM was created with the Azure PowerShell [Get-AzDedicatedHsm](/powershell/module/az.dedicatedhsm/get-azdedicatedhsm) cmdlet.
-
-```azurepowershell-interactive
-Get-AzDedicatedHsm
-```
----
-
-You should see the name of your newly created payment HSM.
-
 ## Next steps
 
-Advance to the next article to learn how to access the payShield manager for your payment HSM
+Advance to the next article to learn how to view your payment HSM.
 > [!div class="nextstepaction"]
-> [Access the payShield manager](access-payshield-manager.md)
+> [View your payment HSMs](view-payment-hsms.md)
+
 
 More resources:
 

@@ -44,7 +44,7 @@ SPAs have two more restrictions:
 - [The redirect URI must be marked as type `spa`](v2-oauth2-auth-code-flow.md#redirect-uris-for-single-page-apps-spas) to enable CORS on login endpoints.
 - Refresh tokens issued through the authorization code flow to `spa` redirect URIs have a 24-hour lifetime rather than a 90-day lifetime.
 
-:::image type="content" source="media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.svg" alt-text="Diagram showing the OAuth 2 authorization code flow between a single-page app and the security token service endpoint." border="false":::
+:::image type="content" source="media/v2-oauth-auth-code-spa/oauth-code-spa.svg" alt-text="Diagram showing the OAuth 2 authorization code flow between a single-page app and the security token service endpoint." border="false":::
 
 ## Performance and UX implications
 
@@ -67,7 +67,7 @@ There are two ways of accomplishing sign-in:
 
 ### Using iframes
 
-A common pattern in web apps is to use an iframe to embed one app inside another: the top-level frame handles authenticating the user and the application hosted in the iframe can trust that the user is signed in, fetching tokens silently using the implicit flow. However, there are couple of caveats to this assumption irrespective of whether third-party cookies are enabled or blocked in the browser.
+A common pattern in web apps is to use an iframe to embed one app inside another: the top-level frame handles authenticating the user and the application hosted in the iframe can trust that the user is signed in, fetching tokens silently using the implicit flow. However, there are a couple of caveats to this assumption irrespective of whether third-party cookies are enabled or blocked in the browser.
 
 Silent token acquisition no longer works when third-party cookies are blocked - the application embedded in the iframe must switch to using popups to access the user's session as it can't navigate to the login page.
 

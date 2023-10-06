@@ -1,0 +1,190 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "kubernetesClusterName": {
+        "type": "string",
+        "metadata": {
+          "description": "The name of Nexus Kubernetes cluster"
+        }
+      },
+      "location": {
+        "type": "string",
+        "defaultValue": "[resourceGroup().location]",
+        "metadata": {
+          "description": "The Azure region where the cluster is to be deployed"
+        }
+      },
+      "extendedLocation": {
+        "type": "string",
+        "metadata": {
+          "description": "The custom location of the Nexus instance"
+        }
+      },
+      "tags": {
+        "type": "object",
+        "defaultValue": {},
+        "metadata": {
+          "description": "Tags to be associated with the resource"
+        }
+      },
+      "adminUsername": {
+        "type": "string",
+        "defaultValue": "azureuser",
+        "metadata": {
+          "description": "The username for the administrative account on the cluster"
+        }
+      },
+      "sshPublicKey": {
+        "type": "string",
+        "defaultValue": "",
+        "metadata": {
+          "description": "The SSH public key that will be associated with the 'azureuser' user for secure remote login"
+        }
+      },
+      "agentPoolNodeCount": {
+        "type": "int",
+        "defaultValue": 1,
+        "metadata": {
+          "description": "Number of nodes in the agent pool"
+        }
+      },
+      "agentPoolName": {
+        "type": "string",
+        "defaultValue": "nodepool-2",
+        "metadata": {
+          "description": "Agent pool name"
+        }
+      },
+      "agentVmSku": {
+        "type": "string",
+        "defaultValue": "NC_P10_56_v1",
+        "metadata": {
+          "description": "VM size of the agent nodes"
+        }
+      },
+      "agentPoolZones": {
+        "type": "array",
+        "defaultValue": [],
+        "metadata": {
+          "description": "The zones/racks used for placement of the agent pool nodes"
+        }
+        /* array of strings Example: ["1", "2", "3"] */
+      },
+      "agentPoolMode": {
+        "type": "string",
+        "defaultValue": "User",
+        "metadata": {
+          "description": "Agent pool mode"
+        }
+      },
+      "agentOptions": {
+        "type": "object",
+        "defaultValue": {},
+        "metadata": {
+          "description": "The configurations for the initial agent pool"
+        }
+        /*
+          "hugepagesCount": int,
+          "hugepagesSize": "2M/1G"
+        */
+      },
+      "labels": {
+        "type": "array",
+        "defaultValue": [],
+        "metadata": {
+          "description": "The labels to assign to the nodes in the cluster for identification and organization"
+        }
+        /*
+          {
+            "key": "string",
+            "value": "string"
+          }
+        */
+      },
+      "taints": {
+        "type": "array",
+        "defaultValue": [],
+        "metadata": {
+          "description": "The taints to apply to the nodes in the cluster to restrict which pods can be scheduled on them"
+        }
+        /*
+          {
+            "key": "string",
+            "value": "string:NoSchedule|PreferNoSchedule|NoExecute"
+          }
+        */
+      },
+      "l2Networks": {
+        "type": "array",
+        "defaultValue": [],
+        "metadata": {
+          "description": "The Layer 2 networks to connect to the agent pool"
+        }
+        /*
+          {
+            "networkId": "string",
+            "pluginType": "SRIOV|DPDK|OSDevice|MACVLAN|IPVLAN"
+          }
+        */
+      },
+      "l3Networks": {
+        "type": "array",
+        "defaultValue": [],
+        "metadata": {
+          "description": "The Layer 3 networks to connect to the agent pool"
+        }
+        /*
+          {
+            "ipamEnabled": "True/False",
+            "networkId": "string",
+            "pluginType": "SRIOV|DPDK|OSDevice|MACVLAN|IPVLAN"
+          }
+        */
+      },
+      "trunkedNetworks": {
+        "type": "array",
+        "defaultValue": [],
+        "metadata": {
+          "description": "The trunked networks to connect to the agent pool"
+        }
+        /*
+          {
+            "networkId": "string",
+            "pluginType": "SRIOV|DPDK|OSDevice|MACVLAN|IPVLAN"
+          }
+        */
+      }
+    },
+    "resources": [
+      {
+        "type": "Microsoft.NetworkCloud/kubernetesClusters/agentpools",
+        "apiVersion": "2023-07-01",
+        "name": "[concat(parameters('kubernetesClusterName'), '/', parameters('kubernetesClusterName'), '-', parameters('agentPoolName'))]",
+        "location": "[parameters('location')]",
+        "extendedLocation": {
+          "name": "[parameters('extendedLocation')]",
+          "type": "CustomLocation"
+        },
+        "properties": {
+          "administratorConfiguration": {},
+          "count": "[parameters('agentPoolNodeCount')]",
+          "mode": "[parameters('agentPoolMode')]",
+          "vmSkuName": "[parameters('agentVmSku')]",
+          "labels": "[if(empty(parameters('labels')), json('null'), parameters('labels'))]",
+          "taints": "[if(empty(parameters('taints')), json('null'), parameters('taints'))]",
+          "agentOptions": "[if(empty(parameters('agentOptions')), json('null'), parameters('agentOptions'))]",
+          "attachedNetworkConfiguration": {
+            "l2Networks": "[if(empty(parameters('l2Networks')), json('null'), parameters('l2Networks'))]",
+            "l3Networks": "[if(empty(parameters('l3Networks')), json('null'), parameters('l3Networks'))]",
+            "trunkedNetworks": "[if(empty(parameters('trunkedNetworks')), json('null'), parameters('trunkedNetworks'))]"
+          },
+          "availabilityZones": "[if(empty(parameters('agentPoolZones')), json('null'), parameters('agentPoolZones'))]",
+          "upgradeSettings": {
+            "maxSurge": "1"
+          }
+        },
+        "dependsOn": []
+      }
+    ]
+}

@@ -5,17 +5,17 @@ description: 'Securely use Azure Machine Learning: authentication, authorization
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, build-2023
 ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 08/26/2022
+ms.date: 09/13/2023
 ---
 
 # Enterprise security and governance for Azure Machine Learning
 
-In this article, you'll learn about security and governance features available for Azure Machine Learning. These features are useful for administrators, DevOps, and MLOps who want to create a secure configuration that is compliant with your companies policies. With Azure Machine Learning and the Azure platform, you can:
+In this article, you learn about security and governance features available for Azure Machine Learning. These features are useful for administrators, DevOps, and MLOps who want to create a secure configuration that is compliant with your companies policies. With Azure Machine Learning and the Azure platform, you can:
 
 * Restrict access to resources and operations by user account or groups
 * Restrict incoming and outgoing network communications
@@ -36,7 +36,7 @@ Here's the authentication process for Azure Machine Learning using multi-factor 
 
 1. The client signs in to Azure AD and gets an Azure Resource Manager token.
 1. The client presents the token to Azure Resource Manager and to all Azure Machine Learning.
-1. Azure Machine Learning provides a Machine Learning service token to the user compute target (for example, Azure Machine Learning compute cluster). This token is used by the user compute target to call back into the Machine Learning service after the job is complete. The scope is limited to the workspace.
+1. Azure Machine Learning provides a Machine Learning service token to the user compute target (for example, Azure Machine Learning compute cluster or [serverless compute](./how-to-use-serverless-compute.md)). This token is used by the user compute target to call back into the Machine Learning service after the job is complete. The scope is limited to the workspace.
 
 [![Authentication in Azure Machine Learning](media/concept-enterprise-security/authentication.png)](media/concept-enterprise-security/authentication.png#lightbox)
 
@@ -50,7 +50,7 @@ Each workspace has an associated system-assigned [managed identity](../active-di
 | Azure Container Registry | Contributor |
 | Resource group that contains the workspace | Contributor |
 
-The system-assigned managed identity is used for internal service-to-service authentication between Azure Machine Learning and other Azure resources. The identity token is not accessible to users and cannot be used by them to gain access to these resources. Users can only access the resources through [Azure Machine Learning control and data plane APIs](how-to-assign-roles.md), if they have sufficient RBAC permissions.
+The system-assigned managed identity is used for internal service-to-service authentication between Azure Machine Learning and other Azure resources. The identity token isn't accessible to users and they can't use it to gain access to these resources. Users can only access the resources through [Azure Machine Learning control and data plane APIs](how-to-assign-roles.md), if they have sufficient RBAC permissions.
 
 We don't recommend that admins revoke the access of the managed identity to the resources mentioned in the preceding table. You can restore access by using the [resync keys operation](how-to-change-storage-access-key.md).
 
@@ -77,35 +77,45 @@ For more information, see the following articles:
 
 ## Network security and isolation
 
-To restrict network access to Azure Machine Learning resources, you can use [Azure Virtual Network (VNet)](../virtual-network/virtual-networks-overview.md). VNets allow you to create network environments that are partially, or fully, isolated from the public internet. This reduces the attack surface for your solution, as well as the chances of data exfiltration.
+To restrict network access to Azure Machine Learning resources, you can use an [Azure Machine Learning managed virtual network](how-to-managed-network.md) or [Azure Virtual Network (VNet)](../virtual-network/virtual-networks-overview.md). Using a virtual network reduces the attack surface for your solution, and the chances of data exfiltration.
 
-You might use a virtual private network (VPN) gateway to connect individual clients, or your own network, to the VNet
+You don't have to pick one or the other. For example, you can use a managed virtual network to secure managed compute resources and an Azure Virtual Network for your unmanaged resources or to secure client access to the workspace.
 
-The Azure Machine Learning workspace can use [Azure Private Link](../private-link/private-link-overview.md) to create a private endpoint behind the VNet. This provides a set of private IP addresses that can be used to access the workspace from within the VNet. Some of the services that Azure Machine Learning relies on can also use Azure Private Link, but some rely on network security groups or user-defined routing.
+* __Azure Machine Learning managed virtual network__ provides a fully managed solution that enables network isolation for your workspace and managed compute resources. You can use private endpoints to secure communication with other Azure services, and can restrict outbound communications. The following managed compute resources are secured with a managed network:
 
-For more information, see the following documents:
+    * Serverless compute (including Spark serverless)
+    * Compute cluster
+    * Compute instance
+    * Managed online endpoints
+    * Batch online endpoints
 
-* [Virtual network isolation and privacy overview](how-to-network-security-overview.md)
-* [Secure workspace resources](how-to-secure-workspace-vnet.md)
-* [Secure training environment](how-to-secure-training-vnet.md)
-* [Secure inference environment](./how-to-secure-inferencing-vnet.md)
-* [Use studio in a secured virtual network](how-to-enable-studio-virtual-network.md)
-* [Use custom DNS](how-to-custom-dns.md)
-* [Configure firewall](how-to-access-azureml-behind-firewall.md)
+    For more information, see [Azure Machine Learning managed virtual network](how-to-managed-network.md).
+
+* __Azure Virtual Networks__ provides a more customizable virtual network offering. However, you're responsible for configuration and management. You may need to use network security groups, user-defined routing, or a firewall to restrict outbound communication.
+
+    For more information, see the following documents:
+
+    * [Virtual network isolation and privacy overview](how-to-network-security-overview.md)
+    * [Secure workspace resources](how-to-secure-workspace-vnet.md)
+    * [Secure training environment](how-to-secure-training-vnet.md)
+    * [Secure inference environment](./how-to-secure-inferencing-vnet.md)
+    * [Use studio in a secured virtual network](how-to-enable-studio-virtual-network.md)
+    * [Use custom DNS](how-to-custom-dns.md)
+    * [Configure firewall](how-to-access-azureml-behind-firewall.md)
 
 <a id="encryption-at-rest"></a><a id="azure-blob-storage"></a>
 
 ## Data encryption
 
-Azure Machine Learning uses a variety of compute resources and data stores on the Azure platform. To learn more about how each of these supports data encryption at rest and in transit, see [Data encryption with Azure Machine Learning](concept-data-encryption.md).
+Azure Machine Learning uses various compute resources and data stores on the Azure platform. To learn more about how each of these resources supports data encryption at rest and in transit, see [Data encryption with Azure Machine Learning](concept-data-encryption.md).
 
-## Data exfiltration prevention (preview)
+## Data exfiltration prevention
 
 Azure Machine Learning has several inbound and outbound network dependencies. Some of these dependencies can expose a data exfiltration risk by malicious agents within your organization. These risks are associated with the outbound requirements to Azure Storage, Azure Front Door, and Azure Monitor. For recommendations on mitigating this risk, see the [Azure Machine Learning data exfiltration prevention](how-to-prevent-data-loss-exfiltration.md) article.
 
 ## Vulnerability scanning
 
-[Microsoft Defender for Cloud](../security-center/security-center-introduction.md) provides unified security management and advanced threat protection across hybrid cloud workloads. For Azure machine learning, you should enable scanning of your [Azure Container Registry](../container-registry/container-registry-intro.md) resource and Azure Kubernetes Service resources. For more information, see [Azure Container Registry image scanning by Defender for Cloud](../security-center/defender-for-container-registries-introduction.md) and [Azure Kubernetes Services integration with Defender for Cloud](../security-center/defender-for-kubernetes-introduction.md).
+[Microsoft Defender for Cloud](../security-center/security-center-introduction.md) provides unified security management and advanced threat protection across hybrid cloud workloads. For Azure Machine Learning, you should enable scanning of your [Azure Container Registry](../container-registry/container-registry-intro.md) resource and Azure Kubernetes Service resources. For more information, see [Azure Container Registry image scanning by Defender for Cloud](../security-center/defender-for-container-registries-introduction.md) and [Azure Kubernetes Services integration with Defender for Cloud](../security-center/defender-for-kubernetes-introduction.md).
 
 ## Audit and manage compliance
 

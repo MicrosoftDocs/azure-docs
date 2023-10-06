@@ -1,6 +1,6 @@
 ---
 title: User management enhancements
-description: Describes how Azure Active Directory enables user search, filtering, and more information about your users.
+description: Describes how Microsoft Entra ID enables user search, filtering, and more information about your users.
 services: active-directory
 documentationcenter: ''
 author: barclayn
@@ -18,14 +18,14 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# User management enhancements in Azure Active Directory
+# User management enhancements in Microsoft Entra ID
 
-This article describes how to use the user management enhancements in the admin center for Azure Active Directory (Azure AD), part of Microsoft Entra. The **All users** page and user profile pages have been updated to provide more information and make it easier to find users.
+This article describes how to use the user management enhancements in the admin center for Microsoft Entra ID, part of Microsoft Entra. The **All users** page and user profile pages have been updated to provide more information and make it easier to find users.
 
 Enhancements include:
 
 - Preloaded scrolling so that you no longer have to select ‘Load more’ to view more users 
-- More user properties can be added as columns including city, country, employee ID, employee type, and external user state
+- More user properties can be added as columns including city, country/region, employee ID, employee type, and external user state
 - More user properties can be filtered on including custom security attributes, on-premises extension attributes, and manager 
 - More ways to customize your view, like using drag-and-drop to reorder columns 
 - Copy and share your customized All Users view with others 
@@ -87,8 +87,8 @@ You can edit properties by selecting the pencil icon next to any category, which
 
 User operations
 
-- [Add or change profile information](../fundamentals/active-directory-users-profile-azure-portal.md)
-- [Add or delete users](../fundamentals/add-users-azure-active-directory.md)
+- [Add or change profile information](../fundamentals/how-to-manage-user-profile-info.md)
+- [Add or delete users](../fundamentals/add-users.md)
 
 Bulk operations
 

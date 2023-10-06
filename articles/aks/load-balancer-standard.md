@@ -1,11 +1,11 @@
 ---
-title: Use a public load balancer
+title: Use a public load balancer in Azure Kubernetes Service (AKS)
 titleSuffix: Azure Kubernetes Service
 description: Learn how to use a public load balancer with a Standard SKU to expose your services with Azure Kubernetes Service (AKS).
 ms.subservice: aks-networking
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 02/22/2023
+ms.date: 07/14/2023
 ms.author: allensu
 author: asudbring
 #Customer intent: As a cluster operator or developer, I want to learn how to create a service in AKS that uses an Azure Load Balancer with a Standard SKU.
@@ -26,7 +26,8 @@ This article covers integration with a public load balancer on AKS. For internal
 
 ## Before you begin
 
-* Azure Load Balancer is available in two SKUs: *Basic* and *Standard*. The *Standard* SKU is used by default when you create an AKS cluster. The *Standard* SKU gives you access to added functionality, such as a larger backend pool, [multiple node pools](use-multiple-node-pools.md), [Availability Zones](availability-zones.md), and is [secure by default][azure-lb]. It's the recommended load balancer SKU for AKS. For more information on the *Basic* and *Standard* SKUs, see [Azure Load Balancer SKU comparison][azure-lb-comparison].
+* Azure Load Balancer is available in two SKUs: *Basic* and *Standard*. The *Standard* SKU is used by default when you create an AKS cluster. The *Standard* SKU gives you access to added functionality, such as a larger backend pool, [multiple node pools](create-node-pools.md), [Availability Zones](availability-zones.md), and is [secure by default][azure-lb]. It's the recommended load balancer SKU for AKS. For more information on the *Basic* and *Standard* SKUs, see [Azure Load Balancer SKU comparison][azure-lb-comparison].
+* For a full list of the supported annotations for Kubernetes services with type `LoadBalancer`, see [LoadBalancer annotations][lb-annotations].
 * This article assumes you have an AKS cluster with the *Standard* SKU Azure Load Balancer. If you need an AKS cluster, you can create one [using Azure CLI][aks-quickstart-cli], [Azure PowerShell][aks-quickstart-powershell], or [the Azure portal][aks-quickstart-portal].
 * AKS manages the lifecycle and operations of agent nodes. Modifying the IaaS resources associated with the agent nodes isn't supported. An example of an unsupported operation is making manual changes to the load balancer resource group.
 
@@ -70,7 +71,7 @@ Deploy the public service manifest using [`kubectl apply`][kubectl-apply] and sp
 kubectl apply -f public-svc.yaml
 ```
 
-The Azure Load Balancer will be configured with a new public IP that will front the new service. Since the Azure Load Balancer can have multiple frontend IPs, each new service that you deploy will get a new dedicated frontend IP to be uniquely accessed.
+The Azure Load Balancer is configured with a new public IP that fronts the new service. Since the Azure Load Balancer can have multiple frontend IPs, each new service that you deploy gets a new dedicated frontend IP to be uniquely accessed.
 
 Confirm your service is created and the load balancer is configured using the following command.
 
@@ -85,7 +86,7 @@ default       public-svc    LoadBalancer   10.0.39.110    52.156.88.187   80:320
 
 When you view the service details, the public IP address created for this service on the load balancer is shown in the *EXTERNAL-IP* column. It may take a few minutes for the IP address to change from *\<pending\>* to an actual public IP address.
 
-For more detailed information about your service using the following command.
+For more detailed information about your service, use the following command.
 
 ```azurecli-interactive
 kubectl describe service public-svc
@@ -126,11 +127,11 @@ You can customize different settings for your standard public load balancer at c
 
 ### Change the inbound pool type (PREVIEW)
 
-AKS nodes can be referenced in the load balancer backend pools by either their IP configuration (VMSS based membership) or by their IP address only. Utilizing the IP address based backend pool membership provides higher efficiencies when updating services and provisioning load balancers, especially at high node counts. Provisioning new clusters with IP based backend pools and converting existing clusters is now supported. When combined with NAT Gateway or user-defined routing egress types, provisioning of new nodes and services will be more performant.
+AKS nodes can be referenced in the load balancer backend pools by either their IP configuration (Azure Virtual Machine Scale Sets based membership) or by their IP address only. Utilizing the IP address based backend pool membership provides higher efficiencies when updating services and provisioning load balancers, especially at high node counts. Provisioning new clusters with IP based backend pools and converting existing clusters is now supported. When combined with NAT Gateway or user-defined routing egress types, provisioning of new nodes and services are more performant.
 
 Two different pool membership types are available:
 
-- `nodeIPConfiguration` - legacy VMSS IP configuration based pool membership type
+- `nodeIPConfiguration` - legacy Virtual Machine Scale Sets IP configuration based pool membership type
 - `nodeIP` - IP-based membership type
 
 #### Requirements
@@ -189,7 +190,7 @@ az aks create \
 #### Update an existing AKS cluster to use IP-based inbound pool membership
 
 > [!WARNING]
-> This operation will cause a temporary disruption to incoming service traffic in the cluster. The impact time will increase with larger clusters that have many nodes.
+> This operation causes a temporary disruption to incoming service traffic in the cluster. The impact time increases with larger clusters that have many nodes.
 
 ```azurecli-interactive
 az aks update \
@@ -210,14 +211,14 @@ An outbound rule configures outbound NAT for all virtual machines identified by 
 
 While you can use an outbound rule with a single public IP address, outbound rules are great for scaling outbound NAT because they ease the configuration burden. You can use multiple IP addresses to plan for large-scale scenarios and outbound rules to mitigate SNAT exhaustion prone patterns. Each IP address provided by a frontend provides 64k ephemeral ports for the load balancer to use as SNAT ports.
 
-When using a *Standard* SKU load balancer with managed outbound public IPs (which are created by default), you can scale the number of managed outbound public IPs using the **`load-balancer-managed-ip-count`** parameter.
+When using a *Standard* SKU load balancer with managed outbound public IPs (which are created by default), you can scale the number of managed outbound public IPs using the **`--load-balancer-managed-outbound-ip-count`** parameter.
 
 Use the following command to update an existing cluster. You can also set this parameter to have multiple managed outbound public IPs.
 
 > [!IMPORTANT]
 > We don't recommend using the Azure portal to make any outbound rule changes. When making these changes, you should go through the AKS cluster and not directly on the Load Balancer resource.
 >
-> Outbound rule changes made directly on the Load Balancer resource will be removed whenever the cluster is reconciled, such as when it's stopped, started, upgraded, or scaled.
+> Outbound rule changes made directly on the Load Balancer resource are removed whenever the cluster is reconciled, such as when it's stopped, started, upgraded, or scaled.
 >
 > Use the Azure CLI, as shown in the examples. Outbound rule changes made using `az aks` CLI commands are permanent across cluster downtime.
 >
@@ -232,19 +233,19 @@ az aks update \
 
 The above example sets the number of managed outbound public IPs to *2* for the *myAKSCluster* cluster in *myResourceGroup*.
 
-At cluster creation time, you can also use the **`load-balancer-managed-ip-count`** parameter to set the initial number of managed outbound public IPs by appending the **`--load-balancer-managed-outbound-ip-count`** parameter and setting it to your desired value. The default number of managed outbound public IPs is *1*.
+At cluster creation time, you can also set the initial number of managed outbound public IPs by appending the **`--load-balancer-managed-outbound-ip-count`** parameter and setting it to your desired value. The default number of managed outbound public IPs is *1*.
 
 ### Provide your own outbound public IPs or prefixes
 
 When you use a *Standard* SKU load balancer, the AKS cluster automatically creates a public IP in the AKS-managed infrastructure resource group and assigns it to the load balancer outbound pool by default.
 
-A public IP created by AKS is an AKS-managed resource, meaning the lifecycle of that public IP is intended to be managed by AKS and requires no user action directly on the public IP resource. Alternatively, you can assign your own custom public IP or public IP prefix at cluster creation time. Your custom IPs can also be updated on an existing cluster's load balancer properties.
+A public IP created by AKS is an AKS-managed resource, meaning AKS manages the lifecycle of that public IP and doesn't require user action directly on the public IP resource. Alternatively, you can assign your own custom public IP or public IP prefix at cluster creation time. Your custom IPs can also be updated on an existing cluster's load balancer properties.
 
 Requirements for using your own public IP or prefix include:
 
-* Custom public IP addresses must be created and owned by the user. Managed public IP addresses created by AKS can't be reused as a "bring your own custom IP" as it can cause management conflicts.
+* Users must create and own custom public IP addresses. Managed public IP addresses created by AKS can't be reused as a "bring your own custom IP" as it can cause management conflicts.
 * You must ensure the AKS cluster identity (Service Principal or Managed Identity) has permissions to access the outbound IP, as per the [required public IP permissions list](kubernetes-service-principal.md#networking).
-* Make sure you meet the [pre-requisites and constraints](../virtual-network/ip-services/public-ip-address-prefix.md#limitations) necessary to configure outbound IPs or outbound IP prefixes.
+* Make sure you meet the [prerequisites and constraints](../virtual-network/ip-services/public-ip-address-prefix.md#limitations) necessary to configure outbound IPs or outbound IP prefixes.
 
 #### Update the cluster with your own outbound public IP
 
@@ -315,7 +316,12 @@ az aks create \
 >
 > For more information on SNAT, see [Use SNAT for outbound connections](../load-balancer/load-balancer-outbound-connections.md).
 
-By default, AKS sets *AllocatedOutboundPorts* on its load balancer to `0`, which enables [automatic outbound port assignment based on backend pool size][azure-lb-outbound-preallocatedports] when creating a cluster. For example, if a cluster has 50 or fewer nodes, 1024 ports are allocated to each node. As the number of nodes in the cluster increases, fewer ports are available per node. To show the *AllocatedOutboundPorts* value for the AKS cluster load balancer, use `az network lb outbound-rule list`.
+By default, AKS sets *AllocatedOutboundPorts* on its load balancer to `0`, which enables [automatic outbound port assignment based on backend pool size][azure-lb-outbound-preallocatedports] when creating a cluster. For example, if a cluster has 50 or fewer nodes, 1024 ports are allocated to each node. As the number of nodes in the cluster increases, fewer ports are available per node. 
+
+> [!IMPORTANT]
+> There is a hard limit of 1024 ports regardless of whether front-end IPs are added when the node size is less than or equal to 50 (1-50).
+
+To show the *AllocatedOutboundPorts* value for the AKS cluster load balancer, use `az network lb outbound-rule list`.
 
 ```azurecli-interactive
 NODE_RG=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
@@ -339,10 +345,10 @@ When calculating the number of outbound ports and IPs and setting the values, ke
 * Adding more IPs doesn't add more ports to any node, but it provides capacity for more nodes in the cluster.
 * You must account for nodes that may be added as part of upgrades, including the count of nodes specified via [maxSurge values][maxsurge].
 
-The following examples show how the number of outbound ports and IP addresses are affected by the values you set:
+The following examples show how the values you set affect the number of outbound ports and IP addresses:
 
-* If the default values are used and the cluster has 48 nodes, each node will have 1024 ports available.
-* If the default values are used and the cluster scales from 48 to 52 nodes, each node will be updated from 1024 ports available to 512 ports available.
+* If the default values are used and the cluster has 48 nodes, each node has 1024 ports available.
+* If the default values are used and the cluster scales from 48 to 52 nodes, each node is updated from 1024 ports available to 512 ports available.
 * If the number of outbound ports is set to 1,000 and the outbound IP count is set to 2, then the cluster can support a maximum of 128 nodes: `64,000 ports per IP / 1,000 ports per node * 2 IPs = 128 nodes`.
 * If the number of outbound ports is set to 1,000 and the outbound IP count is set to 7, then the cluster can support a maximum of 448 nodes: `64,000 ports per IP / 1,000 ports per node * 7 IPs = 448 nodes`.
 * If the number of outbound ports is set to 4,000 and the outbound IP count is set to 2, then the cluster can support a maximum of 32 nodes: `64,000 ports per IP / 4,000 ports per node * 2 IPs = 32 nodes`.
@@ -388,7 +394,7 @@ If you expect to have numerous short-lived connections and no long-lived connect
 >
 > TCP RST is only sent during TCP connection in ESTABLISHED state. Read more about it [here](../load-balancer/load-balancer-tcp-reset.md).
 
-When setting *IdleTimeoutInMinutes* to a different value than the default of 30 minutes, consider how long your workloads will need an outbound connection. Also consider that the default timeout value for a *Standard* SKU load balancer used outside of AKS is 4 minutes. An *IdleTimeoutInMinutes* value that more accurately reflects your specific AKS workload can help decrease SNAT exhaustion caused by tying up connections no longer being used.
+When setting *IdleTimeoutInMinutes* to a different value than the default of 30 minutes, consider how long your workloads need an outbound connection. Also consider that the default timeout value for a *Standard* SKU load balancer used outside of AKS is 4 minutes. An *IdleTimeoutInMinutes* value that more accurately reflects your specific AKS workload can help decrease SNAT exhaustion caused by tying up connections no longer being used.
 
 > [!WARNING]
 > Altering the values for *AllocatedOutboundPorts* and *IdleTimeoutInMinutes* may significantly change the behavior of the outbound rule for your load balancer and shouldn't be done lightly. Check the [SNAT Troubleshooting section][troubleshoot-snat] and review the [Load Balancer outbound rules][azure-lb-outbound-rules-overview] and [outbound connections in Azure][azure-lb-outbound-connections] before updating these values to fully understand the impact of your changes.
@@ -412,14 +418,15 @@ spec:
   - MY_EXTERNAL_IP_RANGE
 ```
 
-This example updates the rule to allow inbound external traffic only from the `MY_EXTERNAL_IP_RANGE` range. If you replace `MY_EXTERNAL_IP_RANGE` with the internal subnet IP address, traffic is restricted to only cluster internal IPs. If traffic is restricted to cluster internal IPs, clients outside your Kubernetes cluster won't be able to access the load balancer.
+This example updates the rule to allow inbound external traffic only from the `MY_EXTERNAL_IP_RANGE` range. If you replace `MY_EXTERNAL_IP_RANGE` with the internal subnet IP address, traffic is restricted to only cluster internal IPs. If traffic is restricted to cluster internal IPs, clients outside your Kubernetes cluster are unable to access the load balancer.
 
 > [!NOTE]
-> Inbound, external traffic flows from the load balancer to the virtual network for your AKS cluster. The virtual network has a network security group (NSG) which allows all inbound traffic from the load balancer. This NSG uses a [service tag][service-tags] of type *LoadBalancer* to allow traffic from the load balancer.
+> * Inbound, external traffic flows from the load balancer to the virtual network for your AKS cluster. The virtual network has a network security group (NSG) which allows all inbound traffic from the load balancer. This NSG uses a [service tag][service-tags] of type *LoadBalancer* to allow traffic from the load balancer.
+> * Pod CIDR should be added to loadBalancerSourceRanges if there are Pods needing to access the service's LoadBalancer IP for clusters with version v1.25 or above.
 
 ## Maintain the client's IP on inbound connections
 
-By default, a service of type `LoadBalancer` [in Kubernetes](https://kubernetes.io/docs/tutorials/services/source-ip/#source-ip-for-services-with-type-loadbalancer) and in AKS won't persist the client's IP address on the connection to the pod. The source IP on the packet that's delivered to the pod will be the private IP of the node. To maintain the client’s IP address, you must set `service.spec.externalTrafficPolicy` to `local` in the service definition. The following manifest shows an example.
+By default, a service of type `LoadBalancer` [in Kubernetes](https://kubernetes.io/docs/tutorials/services/source-ip/#source-ip-for-services-with-type-loadbalancer) and in AKS doesn't persist the client's IP address on the connection to the pod. The source IP on the packet that's delivered to the pod becomes the private IP of the node. To maintain the client’s IP address, you must set `service.spec.externalTrafficPolicy` to `local` in the service definition. The following manifest shows an example.
 
 ```yaml
 apiVersion: v1
@@ -443,11 +450,13 @@ The following annotations are supported for Kubernetes services with type `LoadB
 | ----------------------------------------------------------------- | ------------------------------------- | ------------------------------------------------------------
 | `service.beta.kubernetes.io/azure-load-balancer-internal`         | `true` or `false`                     | Specify whether the load balancer should be internal. If not set, it defaults to public.
 | `service.beta.kubernetes.io/azure-load-balancer-internal-subnet`  | Name of the subnet                    | Specify which subnet the internal load balancer should be bound to. If not set, it defaults to the subnet configured in cloud config file.
-| `service.beta.kubernetes.io/azure-dns-label-name`                 | Name of the DNS label on Public IPs   | Specify the DNS label name for the **public** service. If it's set to an empty string, the DNS entry in the Public IP won't be used.
+| `service.beta.kubernetes.io/azure-dns-label-name`                 | Name of the DNS label on Public IPs   | Specify the DNS label name for the **public** service. If it's set to an empty string, the DNS entry in the Public IP isn't used.
 | `service.beta.kubernetes.io/azure-shared-securityrule`            | `true` or `false`                     | Specify that the service should be exposed using an Azure security rule that may be shared with another service. Trade specificity of rules for an increase in the number of services that can be exposed. This annotation relies on the Azure [Augmented Security Rules](../virtual-network/network-security-groups-overview.md#augmented-security-rules) feature of Network Security groups.
 | `service.beta.kubernetes.io/azure-load-balancer-resource-group`   | Name of the resource group            | Specify the resource group of load balancer public IPs that aren't in the same resource group as the cluster infrastructure (node resource group).
 | `service.beta.kubernetes.io/azure-allowed-service-tags`           | List of allowed service tags          | Specify a list of allowed [service tags][service-tags] separated by commas.
 | `service.beta.kubernetes.io/azure-load-balancer-tcp-idle-timeout` | TCP idle timeouts in minutes          | Specify the time in minutes for TCP connection idle timeouts to occur on the load balancer. The default and minimum value is 4. The maximum value is 30. The value must be an integer.
+| `service.beta.kubernetes.io/azure-load-balancer-ipv4`             | IPv4 address                          | Specify the IPv4 address to assign to the load balancer.
+| `service.beta.kubernetes.io/azure-load-balancer-ipv6`             | IPv6 address                          | Specify the IPv6 address to assign to the load balancer.
 
 > [!NOTE]
 > `service.beta.kubernetes.io/azure-load-balancer-disable-tcp-reset` was deprecated in Kubernetes 1.18 and removed in 1.20.
@@ -470,12 +479,12 @@ The root cause of SNAT exhaustion is frequently an anti-pattern for how outbound
 
 Take advantage of connection reuse and connection pooling whenever possible. These patterns help you avoid resource exhaustion problems and result in predictable behavior. Primitives for these patterns can be found in many development libraries and frameworks.
 
-* Atomic requests (one request per connection) generally aren't a good design choice. Such anti-patterns limit scale, reduce performance, and decrease reliability. Instead, reuse HTTP/S connections to reduce the numbers of connections and associated SNAT ports. The application scale will increase and performance will improve because of reduced handshakes, overhead, and cryptographic operation cost when using TLS.
+* Atomic requests (one request per connection) generally aren't a good design choice. Such anti-patterns limit scale, reduce performance, and decrease reliability. Instead, reuse HTTP/S connections to reduce the numbers of connections and associated SNAT ports. The application scale increases and performance improves because of reduced handshakes, overhead, and cryptographic operation cost when using TLS.
 * If you're using out of cluster/custom DNS, or custom upstream servers on coreDNS, keep in mind that DNS can introduce many individual flows at volume when the client isn't caching the DNS resolvers result. Make sure to customize coreDNS first instead of using custom DNS servers and to define a good caching value.
 * UDP flows (for example, DNS lookups) allocate SNAT ports during the idle timeout. The longer the idle timeout, the higher the pressure on SNAT ports. Use short idle timeout (for example, 4 minutes).
 * Use connection pools to shape your connection volume.
-* Never silently abandon a TCP flow and rely on TCP timers to clean up flow. If you don't let TCP explicitly close the connection, state remains allocated at intermediate systems and endpoints and makes SNAT ports unavailable for other connections. This pattern can trigger application failures and SNAT exhaustion.
-* Don't change OS-level TCP close related timer values without expert knowledge of impact. While the TCP stack will recover, your application performance can be negatively affected when the endpoints of a connection have mismatched expectations. Wishing to change timers is usually a sign of an underlying design problem. Review following recommendations.
+* Never silently abandon a TCP flow and rely on TCP timers to clean up flow. If you don't let TCP explicitly close the connection, state remains allocated at intermediate systems and endpoints, and it makes SNAT ports unavailable for other connections. This pattern can trigger application failures and SNAT exhaustion.
+* Don't change OS-level TCP close related timer values without expert knowledge of impact. While the TCP stack recovers, your application performance can be negatively affected when the endpoints of a connection have mismatched expectations. Wishing to change timers is usually a sign of an underlying design problem. Review following recommendations.
 
 ## Moving from a *Basic* SKU load balancer to *Standard* SKU
 
@@ -492,8 +501,8 @@ The following limitations apply when you create and manage AKS clusters that sup
 * At least one public IP or IP prefix is required for allowing egress traffic from the AKS cluster. The public IP or IP prefix is required to maintain connectivity between the control plane and agent nodes and to maintain compatibility with previous versions of AKS. You have the following options for specifying public IPs or IP prefixes with a *Standard* SKU load balancer:
   * Provide your own public IPs.
   * Provide your own public IP prefixes.
-  * Specify a number up to 100 to allow the AKS cluster to create that many *Standard* SKU public IPs in the same resource group as the AKS cluster. This resource group is usually named with *MC_* at the beginning. AKS assigns the public IP to the *Standard* SKU load balancer. By default, one public IP will automatically be created in the same resource group as the AKS cluster, if no public IP, public IP prefix, or number of IPs is specified. You also must allow public addresses and avoid creating any Azure policies that ban IP creation.
-* A public IP created by AKS can't be reused as a custom bring your own public IP address. All custom IP addresses must be created and managed by the user.
+  * Specify a number up to 100 to allow the AKS cluster to create that many *Standard* SKU public IPs in the same resource group as the AKS cluster. This resource group is usually named with *MC_* at the beginning. AKS assigns the public IP to the *Standard* SKU load balancer. By default, one public IP is automatically created in the same resource group as the AKS cluster if no public IP, public IP prefix, or number of IPs is specified. You also must allow public addresses and avoid creating any Azure policies that ban IP creation.
+* A public IP created by AKS can't be reused as a custom bring your own public IP address. Users must create and manage all custom IP addresses.
 * Defining the load balancer SKU can only be done when you create an AKS cluster. You can't change the load balancer SKU after an AKS cluster has been created.
 * You can only use one type of load balancer SKU (*Basic* or *Standard*) in a single cluster.
 * *Standard* SKU load balancers only support *Standard* SKU IP addresses.
@@ -510,6 +519,7 @@ To learn more about using internal load balancer for inbound traffic, see the [A
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubernetes-services]: https://kubernetes.io/docs/concepts/services-networking/service/
+[lb-annotations]: https://cloud-provider-azure.sigs.k8s.io/topics/loadbalancer/#loadbalancer-annotations
 
 <!-- LINKS - Internal -->
 [advanced-networking]: configure-azure-cni.md

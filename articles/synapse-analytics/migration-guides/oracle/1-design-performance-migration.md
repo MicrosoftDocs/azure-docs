@@ -300,7 +300,7 @@ Most Oracle data types have a direct equivalent in Azure Synapse. The following 
 | LONG RAW | Not supported. Map to VARBINARY(MAX). |
 | NCHAR | NCHAR |
 | NVARCHAR2 | NVARCHAR |
-| NUMBER | NUMBER |
+| NUMBER | FLOAT |
 | NCLOB | Not directly supported. Replace with NVARCHAR(MAX). |
 | NUMERIC | NUMERIC |
 | ORD media data types | Not supported |

@@ -89,7 +89,7 @@ Add the following keys to the app settings:
 
 ### 3.1 Add an OpenID Connect identity provider
 
-Once you've added the app ID and secrete, use the following steps to add the Azure AD B2C as OpenId Connect identity provider.
+Once you've added the app ID and secret, use the following steps to add the Azure AD B2C as OpenId Connect identity provider.
 
 1. Add an `auth` section of the [configuration file](../static-web-apps/configuration.md) with a configuration block for the OIDC providers, and your provider definition.
 

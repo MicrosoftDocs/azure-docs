@@ -12,11 +12,9 @@ ms.custom: subject-monitoring
 
 # Monitoring Virtual WAN data reference
 
-This article provides a reference of log and metric data collected to analyze the performance and availability of Virtual WAN. See [Monitoring Virtual WAN](monitor-virtual-wan.md) for details on collecting and analyzing monitoring data for Virtual WAN.
+This article provides a reference of log and metric data collected to analyze the performance and availability of Virtual WAN. See [Monitoring Virtual WAN](monitor-virtual-wan.md) for instructions and additional context on monitoring data for Virtual WAN.
 
 ## <a name="metrics"></a>Metrics
-
-Metrics in Azure Monitor are numerical values that describe some aspect of a system at a particular time. Metrics are collected every minute, and are useful for alerting because they can be sampled frequently. An alert can be fired quickly with relatively simple logic.
 
 ### <a name="hub-router-metrics"></a>Virtual hub router metrics  
 
@@ -24,7 +22,7 @@ The following metric is available for virtual hub router within a virtual hub:
 
 | Metric | Description|
 | --- | --- |
-| **Virtual Hub Data Processed** | Data in bytes/second on how much traffic traverses the virtual hub router in a given time period. Note that only the following flows use the virtual hub router: VNet to VNet (same hub) and VPN/ExpressRoute branch to VNet (interhub).|
+| **Virtual Hub Data Processed** | Data on how much traffic traverses the virtual hub router in a given time period. Note that only the following flows use the virtual hub router: VNet to VNet (same hub and interhub) and VPN/ExpressRoute branch to VNet (interhub). If a virtual hub is secured with routing intent, then these flows will traverse the firewall instead of the hub router. |
 
 #### PowerShell steps
 
@@ -33,7 +31,7 @@ To query, use the following example PowerShell commands. The necessary fields ar
 **Step 1:**
 
 ```azurepowershell-interactive
-$MetricInformation = Get-AzMetric -ResourceId "/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/VirtualHubs/<VirtualHubName>" -MetricName "VirtualHubDataProcessed" -TimeGrain 00:05:00 -StartTime 2022-2-20T01:00:00Z -EndTime 2022-2-20T01:30:00Z -AggregationType Average
+$MetricInformation = Get-AzMetric -ResourceId "/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/VirtualHubs/<VirtualHubName>" -MetricName "VirtualHubDataProcessed" -TimeGrain 00:05:00 -StartTime 2022-2-20T01:00:00Z -EndTime 2022-2-20T01:30:00Z -AggregationType Sum
 ```
 
 **Step 2:**
@@ -50,11 +48,8 @@ $MetricInformation.Data
 
 * **Start Time and End Time** - This time is based on UTC, so please ensure that you're entering UTC values when inputting these parameters. If these parameters aren't used, the past one hour's worth of data is shown by default.  
 
-* **Aggregation Types** - Average/Minimum/Maximum/Total
-  * Average - Total average of bytes/sec per the selected time period.
-  * Minimum – Minimum bytes that were sent during the selected time grain period.
-  * Maximum – Maximum bytes that were sent during the selected time grain period.
-  * Total – Total bytes/sec that were sent during the selected time grain period.
+* **Sum Aggregation Type** - This aggregation type will show you the total number of bytes that traversed the virtual hub router during a selected time period. The **Max** and **Min** aggregation types are not meaningful. 
+ 
 
 ### <a name="s2s-metrics"></a>Site-to-site VPN gateway metrics
 
@@ -125,27 +120,10 @@ The following metrics are available for Azure ExpressRoute gateways:
 | **Count of routes advertised to peer**| Count of Routes Advertised to Peer by ExpressRoute gateway. |
 | **Count of routes learned from peer**| Count of Routes Learned from Peer by ExpressRoute gateway.|
 | **Frequency of routes changed** | Frequency of Route changes in ExpressRoute gateway.|
-| **Number of VMs in Virtual Network**| Number of VMs that use this ExpressRoute gateway.|
-
-### <a name="metrics-steps"></a>View gateway metrics
-
-The following steps help you locate and view metrics:
-
-1. In the portal, navigate to the virtual hub that has the gateway.
-
-1. Select **VPN (Site to site)** to locate a site-to-site gateway, **ExpressRoute** to locate an ExpressRoute gateway, or **User VPN (Point to site)** to locate a point-to-site gateway.
-
-1. Select **Metrics**.
-
-   :::image type="content" source="./media/monitor-virtual-wan-reference/view-metrics.png" alt-text="Screenshot shows a site to site VPN pane with View in Azure Monitor selected." lightbox="./media/monitor-virtual-wan-reference/view-metrics.png":::
-
-1. On the **Metrics** page, you can view the metrics that you're interested in.
-
-   :::image type="content" source="./media/monitor-virtual-wan-reference/metrics-page.png" alt-text="Screenshot that shows the 'Metrics' page with the categories highlighted." lightbox="./media/monitor-virtual-wan-reference/metrics-page.png":::
 
 ## <a name="diagnostic"></a>Diagnostic logs
 
-The following diagnostic logs are available, unless otherwise specified.
+The following diagnostic logs are available, unless otherwise specified. 
 
 ### <a name="s2s-diagnostic"></a>Site-to-site VPN gateway diagnostics
 
@@ -170,27 +148,7 @@ The following diagnostics are available for Virtual WAN point-to-site VPN gatewa
 
 ### ExpressRoute gateway diagnostics
 
-Diagnostic logs for ExpressRoute gateways in Azure Virtual WAN are supported.
-
-### <a name="view-diagnostic"></a>View diagnostic logs configuration
-
-The following steps help you create, edit, and view diagnostic settings:
-
-1. In the portal, navigate to your Virtual WAN resource, then select **Hubs** in the **Connectivity** group.
-
-   :::image type="content" source="./media/monitor-virtual-wan-reference/select-hub.png" alt-text="Screenshot that shows the Hub selection in the vWAN Portal." lightbox="./media/monitor-virtual-wan-reference/select-hub.png":::
-
-1. Under the **Connectivity** group on the left, select the gateway for which you want to examine diagnostics:
-
-   :::image type="content" source="./media/monitor-virtual-wan-reference/select-hub-gateway.png" alt-text="Screenshot that shows the Connectivity section for the hub." lightbox="./media/monitor-virtual-wan-reference/select-hub-gateway.png":::
-
-1. On the right part of the page, click on the **View in Azure Monitor** link to the right of **Logs**, then select an option. You can choose to send to Log Analytics, stream to an event hub, or simply archive to a storage account.
-
-   :::image type="content" source="./media/monitor-virtual-wan-reference/view-hub-gateway-logs.png" alt-text="Screenshot for Select View in Azure Monitor for Logs." lightbox="./media/monitor-virtual-wan-reference/view-hub-gateway-logs.png":::
-
-1. In this page, you can create a new diagnostic setting (**+Add diagnostic setting**) or edit an existing one (**Edit setting**). You can choose to send the diagnostic logs to Log Analytics (as shown in the example below), stream to an event hub, send to a 3rd-party solution, or archive to a storage account.
-
-    :::image type="content" source="./media/monitor-virtual-wan-reference/select-gateway-settings.png" alt-text="Screenshot for Select Diagnostic Log settings." lightbox="./media/monitor-virtual-wan-reference/select-gateway-settings.png":::
+In Azure Virtual WAN, ExpressRoute gateway metrics can be exported as logs via a diagnostic setting.
 
 ### Log Analytics sample query
 
@@ -216,7 +174,9 @@ For Azure Firewall, a [workbook](../firewall/firewall-workbook.md) is provided t
 
 ## <a name="activity-logs"></a>Activity logs
 
-**Activity log** entries are collected by default and can be viewed in the Azure portal. You can use Azure activity logs (formerly known as *operational logs* and *audit logs*) to view all operations submitted to your Azure subscription.
+[**Activity log**](../azure-monitor/essentials/activity-log.md) entries are collected by default and can be viewed in the Azure portal. You can use Azure activity logs (formerly known as *operational logs* and *audit logs*) to view all operations submitted to your Azure subscription.
+
+You can view activity logs independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.
 
 For more information on the schema of Activity Log entries, see [Activity Log schema](../azure-monitor/essentials/activity-log-schema.md).
 
@@ -243,9 +203,6 @@ For every Azure Virtual WAN you secure and convert to a Secured Hub, an explicit
 
 :::image type="content" source="./media/monitor-virtual-wan-reference/firewall-resources-portal.png" alt-text="Screenshot shows a Firewall resource in the vWAN hub resource group." lightbox="./media/monitor-virtual-wan-reference/firewall-resources-portal.png":::
 
-Diagnostics and logging configuration must be done from accessing the **Diagnostic Setting** tab:
-
-:::image type="content" source="./media/monitor-virtual-wan-reference/firewall-diagnostic-settings.png" alt-text="Screenshot shows Firewall diagnostic settings." lightbox="./media/monitor-virtual-wan-reference/firewall-diagnostic-settings.png" :::
 
 ## Next steps
 

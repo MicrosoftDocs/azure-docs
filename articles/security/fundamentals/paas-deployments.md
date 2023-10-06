@@ -131,7 +131,7 @@ Web applications are increasingly targets of malicious attacks that exploit comm
 
 ## DDoS protection
 
-[Azure DDoS Protection Standard](../../ddos-protection/ddos-protection-overview.md), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection Standard](../../ddos-protection/ddos-protection-overview.md) on any perimeter virtual network. 
+[Azure DDoS Protection](../../ddos-protection/ddos-protection-overview.md), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection](../../ddos-protection/ddos-protection-overview.md) on any perimeter virtual network. 
 
 ## Monitor the performance of your applications
 Monitoring is the act of collecting and analyzing data to determine the performance, health, and availability of your application. An effective monitoring strategy helps you understand the detailed operation of the components of your application. It helps you increase your uptime by notifying you of critical issues so that you can resolve them before they become problems. It also helps you detect anomalies that might be security related.

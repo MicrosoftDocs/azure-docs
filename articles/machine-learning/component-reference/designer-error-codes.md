@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.custom: troubleshooting
+ms.custom: troubleshooting, devx-track-python
 author: likebupt
 ms.author: keli19
 ms.date: 03/25/2021

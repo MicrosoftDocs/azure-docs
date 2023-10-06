@@ -5,8 +5,8 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure
-ms.custom: devx-track-terraform, devx-track-arm-template
-ms.date: 02/25/2023
+ms.custom: devx-track-terraform, devx-track-arm-template, devx-track-ansible, devx-track-jenkins, devx-track-bicep
+ms.date: 09/21/2023
 ms.author: cynthn
 ms.reviewer: mattmcinnes
 ---
@@ -18,7 +18,7 @@ ms.reviewer: mattmcinnes
 To create and manage Azure virtual machines (VMs) in a consistent manner at scale, some form of automation is typically desired. There are many tools and solutions that allow you to automate the complete Azure infrastructure deployment and management lifecycle. This article introduces some of the infrastructure automation tools that you can use in Azure. These tools commonly fit in to one of the following approaches:
 
 - Automate the configuration of VMs
-    - Tools include [Ansible](#ansible), [Chef](#chef), [Puppet](#puppet), and [Azure Resource Manager template](#azure-resource-manager-template).
+    - Tools include [Ansible](#ansible), [Chef](#chef), [Puppet](#puppet), [Bicep](#bicep), and [Azure Resource Manager template](#azure-resource-manager-template).
     - Tools specific to VM customization include [cloud-init](#cloud-init) for Linux VMs, [PowerShell Desired State Configuration (DSC)](#powershell-dsc), and the [Azure Custom Script Extension](#azure-custom-script-extension) for all Azure VMs.
 
 - Automate infrastructure management
@@ -28,32 +28,46 @@ To create and manage Azure virtual machines (VMs) in a consistent manner at scal
 - Automate application deployment and delivery
     - Examples include [Azure DevOps Services](#azure-devops-services) and [Jenkins](#jenkins).
 
-## Ansible
-[Ansible](https://www.ansible.com/) is an automation engine for configuration management, VM creation, or application deployment. Ansible uses an agent-less model, typically with SSH keys, to authenticate and manage target machines. Configuration tasks are defined in playbooks, with several Ansible modules available to carry out specific tasks. For more information, see [How Ansible works](https://www.ansible.com/how-ansible-works).
+## Terraform
+[Terraform](https://www.terraform.io) is an automation tool that allows you to define and create an entire Azure infrastructure with a single template format language - the HashiCorp Configuration Language (HCL). With Terraform, you define templates that automate the process to create network, storage, and VM resources for a given application solution. You can use your existing Terraform templates for other platforms with Azure to ensure consistency and simplify the infrastructure deployment without needing to convert to an Azure Resource Manager template.
 
 Learn how to:
 
-- [Install and configure Ansible on Linux for use with Azure](/azure/developer/ansible/install-on-linux-vm).
-- [Create a Linux virtual machine](/azure/developer/ansible/vm-configure).
-- [Manage a Linux virtual machine](/azure/developer/ansible/vm-manage).
+- [Install and configure Terraform with Azure](/azure/developer/terraform/getting-started-cloud-shell).
+- [Create an Azure infrastructure with Terraform](/azure/developer/terraform/create-linux-virtual-machine-with-infrastructure).
 
 
-## Chef
-[Chef](https://www.chef.io/) is an automation platform that helps define how your infrastructure is configured, deployed, and managed. Some components include Chef Habitat for application lifecycle automation rather than the infrastructure, and Chef InSpec that helps automate compliance with security and policy requirements. Chef Clients are installed on target machines, with one or more central Chef Servers that store and manage the configurations. For more information, see [An Overview of Chef](https://docs.chef.io/chef_overview.html).
+## Azure Automation
+[Azure Automation](https://azure.microsoft.com/services/automation/) uses runbooks to process a set of tasks on the VMs you target. Azure Automation is used to manage existing VMs rather than to create an infrastructure. Azure Automation can run across both Linux and Windows VMs, and on-premises virtual or physical machines with a hybrid runbook worker. Runbooks can be stored in a source control repository, such as GitHub. These runbooks can then run manually or on a defined schedule.
 
-Learn how to:
-
-- [Deploy Chef Automate from the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate?tab=Overview).
-- [Install Chef on Windows and create Azure VMs](/azure/developer/chef/windows-vm-configure).
-
-
-## Puppet
-[Puppet](https://www.puppet.com) is an enterprise-ready automation platform that handles the application delivery and deployment process. Agents are installed on target machines to allow Puppet Master to run manifests that define the desired configuration of the Azure infrastructure and VMs. Puppet can integrate with other solutions such as Jenkins and GitHub for an improved devops workflow. For more information, see [How Puppet works](https://puppet.com/products/how-puppet-works).
+Azure Automation also provides a Desired State Configuration (DSC) service that allows you to create definitions for how a given set of VMs should be configured. DSC then ensures that the required configuration is applied and the VM stays consistent. Azure Automation DSC runs on both Windows and Linux machines.
 
 Learn how to:
 
-- [Deploy Puppet](https://puppet.com/docs/puppet/5.5/install_windows.html).
+- [Create a PowerShell runbook](../automation/learn/powershell-runbook-managed-identity.md).
+- [Use Hybrid Runbook Worker to manage on-premises resources](../automation/automation-hybrid-runbook-worker.md).
+- [Use Azure Automation DSC](../automation/automation-dsc-getting-started.md).
 
+
+## Azure DevOps Services
+[Azure DevOps Services](https://www.visualstudio.com/team-services/) is a suite of tools that help you share and track code, use automated builds, and create a complete continuous integration and development (CI/CD) pipeline. Azure DevOps Services integrates with Visual Studio and other editors to simplify usage. Azure DevOps Services can also create and configure Azure VMs and then deploy code to them.
+
+Learn more about:
+
+- [Azure DevOps Services](/azure/devops/user-guide/index).
+## Azure Resource Manager template
+[Azure Resource Manager](../azure-resource-manager/templates/overview.md) is the deployment and management service for Azure. It provides a management layer that enables you to create, update, and delete resources in your Azure subscription. You use management features, like access control, locks, and tags, to secure and organize your resources after deployment.
+
+Learn how to:
+
+- [Deploy Spot VMs using a Resource Manager template](./linux/spot-template.md).
+- [Create a Windows virtual machine from a Resource Manager template](./windows/ps-template.md).
+- [Download the template for a VM](/previous-versions/azure/virtual-machines/windows/download-template).
+- [Create an Azure Image Builder template](./linux/image-builder-json.md).
+## Bicep
+[Bicep](/azure/azure-resource-manager/bicep/) is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. In a Bicep file, you define the infrastructure you want to deploy to Azure, and then use that file throughout the development lifecycle to repeatedly deploy your infrastructure. Your resources are deployed in a consistent manner.
+
+Get started with the [Quickstart](../azure-resource-manager/bicep/quickstart-create-bicep-use-visual-studio-code.md).
 
 ## Cloud-init
 [Cloud-init](https://cloudinit.readthedocs.io) is a widely used approach to customize a Linux VM as it boots for the first time. You can use cloud-init to install packages and write files, or to configure users and security. Because cloud-init is called during the initial boot process, there are no extra steps or required agents to apply your configuration.  For more information on how to properly format your `#cloud-config` files, see the [cloud-init documentation site](https://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config` files are text files encoded in base64.
@@ -90,6 +104,35 @@ Learn how to:
 - [Create a Windows VM with Azure PowerShell and use the Custom Script Extension](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-iis).
 
 
+
+## Ansible
+[Ansible](https://www.ansible.com/) is an automation engine for configuration management, VM creation, or application deployment. Ansible uses an agent-less model, typically with SSH keys, to authenticate and manage target machines. Configuration tasks are defined in playbooks, with several Ansible modules available to carry out specific tasks. For more information, see [How Ansible works](https://www.ansible.com/how-ansible-works).
+
+Learn how to:
+
+- [Install and configure Ansible on Linux for use with Azure](/azure/developer/ansible/install-on-linux-vm).
+- [Create a Linux virtual machine](/azure/developer/ansible/vm-configure).
+- [Manage a Linux virtual machine](/azure/developer/ansible/vm-manage).
+
+
+## Chef
+[Chef](https://www.chef.io/) is an automation platform that helps define how your infrastructure is configured, deployed, and managed. Some components include Chef Habitat for application lifecycle automation rather than the infrastructure, and Chef InSpec that helps automate compliance with security and policy requirements. Chef Clients are installed on target machines, with one or more central Chef Servers that store and manage the configurations. For more information, see [An Overview of Chef](https://docs.chef.io/chef_overview.html).
+
+Learn how to:
+
+- [Deploy Chef Automate from the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate?tab=Overview).
+- [Install Chef on Windows and create Azure VMs](/azure/developer/chef/windows-vm-configure).
+
+
+## Puppet
+[Puppet](https://www.puppet.com) is an enterprise-ready automation platform that handles the application delivery and deployment process. Agents are installed on target machines to allow Puppet Master to run manifests that define the desired configuration of the Azure infrastructure and VMs. Puppet can integrate with other solutions such as Jenkins and GitHub for an improved devops workflow. For more information, see [How Puppet works](https://puppet.com/products/how-puppet-works).
+
+Learn how to:
+
+- [Deploy Puppet](https://puppet.com/docs/puppet/5.5/install_windows.html).
+
+
+
 ## Packer
 [Packer](https://www.packer.io) automates the build process when you create a custom VM image in Azure. You use Packer to define the OS and run post-configuration scripts that customize the VM for your specific needs. Once configured, the VM is then captured as a Managed Disk image. Packer automates the process to create the source VM, network and storage resources, run configuration scripts, and then create the VM image.
 
@@ -97,35 +140,6 @@ Learn how to:
 
 - [Use Packer to create a Linux VM image in Azure](./linux/build-image-with-packer.md).
 - [Use Packer to create a Windows VM image in Azure](./windows/build-image-with-packer.md).
-
-
-## Terraform
-[Terraform](https://www.terraform.io) is an automation tool that allows you to define and create an entire Azure infrastructure with a single template format language - the HashiCorp Configuration Language (HCL). With Terraform, you define templates that automate the process to create network, storage, and VM resources for a given application solution. You can use your existing Terraform templates for other platforms with Azure to ensure consistency and simplify the infrastructure deployment without needing to convert to an Azure Resource Manager template.
-
-Learn how to:
-
-- [Install and configure Terraform with Azure](/azure/developer/terraform/getting-started-cloud-shell).
-- [Create an Azure infrastructure with Terraform](/azure/developer/terraform/create-linux-virtual-machine-with-infrastructure).
-
-
-## Azure Automation
-[Azure Automation](https://azure.microsoft.com/services/automation/) uses runbooks to process a set of tasks on the VMs you target. Azure Automation is used to manage existing VMs rather than to create an infrastructure. Azure Automation can run across both Linux and Windows VMs, and on-premises virtual or physical machines with a hybrid runbook worker. Runbooks can be stored in a source control repository, such as GitHub. These runbooks can then run manually or on a defined schedule.
-
-Azure Automation also provides a Desired State Configuration (DSC) service that allows you to create definitions for how a given set of VMs should be configured. DSC then ensures that the required configuration is applied and the VM stays consistent. Azure Automation DSC runs on both Windows and Linux machines.
-
-Learn how to:
-
-- [Create a PowerShell runbook](../automation/learn/powershell-runbook-managed-identity.md).
-- [Use Hybrid Runbook Worker to manage on-premises resources](../automation/automation-hybrid-runbook-worker.md).
-- [Use Azure Automation DSC](../automation/automation-dsc-getting-started.md).
-
-
-## Azure DevOps Services
-[Azure DevOps Services](https://www.visualstudio.com/team-services/) is a suite of tools that help you share and track code, use automated builds, and create a complete continuous integration and development (CI/CD) pipeline. Azure DevOps Services integrates with Visual Studio and other editors to simplify usage. Azure DevOps Services can also create and configure Azure VMs and then deploy code to them.
-
-Learn more about:
-
-- [Azure DevOps Services](/azure/devops/user-guide/index).
 
 
 ## Jenkins
@@ -136,15 +150,7 @@ Learn how to:
 - [Create a development infrastructure on a Linux VM in Azure with Jenkins, GitHub, and Docker](/azure/developer/jenkins/pipeline-with-github-and-docker).
 
 
-## Azure Resource Manager template
-[Azure Resource Manager](../azure-resource-manager/templates/overview.md) is the deployment and management service for Azure. It provides a management layer that enables you to create, update, and delete resources in your Azure subscription. You use management features, like access control, locks, and tags, to secure and organize your resources after deployment.
 
-Learn how to:
-
-- [Deploy Spot VMs using a Resource Manager template](./linux/spot-template.md).
-- [Create a Windows virtual machine from a Resource Manager template](./windows/ps-template.md).
-- [Download the template for a VM](/previous-versions/azure/virtual-machines/windows/download-template).
-- [Create an Azure Image Builder template](./linux/image-builder-json.md).
 
 ## Next steps
 There are many different options to use infrastructure automation tools in Azure. You have the freedom to use the solution that best fits your needs and environment. To get started and try some of the tools built-in to Azure, see how to automate the customization of a [Linux](./linux/tutorial-automate-vm-deployment.md) or [Windows](./windows/tutorial-automate-vm-deployment.md) VM.

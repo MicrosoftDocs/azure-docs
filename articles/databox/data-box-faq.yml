@@ -1,6 +1,6 @@
 ### YamlMime:FAQ
 metadata:
-  title: Azure Data Box, Azure Data Box Heavy FAQ  
+  title: Azure Data Box, Azure Data Box Heavy FAQ   
   description: Contains frequently asked questions and answers for Azure Data Box and Azure Data Box Heavy, a cloud solution that enables you to transfer large amounts of data into Azure.
   services: databox
   author: v-dalc
@@ -9,7 +9,7 @@ metadata:
   ms.subservice: pod
   ms.topic: faq
   ms.date: 06/06/2022
-  ms.author: alkohli
+  ms.author: shaas
   ms.custom: references_regions
 
 title: "Azure Data Box: Frequently Asked Questions"
@@ -63,7 +63,7 @@ sections:
 
           In addition to the customer data, there is Data Box data that includes security artifacts related to the device, monitoring logs for the device and the service, and service-related metadata. In all regions (except Brazil South, Southeast Asia, and East Asia), Data Box data is stored and replicated in the paired region via a Geo-redundant Storage account to protect against data loss.
 
-          Due to [data residency requirements](https://azure.microsoft.com/global-infrastructure/data-residency/#more-information) in Brazil South, Southeast Asia, and East Asia, Data Box data is stored in a Zone-redundant Storage (ZRS) account so that it is contained in a single region. For Southeast Asia, all the Data Box data is stored in Singapore. For Brazil South, the data is stored in Brazil. For East Asia, the data is stored in Hong Kong.
+          Due to [data residency requirements](https://azure.microsoft.com/global-infrastructure/data-residency/#more-information) in Brazil South, Southeast Asia, and East Asia, Data Box data is stored in a Zone-redundant Storage (ZRS) account so that it is contained in a single region. For Southeast Asia, all the Data Box data is stored in Singapore. For Brazil South, the data is stored in Brazil. For East Asia, the data is stored in Hong Kong SAR.
 
           If there is a service outage in Brazil South, Southeast Asia, or East Asia, the customers can create new orders from another region. The new orders will be served from the region in which they are created and the customers are responsible for the to and fro shipment of the Data Box device.
 
@@ -95,7 +95,7 @@ sections:
           
           ### Which regions can I store data in with Data Box?
         
-          Data Box is supported for all regions within the US, Canada, the EU, the UK, Switzerland, Australia, Singapore, Hong Kong, Japan, Korea, India, Brazil, South Africa, and the UAE. For more information, go to [Region availability](data-box-overview.md#region-availability).
+          Data Box is supported for all regions within the US, Canada, the EU, the UK, Switzerland, Australia, Singapore, Hong Kong Special Administrative Region, Japan, Korea, India, Brazil, South Africa, and the UAE. For more information, go to [Region availability](data-box-overview.md#region-availability).
           
           ## [Data Box Heavy only](#tab/data-box-heavy)
           
@@ -317,7 +317,9 @@ sections:
           ### Can I use multiple storage accounts with Data Box?
 
           Yes. A maximum of 10 storage accounts, general purpose, classic, or blob storage are supported with Data Box. Both hot and cool blob are supported.
-
+          > [!Note]
+          > Classic storage accounts will not be supported starting **August 1, 2023**.
+          
       - question: |
           Ship device 
         answer: |

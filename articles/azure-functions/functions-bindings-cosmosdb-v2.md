@@ -2,9 +2,9 @@
 title: Azure Cosmos DB bindings for Functions 2.x and higher
 description: Understand how to use Azure Cosmos DB triggers and bindings in Azure Functions.
 ms.topic: reference
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-extended-java, devx-track-js, devx-track-python
 ms.date: 11/29/2022
-zone_pivot_groups: programming-languages-set-functions-lang-workers
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Azure Cosmos DB trigger and bindings for Azure Functions 2.x and higher overview
@@ -35,27 +35,23 @@ This set of articles explains how to work with [Azure Cosmos DB](../cosmos-db/se
 
 The extension NuGet package you install depends on the C# mode you're using in your function app: 
 
-# [In-process](#tab/in-process)
-
-Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
-
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
 
-# [C# script](#tab/csharp-script)
+# [In-process model](#tab/in-process)
 
-Functions run as C# script, which is supported primarily for C# portal editing. To update existing binding extensions for C# script apps running in the portal without having to republish your function app, see [Update your extensions].
+Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
+
+In a variation of this model, Functions can be run using [C# scripting], which is supported primarily for C# portal editing. To update existing binding extensions for C# script apps running in the portal without having to republish your function app, see [Update your extensions].
 
 ---
 
 The process for installing the extension varies depending on the extension version:
 
-# [Functions 2.x+](#tab/functionsv2/in-process)
-
-Working with the trigger and bindings requires that you reference the appropriate NuGet package. Install the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB/3.0.10), version 3.x.
-
 # [Extension 4.x+](#tab/extensionv4/in-process)
+
+_This section describes using a [class library](./functions-dotnet-class-library.md). For [C# scripting], you would need to instead [install the extension bundle][Update your extensions], version 4.x._
 
 This version of the Azure Cosmos DB bindings extension introduces the ability to [connect using an identity instead of a secret](./functions-reference.md#configure-an-identity-based-connection). For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](./functions-identity-based-connections-tutorial.md). 
 
@@ -63,9 +59,11 @@ This version also changes the types that you can bind to, replacing the types fr
 
 This extension version is available as a [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB), version 4.x.
 
-# [Functions 2.x+](#tab/functionsv2/isolated-process)
+# [Functions 2.x+](#tab/functionsv2/in-process)
 
-Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.CosmosDB/), version 3.x.
+_This section describes using a [class library](./functions-dotnet-class-library.md). For [C# scripting], you would need to instead [install the extension bundle][Update your extensions], version 2.x or 3.x._
+
+Working with the trigger and bindings requires that you reference the appropriate NuGet package. Install the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB/3.0.10), version 3.x.
 
 # [Extension 4.x+](#tab/extensionv4/isolated-process)
 
@@ -73,49 +71,29 @@ This version of the Azure Cosmos DB bindings extension introduces the ability to
 
 Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.CosmosDB/), version 4.x.
 
-# [Functions 2.x+](#tab/functionsv2/csharp-script)
+# [Functions 2.x+](#tab/functionsv2/isolated-process)
 
-You can install this version of the extension in your function app by registering the [extension bundle], version 2.x.
-
-# [Extension 4.x+](#tab/extensionv4/csharp-script)
-
-This extension version is available from the extension bundle v4 by adding the following lines in your `host.json` file:
-
-```json
-{
-  "version": "2.0",
-  "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle",
-    "version": "[4.0.0, 5.0.0)"
-  }
-}
-```
+Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.CosmosDB/), version 3.x.
 
 ---
 
 ::: zone-end  
 
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell"  
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"  
 
 ## Install bundle
 
 The Azure Cosmos DB bindings extension is part of an [extension bundle], which is specified in your *host.json* project file. You may need to modify this bundle to change the version of the binding, or if bundles aren't already installed. To learn more, see [extension bundle].
 
-# [Bundle v2.x and v3.x](#tab/functionsv2)
-
-You can install this version of the extension in your function app by registering the [extension bundle], version 2.x or 3.x.
-
-[!INCLUDE [functions-extension-bundles-json-v3](../../includes/functions-extension-bundles-json-v3.md)]
-
-# [Bundle v4.x](#tab/extensionv4)
-
-This version of the bundle contains version 4.x of the Azure Cosmos DB bindings extension that introduces the ability to [connect using an identity instead of a secret](./functions-reference.md#configure-an-identity-based-connection). For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](./functions-identity-based-connections-tutorial.md).
-
 ::: zone-end  
 ::: zone pivot="programming-language-java"   
 [!INCLUDE [functions-cosmosdb-extension-java-note](../../includes/functions-cosmosdb-extension-java-note.md)]
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell"   
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"   
+
+# [Bundle v4.x](#tab/extensionv4)
+
+This version of the bundle contains version 4.x of the Azure Cosmos DB bindings extension that introduces the ability to [connect using an identity instead of a secret](./functions-reference.md#configure-an-identity-based-connection). For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](./functions-identity-based-connections-tutorial.md).
 
 You can add this version of the extension from the preview extension bundle v4 by adding or replacing the following code in your `host.json` file:
 
@@ -131,6 +109,12 @@ You can add this version of the extension from the preview extension bundle v4 b
 
 To learn more, see [Update your extensions].
 
+# [Bundle v2.x and v3.x](#tab/functionsv2)
+
+You can install this version of the extension in your function app by registering the [extension bundle], version 2.x or 3.x.
+
+[!INCLUDE [functions-extension-bundles-json-v3](../../includes/functions-extension-bundles-json-v3.md)]
+
 ---
 
 ::: zone-end
@@ -141,83 +125,56 @@ To learn more, see [Update your extensions].
 
 The binding types supported for .NET depend on both the extension version and C# execution mode, which can be one of the following: 
    
-# [In-process class library](#tab/in-process)
+# [Isolated worker model](#tab/isolated-process)
+
+An isolated worker process class library compiled C# function runs in a process isolated from the runtime.  
+
+# [In-process model](#tab/in-process)
 
 An in-process class library is a compiled C# function runs in the same process as the Functions runtime.
  
-# [Isolated process](#tab/isolated-process)
-
-An isolated worker process class library compiled C# function runs in a process isolated from the runtime.  
-   
-# [C# script](#tab/csharp-script)
-
-C# script is used primarily when creating C# functions in the Azure portal.
-
 ---
 
 Choose a version to see binding type details for the mode and version. 
 
-# [Extension 4.x and higher](#tab/extensionv4/in-process)
+# [Extension 4.x+](#tab/extensionv4/in-process)
 
 The Azure Cosmos DB extension supports parameter types according to the table below.
 
-| Binding | Parameter types |
+| Binding scenario | Parameter types |
 |-|-|-| 
-| Cosmos DB trigger | JSON serializable types<sup>1</sup><br/>`IEnumerable<T>`<sup>2</sup> |
-| Cosmos DB input | JSON serializable types<sup>1</sup><br/>`IEnumerable<T>`<sup>2</sup><br/>[CosmosClient] | 
-| Cosmos DB output | JSON serializable types<sup>1</sup> |
+| Cosmos DB trigger (single document) | JSON serializable types<sup>1</sup> |
+| Cosmos DB trigger (batch of documents) | `IEnumerable<T>`where `T` is a JSON serializable type<sup>1</sup> |
+| Cosmos DB input (single document) | JSON serializable types<sup>1</sup><br/> | 
+| Cosmos DB input (query returning multiple documents) | [CosmosClient]<br/>`IEnumerable<T>` where `T` is a JSON serializable type<sup>1</sup> |
+| Cosmos DB output (single document) | JSON serializable types<sup>1</sup> |
+| Cosmos DB output (multiple documents) | `ICollector<T>` or `IAsyncCollector<T>` where `T` is a JSON serializable type<sup>1</sup> |
 
 <sup>1</sup> Documents containing JSON data can be deserialized into known plain-old CLR object (POCO) types.
 
-<sup>2</sup> `IEnumerable<T>` provides a collection of documents. Here, `T` is a JSON serializable type. When specified for a trigger, it allows a single invocation to process a batch of documents. When used for an input binding, this allows multiple documents to be returned by the query.
-
-# [Functions 2.x and higher](#tab/functionsv2/in-process)
+# [Functions 2.x+](#tab/functionsv2/in-process)
 
 Earlier versions of the extension exposed types from the now deprecated [Microsoft.Azure.Documents] namespace. Newer types from [Microsoft.Azure.Cosmos] are exclusive to **extension 4.x and higher**.
 
-# [Extension 4.x and higher](#tab/extensionv4/isolated-process)
+# [Extension 4.x+](#tab/extensionv4/isolated-process)
 
-The isolated worker process supports parameter types according to the table below. Binding to JSON serializeable types is currently the only option that is generally available. Support for binding to types from [Microsoft.Azure.Cosmos] is in preview.
+The isolated worker process supports parameter types according to the tables below. Support for binding to types from [Microsoft.Azure.Cosmos]is in preview.
 
-| Binding | Parameter types | Preview parameter types<sup>1</sup> |
-|-|-|-| 
-| Cosmos DB trigger | JSON serializable types<sup>2</sup><br/>`IEnumerable<T>`<sup>3</sup> | *No preview types* |
-| Cosmos DB input | JSON serializable types<sup>2</sup><br/>`IEnumerable<T>`<sup>3</sup> | [CosmosClient]<br/>[Database]<br/>[Container] |
-| Cosmos DB output | JSON serializable types<sup>2</sup> | *No preview types*<sup>4</sup> |
+**Cosmos DB trigger**
 
-<sup>1</sup> Preview types require use of [Microsoft.Azure.Functions.Worker.Extensions.CosmosDB 4.1.0-preview1 or later][sdk-types-extension-version], [Microsoft.Azure.Functions.Worker 1.12.1-preview1 or later][sdk-types-worker-version], and [Microsoft.Azure.Functions.Worker.Sdk 1.9.0-preview1 or later][sdk-types-worker-sdk-version]. When developing on your local machine, you will need [Azure Functions Core Tools version 4.0.5000 or later](./functions-run-local.md). When using a preview type, [binding expressions](./functions-bindings-expressions-patterns.md) that rely on trigger data are not supported.
+[!INCLUDE [functions-bindings-cosmosdb-v2-trigger-dotnet-isolated-types](../../includes/functions-bindings-cosmosdb-v2-trigger-dotnet-isolated-types.md)]
 
-[sdk-types-extension-version]: https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.CosmosDB/4.1.0-preview1
-[sdk-types-worker-version]: https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/1.12.1-preview1
-[sdk-types-worker-sdk-version]: https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/1.9.0-preview1
+**Cosmos DB input binding**
 
-<sup>2</sup> Documents containing JSON data can be deserialized into known plain-old CLR object (POCO) types.
+[!INCLUDE [functions-bindings-cosmosdb-v2-input-dotnet-isolated-types](../../includes/functions-bindings-cosmosdb-v2-input-dotnet-isolated-types.md)]
 
-<sup>3</sup> `IEnumerable<T>` provides a collection of documents. Here, `T` is a JSON serializable type. When specified for a trigger, it allows a single invocation to process a batch of documents. When used for an input binding, this allows multiple documents to be returned by the query.
+**Cosmos DB output binding**
 
-<sup>4</sup> Support for SDK type bindings does not presently extend to output bindings.
+[!INCLUDE [functions-bindings-cosmosdb-v2-output-dotnet-isolated-types](../../includes/functions-bindings-cosmosdb-v2-output-dotnet-isolated-types.md)]
 
-# [Functions 2.x and higher](#tab/functionsv2/isolated-process)
+# [Functions 2.x+](#tab/functionsv2/isolated-process)
 
 Earlier versions of extensions in the isolated worker process only support binding to JSON serializable types. Additional options are available to **extension 4.x and higher**.
-
-# [Extension 4.x and higher](#tab/extensionv4/csharp-script)
-
-The Azure Cosmos DB extension supports parameter types according to the table below.
-
-| Binding | Parameter types |
-|-|-|-| 
-| Cosmos DB trigger | JSON serializable types<sup>1</sup><br/>`IEnumerable<T>`<sup>2</sup> |
-| Cosmos DB input | JSON serializable types<sup>1</sup><br/>`IEnumerable<T>`<sup>2</sup><br/>[CosmosClient] | 
-| Cosmos DB output | JSON serializable types<sup>1</sup> |
-
-<sup>1</sup> Documents containing JSON data can be deserialized into known plain-old CLR object (POCO) types.
-
-<sup>2</sup> `IEnumerable<T>` provides a collection of documents. Here, `T` is a JSON serializable type. When specified for a trigger, it allows a single invocation to process a batch of documents. When used for an input binding, this allows multiple documents to be returned by the query.
-
-# [Functions 2.x and higher](#tab/functionsv2/csharp-script)
-
-Earlier versions of the extension exposed types from the now deprecated [Microsoft.Azure.Documents] namespace. Newer types from [Microsoft.Azure.Cosmos] are exclusive to **extension 4.x and higher**.
 
 ---
 
@@ -243,6 +200,26 @@ Earlier versions of the extension exposed types from the now deprecated [Microso
 
 [!INCLUDE [functions-host-json-section-intro](../../includes/functions-host-json-section-intro.md)]
 
+# [Extension 4.x+](#tab/extensionv4)
+
+```json
+{
+    "version": "2.0",
+    "extensions": {
+        "cosmosDB": {
+            "connectionMode": "Gateway",
+            "userAgentSuffix": "MyDesiredUserAgentStamp"
+        }
+    }
+}
+```
+
+|Property  |Default |Description |
+|----------|--------|------------|
+|**connectionMode**|`Gateway`|The connection mode used by the function when connecting to the Azure Cosmos DB service. Options are `Direct` and `Gateway`|
+|**userAgentSuffix**| n/a | Adds the specified string value to all requests made by the trigger or binding to the service. This makes it easier for you to track the activity in Azure Monitor, based on a specific function app and filtering by `User Agent`.
+
+
 # [Functions 2.x+](#tab/functionsv2)
 
 ```json
@@ -266,24 +243,6 @@ Earlier versions of the extension exposed types from the now deprecated [Microso
 |**protocol**|`Https`|The connection protocol used by the function when connection to the Azure Cosmos DB service. Read [here for an explanation of both modes](../cosmos-db/performance-tips.md#networking). |
 |**leasePrefix**|n/a|Lease prefix to use across all functions in an app. |
 
-# [Extension 4.x+](#tab/extensionv4)
-
-```json
-{
-    "version": "2.0",
-    "extensions": {
-        "cosmosDB": {
-            "connectionMode": "Gateway",
-            "userAgentSuffix": "MyDesiredUserAgentStamp"
-        }
-    }
-}
-```
-
-|Property  |Default |Description |
-|----------|--------|------------|
-|**connectionMode**|`Gateway`|The connection mode used by the function when connecting to the Azure Cosmos DB service. Options are `Direct` and `Gateway`|
-|**userAgentSuffix**| n/a | Adds the specified string value to all requests made by the trigger or binding to the service. This makes it easier for you to track the activity in Azure Monitor, based on a specific function app and filtering by `User Agent`.
 
 ---
 
@@ -295,3 +254,5 @@ Earlier versions of the extension exposed types from the now deprecated [Microso
 
 [extension bundle]: ./functions-bindings-register.md#extension-bundles
 [Update your extensions]: ./functions-bindings-register.md
+
+[C# scripting]: ./functions-reference-csharp.md

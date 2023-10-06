@@ -126,7 +126,7 @@ This architecture features two clusters in different resource groups and virtual
    vi /etc/kafka/conf/connect-mirror-maker.properties 
    ```
    > [!NOTE]
-   > This article contains references to the term *blacklist*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
+   > This article contains references to a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
    
 1. Property file looks like this.
     ```

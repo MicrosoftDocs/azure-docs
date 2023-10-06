@@ -2,7 +2,7 @@
 title: Optimize log alert queries | Microsoft Docs
 description: This article gives recommendations for writing efficient alert queries.
 ms.topic: conceptual
-ms.date: 2/23/2022
+ms.date: 5/30/2023
 ms.reviewer: yalavi
 ---
 # Optimize log alert queries
@@ -55,13 +55,13 @@ Log alert rules using [cross-resource queries](../logs/cross-workspace-query.md)
 
 ```Kusto
 union
-app('Contoso-app1').requests,
-app('Contoso-app2').requests,
-workspace('Contoso-workspace1').Perf 
+app('00000000-0000-0000-0000-000000000001').requests,
+app('00000000-0000-0000-0000-000000000002').requests,
+workspace('00000000-0000-0000-0000-000000000003').Perf 
 ```
 
 >[!NOTE]
-> [Cross-resource queries](../logs/cross-workspace-query.md) are supported in the new [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrule-2021-08-01/scheduled-query-rules). If you still use the [legacy Log Analytics Alert API](./api-alerts.md) for creating log alerts, see [Upgrade legacy rules management to the current Azure Monitor Log Alerts API](/previous-versions/azure/azure-monitor/alerts/alerts-log-api-switch) to learn about switching.
+> [Cross-resource queries](../logs/cross-workspace-query.md) are supported in the new [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrule-2021-08-01/scheduled-query-rules). If you still use the [legacy Log Analytics Alert API](./api-alerts.md) for creating log alerts, see [Upgrade legacy rules management to the current Azure Monitor Log Alerts API](./alerts-log-api-switch.md) to learn about switching.
 
 ## Examples
 

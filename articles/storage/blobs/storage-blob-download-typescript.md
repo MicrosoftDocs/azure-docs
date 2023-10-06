@@ -1,31 +1,29 @@
 ---
 title: Download a blob with TypeScript
 titleSuffix: Azure Storage
-description: Learn how to download a blob with TypeScript in Azure Storage by using the JavaScript client library.
+description: Learn how to download a blob with TypeScript in Azure Storage by using the client library for JavaScript and TypeScript.
 services: storage
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 04/21/2023
-ms.service: storage
-ms.subservice: blobs
+ms.date: 06/21/2023
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: typescript
-ms.custom: devx-track-ts, devguide-ts
+ms.custom: devx-track-ts, devguide-ts, devx-track-js
 ---
 
 # Download a blob with TypeScript
 
-This article shows how to download a blob using the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob). You can download blob data to various destinations, including a local file path, stream, or text string.
+[!INCLUDE [storage-dev-guide-selector-download](../../../includes/storage-dev-guides/storage-dev-guide-selector-download.md)]
+
+This article shows how to download a blob using the [Azure Storage client library for JavaScript](/javascript/api/overview/azure/storage-blob-readme). You can download blob data to various destinations, including a local file path, stream, or text string.
 
 ## Prerequisites
 
-To work with the code examples in this article, make sure you have:
-
-- An authorized client object to connect to Blob Storage data resources. To learn more, see [Create and manage client objects that interact with data resources](storage-blob-client-management.md).
-- Permissions to perform an upload operation. To learn more, see the authorization guidance for the following REST API operation:
+- The examples in this article assume you already have a project set up to work with the Azure Blob Storage client library for JavaScript. To learn about setting up your project, including package installation, importing modules, and creating an authorized client object to work with data resources, see [Get started with Azure Blob Storage and TypeScript](storage-blob-typescript-get-started.md).
+- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to perform a download operation. To learn more, see the authorization guidance for the following REST API operation:
     - [Get Blob](/rest/api/storageservices/get-blob#authorization)
-- The package **@azure/storage-blob** installed to your project directory. To learn more about setting up your project, see [Get started with Azure Blob Storage and TypeScript](storage-blob-typescript-get-started.md).
 
 ## Download a blob
 
@@ -60,11 +58,11 @@ If you're working with JavaScript in the browser, blob data returns in a promise
 
 ## Resources
 
-To learn more about how to download blobs using the Azure Blob Storage client library for JavaScript, see the following resources.
+To learn more about how to download blobs using the Azure Blob Storage client library for JavaScript and TypeScript, see the following resources.
 
 ### REST API operations
 
-The Azure SDK for JavaScript contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar JavaScript paradigms. The client library methods for downloading blobs use the following REST API operation:
+The Azure SDK for JavaScript and TypeScript contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar language paradigms. The client library methods for downloading blobs use the following REST API operation:
 
 - [Get Blob](/rest/api/storageservices/get-blob) (REST API)
 

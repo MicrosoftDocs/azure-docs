@@ -4,7 +4,7 @@ description: Learn how to manage user permissions in the Azure portal for Micros
 ms.date: 09/04/2022
 ms.topic: how-to
 ms.collection:
-  -       zerotrust-services
+  -       zerotrust-extra
 ---
 
 # Manage users on the Azure portal

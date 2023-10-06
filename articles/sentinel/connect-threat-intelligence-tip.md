@@ -10,11 +10,13 @@ ms.custom: ignite-fall-2021
 
 # Connect your threat intelligence platform to Microsoft Sentinel
 
-[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+>[!NOTE]
+> This data connector is on a path for deprecation. More details will be published on the precise timeline. Use the new threat intelligence upload indicators API data connector for new solutions going forward.
+>
 
-**See also**: [Connect Microsoft Sentinel to STIX/TAXII threat intelligence feeds](connect-threat-intelligence-taxii.md)
+For more information, see [Connect your threat intelligence platform to Microsoft Sentinel with the upload indicators API](connect-threat-intelligence-upload-api.md).
 
-Many organizations use threat intelligence platform (TIP) solutions to aggregate threat indicator feeds from a variety of sources, to curate the data within the platform, and then to choose which threat indicators to apply to various security solutions such as network devices, EDR/XDR solutions, or SIEMs such as Microsoft Sentinel. The **Threat Intelligence Platforms data connector** allows you to use these solutions to import threat indicators into Microsoft Sentinel. 
+Many organizations use threat intelligence platform (TIP) solutions to aggregate threat indicator feeds from various sources. From the aggregated feed, the data is curated to apply to security solutions such as network devices, EDR/XDR solutions, or SIEMs such as Microsoft Sentinel. The **Threat Intelligence Platforms data connector** allows you to use these solutions to import threat indicators into Microsoft Sentinel. 
 
 Because the TIP data connector works with the [Microsoft Graph Security tiIndicators API](/graph/api/resources/tiindicator) to accomplish this, you can use the connector to send indicators to Microsoft Sentinel (and to other Microsoft security solutions like Microsoft 365 Defender) from any other custom threat intelligence platform that can communicate with that API.
 
@@ -22,9 +24,11 @@ Because the TIP data connector works with the [Microsoft Graph Security tiIndica
 
 Learn more about [Threat Intelligence](understand-threat-intelligence.md) in Microsoft Sentinel, and specifically about the [threat intelligence platform products](threat-intelligence-integration.md#integrated-threat-intelligence-platform-products) that can be integrated with Microsoft Sentinel.
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 ## Prerequisites  
 
-- In order to install, update and delete standalone content or solutions in content hub, you need the **Template Spec Contributor** role at the resource group level. See [Azure RBAC built in roles](../role-based-access-control/built-in-roles.md#template-spec-contributor) for details on this role.
+- In order to install, update and delete standalone content or solutions in content hub, you need the **Microsoft Sentinel Contributor** role at the resource group level.
 - You must have either the **Global administrator** or **Security administrator** Azure AD roles in order to grant permissions to your TIP product or to any other custom application that uses direct integration with the Microsoft Graph Security tiIndicators API.
 - You must have read and write permissions to the Microsoft Sentinel workspace to store your threat indicators.
 
@@ -124,7 +128,7 @@ The last step in the integration process is to enable the **Threat Intelligence 
 
 1. Select **Content hub** from the menu.
 
-1. Find and select the **Threat Intelligence** solution.
+1. Find and select the **Threat Intelligence** solution using the list view.
 
 1. Select the :::image type="icon" source="media/connect-threat-intelligence-tip/install-update-button.png"::: **Install/Update** button.
 

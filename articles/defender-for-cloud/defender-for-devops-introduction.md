@@ -8,6 +8,11 @@ ms.custom: references_regions
 
 # Overview of Defender for DevOps
 
+> [!IMPORTANT]
+> Microsoft Defender for DevOps is constantly making changes and updates that require Defender for DevOps customers who have onboarded their GitHub environments in Defender for Cloud to provide permissions as part of the application deployed in their GitHub organization. These permissions are necessary to ensure all of the security features of Defender for DevOps operate normally and without issues.
+> 
+> Please see the recent release note for [instructions on how to add these additional permissions](release-notes.md#defender-for-devops-github-application-update).
+
 Microsoft Defender for Cloud enables comprehensive visibility, posture management, and threat protection across multicloud environments including Azure, AWS, GCP, and on-premises resources. Defender for DevOps, a service available in Defender for Cloud, empowers security teams to manage DevOps security across multi-pipeline environments.
 
 Defender for DevOps uses a central console to empower security teams with the ability to protect applications and resources from code to cloud across multi-pipeline environments, such as GitHub and Azure DevOps. Findings from Defender for DevOps can then be correlated with other contextual cloud security insights to prioritize remediation in code. Key capabilities in Defender for DevOps include: 
@@ -21,15 +26,10 @@ Defender for DevOps uses a central console to empower security teams with the ab
 Defender for DevOps helps unify, strengthen and manage multi-pipeline DevOps security. 
 
 ## Availability
-  > [!Note] 
-  > During the preview, the maximum number of GitHub repositories that can be onboarded to Microsoft Defender for Cloud is 2,000. If you try to connect more than 2,000 GitHub repositories, only the first 2,000 repositories, sorted alphabetically, will be onboarded.  
-  > 
-  > If your organization is interested in onboarding more than 2,000 GitHub repositories, please complete [this survey](https://aka.ms/dfd-forms/onboarding).
-
 | Aspect | Details |
 |--|--|
 | Release state: | Preview<br>The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. |
-| Clouds | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet) |
+| Clouds | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Microsoft Azure operated by 21Vianet) |
 | Regions: | Australia East, Central US, West Europe |
 | Source Code Management Systems | [Azure DevOps](https://portal.azure.com/#home) <br>[GitHub](https://github.com/) supported versions: GitHub Free, Pro, Team, and GitHub Enterprise Cloud | 
 | Required permissions: | <br> **Azure account** - with permissions to sign into Azure portal. <br> **Contributor** - on the relevant Azure subscription. <br> **Organization Administrator** - in GitHub. <br> **Security Admin role** - in Defender for Cloud. |
@@ -74,9 +74,6 @@ On this part of the screen you see:
 
 - **OSS vulnerabilities** – Shows the number of open source dependency vulnerabilities identified in the repositories. 
 
-    > [!NOTE]
-    > Currently, this information is available only for GitHub repositories.
-
 - **IaC scanning findings** – Shows the number of infrastructure as code misconfigurations identified in the repositories.
 
 - **Code scanning findings** – Shows the number of code vulnerabilities and misconfigurations identified in the repositories.
@@ -87,7 +84,7 @@ On this part of the screen you see:
 
 - Learn about [security in DevOps](/devops/operate/security-in-devops).
 
-- You can learn about [securing Azure Pipelines](/azure/devops/pipelines/security/overview?view=azure-devops).
+- You can learn about [securing Azure Pipelines](/azure/devops/pipelines/security/overview).
 
 - Learn about [security hardening practices for GitHub Actions](https://docs.github.com/actions/security-guides/security-hardening-for-github-actions).
 

@@ -813,7 +813,7 @@ You can install and run BizTalk Server on your own hardware, on-premises virtual
 
 - Availability and redundancy
 
-  In Azure, [availability zones](../reliability/availability-zones-overview.md#availability-zones) provide resiliency, distributed availability, and active-active-active zone scalability. To increase availability for your logic app workloads, you can [enable availability zone support](./set-up-zone-redundancy-availability-zones.md), but only when you create your logic app. You'll need at least three separate availability zones in any Azure region that supports and enables zone redundancy. The Azure Logic Apps platform distributes these zones and logic app workloads across these zones. This capability is a key requirement for enabling resilient architectures and providing high availability if datacenter failures happen in a region. For more information, see [Build solutions for high availability using availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability).
+  In Azure, [availability zones](../reliability/availability-zones-overview.md#zonal-and-zone-redundant-services) provide resiliency, distributed availability, and active-active-active zone scalability. To increase availability for your logic app workloads, you can [enable availability zone support](./set-up-zone-redundancy-availability-zones.md), but only when you create your logic app. You'll need at least three separate availability zones in any Azure region that supports and enables zone redundancy. The Azure Logic Apps platform distributes these zones and logic app workloads across these zones. This capability is a key requirement for enabling resilient architectures and providing high availability if datacenter failures happen in a region. For more information, see [Build solutions for high availability using availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability).
 
 - Isolated and dedicated environment
 
@@ -935,7 +935,7 @@ To help address BizTalk customers' needs in migrating their workloads and interf
 | Timeframe | Functionality investments |
 |-----------|---------------------------|
 | Short term | - [XSLT + .NET Framework support (Public Preview)](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/net-framework-assembly-support-added-to-azure-logic-apps/ba-p/3669120) <br>- [SWIFT MT encoder and decoder (Public Preview)](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/announcement-public-preview-of-swift-message-processing-using/ba-p/3670014) <br>- Call custom .NET Framework code from Azure Logic Apps (Standard) |
-| Medium term | - EDI and integration account enhancements <br>- Native XML support <br>- WCF and SOAP support <br>- BizTalk Rules Engine support |
+| Medium term | - EDI and integration account enhancements <br>- Native XML support <br>- WCF and SOAP support <br>- Business Rules Engine support |
 | Long term | Business event tracking |
 
 To stay updated about the latest investments, subscribe to the [Integrations on Azure Blog - Tech Community](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/bg-p/IntegrationsonAzureBlog).

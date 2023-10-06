@@ -2,9 +2,9 @@
 title: Configure Azure Monitor Application Insights for Spring Boot
 description: How to configure Azure Monitor Application Insights for Spring Boot applications
 ms.topic: conceptual
-ms.date: 04/21/2023
+ms.date: 09/18/2023
 ms.devlang: java
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Using Azure Monitor Application Insights with Spring Boot
@@ -13,24 +13,24 @@ There are two options for enabling Application Insights Java with Spring Boot: J
 
 ## Enabling with JVM argument 
 
-Add the JVM arg `-javaagent:"path/to/applicationinsights-agent-3.4.12.jar"` somewhere before `-jar`, for example:
+Add the JVM arg `-javaagent:"path/to/applicationinsights-agent-3.4.17.jar"` somewhere before `-jar`, for example:
 
 ```
-java -javaagent:"path/to/applicationinsights-agent-3.4.12.jar" -jar <myapp.jar>
+java -javaagent:"path/to/applicationinsights-agent-3.4.17.jar" -jar <myapp.jar>
 ```
 
 ### Spring Boot via Docker entry point
 
-If you're using the *exec* form, add the parameter `-javaagent:"path/to/applicationinsights-agent-3.4.12.jar"` to the parameter list somewhere before the `"-jar"` parameter, for example:
+If you're using the *exec* form, add the parameter `-javaagent:"path/to/applicationinsights-agent-3.4.17.jar"` to the parameter list somewhere before the `"-jar"` parameter, for example:
 
 ```
-ENTRYPOINT ["java", "-javaagent:path/to/applicationinsights-agent-3.4.12.jar", "-jar", "<myapp.jar>"]
+ENTRYPOINT ["java", "-javaagent:path/to/applicationinsights-agent-3.4.17.jar", "-jar", "<myapp.jar>"]
 ```
 
-If you're using the *shell* form, add the JVM arg `-javaagent:"path/to/applicationinsights-agent-3.4.12.jar"` somewhere before `-jar`, for example:
+If you're using the *shell* form, add the JVM arg `-javaagent:"path/to/applicationinsights-agent-3.4.17.jar"` somewhere before `-jar`, for example:
 
 ```
-ENTRYPOINT java -javaagent:"path/to/applicationinsights-agent-3.4.12.jar" -jar <myapp.jar>
+ENTRYPOINT java -javaagent:"path/to/applicationinsights-agent-3.4.17.jar" -jar <myapp.jar>
 ```
 
 ### Configuration
@@ -45,7 +45,7 @@ To enable Application Insights Java programmatically, you must add the following
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>applicationinsights-runtime-attach</artifactId>
-    <version>3.4.12</version>
+    <version>3.4.17</version>
 </dependency>
 ```
 
@@ -96,6 +96,14 @@ For example, with `-Dapplicationinsights.runtime-attach.configuration.classpath.
 
 See [configuration file path configuration options](./java-standalone-config.md#configuration-file-path)
 to change the location for a file outside the classpath.
+
+#### Structure of applicationinsights-dev.json
+
+```json
+{
+  "connectionString":"Your-Intrumentation-Key"
+}
+```
 
 #### Self-diagnostic log file location
 

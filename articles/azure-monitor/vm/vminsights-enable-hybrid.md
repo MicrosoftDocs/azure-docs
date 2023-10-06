@@ -2,9 +2,9 @@
 title: Enable Azure Monitor for a hybrid environment
 description: This article describes how you enable VM insights for a hybrid cloud environment that contains one or more virtual machines.
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
-ms.date: 06/08/2022
+author: guywi-ms
+ms.author: guywild
+ms.date: 09/28/2023
 
 ---
 
@@ -39,8 +39,8 @@ You can download the Dependency agent from these locations:
 
 | File | OS | Version | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.10.16.22650 | BE537D4396625ADD93B8C1D5AF098AE9D9472D8A20B2682B32920C5517F1C041    |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.10.16.22650 | FF86D821BA845833C9FE5F6D5C8A5F7A60617D3AD7D84C75143F3E244ABAAB74  |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.10.17.3860 | BA3D1CF76E2BCCE35815B0F62C0A18E84E0459B468066D0F80F56514A74E0BF6  |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.10.17.3860 | 22538642730748F4AD8688D00C2919055825BA425BAAD3591D6EBE0021863617  |
 
 ## Install the Dependency agent on Windows
 

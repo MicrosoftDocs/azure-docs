@@ -1,13 +1,13 @@
 ---
 title: Set up Azure Active Directory authentication for Azure Database for MySQL - Flexible Server
 description: Learn how to set up Azure Active Directory authentication for Azure Database for MySQL - Flexible Server
-author: vivgk
-ms.author: vivgk
+author: SudheeshGH
+ms.author: sunaray
 ms.reviewer: maghan
 ms.date: 11/21/2022
 ms.service: mysql
 ms.subservice: flexible-server
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, has-azure-ad-ps-ref
 ms.topic: how-to
 ---
 
@@ -218,6 +218,21 @@ mysql -h mydb.mysql.database.azure.com \
   --user user@tenant.onmicrosoft.com \
   --enable-cleartext-plugin \
   --password=`az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken`
+```
+
+**Example (PowerShell):**
+
+```
+mysql -h mydb.mysql.database.azure.com \
+  --user user@tenant.onmicrosoft.com \
+  --enable-cleartext-plugin \
+  --password=$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken)
+
+
+mysql -h mydb.mysql.database.azure.com \
+  --user user@tenant.onmicrosoft.com \
+  --enable-cleartext-plugin \
+  --password=$((Get-AzAccessToken -ResourceUrl https://ossrdbms-aad.database.windows.net).Token)
 ```
 
 ## Connect to Azure Database for MySQL - Flexible Server using MySQL Workbench

@@ -9,76 +9,45 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/03/2022
+ms.date: 05/16/2023
 ms.author: henrymbugua
-ms.reviewer: brandwe
+ms.reviewer: brandwe, akgoel23
 ms.custom: aaddev
 ---
 
 # Shared device mode for iOS devices
 
 > [!IMPORTANT]
-> This feature [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
+> This feature [!INCLUDE [PREVIEW BOILERPLATE](./includes/develop-preview.md)]
 
 Frontline workers such as retail associates, flight crew members, and field service workers often use a shared mobile device to perform their work. These shared devices can present security risks if your users share their passwords or PINs, intentionally or not, to access customer and business data on the shared device.
 
-Shared device mode allows you to configure an iOS 13 or higher device to be more easily and securely shared by employees. Employees can sign in and access customer information quickly. When they're finished with their shift or task, they can sign out of the device, and it's immediately ready for use by the next employee.
+[Shared device mode](msal-shared-devices.md) allows you to configure an iOS 14 or higher device to be more easily and securely shared by employees. Employees can sign-in once and get single sign-on (SSO) to all apps that support this feature, giving them faster access to information. When they're finished with their shift or task, they can sign out of the device through any supported app that also signs them out from all apps supporting this feature, and the device is immediately ready for use by the next employee with no access to previous user's data.
 
-Shared device mode also provides Microsoft identity-backed management of the device.
+To take advantage of shared device mode feature, app developers and cloud device admins work together:
 
-This feature uses the [Microsoft Authenticator app](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc) to manage the users on the device and to distribute the [Microsoft Enterprise SSO plug-in for Apple devices](apple-sso-plugin.md).
+1. **Device administrators** prepare the device to be shared by using a mobile device management (MDM) provider like Microsoft Intune. The MDM pushes the [Microsoft Authenticator app](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc) to the devices and turns on "Shared Mode" for each device through a profile update to the device. This Shared Mode setting is what changes the behavior of the supported apps on the device. This configuration from the MDM provider sets the shared device mode for the device and enables the [Microsoft Enterprise SSO plug-in for Apple devices](apple-sso-plugin.md) that is required for shared device mode. To learn more about SSO extensions, see the [Apple video](https://developer.apple.com/videos/play/tech-talks/301/).
 
-## Create a shared device mode app
+2. **Application developers** write a single-account app (multiple-account apps aren't supported in shared device mode) to handle the following scenario:
 
-To create a shared device mode app, developers and cloud device admins work together:
+   - Sign in a user device-wide through any supported application.
+   - Sign out a user device-wide through any supported application.
+   - Query the state of the device to determine if your application is on a device that's in shared device mode.
+   - Query the device state of the user on the device to determine if anything has changed since the last time your application was used.
 
-1. **Application developers** write a single-account app (multiple-account apps aren't supported in shared device mode) and write code to handle things like shared device sign-out.
+   Supporting shared device mode should be considered a feature upgrade for your application, and can help increase its adoption in environments where the same device is used among multiple users.
 
-1. **Device administrators** prepare the device to be shared by using a mobile device management (MDM) provider like Microsoft Intune to manage the devices in their organization. The MDM pushes the Microsoft Authenticator app to the devices and turns on "Shared Mode" for each device through a profile update to the device. This Shared Mode setting is what changes the behavior of the supported apps on the device. This configuration from the MDM provider sets the shared device mode for the device and enables the [Microsoft Enterprise SSO plug-in for Apple devices](apple-sso-plugin.md) which is required for shared device mode.
+   > [!IMPORTANT]
+   > [Microsoft applications](#microsoft-applications-that-support-shared-device-mode) that support shared device mode on iOS don't require any changes and just need to be installed on the device to get the benefits that come with shared device mode.
 
-1. [**Required during Public Preview only**] A user with [Cloud Device Administrator](../roles/permissions-reference.md#cloud-device-administrator) role must then launch the [Microsoft Authenticator app](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc) and join their device to the organization.
+## Set up device in Shared Device Mode
 
-   To configure the membership of your organizational roles in the Azure portal: **Azure Active Directory** > **Roles and Administrators** > **Cloud Device Administrator**
+Your device needs to be configured to support shared device mode. It must have iOS 14+ installed and be MDM-enrolled. MDM configuration also needs to enable [Microsoft Enterprise SSO plug-in for Apple devices](apple-sso-plugin.md).
 
-The following sections help you update your application to support shared device mode.
+Microsoft Intune supports zero-touch provisioning for devices in Microsoft Entra shared device mode, which means that the device can be set up and enrolled in Intune with minimal interaction from the frontline worker. To set up device in shared device mode when using Microsoft Intune as the MDM, see [Set up enrollment for devices in Microsoft Entra shared device mode](/mem/intune/enrollment/automated-device-enrollment-shared-device-mode/).
 
-## Use Intune to enable shared device mode & SSO extension
-
-> [!NOTE]
-> The following step is required only during public preview.
-
-Your device needs to be configured to support shared device mode. It must have iOS 13+ installed and be MDM-enrolled. MDM configuration also needs to enable [Microsoft Enterprise SSO plug-in for Apple devices](apple-sso-plugin.md). To learn more about SSO extensions, see the [Apple video](https://developer.apple.com/videos/play/tech-talks/301/).
-
-1. In the Intune Configuration Portal, tell the device to enable the [Microsoft Enterprise SSO plug-in for Apple devices](apple-sso-plugin.md) with the following configuration:
-
-   - **Type**: Redirect
-   - **Extension ID**: com.microsoft.azureauthenticator.ssoextension
-   - **Team ID**: (this field isn't needed for iOS)
-   - **URLs**:
-     - `https://login.microsoftonline.com`
-     - `https://login.microsoft.com`
-     - `https://sts.windows.net`
-     - `https://login.partner.microsoftonline.cn`
-     - `https://login.chinacloudapi.cn`
-     - `https://login.microsoftonline.de`
-     - `https://login.microsoftonline.us`
-     - `https://login.usgovcloudapi.net`
-     - `https://login-us.microsoftonline.com`
-   - **Additional Data to configure**:
-     - Key: sharedDeviceMode
-     - Type: Boolean
-     - Value: true
-
-   For more information about configuring with Intune, see the [Intune configuration documentation](/intune/configuration/ios-device-features-settings).
-
-1. Next, configure your MDM to push the Microsoft Authenticator app to your device through an MDM profile.
-
-   Set the following configuration options to turn on Shared Device mode:
-
-   - Configuration 1:
-     - Key: sharedDeviceMode
-     - Type: Boolean
-     - Value: true
+> [!IMPORTANT]
+> We are working with third-party MDMs to support shared device mode. We will update the list of third-party MDMs as they start supporting the shared device mode.
 
 ## Modify your iOS application to support shared device mode
 
@@ -90,7 +59,7 @@ On a user change, you should ensure both the previous user's data is cleared and
 
 ### Detect shared device mode
 
-Detecting shared device mode is important for your application. Many applications will require a change in their user experience (UX) when the application is used on a shared device. For example, your application might have a "Sign-Up" feature, which isn't appropriate for a frontline worker because they likely already have an account. You may also want to add extra security to your application's handling of data if it's in shared device mode.
+Detecting shared device mode is important for your application. Many applications require a change in their user experience (UX) when the application is used on a shared device. For example, your application might have a "Sign-Up" feature, which isn't appropriate for a frontline worker because they likely already have an account. You may also want to add extra security to your application's handling of data if it's in shared device mode.
 
 Use the `getDeviceInformationWithParameters:completionBlock:` API in the `MSALPublicClientApplication` to determine if an app is running on a device in shared device mode.
 
@@ -175,7 +144,7 @@ parameters.loginHint = self.loginHintTextField.text;
 
 ### Globally sign out a user
 
-The following code removes the signed-in account and clears cached tokens from not only the app, but also from the device that's in shared device mode. It doesn't, however, clear the _data_ from your application. You must clear the data from your application, as well as clear any cached data your application may be displaying to the user.
+The following code removes the signed-in account and clears cached tokens from not only the app, but also from the device that's in shared device mode. It doesn't, however, clear the _data_ from your application. You must clear the data from your application, and clear any cached data your application may be displaying to the user.
 
 #### Swift
 
@@ -227,16 +196,16 @@ signoutParameters.signoutFromBrowser = YES; // To trigger a browser signout in S
 }];
 ```
 
-The [Microsoft Enterprise SSO plug-in for Apple devices](apple-sso-plugin.md) clears state only for applications. It doesn't clear state on the Safari browser. You can use the optional signoutFromBrowser property shown in code snippets above to trigger a browser signout in Safari. This will cause the browser to briefly launch on the device.
+The [Microsoft Enterprise SSO plug-in for Apple devices](apple-sso-plugin.md) clears state only for applications. It doesn't clear state on the Safari browser. You can use the optional `signoutFromBrowser` property shown in code snippets to trigger a browser sign out in Safari. This causes the browser to briefly launch on the device.
 
 ### Receive broadcast to detect global sign out initiated from other applications
 
-To receive the account change broadcast, you'll need to register a broadcast receiver. When an account change broadcast is received, immediately [get the signed in user and determine if a user has changed on the device](#get-the-signed-in-user-and-determine-if-a-user-has-changed-on-the-device). If a change is detected, initiate data cleanup for previously signed-in account. It's recommended to properly stop any operations and do data cleanup.
+To receive the account change broadcast, you need to register a broadcast receiver. When an account change broadcast is received, immediately [get the signed in user and determine if a user has changed on the device](#get-the-signed-in-user-and-determine-if-a-user-has-changed-on-the-device). If a change is detected, initiate data cleanup for previously signed-in account. It's recommended to properly stop any operations and do data cleanup.
 
 The following code snippet shows how you could register a broadcast receiver.
 
 ```objectivec
-NSString *const MSID_SHARED_MODE_CURRENT_ACCOUNT_CHANGED_NOTIFICATION_KEY = @"SHARED_MODE_CURRENT_ACCOUNT_CHANGED";
+NSString *const MSAL_SHARED_MODE_CURRENT_ACCOUNT_CHANGED_NOTIFICATION_KEY = @"SHARED_MODE_CURRENT_ACCOUNT_CHANGED";
 
 - (void) registerDarwinNotificationListener 
 
@@ -250,7 +219,7 @@ NSString *const MSID_SHARED_MODE_CURRENT_ACCOUNT_CHANGED_NOTIFICATION_KEY = @"SH
 
    sharedModeAccountChangedCallback,
 
-   (CFStringRef)MSID_SHARED_MODE_CURRENT_ACCOUNT_CHANGED_NOTIFICATION_KEY, 
+   (CFStringRef)MSAL_SHARED_MODE_CURRENT_ACCOUNT_CHANGED_NOTIFICATION_KEY, 
 
    nil, CFNotificationSuspensionBehaviorDeliverImmediately); 
 
@@ -267,12 +236,22 @@ void sharedModeAccountChangedCallback(CFNotificationCenterRef center, void * o
 } 
 ```
 
-For more information about the available options for CFNotificationAddObserver or to see the corresponding method signatures in Swift, see:
+For more information about the available options for `CFNotificationAddObserver` or to see the corresponding method signatures in Swift, see:
 
 - [CFNotificationAddObserver](https://developer.apple.com/documentation/corefoundation/1543316-cfnotificationcenteraddobserver?language=objc)
 - [CFNotificationCallback](https://developer.apple.com/documentation/corefoundation/cfnotificationcallback?language=objc)
 
-For iOS, your app will require a background permission to remain active in the background and listen to Darwin notifications. The background capability must be added to support a different background operation – your app may be subject to rejection from the Apple App Store if it has a background capability only to listen for Darwin notifications. If your app is already configured to complete background operations, you can add the listener as part of that operation. For more information about iOS background capabilities, see [Configuring background execution modes](https://developer.apple.com/documentation/xcode/configuring-background-execution-modes)
+For iOS, your app requires a background permission to remain active in the background and listen to Darwin notifications. The background capability must be added to support a different background operation – your app may be subject to rejection from the Apple App Store if it has a background capability only to listen for Darwin notifications. If your app is already configured to complete background operations, you can add the listener as part of that operation. For more information about iOS background capabilities, see [Configuring background execution modes](https://developer.apple.com/documentation/xcode/configuring-background-execution-modes)
+
+## Microsoft applications that support shared device mode
+
+These Microsoft applications support Microsoft Entra shared device mode:
+
+- [Microsoft Teams](/microsoftteams/platform/) (in Public Preview)
+- [Microsoft Power BI Mobile](/power-bi/consumer/mobile/mobile-app-shared-device-mode) (in Public Preview)
+
+> [!IMPORTANT]
+> Public preview is provided without a service-level agreement and isn't recommended for production workloads. Some features might be unsupported or have constrained capabilities. For more information, see [Universal License Terms for Online Services](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all).
 
 ## Next steps
 

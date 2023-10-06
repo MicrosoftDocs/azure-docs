@@ -3,12 +3,12 @@ title: Create a Windows VM by using Azure VM Image Builder
 description: In this article, you learn how to create a Windows VM by using VM Image Builder.
 author: kof-f
 ms.author: kofiforson
-ms.reviewer: cynthn
-ms.date: 04/11/2023
+ms.reviewer: erd
+ms.date: 06/12/2023
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-linux
 ms.collection: windows
 ---
 # Create a Windows VM by using Azure VM Image Builder
@@ -105,9 +105,9 @@ curl https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/1
 imageRoleDefName="Azure Image Builder Image Def"$(date +'%s')
 
 # Update the definition
-sed -i -e "s/<subscriptionID>/$subscriptionID/g" aibRoleImageCreation.json
-sed -i -e "s/<rgName>/$imageResourceGroup/g" aibRoleImageCreation.json
-sed -i -e "s/Azure Image Builder Service Image Creation Role/$imageRoleDefName/g" aibRoleImageCreation.json
+sed -i -e "s%<subscriptionID>%$subscriptionID%g" aibRoleImageCreation.json
+sed -i -e "s%<rgName>%$imageResourceGroup%g" aibRoleImageCreation.json
+sed -i -e "s%Azure Image Builder Service Image Creation Role%$imageRoleDefName%g" aibRoleImageCreation.json
 
 # Create role definitions
 az role definition create --role-definition ./aibRoleImageCreation.json
@@ -126,12 +126,12 @@ We've created a parameterized image configuration template for you to try. Downl
 ```azurecli-interactive
 curl https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Windows_Managed_Image/helloImageTemplateWin.json -o helloImageTemplateWin.json
 
-sed -i -e "s/<subscriptionID>/$subscriptionID/g" helloImageTemplateWin.json
-sed -i -e "s/<rgName>/$imageResourceGroup/g" helloImageTemplateWin.json
-sed -i -e "s/<region>/$location/g" helloImageTemplateWin.json
-sed -i -e "s/<imageName>/$imageName/g" helloImageTemplateWin.json
-sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateWin.json
-sed -i -e "s/<imgBuilderId>/$imgBuilderId/g" helloImageTemplateWin.json
+sed -i -e "s%<subscriptionID>%$subscriptionID%g" helloImageTemplateWin.json
+sed -i -e "s%<rgName>%$imageResourceGroup%g" helloImageTemplateWin.json
+sed -i -e "s%<region>%$location%g" helloImageTemplateWin.json
+sed -i -e "s%<imageName>%$imageName%g" helloImageTemplateWin.json
+sed -i -e "s%<runOutputName>%$runOutputName%g" helloImageTemplateWin.json
+sed -i -e "s%<imgBuilderId>%$imgBuilderId%g" helloImageTemplateWin.json
 ```
 
 You can modify this example in the terminal by using a text editor such as `vi`.

@@ -1,28 +1,31 @@
 ---
 title: What is Cloud NGFW by Palo Alto Networks
-description: Learn about using the Cloud NGFW by Palo Alto Networks from the Marketplace.
+description: Learn about using Cloud NGFW (Next-Generation Firewall) by Palo Alto Networks from the Azure Marketplace.
 
 ms.topic: conceptual
-ms.date: 04/26/2023
+ms.date: 07/10/2023
 
 
 ---
 
-# What is Cloud NGFW by Palo Alto Networks Preview?
+# What is Cloud NGFW by Palo Alto Networks - an Azure Native ISV Service?
 
-In this article, you learn how to use the integration of the Palo Alto Networks NGFW (Next Generation Firewall) service with Azure.
 
-With the integration of Cloud NGFW for Azure into the Azure ecosystem, we are delivering an integrated platform and empowering a growing ecosystem of developers and customers to help protect their organizations on Azure.
+Azure Native ISV Services enable you to easily provision, manage, and tightly integrate independent software vendor (ISV) software and services on Azure. This Azure Native ISV Service is developed and managed by Microsoft and Palo Alto Networks.
 
-The Palo Alto Networks offering in the Azure Marketplace allows you to manage the Cloud NGFW by Palo Alto Networks in the Azure portal as an integrated service. You can set up the Cloud NGFW by Palo Alto Networks resources through a resource provider named `PAN.NGFW`.
+You can find Cloud Next-Generation Firewall by Palo Alto Networks - an Azure Native ISV Service in the [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/PaloAltoNetworks.Cloudngfw%2Ffirewalls) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/paloaltonetworks.pan_swfw_cloud_ngfw?tab=Overview).
 
-You can create and manage Palo Alto Networks resources through the Azure portal. Palo Alto Networks owns and runs the software as a service (SaaS) application including the accounts created.
+Palo Alto Networks is leading provider of cloud security, offering next-generation cybersecurity to thousands of customers globally, across all sectors. With the integration of Cloud Next-Generation Firewall by Palo Alto for Azure into the Azure ecosystem we are delivering an integrated experience and empowering a growing ecosystem of developers and customers to help protect their organizations on Azure.
+
+The Palo Alto Networks offering in the Azure Marketplace allows you to manage the Cloud Next-Generation Firewall by Palo Alto Networks resources in the Azure portal as an integrated service. It enables you to easily utilize Palo Alto Networks best-in-class network security capabilities on Azure, and you can manage it using either Palo Alto Networks Panorama policy management solution or directly from the Azure portal. Cloud Next-Generation Firewall by Palo Alto - an Azure Native ISV Service combines the scalability and reliability of Microsoft Azure with Palo Alto Networks deep expertise in network security.
+
+You can create and manage Palo Alto Networks resources through the Azure portal. You can set up the Cloud Next-Generation Firewall by Palo Alto Networks resources through a resource provider named `PaloAltoNetworks.Cloudngfw`. Palo Alto Networks owns and runs the software as a service (SaaS) application including the accounts created.
 
 Here are the key capabilities provided by the Palo Alto integration:
 
 - **Seamless onboarding** of Palo Alto software as an integrated service on Azure.
 - **Unified billing** of Palo Alto through Azure monthly billing.
-- **Single-Sign on to Palo Alto** - No separate sign-up needed from NGINX portal.
+- **Single-Sign on to Palo Alto** - No separate sign-up needed from Palo Alto portal.
 - **Manage VNET and VWAN traffic** to use existing configuration (.conf) files for Palo Alto deployment.
 
 ## Pre-requisites for Cloud NGFW by Palo Alto Networks

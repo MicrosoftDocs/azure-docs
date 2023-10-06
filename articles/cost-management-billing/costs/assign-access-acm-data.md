@@ -61,7 +61,7 @@ The department scope requires the **Department admins can view charges** (DA vie
 
 To enable an option in the Azure portal:
 
-1. Sign in to the Azure portal at https://portal.azure.com with an enterprise administrator account.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an enterprise administrator account.
 1. Select the **Cost Management + Billing** menu item.
 1. Select **Billing scopes** to view a list of available billing scopes and billing accounts.
 1. Select your **Billing Account** from the list of available billing accounts.

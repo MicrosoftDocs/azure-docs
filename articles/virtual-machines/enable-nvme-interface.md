@@ -48,6 +48,14 @@ By meeting the above five conditions, you'll be able to enable NVMe on the suppo
 |     Ubuntu 18.04                     |   Canonical: UbuntuServer:18_04-lts-gen2: latest                 |
 |     Ubuntu 20.04                     |   Canonical:0001-com-ubuntu-server-focal:20_04-lts-gen2: latest  |
 |     Ubuntu 22.04                     |   canonical:0001-com-ubuntu-server-jammy:22_04-lts-gen2: latest  |
+|     Oracle 7.9                       |  Oracle: Oracle-Linux:ol79-lvm-gen2:latest                       |
+|     Oracle 8.5                       |  Oracle: Oracle-Linuz:ol85-lvm-gen2:latest                       |
+|     Oracle 8.6                       |  Oracle: Oracle-Linux:ol86-lvm-gen2:latest                       |
+|     Oracle 8.7                       |  Oracle: Oracle-Linux:ol87-lvm-gen2:latest                       |
+|     Oracle 9.0                       |  Oracle: Oracle-Linux:ol9-lvm-gen2:latest                        |
+|     Oracle 9.1                       |  Oracle: Oracle-Linux:ol91-lvm-gen2:latest                       |
+|     RHEL 9.0                         |  RedHat: RHEL:90-gen2:latest                                     |
+|     SLES 15.4                        |  suse: sles-15-sp4:gen2:latest                                   |
 
 
 

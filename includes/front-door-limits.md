@@ -5,19 +5,20 @@
  author: duongau
  ms.service: frontdoor
  ms.topic: include
- ms.date: 03/23/2022
+ ms.date: 06/19/2023
  ms.author: duau
  ms.custom: include file
 ---
 
-* In addition to the limits below, there's a [composite limit on the number of routing rules, front-end domains, protocols, and paths](../articles/frontdoor/front-door-routing-limits.md).
+* In addition to the following limits, there are [composite limit on the number of routing rules, front-end domains, protocols, and paths](../articles/frontdoor/front-door-routing-limits.md).
 
 | Resource | Classic tier limit |
 | --- | --- |
 | Azure Front Door resources per subscription | 100 |
 | Front-end hosts, which include custom domains per resource | 500 |
 | Routing rules per resource | 500 |
-| Back-end pools per resource | 50 |
+| Rules per Rule set | 25 |
+| Back-end pools per resource | 50<sup>1</sup> |
 | Back ends per back-end pool | 100 |
 | Path patterns to match for a routing rule | 25 |
 | URLs in a single cache purge call | 100 |
@@ -34,10 +35,19 @@
 | Web application firewall HTTP request body size inspected | 128 KB |
 | Web application firewall custom response body length | 32 KB |
 
-### Azure Front Door Standard and Premium tier service limits
 
-* Maximum **500** total Standard and Premium profiles per subscription.
-* In addition to the limits below, there's a [composite limit on the number of routes, domains, protocols, and paths](../articles/frontdoor/front-door-routing-limits.md).
+<sup>1</sup>To request a limit increase, create an [Azure Support request][azure-support]. Free subscriptions including [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/) and [Azure for Students](https://azure.microsoft.com/offers/ms-azr-0170p/) aren't eligible for limit or quota increases. If you have a free subscription, you can [upgrade](../articles/cost-management-billing/manage/upgrade-azure-subscription.md) to a Pay-As-You-Go subscription.<br />
+
+<!-- LINKS - External -->
+[azure-support]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
+
+### Azure Front Door Standard and Premium service limits
+
+* Maximum of **500** total Standard and Premium profiles per subscription.
+* In addition to the following limits, there are [composite limit on the number of routes, domains, protocols, and paths](../articles/frontdoor/front-door-routing-limits.md).
+
+> [!NOTE]
+> Resources with * are new limits for Azure Front Door Standard and Premium.
 
 | Resource | Standard tier limit | Premium tier limit |
 | --- | --- | --- |
@@ -45,13 +55,18 @@
 | Maximum endpoint per profile | 10 | 25 |
 | Maximum custom domain per profile	| 100 | 500 |
 | Maximum origin groups per profile | 100 | 200 |
+| Maximum origins per origin group* | 50 | 50 |
 | Maximum origins per profile | 100 | 200 |
 | Maximum origin timeout | 16 - 240 secs | 16 - 240 secs |
 | Maximum routes per profile | 100 | 200 | 
 | Maximum rule set per profile | 100 | 200 |
 | Maximum rules per route | 100 | 100 |
+| Maximum rules per rule set* | 100 | 100 |
 | Path patterns to match for a routing rule | 25 | 50 |
 | URLs in a single cache purge call | 100 | 100 |
+| Maximum security policy per profile* | 100 | 200 |
+| Maximum associations per security policy* | 110 | 225 |
+| Maximum secrets per profile* | 100 | 500 |
 | Web Application Firewall (WAF) policy per subscription | 100 | 100 |
 | WAF custom rules per policy | 100 | 100 |
 | WAF match conditions per custom rule | 10 | 10 |
@@ -67,7 +82,9 @@
 | WAF custom response body length | 32 KB | 32 KB |
 
 #### Timeout values
-##### Client to Front Door
+
+##### From Client to Front Door
+
 * Front Door has an idle TCP connection timeout of 61 seconds.
 
 ##### Front Door to application back-end
@@ -94,4 +111,4 @@
 * Maximum ETag header size: 128 bytes
 * Maximum endpoint name for Standard and Premium: 46 characters.
 
-For more information about limits that apply to Rules Engine configurations, see [Rules Engine terminology](../articles/frontdoor/front-door-rules-engine.md#terminology)
+For more information about limits that apply to Rules Engine configurations, see [rules engine terminology](../articles/frontdoor/front-door-rules-engine.md#terminology)

@@ -9,6 +9,7 @@ ms.author: ymohanraj
 ms.date: 04/19/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: acs-js-csharp-java-python
 ---
 
@@ -21,7 +22,7 @@ In this quick start, you will learn how to add and remove sender addresses in Az
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [Add sender addresses with Javascript Management SDK](./includes/add-multiple-senders-js.md)]
+[!INCLUDE [Add sender addresses with JavaScript Management SDK](./includes/add-multiple-senders-js.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"

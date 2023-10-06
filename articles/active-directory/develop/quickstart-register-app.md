@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 10/31/2022
+ms.date: 06/29/2023
 ms.author: cwerner
 ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2, contperf-fy21q4, mode-other
 
@@ -17,7 +17,7 @@ ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2, cont
 
 # Quickstart: Register an application with the Microsoft identity platform
 
-[!INCLUDE [quickstart-register-app](../../../includes/active-directory-develop-quickstart-register-app.md)]
+[!INCLUDE [quickstart-register-app](./includes/registration/quickstart-register-app.md)]
 
 
 ## Next steps

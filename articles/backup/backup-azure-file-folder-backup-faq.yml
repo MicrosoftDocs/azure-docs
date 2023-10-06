@@ -4,9 +4,9 @@ metadata:
   description: Addresses common questions about backing up files and folders with Azure Backup.
   ms.topic: faq
   ms.service: backup
-  ms.date: 02/25/2022
-  author: jyothisuri
-  ms.author: jsuri
+  ms.date: 08/14/2023
+  author: AbhishekMallick-MS
+  ms.author: v-abhmallick
 title: Frequently asked questions - Microsoft Azure Recovery Services (MARS) agent
 summary: |
   This article answers common questions about backing up data with the Microsoft Azure Recovery Services (MARS) Agent in the [Azure Backup](backup-overview.md) service.
@@ -23,9 +23,18 @@ sections:
       - question: |
           Where can I download the vault credentials file?
         answer: |
-          In the Azure portal, navigate to **Properties** for your vault. Under **Backup Credentials**, select the checkbox for **Already using the latest Recovery Services Agent**. Select **Download**.
+          In the Azure portal, go to **Properties** for your vault. Under **Backup Credentials**, select **Download**.
+
+          - If you want to register your MARS agent or restore data from the primary region, select **Primary Region**, *confirm* that you're using the latest Recovery Services Agent, and then select **Download**.
+          - If you're doing an alternate server restore from the backup data in the secondary region using Cross Region Restore, then select **Secondary Region** to download the vault credentials.
           
-          ![Download credentials](./media/backup-azure-file-folder-backup-faq/download-credentials.png)
+          :::image type="content" source="./media/backup-azure-file-folder-backup-faq/download-vault-credentials.png" alt-text="Screenshot shows how to initiate downloading vault credential file.":::
+
+          :::image type="content" source="./media/backup-azure-file-folder-backup-faq/download-vault-credential-file.png" alt-text="Screenshot shows the Download option for vault credential files in secondary region.":::
+            >[!Note]
+            >You can't use this secondary region vault credential for registration of the MARS agent.
+          
+          
           
       - question: |
           How long are vault credentials valid?

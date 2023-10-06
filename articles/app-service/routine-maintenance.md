@@ -54,7 +54,7 @@ Azure App Service represents a fleet of scale units, which provide hosting of we
 
 ### Are business hours reflected?
 
-Maintenance operations are optimized to run outside standard business hours (9-5pm) as statistically that is a better timing for any interruptions and restarts of workloads as there is a less stress on the system (in customer applications and transitively also on the platform itself).
+Maintenance operations are optimized to start outside standard business hours (9-5pm) as statistically that is a better timing for any interruptions and restarts of workloads as there is a less stress on the system (in customer applications and transitively also on the platform itself). For App Service Plan and App Service Environment v2, maintenance can continue into business hours during longer maintenance events. 
 
 ### What are my options to control routine maintenance?
 

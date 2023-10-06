@@ -4,14 +4,14 @@ titleSuffix: Azure Machine Learning
 description: Learn how to call a web service endpoint that was generated when a model was deployed from Azure Machine Learning. 
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: mlops
+ms.subservice: inferencing
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 11/16/2022
 ms.topic: how-to
 ms.devlang: csharp, golang, java, python
-ms.custom: UpdateFrequency5, devx-track-python, devx-track-csharp, cliv1, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, devx-track-python, devx-track-csharp, cliv1, sdkv1, event-tier1-build-2022, devx-track-extended-java
 #Customer intent: As a developer, I need to understand how to create a client application that consumes the web service of a deployed ML model.
 ---
 
@@ -31,7 +31,7 @@ The general workflow for creating a client that uses a machine learning web serv
 > [!TIP]
 > The examples in this document are manually created without the use of OpenAPI (Swagger) specifications. If you've enabled an OpenAPI specification for your deployment, you can use tools such as [swagger-codegen](https://github.com/swagger-api/swagger-codegen) to create client libraries for your service.
 
-[!INCLUDE [cli v1 deprecation](../../../includes/machine-learning-cli-v1-deprecation.md)]
+[!INCLUDE [cli v1 deprecation](../includes/machine-learning-cli-v1-deprecation.md)]
 
 ## Connection information
 
@@ -49,7 +49,7 @@ There are several ways to retrieve this information for deployed web services:
 
 # [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 * When you deploy a model, a `Webservice` object is returned with information about the service:
 
@@ -78,7 +78,7 @@ There are several ways to retrieve this information for deployed web services:
 
 # [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [cli v1](../includes/machine-learning-cli-v1.md)]
 
 If you know the name of the deployed service, use the [az ml service show](/cli/azure/ml(v1)/service#az-ml-service-show) command:
 
@@ -162,7 +162,7 @@ print(token)
 
 If you have the [Azure CLI and the machine learning extension](reference-azure-machine-learning-cli.md), you can use the following command to get a token:
 
-[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [cli v1](../includes/machine-learning-cli-v1.md)]
 
 ```azurecli
 az ml service get-access-token -n <service-name>

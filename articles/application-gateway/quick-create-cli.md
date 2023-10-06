@@ -6,9 +6,9 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 04/27/2023
+ms.date: 06/07/2023
 ms.author: greglin
-ms.custom: mvc, devx-track-js, devx-track-azurecli, mode-api
+ms.custom: mvc, devx-track-azurecli, mode-api, devx-track-linux
 ---
 
 # Quickstart: Direct web traffic with Azure Application Gateway - Azure CLI
@@ -130,7 +130,7 @@ for i in `seq 1 2`; do
     --resource-group myResourceGroupAG \
     --name myVM$i \
     --nics myNic$i \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --admin-username azureuser \
     --generate-ssh-keys \
     --custom-data cloud-init.txt
@@ -142,8 +142,8 @@ done
 Create an application gateway using `az network application-gateway create`. When you create an application gateway with the Azure CLI, you specify configuration information, such as capacity, SKU, and HTTP settings. Azure then adds the private IP addresses of the network interfaces as servers in the backend pool of the application gateway.
 
 ```azurecli-interactive
-address1=$(az network nic show --name myNic1 --resource-group myResourceGroupAG | grep "\"privateIpAddress\":" | grep -oE '[^ ]+$' | tr -d '",')
-address2=$(az network nic show --name myNic2 --resource-group myResourceGroupAG | grep "\"privateIpAddress\":" | grep -oE '[^ ]+$' | tr -d '",')
+address1=$(az network nic show --name myNic1 --resource-group myResourceGroupAG | grep "\"privateIPAddress\":" | grep -oE '[^ ]+$' | tr -d '",')
+address2=$(az network nic show --name myNic2 --resource-group myResourceGroupAG | grep "\"privateIPAddress\":" | grep -oE '[^ ]+$' | tr -d '",')
 az network application-gateway create \
   --name myAppGateway \
   --location eastus \

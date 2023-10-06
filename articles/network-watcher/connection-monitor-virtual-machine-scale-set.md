@@ -2,16 +2,13 @@
 title: 'Tutorial: Monitor network communication with virtual machine scale set - Azure portal'
 titleSuffix: Azure Network Watcher
 description: In this tutorial, you'll learn how to use Azure Network Watcher connection monitor tool to monitor network communication with a virtual machine scale set using the Azure portal.
-services: network-watcher
 author: halkazwini
-tags: azure-resource-manager
+ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: tutorial
-ms.workload: infrastructure-services
 ms.date: 01/25/2023
-ms.author: halkazwini
-ms.custom: template-tutorial, mvc, engagement-fy23
-# Customer intent: I need to monitor communication between a virtual machine scale set and a virtual machine. If the communication fails, I need to know why, so that I can resolve the problem.
+
+#CustomerIntent: I need to monitor communication between a virtual machine scale set and a virtual machine. If the communication fails, I need to know why, so that I can resolve the problem.
 ---
 
 # Tutorial: Monitor network communication with a virtual machine scale set using the Azure portal
@@ -101,9 +98,7 @@ After the scale set has been created, enable the Network Watcher extension in th
 
 1. Under **Settings**, select **Extensions**. 
 
-1. Select **Add extension**, and then select **Network Watcher Agent for Windows**, as shown in the following image:
-
-   :::image type="content" source="./media/connection-monitor/nw-agent-extension.png" alt-text="Screenshot that shows the Network Watcher extension addition.":::
+1. Select **Add extension**, and then select **Network Watcher Agent for Windows**.
 
 1. Under **Network Watcher Agent for Windows**, select **Create**.
 1. Under **Install extension**, select **OK**.
@@ -111,7 +106,7 @@ After the scale set has been created, enable the Network Watcher extension in th
 
 ## Create the VM
 
-Complete the steps in the "Create the first VM" section of [Tutorial: Monitor network communication between two virtual machines by using the Azure portal](./connection-monitor.md#create-the-first-vm), but **with the following changes**:
+Complete the steps in the "Create the first virtual machine" section of [Tutorial: Monitor network communication between two virtual machines by using the Azure portal](./connection-monitor.md), but **with the following changes**:
 
 |Step|Setting|Value|
 |---:|---|---|
@@ -196,8 +191,6 @@ In the Azure portal, to create a test group in a connection monitor, do the foll
      :::image type="content" source="./media/connection-monitor-2-preview/add-sources-1.png" alt-text="Screenshot that shows the 'Add Sources' pane and the Azure endpoints, including the 'virtual machine scale set' pane, in Connection monitor.":::
 
    * To choose on-premises agents, select the **Non–Azure endpoints** tab. By default, agents are grouped into workspaces by region. All these workspaces have the Network Performance Monitor configured. 
- 
- 1. If you need to add Network Performance Monitor to your workspace, get it from [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/solarwinds.solarwinds-orion-network-performance-monitor?tab=Overview). For information about how to add Network Performance Monitor, see [Monitoring solutions in Azure Monitor](/previous-versions/azure/azure-monitor/insights/solutions). For information about how to configure agents for on-premises machines, see [Agents for on-premises machines](connection-monitor-overview.md#agents-for-on-premises-machines).
  
  1. Under **Create Connection Monitor**, on the **Basics** pane, the default region is selected. If you change the region, you can choose agents from workspaces in the new region. You can select one or more agents or subnets. In the **Subnet** view, you can select specific IPs for monitoring. If you add multiple subnets, a custom on-premises network named **OnPremises_Network_1** will be created. You can also change the **Group by** selector to group by agents.
 
@@ -310,21 +303,19 @@ Connection monitors have these scale limits:
 
 ## Clean up resources
 
-When you no longer need the resources, delete the resource group and all the resources it contains:
+When no longer needed, delete **myResourceGroup** resource group and all of the resources it contains:
 
-1. In the **Search** box at the top of the Azure portal, enter **myResourceGroup** and then, in the search results list, select it.
+1. In the search box at the top of the portal, enter ***myResourceGroup***. Select **myResourceGroup** from the search results.
+
 1. Select **Delete resource group**.
-1. For **Resource group name**, enter **myResourceGroup**, and then select **Delete**.
 
-## Next steps
+1. In **Delete a resource group**, enter ***myResourceGroup***, and then select **Delete**.
 
-In this tutorial, you learned how to monitor a connection between a virtual machine scale set and a VM. You learned that a network security group rule prevented communication to a VM. 
+1. Select **Delete** to confirm the deletion of the resource group and all its resources.
 
-To learn about all the different responses a connection monitor can return, see [response types](network-watcher-connectivity-overview.md#response). You can also monitor a connection between a VM, a fully qualified domain name, a uniform resource identifier, or an IP address. See also:
+## Next step
 
-* [Analyze monitoring data and set alerts](./connection-monitor-overview.md#analyze-monitoring-data-and-set-alerts)
-* [Diagnose problems in your network](./connection-monitor-overview.md#diagnose-issues-in-your-network)
+To learn how to diagnose and troubleshoot problems with virtual network gateways, advance to the next tutorial:
 
 > [!div class="nextstepaction"]
 > [Diagnose communication problems between networks](diagnose-communication-problem-between-networks.md)
-

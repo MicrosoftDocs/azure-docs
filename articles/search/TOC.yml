@@ -5,14 +5,20 @@
   items:
   - name: What's Cognitive Search?
     href: search-what-is-azure-search.md
-  - name: What's new in Search?
+  - name: New in Search
     href: whats-new.md
-  - name: Features in Search
+  - name: Features
     href: search-features-list.md
   - name: FAQ
     href: search-faq-frequently-asked-questions.yml
 - name: Quickstarts
   items:
+  - name: Full text search
+    href: search-get-started-text.md
+  - name: Semantic search (preview)
+    href: search-get-started-semantic.md
+  - name: Vector search (preview)
+    href: search-get-started-vector.md
   - name: Portal
     items:
     - name: Create an index
@@ -25,26 +31,20 @@
       href: knowledge-store-create-portal.md
     - name: Query with Search Explorer
       href: search-explorer.md
-  - name: C#
-    href: search-get-started-dotnet.md
-  - name: Java
-    href: search-get-started-java.md
-  - name : JavaScript
-    href: search-get-started-javascript.md
   - name: REST
     href: search-get-started-rest.md
   - name: PowerShell
     href: search-get-started-powershell.md
-  - name: Python
-    href: search-get-started-python.md
-  - name: Bicep
-    displayName: ARM, Resource Manager, Template
-    href: search-get-started-bicep.md
-  - name: ARM template
-    displayName: Resource Manager 
-    href: search-get-started-arm.md
-  - name: Terraform
-    href: search-get-started-terraform.md
+  - name: Deployment
+    items:
+    - name: ARM template
+      displayName: Resource Manager 
+      href: search-get-started-arm.md
+    - name: Bicep
+      displayName: ARM, Resource Manager, Template
+      href: search-get-started-bicep.md
+    - name: Terraform
+      href: search-get-started-terraform.md
 - name: Tutorials
   items:
   - name: Add search to static web apps
@@ -81,8 +81,12 @@
         href: tutorial-python-search-query-integration.md
   - name: Add search to ASP.NET Core (MVC)
     href: tutorial-csharp-create-mvc-app.md             
-  - name: Index with indexers
+  - name: Indexing tutorials
     items:
+    - name: Index any data
+      href: tutorial-optimize-indexing-push-api.md
+    - name: Index at scale (Apache Spark)
+      href: search-synapseml-cognitive-services.md
     - name: Index Azure SQL Database
       href: search-indexer-tutorial.md
     - name: Index Azure JSON blobs
@@ -91,11 +95,7 @@
       href: tutorial-multiple-data-sources.md
     - name: Index encrypted blobs
       href: search-howto-index-encrypted-blobs.md
-  - name: Index any data
-    href: tutorial-optimize-indexing-push-api.md
-  - name: Index at scale (Apache Spark)
-    href: search-synapseml-cognitive-services.md
-  - name: Enrich with AI (skills)
+  - name: Skills tutorials
     items:
     - name: C#
       href: cognitive-search-tutorial-blob-dotnet.md
@@ -103,8 +103,8 @@
       href: cognitive-search-tutorial-blob.md
     - name: Python
       href: cognitive-search-tutorial-blob-python.md
-  - name: Debug a skillset
-    href: cognitive-search-tutorial-debug-sessions.md
+    - name: Debug a skillset
+      href: cognitive-search-tutorial-debug-sessions.md
   - name: Create a custom analyzer
     href: tutorial-create-custom-analyzer.md
   - name: Query from Power Apps   
@@ -127,18 +127,30 @@
     items:
     - name: Full-text search
       href: search-lucene-query-architecture.md
+    - name: Vector search
+      href: vector-search-overview.md
+    - name: Hybrid search
+      href: hybrid-search-overview.md
+    - name: Retrieval Augmented Generation (RAG)
+      href: retrieval-augmented-generation-overview.md
+    - name: Other query types
+      href: search-query-overview.md
+  - name: Relevance
+    items:
+    - name: Scoring in keyword queries (BM25)
+      href: index-similarity-and-scoring.md
+    - name: Scoring in vector queries
+      href: vector-search-ranking.md
+    - name: Scoring in hybrid queries (RRF)
+      href: hybrid-search-ranking.md
     - name: Semantic search
       href: semantic-search-overview.md
-    - name: Query types and composition
-      href: search-query-overview.md
-    - name: Relevance scoring
-      href: index-similarity-and-scoring.md
-    - name: Semantic ranking
-      href: semantic-ranking.md 
   - name: Indexing
     items:
     - name: Search indexes
       href: search-what-is-an-index.md
+    - name: Vector index size limit
+      href: vector-search-index-size.md
     - name: Import
       href: search-what-is-data-import.md
     - name: Import Data wizard
@@ -228,7 +240,7 @@
         href: search-howto-managed-identities-data-sources.md
       - name: Connect through a firewall
         href: search-indexer-howto-access-ip-restricted.md
-      - name: Connect through private endpoints
+      - name: Connect through a shared private link
         href: search-indexer-howto-access-private.md
       - name: Connect to a SQL managed instance private endpoint
         href: search-indexer-how-to-access-private-sql.md
@@ -254,9 +266,9 @@
       href: search-howto-concurrency.md
     - name: Develop in .NET
       href: search-howto-dotnet-sdk.md
-    - name: Upgrade to 11.0
+    - name: Upgrade .NET libraries
       href: search-dotnet-sdk-migration-version-11.md
-    - name: Upgrade the Management SDK
+    - name: Manage with Azure SDKs
       href: search-dotnet-mgmt-sdk-migration.md
     - name: Upgrade the REST API
       href: search-api-migration.md
@@ -366,7 +378,7 @@
         href: search-howto-index-sharepoint-online.md
   - name: Skillsets (indexers)
     items:
-    - name: Attach a Cognitive Services resource
+    - name: Attach an Azure AI multi-service resource
       href: cognitive-search-attach-cognitive-services.md
     - name: Create a skillset
       href: cognitive-search-defining-skillset.md
@@ -401,7 +413,17 @@
       - name: Projection example
         href: knowledge-store-projection-example-long.md
       - name: Connect with Power BI
-        href: knowledge-store-connect-power-bi.md 
+        href: knowledge-store-connect-power-bi.md
+  - name: Vectors
+    items:
+    - name: Create a vector index
+      href: vector-search-how-to-create-index.md
+    - name: Generate embeddings
+      href: vector-search-how-to-generate-embeddings.md
+    - name: Chunk documents
+      href: vector-search-how-to-chunk-documents.md
+    - name: Query vector fields
+      href: vector-search-how-to-query.md
   - name: Queries
     items:
     - name: Create a basic query
@@ -444,11 +466,13 @@
         href: search-query-fuzzy.md
   - name: Relevance
     items:
-    - name: Configure scoring
+    - name: Configure BM25 ranking
       href: index-ranking-similarity.md
     - name: Add a scoring profile
       href: index-add-scoring-profiles.md
-    - name: Configure semantic search
+    - name: Enable or disable semantic search
+      href: semantic-how-to-enable-disable.md      
+    - name: Configure semantic ranking
       href: semantic-how-to-query-request.md
   - name: Performance and monitoring
     items:
@@ -472,33 +496,33 @@
   items:
   - name: REST
     items:
-    - name: Search API
+    - name: Search REST API
       href: /rest/api/searchservice
-    - name: Management API
+    - name: Management REST API
       href: /rest/api/searchmanagement
   - name: .NET
     items:
-    - name: Search API
+    - name: Azure.Search.Documents
       href: /dotnet/api/overview/azure/search.documents-readme
-    - name: Management API
-      href: /dotnet/api/microsoft.azure.management.search
+    - name: Azure.ResourceManager.Search
+      href: /dotnet/api/overview/azure/resourcemanager.search-readme
   - name: Java
     items:
-    - name: Search API
+    - name: com.azure.search.documents
       href: /java/api/overview/azure/search-documents-readme
-    - name: Management API
+    - name: com.azure.resourcemanager.search
       href: /java/api/overview/azure/search/management
   - name: JavaScript
     items:
-    - name: Search API
+    - name: azure/search-documents
       href: /javascript/api/overview/azure/search-documents-readme
-    - name: Management API
+    - name: azure/arm-search
       href: /javascript/api/@azure/arm-search/
   - name: Python
     items:
-    - name: Search API
+    - name: azure-search-documents
       href: /python/api/overview/azure/search-documents-readme
-    - name: Management API
+    - name: azure-mgmt-search
       href: /python/api/azure-mgmt-search/
   - name: Resource management
     items:
@@ -513,6 +537,10 @@
       href: ./policy-reference.md
     - name: Monitoring data reference
       href: monitor-azure-cognitive-search-data-reference.md
+  - name: Data type reference
+    href: /rest/api/searchservice/supported-data-types
+  - name: Data types for indexer data sources
+    href: /rest/api/searchservice/data-type-map-for-indexers-in-azure-search
   - name: Stopwords reference
     href: reference-stopwords.md
   - name: OData language reference
@@ -604,19 +632,21 @@
         href: cognitive-search-skill-sentiment.md
 - name: Resources
   items:
-  - name: Azure Community Support
-    href: https://azure.microsoft.com/support/community/?product=search
-  - name: Azure Updates
-    href: https://azure.microsoft.com/updates/?product=search
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-cognitive-search
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/search/
+  - name: Products by Region
+    href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=search
   - name: Demo sites
     href: resource-demo-sites.md
-  - name: Tools
+  - name: Tools and Accelerators
     href: resource-tools.md
   - name: Training
     href: resource-training.md
-  - name: Partner spotlight
-    href: resource-partners-knowledge-mining.md
-  - name: Partner data sources (Terms of Use)
-    href: search-data-sources-terms-of-use.md
-  - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/search/
+  - name: Partner solutions
+    items:
+    - name: Partner spotlight
+      href: resource-partners-knowledge-mining.md
+    - name: Partner data sources (Terms of Use)
+      href: search-data-sources-terms-of-use.md

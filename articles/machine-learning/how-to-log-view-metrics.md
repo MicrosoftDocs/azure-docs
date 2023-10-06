@@ -15,11 +15,8 @@ ms.custom: sdkv2, event-tier1-build-2022
 
 # Log metrics, parameters and files with MLflow
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning Python SDK you are using:"]
-> * [v1](./v1/how-to-log-view-metrics.md?view=azureml-api-1&preserve-view=true)
-> * [v2 (current)](how-to-log-view-metrics.md)
 
 Azure Machine Learning supports logging and tracking experiments using [MLflow Tracking](https://www.mlflow.org/docs/latest/tracking.html). You can log models, metrics, parameters, and artifacts with MLflow as it supports local mode to cloud portability. 
 
@@ -35,9 +32,6 @@ Logs can help you diagnose errors and warnings, or track performance metrics lik
 
 > [!TIP]
 > This article shows you how to monitor the model training process. If you're interested in monitoring resource usage and events from Azure Machine Learning, such as quotas, completed training jobs, or completed model deployments, see [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md).
-
-> [!TIP]
-> For information on logging metrics in Azure Machine Learning designer, see [How to log metrics in the designer](how-to-track-designer-experiments.md).
 
 ## Prerequisites
 
@@ -197,7 +191,7 @@ In general, files in MLflow are called artifacts. You can log artifacts in multi
 |Log all the artifacts in an existing folder | `mlflow.log_artifacts("path/to/folder")`| Folder structure is copied to the run, but the root folder indicated is not included. |
 
 > [!TIP]
-> When __loggiging large files__ with `log_artifact` or `log_model`, you may encounter time out errors before the upload of the file is completed. Consider increasing the timeout value by adjusting the environment variable `AZUREML_ARTIFACTS_DEFAULT_TIMEOUT`. It's default value is `300` (seconds).
+> When __logging large files__ with `log_artifact` or `log_model`, you may encounter time out errors before the upload of the file is completed. Consider increasing the timeout value by adjusting the environment variable `AZUREML_ARTIFACTS_DEFAULT_TIMEOUT`. It's default value is `300` (seconds).
 
 ## Logging models
 
@@ -206,7 +200,7 @@ MLflow introduces the concept of "models" as a way to package all the artifacts 
 To save the model from a training run, use the `log_model()` API for the framework you're working with. For example, [mlflow.sklearn.log_model()](https://mlflow.org/docs/latest/python_api/mlflow.sklearn.html#mlflow.sklearn.log_model). For more details about how to log MLflow models see [Logging MLflow models](how-to-log-mlflow-models.md) For migrating existing models to MLflow, see [Convert custom models to MLflow](how-to-convert-custom-model-to-mlflow.md).
 
 > [!TIP]
-> When __loggiging large models__, you may encounter the error `Failed to flush the queue within 300 seconds`. Usually, it means the operation is timing out before the upload of the model artifacts is completed. Consider increasing the timeout value by adjusting the environment variable `AZUREML_ARTIFACTS_DEFAULT_VALUE`.
+> When __logging large models__, you may encounter the error `Failed to flush the queue within 300 seconds`. Usually, it means the operation is timing out before the upload of the model artifacts is completed. Consider increasing the timeout value by adjusting the environment variable `AZUREML_ARTIFACTS_DEFAULT_VALUE`.
 
 ## Automatic logging
 

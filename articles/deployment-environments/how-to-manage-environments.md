@@ -5,14 +5,14 @@ description: Learn how to manage your Azure Deployment Environments deployment e
 author: RoseHJM
 ms.author: rosemalcolm
 ms.service: deployment-environments
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, build-2023
 ms.topic: how-to
 ms.date: 04/25/2023
 ---
 
 # Manage your deployment environment
 
-In Azure Deployment Environments Preview, a development infrastructure admin gives developers access to projects and the environment types that are associated with them. After a developer has access, they can create deployment environments based on the pre-configured environment types. The permissions that the creator of the environment and the rest of team have to access the environment's resources are defined in the specific environment type.
+In Azure Deployment Environments, a platform engineer gives developers access to projects and the environment types that are associated with them. After a developer has access, they can create deployment environments based on the pre-configured environment types. The permissions that the creator of the environment and the rest of team have to access the environment's resources are defined in the specific environment type.
 
 As a developer, you can create and manage your environments from the developer portal or by using the Azure CLI.  
 
@@ -39,11 +39,11 @@ The developer portal provides a graphical interface for development teams to cre
    |Name     | Enter a descriptive name for your environment. |
    |Project  | Select the project you want to create the environment in. If you have access to more than one project, you see a list of the available projects. |
    |Type     | Select the environment type you want to create. If you have access to more than one environment type, you see a list of the available types. |
-   |Catalog item | Select the catalog item you want to use to create the environment. You see a list of the catalog items available in the catalogs associated with your dev center. |
+   |Environment definitions | Select the environment definition you want to use to create the environment. You see a list of the environment definitions available in the catalogs associated with your dev center. |
 
    :::image type="content" source="media/how-to-manage-environments/add-environment.png" alt-text="Screenshot showing the add environment pane.":::
 
-   If parameters are defined on the catalog item, you're prompted to enter them in a separate pane. If your environment doesn't use parameters, select **Create**.
+   If parameters are defined on the environment definition, you're prompted to enter them in a separate pane. If your environment doesn't use parameters, select **Create**.
 
    :::image type="content" source="media/how-to-manage-environments/parameter-pane.png" alt-text="Screenshot showing the parameter pane.":::
 
@@ -59,7 +59,7 @@ The developer portal provides a graphical interface for development teams to cre
 
 ### Redeploy an environment by using the developer portal
 
-When you need to update your environment, you can redeploy it. The redeployment process updates any existing resources with changed properties or creates any new resources based on the latest configuration of the catalog item.
+When you need to update your environment, you can redeploy it. The redeployment process updates any existing resources with changed properties or creates any new resources based on the latest configuration of the environment definition.
 
 1. Sign in to the [developer portal](https://devportal.microsoft.com).
 
@@ -67,7 +67,7 @@ When you need to update your environment, you can redeploy it. The redeployment 
 
    :::image type="content" source="media/how-to-manage-environments/option-redeploy.png" alt-text="Screenshot showing an environment tile with the options menu expanded and the redeploy option selected.":::
 
-1. If parameters are defined on the catalog item, you're prompted to make any changes you want to make. When you've made your changes, select **Redeploy**.
+1. If parameters are defined on the environment definition, you're prompted to make any changes you want to make. When you've made your changes, select **Redeploy**.
 
    :::image type="content" source="media/how-to-manage-environments/redeploy-parameters.png" alt-text="Screenshot showing the redeploy parameters pane.":::
 
@@ -101,14 +101,14 @@ You can delete your environment completely when you don't need it anymore.
 
 The Azure CLI provides a command-line interface for speed and efficiency when you create multiple similar environments, or for platforms where resources like memory are limited. You can use the following commands to create, list, deploy, or delete an environment.
 
-To learn how to use the Deployment Environments Azure CLI extension, see [Configure Azure Deployment Environments by using the Azure CLI](how-to-configure-use-cli.md).
+To learn how to use the Deployment Environments Azure CLI extension, see [Configure Azure Deployment Environments by using the Azure CLI](https://aka.ms/CLI-reference).
 
 ### Create an environment
 
 ```azurecli
 az devcenter dev environment create --dev-center-name <devcenter-name> \
     --project-name <project-name> --environment-name <environment-name> --environment-type <environment-type-name> \
-    --catalog-item-name <catalog-item-name> ---catalog-name <catalog-name> \
+    --environment-definition-name <environment-definition-name> ---catalog-name <catalog-name> \
     --parameters <deployment-parameters-json-string>
 ```
 

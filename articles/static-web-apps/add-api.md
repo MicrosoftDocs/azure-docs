@@ -7,7 +7,7 @@ ms.service: static-web-apps
 ms.topic:  how-to
 ms.date: 08/29/2022
 ms.author: cshoe
-ms.custom: devx-track-js
+ms.custom:
 ---
 
 # Add an API to Azure Static Web Apps with Azure Functions

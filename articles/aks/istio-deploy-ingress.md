@@ -1,13 +1,15 @@
 ---
-title: Deploy external or internal ingresses for Istio service mesh add-on for Azure Kubernetes Service (preview)
+title: Azure Kubernetes Service (AKS) external or internal ingresses for Istio service mesh add-on (preview)
 description: Deploy external or internal ingresses for Istio service mesh add-on for Azure Kubernetes Service (preview)
-ms.topic: article
-ms.custom: devx-track-azurecli
-ms.date: 04/09/2023
-ms.author: shasb
+ms.topic: how-to
+ms.service: azure-kubernetes-service
+ms.subservice: aks-networking
+author: asudbring
+ms.date: 08/07/2023
+ms.author: allensu
 ---
 
-# Deploy external or internal ingresses for Istio service mesh add-on for Azure Kubernetes Service (preview)
+# Azure Kubernetes Service (AKS) external or internal ingresses for Istio service mesh add-on deployment (preview)
 
 This article shows you how to deploy external or internal ingresses for Istio service mesh add-on for Azure Kubernetes Service (AKS) cluster.
 

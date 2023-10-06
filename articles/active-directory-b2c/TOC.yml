@@ -48,6 +48,9 @@
     - name: Find tenant name and ID  
       href: tenant-management-read-tenant-name.md
       displayName: tenant name, tenant ID, tenant details    
+    - name: Manage directory quota    
+      href: tenant-management-directory-quota.md
+      displayName: Monitor directory size quota           
   - name: 5 - Clean up and delete tenant
     href: tutorial-delete-tenant.md
 # Node Samples
@@ -61,34 +64,35 @@
 - name: Concepts
   items:
   - name: Compare solutions for External Identities
-    href: ../active-directory/external-identities/external-identities-overview.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
-  - name: Supported Azure AD features
+    href: ../active-directory/external-identities/external-identities-overview.md?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json
+  - name: Supported Microsoft Entra features
     href: supported-azure-ad-features.md
   - name: Learn authentication basics
     items:
     - name: Authentication and authorization
-      href: ../active-directory/develop/authentication-vs-authorization.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
+      href: ../active-directory/develop/authentication-vs-authorization.md?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json
     - name: Tokens
-      href: ../active-directory/develop/security-tokens.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
+      href: ../active-directory/develop/security-tokens.md?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json
     - name: Application authentication request
-      href: ../active-directory/develop/v2-app-types.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
+      href: ../active-directory/develop/v2-app-types.md?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json
     - name: Authentication library
-      href: ../active-directory/develop/msal-overview.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
+      href: ../active-directory/develop/msal-overview.md?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json
       displayName: MSAL, client library, Microsoft Authentication Library
   - name: Azure AD B2C global identity framework
     items:
       - name: Global identity solutions
-        href: azure-ad-b2c-global-identity-solutions.md
+        href: b2c-global-identity-solutions.md
       - name: Funnel-based design
-        href: azure-ad-b2c-global-identity-funnel-based-design.md
+        href: b2c-global-identity-funnel-based-design.md
       - name: Region-based design
-        href: azure-ad-b2c-global-identity-region-based-design.md
+        href: b2c-global-identity-region-based-design.md
       - name: Funnel-based proof of concept 
-        href: azure-ad-b2c-global-identity-proof-of-concept-funnel.md
+        href: b2c-global-identity-proof-of-concept-funnel.md
       - name: Region-based proof of concept 
-        href: azure-ad-b2c-global-identity-proof-of-concept-regional.md
+        href: b2c-global-identity-proof-of-concept-regional.md
   - name: Azure AD B2C best practices
     href: best-practices.md
+    displayName: cache, caching, plan, planning
   - name: Application types
     href: application-types.md
   - name: Authentication protocols
@@ -152,7 +156,7 @@
         href: microsoft-graph-get-started.md
       - name: Register a SAML application
         href: saml-service-provider.md?tabs=windows&pivots=b2c-custom-policy 
-      - name: Publish app in Azure AD app gallery
+      - name: Publish app in Microsoft Entra app gallery
         href: publish-app-to-azure-ad-app-gallery.md  
     - name: Create a user flow or custom policy
       items:
@@ -304,7 +308,7 @@
         - name: Daemon or service (client credentials flow)
           href: client-credentials-grant-flow.md
         - name: Microsoft Power Apps
-          href: /powerapps/maker/portals/configure/configure-azure-ad-b2c-provider
+          href: /power-pages/security/authentication/azure-ad-b2c-provider
         - name: SAML application
           items:
           - name: Configure a SAML application
@@ -330,9 +334,9 @@
         href: identity-provider-amazon.md
       - name: Apple
         href: identity-provider-apple-id.md 
-      - name: Azure AD (single tenant)
+      - name: Microsoft Entra ID (single tenant)
         href: identity-provider-azure-ad-single-tenant.md
-      - name: Azure AD (multitenant)
+      - name: Microsoft Entra ID (multitenant)
         href: identity-provider-azure-ad-multi-tenant.md
       - name: Azure AD B2C
         href: identity-provider-azure-ad-b2c.md
@@ -396,10 +400,10 @@
     items:
     - name: Manage users via Azure portal
       href: manage-users-portal.md
-      displayName: create users, add users, delete users
+      displayName: create users, add users, delete users, revoke sessions
     - name: Migrate users
       href: user-migration.md
-      displayName: bulk import
+      displayName: bulk import        
     - name: Partner integration
       items:
       - name: N8identity
@@ -505,7 +509,7 @@
         displayName: azure ad b2c security best practices
       - name: Enable MFA
         items:
-        - name: Multi-factor authentication
+        - name: Multifactor authentication
           href: multi-factor-authentication.md
           displayName: TOTP, multi-factor, multifactor, time-based-one-time password, time-based one-time password, authenticator app, Microsoft authenticator app, mfa, 2fa
         - name: Secure phone-based MFA
@@ -548,7 +552,7 @@
         - name: Akamai
           href: partner-akamai.md
         - name: Azure WAF
-          href: partner-azure-web-application-firewall.md
+          href: partner-web-application-firewall.md
         - name: Cloudflare
           href: partner-cloudflare.md
       - name: Fraud protection partners
@@ -633,7 +637,7 @@
       - name: Azure Monitor
         href: azure-monitor.md
       - name: Microsoft Sentinel
-        href: azure-sentinel.md
+        href: configure-security-analytics-sentinel.md
         displayName: log, logs, logging, events, Azure Monitor, Microsoft Sentinel, SIEM, threat hunting, Security, Security Orchestration
     - name: Troubleshooting
       items:
@@ -718,12 +722,12 @@
         items:
         - name: About validation technical profiles
           href: validation-technical-profile.md
-        - name: Azure Active Directory
+        - name: Microsoft Entra ID
           href: active-directory-technical-profile.md
-        - name: Azure AD Multi-Factor Authentication
+        - name: Microsoft Entra multifactor authentication
           href: multi-factor-auth-technical-profile.md
           displayName: mfa
-        - name: Azure AD SSPR
+        - name: Microsoft Entra SSPR
           href: aad-sspr-technical-profile.md
         - name: Claims transformation
           href: claims-transformation-technical-profile.md
@@ -794,15 +798,15 @@
   - name: Build for resilience
     items:
     - name: Azure AD B2C introduction to resilience
-      href: ../active-directory/fundamentals/resilience-b2c.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
+      href: ../active-directory/architecture/resilience-b2c.md?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json
     - name: End-user experience
-      href: ../active-directory/fundamentals/resilient-end-user-experience.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
+      href: ../active-directory/architecture/resilient-end-user-experience.md?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json
     - name: Interfaces with external processes
-      href: ../active-directory/fundamentals/resilient-external-processes.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
+      href: ../active-directory/architecture/resilient-external-processes.md?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json
     - name: Azure AD B2C developer best practices
-      href: ../active-directory/fundamentals/resilience-b2c-developer-best-practices.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
+      href: ../active-directory/architecture/resilience-b2c-developer-best-practices.md?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json
     - name: Monitoring and analytics
-      href: ../active-directory/fundamentals/resilience-with-monitoring-alerting.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
+      href: ../active-directory/architecture/resilience-with-monitoring-alerting.md?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json
     displayName: security
   - name: User flow versions
     href: user-flow-versions.md
@@ -831,4 +835,4 @@
     href: find-help-open-support-ticket.md
     displayName: technical
   - name: Videos
-    href: azure-ad-external-identities-videos.md
+    href: ./external-identities-videos.md

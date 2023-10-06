@@ -13,8 +13,7 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 05/02/2022
 ms.author: mametcal
-ms.custom: mvc, devx-track-java, devx-track-azurecli
-
+ms.custom: mvc, devx-track-java, devx-track-azurecli, devx-track-extended-java
 #Customer intent: I want to update my Spring Boot application to reference values stored in Key Vault through App Configuration.
 ---
 # Tutorial: Use Key Vault references in a Java Spring app
@@ -156,11 +155,29 @@ To add a secret to the vault, you need to take just a few additional steps. In t
 
 1. Create an environment variable called **APP_CONFIGURATION_ENDPOINT**. Set its value to the endpoint of your App Configuration store. You can find the endpoint on the **Access Keys** blade in the Azure portal. Restart the command prompt to allow the change to take effect.
 
-1. Open *bootstrap.properties* in the *resources* folder. Update this file to use the **APP_CONFIGURATION_ENDPOINT** value. Remove any references to a connection string in this file.
+1. Open your configuration file in the *resources* folder. Update this file to use the **APP_CONFIGURATION_ENDPOINT** value. Remove any references to a connection string in this file.
 
-    ```properties
-    spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_ENDPOINT}
-    ```
+### [yaml](#tab/yaml)
+
+```yaml
+spring:
+    cloud:
+        azure:
+            appconfiguration:
+                stores:
+                    - endpoint: ${APP_CONFIGURATION_ENDPOINT}
+```
+
+### [properties](#tab/properties)
+
+```properties
+spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_ENDPOINT}
+```
+
+---
+
+> [!NOTE]
+> You can also use the [Spring Cloud Azure global configurations](/azure/developer/java/spring-framework/authentication) to connect to Key Vault.
 
 1. Open *MessageProperties.java*. Add a new variable called *keyVaultMessage*:
 

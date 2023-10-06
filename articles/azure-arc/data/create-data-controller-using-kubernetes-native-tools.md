@@ -78,10 +78,10 @@ You can use an online tool to base64 encode your desired username and password o
 PowerShell
 
 ```console
-[Convert]::ToBase64String([System.Text.Encoding]::Unicode.GetBytes('<your string to encode here>'))
+[Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes('<your string to encode here>'))
 
 #Example
-#[Convert]::ToBase64String([System.Text.Encoding]::Unicode.GetBytes('example'))
+#[Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes('example'))
 
 ```
 

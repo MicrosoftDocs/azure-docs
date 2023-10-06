@@ -4,16 +4,16 @@ titleSuffix: Azure Load Testing
 description: Learn how to deploy Azure Load Testing in a virtual network (VNET injection) to test private application endpoints and hybrid deployments.
 services: load-testing
 ms.service: load-testing
+ms.custom: devx-track-azurecli
 ms.author: nicktrog
 author: ntrogh
-ms.date: 11/04/2022
+ms.date: 05/12/2023
 ms.topic: how-to
-ms.custom: references_regions
 ---
 
 # Test private endpoints by deploying Azure Load Testing in an Azure virtual network
 
-In this article, learn how to test private application endpoints with Azure Load Testing. You'll create an Azure Load Testing resource and enable it to generate load from within your virtual network (VNET injection).
+In this article, learn how to test private application endpoints with Azure Load Testing. You create an Azure Load Testing resource and enable it to generate load from within your virtual network (VNET injection).
 
 This functionality enables the following usage scenarios:
 
@@ -29,74 +29,54 @@ The following diagram provides a technical overview:
 
 When you start the load test, Azure Load Testing service injects the following Azure resources in the virtual network that contains the application endpoint:
 
-- The test engine virtual machines. These VMs will invoke your application endpoint during the load test.
+- The test engine virtual machines. These VMs invoke your application endpoint during the load test.
 - A public IP address.
 - A network security group (NSG). 
 - An Azure Load Balancer.
 
-These resources are ephemeral and exist only during the load test run. If you restrict access to your virtual network, you need to [configure your virtual network](#configure-your-virtual-network) to enable communication between these Azure Load Testing and the injected VMs.
+These resources are ephemeral and exist only during the load test run. If you restrict access to your virtual network, you need to [configure your virtual network](#configure-virtual-network) to enable communication between these Azure Load Testing and the injected VMs.
 
 ## Prerequisites
 
-- An existing virtual network and a subnet to use with Azure Load Testing.
-- The virtual network must be in the same subscription and the same region as the Azure Load Testing resource.
-- The virtual network address range cannot overlap with 172.29.0.0/30, the address range that Azure Load Testing uses.
-- You require the [Network Contributor](/azure/role-based-access-control/built-in-roles#network-contributor) role, or a parent of this role, on the virtual network. See [Check access for a user to Azure resources](/azure/role-based-access-control/check-access) to verify your permissions.
+- Your Azure account has the [Network Contributor](/azure/role-based-access-control/built-in-roles#network-contributor) role, or a parent of this role, on the virtual network. See [Check access for a user to Azure resources](/azure/role-based-access-control/check-access) to verify your permissions.
 - The subnet you use for Azure Load Testing must have enough unassigned IP addresses to accommodate the number of load test engines for your test. Learn more about [configuring your test for high-scale load](./how-to-high-scale-load.md).
 - The subnet shouldn't be delegated to any other Azure service. For example, it shouldn't be delegated to Azure Container Instances (ACI). Learn more about [subnet delegation](/azure/virtual-network/subnet-delegation-overview).
 - Azure CLI version 2.2.0 or later (if you're using CI/CD). Run `az --version` to find the version that's installed on your computer. If you need to install or upgrade the Azure CLI, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
-## Configure your virtual network
+## Configure virtual network
 
-To test private endpoints, you need an existing Azure virtual network. Your virtual network should have at least one subnet, and allow access for traffic coming from the Azure Load Testing service.
+To test private endpoints, you connect Azure Load Testing to an Azure virtual network. The virtual network should have at least one subnet, and allow outbound traffic to the Azure Load Testing service.
+
+If you don't have a virtual network yet, follow these steps to [create an Azure virtual network in the Azure portal](/azure/virtual-network/quick-create-portal).
+
+> [!IMPORTANT]
+> The virtual network must be in the same subscription and the same region as the load testing resource.
 
 ### Create a subnet
 
 When you deploy Azure Load Testing in your virtual network, it's recommended to use separate subnets for Azure Load Testing and for the application endpoint. This approach enables you to configure network traffic access policies specifically for each purpose. Learn more about how to [add a subnet to a virtual network](/azure/virtual-network/virtual-network-manage-subnet#add-a-subnet).
 
-### Configure traffic access
+### (Optional) Configure traffic rules
 
-Azure Load Testing requires both inbound and outbound access for the injected VMs in your virtual network. If you plan to restrict traffic access to your virtual network, or if you're already using a network security group, configure the network security group for the subnet in which you deploy the load test.
+Azure Load Testing requires that the injected VMs in your virtual network are allowed outbound access to the Azure Load Testing service. By default, when you create a virtual network, outbound access is already permitted.
 
-1. Go to the [Azure portal](https://portal.azure.com).
+If you plan to further restrict access to your virtual network with a network security group, or if you already have a network security group, you need to configure an outbound security rule to allow traffic from the test engine VMs to the Azure Load Testing service.
 
-1. If you don't have an NSG yet, follow these steps to [create a network security group](/azure/virtual-network/manage-network-security-group#create-a-network-security-group).
+To configure outbound access for Azure Load Testing: 
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Go to your network security group.
+
+    If you don't have an NSG yet, follow these steps to [create a network security group](/azure/virtual-network/manage-network-security-group#create-a-network-security-group).
 
     Create the NSG in the same region as your virtual network, and then associate it with your subnet.
 
-1. Search for and select your network security group.
-
-    <!-- TODO: add screenshot of portal -->
-
-1. Select **Inbound security rules** in the left navigation.
-
-1. Select **+ Add**, to add a new inbound security rule. Enter the following information to create a new rule, and then select **Add**.
-
-    | Field | Value |
-    | ----- | ----- |
-    | **Source**  | *Service Tag* |
-    | **Source service tag**  | *BatchNodeManagement* |
-    | **Source port ranges**  | *\** |
-    | **Destination**  | *Any* |
-    | **Destination port ranges**  | *29876-29877* |
-    | **Name**  | *batch-node-management-inbound* |
-    | **Description**| *Create, update, and delete of Azure Load Testing compute instances.* |
-
-1. Add a second inbound security rule using the following information:
-
-    | Field | Value |
-    | ----- | ----- |
-    | **Source**  | *Service Tag* |
-    | **Source service tag**  | *AzureLoadTestingInstanceManagement* |
-    | **Source port ranges**  | *\** |
-    | **Destination**  | *Any* |
-    | **Destination port ranges**  | *8080* |
-    | **Name**  | *azure-load-testing-inbound* |
-    | **Description**| *Create, update, and delete of Azure Load Testing compute instances.* |
-
 1. Select **Outbound security rules** in the left navigation.
 
-1. Select **+ Add**, to add a new outbound security rule. Enter the following information to create a new rule, and then select **Add**.
+	:::image type="content" source="media/how-to-test-private-endpoint/network-security-group-overview.png" alt-text="Screenshot that shows the network security group overview page in the Azure portal, highlighting Outbound security rules.":::
+
+1. Select **+ Add**, to add a new outbound security rule. Enter the following information to create a new rule.
 
     | Field | Value |
     | ----- | ----- |
@@ -106,6 +86,8 @@ Azure Load Testing requires both inbound and outbound access for the injected VM
     | **Destination port ranges**  | *\** |
     | **Name**  | *azure-load-testing-outbound* |
     | **Description**| *Used for various operations involved in orchestrating a load tests.* |
+
+1. Select **Add** to add the outbound security rule to the network security group.
 
 ## Configure your load test script
 
@@ -227,7 +209,7 @@ The subnet you're using for the load test isn't in the `Succeeded` state and isn
     az network vnet subnet show -g MyResourceGroup -n MySubnet --vnet-name MyVNet
     ```
 
-1. Resolve any issues with the subnet. If you've just created the subnet, verify the state again after a few minutes.
+1. Resolve any issues with the subnet. If you have just created the subnet, verify the state again after a few minutes.
 
 1. Alternately, select another subnet for the load test.
 
@@ -277,7 +259,7 @@ The route table attached to the subnet isn't in the `Succeeded` state.
     az network route-table show -g MyResourceGroup -n MyRouteTable
     ```
 
-1. Resolve any issues with the route table. If you've just created the route table or subnet, verify the state again after a few minutes.
+1. Resolve any issues with the route table. If you have just created the route table or subnet, verify the state again after a few minutes.
 
 1. Alternately, select another route table.
 
@@ -324,7 +306,7 @@ The load test engine instances couldn't be deployed due to an error in the subne
     az network vnet subnet show -g MyResourceGroup -n MySubnet --vnet-name MyVNet
     ```
 
-1. Resolve any issues with the subnet. If you've just created the subnet, verify the state again after a few minutes.
+1. Resolve any issues with the subnet. If you have just created the subnet, verify the state again after a few minutes.
 
 1. If the problem persists, [open an online customer support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
@@ -335,6 +317,25 @@ The load test engine instances couldn't be deployed due to an error in the subne
 The subnet you use for Azure Load Testing must have enough unassigned IP addresses to accommodate the number of load test engines for your test.
 
 Follow these steps to [update the subnet settings](/azure/virtual-network/virtual-network-manage-subnet#change-subnet-settings) and increase the IP address range.
+
+### Starting the load test fails with `Management Lock is enabled on Resource Group of VNET (ALTVNET015)`
+
+If there is a lock on the resource group that contains the virtual network, the service can't inject the test engine virtual machines in your virtual network. Remove the management lock before running the load test. Learn how to [configure locks in the Azure portal](/azure/azure-resource-manager/management/lock-resources?tabs=json#configure-locks).
+
+### Starting the load test fails with `Insufficient public IP address quota in VNET subscription (ALTVNET016)`
+
+When you start the load test, Azure Load Testing injects the following Azure resources in the virtual network that contains the application endpoint:
+
+- The test engine virtual machines. These VMs invoke your application endpoint during the load test.
+- A public IP address.
+- A network security group (NSG). 
+- An Azure Load Balancer.
+
+Ensure that you have quota for at least one public IP address available in your subscription to use in the load test.
+
+### Starting the load test fails with `Subnet with name "AzureFirewallSubnet" cannot be used for load testing (ALTVNET017)`
+
+The subnet *AzureFirewallSubnet* is reserved and you can't use it for Azure Load Testing. Select another subnet for your load test.
 
 ## Next steps
 

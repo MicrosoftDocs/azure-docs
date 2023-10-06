@@ -13,11 +13,11 @@ items:
         href: planning-supported-configurations.md
       - name: Supported SAP software for Azure deployments
         href: supported-product-on-azure.md
-      - name: Checklist for deploying SAP workloads on Azure
+      - name: Checklist to deploy an SAP workload on Azure
         href: deployment-checklist.md
-      - name: Plan and implement SAP NetWeaver on Azure
+      - name: Plan and implement an SAP deployment on Azure
         href: planning-guide.md
-      - name: Deploy SAP NetWeaver applications
+      - name: Deploy an SAP workload on Azure
         href: deployment-guide.md
       - name: SAP Business One on Azure VMs
         href: business-one-azure.md
@@ -31,6 +31,12 @@ items:
         href: sap-information-lifecycle-management.md
       - name: SAP RISE integration
         href: rise-integration.md
+      - name: Virtual Machine Scale Sets
+        items:
+        - name: Flexible scale sets deployment guide
+          href: virtual-machine-scale-set-sap-deployment-guide.md
+        - name: Frequently asked questions
+          href: virtual-machine-scale-set-sap-faq.md
       - name: Azure VM extension for SAP
         items:
         - name: Prerequisites Azure VM Extension for SAP
@@ -41,7 +47,7 @@ items:
           href: vm-extension-for-sap-new.md
       - name: SAP BOBI platform on Azure
         items:
-        - name: SAPI BOBI planning and implementation guide on Azure
+        - name: SAP BOBI planning and implementation guide on Azure
           href: businessobjects-deployment-guide.md
         - name: Deployment for Windows on Azure
           href: businessobjects-deployment-guide-windows.md
@@ -63,6 +69,8 @@ items:
         href: hana-vm-operations-netapp.md
       - name: Azure Files NFS/SMB for SAP
         href: planning-guide-storage-azure-files.md
+      - name: SAP HANA data tiering and archiving guidance
+        href: hana-tiering-guidance.md
     - name: High availability (HA)
       items:
       - name: About HA for Azure VMs
@@ -73,7 +81,7 @@ items:
         href: sap-higher-availability-architecture-scenarios.md
       - name: Azure Availability Zones for SAP workloads
         href: high-availability-zones.md
-      - name: Azure Proximity Placement Groups for optimal network latency with SAP applications
+      - name: Configuration options for optimal network latency with SAP applications
         href: proximity-placement-scenarios.md
       - name: Public endpoint connectivity with Azure Load Balancer
         href: high-availability-guide-standard-load-balancer-outbound-connections.md
@@ -219,6 +227,8 @@ items:
       items:
       - name: Outbound E-Mail from SAP to Exchange Online
         href: exchange-online-integration-sap-email-outbound.md
+      - name: Recommended setup for SAP Cloud Identity Services and SAP Business Technology Platform with Azure AD
+        href: /azure/active-directory/fundamentals/scenario-azure-first-sap-identity-integration
       - name: Expose SAP Process Orchestration on Azure securely
         href: expose-sap-process-orchestration-on-azure.md
       - name: Enable SAP Principal Propagation for live OData feeds with Power Query

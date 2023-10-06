@@ -25,6 +25,10 @@
     href: quickstart-create-bicep-use-visual-studio.md
   - name: Create template specs
     href: quickstart-create-template-specs.md
+  - name: Create deployment stacks
+    href: quickstart-create-deployment-stacks.md
+  - name: Create deployment stacks from template specs
+    href: quickstart-create-deployment-stacks-template-specs.md
   - name: Use loops
     displayName: multiple
     href: quickstart-loops.md
@@ -45,16 +49,20 @@
   items:
   - name: Learn modules for Bicep
     href: learn-bicep.md
-  - name: Learn live - Bicep
+  - name: Learn Live - Bicep
     href: /events/learntv/learnlive-iac-and-bicep/
+  - name: Learn Live - Bicep and GitHub Actions
+    href: /events/learn-events/learnlive-automate-azure-deployments-bicep-github-actions/
+  - name: Use deployment stacks
+    href: ./tutorial-use-deployment-stacks.md
 - name: Samples - Azure Services
   items:
   - name: AI + Machine Learning
     items:
     - name: Cognitive Search
       href: ../../search/search-get-started-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
-    - name: Cognitive Services
-      href: ../../cognitive-services/create-account-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Azure AI services
+      href: ../../ai-services/create-account-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Data Science Virtual Machine
       href: ../../machine-learning/data-science-virtual-machine/dsvm-tutorial-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Machine Learning secure workspace
@@ -255,10 +263,13 @@
     displayName: parameters,variables,resources,outputs,condition,syntax
   - name: Data types
     href: data-types.md
-    displayName: supported types,arrays,booleans,integers,objects,strings,secure
+    displayName: supported types,arrays,booleans,integers,objects,strings,secure,interpolation
   - name: User-defined data types (type)
     displayName: custom
     href: user-defined-data-types.md
+  - name: User-defined functions (func)
+    displayName: custom
+    href: user-defined-functions.md
   - name: Parameters (param)
     href: parameters.md
     displayName: decorators,secure,objects,constraints
@@ -293,16 +304,16 @@
     items:
     - name: Resource group
       href: deploy-to-resource-group.md
-      displayName: deployment commands,multiple resource groups
+      displayName: deployment commands,multiple resource groups,scope
     - name: Subscription
       href: deploy-to-subscription.md
-      displayName: Azure Policy,policy,access control
+      displayName: Azure Policy,policy,access control,scope
     - name: Management group
       href: deploy-to-management-group.md
-      displayName: policy,Azure Policy
+      displayName: policy,Azure Policy,scope
     - name: Tenant
       href: deploy-to-tenant.md
-      displayName: assign role
+      displayName: assign role,scope
   - name: Functions
     items:
     - name: All functions
@@ -311,6 +322,8 @@
       href: bicep-functions-any.md
     - name: Array functions
       href: bicep-functions-array.md
+    - name: CIDR functions
+      href: bicep-functions-cidr.md
     - name: Date functions
       href: bicep-functions-date.md
     - name: Deployment functions
@@ -325,6 +338,8 @@
       href: bicep-functions-numeric.md
     - name: Object functions
       href: bicep-functions-object.md
+    - name: Parameters file functions
+      href: bicep-functions-parameters-file.md
     - name: Resource functions
       href: bicep-functions-resource.md
     - name: Scope functions
@@ -363,6 +378,8 @@
       href: deployment-script-bicep.md
     - name: Template specs
       href: template-specs.md
+    - name: Deployment stacks
+      href: deployment-stacks.md
     - name: Bicep extensibility
       items:
       - name: Kubernetes provider
@@ -381,6 +398,8 @@
       items:
       - name: Access control
         href: scenarios-rbac.md
+      - name: Create resource group
+        href: create-resource-group.md
       - name: Monitoring
         href: scenarios-monitoring.md
       - name: Secrets
@@ -389,8 +408,8 @@
         href: scenarios-virtual-networks.md
   - name: Provide parameters
     items:
-    - name: Parameter file
-      displayName: comments,metadata,
+    - name: Parameters file
+      displayName: comments,metadata,bicepparam
       href: parameter-files.md
     - name: Sensitive values
       displayName: key vault
@@ -423,6 +442,9 @@
       - name: Max variables
         displayName: linter
         href: linter-rule-max-variables.md
+      - name: No conflicting metadata
+        displayName: linter
+        href: linter-rule-no-conflicting-metadata.md
       - name: No hardcoded environment URLs
         displayName: linter
         href: linter-rule-no-hardcoded-environment-urls.md

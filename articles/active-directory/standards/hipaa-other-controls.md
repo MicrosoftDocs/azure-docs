@@ -1,6 +1,6 @@
 ---
-title: Configure Azure Active Directory HIPAA additional safeguards
-description: Guidance on how to configure Azure Active Directory HIPAA additional control safeguards
+title: Configure Microsoft Entra HIPAA additional safeguards
+description: Guidance on how to configure Microsoft Entra HIPAA additional control safeguards
 services: active-directory 
 ms.service: active-directory
 ms.subservice: fundamentals
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Other safeguard guidance 
 
-Azure Active Directory (Azure AD) meets identity-related practice requirements for implementing Health Insurance Portability and Accountability Act of 1996 (HIPAA) safeguards. To be HIPAA compliant, it's the responsibility of companies to implement the safeguards using this guidance along with any other configurations or processes needed. This article contains guidance for achieving HIPAA compliance for the following three controls:
+Microsoft Entra ID meets identity-related practice requirements for implementing Health Insurance Portability and Accountability Act of 1996 (HIPAA) safeguards. To be HIPAA compliant, it's the responsibility of companies to implement the safeguards using this guidance along with any other configurations or processes needed. This article contains guidance for achieving HIPAA compliance for the following three controls:
 
 * Integrity Safeguard
 * Person or Entity Authentication Safeguard
@@ -25,7 +25,7 @@ Azure Active Directory (Azure AD) meets identity-related practice requirements f
 
 ## Integrity safeguard guidance
 
-Azure Active Directory meets identity-related practice requirements for implementing HIPAA safeguards. To be HIPAA compliant, implement the safeguards using this guidance along with any other configurations or processes needed.
+Microsoft Entra ID meets identity-related practice requirements for implementing HIPAA safeguards. To be HIPAA compliant, implement the safeguards using this guidance along with any other configurations or processes needed.
 
 For the **Data Modification Safeguard**:
 
@@ -68,14 +68,14 @@ Ensure that users and devices that access ePHI data are authorized. You must ens
 
 | Recommendation | Action |
 | - | - |
-|Enable multi-factor authentication (MFA) | [Azure AD Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md) protects identities by adding an extra layer of security. The extra layer provides an effective way to prevent unauthorized access. MFA enables the requirement of more validation of sign in credentials during the authentication process. Setting up the [Authenticator app](https://support.microsoft.com/account-billing/set-up-an-authenticator-app-as-a-two-step-verification-method-2db39828-15e1-4614-b825-6e2b524e7c95) provides one-click verification, or you can configure [Azure AD passwordless configuration](../authentication/concept-authentication-passwordless.md). |
-| Enable Conditional Access policies | [Conditional Access](../conditional-access/concept-conditional-access-policies.md) policies help to restrict access to only approved applications. Azure AD analyses signals from either the user, device, or the location to automate decisions and enforce organizational policies for access to resources and data. |
-| Set up device based Conditional Access Policy | [Conditional Access with Microsoft Intune](/mem/intune/protect/conditional-access) for device management and Azure AD policies can use device status to either grant deny access to your services and data. By deploying device compliance policies, it determines if it meets security requirements to make decisions to either allow access to the resources or deny them. |
-| Use role-based access control (RBAC) | [RBAC in Azure AD](../roles/custom-overview.md) provides security on an enterprise level, with separation of duties. Adjust and review permissions to protect confidentiality, privacy and access management to resources and sensitive data, with the systems.</br>Azure AD provides support for [built-in roles](../roles/permissions-reference.md), which is a fixed set of permissions that can't be modified. You can also create your own [custom roles](../roles/custom-create.md) where you can add a preset list. |
+|Enable multifactor authentication | [Microsoft Entra multifactor authentication](../authentication/concept-mfa-howitworks.md) protects identities by adding an extra layer of security. The extra layer provides an effective way to prevent unauthorized access. MFA enables the requirement of more validation of sign in credentials during the authentication process. Setting up the [Authenticator app](https://support.microsoft.com/account-billing/set-up-an-authenticator-app-as-a-two-step-verification-method-2db39828-15e1-4614-b825-6e2b524e7c95) provides one-click verification, or you can configure [Microsoft Entra passwordless configuration](../authentication/concept-authentication-passwordless.md). |
+| Enable Conditional Access policies | [Conditional Access](../conditional-access/concept-conditional-access-policies.md) policies help to restrict access to only approved applications. Microsoft Entra analyses signals from either the user, device, or the location to automate decisions and enforce organizational policies for access to resources and data. |
+| Set up device based Conditional Access Policy | [Conditional Access with Microsoft Intune](/mem/intune/protect/conditional-access) for device management and Microsoft Entra policies can use device status to either grant deny access to your services and data. By deploying device compliance policies, it determines if it meets security requirements to make decisions to either allow access to the resources or deny them. |
+| Use role-based access control (RBAC) | [RBAC in Microsoft Entra ID](../roles/custom-overview.md) provides security on an enterprise level, with separation of duties. Adjust and review permissions to protect confidentiality, privacy and access management to resources and sensitive data, with the systems.</br>Microsoft Entra ID provides support for [built-in roles](../roles/permissions-reference.md), which is a fixed set of permissions that can't be modified. You can also create your own [custom roles](../roles/custom-create.md) where you can add a preset list. |
 
 ## Transmission security safeguard guidance
 
-Azure Active Directory meets identity-related practice requirements for implementing HIPAA safeguards. To be HIPAA compliant, implement the safeguards using this guidance along with any other configurations or processes needed.
+Microsoft Entra ID meets identity-related practice requirements for implementing HIPAA safeguards. To be HIPAA compliant, implement the safeguards using this guidance along with any other configurations or processes needed.
 
 For encryption:
 
@@ -95,7 +95,7 @@ To protect transmission of PHI data:
 
 * Ensure data transmitted is encrypted.
 
-The following content provides a list of the Audit and Transmission Security Safeguard guidance from the HIPAA guidance and Microsoft’s recommendations to enable you to meet the safeguard implementation requirements with Azure AD.
+The following content provides a list of the Audit and Transmission Security Safeguard guidance from the HIPAA guidance and Microsoft’s recommendations to enable you to meet the safeguard implementation requirements with Microsoft Entra ID.
 
 **HIPAA - encryption**
 
@@ -118,9 +118,9 @@ Establish policies and procedures to protect data exchange that contains PHI dat
 
 | Recommendation | Action |
 | - | - |
- | Assess the state of on-premises applications | [Azure AD Application Proxy](../app-proxy/what-is-application-proxy.md) implementation publishes on-premises web applications externally and in a secure manner.</br>Azure AD Application Proxy enables you to securely publish an external URL endpoint into Azure. |
-| Enable multi-factor authentication (MFA) | [Azure AD MFA](../authentication/concept-mfa-howitworks.md) protects identities by adding a layer of security. Adding more layers of security is an effective way to prevent unauthorized access. MFA enables the requirement of more validation of sign in credentials during the authentication process. You can configure the [Authenticator](https://support.microsoft.com/account-billing/set-up-an-authenticator-app-as-a-two-step-verification-method-2db39828-15e1-4614-b825-6e2b524e7c95) app to provide one-click verification or passwordless authentication. |
-| Enable conditional access policies for application access | [Conditional Access](../conditional-access/concept-conditional-access-policies.md) policies helps to restrict access to approved applications. Azure AD analyses signals from either the user, device, or the location to automate decisions and enforce organizational policies for access to resources and data. |
+ | Assess the state of on-premises applications | [Microsoft Entra application proxy](../app-proxy/what-is-application-proxy.md) implementation publishes on-premises web applications externally and in a secure manner.</br>Microsoft Entra application proxy enables you to securely publish an external URL endpoint into Azure. |
+| Enable multifactor authentication | [Microsoft Entra multifactor authentication](../authentication/concept-mfa-howitworks.md) protects identities by adding a layer of security. Adding more layers of security is an effective way to prevent unauthorized access. MFA enables the requirement of more validation of sign in credentials during the authentication process. You can configure the [Authenticator](https://support.microsoft.com/account-billing/set-up-an-authenticator-app-as-a-two-step-verification-method-2db39828-15e1-4614-b825-6e2b524e7c95) app to provide one-click verification or passwordless authentication. |
+| Enable Conditional Access policies for application access | [Conditional Access](../conditional-access/concept-conditional-access-policies.md) policies helps to restrict access to approved applications. Microsoft Entra analyses signals from either the user, device, or the location to automate decisions and enforce organizational policies for access to resources and data. |
 | Review Exchange Online Protection (EOP) policies | [Exchange Online spam and malware protection](/office365/servicedescriptions/exchange-online-protection-service-description/exchange-online-protection-feature-details?tabs=Anti-spam-and-anti-malware-protection) provides built-in malware and spam filtering. EOP protects inbound and outbound messages and is enabled by default. EOP services also provide anti-spoofing, quarantining messages, and the ability to report messages in Outlook. </br>The policies can be customized to fit company-wide settings, these take precedence over the default policies. |
 | Configure sensitivity labels | [Sensitivity labels](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites) from Microsoft Purview enable you to classify and protect your organizations data. The labels provide protection settings in documentation to containers. For example, the tool protects documents that are stored in Microsoft Teams and SharePoint sites, to set and enforce privacy settings. Extend labels to files and data assets such as SQL, Azure SQL, Azure Synapse, Azure Cosmos DB and AWS RDS. </br>Beyond the 200 out-of-the-box sensitive info types, there are advanced classifiers such as names entities, trainable classifiers, and EDM to protect custom sensitive types. |
 | Assess whether a private connection is required to connect to services | [Azure ExpressRoute](../../expressroute/expressroute-introduction.md) creates private connections between cloud-based Azure datacenters and infrastructure that resides on-premises. Data isn't transferred over the public internet. </br>The service uses layer 3 connectivity, connects the edge router, and provides dynamic scalability. |
@@ -139,4 +139,3 @@ Establish policies and procedures to protect data exchange that contains PHI dat
 * [Audit Controls Safeguard guidance](hipaa-audit-controls.md)
 
 * [Other Safeguard guidance](hipaa-other-controls.md)
-

@@ -4,7 +4,7 @@ description: Learn about recent changes to the Remote Desktop client for macOS
 ms.topic: release-notes
 author: heidilohr
 ms.author: helohr
-ms.date: 01/04/2023
+ms.date: 10/02/2023
 ---
 
 # What's new in the Remote Desktop client for macOS

@@ -2,8 +2,8 @@
 title: Connection strings in Application Insights | Microsoft Docs
 description: This article shows how to use connection strings.
 ms.topic: conceptual
-ms.date: 11/15/2022
-ms.custom: "devx-track-js, devx-track-csharp"
+ms.date: 09/12/2023
+ms.custom: devx-track-csharp
 ms.reviewer: cogoodson
 ---
 
@@ -19,7 +19,7 @@ Key-value pairs provide an easy way for users to define a prefix suffix combinat
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
-Don't use a connection string and instrumentation key simultaneously. Whichever was set last will take precedence.
+ 
 
 ## Scenario overview
 
@@ -27,7 +27,7 @@ Scenarios most affected by this change:
 
 - Firewall exceptions or proxy redirects:
 
-    In cases where monitoring for intranet web server is required, our earlier solution asked you to add individual service endpoints to your configuration. For more information, see the [Azure Monitor FAQ](../faq.yml#can-i-monitor-an-intranet-web-server-). Connection strings offer a better alternative by reducing this effort to a single setting. A simple prefix, suffix amendment, allows automatic population and redirection of all endpoints to the right services.
+    In cases where monitoring for intranet web server is required, our earlier solution asked you to add individual service endpoints to your configuration. For more information, see the [Can I monitor an intranet web server?](./ip-addresses.md#can-i-monitor-an-intranet-web-server). Connection strings offer a better alternative by reducing this effort to a single setting. A simple prefix, suffix amendment, allows automatic population and redirection of all endpoints to the right services.
 
 - Sovereign or hybrid cloud environments:
 
@@ -59,10 +59,10 @@ A connection string consists of a list of settings represented as key-value pair
 #### Syntax
 
 - `InstrumentationKey` (for example, 00000000-0000-0000-0000-000000000000).
-   The connection string is a *required* field.
+   `InstrumentationKey` is a *required* field.
 - `Authorization` (for example, ikey). This setting is optional because today we only support ikey authorization.
 - `EndpointSuffix` (for example, applicationinsights.azure.cn).
-   Setting the endpoint suffix will instruct the SDK on which Azure cloud to connect to. The SDK will assemble the rest of the endpoint for individual services.
+   Setting the endpoint suffix tells the SDK which Azure cloud to connect to. The SDK assembles the rest of the endpoint for individual services.
 - Explicit endpoints.
   Any service can be explicitly overridden in the connection string:
    - `IngestionEndpoint` (for example, `https://dc.applicationinsights.azure.com`)
@@ -105,7 +105,7 @@ Here are some examples of connection strings.
 
 `InstrumentationKey=00000000-0000-0000-0000-000000000000;EndpointSuffix=ai.contoso.com;`
 
-In this example, the connection string specifies the endpoint suffix and the SDK will construct service endpoints:
+In this example, the connection string specifies the endpoint suffix and the SDK constructs service endpoints:
 
 - Authorization scheme defaults to "ikey"
 - Instrumentation key: 00000000-0000-0000-0000-000000000000
@@ -119,7 +119,7 @@ In this example, the connection string specifies the endpoint suffix and the SDK
 
 `InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://custom.com:111/;LiveEndpoint=https://custom.com:222/;ProfilerEndpoint=https://custom.com:333/;SnapshotEndpoint=https://custom.com:444/;`
 
-In this example, the connection string specifies explicit overrides for every service. The SDK will use the exact endpoints provided without modification:
+In this example, the connection string specifies explicit overrides for every service. The SDK uses the exact endpoints provided without modification:
 
 - Authorization scheme defaults to "ikey"
 - Instrumentation key: 00000000-0000-0000-0000-000000000000
@@ -163,45 +163,42 @@ Connection string: `APPLICATIONINSIGHTS_CONNECTION_STRING`
 
 # [.NET 5.0+](#tab/dotnet5)
 
-1. Set the instrumentation key in the `appsettings.json` file:
+1. Set the connection string in the `appsettings.json` file:
 
     ```json
     {
       "ApplicationInsights": {
-        "InstrumentationKey" : "InstrumentationKey=00000000-0000-0000-0000-000000000000;"
+        "ConnectionString" : "InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://{region}.in.applicationinsights.azure.com/;LiveEndpoint=https://{region}.livediagnostics.monitor.azure.com/"
         }
     }
     ```
 
-2. Retrieve the instrumentation key in `Program.cs` when registering the `ApplicationInsightsTelemetry` service:
+2. Retrieve the connection string in `Program.cs` when registering the `ApplicationInsightsTelemetry` service:
 
     ```csharp
-    var options = new ApplicationInsightsServiceOptions { ConnectionString = app.Configuration["ApplicationInsights:InstrumentationKey"] };
+    var options = new ApplicationInsightsServiceOptions { ConnectionString = app.Configuration["ApplicationInsights:ConnectionString"] };
     builder.Services.AddApplicationInsightsTelemetry(options: options);
     ```
-
-> [!NOTE]
-> When deploying applications to Azure in production scenarios, consider placing instrumentation keys or other configuration secrets in secure locations such as App Service configuration settings or Azure Key Vault. Avoid including secrets in your application code or checking them into source control where they might be exposed or misused. The preceding code example will also work if the instrumentation key is stored in App Service configuration settings. Learn more about [configuring App Service settings](/azure/app-service/configure-common).
 
 # [.NET Framework](#tab/dotnet-framework)
 
 Set the property [TelemetryConfiguration.ConnectionString](https://github.com/microsoft/ApplicationInsights-dotnet/blob/add45ceed35a817dc7202ec07d3df1672d1f610d/BASE/src/Microsoft.ApplicationInsights/Extensibility/TelemetryConfiguration.cs#L271-L274) or [ApplicationInsightsServiceOptions.ConnectionString](https://github.com/microsoft/ApplicationInsights-dotnet/blob/81288f26921df1e8e713d31e7e9c2187ac9e6590/NETCORE/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs#L66-L69).
 
-Explicitly set the instrumentation key in code:
+Explicitly set the connection string in code:
 
 ```csharp
 var configuration = new TelemetryConfiguration
 {
-    ConnectionString = "InstrumentationKey=00000000-0000-0000-0000-000000000000;"
+    ConnectionString = "InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://{region}.in.applicationinsights.azure.com/;LiveEndpoint=https://{region}.livediagnostics.monitor.azure.com/"
 };
 ```
 
-Set the instrumentation key using a configuration file:
+Set the connection string using a configuration file:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings">
-    <ConnectionString>InstrumentationKey=00000000-0000-0000-0000-000000000000</ConnectionString>
+    <ConnectionString>InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://{region}.in.applicationinsights.azure.com/;LiveEndpoint=https://{region}.livediagnostics.monitor.azure.com/</ConnectionString>
 </ApplicationInsights>
 ```
 
@@ -211,7 +208,7 @@ You can set the connection string in the `applicationinsights.json` configuratio
 
 ```json
 {
-  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000"
+  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://{region}.in.applicationinsights.azure.com/;LiveEndpoint=https://{region}.livediagnostics.monitor.azure.com/"
 }
 ```
 
@@ -219,47 +216,26 @@ For more information, see [Connection string configuration](./java-standalone-co
 
 # [JavaScript](#tab/js)
 
-JavaScript doesn't support the use of environment variables.
+JavaScript doesn't support the use of environment variables. You have two options:
 
-Using the snippet:
+- To use the JavaScript (Web) SDK Loader Script, see [JavaScript (Web) SDK Loader Script](./javascript-sdk.md?tabs=javascriptwebsdkloaderscript#get-started).
+- Manual setup:
+   ```javascript
+   import { ApplicationInsights } from '@microsoft/applicationinsights-web'
 
-The current snippet is version 5 and is shown here. The version is encoded in the snippet as sv:"#". The [current version is also available on GitHub](https://go.microsoft.com/fwlink/?linkid=2156318).
-
-```html
-<script type="text/javascript">
-!function(T,l,y){var S=T.location,k="script",D="instrumentationKey",C="ingestionendpoint",I="disableExceptionTracking",E="ai.device.",b="toLowerCase",w="crossOrigin",N="POST",e="appInsightsSDK",t=y.name||"appInsights";(y.name||T[e])&&(T[e]=t);var n=T[t]||function(d){var g=!1,f=!1,m={initialize:!0,queue:[],sv:"5",version:2,config:d};function v(e,t){var n={},a="Browser";return n[E+"id"]=a[b](),n[E+"type"]=a,n["ai.operation.name"]=S&&S.pathname||"_unknown_",n["ai.internal.sdkVersion"]="javascript:snippet_"+(m.sv||m.version),{time:function(){var e=new Date;function t(e){var t=""+e;return 1===t.length&&(t="0"+t),t}return e.getUTCFullYear()+"-"+t(1+e.getUTCMonth())+"-"+t(e.getUTCDate())+"T"+t(e.getUTCHours())+":"+t(e.getUTCMinutes())+":"+t(e.getUTCSeconds())+"."+((e.getUTCMilliseconds()/1e3).toFixed(3)+"").slice(2,5)+"Z"}(),iKey:e,name:"Microsoft.ApplicationInsights."+e.replace(/-/g,"")+"."+t,sampleRate:100,tags:n,data:{baseData:{ver:2}}}}var h=d.url||y.src;if(h){function a(e){var t,n,a,i,r,o,s,c,u,p,l;g=!0,m.queue=[],f||(f=!0,t=h,s=function(){var e={},t=d.connectionString;if(t)for(var n=t.split(";"),a=0;a<n.length;a++){var i=n[a].split("=");2===i.length&&(e[i[0][b]()]=i[1])}if(!e[C]){var r=e.endpointsuffix,o=r?e.location:null;e[C]="https://"+(o?o+".":"")+"dc."+(r||"services.visualstudio.com")}return e}(),c=s[D]||d[D]||"",u=s[C],p=u?u+"/v2/track":d.endpointUrl,(l=[]).push((n="SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details)",a=t,i=p,(o=(r=v(c,"Exception")).data).baseType="ExceptionData",o.baseData.exceptions=[{typeName:"SDKLoadFailed",message:n.replace(/\./g,"-"),hasFullStack:!1,stack:n+"\nSnippet failed to load ["+a+"] -- Telemetry is disabled\nHelp Link: https://go.microsoft.com/fwlink/?linkid=2128109\nHost: "+(S&&S.pathname||"_unknown_")+"\nEndpoint: "+i,parsedStack:[]}],r)),l.push(function(e,t,n,a){var i=v(c,"Message"),r=i.data;r.baseType="MessageData";var o=r.baseData;return o.message='AI (Internal): 99 message:"'+("SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details) ("+n+")").replace(/\"/g,"")+'"',o.properties={endpoint:a},i}(0,0,t,p)),function(e,t){if(JSON){var n=T.fetch;if(n&&!y.useXhr)n(t,{method:N,body:JSON.stringify(e),mode:"cors"});else if(XMLHttpRequest){var a=new XMLHttpRequest;a.open(N,t),a.setRequestHeader("Content-type","application/json"),a.send(JSON.stringify(e))}}}(l,p))}function i(e,t){f||setTimeout(function(){!t&&m.core||a()},500)}var e=function(){var n=l.createElement(k);n.src=h;var e=y[w];return!e&&""!==e||"undefined"==n[w]||(n[w]=e),n.onload=i,n.onerror=a,n.onreadystatechange=function(e,t){"loaded"!==n.readyState&&"complete"!==n.readyState||i(0,t)},n}();y.ld<0?l.getElementsByTagName("head")[0].appendChild(e):setTimeout(function(){l.getElementsByTagName(k)[0].parentNode.appendChild(e)},y.ld||0)}try{m.cookie=l.cookie}catch(p){}function t(e){for(;e.length;)!function(t){m[t]=function(){var e=arguments;g||m.queue.push(function(){m[t].apply(m,e)})}}(e.pop())}var n="track",r="TrackPage",o="TrackEvent";t([n+"Event",n+"PageView",n+"Exception",n+"Trace",n+"DependencyData",n+"Metric",n+"PageViewPerformance","start"+r,"stop"+r,"start"+o,"stop"+o,"addTelemetryInitializer","setAuthenticatedUserContext","clearAuthenticatedUserContext","flush"]),m.SeverityLevel={Verbose:0,Information:1,Warning:2,Error:3,Critical:4};var s=(d.extensionConfig||{}).ApplicationInsightsAnalytics||{};if(!0!==d[I]&&!0!==s[I]){var c="onerror";t(["_"+c]);var u=T[c];T[c]=function(e,t,n,a,i){var r=u&&u(e,t,n,a,i);return!0!==r&&m["_"+c]({message:e,url:t,lineNumber:n,columnNumber:a,error:i}),r},d.autoExceptionInstrumented=!0}return m}(y.cfg);function a(){y.onInit&&y.onInit(n)}(T[t]=n).queue&&0===n.queue.length?(n.queue.push(a),n.trackPageView({})):a()}(window,document,{
-src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js", // The SDK URL Source
-// name: "appInsights", // Global SDK Instance name defaults to "appInsights" when not supplied
-// ld: 0, // Defines the load delay (in ms) before attempting to load the sdk. -1 = block page load and add to head. (default) = 0ms load after timeout,
-// useXhr: 1, // Use XHR instead of fetch to report failures (if available),
-crossOrigin: "anonymous", // When supplied this will add the provided value as the cross origin attribute on the script tag
-// onInit: null, // Once the application insights instance has loaded and initialized this callback function will be called with 1 argument -- the sdk instance (DO NOT ADD anything to the sdk.queue -- as they won't get called)
-cfg: { // Application Insights Configuration
-  connectionString:"InstrumentationKey=00000000-0000-0000-0000-000000000000;"
-}});
-</script>
-```
-
-> [!NOTE]
-> For readability and to reduce possible JavaScript errors, all the possible configuration options are listed on a new line in the preceding snippet code. If you don't want to change the value of a commented line, it can be removed.
-
-Manual setup:
-```javascript
-import { ApplicationInsights } from '@microsoft/applicationinsights-web'
-
-const appInsights = new ApplicationInsights({ config: {
-  connectionString: 'InstrumentationKey=00000000-0000-0000-0000-000000000000;'
-  /* ...Other Configuration Options... */
-} });
-appInsights.loadAppInsights();
-appInsights.trackPageView();
-```
+   const appInsights = new ApplicationInsights({ config: {
+     connectionString: 'InstrumentationKey=00000000-0000-0000-0000-000000000000;'
+     /* ...Other Configuration Options... */
+   } });
+   appInsights.loadAppInsights();
+   appInsights.trackPageView();
+   ```
 
 # [Node.js](#tab/nodejs)
 
 ```javascript
 const appInsights = require("applicationinsights");
-appInsights.setup("InstrumentationKey=00000000-0000-0000-0000-000000000000;");
+appInsights.setup("InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://{region}.in.applicationinsights.azure.com/;LiveEndpoint=https://{region}.livediagnostics.monitor.azure.com/");
 appInsights.start();
 ```
 
@@ -274,10 +250,22 @@ from opencensus.ext.azure.trace_exporter import AzureExporter
 from opencensus.trace.samplers import ProbabilitySampler
 from opencensus.trace.tracer import Tracer
 
-tracer = Tracer(exporter=AzureExporter(connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000'), sampler=ProbabilitySampler(1.0))
+tracer = Tracer(exporter=AzureExporter(connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://{region}.in.applicationinsights.azure.com/;LiveEndpoint=https://{region}.livediagnostics.monitor.azure.com/'), sampler=ProbabilitySampler(1.0))
 ```
 
 ---
+
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### Do new Azure regions require the use of connection strings?
+
+New Azure regions *require* the use of connection strings instead of instrumentation keys. Connection string identifies the resource that you want to associate with your telemetry data. It also allows you to modify the endpoints your resource uses as a destination for your telemetry. Copy the connection string and add it to your application's code or to an environment variable.
+
+### Should I use connection strings or instrumentation keys?
+
+We recommend that you use connection strings instead of instrumentation keys.
 
 ## Next steps
 
@@ -293,4 +281,4 @@ Get started at development time with:
 * [ASP.NET Core](./asp-net-core.md)
 * [Java](./opentelemetry-enable.md?tabs=java)
 * [Node.js](./nodejs.md)
-* [Python](./opencensus-python.md)
+* [Python](/previous-versions/azure/azure-monitor/app/opencensus-python)

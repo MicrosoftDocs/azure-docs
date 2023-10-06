@@ -82,21 +82,10 @@ A public IP assigned to a VM is a 1:1 relationship (rather than 1: many) and imp
 
 :::image type="content" source="./media/load-balancer-outbound-connections/default-outbound-access.png" alt-text="Diagram of default outbound access.":::
 
->[!NOTE]
-> This method is **NOT recommended** for production workloads as it adds risk of exhausting ports. Please refrain from using this method for production workloads to avoid potential connection failures. 
+In Azure, virtual machines created in a virtual network without explicit outbound connectivity defined are assigned a default outbound public IP address. This IP address enables outbound connectivity from the resources to the Internet. This access is referred to as [default outbound access](../virtual-network/ip-services/default-outbound-access.md).  This method of access is **not recommended** as it is insecure and the IP addresses are subject to change.
 
-Default outbound access is when An Azure resource is allocated a minimal number of ports for outbound. This access occurs when the resource meets any of the following conditions:
-
-- doesn't have a public IP associated to it.
-- doesn't have a load balancer with outbound Rules in front of it.
-- isn't part of Virtual Machine Scale Sets flexible orchestration mode.
-- doesn't have a NAT gateway resource associated to its subnet. 
-
-Some other examples of default outbound access are:
-
-- Use of a basic SKU load balancer
-- A virtual machine in Azure (without the associations mentioned above). In this case, outbound connectivity is provided by the default outbound access IP. This IP is a dynamic IP assigned by Azure that you can't control. Default SNAT isn't recommended for production workloads and can cause connectivity failures.
-- A virtual machine in the backend pool of a load balancer without outbound rules. As a result, you use the frontend IP address of a load balancer for outbound and inbound and are more prone to connectivity failures from SNAT port exhaustion.
+>[!Important]
+>On September 30, 2025, default outbound access for new deployments will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/).  It is reccomended to use one the explict forms of connectivity as shown in options 1-3 above.
 
 ### What are SNAT ports?
 
@@ -104,9 +93,14 @@ Ports are used to generate unique identifiers used to maintain distinct flows. T
 
 If a port is used for inbound connections, it has a **listener** for inbound connection requests on that port. That port can't be used for outbound connections. To establish an outbound connection, an **ephemeral port** is used to provide the destination with a port on which to communicate and maintain a distinct traffic flow. When these ephemeral ports are used for SNAT, they're called **SNAT ports**.
 
-By definition, every IP address has 65,535 ports. Each port can either be used for inbound or outbound connections for TCP (Transmission Control Protocol) and UDP (User Datagram Protocol). When a public IP address is added as a frontend IP to a load balancer, 64,000 ports are eligible for SNAT. While all public IPs that are added as frontend IPs can be allocated, frontend IPs are consumed one at a time. For example, if two backend instances are allocated 64,000 ports each, with access to two frontend IPs, both backend instances consume ports from the first frontend IP until all 64,000 ports have been exhausted.  
+By definition, every IP address has 65,535 ports. Each port can either be used for inbound or outbound connections for TCP (Transmission Control Protocol) and UDP (User Datagram Protocol). When a public IP address is added as a frontend IP to a load balancer, 64,000 ports are eligible for SNAT.
 
 Each port used in a load balancing or inbound NAT rule consumes a range of eight ports from the 64,000 available SNAT ports. This usage reduces the number of ports eligible for SNAT, if the same frontend IP is used for outbound connectivity. If load-balancing or inbound NAT rules consumed ports are in the same block of eight ports consumed by another rule, the rules don't require extra ports.
+
+> [!NOTE]
+> If you need to connect to any [supported Azure PaaS services](../private-link/availability.md) like Azure Storage, Azure SQL, or Azure Cosmos DB, you can use Azure Private Link to avoid SNAT entirely. Azure Private Link sends traffic from your virtual network to Azure services over the Azure backbone network instead of over the internet.
+>
+> Private Link is the recommended option over service endpoints for private access to Azure hosted services. For more information on the difference between Private Link and service endpoints, see [Compare Private Endpoints and Service Endpoints](../virtual-network/vnet-integration-for-azure-services.md#compare-private-endpoints-and-service-endpoints).
 
 ### How does default SNAT work?
 
@@ -116,9 +110,15 @@ If using SNAT without outbound rules via a public load balancer, SNAT ports are 
 
 ## <a name="preallocatedports"></a> Default port allocation table
 
-The following <a name="snatporttable"></a>table shows the SNAT port preallocations for backend pool sizes:
+When load balancing rules are selected to use default port allocation, or outbound rules are configured with "Use the default number of outbound ports", SNAT ports are allocated by default based on the backend pool size. Backends will receive the number of ports defined by the table, per frontend IP, up to a maximum of 1024 ports.
 
-| Pool size (VM instances) | Default SNAT ports per IP configuration |
+As an example, with 100 VMs in a backend pool and only one frontend IP, each VM will receive 512 ports. If a second frontend IP is added, each VM will receive an additional 512 ports. This means each VM is allocated a total of 1024 ports. As a result, adding a third frontend IP will NOT increase the number of allocated SNAT ports beyond 1024 ports.
+
+As a rule of thumb, the number of SNAT ports provided when default port allocation is leveraged can be computed as: MIN(# of default SNAT ports provided based on pool size * number of frontend IPs associated with the pool, 1024)
+
+The following <a name="snatporttable"></a>table shows the SNAT port preallocations for a single frontend IP, depending on the backend pool size:
+
+| Pool size (VM instances) | Default SNAT ports |
 | --- | --- |
 | 1-50 | 1,024 |
 | 51-100 | 512 |
@@ -126,6 +126,7 @@ The following <a name="snatporttable"></a>table shows the SNAT port preallocatio
 | 201-400 | 128 |
 | 401-800 | 64 |
 | 801-1,000 | 32 | 
+
 
 ## Port exhaustion
 

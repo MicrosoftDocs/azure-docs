@@ -27,7 +27,7 @@ Azure Arc helps you onboard Amazon Web Services (AWS), Google Cloud Platform (GC
 
 ### Foundational cloud security posture management
 
-For free foundational cloud security posture management (CSPM) features, Azure Arc running on AWS or GCP machines isn't required. For full functionality, we recommend that you *do* have Azure Arc running on AWS or GCP machines.
+The free foundational cloud security posture management (CSPM) features for AWS and GCP machines don't require Azure Arc. For full functionality, we recommend that you *do* have Azure Arc running on AWS or GCP machines.
 
 Azure Arc onboarding is required for on-premises machines.
 
@@ -42,13 +42,17 @@ You can onboard the Azure Arc agent to your AWS or GCP servers automatically wit
 To plan for Azure Arc deployment:
 
 1. Review the Azure Arc [planning recommendations](../azure-arc/servers/plan-at-scale-deployment.md) and [deployment prerequisites](../azure-arc/servers/prerequisites.md).
+1. Open the [network ports for Azure Arc](support-matrix-defender-for-servers.md#network-requirements) in your firewall.
 1. Azure Arc installs the Connected Machine agent to connect to and manage machines that are hosted outside of Azure. Review the following information:
 
     - The [agent components and data collected from machines](../azure-arc/servers/agent-overview.md#agent-resources).
-    - [Network and internet access ](../azure-arc/servers/network-requirements.md) for the agent.
+    - [Network and internet access](../azure-arc/servers/network-requirements.md) for the agent.
     - [Connection options](../azure-arc/servers/deployment-options.md) for the agent.
 
 ## Log Analytics agent and Azure Monitor agent
+
+> [!NOTE]
+> As the Log Analytics agent is set to retire in August 2024 and as part of the Defender for Cloud [updated strategy](upcoming-changes.md#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation), all **Defender for Servers** features and capabilities will be provided either through [Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md) or [agentless scanning](concept-agentless-data-collection.md), without dependency on either Log Analytics agent (MMA) or Azure Monitor agent (AMA). As a result, the shared autoprovisioning process for both agents will be adjusted accordingly For more information about this change, see [this announcement](upcoming-changes.md#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation).
 
 Defender for Cloud uses the Log Analytics agent and the Azure Monitor agent to collect information from compute resources. Then, it sends the data to a Log Analytics workspace for more analysis. Review the [differences and recommendations for both agents](../azure-monitor/agents/agents-overview.md).
 
@@ -56,12 +60,12 @@ The following table describes the agents that are used in Defender for Servers:
 
 Feature | Log Analytics agent | Azure Monitor agent
 --- | --- | ---
-Foundational CSPM recommendations (free) that depend on the agent: [OS baseline recommendation](apply-security-baseline.md) (Azure VMs) | :::image type="icon" source="./media/icons/yes-icon.png" alt-text="Icon that shows it's supported by the Log Analytics agent.":::| :::image type="icon" source="./media/icons/yes-icon.png" alt-text="Icon that shows it's supported by the Azure Monitor agent.":::<br/><br/> With the Azure Monitor agent, the Azure Policy [guest configuration extension](../virtual-machines/extensions/guest-configuration.md) is used.
-Foundational CSPM: [System updates recommendations](recommendations-reference.md#compute-recommendations) (Azure VMs) | :::image type="icon" source="./media/icons/yes-icon.png" alt-text="Icon that shows it's supported by the Log Analytics agent"::: | Not yet available.
-Foundational CSPM: [Antimalware/endpoint protection recommendations](endpoint-protection-recommendations-technical.md) (Azure VMs) | :::image type="icon" source="./media/icons/yes-icon.png" alt-text="Icon that shows it's supported by the Log Analytics agent."::: | :::image type="icon" source="./media/icons/yes-icon.png" alt-text="Icon that shows it's supported by the Azure Monitor agent.":::
-Attack detection at the OS level and network layer, including fileless attack detection<br/><br/> Plan 1 relies on Defender for Endpoint capabilities for attack detection. | :::image type="icon" source="./media/icons/yes-icon.png" alt-text="Icon that shows it's supported by the Log Analytics agent. Plan 1 relies on Defender for Endpoint.":::<br/><br/> Plan 2| :::image type="icon" source="./media/icons/yes-icon.png" alt-text="Icon that shows it's supported by the Azure Monitor agent. Plan 1 relies on Defender for Endpoint.":::<br/><br/> Plan 2
-File integrity monitoring (Plan 2 only)  | :::image type="icon" source="./media/icons/yes-icon.png" alt-text="Icon that shows it's supported by the Log Analytics agent."::: | :::image type="icon" source="./media/icons/yes-icon.png" alt-text="Icon that shows it's supported by the Azure Monitor agent."::: 
-[Adaptive application controls](adaptive-application-controls.md) (Plan 2 only) | :::image type="icon" source="./media/icons/yes-icon.png" alt-text="Icon that shows it's supported by the Log Analytics agent."::: | :::image type="icon" source="./media/icons/yes-icon.png" alt-text="Icon that shows it's supported by the Azure Monitor agent.":::
+Foundational CSPM recommendations (free) that depend on the agent: [OS baseline recommendation](apply-security-baseline.md) (Azure VMs) | :::image type="icon" source="./media/icons/yes-icon.png" :::| :::image type="icon" source="./media/icons/yes-icon.png" :::<br/><br/> With the Azure Monitor agent, the Azure Policy [guest configuration extension](../virtual-machines/extensions/guest-configuration.md) is used.
+Foundational CSPM: [System updates recommendations](recommendations-reference.md#compute-recommendations) (Azure VMs) | :::image type="icon" source="./media/icons/yes-icon.png" ::: | Not yet available.
+Foundational CSPM: [Antimalware/endpoint protection recommendations](endpoint-protection-recommendations-technical.md) (Azure VMs) | :::image type="icon" source="./media/icons/yes-icon.png" ::: | :::image type="icon" source="./media/icons/yes-icon.png" :::
+Attack detection at the OS level and network layer, including fileless attack detection<br/><br/> Plan 1 relies on Defender for Endpoint capabilities for attack detection. | :::image type="icon" source="./media/icons/yes-icon.png" :::<br/><br/> Plan 2| :::image type="icon" source="./media/icons/yes-icon.png" :::<br/><br/> Plan 2
+File integrity monitoring (Plan 2 only)  | :::image type="icon" source="./media/icons/yes-icon.png" ::: | :::image type="icon" source="./media/icons/yes-icon.png" :::
+[Adaptive application controls](adaptive-application-controls.md) (Plan 2 only) | :::image type="icon" source="./media/icons/yes-icon.png" ::: | :::image type="icon" source="./media/icons/yes-icon.png" :::
 
 ## Qualys extension
 

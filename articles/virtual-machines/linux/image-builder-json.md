@@ -4,11 +4,11 @@ description: Learn how to create a Bicep file or ARM template JSON template to u
 author: kof-f
 ms.author: kofiforson
 ms.reviewer: erd
-ms.date: 05/17/2023
+ms.date: 09/18/2023
 ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.custom: references_regions, devx-track-bicep
+ms.custom: references_regions, devx-track-bicep, devx-track-arm-template, devx-track-linux, devx-track-azurecli
 ---
 
 # Create an Azure Image Builder Bicep or ARM template JSON template
@@ -35,15 +35,16 @@ The basic format is:
     "buildTimeoutInMinutes": <minutes>,
     "customize": [],
     "distribute": [],
+    "optimize": [],
     "source": {},
     "stagingResourceGroup": "/subscriptions/<subscriptionID>/resourceGroups/<stagingResourceGroupName>",
     "validate": {},
     "vmProfile": {
       "vmSize": "<vmSize>",
-      "proxyVmSize": "<vmSize>",
       "osDiskSizeGB": <sizeInGB>,
       "vnetConfig": {
-        "subnetId": "/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>"
+        "subnetId": "/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>",
+        "proxyVmSize": "<vmSize>"
       },
       "userAssignedIdentities": [
               "/subscriptions/<subscriptionID>/resourceGroups/<identityRgName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identityName1>",
@@ -76,10 +77,10 @@ resource azureImageBuilder 'Microsoft.VirtualMachineImages/imageTemplates@2022-0
     validate: {}
     vmProfile:{
       vmSize: '<vmSize>'
-      proxyVmSize: '<vmSize>'
       osDiskSizeGB: <sizeInGB>
       vnetConfig: {
         subnetId: '/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>'
+        proxyVmSize: '<vmSize>'
       }
       userAssignedIdentities: [
         '/subscriptions/<subscriptionID>/resourceGroups/<identityRgName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identityName1>'
@@ -90,6 +91,7 @@ resource azureImageBuilder 'Microsoft.VirtualMachineImages/imageTemplates@2022-0
     }
   }
 }
+
 ```
 
 ---
@@ -150,6 +152,8 @@ The location is the region where the custom image is created. The following regi
 - USGov Arizona (Public Preview)
 - USGov Virginia (Public Preview)
 - China North 3 (Public Preview)
+- Sweden Central
+- Poland Central
 
 > [!IMPORTANT]
 > Register the feature `Microsoft.VirtualMachineImages/FairfaxPublicPreview` to access the Azure Image Builder public preview in Azure Government regions (USGov Arizona and USGov Virginia).
@@ -571,6 +575,7 @@ The `PowerShell` customizer supports running PowerShell scripts and inline comma
     "name":   "<name>",
     "scriptUri": "<path to script>",
     "runElevated": <true false>,
+    "runAsSystem": <true false>,
     "sha256Checksum": "<sha256 checksum>"
   },
   {
@@ -578,7 +583,8 @@ The `PowerShell` customizer supports running PowerShell scripts and inline comma
     "name": "<name>",
     "inline": "<PowerShell syntax to run>",
     "validExitCodes": [<exit code>],
-    "runElevated": <true or false>
+    "runElevated": <true or false>,
+    "runAsSystem": <true or false>
   }
 ]
 ```
@@ -592,6 +598,7 @@ customize: [
     name:   '<name>'
     scriptUri: '<path to script>'
     runElevated: <true false>
+    runAsSystem: <true false>
     sha256Checksum: '<sha256 checksum>'
   }
   {
@@ -600,6 +607,7 @@ customize: [
     inline: '<PowerShell syntax to run>'
     validExitCodes: [<exit code>]
     runElevated: <true or false>
+    runAsSystem: <true or false>
   }
 ]
 ```
@@ -613,6 +621,7 @@ Customize properties:
 - **inline** – Inline commands to be run, separated by commas.
 - **validExitCodes** – Optional, valid codes that can be returned from the script/inline command. The property avoids reported failure of the script/inline command.
 - **runElevated** – Optional, boolean, support for running commands and scripts with elevated permissions.
+- **runAsSystem** - Optional, boolean, determines whether the PowerShell script should be run as the System user.
 - **sha256Checksum** - generate the SHA256 checksum of the file locally, update the checksum value to lowercase, and Image Builder will validate the checksum during the deployment of the image template.
 
     To generate the sha256Checksum, use the [Get-FileHash](/powershell/module/microsoft.powershell.utility/get-filehash) cmdlet in PowerShell.
@@ -744,10 +753,15 @@ Write-Output '>>> Waiting for GA Service (WindowsAzureTelemetryService) to start
 while ((Get-Service WindowsAzureTelemetryService) -and ((Get-Service WindowsAzureTelemetryService).Status -ne 'Running')) { Start-Sleep -s 5 }
 Write-Output '>>> Waiting for GA Service (WindowsAzureGuestAgent) to start ...'
 while ((Get-Service WindowsAzureGuestAgent).Status -ne 'Running') { Start-Sleep -s 5 }
-Write-Output '>>> Sysprepping VM ...'
 if( Test-Path $Env:SystemRoot\system32\Sysprep\unattend.xml ) {
+  Write-Output '>>> Removing Sysprep\unattend.xml ...'
   Remove-Item $Env:SystemRoot\system32\Sysprep\unattend.xml -Force
 }
+if (Test-Path $Env:SystemRoot\Panther\unattend.xml) {
+  Write-Output '>>> Removing Panther\unattend.xml ...'
+  Remove-Item $Env:SystemRoot\Panther\unattend.xml -Force
+}
+Write-Output '>>> Sysprepping VM ...'
 & $Env:SystemRoot\System32\Sysprep\Sysprep.exe /oobe /generalize /quiet /quit
 while($true) {
   $imageState = (Get-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\State).ImageState
@@ -833,7 +847,7 @@ The image output is a managed image resource.
 
 ```json
 {
-  "type":"managedImage",
+  "type":"ManagedImage",
   "imageId": "<resource ID>",
   "location": "<region>",
   "runOutputName": "<name>",
@@ -848,7 +862,7 @@ The image output is a managed image resource.
 
 ```bicep
 {
-  type:'managedImage'
+  type:'ManagedImage'
   imageId: '<resource ID>'
   location: '<region>'
   runOutputName: '<name>'
@@ -863,7 +877,7 @@ The image output is a managed image resource.
 
 Distribute properties:
 
-- **type** – managedImage
+- **type** – ManagedImage
 - **imageId** – Resource ID of the destination image, expected format: /subscriptions/\<subscriptionId>/resourceGroups/\<destinationResourceGroupName>/providers/Microsoft.Compute/images/\<imageName>
 - **location** - location of the managed image.
 - **runOutputName** – unique name for identifying the distribution.
@@ -884,6 +898,10 @@ an Azure Compute Gallery is made up of:
 - **Image versions** - an image type used for deploying a VM or scale set. Image versions can be replicated to other regions where VMs need to be deployed.
 
 Before you can distribute to the gallery, you must create a gallery and an image definition, see [Create a gallery](../create-gallery.md).
+
+> [!NOTE]
+> The image version ID needs to be distinct or different from any image versions that are in the existing Azure Compute Gallery.
+
 
 # [JSON](#tab/json)
 
@@ -1049,7 +1067,7 @@ versioning properties:
 - **scheme** - Generate new version number for distribution. `Latest` or `Source` are two possible values.
 - **major** - Specifies the major version under which to generate the latest version. Only applicable when the `scheme` is set to `Latest`. For example, in a gallery with the following versions published: 0.1.1, 0.1.2, 1.0.0, 1.0.1, 1.1.0, 1.1.1, 1.2.0, 2.0.0, 2.0.1, 2.1.0
     - With major not set or major set to 2, The `Latest` scheme generates version 2.1.1
-    - With major set to 1, the Latest scheme generates version 1.1.2
+    - With major set to 1, the Latest scheme generates version 1.2.1
     - With major set to 0, the Latest scheme generates version 0.1.3
 
 ### Distribute: VHD
@@ -1141,6 +1159,34 @@ resource distribute 'Microsoft.Compute/galleries/images/runOutputs' = {
 VHD distribute properties:
 
 **uri** - Optional Azure Storage URI for the distributed VHD blob. Omit to use the default (empty string) in which case VHD would be published to the storage account in the staging resource group.
+
+## Properties: optimize
+
+The `optimize` property can be enabled while creating a VM image and allows VM optimization to improve image creation time.
+
+# [JSON](#tab/json)
+
+```json
+"optimize": { 
+      "vmboot": { 
+        "state": "Enabled" 
+      }
+    }
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+optimize: {
+      vmboot: {
+        state: 'Enabled'
+      }
+    }
+```
+---
+
+- **vmboot**: A configuration related to the booting process of the virtual machine (VM), used to control optimizations that can improve boot time or other performance aspects.
+- state: The state of the boot optimization feature within `vmboot`, with the value `Enabled` indicating that the feature is turned on to improve image creation time.
 
 ## Properties: source
 
@@ -1348,6 +1394,9 @@ SharedImageVersion properties:
 ## Properties: stagingResourceGroup
 
 The `stagingResourceGroup` property contains information about the staging resource group that the Image Builder service creates for use during the image build process. The `stagingResourceGroup` is an optional property for anyone who wants more control over the resource group created by Image Builder during the image build process. You can create your own resource group and specify it in the `stagingResourceGroup` section or have Image Builder create one on your behalf.
+
+> [!IMPORTANT]
+> The staging resource group specified cannot be associated with another image template, must be empty (no resources inside), in the same region as the image template, and have either "Contributor" or "Owner" RBAC applied to the identity assigned to the Azure Image Builder image template resource.
 
 # [JSON](#tab/json)
 

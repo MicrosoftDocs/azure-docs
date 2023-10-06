@@ -5,8 +5,9 @@ author: vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
+ms.service: azure-migrate
 ms.date: 01/31/2023
-ms.custom: engagement-fy23
+ms.custom: engagement-fy23, devx-track-linux
 ---
 
 # Set up an appliance for servers in a VMware environment
@@ -57,12 +58,12 @@ Before you deploy the OVA file, verify that the file is secure:
 1. On the server on which you downloaded the file, open a Command Prompt window by using the **Run as administrator** option.
 1. Run the following command to generate the hash for the OVA file:
   
-    ```bash
+    ```
     C:\>CertUtil -HashFile <file_location> <hashing_agorithm>
     ```
    
     For example: 
-    ```bash
+    ```
     C:\>CertUtil -HashFile C:\Users\Administrator\Desktop\MicrosoftAzureMigration.ova SHA256
     ```
 

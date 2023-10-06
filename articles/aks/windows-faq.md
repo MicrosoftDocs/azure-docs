@@ -3,8 +3,8 @@ title: Windows Server node pools FAQ
 titleSuffix: Azure Kubernetes Service
 description: See the frequently asked questions when you run Windows Server node pools and application workloads in Azure Kubernetes Service (AKS).
 ms.topic: article
+ms.custom: build-2023, devx-track-azurecli
 ms.date: 04/13/2023
-
 #Customer intent: As a cluster operator, I want to see frequently asked questions when running Windows node pools and application workloads.
 ---
 
@@ -21,6 +21,10 @@ AKS uses Windows Server 2019 and Windows Server 2022 as the host OS version and 
 ## What kind of disks are supported for Windows?
 
 Azure Disks and Azure Files are the supported volume types, and are accessed as NTFS volumes in the Windows Server container.
+
+## Do Linux and Windows support generation 2 virtual machines (VMs)?
+
+Generation 2 VMs are supported on Linux and Windows for WS2022 only. For more information, see [Support for generation 2 VMs on Azure](../virtual-machines/generation-2.md).
 
 ## Can I run Windows only clusters in AKS?
 
@@ -51,6 +55,10 @@ At this time, [client source IP preservation][client-source-ip] is not supported
 
 Yes. For the implications of making a change and the options that are available, see [Maximum number of pods][maximum-number-of-pods].
 
+## What is the default TCP timeout in Windows OS?
+
+The default TCP timeout in Windows OS is 4 minutes. This value isn't configurable. When an application uses a longer timeout, the TCP connections between different containers in the same node close after four minutes.
+
 ## Why am I seeing an error when I try to create a new Windows agent pool?
 
 If you created your cluster before February 2020 and have never done any cluster upgrade operations, the cluster still uses an old Windows image. You may have seen an error that resembles:
@@ -63,6 +71,21 @@ To fix this error:
 1. Create new Windows agent pools.
 1. Move Windows pods from existing Windows agent pools to new Windows agent pools.
 1. Delete old Windows agent pools.
+
+## Why am I seeing an error when I try to deploy Windows pods?
+
+If you specify a value in `--max-pods` less than the number of pods you want to create, you may see the `No available addresses` error.
+
+To fix this error, use the `az aks nodepool add` command with a high enough `--max-pods` value:
+
+```azurecli
+az aks nodepool add \
+    --cluster-name $CLUSTER_NAME \
+    --resource-group $RESOURCE_GROUP \
+    --name $NODEPOOL_NAME \
+    --max-pods 3
+```
+For more details, see the [`--max-pods` documentation](/cli/azure/aks/nodepool#az-aks-nodepool-add:~:text=for%20system%20nodepool.-,%2D%2Dmax%2Dpods%20%2Dm,-The%20maximum%20number).
 
 ## Why is there an unexpected user named "sshd" on my VM node?
 
@@ -90,7 +113,7 @@ az aks update \
 ```
 
 > [!IMPORTANT]
-> Performing the `az aks update` operation upgrades only Windows Server node pools. Linux node pools are not affected.
+> Performing the `az aks update` operation upgrades only Windows Server node pools and will cause a restart. Linux node pools are not affected. 
 > 
 > When you're changing `--windows-admin-password`, the new password must be at least 14 characters and meet [Windows Server password requirements][windows-server-password].
 
@@ -107,8 +130,8 @@ $cluster | Set-AzAksCluster
 ```
 
 > [!IMPORTANT]
-> Performing the `Set-AzAksCluster` operation upgrades only Windows Server node pools. Linux node pools are not affected.
-> 
+> Performing the `Set-AzAksCluster` operation upgrades only Windows Server node pools and will cause a restart. Linux node pools are not affected.
+>
 > When you're changing the Windows administrator password, the new password must be at least 14 characters and meet [Windows Server password requirements][windows-server-password].
 
 ---
@@ -139,7 +162,11 @@ Yes, you can. However, Azure Monitor is in public preview for gathering logs (st
 
 ## Are there any limitations on the number of services on a cluster with Windows nodes?
 
-A cluster with Windows nodes can have approximately 500 services before it encounters port exhaustion.
+A cluster with Windows nodes can have approximately 500 services (sometimes less) before it encounters port exhaustion. This limitation applies to a Kubernetes Service with External Traffic Policy set to “Cluster”. 
+
+When external traffic policy on a Service is configured as Cluster, the traffic undergoes an additional Source NAT on the node which also results in reservation of a port from the TCPIP dynamic port pool. This port pool is a limited resource (~16K ports by default) and many active connections to a Service(s) can lead to dynamic port pool exhaustion resulting in connection drops.
+
+If the Kubernetes Service is configured with External Traffic Policy set to “Local”, port exhaustion problems aren't likely to occur at 500 services.
 
 ## Can I use Azure Hybrid Benefit with Windows nodes?
 
@@ -226,16 +253,16 @@ To get started with Windows Server containers in AKS, see [Create a node pool th
 <!-- LINKS - internal -->
 [azure-network-models]: concepts-network.md#azure-virtual-networks
 [configure-azure-cni]: configure-azure-cni.md
-[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
+[nodepool-upgrade]: manage-node-pools.md#upgrade-a-single-node-pool
 [windows-node-cli]: ./learn/quick-windows-container-deploy-cli.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
 [upgrade-cluster]: upgrade-cluster.md
-[upgrade-cluster-cp]: use-multiple-node-pools.md#upgrade-a-cluster-control-plane-with-multiple-node-pools
+[upgrade-cluster-cp]: manage-node-pools.md#upgrade-a-cluster-control-plane-with-multiple-node-pools
 [azure-outbound-traffic]: ../load-balancer/load-balancer-outbound-connections.md#defaultsnat
-[nodepool-limitations]: use-multiple-node-pools.md#limitations
+[nodepool-limitations]: create-node-pools.md#limitations
 [windows-container-compat]: /virtualization/windowscontainers/deploy-containers/version-compatibility?tabs=windows-server-2019%2Cwindows-10-1909
-[maximum-number-of-pods]: configure-azure-cni.md#maximum-pods-per-node
+[maximum-number-of-pods]: azure-cni-overview.md#maximum-pods-per-node
 [azure-monitor]: ../azure-monitor/containers/container-insights-overview.md#what-does-azure-monitor-for-containers-provide
 [client-source-ip]: concepts-network.md#ingress-controllers
 [upgrade-node-image]: node-image-upgrade.md

@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: Troubleshoot Azure AD connectivity issues'
-description: Learn how to troubleshoot connectivity issues with Azure AD Connect.
+title: 'Microsoft Entra Connect: Troubleshoot Microsoft Entra connectivity issues'
+description: Learn how to troubleshoot connectivity issues with Microsoft Entra Connect.
 services: active-directory
 author: billmath
 manager: amycolannino
@@ -15,22 +15,22 @@ ms.subservice: hybrid
 ms.author: billmath
 
 ms.collection: M365-identity-device-management
-ms.custom: has-adal-ref
+ms.custom: has-adal-ref, has-azure-ad-ps-ref
 ---
-# Troubleshoot Azure AD Connect connectivity issues
+# Troubleshoot Microsoft Entra Connect connectivity issues
 
-This article explains how connectivity between Azure AD Connect and Azure Active Directory (Azure AD) works and how to troubleshoot connectivity issues. These issues are most likely to be seen in an environment that uses a proxy server.
+This article explains how connectivity between Microsoft Entra Connect and Microsoft Entra ID works and how to troubleshoot connectivity issues. These issues are most likely to be seen in an environment that uses a proxy server.
 
 ## Connectivity issues in the installation wizard
 
-Azure AD Connect uses the Microsoft Authentication Library (MSAL) for authentication. The installation wizard and the sync engine require machine.config to be properly configured because these two are .NET applications.
+Microsoft Entra Connect uses the Microsoft Authentication Library (MSAL) for authentication. The installation wizard and the sync engine require machine.config to be properly configured because these two are .NET applications.
 
 > [!NOTE]
-> Azure AD Connect v1.6.xx.x uses the Active Directory Authentication Library (ADAL). The ADAL is being deprecated and support will end in June 2022. We recommend that you upgrade to the latest version of [Azure AD Connect v2](whatis-azure-ad-connect-v2.md).
+> Microsoft Entra Connect v1.6.xx.x uses the Active Directory Authentication Library (ADAL). The ADAL is being deprecated and support will end in June 2022. We recommend that you upgrade to the latest version of [Microsoft Entra Connect v2](whatis-azure-ad-connect-v2.md).
 
-In this article, we show how Fabrikam connects to Azure AD through its proxy. The proxy server is named `fabrikamproxy` and uses port 8080.
+In this article, we show how Fabrikam connects to Microsoft Entra ID through its proxy. The proxy server is named `fabrikamproxy` and uses port 8080.
 
-First, make sure that [machine.config](how-to-connect-install-prerequisites.md#connectivity) is correctly configured and that the Microsoft Azure AD Sync service has been restarted once after the *machine.config* file update.
+First, make sure that [machine.config](how-to-connect-install-prerequisites.md#connectivity) is correctly configured and that the Microsoft Entra ID Sync service has been restarted once after the *machine.config* file update.
 
 :::image type="content" source="media/tshoot-connect-connectivity/machineconfig.png" alt-text="Screenshot that shows part of the machine dot config file.":::
 
@@ -39,7 +39,7 @@ First, make sure that [machine.config](how-to-connect-install-prerequisites.md#c
 
 The proxy server must also have the required URLs opened. The official list is documented in [Office 365 URLs and IP address ranges](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 
-Of these URLs, the URLs listed in the following table are the absolute bare minimum to be able to connect to Azure AD at all. This list doesn't include any optional features, such as password writeback or Azure AD Connect Health. The information is provided here to help with troubleshooting for the initial configuration.
+Of these URLs, the URLs listed in the following table are the absolute bare minimum to be able to connect to Microsoft Entra ID at all. This list doesn't include any optional features, such as password writeback or Microsoft Entra Connect Health. The information is provided here to help with troubleshooting for the initial configuration.
 
 | URL | Port | Description |
 | --- | --- | --- |
@@ -48,9 +48,10 @@ Of these URLs, the URLs listed in the following table are the absolute bare mini
 | `*.entrust.net` |HTTP/80 |Used to download CRL lists for multifactor authentication (MFA). |
 | `*.management.core.windows.net` (Azure Storage)</br>`*.graph.windows.net` (Azure AD Graph)|HTTPS/443|Used for the various Azure services.|
 | `secure.aadcdn.microsoftonline-p.com` |HTTPS/443 |Used for MFA. |
-| `*.microsoftonline.com` |HTTPS/443 |Used to configure your Azure AD directory and import/export data. |
+| `*.microsoftonline.com` |HTTPS/443 |Used to configure your Microsoft Entra directory and import/export data. |
 | `*.crl3.digicert.com` |HTTP/80 |Used to verify certificates. |
 | `*.crl4.digicert.com` |HTTP/80 |Used to verify certificates. |
+| `*.digicert.cn` |HTTP/80 |Used to verify certificates. |
 | `*.ocsp.digicert.com` |HTTP/80 |Used to verify certificates. |
 | `*.www.d-trust.net` |HTTP/80 |Used to verify certificates. |
 | `*.root-c3-ca2-2009.ocsp.d-trust.net` |HTTP/80 |Used to verify certificates. |
@@ -60,7 +61,7 @@ Of these URLs, the URLs listed in the following table are the absolute bare mini
 
 ## Errors in the wizard
 
-The installation wizard uses two different security contexts. On the **Connect to Azure AD** page, it uses the user who is currently signed in. On the **Configure** page, it changes to the [account running the service for the sync engine](reference-connect-accounts-permissions.md#adsync-service-account). If an issue occurs, the error most likely will appear on the **Connect to Azure AD** page in the wizard because the proxy configuration is global.
+The installation wizard uses two different security contexts. On the **Connect to Microsoft Entra ID** page, it uses the user who is currently signed in. On the **Configure** page, it changes to the [account running the service for the sync engine](reference-connect-accounts-permissions.md#adsync-service-account). If an issue occurs, the error most likely will appear on the **Connect to Microsoft Entra ID** page in the wizard because the proxy configuration is global.
 
 The following issues are the most common errors you might encounter in the installation wizard.
 
@@ -88,15 +89,15 @@ If you see this error, verify that the endpoint `secure.aadcdn.microsoftonline-p
 
 ### The password can't be verified
 
-If the installation wizard is successful in connecting to Azure AD but the password itself can't be verified, you see this error:
+If the installation wizard is successful in connecting to Microsoft Entra ID but the password itself can't be verified, you see this error:
 
 :::image type="content" source="media/tshoot-connect-connectivity/badpassword.png" alt-text="Screenshot that shows an error that occurs when the password can't be verified.":::
 
-Is the password a temporary password that must be changed? Is it actually the correct password? Try to sign in to `https://login.microsoftonline.com` on a different computer than the Azure AD Connect server and verify that the account is usable.
+Is the password a temporary password that must be changed? Is it actually the correct password? Try to sign in to `https://login.microsoftonline.com` on a different computer than the Microsoft Entra Connect server and verify that the account is usable.
 
 ### Verify proxy connectivity
 
-To check whether the Azure AD Connect server is connecting to the proxy and the internet, use some PowerShell cmdlets to see if the proxy is allowing web requests. In PowerShell, run `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc`. (Technically, the first call is to `https://login.microsoftonline.com`, and this URI also works, but the other URI is quicker to respond.)
+To check whether the Microsoft Entra Connect server is connecting to the proxy and the internet, use some PowerShell cmdlets to see if the proxy is allowing web requests. In PowerShell, run `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc`. (Technically, the first call is to `https://login.microsoftonline.com`, and this URI also works, but the other URI is quicker to respond.)
 
 PowerShell uses the configuration in *machine.config* to contact the proxy. The settings in *winhttp/netsh* shouldn't affect these cmdlets.
 
@@ -123,9 +124,11 @@ The following table describes 403 and 407 proxy errors:
 
 ### Proxy idle timeout setting
 
-When Azure AD Connect sends an export request to Azure AD, Azure AD can take up to 5 minutes to process the request before generating a response. The response is especially likely to be delayed if many group objects that have large group memberships are included in the same export request. Ensure that the proxy idle timeout is configured to be greater than 5 minutes. Otherwise, you might have intermittent connectivity issues with Azure AD on the Azure AD Connect server.
+When Microsoft Entra Connect sends an export request to Microsoft Entra ID, Microsoft Entra ID can take up to 5 minutes to process the request before generating a response. The response is especially likely to be delayed if many group objects that have large group memberships are included in the same export request. Ensure that the proxy idle timeout is configured to be greater than 5 minutes. Otherwise, you might have intermittent connectivity issues with Microsoft Entra ID on the Microsoft Entra Connect server.
 
-## Communication pattern between Azure AD Connect and Azure AD
+<a name='communication-pattern-between-azure-ad-connect-and-azure-ad'></a>
+
+## Communication pattern between Microsoft Entra Connect and Microsoft Entra ID
 
 If you've followed all the steps described in this article and you still can't connect, at this point you might look at network logs. This section describes a normal and successful connectivity pattern.
 
@@ -139,7 +142,7 @@ But first, here are some common concerns about data in the network logs that you
 
 The following example is a dump from an actual proxy log and the installation wizard page from where it was taken (duplicate entries to the same endpoint have been removed). This section can be used as a reference for your own proxy and network logs. The actual endpoints might be different in your environment (in particular, the URLs in *italic*).
 
-**Connect to Azure AD**
+**Connect to Microsoft Entra ID**
 
 | Time | URL |
 | --- | --- |
@@ -185,7 +188,7 @@ You entered an invalid username or password. For more information, see [The pass
 
 ### Unknown user type
 
-Your Azure AD directory can't be found or resolved. Maybe you tried to sign in with a username in an unverified domain?
+Your Microsoft Entra directory can't be found or resolved. Maybe you tried to sign in with a username in an unverified domain?
 
 ### User realm discovery failed
 
@@ -197,7 +200,7 @@ Your credentials have expired. Change your password.
 
 ### Authorization failure
 
-Azure AD Connect failed to authorize the user to perform an action in Azure AD.
+Microsoft Entra Connect failed to authorize the user to perform an action in Microsoft Entra ID.
 
 ### Authentication canceled
 
@@ -221,7 +224,9 @@ Authentication was successful, but Azure AD PowerShell has an authentication pro
 -->
 </div>
 
-### Azure AD Global Administrator role needed
+<a name='azure-ad-global-administrator-role-needed'></a>
+
+### Microsoft Entra Global Administrator role needed
 
 The user was authenticated successfully, but the user isn't assigned the Global Administrator role. You can [assign the Global Administrator role](../../roles/permissions-reference.md) to the user.
 
@@ -245,7 +250,7 @@ Authentication was successful, but Privileged Identity Management has been enabl
 
 ### Company information unavailable
 
-Authentication was successful, but company information couldn't be retrieved from Azure AD.
+Authentication was successful, but company information couldn't be retrieved from Microsoft Entra ID.
 
 <div id="get-msoldomain-failed">
 <!--
@@ -256,7 +261,7 @@ Authentication was successful, but company information couldn't be retrieved fro
 
 ### Domain information unavailable
 
-Authentication was successful, but domain information couldn't be retrieved from Azure AD.
+Authentication was successful, but domain information couldn't be retrieved from Microsoft Entra ID.
 
 ### Unspecified authentication failure
 
@@ -284,4 +289,4 @@ If the proxy configuration looks correct, complete the steps in [Verify proxy co
 
 ## Next steps
 
-Learn more about [integrating your on-premises identities with Azure Active Directory](../whatis-hybrid-identity.md).
+Learn more about [integrating your on-premises identities with Microsoft Entra ID](../whatis-hybrid-identity.md).

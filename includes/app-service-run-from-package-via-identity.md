@@ -11,7 +11,7 @@ Azure Blob Storage can be configured to [authorize requests with Azure AD](../ar
 
 To enable the package to be fetched using the identity:
 
-1. Ensure that the blob is [configured for private access](../articles/storage/blobs/anonymous-read-access-configure.md#set-the-public-access-level-for-a-container).
+1. Ensure that the blob is [configured for private access](../articles/storage/blobs/anonymous-read-access-configure.md#set-the-anonymous-access-level-for-a-container).
 
 1. Grant the identity the [Storage Blob Data Reader](../articles/role-based-access-control/built-in-roles.md#storage-blob-data-reader) role with scope over the package blob. See [Assign an Azure role for access to blob data](../articles/storage/blobs/assign-azure-role-data-access.md) for details on creating the role assignment.
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/09/2022
 ms.author: cwerner
 ms.reviewer: saeeda, jmprieur
-ms.custom: aaddev, fasttrack-edit, contperf-fy21q2
+ms.custom: aaddev, fasttrack-edit, contperf-fy21q2, devx-track-js
 ---
 
 # Application types for the Microsoft identity platform
 
-The Microsoft identity platform supports authentication for various modern app architectures, all of them based on industry-standard protocols [OAuth 2.0 or OpenID Connect](active-directory-v2-protocols.md). This article describes the types of apps that you can build by using Microsoft identity platform, regardless of your preferred language or platform. The information is designed to help you understand high-level scenarios before you start working with the code in the [application scenarios](authentication-flows-app-scenarios.md#application-scenarios).
+The Microsoft identity platform supports authentication for various modern app architectures, all of them based on industry-standard protocols [OAuth 2.0 or OpenID Connect](./v2-protocols.md). This article describes the types of apps that you can build by using Microsoft identity platform, regardless of your preferred language or platform. The information is designed to help you understand high-level scenarios before you start working with the code in the [application scenarios](authentication-flows-app-scenarios.md#application-types).
 
 ## The basics
 
@@ -42,7 +42,7 @@ Many modern apps have a single-page app front end written primarily in JavaScrip
 
 The flow diagram below demonstrates the OAuth 2.0 authorization code grant (with details around PKCE omitted), where the app receives a code from the Microsoft identity platform `authorize` endpoint, and redeems it for an access token and a refresh token using cross-site web requests. For single-page apps (SPAs), the access token is valid for 1 hour, and once expired, must request another code using the refresh token. In addition to the access token, an `id_token` that represents the signed-in user to the client application is typically also requested through the same flow and/or a separate OpenID Connect request (not shown here).
 
-:::image type="content" source="media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.svg" alt-text="Diagram showing the OAuth 2 authorization code flow between a single-page app and the security token service endpoint." border="false":::
+:::image type="content" source="media/v2-oauth-auth-code-spa/oauth-code-spa.svg" alt-text="Diagram showing the OAuth 2 authorization code flow between a single-page app and the security token service endpoint." border="false":::
 
 To see this scenario in action, check out the [Tutorial: Sign in users and call the Microsoft Graph API from a JavaScript SPA using auth code flow](tutorial-v2-javascript-auth-code.md).
 
@@ -52,7 +52,7 @@ For most of the history of OAuth 2.0, the [implicit flow](v2-oauth2-implicit-gra
 
 ## Web apps
 
-For web apps (.NET, PHP, Java, Ruby, Python, Node) that the user accesses through a browser, you can use [OpenID Connect](active-directory-v2-protocols.md) for user sign-in. In OpenID Connect, the web app receives an ID token. An ID token is a security token that verifies the user's identity and provides information about the user in the form of claims:
+For web apps (.NET, PHP, Java, Ruby, Python, Node) that the user accesses through a browser, you can use [OpenID Connect](./v2-protocols.md) for user sign-in. In OpenID Connect, the web app receives an ID token. An ID token is a security token that verifies the user's identity and provides information about the user in the form of claims:
 
 ```JSON
 // Partial raw ID token
@@ -93,7 +93,7 @@ Accept: application/json
 
 The web API uses the access token to verify the API caller's identity and to extract information about the caller from claims that are encoded in the access token. Further details of different types of tokens used in the Microsoft identity platform are available in the [access token](access-tokens.md) reference and [id_token](id-tokens.md) reference.
 
-A web API can give users the power to opt in or opt out of specific functionality or data by exposing permissions, also known as [scopes](v2-permissions-and-consent.md). For a calling app to acquire permission to a scope, the user must consent to the scope during a flow. The Microsoft identity platform asks the user for permission, and then records permissions in all access tokens that the web API receives. The web API validates the access tokens it receives on each call and performs authorization checks.
+A web API can give users the power to opt in or opt out of specific functionality or data by exposing permissions, also known as [scopes](./permissions-consent-overview.md). For a calling app to acquire permission to a scope, the user must consent to the scope during a flow. The Microsoft identity platform asks the user for permission, and then records permissions in all access tokens that the web API receives. The web API validates the access tokens it receives on each call and performs authorization checks.
 
 A web API can receive access tokens from all types of apps, including web server apps, desktop and mobile apps, single-page apps, server-side daemons, and even other web APIs. The high-level flow for a web API looks like this:
 
@@ -112,7 +112,7 @@ In this flow, the app receives an authorization code from the Microsoft identity
 ![Shows the native app authentication flow](./media/v2-app-types/convergence-scenarios-native.svg)
 
 > [!NOTE]
-> If the application uses the default system webview, check the information about "Confirm My Sign-In" functionality and error code AADSTS50199 in [Azure AD authentication and authorization error codes](reference-error-codes.md).
+> If the application uses the default system webview, check the information about "Confirm My Sign-In" functionality and error code AADSTS50199 in [Microsoft Entra authentication and authorization error codes](reference-error-codes.md).
 
 ## Daemons and server-side apps
 
@@ -126,4 +126,4 @@ To build a daemon app, see the [client credentials documentation](v2-oauth2-clie
 
 ## Next steps
 
-Now that you're familiar with the types of applications supported by the Microsoft identity platform, learn more about [OAuth 2.0 and OpenID Connect](active-directory-v2-protocols.md) to gain an understanding of the protocol components used by the different scenarios.
+Now that you're familiar with the types of applications supported by the Microsoft identity platform, learn more about [OAuth 2.0 and OpenID Connect](./v2-protocols.md) to gain an understanding of the protocol components used by the different scenarios.

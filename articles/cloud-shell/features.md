@@ -1,7 +1,7 @@
 ---
 description: Overview of features in Azure Cloud Shell
 ms.contributor: jahelmic
-ms.date: 03/03/2023
+ms.date: 10/02/2023
 ms.topic: article
 tags: azure-resource-manager
 title: Azure Cloud Shell features
@@ -17,13 +17,13 @@ Cloud Shell allocates machines on a per-request basis and as a result machine st
 persist across sessions. Since Cloud Shell is built for interactive sessions, shells automatically
 terminate after 20 minutes of shell inactivity.
 
-Azure Cloud Shell runs on **Common Base Linux - Mariner** (CBL-Mariner), Microsoft's Linux
-distribution for cloud-infrastructure-edge products and services.
+Azure Cloud Shell runs on **Azure Linux**, Microsoft's Linux distribution for
+cloud-infrastructure-edge products and services.
 
-Microsoft internally compiles all the packages included in the **CBL-Mariner** repository to help
-guard against supply chain attacks. Tooling has been updated to reflect the new base image
-CBL-Mariner. If these changes affected your Cloud Shell environment, contact Azure Support or create
-an issue in the [Cloud Shell repository][17].
+Microsoft internally compiles all the packages included in the **Azure Linux** repository to help
+guard against supply chain attacks. Tooling has been updated to reflect the new base image for Azure
+Linux. If these changes affected your Cloud Shell environment, contact Azure Support or create an
+issue in the [Cloud Shell repository][17].
 
 ## Features
 
@@ -41,7 +41,7 @@ first launch. Once completed, Cloud Shell will automatically attach your storage
 sessions. Use best practices when storing secrets such as SSH keys. Services, like
 Azure Key Vault, have [tutorials for setup][02].
 
-[Learn more about persisting files in Cloud Shell.][28]
+Learn more about [Persisting files in Cloud Shell][28].
 
 ### Azure drive (Azure:)
 
@@ -85,10 +85,10 @@ Cloud Shell comes with the following Azure command-line tools preinstalled:
 
 |           Tool            | Version  |            Command             |
 | ------------------------- | -------- | ------------------------------ |
-| [Azure CLI][08]           | 2.45.0   | `az --version`                 |
-| [Azure PowerShell][06]    | 9.4.0    | `Get-Module Az -ListAvailable` |
+| [Azure CLI][05]           | 2.51.0   | `az --version`                 |
+| [Azure PowerShell][06]    | 10.2.0   | `Get-Module Az -ListAvailable` |
 | [AzCopy][04]              | 10.15.0  | `azcopy --version`             |
-| [Azure Functions CLI][01] | 4.0.3971 | `func --version`               |
+| [Azure Functions CLI][01] | 4.0.5198 | `func --version`               |
 | [Service Fabric CLI][03]  | 11.2.0   | `sfctl --version`              |
 | [Batch Shipyard][09]      | 3.9.1    | `shipyard --version`           |
 | [blobxfer][10]            | 1.11.0   | `blobxfer --version`           |
@@ -127,7 +127,7 @@ You can verify the version of the language using the command listed in the table
 - [Docker Desktop][15]
 - [Kubectl][20]
 - [Helm][19]
-- [DC/OS CLI][14]
+- [D2iQ Kubernetes Platform CLI][14]
 
 #### Databases
 
@@ -153,20 +153,19 @@ Cloud Shell comes with the following languages preinstalled:
 
 |  Language  |    Version    |      Command       |
 | ---------- | ------------- | ------------------ |
-| .NET Core  | [6.0.405][16] | `dotnet --version` |
-| Go         | 1.17.13       | `go version`       |
-| Java       | 11.0.18       | `java --version`   |
-| Node.js    | 16.18.1       | `node --version`   |
-| PowerShell | [7.3.2][07]   | `pwsh -Version`    |
+| .NET Core  | [7.0.400][16] | `dotnet --version` |
+| Go         | 1.19.11       | `go version`       |
+| Java       | 17.0.8        | `java --version`   |
+| Node.js    | 16.20.1       | `node --version`   |
+| PowerShell | [7.3.6][07]   | `pwsh -Version`    |
 | Python     | 3.9.14        | `python --version` |
-| Ruby       | 3.1.3p185     | `ruby --version`   |
+| Ruby       | 3.1.4p223     | `ruby --version`   |
 
 You can verify the version of the language using the command listed in the table.
 
 ## Next steps
 
-- [Bash in Cloud Shell Quickstart][30]
-- [PowerShell in Cloud Shell Quickstart][29]
+- [Cloud Shell Quickstart][29]
 - [Learn about Azure CLI][05]
 - [Learn about Azure PowerShell][06]
 
@@ -184,9 +183,9 @@ You can verify the version of the language using the command listed in the table
 [11]: https://developer.hashicorp.com/packer/docs
 [12]: https://docs.chef.io/
 [13]: https://docs.cloudfoundry.org/cf-cli/
-[14]: https://docs.d2iq.com/dkp/2.3/azure-quick-start
+[14]: https://docs.d2iq.com/dkp/2.6/azure-infrastructure
 [15]: https://docs.docker.com/desktop/
-[16]: https://dotnet.microsoft.com/download/dotnet/6.0
+[16]: https://dotnet.microsoft.com/download/dotnet/7.0
 [17]: https://github.com/Azure/CloudShell/issues
 [18]: https://github.com/microsoft/mssql-scripter/blob/dev/doc/usage_guide.md
 [19]: https://helm.sh/docs/
@@ -199,5 +198,4 @@ You can verify the version of the language using the command listed in the table
 [26]: media/features/exchangeonline.png
 [27]: media/features/exchangeonlinecmdlets.png
 [28]: persisting-shell-storage.md
-[29]: quickstart-powershell.md
-[30]: quickstart.md
+[29]: quickstart.md

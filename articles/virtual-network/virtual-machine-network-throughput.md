@@ -39,7 +39,7 @@ The throughput limit applies to the virtual machine. Throughput is unaffected by
 
 ## Network flow limits
 
-In addition to bandwidth, the number of network connections present on a VM at any given time can affect its network performance. The Azure networking stack maintains state for each direction of a TCP/UDP connection in data structures called ‘flows’. A typical TCP/UDP connection has two flows created, one for the inbound and another for the outbound direction. 
+In addition to bandwidth, the number of network connections present on a VM at any given time can affect its network performance. The Azure networking stack maintains state for each direction of a TCP/UDP connection in data structures called ‘flows’. A typical TCP/UDP connection has two flows created, one for the inbound and another for the outbound direction. Each flow is distinguished by a 5-tuple (protocol, local IP address, remote IP address, local port, and remote port) information.
 
 Data transfer between endpoints requires creation of several flows in addition to flows that perform the data transfer. Some examples are flows created for DNS resolution and flows created for load balancer health probes. Network virtual appliances (NVAs) such as gateways, proxies, firewalls, see flows created for connections terminated at the appliance and originated by the appliance. 
 

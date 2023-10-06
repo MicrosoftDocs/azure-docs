@@ -162,12 +162,12 @@
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-security-best-practices.md",
-      "redirect_url": "/azure/iot/iot-security-best-practices",
+      "redirect_url": "/azure/iot/iot-overview-security",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-security-deployment.md",
-      "redirect_url": "/azure/iot/iot-security-best-practices",
+      "redirect_url": "/azure/iot/iot-overview-security",
       "redirect_document_id": false
     },
     {
@@ -199,7 +199,7 @@
       "source_path_from_root": "/articles/iot-hub/iot-concepts.md",
       "redirect_url": "/azure/iot-hub/iot-concepts-and-iot-hub",
       "redirect_document_id": false
-    },   
+    },
     {
       "source_path_from_root": "/articles/iot-hub/quickstart-send-telemetry-xamarinforms.md",
       "redirect_url": "/azure/iot-hub/about-iot-hub",
@@ -565,7 +565,6 @@
       "redirect_url": "/azure/iot-hub/iot-hub-intel-edison-kit-node-get-started",
       "redirect_document_id": false
     },
-     
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-intel-edison-kit-node-lesson1-get-the-tools-mac.md",
       "redirect_url": "/azure/iot-hub/iot-hub-intel-edison-kit-node-get-started",
@@ -961,7 +960,6 @@
       "redirect_url": "/azure/iot-hub/quickstart-control-device?pivots=programming-language-java",
       "redirect_document_id": false
     },
- 
     {
       "source_path_from_root": "/articles/iot-hub/quickstart-control-device-node.md",
       "redirect_url": "/azure/iot-hub/quickstart-control-device?pivots=programming-language-nodejs",
@@ -1037,7 +1035,6 @@
       "redirect_url": "/azure/iot-hub/tutorial-firmware-update",
       "redirect_document_id": false
     },
- 
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-python-python-firmware-update.md",
       "redirect_url": "/azure/iot-hub/tutorial-firmware-update",
@@ -1349,12 +1346,47 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-x509-certificate-concepts.md",
+      "redirect_url": "/azure/iot-hub/authenticate-authorize-x509",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-x509ca-overview.md",
+      "redirect_url": "/azure/iot-hub/authenticate-authorize-x509",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-x509ca-concept.md",
+      "redirect_url": "/azure/iot-hub/authenticate-authorize-x509",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-dev-guide-azure-ad-rbac.md",
+      "redirect_url": "/azure/iot-hub/authenticate-authorize-azure-ad",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-dev-guide-sas.md",
+      "redirect_url": "/azure/iot-hub/authenticate-authorize-sas",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-devguide-security.md",
+      "redirect_url": "/azure/iot-hub/authenticate-authorize-azure-ad",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/iot-hub/iot-hub-vscode-iot-toolkit-cloud-device-messaging.md",
       "redirect_url": "/azure/iot-hub/reference-iot-hub-extension",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-device-management-iot-toolkit.md",
+      "redirect_url": "/azure/iot-hub/reference-iot-hub-extension",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-device-management-iot-extension-azure-cli-2-0.md",
       "redirect_url": "/azure/iot-hub/reference-iot-hub-extension",
       "redirect_document_id": false
     }

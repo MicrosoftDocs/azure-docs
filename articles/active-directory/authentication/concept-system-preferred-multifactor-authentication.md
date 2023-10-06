@@ -4,7 +4,7 @@ description: Learn how to use system-preferred multifactor authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 04/30/2023
+ms.date: 09/13/2023
 ms.author: justinha
 author: justinha
 manager: amycolannino
@@ -12,8 +12,9 @@ ms.reviewer: msft-poulomi
 ms.collection: M365-identity-device-management
 
 
-# Customer intent: As an identity administrator, I want to encourage users to use the Microsoft Authenticator app in Azure AD to improve and secure user sign-in events.
+# Customer intent: As an identity administrator, I want to encourage users to use the Microsoft Authenticator app in Microsoft Entra ID to improve and secure user sign-in events.
 ---
+
 # System-preferred multifactor authentication  - Authentication methods policy
 
 System-preferred multifactor authentication (MFA) prompts users to sign in by using the most secure method they registered. Administrators can enable system-preferred MFA to improve sign-in security and discourage less secure sign-in methods like SMS.
@@ -25,13 +26,14 @@ System-preferred MFA is a Microsoft managed setting, which is a [tristate policy
 After system-preferred MFA is enabled, the authentication system does all the work. Users don't need to set any authentication method as their default because the system always determines and presents the most secure method they registered. 
 
 >[!NOTE]
->System-preferred MFA is a key security upgrade to traditional second factor notifications. We highly recommend enabling system-preferred MFA in the near term for improved sign-in security. 
+>System-preferred MFA is an important security enhancement for users authenticating by using telecom transports. Starting July 07, 2023, the Microsoft managed value of system-preferred MFA will change from **Disabled** to **Enabled**. If you don't want to enable system-preferred MFA, change the state from **Default** to **Disabled**, or exclude users and groups from the policy.
 
-## Enable system-preferred MFA in the Azure portal
+## Enable system-preferred MFA in the Microsoft Entra admin center
 
 By default, system-preferred MFA is Microsoft managed and disabled for all users. 
 
-1. In the Azure portal, click **Security** > **Authentication methods** > **Settings**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
+1. Browse to **Protection** > **Authentication methods** > **Settings**.
 1. For **System-preferred multifactor authentication**, choose whether to explicitly enable or disable the feature, and include or exclude any users. Excluded groups take precedence over include groups. 
 
    For example, the following screenshot shows how to make system-preferred MFA explicitly enabled for only the Engineering group. 
@@ -52,7 +54,7 @@ By default, system-preferred MFA is [Microsoft managed](concept-authentication-d
 |----------|------|-------------|
 | excludeTarget | featureTarget | A single entity that is excluded from this feature. <br>You can only exclude one group from system-preferred MFA, which can be a dynamic or nested group.|
 | includeTarget | featureTarget | A single entity that is included in this feature. <br>You can only include one group for system-preferred MFA, which can be a dynamic or nested group.|
-| State | advancedConfigState | Possible values are:<br>**enabled** explicitly enables the feature for the selected group.<br>**disabled** explicitly disables the feature for the selected group.<br>**default** allows Azure AD to manage whether the feature is enabled or not for the selected group. |
+| State | advancedConfigState | Possible values are:<br>**enabled** explicitly enables the feature for the selected group.<br>**disabled** explicitly disables the feature for the selected group.<br>**default** allows Microsoft Entra ID to manage whether the feature is enabled or not for the selected group. |
 
 ### Feature target properties
 
@@ -101,28 +103,28 @@ Content-Type: application/json
 
 ## Known issue
 
-[FIDO2 security keys](../develop/support-fido2-authentication.md#mobile) on mobile devices and [registration for certificate-based authentication (CBA)](concept-certificate-based-authentication.md) aren't supported due to an issue that might surface when system-preferred MFA is enabled. Until a fix is available, we recommend not using FIDO2 security keys on mobile devices or registering for CBA. To disable system-preferred MFA for these users, you can either add them to an excluded group or remove them from an included group.
+A fix for [FIDO2 security keys](../develop/support-fido2-authentication.md#mobile) is being rolled out with the change of the Microsoft managed setting to **Enabled**. As part of the rollout, we adjusted the preferred methods list, which moved certificate-based authentication (CBA) lower on the list of preferred methods. This change is necessary due to a known issue where users within the scope of CBA can't use any other available authentication method. We are actively working to address this issue, and once the fix is rolled out, CBA will return to its appropriate position on the list of preferred methods. However, tenants that use a Conditional Access policy that mandates CBA will have the ability to bypass this downgrade and be unaffected by the change.
 
-## Common questions
+## FAQ
 
 ### How does system-preferred MFA determine the most secure method?
 
 When a user signs in, the authentication process checks which authentication methods are registered for the user. The user is prompted to sign-in with the most secure method according to the following order. The order of authentication methods is dynamic. It's updated as the security landscape changes, and as better authentication methods emerge. Click the link for information about each method.
 
 1. [Temporary Access Pass](howto-authentication-temporary-access-pass.md)
-1. [Certificate-based authentication](concept-certificate-based-authentication.md)
 1. [FIDO2 security key](concept-authentication-passwordless.md#fido2-security-keys)
-1. [Microsoft Authenticator push notifications](concept-authentication-authenticator-app.md)
+1. [Microsoft Authenticator notifications](concept-authentication-authenticator-app.md)
 1. [Time-based one-time password (TOTP)](concept-authentication-oath-tokens.md)<sup>1</sup>
 1. [Telephony](concept-authentication-phone-options.md)<sup>2</sup>
+1. [Certificate-based authentication](concept-certificate-based-authentication.md)
 
 <sup>1</sup> Includes hardware or software TOTP from Microsoft Authenticator, Authenticator Lite, or third-party applications.
 
 <sup>2</sup> Includes SMS and voice calls.
 
-### How does system-preferred MFA affect AD FS or NPS extension?
+### How does system-preferred MFA affect the NPS extension?
 
-System-preferred MFA doesn't affect users who sign in by using Active Directory Federation Services (AD FS) or Network Policy Server (NPS) extension. Those users don't see any change to their sign-in experience.
+System-preferred MFA doesn't affect users who sign in by using the Network Policy Server (NPS) extension. Those users don't see any change to their sign-in experience.
 
 ### What happens for users who aren't specified in the Authentication methods policy but enabled in the legacy MFA tenant-wide policy?
 
@@ -132,5 +134,5 @@ The system-preferred MFA also applies for users who are enabled for MFA in the l
 
 ## Next steps
 
-* [Authentication methods in Azure Active Directory](concept-authentication-authenticator-app.md)
+* [Authentication methods in Microsoft Entra ID](concept-authentication-authenticator-app.md)
 * [How to run a registration campaign to set up Microsoft Authenticator](how-to-mfa-registration-campaign.md)

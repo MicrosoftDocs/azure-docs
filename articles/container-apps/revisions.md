@@ -7,33 +7,76 @@ ms.service: container-apps
 ms.topic: conceptual
 ms.date: 05/11/2022
 ms.author: cshoe
-ms.custom: ignite-fall-2021, event-tier1-build-2022
+ms.custom: ignite-fall-2021, event-tier1-build-2022, build-2023
 ---
 
 # Revisions in Azure Container Apps
 
-Azure Container Apps implements container app versioning by creating revisions. A revision is an immutable snapshot of a container app version. 
+Azure Container Apps implements container app versioning by creating revisions. A revision is an immutable snapshot of a container app version.
 
-- The first revision is automatically created when you deploy your container app.
-- New revisions are automatically created when you make a [*revision-scope*](#revision-scope-changes) change to your container app.
+- The first revision is automatically provisioned when you deploy your container app.
+- New revisions are automatically provisioned when you make a [*revision-scope*](#revision-scope-changes) change to your container app.
 - While revisions are immutable, they're affected by [*application-scope*](#application-scope-changes) changes, which apply to all revisions.
+- You can create new revisions by updating a previous revision.
 - You can retain up to 100 revisions, giving you a historical record of your container app updates.
 - You can run multiple revisions concurrently.
 - You can split external HTTP traffic between active revisions.
 
 :::image type="content" source="media/revisions/azure-container-apps-revisions.png" alt-text="Azure Container Apps: Containers":::
 
+> [!NOTE]
+> [Azure Container Apps jobs](jobs.md) don't have revisions. Each job execution uses the latest configuration of the job.
 
 ## Use cases
 
-Container Apps revisions help you manage the release of updates to your container app by creating a new revision each time you make a *revision-scope* change to your app.  You can control which revisions are active, and the external traffic that is routed to each active revision. 
+Container Apps revisions help you manage the release of updates to your container app by creating a new revision each time you make a *revision-scope* change to your app.  You can control which revisions are active, and the external traffic that is routed to each active revision.
 
 You can use revisions to:
 
 - Release a new version of your app.
 - Quickly revert to an earlier version of your app.
 - Split traffic between revisions for [A/B testing](https://wikipedia.org/wiki/A/B_testing).
-- Gradually phase in a new revision in blue-green deployments.  For more information about blue-green deployment, see [BlueGreenDeployment](https://martinfowler.com/bliki/BlueGreenDeployment.html).
+- Gradually phase in a new revision in blue-green deployments.  For more information about blue-green deployment, see [blue-green deployment](blue-green-deployment.md).
+
+## Revision lifecycle
+
+Revisions go through a series of states, based on status and availability.
+
+### Provisioning status
+
+When a new revision is first created, it has to pass startup and readiness checks.  _Provisioning status_ is set to _provisioning_ during verification.  Use _provisioning status_ to follow progress.
+
+Once the revision is verified, _running status_ is set to _running_.  The revision is available and ready for work.  
+
+_Provisioning status_ values include:
+
+- Provisioning
+- Provisioned
+- Provisioning failed
+
+### Running status
+
+Revisions are fully functional after provisioning is complete. Use _running status_ to monitor the status of a revision.
+
+Running status values include:
+
+| Status | Description |
+|---|---|
+| Running | The revision is running. There are no issues to report. |
+| Unhealthy | The revision isn't operating properly. Use the revision state details for details. Common issues include:<br>• Container crashes<br>• Resource quota exceeded<br>• Image access issues, including [_ImagePullBackOff_ errors](/troubleshoot/azure/azure-kubernetes/cannot-pull-image-from-acr-to-aks-cluster) |
+| Failed | Critical errors caused revisions to fail. The _running state_ provides details. Common causes include:<br>• Termination<br>• Exit code `137` |
+
+Use running state details to learn more about the current status.
+
+### Inactive status
+
+A revision can be set to active or inactive.  
+
+Inactive revisions don't have provisioning or running states.
+
+Inactive revisions remain in a list of up to 100 inactive revisions.
+
+## Multiple revisions
 
 The following diagram shows a container app with two revisions.
 
@@ -52,15 +95,23 @@ Revision names are used to identify a revision, and in the revision's URL.  You 
 
 The format of a revision name is:
 
-```text
-<CONTAINER_APP_NAME>--<REVISION_SUFFIX>
+``` text
+<CONTAINER_APP_NAME>-<REVISION_SUFFIX>
 ```
 
 By default, Container Apps creates a unique revision name with a suffix consisting of a semi-random string of alphanumeric characters.  You can customize the name by setting a unique custom revision suffix.
 
-For example, for a container app named *album-api*, setting the revision suffix name to *1st-revision* would create a revision with the name *album-api--1st-revision*.
+For example, for a container app named *album-api*, setting the revision suffix name to *first-revision* would create a revision with the name *album-api-first-revision*.
 
-You can set the revision suffix in the [ARM template](azure-resource-manager-api-spec.md#propertiestemplate), through the Azure CLI `az containerapp create` and `az containerapp update` commands, or when creating a revision via the Azure portal.
+A revision suffix name must:
+
+- consist of lower case alphanumeric characters or dashes ('-')
+- start with an alphabetic character
+- end with an alphanumeric character
+- not have two consecutive dashes (--)
+- not be more than 64 characters
+
+You can set the revision suffix in the [ARM template](azure-resource-manager-api-spec.md#propertiestemplate), through the Azure CLI `az containerapp create` and `az containerapp update` commands, or when creating a revision via the Azure portal. 
 
 ## Change types
 
@@ -97,7 +148,6 @@ These parameters include:
   - Labels
 - Credentials for private container registries
 - Dapr settings
-
 
 ## Revision modes
 
