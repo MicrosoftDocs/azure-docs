@@ -24,7 +24,7 @@ Azure HDInsight on AKS is a new version of HDInsight, which runs on Kubernetes a
 > [!NOTE]
 > To understand about HDInsight on AKS versioning and support, refer to the **[versioning page](../versions.md)**.
 
-You can refer to [What's new](./whats-new.md) page for all the details of the features currently in public preview for this release.
+You can refer to [What's new](../whats-new.md) page for all the details of the features currently in public preview for this release.
 
 ## Release Information
 
@@ -48,7 +48,7 @@ You can refer to [What's new](./whats-new.md) page for all the details of the fe
 
 The preview is available in the following [regions](../overview.md#region-availability-public-preview).
 
-If you have any more questions, contact [Azure Support](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview) or refer to the [Support options](./hdinsight-aks-support-help.md) page.
+If you have any more questions, contact [Azure Support](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview) or refer to the [Support options](../hdinsight-aks-support-help.md) page.
 
 ### Next steps
 
