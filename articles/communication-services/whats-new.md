@@ -72,7 +72,7 @@ The enhanced Dual Tone Multi-Frequency (DTMF) features, Continuous DTMF Recognit
 - Continuous DTMF Recognition: With Continuous DTMF Recognition, developers will be notified in real-time when a call participant presses keys on a dialpad/numpad.
 - Send DTMF: The Send DTMF action can be used in scenarios where a contact center agent needs to invite an external consultant/specialist into the call to assist the customer.
 
-[Read more in the customer documentation](./how-tos/call-automation/control-mid-call-media-actions?tabs=csharp)
+[Read more in the customer documentation](./how-tos/call-automation/control-mid-call-media-actions.md)
 <br>
 <br>
 
