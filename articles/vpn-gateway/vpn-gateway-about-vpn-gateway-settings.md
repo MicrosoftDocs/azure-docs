@@ -4,7 +4,7 @@ description: Learn about VPN Gateway resources and configuration settings.
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/26/2023
+ms.date: 10/05/2023
 ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
@@ -53,7 +53,7 @@ New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 **Azure portal**
 
-If you use the Azure portal to create a Resource Manager virtual network gateway, you can select the gateway SKU by using the dropdown. The options you're presented with correspond to the Gateway type and VPN type that you select. For steps, see [Create and manage a VPN gateway](tutorial-create-gateway-portal.md).
+If you use the Azure portal to create a Resource Manager virtual network gateway, you can select the gateway SKU by using the dropdown. The options you're presented with correspond to the Gateway type that you select. For steps, see [Create and manage a VPN gateway](tutorial-create-gateway-portal.md).
 
 **PowerShell**
 
@@ -116,26 +116,6 @@ New-AzVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg
 ## <a name="connectionmode"></a>Connection modes
 
 [!INCLUDE [Connection modes](../../includes/vpn-gateway-connection-mode-include.md)]
-
-## <a name="vpntype"></a>VPN types
-
-When you create the virtual network gateway for a VPN gateway configuration, you must specify a *VPN type*. The VPN type that you choose depends on the connection topology that you want to create. For example, a P2S connection requires a RouteBased VPN type. A VPN type can also depend on the hardware that you're using. S2S configurations require a VPN device. Some VPN devices only support a certain VPN type.
-
-The VPN type you select must satisfy all the connection requirements for the solution you want to create. For example, if you want to create a S2S VPN gateway connection and a P2S VPN gateway connection for the same virtual network, use the VPN type *RouteBased* because P2S requires a RouteBased VPN type. You also need to verify that your VPN device supported a RouteBased VPN connection.
-
-Once a virtual network gateway has been created, you can't change the VPN type. If you want a different VPN type, first delete the virtual network gateway, and then create a new gateway.
-
-There are two VPN types:
-
-[!INCLUDE [vpn-gateway-vpntype](../../includes/vpn-gateway-vpntype-include.md)]
-
-The following PowerShell example specifies the `-VpnType` as *RouteBased*. When you're creating a gateway, you must make sure that the -VpnType is correct for your configuration.
-
-```azurepowershell-interactive
-New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
--Location 'West US' -IpConfigurations $gwipconfig `
--GatewayType Vpn -VpnType RouteBased
-```
 
 ## <a name="gwsub"></a>Gateway subnet
 

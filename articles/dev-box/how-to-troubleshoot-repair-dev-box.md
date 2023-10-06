@@ -59,7 +59,7 @@ To run *Troubleshoot & repair* on your dev box, follow these steps:
 
    While waiting for the process to complete, you can leave your dev portal as is, or close it and come back. The process continues in the background.
 
-1. After the RDP connectivity issue is resolved, you can connect to dev box again through [a browser](/azure/dev-box/quickstart-create-dev-box#connect-to-a-dev-box), or [a Remote Desktop client](/azure/dev-box/tutorial-connect-to-dev-box-with-remote-desktop-app?tabs=windows).
+1. After the RDP connectivity issue is resolved, you can connect to dev box again through [a browser](quickstart-create-dev-box.md#connect-to-a-dev-box), or [a Remote Desktop client](/azure/dev-box/tutorial-connect-to-dev-box-with-remote-desktop-app?tabs=windows).
 
 ## Troubleshoot & repair results
 
