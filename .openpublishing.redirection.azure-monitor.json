@@ -6338,6 +6338,21 @@
             "source_path_from_root": "/articles/azure-monitor/app/remove-application-insights.md",
             "redirect_url": "/azure/azure-monitor/app/asp-net-core#how-can-i-uninstall-the-sdk",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/continuous-monitoring.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/release-and-work-item-insights?tabs=continuous-monitoring",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/annotations.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/release-and-work-item-insights?tabs=release-annotations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/work-item-integration.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/release-and-work-item-insights?tabs=work-item-integration",
+            "redirect_document_id": false
         }
     ]
 }
