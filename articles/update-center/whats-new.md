@@ -14,13 +14,15 @@ ms.date: 09/18/2023
 
 ## October 2023
 
-### VM support for Azure Migrate, Backup, and Site recovery
+### Azure Migrate, Azure Backup, Azure Site Recovery VMs support (preview)
 
-Azure Update Manager now supports [specialized](../virtual-machines/linux/imaging.md#specialized-images) VMs including the VMs created by Azure Migrate, Backup and Site recovery.
+Azure Update Manager now supports scheduled patching and periodic assessment for [specialized](../virtual-machines/linux/imaging.md#specialized-images) VMs including the VMs created by Azure Migrate, Azure Backup, and Azure Site Recovery in preview.
 
 ## September 2023
 
-**Azure Update Manager is now generally available**.  
+**Azure Update Manager is now Generally Available**.  
+
+For more information, see [the announcement](https://techcommunity.microsoft.com/t5/azure-governance-and-management/generally-available-azure-update-manager/ba-p/3928878).
 
 ## August 2023
 
