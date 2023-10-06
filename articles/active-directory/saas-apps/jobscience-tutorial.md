@@ -190,7 +190,7 @@ The objective of this section is to create a test user called Britta Simon.
 
 **To create a test user in Microsoft Entra ID, perform the following steps:**
 
-1. In the Azure portal, navigate to **Identity** > **Users and groups** > **All users**.
+1. In the Microsoft Entra admin center, navigate to **Identity** > **Users** > **All users**.
     
     ![Screenshot shows Users and groups selected from the Manage menu, with All users selected.](./media/jobscience-tutorial/create_aaduser_02.png) 
 
