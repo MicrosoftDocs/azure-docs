@@ -21,7 +21,7 @@ landingContent:
         links:
           - text: What is HDInsight on AKS?
             url: overview.md
-          - text: Versioning & support
+          - text: Version management
             url: versions.md   
           - text: Security
             url: concept-security.md

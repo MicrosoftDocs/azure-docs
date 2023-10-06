@@ -40,8 +40,6 @@ items:
   items:
   - name: Release notes
     href: ./release-notes/hdinsight-aks-release-notes.md
-  - name: Archived release notes
-    href: ./release-notes/hdinsight-aks-release-notes-archive.md
 - name: Get started
   items:
   - name: Create a cluster pool and cluster
