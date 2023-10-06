@@ -19,7 +19,7 @@ Once your Astro resource is created in the Azure portal, you might need to get i
 
 ## Single Sign-On
 
-To implement SSO for your organization, your tenant administrator can import the gallery application. This step is optional. For information importing an application, see [Quickstart: Add an application to your Azure Active Directory (Azure AD) tenant](azure/active-directory/manage-apps/add-application-portal). When the tenant administrator imports the application, users don't need to explicitly consent to allow access for the Astro portal.
+To implement SSO for your organization, your tenant administrator can import the gallery application. This step is optional. For information importing an application, see [Quickstart: Add an application to your Azure Entra tenant](azure/active-directory/manage-apps/add-application-portal). When the tenant administrator imports the application, users don't need to explicitly consent to allow access for the Astro portal.
 
 To enable SSO, follow these steps:
 
@@ -33,7 +33,7 @@ To enable SSO, follow these steps:
 
    :::image type="content" source="media/astronomer-manage/astronomer-sso-consent.png" alt-text="Screenshot showing the User consent permissions on clicking SSO url for the first time.":::
 
-1. Choose an Azure AD account for the Single Sign-on. Once consent is provided, you are redirected to the Astro portal.
+1. Choose an Azure Entra account for the Single Sign-on. Once consent is provided, you are redirected to the Astro portal.
 
 ## Delete an Astro deployment
 
