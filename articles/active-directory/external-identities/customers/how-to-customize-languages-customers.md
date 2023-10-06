@@ -89,11 +89,11 @@ Language customization in the customer tenant allows your user flow to accommoda
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](/azure/active-directory/roles/permissions-reference#global-administrator).  
 2. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the customer tenant you created earlier.
 3. Browse to **Identity** > **External Identities** > **User flows**.
-5. Select the user flow that you want to enable for translations.
-6. Select **Languages**.
-7. On the **Languages** page for the user flow, select the language that you want to customize.
-8. Expand **Sign up and sign in (Preview)**.
-9. Select **Download defaults** (or **Download overrides** if you have previously edited this language).
+4. Select the user flow that you want to enable for translations.
+5. Select **Languages**.
+6. On the **Languages** page for the user flow, select the language that you want to customize.
+7. Expand **Sign up and sign in (Preview)**.
+8. Select **Download defaults** (or **Download overrides** if you have previously edited this language).
 
    :::image type="content" source="media/how-to-customize-languages-customers/language-customization-flow.png" alt-text="Screenshot the shows how to add languages under a user flow." lightbox="media/how-to-customize-languages-customers/language-customization-flow.png":::
 
@@ -154,12 +154,12 @@ You can modify any or all of these attributes in the downloaded file. For exampl
 }  
 ```
 
-10. After making the necessary changes, you can upload the new overrides file. The changes are saved to your user flow automatically. The override appears under the **Configured** tab.
-11. To double-check your changes, select the language under the **Configured** tab and expand the **Sign up and sign in (Preview)** option. You can view your customized language file by selecting Download overrides. To remove your customized override file, select **Remove overrides**.
+9. After making the necessary changes, you can upload the new overrides file. The changes are saved to your user flow automatically. The override appears under the **Configured** tab.
+10. To double-check your changes, select the language under the **Configured** tab and expand the **Sign up and sign in (Preview)** option. You can view your customized language file by selecting Download overrides. To remove your customized override file, select **Remove overrides**.
 
    :::image type="content" source="media/how-to-customize-languages-customers/remove-download-override-file.png" alt-text="Screenshot the shows how to remove or download the modified JSON file." lightbox="media/how-to-customize-languages-customers/remove-download-override-file.png":::
    
-12. Go to the sign-in page of your customer tenant. Make sure you have the right locale and market in your URLs, for example: ui_locales=de-DE and  mkt=de-DE. The updated attributes on the sign-up page appear as follows:
+11. Go to the sign-in page of your customer tenant. Make sure you have the right locale and market in your URLs, for example: ui_locales=de-DE and  mkt=de-DE. The updated attributes on the sign-up page appear as follows:
 
    :::image type="content" source="media/how-to-customize-languages-customers/customized-attributes.png" alt-text="Screenshot of the modified sign-up page attributes.":::
 
