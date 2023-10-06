@@ -1,5 +1,5 @@
 ---
-title: Use multiple network interface cards in a Service Fabric Managed Cluster
+title: Use multiple network interface cards in a Service Fabric managed cluster
 description: Learn how to create node types with multiple virtual NICs in Service Fabric managed clusters.
 ms.topic: how-to
 ms.author: tomcassidy
@@ -94,10 +94,10 @@ The following section describes the steps that should be taken to use multiple N
    ```
 
    > [!NOTE]
-   > If a subnet identification is not specified in the `ipConfigurations.subnet.id` property, the NIC will use the default subet of the node type.
+   > If a subnet identification is not specified in the `ipConfigurations.subnet.id` property, the NIC will use the default subnet of the node type.
 
    > [!NOTE]
-   > The following node type properties only aply to primary NIC of the node type:
+   > The following node type properties only apply to primary NIC of the node type:
    >   * `enableNodePublicIP`
    >   * `enableNodePublicIPv6`
    >   * `enableAcceleratedNetworking`
@@ -105,9 +105,9 @@ The following section describes the steps that should be taken to use multiple N
 1. Deploy your node type resource.
 
 1. Verify the NICs are active with one of the following methods:
-   1. You can use the Azure CLI `az vmss nic` suite of commands to get the details of the active NICs.
-   1. Log onto one of the virtual machines backing the node type, open the console, and use the `ipconfig /all` command to verify the NICs are active.
-   1. Log onto one of the virtual machines backing the node type, open the search bar, and enter `View Network Connections` to summon an interface where you can view the active NICs.
+   * You can use the Azure CLI `az vmss nic` suite of commands to get the details of the active NICs.
+   * Log onto one of the virtual machines backing the node type, open the console, and use the `ipconfig /all` command to verify the NICs are active.
+   * Log onto one of the virtual machines backing the node type, open the search bar, and enter `View Network Connections` to summon an interface where you can view the active NICs.
 
 ## Next steps
 
