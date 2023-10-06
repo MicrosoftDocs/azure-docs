@@ -70,7 +70,7 @@ You can specify custom tags for the new Astro resource in Azure by adding custom
 
 1. Once the create process is completed, select **Go to Resource** to navigate to the specific Astro resource.
 
-    :::image type="content" source="media/astronomer-create/astronomer-overview-pane.png" alt-text="Screenshot of a completed Astro deployment.":::
+    :::image type="content" source="media/astronomer-create/astronomer-deployment-complete.png" alt-text="Screenshot of a completed Astro deployment.":::
 
 1. Select **Overview** in the Resource menu to see information on the deployed resources.
 
