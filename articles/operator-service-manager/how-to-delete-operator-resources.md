@@ -22,23 +22,23 @@ In this how-to guide, you learn how to delete operator resources that include Si
 1. Search for the Site Network Service (SNS) within Azure portal. 
 1. Select the Site Network Service (SNS) within the Azure portal you wish to delete.
 
-    :::image type="content" source="media/how-to-delete-operator-resource.png" alt-text="Site Network Services page where you search for name of SNS.":::
+    :::image type="content" source="media/how-to-delete-operator-resource.png" alt-text="Diagram showing the Site Network Services home page in Azure portal." lightbox="media/how-to-delete-operator-resource.png":::
 
 1. Under the Overview section, take note of the *Site* and the *resource group* within the **Properties**.
 
-    :::image type="content" source="media/how-to-delete-operator-resource-site-resourcegroup.png" alt-text="Overview section showing Site and resource group information with the Properties.":::
+    :::image type="content" source="media/how-to-delete-operator-resource-site-resource-group.png" alt-text="Diagram showing the Overview page where Site and resource group information is located." lightbox="media/how-to-delete-operator-resource-delete.png":::
 
 1. Under the **Overview** section, take note of the *Configuration Group Value* and the *resource group* within **Desired configuration**.
 
-    :::image type="content" source="media/how-to-delete-operator-resource-config-group-value.png" alt-text="Overview section showing Configuration Group Value and resource group within Desired configuration.":::
+    :::image type="content" source="media/how-to-delete-operator-resource-config-group-value.png" alt-text="Diagram showing the Overview page showing where Configuration Group Value and resource group information is located." lightbox="media/how-to-delete-operator-resource-delete-site.png":::
 
 1. Once you have listed the resources, select **Delete** against the Site Network Service (SNS).
 
-    :::image type="content" source="media/how-to-delete-operator-resource-delete.png" alt-text="Overview section showing listed resource to Delete.":::
+    :::image type="content" source="media/how-to-delete-operator-resource-delete.png" alt-text="Diagram showing the Overview page with listed resource to delete." lightbox="media/how-to-delete-operator-resource-config-group-value.png":::
 
 1. Follow the prompts to confirm and complete the deletion.
 
-    :::image type="content" source="media/how-to-delete-operator-resource-confirm-prompt.png" alt-text="Confirmation prompt with danger warning message.":::
+    :::image type="content" source="media/how-to-delete-operator-resource-confirm-prompt.png" alt-text="Diagram showing the Confirmation prompt with a warning message.":::
 
 > [!NOTE]
 > Deleting a Site Network Service (SNS) may take between 5 minutes to over an hour.
@@ -50,7 +50,7 @@ In this how-to guide, you learn how to delete operator resources that include Si
 1. Select the specific **Configuration Group Value(s)** you wish to delete. 
 1. Select **Delete**.
 
-    :::image type="content" source="media/how-to-delete-operator-resources-delete-config-group-values.png" alt-text="OperatorResourceGroup window with the name of the Configuration Group Value selected for deletion.":::
+    :::image type="content" source="media/how-to-delete-operator-resources-delete-config-group-values.png" alt-text="Diagram showing the OperatorResourceGroup window with the name of the Configuration Group Value selected for deletion." lightbox="media/how-to-delete-operator-resource-config-group-value.png":::
 
 1. Follow the prompts to confirm and complete the deletion.
 
@@ -60,6 +60,6 @@ In this how-to guide, you learn how to delete operator resources that include Si
 1. Select the specific **Site** you wish to delete.
 1. Select **Delete**.
 
-    :::image type="content" source="media/how-to-delete-operator-resource-delete-site.png" alt-text="OperationResourceWindow with Resource Site selected for deletion.":::
+    :::image type="content" source="media/how-to-delete-operator-resource-delete-site.png" alt-text="Diagram showing the OperationResourceGroup window with Resource Site selected for deletion." lightbox="media/how-to-delete-operator-resource-delete-site.png":::
 
 1. Follow the prompts to confirm and complete the deletion.
