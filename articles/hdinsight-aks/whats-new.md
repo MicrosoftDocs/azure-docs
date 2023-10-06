@@ -63,48 +63,48 @@ The following table list shows the features of HDInsight on AKS that are current
 |	Area	|	Features	|	Remarks	|
 |	---	|	---	|	---	|
 |	Fundamentals	|	Create Pool and clusters using portal	|		|
-|	Fundamentals	|	Web ssh support 	|		|
-|	Fundamentals	|	Ability to Choose number of worker nodes during cluster creation	|		|
+|	  |	Web ssh support 	|		|
+|		|	Ability to Choose number of worker nodes during cluster creation	|		|
 |	Storage	|	ADLS Gen2 support for storage	|		|
 |	Metastore	|	External Metastore support	|		|
-|	Metastore	|	Integrate with HDI VM version Services	|		|
+|		|	Integrate with HDI VM version Services	|		|
 |	Security	|	Support for ARM RBAC	|		|
-|	Security	|	Support for MSI based authentication	|		|
-|	Security	|	Option to provide cluster access to other users	|		|
+|		|	Support for MSI based authentication	|		|
+|		|	Option to provide cluster access to other users	|		|
 |	Logging and Monitoring	|	Log aggregation in Azure log analytics for server logs	|		|
-|	Logging and Monitoring	|	Cluster and Service metrics via Managed Prometheus and Grafana	|		|
-|	Logging and Monitoring	|	Support server metrics in Azure monitor	|		|
-|	Logging and Monitoring	|	Service Status page for monitoring the service Health	|		|
+|		|	Cluster and Service metrics via Managed Prometheus and Grafana	|		|
+|		|	Support server metrics in Azure monitor	|		|
+|		|	Service Status page for monitoring the service Health	|		|
 |	Auto-Scaling	|	Load based Auto Scaling Support	|		|
-|	Auto-Scaling	|	Schedule based Auto Scaling Support	|		|
+|		|	Schedule based Auto Scaling Support	|		|
 |	Customize and configure	|	Support script actions during cluster create	|		|
-|	Customize and configure	|	Support library management	|		|
-|	Customize and configure	|	Service config settings after cluster creation	|		|
+|		|	Support library management	|		|
+|		|	Service config settings after cluster creation	|		|
 |	Trino	|	Support for Trino catalogs	|		|
-|	Trino	|	Submit queries to the cluster using Trino Cli/Dbeaver	|		|
-|	Trino	|	Trino CLI Support	|		|
-|	Trino	|	Add or remove plugins/connectors	|		|
-|	Trino	|	Support for logging query events	|		|
-|	Trino	|	Support for scan query statistics for any connector in Trino dashboard	|		|
-|	Trino	|	Support Trino dashboard for query monitoring	|		|
-|	Trino	|	Query Caching	|		|
-|	Trino	|	Integrate with `PowerBI`	|		|
-|	Trino	|	Integrate with Apache Superset/Redash	|		|
-|	Trino	|	Support for multiple connectors	|		|
+|		|	Submit queries to the cluster using Trino Cli/Dbeaver	|		|
+|		|	Trino CLI Support	|		|
+|		|	Add or remove plugins/connectors	|		|
+|		|	Support for logging query events	|		|
+|		|	Support for scan query statistics for any connector in Trino dashboard	|		|
+|		|	Support Trino dashboard for query monitoring	|		|
+|		|	Query Caching	|		|
+|		|	Integrate with `PowerBI`	|		|
+|		|	Integrate with Apache Superset/Redash	|		|
+|		|	Support for multiple connectors	|		|
 |	Flink	|	Support for Flink native web UI	|		|
-|	Flink	|	Flink SQL support with HMS	|		|
-|	Flink	|	Submit jobs to the cluster using REST API	|		|
-|	Flink	|	Run programs packaged as JAR files via the Flink CLI.  	|		|
-|	Flink	|	Support for persistent Savepoints	|		|
-|	Flink	|	Support for update the config options when the job is running. 	|		|
-|	Flink	|	Connecting to Azure services	|		|
-|	Flink	|	Submit jobs to the cluster using Flink CLI - Python and Scala shells	|		|
+|		|	Flink SQL support with HMS	|		|
+|		|	Submit jobs to the cluster using REST API	|		|
+|		|	Run programs packaged as JAR files via the Flink CLI.  	|		|
+|		|	Support for persistent Savepoints	|		|
+|		|	Support for update the config options when the job is running. 	|		|
+|		|	Connecting to Azure services	|		|
+|		|	Submit jobs to the cluster using Flink CLI - Python and Scala shells	|		|
 |	Spark	|	Jupyter Notebook	|		|
-|	Spark	|	Support for Delta lake 2.0	|		|
-|	Spark	|	Zeppelin Support	|		|
-|	Spark	|	Support ATS	|		|
-|	Spark	|	Support for Yarn History server interface	|		|
-|	Spark	|	Job submission using SSH	|		|
-|	Spark	|	Job submission using SDK	|		|
+|		|	Support for Delta lake 2.0	|		|
+|		|	Zeppelin Support	|		|
+|		|	Support ATS	|		|
+|		|	Support for Yarn History server interface	|		|
+|		|	Job submission using SSH	|		|
+|		|	Job submission using SDK	|		|
 
 
