@@ -27,7 +27,11 @@ The Kafka connector allows for reading data from and writing data into Kafka top
 
 **Prepare messages with weblog.py**
 
-``` py
+``` Python
+import random
+import json
+import time
+from datetime import datetime
 
 user_set = [
         'John',
@@ -150,7 +154,7 @@ CREATE TABLE KafkaTable (
 'properties.group.id' = 'my_group',
 'scan.startup.mode' = 'earliest-offset',
 'format' = 'json'
-)
+);
 
 select * from KafkaTable;
 ``` 
