@@ -16,9 +16,9 @@ ms.reviewer: jushiman
 
 There are times where you may want to attach a virtual machine to a Virtual Machine Scale Set to benefit from the scale, availability, and flexibility that comes with scale sets. There are two ways to attach VMs to scale sets: manually create a new VM into the scale set, or attach an existing VM to the scale set.
 
-You can attach a standalone virtual machine to a Virtual Machine Scale Set. Attaching a standalone virtual machine is available when you need a different configuration on a specific virtual machine than what is defined in the scaling profile, or when the scale set does not have a virtual machine scaling profile. Manually attaching virtual machines gives you full control over instance naming and placement into a specific availability zone or fault domain. The virtual machine doesn't have to match the configuration in the virtual machine scaling profile, so you can specify parameters like operating system, networking configuration, on-demand or Spot, and VM size.
+You can attach a standalone virtual machine to a Virtual Machine Scale Set. Attaching a standalone virtual machine is available when you need a different configuration on a specific virtual machine than what is defined in the scaling profile, or when the scale set doesn't have a virtual machine scaling profile. Manually attaching virtual machines gives you full control over instance naming and placement into a specific availability zone or fault domain. The virtual machine doesn't have to match the configuration in the virtual machine scaling profile, so you can specify parameters like operating system, networking configuration, on-demand or Spot, and VM size.
 
-You can attach an existing VM to an existing Virtual Machine Scale set by simply specifying which scale set you would like to attach to. The VM does not have to be the same as the VMs already running in the scale set, meaning it can have a different operating system, network configuration, priority, disk, and more. 
+You can attach an existing VM to an existing Virtual Machine Scale set by specifying which scale set you would like to attach to. The VM doesn't have to be the same as the VMs already running in the scale set, meaning it can have a different operating system, network configuration, priority, disk, and more. 
 
 In the next sections, we'll go over the different ways to attach a VM to a scale set.
 
@@ -27,7 +27,7 @@ In the next sections, we'll go over the different ways to attach a VM to a scale
 Attach a virtual machine to a Virtual Machine Scale Set at the time of VM creation by specifying the `virtualMachineScaleSet` property. 
 
 > [!NOTE]
-> Attaching a virtual machine to Virtual Machine Scale Set does not by itself update any VM networking parameters such as load balancers. If you would like this virtual machine to receive traffic from any load balancer, you must manually configure the VM network interface to receive traffic from the load balancer.  Learn more about [Load balancers](../virtual-network/network-overview.md#load-balancers).
+> Attaching a virtual machine to Virtual Machine Scale Set doesn't by itself update any VM networking parameters such as load balancers. If you would like this virtual machine to receive traffic from any load balancer, you must manually configure the VM network interface to receive traffic from the load balancer.  Learn more about [Load balancers](../virtual-network/network-overview.md#load-balancers).
 
 ### [Azure portal](#tab/portal)
 
@@ -80,7 +80,7 @@ New-AzVm `
 > Attach an existing virtual machine to a Virtual Machine Scale Set after the time of VM creation by specifying the `virtualMachineScaleSet` property. Attaching an existing VM to a scale set with a fault domain count of 1 will incur no downtime. 
 
 > [!NOTE]
-> Attaching a virtual machine to Virtual Machine Scale Set does not by itself update any VM networking parameters such as load balancers. If you would like this virtual machine to receive traffic from any load balancer, you must manually configure the VM network interface to receive traffic from the load balancer.  Learn more about [Load balancers](../virtual-network/network-overview.md#load-balancers).
+> Attaching a virtual machine to Virtual Machine Scale Set doesn't by itself update any VM networking parameters such as load balancers. If you would like this virtual machine to receive traffic from any load balancer, you must manually configure the VM network interface to receive traffic from the load balancer.  Learn more about [Load balancers](../virtual-network/network-overview.md#load-balancers).
 >
 
 ### [Azure portal](#tab/portal)
@@ -88,8 +88,8 @@ New-AzVm `
 1. Go to **Virtual Machines**.
 2. Select the Name of the virtual machine you'd like to attach to your scale set.
 3. Under **Settings** select **Availability + scaling**.
-4. In the **Scaling** section, select the **Get started** button. If the button is grayed out, your VM currently does not meet the requirements to be attached to a scale set.
-5. The **Attach to a VMSS** blade will appear on the right side of the page. Select the VMSS you'd like to attach the VM to in the **Select a VMSS dropdown**. 
+4. In the **Scaling** section, select the **Get started** button. If the button is grayed out, your VM currently doesn't meet the requirements to be attached to a scale set.
+5. The **Attach to a VMSS** blade will appear on the right side of the page. Select the scale set you'd like to attach the VM to in the **Select a VMSS dropdown**. 
 6. Select the **Attach** button at the bottom to attach the VM.
 
 ### [Azure CLI](#tab/cli)
@@ -124,12 +124,12 @@ Update-AzVM -ResourceGroupName $resourceGroupName -VM $vm `
 - The scale set must use Flexible orchestration mode.
 - The scale set must have a `platformFaultDomainCount` of *1*.
 - The VM and scale set must be in the same resource group. 
-- The VM and target scale set must both be zonal, or they must both be regional. You cannot attach a zonal VM to a regional scale set. 
-- The VM cannot be in a self-defined availability set. 
-- The VM cannot be in a `ProximityPlacementGroup`. 
-- The VM cannot be in an Azure Dedicated Host. 
+- The VM and target scale set must both be zonal, or they must both be regional. You can't attach a zonal VM to a regional scale set. 
+- The VM can't be in a self-defined availability set. 
+- The VM can't be in a `ProximityPlacementGroup`. 
+- The VM can't be in an Azure Dedicated Host. 
 - The VM must have a managed disk. 
-- The VM cannot be attached to a scale set with `SinglePlacementGroup` set to true. 
+- The VM can't be attached to a scale set with `SinglePlacementGroup` set to true. 
 
 ## Detach an existing VM from a Virtual Machine Scale Set
 Should you need to detach a VM from a scale set, you can follow the below steps to remove the VM from the scale set.
@@ -140,12 +140,12 @@ Should you need to detach a VM from a scale set, you can follow the below steps 
 ### [Azure portal](#tab/portal)
 
 1. Go to **Virtual Machines**.
-2. If your VM was created by the scale set, please ensure the VM is `Stopped`. If the VM was created as a standalone VM, you do not need to do this.
+2. If your VM was created by the scale set, ensure the VM is `Stopped`. If the VM was created as a standalone VM, you can continue regardless of if the VM is `Running` or `Stopped`.
 3. Select the Name of the virtual machine you'd like to attach to your scale set.
 4. Under **Settings** select **Availability + scaling**.
 5. Select the **Detach from the VMSS** button at the top of the page.
 6. When prompted to confirm, press the blue **Detach** button.
-7. Portal will send a notification when the VM has successfully detached.
+7. Portal sends a notification when the VM has successfully detached.
 
 ### [Azure CLI](#tab/cli)
 
