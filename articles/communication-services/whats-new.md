@@ -20,7 +20,7 @@ We've created this page to keep you updated on new features, blog posts, and oth
 ## New features
 Get detailed information on the latest Azure Communication Services feature launches.
 ### Number Lookup Public Preview
-:::image type="content" source="./media/whats-new-images/10-23/number-lookup.png" alt-text="A diagram of the number lookup architecture.":::
+:::image type="content" source="./media/whats-new-images/10-23/number-lookup.png" alt-text="A diagram of the number lookup architecture."lightbox="./media/whats-new-images/10-23/number-lookup-large.png":::
 The Number Lookup API offers number type details that help developers to determine whether a particular number can receive SMS messages. 
 
 [Read more in the customer documentation](./concepts/numbers/number-lookup-concept.md)
@@ -33,7 +33,7 @@ The Number Lookup API offers number type details that help developers to determi
 
 
 ### Call Automation Extensibility into Microsoft Teams
-:::image type="content" source="./media/whats-new-images/10-23/teams-extensibility.png" alt-text="A diagram of the Teams extensibility architecture.":::
+:::image type="content" source="./media/whats-new-images/10-23/teams-extensibility.png" alt-text="A diagram of the Teams extensibility architecture."  lightbox="./media/whats-new-images/10-23/teams-extensibility-large.png":::
 
 The public preview of Azure Communication Services call automation extensibility into Microsoft Teams, enabling businesses to optimize customer service operations by bringing Microsoft Teams users into their B2C calling workflows is now available. Azure Communication Services Call Automation provides developers the ability to build programmable customer interactions using real-time event triggers to perform actions based on custom business logic. 
 
@@ -47,7 +47,7 @@ The public preview of Azure Communication Services call automation extensibility
 
  
 ### Advanced Actions with Azure Cognitive Services
-:::image type="content" source="./media/whats-new-images/10-23/cognitive-services.png" alt-text="A diagram of the architecture of an app using Azure communication services and Azure Cognitive Services.":::
+:::image type="content" source="./media/whats-new-images/10-23/cognitive-services.png" alt-text="A diagram of the architecture of an app using Azure communication services and Azure Cognitive Services." lightbox="./media/whats-new-images/10-23/cognitive-services-large.png":::
 
 Azure Communication Services has released two new advanced actions with Azure Cognitive Services:
 
@@ -65,7 +65,7 @@ We’ve also updated the process to connect your Azure Communication Services to
 
 
 ### Call Automation Dual Tone Multi-Frequency (DTMF) Features 
-:::image type="content" source="./media/whats-new-images/10-23/DTMF.png" alt-text="A photograph of a multiple computer screens with code.":::
+:::image type="content" source="./media/whats-new-images/10-23/dual-tone-multi-frequency.png" alt-text="A photograph of a multiple computer screens with code.":::
 
 The enhanced Dual Tone Multi-Frequency (DTMF) features, Continuous DTMF Recognition and Send DTMF are now available in public preview through Azure Communication Services Call Automation SDKs, with added support for NodeJS and Python.
 
@@ -79,7 +79,7 @@ The enhanced Dual Tone Multi-Frequency (DTMF) features, Continuous DTMF Recognit
 ### PSTN direct offers in new regions
 :::image type="content" source="./media/whats-new-images/10-23/geo-expansion.png" alt-text="A photograph of a man pointing to a map of the world showing multiple countries.":::
 
-Customers can acquire telephone numbers from 15 new regions, including Australia, China, Finland, Hong Kong, Israel, South Korea, Malaysia, New Zealand, Philippines, Poland, Saudi Arabia, Singapore, Taiwan, Thailand, and the United Arab Emirates
+Customers can acquire telephone numbers from 15 new regions, including Australia, China, Finland, Hong Kong, Israel, South Korea, Malaysia, New Zealand, Philippines, Poland, Saudi Arabia, Singapore, Taiwan, Thailand, and the United Arab Emirates.
 
 [Read more about our new availability](./concepts/numbers/sub-eligibility-number-capability.md)
 
@@ -107,7 +107,7 @@ See examples and get inspired by what's being done in the community of Azure Com
 
 
 ### Build GPT-automated customer support with Azure Communication Services
-:::image type="content" source="./media/whats-new-images/10-23/mechanics-video.png" alt-text="A screenshot of the demo app." lightbox="./media/whats-new-images/05-23/customer-service-workflow-large.png":::
+:::image type="content" source="./media/whats-new-images/10-23/mechanics-video.png" alt-text="A screenshot of the demo app." lightbox="./media/whats-new-images/10-23/mechanics-video-large.png":::
 
 Watch Bob Serr, Azure Communication Services VP, join Jeremy Chapman and Microsoft Mechanics to share how to build GPT-automated customer support with Azure Communication Services
 
