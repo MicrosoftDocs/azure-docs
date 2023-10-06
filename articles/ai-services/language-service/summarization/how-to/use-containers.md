@@ -60,7 +60,7 @@ for GPU containers.
 
 [!INCLUDE [Tip for using docker list](../../../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
-## Download the summarization models
+## Download the summarization container models
 
 A pre-requisite for running the summarization container is to download the models first. This can be done by running one of the following commands using a CPU container image as an example:
 
